@@ -22,6 +22,7 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
+import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
@@ -34,13 +35,11 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsXml;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Path
@@ -531,17 +530,12 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	@Override
 	public void addXmlAxis(XmlAxisKind axis, String tag) {
 		XmlAxisPart part = new XmlAxisPartImpl();
-		part.getXmlPropertyOption().setValue(XmlPropertyKind.TAG);
+		part.addAxisCondition(XmlPropertyKind.TAG, tag);
 
 		XmlAxisOptionParam axisOption = new XmlAxisOptionParamImpl();
 		part.setXmlAxisOptionParam(axisOption);
 		axisOption.setValue(axis);
 
-		if (tag != null) {
-			TextLiteralParam text = new TextLiteralParamImpl();
-			text.setValue(tag);
-			part.setTextLiteralParam(text);
-		}
 
 		getXmlAxisParts().add(part);
 	}
@@ -554,14 +548,10 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		} else {
 			setXmlAxis(axes);
 			int index = axes.length - 1;
-			if (propertyKind == null)
-				getXmlAxisParts().get(index).getXmlPropertyOption().setValue(XmlPropertyKind.TAG);
-			else
-				getXmlAxisParts().get(index).getXmlPropertyOption().setValue(propertyKind);
-			if (attributeName != null && attributeName != "")
-				getXmlAxisParts().get(index).getXmlPropertyOption().getAttributeName().setValue(attributeName);
-			if (name != null && name != "")
-				getXmlAxisParts().get(index).getTextLiteralParam().setValue(name);
+			XmlAxisPart part = getXmlAxisParts().get(index);
+			XmlAxisPartCondition cond = part.addAxisCondition(propertyKind, name);
+			if(attributeName != null && attributeName != "")
+				cond.getXmlPropertyOption().getAttributeName().setValue(attributeName);;
 		}
 
 	}
@@ -1004,23 +994,29 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 */
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+//		value = value.replace("//", "/descendant::");
 		if (value == "") {
 			getXmlAxisParts().clear();
 			xmlPropertyOptionParam = null;
 			return;
 		}	
 		ArrayList<String> parts = new ArrayList<String>();
-		int index = indexWhereSplit(value);
-		while (index != -1) {
-			parts.add(value.substring(0, index));
-			value = value.substring(index);
-			index = indexWhereSplit(value);
+		String[] split = value.split("(?=/)");
+		
+		String current = "";
+		for (int i = 0; i<split.length;i++) {
+			current += split[i].trim();
+			current = current.trim();
+			if (current.matches(ConstantsXml.REGEX_NAVIGATION)) {
+				parts.add(current);
+				current = "";
+			} 
 		}
 
-		value = value.trim();
+		current = current.trim();
 		
-		if (!value.equals("") && !value.matches(Constants.REGEX_PROPERTY_PART)) {
-			throw new InvalidityException("value invalid property specification: \"" + value + "\" - match :" +  value.matches(Constants.REGEX_PROPERTY_PART));
+		if (!current.equals("") && !current.matches(ConstantsXml.REGEX_PROPERTY_PART)) {
+			throw new InvalidityException("value invalid property specification: '" + current + "' - match :" +  current.matches(ConstantsXml.REGEX_PROPERTY_PART));
 		}
 			
 //		assertTrue((getXmlNavigation() instanceof XmlElementNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));
@@ -1033,267 +1029,15 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			part.setValueFromString(v);
 		}
 		
-		if (value.matches(Constants.REGEX_PROPERTY_PART)) {
+		if (current.matches(ConstantsXml.REGEX_PROPERTY_PART)) {
 			if (getXmlPropertyOptionParam() == null)
 				setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
-			getXmlPropertyOptionParam().setValueFromString(value);
+			getXmlPropertyOptionParam().setValueFromString(current);
 		}
-		else if (!value.equals("")) {
-			throw new InvalidityException("remaining value invalid: " + value);
+		else if (!current.equals("")) {
+			throw new InvalidityException("remaining value invalid: " + current);
 		}
 	}
-	
-	public static int indexWhereSplit(String value) throws InvalidityException {
-		if (value == null || value.length()<1)
-			return -1;
-		int i = 0;
-		int length = value.length();
-		int stage = 0;
-		
-		while (length > i) {
-			char c = value.charAt(i);
-//			System.out.println("stage: " + stage + " char: " + c + " rest: " + value.substring(i));
-			switch(stage) {
-			// </> <axis> <::*> <[> <property> <=> <string> <]>
-			
-			case 0: // </>
-				if (c == ' ') {
-//					value = value.substring(1);
-//					i -= 1;
-					break;
-				}
-				else if (c == '/') {
-					stage = 1;
-					break;
-				} else 
-					throw new InvalidityException("value does not start with /: \"" + value + "\" index: " + i);
-				
-			case 1: // '/' or '<axis><::>' or nothing
-				if (c == '/')
-					stage = 9;
-				else if (c == '*')
-					if (i == value.length())
-						return i;
-					else
-						stage = 2;
-				else {
-					String valuepart = value.substring(i);
-					Boolean done = false;
-					for (XmlAxisKind axis: XmlAxisKind.VALUES) {
-						String literal = axis.getLiteral();
-						literal = literal.substring(1, literal.length()-1); // cuts of the slash and the star
-						if (valuepart.startsWith(literal)) {
-							i+= literal.length()-1;  // -1 as i add 1 at the end
-							stage = 9;
-							done = true;
-							break;
-						}
-					}
-					if (!done)
-						stage = 10;
-				}
-				break;
-				
-			case 9: // xml element name or wildcard or 
-				if (c == ' ')
-					break;
-				if (c == '*')
-					if (i == value.length())
-						return i;
-					else
-						stage = 2;
-				else if (Character.isLetter(c) || Character.isDigit(c))
-					stage = 10;
-				else 
-					throw new InvalidityException("stage 9, unexpected character: " + c);	
-				break;
-				
-			case 10: // 
-				if (c == ':') {
-					if (i+2 > value.length())
-						throw new InvalidityException();
-					char d = value.charAt(i+1); 
-					if (Character.isLetter(d) || Character.isDigit(d)) {
-						stage = 11;
-						i++;
-					}
-					else throw new InvalidityException();
-				}
-				else if (c == '[') {
-					stage = 3;
-				} else if (Character.isLetter(c)|| Character.isDigit(c)) {
-					if (i+1 == value.length())
-						return i+1;
-				} else
-					throw new InvalidityException("stage 10, unexpected character: " + c);	
-				break;
-			case 11:
-				if (Character.isLetter(c)|| Character.isDigit(c)) {
-					if (i+1 == value.length())
-						return i+1;
-					else break;
-				}
-				else if (c == '[') {
-					stage = 3;
-					break;
-				}
-				else throw new InvalidityException();
-				
-			case 2: // <[>
-				if (c == ' ')
-					break;
-				else if (c == '[') {
-					stage = 3;
-					break;
-				}
-				else 
-					return i;
-				
-			case 3: // <anyproperty>
-				switch (c) {
-				case ' ':
-					break;
-				case 'n':
-					if (value.length() < i + 6 || !value.substring(i, i + 6).equals("name()"))
-						throw new InvalidityException("no valid property specified: " + value);
-					else {
-						stage = 5;
-						i += 5;
-						break;
-					}
-				case 'd':
-					if (value.length() < i + 6 || !value.substring(i, i + 6).equals("data()"))
-						throw new InvalidityException("no valid property specified: " + value);
-					else {
-						stage = 5;
-						i += 5;
-						break;
-					}
-				case 't':
-					if (value.length() < i + 6 || !value.substring(i, i + 6).equals("text()"))
-						throw new InvalidityException("no valid property specified: " + value);
-					else {
-						stage = 5;
-						i += 5;
-						break;
-					}
-				case '@':
-					if (length < i+1)
-						throw new InvalidityException("value too short"); 
-					char c2 = value.charAt(i+1);
-					if ( ('A' <= c2 && c2 <= 'Z') || ('a' <= c2 && c2 <= 'z')) {
-						i += 1;
-						stage = 4;
-						break;
-					}
-					throw new InvalidityException("value too short");
-				case ']':
-					return i+1;
-				default:
-					throw new InvalidityException("no valid property specified: " + value + " '" + c + "'"); 
-				}
-				break;
-				
-			case 4: // <attribute>, <=> or <]>
-				if ( ('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z')) 
-					break;
-			case 5: // <=> or <]>
-				if (c == ' ')
-					break;
-				else if (c == '=') {
-					stage = 6;
-					break;
-				} else if (c == ']') {
-					return i+1;
-				} else throw new InvalidityException("value invalid : \"" + value + "\" index: " + i + "(" + c + ")"); 
-				
-			case 6: // <stringstart>
-				if (c == ' ')
-					break;
-				if (c != '"')
-					throw new InvalidityException("string value not found:" + value + " index: " + i + " char: " + c);
-				stage = 7;
-				break;
-				
-			case 7: // <stringend> <]>
-				if (c == '/' && length > i+1 && value.charAt(i+1) == '"')
-					i +=1;
-				else if (c == '"')
-					stage = 8;
-				break;
-			case 8:
-				if (c == ' ')
-					break;
-				else if (c == ']')
-					return i+1;
-			}
-			
-			i += 1;
-		}
-//		System.out.println("no value found: " + value + " index: " + i + " ");
-//		System.out.println("stage " + stage);
-//		System.out.println("char " + value.charAt(i));
-		if (stage == 2) 
-			return i;
-		else
-			return -1;
-	}
-	
-//	@Override
-//	public void setValueFromString(String value) throws InvalidityException {
-//		if (value == null)
-//			throw new InvalidityException("try to set empty value in " + myToString());
-//		String PROPERTY_PART_REGEX = "((data\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
-//
-//		String[] parts = new String[XmlAxisKind.values().length];
-//		
-//		for (int i = 0; i < XmlAxisKind.values().length; i++) {
-//			String part = XmlAxisKind.values()[i].toString().replace("/", "").replace("::*", "");
-//			parts[i] = "(" + part + ")";
-//		}
-//		String axes = String.join("|", parts);
-//		String PATH_PART_REGEX = "(" + axes + ")::\\*"; // axes
-////			+ "(\\[" + PROPERTY_PART_REGEX + "(=\".*\")?" // optional comparison of the property 
-////			+ "\\])?";
-////		https://regex101.com/r/6gWGzd
-//		System.out.println(PATH_PART_REGEX);
-//
-//		boolean requiresPath = getXmlNavigation() instanceof XmlElementNavigation;
-//		boolean requiresProperty = getXmlNavigation() instanceof XmlPropertyNavigation;
-//		assert (requiresPath != requiresProperty);
-//		
-//		System.out.println("1008  " + requiresPath + " " + requiresProperty);
-//		
-//		// Check
-//		String[] strings = value.split("/");
-//		if (strings.length < 2 || strings[0] != "")
-//			throw new InvalidityException("new value invalid in " + myToString());
-//
-//		System.out.println("1026  " + strings.length + " " + Arrays.toString(strings));
-//
-//		if (requiresProperty) {
-//			if (!strings[strings.length - 1].matches(PROPERTY_PART_REGEX)) {
-//				throw new InvalidityException(
-//						"new property value invalid in " + myToString() + ": " + strings[strings.length - 1]);
-//			}
-//		}
-//
-//		int border = requiresPath ? strings.length - 1 : strings.length - 2;
-//		for (int i = 1; i < border; i++) {
-//			if (!strings[i].matches(PATH_PART_REGEX)) {
-//				throw new InvalidityException("new path part value invalid in " + myToString() + ": " + strings[i]);
-//			};
-//		}
-//
-//		getXmlAxisParts().clear();
-//		for (int i = 1; i < border; i++) {
-//			XmlAxisPart axis = new XmlAxisPartImpl();
-//			getXmlAxisParts().add(axis);
-//			axis.setValueFromString(strings[i]);
-//		}
-//		if (requiresProperty)
-//			getXmlPropertyOptionParam().setValueFromString(strings[strings.length - 1]);
-//	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

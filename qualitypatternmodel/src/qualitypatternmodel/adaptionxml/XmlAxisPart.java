@@ -5,7 +5,6 @@ package qualitypatternmodel.adaptionxml;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.TextLiteralParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,10 +15,9 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getTextLiteralParam <em>Text Literal Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPathParam <em>Xml Path Param</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPropertyOption <em>Xml Property Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisPartConditions <em>Xml Axis Part Conditions</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlAxisPart()
@@ -27,30 +25,6 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * @generated
  */
 public interface XmlAxisPart extends Adaptable, Parameter {
-	/**
-	 * Returns the value of the '<em><b>Text Literal Param</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPart <em>Xml Axis Part</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Text Literal Param</em>' containment reference.
-	 * @see #setTextLiteralParam(TextLiteralParam)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlAxisPart_TextLiteralParam()
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPart
-	 * @model opposite="xmlAxisPart" containment="true" required="true"
-	 * @generated
-	 */
-	TextLiteralParam getTextLiteralParam();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getTextLiteralParam <em>Text Literal Param</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Text Literal Param</em>' containment reference.
-	 * @see #getTextLiteralParam()
-	 * @generated
-	 */
-	void setTextLiteralParam(TextLiteralParam value);
-
 	/**
 	 * Returns the value of the '<em><b>Xml Axis Option Param</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlAxisOptionParam#getXmlAxisPart <em>Xml Axis Part</em>}'.
@@ -100,28 +74,18 @@ public interface XmlAxisPart extends Adaptable, Parameter {
 	void setXmlPathParam(XmlPathParam value);
 
 	/**
-	 * Returns the value of the '<em><b>Xml Property Option</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPart <em>Xml Axis Part</em>}'.
+	 * Returns the value of the '<em><b>Xml Axis Part Conditions</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getXmlAxisPart <em>Xml Axis Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Xml Property Option</em>' reference.
-	 * @see #setXmlPropertyOption(XmlPropertyOptionParam)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlAxisPart_XmlPropertyOption()
-	 * @see qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPart
+	 * @return the value of the '<em>Xml Axis Part Conditions</em>' reference list.
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlAxisPart_XmlAxisPartConditions()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getXmlAxisPart
 	 * @model opposite="xmlAxisPart"
 	 * @generated
 	 */
-	XmlPropertyOptionParam getXmlPropertyOption();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPropertyOption <em>Xml Property Option</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Xml Property Option</em>' reference.
-	 * @see #getXmlPropertyOption()
-	 * @generated
-	 */
-	void setXmlPropertyOption(XmlPropertyOptionParam value);
+	EList<XmlAxisPartCondition> getXmlAxisPartConditions();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,6 +118,30 @@ public interface XmlAxisPart extends Adaptable, Parameter {
 	 * @generated
 	 */
 	EList<String> inferElementTagSuggestionsFromOutgoingRelations();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	XmlAxisOptionParam setAxisOption(XmlAxisKind axis);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	XmlAxisPartCondition addAxisCondition(XmlPropertyKind propertyKind, String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	XmlAxisPartCondition addAxisCondition(XmlPropertyKind propertyKind);
 
 	/**
 	 * <!-- begin-user-doc -->

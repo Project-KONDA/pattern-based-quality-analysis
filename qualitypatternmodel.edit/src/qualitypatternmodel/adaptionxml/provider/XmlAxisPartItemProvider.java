@@ -17,14 +17,9 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
-
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
-
-import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
@@ -62,7 +57,7 @@ public class XmlAxisPartItemProvider extends PatternElementItemProvider {
 			addPredefinedPropertyDescriptor(object);
 			addParameterReferencesPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addXmlPropertyOptionPropertyDescriptor(object);
+			addXmlAxisPartConditionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -134,19 +129,19 @@ public class XmlAxisPartItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Xml Property Option feature.
+	 * This adds a property descriptor for the Xml Axis Part Conditions feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addXmlPropertyOptionPropertyDescriptor(Object object) {
+	protected void addXmlAxisPartConditionsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XmlAxisPart_xmlPropertyOption_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlAxisPart_xmlPropertyOption_feature", "_UI_XmlAxisPart_type"),
-				 AdaptionxmlPackage.Literals.XML_AXIS_PART__XML_PROPERTY_OPTION,
+				 getString("_UI_XmlAxisPart_xmlAxisPartConditions_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlAxisPart_xmlAxisPartConditions_feature", "_UI_XmlAxisPart_type"),
+				 AdaptionxmlPackage.Literals.XML_AXIS_PART__XML_AXIS_PART_CONDITIONS,
 				 true,
 				 false,
 				 true,
@@ -167,7 +162,6 @@ public class XmlAxisPartItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AdaptionxmlPackage.Literals.XML_AXIS_PART__TEXT_LITERAL_PARAM);
 			childrenFeatures.add(AdaptionxmlPackage.Literals.XML_AXIS_PART__XML_AXIS_OPTION_PARAM);
 		}
 		return childrenFeatures;
@@ -228,7 +222,6 @@ public class XmlAxisPartItemProvider extends PatternElementItemProvider {
 			case AdaptionxmlPackage.XML_AXIS_PART__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM:
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_OPTION_PARAM:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -246,21 +239,6 @@ public class XmlAxisPartItemProvider extends PatternElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AdaptionxmlPackage.Literals.XML_AXIS_PART__TEXT_LITERAL_PARAM,
-				 ParametersFactory.eINSTANCE.createTextLiteralParam()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AdaptionxmlPackage.Literals.XML_AXIS_PART__TEXT_LITERAL_PARAM,
-				 Adaptionneo4jFactory.eINSTANCE.createNeoEdgeLabelParam()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AdaptionxmlPackage.Literals.XML_AXIS_PART__TEXT_LITERAL_PARAM,
-				 Adaptionneo4jFactory.eINSTANCE.createNeoPropertyNameParam()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
+import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -162,9 +163,10 @@ public class Test00 {
 			else if (param instanceof XmlPathParam) {
 				XmlPathParam xmlPathParam = (XmlPathParam) param;
 				for(XmlAxisPart pair : xmlPathParam.getXmlAxisParts()) {
-					if(pair.getTextLiteralParam().getValue() == null) {
-						pair.getTextLiteralParam().setValue("");
-					}
+					for (XmlAxisPartCondition cond : pair.getXmlAxisPartConditions())
+						if(cond.getTextLiteralParam().getValue() == null) {
+							cond.getTextLiteralParam().setValue("");
+						}
 				}
 			}
 			else if (param instanceof TypeOptionParam) {

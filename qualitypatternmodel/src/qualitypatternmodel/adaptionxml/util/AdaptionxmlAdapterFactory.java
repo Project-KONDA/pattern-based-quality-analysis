@@ -125,6 +125,10 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 				return createXmlNodeAdapter();
 			}
 			@Override
+			public Adapter caseXmlAxisPartCondition(XmlAxisPartCondition object) {
+				return createXmlAxisPartConditionAdapter();
+			}
+			@Override
 			public Adapter casePatternElement(PatternElement object) {
 				return createPatternElementAdapter();
 			}
@@ -341,6 +345,20 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createXmlNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition <em>Xml Axis Part Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPartCondition
+	 * @generated
+	 */
+	public Adapter createXmlAxisPartConditionAdapter() {
 		return null;
 	}
 

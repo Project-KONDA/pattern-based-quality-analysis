@@ -302,6 +302,29 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XmlAxisPartConditionItemProvider xmlAxisPartConditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXmlAxisPartConditionAdapter() {
+		if (xmlAxisPartConditionItemProvider == null) {
+			xmlAxisPartConditionItemProvider = new XmlAxisPartConditionItemProvider(this);
+		}
+
+		return xmlAxisPartConditionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -416,6 +439,7 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 		if (xmlPropertyOptionParamItemProvider != null) xmlPropertyOptionParamItemProvider.dispose();
 		if (xmlPathParamItemProvider != null) xmlPathParamItemProvider.dispose();
 		if (xmlAxisPartItemProvider != null) xmlAxisPartItemProvider.dispose();
+		if (xmlAxisPartConditionItemProvider != null) xmlAxisPartConditionItemProvider.dispose();
 	}
 
 }
