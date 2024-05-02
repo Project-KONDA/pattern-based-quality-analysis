@@ -401,16 +401,26 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 		return getTextLiteralParam().inputIsValid();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public String generateDescription() {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public String myToString() {
-		// TODO Auto-generated method stub
-		return null;
+		String result = "[cond(" + getInternalId() + "): ";
+		if (getXmlPropertyOption() != null)
+			result += getXmlPropertyOption().myToString();
+		if (getTextLiteralParam() != null)
+			result += getTextLiteralParam();
+		return result += "]";
 	}
 
 } //XmlAxisPartConditionImpl

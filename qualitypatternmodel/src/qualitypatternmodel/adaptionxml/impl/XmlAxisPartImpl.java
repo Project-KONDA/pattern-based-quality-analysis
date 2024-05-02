@@ -568,13 +568,14 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public XmlAxisOptionParam setAxisOption(XmlAxisKind axis) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (getXmlAxisOptionParam() == null)
+			setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
+		getXmlAxisOptionParam().setValue(axis);
+		return getXmlAxisOptionParam();
 	}
 
 	/**
@@ -584,30 +585,29 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 */
 	@Override
 	public XmlAxisPartCondition addAxisCondition(XmlPropertyKind propertyKind, String value) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-		
-//		if (propertyKind == null)
-//			getXmlAxisParts().get(index).getXmlPropertyOption().setValue(XmlPropertyKind.TAG);
-//		else
-//			getXmlAxisParts().get(index).getXmlPropertyOption().setValue(propertyKind);
-//		if (attributeName != null && attributeName != "")
-//			getXmlAxisParts().get(index).getXmlPropertyOption().getAttributeName().setValue(attributeName);
-//		if (name != null && name != "")
-//			getXmlAxisParts().get(index).getTextLiteralParam().setValue(name);
+		XmlAxisPartCondition cond = new XmlAxisPartConditionImpl();
+		if (cond.getXmlPropertyOption() == null)
+			cond.setXmlPropertyOption(new XmlPropertyOptionParamImpl());
+		cond.getXmlPropertyOption().setValue(propertyKind);
+		if (value == null) 
+			cond.setTextLiteralParam(null);
+		else {
+			if (cond.getTextLiteralParam() == null)
+				cond.setTextLiteralParam(new TextLiteralParamImpl());
+			cond.getTextLiteralParam().setValue(value);
+		}
+		getXmlAxisPartConditions().add(cond);
+		return cond;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public XmlAxisPartCondition addAxisCondition(XmlPropertyKind propertyKind) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return addAxisCondition(propertyKind, null); 
 	}
 
 	/**
