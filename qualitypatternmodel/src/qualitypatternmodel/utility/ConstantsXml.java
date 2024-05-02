@@ -23,7 +23,7 @@ public class ConstantsXml {
 	static final String REGEX_PROPERTY = "(/" + REGEX_PROPERTY_SPEC + ")";
 	public static final String REGEX_PROPERTY_PART = "((/)?" + REGEX_PROPERTY_SPEC + ")";
 	public static final String REGEX_NODENAME = "([a-zA-Z]+(:[a-zA-Z]+)?)";
-	public static final String REGEX_CONDITION = "(\\[" + REGEX_PROPERTY_SPEC + "(=\".*\")?\\])";
+	public static final String REGEX_CONDITION = "(\\[(" + REGEX_PROPERTY_SPEC + "(=\".*\")?)?\\])";
 	static final String REGEX_NODE = "(\\*|" + REGEX_NODENAME + ")" + "(" + REGEX_CONDITION + ")*";
 	public static final String REGEX_NAVIGATION = "(" + REGEX_AXIS + REGEX_NODE + ")";
 	

@@ -994,6 +994,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 */
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+//		value = value.replace("//", "/descendant::");
 		if (value == "") {
 			getXmlAxisParts().clear();
 			xmlPropertyOptionParam = null;
@@ -1004,17 +1005,18 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		
 		String current = "";
 		for (int i = 0; i<split.length;i++) {
-			current += split[0];
+			current += split[i].trim();
+			current = current.trim();
 			if (current.matches(ConstantsXml.REGEX_NAVIGATION)) {
 				parts.add(current);
 				current = "";
-			}
+			} 
 		}
 
 		current = current.trim();
 		
 		if (!current.equals("") && !current.matches(ConstantsXml.REGEX_PROPERTY_PART)) {
-			throw new InvalidityException("value invalid property specification: \"" + value + "\" - match :" +  value.matches(ConstantsXml.REGEX_PROPERTY_PART));
+			throw new InvalidityException("value invalid property specification: '" + current + "' - match :" +  current.matches(ConstantsXml.REGEX_PROPERTY_PART));
 		}
 			
 //		assertTrue((getXmlNavigation() instanceof XmlElementNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));

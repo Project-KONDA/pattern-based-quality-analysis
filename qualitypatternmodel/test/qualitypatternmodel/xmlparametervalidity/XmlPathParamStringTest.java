@@ -45,15 +45,9 @@ public class XmlPathParamStringTest {
 			}
 			
 		}
-		System.out.println("SUCCESS: " + success);
-		System.out.println("FAILED: " + failed);
-		System.out.println("ERROR: " + error);
-		
-		
-
-//		System.out.println(XmlPathParamImpl.indexWhereSplit("/lido:lido"));
-//		System.out.println(XmlPathParamImpl.indexWhereSplit("/child::lido:lido"));
-//		System.out.println(XmlPathParamImpl.indexWhereSplit("/child::lido:lido[text()=\"\"]"));
+		System.out.println("SUCCESS (" + success.size() + "): " + success);
+		System.out.println("FAILED (" + failed.size() + "): " + failed);
+		System.out.println("ERROR (" + error.size() + "): " + error);
 		
 	}
 
