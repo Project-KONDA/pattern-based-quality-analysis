@@ -4,6 +4,7 @@ package qualitypatternmodel.adaptionxml.impl;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
 import org.basex.query.QueryException;
 import org.eclipse.emf.common.notify.Notification;
@@ -49,6 +50,7 @@ import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.utility.ConstantsXml;
 
 /**
  * <!-- begin-user-doc -->
@@ -674,51 +676,34 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				throw new InvalidityException("Invalid axis");
 		value = value.trim();
 		
-		if (value.startsWith("*")) {
-			value = value.substring(1);
-		} else {
-			if (!value.matches("[a-zA-Z0-9]+(:[a-zA-Z0-9]+)?"))
-				throw new InvalidityException("value does not fit a node name : '" + value + "'");
-			
-			int conditionstart = value.indexOf("[");
-			if (conditionstart != -1)
-				throw new InvalidityException();
-			addAxisCondition(XmlPropertyKind.TAG, value);
-//			XmlPropertyOptionParam propertyOption = new XmlPropertyOptionParamImpl();
-//			setXmlPropertyOption(propertyOption);
-//			propertyOption.setValue(XmlPropertyKind.TAG);
-//			setTextLiteralParam(new TextLiteralParamImpl(value));
-			value = "";
-		}
+		String[] split = value.split("(?=\\[)");
 		
-		if (!value.equals("") && !value.equals("[]")) {
-			if (!(value.startsWith("[") && value.endsWith("]")))
-				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+		for (int i = 0; i < split.length; i++)
+			split[i] = split[i].trim();
+		
+		// nodename
+		if (split[0].matches(ConstantsXml.REGEX_NODENAME))
+			addAxisCondition(XmlPropertyKind.TAG, split[0]);
+		else if (!split[0].equals("*"))
+			throw new InvalidityException();
+		
+		// conditions
+		ArrayList<String> conditions = new ArrayList<String>();
+		
+		String current = "";
+		for (int i = 1; i < split.length; i++) {
+			current += split[i];
+			if (current.matches(ConstantsXml.REGEX_CONDITION)) {
+				conditions.add(current);
+				current = "";
+			}			
+		}
+		if (!current.equals(""))
+			throw new InvalidityException();
+		for (String condition: conditions) {
 			XmlAxisPartConditionImpl cond = new XmlAxisPartConditionImpl();
-			cond.setValueFromString(value);
+			cond.setValueFromString(condition);
 			getXmlAxisPartConditions().add(cond);
-			
-//			value = value.substring(1, value.length() - 1).trim();
-//			String[] propertySplit = value.split("=", 2);
-//			
-//			propertySplit[0] = propertySplit[0].trim();
-//			
-//			if (!propertySplit[0].matches(PROPERTY_PART_REGEX))
-//				throw new InvalidityException("new property value invalid in " + myToString() + ": '" + value + "', [" + propertySplit[0] + "]");
-//			
-//			if(getXmlPropertyOption() == null)
-//				setXmlPropertyOption(new XmlPropertyOptionParamImpl());
-//			else getXmlPropertyOption().setValueFromString(propertySplit[0]);
-//			
-//			if (propertySplit.length>1) {
-//				propertySplit[1] = propertySplit[1].trim();
-//				if (!propertySplit[1].startsWith("\"") || !propertySplit[1].endsWith("\""))
-//					throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-//				String propertyvalue = propertySplit[1].substring(1, propertySplit[1].length() - 1);
-//				if(getTextLiteralParam() == null)
-//					setTextLiteralParam(new TextLiteralParamImpl(propertyvalue));
-//				else getTextLiteralParam().setValue(propertyvalue);
-//			}
 		}
 	}
 

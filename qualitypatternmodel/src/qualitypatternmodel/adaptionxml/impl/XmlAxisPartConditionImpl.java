@@ -17,6 +17,8 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
+import qualitypatternmodel.utility.ConstantsXml;
 
 /**
  * <!-- begin-user-doc -->
@@ -79,6 +81,53 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 		if (getTextLiteralParam() != null)
 			query += "=" + getTextLiteralParam().generateXQuery();
 		return "[" + query + "]";
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		if (!(value.startsWith("[") && value.endsWith("]")))
+			throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+
+		value = value.substring(1, value.length() - 1).trim();
+		String[] propertySplit = value.split("=", 2);
+		
+		propertySplit[0] = propertySplit[0].trim();
+		
+		if (!propertySplit[0].matches(ConstantsXml.REGEX_PROPERTY_SPEC))
+			throw new InvalidityException("new property value invalid in " + myToString() + ": '" + value + "', [" + propertySplit[0] + "]");
+		
+		if(getXmlPropertyOption() == null)
+			setXmlPropertyOption(new XmlPropertyOptionParamImpl());
+		else getXmlPropertyOption().setValueFromString(propertySplit[0]);
+		
+		if (propertySplit.length>1) {
+			propertySplit[1] = propertySplit[1].trim();
+			if (!propertySplit[1].startsWith("\"") || !propertySplit[1].endsWith("\""))
+				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+			String propertyvalue = propertySplit[1].substring(1, propertySplit[1].length() - 1);
+			if(getTextLiteralParam() == null)
+				setTextLiteralParam(new TextLiteralParamImpl(propertyvalue));
+			else getTextLiteralParam().setValue(propertyvalue);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getValueAsString() {
+		try {
+			return generateXQuery();
+		} catch (InvalidityException e) {
+			return null;
+		}
 	}
 
 	/**
