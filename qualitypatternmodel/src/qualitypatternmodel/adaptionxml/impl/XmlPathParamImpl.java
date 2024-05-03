@@ -1010,7 +1010,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			if (current.matches(ConstantsXml.REGEX_NAVIGATION)) {
 				parts.add(current);
 				current = "";
-			} 
+			}
 		}
 
 		current = current.trim();

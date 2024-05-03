@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
@@ -203,14 +204,14 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override
 	public EList<String> inferSuggestions() {
 		EList<String> suggestions = super.inferSuggestions();
-//		XmlAxisPartCondition part = getXmlAxisPartCondition();
-//		EList<String> suggestionsFromPath = part.inferElementTagSuggestions();
-//
-//		if(suggestions.isEmpty() || suggestionsFromPath.isEmpty()) {
-//			suggestions.addAll(suggestionsFromPath);
-//		} else {
-//			suggestions.retainAll(suggestionsFromPath);
-//		}
+		XmlAxisPart part = getXmlAxisPartCondition().getXmlAxisPart();
+		EList<String> suggestionsFromPath = part.inferElementTagSuggestions();
+
+		if(suggestions.isEmpty() || suggestionsFromPath.isEmpty()) {
+			suggestions.addAll(suggestionsFromPath);
+		} else {
+			suggestions.retainAll(suggestionsFromPath);
+		}
 				
 		return suggestions;
 	}
