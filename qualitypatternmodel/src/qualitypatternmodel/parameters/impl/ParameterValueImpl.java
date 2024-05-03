@@ -18,8 +18,10 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoLabel;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
@@ -836,42 +838,46 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	
 	private EList<String> inferSuggestions2(XmlProperty tagNode) {
 		EList<String> suggestions = new BasicEList<String>();
-//		for (Relation r : tagNode.getIncoming()) {
-//			XmlPathParam xmlPathParam = null;					
-//			if(r instanceof XmlElementNavigation) {
-//				XmlElementNavigation nav = (XmlElementNavigation) r;
-//				xmlPathParam = nav.getXmlPathParam();
-//				if(xmlPathParam.getXmlAxisParts().isEmpty()) {
-//					for (Relation previousRelation : nav.getSource().getIncoming()) {
-//						if(previousRelation instanceof XmlElementNavigation) {
-//							XmlElementNavigation previousNav = (XmlElementNavigation) previousRelation;
-//							XmlPathParam previousPathParam = previousNav.getXmlPathParam();
-//							TextLiteralParam text = previousPathParam.getXmlAxisParts().get(previousPathParam.getXmlAxisParts().size()-1).getTextLiteralParam();
-//							if(text != null) {
-//								EList<String> newSuggestions = text.inferSuggestions();
-//								if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
-//									suggestions.addAll(newSuggestions);
-//								} else {
-//									suggestions.retainAll(newSuggestions);
-//								}
-//							}
-//						}
-//					}
-//					
-//				} else {
-//					TextLiteralParam text = xmlPathParam.getXmlAxisParts().get(xmlPathParam.getXmlAxisParts().size()-1).getTextLiteralParam();
-//					if(text != null) {
-//						EList<String> newSuggestions = text.inferSuggestions();
-//						if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
-//							suggestions.addAll(newSuggestions);
-//						} else {
-//							suggestions.retainAll(newSuggestions);
-//						}
-//					}
-//				}
-//				
-//			}
-//		}
+		for (Relation r : tagNode.getIncoming()) {
+			XmlPathParam xmlPathParam = null;					
+			if(r instanceof XmlElementNavigation) {
+				XmlElementNavigation nav = (XmlElementNavigation) r;
+				xmlPathParam = nav.getXmlPathParam();
+				if(xmlPathParam.getXmlAxisParts().isEmpty()) {
+					for (Relation previousRelation : nav.getSource().getIncoming()) {
+						if(previousRelation instanceof XmlElementNavigation) {
+							XmlElementNavigation previousNav = (XmlElementNavigation) previousRelation;
+							XmlPathParam previousPathParam = previousNav.getXmlPathParam();
+							XmlAxisPart part = previousPathParam.getXmlAxisParts().get(previousPathParam.getXmlAxisParts().size()-1);
+							TextLiteralParam text = part.getXmlAxisPartConditions().get(0).getTextLiteralParam();
+//							TextLiteralParam text = part.getTextLiteralParam();
+							if(text != null) {
+								EList<String> newSuggestions = text.inferSuggestions();
+								if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
+									suggestions.addAll(newSuggestions);
+								} else {
+									suggestions.retainAll(newSuggestions);
+								}
+							}
+						}
+					}
+					
+				} else {
+					XmlAxisPart part = xmlPathParam.getXmlAxisParts().get(xmlPathParam.getXmlAxisParts().size()-1);
+					TextLiteralParam text = part.getXmlAxisPartConditions().get(0).getTextLiteralParam();
+//					TextLiteralParam text = part.getTextLiteralParam();
+					if(text != null) {
+						EList<String> newSuggestions = text.inferSuggestions();
+						if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
+							suggestions.addAll(newSuggestions);
+						} else {
+							suggestions.retainAll(newSuggestions);
+						}
+					}
+				}
+				
+			}
+		}
 		return suggestions;
 	}
 
