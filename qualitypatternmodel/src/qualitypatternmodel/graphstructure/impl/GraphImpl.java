@@ -22,7 +22,6 @@ import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -1026,7 +1025,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					navigation.createParameters();
 					navigation.setSource(root);
 					navigation.setTarget(node);
-					navigation.getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
+//					navigation.getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
 				}
 			} else if(node instanceof XmlProperty) {
 				for(Relation relation : node.getIncoming()) {

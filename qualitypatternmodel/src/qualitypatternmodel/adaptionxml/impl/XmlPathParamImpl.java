@@ -206,7 +206,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			}
 		if (getXmlNavigation() instanceof XmlElementNavigation) {
 			if (xmlPropertyOptionParam != null) {
-				throw new InvalidityException("propertyOptionParam is existent for XmlNavigation");
+				throw new InvalidityException("propertyOptionParam is existent for XmlNavigation" + xmlPropertyOptionParam.generateXQuery());
 			}
 			if (xmlAxisParts == null)
 				throw new InvalidityException("axisPart is null");
@@ -351,6 +351,8 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 */
 	@Override
 	public XmlPropertyOptionParam getXmlPropertyOptionParam() {
+		if (getXmlNavigation() instanceof XmlElementNavigation && xmlPropertyOptionParam != null)
+			throw new RuntimeException("XmlPropertyOption is not null, but should in " + myToString());
 		if (xmlPropertyOptionParam == null && getXmlNavigation() instanceof XmlPropertyNavigation) {
 			setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
 			xmlPropertyOptionParam.createParameters();
@@ -1029,14 +1031,18 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			part.setValueFromString(v);
 		}
 		
-		if (current.matches(ConstantsXml.REGEX_PROPERTY_PART)) {
+		if (getXmlNavigation() instanceof XmlElementNavigation) {
+			if (!current.equals("")) {
+				throw new InvalidityException("invalid rest value for XmlElementNavigation: " + current);
+			}
+		} else if (getXmlNavigation() instanceof XmlPropertyNavigation) {
+			if (!current.matches(ConstantsXml.REGEX_PROPERTY_PART))
+				throw new InvalidityException("invalid rest value for XmlElementNavigation: " + current);
 			if (getXmlPropertyOptionParam() == null)
 				setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
 			getXmlPropertyOptionParam().setValueFromString(current);
-		}
-		else if (!current.equals("")) {
-			throw new InvalidityException("remaining value invalid: " + current);
-		}
+		} else 
+			throw new InvalidityException("invalid type");
 	}
 
 	/**

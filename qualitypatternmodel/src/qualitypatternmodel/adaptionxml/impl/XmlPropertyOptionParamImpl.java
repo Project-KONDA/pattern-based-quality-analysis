@@ -69,10 +69,10 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final XmlPropertyKind VALUE_EDEFAULT = XmlPropertyKind.DATA;
+	protected static final XmlPropertyKind VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.

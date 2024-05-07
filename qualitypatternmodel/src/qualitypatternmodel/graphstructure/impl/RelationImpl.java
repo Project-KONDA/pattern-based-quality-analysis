@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
-import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
@@ -654,13 +653,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (getTarget() instanceof NeoElementNode) {
+		if (getTarget() instanceof PrimitiveNode) {
 			return adaptAsXmlPropertyNavigation();
 		} else {
 			return adaptAsXmlElementNavigation();
 		}
 	}
-
 	
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -691,22 +689,15 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public XmlElementNavigation adaptAsXmlElementNavigation() throws InvalidityException {
 		if (!(this instanceof XmlElementNavigation)) {
 			XmlElementNavigation navigation = new XmlElementNavigationImpl();
-
 			navigation.setName(getName());
-			
 			navigation.setGraphSimple(getGraph());
-			
-			navigation.createParameters();
-			
 			navigation.setSource(getSource());
 			navigation.setTarget(getTarget());
-		
 			setSource(null);
 			setTarget(null);			
 			setGraph(null);
-			
+			navigation.createParameters();
 			navigation.getTarget().adaptAsXmlElement();
-			
 			return navigation;
 		}
 		return (XmlElementNavigation) this;
