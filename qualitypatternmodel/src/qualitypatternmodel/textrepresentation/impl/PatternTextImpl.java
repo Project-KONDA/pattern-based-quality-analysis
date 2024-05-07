@@ -422,7 +422,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 */
 	@Override
 	public void instantiate() throws InvalidityException {
-		isValid(AbstractionLevel.CONCRETE);
+		isValid(AbstractionLevel.ABSTRACT);
 		EList<PatternText> textsCopy = new BasicEList<PatternText>();
 		textsCopy.addAll(getPattern().getText());
 		for(PatternText text : textsCopy) {

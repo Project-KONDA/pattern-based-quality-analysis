@@ -535,42 +535,44 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 */
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException {
-		String firstValue = getValue();
-		
-		EClass firstEClass = getParameter().get(0).eClass();
-		for(Parameter p : getParameter()) {
-			String value;
-			try {
-				value = p.getValueAsString();
-			} catch (NullPointerException e) {
-				value = null;
-			}
+		if (abstractionLevel.equals(AbstractionLevel.CONCRETE)) {
+			String firstValue = getValue();
 			
-			if(value != null && !value.equals(firstValue) || value == null && firstValue != null) {
-				String types = "";
-				for (Parameter p2 : getParameter()) {
-					String p2val;
-					try {
-						p2val = p2.getValueAsString();
-					} catch (NullPointerException e) {
-						p2val = null;
-					}
-					types += ", " + p2.getClass().getSimpleName() + ":" + p2val;
+			EClass firstEClass = getParameter().get(0).eClass();
+			for(Parameter p : getParameter()) {
+				String value;
+				try {
+					value = p.getValueAsString();
+				} catch (NullPointerException e) {
+					value = null;
 				}
-				throw new InvalidityException("Referenced parameters have different values: " + types);
-			}
-			
-			if(!p.eClass().equals(firstEClass)) {
-				throw new InvalidityException("Referenced parameters are not of same type");
-			}
-			
-			try {
-				if(getExampleValue() != null && abstractionLevel != AbstractionLevel.CONCRETE) {
-					p.validateExampleValue(getExampleValue());
-				}	
-			} catch (Exception e) {
-				e.printStackTrace();
-				throw new InvalidityException("Example value '" + getExampleValue() + "' has wrong type");
+				
+				if(value != null && !value.equals(firstValue) || value == null && firstValue != null) {
+					String types = "";
+					for (Parameter p2 : getParameter()) {
+						String p2val;
+						try {
+							p2val = p2.getValueAsString();
+						} catch (NullPointerException e) {
+							p2val = null;
+						}
+						types += ", " + p2.getClass().getSimpleName() + ":" + p2val;
+					}
+					throw new InvalidityException("Referenced parameters have different values: " + types);
+				}
+				
+				if(!p.eClass().equals(firstEClass)) {
+					throw new InvalidityException("Referenced parameters are not of same type");
+				}
+				
+				try {
+					if(getExampleValue() != null && abstractionLevel != AbstractionLevel.CONCRETE) {
+						p.validateExampleValue(getExampleValue());
+					}	
+				} catch (Exception e) {
+					e.printStackTrace();
+					throw new InvalidityException("Example value '" + getExampleValue() + "' has wrong type");
+				}
 			}
 		}
 	}

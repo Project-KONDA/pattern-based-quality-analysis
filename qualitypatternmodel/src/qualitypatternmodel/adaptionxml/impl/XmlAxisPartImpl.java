@@ -179,7 +179,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 //		if (textLiteralParam == null) {
 //			throw new InvalidityException("textLiteralParam null");
 //		}
-		if (xmlAxisOptionParam == null) {
+		if (xmlAxisOptionParam == null && abstractionLevel.equals(AbstractionLevel.CONCRETE)) {
 			throw new InvalidityException("axisOptionParam null");
 		}
 	}
