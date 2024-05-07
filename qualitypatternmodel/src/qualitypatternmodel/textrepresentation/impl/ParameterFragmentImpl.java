@@ -449,7 +449,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 */
 	@Override
 	public String getValue() {
-		String value = getParameter().get(0).getValueAsString();
+		String value;
+		try {
+			value = getParameter().get(0).getValueAsString();
+		} catch (NullPointerException e) {
+			value = null;
+		}
 		if (getValueMap() != null)
 			value = getValueMap().get(value);
 //		Map<String, String> valueMap = new HashMap<String, String>();
@@ -530,15 +535,27 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 */
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException {
-		String firstValue = getParameter().get(0).getValueAsString();
+		String firstValue = getValue();
+		
 		EClass firstEClass = getParameter().get(0).eClass();
 		for(Parameter p : getParameter()) {
-			String value = p.getValueAsString();
+			String value;
+			try {
+				value = p.getValueAsString();
+			} catch (NullPointerException e) {
+				value = null;
+			}
 			
 			if(value != null && !value.equals(firstValue) || value == null && firstValue != null) {
 				String types = "";
 				for (Parameter p2 : getParameter()) {
-					types += ", " + p2.getClass().getSimpleName() + ":" + p2.getValueAsString();
+					String p2val;
+					try {
+						p2val = p2.getValueAsString();
+					} catch (NullPointerException e) {
+						p2val = null;
+					}
+					types += ", " + p2.getClass().getSimpleName() + ":" + p2val;
 				}
 				throw new InvalidityException("Referenced parameters have different values: " + types);
 			}
@@ -554,9 +571,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			} catch (Exception e) {
 				e.printStackTrace();
 				throw new InvalidityException("Example value '" + getExampleValue() + "' has wrong type");
-			}		
+			}
 		}
-		
 	}
 
 	/**

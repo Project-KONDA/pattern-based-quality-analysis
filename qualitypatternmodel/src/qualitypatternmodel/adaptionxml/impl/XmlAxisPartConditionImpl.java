@@ -94,7 +94,7 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 		
 		if(getXmlPropertyOption() == null)
 			setXmlPropertyOption(new XmlPropertyOptionParamImpl());
-		else getXmlPropertyOption().setValueFromString(propertySplit[0]);
+		getXmlPropertyOption().setValueFromString(propertySplit[0]);
 		
 		if (propertySplit.length>1) {
 			propertySplit[1] = propertySplit[1].trim();
