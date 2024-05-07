@@ -180,16 +180,16 @@ public abstract class ServletUtilities {
 				pattern.isValid(AbstractionLevel.CONCRETE);
 				concrete = true;
 				filter = true;
+				try {
+					mqaf = ConstraintTranslationValidation.checkPatternTranslatable(pattern);
+				}
+				catch (InvalidityException e) {}
+				try {
+					query = !pattern.containsJavaOperator();
+				}
+				catch (InvalidityException e) {}
 			}
 			catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {}
-			try {
-				mqaf = ConstraintTranslationValidation.checkPatternTranslatable(pattern);
-			}
-			catch (InvalidityException e) {}
-			try {
-				query = !pattern.containsJavaOperator();
-			}
-			catch (InvalidityException e) {}
 			
 			json.put("executable", concrete);
 			json.put("mqafexecutable", mqaf);
