@@ -94,24 +94,24 @@ public interface TextLiteralParam extends ParameterValue {
 	void setXmlPropertyOptionParam(XmlPropertyOptionParam value);
 
 	/**
-	 * Returns the value of the '<em><b>Xml Axis Part Condition</b></em>' reference.
+	 * Returns the value of the '<em><b>Xml Axis Part Condition</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getTextLiteralParam <em>Text Literal Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Xml Axis Part Condition</em>' reference.
+	 * @return the value of the '<em>Xml Axis Part Condition</em>' container reference.
 	 * @see #setXmlAxisPartCondition(XmlAxisPartCondition)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_XmlAxisPartCondition()
 	 * @see qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getTextLiteralParam
-	 * @model opposite="textLiteralParam"
+	 * @model opposite="textLiteralParam" transient="false"
 	 * @generated
 	 */
 	XmlAxisPartCondition getXmlAxisPartCondition();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPartCondition <em>Xml Axis Part Condition</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPartCondition <em>Xml Axis Part Condition</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Xml Axis Part Condition</em>' reference.
+	 * @param value the new value of the '<em>Xml Axis Part Condition</em>' container reference.
 	 * @see #getXmlAxisPartCondition()
 	 * @generated
 	 */

@@ -48,7 +48,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 	        	
 	        } else {
 				response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-				response.getWriter().write("{ \"error\": \"internal" + e.getMessage() + "\"}");
+				response.getWriter().write("{ \"error\": \"internal " + e.getMessage() + "\"}");
 	        }
 		}
 		catch (Exception e) {
@@ -101,6 +101,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 					instantiated=true;
 					break;
 				} catch (InvalidityException e) {
+					ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 					throw new FailedServletCallException("Could not initialize Variant " + textid, e);
 				}
 			}

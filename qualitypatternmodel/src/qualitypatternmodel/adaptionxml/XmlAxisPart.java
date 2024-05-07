@@ -74,15 +74,15 @@ public interface XmlAxisPart extends Adaptable, Parameter {
 	void setXmlPathParam(XmlPathParam value);
 
 	/**
-	 * Returns the value of the '<em><b>Xml Axis Part Conditions</b></em>' reference list.
+	 * Returns the value of the '<em><b>Xml Axis Part Conditions</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getXmlAxisPart <em>Xml Axis Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Xml Axis Part Conditions</em>' reference list.
+	 * @return the value of the '<em>Xml Axis Part Conditions</em>' containment reference list.
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlAxisPart_XmlAxisPartConditions()
 	 * @see qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getXmlAxisPart
-	 * @model opposite="xmlAxisPart"
+	 * @model opposite="xmlAxisPart" containment="true"
 	 * @generated
 	 */
 	EList<XmlAxisPartCondition> getXmlAxisPartConditions();

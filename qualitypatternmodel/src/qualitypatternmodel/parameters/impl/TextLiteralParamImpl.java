@@ -87,16 +87,6 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	protected EList<Match> matches;
 
 	/**
-	 * The cached value of the '{@link #getXmlAxisPartCondition() <em>Xml Axis Part Condition</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getXmlAxisPartCondition()
-	 * @generated
-	 * @ordered
-	 */
-	protected XmlAxisPartCondition xmlAxisPartCondition;
-
-	/**
 	 * The cached value of the '{@link #getContains() <em>Contains</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -339,24 +329,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 */
 	@Override
 	public XmlAxisPartCondition getXmlAxisPartCondition() {
-		if (xmlAxisPartCondition != null && xmlAxisPartCondition.eIsProxy()) {
-			InternalEObject oldXmlAxisPartCondition = (InternalEObject)xmlAxisPartCondition;
-			xmlAxisPartCondition = (XmlAxisPartCondition)eResolveProxy(oldXmlAxisPartCondition);
-			if (xmlAxisPartCondition != oldXmlAxisPartCondition) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART_CONDITION, oldXmlAxisPartCondition, xmlAxisPartCondition));
-			}
-		}
-		return xmlAxisPartCondition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public XmlAxisPartCondition basicGetXmlAxisPartCondition() {
-		return xmlAxisPartCondition;
+		if (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART_CONDITION) return null;
+		return (XmlAxisPartCondition)eInternalContainer();
 	}
 
 	/**
@@ -365,12 +339,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * @generated
 	 */
 	public NotificationChain basicSetXmlAxisPartCondition(XmlAxisPartCondition newXmlAxisPartCondition, NotificationChain msgs) {
-		XmlAxisPartCondition oldXmlAxisPartCondition = xmlAxisPartCondition;
-		xmlAxisPartCondition = newXmlAxisPartCondition;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART_CONDITION, oldXmlAxisPartCondition, newXmlAxisPartCondition);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eBasicSetContainer((InternalEObject)newXmlAxisPartCondition, ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART_CONDITION, msgs);
 		return msgs;
 	}
 
@@ -381,10 +350,12 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 */
 	@Override
 	public void setXmlAxisPartCondition(XmlAxisPartCondition newXmlAxisPartCondition) {
-		if (newXmlAxisPartCondition != xmlAxisPartCondition) {
+		if (newXmlAxisPartCondition != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART_CONDITION && newXmlAxisPartCondition != null)) {
+			if (EcoreUtil.isAncestor(this, newXmlAxisPartCondition))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (xmlAxisPartCondition != null)
-				msgs = ((InternalEObject)xmlAxisPartCondition).eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PART_CONDITION__TEXT_LITERAL_PARAM, XmlAxisPartCondition.class, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
 			if (newXmlAxisPartCondition != null)
 				msgs = ((InternalEObject)newXmlAxisPartCondition).eInverseAdd(this, AdaptionxmlPackage.XML_AXIS_PART_CONDITION__TEXT_LITERAL_PARAM, XmlAxisPartCondition.class, msgs);
 			msgs = basicSetXmlAxisPartCondition(newXmlAxisPartCondition, msgs);
@@ -440,8 +411,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetXmlPropertyOptionParam((XmlPropertyOptionParam)otherEnd, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART_CONDITION:
-				if (xmlAxisPartCondition != null)
-					msgs = ((InternalEObject)xmlAxisPartCondition).eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PART_CONDITION__TEXT_LITERAL_PARAM, XmlAxisPartCondition.class, msgs);
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetXmlAxisPartCondition((XmlAxisPartCondition)otherEnd, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContains()).basicAdd(otherEnd, msgs);
@@ -479,6 +450,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		switch (eContainerFeatureID()) {
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM:
 				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, XmlPropertyOptionParam.class, msgs);
+			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART_CONDITION:
+				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PART_CONDITION__TEXT_LITERAL_PARAM, XmlAxisPartCondition.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -498,8 +471,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM:
 				return getXmlPropertyOptionParam();
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART_CONDITION:
-				if (resolve) return getXmlAxisPartCondition();
-				return basicGetXmlAxisPartCondition();
+				return getXmlAxisPartCondition();
 			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
 				return getContains();
 		}
@@ -578,7 +550,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM:
 				return getXmlPropertyOptionParam() != null;
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART_CONDITION:
-				return xmlAxisPartCondition != null;
+				return getXmlAxisPartCondition() != null;
 			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
 				return contains != null && !contains.isEmpty();
 		}

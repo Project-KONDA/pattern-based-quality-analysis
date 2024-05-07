@@ -6668,7 +6668,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM__XML_PROPERTY_OPTION_PARAM = ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM;
 
 	/**
-	 * The feature id for the '<em><b>Xml Axis Part Condition</b></em>' reference.
+	 * The feature id for the '<em><b>Xml Axis Part Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -7327,7 +7327,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NAME_PARAM__XML_PROPERTY_OPTION_PARAM = ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM;
 
 	/**
-	 * The feature id for the '<em><b>Xml Axis Part Condition</b></em>' reference.
+	 * The feature id for the '<em><b>Xml Axis Part Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

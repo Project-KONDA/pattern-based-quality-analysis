@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
@@ -41,7 +42,6 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -136,7 +136,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	protected XmlAxisOptionParam xmlAxisOptionParam;
 
 	/**
-	 * The cached value of the '{@link #getXmlAxisPartConditions() <em>Xml Axis Part Conditions</em>}' reference list.
+	 * The cached value of the '{@link #getXmlAxisPartConditions() <em>Xml Axis Part Conditions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getXmlAxisPartConditions()
@@ -373,15 +373,6 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 * @generated
 	 */
 	public NotificationChain basicSetXmlPathParam(XmlPathParam newXmlPathParam, NotificationChain msgs) {
-		if(getXmlAxisOptionParam() == null) {
-			XmlAxisOptionParam axisOptionparam = new XmlAxisOptionParamImpl();
-			setXmlAxisOptionParam(axisOptionparam);
-		}
-		for (XmlAxisPartCondition cond : getXmlAxisPartConditions())
-			if(cond.getTextLiteralParam() == null) {
-				TextLiteralParam text = new TextLiteralParamImpl();
-				cond.setTextLiteralParam(text);
-			}
 		msgs = eBasicSetContainer((InternalEObject)newXmlPathParam, AdaptionxmlPackage.XML_AXIS_PART__XML_PATH_PARAM, msgs);
 		return msgs;
 	}
@@ -416,7 +407,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public EList<XmlAxisPartCondition> getXmlAxisPartConditions() {
 		if (xmlAxisPartConditions == null) {
-			xmlAxisPartConditions = new EObjectWithInverseResolvingEList<XmlAxisPartCondition>(XmlAxisPartCondition.class, this, AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_PART_CONDITIONS, AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_AXIS_PART);
+			xmlAxisPartConditions = new EObjectContainmentWithInverseEList<XmlAxisPartCondition>(XmlAxisPartCondition.class, this, AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_PART_CONDITIONS, AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_AXIS_PART);
 		}
 		return xmlAxisPartConditions;
 	}
@@ -565,7 +556,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public XmlAxisPartCondition addAxisCondition(XmlPropertyKind propertyKind, String value) {

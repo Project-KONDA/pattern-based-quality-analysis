@@ -5087,7 +5087,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME = ParametersPackage.PARAMETER_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Xml Axis Part Condition</b></em>' reference.
+	 * The feature id for the '<em><b>Xml Axis Part Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6051,7 +6051,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART__XML_PATH_PARAM = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Xml Axis Part Conditions</b></em>' reference list.
+	 * The feature id for the '<em><b>Xml Axis Part Conditions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6628,7 +6628,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART_CONDITION__DESCRIPTION = ParametersPackage.PARAMETER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Xml Property Option</b></em>' reference.
+	 * The feature id for the '<em><b>Xml Property Option</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6637,7 +6637,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART_CONDITION__XML_PROPERTY_OPTION = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Text Literal Param</b></em>' reference.
+	 * The feature id for the '<em><b>Text Literal Param</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6646,7 +6646,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART_CONDITION__TEXT_LITERAL_PARAM = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Xml Axis Part</b></em>' reference.
+	 * The feature id for the '<em><b>Xml Axis Part</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -7296,10 +7296,10 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlPropertyOptionParam_AttributeName();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPartCondition <em>Xml Axis Part Condition</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPartCondition <em>Xml Axis Part Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Xml Axis Part Condition</em>'.
+	 * @return the meta object for the container reference '<em>Xml Axis Part Condition</em>'.
 	 * @see qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPartCondition()
 	 * @see #getXmlPropertyOptionParam()
 	 * @generated
@@ -7442,10 +7442,10 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlAxisPart_XmlPathParam();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisPartConditions <em>Xml Axis Part Conditions</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisPartConditions <em>Xml Axis Part Conditions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Xml Axis Part Conditions</em>'.
+	 * @return the meta object for the containment reference list '<em>Xml Axis Part Conditions</em>'.
 	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisPartConditions()
 	 * @see #getXmlAxisPart()
 	 * @generated
@@ -7647,10 +7647,10 @@ public interface AdaptionxmlPackage extends EPackage {
 	EClass getXmlAxisPartCondition();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getXmlPropertyOption <em>Xml Property Option</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getXmlPropertyOption <em>Xml Property Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Xml Property Option</em>'.
+	 * @return the meta object for the containment reference '<em>Xml Property Option</em>'.
 	 * @see qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getXmlPropertyOption()
 	 * @see #getXmlAxisPartCondition()
 	 * @generated
@@ -7658,10 +7658,10 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlAxisPartCondition_XmlPropertyOption();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getTextLiteralParam <em>Text Literal Param</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getTextLiteralParam <em>Text Literal Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Text Literal Param</em>'.
+	 * @return the meta object for the containment reference '<em>Text Literal Param</em>'.
 	 * @see qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getTextLiteralParam()
 	 * @see #getXmlAxisPartCondition()
 	 * @generated
@@ -7669,10 +7669,10 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlAxisPartCondition_TextLiteralParam();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getXmlAxisPart <em>Xml Axis Part</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getXmlAxisPart <em>Xml Axis Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Xml Axis Part</em>'.
+	 * @return the meta object for the container reference '<em>Xml Axis Part</em>'.
 	 * @see qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getXmlAxisPart()
 	 * @see #getXmlAxisPartCondition()
 	 * @generated
@@ -7949,7 +7949,7 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME = eINSTANCE.getXmlPropertyOptionParam_AttributeName();
 
 		/**
-		 * The meta object literal for the '<em><b>Xml Axis Part Condition</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Xml Axis Part Condition</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8065,7 +8065,7 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference XML_AXIS_PART__XML_PATH_PARAM = eINSTANCE.getXmlAxisPart_XmlPathParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Xml Axis Part Conditions</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Xml Axis Part Conditions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8231,7 +8231,7 @@ public interface AdaptionxmlPackage extends EPackage {
 		EClass XML_AXIS_PART_CONDITION = eINSTANCE.getXmlAxisPartCondition();
 
 		/**
-		 * The meta object literal for the '<em><b>Xml Property Option</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Xml Property Option</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8239,7 +8239,7 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference XML_AXIS_PART_CONDITION__XML_PROPERTY_OPTION = eINSTANCE.getXmlAxisPartCondition_XmlPropertyOption();
 
 		/**
-		 * The meta object literal for the '<em><b>Text Literal Param</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Text Literal Param</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8247,7 +8247,7 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference XML_AXIS_PART_CONDITION__TEXT_LITERAL_PARAM = eINSTANCE.getXmlAxisPartCondition_TextLiteralParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Xml Axis Part</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Xml Axis Part</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

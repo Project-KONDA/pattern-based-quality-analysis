@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
@@ -37,7 +38,7 @@ import qualitypatternmodel.utility.ConstantsXml;
  */
 public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPartCondition {
 	/**
-	 * The cached value of the '{@link #getXmlPropertyOption() <em>Xml Property Option</em>}' reference.
+	 * The cached value of the '{@link #getXmlPropertyOption() <em>Xml Property Option</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getXmlPropertyOption()
@@ -47,7 +48,7 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 	protected XmlPropertyOptionParam xmlPropertyOption;
 
 	/**
-	 * The cached value of the '{@link #getTextLiteralParam() <em>Text Literal Param</em>}' reference.
+	 * The cached value of the '{@link #getTextLiteralParam() <em>Text Literal Param</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTextLiteralParam()
@@ -57,21 +58,11 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 	protected TextLiteralParam textLiteralParam;
 
 	/**
-	 * The cached value of the '{@link #getXmlAxisPart() <em>Xml Axis Part</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getXmlAxisPart()
-	 * @generated
-	 * @ordered
+	 * @generated NOT
 	 */
-	protected XmlAxisPart xmlAxisPart;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected XmlAxisPartConditionImpl() {
+	public XmlAxisPartConditionImpl() {
 		super();
 	}
 	
@@ -147,23 +138,6 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 	 */
 	@Override
 	public XmlPropertyOptionParam getXmlPropertyOption() {
-		if (xmlPropertyOption != null && xmlPropertyOption.eIsProxy()) {
-			InternalEObject oldXmlPropertyOption = (InternalEObject)xmlPropertyOption;
-			xmlPropertyOption = (XmlPropertyOptionParam)eResolveProxy(oldXmlPropertyOption);
-			if (xmlPropertyOption != oldXmlPropertyOption) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_PROPERTY_OPTION, oldXmlPropertyOption, xmlPropertyOption));
-			}
-		}
-		return xmlPropertyOption;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public XmlPropertyOptionParam basicGetXmlPropertyOption() {
 		return xmlPropertyOption;
 	}
 
@@ -209,23 +183,6 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 	 */
 	@Override
 	public TextLiteralParam getTextLiteralParam() {
-		if (textLiteralParam != null && textLiteralParam.eIsProxy()) {
-			InternalEObject oldTextLiteralParam = (InternalEObject)textLiteralParam;
-			textLiteralParam = (TextLiteralParam)eResolveProxy(oldTextLiteralParam);
-			if (textLiteralParam != oldTextLiteralParam) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.XML_AXIS_PART_CONDITION__TEXT_LITERAL_PARAM, oldTextLiteralParam, textLiteralParam));
-			}
-		}
-		return textLiteralParam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TextLiteralParam basicGetTextLiteralParam() {
 		return textLiteralParam;
 	}
 
@@ -271,24 +228,8 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 	 */
 	@Override
 	public XmlAxisPart getXmlAxisPart() {
-		if (xmlAxisPart != null && xmlAxisPart.eIsProxy()) {
-			InternalEObject oldXmlAxisPart = (InternalEObject)xmlAxisPart;
-			xmlAxisPart = (XmlAxisPart)eResolveProxy(oldXmlAxisPart);
-			if (xmlAxisPart != oldXmlAxisPart) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_AXIS_PART, oldXmlAxisPart, xmlAxisPart));
-			}
-		}
-		return xmlAxisPart;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public XmlAxisPart basicGetXmlAxisPart() {
-		return xmlAxisPart;
+		if (eContainerFeatureID() != AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_AXIS_PART) return null;
+		return (XmlAxisPart)eInternalContainer();
 	}
 
 	/**
@@ -297,12 +238,7 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 	 * @generated
 	 */
 	public NotificationChain basicSetXmlAxisPart(XmlAxisPart newXmlAxisPart, NotificationChain msgs) {
-		XmlAxisPart oldXmlAxisPart = xmlAxisPart;
-		xmlAxisPart = newXmlAxisPart;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_AXIS_PART, oldXmlAxisPart, newXmlAxisPart);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eBasicSetContainer((InternalEObject)newXmlAxisPart, AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_AXIS_PART, msgs);
 		return msgs;
 	}
 
@@ -313,10 +249,12 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 	 */
 	@Override
 	public void setXmlAxisPart(XmlAxisPart newXmlAxisPart) {
-		if (newXmlAxisPart != xmlAxisPart) {
+		if (newXmlAxisPart != eInternalContainer() || (eContainerFeatureID() != AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_AXIS_PART && newXmlAxisPart != null)) {
+			if (EcoreUtil.isAncestor(this, newXmlAxisPart))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (xmlAxisPart != null)
-				msgs = ((InternalEObject)xmlAxisPart).eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_PART_CONDITIONS, XmlAxisPart.class, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
 			if (newXmlAxisPart != null)
 				msgs = ((InternalEObject)newXmlAxisPart).eInverseAdd(this, AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_PART_CONDITIONS, XmlAxisPart.class, msgs);
 			msgs = basicSetXmlAxisPart(newXmlAxisPart, msgs);
@@ -336,15 +274,15 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 		switch (featureID) {
 			case AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_PROPERTY_OPTION:
 				if (xmlPropertyOption != null)
-					msgs = ((InternalEObject)xmlPropertyOption).eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION, XmlPropertyOptionParam.class, msgs);
+					msgs = ((InternalEObject)xmlPropertyOption).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_PROPERTY_OPTION, null, msgs);
 				return basicSetXmlPropertyOption((XmlPropertyOptionParam)otherEnd, msgs);
 			case AdaptionxmlPackage.XML_AXIS_PART_CONDITION__TEXT_LITERAL_PARAM:
 				if (textLiteralParam != null)
-					msgs = ((InternalEObject)textLiteralParam).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART_CONDITION, TextLiteralParam.class, msgs);
+					msgs = ((InternalEObject)textLiteralParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionxmlPackage.XML_AXIS_PART_CONDITION__TEXT_LITERAL_PARAM, null, msgs);
 				return basicSetTextLiteralParam((TextLiteralParam)otherEnd, msgs);
 			case AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_AXIS_PART:
-				if (xmlAxisPart != null)
-					msgs = ((InternalEObject)xmlAxisPart).eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_PART_CONDITIONS, XmlAxisPart.class, msgs);
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetXmlAxisPart((XmlAxisPart)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -374,17 +312,28 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_AXIS_PART:
+				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_PART_CONDITIONS, XmlAxisPart.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_PROPERTY_OPTION:
-				if (resolve) return getXmlPropertyOption();
-				return basicGetXmlPropertyOption();
+				return getXmlPropertyOption();
 			case AdaptionxmlPackage.XML_AXIS_PART_CONDITION__TEXT_LITERAL_PARAM:
-				if (resolve) return getTextLiteralParam();
-				return basicGetTextLiteralParam();
+				return getTextLiteralParam();
 			case AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_AXIS_PART:
-				if (resolve) return getXmlAxisPart();
-				return basicGetXmlAxisPart();
+				return getXmlAxisPart();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -444,7 +393,7 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 			case AdaptionxmlPackage.XML_AXIS_PART_CONDITION__TEXT_LITERAL_PARAM:
 				return textLiteralParam != null;
 			case AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_AXIS_PART:
-				return xmlAxisPart != null;
+				return getXmlAxisPart() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -458,18 +407,6 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 		return getTextLiteralParam().inputIsValid();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String generateDescription() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
 	@Override
 	public String myToString() {
 		String result = "[cond(" + getInternalId() + "): ";
@@ -478,6 +415,12 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 		if (getTextLiteralParam() != null)
 			result += getTextLiteralParam();
 		return result += "]";
+	}
+
+	@Override
+	public String generateDescription() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 } //XmlAxisPartConditionImpl
