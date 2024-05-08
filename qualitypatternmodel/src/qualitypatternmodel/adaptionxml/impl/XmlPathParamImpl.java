@@ -1042,7 +1042,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 				setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
 			getXmlPropertyOptionParam().setValueFromString(current);
 		} else 
-			throw new InvalidityException("invalid type");
+			throw new InvalidityException("invalid type " + getXmlNavigation().getClass().getSimpleName());
 	}
 
 	/**

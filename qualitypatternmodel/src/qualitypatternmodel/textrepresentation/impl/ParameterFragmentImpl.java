@@ -5,9 +5,11 @@ package qualitypatternmodel.textrepresentation.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -20,11 +22,15 @@ import org.json.JSONObject;
 
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlNode;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.Parameter;
@@ -486,6 +492,49 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 					enable.put("if", cond);
 					json.put("enable", enable);
 				}	
+			if (parameter instanceof XmlPathParam) {
+				
+				EList<Parameter> parameters = getParameter();
+				
+				EList<XmlNavigation> navs = new BasicEList<XmlNavigation>();
+				for (Parameter p: parameters)
+					if (p instanceof XmlPathParam)
+						navs.add(((XmlPathParam)p).getXmlNavigation());
+				
+				EList<Node> nodes = new BasicEList<Node>();
+				for (XmlNavigation nav: navs)
+					if (nav.getSource() instanceof XmlNode)
+						nodes.add(nav.getSource());
+				
+				EList<XmlNavigation> sourcenavs = new BasicEList<XmlNavigation>();
+				for (Node node: nodes)
+					for (Relation r: node.getIncoming())
+						if (r instanceof XmlNavigation)
+							sourcenavs.add((XmlNavigation) r);
+				
+				EList<XmlPathParam> sourceparams = new BasicEList<XmlPathParam>();
+				for (XmlNavigation sn: sourcenavs)
+					if (sn.getXmlPathParam() != null)
+						sourceparams.add(sn.getXmlPathParam());
+				
+				EList<ParameterReference> sourcefrags = new BasicEList<ParameterReference>();
+				for (XmlPathParam sp: sourceparams)
+					if (sp.getParameterReferences() != null)
+						sourcefrags.addAll(sp.getParameterReferences());
+				
+				HashSet<String> fragids = new HashSet<String>();
+				for (ParameterReference sourcefrag: sourcefrags)
+					if (sourcefrag instanceof ParameterFragment)
+						fragids.add(((ParameterFragment)sourcefrag).getId());
+				if(fragids.isEmpty()) System.out.println("fragids empty");
+				else System.out.println("X");
+				
+				if (!fragids.isEmpty()) {
+//					if (fragids.size() == 1)
+//						json.put("startpoint", fragids.iterator().next());
+//					else
+					json.put("startpoint", new JSONArray(fragids));
+				} 
 			}
 		} catch (JSONException e) {}
 		return json;
