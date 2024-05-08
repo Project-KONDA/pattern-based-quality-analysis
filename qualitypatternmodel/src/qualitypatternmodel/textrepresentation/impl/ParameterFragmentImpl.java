@@ -471,13 +471,13 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 					json.put("typeModifiable", true);
 				}
 			}
-			if (parameter instanceof TextLiteralParamImpl) {
+			else if (parameter instanceof TextLiteralParamImpl) {
 				TextLiteralParamImpl textLiteral = (TextLiteralParamImpl) parameter;
 				if(textLiteral.getXmlPropertyOptionParam() != null && textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
 					json.put("dependant", true);
 				}
 			}
-			if (parameter instanceof XmlPropertyOptionParamImpl) {
+			else if (parameter instanceof XmlPropertyOptionParamImpl) {
 				XmlPropertyOptionParamImpl propertyOption = (XmlPropertyOptionParamImpl) parameter;
 //				Node node = propertyOption.getXmlPathParam().getXmlNavigation().getTarget();
 //				XmlProperty xmlProperty = (XmlProperty) node;
@@ -491,8 +491,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 					enable.put("parameter", id);
 					enable.put("if", cond);
 					json.put("enable", enable);
-				}	
-			if (parameter instanceof XmlPathParam) {
+				}
+			}
+			else if (parameter instanceof XmlPathParam) {
 				
 				EList<Parameter> parameters = getParameter();
 				
