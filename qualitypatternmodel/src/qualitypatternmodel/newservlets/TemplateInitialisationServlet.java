@@ -51,28 +51,28 @@ public class TemplateInitialisationServlet extends HttpServlet {
 				pattern.isValid(AbstractionLevel.GENERIC);
 				EMFModelSave.exportToFile2(pattern, ServletUtilities.PATTERNFOLDER + "/generic-patterns", pattern.getPatternId(), ServletUtilities.EXTENSION);
 			}
-			ServletUtilities.log("generic Patterns created successfully in: " 
+			ServletUtilities.log("generic Patterns created: " 
 					+ ServletUtilities.PATTERNFOLDER + "/generic-patterns");
 			
 			for (CompletePattern pattern: XmlPatterns.getAllXmlPattern()) {
 				pattern.isValid(AbstractionLevel.ABSTRACT);				
 				EMFModelSave.exportToFile2(pattern, ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.XML + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
 			}
-			ServletUtilities.log("XML-specific Patterns created successfully in: " 
+			ServletUtilities.log("XML Patterns created:     " 
 					+ ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.XML + "/" + ServletUtilities.TEMPLATEFOLDER);
 			
 			for (CompletePattern pattern: RdfPatterns.getAllRdfPattern()) {
 				pattern.isValid(AbstractionLevel.ABSTRACT);
 				EMFModelSave.exportToFile2(pattern, ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.RDF + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
 			}
-			ServletUtilities.log("RDF-specific Patterns created successfully in: " 
+			ServletUtilities.log("RDF Patterns created:     " 
 					+ ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.RDF + "/" + ServletUtilities.TEMPLATEFOLDER);
 			
 			for (CompletePattern pattern: Neo4jPatterns.getAllNeoPattern()) {
 				pattern.isValid(AbstractionLevel.ABSTRACT);
 				EMFModelSave.exportToFile2(pattern, ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
 			}
-			ServletUtilities.log("NEO4J-specific Patterns created successfully in: " 
+			ServletUtilities.log("NEO4J Patterns created:   " 
 					+ ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER);
 		} catch (IOException e) {
 			ServletUtilities.logError(e);
