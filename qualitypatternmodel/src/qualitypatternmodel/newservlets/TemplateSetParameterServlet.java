@@ -169,20 +169,28 @@ public class TemplateSetParameterServlet extends HttpServlet {
 				try {
 					Object value = ob.get("value");
 					frag.setValue((String) value);
-				} catch (InvalidityException e1) {
+					ServletUtilities.log(frag.getId() + " value set to '" + value + "'");
+				} catch (JSONException e) { // if value not found
+				} catch (Exception e1) {
+					ServletUtilities.logError(e1);
 					result = false;
-				} catch (JSONException e) {} // if value not found
+				}
 				try {
 					Object userValue = ob.get("userValue");
-					frag.setValue((String) userValue);
-				} catch (InvalidityException e1) {
+					frag.setUserValue((String) userValue);
+					ServletUtilities.log(frag.getId() + " userValue set to '" + userValue + "'");
+				} catch (JSONException e) { // if userValue not found
+					
+				} catch (Exception e1) {
+					ServletUtilities.logError(e1);
 					result = false;
-				} catch (JSONException e) {} // if userValue not found
+				}
 			} catch (JSONException e) {
 				try {
 					frag.setValue(val);
+					ServletUtilities.log(frag.getId() + " value set to '" + val + "'");
 				} catch (InvalidityException e1) {
-					e1.printStackTrace();
+					ServletUtilities.logError(e1);
 					result = false;
 				}
 			}
