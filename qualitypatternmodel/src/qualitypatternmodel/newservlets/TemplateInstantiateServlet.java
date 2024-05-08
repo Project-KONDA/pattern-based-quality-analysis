@@ -30,13 +30,13 @@ public class TemplateInstantiateServlet extends HttpServlet {
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+			ServletUtilities.logError(e);
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"1 " + e.getMessage() + "\"}");
 		}
 		catch (FailedServletCallException e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+			ServletUtilities.logError(e);
 	        response.setContentType("application/json");
 	        if (e.getMessage().startsWith("404")) {
 				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -52,7 +52,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 	        }
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+			ServletUtilities.logError(e);
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"4 " + e.getClass().getSimpleName() + " " + e.getMessage() + "\"}");
@@ -101,7 +101,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 					instantiated=true;
 					break;
 				} catch (InvalidityException e) {
-					ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+					ServletUtilities.logError(e);
 					throw new FailedServletCallException("Could not initialize Variant " + textid, e);
 				}
 			}

@@ -282,11 +282,11 @@ public abstract class ServletUtilities {
 		log("OUTPUT: " + text);
 	}
 	
-	public static void logError(String message, StackTraceElement[] stackTrace) {
+	public static void logError(Exception ex) {
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
-        printWriter.println(message);
-        for (StackTraceElement element : stackTrace) {
+        printWriter.println(ex.getMessage());
+        for (StackTraceElement element : ex.getStackTrace()) {
             printWriter.println("    " + element.toString());
         }
         log("ERROR: " + stringWriter.toString());
