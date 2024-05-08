@@ -443,11 +443,14 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 //		String urlsJSON = generateJSONList(urls);
 		JSONObject json = new JSONObject();
 		try {
-			json.put("name", getId());
+			json.put("id", getId());
+			json.put("name", getName());
 			json.put("type", getType());
 			json.put("role", getRole());
 			if (getValue() != null)
 				json.put("value", getValue());
+			if (getUserValue() != null)
+				json.put("userValue", getUserValue());
 			json.put("exampleValue", getExampleValue());
 			
 			if (getValueMap() != null) {

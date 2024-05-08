@@ -20,6 +20,7 @@ import org.json.JSONArray;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
@@ -28,6 +29,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.ParameterList;
@@ -158,8 +160,15 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
-		if (getXmlPathParam() != null)
-			getXmlPathParam().getXmlNavigation().getTarget().checkComparisonConsistency();
+		XmlPathParam xpath = getXmlPathParam();
+		if (xpath != null) {
+			XmlNavigation xnav = xpath.getXmlNavigation(); 
+			if (xnav != null) {
+				Node tar = getXmlPathParam().getXmlNavigation().getTarget();
+				if (tar != null)
+					tar.checkComparisonConsistency();
+			}
+		}
 	}
 	
 	@Override
