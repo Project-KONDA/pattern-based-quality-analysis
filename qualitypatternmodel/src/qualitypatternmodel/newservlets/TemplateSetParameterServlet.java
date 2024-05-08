@@ -1,6 +1,7 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -129,28 +130,28 @@ public class TemplateSetParameterServlet extends HttpServlet {
 	}
 	
 	private static JSONObject changeParameters(CompletePattern pattern, Map<String, String[]> parameterMap) {
+		//setup
 		Set<String> keys = parameterMap.keySet();
 		List<Fragment> fragments = pattern.getText().get(0).getFragmentsOrdered();
-
+		List<ParameterFragment> paramfragments = new ArrayList<ParameterFragment>();
+		
+		for (Fragment frag: fragments)
+			if (frag instanceof ParameterFragment)
+				paramfragments.add((ParameterFragment)frag);
+		
 		JSONArray success = new JSONArray();
 		JSONArray failed = new JSONArray();
+		
+		// change parameters
 		for (String key: keys)
-			for (Fragment fragment: fragments)
-				if (fragment instanceof ParameterFragment) {
-					ParameterFragment frag = (ParameterFragment) fragment;
-					if (frag.getId().equals(key)) {
-						try {
-							String value = parameterMap.get(key)[0];
-							frag.setValue(value);
-							success.put(key);
-						}
-						catch (IndexOutOfBoundsException e) {} 
-						catch (InvalidityException e) {
-							e.printStackTrace();
-							failed.put(key);
-						}
-					}
-				}
+			for (ParameterFragment frag: paramfragments)
+				if (frag.getId().equals(key))
+					if (changeParameterFragment(frag, parameterMap.get(key)))
+						success.put(key);
+					else
+						failed.put(key);
+		
+		// output
 		JSONObject json = new JSONObject();
 		try {
 			json.put("success", success);
@@ -158,5 +159,34 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		} catch (JSONException e) {
 		}
 		return json;
+	}
+	
+	private static boolean changeParameterFragment(ParameterFragment frag, String[] fragvals) {
+		boolean result = true;
+		for (String val: fragvals) {
+			try {
+				JSONObject ob = new JSONObject(val);
+				try {
+					Object value = ob.get("value");
+					frag.setValue((String) value);
+				} catch (InvalidityException e1) {
+					result = false;
+				} catch (JSONException e) {} // if value not found
+				try {
+					Object userValue = ob.get("userValue");
+					frag.setValue((String) userValue);
+				} catch (InvalidityException e1) {
+					result = false;
+				} catch (JSONException e) {} // if userValue not found
+			} catch (JSONException e) {
+				try {
+					frag.setValue(val);
+				} catch (InvalidityException e1) {
+					e.printStackTrace();
+					result = false;
+				}
+			}
+		}
+		return result;	
 	}
 }
