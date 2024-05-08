@@ -49,6 +49,8 @@ public class ParameterFragmentItemProvider extends FragmentItemProvider {
 			addExampleValuePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addValueMapPropertyDescriptor(object);
+			addIdPropertyDescriptor(object);
+			addUserValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -142,6 +144,50 @@ public class ParameterFragmentItemProvider extends FragmentItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ParameterFragment_id_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterFragment_id_feature", "_UI_ParameterFragment_type"),
+				 TextrepresentationPackage.Literals.PARAMETER_FRAGMENT__ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the User Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUserValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ParameterFragment_userValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterFragment_userValue_feature", "_UI_ParameterFragment_type"),
+				 TextrepresentationPackage.Literals.PARAMETER_FRAGMENT__USER_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ParameterFragment.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -181,6 +227,8 @@ public class ParameterFragmentItemProvider extends FragmentItemProvider {
 		switch (notification.getFeatureID(ParameterFragment.class)) {
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__NAME:
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__ID:
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

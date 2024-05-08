@@ -60,6 +60,8 @@ import qualitypatternmodel.utility.Constants;
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getExampleValue <em>Example Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getValueMap <em>Value Map</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getId <em>Id</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getUserValue <em>User Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -128,6 +130,46 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	protected ValueMap valueMap;
 
 	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getUserValue() <em>User Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUserValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String USER_VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUserValue() <em>User Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUserValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String userValue = USER_VALUE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -143,7 +185,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	
 	@Override
 	public String generateSparqlTemplate() throws InvalidityException {
-		return "?" + getName();
+		return "?" + getId();
 	}
 
 	/**
@@ -221,6 +263,52 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * @generated
 	 */
 	@Override
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getUserValue() {
+		return userValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setUserValue(String newUserValue) {
+		String oldUserValue = userValue;
+		userValue = newUserValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE, oldUserValue, userValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ValueMap getValueMap() {
 		return valueMap;
 	}
@@ -283,12 +371,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		}
 		Parameter parameter = getParameter().get(0);
 		String urlsJSON = generateJSONList(urls);
-		String name = getName();
+		String id = getId();
 		String value = parameter.getValueAsString();
 		String type = getType();
 		String role = getRole();
 		String exampleValue = getExampleValue();		
-		String json = "{\"Name\": \"" + name + "\", \"URLs\": " + urlsJSON + ", \"Type\": \"" + type + "\", \"Role\": \"" + role + "\"";
+		String json = "{\"Name\": \"" + id + "\", \"URLs\": " + urlsJSON + ", \"Type\": \"" + type + "\", \"Role\": \"" + role + "\"";
 		if(value != null) {
 			if(!(parameter instanceof TextListParamImpl) && !(parameter instanceof NumberParamImpl) && !(parameter instanceof BooleanParamImpl)) {
 				value = "\"" + value + "\"";
@@ -329,10 +417,10 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			TextLiteralParam textLiteral = propertyOption.getAttributeName();
 			if(textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
 				int dependentParameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(textLiteral);
-				String id = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(dependentParameterID);
+				String uri = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(dependentParameterID);
 				String cond = XmlPropertyKind.ATTRIBUTE.getLiteral();
 				json += ", \"Enable\": {";
-				json += "\"Parameter\": \"" + id + "\"";
+				json += "\"Parameter\": \"" + uri + "\"";
 				json += ", \"If\": \"" + cond + "\"";
 				json += "}";
 				
@@ -355,7 +443,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 //		String urlsJSON = generateJSONList(urls);
 		JSONObject json = new JSONObject();
 		try {
-			json.put("name", getName());
+			json.put("name", getId());
 			json.put("type", getType());
 			json.put("role", getRole());
 			if (getValue() != null)
@@ -647,6 +735,10 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return getName();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
 				return getValueMap();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__ID:
+				return getId();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE:
+				return getUserValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -673,6 +765,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
 				setValueMap((ValueMap)newValue);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__ID:
+				setId((String)newValue);
+				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE:
+				setUserValue((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -697,6 +795,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
 				setValueMap((ValueMap)null);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE:
+				setUserValue(USER_VALUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -717,6 +821,10 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
 				return valueMap != null;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE:
+				return USER_VALUE_EDEFAULT == null ? userValue != null : !USER_VALUE_EDEFAULT.equals(userValue);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -820,6 +928,10 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		result.append(exampleValue);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", id: ");
+		result.append(id);
+		result.append(", userValue: ");
+		result.append(userValue);
 		result.append(')');
 		return result.toString();
 	}

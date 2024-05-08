@@ -56,17 +56,17 @@ public class DemoTextFunc {
 		ParameterFragment path1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path1.getParameter().add(p4);
 		path1.getParameter().add(p9);
-		path1.setName("path1");
+		path1.setId("path1");
 		
 		ParameterFragment path2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path2.getParameter().add(p5);
 		path2.getParameter().add(p7);
-		path2.setName("path2");
+		path2.setId("path2");
 		
 		ParameterFragment path3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path3.getParameter().add(p6);
 		path3.getParameter().add(p8);
-		path3.setName("path3");
+		path3.setId("path3");
 		
 //		Are there two elements reached by <path1> that have equal values at property reached by <path2> but differ at the property reached by <path3>?
 		patternText.addFragment(new TextFragmentImpl("Are there two elements reached by "));

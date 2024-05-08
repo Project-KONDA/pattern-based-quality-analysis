@@ -73,7 +73,7 @@ public class RdfTest10Template {
 		
 		ParameterFragment paramTagNameParent = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		paramTagNameParent.getParameter().add(iriParam);
-		paramTagNameParent.setName("country");
+		paramTagNameParent.setId("country");
 		paramTagNameParent.setExampleValue("wd:Q30");
 		
 		patternText.getParameterPredefinitions().add(paramPredef0);

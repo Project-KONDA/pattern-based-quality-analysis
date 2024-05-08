@@ -138,7 +138,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("Search for"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("architect");
 				frag1.getParameter().add(path1);
 				variant.addFragment(frag1);
@@ -146,7 +146,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("that do have"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("comparison_operator");
+				frag2.setId("comparison_operator");
 				frag2.getParameter().add(comp);
 				frag2.setComparisonOperatorValueMap();
 				frag2.setExampleValue(frag2.getValueMap().get(ComparisonOperator.GREATER.getName()));
@@ -154,14 +154,14 @@ public class XmlPatterns {
 			}
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("number");
+				frag3.setId("number");
 				frag3.getParameter().add(numb);
 				frag3.setExampleValue("1");
 				variant.addFragment(frag3);
 			}
 			{
 				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag4.setName("xmlpath_returnToCondition");
+				frag4.setId("xmlpath_returnToCondition");
 				frag4.getParameter().add(path2);
 				frag4.setExampleValue("year of birth");
 				variant.addFragment(frag4);
@@ -177,7 +177,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("Is there a"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("architect");
 				frag1.getParameter().add(path1);
 				variant1.addFragment(frag1);
@@ -185,7 +185,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("with more than one"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(path2);
 				frag2.setExampleValue("year of birth");
 				variant1.addFragment(frag2);
@@ -216,7 +216,7 @@ public class XmlPatterns {
 			variant2.addFragment(new TextFragmentImpl("Is there a"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.getParameter().add(path1);
 				frag1.setExampleValue("building");
 				variant2.addFragment(frag1);
@@ -224,7 +224,7 @@ public class XmlPatterns {
 			variant2.addFragment(new TextFragmentImpl("that has"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("comparison_operator");
+				frag2.setId("comparison_operator");
 				frag2.getParameter().add(comp);
 				frag2.setComparisonOperatorValueMap();
 				frag2.setExampleValue(frag2.getValueMap().get(ComparisonOperator.GREATER.getName()));
@@ -232,14 +232,14 @@ public class XmlPatterns {
 			}
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("number");
+				frag3.setId("number");
 				frag3.getParameter().add(numb);
 				frag3.setExampleValue("1");
 				variant2.addFragment(frag3);
 			}
 			{
 				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag4.setName("xmlpath_returnToCondition");
+				frag4.setId("xmlpath_returnToCondition");
 				frag4.getParameter().add(path2);
 				frag4.setExampleValue("current place");
 				variant2.addFragment(frag4);
@@ -279,7 +279,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("Search for"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("architect");
 				frag1.getParameter().add(p2);
 				variant1.addFragment(frag1);
@@ -287,14 +287,14 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("where any"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(p3);
 				frag2.setExampleValue("year of birth");
 				variant1.addFragment(frag2);
 			}
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("negation");
+				frag3.setId("negation");
 				frag3.getParameter().add(p0);
 				ValueMap map = new ValueMapImpl();
 				map.put("true", "does");
@@ -306,7 +306,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("match"));
 			{
 				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag4.setName("RegEx");
+				frag4.setId("RegEx");
 				frag4.getParameter().add(p1);
 				frag4.setExampleValue("[0-9][0-9.]*");
 				variant1.addFragment(frag4);
@@ -341,7 +341,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("Search for"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("architect");
 				frag1.getParameter().add(p2);
 				variant1.addFragment(frag1);
@@ -349,14 +349,14 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("where at least one value in"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(p3);
 				frag2.setExampleValue("year of birth");
 				variant1.addFragment(frag2);
 			}
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("negation");
+				frag3.setId("negation");
 				frag3.getParameter().add(p0);
 				ValueMap map = new ValueMapImpl();
 				map.put("true", "does");
@@ -368,7 +368,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("contain"));
 			{
 				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag4.setName("substring");
+				frag4.setId("substring");
 				frag4.getParameter().add(p1);
 				frag4.setExampleValue("a");
 				variant1.addFragment(frag4);
@@ -405,7 +405,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("Search for"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("record");
 				frag1.getParameter().add(path1);
 				variant1.addFragment(frag1);
@@ -413,14 +413,14 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("where any value of"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(path2);
 				frag2.setExampleValue("sourcefield");
 				variant1.addFragment(frag2);
 			}
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("negation");
+				frag3.setId("negation");
 				frag3.getParameter().add(bool);
 				ValueMap map = new ValueMapImpl();
 				map.put("true", "does");
@@ -440,7 +440,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("Is there a"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("record");
 				frag1.getParameter().add(path1);
 				variant1.addFragment(frag1);
@@ -448,7 +448,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("where the link in the"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(path2);
 				frag2.setExampleValue("sourcefield");
 				variant1.addFragment(frag2);
@@ -456,7 +456,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("element is"));
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("negation");
+				frag3.setId("negation");
 				frag3.getParameter().add(bool);
 				ValueMap map = new ValueMapImpl();
 				map.put("true", "does");
@@ -495,7 +495,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("Search for"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("records");
 				frag1.getParameter().add(p0);
 				variant.addFragment(frag1);
@@ -503,7 +503,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("that have no"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(p1);
 				frag2.setExampleValue("sourcefield");
 				variant.addFragment(frag2);
@@ -540,7 +540,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("Search for"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("records");
 				frag1.getParameter().add(p2);
 				variant.addFragment(frag1);
@@ -548,7 +548,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("where the length of at least one value of"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(p3);
 				frag2.setExampleValue("sourcefield");
 				variant.addFragment(frag2);
@@ -556,7 +556,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("is"));
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("comparison_operator");
+				frag3.setId("comparison_operator");
 				frag3.getParameter().add(p0);
 				frag3.setExampleValue(ComparisonOperator.GREATER.getName());
 				frag3.setComparisonOperatorValueMap();
@@ -565,7 +565,7 @@ public class XmlPatterns {
 			}
 			{
 				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag4.setName("number");
+				frag4.setId("number");
 				frag4.getParameter().add(p1);
 				frag4.setExampleValue("1");
 				variant.addFragment(frag4);
@@ -605,7 +605,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("Search for"));
 			{ // records
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("records");
 				frag1.getParameter().add(p2);
 				frag1.getParameter().add(p5);
@@ -614,7 +614,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("where a value of"));
 			{ // field
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(p3);
 				frag2.getParameter().add(p4);
 				frag2.setExampleValue("sourcefield");
@@ -653,7 +653,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("Search for"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("records");
 				frag1.getParameter().add(p3);
 				variant.addFragment(frag1);
@@ -661,14 +661,14 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("where at least one value in"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(p4);
 				frag2.setExampleValue("sourcefield");
 				variant.addFragment(frag2);
 			}
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("comparison_operator");
+				frag3.setId("comparison_operator");
 				frag3.getParameter().add(p1);
 				ValueMap map = new ValueMapImpl();
 				map.put(ComparisonOperator.EQUAL.getName(), "is");
@@ -680,7 +680,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("in the list:"));
 			{
 				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag4.setName("valuelist");
+				frag4.setId("valuelist");
 				frag4.getParameter().add(p0);
 //				frag4.setExampleValue("");
 				variant.addFragment(frag4);

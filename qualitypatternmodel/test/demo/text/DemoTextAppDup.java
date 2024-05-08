@@ -55,22 +55,22 @@ public class DemoTextAppDup {
 		ParameterFragment path1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path1.getParameter().add(p2);
 		path1.getParameter().add(p3);
-		path1.setName("path1");
+		path1.setId("path1");
 		
 		ParameterFragment path2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path2.getParameter().add(p4);
 		path2.getParameter().add(p5);
-		path2.setName("path2");
+		path2.setId("path2");
 		
 		ParameterFragment path3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path3.getParameter().add(p6);
 		path3.getParameter().add(p7);
-		path3.setName("path3");
+		path3.setId("path3");
 		
 		ParameterFragment path4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path4.getParameter().add(p8);
 		path4.getParameter().add(p9);
-		path4.setName("path4");
+		path4.setId("path4");
 		
 		patternText.addFragment(new TextFragmentImpl("Are there two distinct elements, each reached by "));
 		patternText.addFragment(path1);

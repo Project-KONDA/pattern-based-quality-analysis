@@ -138,7 +138,7 @@ public class TemplateSetParameterServlet extends HttpServlet {
 			for (Fragment fragment: fragments)
 				if (fragment instanceof ParameterFragment) {
 					ParameterFragment frag = (ParameterFragment) fragment;
-					if (frag.getName().equals(key)) {
+					if (frag.getId().equals(key)) {
 						try {
 							String value = parameterMap.get(key)[0];
 							frag.setValue(value);

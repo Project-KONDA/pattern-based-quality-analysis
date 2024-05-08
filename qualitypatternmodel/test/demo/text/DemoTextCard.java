@@ -54,7 +54,7 @@ public class DemoTextCard {
 
 		ParameterFragment path1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path1.getParameter().add(p2);
-		path1.setName("path1");
+		path1.setId("path1");
 		
 
 //		Is there an element reached by <path1> that has more than one child element?
@@ -102,19 +102,19 @@ public class DemoTextCard {
 
 		ParameterFragment path1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path1.getParameter().add(p2);
-		path1.setName("path1");
+		path1.setId("path1");
 		
 		ParameterFragment comp = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		comp.getParameter().add(p0);
-		comp.setName("comp");
+		comp.setId("comp");
 		
 		ParameterFragment number = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		number.getParameter().add(p1);
-		number.setName("number");
+		number.setId("number");
 		
 		ParameterFragment path2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path2.getParameter().add(p3);
-		path2.setName("path2");
+		path2.setId("path2");
 		
 //		ParameterFragment path3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 //		path3.getParameter().add(p);

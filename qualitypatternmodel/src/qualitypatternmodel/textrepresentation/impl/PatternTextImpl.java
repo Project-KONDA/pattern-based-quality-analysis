@@ -404,11 +404,11 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			if(f instanceof ParameterFragment) {
 				ParameterFragment frag = (ParameterFragment) f;
 				for(String n : names) {
-					if(n.equals(frag.getName())) {
-						throw new InvalidityException("Parameter fragment name not unique: " + frag.getName());
+					if(n.equals(frag.getId())) {
+						throw new InvalidityException("Parameter fragment name not unique: " + frag.getId());
 					}
 				}					
-				names.add(frag.getName());
+				names.add(frag.getId());
 			}
 		}
 	}
@@ -485,9 +485,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				ParameterFragment p = (ParameterFragment) f;
 				if(p.getExampleValue() != null) {
 //					binds += "BIND(" + p.getExampleValue() + " AS ?" + p.getName() + ")";
-					binds += "\n  BIND(" + p.getExampleValue() + " AS ?" + p.getName() + ").";
+					binds += "\n  BIND(" + p.getExampleValue() + " AS ?" + p.getId() + ").";
 				}
-				fragmentVars.add("?"+p.getName());
+				fragmentVars.add("?"+p.getId());
 			}
 			c++;
 		}

@@ -124,7 +124,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			for(ParameterReference r : getParameterReferences()) {
 				if(r instanceof ParameterFragment) {
 					ParameterFragment p = (ParameterFragment) r;
-					return "?" + p.getName();
+					return "?" + p.getId();
 				}
 			}
 			for(ParameterReference r : getParameterReferences()) {
