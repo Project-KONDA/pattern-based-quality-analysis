@@ -996,6 +996,17 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 */
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		Boolean isValue = getXmlNavigation() instanceof XmlElementNavigation;
+		Boolean isProperty = getXmlNavigation() instanceof XmlPropertyNavigation;
+		
+		if (!(isValue || isProperty))
+			throw new InvalidityException("Invalid Dangling XmlPathParam");
+		
+		if(isValue && !value.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT))
+			throw new InvalidityException("Invalid XPath value '" + value + "'. It should specify an XML element.");
+		if(isProperty && !value.matches(ConstantsXml.REGEX_XMLPATH_VALUE))
+			throw new InvalidityException("Invalid XPath value '" + value + "'. It should specify an XML property.");
+		
 //		value = value.replace("//", "/descendant::");
 		if (value == "") {
 			getXmlAxisParts().clear();
@@ -1031,13 +1042,13 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			part.setValueFromString(v);
 		}
 		
-		if (getXmlNavigation() instanceof XmlElementNavigation) {
-			if (!current.equals("")) {
-				throw new InvalidityException("invalid rest value for XmlElementNavigation: " + current);
+		if (isValue) {
+			if (!current.trim().equals("")) {
+				throw new InvalidityException("invalid rest value for XmlElementNavigation: '" + current + "' but should be ''");
 			}
-		} else if (getXmlNavigation() instanceof XmlPropertyNavigation) {
+		} else if (isProperty) {
 			if (!current.matches(ConstantsXml.REGEX_PROPERTY_PART))
-				throw new InvalidityException("invalid rest value for XmlElementNavigation: " + current);
+				throw new InvalidityException("invalid rest value for XmlElementNavigation: '" + current + "' does not specify a value");
 			if (getXmlPropertyOptionParam() == null)
 				setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
 			getXmlPropertyOptionParam().setValueFromString(current);
