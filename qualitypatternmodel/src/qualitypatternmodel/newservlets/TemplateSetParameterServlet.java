@@ -45,9 +45,13 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		}
 		catch (FailedServletCallException e) {
 			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			if (e.getMessage().startsWith("404")) {
+				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+		        response.setContentType("application/json");
+				response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			}
+			else
+				response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
 		}
 		catch (Exception e) {
 			ServletUtilities.logError(e);
@@ -76,7 +80,7 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		try {
 			pattern = ServletUtilities.loadConstraint(technology, constraintId);
 		} catch (IOException e) {
-			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
+			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist", e);
 		}
 		
 		// 2. change patterns
@@ -146,10 +150,14 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		for (String key: keys)
 			for (ParameterFragment frag: paramfragments)
 				if (frag.getId().equals(key))
-					if (changeParameterFragment(frag, parameterMap.get(key)))
-						success.put(key);
-					else
+					try {
+						if (changeParameterFragment(frag, parameterMap.get(key)))
+							success.put(key);
+						else
+							failed.put(key);
+					} catch (InvalidityException e) {
 						failed.put(key);
+					}
 		
 		// output
 		JSONObject json = new JSONObject();
@@ -161,39 +169,37 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		return json;
 	}
 	
-	private static boolean changeParameterFragment(ParameterFragment frag, String[] fragvals) {
+	private static boolean changeParameterFragment(ParameterFragment frag, String[] fragvals) throws InvalidityException {
 		boolean result = true;
-		for (String val: fragvals) {
-			try {
-				JSONObject ob = new JSONObject(val);
-				try {
-					Object value = ob.get("value");
-					frag.setValue((String) value);
-					ServletUtilities.log(frag.getId() + " value set to '" + value + "'");
-				} catch (JSONException e) { // if value not found
-				} catch (Exception e1) {
-					ServletUtilities.logError(e1);
-					result = false;
-				}
-				try {
-					Object userValue = ob.get("userValue");
-					frag.setUserValue((String) userValue);
-					ServletUtilities.log(frag.getId() + " userValue set to '" + userValue + "'");
-				} catch (JSONException e) { // if userValue not found
-					
-				} catch (Exception e1) {
-					ServletUtilities.logError(e1);
-					result = false;
-				}
-			} catch (JSONException e) {
-				try {
-					frag.setValue(val);
-					ServletUtilities.log(frag.getId() + " value set to '" + val + "'");
-				} catch (InvalidityException e1) {
-					ServletUtilities.logError(e1);
-					result = false;
-				}
-			}
+		if (fragvals.length != 1)
+			throw new InvalidityException("multiple values for a single parameter");
+		String val = fragvals[0];
+		String oldValue = frag.getValue();
+		String oldUserValue = frag.getUserValue();
+		
+		String newValue = null;
+		String newUserValue = null;
+		
+		JSONObject ob = null;
+		try {
+			ob = new JSONObject(val);
+		} catch (JSONException e) {}
+		
+		if (ob != null)
+			try {	
+				newValue = (String) ob.get("value");
+				newUserValue = (String) ob.get("userValue");
+			} catch (JSONException e) {}
+		else
+			newValue = val;
+
+		try {
+			frag.setValue(newValue);
+			frag.setUserValue(newUserValue);
+		} catch (InvalidityException e) {
+			frag.setValue(oldValue);
+			frag.setUserValue(oldUserValue);
+			result = false;
 		}
 		return result;	
 	}
