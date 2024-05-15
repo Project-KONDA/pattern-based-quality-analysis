@@ -38,11 +38,11 @@ public class InstantiationTest {
         
         List<String> listInstantiate = List.of(
         		"/xml/StringLength_xml/default",
-        		"/xml/Card_xml/flexible_search",
-        		"/xml/Card_xml/simple_question",
-        		"/xml/Card_xml/flexible_question",
-        		"/xml/Contains_xml/simple",
-        		"/xml/Match_xml/simple",
+        		"/xml/Card_xml/default",
+        		"/xml/Card_xml/question",
+        		"/xml/Card_xml/question_simple",
+        		"/xml/Contains_xml/default",
+        		"/xml/Match_xml/default",
         		"/xml/MandAtt_xml/default",
         		"/xml/CompSet_xml/default",
         		"/xml/InvalidLink_xml/default",

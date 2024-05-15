@@ -527,8 +527,6 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				for (ParameterReference sourcefrag: sourcefrags)
 					if (sourcefrag instanceof ParameterFragment)
 						fragids.add(((ParameterFragment)sourcefrag).getId());
-				if(fragids.isEmpty()) System.out.println("fragids empty");
-				else System.out.println("X");
 				
 				if (!fragids.isEmpty()) {
 //					if (fragids.size() == 1)
