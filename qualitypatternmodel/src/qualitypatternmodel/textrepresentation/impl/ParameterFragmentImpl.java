@@ -53,6 +53,8 @@ import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsXml;
+ 
 
 /**
  * <!-- begin-user-doc -->
@@ -364,6 +366,67 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		map.put(ComparisonOperator.GREATEROREQUAL.getName(), "greater than or equal to");
 		map.put(ComparisonOperator.LESSOREQUAL.getName(), "less than or equal to");
 		setValueMap(map);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean setAttributeValue(String attName, String attValue) {
+		switch(attName) {
+		case "value": 
+			try {
+				setValue(attValue);
+				return true;
+			} catch (InvalidityException e) {
+				return false;
+			}
+		case "userValue":
+			setUserValue(attValue);
+			return true;
+		case "absolutePath":
+			// check if parameter is really of type XmlPathParam
+			Parameter p = getParameter().get(0);
+			if (!(p instanceof XmlPathParam))
+				return false;
+			// validate Value
+			XmlPathParam path = (XmlPathParam) p;
+			Boolean isPropertyPath = (path.getXmlNavigation() != null) && (path.getXmlNavigation() instanceof XmlPropertyNavigation);
+			Boolean isElementPath = (path.getXmlNavigation() != null) && (path.getXmlNavigation() instanceof XmlElementNavigation);
+			
+			Boolean isValid = (isPropertyPath && attValue.matches(ConstantsXml.REGEX_XMLPATH_VALUE))
+					|| (isElementPath && attValue.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT));
+			if (isValid)
+				((XmlPathParam) p).setAbsolutePath(attValue);
+			return isValid;
+		default:
+			return false;
+		}
+	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getAttributeValue(String attName) throws InvalidityException {
+		switch(attName) {
+		case "value": 
+			return getValue();
+		case "userValue":
+			return getUserValue();
+		case "absolutePath":
+			Parameter p = getParameter().get(0);
+			if (!(p instanceof XmlPathParam))
+				throw new InvalidityException("Attribute '" + attName + "' not found.");
+			// validate Value
+			XmlPathParam path = (XmlPathParam) p;
+			return path.getAbsolutePath();
+		default:
+			throw new InvalidityException("Attribute '" + attName + "' not found.");
+		}
 	}
 
 	@Override
@@ -971,6 +1034,15 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_COMPARISON_OPERATOR_VALUE_MAP:
 				setComparisonOperatorValueMap();
 				return null;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_ATTRIBUTE_VALUE__STRING_STRING:
+				return setAttributeValue((String)arguments.get(0), (String)arguments.get(1));
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_ATTRIBUTE_VALUE__STRING:
+				try {
+					return getAttributeValue((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL:
 				try {
 					isValid((AbstractionLevel)arguments.get(0));
