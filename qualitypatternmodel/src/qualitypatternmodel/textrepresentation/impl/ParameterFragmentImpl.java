@@ -494,51 +494,69 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				}
 			}
 			else if (parameter instanceof XmlPathParam) {
-				
-				EList<Parameter> parameters = getParameter();
-				
-				EList<XmlNavigation> navs = new BasicEList<XmlNavigation>();
-				for (Parameter p: parameters)
-					if (p instanceof XmlPathParam)
-						navs.add(((XmlPathParam)p).getXmlNavigation());
-				
-				EList<Node> nodes = new BasicEList<Node>();
-				for (XmlNavigation nav: navs)
-					if (nav.getSource() instanceof XmlNode)
-						nodes.add(nav.getSource());
-				
-				EList<XmlNavigation> sourcenavs = new BasicEList<XmlNavigation>();
-				for (Node node: nodes)
-					for (Relation r: node.getIncoming())
-						if (r instanceof XmlNavigation)
-							sourcenavs.add((XmlNavigation) r);
-				
-				EList<XmlPathParam> sourceparams = new BasicEList<XmlPathParam>();
-				for (XmlNavigation sn: sourcenavs)
-					if (sn.getXmlPathParam() != null)
-						sourceparams.add(sn.getXmlPathParam());
-				
-				EList<ParameterReference> sourcefrags = new BasicEList<ParameterReference>();
-				for (XmlPathParam sp: sourceparams)
-					if (sp.getParameterReferences() != null)
-						sourcefrags.addAll(sp.getParameterReferences());
-				
-				HashSet<String> fragids = new HashSet<String>();
-				for (ParameterReference sourcefrag: sourcefrags)
-					if (sourcefrag instanceof ParameterFragment)
-						fragids.add(((ParameterFragment)sourcefrag).getId());
-				
-				if (!fragids.isEmpty()) {
-//					if (fragids.size() == 1)
-//						json.put("startpoint", fragids.iterator().next());
-//					else
-					json.put("startpoint", new JSONArray(fragids));
-				} 
+				HashSet<String> sourceParamIds = getSourceParamIDs(getParameter());
+				if (!sourceParamIds.isEmpty()) {
+					json.put("startpoint", new JSONArray(sourceParamIds));
+				}
+				String absPath = getAbsolutePath(getParameter());
+				if (absPath != null)
+					json.put("absolutePath", absPath);
 			}
 		} catch (JSONException e) {}
 		return json;
 	}
 
+	
+	// XmlPathParam helper functions
+	// get Param IDs of source params for relative paths
+	private HashSet<String> getSourceParamIDs(EList<Parameter> parameters){
+		EList<XmlNavigation> navs = new BasicEList<XmlNavigation>();
+		for (Parameter p: parameters)
+			if (p instanceof XmlPathParam)
+				navs.add(((XmlPathParam)p).getXmlNavigation());
+		
+		EList<Node> nodes = new BasicEList<Node>();
+		for (XmlNavigation nav: navs)
+			if (nav.getSource() instanceof XmlNode)
+				nodes.add(nav.getSource());
+		
+		EList<XmlNavigation> sourcenavs = new BasicEList<XmlNavigation>();
+		for (Node node: nodes)
+			for (Relation r: node.getIncoming())
+				if (r instanceof XmlNavigation)
+					sourcenavs.add((XmlNavigation) r);
+		
+		EList<XmlPathParam> sourceparams = new BasicEList<XmlPathParam>();
+		for (XmlNavigation sn: sourcenavs)
+			if (sn.getXmlPathParam() != null)
+				sourceparams.add(sn.getXmlPathParam());
+		
+		EList<ParameterReference> sourcefrags = new BasicEList<ParameterReference>();
+		for (XmlPathParam sp: sourceparams)
+			if (sp.getParameterReferences() != null)
+				sourcefrags.addAll(sp.getParameterReferences());
+		
+		HashSet<String> sourcefragids = new HashSet<String>();
+		for (ParameterReference sourcefrag: sourcefrags)
+			if (sourcefrag instanceof ParameterFragment)
+				sourcefragids.add(((ParameterFragment)sourcefrag).getId());
+		return sourcefragids;
+	}
+	
+	// get absolutePath attribute value 
+	private String getAbsolutePath(EList<Parameter> parameters){
+		HashSet<String> absPaths = new HashSet<String>();
+		for (Parameter p: parameters)
+			if (p instanceof XmlPathParam) {
+				String ap = ((XmlPathParam) p).getAbsolutePath(); 
+				if ( ap != null)
+					absPaths.add(ap);
+			}
+		if (absPaths.size() == 1)
+			return absPaths.iterator().next();
+		return null;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
