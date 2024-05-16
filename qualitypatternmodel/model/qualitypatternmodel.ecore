@@ -859,7 +859,7 @@
         <eParameters name="axis" eType="#//adaptionxml/XmlAxisKindArray"/>
         <eParameters name="tag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eOperations name="specifyAxis">
+      <eOperations name="specifyAxis" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="axes" eType="#//adaptionxml/XmlAxisKindArray"/>
         <eParameters name="propertyKind" eType="#//adaptionxml/XmlPropertyKind"/>
         <eParameters name="attributeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -871,6 +871,7 @@
           eType="#//adaptionxml/XmlAxisPart" containment="true" eOpposite="#//adaptionxml/XmlAxisPart/xmlPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlNavigation" eType="#//adaptionxml/XmlNavigation"
           eOpposite="#//adaptionxml/XmlNavigation/xmlPathParam"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="absolutePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlAxisPart" eSuperTypes="#//graphstructure/Adaptable #//parameters/Parameter">
       <eOperations name="getNextXmlAxisPairs" upperBound="-1" eType="#//adaptionxml/XmlAxisPart"/>

@@ -137,14 +137,11 @@ public class XPathParameterTests {
     }
     
     private static String replaceExpected(String expected) {
+    	expected = expected.replaceAll(" ", "");
     	expected = expected.replaceAll("/x", "/child::*[name()=\"x\"]");
     	expected = expected.replace("/a", "/child::*[name()=\"a\"]");
     	expected = expected.replace("[]", "");
     	expected = expected.replace("data()", "text()");
-    	expected = expected.replaceAll(" ", "");
     	return expected;
-    	
     }
-
-
 }
