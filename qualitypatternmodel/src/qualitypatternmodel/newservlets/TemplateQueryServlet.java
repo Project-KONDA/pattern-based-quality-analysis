@@ -61,7 +61,6 @@ public class TemplateQueryServlet extends HttpServlet {
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-			e.printStackTrace();
 		}
 //		response.getOutputStream().println("{ \"call\": \"TemplateQueryServlet.doGet(" + path + ")\"}");
 	}

@@ -207,7 +207,8 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 		JSONObject jobj = new JSONObject();
 		try {
 			jobj.put("failed", failed);
-			jobj.put("constraint", ConfigurationReader.toJson(mergedSchema));
+			JSONObject constraint = new JSONObject(ConfigurationReader.toJson(mergedSchema));
+			jobj.put("constraint", constraint);
 		} catch (JSONException e) {}
 		return jobj.toString();
 	}
