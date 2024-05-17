@@ -68,6 +68,7 @@ import qualitypatternmodel.utility.Constants;
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getValueMap <em>Value Map</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getId <em>Id</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getUserValue <em>User Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -174,6 +175,26 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * @ordered
 	 */
 	protected String userValue = USER_VALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -307,6 +328,29 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		userValue = newUserValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE, oldUserValue, userValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -457,6 +501,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				json.put("value", getValue());
 			if (getUserValue() != null)
 				json.put("userValue", getUserValue());
+			if (getDescription() != null)
+				json.put("description", getDescription());
 			json.put("exampleValue", getExampleValue());
 			
 			if (getValueMap() != null) {
@@ -790,6 +836,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return getId();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE:
 				return getUserValue();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -822,6 +870,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE:
 				setUserValue((String)newValue);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -852,6 +903,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE:
 				setUserValue(USER_VALUE_EDEFAULT);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -876,6 +930,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE:
 				return USER_VALUE_EDEFAULT == null ? userValue != null : !USER_VALUE_EDEFAULT.equals(userValue);
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -983,6 +1039,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		result.append(id);
 		result.append(", userValue: ");
 		result.append(userValue);
+		result.append(", description: ");
+		result.append(description);
 		result.append(')');
 		return result.toString();
 	}
