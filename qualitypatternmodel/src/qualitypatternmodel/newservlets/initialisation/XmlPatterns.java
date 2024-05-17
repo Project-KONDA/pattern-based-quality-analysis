@@ -3,7 +3,6 @@ package qualitypatternmodel.newservlets.initialisation;
 import java.io.IOException;
 import java.util.List;
 import org.eclipse.emf.common.util.BasicEList;
-
 import de.gwdg.metadataqa.api.configuration.ConfigurationReader;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
@@ -87,6 +86,24 @@ public class XmlPatterns {
 //			System.out.println(pattern.myToString());
 //			System.out.println();
 //		}
+		
+//		CompletePattern pattern = getXmlCard();
+//		pattern.getText().get(0).instantiate();
+//		try {
+//			pattern.isValid(AbstractionLevel.CONCRETE);
+//			System.out.println("valid");
+//		} catch (Exception e) {
+//			System.out.println("invalid");
+//			e.printStackTrace();
+//		}
+//		System.out.println(ConstraintTranslationValidation.checkPatternTranslatable(pattern));
+//		BaseSchema schema = ConstraintTranslation.translateToConstraintSchema(pattern);
+//		JSONObject job = null;
+//		try {
+//			job = new JSONObject(ConfigurationReader.toJson(schema));
+//		} catch (JSONException e) {}
+//		System.out.println(job);
+		
 	}
 	
 	public static List<CompletePattern> getAllXmlPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
