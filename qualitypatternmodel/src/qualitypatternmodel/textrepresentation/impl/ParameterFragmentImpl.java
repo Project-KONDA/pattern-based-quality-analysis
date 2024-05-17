@@ -440,7 +440,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			Boolean isPropertyPath = (path.getXmlNavigation() != null) && (path.getXmlNavigation() instanceof XmlPropertyNavigation);
 			Boolean isElementPath = (path.getXmlNavigation() != null) && (path.getXmlNavigation() instanceof XmlElementNavigation);
 			
-			Boolean isValid = (isPropertyPath && attValue.matches(ConstantsXml.REGEX_XMLPATH_VALUE))
+			Boolean isValid = attValue == null
+					|| (isPropertyPath && attValue.matches(ConstantsXml.REGEX_XMLPATH_VALUE))
 					|| (isElementPath && attValue.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT));
 			if (isValid)
 				((XmlPathParam) p).setAbsolutePath(attValue);

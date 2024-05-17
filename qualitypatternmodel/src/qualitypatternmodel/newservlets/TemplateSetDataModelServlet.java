@@ -37,7 +37,7 @@ public class TemplateSetDataModelServlet extends HttpServlet {
 		catch (FailedServletCallException e) {
 			ServletUtilities.logError(e);
 	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (Exception e) {
