@@ -5,6 +5,7 @@ package qualitypatternmodel.textrepresentation.impl;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -15,6 +16,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
 
@@ -60,6 +64,18 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	 */
 	public ValueMapImpl() {
 		super();
+	}
+
+	public ValueMapImpl(JSONObject json) throws JSONException {
+		super();
+		@SuppressWarnings("unchecked")
+		Iterator<String> keys = (Iterator<String>) json.keys();
+
+        while (keys.hasNext()) {
+            String key = keys.next();
+            String value = json.getString(key);
+            put(key, value);
+        }
 	}
 
 	/**

@@ -35,6 +35,21 @@ public class Constants {
 	public static final String PARAMETER_TYPE_TYPE = "TypeOption";
 	public static final String PARAMETER_TYPE_XML_PATH = "XmlPath";
 	public static final String PARAMETER_TYPE_REGEX = "RegEx";
+	
+	// JSON variables
+	public static final String JSON_TEMPLATE = "template";
+	public static final String JSON_LANGUAGE = "language";
+	public static final String JSON_NAME = "name";
+	public static final String JSON_FRAGMENTS = "fragments";
+	public static final String JSON_TEXT = "text";
+	public static final String JSON_PARAMETER = "params";
+	public static final String JSON_EXAMPLEVALUE = "exampleValue";
+	public static final String JSON_DESCRIPTION = "description";
+	public static final String JSON_NEWID = "newId";
+	public static final String JSON_MAP = "map";
+	public static final String JSON_COMPARISONMAP = "comparisonMap";
+	public static final String JSON_VALUE = "value";
+	
 
 	//Global Exception Messages -- Introduced by Lukas Sebastian Hofmann. Existing code of the framework has not been touched.
 	public static final String INVALID_OPTION = "invalid option";

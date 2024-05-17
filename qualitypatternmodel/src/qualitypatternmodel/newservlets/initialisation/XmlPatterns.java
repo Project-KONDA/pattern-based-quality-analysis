@@ -650,7 +650,6 @@ public class XmlPatterns {
 		pattern.setAbstractId("CompSet_xml");
 		
 		List<Parameter> params = pattern.getParameterList().getParameters();
-		
 		TextListParam p0 = ((TextListParam) params.get(0));
 		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
 //		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));

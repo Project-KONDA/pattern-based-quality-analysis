@@ -48,6 +48,7 @@ import qualitypatternmodel.parameters.impl.TimeParamImpl;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
@@ -205,6 +206,54 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 */
 	protected ParameterFragmentImpl() {
 		super();
+	}
+	
+	protected ParameterFragmentImpl(CompletePattern pattern, JSONObject json, int nid) throws JSONException, InvalidityException {
+		super();
+		if (!json.has(Constants.JSON_NAME) || !json.has(Constants.JSON_PARAMETER))
+			throw new InvalidityException("Not valid JSON to a create ParameterFragment");
+		
+		String na = json.getString(Constants.JSON_NAME);
+		setName(na);
+
+		
+		JSONArray params = json.getJSONArray(Constants.JSON_PARAMETER);
+        for (int i = 0; i < params.length(); i++) {
+            int paramID = params.getInt(i);
+            try {
+            	Parameter p = pattern.getParameterList().getParameters().get(paramID);
+                getParameter().add(p);
+            } catch (Exception e) {
+            	e.printStackTrace();
+            }
+        }
+		// exampleValue
+        if(json.has(Constants.JSON_EXAMPLEVALUE)) {
+        	String example = json.getString(Constants.JSON_EXAMPLEVALUE);
+        	setExampleValue(example);
+        }
+        
+		// description
+        if(json.has(Constants.JSON_DESCRIPTION)) {
+        	String desc = json.getString(Constants.JSON_DESCRIPTION);
+        	setDescription(desc);
+        }
+        
+        // newId
+		if(json.has(Constants.JSON_NEWID)) {
+        	String newid = json.getString(Constants.JSON_NEWID);
+        	setId(newid + "_" + nid);
+        } else
+        	setId(getType() + "_" + nid);
+        
+		// map
+		if (json.has(Constants.JSON_MAP))
+			setValueMap(new ValueMapImpl(json.getJSONObject(Constants.JSON_MAP)));
+		
+		// comparisonMap
+		if(json.has(Constants.JSON_COMPARISONMAP) && json.getBoolean(Constants.JSON_COMPARISONMAP))
+			setComparisonOperatorValueMap();
+		
 	}
 	
 	@Override
