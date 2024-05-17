@@ -199,4 +199,20 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	 */
 	void setComparisonOperatorValueMap();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean setAttributeValue(String attName, String attValue);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String getAttributeValue(String attName) throws InvalidityException;
+
 } // ParameterFragment

@@ -169,29 +169,76 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		return json;
 	}
 	
-	private static boolean changeParameterFragment(ParameterFragment frag, String[] fragvals) throws InvalidityException {
+	private static boolean changeParameterFragment(ParameterFragment frag, String[] call_values) throws InvalidityException {
 		boolean result = true;
-		if (fragvals.length != 1)
+		if (call_values.length != 1)
 			throw new InvalidityException("multiple values for a single parameter");
-		String val = fragvals[0];
-		String oldValue = frag.getValue();
-		String oldUserValue = frag.getUserValue();
 		
+		String oldValue = null;
+		try {
+			oldValue = frag.getAttributeValue("value");
+		} catch (InvalidityException e) {}
+		
+		
+		String oldUserValue = null;
+		try {
+			oldUserValue = frag.getAttributeValue("userValue");
+		} catch (InvalidityException e) {}
+		String oldAbsolutePath = null;
+		try {
+			oldAbsolutePath = frag.getAttributeValue("absolutePath");
+		} catch (InvalidityException e) {}
+
+		String input = call_values[0];
 		String newValue = null;
 		String newUserValue = null;
+		String newAbsolutePath = null;
 		
 		JSONObject ob = null;
 		try {
-			ob = new JSONObject(val);
+			ob = new JSONObject(input);
 		} catch (JSONException e) {}
 		
-		if (ob != null)
-			try {	
+		if (ob != null) {
+			try {
 				newValue = (String) ob.get("value");
+			} catch (JSONException e) {}
+			try {
 				newUserValue = (String) ob.get("userValue");
 			} catch (JSONException e) {}
+			try {
+				newAbsolutePath = (String) ob.get("absolutePath");
+			} catch (JSONException e) {}	
+		}
 		else
-			newValue = val;
+			newValue = input;
+		
+		Boolean valueSet = true;
+//		Boolean userValueSet = true;
+		Boolean absolutePathSet = true;
+		if (newValue != null) {
+			valueSet = frag.setAttributeValue("value", newValue);
+		
+			if (valueSet) {
+//				if (newUserValue != null)
+//					userValueSet = 
+				frag.setAttributeValue("userValue", newUserValue);
+				
+				if (newAbsolutePath != null)
+					absolutePathSet = frag.setAttributeValue("absolutePath", newAbsolutePath);
+			}
+		}
+		
+		if(!valueSet || !absolutePathSet) {
+			frag.setAttributeValue("value", oldValue);
+			frag.setAttributeValue("userValue", oldUserValue);
+			frag.setAttributeValue("absolutePath", oldAbsolutePath);
+		}
+		
+		
+		
+		
+		
 
 		try {
 			frag.setValue(newValue);
@@ -201,6 +248,6 @@ public class TemplateSetParameterServlet extends HttpServlet {
 			frag.setUserValue(oldUserValue);
 			result = false;
 		}
-		return result;	
+		return result;
 	}
 }

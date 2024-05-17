@@ -53,6 +53,8 @@ import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsXml;
+ 
 
 /**
  * <!-- begin-user-doc -->
@@ -410,6 +412,67 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		setValueMap(map);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean setAttributeValue(String attName, String attValue) {
+		switch(attName) {
+		case "value": 
+			try {
+				setValue(attValue);
+				return true;
+			} catch (InvalidityException e) {
+				return false;
+			}
+		case "userValue":
+			setUserValue(attValue);
+			return true;
+		case "absolutePath":
+			// check if parameter is really of type XmlPathParam
+			Parameter p = getParameter().get(0);
+			if (!(p instanceof XmlPathParam))
+				return false;
+			// validate Value
+			XmlPathParam path = (XmlPathParam) p;
+			Boolean isPropertyPath = (path.getXmlNavigation() != null) && (path.getXmlNavigation() instanceof XmlPropertyNavigation);
+			Boolean isElementPath = (path.getXmlNavigation() != null) && (path.getXmlNavigation() instanceof XmlElementNavigation);
+			
+			Boolean isValid = (isPropertyPath && attValue.matches(ConstantsXml.REGEX_XMLPATH_VALUE))
+					|| (isElementPath && attValue.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT));
+			if (isValid)
+				((XmlPathParam) p).setAbsolutePath(attValue);
+			return isValid;
+		default:
+			return false;
+		}
+	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getAttributeValue(String attName) throws InvalidityException {
+		switch(attName) {
+		case "value": 
+			return getValue();
+		case "userValue":
+			return getUserValue();
+		case "absolutePath":
+			Parameter p = getParameter().get(0);
+			if (!(p instanceof XmlPathParam))
+				throw new InvalidityException("Attribute '" + attName + "' not found.");
+			// validate Value
+			XmlPathParam path = (XmlPathParam) p;
+			return path.getAbsolutePath();
+		default:
+			throw new InvalidityException("Attribute '" + attName + "' not found.");
+		}
+	}
+
 	@Override
 	public String generateJSON() {
 		String patternName = getPatternText().getPattern().getPatternId();
@@ -540,51 +603,69 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				}
 			}
 			else if (parameter instanceof XmlPathParam) {
-				
-				EList<Parameter> parameters = getParameter();
-				
-				EList<XmlNavigation> navs = new BasicEList<XmlNavigation>();
-				for (Parameter p: parameters)
-					if (p instanceof XmlPathParam)
-						navs.add(((XmlPathParam)p).getXmlNavigation());
-				
-				EList<Node> nodes = new BasicEList<Node>();
-				for (XmlNavigation nav: navs)
-					if (nav.getSource() instanceof XmlNode)
-						nodes.add(nav.getSource());
-				
-				EList<XmlNavigation> sourcenavs = new BasicEList<XmlNavigation>();
-				for (Node node: nodes)
-					for (Relation r: node.getIncoming())
-						if (r instanceof XmlNavigation)
-							sourcenavs.add((XmlNavigation) r);
-				
-				EList<XmlPathParam> sourceparams = new BasicEList<XmlPathParam>();
-				for (XmlNavigation sn: sourcenavs)
-					if (sn.getXmlPathParam() != null)
-						sourceparams.add(sn.getXmlPathParam());
-				
-				EList<ParameterReference> sourcefrags = new BasicEList<ParameterReference>();
-				for (XmlPathParam sp: sourceparams)
-					if (sp.getParameterReferences() != null)
-						sourcefrags.addAll(sp.getParameterReferences());
-				
-				HashSet<String> fragids = new HashSet<String>();
-				for (ParameterReference sourcefrag: sourcefrags)
-					if (sourcefrag instanceof ParameterFragment)
-						fragids.add(((ParameterFragment)sourcefrag).getId());
-				
-				if (!fragids.isEmpty()) {
-//					if (fragids.size() == 1)
-//						json.put("startpoint", fragids.iterator().next());
-//					else
-					json.put("startpoint", new JSONArray(fragids));
-				} 
+				HashSet<String> sourceParamIds = getSourceParamIDs(getParameter());
+				if (!sourceParamIds.isEmpty()) {
+					json.put("startpoint", new JSONArray(sourceParamIds));
+				}
+				String absPath = getAbsolutePath(getParameter());
+				if (absPath != null)
+					json.put("absolutePath", absPath);
 			}
 		} catch (JSONException e) {}
 		return json;
 	}
 
+	
+	// XmlPathParam helper functions
+	// get Param IDs of source params for relative paths
+	private HashSet<String> getSourceParamIDs(EList<Parameter> parameters){
+		EList<XmlNavigation> navs = new BasicEList<XmlNavigation>();
+		for (Parameter p: parameters)
+			if (p instanceof XmlPathParam)
+				navs.add(((XmlPathParam)p).getXmlNavigation());
+		
+		EList<Node> nodes = new BasicEList<Node>();
+		for (XmlNavigation nav: navs)
+			if (nav.getSource() instanceof XmlNode)
+				nodes.add(nav.getSource());
+		
+		EList<XmlNavigation> sourcenavs = new BasicEList<XmlNavigation>();
+		for (Node node: nodes)
+			for (Relation r: node.getIncoming())
+				if (r instanceof XmlNavigation)
+					sourcenavs.add((XmlNavigation) r);
+		
+		EList<XmlPathParam> sourceparams = new BasicEList<XmlPathParam>();
+		for (XmlNavigation sn: sourcenavs)
+			if (sn.getXmlPathParam() != null)
+				sourceparams.add(sn.getXmlPathParam());
+		
+		EList<ParameterReference> sourcefrags = new BasicEList<ParameterReference>();
+		for (XmlPathParam sp: sourceparams)
+			if (sp.getParameterReferences() != null)
+				sourcefrags.addAll(sp.getParameterReferences());
+		
+		HashSet<String> sourcefragids = new HashSet<String>();
+		for (ParameterReference sourcefrag: sourcefrags)
+			if (sourcefrag instanceof ParameterFragment)
+				sourcefragids.add(((ParameterFragment)sourcefrag).getId());
+		return sourcefragids;
+	}
+	
+	// get absolutePath attribute value 
+	private String getAbsolutePath(EList<Parameter> parameters){
+		HashSet<String> absPaths = new HashSet<String>();
+		for (Parameter p: parameters)
+			if (p instanceof XmlPathParam) {
+				String ap = ((XmlPathParam) p).getAbsolutePath(); 
+				if ( ap != null)
+					absPaths.add(ap);
+			}
+		if (absPaths.size() == 1)
+			return absPaths.iterator().next();
+		return null;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1009,6 +1090,15 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_COMPARISON_OPERATOR_VALUE_MAP:
 				setComparisonOperatorValueMap();
 				return null;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_ATTRIBUTE_VALUE__STRING_STRING:
+				return setAttributeValue((String)arguments.get(0), (String)arguments.get(1));
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_ATTRIBUTE_VALUE__STRING:
+				try {
+					return getAttributeValue((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL:
 				try {
 					isValid((AbstractionLevel)arguments.get(0));

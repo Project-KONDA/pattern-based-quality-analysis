@@ -60,6 +60,7 @@ public class XmlPathParamItemProvider extends PatternElementItemProvider {
 			addParameterReferencesPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addXmlNavigationPropertyDescriptor(object);
+			addAbsolutePathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -153,6 +154,28 @@ public class XmlPathParamItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Absolute Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAbsolutePathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlPathParam_absolutePath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlPathParam_absolutePath_feature", "_UI_XmlPathParam_type"),
+				 AdaptionxmlPackage.Literals.XML_PATH_PARAM__ABSOLUTE_PATH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -223,6 +246,7 @@ public class XmlPathParamItemProvider extends PatternElementItemProvider {
 		switch (notification.getFeatureID(XmlPathParam.class)) {
 			case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED:
 			case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION:
+			case AdaptionxmlPackage.XML_PATH_PARAM__ABSOLUTE_PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:

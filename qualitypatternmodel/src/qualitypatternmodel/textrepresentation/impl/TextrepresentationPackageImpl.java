@@ -505,6 +505,26 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EOperation getParameterFragment__SetAttributeValue__String_String() {
+		return parameterFragmentEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterFragment__GetAttributeValue__String() {
+		return parameterFragmentEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFragment() {
 		return fragmentEClass;
 	}
@@ -785,6 +805,8 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___SET_VALUE__STRING);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_VALUE);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___SET_COMPARISON_OPERATOR_VALUE_MAP);
+		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___SET_ATTRIBUTE_VALUE__STRING_STRING);
+		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_ATTRIBUTE_VALUE__STRING);
 
 		fragmentEClass = createEClass(FRAGMENT);
 		createEReference(fragmentEClass, FRAGMENT__PATTERN_TEXT);
@@ -905,6 +927,14 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		initEOperation(getParameterFragment__GetValue(), ecorePackage.getEString(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getParameterFragment__SetComparisonOperatorValueMap(), null, "setComparisonOperatorValueMap", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getParameterFragment__SetAttributeValue__String_String(), ecorePackage.getEBoolean(), "setAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "attName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "attValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getParameterFragment__GetAttributeValue__String(), ecorePackage.getEString(), "getAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "attName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(fragmentEClass, Fragment.class, "Fragment", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFragment_PatternText(), this.getPatternText(), this.getPatternText_Fragments(), "patternText", null, 1, 1, Fragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
