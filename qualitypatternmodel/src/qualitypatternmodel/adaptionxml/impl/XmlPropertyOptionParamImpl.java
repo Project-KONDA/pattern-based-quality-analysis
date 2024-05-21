@@ -112,6 +112,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	
 	@Override
 	public String getValueAsString() {
+		if (getValue() == null)
+			return null;
 		return getValue().getName();
 	}
 	

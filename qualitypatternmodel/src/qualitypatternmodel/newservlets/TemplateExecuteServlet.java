@@ -154,6 +154,18 @@ public class TemplateExecuteServlet extends HttpServlet {
 				}
 			}
 		}
+		
+		JSONObject object = new JSONObject();
+		try {
+			object.put("result" , results);
+			if (!failedconstraints.isEmpty())
+				object.put("failedconstraints", failedconstraints);
+			if (!filesnotfound.isEmpty())
+				object.put("failedfiles", filesnotfound);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
 		return results.toString();
 	}
 	
