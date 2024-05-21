@@ -229,19 +229,19 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
         }
 		// exampleValue
         if(json.has(Constants.JSON_EXAMPLEVALUE)) {
-        	String example = json.getString(Constants.JSON_EXAMPLEVALUE);
+        	String example = json.get(Constants.JSON_EXAMPLEVALUE).toString();
         	setExampleValue(example);
         }
         
 		// description
         if(json.has(Constants.JSON_DESCRIPTION)) {
-        	String desc = json.getString(Constants.JSON_DESCRIPTION);
+        	String desc = json.get(Constants.JSON_DESCRIPTION).toString();
         	setDescription(desc);
         }
         
         // newId
 		if(json.has(Constants.JSON_NEWID)) {
-        	String newid = json.getString(Constants.JSON_NEWID);
+        	String newid = json.get(Constants.JSON_NEWID).toString();
         	setId(newid + "_" + nid);
         } else
         	setId(getType() + "_" + nid);
@@ -719,11 +719,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
 	public String getType() {
+		if (getParameter() == null || getParameter().isEmpty())
+			return null;
 //		return getParameter().getClass().toString();
 		Parameter param = getParameter().get(0);
 		Class<?> type = param.getClass();

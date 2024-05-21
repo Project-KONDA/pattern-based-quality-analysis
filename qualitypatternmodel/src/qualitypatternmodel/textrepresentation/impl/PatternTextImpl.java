@@ -123,20 +123,26 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	}
 	
 
-	protected PatternTextImpl(CompletePattern pattern, JSONObject json) throws JSONException, InvalidityException {
+	public PatternTextImpl(CompletePattern pattern, JSONObject json) throws JSONException, InvalidityException {
 		super();
-		String name = json.getString("name");
-		this.setName(name);
 		
-		
+		//template check
 		String template = json.getString("template");
-		if (!pattern.getName().equals(template))
-			throw new InvalidityException("Selected Pattern '" + pattern.getName() + "' does not match '" + template + "'.");
+		if (!pattern.getPatternId().equals(template))
+			throw new InvalidityException("Selected Pattern '" + pattern.getPatternId() + "' does not match '" + template + "'.");
 		pattern.getLanguage().getLiteral();
 		String language = json.getString("language");
 		if (!pattern.getLanguage().getLiteral().equals(language))
 			throw new InvalidityException("The language of the selected Pattern '" + pattern.getName() + "' is '" + pattern.getLanguage().getLiteral() + "', which does not match '" + language + "'.");
+
+		// pattern
+		pattern.getText().add(this);
 		
+		// name
+		String name = json.getString("name");
+		this.setName(name);
+				
+		// fragments
 		JSONArray fragments = json.getJSONArray("fragments");
 		int id_counter = 0;
 		for (int i = 0; i < fragments.length(); i++) {
@@ -148,17 +154,17 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
             boolean hasValue = fragmentObject.has(Constants.JSON_VALUE);
             
             if (hasParams && hasName) {
-            	getFragments().add(new ParameterFragmentImpl(pattern, fragmentObject, id_counter));
+            	addFragment(new ParameterFragmentImpl(pattern, fragmentObject, id_counter));
             	id_counter++;
             }	
             else if (hasParams && hasValue)
             	getParameterPredefinitions().add(new ParameterPredefinitionImpl(pattern, fragmentObject));
             else if (hasText) {
             	String text = fragmentObject.getString(Constants.JSON_TEXT);
-            	getFragments().add(new TextFragmentImpl(text));
+            	addFragment(new TextFragmentImpl(text));
             } else throw new InvalidityException();
 		}
-		setPattern(pattern);
+		isValid(AbstractionLevel.ABSTRACT);
 	}
 
 	/**
