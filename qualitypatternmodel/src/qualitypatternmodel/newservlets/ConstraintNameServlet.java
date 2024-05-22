@@ -11,7 +11,7 @@ import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
-public class TemplateSetNameServlet extends HttpServlet {
+public class ConstraintNameServlet extends HttpServlet {
 	
 	// .. /template/setdatabase   /<technology>/<name>/<database-name>
 	

@@ -92,17 +92,6 @@
 		<servlet-name>PatternListServlet</servlet-name>
 		<url-pattern>/pattern/list/*</url-pattern>
 	</servlet-mapping>
- 
-	<!-- Copy existing constraint
-		/template/copy/<technology>/<constraintId>
-	 -->
-	<servlet>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateCopyServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateCopyServlet</servlet-name>
-		<url-pattern>/template/copy/*</url-pattern>
-	</servlet-mapping>
 		
 	<!-- Add one or more variants to a template
 		- PUT .. /template/addvariant/<technology>/<constraintId> {"variants": ?}
@@ -116,8 +105,9 @@
 		<url-pattern>/template/variant/*</url-pattern>
 	</servlet-mapping>
 		
-	<!-- instantiate new instance of a template
-		/templates/instantiate/<technology>/<templateId>
+	<!-- 
+		Instantiate new instance of a template
+		- PUT /templates/instantiate/<technology>/<templateId>
 	 -->
 	<servlet>
 		<servlet-name>TemplateInstantiateServlet</servlet-name>
@@ -128,16 +118,17 @@
 		<url-pattern>/template/instantiate/*</url-pattern>
 	</servlet-mapping>
 		
-	<!-- specify name of a constraint
-		/template/setname/<technology>/<constraintId>
+	<!-- 
+		Specify name of a constraint
+		- POST /constraint/name/<technology>/<constraintId>
 	 -->
 	<servlet>
-		<servlet-name>TemplateSetNameServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateSetNameServlet</servlet-class>
+		<servlet-name>ConstraintNameServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintNameServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateSetNameServlet</servlet-name>
-		<url-pattern>/template/setname/*</url-pattern>
+		<servlet-name>ConstraintNameServlet</servlet-name>
+		<url-pattern>/constraint/name/*</url-pattern>
 	</servlet-mapping>
 		
 	<!-- add (PUT) or remove (DELETE) one or more tags to a constraint
@@ -190,44 +181,6 @@
 	</servlet-mapping>
 	
 	
-	
-	<!-- Add a new database
-		/database/add/<technology>
-	 -->
-<!--	<servlet>-->
-<!--		<servlet-name>DatabaseAddServlet</servlet-name>-->
-<!--		<servlet-class>qualitypatternmodel.newservlets.DatabaseAddServlet</servlet-class>-->
-<!--	</servlet>-->
-<!--	<servlet-mapping>-->
-<!--		<servlet-name>DatabaseAddServlet</servlet-name>-->
-<!--		<url-pattern>/database/add/*</url-pattern>-->
-<!--	</servlet-mapping>-->
-	
-	<!-- Delete database
-		/database/delete/<technology>
-	 -->
-<!--	<servlet>-->
-<!--		<servlet-name>DatabaseDeleteServlet</servlet-name>-->
-<!--		<servlet-class>qualitypatternmodel.newservlets.DatabaseDeleteServlet</servlet-class>-->
-<!--	</servlet>-->
-<!--	<servlet-mapping>-->
-<!--		<servlet-name>DatabaseDeleteServlet</servlet-name>-->
-<!--		<url-pattern>/database/delete/*</url-pattern>-->
-<!--	</servlet-mapping>-->
-	
-	<!-- Request database list
-		/database/getlist/<technology>
-	 -->
-<!--	<servlet>-->
-<!--		<servlet-name>DatabaseGetListServlet</servlet-name>-->
-<!--		<servlet-class>qualitypatternmodel.newservlets.DatabaseGetListServlet</servlet-class>-->
-<!--	</servlet>-->
-<!--	<servlet-mapping>-->
-<!--		<servlet-name>DatabaseGetListServlet</servlet-name>-->
-<!--		<url-pattern>/database/getlist/*</url-pattern>-->
-<!--	</servlet-mapping>-->
-
-
 	<!-- 
 	<servlet>
 		<servlet-name>AbstractPatternListServlet</servlet-name>
