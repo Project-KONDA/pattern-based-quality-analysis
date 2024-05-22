@@ -253,7 +253,6 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		// comparisonMap
 		if(json.has(Constants.JSON_COMPARISONMAP) && json.getBoolean(Constants.JSON_COMPARISONMAP))
 			setComparisonOperatorValueMap();
-		
 	}
 	
 	@Override
