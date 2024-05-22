@@ -37,6 +37,21 @@
 		<servlet-name>ConstraintServlet</servlet-name>
 		<url-pattern>/constraint/*</url-pattern>
 	</servlet-mapping>
+	
+	<!--
+		Get database of constraint
+		- GET /constraint/database/<technology>/<constraintId>
+		Specify database of a constraint
+		- PUT /constraint/database/<technology>/<constraintId>
+	 -->
+	<servlet>
+		<servlet-name>ConstraintDatabaseServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintDatabaseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConstraintDatabaseServlet</servlet-name>
+		<url-pattern>/constraint/database/*</url-pattern>
+	</servlet-mapping>
  
 	<!-- Copy existing constraint
 		/template/copy/<technology>/<constraintId>
@@ -48,18 +63,6 @@
 	<servlet-mapping>
 		<servlet-name>TemplateCopyServlet</servlet-name>
 		<url-pattern>/template/copy/*</url-pattern>
-	</servlet-mapping>
-	
-	<!-- Get database of constraint
-		/template/getdatabase/<technology>/<constraintId>
-	 -->
-	<servlet>
-		<servlet-name>TemplateGetDatabaseServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateGetDatabaseServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateGetDatabaseServlet</servlet-name>
-		<url-pattern>/template/getdatabase/*</url-pattern>
 	</servlet-mapping>
 	
 	<!-- Get datamodel of constraint
@@ -108,18 +111,6 @@
 	<servlet-mapping>
 		<servlet-name>TemplateInstantiateServlet</servlet-name>
 		<url-pattern>/template/instantiate/*</url-pattern>
-	</servlet-mapping>
-		
-	<!-- specify database of a constraint
-		/template/setdatabase/<technology>/<constraintId>
-	 -->
-	<servlet>
-		<servlet-name>TemplateSetDatabaseServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateSetDatabaseServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateSetDatabaseServlet</servlet-name>
-		<url-pattern>/template/setdatabase/*</url-pattern>
 	</servlet-mapping>
 		
 	<!-- specify name of a constraint
