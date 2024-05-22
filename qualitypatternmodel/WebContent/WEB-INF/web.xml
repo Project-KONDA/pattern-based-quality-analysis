@@ -157,12 +157,12 @@
 		/template/get/<technology>/<constraintId>
 	-->
 	<servlet>
-		<servlet-name>TemplateQueryServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateQueryServlet</servlet-class>
+		<servlet-name>ConstraintQueryServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintQueryServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateQueryServlet</servlet-name>
-		<url-pattern>/template/query/*</url-pattern>
+		<servlet-name>ConstraintQueryServlet</servlet-name>
+		<url-pattern>/constraint/query/*</url-pattern>
 	</servlet-mapping>
 	
 	<!-- request generated query of a certain ready constraint
