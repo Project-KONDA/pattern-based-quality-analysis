@@ -67,6 +67,18 @@
 		<servlet-name>ConstraintDataModelServlet</servlet-name>
 		<url-pattern>/constraint/datamodel/*</url-pattern>
 	</servlet-mapping>
+		
+	<!-- Request list of templates and/or constraints
+		- GET /pattern/list/<technology>/<level>
+	 -->
+	<servlet>
+		<servlet-name>PatternListServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.PatternListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PatternListServlet</servlet-name>
+		<url-pattern>/pattern/list/*</url-pattern>
+	</servlet-mapping>
  
 	<!-- Copy existing constraint
 		/template/copy/<technology>/<constraintId>
@@ -78,18 +90,6 @@
 	<servlet-mapping>
 		<servlet-name>TemplateCopyServlet</servlet-name>
 		<url-pattern>/template/copy/*</url-pattern>
-	</servlet-mapping>
-		
-	<!-- Request list of templates and/or constraints
-		/templates/getlist/<technology>/<level>
-	 -->
-	<servlet>
-		<servlet-name>TemplateGetListServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateGetListServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateGetListServlet</servlet-name>
-		<url-pattern>/template/getlist/*</url-pattern>
 	</servlet-mapping>
 		
 	<!-- Add one or more variants to a template

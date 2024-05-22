@@ -13,7 +13,7 @@ import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
-public class TemplateGetListServlet extends HttpServlet {
+public class PatternListServlet extends HttpServlet {
 	
 	// .. /template/getlist   /<technology>/<level>
 	
