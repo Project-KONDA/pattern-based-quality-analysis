@@ -18,7 +18,7 @@ import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 
 @SuppressWarnings("serial")
-public class TemplateAddVariantServlet extends HttpServlet {
+public class TemplateVariantServlet extends HttpServlet {
 	
 	// .. /template/instantiate   /<technology>/<abstracttemplate>
 	
@@ -121,12 +121,10 @@ public class TemplateAddVariantServlet extends HttpServlet {
 		CompletePattern pattern2 = ServletUtilities.loadTemplate(technology, templateId);
 		for (PatternText text: pattern2.getText())
 			try {
-				System.out.println("validating " + text.getName());
 				text.isValid(AbstractionLevel.ABSTRACT);
 			} catch (InvalidityException e) {
 				throw new FailedServletCallException("", e);
 			}
-		System.out.println("all texts valid");
 		 
 		
 		return "New variant(s) added successfully to '" + templateId + "'.";
