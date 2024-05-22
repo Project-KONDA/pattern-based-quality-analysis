@@ -52,6 +52,21 @@
 		<servlet-name>ConstraintDatabaseServlet</servlet-name>
 		<url-pattern>/constraint/database/*</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 
+		Get datamodel of constraint
+		- GET /constraint/datamodel/<technology>/<constraintId>
+		Specify database of a constraint
+		- PUT /constraint/datamodel/<technology>/<constraintId>
+	 -->
+	<servlet>
+		<servlet-name>ConstraintDataModelServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintDataModelServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConstraintDataModelServlet</servlet-name>
+		<url-pattern>/constraint/datamodel/*</url-pattern>
+	</servlet-mapping>
  
 	<!-- Copy existing constraint
 		/template/copy/<technology>/<constraintId>
@@ -63,18 +78,6 @@
 	<servlet-mapping>
 		<servlet-name>TemplateCopyServlet</servlet-name>
 		<url-pattern>/template/copy/*</url-pattern>
-	</servlet-mapping>
-	
-	<!-- Get datamodel of constraint
-		/template/getdatamodel/<technology>/<constraintId>
-	 -->
-	<servlet>
-		<servlet-name>TemplateGetDataModelServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateGetDataModelServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateGetDataModelServlet</servlet-name>
-		<url-pattern>/template/getdatamodel/*</url-pattern>
 	</servlet-mapping>
 		
 	<!-- Request list of templates and/or constraints
@@ -123,18 +126,6 @@
 	<servlet-mapping>
 		<servlet-name>TemplateSetNameServlet</servlet-name>
 		<url-pattern>/template/setname/*</url-pattern>
-	</servlet-mapping>
-		
-	<!-- specify data model of a constraint
-		/template/setmodel/<technology>/<constraintId>
-	 -->
-	<servlet>
-		<servlet-name>TemplateSetDataModelServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateSetDataModelServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateSetDataModelServlet</servlet-name>
-		<url-pattern>/template/setdatamodel/*</url-pattern>
 	</servlet-mapping>
 		
 	<!-- add (PUT) or remove (DELETE) one or more tags to a constraint
