@@ -181,12 +181,12 @@
 		/template/get/<technology>/<constraintId>
 	-->
 	<servlet>
-		<servlet-name>TemplateExecuteServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateExecuteServlet</servlet-class>
+		<servlet-name>ConstraintExecuteServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintExecuteServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateExecuteServlet</servlet-name>
-		<url-pattern>/template/execute/*</url-pattern>
+		<servlet-name>ConstraintExecuteServlet</servlet-name>
+		<url-pattern>/constraint/execute/*</url-pattern>
 	</servlet-mapping>
 	
 	
