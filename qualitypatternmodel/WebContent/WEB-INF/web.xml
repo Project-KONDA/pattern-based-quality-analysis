@@ -20,6 +20,23 @@
 		format: xml, rdf, neo4j
 		level: all, abstract, semi-concrete, concrete 
 	-->
+	
+	<!-- 
+		Request information about a certain constraint
+		- GET /constraint/<technology>/<constraintId>
+		Post parameter
+		- POST /constraint/<technology>/<constraintId>
+		Delete existing constraint
+		- DELETE /constraint/<technology>/<constraintId> 
+	 -->
+	<servlet>
+		<servlet-name>ConstraintServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConstraintServlet</servlet-name>
+		<url-pattern>/constraint/*</url-pattern>
+	</servlet-mapping>
  
 	<!-- Copy existing constraint
 		/template/copy/<technology>/<constraintId>
@@ -31,18 +48,6 @@
 	<servlet-mapping>
 		<servlet-name>TemplateCopyServlet</servlet-name>
 		<url-pattern>/template/copy/*</url-pattern>
-	</servlet-mapping>
-	
-	<!-- Delete existing constraint
-		/template/delete/<technology>/<constraintId>
-	 -->
-	<servlet>
-		<servlet-name>TemplateDeleteServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateDeleteServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateDeleteServlet</servlet-name>
-		<url-pattern>/template/delete/*</url-pattern>
 	</servlet-mapping>
 	
 	<!-- Get database of constraint
@@ -141,18 +146,6 @@
 		<url-pattern>/template/setdatamodel/*</url-pattern>
 	</servlet-mapping>
 		
-	<!-- Change one or more parameters
-		/template/setparameter/<technology>/<constraintId>/
-	-->
-	<servlet>
-		<servlet-name>TemplateSetParameterServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateSetParameterServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateSetParameterServlet</servlet-name>
-		<url-pattern>/template/setparameter/*</url-pattern>
-	</servlet-mapping>
-		
 	<!-- add (PUT) or remove (DELETE) one or more tags to a constraint
 		/constraint/tag/<technology>/<constraintId> {"tag": ?}
 	-->
@@ -163,19 +156,6 @@
 	<servlet-mapping>
 		<servlet-name>ConstraintTagServlet</servlet-name>
 		<url-pattern>/constraint/tag/*</url-pattern>
-	</servlet-mapping>
-	
-	
-	<!-- request information about a certain constraint
-		/template/get/<technology>/<constraintId>
-	-->
-	<servlet>
-		<servlet-name>TemplateGetServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateGetServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateGetServlet</servlet-name>
-		<url-pattern>/template/get/*</url-pattern>
 	</servlet-mapping>
 	
 	
