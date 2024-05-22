@@ -7,12 +7,12 @@
 	
 	
 	<servlet>
-	     <servlet-name>TemplateInitialisationServlet</servlet-name>
-	     <servlet-class>qualitypatternmodel.newservlets.TemplateInitialisationServlet</servlet-class>
+	     <servlet-name>InitialisationServlet</servlet-name>
+	     <servlet-class>qualitypatternmodel.newservlets.InitialisationServlet</servlet-class>
 	     <load-on-startup>1</load-on-startup>
  	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateInitialisationServlet</servlet-name>
+		<servlet-name>InitialisationServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	

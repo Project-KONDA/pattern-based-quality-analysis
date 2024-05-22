@@ -16,11 +16,9 @@ import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
-import qualitypatternmodel.newservlets.TemplateDeleteServlet;
-import qualitypatternmodel.newservlets.TemplateGetServlet;
-import qualitypatternmodel.newservlets.TemplateInitialisationServlet;
+import qualitypatternmodel.newservlets.ConstraintServlet;
+import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
-import qualitypatternmodel.newservlets.TemplateSetParameterServlet;
 
 public class XPathParameterTests {
 
@@ -33,7 +31,7 @@ public class XPathParameterTests {
             else 
             	return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp/" + argument;
         }).when(context).getRealPath(anyString());
-		TemplateInitialisationServlet.initialisation(context);
+		InitialisationServlet.initialisation(context);
 
 
         List<String> xPaths = List.of(
@@ -74,12 +72,12 @@ public class XPathParameterTests {
 			HashMap<String, String[]> param = new HashMap<String, String[]>();
 			String[] val = {arg};
 			param.put("xmlpath_rootToReturn", val);
-			if (TemplateSetParameterServlet.applyPost("/xml/" + id, param).startsWith("{\"success\":[],"))
+			if (ConstraintServlet.applyPost("/xml/" + id, param).startsWith("{\"success\":[],"))
 				System.out.println(arg);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		TemplateDeleteServlet.applyDelete("/xml/" + id, new HashMap<String, String[]>());
+		ConstraintServlet.applyDelete("/xml/" + id, new HashMap<String, String[]>());
 	}
 	
 	
@@ -91,7 +89,7 @@ public class XPathParameterTests {
 			HashMap<String, String[]> param = new HashMap<String, String[]>();
 			String[] val = {arg};
 			param.put("xmlpath_returnToCondition", val);
-			String output = TemplateSetParameterServlet.applyPost(id, param); 
+			String output = ConstraintServlet.applyPost(id, param); 
 			if (output.startsWith("{\"success\":[],"))
 				System.out.println("failed: " + arg);
 			checkParameterValue(id, "xmlpath_returnToCondition", arg);
@@ -99,11 +97,11 @@ public class XPathParameterTests {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		TemplateDeleteServlet.applyDelete(id, new HashMap<String, String[]>());
+		ConstraintServlet.applyDelete(id, new HashMap<String, String[]>());
 	}
 	
 	private static void checkParameterValue(String id, String parameter_id, String expected) throws InvalidServletCallException, FailedServletCallException, JSONException {
-		String get = TemplateGetServlet.applyGet(id, null);
+		String get = ConstraintServlet.applyGet(id, null);
 		String value = getParameterValue(get, parameter_id);
 		expected = replaceExpected(expected);
 		if (value == null)
