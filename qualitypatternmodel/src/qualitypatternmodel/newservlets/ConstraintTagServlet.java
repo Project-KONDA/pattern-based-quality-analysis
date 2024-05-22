@@ -15,8 +15,8 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
 public class ConstraintTagServlet extends HttpServlet {
-	
-	// .. /template/addtag   /<technology>/<name>/ {"tag": <value>}
+	// POST or DELETE
+	// .. /template/tag   /<technology>/<name>/ {"tag": <value>}
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -47,7 +47,6 @@ public class ConstraintTagServlet extends HttpServlet {
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
-//		response.getOutputStream().println("{ \"call\": \"TemplateSetParameterServlet.doPost(" + path + ")\"}");
 	}
 	
 	@Override
@@ -79,13 +78,12 @@ public class ConstraintTagServlet extends HttpServlet {
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
-//		response.getOutputStream().println("{ \"call\": \"TemplateSetParameterServlet.doPost(" + path + ")\"}");
 	}
 	
 	public static String applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
-			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/setparameter/<technology>/<name>/' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong url for posting tags in a constraint: '.. /constraint/tag/<technology>/<name>/' (not " + path + ")");
 
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
@@ -129,7 +127,7 @@ public class ConstraintTagServlet extends HttpServlet {
 	public static String applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
-			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/setparameter/<technology>/<name>/' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong url for deleting tags in a constraint: '.. /constraint/tag/<technology>/<name>/' (not " + path + ")");
 
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
