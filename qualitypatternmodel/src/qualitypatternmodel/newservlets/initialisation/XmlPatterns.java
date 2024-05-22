@@ -109,7 +109,7 @@ public class XmlPatterns {
 			patterns.add(getXmlConcrete(GenericPatterns.getGenericCompSet(), Language.XML,
 					Map.of(3, "//*", 4, "/*/text()"), 
 					XmlPatternVariants.COMPSET_XML_VARIANTS, 
-				XmlPatternVariants.COMPSET_XML_VARIANTS_OLD));
+					XmlPatternVariants.COMPSET_XML_VARIANTS_OLD));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -40,13 +40,13 @@ public class TemplateInitialisationServlet extends HttpServlet {
 	}
 	
 	public static void initialisation(ServletContext scon) throws ServletException {
-		ServletUtilities.log("Initializing ...");
-		
 		String templates = System.getenv().get("TEMPLATE_VOLUME");
 		String files = System.getenv().get("SHARED_VOLUME");
 		ServletUtilities.PATTERNFOLDER = templates == null? scon.getRealPath("/templates") : templates;
 		ServletUtilities.FILEFOLDER = files == null? scon.getRealPath("/files") : files;
 		
+		System.out.println("Files can be found at " + ServletUtilities.PATTERNFOLDER);
+		ServletUtilities.log("Initializing ...");
 		try {
 			String genericfolder = ServletUtilities.PATTERNFOLDER + "/generic-patterns";
 			for (CompletePattern pattern: GenericPatterns.getAllGenericPattern()) {

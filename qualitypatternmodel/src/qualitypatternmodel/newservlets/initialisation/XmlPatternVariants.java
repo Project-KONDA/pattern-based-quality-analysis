@@ -69,7 +69,7 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"element\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\"},"
 				+ "{\"text\":\"where a\"},"
 				+ "{\"name\":\"property\",\"params\":[3],\"exampleValue\":\"Surname\",\"description\":\"value that gets analysed\"},"
-				+ "{\"name\":\"does / does not\",\"params\":[0],\"exampleValue\":\"does\"},"
+				+ "{\"name\":\"does / does not\",\"params\":[0],\"map\":{\"true\":\"”does”\",\"false\":\"does not\"},\"exampleValue\":\"does\"},"
 				+ "{\"text\":\"match\"},"
 				+ "{\"name\":\"a specific pattern (RegEx)\",\"params\":[1],\"exampleValue\":\"[A-Z][a-z][a-z]+\"},"
 				+ "{\"text\":\".\"}]}";
@@ -86,7 +86,7 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"element\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\"},"
 				+ "{\"text\":\"where at least one\"},"
 				+ "{\"name\":\"property\",\"params\":[3],\"exampleValue\":\"Education\",\"description\":\"analysed property\"},"
-				+ "{\"name\":\"does / does not\",\"params\":[0],\"exampleValue\":\"does\"},"
+				+ "{\"name\":\"does / does not\",\"params\":[0],\"map\":{\"true\":\"”does”\",\"false\":\"does not\"},\"exampleValue\":\"does\"},"
 				+ "{\"text\":\"contain\"},"
 				+ "{\"name\":\"a specific term\",\"params\":[1],\"exampleValue\":\"Master of\"},"
 				+ "{\"text\":\".\"}]}";
