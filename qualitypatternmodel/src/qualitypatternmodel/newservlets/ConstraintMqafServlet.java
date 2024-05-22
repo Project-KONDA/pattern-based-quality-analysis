@@ -22,7 +22,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
-public class TemplateMqafConstraintServlet extends HttpServlet {
+public class ConstraintMqafServlet extends HttpServlet {
 	
 	// .. /template/mqafjson   /<technology>/<constraintId>
 	

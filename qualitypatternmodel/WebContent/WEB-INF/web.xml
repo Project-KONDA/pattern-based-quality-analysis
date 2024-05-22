@@ -145,12 +145,12 @@
 		/template/get/<technology>/<constraintId>
 	-->
 	<servlet>
-		<servlet-name>TemplateMqafConstraintServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateMqafConstraintServlet</servlet-class>
+		<servlet-name>ConstraintMqafServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintMqafServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateMqafConstraintServlet</servlet-name>
-		<url-pattern>/template/mqafconstraint/*</url-pattern>
+		<servlet-name>ConstraintMqafServlet</servlet-name>
+		<url-pattern>/constraint/mqaf/*</url-pattern>
 	</servlet-mapping>
 	
 	<!-- request generated query of a certain ready constraint
