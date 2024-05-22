@@ -20,43 +20,6 @@
 		format: xml, rdf, neo4j
 		level: all, abstract, semi-concrete, concrete 
 	-->
-	
-	
-	<!-- Add a new database
-		/database/add/<technology>
-	 -->
-<!--	<servlet>-->
-<!--		<servlet-name>DatabaseAddServlet</servlet-name>-->
-<!--		<servlet-class>qualitypatternmodel.newservlets.DatabaseAddServlet</servlet-class>-->
-<!--	</servlet>-->
-<!--	<servlet-mapping>-->
-<!--		<servlet-name>DatabaseAddServlet</servlet-name>-->
-<!--		<url-pattern>/database/add/*</url-pattern>-->
-<!--	</servlet-mapping>-->
-	
-	<!-- Delete database
-		/database/delete/<technology>
-	 -->
-<!--	<servlet>-->
-<!--		<servlet-name>DatabaseDeleteServlet</servlet-name>-->
-<!--		<servlet-class>qualitypatternmodel.newservlets.DatabaseDeleteServlet</servlet-class>-->
-<!--	</servlet>-->
-<!--	<servlet-mapping>-->
-<!--		<servlet-name>DatabaseDeleteServlet</servlet-name>-->
-<!--		<url-pattern>/database/delete/*</url-pattern>-->
-<!--	</servlet-mapping>-->
-	
-	<!-- Request database list
-		/database/getlist/<technology>
-	 -->
-<!--	<servlet>-->
-<!--		<servlet-name>DatabaseGetListServlet</servlet-name>-->
-<!--		<servlet-class>qualitypatternmodel.newservlets.DatabaseGetListServlet</servlet-class>-->
-<!--	</servlet>-->
-<!--	<servlet-mapping>-->
-<!--		<servlet-name>DatabaseGetListServlet</servlet-name>-->
-<!--		<url-pattern>/database/getlist/*</url-pattern>-->
-<!--	</servlet-mapping>-->
  
 	<!-- Copy existing constraint
 		/template/copy/<technology>/<constraintId>
@@ -190,28 +153,16 @@
 		<url-pattern>/template/setparameter/*</url-pattern>
 	</servlet-mapping>
 		
-	<!-- add one or more tags to a constraint
-		/template/addtag/<technology>/<constraintId> {"tag": ?}
+	<!-- add (PUT) or remove (DELETE) one or more tags to a constraint
+		/constraint/tag/<technology>/<constraintId> {"tag": ?}
 	-->
 	<servlet>
-		<servlet-name>TemplateAddTagServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateAddTagServlet</servlet-class>
+		<servlet-name>ConstraintTagServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintTagServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateAddTagServlet</servlet-name>
-		<url-pattern>/template/addtag/*</url-pattern>
-	</servlet-mapping>
-		
-	<!-- remove one or more tags of a constraint
-		/template/removetag/<technology>/<constraintId> {"tag": ?}
-	-->
-	<servlet>
-		<servlet-name>TemplateRemoveTagServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateRemoveTagServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateRemoveTagServlet</servlet-name>
-		<url-pattern>/template/removetag/*</url-pattern>
+		<servlet-name>ConstraintTagServlet</servlet-name>
+		<url-pattern>/constraint/tag/*</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -264,6 +215,45 @@
 		<url-pattern>/template/execute/*</url-pattern>
 	</servlet-mapping>
 	
+	
+	
+	<!-- Add a new database
+		/database/add/<technology>
+	 -->
+<!--	<servlet>-->
+<!--		<servlet-name>DatabaseAddServlet</servlet-name>-->
+<!--		<servlet-class>qualitypatternmodel.newservlets.DatabaseAddServlet</servlet-class>-->
+<!--	</servlet>-->
+<!--	<servlet-mapping>-->
+<!--		<servlet-name>DatabaseAddServlet</servlet-name>-->
+<!--		<url-pattern>/database/add/*</url-pattern>-->
+<!--	</servlet-mapping>-->
+	
+	<!-- Delete database
+		/database/delete/<technology>
+	 -->
+<!--	<servlet>-->
+<!--		<servlet-name>DatabaseDeleteServlet</servlet-name>-->
+<!--		<servlet-class>qualitypatternmodel.newservlets.DatabaseDeleteServlet</servlet-class>-->
+<!--	</servlet>-->
+<!--	<servlet-mapping>-->
+<!--		<servlet-name>DatabaseDeleteServlet</servlet-name>-->
+<!--		<url-pattern>/database/delete/*</url-pattern>-->
+<!--	</servlet-mapping>-->
+	
+	<!-- Request database list
+		/database/getlist/<technology>
+	 -->
+<!--	<servlet>-->
+<!--		<servlet-name>DatabaseGetListServlet</servlet-name>-->
+<!--		<servlet-class>qualitypatternmodel.newservlets.DatabaseGetListServlet</servlet-class>-->
+<!--	</servlet>-->
+<!--	<servlet-mapping>-->
+<!--		<servlet-name>DatabaseGetListServlet</servlet-name>-->
+<!--		<url-pattern>/database/getlist/*</url-pattern>-->
+<!--	</servlet-mapping>-->
+
+
 	<!-- 
 	<servlet>
 		<servlet-name>AbstractPatternListServlet</servlet-name>
