@@ -11,7 +11,7 @@ import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
-public class TemplateCopyServlet extends HttpServlet {
+public class ConstraintCopyServlet extends HttpServlet {
 	
 	// .. /template/copy   /<technology>/<oldname>/<newname>
 	

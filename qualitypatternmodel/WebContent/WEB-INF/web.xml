@@ -20,6 +20,19 @@
 		format: xml, rdf, neo4j
 		level: all, abstract, semi-concrete, concrete 
 	-->
+ 
+	<!-- 
+		Copy existing constraint
+		- PUT /constraint/copy/<technology>/<constraintId>
+	 -->
+	<servlet>
+		<servlet-name>ConstraintCopyServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintCopyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConstraintCopyServlet</servlet-name>
+		<url-pattern>/constraint/copy/*</url-pattern>
+	</servlet-mapping>
 	
 	<!-- 
 		Request information about a certain constraint
@@ -84,7 +97,6 @@
 		/template/copy/<technology>/<constraintId>
 	 -->
 	<servlet>
-		<servlet-name>TemplateCopyServlet</servlet-name>
 		<servlet-class>qualitypatternmodel.newservlets.TemplateCopyServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
