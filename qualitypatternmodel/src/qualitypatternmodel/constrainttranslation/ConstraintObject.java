@@ -169,6 +169,9 @@ public class ConstraintObject {
 			throw new InvalidityException();
 		
 		// is default Exists
+		if (graph.getNodes().size() == 1 && graph.getOperatorList().getOperators().size() == 0) {
+			return transformSingleNodeExistsGraph(graph, fieldNodes);
+		}
 		if (graph.getNodes().size() == 1 && graph.getOperatorList().getOperators().size() == 1) {
 			return transformSingleNodeGraph(graph, fieldNodes);
 		}
@@ -197,6 +200,10 @@ public class ConstraintObject {
 		ConstraintRuleObject rule = new CardinalityConstraintRuleObject(operator, number);
 		
 		return rule;
+	}
+	
+	private static ConstraintRuleObject transformSingleNodeExistsGraph (Graph graph, Node[] fieldNodes) throws InvalidityException {
+		return new CardinalityConstraintRuleObject(ComparisonOperator.LESS, 1.);
 	}
 	
 	private static ConstraintRuleObject transformSingleNodeGraph (Graph graph, Node[] fieldNodes) throws InvalidityException {
