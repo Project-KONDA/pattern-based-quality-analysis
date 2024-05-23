@@ -72,6 +72,7 @@ import qualitypatternmodel.utility.ConstantsXml;
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getId <em>Id</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getUserValue <em>User Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#isPlural <em>Plural</em>}</li>
  * </ul>
  *
  * @generated
@@ -200,6 +201,26 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isPlural() <em>Plural</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPlural()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PLURAL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPlural() <em>Plural</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPlural()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean plural = PLURAL_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -253,6 +274,10 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		// comparisonMap
 		if(json.has(Constants.JSON_COMPARISONMAP) && json.getBoolean(Constants.JSON_COMPARISONMAP))
 			setComparisonOperatorValueMap();
+
+		// plural
+		if(json.has(Constants.JSON_PLURAL) && json.getBoolean(Constants.JSON_PLURAL))
+			setPlural(true);
 	}
 	
 	@Override
@@ -409,6 +434,29 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * @generated
 	 */
 	@Override
+	public boolean isPlural() {
+		return plural;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPlural(boolean newPlural) {
+		boolean oldPlural = plural;
+		plural = newPlural;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__PLURAL, oldPlural, plural));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ValueMap getValueMap() {
 		return valueMap;
 	}
@@ -505,25 +553,13 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 */
 	@Override
 	public String getAttributeValue(String attName) throws InvalidityException {
-		switch(attName) {
-		case "value": 
-			return getValue();
-		case "userValue":
-			return getUserValue();
-		case "absolutePath":
-			Parameter p = getParameter().get(0);
-			if (!(p instanceof XmlPathParam))
-				throw new InvalidityException("Attribute '" + attName + "' not found.");
-			// validate Value
-			XmlPathParam path = (XmlPathParam) p;
-			return path.getAbsolutePath();
-		default:
-			throw new InvalidityException("Attribute '" + attName + "' not found.");
-		}
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public String generateJSON() {
+	public String generateJSON() {  // Legacy
 		String patternName = getPatternText().getPattern().getPatternId();
 		List<String> urls = new ArrayList<String>();
 		for(Parameter p : getParameter()) {
@@ -615,7 +651,10 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				json.put("userValue", getUserValue());
 			if (getDescription() != null)
 				json.put("description", getDescription());
-			json.put("exampleValue", getExampleValue());
+			if (getExampleValue() != null)
+				json.put("exampleValue", getExampleValue());
+			if (isPlural())
+				json.put("plural", plural);
 			
 			if (getValueMap() != null) {
 				json.put("options", getValueMap().getValuesAsJsonArray());
@@ -969,6 +1008,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return getUserValue();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__DESCRIPTION:
 				return getDescription();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__PLURAL:
+				return isPlural();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1004,6 +1045,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__PLURAL:
+				setPlural((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1037,6 +1081,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__PLURAL:
+				setPlural(PLURAL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1063,6 +1110,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return USER_VALUE_EDEFAULT == null ? userValue != null : !USER_VALUE_EDEFAULT.equals(userValue);
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__PLURAL:
+				return plural != PLURAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1181,6 +1230,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		result.append(userValue);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", plural: ");
+		result.append(plural);
 		result.append(')');
 		return result.toString();
 	}

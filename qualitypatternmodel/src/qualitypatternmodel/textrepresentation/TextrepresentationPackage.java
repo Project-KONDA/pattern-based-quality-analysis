@@ -359,13 +359,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT__DESCRIPTION = FRAGMENT_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Plural</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT__PLURAL = FRAGMENT_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Parameter Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 7;
+	int PARAMETER_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Generate JSON</em>' operation.
@@ -1005,6 +1014,17 @@ public interface TextrepresentationPackage extends EPackage {
 	EAttribute getParameterFragment_Description();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.textrepresentation.ParameterFragment#isPlural <em>Plural</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Plural</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#isPlural()
+	 * @see #getParameterFragment()
+	 * @generated
+	 */
+	EAttribute getParameterFragment_Plural();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getType() <em>Get Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1507,6 +1527,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PARAMETER_FRAGMENT__DESCRIPTION = eINSTANCE.getParameterFragment_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Plural</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_FRAGMENT__PLURAL = eINSTANCE.getParameterFragment_Plural();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Type</b></em>' operation.

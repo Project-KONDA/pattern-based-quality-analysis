@@ -49,6 +49,7 @@ public class Constants {
 	public static final String JSON_MAP = "map";
 	public static final String JSON_COMPARISONMAP = "comparisonMap";
 	public static final String JSON_VALUE = "value";
+	public static final String JSON_PLURAL = "plural";
 	
 
 	//Global Exception Messages -- Introduced by Lukas Sebastian Hofmann. Existing code of the framework has not been touched.

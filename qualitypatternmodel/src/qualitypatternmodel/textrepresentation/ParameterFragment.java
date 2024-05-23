@@ -20,6 +20,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getId <em>Id</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getUserValue <em>User Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getDescription <em>Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#isPlural <em>Plural</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterFragment()
@@ -136,6 +137,28 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	 * @generated
 	 */
 	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Plural</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Plural</em>' attribute.
+	 * @see #setPlural(boolean)
+	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterFragment_Plural()
+	 * @model
+	 * @generated
+	 */
+	boolean isPlural();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#isPlural <em>Plural</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Plural</em>' attribute.
+	 * @see #isPlural()
+	 * @generated
+	 */
+	void setPlural(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Map</b></em>' containment reference.
