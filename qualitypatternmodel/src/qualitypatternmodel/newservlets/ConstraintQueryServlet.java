@@ -21,7 +21,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
-public class TemplateQueryServlet extends HttpServlet {
+public class ConstraintQueryServlet extends HttpServlet {
 	
 	// .. /template/query   /<technology>/<constraintId>
 	

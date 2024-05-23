@@ -22,7 +22,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
-public class TemplateInitialisationServlet extends HttpServlet {
+public class InitialisationServlet extends HttpServlet {
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {

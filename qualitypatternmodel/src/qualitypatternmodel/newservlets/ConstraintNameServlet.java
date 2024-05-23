@@ -11,9 +11,9 @@ import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
-public class TemplateSetDataModelServlet extends HttpServlet {
+public class ConstraintNameServlet extends HttpServlet {
 	
-	// .. /template/setdatamodel   /<technology>/<name>  {"datamodel": <datamode-name>}
+	// .. /template/setdatabase   /<technology>/<name>/<database-name>
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -26,7 +26,7 @@ public class TemplateSetDataModelServlet extends HttpServlet {
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 //			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
-//			response.getWriter().write("{ \"error\": \"datamodels not implemented \"}");
+//			response.getWriter().write("{ \"error\": \"databases not implemented \"}");
 		}
 		catch (InvalidServletCallException e) {
 			ServletUtilities.logError(e);
@@ -46,7 +46,7 @@ public class TemplateSetDataModelServlet extends HttpServlet {
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
-//		response.getOutputStream().println("{ \"call\": \"TemplateSetDataModelServlet.doPost()\"}");
+//		response.getOutputStream().println("{ \"call\": \"TemplateSetDatabaseServlet.doPost()\"}");
 	}
 	
 	public static String applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
@@ -60,10 +60,10 @@ public class TemplateSetDataModelServlet extends HttpServlet {
 		if (!ServletUtilities.TECHS.contains(technology))
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 
-		String[] dataModelNameArray = parameterMap.get("datamodel");
-		if (dataModelNameArray == null || dataModelNameArray.length != 1 || dataModelNameArray[0].equals(""))
+		String[] newNameArray = parameterMap.get("name");
+		if (newNameArray == null || newNameArray.length != 1 || newNameArray[0].equals(""))
 			throw new InvalidServletCallException("Invalid parameter for setting name.");
-		String newDataModelName = dataModelNameArray[0];
+		String newName = newNameArray[0];
 		
 		// 1. load Pattern
 		CompletePattern pattern;
@@ -74,8 +74,8 @@ public class TemplateSetDataModelServlet extends HttpServlet {
 		}
 		
 		// 2. change name
-		String oldDataModelName = pattern.getDataModelName();
-		pattern.setDataModelName(newDataModelName);
+		String oldName = pattern.getName();
+		pattern.setName(newName);
 		
 		// 3. save constraint
 		try {
@@ -84,6 +84,6 @@ public class TemplateSetDataModelServlet extends HttpServlet {
 			throw new FailedServletCallException("Failed to save new constraint");
 		}
 		
-		return "Datamodel of constraint of constraint '" + pattern.getPatternId() + "' updated successfully from '" + oldDataModelName + "' to '" + newDataModelName + "'.";
+		return "Name of constraint updated successfully from '" + oldName + "' to '" + newName + "'.";
 	}
 }

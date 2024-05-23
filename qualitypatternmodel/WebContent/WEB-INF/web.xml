@@ -7,12 +7,12 @@
 	
 	
 	<servlet>
-	     <servlet-name>TemplateInitialisationServlet</servlet-name>
-	     <servlet-class>qualitypatternmodel.newservlets.TemplateInitialisationServlet</servlet-class>
+	     <servlet-name>InitialisationServlet</servlet-name>
+	     <servlet-class>qualitypatternmodel.newservlets.InitialisationServlet</servlet-class>
 	     <load-on-startup>1</load-on-startup>
  	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateInitialisationServlet</servlet-name>
+		<servlet-name>InitialisationServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
@@ -20,118 +20,94 @@
 		format: xml, rdf, neo4j
 		level: all, abstract, semi-concrete, concrete 
 	-->
-	
-	
-	<!-- Add a new database
-		/database/add/<technology>
-	 -->
-<!--	<servlet>-->
-<!--		<servlet-name>DatabaseAddServlet</servlet-name>-->
-<!--		<servlet-class>qualitypatternmodel.newservlets.DatabaseAddServlet</servlet-class>-->
-<!--	</servlet>-->
-<!--	<servlet-mapping>-->
-<!--		<servlet-name>DatabaseAddServlet</servlet-name>-->
-<!--		<url-pattern>/database/add/*</url-pattern>-->
-<!--	</servlet-mapping>-->
-	
-	<!-- Delete database
-		/database/delete/<technology>
-	 -->
-<!--	<servlet>-->
-<!--		<servlet-name>DatabaseDeleteServlet</servlet-name>-->
-<!--		<servlet-class>qualitypatternmodel.newservlets.DatabaseDeleteServlet</servlet-class>-->
-<!--	</servlet>-->
-<!--	<servlet-mapping>-->
-<!--		<servlet-name>DatabaseDeleteServlet</servlet-name>-->
-<!--		<url-pattern>/database/delete/*</url-pattern>-->
-<!--	</servlet-mapping>-->
-	
-	<!-- Request database list
-		/database/getlist/<technology>
-	 -->
-<!--	<servlet>-->
-<!--		<servlet-name>DatabaseGetListServlet</servlet-name>-->
-<!--		<servlet-class>qualitypatternmodel.newservlets.DatabaseGetListServlet</servlet-class>-->
-<!--	</servlet>-->
-<!--	<servlet-mapping>-->
-<!--		<servlet-name>DatabaseGetListServlet</servlet-name>-->
-<!--		<url-pattern>/database/getlist/*</url-pattern>-->
-<!--	</servlet-mapping>-->
  
-	<!-- Copy existing constraint
-		/template/copy/<technology>/<constraintId>
+	<!-- 
+		Copy existing constraint
+		- PUT /constraint/copy/<technology>/<constraintId>
 	 -->
 	<servlet>
-		<servlet-name>TemplateCopyServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateCopyServlet</servlet-class>
+		<servlet-name>ConstraintCopyServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintCopyServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateCopyServlet</servlet-name>
-		<url-pattern>/template/copy/*</url-pattern>
+		<servlet-name>ConstraintCopyServlet</servlet-name>
+		<url-pattern>/constraint/copy/*</url-pattern>
 	</servlet-mapping>
 	
-	<!-- Delete existing constraint
-		/template/delete/<technology>/<constraintId>
+	<!-- 
+		Request information about a certain constraint
+		- GET /constraint/<technology>/<constraintId>
+		Post parameter
+		- POST /constraint/<technology>/<constraintId>
+		Delete existing constraint
+		- DELETE /constraint/<technology>/<constraintId> 
 	 -->
 	<servlet>
-		<servlet-name>TemplateDeleteServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateDeleteServlet</servlet-class>
+		<servlet-name>ConstraintServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateDeleteServlet</servlet-name>
-		<url-pattern>/template/delete/*</url-pattern>
+		<servlet-name>ConstraintServlet</servlet-name>
+		<url-pattern>/constraint/*</url-pattern>
 	</servlet-mapping>
 	
-	<!-- Get database of constraint
-		/template/getdatabase/<technology>/<constraintId>
+	<!--
+		Get database of constraint
+		- GET /constraint/database/<technology>/<constraintId>
+		Specify database of a constraint
+		- PUT /constraint/database/<technology>/<constraintId>
 	 -->
 	<servlet>
-		<servlet-name>TemplateGetDatabaseServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateGetDatabaseServlet</servlet-class>
+		<servlet-name>ConstraintDatabaseServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintDatabaseServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateGetDatabaseServlet</servlet-name>
-		<url-pattern>/template/getdatabase/*</url-pattern>
+		<servlet-name>ConstraintDatabaseServlet</servlet-name>
+		<url-pattern>/constraint/database/*</url-pattern>
 	</servlet-mapping>
 	
-	<!-- Get datamodel of constraint
-		/template/getdatamodel/<technology>/<constraintId>
+	<!-- 
+		Get datamodel of constraint
+		- GET /constraint/datamodel/<technology>/<constraintId>
+		Specify database of a constraint
+		- PUT /constraint/datamodel/<technology>/<constraintId>
 	 -->
 	<servlet>
-		<servlet-name>TemplateGetDataModelServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateGetDataModelServlet</servlet-class>
+		<servlet-name>ConstraintDataModelServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintDataModelServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateGetDataModelServlet</servlet-name>
-		<url-pattern>/template/getdatamodel/*</url-pattern>
+		<servlet-name>ConstraintDataModelServlet</servlet-name>
+		<url-pattern>/constraint/datamodel/*</url-pattern>
 	</servlet-mapping>
 		
 	<!-- Request list of templates and/or constraints
-		/templates/getlist/<technology>/<level>
+		- GET /pattern/list/<technology>/<level>
 	 -->
 	<servlet>
-		<servlet-name>TemplateGetListServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateGetListServlet</servlet-class>
+		<servlet-name>PatternListServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.PatternListServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateGetListServlet</servlet-name>
-		<url-pattern>/template/getlist/*</url-pattern>
+		<servlet-name>PatternListServlet</servlet-name>
+		<url-pattern>/pattern/list/*</url-pattern>
 	</servlet-mapping>
 		
-	<!-- add one or more variants to a template
-		/template/addvariant/<technology>/<constraintId> {"variants": ?}
+	<!-- Add one or more variants to a template
+		- PUT .. /template/addvariant/<technology>/<constraintId> {"variants": ?}
 	-->
 	<servlet>
-		<servlet-name>TemplateAddVariantServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateAddVariantServlet</servlet-class>
+		<servlet-name>TemplateVariantServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateVariantServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateAddVariantServlet</servlet-name>
-		<url-pattern>/template/addvariant/*</url-pattern>
+		<servlet-name>TemplateVariantServlet</servlet-name>
+		<url-pattern>/template/variant/*</url-pattern>
 	</servlet-mapping>
 		
-	<!-- instantiate new instance of a template
-		/templates/instantiate/<technology>/<templateId>
+	<!-- 
+		Instantiate new instance of a template
+		- PUT /templates/instantiate/<technology>/<templateId>
 	 -->
 	<servlet>
 		<servlet-name>TemplateInstantiateServlet</servlet-name>
@@ -142,89 +118,29 @@
 		<url-pattern>/template/instantiate/*</url-pattern>
 	</servlet-mapping>
 		
-	<!-- specify database of a constraint
-		/template/setdatabase/<technology>/<constraintId>
+	<!-- 
+		Specify name of a constraint
+		- POST /constraint/name/<technology>/<constraintId>
 	 -->
 	<servlet>
-		<servlet-name>TemplateSetDatabaseServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateSetDatabaseServlet</servlet-class>
+		<servlet-name>ConstraintNameServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintNameServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateSetDatabaseServlet</servlet-name>
-		<url-pattern>/template/setdatabase/*</url-pattern>
+		<servlet-name>ConstraintNameServlet</servlet-name>
+		<url-pattern>/constraint/name/*</url-pattern>
 	</servlet-mapping>
 		
-	<!-- specify name of a constraint
-		/template/setname/<technology>/<constraintId>
-	 -->
-	<servlet>
-		<servlet-name>TemplateSetNameServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateSetNameServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateSetNameServlet</servlet-name>
-		<url-pattern>/template/setname/*</url-pattern>
-	</servlet-mapping>
-		
-	<!-- specify data model of a constraint
-		/template/setmodel/<technology>/<constraintId>
-	 -->
-	<servlet>
-		<servlet-name>TemplateSetDataModelServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateSetDataModelServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateSetDataModelServlet</servlet-name>
-		<url-pattern>/template/setdatamodel/*</url-pattern>
-	</servlet-mapping>
-		
-	<!-- Change one or more parameters
-		/template/setparameter/<technology>/<constraintId>/
+	<!-- add (PUT) or remove (DELETE) one or more tags to a constraint
+		/constraint/tag/<technology>/<constraintId> {"tag": ?}
 	-->
 	<servlet>
-		<servlet-name>TemplateSetParameterServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateSetParameterServlet</servlet-class>
+		<servlet-name>ConstraintTagServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintTagServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateSetParameterServlet</servlet-name>
-		<url-pattern>/template/setparameter/*</url-pattern>
-	</servlet-mapping>
-		
-	<!-- add one or more tags to a constraint
-		/template/addtag/<technology>/<constraintId> {"tag": ?}
-	-->
-	<servlet>
-		<servlet-name>TemplateAddTagServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateAddTagServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateAddTagServlet</servlet-name>
-		<url-pattern>/template/addtag/*</url-pattern>
-	</servlet-mapping>
-		
-	<!-- remove one or more tags of a constraint
-		/template/removetag/<technology>/<constraintId> {"tag": ?}
-	-->
-	<servlet>
-		<servlet-name>TemplateRemoveTagServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateRemoveTagServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateRemoveTagServlet</servlet-name>
-		<url-pattern>/template/removetag/*</url-pattern>
-	</servlet-mapping>
-	
-	
-	<!-- request information about a certain constraint
-		/template/get/<technology>/<constraintId>
-	-->
-	<servlet>
-		<servlet-name>TemplateGetServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateGetServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>TemplateGetServlet</servlet-name>
-		<url-pattern>/template/get/*</url-pattern>
+		<servlet-name>ConstraintTagServlet</servlet-name>
+		<url-pattern>/constraint/tag/*</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -232,37 +148,38 @@
 		/template/get/<technology>/<constraintId>
 	-->
 	<servlet>
-		<servlet-name>TemplateMqafConstraintServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateMqafConstraintServlet</servlet-class>
+		<servlet-name>ConstraintMqafServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintMqafServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateMqafConstraintServlet</servlet-name>
-		<url-pattern>/template/mqafconstraint/*</url-pattern>
+		<servlet-name>ConstraintMqafServlet</servlet-name>
+		<url-pattern>/constraint/mqaf/*</url-pattern>
 	</servlet-mapping>
 	
 	<!-- request generated query of a certain ready constraint
 		/template/get/<technology>/<constraintId>
 	-->
 	<servlet>
-		<servlet-name>TemplateQueryServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateQueryServlet</servlet-class>
+		<servlet-name>ConstraintQueryServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintQueryServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateQueryServlet</servlet-name>
-		<url-pattern>/template/query/*</url-pattern>
+		<servlet-name>ConstraintQueryServlet</servlet-name>
+		<url-pattern>/constraint/query/*</url-pattern>
 	</servlet-mapping>
 	
 	<!-- request generated query of a certain ready constraint
 		/template/get/<technology>/<constraintId>
 	-->
 	<servlet>
-		<servlet-name>TemplateExecuteServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.newservlets.TemplateExecuteServlet</servlet-class>
+		<servlet-name>ConstraintExecuteServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintExecuteServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>TemplateExecuteServlet</servlet-name>
-		<url-pattern>/template/execute/*</url-pattern>
+		<servlet-name>ConstraintExecuteServlet</servlet-name>
+		<url-pattern>/constraint/execute/*</url-pattern>
 	</servlet-mapping>
+	
 	
 	<!-- 
 	<servlet>
