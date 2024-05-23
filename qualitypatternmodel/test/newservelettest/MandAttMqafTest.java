@@ -15,11 +15,10 @@ import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.newservlets.TemplateDeleteServlet;
-import qualitypatternmodel.newservlets.TemplateInitialisationServlet;
+import qualitypatternmodel.newservlets.ConstraintMqafServlet;
+import qualitypatternmodel.newservlets.ConstraintServlet;
+import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
-import qualitypatternmodel.newservlets.TemplateMqafConstraintServlet;
-import qualitypatternmodel.newservlets.TemplateSetParameterServlet;
 
 public class MandAttMqafTest {
 
@@ -36,7 +35,7 @@ public class MandAttMqafTest {
         
         
 		// initialisation
-		TemplateInitialisationServlet.initialisation(context);
+		InitialisationServlet.initialisation(context);
 		
 		// instantiate
 		String path = "/xml/MandAtt_xml/default";
@@ -48,16 +47,16 @@ public class MandAttMqafTest {
 		HashMap<String, String[]> setParams = new HashMap<String, String[]>();
 		setParams.put("XmlPath_0", new String[]{"//*"});
 		setParams.put("XmlPath_1", new String[]{"/*/text()"});
-		System.out.println(TemplateSetParameterServlet.applyPost("/xml/" + patternID, setParams));
+		System.out.println(ConstraintServlet.applyPost("/xml/" + patternID, setParams));
 		
 		// mqaf single
-		System.out.println("  " + TemplateMqafConstraintServlet.applyGet3("/xml/" + patternID, new HashMap<String, String[]>()));
+		System.out.println("  " + ConstraintMqafServlet.applyGet3("/xml/" + patternID, new HashMap<String, String[]>()));
 		
 		// mqaf multiple
 		HashMap<String, String[]> parameterMap2 = new HashMap<String, String[]>();
 		parameterMap2.put("constraints", new String[]{patternID});
-		System.out.println("  " + TemplateMqafConstraintServlet.applyGet3("/xml/" + patternID, parameterMap2));
+		System.out.println("  " + ConstraintMqafServlet.applyGet3("/xml/" + patternID, parameterMap2));
 		
-		System.out.println(TemplateDeleteServlet.applyDelete("/xml/" + patternID, new HashMap<String, String[]>()));
+		System.out.println(ConstraintServlet.applyDelete("/xml/" + patternID, new HashMap<String, String[]>()));
 	}
 }

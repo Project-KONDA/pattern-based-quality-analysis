@@ -549,17 +549,29 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getAttributeValue(String attName) throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		switch(attName) {
+		case "value": 
+			return getValue();
+		case "userValue":
+			return getUserValue();
+		case "absolutePath":
+			Parameter p = getParameter().get(0);
+			if (!(p instanceof XmlPathParam))
+				throw new InvalidityException("Attribute '" + attName + "' not found.");
+			// validate Value
+			XmlPathParam path = (XmlPathParam) p;
+			return path.getAbsolutePath();
+		default:
+			throw new InvalidityException("Attribute '" + attName + "' not found.");
+		}
 	}
 
 	@Override
-	public String generateJSON() {  // Legacy
+	public String generateJSON() {
 		String patternName = getPatternText().getPattern().getPatternId();
 		List<String> urls = new ArrayList<String>();
 		for(Parameter p : getParameter()) {
