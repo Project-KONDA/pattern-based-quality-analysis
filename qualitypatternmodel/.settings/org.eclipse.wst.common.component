@@ -13,6 +13,12 @@
         <wb-resource deploy-path="/schemata" source-path="/schemata"/>
         <wb-resource deploy-path="/WEB-INF/queries" source-path="/queries"/>
                                 
+        <dependent-module archiveName="metadata-qa-api.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/metadata-qa-api/metadata-qa-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="snakeyaml-2.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/qualitypatternmodel/lib/snakeyaml-2.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         
         
         <property name="context-root" value="qualitypatternmodel"/>

@@ -4,9 +4,6 @@ package qualitypatternmodel.adaptionxml.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -19,6 +16,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.json.JSONArray;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
@@ -35,7 +34,6 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -136,7 +134,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			}
 		}
 		if (result == null) {
-			if (value.equals("/data()") || value.equals("data()"))
+			if (value.equals("/data()") || value.equals("data()") || value.equals("/text()") || value.equals("text()"))
 				result = XmlPropertyKind.DATA;	
 			else if (value.equals("/name()") || value.equals("name()"))
 				result = XmlPropertyKind.TAG;
@@ -161,9 +159,11 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	}
 	
 	@Override
-	public String getOptionsAsStringList() {
-		List<String> list = getOptions().stream().map(a -> a.getName()).collect(Collectors.toList());
-		return ParameterFragmentImpl.generateJSONList(list);
+	public JSONArray getOptionsAsJsonArray() {
+		JSONArray jarray = new JSONArray();
+		for (XmlPropertyKind axis: getOptions())
+			jarray.put(axis);
+		return jarray;
 	}
 	
 	@Override

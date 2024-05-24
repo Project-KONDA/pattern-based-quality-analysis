@@ -13,7 +13,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.xmltranslationtests.Test00;
+import qualitypatternmodel.utility.XmlPatternUtility;
 
 public class XmlEvalExNEx {
 	// also called MANDSTRUC2
@@ -24,7 +24,7 @@ public class XmlEvalExNEx {
 		completePatterns.add(getExNExMidasAps());
 		completePatterns.add(getExNExLidoWorkTypeWithoutConcept());
 
-		Test00.getQueries(completePatterns);
+		XmlPatternUtility.getQueries(completePatterns);
 //		Test00.test(completePatterns);	
 	}
 	

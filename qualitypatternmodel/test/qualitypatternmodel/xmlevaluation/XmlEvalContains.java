@@ -3,11 +3,11 @@ package qualitypatternmodel.xmlevaluation;
 import java.util.ArrayList;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.XmlPatternUtility;
 import qualitypatternmodel.evaluationquality.EvalContains;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class XmlEvalContains {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -15,7 +15,7 @@ public class XmlEvalContains {
 		
 		completePatterns.add(getContainsAbstract());
 
-		Test00.getQueries(completePatterns);
+		XmlPatternUtility.getQueries(completePatterns);
 //		Test00.test(completePatterns);
 	}
 	

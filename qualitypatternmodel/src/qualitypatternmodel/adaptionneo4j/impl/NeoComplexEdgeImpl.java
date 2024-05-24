@@ -17,7 +17,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 
 /**
@@ -104,7 +104,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		final StringBuilder variables = new StringBuilder();
 		final EList<NeoPathPart> neoPath = this.getNeoPathPartEdgeLeafs();
 		for(NeoPathPart path : neoPath) {
-			if (variables.length() != 0) variables.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE); 
+			if (variables.length() != 0) variables.append(ConstantsNeo.CYPHER_SEPERATOR + ConstantsNeo.ONE_WHITESPACE); 
 			variables.append(path.getCypherVariable());
 		}
 		return variables.toString();
@@ -126,9 +126,9 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		for (NeoPathPart part : getNeoPathPartEdgeLeafs()) {
 			innerEdgeNode = part.getCypherInnerEdgeNodes(isReturn);
 			if (innerEdgeNode != null) {
-				if (innerEdgeNode.contains(CypherSpecificConstants.INTERNAL_EDGE_NODE)) {
+				if (innerEdgeNode.contains(ConstantsNeo.INTERNAL_EDGE_NODE)) {
 					if (cypher.length() != 0) {
-						cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
+						cypher.append(ConstantsNeo.CYPHER_SEPERATOR + ConstantsNeo.ONE_WHITESPACE);
 					}
 					cypher.append(innerEdgeNode);
 				}
@@ -320,17 +320,17 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 */
 	@Override
 	public String myToString() {
-		final String temp = NEO_COMPLEX_EDGE_S + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET;
+		final String temp = NEO_COMPLEX_EDGE_S + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET;
 		final StringBuilder result = new StringBuilder(String.format(temp, getId()));
 		boolean isFirst = true;
 		for (NeoPathPart part : getNeoPathParts()) {
 			if (!isFirst) {
-				result.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
+				result.append(ConstantsNeo.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 			}
 			result.append(part.myToString());
 			isFirst = false;
 		}
-		result.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+		result.append(ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
 		return result.toString();
 	}
 	

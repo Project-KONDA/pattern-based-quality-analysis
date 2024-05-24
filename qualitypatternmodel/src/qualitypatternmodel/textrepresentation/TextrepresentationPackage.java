@@ -323,13 +323,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT__NAME = FRAGMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Value Map</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT__VALUE_MAP = FRAGMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Parameter Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 3;
+	int PARAMETER_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate JSON</em>' operation.
@@ -404,13 +413,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT___SET_VALUE__STRING = FRAGMENT_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT___GET_VALUE = FRAGMENT_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Parameter Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT_OPERATION_COUNT = FRAGMENT_OPERATION_COUNT + 4;
+	int PARAMETER_FRAGMENT_OPERATION_COUNT = FRAGMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.TextFragmentImpl <em>Text Fragment</em>}' class.
@@ -597,6 +615,88 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_PREDEFINITION_OPERATION_COUNT = PARAMETER_REFERENCE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.ValueMapImpl <em>Value Map</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.impl.ValueMapImpl
+	 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getValueMap()
+	 * @generated
+	 */
+	int VALUE_MAP = 6;
+
+	/**
+	 * The feature id for the '<em><b>Keys</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_MAP__KEYS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_MAP__VALUES = 1;
+
+	/**
+	 * The number of structural features of the '<em>Value Map</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_MAP_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Put</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_MAP___PUT__STRING_STRING = 0;
+
+	/**
+	 * The operation id for the '<em>Get Values As Json Array</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_MAP___GET_VALUES_AS_JSON_ARRAY = 1;
+
+	/**
+	 * The operation id for the '<em>Get</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_MAP___GET__STRING = 2;
+
+	/**
+	 * The operation id for the '<em>Get Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_MAP___GET_KEY__STRING = 3;
+
+	/**
+	 * The number of operations of the '<em>Value Map</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_MAP_OPERATION_COUNT = 4;
+
+	/**
 	 * The meta object id for the '<em>Object Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -604,7 +704,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getObjectWrapper()
 	 * @generated
 	 */
-	int OBJECT_WRAPPER = 6;
+	int OBJECT_WRAPPER = 7;
 
 
 	/**
@@ -615,7 +715,18 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getJSONObjectWrapper()
 	 * @generated
 	 */
-	int JSON_OBJECT_WRAPPER = 7;
+	int JSON_OBJECT_WRAPPER = 8;
+
+
+	/**
+	 * The meta object id for the '<em>JSON Array Wrapper</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.json.JSONArray
+	 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getJSONArrayWrapper()
+	 * @generated
+	 */
+	int JSON_ARRAY_WRAPPER = 9;
 
 
 	/**
@@ -796,6 +907,17 @@ public interface TextrepresentationPackage extends EPackage {
 	EAttribute getParameterFragment_Name();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getValueMap <em>Value Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Value Map</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#getValueMap()
+	 * @see #getParameterFragment()
+	 * @generated
+	 */
+	EReference getParameterFragment_ValueMap();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getType() <em>Get Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -824,6 +946,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameterFragment__SetValue__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getValue() <em>Get Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Value</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#getValue()
+	 * @generated
+	 */
+	EOperation getParameterFragment__GetValue();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.Fragment <em>Fragment</em>}'.
@@ -960,6 +1092,78 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getParameterReference__IsValid__AbstractionLevel();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.ValueMap <em>Value Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Value Map</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ValueMap
+	 * @generated
+	 */
+	EClass getValueMap();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.textrepresentation.ValueMap#getKeys <em>Keys</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Keys</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#getKeys()
+	 * @see #getValueMap()
+	 * @generated
+	 */
+	EAttribute getValueMap_Keys();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.textrepresentation.ValueMap#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Values</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#getValues()
+	 * @see #getValueMap()
+	 * @generated
+	 */
+	EAttribute getValueMap_Values();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#put(java.lang.String, java.lang.String) <em>Put</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Put</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#put(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getValueMap__Put__String_String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#getValuesAsJsonArray() <em>Get Values As Json Array</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Values As Json Array</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#getValuesAsJsonArray()
+	 * @generated
+	 */
+	EOperation getValueMap__GetValuesAsJsonArray();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#get(java.lang.String) <em>Get</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#get(java.lang.String)
+	 * @generated
+	 */
+	EOperation getValueMap__Get__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#getKey(java.lang.String) <em>Get Key</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Key</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#getKey(java.lang.String)
+	 * @generated
+	 */
+	EOperation getValueMap__GetKey__String();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Object Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -980,6 +1184,17 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getJSONObjectWrapper();
+
+	/**
+	 * Returns the meta object for data type '{@link org.json.JSONArray <em>JSON Array Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>JSON Array Wrapper</em>'.
+	 * @see org.json.JSONArray
+	 * @model instanceClass="org.json.JSONArray"
+	 * @generated
+	 */
+	EDataType getJSONArrayWrapper();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1145,6 +1360,14 @@ public interface TextrepresentationPackage extends EPackage {
 		EAttribute PARAMETER_FRAGMENT__NAME = eINSTANCE.getParameterFragment_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Value Map</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_FRAGMENT__VALUE_MAP = eINSTANCE.getParameterFragment_ValueMap();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Type</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1167,6 +1390,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER_FRAGMENT___SET_VALUE__STRING = eINSTANCE.getParameterFragment__SetValue__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_FRAGMENT___GET_VALUE = eINSTANCE.getParameterFragment__GetValue();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.FragmentImpl <em>Fragment</em>}' class.
@@ -1281,6 +1512,64 @@ public interface TextrepresentationPackage extends EPackage {
 		EOperation PARAMETER_REFERENCE___IS_VALID__ABSTRACTIONLEVEL = eINSTANCE.getParameterReference__IsValid__AbstractionLevel();
 
 		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.ValueMapImpl <em>Value Map</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.textrepresentation.impl.ValueMapImpl
+		 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getValueMap()
+		 * @generated
+		 */
+		EClass VALUE_MAP = eINSTANCE.getValueMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Keys</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE_MAP__KEYS = eINSTANCE.getValueMap_Keys();
+
+		/**
+		 * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE_MAP__VALUES = eINSTANCE.getValueMap_Values();
+
+		/**
+		 * The meta object literal for the '<em><b>Put</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_MAP___PUT__STRING_STRING = eINSTANCE.getValueMap__Put__String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Values As Json Array</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_MAP___GET_VALUES_AS_JSON_ARRAY = eINSTANCE.getValueMap__GetValuesAsJsonArray();
+
+		/**
+		 * The meta object literal for the '<em><b>Get</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_MAP___GET__STRING = eINSTANCE.getValueMap__Get__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Key</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_MAP___GET_KEY__STRING = eINSTANCE.getValueMap__GetKey__String();
+
+		/**
 		 * The meta object literal for the '<em>Object Wrapper</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1299,6 +1588,16 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType JSON_OBJECT_WRAPPER = eINSTANCE.getJSONObjectWrapper();
+
+		/**
+		 * The meta object literal for the '<em>JSON Array Wrapper</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.json.JSONArray
+		 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getJSONArrayWrapper()
+		 * @generated
+		 */
+		EDataType JSON_ARRAY_WRAPPER = eINSTANCE.getJSONArrayWrapper();
 
 	}
 

@@ -25,6 +25,7 @@ import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.ConstantsRdf;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,7 +94,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 		vars[0] = getRdfPredicate().getSource().generateSparql();
 		vars[vars.length-1] = getRdfPredicate().getTarget().generateSparql();
 		for (int i = 1; i < vars.length-1; i++){
-			vars[i] = "?tempvar" + getRdfPredicate().getInternalId() + "_" + i;
+			vars[i] = ConstantsRdf.TEMPVAR + getRdfPredicate().getInternalId() + "_" + i;
 		}
 		
 		for (int i = 0; i < sparqlparts.length; i++){

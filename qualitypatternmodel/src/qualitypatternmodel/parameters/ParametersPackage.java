@@ -449,13 +449,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___CHECK_COMPARISON_CONSISTENCY = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___GET_OPTIONS_AS_STRING_LIST = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
+	int PARAMETER___GET_OPTIONS_AS_JSON_ARRAY = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -909,13 +909,13 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+	int COMPARISON_OPTION_PARAM___GET_OPTIONS_AS_JSON_ARRAY = PARAMETER___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -1694,13 +1694,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY = PARAMETER___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST = PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+	int PARAMETER_VALUE___GET_OPTIONS_AS_JSON_ARRAY = PARAMETER___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -2316,13 +2316,13 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+	int BOOLEAN_PARAM___GET_OPTIONS_AS_JSON_ARRAY = PARAMETER_VALUE___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -2911,13 +2911,13 @@ public interface ParametersPackage extends EPackage {
 	int LIST_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+	int LIST_PARAM___GET_OPTIONS_AS_JSON_ARRAY = PARAMETER_VALUE___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -3533,13 +3533,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM___CHECK_COMPARISON_CONSISTENCY = LIST_PARAM___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_OPTIONS_AS_STRING_LIST = LIST_PARAM___GET_OPTIONS_AS_STRING_LIST;
+	int TEXT_LIST_PARAM___GET_OPTIONS_AS_JSON_ARRAY = LIST_PARAM___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -4191,13 +4191,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+	int TEXT_LITERAL_PARAM___GET_OPTIONS_AS_JSON_ARRAY = PARAMETER_VALUE___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -4804,13 +4804,13 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+	int NUMBER_PARAM___GET_OPTIONS_AS_JSON_ARRAY = PARAMETER_VALUE___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -5399,13 +5399,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+	int DATE_PARAM___GET_OPTIONS_AS_JSON_ARRAY = PARAMETER_VALUE___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -5994,13 +5994,13 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+	int TIME_PARAM___GET_OPTIONS_AS_JSON_ARRAY = PARAMETER_VALUE___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -6580,13 +6580,13 @@ public interface ParametersPackage extends EPackage {
 	int UNTYPED_PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNTYPED_PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+	int UNTYPED_PARAMETER_VALUE___GET_OPTIONS_AS_JSON_ARRAY = PARAMETER_VALUE___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -7175,13 +7175,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+	int DATE_TIME_PARAM___GET_OPTIONS_AS_JSON_ARRAY = PARAMETER_VALUE___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -7770,13 +7770,13 @@ public interface ParametersPackage extends EPackage {
 	int TYPE_OPTION_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_OPTION_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+	int TYPE_OPTION_PARAM___GET_OPTIONS_AS_JSON_ARRAY = PARAMETER___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -8194,13 +8194,13 @@ public interface ParametersPackage extends EPackage {
 	int KEY_VALUE_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+	int KEY_VALUE_PARAM___GET_OPTIONS_AS_JSON_ARRAY = PARAMETER___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -8654,13 +8654,13 @@ public interface ParametersPackage extends EPackage {
 	int MULTI_LIST_PARAM___CHECK_COMPARISON_CONSISTENCY = LIST_PARAM___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_LIST_PARAM___GET_OPTIONS_AS_STRING_LIST = LIST_PARAM___GET_OPTIONS_AS_STRING_LIST;
+	int MULTI_LIST_PARAM___GET_OPTIONS_AS_JSON_ARRAY = LIST_PARAM___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -8984,16 +8984,6 @@ public interface ParametersPackage extends EPackage {
 	EOperation getParameter__SetValueFromString__String();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#getOptionsAsStringList() <em>Get Options As String List</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Options As String List</em>' operation.
-	 * @see qualitypatternmodel.parameters.Parameter#getOptionsAsStringList()
-	 * @generated
-	 */
-	EOperation getParameter__GetOptionsAsStringList();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9012,6 +9002,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameter__CheckComparisonConsistency();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#getOptionsAsJsonArray() <em>Get Options As Json Array</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Options As Json Array</em>' operation.
+	 * @see qualitypatternmodel.parameters.Parameter#getOptionsAsJsonArray()
+	 * @generated
+	 */
+	EOperation getParameter__GetOptionsAsJsonArray();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#validateExampleValue(java.lang.String) <em>Validate Example Value</em>}' operation.
@@ -9909,14 +9909,6 @@ public interface ParametersPackage extends EPackage {
 		EOperation PARAMETER___SET_VALUE_FROM_STRING__STRING = eINSTANCE.getParameter__SetValueFromString__String();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Options As String List</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PARAMETER___GET_OPTIONS_AS_STRING_LIST = eINSTANCE.getParameter__GetOptionsAsStringList();
-
-		/**
 		 * The meta object literal for the '<em><b>Validate Against Schema</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9931,6 +9923,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER___CHECK_COMPARISON_CONSISTENCY = eINSTANCE.getParameter__CheckComparisonConsistency();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Options As Json Array</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER___GET_OPTIONS_AS_JSON_ARRAY = eINSTANCE.getParameter__GetOptionsAsJsonArray();
 
 		/**
 		 * The meta object literal for the '<em><b>Validate Example Value</b></em>' operation.

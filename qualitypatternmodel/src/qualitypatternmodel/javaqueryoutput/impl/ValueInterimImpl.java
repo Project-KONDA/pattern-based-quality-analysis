@@ -2,8 +2,15 @@
  */
 package qualitypatternmodel.javaqueryoutput.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import java.util.HashMap;
+import java.util.Map;
 
+import org.eclipse.emf.ecore.EClass;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
 
@@ -22,6 +29,36 @@ public class ValueInterimImpl extends InterimResultPartImpl implements ValueInte
 	 */
 	public ValueInterimImpl() {
 		super();
+	}
+	
+	public ValueInterimImpl(String json) throws InvalidityException {
+		super();
+		try {
+			JSONObject jsono = new JSONObject(json);
+			if (!jsono.get("class").equals(getClass().getSimpleName()))
+				throw new InvalidityException("Wrong class");
+			setInterimPartId(jsono.getInt("id"));
+		} catch (JSONException e) {
+			throw new InvalidityException("Wrong class");
+		}
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("id", getInterimPartId());
+		} catch (JSONException e) {
+		}
+		return result;
+	}
+
+	@Override
+	public Map<Integer, InterimResultPart> getInterimResultParts() {
+		Map<Integer, InterimResultPart> map = new HashMap<Integer, InterimResultPart>();
+		map.put(getInterimPartId(), this);
+		return map;
 	}
 
 	@Override

@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
-import static qualitypatternmodel.utility.Constants.FOR_LITE;
-import static qualitypatternmodel.utility.Constants.IN;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
@@ -14,6 +12,7 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.utility.ConstantsXml;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,7 +72,7 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 		}
 		
 		// Structure Translation (For, Some, Every)
-		String query = FOR_LITE + variable + IN;
+		String query = ConstantsXml.FOR_LITE + variable + ConstantsXml.IN;
 		if(getTarget() instanceof XmlNode) {
 			XmlNode node = (XmlNode) getTarget();
 			xPredicates += node.translateMultipleIncoming();
@@ -91,7 +90,8 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 //		if (query.startsWith("\n"))
 //			query = query.substring(1);
 //		return "  " + query + "\n  return (";
-		query += getTarget().generateXQueryJavaReturn();
+		String targetquery = getTarget().generateXQueryJavaReturn();
+		query += targetquery;
 		return query;
 	}
 	

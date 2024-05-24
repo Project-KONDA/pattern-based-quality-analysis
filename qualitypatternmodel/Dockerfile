@@ -1,0 +1,38 @@
+# base image
+FROM tomcat:10
+
+# install packages
+RUN apt-get -y update \
+    && apt-get -y autoremove \
+    && apt-get clean \
+    && apt-get install -y maven \
+    apt-utils \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
+
+# create directories
+RUN mkdir -p /usr/src/app/src/main/java
+RUN mkdir -p /usr/src/app/src/main/webapp
+
+# copy files
+COPY pom.xml /usr/src/app/pom.xml
+COPY ./src /usr/src/app/src/main/java
+COPY ./WebContent /usr/src/app/src/main/webapp
+
+# change path to web.xml
+RUN sed -i 's#WebContent/WEB-INF#src/main/webapp/WEB-INF#g' /usr/src/app/pom.xml
+
+# compile maven to war file
+WORKDIR /usr/src/app
+RUN mvn clean compile install package -DskipTests
+
+# deploy war
+RUN cp target/*.war /usr/local/tomcat/webapps/qualitypatternmodel.war
+WORKDIR /usr
+
+# clean src
+RUN rm -rf src
+
+# start application
+EXPOSE 8080
+CMD ["catalina.sh", "run"]

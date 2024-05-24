@@ -2,13 +2,21 @@
  */
 package qualitypatternmodel.javaqueryoutput.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
@@ -56,6 +64,38 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 	public InterimResultStructureImpl() {
 		super();
 		setRecord(new ValueInterimImpl());
+	}
+
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("record", getRecord().toJson());
+			if (getSubstructure() != null)
+				result.put("substructure", getSubstructure().toJson());
+		} catch (JSONException e) {
+		}
+		return result;
+	}
+	
+	public static InterimResultStructureImpl fromJson(String json) throws InvalidityException {
+		try {
+			JSONObject jsono = new JSONObject(json);
+			InterimResultStructureImpl structure = new InterimResultStructureImpl();
+			structure.setRecord(InterimResultPartImpl.fromJson(jsono.get("record").toString()));
+			if(jsono.has("substructure"))
+				structure.setSubstructure(InterimResultPartImpl.fromJson(jsono.get("substructure").toString()));
+			return structure;
+		} catch (JSONException e) {
+			return null;
+		}
+	}
+	
+	public Map<Integer, InterimResultPart> getInterimResultParts() {
+		Map<Integer, InterimResultPart> map = ((InterimResultPartImpl) getRecord()).getInterimResultParts();
+		map.putAll(((InterimResultPartImpl) getSubstructure()).getInterimResultParts());
+		return map;
 	}
 
 	@Override
@@ -259,6 +299,20 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 				return record != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JavaqueryoutputPackage.INTERIM_RESULT_STRUCTURE___TO_JSON:
+				return toJson();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //InterimResultsStructureImpl

@@ -26,7 +26,7 @@
       </eOperations>
       <eOperations name="getValueAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getOptionsAsStringList" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="getOptionsAsJsonArray" eType="#//textrepresentation/JSONArrayWrapper"/>
       <eOperations name="generateDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" eType="#//parameters/ParameterList"
           eOpposite="#//parameters/ParameterList/parameters"/>
@@ -1197,8 +1197,11 @@
       <eOperations name="setValue" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
+      <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="exampleValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="valueMap" eType="#//textrepresentation/ValueMap"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Fragment" abstract="true">
       <eOperations name="generateJSON" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1225,6 +1228,24 @@
           upperBound="-1" eType="#//parameters/Parameter" eOpposite="#//parameters/Parameter/parameterReferences"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="JSONObjectWrapper" instanceClassName="org.json.JSONObject"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="JSONArrayWrapper" instanceClassName="org.json.JSONArray"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ValueMap">
+      <eOperations name="put">
+        <eParameters name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getValuesAsJsonArray" eType="#//textrepresentation/JSONArrayWrapper"/>
+      <eOperations name="get" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eParameters name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="keys" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adaptionrdf" nsURI="adaptionrdf" nsPrefix="adaptionrdf">
     <eClassifiers xsi:type="ecore:EClass" name="RdfPredicate" eSuperTypes="#//graphstructure/Relation">
@@ -1475,6 +1496,11 @@
         <eParameters name="databasename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="datapath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
+      <eOperations name="execute" eType="#//javaquery/StringListWrapper" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="databasename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="datapath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="toJson" eType="#//textrepresentation/JSONObjectWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//javaquery/BooleanFilterPart"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="structure" lowerBound="1"
@@ -1483,6 +1509,8 @@
           eType="#//javaqueryoutput/InterimResultContainer"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="query" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="#//patternstructure/Language"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BooleanFilterPart" abstract="true"
         eSuperTypes="#//javaquery/JavaFilterPart">
@@ -1562,6 +1590,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="JavaFilterPart" abstract="true">
       <eOperations name="getArguments" upperBound="-1" eType="#//javaqueryoutput/InterimResultPart"/>
+      <eOperations name="toJson" eType="#//textrepresentation/JSONObjectWrapper"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberValueFilterElement" eSuperTypes="#//javaquery/NumberFilterPart">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
@@ -1578,12 +1607,15 @@
   </eSubpackages>
   <eSubpackages name="javaqueryoutput" nsURI="javaqueryoutput" nsPrefix="javaqueryoutput">
     <eClassifiers xsi:type="ecore:EClass" name="InterimResultStructure">
+      <eOperations name="toJson" eType="#//textrepresentation/JSONObjectWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="substructure" eType="#//javaqueryoutput/InterimResultPart"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="record" lowerBound="1"
           eType="#//javaqueryoutput/InterimResultPart" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="InterimResultPart" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InterimResultPart" abstract="true">
+      <eOperations name="toJson" eType="#//textrepresentation/JSONObjectWrapper"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ContainerInterim" abstract="true"
         eSuperTypes="#//javaqueryoutput/InterimResultPart">
       <eOperations name="getSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>

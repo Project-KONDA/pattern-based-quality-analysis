@@ -3,6 +3,9 @@
 package qualitypatternmodel.javaqueryoutput.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -12,7 +15,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
@@ -76,9 +83,49 @@ public class FixedContainerInterimImpl extends ContainerInterimImpl implements F
 		getContained().addAll(interims);
 	}
 	
+	public FixedContainerInterimImpl(String json) throws InvalidityException {
+		super();
+		try {
+			JSONObject jsono = new JSONObject(json);
+			if (!jsono.get("class").equals(getClass().getSimpleName()))
+				throw new InvalidityException("Wrong class");
+			setInterimPartId(jsono.getInt("id"));
+			JSONArray containedarray = new JSONArray(jsono.getString("contained"));
+			for (int i = 0; i < containedarray.length(); i++) {
+				getContained().add(InterimResultPartImpl.fromJson(containedarray.getString(i)));
+			}
+		} catch (JSONException e) {
+			throw new InvalidityException("Wrong class");
+		}
+	}
+	
 	@Override
 	public Integer getSize() {
 		return getContained().size();
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("id", getInterimPartId());
+			JSONArray contained = new JSONArray();
+			for (InterimResultPart container: getContained())
+				contained.put(container.toJson());
+			result.put("contained", contained);
+		} catch (JSONException e) {
+		}
+		return result;
+	}
+
+	@Override
+	public Map<Integer, InterimResultPart> getInterimResultParts() {
+		Map<Integer, InterimResultPart> map = new HashMap<Integer, InterimResultPart>();
+		map.put(getInterimPartId(), this);
+		for (InterimResultPart contained: getContained())
+			map.putAll(((InterimResultPartImpl) contained).getInterimResultParts());
+		return map;
 	}
 
 	@Override

@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -10,6 +12,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
@@ -109,6 +113,22 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 		setSubfilter2(booleanFilterPart2);
 	}
 	
+	public FormulaFilterPartImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		super();
+		try {
+
+			JSONObject jsono = new JSONObject(json);
+			setOperator(LogicalOperator.get(jsono.getString("operator")));
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument")); 
+			setArgument(argument);
+			setSubfilter1((BooleanFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter1"), map));
+			setSubfilter2((BooleanFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter2"), map));	
+		}
+		catch (Exception e) {
+			throw new InvalidityException();
+		}
+	}
+
 	@Override
 	public Boolean apply(InterimResult parameter) throws InvalidityException {
 		assert(parameter instanceof ContainerResult);
@@ -139,6 +159,21 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 			contained.addAll(getSubfilter1().getArguments());
 		if (getSubfilter2() != null)
 			contained.addAll(getSubfilter2().getArguments());
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("operator", getOperator().getLiteral());
+			result.put("argument", getArgument().getInterimPartId());
+			result.put("subfilter1", getSubfilter1().toJson());
+			result.put("subfilter2", getSubfilter2().toJson());
+				
+		} catch (JSONException e) {
+		}
+		return result;
 	}
 	
 	@Override

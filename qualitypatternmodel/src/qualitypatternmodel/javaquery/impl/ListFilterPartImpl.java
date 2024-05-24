@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
@@ -126,6 +128,21 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 		else 
 			throw new InvalidityException("CountFilterElement has too much arguments");
 		
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("quantifier", getQuantifier().getLiteral());
+			result.put("argument", getArgument().getInterimPartId());
+			
+			result.put("subfilter", getSubfilter().toJson());
+				
+		} catch (JSONException e) {
+		}
+		return result;
 	}
 	
 	@Override

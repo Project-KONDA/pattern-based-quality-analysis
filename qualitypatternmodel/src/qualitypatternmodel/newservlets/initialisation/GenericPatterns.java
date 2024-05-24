@@ -17,7 +17,7 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
@@ -38,7 +38,7 @@ public class GenericPatterns {
 		}
 	}
 	
-	public static List<CompletePattern> getAllGenericPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
+	public static List<CompletePattern> getAllGenericPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		patterns.add(getGenericCard());
 		patterns.add(getGenericComp());
@@ -48,6 +48,17 @@ public class GenericPatterns {
 		patterns.add(getGenericContains());
 		patterns.add(getGenericAppdup3());
 		patterns.add(getGenericDupVal());
+		patterns.add(getGenericInvalidLink());
+
+		patterns.add(getGenericMandAtt());
+		patterns.add(getGenericLocalUnique());
+		patterns.add(getGenericStringLength());
+		patterns.add(getGenericCompVal());
+		patterns.add(getGenericCompValAny());
+		patterns.add(getGenericCardImpliesMandAtt());
+//		patterns.add(getGenericCheckFormat());
+//		patterns.add(getGenericCompDatabase());
+		
 		return patterns;
 	}
 
@@ -70,8 +81,8 @@ public class GenericPatterns {
 		NumberElementImpl ne = new NumberElementImpl();
 		countCondition.setArgument2(ne);
 		ne.createParameters();
-		ne.getNumberParam().setValue(1.);
-		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+//		ne.getNumberParam().setValue(1.);
+//		countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		
 		Node countReturn = returnNode.addOutgoing(countCondition.getCountPattern().getGraph()).getTarget().makePrimitive();
 		countReturn.setName("PropertyToCount");
@@ -104,6 +115,29 @@ public class GenericPatterns {
 		comp2.getOption().getOptions().add(ComparisonOperator.LESS);
 		comp2.getOption().getOptions().add(ComparisonOperator.GREATEROREQUAL);
 		comp2.getOption().getOptions().add(ComparisonOperator.LESSOREQUAL);
+		
+		pattern.isValid(AbstractionLevel.GENERIC);
+		return pattern;
+	}
+	
+	public static CompletePattern getGenericCompSet() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		pattern.setPatternId("CompSet_generic");
+		pattern.setAbstractId("CompSet_generic");
+		pattern.setName("CompSet");
+		pattern.setShortDescription("Comparison Pattern with Set");
+		pattern.setDescription("Check, wether the vallue of fields are within a list of allowed (/forbidden) wo.");
+		
+		Graph graph1 = pattern.getGraph();
+		Node returnNode = graph1.getReturnNodes().get(0).makeComplex();
+		
+		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		pattern.setCondition(quantifiedCondition);
+		Graph graph2 = quantifiedCondition.getGraph();
+		
+		Node element1 = returnNode.addOutgoing(graph2).getTarget().makePrimitive();
+		
+		element1.addPrimitiveComparison(new TextListParamImpl());
 		
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
@@ -166,14 +200,14 @@ public class GenericPatterns {
 		NumberElementImpl numberElement = new NumberElementImpl();
 		countCondition.setArgument2(numberElement);
 		numberElement.createParameters();
-		numberElement.getNumberParam().setValue(1.);
-		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+//		numberElement.getNumberParam().setValue(1.);
+//		countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		
-		NumberParam numberParam = numberElement.getNumberParam();
+//		NumberParam numberParam = numberElement.getNumberParam();
 		
-		numberParam.setValue(1.0);
-		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
-		countCondition.getOption().setValue(ComparisonOperator.GREATER);	
+//		numberParam.setValue(1.0);
+//		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
+//		countCondition.getOption().setValue(ComparisonOperator.GREATER);	
 				
 		Graph g0 = pattern.getGraph();
 		Graph g1 = quantifiedCondition.getGraph();
@@ -320,8 +354,8 @@ public class GenericPatterns {
 		NumberElementImpl ne = new NumberElementImpl();
 		countCondition.setArgument2(ne);
 		ne.createParameters();
-		ne.getNumberParam().setValue(1.);
-		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+//		ne.getNumberParam().setValue(1.);
+//		countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		
 		Relation rel = main.addOutgoing(countCondition.getCountPattern().getGraph());
 		PrimitiveNode field2 = rel.getTarget().makePrimitive();
@@ -335,4 +369,156 @@ public class GenericPatterns {
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
+
+	public static CompletePattern getGenericInvalidLink() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		pattern.setPatternId("InvalidLink_generic");
+		pattern.setAbstractId("InvalidLink_generic");
+		pattern.setName("InvalidLink");
+		pattern.setShortDescription("Invalid Link");
+		pattern.setDescription("Check whether a record an invalid link in a field.");
+
+		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
+		main.setName("main");
+		
+		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		pattern.setCondition(qc);
+
+		PrimitiveNode field = main.addOutgoing(qc.getGraph()).getTarget().makePrimitive();
+		field.setName("field");
+		
+		field.addPrimitiveValidateLink();
+
+		pattern.isValid(AbstractionLevel.GENERIC);
+		return pattern;
+	}
+
+	
+	public static CompletePattern getGenericMandAtt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		pattern.setPatternId("MandAtt_generic");
+		pattern.setAbstractId("MandAtt_generic");
+		pattern.setName("MandAtt");
+		pattern.setShortDescription("Mandatory Attribute");
+		pattern.setDescription("Check whether a record has a mandatory field.");
+
+		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
+		main.setName("main");
+		
+		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		pattern.setCondition(qc);
+
+		PrimitiveNode field = main.addOutgoing(qc.getGraph()).getTarget().makePrimitive();
+		field.setName("field");
+		
+		pattern.isValid(AbstractionLevel.GENERIC);
+		return pattern;
+	}
+	
+	public static CompletePattern getGenericLocalUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		pattern.setPatternId("LocalUnique_generic");
+		pattern.setAbstractId("LocalUnique_generic");
+		pattern.setName("LocalUnique");
+		pattern.setShortDescription("Local Unique Attribute Value");
+		pattern.setDescription("Check whether all field values are unique within a record.");
+		// TODO
+		pattern.isValid(AbstractionLevel.GENERIC);
+		return pattern;
+	}
+	
+	public static CompletePattern getGenericStringLength() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		pattern.setPatternId("StringLength_generic");
+		pattern.setAbstractId("StringLength_generic");
+		pattern.setName("StringLength");
+		pattern.setShortDescription("String value length restriction");
+		pattern.setDescription("Check whether all field values comply to the length restriction.");
+
+		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
+		main.setName("main");
+		
+		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		pattern.setCondition(qc);
+
+		PrimitiveNode field = main.addOutgoing(qc.getGraph()).getTarget().makePrimitive();
+		field.setName("field");
+		
+		field.addPrimitiveStringLength();
+		
+		pattern.isValid(AbstractionLevel.GENERIC);
+		return pattern;
+	}
+	
+	public static CompletePattern getGenericCompVal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		pattern.setPatternId("CompVal_generic");
+		pattern.setAbstractId("CompVal_generic");
+		pattern.setName("CompVal");
+		pattern.setShortDescription("");
+		pattern.setDescription("Check whether all values of a specific field within a record does comply to a value restriction.");
+
+		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
+		main.setName("main");
+		
+		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		pattern.setCondition(qc);
+
+		PrimitiveNode field = main.addOutgoing(qc.getGraph()).getTarget().makePrimitive();
+		field.setName("field");
+		
+		field.addPrimitiveComparison();
+		
+		pattern.isValid(AbstractionLevel.GENERIC);
+		return pattern;
+	}
+	
+	public static CompletePattern getGenericCompValAny() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		pattern.setPatternId("CompValAny_generic");
+		pattern.setAbstractId("CompValAny_generic");
+		pattern.setName("CompValAny");
+		pattern.setShortDescription("");
+		pattern.setDescription("Check whether any value of a specific field within a record does comply to a value restriction.");
+		// TODO
+		pattern.isValid(AbstractionLevel.GENERIC);
+		return pattern;
+	}
+	
+	public static CompletePattern getGenericCardImpliesMandAtt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		pattern.setPatternId("CardImpliesMandAtt_generic");
+		pattern.setAbstractId("CardImpliesMandAtt_generic");
+		pattern.setName("CardImpliesMandAtt");
+		pattern.setShortDescription("Mandatory Attribute based on Cardinality Constraint");
+		pattern.setDescription("Check whether a attribute exists, that is mandatory on specific cardinalities of a field.");
+		// TODO
+		pattern.isValid(AbstractionLevel.GENERIC);
+		return pattern;
+	}
+	
+//	public static CompletePattern getGenericCheckFormat() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		pattern.setPatternId("CheckFormat_generic");
+//		pattern.setAbstractId("CheckFormat_generic");
+//		pattern.setName("CheckFormat");
+//		pattern.setShortDescription("Check the format of a resource.");
+//		pattern.setDescription("Check if the ressource under an URL is of a specific format.");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
+	
+//	public static CompletePattern getGenericCompDatabase() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		pattern.setPatternId("CompDatabase_generic");
+//		pattern.setAbstractId("CompDatabase_generic");
+//		pattern.setName("CompDatabase");
+//		pattern.setShortDescription("Fieldvalue in Database");
+//		pattern.setDescription("Check whether all values in a field are in a database.");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
+
 }

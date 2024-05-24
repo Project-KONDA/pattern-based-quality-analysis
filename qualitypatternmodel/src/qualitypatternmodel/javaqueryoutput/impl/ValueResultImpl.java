@@ -176,6 +176,10 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	 */
 	@Override
 	public String toString() {
-		return "ValueResult (" + value.replace("\r\n", " /\n ") + ")";
+		String val = value.replace("\r\n", " ");
+		int max = 100;
+		if (val.length() > max)
+			val = val.substring(0, max - 10) + " ...";
+		return "ValueResult (" + val + ")";
 	}
 } //ValueResultImpl

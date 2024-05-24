@@ -6,6 +6,10 @@ import org.basex.util.Pair;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
+import de.gwdg.metadataqa.api.configuration.schema.Rule;
+import de.gwdg.metadataqa.api.json.DataElement;
+import de.gwdg.metadataqa.api.schema.BaseSchema;
+import de.gwdg.metadataqa.api.schema.Format;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.FormulaConstraintRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.HasValueRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.ListComparisonRuleObject;
@@ -44,10 +48,6 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
-import de.gwdg.metadataqa.api.configuration.schema.Rule;
-import de.gwdg.metadataqa.api.json.DataElement;
-import de.gwdg.metadataqa.api.schema.BaseSchema;
-import de.gwdg.metadataqa.api.schema.Format;
 
 public class ConstraintObject {
 	

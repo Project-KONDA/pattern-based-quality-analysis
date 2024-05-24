@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
+import qualitypatternmodel.utility.XmlPatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
@@ -25,7 +26,7 @@ public class Test02Return {
 	}
 	
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		Test00.test(getPatterns());
+		XmlPatternUtility.testPatterns(getPatterns());
 	}
 
 	public static CompletePattern getPatternMultipleReturnNavigation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

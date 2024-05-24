@@ -43,7 +43,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.utility.Constants;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
+import qualitypatternmodel.utility.ConstantsRdf;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
@@ -178,13 +179,13 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			}
 			String query = "\n{SELECT";;
 			query += selects;
-			query += " (COUNT(*) as ?count)";
-			query += "\nWHERE {";
+			query += ConstantsRdf.COUNT_BY;
+			query += ConstantsRdf.WHERE +"{";
 			query += argument1.replace("\n", "\n  ");
 			query += "\n}";
-			query += "\nGROUP BY ";
+			query += ConstantsRdf.GROUP_BY;
 			query += selects;
-			query += "\nHAVING (?count " + comp + " " + argument2;
+			query += ConstantsRdf.HAVING_COUNT + comp + " " + argument2;
 			query += ")\n}";
 			return query;
 		} else {
@@ -205,7 +206,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	@Override 
 	public String generateCypher() throws InvalidityException {
 		if (getArgument2() instanceof CountPattern) {
-			throw new UnsupportedOperationException(CypherSpecificConstants.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
+			throw new UnsupportedOperationException(ConstantsNeo.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
 		}
 		if(getOption() != null && getOption().getValue() != null) {
 			final StringBuilder cypher = new StringBuilder();
@@ -228,7 +229,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * Creates the substring of WITH-Clause.
 	 */
 	private final String generateCypherWith() throws InvalidityException {
-		String cypher = CypherSpecificConstants.CLAUSE_WITH + CypherSpecificConstants.ONE_WHITESPACE;
+		String cypher = ConstantsNeo.CLAUSE_WITH + ConstantsNeo.ONE_WHITESPACE;
 		boolean multi = false;
 		String tempWith;
 		tempWith = ((CountPatternImpl) getCountPattern()).generateCypherWith();
@@ -240,7 +241,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		
 		for (String entry : myCounters) {
 			if (multi) {
-				cypher += CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE;
+				cypher += ConstantsNeo.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE;
 			}
 			cypher += entry;
 			multi = true;
@@ -262,13 +263,13 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		
 		for (String entry : myCounters) {
 		    if (tempCypher.length() != 0) {
-		    	tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+		    	tempCypher.append(ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
 		    }
-		    tempCypher.append(entry.substring(entry.indexOf(CypherSpecificConstants.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING)));				
-			tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE + comp + CypherSpecificConstants.ONE_WHITESPACE);
+		    tempCypher.append(entry.substring(entry.indexOf(ConstantsNeo.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING)));				
+			tempCypher.append(ConstantsNeo.ONE_WHITESPACE + comp + ConstantsNeo.ONE_WHITESPACE);
 			tempCypher.append(getArgument2().generateCypher());
 		}
-		cypher = CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE + tempCypher.toString();
+		cypher = ConstantsNeo.CLAUSE_WHERE + ConstantsNeo.ONE_WHITESPACE + tempCypher.toString();
 		
 		return cypher;
 	}

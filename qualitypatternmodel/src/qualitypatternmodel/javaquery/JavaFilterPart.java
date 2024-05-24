@@ -4,6 +4,7 @@ package qualitypatternmodel.javaquery;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.json.JSONObject;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 
 /**
@@ -25,5 +26,13 @@ public interface JavaFilterPart extends EObject {
 	 * @generated
 	 */
 	EList<InterimResultPart> getArguments();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
+	 * @generated
+	 */
+	JSONObject toJson();
 
 } // JavaFilterPart

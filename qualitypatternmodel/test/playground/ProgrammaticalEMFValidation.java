@@ -5,12 +5,12 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.xmltestutility.EMFValidationPreparation;
+//import qualitypatternmodel.xmltestutility.EMFValidationPreparation;
 
 public class ProgrammaticalEMFValidation {
 	public static void main(String[] args) {	
 
-		EMFValidationPreparation.registerDelegates();
+//		EMFValidationPreparation.registerDelegates();
 		
 		PatternstructurePackage.eINSTANCE.eClass();		
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;		

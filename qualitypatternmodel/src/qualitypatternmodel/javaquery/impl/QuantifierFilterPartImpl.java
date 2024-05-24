@@ -3,6 +3,8 @@
 package qualitypatternmodel.javaquery.impl;
 
 import java.util.Collection;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -14,6 +16,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
@@ -98,18 +104,40 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 		for (BooleanFilterPart sub: subfilter) {
 			getSubfilter().add(sub);
 			container.getContained().addAll(sub.getArguments());
-		}	
+		}
 		setArgument(container);
 		
 	}
 	
+	public QuantifierFilterPartImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		super();
+		try {
+
+			JSONObject jsono = new JSONObject(json);
+			setQuantifier(Quantifier.get(jsono.getString("quantifier")));
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument")); 
+			setArgument(argument);
+			
+			JSONArray subfilters = new JSONArray(jsono.getString("subfilters"));
+			for (int i = 0; i < subfilters.length(); i++) {
+				BooleanFilterPart bfp = (BooleanFilterPart) JavaFilterPartImpl.fromJson(subfilters.get(i).toString(), map);
+				getSubfilter().add(bfp);
+			}
+		}
+		catch (Exception e) {
+			throw new InvalidityException();
+		}
+	}
+
 	@Override
 	public Boolean apply(InterimResult parameter) throws InvalidityException {
+		if (parameter == null)
+			throw new InvalidityException("parameter null");
 		if(!(parameter instanceof ContainerResult))
-			throw new InvalidityException();
+			throw new InvalidityException("parameter not a container");
 		ContainerResult param = (ContainerResult) parameter;
 		if (!(param.getCorrespondsTo() instanceof FixedContainerInterim))
-			throw new InvalidityException();
+			throw new InvalidityException((param.getCorrespondsTo() != null? "Class of param is " + param.getCorrespondsTo().getClass().getSimpleName() : "Param is null") + ", but a fixed container was expected. " + this.toString());
 		FixedContainerInterim fixedContainer = (FixedContainerInterim) param.getCorrespondsTo();
 		int sizeResult = fixedContainer.getContained().size();
 		int sizeFilter = getSubfilter().size();
@@ -132,13 +160,26 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 	}
 	
 	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("quantifier", getQuantifier());
+			result.put("argument", getArgument().getInterimPartId());
+			JSONArray subfilters = new JSONArray();
+			for (BooleanFilterPart subfilter: getSubfilter())
+				subfilters.put(subfilter.toJson());
+			result.put("subfilters", subfilters);
+		} catch (JSONException e) {
+		}
+		return result;
+	}
+	
+	@Override
 	public String toString() {
 		return "[quantifier " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> " 
 				+ " " + getSubfilter().toString() + "]";
 	}
-	
-	
-	
 	
 	
 	/**

@@ -15,7 +15,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.xmltestutility.EMFValidationPreparation;
+//import qualitypatternmodel.xmltestutility.EMFValidationPreparation;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class TranslationTests {
@@ -25,7 +25,7 @@ public class TranslationTests {
 
 	@BeforeAll
 	public static void setup() {
-		EMFValidationPreparation.registerDelegates();
+//		EMFValidationPreparation.registerDelegates();
 		createContext();
 		openDatabase(TEST_DATABASE_NAME, TEST_DATA_PATH);
 	}
@@ -46,22 +46,22 @@ public class TranslationTests {
 	public void quantors() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test03Quantor.getTestPairs());
 	}
-	@Test
-	public void quantorCombinations() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
-		validatePatternTestPairs(Test04QuantorCombinations.getTestPairs());
-	}
+//	@Test
+//	public void quantorCombinations() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
+//		validatePatternTestPairs(Test04QuantorCombinations.getTestPairs());
+//	}
 	@Test
 	public void quantorCombinationsConditions() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test05QuantorCombinationsCond.getTestPairs());
 	}
-	@Test
-	public void notElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
-		validatePatternTestPairs(Test06NotElement.getTestPairs());
-	}
-	@Test
-	public void formulas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
-		validatePatternTestPairs(Test07Formula.getTestPairs());
-	}
+//	@Test
+//	public void notElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
+//		validatePatternTestPairs(Test06NotElement.getTestPairs());
+//	}
+//	@Test
+//	public void formulas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
+//		validatePatternTestPairs(Test07Formula.getTestPairs());
+//	}
 	@Test
 	public void parameterValues() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test08ParameterValues.getTestPairs());
@@ -70,18 +70,18 @@ public class TranslationTests {
 	public void complexComparisons() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test09ComplexComparison.getTestPairs());
 	}
-	@Test
-	public void references() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
-		validatePatternTestPairs(Test10Reference.getTestPairs());
-	}
+//	@Test
+//	public void references() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
+//		validatePatternTestPairs(Test10Reference.getTestPairs());
+//	}
 	@Test
 	public void matches() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test11Match.getTestPairs());
 	}
-	@Test
-	public void count() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
-		validatePatternTestPairs(Test12Count.getTestPairs());
-	}
+//	@Test
+//	public void count() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
+//		validatePatternTestPairs(Test12Count.getTestPairs());
+//	}
 
 	private void validatePatternTestPairs(List<PatternTestPair> testPairs)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {

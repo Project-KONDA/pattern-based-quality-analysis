@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -9,6 +11,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
@@ -53,6 +57,18 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 		setArgument(new ValueInterimImpl());
 	}
 	
+	public NumberFilterElementImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		super();
+		try {
+			JSONObject jsono = new JSONObject(json);
+			ValueInterim argument = (ValueInterim) map.get(jsono.getInt("argument")); 
+			setArgument(argument);
+		}
+		catch (Exception e) {
+			throw new InvalidityException();
+		}
+	}
+
 	@Override
 	public Double apply(InterimResult parameter) throws InvalidityException{
 		assert(parameter instanceof ValueResult);
@@ -70,6 +86,17 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 	public EList<InterimResultPart> getArguments() {
 		EList<InterimResultPart> result = new BasicEList<InterimResultPart>();
 		result.add(getArgument());
+		return result;
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("argument", getArgument().getInterimPartId());
+		} catch (JSONException e) {
+		}
 		return result;
 	}
 	

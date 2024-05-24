@@ -201,7 +201,10 @@ public class EMFModelLoad {
         URI fileURI = URI.createFileURI(filePath);
 
         // Use the ResourceSet to create a Resource from the URI
-        Resource resource = resourceSet.getResource(fileURI, true);
+        Resource resource = null;
+        try {
+        	resource = resourceSet.getResource(fileURI, true);
+        } catch (Exception e) {}
 
         // Check if the resource was loaded successfully
         if (resource == null) {

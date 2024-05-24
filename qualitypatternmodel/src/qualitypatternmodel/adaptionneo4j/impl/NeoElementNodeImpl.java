@@ -26,7 +26,7 @@ import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +45,7 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNode {
 	
-	private static final String CYPHER_RETURN_QUERY_PART = CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_DISTINCT + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + "%s" + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
+	private static final String CYPHER_RETURN_QUERY_PART = ConstantsNeo.CYPHER_SPECIAL_FUNCTION_DISTINCT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + "%s" + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
 	private static final int CYPHER_RETURN_ID = 0;
 	/**
 	 * The cached value of the '{@link #getNeoNodeLabels() <em>Neo Node Labels</em>}' containment reference.
@@ -113,15 +113,15 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	@Override
 	public String generateCypher() throws InvalidityException {
 		final StringBuilder cypher = new StringBuilder();
-		cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
-		cypher.append(CypherSpecificConstants.VARIABLE_ELEMENT_NODE);
+		cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET);
+		cypher.append(ConstantsNeo.VARIABLE_ELEMENT_NODE);
 		cypher.append(getInternalId());
 		if((!translated) && getNeoNodeLabels() != null) { 
 			final String labels = getNeoNodeLabels().generateCypher();
 			cypher.append(labels);
 			translated = true;
 		}
-		cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+		cypher.append(ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
 		return cypher.toString();
 	}
 	
@@ -134,7 +134,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	@Override 
 	public String getCypherVariable() throws InvalidityException {
 		String var;
-		var = CypherSpecificConstants.VARIABLE_ELEMENT_NODE;
+		var = ConstantsNeo.VARIABLE_ELEMENT_NODE;
 		var += getInternalId();
 		return var;
 	}

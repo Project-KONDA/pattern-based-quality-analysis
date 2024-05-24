@@ -3,6 +3,7 @@
 package qualitypatternmodel.javaqueryoutput;
 
 import org.eclipse.emf.ecore.EObject;
+import org.json.JSONObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,5 +66,13 @@ public interface InterimResultStructure extends EObject {
 	 * @generated
 	 */
 	void setRecord(InterimResultPart value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
+	 * @generated
+	 */
+	JSONObject toJson();
 
 } // InterimResultsStructure

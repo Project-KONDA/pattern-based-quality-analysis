@@ -9,6 +9,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.utility.XmlPatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test14StringLength {
@@ -21,7 +22,7 @@ public class Test14StringLength {
 	}
 	
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		Test00.test(getPatterns());
+		XmlPatternUtility.testPatterns(getPatterns());
 	}
 	
 	public static CompletePattern getPatternLength(ComparisonOperator op, Double num) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

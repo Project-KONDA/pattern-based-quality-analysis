@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl;
@@ -52,6 +53,7 @@ import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextFragment;
 import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.textrepresentation.ValueMap;
 
 /**
  * <!-- begin-user-doc -->
@@ -107,6 +109,13 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass valueMapEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType objectWrapperEDataType = null;
 
 	/**
@@ -115,6 +124,13 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	private EDataType jsonObjectWrapperEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType jsonArrayWrapperEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -399,6 +415,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EReference getParameterFragment_ValueMap() {
+		return (EReference)parameterFragmentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getParameterFragment__GetType() {
 		return parameterFragmentEClass.getEOperations().get(0);
 	}
@@ -421,6 +447,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	@Override
 	public EOperation getParameterFragment__SetValue__String() {
 		return parameterFragmentEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterFragment__GetValue() {
+		return parameterFragmentEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -559,6 +595,76 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EClass getValueMap() {
+		return valueMapEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getValueMap_Keys() {
+		return (EAttribute)valueMapEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getValueMap_Values() {
+		return (EAttribute)valueMapEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getValueMap__Put__String_String() {
+		return valueMapEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getValueMap__GetValuesAsJsonArray() {
+		return valueMapEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getValueMap__Get__String() {
+		return valueMapEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getValueMap__GetKey__String() {
+		return valueMapEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getObjectWrapper() {
 		return objectWrapperEDataType;
 	}
@@ -571,6 +677,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	@Override
 	public EDataType getJSONObjectWrapper() {
 		return jsonObjectWrapperEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getJSONArrayWrapper() {
+		return jsonArrayWrapperEDataType;
 	}
 
 	/**
@@ -620,9 +736,11 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		parameterFragmentEClass = createEClass(PARAMETER_FRAGMENT);
 		createEAttribute(parameterFragmentEClass, PARAMETER_FRAGMENT__EXAMPLE_VALUE);
 		createEAttribute(parameterFragmentEClass, PARAMETER_FRAGMENT__NAME);
+		createEReference(parameterFragmentEClass, PARAMETER_FRAGMENT__VALUE_MAP);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_TYPE);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_ROLE);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___SET_VALUE__STRING);
+		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_VALUE);
 
 		fragmentEClass = createEClass(FRAGMENT);
 		createEReference(fragmentEClass, FRAGMENT__PATTERN_TEXT);
@@ -641,9 +759,18 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEReference(parameterReferenceEClass, PARAMETER_REFERENCE__PARAMETER);
 		createEOperation(parameterReferenceEClass, PARAMETER_REFERENCE___IS_VALID__ABSTRACTIONLEVEL);
 
+		valueMapEClass = createEClass(VALUE_MAP);
+		createEAttribute(valueMapEClass, VALUE_MAP__KEYS);
+		createEAttribute(valueMapEClass, VALUE_MAP__VALUES);
+		createEOperation(valueMapEClass, VALUE_MAP___PUT__STRING_STRING);
+		createEOperation(valueMapEClass, VALUE_MAP___GET_VALUES_AS_JSON_ARRAY);
+		createEOperation(valueMapEClass, VALUE_MAP___GET__STRING);
+		createEOperation(valueMapEClass, VALUE_MAP___GET_KEY__STRING);
+
 		// Create data types
 		objectWrapperEDataType = createEDataType(OBJECT_WRAPPER);
 		jsonObjectWrapperEDataType = createEDataType(JSON_OBJECT_WRAPPER);
+		jsonArrayWrapperEDataType = createEDataType(JSON_ARRAY_WRAPPER);
 	}
 
 	/**
@@ -718,6 +845,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		initEClass(parameterFragmentEClass, ParameterFragment.class, "ParameterFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParameterFragment_ExampleValue(), ecorePackage.getEString(), "exampleValue", null, 0, 1, ParameterFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameterFragment_Name(), ecorePackage.getEString(), "name", null, 0, 1, ParameterFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameterFragment_ValueMap(), this.getValueMap(), null, "valueMap", null, 0, 1, ParameterFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getParameterFragment__GetType(), ecorePackage.getEString(), "getType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -726,6 +854,8 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		op = initEOperation(getParameterFragment__SetValue__String(), null, "setValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEOperation(getParameterFragment__GetValue(), ecorePackage.getEString(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(fragmentEClass, Fragment.class, "Fragment", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFragment_PatternText(), this.getPatternText(), this.getPatternText_Fragments(), "patternText", null, 1, 1, Fragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -752,9 +882,26 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		addEParameter(op, thePatternstructurePackage.getAbstractionLevel(), "abstractionLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
+		initEClass(valueMapEClass, ValueMap.class, "ValueMap", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getValueMap_Keys(), ecorePackage.getEString(), "keys", null, 0, -1, ValueMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getValueMap_Values(), ecorePackage.getEString(), "values", null, 0, -1, ValueMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getValueMap__Put__String_String(), null, "put", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getValueMap__GetValuesAsJsonArray(), this.getJSONArrayWrapper(), "getValuesAsJsonArray", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getValueMap__Get__String(), ecorePackage.getEString(), "get", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getValueMap__GetKey__String(), ecorePackage.getEString(), "getKey", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		// Initialize data types
 		initEDataType(objectWrapperEDataType, Object.class, "ObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(jsonObjectWrapperEDataType, JSONObject.class, "JSONObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(jsonArrayWrapperEDataType, JSONArray.class, "JSONArrayWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

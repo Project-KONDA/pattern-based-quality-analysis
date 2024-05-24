@@ -4395,13 +4395,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+	int NEO_PATH_PARAM___GET_OPTIONS_AS_JSON_ARRAY = ParametersPackage.PARAMETER___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -4864,13 +4864,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY = NEO_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST = NEO_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST;
+	int NEO_ELEMENT_PATH_PARAM___GET_OPTIONS_AS_JSON_ARRAY = NEO_PATH_PARAM___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -5342,13 +5342,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY = NEO_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST = NEO_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST;
+	int NEO_PROPERTY_PATH_PARAM___GET_OPTIONS_AS_JSON_ARRAY = NEO_PATH_PARAM___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -6343,13 +6343,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_NODE_LABELS_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.TEXT_LIST_PARAM___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_LABELS_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.TEXT_LIST_PARAM___GET_OPTIONS_AS_STRING_LIST;
+	int NEO_NODE_LABELS_PARAM___GET_OPTIONS_AS_JSON_ARRAY = ParametersPackage.TEXT_LIST_PARAM___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -7001,13 +7001,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.TEXT_LITERAL_PARAM___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.TEXT_LITERAL_PARAM___GET_OPTIONS_AS_STRING_LIST;
+	int NEO_EDGE_LABEL_PARAM___GET_OPTIONS_AS_JSON_ARRAY = ParametersPackage.TEXT_LITERAL_PARAM___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -7660,13 +7660,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NAME_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.TEXT_LITERAL_PARAM___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
-	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.TEXT_LITERAL_PARAM___GET_OPTIONS_AS_STRING_LIST;
+	int NEO_PROPERTY_NAME_PARAM___GET_OPTIONS_AS_JSON_ARRAY = ParametersPackage.TEXT_LITERAL_PARAM___GET_OPTIONS_AS_JSON_ARRAY;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.

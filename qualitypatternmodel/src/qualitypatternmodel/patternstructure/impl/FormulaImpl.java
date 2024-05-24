@@ -34,7 +34,9 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.utility.Constants;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
+import qualitypatternmodel.utility.ConstantsRdf;
+import qualitypatternmodel.utility.ConstantsXml;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
@@ -163,12 +165,12 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					result += "(" + condition2Query + "))";
 					break;
 				case IMPLIES:
-					result += "(" + Constants.NOT + "(" + condition1Query + ")";
-					result += Constants.OR;
+					result += "(" + ConstantsXml.NOT + "(" + condition1Query + ")";
+					result += ConstantsXml.OR;
 					result += "(" + condition2Query + "))";
 					break;
 				case XOR:					
-					result = "(" + Constants.NOT + "(" + condition1Query + "))";
+					result = "(" + ConstantsXml.NOT + "(" + condition1Query + "))";
 					result += " = ";
 					result += "(" + condition2Query + ")";				
 					break;
@@ -228,7 +230,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				String condition2Query = condition2.generateSparql();
 				
 				if(operator != LogicalOperator.AND && !isInRdfFilter()) {
-					result += "\nFILTER ";
+					result += ConstantsRdf.FILTER;
 				}
 				
 				switch (operator) {
@@ -277,20 +279,20 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				String condition1Query = condition1.generateCypher();
 				//If the generated Condition isBlank (Cases: TrueElement, FORALL [true])
 				if (condition1Query.isBlank()) {
-					condition1Query = CypherSpecificConstants.BOOLEAN_TRUE;
+					condition1Query = ConstantsNeo.BOOLEAN_TRUE;
 				} else {
 					StringBuilder temp = new StringBuilder(condition1Query);
-					super.addWhiteSpacesForPreviewsCondition(temp, CypherSpecificConstants.THREE_WHITESPACES);
+					super.addWhiteSpacesForPreviewsCondition(temp, ConstantsNeo.THREE_WHITESPACES);
 					condition1Query = temp.toString();
 				}
 				
 				//If the generated Condition isBlank (Cases: TrueElement, FORALL [true])
 				String condition2Query = condition2.generateCypher();
 				if (condition1Query.isBlank()) {
-					condition2Query = CypherSpecificConstants.BOOLEAN_TRUE;
+					condition2Query = ConstantsNeo.BOOLEAN_TRUE;
 				} else {
 					StringBuilder temp = new StringBuilder(condition2Query);
-					super.addWhiteSpacesForPreviewsCondition(temp, CypherSpecificConstants.THREE_WHITESPACES);
+					super.addWhiteSpacesForPreviewsCondition(temp, ConstantsNeo.THREE_WHITESPACES);
 					condition2Query = temp.toString();
 				}
 				
@@ -298,34 +300,34 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				switch (operator) {
 				case AND:
 					cypher.append(condition1Query);
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-					cypher.append(CypherSpecificConstants.ONE_WHITESPACE + condition2Query);
+					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND);
+					cypher.append(ConstantsNeo.ONE_WHITESPACE + condition2Query);
 					break;
 				case OR:
 					cypher.append(condition1Query);
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_OR);
-					cypher.append(CypherSpecificConstants.ONE_WHITESPACE + condition2Query);
+					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_OR);
+					cypher.append(ConstantsNeo.ONE_WHITESPACE + condition2Query);
 					break;
 				case XOR:
 					//XOR is between the EXISTS-FUNCTION NOT POSSIBLE
-					cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + condition1Query);
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-					cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + condition2Query + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_OR + CypherSpecificConstants.ONE_WHITESPACE);
-					cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-					cypher.append(CypherSpecificConstants.ONE_WHITESPACE + condition2Query + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+					cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query);
+					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND);
+					cypher.append(ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition2Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
+					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_OR + ConstantsNeo.ONE_WHITESPACE);
+					cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
+					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND);
+					cypher.append(ConstantsNeo.ONE_WHITESPACE + condition2Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
 					break;
 				case IMPLIES:
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-					cypher.append(CypherSpecificConstants.ONE_WHITESPACE + condition2Query);
+					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
+					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND);
+					cypher.append(ConstantsNeo.ONE_WHITESPACE + condition2Query);
 					break;
 				case EQUAL:
-					cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE + condition2Query + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_OR + CypherSpecificConstants.ONE_WHITESPACE);
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE);
-					cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE + condition2Query + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+					cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE + condition2Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
+					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_OR + ConstantsNeo.ONE_WHITESPACE);
+					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE);
+					cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE + condition2Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
 					break;
 				default:
 					throw new InvalidityException(Constants.INVALID_OPERATOR);
@@ -334,8 +336,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				throw new InvalidityException(Constants.INVALID_ARGUMENTS);
 			}
 			if (this.clamped) {
-				cypher.insert(0, CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
-				cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+				cypher.insert(0, ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET);
+				cypher.append(ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
 			}
 			return cypher.toString();
 		}

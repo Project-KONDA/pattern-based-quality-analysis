@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
+import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
@@ -25,6 +26,8 @@ import qualitypatternmodel.patternstructure.Language;
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#getInterimResults <em>Interim Results</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#getQuery <em>Query</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#getLanguage <em>Language</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#getPatternName <em>Pattern Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#getPatternId <em>Pattern Id</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.javaquery.JavaqueryPackage#getJavaFilter()
@@ -136,6 +139,50 @@ public interface JavaFilter extends EObject {
 	void setLanguage(Language value);
 
 	/**
+	 * Returns the value of the '<em><b>Pattern Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern Name</em>' attribute.
+	 * @see #setPatternName(String)
+	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getJavaFilter_PatternName()
+	 * @model
+	 * @generated
+	 */
+	String getPatternName();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.javaquery.JavaFilter#getPatternName <em>Pattern Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern Name</em>' attribute.
+	 * @see #getPatternName()
+	 * @generated
+	 */
+	void setPatternName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Pattern Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern Id</em>' attribute.
+	 * @see #setPatternId(String)
+	 * @see qualitypatternmodel.javaquery.JavaqueryPackage#getJavaFilter_PatternId()
+	 * @model
+	 * @generated
+	 */
+	String getPatternId();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.javaquery.JavaFilter#getPatternId <em>Pattern Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern Id</em>' attribute.
+	 * @see #getPatternId()
+	 * @generated
+	 */
+	void setPatternId(String value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
@@ -159,6 +206,22 @@ public interface JavaFilter extends EObject {
 	 */
 	List<String> executeXQueryJava(String databasename, String datapath) throws InvalidityException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="qualitypatternmodel.javaquery.StringListWrapper" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated NOT
+	 */
+	List<String> execute(String databasename, String datapath) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
+	 * @generated
+	 */
+	JSONObject toJson();
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

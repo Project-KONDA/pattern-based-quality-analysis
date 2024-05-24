@@ -11,7 +11,7 @@ import qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,7 +73,7 @@ public class NeoEdgeLabelParamImpl extends TextLiteralParamImpl implements NeoEd
 	public String generateCypher() {
 		String cypher = new String();
 		if (getValue() != null) {
-			cypher = CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING + getValue();				
+			cypher = ConstantsNeo.CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING + getValue();				
 		}
 		return cypher;
 	}

@@ -42,7 +42,7 @@ import qualitypatternmodel.execution.XmlSchemaDatabase;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.xmlservlettests.ServletTestsUtil;
+import qualitypatternmodel.utility.XmlServletUtility;
 
 
 /**
@@ -541,7 +541,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		if(responseCode < 200 || responseCode >= 300) {
 			throw new InvalidityException("Fetching XSD failed");
 		}
-		String result = ServletTestsUtil.getResult(connection);
+		String result = XmlServletUtility.getResult(connection);
 		Date d = new Date();
 		String fileName = d.toString().replace(" ", "_").replace(":", "-");
 

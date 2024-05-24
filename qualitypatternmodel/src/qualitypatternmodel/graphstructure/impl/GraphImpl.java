@@ -58,7 +58,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
@@ -347,7 +347,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			boolean isFirst = true;
 			for (NeoNode n : beginningNodesList) {
 				if (!isFirst) {
-					cypher.append(CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACE);
+					cypher.append(ConstantsNeo.CLAUSE_MATCH + ConstantsNeo.ONE_WHITESPACE);
 				} else {
 					isFirst = false;
 				}
@@ -374,7 +374,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		boolean localSeperationNeeded = false;
 		for (StringBuilder sb : listCypher) {
 			if (localSeperationNeeded) {
-				cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
+				cypher.append(ConstantsNeo.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 			} else {
 				localSeperationNeeded = true;
 			}
@@ -507,12 +507,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		final String cypherWhereStructurComps = generateComparisonsOfSameNeoPropertyNodes();
 		String cypher = new String();
 		if (!cypherWhere.isEmpty() && !cypherWhereStructurComps.isEmpty()) {
-			cypher = CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET;
+			cypher = ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET;
 			cypher += cypherWhere;
-			cypher += CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX 
-					+ CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE;
+			cypher += ConstantsNeo.BOOLEAN_OPERATOR_PREFIX 
+					+ ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE;
 			cypher += cypherWhereStructurComps;
-			cypher += CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
+			cypher += ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
 		//Check if the else is correct
 		} else {
 			cypher += cypherWhere;
@@ -531,20 +531,20 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		final StringBuilder cypherOperators = new StringBuilder();
 		final OperatorList opList = this.getOperatorList();
 		//Styleguide: All the Operators are all in breakers
-		cypherOperators.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
+		cypherOperators.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET);
 		for (Operator operator : opList.getOperators()) {
 			String opCypher = operator.generateCypher();
 			if (opCypher != null) {
 				if (cypherOperators.length() != 1) {
-					cypherOperators.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX 
-							+ CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE);
+					cypherOperators.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX 
+							+ ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
 				}
 				cypherOperators.append(opCypher);	
 			}
 		}
 		
 		if (cypherOperators.length() != 1) {
-			cypherOperators.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+			cypherOperators.append(ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
 		} else {
 			//Resets the StringBuilder to have an Empty one
 			cypherOperators.setLength(0);
@@ -602,7 +602,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	private final String generateComparisonsOfSameNeoPropertyNodes() throws InvalidityException {
 		final StringBuilder cypher = new StringBuilder();
 		final StringBuilder tempCypher = new StringBuilder();
-		final String anotherStringPart = "\n" + CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND + CypherSpecificConstants.ONE_WHITESPACE;
+		final String anotherStringPart = "\n" + ConstantsNeo.THREE_WHITESPACES + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE;
 		for (Node n : this.getNodesFromAllPreviousGraphs()) {
 			if (n instanceof NeoPropertyNode) {
 				fillBuilderWithNeoPropertyNodeComps(tempCypher, n);
@@ -619,7 +619,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		String resultCypher = new String(); 
 		if (!(cypher.length() == 0)) {
 			seperateMultiPropertyComps(cypher);
-			resultCypher = CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + cypher.toString() + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
+			resultCypher = ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + cypher.toString() + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
 		}
 		return resultCypher;
 	}
@@ -647,17 +647,17 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					startNeoPropertyNode = tempList.get(0);
 					for (int i = 1; i < tempList.size(); i++) {
 						if (!first) {
-							tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
-							tempCypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);							
-							tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+							tempCypher.append(ConstantsNeo.ONE_WHITESPACE);
+							tempCypher.append(ConstantsNeo.BOOLEAN_OPERATOR_AND);							
+							tempCypher.append(ConstantsNeo.ONE_WHITESPACE);
 						} else {
 							first = false;
 						}
 						
 						tempCypher.append(startNeoPropertyNode);
-						tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
-						tempCypher.append(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL);
-						tempCypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+						tempCypher.append(ConstantsNeo.ONE_WHITESPACE);
+						tempCypher.append(ConstantsNeo.CYPHER_COMPARISON_OPERATOR_EQUAL);
+						tempCypher.append(ConstantsNeo.ONE_WHITESPACE);
 						tempCypher.append(tempList.get(i));
 						
 						//If everything worked until here fine do:
@@ -678,16 +678,16 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * Thus each comparison which deals with one NeoPropertyNode comparison has its own line. 
 	 */
 	private final void seperateMultiPropertyComps(final StringBuilder cypher) {
-		final String[] temp = cypher.toString().split(CypherSpecificConstants.SEPERATOR);
+		final String[] temp = cypher.toString().split(ConstantsNeo.SEPERATOR);
 		//For separating the same comparisons in there own lines. 
 		if (temp.length > 1) {
 			cypher.setLength(0);
 			boolean first = true;
 			for (String s : temp) {
 				if (!first) {
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_PREFIX);						
-					cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_AND);
-					cypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX);						
+					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_AND);
+					cypher.append(ConstantsNeo.ONE_WHITESPACE);
 				} else {
 					first = false;
 				}

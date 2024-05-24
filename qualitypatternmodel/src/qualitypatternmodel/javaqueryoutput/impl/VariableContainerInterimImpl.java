@@ -2,11 +2,18 @@
  */
 package qualitypatternmodel.javaqueryoutput.impl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
@@ -44,9 +51,42 @@ public class VariableContainerInterimImpl extends ContainerInterimImpl implement
 		super();
 	}
 		
+	public VariableContainerInterimImpl(String json) throws InvalidityException {
+		super();
+		try {
+			JSONObject jsono = new JSONObject(json);
+			if (!jsono.get("class").equals(getClass().getSimpleName()))
+				throw new InvalidityException("Wrong class");
+			setInterimPartId(jsono.getInt("id"));
+			setContained(InterimResultPartImpl.fromJson(jsono.getString("contained")));
+		} catch (JSONException e) {
+			throw new InvalidityException("Wrong class");
+		}
+	}
+
 	@Override
 	public Integer getSize() {
 		return -1;
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("id", getInterimPartId());
+			result.put("contained", getContained().toJson());
+		} catch (JSONException e) {
+		}
+		return result;
+	}
+
+	@Override
+	public Map<Integer, InterimResultPart> getInterimResultParts() {
+		Map<Integer, InterimResultPart> map = new HashMap<Integer, InterimResultPart>();
+		map.put(getInterimPartId(), this);
+		map.putAll(((InterimResultPartImpl) getContained()).getInterimResultParts());
+		return map;
 	}
 	
 	@Override

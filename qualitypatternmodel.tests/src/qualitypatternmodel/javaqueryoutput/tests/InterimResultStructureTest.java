@@ -13,6 +13,12 @@ import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Interim Result Structure</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure#toJson() <em>To Json</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class InterimResultStructureTest extends TestCase {
@@ -84,6 +90,19 @@ public class InterimResultStructureTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure#toJson() <em>To Json</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultStructure#toJson()
+	 * @generated
+	 */
+	public void testToJson() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //InterimResultStructureTest

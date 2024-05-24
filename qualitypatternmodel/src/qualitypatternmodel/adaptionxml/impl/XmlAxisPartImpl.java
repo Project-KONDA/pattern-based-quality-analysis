@@ -18,10 +18,13 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
@@ -478,6 +481,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	public XmlPropertyOptionParam getXmlPropertyOption() {
 		if (xmlPropertyOption == null) {
 			setXmlPropertyOption(new XmlPropertyOptionParamImpl());
+			xmlPropertyOption.setValue(XmlPropertyKind.TAG);
 		}
 		return xmlPropertyOption;
 	}
@@ -783,7 +787,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 * @generated
 	 */
 	@Override
-	public String getOptionsAsStringList() {
+	public JSONArray getOptionsAsJsonArray() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -1210,7 +1214,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				case ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING: return AdaptionxmlPackage.XML_AXIS_PART___SET_VALUE_FROM_STRING__STRING;
 				case ParametersPackage.PARAMETER___GET_VALUE_AS_STRING: return AdaptionxmlPackage.XML_AXIS_PART___GET_VALUE_AS_STRING;
 				case ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY: return AdaptionxmlPackage.XML_AXIS_PART___CHECK_COMPARISON_CONSISTENCY;
-				case ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST: return AdaptionxmlPackage.XML_AXIS_PART___GET_OPTIONS_AS_STRING_LIST;
+				case ParametersPackage.PARAMETER___GET_OPTIONS_AS_JSON_ARRAY: return AdaptionxmlPackage.XML_AXIS_PART___GET_OPTIONS_AS_JSON_ARRAY;
 				case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION: return AdaptionxmlPackage.XML_AXIS_PART___GENERATE_DESCRIPTION;
 				default: return -1;
 			}
@@ -1270,8 +1274,8 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionxmlPackage.XML_AXIS_PART___GET_OPTIONS_AS_STRING_LIST:
-				return getOptionsAsStringList();
+			case AdaptionxmlPackage.XML_AXIS_PART___GET_OPTIONS_AS_JSON_ARRAY:
+				return getOptionsAsJsonArray();
 			case AdaptionxmlPackage.XML_AXIS_PART___GENERATE_DESCRIPTION:
 				return generateDescription();
 			case AdaptionxmlPackage.XML_AXIS_PART___CREATE_PARAMETERS:

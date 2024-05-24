@@ -239,7 +239,8 @@
             id="qualitypatternmodel.adaptionneo4j.presentation.Adaptionneo4jModelWizardID"
             name="%_UI_Adaptionneo4jModelWizard_label"
             class="qualitypatternmodel.adaptionneo4j.presentation.Adaptionneo4jModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID">
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Adaptionneo4jModelFile.gif">
          <description>%_UI_Adaptionneo4jModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
@@ -250,6 +251,7 @@
       <editor
             id="qualitypatternmodel.adaptionneo4j.presentation.Adaptionneo4jEditorID"
             name="%_UI_Adaptionneo4jEditor_label"
+            icon="icons/full/obj16/Adaptionneo4jModelFile.gif"
             extensions="adaptionneo4j"
             class="qualitypatternmodel.adaptionneo4j.presentation.Adaptionneo4jEditor"
             contributorClass="qualitypatternmodel.adaptionneo4j.presentation.Adaptionneo4jActionBarContributor">

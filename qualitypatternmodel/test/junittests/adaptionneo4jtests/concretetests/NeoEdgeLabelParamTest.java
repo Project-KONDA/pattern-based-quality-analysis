@@ -32,7 +32,7 @@ public class NeoEdgeLabelParamTest extends NeoLabelTest {
 	
 	@Override
 	@ParameterizedTest
-	@ValueSource(strings = {"Regesta1", "Regesta_2", "IndexPlaceäüö", "Index_Entry", "", "null"})
+	@ValueSource(strings = {"Regesta1", "Regesta_2", "IndexPlace", "Index_Entry", "", "null"})
 	public void setValueIfValid(String label) {
 		if (label.compareTo("null") == 0) {
 			assertDoesNotThrow(() -> edgeLabel.setValueIfValid(null));

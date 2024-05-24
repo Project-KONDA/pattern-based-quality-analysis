@@ -69,6 +69,8 @@ public class JavaFilterItemProvider
 			addInterimResultsPropertyDescriptor(object);
 			addQueryPropertyDescriptor(object);
 			addLanguagePropertyDescriptor(object);
+			addPatternNamePropertyDescriptor(object);
+			addPatternIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -140,6 +142,50 @@ public class JavaFilterItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Pattern Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPatternNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaFilter_patternName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaFilter_patternName_feature", "_UI_JavaFilter_type"),
+				 JavaqueryPackage.Literals.JAVA_FILTER__PATTERN_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Pattern Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPatternIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JavaFilter_patternId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JavaFilter_patternId_feature", "_UI_JavaFilter_type"),
+				 JavaqueryPackage.Literals.JAVA_FILTER__PATTERN_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -189,7 +235,7 @@ public class JavaFilterItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((JavaFilter)object).getQuery();
+		String label = ((JavaFilter)object).getPatternName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_JavaFilter_type") :
 			getString("_UI_JavaFilter_type") + " " + label;
@@ -210,6 +256,8 @@ public class JavaFilterItemProvider
 		switch (notification.getFeatureID(JavaFilter.class)) {
 			case JavaqueryPackage.JAVA_FILTER__QUERY:
 			case JavaqueryPackage.JAVA_FILTER__LANGUAGE:
+			case JavaqueryPackage.JAVA_FILTER__PATTERN_NAME:
+			case JavaqueryPackage.JAVA_FILTER__PATTERN_ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case JavaqueryPackage.JAVA_FILTER__FILTER:

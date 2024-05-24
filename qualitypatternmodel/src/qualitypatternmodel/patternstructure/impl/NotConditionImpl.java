@@ -29,7 +29,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
+import qualitypatternmodel.utility.ConstantsRdf;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -132,10 +133,10 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			if (query.startsWith("\n"))
 				query = query.substring(1);
 			if(not) {
-				query = "NOT " + query; 
+				query = ConstantsRdf.NOT + query; 
 			}
 			if(!isInRdfFilter()) {
-				query = "FILTER " + query;
+				query = ConstantsRdf.FILTER + query;
 			}
 			return "\n" + query;
 		} else {
@@ -164,10 +165,10 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			//The framework misses constrains
 			String temp = condition.generateCypher();
 			if (temp.isEmpty()) {
-				return CypherSpecificConstants.BOOLEAN_FALSE;
+				return ConstantsNeo.BOOLEAN_FALSE;
 			}
-			cypher = CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + CypherSpecificConstants.ONE_WHITESPACE;
-			cypher += CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET + temp + CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET;
+			cypher = ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE;
+			cypher += ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + temp + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
 			return cypher;	
 		}
 		throw new InvalidityException(INVALID_CONDITION);

@@ -26,6 +26,7 @@ public abstract class ContainerInterimImpl extends InterimResultPartImpl impleme
 		super();
 	}
 
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

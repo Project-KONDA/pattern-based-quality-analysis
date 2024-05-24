@@ -2,13 +2,6 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
-import static qualitypatternmodel.utility.Constants.FOR;
-import static qualitypatternmodel.utility.Constants.IN;
-import static qualitypatternmodel.utility.Constants.VARIABLE;
-import static qualitypatternmodel.utility.Constants.SOME;
-import static qualitypatternmodel.utility.Constants.EVERY;
-import static qualitypatternmodel.utility.Constants.SATISFIES;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -36,6 +29,7 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.utility.ConstantsXml;
 
 /**
  * <!-- begin-user-doc -->
@@ -154,7 +148,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		// Structure Translation (For, Some, Every)
 		String query = "";
 		if (getGraph().isReturnGraph()) {
-			query += FOR + variable + IN; 			
+			query += ConstantsXml.FOR + variable + ConstantsXml.IN; 			
 			if(getTarget() instanceof XmlNode) {
 				XmlNode node = (XmlNode) getTarget();
 				xPredicates += node.translateMultipleIncoming();
@@ -168,18 +162,18 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 				throw new InvalidityException("quantifier null");
 			}
 			if (getGraph().getQuantifiedCondition().getQuantifier() == Quantifier.EXISTS) {
-				query += SOME;
+				query += ConstantsXml.SOME;
 			} else if (getGraph().getQuantifiedCondition().getQuantifier() == Quantifier.FORALL) {
-				query += EVERY;
+				query += ConstantsXml.EVERY;
 			} else {
 				throw new InvalidityException("invalid location");
 			}
-			query += variable + IN;
+			query += variable + ConstantsXml.IN;
 			if(getTarget() instanceof XmlNode) {
 				XmlNode node = (XmlNode) getTarget();
 				xPredicates += node.translateMultipleIncoming();
 			}
-			query += xPathExpression + xPredicates + SATISFIES;
+			query += xPathExpression + xPredicates + ConstantsXml.SATISFIES;
 		}
 		
 		translated = true;
@@ -235,7 +229,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		}
 		
 		// Structure Translation (For, Some, Every)
-		String query = FOR + variable + IN; 			
+		String query = ConstantsXml.FOR + variable + ConstantsXml.IN; 			
 		if(getTarget() instanceof XmlNode) {
 			XmlNode node = (XmlNode) getTarget();
 			xPredicates += node.translateMultipleIncoming();
@@ -254,7 +248,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	}
 
 	protected String generateNextXQueryVariable() throws InvalidityException {
-		String variable = VARIABLE + getInternalId() + "_" + getVariableCounter();
+		String variable = ConstantsXml.VARIABLE + getInternalId() + "_" + getVariableCounter();
 		setVariableCounter(getVariableCounter()+1);
 
 		if(getTarget() instanceof XmlNode) {

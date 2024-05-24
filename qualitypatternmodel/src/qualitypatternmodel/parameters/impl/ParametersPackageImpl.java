@@ -412,16 +412,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameter__GetOptionsAsStringList() {
-		return parameterEClass.getEOperations().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getParameter__ValidateAgainstSchema() {
 		return parameterEClass.getEOperations().get(1);
 	}
@@ -434,6 +424,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EOperation getParameter__CheckComparisonConsistency() {
 		return parameterEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameter__GetOptionsAsJsonArray() {
+		return parameterEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -1238,7 +1238,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(parameterEClass, PARAMETER___SET_VALUE_FROM_STRING__STRING);
 		createEOperation(parameterEClass, PARAMETER___GET_VALUE_AS_STRING);
 		createEOperation(parameterEClass, PARAMETER___CHECK_COMPARISON_CONSISTENCY);
-		createEOperation(parameterEClass, PARAMETER___GET_OPTIONS_AS_STRING_LIST);
+		createEOperation(parameterEClass, PARAMETER___GET_OPTIONS_AS_JSON_ARRAY);
 		createEOperation(parameterEClass, PARAMETER___GENERATE_DESCRIPTION);
 
 		comparisonOptionParamEClass = createEClass(COMPARISON_OPTION_PARAM);
@@ -1424,7 +1424,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		op = initEOperation(getParameter__CheckComparisonConsistency(), null, "checkComparisonConsistency", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getParameter__GetOptionsAsStringList(), ecorePackage.getEString(), "getOptionsAsStringList", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getParameter__GetOptionsAsJsonArray(), theTextrepresentationPackage.getJSONArrayWrapper(), "getOptionsAsJsonArray", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getParameter__GenerateDescription(), ecorePackage.getEString(), "generateDescription", 0, 1, IS_UNIQUE, IS_ORDERED);
 

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.XmlPatternUtility;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 //import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
@@ -16,9 +17,6 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TypeOptionParam;
-//import qualitypatternmodel.parameters.UntypedParameterValue;
-//import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class XmlEvalComp {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -28,7 +26,7 @@ public class XmlEvalComp {
 		completePatterns.add(getCompHidaMidas());
 		completePatterns.add(getCompApsMidas());
 		
-		Test00.getQueries(completePatterns);
+		XmlPatternUtility.getQueries(completePatterns);
 //		Test00.test(completePatterns);
 	}
 		

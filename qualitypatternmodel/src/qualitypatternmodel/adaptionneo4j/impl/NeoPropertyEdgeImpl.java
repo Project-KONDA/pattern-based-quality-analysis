@@ -22,7 +22,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -141,7 +141,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 	public String myToString() {
 		String result = super.myToString();
 		if (getNeoPropertyPathParam() != null) {
-			result += CypherSpecificConstants.ONE_WHITESPACE + getNeoPropertyPathParam().myToString(); 
+			result += ConstantsNeo.ONE_WHITESPACE + getNeoPropertyPathParam().myToString(); 
 		}
 		return result;
 	}

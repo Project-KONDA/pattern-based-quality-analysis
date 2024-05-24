@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -10,6 +12,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
@@ -72,6 +76,18 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 		setSubfilter(subfilter);
 	}
 	
+	public CountFilterElementImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		super();
+		try {
+			JSONObject jsono = new JSONObject(json);
+			VariableContainerInterim argument = (VariableContainerInterim) map.get(jsono.getInt("argument")); 
+			setArgument(argument);
+		}
+		catch (Exception e) {
+			throw new InvalidityException();
+		}
+	}
+
 	@Override
 	public Double apply(InterimResult parameter) throws InvalidityException {
 		assert (parameter instanceof ContainerResult);
@@ -100,6 +116,17 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 			getArgument().setContained(contained.get(0));
 		else 
 			throw new InvalidityException("CountFilterElement has too much arguments");
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("argument", getArgument().getInterimPartId());
+		} catch (JSONException e) {
+		}
+		return result;
 	}
 	
 	@Override

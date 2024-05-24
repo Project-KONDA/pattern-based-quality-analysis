@@ -9,7 +9,7 @@ import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,7 +56,7 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 			final StringBuilder cypher = new StringBuilder();
 			for (String label : getValues()) {
 				if (!label.isEmpty()) { 
-					cypher.append(CypherSpecificConstants.CYPHER_EQUAL_IN_GRAPH_MATCHING_LABELING);
+					cypher.append(ConstantsNeo.CYPHER_EQUAL_IN_GRAPH_MATCHING_LABELING);
 					cypher.append(label);
 				}
 			}

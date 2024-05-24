@@ -2,12 +2,16 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
@@ -63,6 +67,17 @@ public class NumberValueFilterElementImpl extends NumberFilterPartImpl implement
 		setNumber(num);
 	}
 	
+	public NumberValueFilterElementImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		super();
+		try {
+			JSONObject jsono = new JSONObject(json);
+			setNumber(Double.valueOf(jsono.getString("number")));
+		}
+		catch (Exception e) {
+			throw new InvalidityException();
+		}
+	}
+
 	@Override
 	public Double apply(InterimResult parameter) throws InvalidityException {
 		return getNumber();
@@ -71,6 +86,17 @@ public class NumberValueFilterElementImpl extends NumberFilterPartImpl implement
 	@Override
 	public EList<InterimResultPart> getArguments() {
 		return new BasicEList<InterimResultPart>();
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("number", getNumber());
+		} catch (JSONException e) {
+		}
+		return result;
 	}
 	
 	@Override

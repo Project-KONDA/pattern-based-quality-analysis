@@ -16,6 +16,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getExampleValue <em>Example Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getValueMap <em>Value Map</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterFragment()
@@ -68,6 +69,28 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	void setName(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Value Map</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Map</em>' containment reference.
+	 * @see #setValueMap(ValueMap)
+	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterFragment_ValueMap()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ValueMap getValueMap();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getValueMap <em>Value Map</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Map</em>' containment reference.
+	 * @see #getValueMap()
+	 * @generated
+	 */
+	void setValueMap(ValueMap value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
@@ -90,5 +113,13 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	 * @generated
 	 */
 	void setValue(String value) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getValue();
 
 } // ParameterFragment

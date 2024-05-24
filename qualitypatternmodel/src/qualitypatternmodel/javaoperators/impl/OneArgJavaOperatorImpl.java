@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.javaoperators.impl;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -90,7 +91,7 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
-		OneArgFunctionFilterPart filterPart = new OneArgFunctionFilterPartImpl(this::apply);
+		OneArgFunctionFilterPart filterPart = new OneArgFunctionFilterPartImpl(this.getClass());
 		return filterPart;
 	}
 	
@@ -99,6 +100,21 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 		super.isValid(abstractionLevel);
 		option.isValid(abstractionLevel);		
 	}
+	
+    public static OneArgJavaOperatorImpl getOneInstanceOf(String subclassname) {
+        try {
+            String packageName = OneArgJavaOperatorImpl.class.getPackage().getName() + ".";
+            Class<?> subclass = Class.forName(packageName + subclassname);
+            Constructor<?> constructor = subclass.getDeclaredConstructor();
+            constructor.setAccessible(true);
+            OneArgJavaOperatorImpl instance = (OneArgJavaOperatorImpl) constructor.newInstance();
+            
+            return instance;
+        } catch (Exception e) {
+            e.printStackTrace(); // Handle exception appropriately
+            return null;
+        }
+    }
 
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {

@@ -74,11 +74,4 @@ public interface OneArgFunctionFilterPart extends BooleanFilterPart {
 	 */
 	Boolean apply(String param1);
 
-	@FunctionalInterface
-	interface Function {
-	    Boolean evaluate(String str);
-	}
-	
-	void setFunction(Function object);
-
 } // OneArgFunctionFilterPart

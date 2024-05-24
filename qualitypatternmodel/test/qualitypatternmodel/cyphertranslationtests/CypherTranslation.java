@@ -30,7 +30,7 @@ import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 import utilis.Java2Neo4JConnector;
 
 /**
@@ -171,14 +171,14 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 
 	protected static void checkForNullInMatchAndReturn(String query) throws InvalidityException {
 		//Test for null in MATCH
-		String matchString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_MATCH), query.indexOf(CypherTestSuiteTranslation.NEWLINE));
+		String matchString = query.substring(query.indexOf(ConstantsNeo.CLAUSE_MATCH), query.indexOf(CypherTestSuiteTranslation.NEWLINE));
 		if (matchString.toLowerCase().contains(CypherTestSuiteTranslation.NULL)) {
 			throw new InvalidityException(CypherTestSuiteTranslation.THE_MATCH_CLAUSE_CONTAINS_NULL);
 		}
 		matchString = null;						
 		
 		//Test for null in RETURN
-		String returnString = query.substring(query.indexOf(CypherSpecificConstants.CLAUSE_RETURN));
+		String returnString = query.substring(query.indexOf(ConstantsNeo.CLAUSE_RETURN));
 		if (returnString.toLowerCase().contains(CypherTestSuiteTranslation.NULL)) {
 			throw new InvalidityException(CypherTestSuiteTranslation.THE_RETURN_CLAUSE_CONTAINS_NULL);
 		}

@@ -25,7 +25,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.KeyValueParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc -->
@@ -167,19 +167,19 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	private void generateInternalCypher(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
 		switch (this.neoDirection) {
 		case IMPLICIT:
-			cypher.append(CypherSpecificConstants.EDGE_CONNECTOR_LINE);
+			cypher.append(ConstantsNeo.EDGE_CONNECTOR_LINE);
 			this.generateInternalCypherLabelGenerator(cypher, withLabels);
-			cypher.append(CypherSpecificConstants.EDGE_CONNECTOR_LINE);
+			cypher.append(ConstantsNeo.EDGE_CONNECTOR_LINE);
 			break;
 		case LEFT:
-			cypher.append(CypherSpecificConstants.EDGE_CONNECTOR_LEFT);
+			cypher.append(ConstantsNeo.EDGE_CONNECTOR_LEFT);
 			this.generateInternalCypherLabelGenerator(cypher, withLabels);
-			cypher.append(CypherSpecificConstants.EDGE_CONNECTOR_LINE);
+			cypher.append(ConstantsNeo.EDGE_CONNECTOR_LINE);
 			break;
 		case RIGHT:
-			cypher.append(CypherSpecificConstants.EDGE_CONNECTOR_LINE);
+			cypher.append(ConstantsNeo.EDGE_CONNECTOR_LINE);
 			this.generateInternalCypherLabelGenerator(cypher, withLabels);
-			cypher.append(CypherSpecificConstants.EDGE_CONNECTOR_RIGHT);
+			cypher.append(ConstantsNeo.EDGE_CONNECTOR_RIGHT);
 			break;
 		default:
 			throw new InvalidityException(SOMETHING_WENT_WRONG_IN_THE_SIMPLE_NEO_EDGE_DIRECTION_HAS_NOT_BEEN_SET_CORRECTLY);
@@ -198,13 +198,13 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	private void generateTargetNode(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
 		//Always when a TextListParam exists create the NeoPropertyNode
 		if (getNeoTargetNodeLabels() != null) {
-			cypher.append(CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET);
+			cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET);
 			cypher.append(getCypherInnerEdgeNodes(false));
 			if (withLabels) {
 				final String tempLabels = getNeoTargetNodeLabels().generateCypher();
 				cypher.append(tempLabels);
 			}
-			cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+			cypher.append(ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
 		}
 	}
 	
@@ -219,14 +219,14 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * e.g., in future versions multi-labels in a Edge are Possible or the properties as labels should be considered
 	 */
 	private void generateInternalCypherLabelGenerator(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
-		cypher.append(CypherSpecificConstants.EDGE_OPENING_BRACKET);
+		cypher.append(ConstantsNeo.EDGE_OPENING_BRACKET);
 		cypher.append(getCypherVariable());
 				
 		if (getNeoEdgeLabel() != null && withLabels) {
 			cypher.append(getNeoEdgeLabel().generateCypher());
 		}
 		
-		cypher.append(CypherSpecificConstants.EDGE_CLOSING_BRACKET);
+		cypher.append(ConstantsNeo.EDGE_CLOSING_BRACKET);
 	}
 	
 	/**
@@ -241,7 +241,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		String cypher = null;
 		cypher = super.getCypherVariable() + ((NeoPathParamImpl) (NeoPathParamImpl) getNeoPathParam()).getRelationNumber();
 		if (edgeNumber != 0) {
-			cypher += CypherSpecificConstants.LOCAL_ID_SEPERATOR + getEdgeNumber();
+			cypher += ConstantsNeo.LOCAL_ID_SEPERATOR + getEdgeNumber();
 		}
 		return cypher;
 	}
@@ -266,7 +266,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			cypher =  null;
 		} else if (isLastEdge && !isReturn && neoAbstractPathParam instanceof NeoPropertyPathParam) {
 			//The relation number is needed since multiple relations can go into a NeoPropertyNode
-			cypher = CypherSpecificConstants.VARIABLE_PROPERTY_NODE + ((NeoPropertyPathParam) neoAbstractPathParam).getNeoPropertyEdge().getTarget().getInternalId() + CypherSpecificConstants.LOCAL_ID_SEPERATOR+ neoAbstractPathParam.getRelationNumber();
+			cypher = ConstantsNeo.VARIABLE_PROPERTY_NODE + ((NeoPropertyPathParam) neoAbstractPathParam).getNeoPropertyEdge().getTarget().getInternalId() + ConstantsNeo.LOCAL_ID_SEPERATOR+ neoAbstractPathParam.getRelationNumber();
 		}  else if (isLastEdge && neoAbstractPathParam instanceof NeoElementPathParam) {
 			cypher = createInnerEdgeNumberingNames(neoAbstractPathParam);
 		} else if (!isLastEdge){
@@ -286,9 +286,9 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	protected String createInnerEdgeNumberingNames(final NeoPathParamImpl neoAbstractPathParam) {
 		String cypher = new String();
 		if (edgeNumber != 0) {
-			cypher = CypherSpecificConstants.INTERNAL_EDGE_NODE + neoAbstractPathParam.getRelationNumber() + CypherSpecificConstants.LOCAL_ID_SEPERATOR + getEdgeNumber();
+			cypher = ConstantsNeo.INTERNAL_EDGE_NODE + neoAbstractPathParam.getRelationNumber() + ConstantsNeo.LOCAL_ID_SEPERATOR + getEdgeNumber();
 		} else {
-			cypher = CypherSpecificConstants.INTERNAL_EDGE_NODE + neoAbstractPathParam.getRelationNumber();
+			cypher = ConstantsNeo.INTERNAL_EDGE_NODE + neoAbstractPathParam.getRelationNumber();
 		}
 		return cypher;
 	}
@@ -741,30 +741,30 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 */
 	@Override
 	public String myToString() {
-		final String temp = NEO_SIMPLE_EDGE + CypherSpecificConstants.SIGNLE_OPENING_ROUND_BRACKET;
+		final String temp = NEO_SIMPLE_EDGE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET;
 		final StringBuilder cypher = new StringBuilder(String.format(temp, getId()));
 		if (neoEdgeLabel != null) {
 			if (!neoEdgeLabel.getValueAsString().isEmpty()) {
-				cypher.append(EDGE_LABELS + CypherSpecificConstants.EDGE_OPENING_BRACKET + neoEdgeLabel.getValueAsString() + CypherSpecificConstants.EDGE_CLOSING_BRACKET);
-				cypher.append(CypherSpecificConstants.ONE_WHITESPACE);
+				cypher.append(EDGE_LABELS + ConstantsNeo.EDGE_OPENING_BRACKET + neoEdgeLabel.getValueAsString() + ConstantsNeo.EDGE_CLOSING_BRACKET);
+				cypher.append(ConstantsNeo.ONE_WHITESPACE);
 			}			
 		}
 		if (getNeoTargetNodeLabels() != null) {
 			boolean isFirst = true;
 			for (String label : getNeoTargetNodeLabels().getValues()) {
 				if (!isFirst) {
-					cypher.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
+					cypher.append(ConstantsNeo.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 				} else {
-					cypher.append(EDGE_TARGET_NODE_LABELS + CypherSpecificConstants.EDGE_OPENING_BRACKET);
+					cypher.append(EDGE_TARGET_NODE_LABELS + ConstantsNeo.EDGE_OPENING_BRACKET);
 				}
 				cypher.append(label);
 				isFirst = false;
 			}
 			if (cypher.toString().contains(EDGE_TARGET_NODE_LABELS)) {
-				cypher.append(CypherSpecificConstants.EDGE_CLOSING_BRACKET);
+				cypher.append(ConstantsNeo.EDGE_CLOSING_BRACKET);
 			}			
 		}
-		cypher.append(CypherSpecificConstants.SIGNLE_CLOSING_ROUND_BRACKET);
+		cypher.append(ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
 		
 		final String emptyBrackets = "()";
 		if(cypher.toString().endsWith(emptyBrackets)) {

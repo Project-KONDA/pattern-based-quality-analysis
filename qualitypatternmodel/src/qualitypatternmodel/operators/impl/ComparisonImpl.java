@@ -53,7 +53,7 @@ import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.Constants;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
  * <!-- begin-user-doc --> 
@@ -335,22 +335,22 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		
 		switch(option.getValue()) {
 		case EQUAL:
-			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL);
+			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, ConstantsNeo.CYPHER_COMPARISON_OPERATOR_EQUAL);
 			break;
 		case NOTEQUAL:
-			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_NOTEQUAL);
+			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, ConstantsNeo.CYPHER_COMPARISON_OPERATOR_NOTEQUAL);
 			break;
 		case GREATER:
-			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER);
+			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, ConstantsNeo.CYPHER_COMPARISON_OPERATOR_GREATER);
 			break;
 		case LESS:
-			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS);
+			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, ConstantsNeo.CYPHER_COMPARISON_OPERATOR_LESS);
 			break;
 		case GREATEROREQUAL:
-			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_GREATER_EQUAL);
+			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, ConstantsNeo.CYPHER_COMPARISON_OPERATOR_GREATER_EQUAL);
 			break;
 		case LESSOREQUAL:
-			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_LESS_EQUAL);
+			generateCypherDependingOnReturnType(cypher, argument1Translation, argument2Translation, ConstantsNeo.CYPHER_COMPARISON_OPERATOR_LESS_EQUAL);
 			break;
 		default:
 			throw new InvalidityException();
@@ -388,9 +388,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * Checks based on the comparison operator if the IN-list function of Cypher should be negated.
 	 */
 	private final boolean shallListOperatorBeANegation(final String comp) throws InvalidityException {
-		if (comp.compareTo(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_NOTEQUAL) == 0) {
+		if (comp.compareTo(ConstantsNeo.CYPHER_COMPARISON_OPERATOR_NOTEQUAL) == 0) {
 			return true;
-		} else if (comp.compareTo(CypherSpecificConstants.CYPHER_COMPARISON_OPERATOR_EQUAL) == 0) {
+		} else if (comp.compareTo(ConstantsNeo.CYPHER_COMPARISON_OPERATOR_EQUAL) == 0) {
 			return false;
 		}
 		throw new InvalidityException(NOT_ALLOWED_OPERATOR_FOR_LIST_COMPARISON);
@@ -407,8 +407,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	private void generateCypherStandardComp(StringBuilder cypher, final String argument1Translation,
 			final String argument2Translation, final String comp) {
 		cypher.append(argument1Translation);
-		cypher.append(CypherSpecificConstants.ONE_WHITESPACE + comp
-				+ CypherSpecificConstants.ONE_WHITESPACE);
+		cypher.append(ConstantsNeo.ONE_WHITESPACE + comp
+				+ ConstantsNeo.ONE_WHITESPACE);
 		cypher.append(argument2Translation);
 	}
 
@@ -426,10 +426,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		boolean isValid = checkForValidCypherNode();
 //		checkForValidIdElement(); // --> There is no comparison between ComplexNode and PatamterValue
 		if (isValid) {
-			cypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, argument1Translation));
-			cypher.append(CypherSpecificConstants.ONE_WHITESPACE + comp
-					+ CypherSpecificConstants.ONE_WHITESPACE);
-			cypher.append(String.format(CypherSpecificConstants.CYPHER_SPECIAL_FUNCTION_ID, argument2Translation));
+			cypher.append(String.format(ConstantsNeo.CYPHER_SPECIAL_FUNCTION_ID, argument1Translation));
+			cypher.append(ConstantsNeo.ONE_WHITESPACE + comp
+					+ ConstantsNeo.ONE_WHITESPACE);
+			cypher.append(String.format(ConstantsNeo.CYPHER_SPECIAL_FUNCTION_ID, argument2Translation));
 		} else {
 			throw new UnsupportedOperationException();
 		}
@@ -454,14 +454,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 		if (!negation) {
 			cypher.append(argument1Translation);
-			cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_IN
-					+ CypherSpecificConstants.ONE_WHITESPACE);
+			cypher.append(ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.BOOLEAN_OPERATOR_IN
+					+ ConstantsNeo.ONE_WHITESPACE);
 			cypher.append(argument2Translation);
 		} else {
-			cypher.append(CypherSpecificConstants.BOOLEAN_OPERATOR_NOT + " (");
+			cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_NOT + " (");
 			cypher.append(argument1Translation);
-			cypher.append(CypherSpecificConstants.ONE_WHITESPACE + CypherSpecificConstants.BOOLEAN_OPERATOR_IN
-					+ CypherSpecificConstants.ONE_WHITESPACE);
+			cypher.append(ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.BOOLEAN_OPERATOR_IN
+					+ ConstantsNeo.ONE_WHITESPACE);
 			cypher.append(argument2Translation);
 			cypher.append(")");
 		}
@@ -491,14 +491,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		String argument2Translation = null; 
 		
 		if (getArgument1() instanceof NeoPropertyNode && getArgument2() instanceof NeoPropertyNode) {
-			argument1Translation = (String) ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING); 
-			argument2Translation = (String) ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
+			argument1Translation = (String) ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING); 
+			argument2Translation = (String) ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
 		} else if (getArgument1() instanceof NeoPropertyNode && !(getArgument2() instanceof NeoPropertyNode)) {
-			argument1Translation = (String) ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
+			argument1Translation = (String) ((NeoPropertyNode) getArgument1()).generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
 			argument2Translation = getArgument2().generateCypher(); 
 		} else if (!(getArgument1() instanceof NeoPropertyNode) && getArgument2() instanceof NeoPropertyNode) {
 			argument1Translation = getArgument1().generateCypher();
-			argument2Translation = (String) ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing().get(CypherSpecificConstants.FIRST_CYPHER_PROPERTY_ADDRESSING);
+			argument2Translation = (String) ((NeoPropertyNode) getArgument2()).generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
 		} else if (getArgument1() instanceof NeoElementNode && getArgument2() instanceof NeoElementNode) {
 			argument1Translation = ((NeoElementNode) getArgument1()).getCypherVariable(); 
 			argument2Translation = ((NeoElementNode) getArgument2()).getCypherVariable(); 

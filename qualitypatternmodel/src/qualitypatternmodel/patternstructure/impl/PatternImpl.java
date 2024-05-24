@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
-import static qualitypatternmodel.utility.Constants.RETURN;
-import static qualitypatternmodel.utility.Constants.WHERE;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.INTERIM;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.RETURNSTART;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.RETURNEND;
@@ -48,7 +46,8 @@ import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.TrueElement;
-import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.ConstantsNeo;
+import qualitypatternmodel.utility.ConstantsXml;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
@@ -182,7 +181,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		String whereClause = "\n";
 		if (!(condition instanceof TrueElement)) {
 			String condQuery = condition.generateXQuery().replace("\n", "\n  ");
-			whereClause = WHERE + condQuery;
+			whereClause = ConstantsXml.WHERE + condQuery;
 		}
 
 		String returnClause = generateXQueryReturnClause();
@@ -210,7 +209,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 		if (returnElements.size()>1)
 			returnClause = "(" + returnClause + ")";
-		return RETURN + returnClause;	
+		return ConstantsXml.RETURN + returnClause;	
 	}
 	
 	@Override
@@ -228,7 +227,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 //			!condQuery.equals("(true())") && !condQuery.equals("(((true())))") && !condQuery.equals("")
 			if (!condQuery.matches("^([(]*true[(][)][)]*)?$")) {
 				condQuery = condQuery.replace("\n", "\n  ");
-				whereClause = WHERE + condQuery + "\n";
+				whereClause = ConstantsXml.WHERE + condQuery + "\n";
 			}
 		}
 		
@@ -299,7 +298,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	public String generateCypher() throws InvalidityException {
 		String matchClause = graph.generateCypher();
 		if(!matchClause.isEmpty()) {
-			matchClause = CypherSpecificConstants.CLAUSE_MATCH + CypherSpecificConstants.ONE_WHITESPACE  + matchClause;
+			matchClause = ConstantsNeo.CLAUSE_MATCH + ConstantsNeo.ONE_WHITESPACE  + matchClause;
 		} else {
 			throw new InvalidityException(A_CYPHER_QUERY_NEED_A_MATCH_CLAUSE);		
 		}
@@ -316,13 +315,13 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			if (!cond.isEmpty()) {
 				cond = addWhiteSpacesForConditions(cond, whereClause);					
 				if (!whereClause.isEmpty() && !cond.isEmpty()) 
-					whereClause +=  "\n" + CypherSpecificConstants.THREE_WHITESPACES + CypherSpecificConstants.BOOLEAN_OPERATOR_AND 
-									+ CypherSpecificConstants.ONE_WHITESPACE;
+					whereClause +=  "\n" + ConstantsNeo.THREE_WHITESPACES + ConstantsNeo.BOOLEAN_OPERATOR_AND 
+									+ ConstantsNeo.ONE_WHITESPACE;
 				whereClause += cond;
 			}
 		}
 		if (whereClause.length() != 0) {
-			whereClause = CypherSpecificConstants.CLAUSE_WHERE + CypherSpecificConstants.ONE_WHITESPACE + whereClause;
+			whereClause = ConstantsNeo.CLAUSE_WHERE + ConstantsNeo.ONE_WHITESPACE + whereClause;
 		}
 		if (whereClause.length() == 0) {
 			whereClause = null;
@@ -428,7 +427,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		    	cypherReturn.put(i, tempSb);
 		    } else {
 		    	tempSb = cypherReturn.get(i);
-		    	tempSb.append(CypherSpecificConstants.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE + entry.getValue());
+		    	tempSb.append(ConstantsNeo.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE + entry.getValue());
 		    }
 		}
 	}
@@ -463,7 +462,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	protected void appendInnerEdgeNodes(final StringBuilder cypherInnerEdgeNodes, NeoEdge neoAbstractEdge)
 			throws InvalidityException {
 		if (neoAbstractEdge.getReturnInnerEdgeNodes() != null) {
-			if (cypherInnerEdgeNodes.length() != 0) cypherInnerEdgeNodes.append(CypherSpecificConstants.CYPHER_SEPERATOR + CypherSpecificConstants.ONE_WHITESPACE);
+			if (cypherInnerEdgeNodes.length() != 0) cypherInnerEdgeNodes.append(ConstantsNeo.CYPHER_SEPERATOR + ConstantsNeo.ONE_WHITESPACE);
 			cypherInnerEdgeNodes.append(neoAbstractEdge.getReturnInnerEdgeNodes());
 		}
 	}
@@ -491,8 +490,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 					} else {
 						//TODO maybe a problem
 						//With six whitespace(-s) more the condition has exactly three more whitespace(-s) as the operators.
-						localCypher.insert(currentIndex + 1, CypherSpecificConstants.THREE_WHITESPACES);
-						fromIndex = currentIndex + CypherSpecificConstants.THREE_WHITESPACES.length();
+						localCypher.insert(currentIndex + 1, ConstantsNeo.THREE_WHITESPACES);
+						fromIndex = currentIndex + ConstantsNeo.THREE_WHITESPACES.length();
 					}
 				}
 				cond = localCypher.toString();

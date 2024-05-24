@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -9,6 +11,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
@@ -55,6 +59,17 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 		setSubfilter(subfilter);
 	}
 
+	public NotFilterPartImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		super();
+		try {
+			JSONObject jsono = new JSONObject(json);
+			setSubfilter((BooleanFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter"), map));
+		}
+		catch (Exception e) {
+			throw new InvalidityException();
+		}
+	}
+
 	@Override
 	public Boolean apply(InterimResult parameter) throws InvalidityException {
 		return !getSubfilter().apply(parameter);
@@ -63,6 +78,17 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 	@Override
 	public EList<InterimResultPart> getArguments() {
 		return getSubfilter().getArguments();
+	}
+	
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put("class", getClass().getSimpleName());
+			result.put("subfilter", getSubfilter().toJson());
+		} catch (JSONException e) {
+		}
+		return result;
 	}
 	
 	@Override
