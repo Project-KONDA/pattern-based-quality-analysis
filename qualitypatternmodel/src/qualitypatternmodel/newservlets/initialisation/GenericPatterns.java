@@ -16,17 +16,20 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
-import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 public class GenericPatterns {
+	
+	private static boolean VALUES = true;
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		int i = 0;
@@ -81,10 +84,14 @@ public class GenericPatterns {
 		NumberElementImpl ne = new NumberElementImpl();
 		countCondition.setArgument2(ne);
 		ne.createParameters();
-//		ne.getNumberParam().setValue(1.);
-//		countCondition.getOption().setValue(ComparisonOperator.GREATER);
-		
+		if (VALUES) {
+			ne.getNumberParam().setValue(1.);
+			countCondition.getOption().setValue(ComparisonOperator.GREATER);
+		}
+
 		Node countReturn = returnNode.addOutgoing(countCondition.getCountPattern().getGraph()).getTarget().makePrimitive();
+//		countReturn = countReturn.makePrimitive();
+		countReturn = countReturn.makeComplex();
 		countReturn.setName("PropertyToCount");
 		countReturn.setReturnNode(true);
 		
@@ -137,7 +144,13 @@ public class GenericPatterns {
 		
 		Node element1 = returnNode.addOutgoing(graph2).getTarget().makePrimitive();
 		
-		element1.addPrimitiveComparison(new TextListParamImpl());
+		TextListParamImpl tlp = new TextListParamImpl();
+		element1.addPrimitiveComparison(tlp);
+		if (VALUES) {
+			tlp.addStringValue("abc");
+			tlp.addStringValue("def");
+			tlp.addStringValue("ghi");
+		}
 		
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
@@ -190,38 +203,25 @@ public class GenericPatterns {
 		pattern.setShortDescription("Uniqueness Constraint");
 		pattern.setDescription("Check, whether a value is unique within the dataset.");
 		
-		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		pattern.setCondition(quantifiedCondition);
+//		NotCondition notCon = PatternstructureFactory.eINSTANCE.createNotCondition();
+//		pattern.setCondition(notCon);
+
+		QuantifiedCondition quaCon = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+//		notCon.setCondition(quaCon);
+		pattern.setCondition(quaCon);
 		
-		CountCondition countCondition = PatternstructureFactory.eINSTANCE.createCountCondition();
-		quantifiedCondition.setCondition(countCondition);
-		countCondition.createCountPattern();
-		CountPattern countPattern = countCondition.getCountPattern(); 
-		NumberElementImpl numberElement = new NumberElementImpl();
-		countCondition.setArgument2(numberElement);
-		numberElement.createParameters();
-//		numberElement.getNumberParam().setValue(1.);
-//		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+		ComplexNode r1 = (ComplexNode) pattern.getGraph().getNodes().get(0).makeComplex();
+		r1.setName("Original");
+		ComplexNode r2 = quaCon.getGraph().addComplexNode();
+		r2.setName("Copy");
 		
-//		NumberParam numberParam = numberElement.getNumberParam();
+		Comparison c = r1.addComparison(r2);
+		c.getOption().setValue(ComparisonOperator.NOTEQUAL);
+		c.getOption().setPredefined(true);
 		
-//		numberParam.setValue(1.0);
-//		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
-//		countCondition.getOption().setValue(ComparisonOperator.GREATER);	
-				
-		Graph g0 = pattern.getGraph();
-		Graph g1 = quantifiedCondition.getGraph();
-		Graph g2 = countPattern.getGraph();
-		
-		Node ret = g0.getReturnNodes().get(0).makeComplex();
-		Node e1 = ret.addOutgoing(g1).getTarget().makePrimitive();
-		
-		Node g2base = g2.addComplexNode();
-		Node g2return = g2base.addOutgoing().getTarget().makePrimitive();
-		g2return.setReturnNode(true);
-		
-		Comparison c = g2return.addComparison(e1);
-		c.getTypeOption().setValue(ReturnType.STRING);
+		PrimitiveNode n = r1.addOutgoing(quaCon.getGraph()).getTarget().makePrimitive();
+		n.setName("Value");
+		r2.addOutgoing(n);
 
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
@@ -242,7 +242,10 @@ public class GenericPatterns {
 		
 		Node ret  = pattern.getGraph().getReturnNodes().get(0);
 		Node element1 = ret.addOutgoing(quantifiedCondition.getGraph()).getTarget().makePrimitive();
-		element1.addPrimitiveMatch();
+		
+		TextLiteralParam tlp = element1.addPrimitiveMatch();
+		if (VALUES)
+			tlp.setValue("[a-zA-Z]*");
 
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;	
@@ -267,7 +270,9 @@ public class GenericPatterns {
 		Graph g2 = quantifiedCondition.getGraph();
 		
 		Node element1 = ret.addOutgoing(g2).getTarget().makePrimitive();
-		element1.addPrimitiveContains();
+		TextLiteralParam tlp = element1.addPrimitiveContains();
+		if (VALUES)
+			tlp.setValue("abc");
 
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;	
@@ -354,8 +359,11 @@ public class GenericPatterns {
 		NumberElementImpl ne = new NumberElementImpl();
 		countCondition.setArgument2(ne);
 		ne.createParameters();
-//		ne.getNumberParam().setValue(1.);
-//		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+
+		if (VALUES) {
+			ne.getNumberParam().setValue(1.);
+			countCondition.getOption().setValue(ComparisonOperator.GREATER);
+		}
 		
 		Relation rel = main.addOutgoing(countCondition.getCountPattern().getGraph());
 		PrimitiveNode field2 = rel.getTarget().makePrimitive();
@@ -444,7 +452,10 @@ public class GenericPatterns {
 		PrimitiveNode field = main.addOutgoing(qc.getGraph()).getTarget().makePrimitive();
 		field.setName("field");
 		
-		field.addPrimitiveStringLength();
+		StringLength sl = field.addPrimitiveStringLength();
+
+		if (VALUES)
+			sl.getNumber().setValue(1.);
 		
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;

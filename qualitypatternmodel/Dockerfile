@@ -1,5 +1,6 @@
 # base image
 FROM tomcat:10
+LABEL image_name="qpm"
 
 # install packages
 RUN apt-get -y update \
@@ -7,7 +8,6 @@ RUN apt-get -y update \
     && apt-get clean \
     && apt-get install -y maven \
     apt-utils \
-    unzip \
     && rm -rf /var/lib/apt/lists/*
 
 # create directories

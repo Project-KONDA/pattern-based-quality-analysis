@@ -40,6 +40,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.utility.Constants;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Path
@@ -1003,23 +1004,23 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 */
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		if (value == "")
+		if (value == "") {
+			getXmlAxisParts().clear();
+			xmlPropertyOptionParam = null;
 			return;
+		}	
 		ArrayList<String> parts = new ArrayList<String>();
 		int index = indexWhereSplit(value);
 		while (index != -1) {
-			String v1 = value.substring(0, index);
-			String v2 = value.substring(index);
-			parts.add(v1);
-			value = v2;
+			parts.add(value.substring(0, index));
+			value = value.substring(index);
 			index = indexWhereSplit(value);
 		}
 
 		value = value.trim();
 		
-		String PROPERTY_PART_REGEX = "(/)?((data\\(\\))|(text\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
-		if (!value.equals("") && !value.matches(PROPERTY_PART_REGEX)) {
-			throw new InvalidityException("value invalid property specification: \"" + value + "\" - match :" +  value.matches(PROPERTY_PART_REGEX));
+		if (!value.equals("") && !value.matches(Constants.REGEX_PROPERTY_PART)) {
+			throw new InvalidityException("value invalid property specification: \"" + value + "\" - match :" +  value.matches(Constants.REGEX_PROPERTY_PART));
 		}
 			
 //		assertTrue((getXmlNavigation() instanceof XmlElementNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));
@@ -1032,7 +1033,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			part.setValueFromString(v);
 		}
 		
-		if (value.matches(PROPERTY_PART_REGEX)) {
+		if (value.matches(Constants.REGEX_PROPERTY_PART)) {
 			if (getXmlPropertyOptionParam() == null)
 				setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
 			getXmlPropertyOptionParam().setValueFromString(value);
@@ -1051,6 +1052,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		
 		while (length > i) {
 			char c = value.charAt(i);
+//			System.out.println("stage: " + stage + " char: " + c + " rest: " + value.substring(i));
 			switch(stage) {
 			// </> <axis> <::*> <[> <property> <=> <string> <]>
 			
@@ -1063,24 +1065,79 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 				else if (c == '/') {
 					stage = 1;
 					break;
-				} else throw new InvalidityException("value does not start with /: \"" + value + "\" index: " + i);
-			case 1: // <axis> <::*>
-				if (value.charAt(i) == '*') {
-					stage = 2;
-					break;
-				}
+				} else 
+					throw new InvalidityException("value does not start with /: \"" + value + "\" index: " + i);
+				
+			case 1: // '/' or '<axis><::>' or nothing
+				if (c == '/')
+					stage = 9;
+				else if (c == '*')
+					if (i == value.length())
+						return i;
+					else
+						stage = 2;
 				else {
 					String valuepart = value.substring(i);
+					Boolean done = false;
 					for (XmlAxisKind axis: XmlAxisKind.VALUES) {
-						String literal = axis.getLiteral().substring(1);
+						String literal = axis.getLiteral();
+						literal = literal.substring(1, literal.length()-1); // cuts of the slash and the star
 						if (valuepart.startsWith(literal)) {
-							i+= literal.length()-1;
-							stage = 2;
+							i+= literal.length()-1;  // -1 as i add 1 at the end
+							stage = 9;
+							done = true;
 							break;
 						}
 					}
+					if (!done)
+						stage = 10;
+				}
+				break;
+				
+			case 9: // xml element name or wildcard or 
+				if (c == ' ')
+					break;
+				if (c == '*')
+					if (i == value.length())
+						return i;
+					else
+						stage = 2;
+				else if (Character.isLetter(c) || Character.isDigit(c))
+					stage = 10;
+				else 
+					throw new InvalidityException("stage 9, unexpected character: " + c);	
+				break;
+				
+			case 10: // 
+				if (c == ':') {
+					if (i+2 > value.length())
+						throw new InvalidityException();
+					char d = value.charAt(i+1); 
+					if (Character.isLetter(d) || Character.isDigit(d)) {
+						stage = 11;
+						i++;
+					}
+					else throw new InvalidityException();
+				}
+				else if (c == '[') {
+					stage = 3;
+				} else if (Character.isLetter(c)|| Character.isDigit(c)) {
+					if (i+1 == value.length())
+						return i+1;
+				} else
+					throw new InvalidityException("stage 10, unexpected character: " + c);	
+				break;
+			case 11:
+				if (Character.isLetter(c)|| Character.isDigit(c)) {
+					if (i+1 == value.length())
+						return i+1;
+					else break;
+				}
+				else if (c == '[') {
+					stage = 3;
 					break;
 				}
+				else throw new InvalidityException();
 				
 			case 2: // <[>
 				if (c == ' ')
@@ -1089,7 +1146,8 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 					stage = 3;
 					break;
 				}
-				else return i;
+				else 
+					return i;
 				
 			case 3: // <anyproperty>
 				switch (c) {
@@ -1111,6 +1169,14 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 						i += 5;
 						break;
 					}
+				case 't':
+					if (value.length() < i + 6 || !value.substring(i, i + 6).equals("text()"))
+						throw new InvalidityException("no valid property specified: " + value);
+					else {
+						stage = 5;
+						i += 5;
+						break;
+					}
 				case '@':
 					if (length < i+1)
 						throw new InvalidityException("value too short"); 
@@ -1121,9 +1187,10 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 						break;
 					}
 					throw new InvalidityException("value too short");
-					
+				case ']':
+					return i+1;
 				default:
-					throw new InvalidityException("no valid property specified: " + value); 
+					throw new InvalidityException("no valid property specified: " + value + " '" + c + "'"); 
 				}
 				break;
 				

@@ -28,42 +28,44 @@ public class TemplateQueryServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
-		System.out.println("TemplateQueryServlet.doGet(" + path + ")");
+		Map<String, String[]> params = request.getParameterMap();
+		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
 			int i = path.split("/").length;
 			String result = ""; // = applyGet(path, params);
 			if (i == 2)
-				result = applyGet2(path, request.getParameterMap());
+				result = applyGet2(path, params);
 			else if (i == 3)
-				result = applyGet3(path, request.getParameterMap());
+				result = applyGet3(path, params);
 			else 
 				throw new InvalidServletCallException("Wrong url for requesting the mqaf constraint: '.. /template/getdatabase/<technology>/<name>' or '.. /template/getdatabase/<technology>' + {parameter = [..]} (not " + path + ")");
 
+			ServletUtilities.logOutput(result);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-			e.printStackTrace();
 		}
 		catch (FailedServletCallException e) {
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-			e.printStackTrace();
 		}
 		catch (Exception e) {
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-			e.printStackTrace();
 		}
 //		response.getOutputStream().println("{ \"call\": \"TemplateQueryServlet.doGet(" + path + ")\"}");
 	}
 
-	public String applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
@@ -80,7 +82,7 @@ public class TemplateQueryServlet extends HttpServlet {
 //		// 1 load constraint
 //		CompletePattern pattern;
 //		try {
-//			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+//			pattern = ServletUtilities.loadConstraint(technology, constraintId);
 //		} catch (IOException e) {
 //			throw new FailedServletCallException("constraint not found");
 //		}
@@ -107,10 +109,10 @@ public class TemplateQueryServlet extends HttpServlet {
 //		return json.toString();
 	}
 
-	public String applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 2 || !pathparts[0].equals(""))
-			throw new InvalidServletCallException("Wrong api call for requesting the database of a constraint: '.. /template/getdatabase/<technology>' + {\"constraints\" = [..]} (not " + path + ")");
+			throw new InvalidServletCallException("Wrong api call for requesting the database of a constraint: '.. /template/query/<technology>' + {\"constraints\" = [..]} (not " + path + ")");
 
 		String technology = pathparts[1];
 		if (!ServletUtilities.TECHS.contains(technology))
@@ -127,7 +129,7 @@ public class TemplateQueryServlet extends HttpServlet {
 //			// 1 load constraint
 //			CompletePattern pattern;
 //			try {
-//				pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+//				pattern = ServletUtilities.loadConstraint(technology, constraintId);
 //				pattern.isValid(AbstractionLevel.CONCRETE);
 //			// 2 generate query
 //				JSONObject queryJson = generateQueryJson(pattern, technology);
@@ -148,7 +150,7 @@ public class TemplateQueryServlet extends HttpServlet {
 		return applyGet(technology, constraintIds);
 	}
 	
-	public String applyGet(String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyGet(String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
 		
 		JSONObject result = new JSONObject();
 		JSONArray failed = new JSONArray();
@@ -157,20 +159,17 @@ public class TemplateQueryServlet extends HttpServlet {
 			// 1 load constraint
 			CompletePattern pattern;
 			try {
-				pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+				pattern = ServletUtilities.loadConstraint(technology, constraintId);
 				pattern.isValid(AbstractionLevel.CONCRETE);
 			// 2 generate query
-				JSONObject queryJson; 
-				// = generateQueryJson(pattern, technology);
-				if (pattern.containsJavaOperator())
-					queryJson = generateQueryJsonJava(pattern, technology);
-				else 
-					queryJson = generateQueryJson(pattern, technology);
-				result.put(constraintId, queryJson);
+				JSONObject queryJson = generateQueryJson(pattern, technology);
+				result.append("constraints", queryJson);
 			} catch (Exception e) {
-				try {
-					result.put(constraintId, "failed");
-				} catch (JSONException e1) {}
+				System.err.println(constraintId);
+				e.printStackTrace();
+//				try {
+//					result.put(constraintId, Arrays.toString(e.getStackTrace()));
+//				} catch (JSONException e1) {}
 				failed.put(constraintId);
 			}
 		}
@@ -182,8 +181,11 @@ public class TemplateQueryServlet extends HttpServlet {
 	}
 
 
-	private JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
+	static JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
 		JSONObject json = new JSONObject();
+
+		json.put("name", pattern.getName());
+		json.put("id", pattern.getPatternId());
 		
 		// 1 technology
 		json.put("technology", pattern.getLanguage().getLiteral());
@@ -193,18 +195,27 @@ public class TemplateQueryServlet extends HttpServlet {
 		// 2 query
 		try {
 			if (technology.equals(ServletUtilities.XML)) {
+				if (pattern.containsJavaOperator()) {
+					JavaFilter filter = pattern.generateQueryFilter();
+					String serializedFilter = filter.toJson().toString();
+					json.put("filter", serializedFilter);
+				}
 				json.put("language", "XQuery");
 				String xquery = pattern.generateXQuery();
 				json.put("query", xquery);
 				json.put("query_line", makeQueryOneLine(xquery));
 				
 			} else if (technology.equals(ServletUtilities.RDF)) {
+				if (pattern.containsJavaOperator())
+					throw new InvalidServletCallException("Not implemented for RDF.");
 				json.put("language", "Sparql");
 				String sparql = pattern.generateSparql();
 				json.put("query", sparql);
 				json.put("query_line", makeQueryOneLine(sparql));
 				
 			} else if (technology.equals(ServletUtilities.NEO4J)) {
+				if (pattern.containsJavaOperator())
+					throw new InvalidServletCallException("Not implemented for Neo4j.");
 				json.put("language", "Cypher");
 				String cypher = pattern.generateCypher();
 				json.put("query", cypher);
@@ -222,7 +233,7 @@ public class TemplateQueryServlet extends HttpServlet {
 		return json;
 	}
 	
-	private String makeQueryOneLine(String query) {
+	private static String makeQueryOneLine(String query) {
 		String shortQuery = query.replace("\r\n", " ");
 		shortQuery = shortQuery.replace("\n", " ");
 		int len = shortQuery.length() + 1;
@@ -232,42 +243,5 @@ public class TemplateQueryServlet extends HttpServlet {
 		}
 		shortQuery = shortQuery.trim();
 		return shortQuery;
-	}
-
-	private JSONObject generateQueryJsonJava(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
-		JSONObject json = new JSONObject();
-		
-		// 1 technology
-		if (!technology.equals(pattern.getLanguage().getLiteral()))
-			throw new InvalidServletCallException();
-		json.put("technology", technology);
-//		pattern.getLanguage().getLiteral();
-		
-		// 2 query and filter
-		try {
-			if (technology.equals(ServletUtilities.XML)) {
-				json.put("language", "XQuery");
-				String query = pattern.generateXQuery();
-				json.put("query", query);
-				json.put("query_line", makeQueryOneLine(query));
-				JavaFilter filter = pattern.generateQueryFilter();
-				String serializedFilter = filter.toJson().toString();
-				json.put("filter", serializedFilter);
-				
-			} else if (technology.equals(ServletUtilities.RDF)) {
-				throw new InvalidServletCallException("Not implemented for RDF.");
-				
-			} else if (technology.equals(ServletUtilities.NEO4J)) {
-				throw new InvalidServletCallException("Not implemented for Neo4j.");
-
-			} else {
-				throw new InvalidServletCallException();
-			}
-		} catch (InvalidityException e) {
-			throw new FailedServletCallException();
-		}
-		
-		// 4 return json
-		return json;
 	}
 }

@@ -122,6 +122,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	
 	@Override
 	public String getValueAsString() {
+		if (getValue() == null)
+			return null;
 		return getValue().toString();
 	}
 	

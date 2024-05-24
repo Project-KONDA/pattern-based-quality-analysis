@@ -3,7 +3,11 @@ package qualitypatternmodel.newservlets.initialisation;
 import java.io.IOException;
 import java.util.List;
 import org.eclipse.emf.common.util.BasicEList;
+
+import de.gwdg.metadataqa.api.configuration.ConfigurationReader;
+import de.gwdg.metadataqa.api.schema.BaseSchema;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.constrainttranslation.ConstraintTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -29,12 +33,32 @@ public class XmlPatterns {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
 		
 		for (CompletePattern pattern: getAllXmlPattern()) {
-			pattern.isValid(AbstractionLevel.ABSTRACT);
-			XmlPatternUtility.fillParameterXml(pattern);
-			System.out.println();
-			System.out.println(pattern.getName());
-			System.out.println(pattern.generateXQuery());
-//			System.out.println(pattern);
+			try {
+				System.out.println("___" + pattern.getName() + "___");
+				pattern.isValid(AbstractionLevel.ABSTRACT);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			try {
+				XmlPatternUtility.fillParameterXml(pattern);
+				pattern.getText().get(0).instantiate();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			try {
+				pattern.generateXQuery();
+//				System.out.println(pattern.generateXQuery());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			try {
+				BaseSchema schema = ConstraintTranslation.translateToConstraintSchema(pattern);
+				ConfigurationReader.toJson(schema);
+//				System.out.println(ConfigurationReader.toJson(schema));
+//				System.out.println(pattern);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 			
 		
@@ -73,7 +97,7 @@ public class XmlPatterns {
 		patterns.add(getXmlInvalidLink());
 //		patterns.add(getXmlComp());
 //		patterns.add(getXmlFunc());
-//		patterns.add(getXmlUnique());
+		patterns.add(getXmlUnique());
 //		patterns.add(getXmlAppdup3());
 //		patterns.add(getXmlDupVal());
 //		patterns.add(getXmlLocalUnique());
@@ -117,7 +141,8 @@ public class XmlPatterns {
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 				frag2.setName("comparison_operator");
 				frag2.getParameter().add(comp);
-				frag2.setExampleValue(ComparisonOperator.GREATER.getName());
+				frag2.setComparisonOperatorValueMap();
+				frag2.setExampleValue(frag2.getValueMap().get(ComparisonOperator.GREATER.getName()));
 				variant.addFragment(frag2);			
 			}
 			{
@@ -144,19 +169,19 @@ public class XmlPatterns {
 			
 			variant1.addFragment(new TextFragmentImpl("Is there a"));
 			{
-				ParameterFragment v1path1fragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				v1path1fragment.setName("xmlpath_rootToReturn");
-				v1path1fragment.setExampleValue("architect");
-				v1path1fragment.getParameter().add(path1);
-				variant1.addFragment(v1path1fragment);
+				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				frag1.setName("xmlpath_rootToReturn");
+				frag1.setExampleValue("architect");
+				frag1.getParameter().add(path1);
+				variant1.addFragment(frag1);
 			}
 			variant1.addFragment(new TextFragmentImpl("with more than one"));
 			{
-				ParameterFragment v1path2fragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				v1path2fragment.setName("xmlpath_returnToCondition");
-				v1path2fragment.getParameter().add(path2);
-				v1path2fragment.setExampleValue("year of birth");
-				variant1.addFragment(v1path2fragment);
+				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				frag2.setName("xmlpath_returnToCondition");
+				frag2.getParameter().add(path2);
+				frag2.setExampleValue("year of birth");
+				variant1.addFragment(frag2);
 			}
 			variant1.addFragment(new TextFragmentImpl("element?"));
 			
@@ -183,33 +208,34 @@ public class XmlPatterns {
 			
 			variant2.addFragment(new TextFragmentImpl("Is there a"));
 			{
-				ParameterFragment v2path1fragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				v2path1fragment.setName("xmlpath_rootToReturn");
-				v2path1fragment.getParameter().add(path1);
-				v2path1fragment.setExampleValue("building");
-				variant2.addFragment(v2path1fragment);
+				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				frag1.setName("xmlpath_rootToReturn");
+				frag1.getParameter().add(path1);
+				frag1.setExampleValue("building");
+				variant2.addFragment(frag1);
 			}
 			variant2.addFragment(new TextFragmentImpl("that has"));
 			{
-				ParameterFragment v2compfragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				v2compfragment.setName("comparison_operator");
-				v2compfragment.getParameter().add(comp);
-				v2compfragment.setExampleValue(ComparisonOperator.GREATER.getName());
-				variant2.addFragment(v2compfragment);			
+				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				frag2.setName("comparison_operator");
+				frag2.getParameter().add(comp);
+				frag2.setComparisonOperatorValueMap();
+				frag2.setExampleValue(frag2.getValueMap().get(ComparisonOperator.GREATER.getName()));
+				variant2.addFragment(frag2);			
 			}
 			{
-				ParameterFragment v2numbfragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				v2numbfragment.setName("number");
-				v2numbfragment.getParameter().add(numb);
-				v2numbfragment.setExampleValue("1");
-				variant2.addFragment(v2numbfragment);
+				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				frag3.setName("number");
+				frag3.getParameter().add(numb);
+				frag3.setExampleValue("1");
+				variant2.addFragment(frag3);
 			}
 			{
-				ParameterFragment v2path2fragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				v2path2fragment.setName("xmlpath_returnToCondition");
-				v2path2fragment.getParameter().add(path2);
-				v2path2fragment.setExampleValue("current place");
-				variant2.addFragment(v2path2fragment);
+				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				frag4.setName("xmlpath_returnToCondition");
+				frag4.getParameter().add(path2);
+				frag4.setExampleValue("current place");
+				variant2.addFragment(frag4);
 			}
 			variant2.addFragment(new TextFragmentImpl("?"));
 //			System.out.println(variant2.getFragments().size());
@@ -358,19 +384,19 @@ public class XmlPatterns {
 			
 			variant1.addFragment(new TextFragmentImpl("Search for"));
 			{
-				ParameterFragment v1path1fragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				v1path1fragment.setName("xmlpath_rootToReturn");
-				v1path1fragment.setExampleValue("record");
-				v1path1fragment.getParameter().add(path1);
-				variant1.addFragment(v1path1fragment);
+				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				frag1.setName("xmlpath_rootToReturn");
+				frag1.setExampleValue("record");
+				frag1.getParameter().add(path1);
+				variant1.addFragment(frag1);
 			}
 			variant1.addFragment(new TextFragmentImpl("where any value of"));
 			{
-				ParameterFragment v1path2fragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				v1path2fragment.setName("xmlpath_returnToCondition");
-				v1path2fragment.getParameter().add(path2);
-				v1path2fragment.setExampleValue("sourcefield");
-				variant1.addFragment(v1path2fragment);
+				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				frag2.setName("xmlpath_returnToCondition");
+				frag2.getParameter().add(path2);
+				frag2.setExampleValue("sourcefield");
+				variant1.addFragment(frag2);
 			}
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
@@ -393,19 +419,19 @@ public class XmlPatterns {
 			
 			variant1.addFragment(new TextFragmentImpl("Is there a"));
 			{
-				ParameterFragment v1path1fragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				v1path1fragment.setName("xmlpath_rootToReturn");
-				v1path1fragment.setExampleValue("record");
-				v1path1fragment.getParameter().add(path1);
-				variant1.addFragment(v1path1fragment);
+				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				frag1.setName("xmlpath_rootToReturn");
+				frag1.setExampleValue("record");
+				frag1.getParameter().add(path1);
+				variant1.addFragment(frag1);
 			}
 			variant1.addFragment(new TextFragmentImpl("where the link in the"));
 			{
-				ParameterFragment v1path2fragment = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				v1path2fragment.setName("xmlpath_returnToCondition");
-				v1path2fragment.getParameter().add(path2);
-				v1path2fragment.setExampleValue("sourcefield");
-				variant1.addFragment(v1path2fragment);
+				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				frag2.setName("xmlpath_returnToCondition");
+				frag2.getParameter().add(path2);
+				frag2.setExampleValue("sourcefield");
+				variant1.addFragment(frag2);
 			}
 			variant1.addFragment(new TextFragmentImpl("element is"));
 			{
@@ -504,6 +530,8 @@ public class XmlPatterns {
 				frag3.setName("comparison_operator");
 				frag3.getParameter().add(p0);
 				frag3.setExampleValue(ComparisonOperator.GREATER.getName());
+				frag3.setComparisonOperatorValueMap();
+				frag3.setExampleValue(frag3.getValueMap().get(ComparisonOperator.GREATER.getName()));
 				variant.addFragment(frag3);			
 			}
 			{
@@ -519,26 +547,48 @@ public class XmlPatterns {
 		return pattern;
 	}
 	
-//	public static CompletePattern getXmlUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		CompletePattern pattern = GenericPatterns.getGenericUnique();
-//		pattern.createXmlAdaption();
-//		pattern.setPatternId("Unique_xml");
-//		pattern.setAbstractId("Unique_xml");
-//		
-//		List<Parameter> params = pattern.getParameterList().getParameters();
+	public static CompletePattern getXmlUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern pattern = GenericPatterns.getGenericUnique();
+		pattern.createXmlAdaption();
+		pattern.setPatternId("Unique_xml");
+		pattern.setAbstractId("Unique_xml");
+		
+		List<Parameter> params = pattern.getParameterList().getParameters();
 //		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
-//		NumberParam p1 = ((NumberParam) params.get(1));
-//		ComparisonOptionParam p2 = ((ComparisonOptionParam) params.get(2));
-//		TypeOptionParam p3 = ((TypeOptionParam) params.get(3));
-//		XmlPathParam p4 = ((XmlPathParam) params.get(4));
-//		XmlPathParam p5 = ((XmlPathParam) params.get(5));
-//		XmlPathParam p6 = ((XmlPathParam) params.get(6));
-//		XmlPathParam p7 = ((XmlPathParam) params.get(7));
-//		
-//		// TODO
-//		pattern.isValid(AbstractionLevel.ABSTRACT);
-//		return pattern;
-//	}
+//		TypeOptionParam p1 = ((TypeOptionParam) params.get(1));
+		XmlPathParam p2 = ((XmlPathParam) params.get(2));
+		XmlPathParam p3 = ((XmlPathParam) params.get(3));
+		XmlPathParam p4 = ((XmlPathParam) params.get(4));
+		XmlPathParam p5 = ((XmlPathParam) params.get(5));
+		{
+			// Search for <records> where a value of <field> is not unique within the data set.
+			PatternText variant = TextrepresentationFactory.eINSTANCE.createPatternText();
+			variant.setName("default");
+			pattern.getText().add(variant);
+
+			variant.addFragment(new TextFragmentImpl("Search for"));
+			{ // records
+				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				frag1.setName("xmlpath_rootToReturn");
+				frag1.setExampleValue("records");
+				frag1.getParameter().add(p2);
+				frag1.getParameter().add(p5);
+				variant.addFragment(frag1);
+			}
+			variant.addFragment(new TextFragmentImpl("where a value of"));
+			{ // field
+				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+				frag2.setName("xmlpath_returnToCondition");
+				frag2.getParameter().add(p3);
+				frag2.getParameter().add(p4);
+				frag2.setExampleValue("sourcefield");
+				variant.addFragment(frag2);
+			}
+			variant.addFragment(new TextFragmentImpl("is not unique within the data set."));
+		}
+		pattern.isValid(AbstractionLevel.ABSTRACT);
+		return pattern;
+	}
 	
 	public static CompletePattern getXmlCompSet() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getGenericCompSet();

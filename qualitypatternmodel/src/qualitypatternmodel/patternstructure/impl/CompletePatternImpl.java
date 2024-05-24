@@ -432,10 +432,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		}
 		
 //		Boolean db = getDatabaseName() == null || getDatabaseName().equals("");
-		Boolean dm = getDataModelName() == null || getDataModelName().equals("");
-		if(abstractionLevel == AbstractionLevel.CONCRETE && dm) {
-			throw new InvalidityException("pattern has no datamodel specified.");
-		}
+//		Boolean dm = getDataModelName() == null || getDataModelName().equals("");
+//		if(abstractionLevel == AbstractionLevel.CONCRETE && dm) {
+//			throw new InvalidityException("pattern has no datamodel specified.");
+//		}
 //		if(abstractionLevel == AbstractionLevel.CONCRETE && ( db || dm)) {
 //			throw new InvalidityException("pattern has " + (db? "no database ":"") + (db&&dm? "and ":"") + (dm? "no datamodel": "") + "specified.");
 //		}

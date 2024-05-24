@@ -240,6 +240,18 @@
 		<url-pattern>/template/query/*</url-pattern>
 	</servlet-mapping>
 	
+	<!-- request generated query of a certain ready constraint
+		/template/get/<technology>/<constraintId>
+	-->
+	<servlet>
+		<servlet-name>TemplateExecuteServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateExecuteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateExecuteServlet</servlet-name>
+		<url-pattern>/template/execute/*</url-pattern>
+	</servlet-mapping>
+	
 	<!-- 
 	<servlet>
 		<servlet-name>AbstractPatternListServlet</servlet-name>

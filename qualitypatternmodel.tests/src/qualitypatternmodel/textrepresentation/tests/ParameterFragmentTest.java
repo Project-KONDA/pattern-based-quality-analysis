@@ -18,6 +18,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getRole() <em>Get Role</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#setValue(java.lang.String) <em>Set Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getValue() <em>Get Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#setComparisonOperatorValueMap() <em>Set Comparison Operator Value Map</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
  * </ul>
  * </p>
@@ -124,6 +125,19 @@ public class ParameterFragmentTest extends FragmentTest {
 	 * @generated
 	 */
 	public void testGetValue() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#setComparisonOperatorValueMap() <em>Set Comparison Operator Value Map</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#setComparisonOperatorValueMap()
+	 * @generated
+	 */
+	public void testSetComparisonOperatorValueMap() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -122,4 +122,12 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	 */
 	String getValue();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setComparisonOperatorValueMap();
+
 } // ParameterFragment

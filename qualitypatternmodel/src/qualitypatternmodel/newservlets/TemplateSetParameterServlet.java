@@ -29,23 +29,27 @@ public class TemplateSetParameterServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		System.out.println("TemplateSetParameterServlet.doPost(" + path + ")");
+		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try{
 			String result = applyPost(path, params);
+			ServletUtilities.logOutput(result);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (FailedServletCallException e) {
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (Exception e) {
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
@@ -54,7 +58,7 @@ public class TemplateSetParameterServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateSetParameterServlet.doPost(" + path + ")\"}");
 	}
 	
-	public String applyPost (String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyPost (String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException {
 		Map<String, String[]> parameterMap = new HashMap<>(parameter);
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
@@ -69,7 +73,7 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		// 1. load Pattern
 		CompletePattern pattern;
 		try {
-			pattern = ServletUtilities.loadConstraint(getServletContext(), technology, constraintId);
+			pattern = ServletUtilities.loadConstraint(technology, constraintId);
 		} catch (IOException e) {
 			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
 		}
@@ -115,7 +119,7 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		
 		// 3. save constraint
 		try {
-			ServletUtilities.saveConstraint(getServletContext(), technology, constraintId, pattern);
+			ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
 			throw new FailedServletCallException("Failed to save new constraint");
 		}
@@ -124,7 +128,7 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		return output.toString();
 	}
 	
-	private JSONObject changeParameters(CompletePattern pattern, Map<String, String[]> parameterMap) {
+	private static JSONObject changeParameters(CompletePattern pattern, Map<String, String[]> parameterMap) {
 		Set<String> keys = parameterMap.keySet();
 		List<Fragment> fragments = pattern.getText().get(0).getFragmentsOrdered();
 

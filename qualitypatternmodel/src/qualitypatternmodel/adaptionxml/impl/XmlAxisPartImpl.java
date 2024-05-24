@@ -72,7 +72,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  */
 public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 
-	static String PROPERTY_PART_REGEX = "((data\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
+	static String PROPERTY_PART_REGEX = "(((data|text|name)\\(\\))|(@[A-Za-z0-9]+))";
 	
 	/**
 	 * The default value of the '{@link #isPredefined() <em>Predefined</em>}' attribute.
@@ -714,37 +714,64 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		value = value.trim();
-		if (value.startsWith("/*")) 
-			value = value.replace("/*", "/child::*");
+		if (value.startsWith("//")) 
+			value = "/descendant::" + value.substring(2);
 			
 		if(getXmlAxisOptionParam() == null)
 			setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
 		
+		Boolean axisdone = false;
 		for (XmlAxisKind axis: XmlAxisKind.VALUES) {
-			if (value.startsWith(axis.getLiteral())) {
+			String literal = axis.getLiteral();
+			literal = literal.substring(0, literal.length()-1);
+			if (value.startsWith(literal)) {
 				this.getXmlAxisOptionParam().setValue(axis);
-				value = value.replace(axis.getLiteral(), "");
+				value = value.replace(literal, "");
+				axisdone = true;
 				break;
 			}
 		}
+		if (!axisdone) 
+			if (value.startsWith("/")) {
+				value = value.substring(1);
+				this.getXmlAxisOptionParam().setValue(XmlAxisKind.CHILD);
+				axisdone = true;
+			} else
+				throw new InvalidityException("Invalid axis");
 		value = value.trim();
 		
-		if (value != "") {
-			if (! (value.startsWith("[") && value.endsWith("]")))
+		if (value.startsWith("*")) {
+			value = value.substring(1);
+		} else {			
+			if (!value.matches("[a-zA-Z0-9]+(:[a-zA-Z0-9]+)?"))
+				throw new InvalidityException("value does not fit a node name : '" + value + "'");
+			
+			int conditionstart = value.indexOf("[");
+			if (conditionstart != -1)
+				throw new InvalidityException();
+			XmlPropertyOptionParam propertyOption = new XmlPropertyOptionParamImpl();
+			setXmlPropertyOption(propertyOption);
+			propertyOption.setValue(XmlPropertyKind.TAG);
+			setTextLiteralParam(new TextLiteralParamImpl(value));
+			value = "";
+		}
+		
+		if (!value.equals("") && !value.equals("[]")) {
+			if (!(value.startsWith("[") && value.endsWith("]")))
 				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-			value = value.substring(1, value.length() - 1);
+			value = value.substring(1, value.length() - 1).trim();
 			String[] propertySplit = value.split("=", 2);
 			
 			propertySplit[0] = propertySplit[0].trim();
-			propertySplit[1] = propertySplit[1].trim();
 			
 			if (!propertySplit[0].matches(PROPERTY_PART_REGEX))
-				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+				throw new InvalidityException("new property value invalid in " + myToString() + ": '" + value + "', [" + propertySplit[0] + "]");
 			if(getXmlPropertyOption() == null)
 				setXmlPropertyOption(new XmlPropertyOptionParamImpl());
 			else getXmlPropertyOption().setValueFromString(propertySplit[0]);
 			
 			if (propertySplit.length>1) {
+				propertySplit[1] = propertySplit[1].trim();
 				if (!propertySplit[1].startsWith("\"") || !propertySplit[1].endsWith("\""))
 					throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
 				String propertyvalue = propertySplit[1].substring(1, propertySplit[1].length() - 1);

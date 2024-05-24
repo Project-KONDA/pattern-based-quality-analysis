@@ -560,7 +560,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			}
 		}
 		for(ParameterPredefinition p : getParameterPredefinitions()) {
-			p.getParameter().clear();;		
+			p.getParameter().clear();
 		}
 	}
 

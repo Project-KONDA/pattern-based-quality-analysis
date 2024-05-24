@@ -135,6 +135,8 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	
 	@Override
 	public String getValueAsString() {
+		if (getValue() == null)
+			return null;
 		return getValue().getName();
 	}
 	

@@ -5,10 +5,7 @@ package qualitypatternmodel.textrepresentation.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -21,14 +18,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-//import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-//import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
-import qualitypatternmodel.adaptionxml.impl.XmlAxisOptionParamImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
-//import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.newservlets.ServletUtilities;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -261,6 +259,18 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP, newValueMap, newValueMap));
 	}
+	
+	@Override
+	public void setComparisonOperatorValueMap() {
+		ValueMap map = new ValueMapImpl();
+		map.put(ComparisonOperator.EQUAL.getName(), "equal to");
+		map.put(ComparisonOperator.NOTEQUAL.getName(), "not equal to");
+		map.put(ComparisonOperator.LESS.getName(), "less than");
+		map.put(ComparisonOperator.GREATER.getName(), "greater than");
+		map.put(ComparisonOperator.GREATEROREQUAL.getName(), "greater than or equal to");
+		map.put(ComparisonOperator.LESSOREQUAL.getName(), "less than or equal to");
+		setValueMap(map);
+	}
 
 	@Override
 	public String generateJSON() {
@@ -348,12 +358,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			json.put("name", getName());
 			json.put("type", getType());
 			json.put("role", getRole());
-			if (parameter.getValueAsString() != null) {
-				if (getValueMap() != null)
-					json.put("value", getValueMap().get(parameter.getValueAsString()));
-				json.put("value", parameter.getValueAsString());
-			}
-				
+			if (getValue() != null)
+				json.put("value", getValue());
 			json.put("exampleValue", getExampleValue());
 			
 			if (getValueMap() != null) {
@@ -444,9 +450,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	@Override
 	public String getValue() {
 		String value = getParameter().get(0).getValueAsString();
-		Map<String, String> valueMap = new HashMap<String, String>();
-		if (valueMap != null && valueMap.containsKey(value))
-			return valueMap.get(value);
+		if (getValueMap() != null)
+			value = getValueMap().get(value);
+//		Map<String, String> valueMap = new HashMap<String, String>();
+//		if (valueMap != null && valueMap.containsKey(value))
+//			return valueMap.get(value);
 		return value;
 	}	
 
@@ -474,17 +482,19 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return Constants.PARAMETER_TYPE_TEXT_LIST;
 		} else if (type.equals(UntypedParameterValueImpl.class)) {
 			return Constants.PARAMETER_TYPE_UNTYPED;
-		} else if (type.equals(XmlAxisOptionParamImpl.class)) {
-			return Constants.PARAMETER_TYPE_RELATION;
-		} else if (type.equals(XmlPropertyOptionParamImpl.class)) {
-			return Constants.PARAMETER_TYPE_PROPERTY;
 		} else if (type.equals(ComparisonOptionParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_COMPARISON;
 		} else if (type.equals(TypeOptionParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_TYPE;
-		} else {
-			return "";
-		}
+		} else if (type.equals(XmlPathParamImpl.class)) {
+			XmlNavigation nav = ((XmlPathParamImpl) getParameter().get(0)).getXmlNavigation();
+			if (nav instanceof XmlPropertyNavigation)
+				return Constants.PARAMETER_TYPE_PROPERTY;
+			if (nav instanceof XmlElementNavigation)
+				return Constants.PARAMETER_TYPE_RELATION;
+		} 
+		ServletUtilities.log("No Role for class " + type.getSimpleName());
+		return "";
 	}
 	
 	/**
@@ -495,15 +505,20 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	@Override
 	public void setValue(String value) throws InvalidityException {
 		String myValue = value;
-		Map<String, String> valueMap = new HashMap<String, String>();
-		if (valueMap != null && valueMap.containsValue(value)) {
-			for (String key: valueMap.keySet()) {
-				if (valueMap.get(key).equals(value)) {
-					myValue = key;
-					break;
-				}
-			}
-		}
+
+		if (getValueMap() != null)
+			myValue = getValueMap().getKey(value);
+		
+		
+//		Map<String, String> valueMap = new HashMap<String, String>();
+//		if (valueMap != null && valueMap.containsValue(value)) {
+//			for (String key: valueMap.keySet()) {
+//				if (valueMap.get(key).equals(value)) {
+//					myValue = key;
+//					break;
+//				}
+//			}
+//		}
 		for (Parameter p: getParameter())
 			p.setValueFromString(myValue);
 	}
@@ -745,6 +760,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				}
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_VALUE:
 				return getValue();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_COMPARISON_OPERATOR_VALUE_MAP:
+				setComparisonOperatorValueMap();
+				return null;
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL:
 				try {
 					isValid((AbstractionLevel)arguments.get(0));

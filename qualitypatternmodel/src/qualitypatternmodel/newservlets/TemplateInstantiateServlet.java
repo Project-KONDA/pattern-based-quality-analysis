@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.PatternText;
 
@@ -21,18 +22,21 @@ public class TemplateInstantiateServlet extends HttpServlet {
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		System.out.println("TemplateInstantiateServlet.doPost()");
+		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try{
 			String result = applyPut(path, params);
+			ServletUtilities.logOutput(result);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"1 " + e.getMessage() + "\"}");
 		}
 		catch (FailedServletCallException e) {
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 	        response.setContentType("application/json");
 	        if (e.getMessage().startsWith("404")) {
 				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -48,18 +52,18 @@ public class TemplateInstantiateServlet extends HttpServlet {
 	        }
 		}
 		catch (Exception e) {
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"4 " + e.getClass().getSimpleName() + " " + e.getMessage() + "\"}");
-			e.printStackTrace();
 		}
 //		response.getOutputStream().println("{ \"call\": \"TemplateInstantiateServlet.doPost()\"}");
 	}
 	
-	public String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public static String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 4 || !pathparts[0].equals(""))
-			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/copy/<technology>/<constraintId>/<variantId>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong url for instantiate in a constraint: '.. /template/instantiate/<technology>/<constraintId>/<variantId>' (not " + path + ")");
 
 		// 1 get parameters
 		String technology = pathparts[1];
@@ -70,7 +74,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 
 		// 2 load constraint with old name
-		CompletePattern pattern = ServletUtilities.loadTemplate(getServletContext(), technology, templateId);
+		CompletePattern pattern = ServletUtilities.loadTemplate(technology, templateId);
 		if (pattern == null)
 			throw new FailedServletCallException("404 Requested template '" + templateId + "' does not exist");
 
@@ -89,54 +93,34 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		}
 		
 		// 3 remove unused variants
-		ArrayList<String> textNames = new ArrayList<String>();
-		
-		
-		ArrayList<PatternText> texts = new ArrayList<PatternText>();
-		
+		Boolean instantiated = false;
 		for (PatternText t: pattern.getText()) {
-			texts.add(t);
-		}
-		for (PatternText t2: texts) {
-        	String name = t2.getName(); 
-        	textNames.add(name);
-        	if(!name.equals(textid)) {
-        		pattern.getText().remove(t2);
-        	}
-			
+			if (t.getName().equals(textid)) {
+				try {
+					t.instantiate();
+					instantiated=true;
+					break;
+				} catch (InvalidityException e) {
+					throw new FailedServletCallException("Could not initialize Variant " + textid, e);
+				}
+			}
 		}
 		
-//        while (iterator.hasNext()) {
-//        	PatternText text = iterator.next();
-//        	String name = text.getName(); 
-//        	textNames.add(name);
-//        	if(!name.equals(textid)) {
-//        		for (Fragment frag: text.getFragments()) {
-//        			
-//        		}
-//
-//        		text.getFragments().clear();
-//        		pattern.getText().remove(text);
-//        		text.delete();
-//        	}
-//        }
-        
-		if (pattern.getText().size() < 1) {
+		if (!instantiated) {
+			ArrayList<String> textNames = new ArrayList<String>();
+			for (PatternText t: pattern.getText()) {
+				textNames.add(t.getName());
+			}
 			throw new InvalidServletCallException("Variant ID invalid: '" + textid + "' does not exist. Available are: " + textNames);
-		}
-        
-		if (pattern.getText().size() > 1) {
-			throw new InvalidServletCallException("Variant ID '" + textid + "' exists " + pattern.getText().size() + " times. Fix setup. " + textNames);
 		}
 
 		// 4 create new constraint id
-		String constraintId = ServletUtilities.generateNewId(getServletContext(), technology, templateId, pattern.getText().get(0).getName());
+		String constraintId = ServletUtilities.generateNewId(technology, templateId, pattern.getText().get(0).getName());
 		pattern.setPatternId(constraintId);
-		
 		
 		// 5 save constraint
 		try {
-			ServletUtilities.saveConstraint(getServletContext(), technology, constraintId, pattern);
+			ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
 			throw new FailedServletCallException("Failed to create new constraint.");
 		}

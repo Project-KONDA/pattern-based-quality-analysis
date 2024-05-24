@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import jakarta.servlet.ServletContext;
 import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDatabase;
@@ -39,10 +38,13 @@ public class EMFModelLoad {
         PatternstructurePackage.eINSTANCE.eClass();
 
 		EObject object = loadFromFile(fullPath);
-		if(object instanceof CompletePattern) {
+		if (object == null) {
+			throw new IOException("Wrong file : resource in " + fullPath + " is null");
+		}
+		else if(object instanceof CompletePattern) {
 			return (CompletePattern) object;	         
 		} else {
-			throw new IOException("Wrong file format");
+			throw new IOException("Wrong file format: " + object.getClass().getSimpleName() + " in " + fullPath);
 		}
 	}
 	
@@ -222,8 +224,8 @@ public class EMFModelLoad {
         return object;
     }
 
-	public static List<CompletePattern> loadCompletePatternFromFolder(ServletContext context, String relativepath, String extension) throws IOException {
-		String path = context.getRealPath(relativepath);
+	public static List<CompletePattern> loadCompletePatternFromFolder(String path, String extension) throws IOException {
+//		String path = context.getRealPath(relativepath);
 		List<String> files = getFilesInDirectory(path);
 		
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -22,23 +21,27 @@ public class TemplateGetListServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		System.out.println("TemplateGetListServlet.doGet(" + path + ")");
+		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
 			String result = applyGet(path, params);
+			ServletUtilities.logOutput(result);
 			response.getOutputStream().println(result);
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (FailedServletCallException e) {
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (Exception e) {
+			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
@@ -46,7 +49,7 @@ public class TemplateGetListServlet extends HttpServlet {
 //		response.getOutputStream().println("{ \"call\": \"TemplateGetListServlet.doGet(" + path + ")\"}");
 	}
 	
-	public String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length < 3  || pathparts.length > 4  || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getlist/<technology>/<level>' (not " + path + ")");
@@ -60,7 +63,7 @@ public class TemplateGetListServlet extends HttpServlet {
 		if (!ServletUtilities.LEVELS.contains(level))
 			throw new InvalidServletCallException("'" + level + "' is an invalid abstraction level. The levels are: " + ServletUtilities.LEVELS);
 		
-		List<CompletePattern> patterns = getPatterns(getServletContext(), technology, level);
+		List<CompletePattern> patterns = getPatterns(technology, level);
 		
 		if (pathparts.length == 4) {
 			String datamodel = pathparts[3];
@@ -76,21 +79,21 @@ public class TemplateGetListServlet extends HttpServlet {
 		return ServletUtilities.getPatternJSON(patterns).toString();
 	}
 
-	private static List<CompletePattern> getPatterns(ServletContext context, String technology, String level)
+	private static List<CompletePattern> getPatterns(String technology, String level)
 			throws InvalidServletCallException {
 		List<CompletePattern> patterns = null;
 		switch (level) {
 		case ServletUtilities.LVLALL:
-			patterns = ServletUtilities.getAllPattern(context, technology);
+			patterns = ServletUtilities.getAllPattern(technology);
 			break;
 		case ServletUtilities.LVLTEMPLATE:
-			patterns = ServletUtilities.getTemplates(context, technology);
+			patterns = ServletUtilities.getTemplates(technology);
 			break;
 		case ServletUtilities.LVLCONSTRAINT:
-			patterns = ServletUtilities.getConstraints(context, technology);
+			patterns = ServletUtilities.getConstraints(technology);
 			break;
 		case ServletUtilities.LVLREADY:
-			patterns = ServletUtilities.getReadyConstraints(context, technology);
+			patterns = ServletUtilities.getReadyConstraints(technology);
 			break;
 		}
 		return patterns;
