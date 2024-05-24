@@ -156,7 +156,7 @@ As the graph shows, the pattern detects ```demo:building``` elements that contai
 * Arno Kesper - [arno.kesper@uni-marburg.de](mailto:arno.kesper@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
 * Viola Wenz - [viola.wenz@uni-marburg.de](mailto:viola.wenz@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
 * Lukas Tympel - [tympel@students.uni-marburg.de](mailto:tympel@students.uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
-* Lukas Hofmann - [hofman5c@students.uni-marburg.de](mailto:hofman5c@students.uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
+* Lukas Hofmann - [lukas.hofmann@uni-marburg.de](mailto:lukas.hofmann@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
 * Gabriele Taentzer - [taentzer@uni-marburg.de](mailto:taentzer@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
 
 This work emerged from the research project "[KONDA](https://zenodo.org/communities/konda-project)". 
