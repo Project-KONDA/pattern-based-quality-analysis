@@ -7,7 +7,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import de.gwdg.metadataqa.api.configuration.schema.Rule;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.operators.ComparisonOperator;
@@ -476,7 +475,7 @@ public abstract class ConstraintRuleObject {
 			node = n;
 			operator = co;
 			nodename = node.getName().replace(" ", "_");
-			nodepath = ((XmlNavigation) node.getIncoming().get(0)).getXmlPathParam().generateXQuery();
+			nodepath = ConstraintTranslationHelper.getRelationPathTo(node);
 		}
 		
 		String getStringRepresentation() {
@@ -506,7 +505,7 @@ public abstract class ConstraintRuleObject {
 		
 		EList<Pair<String, String>> getAllFields() {
 			EList<Pair<String, String>> fields = new BasicEList<Pair<String, String>>();
-			fields.add(new Pair<String, String>(nodename, ConstraintObject.PATH_PRAEFIX + nodepath));
+			fields.add(new Pair<String, String>(nodename, nodepath));
 			return fields;
 		}
 		

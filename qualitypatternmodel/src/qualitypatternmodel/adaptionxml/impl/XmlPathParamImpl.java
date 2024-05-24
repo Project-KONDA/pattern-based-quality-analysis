@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
-import static org.junit.Assert.assertTrue;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;

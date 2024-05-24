@@ -18,6 +18,10 @@ public class ConstraintSchemaTest {
 	
 	static Boolean printConstraintResultsAdditionally = false;
 
+	static Integer SUCCESS = 1;
+	static Integer NA = -1;
+	static Integer FAILIURE = -2;
+
 	/* my TestPaths 
 	 * I expected path 0 to be the preferred one
 	 *
@@ -32,34 +36,37 @@ public class ConstraintSchemaTest {
 	 * i added the number of correct values / total calculated values. 
 	 * Note, that if everything is returned as wrong, it results in 19 correct results
 	 */
-//	static String fieldpath = "/*/demo:source/text()";  				// path 0 : 19 /60
-//	static String fieldpath = "/*/demo:source"; 						// path 1 : 19 /60
-//	static String fieldpath = "/*/*[name()=\"demo:source\"]/text()"; 	// path 2 : 31 /60
-	static String fieldpath = "/*/*[name()=\"demo:source\"]"; 			// path 3 : 35 /60
+//	static String fieldpath = "/*/demo:source/text()";  				// path 0 : 19 /60 - 19 - 27
+	static String fieldpath = "/*/demo:source"; 						// path 1 : 19 /60 - 19 - 27
+//	static String fieldpath = "/*/*[name()=\"demo:source\"]/text()"; 	// path 2 : 31 /60 - 42 - 50
+//	static String fieldpath = "/*/*[name()=\"demo:source\"]"; 			// path 3 : 35 /60 - 52 - 60
 
 	
 	
 	// i tried to configure the namespace in this ways
 	@SuppressWarnings("serial")
 	static Map<String, String> namespaces = new HashMap<String, String>() {{
-		    put("demo", "https://raw.githubusercontent.com/Project-KONDA/pattern-based-quality-analysis/constraint_translation_experiment/qualitypatternmodel/demo.data/demo_database_schema.xsd");
-//		    put("demo", "demo");
+//		    put("demo", "https://raw.githubusercontent.com/Project-KONDA/pattern-based-quality-analysis/constraint_translation_experiment/qualitypatternmodel/demo.data/demo_database_schema.xsd");
+		    put("demo", "demo");
 //		    put("demo", "demo https://raw.githubusercontent.com/Project-KONDA/pattern-based-quality-analysis/constraint_translation_experiment/qualitypatternmodel/demo.data/demo_database_schema.xsd");
 	}};
 	
 	public static void main(String[] args) throws Exception {
 		String[] records = getRecords();
 		
-		// Create DataElement with Rules
+		// Create DataElement
 		DataElement sourceElement = new DataElement("source", fieldpath);
+		
+		// Create Rules with Success, NA and FailureScore
+		Rule min1OccursRule = new Rule().withMinCount(1).withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
+		Rule max1OccursRule = new Rule().withMaxCount(1).withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
+		Rule patternRule = new Rule().withPattern("https:.*").withSuccessScore(SUCCESS).withNaScore(NA).withFailureScore(FAILIURE);
+		
 		sourceElement.setExtractable();
-		Rule min1OccursRule = new Rule().withMinCount(1);
 		sourceElement.addRule(min1OccursRule);
-		Rule max1OccursRule = new Rule().withMaxCount(1);
 		sourceElement.addRule(max1OccursRule);
-		Rule patternRule = new Rule().withPattern("https:.*");
 		sourceElement.addRule(patternRule);
-
+		
 		// Create BaseSchema
 		BaseSchema schema = new BaseSchema();
 		schema.setFormat(Format.XML);
@@ -107,12 +114,11 @@ public class ConstraintSchemaTest {
 		
 		// for the remaining i input the expected status instead of creating the correct RuleCheckerOutput (de.gwdg.metadataqa.api.rule.RuleCheckerOutput)
 		String minCountKey = "ruleCatalog:source:minCount:1";
-		Integer[] minCount = new Integer[]{1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1};
+		Integer[] minCount = new Integer[]{SUCCESS, SUCCESS, SUCCESS, FAILIURE, FAILIURE, SUCCESS, SUCCESS, SUCCESS, FAILIURE, FAILIURE, SUCCESS, SUCCESS};
 		String maxCountKey = "ruleCatalog:source:maxCount:2";
-		Integer[] maxCount = new Integer[]{0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1};
+		Integer[] maxCount = new Integer[]{FAILIURE, SUCCESS, FAILIURE, NA, NA, FAILIURE, SUCCESS, SUCCESS, NA, NA, FAILIURE, SUCCESS};
 		String patternKey = "ruleCatalog:source:pattern:3";
-		Integer all = 1, some =0, notex = -1, none = 0; // for pattern as i am not sure, what the values shall be if working correctly
-		Integer[] pattern = new Integer[]{all, all, some, notex, notex, none, all, all, notex, notex, some, all};
+		Integer[] pattern = new Integer[]{SUCCESS, SUCCESS, FAILIURE, NA, NA, FAILIURE, SUCCESS, SUCCESS, NA, NA, FAILIURE, SUCCESS};
 		
 		ArrayList<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
 		for (int i = 0; i < 12; i++) {
@@ -151,6 +157,7 @@ public class ConstraintSchemaTest {
 			
 			constraintResult = removeOtherMappings(constraintResult, expectedResult.keySet());
 			
+			// comparing values of expectedResult and constraintResult
 			for (String key: expectedResult.keySet()){
 				if (constraintResult.get(key).toString().equals(expectedResult.get(key).toString()))
 					correct++;
