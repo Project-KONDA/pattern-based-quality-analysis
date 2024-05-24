@@ -58,13 +58,13 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 //		response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 //	}
 		catch (FileNotFoundException e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+			ServletUtilities.logError(e);
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			response.getWriter().write("{ \"error\": \"unable to find specified constraint\"}");
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+			ServletUtilities.logError(e);
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
@@ -207,7 +207,8 @@ public class TemplateMqafConstraintServlet extends HttpServlet {
 		JSONObject jobj = new JSONObject();
 		try {
 			jobj.put("failed", failed);
-			jobj.put("constraint", ConfigurationReader.toJson(mergedSchema));
+			JSONObject constraint = new JSONObject(ConfigurationReader.toJson(mergedSchema));
+			jobj.put("constraint", constraint);
 		} catch (JSONException e) {}
 		return jobj.toString();
 	}

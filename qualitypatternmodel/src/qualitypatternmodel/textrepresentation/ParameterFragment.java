@@ -17,6 +17,9 @@ import qualitypatternmodel.exceptions.InvalidityException;
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getExampleValue <em>Example Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getValueMap <em>Value Map</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getId <em>Id</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getUserValue <em>User Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterFragment()
@@ -67,6 +70,72 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterFragment_Id()
+	 * @model
+	 * @generated
+	 */
+	String getId();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>User Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>User Value</em>' attribute.
+	 * @see #setUserValue(String)
+	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterFragment_UserValue()
+	 * @model
+	 * @generated
+	 */
+	String getUserValue();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getUserValue <em>User Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>User Value</em>' attribute.
+	 * @see #getUserValue()
+	 * @generated
+	 */
+	void setUserValue(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterFragment_Description()
+	 * @model
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Map</b></em>' containment reference.
@@ -129,5 +198,21 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	 * @generated
 	 */
 	void setComparisonOperatorValueMap();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean setAttributeValue(String attName, String attValue);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String getAttributeValue(String attName) throws InvalidityException;
 
 } // ParameterFragment

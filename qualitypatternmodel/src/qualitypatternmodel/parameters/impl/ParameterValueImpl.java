@@ -21,6 +21,7 @@ import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoLabel;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
+import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
@@ -836,7 +837,6 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	}
 	
 	private EList<String> inferSuggestions2(XmlProperty tagNode) {
-		System.out.println("inferSuggestions2 HERE");
 		EList<String> suggestions = new BasicEList<String>();
 		for (Relation r : tagNode.getIncoming()) {
 			XmlPathParam xmlPathParam = null;					
@@ -848,7 +848,9 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 						if(previousRelation instanceof XmlElementNavigation) {
 							XmlElementNavigation previousNav = (XmlElementNavigation) previousRelation;
 							XmlPathParam previousPathParam = previousNav.getXmlPathParam();
-							TextLiteralParam text = previousPathParam.getXmlAxisParts().get(previousPathParam.getXmlAxisParts().size()-1).getTextLiteralParam();
+							XmlAxisPart part = previousPathParam.getXmlAxisParts().get(previousPathParam.getXmlAxisParts().size()-1);
+							TextLiteralParam text = part.getXmlAxisPartConditions().get(0).getTextLiteralParam();
+//							TextLiteralParam text = part.getTextLiteralParam();
 							if(text != null) {
 								EList<String> newSuggestions = text.inferSuggestions();
 								if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
@@ -861,7 +863,9 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 					}
 					
 				} else {
-					TextLiteralParam text = xmlPathParam.getXmlAxisParts().get(xmlPathParam.getXmlAxisParts().size()-1).getTextLiteralParam();
+					XmlAxisPart part = xmlPathParam.getXmlAxisParts().get(xmlPathParam.getXmlAxisParts().size()-1);
+					TextLiteralParam text = part.getXmlAxisPartConditions().get(0).getTextLiteralParam();
+//					TextLiteralParam text = part.getTextLiteralParam();
 					if(text != null) {
 						EList<String> newSuggestions = text.inferSuggestions();
 						if(suggestions.isEmpty() || newSuggestions.isEmpty()) {

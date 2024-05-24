@@ -5,6 +5,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
@@ -135,8 +136,12 @@ public class ConstraintTranslationHelper {
 		XmlNavigation relation = (XmlNavigation) node.getIncoming().get(0);
 		String path = "";
 		XmlPathParam pathparam = relation.getXmlPathParam();
-		if (!pathparam.getXmlPropertyOptionParam().generateXQuery().equals("/text()"))
-			throw new InvalidityException("fieldnode cannot be translated to constraint due to limitations to only support values between xml-tags.");
+		XmlPropertyOptionParam param = pathparam.getXmlPropertyOptionParam();
+		if (param != null) {
+			String generated = pathparam.getXmlPropertyOptionParam().generateXQuery();
+			if (!generated.equals("/text()"))
+				throw new InvalidityException("fieldnode cannot be translated to constraint due to limitations to only support values between xml-tags.");
+		}
 		if (pathparam.getXmlAxisParts() != null) {
 			for (XmlAxisPart xmlAxisPart : pathparam.getXmlAxisParts()) {
 				path += xmlAxisPart.generateXQuery();

@@ -33,17 +33,17 @@ public class XmlPathParamTests {
 //		stringTests();
 	}
 	
-	public static void splitTest() throws InvalidityException {
-		System.out.println("start split test");
-		for (String test: teststings) {
-			System.out.println(test + ":");
-			int index = XmlPathParamImpl.indexWhereSplit(test);
-			System.out.println("     \"" + test.substring(0, index) + "\"    +    \"" + test.substring(index) + "\"" );
-			System.out.println();
-			
-		}
-		System.out.println("finished split test");
-	}
+//	public static void splitTest() throws InvalidityException {
+//		System.out.println("start split test");
+//		for (String test: teststings) {
+//			System.out.println(test + ":");
+//			int index = XmlPathParamImpl.indexWhereSplit(test);
+//			System.out.println("     \"" + test.substring(0, index) + "\"    +    \"" + test.substring(index) + "\"" );
+//			System.out.println();
+//			
+//		}
+//		System.out.println("finished split test");
+//	}
 	
 	public static void generationTest() throws InvalidityException {
 		System.out.println("start generation test");

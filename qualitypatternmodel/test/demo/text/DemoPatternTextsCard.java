@@ -90,7 +90,7 @@ public class DemoPatternTextsCard {
 		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		XmlPropertyNavigation propertyNavigation0 = (XmlPropertyNavigation) element0.getOutgoing().get(0);
 		param0.getParameter().add(propertyNavigation0.getXmlPathParam().getXmlPropertyOptionParam());
-		param0.setName("property_1");
+		param0.setId("property_1");
 		param0.setExampleValue(XmlPropertyKind.TAG.getName());
 		
 //		ParameterFragment param1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
@@ -107,7 +107,7 @@ public class DemoPatternTextsCard {
 		ParameterFragment param2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		UntypedParameterValue value0 = (UntypedParameterValue) comp0.getArgument2();
 		param2.getParameter().add(value0);
-		param2.setName("value_1");
+		param2.setId("value_1");
 		param2.setExampleValue(DEMO_NAMESPACE + "building");
 				
 		
@@ -119,13 +119,13 @@ public class DemoPatternTextsCard {
 		// <comp>
 		ParameterFragment param3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();		
 		param3.getParameter().add(countCondition.getOption());
-		param3.setName("comparison_operator");
+		param3.setId("comparison_operator");
 		param3.setExampleValue(ComparisonOperator.GREATEROREQUAL.getName());
 		
 		// <number>
 		ParameterFragment param4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		param4.getParameter().add(((NumberElement) countCondition.getArgument2()).getNumberParam());
-		param4.setName("number");
+		param4.setId("number");
 		param4.setExampleValue("3");
 		
 		
@@ -135,7 +135,7 @@ public class DemoPatternTextsCard {
 		ParameterFragment param5 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlElementNavigation navigationElement0Element1 = (XmlElementNavigation) countPattern.getGraph().getRelations().get(1);
 		param5.getParameter().add(navigationElement0Element1.getXmlPathParam());
-		param5.setName("relation_type");
+		param5.setId("relation_type");
 		param5.setExampleValue(XmlAxisKind.DESCENDANT.getName());
 		
 		// <property>
@@ -143,7 +143,7 @@ public class DemoPatternTextsCard {
 		XmlElement element1 = (XmlElement) countPattern.getGraph().getNodes().get(2);
 		XmlPropertyNavigation propertyNavigation1 = (XmlPropertyNavigation) element1.getOutgoing().get(0);
 		param6.getParameter().add(propertyNavigation1.getXmlPathParam().getXmlPropertyOptionParam());
-		param6.setName("property_2");
+		param6.setId("property_2");
 		param6.setExampleValue(XmlPropertyKind.DATA.getName());		
 		
 //		ParameterFragment param7 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
@@ -155,7 +155,7 @@ public class DemoPatternTextsCard {
 		Comparison comp1 = (Comparison) countPattern.getGraph().getOperatorList().getOperators().get(0);
 		UntypedParameterValue value1 = (UntypedParameterValue) comp1.getArgument2();
 		param8.getParameter().add(value1);
-		param8.setName("value_2");
+		param8.setId("value_2");
 		param8.setExampleValue("unknown");
 		
 		patternText.addFragment(text0);  // Is there an element with
@@ -331,7 +331,7 @@ public class DemoPatternTextsCard {
 		ParameterFragment param2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		UntypedParameterValue value0 = (UntypedParameterValue) comp0.getArgument2();
 		param2.getParameter().add(value0);
-		param2.setName("tag_name_parent");
+		param2.setId("tag_name_parent");
 		param2.setExampleValue(DEMO_NAMESPACE + "architect");
 				
 		
@@ -377,7 +377,7 @@ public class DemoPatternTextsCard {
 		Comparison comp1 = (Comparison) countPattern.getGraph().getOperatorList().getOperators().get(0);
 		UntypedParameterValue value1 = (UntypedParameterValue) comp1.getArgument2();
 		param8.getParameter().add(value1);
-		param8.setName("tag_name_child");
+		param8.setId("tag_name_child");
 		param8.setExampleValue(DEMO_NAMESPACE + "birthyear");
 				
 		patternText.getParameterPredefinitions().add(paramPredef00); // descendant

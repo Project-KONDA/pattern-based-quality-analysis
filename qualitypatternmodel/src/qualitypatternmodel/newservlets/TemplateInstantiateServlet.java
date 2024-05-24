@@ -30,13 +30,13 @@ public class TemplateInstantiateServlet extends HttpServlet {
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+			ServletUtilities.logError(e);
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"1 " + e.getMessage() + "\"}");
 		}
 		catch (FailedServletCallException e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+			ServletUtilities.logError(e);
 	        response.setContentType("application/json");
 	        if (e.getMessage().startsWith("404")) {
 				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -48,11 +48,11 @@ public class TemplateInstantiateServlet extends HttpServlet {
 	        	
 	        } else {
 				response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-				response.getWriter().write("{ \"error\": \"internal" + e.getMessage() + "\"}");
+				response.getWriter().write("{ \"error\": \"internal " + e.getMessage() + "\"}");
 	        }
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+			ServletUtilities.logError(e);
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"4 " + e.getClass().getSimpleName() + " " + e.getMessage() + "\"}");
@@ -79,17 +79,19 @@ public class TemplateInstantiateServlet extends HttpServlet {
 			throw new FailedServletCallException("404 Requested template '" + templateId + "' does not exist");
 
 		// Optional: set name
-		String[] names = parameterMap.get("name");
-		if (names != null && names[0] != null) {
-			pattern.setName(names[0]);
-		}
-		String[] datamodel = parameterMap.get("datamodel");
-		if (datamodel != null && datamodel[0] != null) {
-			pattern.setDataModelName(datamodel[0]);
-		}
-		String[] database = parameterMap.get("database");
-		if (database != null && database[0] != null) {
-			pattern.setDatabaseName(database[0]);
+		if (parameterMap != null) {
+			String[] names = parameterMap.get("name");
+			if (names != null && names[0] != null) {
+				pattern.setName(names[0]);
+			}
+			String[] datamodel = parameterMap.get("datamodel");
+			if (datamodel != null && datamodel[0] != null) {
+				pattern.setDataModelName(datamodel[0]);
+			}
+			String[] database = parameterMap.get("database");
+			if (database != null && database[0] != null) {
+				pattern.setDatabaseName(database[0]);
+			}
 		}
 		
 		// 3 remove unused variants
@@ -101,6 +103,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 					instantiated=true;
 					break;
 				} catch (InvalidityException e) {
+					ServletUtilities.logError(e);
 					throw new FailedServletCallException("Could not initialize Variant " + textid, e);
 				}
 			}
@@ -111,7 +114,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 			for (PatternText t: pattern.getText()) {
 				textNames.add(t.getName());
 			}
-			throw new InvalidServletCallException("Variant ID invalid: '" + textid + "' does not exist. Available are: " + textNames);
+			throw new InvalidServletCallException("Variant ID invalid: '" + textid + "' does not exist in " + templateId + ". Available are: " + textNames);
 		}
 
 		// 4 create new constraint id

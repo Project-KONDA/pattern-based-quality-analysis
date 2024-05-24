@@ -51,44 +51,44 @@ public class TemplateInitialisationServlet extends HttpServlet {
 				pattern.isValid(AbstractionLevel.GENERIC);
 				EMFModelSave.exportToFile2(pattern, ServletUtilities.PATTERNFOLDER + "/generic-patterns", pattern.getPatternId(), ServletUtilities.EXTENSION);
 			}
-			ServletUtilities.log("generic Patterns created successfully in: " 
+			ServletUtilities.log("generic Patterns created: " 
 					+ ServletUtilities.PATTERNFOLDER + "/generic-patterns");
 			
 			for (CompletePattern pattern: XmlPatterns.getAllXmlPattern()) {
 				pattern.isValid(AbstractionLevel.ABSTRACT);				
 				EMFModelSave.exportToFile2(pattern, ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.XML + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
 			}
-			ServletUtilities.log("XML-specific Patterns created successfully in: " 
+			ServletUtilities.log("XML Patterns created:     " 
 					+ ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.XML + "/" + ServletUtilities.TEMPLATEFOLDER);
 			
 			for (CompletePattern pattern: RdfPatterns.getAllRdfPattern()) {
 				pattern.isValid(AbstractionLevel.ABSTRACT);
 				EMFModelSave.exportToFile2(pattern, ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.RDF + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
 			}
-			ServletUtilities.log("RDF-specific Patterns created successfully in: " 
+			ServletUtilities.log("RDF Patterns created:     " 
 					+ ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.RDF + "/" + ServletUtilities.TEMPLATEFOLDER);
 			
 			for (CompletePattern pattern: Neo4jPatterns.getAllNeoPattern()) {
 				pattern.isValid(AbstractionLevel.ABSTRACT);
 				EMFModelSave.exportToFile2(pattern, ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER, pattern.getPatternId(), ServletUtilities.EXTENSION);
 			}
-			ServletUtilities.log("NEO4J-specific Patterns created successfully in: " 
+			ServletUtilities.log("NEO4J Patterns created:   " 
 					+ ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER);
 		} catch (IOException e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+			ServletUtilities.logError(e);
 			new ServletException("Unable to save files.");
 		} catch (InvalidityException e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
-			throw new ServletException("Invalid pattern: " + e.getMessage());
+			ServletUtilities.logError(e);
+			throw new ServletException("Invalid pattern: " + e.getMessage(), e);
 		} catch (OperatorCycleException e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+			ServletUtilities.logError(e);
 			throw new ServletException("Invalid pattern (operator cycle): " + e.getMessage());
 		} catch (MissingPatternContainerException e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+			ServletUtilities.logError(e);
 			throw new ServletException("Invalid pattern (missing container): " + e.getMessage());
 		} catch (Exception e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
-			throw new ServletException("Unexpected Error: " + e.getMessage());
+			ServletUtilities.logError(e);
+			throw new ServletException("Unexpected Error: " + e.getMessage(), e);
 		}
 	}
 	

@@ -1,6 +1,7 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,19 +38,23 @@ public class TemplateSetParameterServlet extends HttpServlet {
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+			ServletUtilities.logError(e);
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (FailedServletCallException e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.logError(e);
+			if (e.getMessage().startsWith("404")) {
+				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+		        response.setContentType("application/json");
+				response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			}
+			else
+				response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+			ServletUtilities.logError(e);
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
@@ -75,7 +80,7 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		try {
 			pattern = ServletUtilities.loadConstraint(technology, constraintId);
 		} catch (IOException e) {
-			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
+			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist", e);
 		}
 		
 		// 2. change patterns
@@ -129,28 +134,32 @@ public class TemplateSetParameterServlet extends HttpServlet {
 	}
 	
 	private static JSONObject changeParameters(CompletePattern pattern, Map<String, String[]> parameterMap) {
+		//setup
 		Set<String> keys = parameterMap.keySet();
 		List<Fragment> fragments = pattern.getText().get(0).getFragmentsOrdered();
-
+		List<ParameterFragment> paramfragments = new ArrayList<ParameterFragment>();
+		
+		for (Fragment frag: fragments)
+			if (frag instanceof ParameterFragment)
+				paramfragments.add((ParameterFragment)frag);
+		
 		JSONArray success = new JSONArray();
 		JSONArray failed = new JSONArray();
+		
+		// change parameters
 		for (String key: keys)
-			for (Fragment fragment: fragments)
-				if (fragment instanceof ParameterFragment) {
-					ParameterFragment frag = (ParameterFragment) fragment;
-					if (frag.getName().equals(key)) {
-						try {
-							String value = parameterMap.get(key)[0];
-							frag.setValue(value);
+			for (ParameterFragment frag: paramfragments)
+				if (frag.getId().equals(key))
+					try {
+						if (changeParameterFragment(frag, parameterMap.get(key)))
 							success.put(key);
-						}
-						catch (IndexOutOfBoundsException e) {} 
-						catch (InvalidityException e) {
-							e.printStackTrace();
+						else
 							failed.put(key);
-						}
+					} catch (InvalidityException e) {
+						failed.put(key);
 					}
-				}
+		
+		// output
 		JSONObject json = new JSONObject();
 		try {
 			json.put("success", success);
@@ -158,5 +167,87 @@ public class TemplateSetParameterServlet extends HttpServlet {
 		} catch (JSONException e) {
 		}
 		return json;
+	}
+	
+	private static boolean changeParameterFragment(ParameterFragment frag, String[] call_values) throws InvalidityException {
+		boolean result = true;
+		if (call_values.length != 1)
+			throw new InvalidityException("multiple values for a single parameter");
+		
+		String oldValue = null;
+		try {
+			oldValue = frag.getAttributeValue("value");
+		} catch (InvalidityException e) {}
+		
+		
+		String oldUserValue = null;
+		try {
+			oldUserValue = frag.getAttributeValue("userValue");
+		} catch (InvalidityException e) {}
+		String oldAbsolutePath = null;
+		try {
+			oldAbsolutePath = frag.getAttributeValue("absolutePath");
+		} catch (InvalidityException e) {}
+
+		String input = call_values[0];
+		String newValue = null;
+		String newUserValue = null;
+		String newAbsolutePath = null;
+		
+		JSONObject ob = null;
+		try {
+			ob = new JSONObject(input);
+		} catch (JSONException e) {}
+		
+		if (ob != null) {
+			try {
+				newValue = (String) ob.get("value");
+			} catch (JSONException e) {}
+			try {
+				newUserValue = (String) ob.get("userValue");
+			} catch (JSONException e) {}
+			try {
+				newAbsolutePath = (String) ob.get("absolutePath");
+			} catch (JSONException e) {}	
+		}
+		else
+			newValue = input;
+		
+		Boolean valueSet = true;
+//		Boolean userValueSet = true;
+		Boolean absolutePathSet = true;
+		if (newValue != null) {
+			valueSet = frag.setAttributeValue("value", newValue);
+		
+			if (valueSet) {
+//				if (newUserValue != null)
+//					userValueSet = 
+				frag.setAttributeValue("userValue", newUserValue);
+				
+				if (newAbsolutePath != null)
+					absolutePathSet = frag.setAttributeValue("absolutePath", newAbsolutePath);
+			}
+		}
+		
+		if(!valueSet || !absolutePathSet) {
+			frag.setAttributeValue("value", oldValue);
+			frag.setAttributeValue("userValue", oldUserValue);
+			frag.setAttributeValue("absolutePath", oldAbsolutePath);
+		}
+		
+		
+		
+		
+		
+
+		try {
+			frag.setValue(newValue);
+			frag.setUserValue(newUserValue);
+		} catch (InvalidityException e) {
+			frag.setValue(oldValue);
+			frag.setUserValue(oldUserValue);
+			result = false;
+		}
+		return result;
 	}
 }

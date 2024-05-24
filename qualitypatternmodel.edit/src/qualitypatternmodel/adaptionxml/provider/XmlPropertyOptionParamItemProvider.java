@@ -58,7 +58,7 @@ public class XmlPropertyOptionParamItemProvider extends ParameterItemProvider {
 
 			addOptionsPropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
-			addXmlAxisPartPropertyDescriptor(object);
+			addXmlAxisPartConditionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -108,19 +108,19 @@ public class XmlPropertyOptionParamItemProvider extends ParameterItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Xml Axis Part feature.
+	 * This adds a property descriptor for the Xml Axis Part Condition feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addXmlAxisPartPropertyDescriptor(Object object) {
+	protected void addXmlAxisPartConditionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XmlPropertyOptionParam_xmlAxisPart_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlPropertyOptionParam_xmlAxisPart_feature", "_UI_XmlPropertyOptionParam_type"),
-				 AdaptionxmlPackage.Literals.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART,
+				 getString("_UI_XmlPropertyOptionParam_xmlAxisPartCondition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlPropertyOptionParam_xmlAxisPartCondition_feature", "_UI_XmlPropertyOptionParam_type"),
+				 AdaptionxmlPackage.Literals.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION,
 				 true,
 				 false,
 				 true,

@@ -45,19 +45,19 @@ public class TemplateQueryServlet extends HttpServlet {
 			response.setStatus(HttpServletResponse.SC_OK);
 		}
 		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+			ServletUtilities.logError(e);
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
-		catch (FailedServletCallException e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+		catch (FailedServletCallException | IOException e) {
+			ServletUtilities.logError(e);
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e.getMessage(), e.getStackTrace());
+			ServletUtilities.logError(e);
 	        response.setContentType("application/json");
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
@@ -119,7 +119,12 @@ public class TemplateQueryServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 
 		String[] constraintIds = parameterMap.get("constraints");
-		Set<String> constraintIdSet = new LinkedHashSet<>(Arrays.asList(constraintIds));
+		
+		Set<String> constraintIdSet;
+		if (constraintIds == null)
+			constraintIdSet = new LinkedHashSet<>();
+		else
+			constraintIdSet = new LinkedHashSet<>(Arrays.asList(constraintIds));
 		constraintIds = constraintIdSet.toArray(new String[0]);
 
 //		JSONObject result = new JSONObject();
@@ -166,7 +171,7 @@ public class TemplateQueryServlet extends HttpServlet {
 				result.append("constraints", queryJson);
 			} catch (Exception e) {
 				System.err.println(constraintId);
-				e.printStackTrace();
+//				e.printStackTrace();
 //				try {
 //					result.put(constraintId, Arrays.toString(e.getStackTrace()));
 //				} catch (JSONException e1) {}

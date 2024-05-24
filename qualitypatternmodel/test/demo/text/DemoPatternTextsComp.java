@@ -96,19 +96,19 @@ public class DemoPatternTextsComp {
 		
 		ParameterFragment element = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		element.getParameter().add(p4);
-		element.setName("path to element");
+		element.setId("path to element");
 		
 		ParameterFragment property = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		property.getParameter().add(p3);
-		property.setName("path from element to property");
+		property.setId("path from element to property");
 		
 		ParameterFragment comparison = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		comparison.getParameter().add(p1);
-		comparison.setName("comparison operator");
+		comparison.setId("comparison operator");
 		
 		ParameterFragment value = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		value.getParameter().add(p0);
-		value.setName("Value");
+		value.setId("Value");
 
 		
 		patternText.addFragment(new TextFragmentImpl("Is there a element reached by "));

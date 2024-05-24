@@ -146,6 +146,7 @@ public abstract class ServletUtilities {
 				templates.put(getPatternJSON(pattern));
 			}
 			json.put("templates", templates);
+			json.put("size", patterns.size());
 		} catch (JSONException e) {}
 		return json;
 		
@@ -180,16 +181,16 @@ public abstract class ServletUtilities {
 				pattern.isValid(AbstractionLevel.CONCRETE);
 				concrete = true;
 				filter = true;
+				try {
+					mqaf = ConstraintTranslationValidation.checkPatternTranslatable(pattern);
+				}
+				catch (InvalidityException e) {}
+				try {
+					query = !pattern.containsJavaOperator();
+				}
+				catch (InvalidityException e) {}
 			}
 			catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {}
-			try {
-				mqaf = ConstraintTranslationValidation.checkPatternTranslatable(pattern);
-			}
-			catch (InvalidityException e) {}
-			try {
-				query = !pattern.containsJavaOperator();
-			}
-			catch (InvalidityException e) {}
 			
 			json.put("executable", concrete);
 			json.put("mqafexecutable", mqaf);
@@ -281,11 +282,11 @@ public abstract class ServletUtilities {
 		log("OUTPUT: " + text);
 	}
 	
-	public static void logError(String message, StackTraceElement[] stackTrace) {
+	public static void logError(Exception ex) {
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
-        printWriter.println(message);
-        for (StackTraceElement element : stackTrace) {
+        printWriter.println(ex.getMessage());
+        for (StackTraceElement element : ex.getStackTrace()) {
             printWriter.println("    " + element.toString());
         }
         log("ERROR: " + stringWriter.toString());

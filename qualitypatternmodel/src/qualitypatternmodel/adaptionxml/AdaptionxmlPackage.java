@@ -5087,13 +5087,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME = ParametersPackage.PARAMETER_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Xml Axis Part</b></em>' reference.
+	 * The feature id for the '<em><b>Xml Axis Part Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART = ParametersPackage.PARAMETER_FEATURE_COUNT + 4;
+	int XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION = ParametersPackage.PARAMETER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Xml Property Option Param</em>' class.
@@ -5555,13 +5555,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM__XML_NAVIGATION = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Absolute Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM__ABSOLUTE_PATH = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Xml Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
+	int XML_PATH_PARAM_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -6033,22 +6042,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART__DESCRIPTION = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Text Literal Param</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART__TEXT_LITERAL_PARAM = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Xml Axis Option Param</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART__XML_AXIS_OPTION_PARAM = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 5;
+	int XML_AXIS_PART__XML_AXIS_OPTION_PARAM = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Xml Path Param</b></em>' container reference.
@@ -6057,16 +6057,16 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART__XML_PATH_PARAM = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 6;
+	int XML_AXIS_PART__XML_PATH_PARAM = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Xml Property Option</b></em>' reference.
+	 * The feature id for the '<em><b>Xml Axis Part Conditions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART__XML_PROPERTY_OPTION = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
+	int XML_AXIS_PART__XML_AXIS_PART_CONDITIONS = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Xml Axis Part</em>' class.
@@ -6075,7 +6075,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 8;
+	int XML_AXIS_PART_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -6483,13 +6483,40 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 15;
 
 	/**
+	 * The operation id for the '<em>Set Axis Option</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART___SET_AXIS_OPTION__XMLAXISKIND = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 16;
+
+	/**
+	 * The operation id for the '<em>Add Axis Condition</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 17;
+
+	/**
+	 * The operation id for the '<em>Add Axis Condition</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 18;
+
+	/**
 	 * The number of operations of the '<em>Xml Axis Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 16;
+	int XML_AXIS_PART_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' attribute list.
@@ -6546,6 +6573,448 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NODE_OPERATION_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartConditionImpl <em>Xml Axis Part Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.impl.XmlAxisPartConditionImpl
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlAxisPartCondition()
+	 * @generated
+	 */
+	int XML_AXIS_PART_CONDITION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION__ID = ParametersPackage.PARAMETER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION__INTERNAL_ID = ParametersPackage.PARAMETER__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION__PARAMETER_LIST = ParametersPackage.PARAMETER__PARAMETER_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION__PREDEFINED = ParametersPackage.PARAMETER__PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION__PARAMETER_REFERENCES = ParametersPackage.PARAMETER__PARAMETER_REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION__DESCRIPTION = ParametersPackage.PARAMETER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Xml Property Option</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION__XML_PROPERTY_OPTION = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Text Literal Param</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION__TEXT_LITERAL_PARAM = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Xml Axis Part</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION__XML_AXIS_PART = ParametersPackage.PARAMETER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Xml Axis Part Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___IS_VALID__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___MY_TO_STRING = ParametersPackage.PARAMETER___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GENERATE_CYPHER = ParametersPackage.PARAMETER___GENERATE_CYPHER;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GENERATE_XQUERY = ParametersPackage.PARAMETER___GENERATE_XQUERY;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GENERATE_SPARQL = ParametersPackage.PARAMETER___GENERATE_SPARQL;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GET_CONTAINER = ParametersPackage.PARAMETER___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___PREPARE_TRANSLATION = ParametersPackage.PARAMETER___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GET_OPERATOR_LIST = ParametersPackage.PARAMETER___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GET_ALL_OPERATORS = ParametersPackage.PARAMETER___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GET_PARAMETER_LIST = ParametersPackage.PARAMETER___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___PREPARE_PARAMETER_UPDATES = ParametersPackage.PARAMETER___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___UPDATE_PARAMETERS__PARAMETERLIST = ParametersPackage.PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER___RECORD_VALUES__XMLDATADATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___CREATE_RDF_ADAPTION = ParametersPackage.PARAMETER___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GENERATE_XQUERY_JAVA = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP = ParametersPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___VALIDATE_AGAINST_SCHEMA = ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA;
+
+	/**
+	 * The operation id for the '<em>Validate Example Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___INPUT_IS_VALID = ParametersPackage.PARAMETER___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___IS_USED = ParametersPackage.PARAMETER___IS_USED;
+
+	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___SET_VALUE_FROM_STRING__STRING = ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GET_VALUE_AS_STRING = ParametersPackage.PARAMETER___GET_VALUE_AS_STRING;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
+	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GET_OPTIONS_AS_JSON_ARRAY = ParametersPackage.PARAMETER___GET_OPTIONS_AS_JSON_ARRAY;
+
+	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER___GENERATE_DESCRIPTION;
+
+	/**
+	 * The number of operations of the '<em>Xml Axis Part Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.XmlPropertyKind <em>Xml Property Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6553,7 +7022,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlPropertyKind()
 	 * @generated
 	 */
-	int XML_PROPERTY_KIND = 12;
+	int XML_PROPERTY_KIND = 13;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.XmlAxisKind <em>Xml Axis Kind</em>}' enum.
@@ -6563,7 +7032,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlAxisKind()
 	 * @generated
 	 */
-	int XML_AXIS_KIND = 13;
+	int XML_AXIS_KIND = 14;
 
 	/**
 	 * The meta object id for the '<em>Xml Axis Kind Array</em>' data type.
@@ -6572,7 +7041,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlAxisKindArray()
 	 * @generated
 	 */
-	int XML_AXIS_KIND_ARRAY = 14;
+	int XML_AXIS_KIND_ARRAY = 15;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlElement <em>Xml Element</em>}'.
@@ -6836,15 +7305,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlPropertyOptionParam_AttributeName();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPart <em>Xml Axis Part</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPartCondition <em>Xml Axis Part Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Xml Axis Part</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPart()
+	 * @return the meta object for the container reference '<em>Xml Axis Part Condition</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPartCondition()
 	 * @see #getXmlPropertyOptionParam()
 	 * @generated
 	 */
-	EReference getXmlPropertyOptionParam_XmlAxisPart();
+	EReference getXmlPropertyOptionParam_XmlAxisPartCondition();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.XmlPropertyKind) <em>Set Value If Valid</em>}' operation.
@@ -6898,6 +7367,17 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getXmlPathParam_XmlNavigation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionxml.XmlPathParam#getAbsolutePath <em>Absolute Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Absolute Path</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#getAbsolutePath()
+	 * @see #getXmlPathParam()
+	 * @generated
+	 */
+	EAttribute getXmlPathParam_AbsolutePath();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#setXmlAxis(qualitypatternmodel.adaptionxml.XmlAxisKind, java.lang.String) <em>Set Xml Axis</em>}' operation.
@@ -6960,17 +7440,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	EClass getXmlAxisPart();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getTextLiteralParam <em>Text Literal Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Text Literal Param</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getTextLiteralParam()
-	 * @see #getXmlAxisPart()
-	 * @generated
-	 */
-	EReference getXmlAxisPart_TextLiteralParam();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6993,15 +7462,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlAxisPart_XmlPathParam();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPropertyOption <em>Xml Property Option</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisPartConditions <em>Xml Axis Part Conditions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Xml Property Option</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlPropertyOption()
+	 * @return the meta object for the containment reference list '<em>Xml Axis Part Conditions</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#getXmlAxisPartConditions()
 	 * @see #getXmlAxisPart()
 	 * @generated
 	 */
-	EReference getXmlAxisPart_XmlPropertyOption();
+	EReference getXmlAxisPart_XmlAxisPartConditions();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#getNextXmlAxisPairs() <em>Get Next Xml Axis Pairs</em>}' operation.
@@ -7062,6 +7531,36 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getXmlAxisPart__InferElementTagSuggestionsFromOutgoingRelations();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#setAxisOption(qualitypatternmodel.adaptionxml.XmlAxisKind) <em>Set Axis Option</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Axis Option</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#setAxisOption(qualitypatternmodel.adaptionxml.XmlAxisKind)
+	 * @generated
+	 */
+	EOperation getXmlAxisPart__SetAxisOption__XmlAxisKind();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#addAxisCondition(qualitypatternmodel.adaptionxml.XmlPropertyKind, java.lang.String) <em>Add Axis Condition</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Axis Condition</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#addAxisCondition(qualitypatternmodel.adaptionxml.XmlPropertyKind, java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlAxisPart__AddAxisCondition__XmlPropertyKind_String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#addAxisCondition(qualitypatternmodel.adaptionxml.XmlPropertyKind) <em>Add Axis Condition</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Axis Condition</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#addAxisCondition(qualitypatternmodel.adaptionxml.XmlPropertyKind)
+	 * @generated
+	 */
+	EOperation getXmlAxisPart__AddAxisCondition__XmlPropertyKind();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlNavigation <em>Xml Navigation</em>}'.
@@ -7156,6 +7655,49 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getXmlNode__TranslateMultipleIncoming();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition <em>Xml Axis Part Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Xml Axis Part Condition</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPartCondition
+	 * @generated
+	 */
+	EClass getXmlAxisPartCondition();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getXmlPropertyOption <em>Xml Property Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Xml Property Option</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getXmlPropertyOption()
+	 * @see #getXmlAxisPartCondition()
+	 * @generated
+	 */
+	EReference getXmlAxisPartCondition_XmlPropertyOption();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getTextLiteralParam <em>Text Literal Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Text Literal Param</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getTextLiteralParam()
+	 * @see #getXmlAxisPartCondition()
+	 * @generated
+	 */
+	EReference getXmlAxisPartCondition_TextLiteralParam();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getXmlAxisPart <em>Xml Axis Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Xml Axis Part</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPartCondition#getXmlAxisPart()
+	 * @see #getXmlAxisPartCondition()
+	 * @generated
+	 */
+	EReference getXmlAxisPartCondition_XmlAxisPart();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionxml.XmlPropertyKind <em>Xml Property Kind</em>}'.
@@ -7427,12 +7969,12 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME = eINSTANCE.getXmlPropertyOptionParam_AttributeName();
 
 		/**
-		 * The meta object literal for the '<em><b>Xml Axis Part</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Xml Axis Part Condition</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART = eINSTANCE.getXmlPropertyOptionParam_XmlAxisPart();
+		EReference XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION = eINSTANCE.getXmlPropertyOptionParam_XmlAxisPartCondition();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
@@ -7475,6 +8017,14 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference XML_PATH_PARAM__XML_NAVIGATION = eINSTANCE.getXmlPathParam_XmlNavigation();
+
+		/**
+		 * The meta object literal for the '<em><b>Absolute Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_PATH_PARAM__ABSOLUTE_PATH = eINSTANCE.getXmlPathParam_AbsolutePath();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Xml Axis</b></em>' operation.
@@ -7527,14 +8077,6 @@ public interface AdaptionxmlPackage extends EPackage {
 		EClass XML_AXIS_PART = eINSTANCE.getXmlAxisPart();
 
 		/**
-		 * The meta object literal for the '<em><b>Text Literal Param</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference XML_AXIS_PART__TEXT_LITERAL_PARAM = eINSTANCE.getXmlAxisPart_TextLiteralParam();
-
-		/**
 		 * The meta object literal for the '<em><b>Xml Axis Option Param</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7551,12 +8093,12 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference XML_AXIS_PART__XML_PATH_PARAM = eINSTANCE.getXmlAxisPart_XmlPathParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Xml Property Option</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Xml Axis Part Conditions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference XML_AXIS_PART__XML_PROPERTY_OPTION = eINSTANCE.getXmlAxisPart_XmlPropertyOption();
+		EReference XML_AXIS_PART__XML_AXIS_PART_CONDITIONS = eINSTANCE.getXmlAxisPart_XmlAxisPartConditions();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Next Xml Axis Pairs</b></em>' operation.
@@ -7605,6 +8147,30 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS = eINSTANCE.getXmlAxisPart__InferElementTagSuggestionsFromOutgoingRelations();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Axis Option</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_AXIS_PART___SET_AXIS_OPTION__XMLAXISKIND = eINSTANCE.getXmlAxisPart__SetAxisOption__XmlAxisKind();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Axis Condition</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND_STRING = eINSTANCE.getXmlAxisPart__AddAxisCondition__XmlPropertyKind_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Axis Condition</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND = eINSTANCE.getXmlAxisPart__AddAxisCondition__XmlPropertyKind();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl <em>Xml Navigation</em>}' class.
@@ -7681,6 +8247,40 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_NODE___TRANSLATE_MULTIPLE_INCOMING = eINSTANCE.getXmlNode__TranslateMultipleIncoming();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartConditionImpl <em>Xml Axis Part Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionxml.impl.XmlAxisPartConditionImpl
+		 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlAxisPartCondition()
+		 * @generated
+		 */
+		EClass XML_AXIS_PART_CONDITION = eINSTANCE.getXmlAxisPartCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Xml Property Option</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XML_AXIS_PART_CONDITION__XML_PROPERTY_OPTION = eINSTANCE.getXmlAxisPartCondition_XmlPropertyOption();
+
+		/**
+		 * The meta object literal for the '<em><b>Text Literal Param</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XML_AXIS_PART_CONDITION__TEXT_LITERAL_PARAM = eINSTANCE.getXmlAxisPartCondition_TextLiteralParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Xml Axis Part</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XML_AXIS_PART_CONDITION__XML_AXIS_PART = eINSTANCE.getXmlAxisPartCondition_XmlAxisPart();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.XmlPropertyKind <em>Xml Property Kind</em>}' enum.

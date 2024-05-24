@@ -62,10 +62,10 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getValue()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final XmlAxisKind VALUE_EDEFAULT = XmlAxisKind.CHILD;
+	protected static final XmlAxisKind VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute. <!--

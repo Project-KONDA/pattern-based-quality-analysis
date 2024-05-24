@@ -52,19 +52,19 @@ public class DemoTextCompval {
 
 		ParameterFragment path1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path1.getParameter().add(p3);
-		path1.setName("path1");
+		path1.setId("path1");
 		
 		ParameterFragment path2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path2.getParameter().add(p4);
-		path2.setName("path2");
+		path2.setId("path2");
 		
 		ParameterFragment comp = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		comp.getParameter().add(p1);
-		comp.setName("comp");
+		comp.setId("comp");
 		
 		ParameterFragment value = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		value.getParameter().add(p0);
-		value.setName("value");
+		value.setId("value");
 
 //		Is there a element reached by <path1> that has a property reached by <path2> that is <comp> <value>?
 		patternText.addFragment(new TextFragmentImpl("Is there a element reached by "));

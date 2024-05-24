@@ -18,10 +18,12 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.json.JSONArray;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
+import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
@@ -34,13 +36,11 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.impl.ParameterImpl;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsXml;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Path
@@ -49,49 +49,22 @@ import qualitypatternmodel.utility.Constants;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getParameterList
- * <em>Parameter List</em>}</li>
- * <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getDescription
- * <em>Description</em>}</li>
- * <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#isPredefined
- * <em>Predefined</em>}</li>
- * <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getParameterReferences
- * <em>Parameter References</em>}</li>
- * <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getPropertyOptionParam
- * <em>Property Option Param</em>}</li>
- * <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getAxisParts
- * <em>Axis Parts</em>}</li>
- * <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getXmlNavigation
- * <em>Xml Navigation</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getParameterList <em>Parameter List</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#isPredefined <em>Predefined</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getParameterReferences <em>Parameter References</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getXmlPropertyOptionParam <em>Xml Property Option Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getXmlAxisParts <em>Xml Axis Parts</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getXmlNavigation <em>Xml Navigation</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getAbsolutePath <em>Absolute Path</em>}</li>
  * </ul>
  *
- * @generated NOT
+ * @generated
  */
-public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
+public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam {
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected String description = DESCRIPTION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isPredefined() <em>Predefined</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #isPredefined() <em>Predefined</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isPredefined()
 	 * @generated
 	 * @ordered
@@ -99,9 +72,8 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	protected static final boolean PREDEFINED_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isPredefined() <em>Predefined</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #isPredefined() <em>Predefined</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isPredefined()
 	 * @generated
 	 * @ordered
@@ -120,6 +92,24 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	protected EList<ParameterReference> parameterReferences;
 
 	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getPropertyOptionParam() <em>Property Option
 	 * Param</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -131,9 +121,8 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	protected XmlPropertyOptionParam xmlPropertyOptionParam;
 
 	/**
-	 * The cached value of the '{@link #getXmlAxisParts() <em>Axis Parts</em>}'
-	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getXmlAxisParts() <em>Xml Axis Parts</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getXmlAxisParts()
 	 * @generated
 	 * @ordered
@@ -141,14 +130,33 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	protected EList<XmlAxisPart> xmlAxisParts;
 
 	/**
-	 * The cached value of the '{@link #getXmlNavigation() <em>Xml Navigation</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getXmlNavigation() <em>Xml Navigation</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getXmlNavigation()
 	 * @generated
 	 * @ordered
 	 */
 	protected XmlNavigation xmlNavigation;
+
+	/**
+	 * The default value of the '{@link #getAbsolutePath() <em>Absolute Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAbsolutePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ABSOLUTE_PATH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAbsolutePath() <em>Absolute Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAbsolutePath()
+	 * @generated
+	 * @ordered
+	 */
+	protected String absolutePath = ABSOLUTE_PATH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -207,7 +215,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			}
 		if (getXmlNavigation() instanceof XmlElementNavigation) {
 			if (xmlPropertyOptionParam != null) {
-				throw new InvalidityException("propertyOptionParam is existent for XmlNavigation");
+				throw new InvalidityException("propertyOptionParam is existent for XmlNavigation" + xmlPropertyOptionParam.generateXQuery());
 			}
 			if (xmlAxisParts == null)
 				throw new InvalidityException("axisPart is null");
@@ -225,7 +233,6 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -235,56 +242,46 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public ParameterList getParameterList() {
-		if (eContainerFeatureID() != AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST)
-			return null;
-		return (ParameterList) eInternalContainer();
+		if (eContainerFeatureID() != AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST) return null;
+		return (ParameterList)eInternalContainer();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetParameterList(ParameterList newParameterList, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newParameterList, AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST,
-				msgs);
+		msgs = eBasicSetContainer((InternalEObject)newParameterList, AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST, msgs);
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setParameterList(ParameterList newParameterList) {
-		if (newParameterList != eInternalContainer()
-				|| (eContainerFeatureID() != AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST
-						&& newParameterList != null)) {
+		if (newParameterList != eInternalContainer() || (eContainerFeatureID() != AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST && newParameterList != null)) {
 			if (EcoreUtil.isAncestor(this, newParameterList))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newParameterList != null)
-				msgs = ((InternalEObject) newParameterList).eInverseAdd(this,
-						ParametersPackage.PARAMETER_LIST__PARAMETERS, ParameterList.class, msgs);
+				msgs = ((InternalEObject)newParameterList).eInverseAdd(this, ParametersPackage.PARAMETER_LIST__PARAMETERS, ParameterList.class, msgs);
 			msgs = basicSetParameterList(newParameterList, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST,
-					newParameterList, newParameterList));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST, newParameterList, newParameterList));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -294,7 +291,6 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -302,13 +298,11 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION,
-					oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -318,7 +312,6 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -326,21 +319,17 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		boolean oldPredefined = predefined;
 		predefined = newPredefined;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED,
-					oldPredefined, predefined));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED, oldPredefined, predefined));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<ParameterReference> getParameterReferences() {
 		if (parameterReferences == null) {
-			parameterReferences = new EObjectWithInverseResolvingEList.ManyInverse<ParameterReference>(
-					ParameterReference.class, this, AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES,
-					TextrepresentationPackage.PARAMETER_REFERENCE__PARAMETER);
+			parameterReferences = new EObjectWithInverseResolvingEList.ManyInverse<ParameterReference>(ParameterReference.class, this, AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES, TextrepresentationPackage.PARAMETER_REFERENCE__PARAMETER);
 		}
 		return parameterReferences;
 	}
@@ -352,6 +341,8 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 */
 	@Override
 	public XmlPropertyOptionParam getXmlPropertyOptionParam() {
+		if (getXmlNavigation() instanceof XmlElementNavigation && xmlPropertyOptionParam != null)
+			throw new RuntimeException("XmlPropertyOption is not null, but should in " + myToString());
 		if (xmlPropertyOptionParam == null && getXmlNavigation() instanceof XmlPropertyNavigation) {
 			setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
 			xmlPropertyOptionParam.createParameters();
@@ -361,80 +352,61 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetXmlPropertyOptionParam(XmlPropertyOptionParam newPropertyOptionParam,
-			NotificationChain msgs) {
-		XmlPropertyOptionParam oldPropertyOptionParam = xmlPropertyOptionParam;
-		xmlPropertyOptionParam = newPropertyOptionParam;
+	public NotificationChain basicSetXmlPropertyOptionParam(XmlPropertyOptionParam newXmlPropertyOptionParam, NotificationChain msgs) {
+		XmlPropertyOptionParam oldXmlPropertyOptionParam = xmlPropertyOptionParam;
+		xmlPropertyOptionParam = newXmlPropertyOptionParam;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM, oldPropertyOptionParam,
-					newPropertyOptionParam);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM, oldXmlPropertyOptionParam, newXmlPropertyOptionParam);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
-	public void setXmlPropertyOptionParam(XmlPropertyOptionParam newPropertyOptionParam) {
-		if (newPropertyOptionParam != xmlPropertyOptionParam) {
+	public void setXmlPropertyOptionParam(XmlPropertyOptionParam newXmlPropertyOptionParam) {
+		if (newXmlPropertyOptionParam != xmlPropertyOptionParam) {
 			NotificationChain msgs = null;
 			if (xmlPropertyOptionParam != null)
-				msgs = ((InternalEObject) xmlPropertyOptionParam).eInverseRemove(this,
-						AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_PATH_PARAM, XmlPropertyOptionParam.class,
-						msgs);
-			if (newPropertyOptionParam != null)
-				msgs = ((InternalEObject) newPropertyOptionParam).eInverseAdd(this,
-						AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_PATH_PARAM, XmlPropertyOptionParam.class,
-						msgs);
-			msgs = basicSetXmlPropertyOptionParam(newPropertyOptionParam, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM, newPropertyOptionParam,
-					newPropertyOptionParam));
+				msgs = ((InternalEObject)xmlPropertyOptionParam).eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_PATH_PARAM, XmlPropertyOptionParam.class, msgs);
+			if (newXmlPropertyOptionParam != null)
+				msgs = ((InternalEObject)newXmlPropertyOptionParam).eInverseAdd(this, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_PATH_PARAM, XmlPropertyOptionParam.class, msgs);
+			msgs = basicSetXmlPropertyOptionParam(newXmlPropertyOptionParam, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM, newXmlPropertyOptionParam, newXmlPropertyOptionParam));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<XmlAxisPart> getXmlAxisParts() {
 		if (xmlAxisParts == null) {
-			xmlAxisParts = new EObjectContainmentWithInverseEList<XmlAxisPart>(XmlAxisPart.class, this,
-					AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS,
-					AdaptionxmlPackage.XML_AXIS_PART__XML_PATH_PARAM);
+			xmlAxisParts = new EObjectContainmentWithInverseEList<XmlAxisPart>(XmlAxisPart.class, this, AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS, AdaptionxmlPackage.XML_AXIS_PART__XML_PATH_PARAM);
 		}
 		return xmlAxisParts;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public XmlNavigation getXmlNavigation() {
 		if (xmlNavigation != null && xmlNavigation.eIsProxy()) {
-			InternalEObject oldXmlNavigation = (InternalEObject) xmlNavigation;
-			xmlNavigation = (XmlNavigation) eResolveProxy(oldXmlNavigation);
+			InternalEObject oldXmlNavigation = (InternalEObject)xmlNavigation;
+			xmlNavigation = (XmlNavigation)eResolveProxy(oldXmlNavigation);
 			if (xmlNavigation != oldXmlNavigation) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION, oldXmlNavigation, xmlNavigation));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION, oldXmlNavigation, xmlNavigation));
 			}
 		}
 		return xmlNavigation;
@@ -442,7 +414,6 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public XmlNavigation basicGetXmlNavigation() {
@@ -451,26 +422,20 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetXmlNavigation(XmlNavigation newXmlNavigation, NotificationChain msgs) {
 		XmlNavigation oldXmlNavigation = xmlNavigation;
 		xmlNavigation = newXmlNavigation;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION, oldXmlNavigation, newXmlNavigation);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION, oldXmlNavigation, newXmlNavigation);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -478,17 +443,37 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		if (newXmlNavigation != xmlNavigation) {
 			NotificationChain msgs = null;
 			if (xmlNavigation != null)
-				msgs = ((InternalEObject) xmlNavigation).eInverseRemove(this,
-						AdaptionxmlPackage.XML_NAVIGATION__XML_PATH_PARAM, XmlNavigation.class, msgs);
+				msgs = ((InternalEObject)xmlNavigation).eInverseRemove(this, AdaptionxmlPackage.XML_NAVIGATION__XML_PATH_PARAM, XmlNavigation.class, msgs);
 			if (newXmlNavigation != null)
-				msgs = ((InternalEObject) newXmlNavigation).eInverseAdd(this,
-						AdaptionxmlPackage.XML_NAVIGATION__XML_PATH_PARAM, XmlNavigation.class, msgs);
+				msgs = ((InternalEObject)newXmlNavigation).eInverseAdd(this, AdaptionxmlPackage.XML_NAVIGATION__XML_PATH_PARAM, XmlNavigation.class, msgs);
 			msgs = basicSetXmlNavigation(newXmlNavigation, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION,
-					newXmlNavigation, newXmlNavigation));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION, newXmlNavigation, newXmlNavigation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getAbsolutePath() {
+		return absolutePath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAbsolutePath(String newAbsolutePath) {
+		String oldAbsolutePath = absolutePath;
+		absolutePath = newAbsolutePath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__ABSOLUTE_PATH, oldAbsolutePath, absolutePath));
 	}
 
 	/**
@@ -531,17 +516,12 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	@Override
 	public void addXmlAxis(XmlAxisKind axis, String tag) {
 		XmlAxisPart part = new XmlAxisPartImpl();
-		part.getXmlPropertyOption().setValue(XmlPropertyKind.TAG);
+		part.addAxisCondition(XmlPropertyKind.TAG, tag);
 
 		XmlAxisOptionParam axisOption = new XmlAxisOptionParamImpl();
 		part.setXmlAxisOptionParam(axisOption);
 		axisOption.setValue(axis);
 
-		if (tag != null) {
-			TextLiteralParam text = new TextLiteralParamImpl();
-			text.setValue(tag);
-			part.setTextLiteralParam(text);
-		}
 
 		getXmlAxisParts().add(part);
 	}
@@ -554,21 +534,16 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		} else {
 			setXmlAxis(axes);
 			int index = axes.length - 1;
-			if (propertyKind == null)
-				getXmlAxisParts().get(index).getXmlPropertyOption().setValue(XmlPropertyKind.TAG);
-			else
-				getXmlAxisParts().get(index).getXmlPropertyOption().setValue(propertyKind);
-			if (attributeName != null && attributeName != "")
-				getXmlAxisParts().get(index).getXmlPropertyOption().getAttributeName().setValue(attributeName);
-			if (name != null && name != "")
-				getXmlAxisParts().get(index).getTextLiteralParam().setValue(name);
+			XmlAxisPart part = getXmlAxisParts().get(index);
+			XmlAxisPartCondition cond = part.addAxisCondition(propertyKind, name);
+			if(attributeName != null && attributeName != "")
+				cond.getXmlPropertyOption().getAttributeName().setValue(attributeName);;
 		}
 
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -580,7 +555,6 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -617,216 +591,207 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetParameterList((ParameterList) otherEnd, msgs);
-		case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getParameterReferences()).basicAdd(otherEnd,
-					msgs);
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
-			if (xmlPropertyOptionParam != null)
-				msgs = ((InternalEObject) xmlPropertyOptionParam).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM, null,
-						msgs);
-			return basicSetXmlPropertyOptionParam((XmlPropertyOptionParam) otherEnd, msgs);
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getXmlAxisParts()).basicAdd(otherEnd, msgs);
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
-			if (xmlNavigation != null)
-				msgs = ((InternalEObject) xmlNavigation).eInverseRemove(this,
-						AdaptionxmlPackage.XML_NAVIGATION__XML_PATH_PARAM, XmlNavigation.class, msgs);
-			return basicSetXmlNavigation((XmlNavigation) otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParameterList((ParameterList)otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameterReferences()).basicAdd(otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
+				if (xmlPropertyOptionParam != null)
+					msgs = ((InternalEObject)xmlPropertyOptionParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM, null, msgs);
+				return basicSetXmlPropertyOptionParam((XmlPropertyOptionParam)otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getXmlAxisParts()).basicAdd(otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
+				if (xmlNavigation != null)
+					msgs = ((InternalEObject)xmlNavigation).eInverseRemove(this, AdaptionxmlPackage.XML_NAVIGATION__XML_PATH_PARAM, XmlNavigation.class, msgs);
+				return basicSetXmlNavigation((XmlNavigation)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
-			return basicSetParameterList(null, msgs);
-		case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
-			return ((InternalEList<?>) getParameterReferences()).basicRemove(otherEnd, msgs);
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
-			return basicSetXmlPropertyOptionParam(null, msgs);
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS:
-			return ((InternalEList<?>) getXmlAxisParts()).basicRemove(otherEnd, msgs);
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
-			return basicSetXmlNavigation(null, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
+				return basicSetParameterList(null, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
+				return ((InternalEList<?>)getParameterReferences()).basicRemove(otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
+				return basicSetXmlPropertyOptionParam(null, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS:
+				return ((InternalEList<?>)getXmlAxisParts()).basicRemove(otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
+				return basicSetXmlNavigation(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-		case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
-			return eInternalContainer().eInverseRemove(this, ParametersPackage.PARAMETER_LIST__PARAMETERS,
-					ParameterList.class, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
+				return eInternalContainer().eInverseRemove(this, ParametersPackage.PARAMETER_LIST__PARAMETERS, ParameterList.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
-			return getParameterList();
-		case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION:
-			return getDescription();
-		case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED:
-			return isPredefined();
-		case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
-			return getParameterReferences();
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
-			return getXmlPropertyOptionParam();
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS:
-			return getXmlAxisParts();
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
-			if (resolve)
-				return getXmlNavigation();
-			return basicGetXmlNavigation();
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
+				return getParameterList();
+			case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED:
+				return isPredefined();
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
+				return getParameterReferences();
+			case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION:
+				return getDescription();
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
+				return getXmlPropertyOptionParam();
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS:
+				return getXmlAxisParts();
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
+				if (resolve) return getXmlNavigation();
+				return basicGetXmlNavigation();
+			case AdaptionxmlPackage.XML_PATH_PARAM__ABSOLUTE_PATH:
+				return getAbsolutePath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
-			setParameterList((ParameterList) newValue);
-			return;
-		case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
-		case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED:
-			setPredefined((Boolean) newValue);
-			return;
-		case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
-			getParameterReferences().clear();
-			getParameterReferences().addAll((Collection<? extends ParameterReference>) newValue);
-			return;
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
-			setXmlPropertyOptionParam((XmlPropertyOptionParam) newValue);
-			return;
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS:
-			getXmlAxisParts().clear();
-			getXmlAxisParts().addAll((Collection<? extends XmlAxisPart>) newValue);
-			return;
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
-			setXmlNavigation((XmlNavigation) newValue);
-			return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
+				setParameterList((ParameterList)newValue);
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED:
+				setPredefined((Boolean)newValue);
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
+				getParameterReferences().clear();
+				getParameterReferences().addAll((Collection<? extends ParameterReference>)newValue);
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
+				setXmlPropertyOptionParam((XmlPropertyOptionParam)newValue);
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS:
+				getXmlAxisParts().clear();
+				getXmlAxisParts().addAll((Collection<? extends XmlAxisPart>)newValue);
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
+				setXmlNavigation((XmlNavigation)newValue);
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__ABSOLUTE_PATH:
+				setAbsolutePath((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
-			setParameterList((ParameterList) null);
-			return;
-		case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
-		case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED:
-			setPredefined(PREDEFINED_EDEFAULT);
-			return;
-		case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
-			getParameterReferences().clear();
-			return;
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
-			setXmlPropertyOptionParam((XmlPropertyOptionParam) null);
-			return;
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS:
-			getXmlAxisParts().clear();
-			return;
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
-			setXmlNavigation((XmlNavigation) null);
-			return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
+				setParameterList((ParameterList)null);
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED:
+				setPredefined(PREDEFINED_EDEFAULT);
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
+				getParameterReferences().clear();
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
+				setXmlPropertyOptionParam((XmlPropertyOptionParam)null);
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS:
+				getXmlAxisParts().clear();
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
+				setXmlNavigation((XmlNavigation)null);
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__ABSOLUTE_PATH:
+				setAbsolutePath(ABSOLUTE_PATH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
-			return getParameterList() != null;
-		case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-		case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED:
-			return predefined != PREDEFINED_EDEFAULT;
-		case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
-			return parameterReferences != null && !parameterReferences.isEmpty();
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
-			return xmlPropertyOptionParam != null;
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS:
-			return xmlAxisParts != null && !xmlAxisParts.isEmpty();
-		case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
-			return xmlNavigation != null;
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
+				return getParameterList() != null;
+			case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED:
+				return predefined != PREDEFINED_EDEFAULT;
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
+				return parameterReferences != null && !parameterReferences.isEmpty();
+			case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
+				return xmlPropertyOptionParam != null;
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PARTS:
+				return xmlAxisParts != null && !xmlAxisParts.isEmpty();
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
+				return xmlNavigation != null;
+			case AdaptionxmlPackage.XML_PATH_PARAM__ABSOLUTE_PATH:
+				return ABSOLUTE_PATH_EDEFAULT == null ? absolutePath != null : !ABSOLUTE_PATH_EDEFAULT.equals(absolutePath);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Parameter.class) {
 			switch (derivedFeatureID) {
-			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
-				return ParametersPackage.PARAMETER__PARAMETER_LIST;
-			case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION:
-				return ParametersPackage.PARAMETER__DESCRIPTION;
-			case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED:
-				return ParametersPackage.PARAMETER__PREDEFINED;
-			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
-				return ParametersPackage.PARAMETER__PARAMETER_REFERENCES;
-			default:
-				return -1;
+				case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST: return ParametersPackage.PARAMETER__PARAMETER_LIST;
+				case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED: return ParametersPackage.PARAMETER__PREDEFINED;
+				case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES: return ParametersPackage.PARAMETER__PARAMETER_REFERENCES;
+				case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION: return ParametersPackage.PARAMETER__DESCRIPTION;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -834,23 +799,17 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Parameter.class) {
 			switch (baseFeatureID) {
-			case ParametersPackage.PARAMETER__PARAMETER_LIST:
-				return AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST;
-			case ParametersPackage.PARAMETER__DESCRIPTION:
-				return AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION;
-			case ParametersPackage.PARAMETER__PREDEFINED:
-				return AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED;
-			case ParametersPackage.PARAMETER__PARAMETER_REFERENCES:
-				return AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES;
-			default:
-				return -1;
+				case ParametersPackage.PARAMETER__PARAMETER_LIST: return AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST;
+				case ParametersPackage.PARAMETER__PREDEFINED: return AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED;
+				case ParametersPackage.PARAMETER__PARAMETER_REFERENCES: return AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES;
+				case ParametersPackage.PARAMETER__DESCRIPTION: return AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -858,35 +817,23 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == Parameter.class) {
 			switch (baseOperationID) {
-			case ParametersPackage.PARAMETER___INPUT_IS_VALID:
-				return AdaptionxmlPackage.XML_PATH_PARAM___INPUT_IS_VALID;
-			case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION:
-				return AdaptionxmlPackage.XML_PATH_PARAM___GENERATE_DESCRIPTION;
-			case ParametersPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP:
-				return AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
-			case ParametersPackage.PARAMETER___IS_USED:
-				return AdaptionxmlPackage.XML_PATH_PARAM___IS_USED;
-			case ParametersPackage.PARAMETER___GET_VALUE_AS_STRING:
-				return AdaptionxmlPackage.XML_PATH_PARAM___GET_VALUE_AS_STRING;
-			case ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING:
-				return AdaptionxmlPackage.XML_PATH_PARAM___SET_VALUE_FROM_STRING__STRING;
-			case ParametersPackage.PARAMETER___GET_OPTIONS_AS_JSON_ARRAY:
-				return AdaptionxmlPackage.XML_PATH_PARAM___GET_OPTIONS_AS_JSON_ARRAY;
-			case ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA:
-				return AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_AGAINST_SCHEMA;
-			case ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY:
-				return AdaptionxmlPackage.XML_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY;
-			case ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING:
-				return AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
-			default:
-				return -1;
+				case ParametersPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP: return AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
+				case ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA: return AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_AGAINST_SCHEMA;
+				case ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING: return AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
+				case ParametersPackage.PARAMETER___INPUT_IS_VALID: return AdaptionxmlPackage.XML_PATH_PARAM___INPUT_IS_VALID;
+				case ParametersPackage.PARAMETER___IS_USED: return AdaptionxmlPackage.XML_PATH_PARAM___IS_USED;
+				case ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING: return AdaptionxmlPackage.XML_PATH_PARAM___SET_VALUE_FROM_STRING__STRING;
+				case ParametersPackage.PARAMETER___GET_VALUE_AS_STRING: return AdaptionxmlPackage.XML_PATH_PARAM___GET_VALUE_AS_STRING;
+				case ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY: return AdaptionxmlPackage.XML_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY;
+				case ParametersPackage.PARAMETER___GET_OPTIONS_AS_JSON_ARRAY: return AdaptionxmlPackage.XML_PATH_PARAM___GET_OPTIONS_AS_JSON_ARRAY;
+				case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION: return AdaptionxmlPackage.XML_PATH_PARAM___GENERATE_DESCRIPTION;
+				default: return -1;
 			}
 		}
 		return super.eDerivedOperationID(baseOperationID, baseClass);
@@ -894,76 +841,92 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case AdaptionxmlPackage.XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING:
-			setXmlAxis((XmlAxisKind) arguments.get(0), (String) arguments.get(1));
-			return null;
-		case AdaptionxmlPackage.XML_PATH_PARAM___ADD_XML_AXIS__XMLAXISKIND_STRING:
-			addXmlAxis((XmlAxisKind) arguments.get(0), (String) arguments.get(1));
-			return null;
-		case AdaptionxmlPackage.XML_PATH_PARAM___INPUT_IS_VALID:
-			return inputIsValid();
-		case AdaptionxmlPackage.XML_PATH_PARAM___GENERATE_DESCRIPTION:
-			return generateDescription();
-		case AdaptionxmlPackage.XML_PATH_PARAM___IS_USED:
-			return isUsed();
-		case AdaptionxmlPackage.XML_PATH_PARAM___GET_VALUE_AS_STRING:
-			return getValueAsString();
-		case AdaptionxmlPackage.XML_PATH_PARAM___SET_VALUE_FROM_STRING__STRING:
-			try {
-				setValueFromString((String) arguments.get(0));
+			case AdaptionxmlPackage.XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING:
+				setXmlAxis((XmlAxisKind)arguments.get(0), (String)arguments.get(1));
 				return null;
-			} catch (Throwable throwable) {
-				throw new InvocationTargetException(throwable);
-			}
-		case AdaptionxmlPackage.XML_PATH_PARAM___GET_OPTIONS_AS_JSON_ARRAY:
-			return getOptionsAsJsonArray();
-		case AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_AGAINST_SCHEMA:
-			return validateAgainstSchema();
-		case AdaptionxmlPackage.XML_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY:
-			try {
-				checkComparisonConsistency();
+			case AdaptionxmlPackage.XML_PATH_PARAM___ADD_XML_AXIS__XMLAXISKIND_STRING:
+				addXmlAxis((XmlAxisKind)arguments.get(0), (String)arguments.get(1));
 				return null;
-			} catch (Throwable throwable) {
-				throw new InvocationTargetException(throwable);
-			}
-		case AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING:
-			try {
-				validateExampleValue((String) arguments.get(0));
+			case AdaptionxmlPackage.XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND:
+				setXmlAxis((XmlAxisKind[])arguments.get(0));
 				return null;
-			} catch (Throwable throwable) {
-				throw new InvocationTargetException(throwable);
-			}
-		case AdaptionxmlPackage.XML_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
-			removeParametersFromParameterList();
-			return null;
-		case AdaptionxmlPackage.XML_PATH_PARAM___CREATE_PARAMETERS:
-			createParameters();
-			return null;
+			case AdaptionxmlPackage.XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING_1:
+				setXmlAxis((XmlAxisKind[])arguments.get(0), (String)arguments.get(1));
+				return null;
+			case AdaptionxmlPackage.XML_PATH_PARAM___SPECIFY_AXIS__XMLAXISKIND_XMLPROPERTYKIND_STRING_STRING:
+				try {
+					specifyAxis((XmlAxisKind[])arguments.get(0), (XmlPropertyKind)arguments.get(1), (String)arguments.get(2), (String)arguments.get(3));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_AGAINST_SCHEMA:
+				return validateAgainstSchema();
+			case AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING:
+				try {
+					validateExampleValue((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case AdaptionxmlPackage.XML_PATH_PARAM___INPUT_IS_VALID:
+				return inputIsValid();
+			case AdaptionxmlPackage.XML_PATH_PARAM___IS_USED:
+				return isUsed();
+			case AdaptionxmlPackage.XML_PATH_PARAM___SET_VALUE_FROM_STRING__STRING:
+				try {
+					setValueFromString((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case AdaptionxmlPackage.XML_PATH_PARAM___GET_VALUE_AS_STRING:
+				return getValueAsString();
+			case AdaptionxmlPackage.XML_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY:
+				try {
+					checkComparisonConsistency();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case AdaptionxmlPackage.XML_PATH_PARAM___GET_OPTIONS_AS_JSON_ARRAY:
+				return getOptionsAsJsonArray();
+			case AdaptionxmlPackage.XML_PATH_PARAM___GENERATE_DESCRIPTION:
+				return generateDescription();
+			case AdaptionxmlPackage.XML_PATH_PARAM___CREATE_PARAMETERS:
+				createParameters();
+				return null;
+			case AdaptionxmlPackage.XML_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
+				removeParametersFromParameterList();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (description: ");
-		result.append(description);
-		result.append(", predefined: ");
+		result.append(" (predefined: ");
 		result.append(predefined);
+		result.append(", description: ");
+		result.append(description);
+		result.append(", absolutePath: ");
+		result.append(absolutePath);
 		result.append(')');
 		return result.toString();
 	}
@@ -999,28 +962,69 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	}
 	
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void checkComparisonConsistency() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public JSONArray getOptionsAsJsonArray() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		Boolean isValue = getXmlNavigation() instanceof XmlElementNavigation;
+		Boolean isProperty = getXmlNavigation() instanceof XmlPropertyNavigation;
+		
+		if (!(isValue || isProperty))
+			throw new InvalidityException("Invalid Dangling XmlPathParam");
+		
+		if(isValue && !value.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT))
+			throw new InvalidityException("Invalid XPath value '" + value + "'. It should specify an XML element.");
+		if(isProperty && !value.matches(ConstantsXml.REGEX_XMLPATH_VALUE))
+			throw new InvalidityException("Invalid XPath value '" + value + "'. It should specify an XML property.");
+		
+//		value = value.replace("//", "/descendant::");
 		if (value == "") {
 			getXmlAxisParts().clear();
 			xmlPropertyOptionParam = null;
 			return;
 		}	
 		ArrayList<String> parts = new ArrayList<String>();
-		int index = indexWhereSplit(value);
-		while (index != -1) {
-			parts.add(value.substring(0, index));
-			value = value.substring(index);
-			index = indexWhereSplit(value);
+		String[] split = value.split("(?=/)");
+		
+		String current = "";
+		for (int i = 0; i<split.length;i++) {
+			current += split[i].trim();
+			current = current.trim();
+			if (current.matches(ConstantsXml.REGEX_NAVIGATION)) {
+				parts.add(current);
+				current = "";
+			}
 		}
 
-		value = value.trim();
+		current = current.trim();
 		
-		if (!value.equals("") && !value.matches(Constants.REGEX_PROPERTY_PART)) {
-			throw new InvalidityException("value invalid property specification: \"" + value + "\" - match :" +  value.matches(Constants.REGEX_PROPERTY_PART));
+		if (!current.equals("") && !current.matches(ConstantsXml.REGEX_PROPERTY_PART)) {
+			throw new InvalidityException("value invalid property specification: '" + current + "' - match :" +  current.matches(ConstantsXml.REGEX_PROPERTY_PART));
 		}
 			
 //		assertTrue((getXmlNavigation() instanceof XmlElementNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));
@@ -1033,275 +1037,38 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			part.setValueFromString(v);
 		}
 		
-		if (value.matches(Constants.REGEX_PROPERTY_PART)) {
+		if (isValue) {
+			if (!current.trim().equals("")) {
+				throw new InvalidityException("invalid rest value for XmlElementNavigation: '" + current + "' but should be ''");
+			}
+		} else if (isProperty) {
+			if (!current.matches(ConstantsXml.REGEX_PROPERTY_PART))
+				throw new InvalidityException("invalid rest value for XmlElementNavigation: '" + current + "' does not specify a value");
 			if (getXmlPropertyOptionParam() == null)
 				setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
-			getXmlPropertyOptionParam().setValueFromString(value);
-		}
-		else if (!value.equals("")) {
-			throw new InvalidityException("remaining value invalid: " + value);
-		}
+			getXmlPropertyOptionParam().setValueFromString(current);
+		} else 
+			throw new InvalidityException("invalid type " + getXmlNavigation().getClass().getSimpleName());
 	}
-	
-	public static int indexWhereSplit(String value) throws InvalidityException {
-		if (value == null || value.length()<1)
-			return -1;
-		int i = 0;
-		int length = value.length();
-		int stage = 0;
-		
-		while (length > i) {
-			char c = value.charAt(i);
-//			System.out.println("stage: " + stage + " char: " + c + " rest: " + value.substring(i));
-			switch(stage) {
-			// </> <axis> <::*> <[> <property> <=> <string> <]>
-			
-			case 0: // </>
-				if (c == ' ') {
-//					value = value.substring(1);
-//					i -= 1;
-					break;
-				}
-				else if (c == '/') {
-					stage = 1;
-					break;
-				} else 
-					throw new InvalidityException("value does not start with /: \"" + value + "\" index: " + i);
-				
-			case 1: // '/' or '<axis><::>' or nothing
-				if (c == '/')
-					stage = 9;
-				else if (c == '*')
-					if (i == value.length())
-						return i;
-					else
-						stage = 2;
-				else {
-					String valuepart = value.substring(i);
-					Boolean done = false;
-					for (XmlAxisKind axis: XmlAxisKind.VALUES) {
-						String literal = axis.getLiteral();
-						literal = literal.substring(1, literal.length()-1); // cuts of the slash and the star
-						if (valuepart.startsWith(literal)) {
-							i+= literal.length()-1;  // -1 as i add 1 at the end
-							stage = 9;
-							done = true;
-							break;
-						}
-					}
-					if (!done)
-						stage = 10;
-				}
-				break;
-				
-			case 9: // xml element name or wildcard or 
-				if (c == ' ')
-					break;
-				if (c == '*')
-					if (i == value.length())
-						return i;
-					else
-						stage = 2;
-				else if (Character.isLetter(c) || Character.isDigit(c))
-					stage = 10;
-				else 
-					throw new InvalidityException("stage 9, unexpected character: " + c);	
-				break;
-				
-			case 10: // 
-				if (c == ':') {
-					if (i+2 > value.length())
-						throw new InvalidityException();
-					char d = value.charAt(i+1); 
-					if (Character.isLetter(d) || Character.isDigit(d)) {
-						stage = 11;
-						i++;
-					}
-					else throw new InvalidityException();
-				}
-				else if (c == '[') {
-					stage = 3;
-				} else if (Character.isLetter(c)|| Character.isDigit(c)) {
-					if (i+1 == value.length())
-						return i+1;
-				} else
-					throw new InvalidityException("stage 10, unexpected character: " + c);	
-				break;
-			case 11:
-				if (Character.isLetter(c)|| Character.isDigit(c)) {
-					if (i+1 == value.length())
-						return i+1;
-					else break;
-				}
-				else if (c == '[') {
-					stage = 3;
-					break;
-				}
-				else throw new InvalidityException();
-				
-			case 2: // <[>
-				if (c == ' ')
-					break;
-				else if (c == '[') {
-					stage = 3;
-					break;
-				}
-				else 
-					return i;
-				
-			case 3: // <anyproperty>
-				switch (c) {
-				case ' ':
-					break;
-				case 'n':
-					if (value.length() < i + 6 || !value.substring(i, i + 6).equals("name()"))
-						throw new InvalidityException("no valid property specified: " + value);
-					else {
-						stage = 5;
-						i += 5;
-						break;
-					}
-				case 'd':
-					if (value.length() < i + 6 || !value.substring(i, i + 6).equals("data()"))
-						throw new InvalidityException("no valid property specified: " + value);
-					else {
-						stage = 5;
-						i += 5;
-						break;
-					}
-				case 't':
-					if (value.length() < i + 6 || !value.substring(i, i + 6).equals("text()"))
-						throw new InvalidityException("no valid property specified: " + value);
-					else {
-						stage = 5;
-						i += 5;
-						break;
-					}
-				case '@':
-					if (length < i+1)
-						throw new InvalidityException("value too short"); 
-					char c2 = value.charAt(i+1);
-					if ( ('A' <= c2 && c2 <= 'Z') || ('a' <= c2 && c2 <= 'z')) {
-						i += 1;
-						stage = 4;
-						break;
-					}
-					throw new InvalidityException("value too short");
-				case ']':
-					return i+1;
-				default:
-					throw new InvalidityException("no valid property specified: " + value + " '" + c + "'"); 
-				}
-				break;
-				
-			case 4: // <attribute>, <=> or <]>
-				if ( ('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z')) 
-					break;
-			case 5: // <=> or <]>
-				if (c == ' ')
-					break;
-				else if (c == '=') {
-					stage = 6;
-					break;
-				} else if (c == ']') {
-					return i+1;
-				} else throw new InvalidityException("value invalid : \"" + value + "\" index: " + i + "(" + c + ")"); 
-				
-			case 6: // <stringstart>
-				if (c == ' ')
-					break;
-				if (c != '"')
-					throw new InvalidityException("string value not found:" + value + " index: " + i + " char: " + c);
-				stage = 7;
-				break;
-				
-			case 7: // <stringend> <]>
-				if (c == '/' && length > i+1 && value.charAt(i+1) == '"')
-					i +=1;
-				else if (c == '"')
-					stage = 8;
-				break;
-			case 8:
-				if (c == ' ')
-					break;
-				else if (c == ']')
-					return i+1;
-			}
-			
-			i += 1;
-		}
-//		System.out.println("no value found: " + value + " index: " + i + " ");
-//		System.out.println("stage " + stage);
-//		System.out.println("char " + value.charAt(i));
-		if (stage == 2) 
-			return i;
-		else
-			return -1;
-	}
-	
-//	@Override
-//	public void setValueFromString(String value) throws InvalidityException {
-//		if (value == null)
-//			throw new InvalidityException("try to set empty value in " + myToString());
-//		String PROPERTY_PART_REGEX = "((data\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
-//
-//		String[] parts = new String[XmlAxisKind.values().length];
-//		
-//		for (int i = 0; i < XmlAxisKind.values().length; i++) {
-//			String part = XmlAxisKind.values()[i].toString().replace("/", "").replace("::*", "");
-//			parts[i] = "(" + part + ")";
-//		}
-//		String axes = String.join("|", parts);
-//		String PATH_PART_REGEX = "(" + axes + ")::\\*"; // axes
-////			+ "(\\[" + PROPERTY_PART_REGEX + "(=\".*\")?" // optional comparison of the property 
-////			+ "\\])?";
-////		https://regex101.com/r/6gWGzd
-//		System.out.println(PATH_PART_REGEX);
-//
-//		boolean requiresPath = getXmlNavigation() instanceof XmlElementNavigation;
-//		boolean requiresProperty = getXmlNavigation() instanceof XmlPropertyNavigation;
-//		assert (requiresPath != requiresProperty);
-//		
-//		System.out.println("1008  " + requiresPath + " " + requiresProperty);
-//		
-//		// Check
-//		String[] strings = value.split("/");
-//		if (strings.length < 2 || strings[0] != "")
-//			throw new InvalidityException("new value invalid in " + myToString());
-//
-//		System.out.println("1026  " + strings.length + " " + Arrays.toString(strings));
-//
-//		if (requiresProperty) {
-//			if (!strings[strings.length - 1].matches(PROPERTY_PART_REGEX)) {
-//				throw new InvalidityException(
-//						"new property value invalid in " + myToString() + ": " + strings[strings.length - 1]);
-//			}
-//		}
-//
-//		int border = requiresPath ? strings.length - 1 : strings.length - 2;
-//		for (int i = 1; i < border; i++) {
-//			if (!strings[i].matches(PATH_PART_REGEX)) {
-//				throw new InvalidityException("new path part value invalid in " + myToString() + ": " + strings[i]);
-//			};
-//		}
-//
-//		getXmlAxisParts().clear();
-//		for (int i = 1; i < border; i++) {
-//			XmlAxisPart axis = new XmlAxisPartImpl();
-//			getXmlAxisParts().add(axis);
-//			axis.setValueFromString(strings[i]);
-//		}
-//		if (requiresProperty)
-//			getXmlPropertyOptionParam().setValueFromString(strings[strings.length - 1]);
-//	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<Parameter> validateAgainstSchema() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void validateExampleValue(String val) throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

@@ -43,7 +43,6 @@ public class ConstraintTranslationValidation {
 			}
 			completePattern.isValid(AbstractionLevel.CONCRETE);
 		} catch (Exception e) {
-			e.printStackTrace();
 			return false;
 		}
 		return true;

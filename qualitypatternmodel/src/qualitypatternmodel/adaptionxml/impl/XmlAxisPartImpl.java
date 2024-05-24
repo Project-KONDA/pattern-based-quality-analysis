@@ -4,6 +4,7 @@ package qualitypatternmodel.adaptionxml.impl;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
 import org.basex.query.QueryException;
 import org.eclipse.emf.common.notify.Notification;
@@ -14,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
@@ -23,13 +25,13 @@ import org.json.JSONArray;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
+import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
-import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -40,7 +42,6 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -49,6 +50,7 @@ import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.utility.ConstantsXml;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,10 +64,9 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#isPredefined <em>Predefined</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getParameterReferences <em>Parameter References</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getTextLiteralParam <em>Text Literal Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getXmlAxisOptionParam <em>Xml Axis Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getXmlPathParam <em>Xml Path Param</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getXmlPropertyOption <em>Xml Property Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl#getXmlAxisPartConditions <em>Xml Axis Part Conditions</em>}</li>
  * </ul>
  *
  * @generated
@@ -125,16 +126,6 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTextLiteralParam() <em>Text Literal Param</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTextLiteralParam()
-	 * @generated
-	 * @ordered
-	 */
-	protected TextLiteralParam textLiteralParam;
-
-	/**
 	 * The cached value of the '{@link #getXmlAxisOptionParam() <em>Xml Axis Option Param</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -145,14 +136,14 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	protected XmlAxisOptionParam xmlAxisOptionParam;
 
 	/**
-	 * The cached value of the '{@link #getXmlPropertyOption() <em>Xml Property Option</em>}' reference.
+	 * The cached value of the '{@link #getXmlAxisPartConditions() <em>Xml Axis Part Conditions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getXmlPropertyOption()
+	 * @see #getXmlAxisPartConditions()
 	 * @generated
 	 * @ordered
 	 */
-	protected XmlPropertyOptionParam xmlPropertyOption;
+	protected EList<XmlAxisPartCondition> xmlAxisPartConditions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,22 +157,9 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		String query = getXmlAxisOptionParam().generateXQuery();
-		String condition = "name()";
-		String literal = "";
-		if (getTextLiteralParam() != null && getTextLiteralParam().getValue() != null) 
-			literal = getTextLiteralParam().generateXQuery();
-		if (xmlPropertyOption != null)
-			condition = getXmlPropertyOption().generateXQuery().substring(1);
-		
-		if (literal.equals("") || literal.equals("\"\"") || literal.equals("\"*\"")){
-			if (condition.equals("name()")) {
-				return query;
-			}
-			else {
-				return query + "[" + condition + "]";
-			}		
-		}
-		return query + "[" + condition + "=" + literal + "]"; 
+		for (XmlAxisPartCondition cond: getXmlAxisPartConditions())
+			query = query + cond.generateXQuery();
+		return query;
 	}
 	
 	@Override
@@ -201,17 +179,19 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 //		if (textLiteralParam == null) {
 //			throw new InvalidityException("textLiteralParam null");
 //		}
-		if (xmlAxisOptionParam == null) {
+		if (xmlAxisOptionParam == null && abstractionLevel.equals(AbstractionLevel.CONCRETE)) {
 			throw new InvalidityException("axisOptionParam null");
 		}
 	}
 	
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
-		EList<Parameter> res = new BasicEList<Parameter>();		
-		if (textLiteralParam != null) {
-			res.add(textLiteralParam);
-		}
+		EList<Parameter> res = new BasicEList<Parameter>();
+		for (XmlAxisPartCondition con : getXmlAxisPartConditions())
+			res.addAll(con.getAllParameters());
+//		if (textLiteralParam != null) {
+//			res.add(textLiteralParam);
+//		}
 		if (xmlAxisOptionParam != null) {
 			res.add(xmlAxisOptionParam);
 		}
@@ -337,51 +317,6 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 * @generated
 	 */
 	@Override
-	public TextLiteralParam getTextLiteralParam() {
-		return textLiteralParam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTextLiteralParam(TextLiteralParam newTextLiteralParam, NotificationChain msgs) {
-		TextLiteralParam oldTextLiteralParam = textLiteralParam;
-		textLiteralParam = newTextLiteralParam;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM, oldTextLiteralParam, newTextLiteralParam);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setTextLiteralParam(TextLiteralParam newTextLiteralParam) {
-		if (newTextLiteralParam != textLiteralParam) {
-			NotificationChain msgs = null;
-			if (textLiteralParam != null)
-				msgs = ((InternalEObject)textLiteralParam).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART, TextLiteralParam.class, msgs);
-			if (newTextLiteralParam != null)
-				msgs = ((InternalEObject)newTextLiteralParam).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART, TextLiteralParam.class, msgs);
-			msgs = basicSetTextLiteralParam(newTextLiteralParam, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM, newTextLiteralParam, newTextLiteralParam));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public XmlAxisOptionParam getXmlAxisOptionParam() {
 		return xmlAxisOptionParam;
 	}
@@ -435,17 +370,9 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	public NotificationChain basicSetXmlPathParam(XmlPathParam newXmlPathParam, NotificationChain msgs) {		
-		if(getXmlAxisOptionParam() == null) {
-			XmlAxisOptionParam axisOptionparam = new XmlAxisOptionParamImpl();
-			setXmlAxisOptionParam(axisOptionparam);
-		}
-		if(getTextLiteralParam() == null) {
-			TextLiteralParam text = new TextLiteralParamImpl();
-			setTextLiteralParam(text);
-		}
+	public NotificationChain basicSetXmlPathParam(XmlPathParam newXmlPathParam, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newXmlPathParam, AdaptionxmlPackage.XML_AXIS_PART__XML_PATH_PARAM, msgs);
 		return msgs;
 	}
@@ -475,59 +402,14 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public XmlPropertyOptionParam getXmlPropertyOption() {
-		if (xmlPropertyOption == null) {
-			setXmlPropertyOption(new XmlPropertyOptionParamImpl());
-			xmlPropertyOption.setValue(XmlPropertyKind.TAG);
-		}
-		return xmlPropertyOption;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public XmlPropertyOptionParam basicGetXmlPropertyOption() {
-		return xmlPropertyOption;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetXmlPropertyOption(XmlPropertyOptionParam newXmlPropertyOption, NotificationChain msgs) {
-		XmlPropertyOptionParam oldXmlPropertyOption = xmlPropertyOption;
-		xmlPropertyOption = newXmlPropertyOption;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_AXIS_PART__XML_PROPERTY_OPTION, oldXmlPropertyOption, newXmlPropertyOption);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setXmlPropertyOption(XmlPropertyOptionParam newXmlPropertyOption) {
-		if (newXmlPropertyOption != xmlPropertyOption) {
-			NotificationChain msgs = null;
-			if (xmlPropertyOption != null)
-				msgs = ((InternalEObject)xmlPropertyOption).eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART, XmlPropertyOptionParam.class, msgs);
-			if (newXmlPropertyOption != null)
-				msgs = ((InternalEObject)newXmlPropertyOption).eInverseAdd(this, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART, XmlPropertyOptionParam.class, msgs);
-			msgs = basicSetXmlPropertyOption(newXmlPropertyOption, msgs);
-			if (msgs != null) msgs.dispatch();
+	public EList<XmlAxisPartCondition> getXmlAxisPartConditions() {
+		if (xmlAxisPartConditions == null) {
+			xmlAxisPartConditions = new EObjectContainmentWithInverseEList<XmlAxisPartCondition>(XmlAxisPartCondition.class, this, AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_PART_CONDITIONS, AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_AXIS_PART);
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_AXIS_PART__XML_PROPERTY_OPTION, newXmlPropertyOption, newXmlPropertyOption));
+		return xmlAxisPartConditions;
 	}
 
 	/**
@@ -617,45 +499,90 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public EList<String> inferElementTagSuggestionsFromOutgoingRelations() {
 		EList<String> suggestions = new BasicEList<String>();
-		EList<XmlAxisPart> nextAxisPairs = getNextXmlAxisPairs();
-		for(XmlAxisPart next : nextAxisPairs) {		
-			if(next != null && next.getXmlAxisOptionParam() != null && next.getXmlAxisOptionParam().getValue() != null
-					&& next.getTextLiteralParam() != null && next.getTextLiteralParam().getValue() != null) {
-	
-				XmlAxisKind axis = next.getXmlAxisOptionParam().getValue();
-				String nextTag = null;			
-				
-				if(next.getTextLiteralParam().getValue().equals("") || next.getTextLiteralParam().getValue().equals("*")) {
-					boolean nextIsLast = next.getXmlPathParam().getXmlAxisParts().get(next.getXmlPathParam().getXmlAxisParts().size()-1).equals(next);
-					if(nextIsLast && getXmlPathParam().getXmlNavigation() != null && getXmlPathParam().getXmlNavigation().getTarget() instanceof XmlElement) {
-						XmlElement xmlElement = (XmlElement) getXmlPathParam().getXmlNavigation().getTarget();
-						nextTag = xmlElement.getTagFromComparisons();					
-					}
-				} else {
-					nextTag = next.getTextLiteralParam().getValue();
-				}
-				if(nextTag != null) {
-					try {			
-						Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-						if (db instanceof XmlDataDatabase) {
-							XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
-							
-							EList<String> nextSuggestions = xmlDataDatabase.getSuggestionsFromAxisNextTag(axis, nextTag);
-							
-							if(suggestions.isEmpty() || nextSuggestions.isEmpty()) {
-								suggestions.addAll(nextSuggestions);
-							} else {
-								suggestions.retainAll(nextSuggestions);						
-							}
-						}
-					} catch (MissingPatternContainerException | QueryException | IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();				
-					}
-				}
-			}		
-		}
+//		EList<XmlAxisPart> nextAxisPairs = getNextXmlAxisPairs();
+//		for(XmlAxisPart next : nextAxisPairs) {		
+//			if(next != null && next.getXmlAxisOptionParam() != null && next.getXmlAxisOptionParam().getValue() != null
+//					&& next.getTextLiteralParam() != null && next.getTextLiteralParam().getValue() != null) {
+//	
+//				XmlAxisKind axis = next.getXmlAxisOptionParam().getValue();
+//				String nextTag = null;			
+//				
+//				if(next.getTextLiteralParam().getValue().equals("") || next.getTextLiteralParam().getValue().equals("*")) {
+//					boolean nextIsLast = next.getXmlPathParam().getXmlAxisParts().get(next.getXmlPathParam().getXmlAxisParts().size()-1).equals(next);
+//					if(nextIsLast && getXmlPathParam().getXmlNavigation() != null && getXmlPathParam().getXmlNavigation().getTarget() instanceof XmlElement) {
+//						XmlElement xmlElement = (XmlElement) getXmlPathParam().getXmlNavigation().getTarget();
+//						nextTag = xmlElement.getTagFromComparisons();					
+//					}
+//				} else {
+//					nextTag = next.getTextLiteralParam().getValue();
+//				}
+//				if(nextTag != null) {
+//					try {			
+//						Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
+//						if (db instanceof XmlDataDatabase) {
+//							XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
+//							
+//							EList<String> nextSuggestions = xmlDataDatabase.getSuggestionsFromAxisNextTag(axis, nextTag);
+//							
+//							if(suggestions.isEmpty() || nextSuggestions.isEmpty()) {
+//								suggestions.addAll(nextSuggestions);
+//							} else {
+//								suggestions.retainAll(nextSuggestions);						
+//							}
+//						}
+//					} catch (MissingPatternContainerException | QueryException | IOException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();				
+//					}
+//				}
+//			}		
+//		}
 		return suggestions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public XmlAxisOptionParam setAxisOption(XmlAxisKind axis) {
+		if (getXmlAxisOptionParam() == null)
+			setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
+		getXmlAxisOptionParam().setValue(axis);
+		return getXmlAxisOptionParam();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public XmlAxisPartCondition addAxisCondition(XmlPropertyKind propertyKind, String value) {
+		XmlAxisPartCondition cond = new XmlAxisPartConditionImpl();
+		if (cond.getXmlPropertyOption() == null)
+			cond.setXmlPropertyOption(new XmlPropertyOptionParamImpl());
+		cond.getXmlPropertyOption().setValue(propertyKind);
+		if (value == null) 
+			cond.setTextLiteralParam(null);
+		else {
+			if (cond.getTextLiteralParam() == null)
+				cond.setTextLiteralParam(new TextLiteralParamImpl());
+			cond.getTextLiteralParam().setValue(value);
+		}
+		getXmlAxisPartConditions().add(cond);
+		return cond;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public XmlAxisPartCondition addAxisCondition(XmlPropertyKind propertyKind) {
+		return addAxisCondition(propertyKind, null); 
 	}
 
 	/**
@@ -740,45 +667,36 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				throw new InvalidityException("Invalid axis");
 		value = value.trim();
 		
-		if (value.startsWith("*")) {
-			value = value.substring(1);
-		} else {			
-			if (!value.matches("[a-zA-Z0-9]+(:[a-zA-Z0-9]+)?"))
-				throw new InvalidityException("value does not fit a node name : '" + value + "'");
-			
-			int conditionstart = value.indexOf("[");
-			if (conditionstart != -1)
-				throw new InvalidityException();
-			XmlPropertyOptionParam propertyOption = new XmlPropertyOptionParamImpl();
-			setXmlPropertyOption(propertyOption);
-			propertyOption.setValue(XmlPropertyKind.TAG);
-			setTextLiteralParam(new TextLiteralParamImpl(value));
-			value = "";
-		}
+		String[] split = value.split("(?=\\[)");
 		
-		if (!value.equals("") && !value.equals("[]")) {
-			if (!(value.startsWith("[") && value.endsWith("]")))
-				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-			value = value.substring(1, value.length() - 1).trim();
-			String[] propertySplit = value.split("=", 2);
-			
-			propertySplit[0] = propertySplit[0].trim();
-			
-			if (!propertySplit[0].matches(PROPERTY_PART_REGEX))
-				throw new InvalidityException("new property value invalid in " + myToString() + ": '" + value + "', [" + propertySplit[0] + "]");
-			if(getXmlPropertyOption() == null)
-				setXmlPropertyOption(new XmlPropertyOptionParamImpl());
-			else getXmlPropertyOption().setValueFromString(propertySplit[0]);
-			
-			if (propertySplit.length>1) {
-				propertySplit[1] = propertySplit[1].trim();
-				if (!propertySplit[1].startsWith("\"") || !propertySplit[1].endsWith("\""))
-					throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-				String propertyvalue = propertySplit[1].substring(1, propertySplit[1].length() - 1);
-				if(getTextLiteralParam() == null)
-					setTextLiteralParam(new TextLiteralParamImpl(propertyvalue));
-				else getTextLiteralParam().setValue(propertyvalue);
-			}
+		for (int i = 0; i < split.length; i++)
+			split[i] = split[i].trim();
+		
+		// nodename
+		if (split[0].matches(ConstantsXml.REGEX_NODENAME))
+			addAxisCondition(XmlPropertyKind.TAG, split[0]);
+		else if (!split[0].equals("*"))
+			throw new InvalidityException();
+		
+		// conditions
+		ArrayList<String> conditions = new ArrayList<String>();
+		
+		String current = "";
+		for (int i = 1; i < split.length; i++) {
+			current += split[i];
+			if (current.equals("[]"))
+				current = "";
+			else if (current.matches(ConstantsXml.REGEX_CONDITION)) {
+				conditions.add(current);
+				current = "";
+			}			
+		}
+		if (!current.equals(""))
+			throw new InvalidityException();
+		for (String condition: conditions) {
+			XmlAxisPartConditionImpl cond = new XmlAxisPartConditionImpl();
+			cond.setValueFromString(condition);
+			getXmlAxisPartConditions().add(cond);
 		}
 	}
 
@@ -860,42 +778,42 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 			
 		} else {
 			EList<String> suggestions = new BasicEList<String>();
-			EList<XmlAxisPart> previousAxisPairs = getPreviousXmlAxisPairs();
-			for(XmlAxisPart previous : previousAxisPairs) {
-			
-				if(previous != null && previous.getTextLiteralParam() != null && previous.getTextLiteralParam().getValue() != null) {
-					String previousTag = null;
-					if(previous.getTextLiteralParam().getValue().equals("") || previous.getTextLiteralParam().getValue().equals("*")) {
-						boolean previousIsLast = previous.getXmlPathParam().getXmlAxisParts().get(previous.getXmlPathParam().getXmlAxisParts().size()-1).equals(previous);
-						if(previousIsLast && previous.getXmlPathParam().getXmlNavigation() != null && previous.getXmlPathParam().getXmlNavigation().getTarget() instanceof XmlElement) {
-							XmlElement xmlElement = (XmlElement) previous.getXmlPathParam().getXmlNavigation().getTarget();
-							previousTag = xmlElement.getTagFromComparisons();	
-						}					
-					} else {
-						previousTag = previous.getTextLiteralParam().getValue();
-					}
-					
-					if(previousTag != null) {	
-						
-						try {
-							Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-							if (db instanceof XmlDataDatabase) {
-								XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;	
-								EList<String> previousSuggestions = xmlDataDatabase.getSuggestionsFromAxisPreviousTag(axis, previousTag);
-													
-								if(suggestions.isEmpty() || previousSuggestions.isEmpty()) {
-									suggestions.addAll(previousSuggestions);
-								} else {
-									suggestions.retainAll(previousSuggestions);						
-								}
-							}
-						} catch (MissingPatternContainerException | QueryException | IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();						
-						}						
-					}
-				}	
-			}
+//			EList<XmlAxisPart> previousAxisPairs = getPreviousXmlAxisPairs();
+//			for(XmlAxisPart previous : previousAxisPairs) {
+//			
+//				if(previous != null && previous.getTextLiteralParam() != null && previous.getTextLiteralParam().getValue() != null) {
+//					String previousTag = null;
+//					if(previous.getTextLiteralParam().getValue().equals("") || previous.getTextLiteralParam().getValue().equals("*")) {
+//						boolean previousIsLast = previous.getXmlPathParam().getXmlAxisParts().get(previous.getXmlPathParam().getXmlAxisParts().size()-1).equals(previous);
+//						if(previousIsLast && previous.getXmlPathParam().getXmlNavigation() != null && previous.getXmlPathParam().getXmlNavigation().getTarget() instanceof XmlElement) {
+//							XmlElement xmlElement = (XmlElement) previous.getXmlPathParam().getXmlNavigation().getTarget();
+//							previousTag = xmlElement.getTagFromComparisons();	
+//						}					
+//					} else {
+//						previousTag = previous.getTextLiteralParam().getValue();
+//					}
+//					
+//					if(previousTag != null) {	
+//						
+//						try {
+//							Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
+//							if (db instanceof XmlDataDatabase) {
+//								XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;	
+//								EList<String> previousSuggestions = xmlDataDatabase.getSuggestionsFromAxisPreviousTag(axis, previousTag);
+//													
+//								if(suggestions.isEmpty() || previousSuggestions.isEmpty()) {
+//									suggestions.addAll(previousSuggestions);
+//								} else {
+//									suggestions.retainAll(previousSuggestions);						
+//								}
+//							}
+//						} catch (MissingPatternContainerException | QueryException | IOException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();						
+//						}						
+//					}
+//				}	
+//			}
 			return suggestions;
 		}
 
@@ -911,46 +829,46 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	public EList<XmlAxisKind> inferAxisSuggestions() {
 		EList<XmlAxisKind> suggestions = new BasicEList<XmlAxisKind>();
 		
-		if(getTextLiteralParam() == null || getTextLiteralParam().getValue() == null 
-				|| getTextLiteralParam().getValue().equals("") || getTextLiteralParam().getValue().equals("*")) {
-			return suggestions;
-		}
-		
-		String targetTag = getTextLiteralParam().getValue();
-		
-		
-		EList<XmlAxisPart> previousAxisPairs = getPreviousXmlAxisPairs();
-		for (XmlAxisPart previous : previousAxisPairs) {
-			if(previous != null && previous.getTextLiteralParam() != null && previous.getTextLiteralParam().getValue() != null) {
-				String sourceTag = null;
-				if(previous.getTextLiteralParam().getValue().equals("") || previous.getTextLiteralParam().getValue().equals("*")) {
-					boolean previousIsLast = previous.getXmlPathParam().getXmlAxisParts().get(previous.getXmlPathParam().getXmlAxisParts().size()-1).equals(previous);
-					if(previousIsLast && previous.getXmlPathParam().getXmlNavigation() != null && previous.getXmlPathParam().getXmlNavigation().getTarget() instanceof XmlElement) {
-						XmlElement xmlElement = (XmlElement) previous.getXmlPathParam().getXmlNavigation().getTarget();
-						sourceTag = xmlElement.getTagFromComparisons();	
-					}
-				} else {	
-					sourceTag = previous.getTextLiteralParam().getValue();
-				}
-				if(sourceTag != null && targetTag != null) {
-					try {
-						Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-						if(db instanceof XmlDataDatabase) {
-							XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;					
-							EList<XmlAxisKind> newSuggestions = xmlDataDatabase.getSuggestionsFromSourceTargetTag(sourceTag, targetTag);	
-							if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
-								suggestions.addAll(newSuggestions);
-							} else {
-								suggestions.retainAll(newSuggestions);						
-							}
-						}
-					} catch (MissingPatternContainerException | IOException | QueryException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}	
-			}
-		}
+//		if(getTextLiteralParam() == null || getTextLiteralParam().getValue() == null 
+//				|| getTextLiteralParam().getValue().equals("") || getTextLiteralParam().getValue().equals("*")) {
+//			return suggestions;
+//		}
+//		
+//		String targetTag = getTextLiteralParam().getValue();
+//		
+//		
+//		EList<XmlAxisPart> previousAxisPairs = getPreviousXmlAxisPairs();
+//		for (XmlAxisPart previous : previousAxisPairs) {
+//			if(previous != null && previous.getTextLiteralParam() != null && previous.getTextLiteralParam().getValue() != null) {
+//				String sourceTag = null;
+//				if(previous.getTextLiteralParam().getValue().equals("") || previous.getTextLiteralParam().getValue().equals("*")) {
+//					boolean previousIsLast = previous.getXmlPathParam().getXmlAxisParts().get(previous.getXmlPathParam().getXmlAxisParts().size()-1).equals(previous);
+//					if(previousIsLast && previous.getXmlPathParam().getXmlNavigation() != null && previous.getXmlPathParam().getXmlNavigation().getTarget() instanceof XmlElement) {
+//						XmlElement xmlElement = (XmlElement) previous.getXmlPathParam().getXmlNavigation().getTarget();
+//						sourceTag = xmlElement.getTagFromComparisons();	
+//					}
+//				} else {	
+//					sourceTag = previous.getTextLiteralParam().getValue();
+//				}
+//				if(sourceTag != null && targetTag != null) {
+//					try {
+//						Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
+//						if(db instanceof XmlDataDatabase) {
+//							XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;					
+//							EList<XmlAxisKind> newSuggestions = xmlDataDatabase.getSuggestionsFromSourceTargetTag(sourceTag, targetTag);	
+//							if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
+//								suggestions.addAll(newSuggestions);
+//							} else {
+//								suggestions.retainAll(newSuggestions);						
+//							}
+//						}
+//					} catch (MissingPatternContainerException | IOException | QueryException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				}	
+//			}
+//		}
 		
 		return suggestions;
 	}
@@ -995,10 +913,6 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				return basicSetParameterList((ParameterList)otherEnd, msgs);
 			case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_REFERENCES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameterReferences()).basicAdd(otherEnd, msgs);
-			case AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM:
-				if (textLiteralParam != null)
-					msgs = ((InternalEObject)textLiteralParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM, null, msgs);
-				return basicSetTextLiteralParam((TextLiteralParam)otherEnd, msgs);
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_OPTION_PARAM:
 				if (xmlAxisOptionParam != null)
 					msgs = ((InternalEObject)xmlAxisOptionParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_OPTION_PARAM, null, msgs);
@@ -1007,10 +921,8 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetXmlPathParam((XmlPathParam)otherEnd, msgs);
-			case AdaptionxmlPackage.XML_AXIS_PART__XML_PROPERTY_OPTION:
-				if (xmlPropertyOption != null)
-					msgs = ((InternalEObject)xmlPropertyOption).eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART, XmlPropertyOptionParam.class, msgs);
-				return basicSetXmlPropertyOption((XmlPropertyOptionParam)otherEnd, msgs);
+			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_PART_CONDITIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getXmlAxisPartConditions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -1027,14 +939,12 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				return basicSetParameterList(null, msgs);
 			case AdaptionxmlPackage.XML_AXIS_PART__PARAMETER_REFERENCES:
 				return ((InternalEList<?>)getParameterReferences()).basicRemove(otherEnd, msgs);
-			case AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM:
-				return basicSetTextLiteralParam(null, msgs);
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_OPTION_PARAM:
 				return basicSetXmlAxisOptionParam(null, msgs);
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_PATH_PARAM:
 				return basicSetXmlPathParam(null, msgs);
-			case AdaptionxmlPackage.XML_AXIS_PART__XML_PROPERTY_OPTION:
-				return basicSetXmlPropertyOption(null, msgs);
+			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_PART_CONDITIONS:
+				return ((InternalEList<?>)getXmlAxisPartConditions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1071,15 +981,12 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				return getParameterReferences();
 			case AdaptionxmlPackage.XML_AXIS_PART__DESCRIPTION:
 				return getDescription();
-			case AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM:
-				return getTextLiteralParam();
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_OPTION_PARAM:
 				return getXmlAxisOptionParam();
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_PATH_PARAM:
 				return getXmlPathParam();
-			case AdaptionxmlPackage.XML_AXIS_PART__XML_PROPERTY_OPTION:
-				if (resolve) return getXmlPropertyOption();
-				return basicGetXmlPropertyOption();
+			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_PART_CONDITIONS:
+				return getXmlAxisPartConditions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1106,17 +1013,15 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 			case AdaptionxmlPackage.XML_AXIS_PART__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM:
-				setTextLiteralParam((TextLiteralParam)newValue);
-				return;
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_OPTION_PARAM:
 				setXmlAxisOptionParam((XmlAxisOptionParam)newValue);
 				return;
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_PATH_PARAM:
 				setXmlPathParam((XmlPathParam)newValue);
 				return;
-			case AdaptionxmlPackage.XML_AXIS_PART__XML_PROPERTY_OPTION:
-				setXmlPropertyOption((XmlPropertyOptionParam)newValue);
+			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_PART_CONDITIONS:
+				getXmlAxisPartConditions().clear();
+				getXmlAxisPartConditions().addAll((Collection<? extends XmlAxisPartCondition>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1142,17 +1047,14 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 			case AdaptionxmlPackage.XML_AXIS_PART__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM:
-				setTextLiteralParam((TextLiteralParam)null);
-				return;
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_OPTION_PARAM:
 				setXmlAxisOptionParam((XmlAxisOptionParam)null);
 				return;
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_PATH_PARAM:
 				setXmlPathParam((XmlPathParam)null);
 				return;
-			case AdaptionxmlPackage.XML_AXIS_PART__XML_PROPERTY_OPTION:
-				setXmlPropertyOption((XmlPropertyOptionParam)null);
+			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_PART_CONDITIONS:
+				getXmlAxisPartConditions().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -1174,14 +1076,12 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				return parameterReferences != null && !parameterReferences.isEmpty();
 			case AdaptionxmlPackage.XML_AXIS_PART__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case AdaptionxmlPackage.XML_AXIS_PART__TEXT_LITERAL_PARAM:
-				return textLiteralParam != null;
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_OPTION_PARAM:
 				return xmlAxisOptionParam != null;
 			case AdaptionxmlPackage.XML_AXIS_PART__XML_PATH_PARAM:
 				return getXmlPathParam() != null;
-			case AdaptionxmlPackage.XML_AXIS_PART__XML_PROPERTY_OPTION:
-				return xmlPropertyOption != null;
+			case AdaptionxmlPackage.XML_AXIS_PART__XML_AXIS_PART_CONDITIONS:
+				return xmlAxisPartConditions != null && !xmlAxisPartConditions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1269,6 +1169,12 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				return inferElementTagSuggestionsFromIncomingRelations();
 			case AdaptionxmlPackage.XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS:
 				return inferElementTagSuggestionsFromOutgoingRelations();
+			case AdaptionxmlPackage.XML_AXIS_PART___SET_AXIS_OPTION__XMLAXISKIND:
+				return setAxisOption((XmlAxisKind)arguments.get(0));
+			case AdaptionxmlPackage.XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND:
+				return addAxisCondition((XmlPropertyKind)arguments.get(0));
+			case AdaptionxmlPackage.XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND_STRING:
+				return addAxisCondition((XmlPropertyKind)arguments.get(0), (String)arguments.get(1));
 			case AdaptionxmlPackage.XML_AXIS_PART___VALIDATE_AGAINST_SCHEMA:
 				return validateAgainstSchema();
 			case AdaptionxmlPackage.XML_AXIS_PART___VALIDATE_EXAMPLE_VALUE__STRING:
@@ -1338,12 +1244,15 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 		try {
 			String result = "[";
 			result += getXmlAxisOptionParam().myToString();
-			if (getXmlPropertyOption() != null) {
-				result += ", " + getXmlPropertyOption().myToString();
-			} 
-			if (getTextLiteralParam() != null && getTextLiteralParam().getValue() != null)
-				result += ", " + getTextLiteralParam().myToString();
-			return result + "]";
+			
+			for (XmlAxisPartCondition cond : getXmlAxisPartConditions())
+				result += cond.myToString();
+//			if (getXmlPropertyOption() != null) {
+//				result += ", " + getXmlPropertyOption().myToString();
+//			} 
+//			if (getTextLiteralParam() != null && getTextLiteralParam().getValue() != null)
+//				result += ", " + getTextLiteralParam().myToString();
+			return result;
 		} catch(NullPointerException e) {
 			return "[invalid axis pair: no axis" + getInternalId() + "]";
 		}

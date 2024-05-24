@@ -6668,13 +6668,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM__XML_PROPERTY_OPTION_PARAM = ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM;
 
 	/**
-	 * The feature id for the '<em><b>Xml Axis Part</b></em>' container reference.
+	 * The feature id for the '<em><b>Xml Axis Part Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM__XML_AXIS_PART = ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART;
+	int NEO_EDGE_LABEL_PARAM__XML_AXIS_PART_CONDITION = ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART_CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Contains</b></em>' reference list.
@@ -7327,13 +7327,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NAME_PARAM__XML_PROPERTY_OPTION_PARAM = ParametersPackage.TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM;
 
 	/**
-	 * The feature id for the '<em><b>Xml Axis Part</b></em>' container reference.
+	 * The feature id for the '<em><b>Xml Axis Part Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM__XML_AXIS_PART = ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART;
+	int NEO_PROPERTY_NAME_PARAM__XML_AXIS_PART_CONDITION = ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART_CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Contains</b></em>' reference list.

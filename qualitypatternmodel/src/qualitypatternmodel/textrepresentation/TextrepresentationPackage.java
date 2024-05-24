@@ -332,13 +332,40 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT__VALUE_MAP = FRAGMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT__ID = FRAGMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>User Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT__USER_VALUE = FRAGMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT__DESCRIPTION = FRAGMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Parameter Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 4;
+	int PARAMETER_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Generate JSON</em>' operation.
@@ -431,13 +458,31 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT___SET_COMPARISON_OPERATOR_VALUE_MAP = FRAGMENT_OPERATION_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Set Attribute Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT___SET_ATTRIBUTE_VALUE__STRING_STRING = FRAGMENT_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT___GET_ATTRIBUTE_VALUE__STRING = FRAGMENT_OPERATION_COUNT + 7;
+
+	/**
 	 * The number of operations of the '<em>Parameter Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT_OPERATION_COUNT = FRAGMENT_OPERATION_COUNT + 6;
+	int PARAMETER_FRAGMENT_OPERATION_COUNT = FRAGMENT_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.TextFragmentImpl <em>Text Fragment</em>}' class.
@@ -927,6 +972,39 @@ public interface TextrepresentationPackage extends EPackage {
 	EReference getParameterFragment_ValueMap();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#getId()
+	 * @see #getParameterFragment()
+	 * @generated
+	 */
+	EAttribute getParameterFragment_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getUserValue <em>User Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>User Value</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#getUserValue()
+	 * @see #getParameterFragment()
+	 * @generated
+	 */
+	EAttribute getParameterFragment_UserValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#getDescription()
+	 * @see #getParameterFragment()
+	 * @generated
+	 */
+	EAttribute getParameterFragment_Description();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getType() <em>Get Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -975,6 +1053,26 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameterFragment__SetComparisonOperatorValueMap();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#setAttributeValue(java.lang.String, java.lang.String) <em>Set Attribute Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Attribute Value</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#setAttributeValue(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getParameterFragment__SetAttributeValue__String_String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getAttributeValue(java.lang.String) <em>Get Attribute Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Attribute Value</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#getAttributeValue(java.lang.String)
+	 * @generated
+	 */
+	EOperation getParameterFragment__GetAttributeValue__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.Fragment <em>Fragment</em>}'.
@@ -1387,6 +1485,30 @@ public interface TextrepresentationPackage extends EPackage {
 		EReference PARAMETER_FRAGMENT__VALUE_MAP = eINSTANCE.getParameterFragment_ValueMap();
 
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_FRAGMENT__ID = eINSTANCE.getParameterFragment_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>User Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_FRAGMENT__USER_VALUE = eINSTANCE.getParameterFragment_UserValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_FRAGMENT__DESCRIPTION = eINSTANCE.getParameterFragment_Description();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Type</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1425,6 +1547,22 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER_FRAGMENT___SET_COMPARISON_OPERATOR_VALUE_MAP = eINSTANCE.getParameterFragment__SetComparisonOperatorValueMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Attribute Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_FRAGMENT___SET_ATTRIBUTE_VALUE__STRING_STRING = eINSTANCE.getParameterFragment__SetAttributeValue__String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Attribute Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_FRAGMENT___GET_ATTRIBUTE_VALUE__STRING = eINSTANCE.getParameterFragment__GetAttributeValue__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.FragmentImpl <em>Fragment</em>}' class.

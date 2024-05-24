@@ -19,7 +19,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.json.JSONArray;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XmlAxisPart;
+import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
@@ -28,6 +29,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.ParameterList;
@@ -47,7 +49,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl#getXmlPathParam <em>Xml Path Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl#getAttributeName <em>Attribute Name</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl#getXmlAxisPart <em>Xml Axis Part</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl#getXmlAxisPartCondition <em>Xml Axis Part Condition</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,10 +71,10 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final XmlPropertyKind VALUE_EDEFAULT = XmlPropertyKind.DATA;
+	protected static final XmlPropertyKind VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -94,16 +96,6 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	 * @ordered
 	 */
 	protected TextLiteralParam attributeName;
-
-	/**
-	 * The cached value of the '{@link #getXmlAxisPart() <em>Xml Axis Part</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getXmlAxisPart()
-	 * @generated
-	 * @ordered
-	 */
-	protected XmlAxisPart xmlAxisPart;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,8 +160,15 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
-		if (getXmlPathParam() != null)
-			getXmlPathParam().getXmlNavigation().getTarget().checkComparisonConsistency();
+		XmlPathParam xpath = getXmlPathParam();
+		if (xpath != null) {
+			XmlNavigation xnav = xpath.getXmlNavigation(); 
+			if (xnav != null) {
+				Node tar = getXmlPathParam().getXmlNavigation().getTarget();
+				if (tar != null)
+					tar.checkComparisonConsistency();
+			}
+		}
 	}
 	
 	@Override
@@ -423,16 +422,9 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	 * @generated
 	 */
 	@Override
-	public XmlAxisPart getXmlAxisPart() {
-		if (xmlAxisPart != null && xmlAxisPart.eIsProxy()) {
-			InternalEObject oldXmlAxisPart = (InternalEObject)xmlAxisPart;
-			xmlAxisPart = (XmlAxisPart)eResolveProxy(oldXmlAxisPart);
-			if (xmlAxisPart != oldXmlAxisPart) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART, oldXmlAxisPart, xmlAxisPart));
-			}
-		}
-		return xmlAxisPart;
+	public XmlAxisPartCondition getXmlAxisPartCondition() {
+		if (eContainerFeatureID() != AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION) return null;
+		return (XmlAxisPartCondition)eInternalContainer();
 	}
 
 	/**
@@ -440,22 +432,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XmlAxisPart basicGetXmlAxisPart() {
-		return xmlAxisPart;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetXmlAxisPart(XmlAxisPart newXmlAxisPart, NotificationChain msgs) {
-		XmlAxisPart oldXmlAxisPart = xmlAxisPart;
-		xmlAxisPart = newXmlAxisPart;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART, oldXmlAxisPart, newXmlAxisPart);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+	public NotificationChain basicSetXmlAxisPartCondition(XmlAxisPartCondition newXmlAxisPartCondition, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newXmlAxisPartCondition, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION, msgs);
 		return msgs;
 	}
 
@@ -465,18 +443,20 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	 * @generated
 	 */
 	@Override
-	public void setXmlAxisPart(XmlAxisPart newXmlAxisPart) {
-		if (newXmlAxisPart != xmlAxisPart) {
+	public void setXmlAxisPartCondition(XmlAxisPartCondition newXmlAxisPartCondition) {
+		if (newXmlAxisPartCondition != eInternalContainer() || (eContainerFeatureID() != AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION && newXmlAxisPartCondition != null)) {
+			if (EcoreUtil.isAncestor(this, newXmlAxisPartCondition))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (xmlAxisPart != null)
-				msgs = ((InternalEObject)xmlAxisPart).eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PART__XML_PROPERTY_OPTION, XmlAxisPart.class, msgs);
-			if (newXmlAxisPart != null)
-				msgs = ((InternalEObject)newXmlAxisPart).eInverseAdd(this, AdaptionxmlPackage.XML_AXIS_PART__XML_PROPERTY_OPTION, XmlAxisPart.class, msgs);
-			msgs = basicSetXmlAxisPart(newXmlAxisPart, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newXmlAxisPartCondition != null)
+				msgs = ((InternalEObject)newXmlAxisPartCondition).eInverseAdd(this, AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_PROPERTY_OPTION, XmlAxisPartCondition.class, msgs);
+			msgs = basicSetXmlAxisPartCondition(newXmlAxisPartCondition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART, newXmlAxisPart, newXmlAxisPart));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION, newXmlAxisPartCondition, newXmlAxisPartCondition));
 	}
 
 	/**
@@ -524,10 +504,10 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 				if (attributeName != null)
 					msgs = ((InternalEObject)attributeName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, null, msgs);
 				return basicSetAttributeName((TextLiteralParam)otherEnd, msgs);
-			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART:
-				if (xmlAxisPart != null)
-					msgs = ((InternalEObject)xmlAxisPart).eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PART__XML_PROPERTY_OPTION, XmlAxisPart.class, msgs);
-				return basicSetXmlAxisPart((XmlAxisPart)otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetXmlAxisPartCondition((XmlAxisPartCondition)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -544,8 +524,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 				return basicSetXmlPathParam(null, msgs);
 			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
 				return basicSetAttributeName(null, msgs);
-			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART:
-				return basicSetXmlAxisPart(null, msgs);
+			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION:
+				return basicSetXmlAxisPartCondition(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -560,6 +540,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 		switch (eContainerFeatureID()) {
 			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_PATH_PARAM:
 				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM, XmlPathParam.class, msgs);
+			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION:
+				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PART_CONDITION__XML_PROPERTY_OPTION, XmlAxisPartCondition.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -580,9 +562,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 				return getXmlPathParam();
 			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
 				return getAttributeName();
-			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART:
-				if (resolve) return getXmlAxisPart();
-				return basicGetXmlAxisPart();
+			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION:
+				return getXmlAxisPartCondition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -609,8 +590,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
 				setAttributeName((TextLiteralParam)newValue);
 				return;
-			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART:
-				setXmlAxisPart((XmlAxisPart)newValue);
+			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION:
+				setXmlAxisPartCondition((XmlAxisPartCondition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -636,8 +617,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
 				setAttributeName((TextLiteralParam)null);
 				return;
-			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART:
-				setXmlAxisPart((XmlAxisPart)null);
+			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION:
+				setXmlAxisPartCondition((XmlAxisPartCondition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -659,8 +640,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 				return getXmlPathParam() != null;
 			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
 				return attributeName != null;
-			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART:
-				return xmlAxisPart != null;
+			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION:
+				return getXmlAxisPartCondition() != null;
 		}
 		return super.eIsSet(featureID);
 	}

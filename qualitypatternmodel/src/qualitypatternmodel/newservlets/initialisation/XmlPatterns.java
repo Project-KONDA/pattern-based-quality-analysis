@@ -3,7 +3,6 @@ package qualitypatternmodel.newservlets.initialisation;
 import java.io.IOException;
 import java.util.List;
 import org.eclipse.emf.common.util.BasicEList;
-
 import de.gwdg.metadataqa.api.configuration.ConfigurationReader;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
@@ -30,6 +29,9 @@ import qualitypatternmodel.textrepresentation.impl.ValueMapImpl;
 import qualitypatternmodel.utility.XmlPatternUtility;
 
 public class XmlPatterns {
+	
+	static Boolean AXIS = true;
+	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
 		
 		for (CompletePattern pattern: getAllXmlPattern()) {
@@ -84,6 +86,24 @@ public class XmlPatterns {
 //			System.out.println(pattern.myToString());
 //			System.out.println();
 //		}
+		
+//		CompletePattern pattern = getXmlCard();
+//		pattern.getText().get(0).instantiate();
+//		try {
+//			pattern.isValid(AbstractionLevel.CONCRETE);
+//			System.out.println("valid");
+//		} catch (Exception e) {
+//			System.out.println("invalid");
+//			e.printStackTrace();
+//		}
+//		System.out.println(ConstraintTranslationValidation.checkPatternTranslatable(pattern));
+//		BaseSchema schema = ConstraintTranslation.translateToConstraintSchema(pattern);
+//		JSONObject job = null;
+//		try {
+//			job = new JSONObject(ConfigurationReader.toJson(schema));
+//		} catch (JSONException e) {}
+//		System.out.println(job);
+		
 	}
 	
 	public static List<CompletePattern> getAllXmlPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -121,17 +141,21 @@ public class XmlPatterns {
 		NumberParam numb = (NumberParam) params.get(1);
 		XmlPathParam path1 = (XmlPathParam) params.get(2);
 		XmlPathParam path2 = (XmlPathParam) params.get(3);
+		if (AXIS) {
+			path1.setValueFromString("//*");
+			path2.setValueFromString("/*");
+		}
 		
 		{
 			// Search for <records> that do have <less than> <1> <field>.
 			PatternText variant = TextrepresentationFactory.eINSTANCE.createPatternText();
-			variant.setName("flexible_search");
+			variant.setName("default");
 			pattern.getText().add(variant);
 			
 			variant.addFragment(new TextFragmentImpl("Search for"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("architect");
 				frag1.getParameter().add(path1);
 				variant.addFragment(frag1);
@@ -139,7 +163,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("that do have"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("comparison_operator");
+				frag2.setId("comparison_operator");
 				frag2.getParameter().add(comp);
 				frag2.setComparisonOperatorValueMap();
 				frag2.setExampleValue(frag2.getValueMap().get(ComparisonOperator.GREATER.getName()));
@@ -147,14 +171,14 @@ public class XmlPatterns {
 			}
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("number");
+				frag3.setId("number");
 				frag3.getParameter().add(numb);
 				frag3.setExampleValue("1");
 				variant.addFragment(frag3);
 			}
 			{
 				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag4.setName("xmlpath_returnToCondition");
+				frag4.setId("xmlpath_returnToCondition");
 				frag4.getParameter().add(path2);
 				frag4.setExampleValue("year of birth");
 				variant.addFragment(frag4);
@@ -164,13 +188,13 @@ public class XmlPatterns {
 		{
 			// Is there a <xmlpath_rootToReturn> with more than one <xmlpath_returnToCondition> element?
 			PatternText variant1 = TextrepresentationFactory.eINSTANCE.createPatternText();
-			variant1.setName("simple_question");
+			variant1.setName("question_simple");
 			pattern.getText().add(variant1);
 			
 			variant1.addFragment(new TextFragmentImpl("Is there a"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("architect");
 				frag1.getParameter().add(path1);
 				variant1.addFragment(frag1);
@@ -178,7 +202,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("with more than one"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(path2);
 				frag2.setExampleValue("year of birth");
 				variant1.addFragment(frag2);
@@ -203,13 +227,13 @@ public class XmlPatterns {
 		{
 			// Is there a <xmlpath_rootToReturn (xpath, “building”, "//*[name() = 'demo:building']”> that has <comparison_operator (select, ["equal", "not equal", "less than", "more than", "less or equal to", "more or equal to"], "more than")> <number (integer, "one", "1")> <xmlpath_returnToCondition (xpath, "current place", "?"> ?
 			PatternText variant2 = TextrepresentationFactory.eINSTANCE.createPatternText();
-			variant2.setName("flexible_question");
+			variant2.setName("question");
 			pattern.getText().add(variant2);
 			
 			variant2.addFragment(new TextFragmentImpl("Is there a"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.getParameter().add(path1);
 				frag1.setExampleValue("building");
 				variant2.addFragment(frag1);
@@ -217,7 +241,7 @@ public class XmlPatterns {
 			variant2.addFragment(new TextFragmentImpl("that has"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("comparison_operator");
+				frag2.setId("comparison_operator");
 				frag2.getParameter().add(comp);
 				frag2.setComparisonOperatorValueMap();
 				frag2.setExampleValue(frag2.getValueMap().get(ComparisonOperator.GREATER.getName()));
@@ -225,14 +249,14 @@ public class XmlPatterns {
 			}
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("number");
+				frag3.setId("number");
 				frag3.getParameter().add(numb);
 				frag3.setExampleValue("1");
 				variant2.addFragment(frag3);
 			}
 			{
 				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag4.setName("xmlpath_returnToCondition");
+				frag4.setId("xmlpath_returnToCondition");
 				frag4.getParameter().add(path2);
 				frag4.setExampleValue("current place");
 				variant2.addFragment(frag4);
@@ -258,17 +282,21 @@ public class XmlPatterns {
 		TextLiteralParam p1 = ((TextLiteralParam) params.get(1));
 		XmlPathParam p2 = ((XmlPathParam) params.get(2));
 		XmlPathParam p3 = ((XmlPathParam) params.get(3));
+		if (AXIS) {
+			p2.setValueFromString("//*");
+			p3.setValueFromString("/*/text()");
+		}
 
 		{
 			// Search for <records> where any <field> does <not> match <regex>.
 			PatternText variant1 = TextrepresentationFactory.eINSTANCE.createPatternText();
-			variant1.setName("simple");
+			variant1.setName("default");
 			pattern.getText().add(variant1);
 			
 			variant1.addFragment(new TextFragmentImpl("Search for"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("architect");
 				frag1.getParameter().add(p2);
 				variant1.addFragment(frag1);
@@ -276,14 +304,14 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("where any"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(p3);
 				frag2.setExampleValue("year of birth");
 				variant1.addFragment(frag2);
 			}
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("negation");
+				frag3.setId("negation");
 				frag3.getParameter().add(p0);
 				ValueMap map = new ValueMapImpl();
 				map.put("true", "does");
@@ -295,7 +323,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("match"));
 			{
 				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag4.setName("RegEx");
+				frag4.setId("RegEx");
 				frag4.getParameter().add(p1);
 				frag4.setExampleValue("[0-9][0-9.]*");
 				variant1.addFragment(frag4);
@@ -317,15 +345,20 @@ public class XmlPatterns {
 		TextLiteralParam p1 = ((TextLiteralParam) params.get(1));
 		XmlPathParam p2 = ((XmlPathParam) params.get(2));
 		XmlPathParam p3 = ((XmlPathParam) params.get(3));
+		if (AXIS) {
+			p2.setValueFromString("//*");
+			p3.setValueFromString("/*/text()");
+		}
+		
 		{
 			PatternText variant1 = TextrepresentationFactory.eINSTANCE.createPatternText();
-			variant1.setName("simple");
+			variant1.setName("default");
 			pattern.getText().add(variant1);
 			
 			variant1.addFragment(new TextFragmentImpl("Search for"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("architect");
 				frag1.getParameter().add(p2);
 				variant1.addFragment(frag1);
@@ -333,14 +366,14 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("where at least one value in"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(p3);
 				frag2.setExampleValue("year of birth");
 				variant1.addFragment(frag2);
 			}
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("negation");
+				frag3.setId("negation");
 				frag3.getParameter().add(p0);
 				ValueMap map = new ValueMapImpl();
 				map.put("true", "does");
@@ -352,7 +385,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("contain"));
 			{
 				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag4.setName("substring");
+				frag4.setId("substring");
 				frag4.getParameter().add(p1);
 				frag4.setExampleValue("a");
 				variant1.addFragment(frag4);
@@ -375,6 +408,10 @@ public class XmlPatterns {
 		BooleanParam bool = ((BooleanParam) params.get(0)); // negate
 		XmlPathParam path1 = ((XmlPathParam) params.get(1)); // path to record
 		XmlPathParam path2 = ((XmlPathParam) params.get(2)); // path to link value
+		if (AXIS) {
+			path1.setValueFromString("//*");
+			path2.setValueFromString("/*/text()");
+		}
 		
 		{
 			// Search for <records> where any value of <field> does <not?> contain a valid link.
@@ -385,7 +422,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("Search for"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("record");
 				frag1.getParameter().add(path1);
 				variant1.addFragment(frag1);
@@ -393,14 +430,14 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("where any value of"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(path2);
 				frag2.setExampleValue("sourcefield");
 				variant1.addFragment(frag2);
 			}
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("negation");
+				frag3.setId("negation");
 				frag3.getParameter().add(bool);
 				ValueMap map = new ValueMapImpl();
 				map.put("true", "does");
@@ -420,7 +457,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("Is there a"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("record");
 				frag1.getParameter().add(path1);
 				variant1.addFragment(frag1);
@@ -428,7 +465,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("where the link in the"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(path2);
 				frag2.setExampleValue("sourcefield");
 				variant1.addFragment(frag2);
@@ -436,7 +473,7 @@ public class XmlPatterns {
 			variant1.addFragment(new TextFragmentImpl("element is"));
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("negation");
+				frag3.setId("negation");
 				frag3.getParameter().add(bool);
 				ValueMap map = new ValueMapImpl();
 				map.put("true", "does");
@@ -461,6 +498,10 @@ public class XmlPatterns {
 		List<Parameter> params = pattern.getParameterList().getParameters();
 		XmlPathParam p0 = ((XmlPathParam) params.get(0));
 		XmlPathParam p1 = ((XmlPathParam) params.get(1));
+		if (AXIS) {
+			p0.setValueFromString("//*");
+			p1.setValueFromString("/*/text()");
+		}
 		
 		{
 			// Search for <records> that have no <field>.
@@ -471,7 +512,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("Search for"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("records");
 				frag1.getParameter().add(p0);
 				variant.addFragment(frag1);
@@ -479,7 +520,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("that have no"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(p1);
 				frag2.setExampleValue("sourcefield");
 				variant.addFragment(frag2);
@@ -502,6 +543,11 @@ public class XmlPatterns {
 		NumberParam p1 = ((NumberParam) params.get(1));
 		XmlPathParam p2 = ((XmlPathParam) params.get(2));
 		XmlPathParam p3 = ((XmlPathParam) params.get(3));
+		if (AXIS) {
+			p2.setValueFromString("//*");
+			p3.setValueFromString("/*/text()");
+		}
+		
 		{
 			// Search for <records> where the length of at least one value of <field> is <shorter than> <10>.
 			PatternText variant = TextrepresentationFactory.eINSTANCE.createPatternText();
@@ -511,7 +557,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("Search for"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("records");
 				frag1.getParameter().add(p2);
 				variant.addFragment(frag1);
@@ -519,7 +565,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("where the length of at least one value of"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(p3);
 				frag2.setExampleValue("sourcefield");
 				variant.addFragment(frag2);
@@ -527,7 +573,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("is"));
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("comparison_operator");
+				frag3.setId("comparison_operator");
 				frag3.getParameter().add(p0);
 				frag3.setExampleValue(ComparisonOperator.GREATER.getName());
 				frag3.setComparisonOperatorValueMap();
@@ -536,7 +582,7 @@ public class XmlPatterns {
 			}
 			{
 				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag4.setName("number");
+				frag4.setId("number");
 				frag4.getParameter().add(p1);
 				frag4.setExampleValue("1");
 				variant.addFragment(frag4);
@@ -560,6 +606,13 @@ public class XmlPatterns {
 		XmlPathParam p3 = ((XmlPathParam) params.get(3));
 		XmlPathParam p4 = ((XmlPathParam) params.get(4));
 		XmlPathParam p5 = ((XmlPathParam) params.get(5));
+		if (AXIS) {
+			p2.setValueFromString("//*");
+			p3.setValueFromString("/*/text()");
+			p4.setValueFromString("/*/text()");
+			p5.setValueFromString("//*");
+		}
+		
 		{
 			// Search for <records> where a value of <field> is not unique within the data set.
 			PatternText variant = TextrepresentationFactory.eINSTANCE.createPatternText();
@@ -569,7 +622,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("Search for"));
 			{ // records
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("records");
 				frag1.getParameter().add(p2);
 				frag1.getParameter().add(p5);
@@ -578,7 +631,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("where a value of"));
 			{ // field
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(p3);
 				frag2.getParameter().add(p4);
 				frag2.setExampleValue("sourcefield");
@@ -603,6 +656,11 @@ public class XmlPatterns {
 //		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
 		XmlPathParam p3 = ((XmlPathParam) params.get(3));
 		XmlPathParam p4 = ((XmlPathParam) params.get(4));
+		if (AXIS) {
+			p3.setValueFromString("//*");
+			p4.setValueFromString("/*/text()");
+		}
+		
 		{
 			// Search for <records> where at least one value in <field2> is <not> in the list: <List<String>>.
 			PatternText variant = TextrepresentationFactory.eINSTANCE.createPatternText();
@@ -612,7 +670,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("Search for"));
 			{
 				ParameterFragment frag1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag1.setName("xmlpath_rootToReturn");
+				frag1.setId("xmlpath_rootToReturn");
 				frag1.setExampleValue("records");
 				frag1.getParameter().add(p3);
 				variant.addFragment(frag1);
@@ -620,14 +678,14 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("where at least one value in"));
 			{
 				ParameterFragment frag2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag2.setName("xmlpath_returnToCondition");
+				frag2.setId("xmlpath_returnToCondition");
 				frag2.getParameter().add(p4);
 				frag2.setExampleValue("sourcefield");
 				variant.addFragment(frag2);
 			}
 			{
 				ParameterFragment frag3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag3.setName("comparison_operator");
+				frag3.setId("comparison_operator");
 				frag3.getParameter().add(p1);
 				ValueMap map = new ValueMapImpl();
 				map.put(ComparisonOperator.EQUAL.getName(), "is");
@@ -639,7 +697,7 @@ public class XmlPatterns {
 			variant.addFragment(new TextFragmentImpl("in the list:"));
 			{
 				ParameterFragment frag4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-				frag4.setName("valuelist");
+				frag4.setId("valuelist");
 				frag4.getParameter().add(p0);
 //				frag4.setExampleValue("");
 				variant.addFragment(frag4);

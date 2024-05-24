@@ -5,9 +5,11 @@ package qualitypatternmodel.textrepresentation.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -20,11 +22,15 @@ import org.json.JSONObject;
 
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlNode;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.Parameter;
@@ -47,6 +53,8 @@ import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsXml;
+ 
 
 /**
  * <!-- begin-user-doc -->
@@ -60,6 +68,9 @@ import qualitypatternmodel.utility.Constants;
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getExampleValue <em>Example Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getValueMap <em>Value Map</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getId <em>Id</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getUserValue <em>User Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -128,6 +139,66 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	protected ValueMap valueMap;
 
 	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getUserValue() <em>User Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUserValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String USER_VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUserValue() <em>User Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUserValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String userValue = USER_VALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -143,7 +214,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	
 	@Override
 	public String generateSparqlTemplate() throws InvalidityException {
-		return "?" + getName();
+		return "?" + getId();
 	}
 
 	/**
@@ -221,6 +292,75 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * @generated
 	 */
 	@Override
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getUserValue() {
+		return userValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setUserValue(String newUserValue) {
+		String oldUserValue = userValue;
+		userValue = newUserValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE, oldUserValue, userValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__DESCRIPTION, oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ValueMap getValueMap() {
 		return valueMap;
 	}
@@ -272,6 +412,68 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		setValueMap(map);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean setAttributeValue(String attName, String attValue) {
+		switch(attName) {
+		case "value": 
+			try {
+				setValue(attValue);
+				return true;
+			} catch (InvalidityException e) {
+				return false;
+			}
+		case "userValue":
+			setUserValue(attValue);
+			return true;
+		case "absolutePath":
+			// check if parameter is really of type XmlPathParam
+			Parameter p = getParameter().get(0);
+			if (!(p instanceof XmlPathParam))
+				return false;
+			// validate Value
+			XmlPathParam path = (XmlPathParam) p;
+			Boolean isPropertyPath = (path.getXmlNavigation() != null) && (path.getXmlNavigation() instanceof XmlPropertyNavigation);
+			Boolean isElementPath = (path.getXmlNavigation() != null) && (path.getXmlNavigation() instanceof XmlElementNavigation);
+			
+			Boolean isValid = attValue == null
+					|| (isPropertyPath && attValue.matches(ConstantsXml.REGEX_XMLPATH_VALUE))
+					|| (isElementPath && attValue.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT));
+			if (isValid)
+				((XmlPathParam) p).setAbsolutePath(attValue);
+			return isValid;
+		default:
+			return false;
+		}
+	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getAttributeValue(String attName) throws InvalidityException {
+		switch(attName) {
+		case "value": 
+			return getValue();
+		case "userValue":
+			return getUserValue();
+		case "absolutePath":
+			Parameter p = getParameter().get(0);
+			if (!(p instanceof XmlPathParam))
+				throw new InvalidityException("Attribute '" + attName + "' not found.");
+			// validate Value
+			XmlPathParam path = (XmlPathParam) p;
+			return path.getAbsolutePath();
+		default:
+			throw new InvalidityException("Attribute '" + attName + "' not found.");
+		}
+	}
+
 	@Override
 	public String generateJSON() {
 		String patternName = getPatternText().getPattern().getPatternId();
@@ -283,12 +485,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		}
 		Parameter parameter = getParameter().get(0);
 		String urlsJSON = generateJSONList(urls);
-		String name = getName();
+		String id = getId();
 		String value = parameter.getValueAsString();
 		String type = getType();
 		String role = getRole();
 		String exampleValue = getExampleValue();		
-		String json = "{\"Name\": \"" + name + "\", \"URLs\": " + urlsJSON + ", \"Type\": \"" + type + "\", \"Role\": \"" + role + "\"";
+		String json = "{\"Name\": \"" + id + "\", \"URLs\": " + urlsJSON + ", \"Type\": \"" + type + "\", \"Role\": \"" + role + "\"";
 		if(value != null) {
 			if(!(parameter instanceof TextListParamImpl) && !(parameter instanceof NumberParamImpl) && !(parameter instanceof BooleanParamImpl)) {
 				value = "\"" + value + "\"";
@@ -329,10 +531,10 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			TextLiteralParam textLiteral = propertyOption.getAttributeName();
 			if(textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
 				int dependentParameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(textLiteral);
-				String id = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(dependentParameterID);
+				String uri = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(dependentParameterID);
 				String cond = XmlPropertyKind.ATTRIBUTE.getLiteral();
 				json += ", \"Enable\": {";
-				json += "\"Parameter\": \"" + id + "\"";
+				json += "\"Parameter\": \"" + uri + "\"";
 				json += ", \"If\": \"" + cond + "\"";
 				json += "}";
 				
@@ -355,11 +557,16 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 //		String urlsJSON = generateJSONList(urls);
 		JSONObject json = new JSONObject();
 		try {
+			json.put("id", getId());
 			json.put("name", getName());
 			json.put("type", getType());
 			json.put("role", getRole());
 			if (getValue() != null)
 				json.put("value", getValue());
+			if (getUserValue() != null)
+				json.put("userValue", getUserValue());
+			if (getDescription() != null)
+				json.put("description", getDescription());
 			json.put("exampleValue", getExampleValue());
 			
 			if (getValueMap() != null) {
@@ -374,13 +581,13 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 					json.put("typeModifiable", true);
 				}
 			}
-			if (parameter instanceof TextLiteralParamImpl) {
+			else if (parameter instanceof TextLiteralParamImpl) {
 				TextLiteralParamImpl textLiteral = (TextLiteralParamImpl) parameter;
 				if(textLiteral.getXmlPropertyOptionParam() != null && textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
 					json.put("dependant", true);
 				}
 			}
-			if (parameter instanceof XmlPropertyOptionParamImpl) {
+			else if (parameter instanceof XmlPropertyOptionParamImpl) {
 				XmlPropertyOptionParamImpl propertyOption = (XmlPropertyOptionParamImpl) parameter;
 //				Node node = propertyOption.getXmlPathParam().getXmlNavigation().getTarget();
 //				XmlProperty xmlProperty = (XmlProperty) node;
@@ -394,12 +601,72 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 					enable.put("parameter", id);
 					enable.put("if", cond);
 					json.put("enable", enable);
-				}	
+				}
+			}
+			else if (parameter instanceof XmlPathParam) {
+				HashSet<String> sourceParamIds = getSourceParamIDs(getParameter());
+				if (!sourceParamIds.isEmpty()) {
+					json.put("startpoint", new JSONArray(sourceParamIds));
+				}
+				String absPath = getAbsolutePath(getParameter());
+				if (absPath != null)
+					json.put("absolutePath", absPath);
 			}
 		} catch (JSONException e) {}
 		return json;
 	}
 
+	
+	// XmlPathParam helper functions
+	// get Param IDs of source params for relative paths
+	private HashSet<String> getSourceParamIDs(EList<Parameter> parameters){
+		EList<XmlNavigation> navs = new BasicEList<XmlNavigation>();
+		for (Parameter p: parameters)
+			if (p instanceof XmlPathParam)
+				navs.add(((XmlPathParam)p).getXmlNavigation());
+		
+		EList<Node> nodes = new BasicEList<Node>();
+		for (XmlNavigation nav: navs)
+			if (nav.getSource() instanceof XmlNode)
+				nodes.add(nav.getSource());
+		
+		EList<XmlNavigation> sourcenavs = new BasicEList<XmlNavigation>();
+		for (Node node: nodes)
+			for (Relation r: node.getIncoming())
+				if (r instanceof XmlNavigation)
+					sourcenavs.add((XmlNavigation) r);
+		
+		EList<XmlPathParam> sourceparams = new BasicEList<XmlPathParam>();
+		for (XmlNavigation sn: sourcenavs)
+			if (sn.getXmlPathParam() != null)
+				sourceparams.add(sn.getXmlPathParam());
+		
+		EList<ParameterReference> sourcefrags = new BasicEList<ParameterReference>();
+		for (XmlPathParam sp: sourceparams)
+			if (sp.getParameterReferences() != null)
+				sourcefrags.addAll(sp.getParameterReferences());
+		
+		HashSet<String> sourcefragids = new HashSet<String>();
+		for (ParameterReference sourcefrag: sourcefrags)
+			if (sourcefrag instanceof ParameterFragment)
+				sourcefragids.add(((ParameterFragment)sourcefrag).getId());
+		return sourcefragids;
+	}
+	
+	// get absolutePath attribute value 
+	private String getAbsolutePath(EList<Parameter> parameters){
+		HashSet<String> absPaths = new HashSet<String>();
+		for (Parameter p: parameters)
+			if (p instanceof XmlPathParam) {
+				String ap = ((XmlPathParam) p).getAbsolutePath(); 
+				if ( ap != null)
+					absPaths.add(ap);
+			}
+		if (absPaths.size() == 1)
+			return absPaths.iterator().next();
+		return null;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -449,7 +716,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 */
 	@Override
 	public String getValue() {
-		String value = getParameter().get(0).getValueAsString();
+		String value;
+		try {
+			value = getParameter().get(0).getValueAsString();
+		} catch (NullPointerException e) {
+			value = null;
+		}
 		if (getValueMap() != null)
 			value = getValueMap().get(value);
 //		Map<String, String> valueMap = new HashMap<String, String>();
@@ -530,33 +802,59 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 */
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException {
-		String firstValue = getParameter().get(0).getValueAsString();
-		EClass firstEClass = getParameter().get(0).eClass();
-		for(Parameter p : getParameter()) {
-			String value = p.getValueAsString();
-			
-			if(value != null && !value.equals(firstValue) || value == null && firstValue != null) {
-				String types = "";
-				for (Parameter p2 : getParameter()) {
-					types += ", " + p2.getClass().getSimpleName() + ":" + p2.getValueAsString();
-				}
-				throw new InvalidityException("Referenced parameters have different values: " + types);
-			}
-			
-			if(!p.eClass().equals(firstEClass)) {
-				throw new InvalidityException("Referenced parameters are not of same type");
-			}
-			
+		if (abstractionLevel.equals(AbstractionLevel.CONCRETE)) {
+			String firstValue;
 			try {
-				if(getExampleValue() != null && abstractionLevel != AbstractionLevel.CONCRETE) {
-					p.validateExampleValue(getExampleValue());
-				}	
-			} catch (Exception e) {
-				e.printStackTrace();
-				throw new InvalidityException("Example value '" + getExampleValue() + "' has wrong type");
-			}		
+				firstValue = getParameter().get(0).getValueAsString();
+			} catch (NullPointerException e) {
+				firstValue = null;
+			}
+			EClass firstEClass = getParameter().get(0).eClass();
+			
+			
+			for(Parameter p : getParameter()) {
+				String value;
+				try {
+					value = p.getValueAsString();
+				} catch (NullPointerException e) {
+					value = null;
+				}
+				EClass myEClass = p.eClass();
+				
+				if(!value.equals(firstValue))
+					throw new InvalidityException("Referenced parameters have different values '" + value + "' != '" + firstValue + "'");
+				
+				if(!myEClass.equals(firstEClass))
+					throw new InvalidityException("Referenced parameters have different types ");
+				
+//				if(value != null && !value.equals(firstValue) || value == null && firstValue != null) {
+//					String types = "";
+//					for (Parameter p2 : getParameter()) {
+//						String p2val;
+//						try {
+//							p2val = p2.getValueAsString();
+//						} catch (NullPointerException e) {
+//							p2val = null;
+//						}
+//						types += ", " + p2.getClass().getSimpleName() + ":" + p2val;
+//					}
+//					throw new InvalidityException("Referenced parameters have different values: " + types);
+//				}
+//				
+//				if(!p.eClass().equals(firstEClass)) {
+//					throw new InvalidityException("Referenced parameters are not of same type");
+//				}
+//				
+//				try {
+//					if(getExampleValue() != null && abstractionLevel != AbstractionLevel.CONCRETE) {
+//						p.validateExampleValue(getExampleValue());
+//					}	
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//					throw new InvalidityException("Example value '" + getExampleValue() + "' has wrong type");
+//				}
+			}
 		}
-		
 	}
 
 	/**
@@ -616,6 +914,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return getName();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
 				return getValueMap();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__ID:
+				return getId();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE:
+				return getUserValue();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -642,6 +946,15 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
 				setValueMap((ValueMap)newValue);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__ID:
+				setId((String)newValue);
+				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE:
+				setUserValue((String)newValue);
+				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -666,6 +979,15 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
 				setValueMap((ValueMap)null);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE:
+				setUserValue(USER_VALUE_EDEFAULT);
+				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -686,6 +1008,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
 				return valueMap != null;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__USER_VALUE:
+				return USER_VALUE_EDEFAULT == null ? userValue != null : !USER_VALUE_EDEFAULT.equals(userValue);
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -763,6 +1091,15 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_COMPARISON_OPERATOR_VALUE_MAP:
 				setComparisonOperatorValueMap();
 				return null;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_ATTRIBUTE_VALUE__STRING_STRING:
+				return setAttributeValue((String)arguments.get(0), (String)arguments.get(1));
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_ATTRIBUTE_VALUE__STRING:
+				try {
+					return getAttributeValue((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL:
 				try {
 					isValid((AbstractionLevel)arguments.get(0));
@@ -789,6 +1126,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		result.append(exampleValue);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", id: ");
+		result.append(id);
+		result.append(", userValue: ");
+		result.append(userValue);
+		result.append(", description: ");
+		result.append(description);
 		result.append(')');
 		return result.toString();
 	}

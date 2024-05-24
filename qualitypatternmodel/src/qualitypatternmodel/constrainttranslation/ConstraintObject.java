@@ -185,8 +185,8 @@ public class ConstraintObject {
 		if (graph.getNodes().size() != 1)
 			throw new InvalidityException("Count Condition invalidly specified: multiple nodes");
 		Node node = graph.getNodes().get(0);
-		if (!(node instanceof XmlProperty))
-			throw new InvalidityException("Count Condition invalidly specified: Node " + (node != null? node.getName(): "") + " is of type " + node.getClass().getSimpleName() + " instead of XmlProperty");
+//		if (!(node instanceof XmlProperty))
+//			throw new InvalidityException("Count Condition invalidly specified: Node " + (node != null? node.getName(): "") + " is of type " + node.getClass().getSimpleName() + " instead of XmlProperty");
 
 		ComparisonOperator operator = condition.getOption().getValue();
 		

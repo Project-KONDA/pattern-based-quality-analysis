@@ -9,6 +9,7 @@ import qualitypatternmodel.xmltestutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
+import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
@@ -71,12 +72,13 @@ public class Test01Axis {
 		completePattern.createXmlAdaption();
 		XmlPathParam relation = ((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam();
 		XmlAxisPart part = relation.getXmlAxisParts().get(0);
-		XmlPropertyOptionParam property = part.getXmlPropertyOption();
+		XmlAxisPartCondition cond = part.getXmlAxisPartConditions().get(0);
+		XmlPropertyOptionParam property = cond.getXmlPropertyOption();
 		property.setValue(type);
 		if (type.equals(XmlPropertyKind.ATTRIBUTE))
 			property.getAttributeName().setValue("attribute");
 		if (value != null)
-			part.getTextLiteralParam().setValue(value);				
+			cond.getTextLiteralParam().setValue(value);
 		return completePattern;
 	}
 
