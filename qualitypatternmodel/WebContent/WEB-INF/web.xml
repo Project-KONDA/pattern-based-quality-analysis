@@ -118,6 +118,18 @@
 		<url-pattern>/template/getlist/*</url-pattern>
 	</servlet-mapping>
 		
+	<!-- add one or more variants to a template
+		/template/addvariant/<technology>/<constraintId> {"variants": ?}
+	-->
+	<servlet>
+		<servlet-name>TemplateAddVariantServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.TemplateAddVariantServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TemplateAddVariantServlet</servlet-name>
+		<url-pattern>/template/addvariant/*</url-pattern>
+	</servlet-mapping>
+		
 	<!-- instantiate new instance of a template
 		/templates/instantiate/<technology>/<templateId>
 	 -->

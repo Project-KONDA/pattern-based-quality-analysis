@@ -42,6 +42,7 @@ import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.utility.Constants;
 
 /**
  * <!-- begin-user-doc -->
@@ -119,6 +120,51 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 */
 	protected PatternTextImpl() {
 		super();
+	}
+	
+
+	public PatternTextImpl(CompletePattern pattern, JSONObject json) throws JSONException, InvalidityException {
+		super();
+		
+		//template check
+		String template = json.getString("template");
+		if (!pattern.getPatternId().equals(template))
+			throw new InvalidityException("Selected Pattern '" + pattern.getPatternId() + "' does not match '" + template + "'.");
+		pattern.getLanguage().getLiteral();
+		String language = json.getString("language");
+		if (!pattern.getLanguage().getLiteral().equals(language))
+			throw new InvalidityException("The language of the selected Pattern '" + pattern.getName() + "' is '" + pattern.getLanguage().getLiteral() + "', which does not match '" + language + "'.");
+
+		// pattern
+		pattern.getText().add(this);
+		
+		// name
+		String name = json.getString("name");
+		this.setName(name);
+				
+		// fragments
+		JSONArray fragments = json.getJSONArray("fragments");
+		int id_counter = 0;
+		for (int i = 0; i < fragments.length(); i++) {
+            JSONObject fragmentObject = fragments.getJSONObject(i);
+            
+            boolean hasText = fragmentObject.has(Constants.JSON_TEXT);
+            boolean hasParams = fragmentObject.has(Constants.JSON_PARAMETER);
+            boolean hasName = fragmentObject.has(Constants.JSON_NAME);
+            boolean hasValue = fragmentObject.has(Constants.JSON_VALUE);
+            
+            if (hasParams && hasName) {
+            	addFragment(new ParameterFragmentImpl(pattern, fragmentObject, id_counter));
+            	id_counter++;
+            }	
+            else if (hasParams && hasValue)
+            	getParameterPredefinitions().add(new ParameterPredefinitionImpl(pattern, fragmentObject));
+            else if (hasText) {
+            	String text = fragmentObject.getString(Constants.JSON_TEXT);
+            	addFragment(new TextFragmentImpl(text));
+            } else throw new InvalidityException();
+		}
+		isValid(AbstractionLevel.ABSTRACT);
 	}
 
 	/**

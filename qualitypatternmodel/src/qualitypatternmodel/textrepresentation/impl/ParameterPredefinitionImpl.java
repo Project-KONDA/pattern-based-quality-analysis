@@ -16,12 +16,18 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.utility.Constants;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,6 +83,25 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 		super();
 	}
 
+	protected ParameterPredefinitionImpl(CompletePattern pattern, JSONObject json) throws JSONException, InvalidityException {
+		super();
+		if (!json.has(Constants.JSON_VALUE) || !json.has(Constants.JSON_PARAMETER))
+			throw new InvalidityException("Not valid JSON to a create ParameterPredefinition");
+		
+		String value = json.getString(Constants.JSON_VALUE);
+        JSONArray params = json.getJSONArray(Constants.JSON_PARAMETER);
+        for (int i = 0; i < params.length(); i++) {
+            int paramID = params.getInt(i);
+            try {
+            	Parameter p = pattern.getParameterList().getParameters().get(paramID);
+                getParameter().add(p);
+            } catch (Exception e) {
+            	e.printStackTrace();
+            }
+        }
+        setValue(value);		
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

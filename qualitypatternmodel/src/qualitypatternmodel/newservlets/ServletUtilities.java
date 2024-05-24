@@ -236,6 +236,11 @@ public abstract class ServletUtilities {
 		return EMFModelLoad.loadCompletePattern(folderPath, templateId, EXTENSION);
 	};
 
+	public static void saveTemplate(String technology, String templateId, CompletePattern pattern) throws IOException {
+		String folderpath = PATTERNFOLDER + "/" + technology + "/" + TEMPLATEFOLDER;
+		EMFModelSave.exportToFile2(pattern, folderpath, templateId, EXTENSION);
+	}
+
 	public static void saveConstraint(String technology, String constraintId, CompletePattern pattern) throws IOException {
 		String folderpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER;
 		EMFModelSave.exportToFile2(pattern, folderpath, constraintId, EXTENSION);

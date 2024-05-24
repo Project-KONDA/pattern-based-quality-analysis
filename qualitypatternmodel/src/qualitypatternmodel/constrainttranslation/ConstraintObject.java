@@ -20,7 +20,6 @@ import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.SingleCons
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.StringLengthRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.CardinalityConstraintRuleObject;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.UniqueRuleObject;
-import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.ComparisonRuleObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Comparable;
@@ -184,7 +183,7 @@ public class ConstraintObject {
 		Graph graph = condition.getCountPattern().getGraph();
 		if (graph.getNodes().size() != 1)
 			throw new InvalidityException("Count Condition invalidly specified: multiple nodes");
-		Node node = graph.getNodes().get(0);
+//		Node node = graph.getNodes().get(0);
 //		if (!(node instanceof XmlProperty))
 //			throw new InvalidityException("Count Condition invalidly specified: Node " + (node != null? node.getName(): "") + " is of type " + node.getClass().getSimpleName() + " instead of XmlProperty");
 
