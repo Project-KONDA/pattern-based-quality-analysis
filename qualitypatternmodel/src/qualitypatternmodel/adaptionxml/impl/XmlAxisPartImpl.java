@@ -68,6 +68,9 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  * @generated
  */
 public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
+
+	static String PROPERTY_PART_REGEX = "((data\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
+	
 	/**
 	 * The default value of the '{@link #isPredefined() <em>Predefined</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -160,22 +163,22 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		String query = getXmlAxisOptionParam().generateXQuery();
-		String condition = "/name()";
+		String condition = "name()";
 		String literal = "";
 		if (getTextLiteralParam() != null && getTextLiteralParam().getValue() != null) 
 			literal = getTextLiteralParam().generateXQuery();
 		if (xmlPropertyOption != null)
-			condition = getXmlPropertyOption().generateXQuery();
+			condition = getXmlPropertyOption().generateXQuery().substring(1);
 		
 		if (literal.equals("") || literal.equals("\"\"") || literal.equals("\"*\"")){
-			if (condition == "/name()") {
+			if (condition == "name()") {
 				return query;
 			}
 			else {
-				return query + "[." + condition + "]";
+				return query + "[" + condition + "]";
 			}		
 		}
-		return query + "[." + condition + "=" + literal + "]"; 
+		return query + "[" + condition + "=" + literal + "]"; 
 	}
 	
 	@Override
@@ -702,66 +705,51 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		value = value.trim();
+		if (value.startsWith("/*")) 
+			value = value.replace("/*", "/child::*");
+			
+		if(getXmlAxisOptionParam() == null)
+			setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
+		
+		for (XmlAxisKind axis: XmlAxisKind.VALUES) {
+			if (value.startsWith(axis.getLiteral())) {
+				this.getXmlAxisOptionParam().setValue(axis);
+				value = value.replace(axis.getLiteral(), "");
+				break;
+			}
+		}
+		value = value.trim();
+		
+		if (value != "") {
+			if (! (value.startsWith("[") && value.endsWith("]")))
+				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+			value = value.substring(1, value.length() - 1);
+			String[] propertySplit = value.split("=", 2);
+			
+			propertySplit[0] = propertySplit[0].trim();
+			propertySplit[1] = propertySplit[1].trim();
+			
+			if (!propertySplit[0].matches(PROPERTY_PART_REGEX))
+				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+			if(getXmlPropertyOption() == null)
+				setXmlPropertyOption(new XmlPropertyOptionParamImpl());
+			else getXmlPropertyOption().setValueFromString(propertySplit[0]);
+			
+			if (propertySplit.length>1) {
+				if (!propertySplit[1].startsWith("\"") || !propertySplit[1].endsWith("\""))
+					throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+				String propertyvalue = propertySplit[1].substring(1, propertySplit[1].length() - 1);
+				if(getTextLiteralParam() == null)
+					setTextLiteralParam(new TextLiteralParamImpl(propertyvalue));
+				else getTextLiteralParam().setValue(propertyvalue);
+			}
+		}
 	}
-		
-		
-		
-		
-//		String PROPERTY_PART_REGEX = "((data\\(\\))|(name\\(\\))|(@[A-Za-z0-9]+))";
-//
-//		String[] parts = new String[XmlAxisKind.values().length];
-//		for (int i = 0; i < XmlAxisKind.values().length; i++) {
-//			String part = XmlAxisKind.values()[i].toString().replace("/", "").replace("::*", "");
-//			parts[i] = "(" + part + ")";
-//		}
-//		String axes = "(" + String.join("|", parts) + ")";
-//		String PATH_PART_REGEX = axes + "::\\*" // axes
-//			+ "(\\[" + PROPERTY_PART_REGEX + "(=(([0-9.]+)|(\".*\")))?" // optional comparison of the property 
-//			+ "\\])?";
-////		((child)|(descendant))::\*(\[((data\(\))|(name\(\))|(@[A-Za-z0-9]+))(=((".*")))?\])?
-////		https://regex101.com/r/6gWGzd
-//		
-//		
-//		if (!value.matches(PATH_PART_REGEX)) 
-//			throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-//		
-//		// 1. split: axis, (property? (attribute name)? (value)
-//		String[] split = value.split("::*", 2);
-//		
-//		if(getXmlAxisOptionParam() == null)
-//			setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
-//		getXmlAxisOptionParam().setValueFromString(split[0]);
-//		
-//		if (split.length >1) {
-//			String property = String.join("", split).replace(split[0] + "::*", "");
-//			if (! (property.startsWith("[") && property.endsWith("]")))
-//				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-//			property = property.substring(1, property.length() - 1);
-//			String[] propertySplit = property.split("=", 2);
-//			if (!propertySplit[0].matches(PROPERTY_PART_REGEX))
-//				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-//			if(getXmlPropertyOption() == null)
-//				setXmlPropertyOption(new XmlPropertyOptionParamImpl());
-//			else getXmlPropertyOption().setValueFromString(propertySplit[0]);
-//			
-//			if (propertySplit.length>1) {
-//				if (!propertySplit[1].startsWith("\"") || !propertySplit[1].endsWith("\""))
-//					throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
-//				String propertyvalue = propertySplit[1].substring(1, property.length() - 1);
-//				if(getTextLiteralParam() == null)
-//					setTextLiteralParam(new TextLiteralParamImpl(propertyvalue));
-//				else getTextLiteralParam().setValue(propertyvalue);
-//			}
-//				
-//		}
-//	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -770,9 +758,11 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 */
 	@Override
 	public String getValueAsString() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		try {
+			return generateXQuery();
+		} catch (InvalidityException e) {
+			return null;
+		}
 	}
 
 	/**

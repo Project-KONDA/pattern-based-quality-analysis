@@ -298,5 +298,28 @@ public enum ComparisonOperator implements Enumerator {
 	public String toString() {
 		return literal;
 	}
+
+	public static ComparisonOperator invert(ComparisonOperator equal) {
+		switch(equal) {
+			case EQUAL: return NOTEQUAL;
+			case GREATER: return LESSOREQUAL;
+			case LESS: return GREATEROREQUAL;
+			case GREATEROREQUAL: return LESS;
+			case LESSOREQUAL: return GREATER;
+			case NOTEQUAL: return EQUAL;
+		}
+		return null;
+	}
 	
+	public static ComparisonOperator invertDirection(ComparisonOperator equal) {
+		switch(equal) {
+			case EQUAL: return EQUAL;
+			case GREATER: return LESS;
+			case LESS: return GREATER;
+			case GREATEROREQUAL: return LESSOREQUAL;
+			case LESSOREQUAL: return GREATEROREQUAL;
+			case NOTEQUAL: return NOTEQUAL;
+		}
+		return null;
+	}
 } //ComparisonOperator

@@ -28,6 +28,7 @@
 				</xs:complexType>				
 			</xs:element>
 			<xs:element name="address" type="demo:addressType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="source" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string" use="required"/>
 		<xs:attribute name="recorded" type="xs:dateTime" use="required"/>
@@ -50,6 +51,7 @@
 			<xs:element name="creator" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="startwork" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="endwork" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>		
+			<xs:element name="source" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string" use="required"/>
 		<xs:attribute name="recorded" type="xs:dateTime" use="required"/>
@@ -63,6 +65,7 @@
 			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="birthyear" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="deathyear" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="source" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string" use="required"/>
 	</xs:complexType>
@@ -71,6 +74,7 @@
 		<xs:sequence>
 			<xs:element name="city" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="country" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="source" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
 		</xs:sequence>
 	</xs:complexType>
 

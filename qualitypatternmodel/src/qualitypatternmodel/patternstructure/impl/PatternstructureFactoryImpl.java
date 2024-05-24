@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import de.gwdg.metadataqa.api.schema.BaseSchema;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -95,6 +96,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return createClassWrapperFromString(eDataType, initialValue);
 			case PatternstructurePackage.MISSING_PATTERN_CONTAINER_EXCEPTION:
 				return createMissingPatternContainerExceptionFromString(eDataType, initialValue);
+			case PatternstructurePackage.BASE_SCHEMA_WRAPPER:
+				return createBaseSchemaWrapperFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -122,6 +125,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return convertClassWrapperToString(eDataType, instanceValue);
 			case PatternstructurePackage.MISSING_PATTERN_CONTAINER_EXCEPTION:
 				return convertMissingPatternContainerExceptionToString(eDataType, instanceValue);
+			case PatternstructurePackage.BASE_SCHEMA_WRAPPER:
+				return convertBaseSchemaWrapperToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -358,6 +363,24 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	public String convertMissingPatternContainerExceptionToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BaseSchema createBaseSchemaWrapperFromString(EDataType eDataType, String initialValue) {
+		return (BaseSchema)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertBaseSchemaWrapperToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

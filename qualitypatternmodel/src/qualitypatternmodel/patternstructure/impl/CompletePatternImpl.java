@@ -2,7 +2,12 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import de.gwdg.metadataqa.api.schema.BaseSchema;
+
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
@@ -23,6 +28,7 @@ import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPathComponent;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl;
+import qualitypatternmodel.constrainttranslation.ConstraintTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -700,6 +706,35 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT 
+	 */
+	@Override
+	public BaseSchema generateXmlConstraintSchema() throws InvalidityException {
+		return ConstraintTranslation.translateToConstraintSchema(this);
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @generated NOT
+	 */
+	@Override
+	public void generateXmlConstraintYAMLFile(String path) throws InvalidityException, IOException {
+		String content = ConstraintTranslation.translateToConstraintString(this);
+		Files.write( Paths.get(path), content.getBytes());
+	}
+
+	@Override
+	public String generateXmlConstraintYAMLFileContent() throws InvalidityException {
+		return ConstraintTranslation.translateToConstraintString(this);
+	}
+	
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1356,6 +1391,21 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN___GENERATE_WIKIDATA_SPARQL:
 				try {
 					return generateWikidataSparql();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_SCHEMA:
+				try {
+					return generateXmlConstraintSchema();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_YAML_FILE__STRING:
+				try {
+					generateXmlConstraintYAMLFile((String)arguments.get(0));
+					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

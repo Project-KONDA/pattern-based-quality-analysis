@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<demo:data xmlns:demo="demo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="demo https://raw.githubusercontent.com/Project-KONDA/pattern-based-quality-analysis/master/qualitypatternmodel/demo.data/demo_database_schema.xsd">	
+<demo:data xmlns:demo="demo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="demo ./demo_database_schema.xsd">	
 
 	<!--  BUILDINGS -->
 	
@@ -14,6 +14,9 @@
 			<demo:city>New York City</demo:city>
 			<demo:country>USA</demo:country>
 		</demo:address>
+		<demo:source>https://en.wikipedia.org/wiki/Empire_State_Building</demo:source>
+		<demo:source>https://en.wikinotpedia.org/wiki/Empire_State_Building-invalidlink</demo:source>
+		<demo:source>https://en.wikipedia.org/wiki/Empire_State_Building</demo:source>
 	</demo:building>	
 	
 	<demo:building demo:id="102" demo:recorded="2020-11-01T09:00:00" demo:last-modified-date="2020-11-01" demo:last-modified-time="09:00:01">
@@ -26,6 +29,7 @@
 			<demo:city>New York City</demo:city>
 			<demo:country>unknown</demo:country>
 		</demo:address>
+		<demo:source>https://en.wikipedia.org/wiki/Chrysler_Building</demo:source>
 	</demo:building>
 	
 	<demo:building demo:id="103" demo:recorded="2020-11-01T09:00:00" demo:last-modified-date="2020-11-01" demo:last-modified-time="09:00:00">
@@ -38,6 +42,7 @@
 			<demo:city>unknown</demo:city>
 			<demo:country>unknown</demo:country>
 		</demo:address>
+		<demo:source>thisisnotevenalink/</demo:source>
 	</demo:building>
 	
 	<!--  PAINTINGS -->
@@ -59,6 +64,8 @@
 		<demo:creator>402</demo:creator>
 		<demo:startwork>1492</demo:startwork>
 		<demo:endwork>1498</demo:endwork>
+		<demo:source>thisisnotevenalink</demo:source>
+		<demo:source>thisisnotevenalink</demo:source>
 	</demo:painting>
 	
 	<demo:painting demo:id="204" demo:recorded="2020-10-04T10:00:00" demo:modified="true" demo:last-modified-date="2020-10-04" demo:last-modified-time="10:00:00">
@@ -67,6 +74,7 @@
 		<demo:creator>402</demo:creator>
 		<demo:startwork>1503</demo:startwork>
 		<demo:endwork>1516</demo:endwork>
+		<demo:source>https://de.wikipedia.org/wiki/Mona_Lisa</demo:source>
 	</demo:painting>
 	
 	<demo:painting demo:id="205" demo:recorded="2020-11-01T09:00:00" demo:last-modified-date="2020-11-01" demo:last-modified-time="09:00:00">
@@ -74,6 +82,7 @@
 		<demo:creator>402</demo:creator>
 		<demo:startwork>1490</demo:startwork>
 		<demo:endwork>1500</demo:endwork>
+		<demo:source>https://en.wikipedia.org/wiki/Salvator_Mundi_(Leonardo)</demo:source>
 	</demo:painting>
 	
 	<!--  ARCHITECTS -->
@@ -100,13 +109,16 @@
 		<demo:name>Vincent van Gogh</demo:name>
 		<demo:birthyear>1853</demo:birthyear>
 		<demo:deathyear>1890</demo:deathyear>		
+		<demo:source>https://invalid.link/</demo:source>
+		<demo:source>thisisnotevenalink</demo:source>
 	</demo:artist>
 	
 	<demo:artist demo:id="402">
 		<demo:name>Leonardo Da Vinci</demo:name>
 		<demo:birthyear>1452</demo:birthyear>
 		<demo:birthyear>1453</demo:birthyear>
-		<demo:deathyear>1519</demo:deathyear>		
+		<demo:deathyear>1519</demo:deathyear>
+		<demo:source>https://en.wikipedia.org/wiki/Leonardo_da_Vinci</demo:source>
 	</demo:artist>
 	
 </demo:data>

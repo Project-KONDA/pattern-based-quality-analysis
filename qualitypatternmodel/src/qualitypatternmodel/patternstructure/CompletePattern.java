@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.patternstructure;
 
+import de.gwdg.metadataqa.api.schema.BaseSchema;
+import java.io.IOException;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -379,5 +381,22 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	String generateWikidataSparql() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="qualitypatternmodel.patternstructure.BaseSchemaWrapper" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	BaseSchema generateXmlConstraintSchema() throws InvalidityException;
+
+	String generateXmlConstraintYAMLFileContent() throws InvalidityException;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
+	 * @generated
+	 */
+	void generateXmlConstraintYAMLFile(String path) throws InvalidityException, IOException;
 
 } // Pattern

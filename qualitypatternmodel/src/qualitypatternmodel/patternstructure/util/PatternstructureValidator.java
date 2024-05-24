@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure.util;
 
+import de.gwdg.metadataqa.api.schema.BaseSchema;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -137,6 +138,8 @@ public class PatternstructureValidator extends EObjectValidator {
 				return validateClassWrapper((Class)value, diagnostics, context);
 			case PatternstructurePackage.MISSING_PATTERN_CONTAINER_EXCEPTION:
 				return validateMissingPatternContainerException((MissingPatternContainerException)value, diagnostics, context);
+			case PatternstructurePackage.BASE_SCHEMA_WRAPPER:
+				return validateBaseSchemaWrapper((BaseSchema)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -479,6 +482,15 @@ public class PatternstructureValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateMissingPatternContainerException(MissingPatternContainerException missingPatternContainerException, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateBaseSchemaWrapper(BaseSchema baseSchemaWrapper, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

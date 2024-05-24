@@ -1540,14 +1540,24 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getTypeOptionParam_TypeComparisons(), theOperatorsPackage.getComparison(), theOperatorsPackage.getComparison_TypeOption(), "typeComparisons", null, 0, -1, TypeOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(keyValueParamEClass, KeyValueParam.class, "KeyValueParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getKeyValueParam_KeyValuePair(), ecorePackage.getEMap(), "keyValuePair", null, 0, 1, KeyValueParam.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getKeyValueParam_KeyValuePair(), g1, "keyValuePair", null, 0, 1, KeyValueParam.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getKeyValueParam__AddValue__String_String(), null, "addValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getKeyValueParam__SetNewMap__Map(), null, "setNewMap", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEMap(), "newKeyValueMap", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "newKeyValueMap", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(listParamEClass, ListParam.class, "ListParam", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getListParam_Values(), ecorePackage.getEString(), "values", "", 0, -1, ListParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
