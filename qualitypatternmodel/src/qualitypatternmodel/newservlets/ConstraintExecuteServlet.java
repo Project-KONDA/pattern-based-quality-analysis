@@ -22,7 +22,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
-public class TemplateExecuteServlet extends HttpServlet {
+public class ConstraintExecuteServlet extends HttpServlet {
 	
 	// .. /template/execute {"files": filename-string , "constraints": <constraint-json>}
 	
@@ -92,7 +92,7 @@ public class TemplateExecuteServlet extends HttpServlet {
 					pattern = ServletUtilities.loadConstraint(technology, constraintId);
 					pattern.isValid(AbstractionLevel.CONCRETE);
 				// 2 generate query
-					JSONObject queryJson = TemplateQueryServlet.generateQueryJson(pattern, technology);
+					JSONObject queryJson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
 					constraints.add(queryJson);
 				} catch (Exception e) {
 					failedconstraints.add(constraintId);

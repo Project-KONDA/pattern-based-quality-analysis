@@ -205,8 +205,6 @@ public class FieldNodeIdentification {
 			EList<Operator> allOps = new BasicEList<Operator>();
 	
 			for (Node n: graphnodes) {
-				if (n.getPredicates().isEmpty() && n.getGraph().getQuantifiedCondition() != null)
-					throw new InvalidityException("node without predicates");
 				allOps.addAll(n.getPredicates());
 			}
 			

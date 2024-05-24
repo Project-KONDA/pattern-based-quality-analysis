@@ -997,13 +997,13 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		if (!(isValue || isProperty))
 			throw new InvalidityException("Invalid Dangling XmlPathParam");
 		
-		if(isValue && !value.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT))
+		if(isValue && value != null && !value.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT))
 			throw new InvalidityException("Invalid XPath value '" + value + "'. It should specify an XML element.");
-		if(isProperty && !value.matches(ConstantsXml.REGEX_XMLPATH_VALUE))
+		if(isProperty && value != null && !value.matches(ConstantsXml.REGEX_XMLPATH_VALUE))
 			throw new InvalidityException("Invalid XPath value '" + value + "'. It should specify an XML property.");
 		
 //		value = value.replace("//", "/descendant::");
-		if (value == "") {
+		if (value == null || value == "") {
 			getXmlAxisParts().clear();
 			xmlPropertyOptionParam = null;
 			return;

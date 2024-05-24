@@ -1,6 +1,7 @@
 package qualitypatternmodel.newservlets.initialisation;
 
 public class XmlPatternVariants {
+	
 	static String CARD_XML_DEFAULT = 
 			"{\"template\":\"Card_xml\","
 			+ "\"language\":\"xml\","
@@ -56,6 +57,9 @@ public class XmlPatternVariants {
 				+ "{\"text\":\".\"}"
 				+ "]}";
 	
+	static String[] CARD_XML_VARIANTS = {CARD_XML_DEFAULT};
+	static String[] CARD_XML_VARIANTS_OLD = {CARD_XML_DEFAULT_OLD, CARD_XML_QUESTION_SIMPLE, CARD_XML_QUESTION};
+	
 	static String MATCH_XML_DEFAULT = 
 			"{\"template\":\"Match_xml\","
 			+ "\"language\":\"xml\","
@@ -65,10 +69,13 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"element\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\"},"
 				+ "{\"text\":\"where a\"},"
 				+ "{\"name\":\"property\",\"params\":[3],\"exampleValue\":\"Surname\",\"description\":\"value that gets analysed\"},"
-				+ "{\"name\":\"does / does not\",\"params\":[0],\"exampleValue\":\"does\"},"
+				+ "{\"name\":\"does / does not\",\"params\":[0],\"map\":{\"true\":\"does\",\"false\":\"does not\"},\"exampleValue\":\"does\"},"
 				+ "{\"text\":\"match\"},"
 				+ "{\"name\":\"a specific pattern (RegEx)\",\"params\":[1],\"exampleValue\":\"[A-Z][a-z][a-z]+\"},"
 				+ "{\"text\":\".\"}]}";
+	
+	static String[] MATCH_XML_VARIANTS = {MATCH_XML_DEFAULT};
+	static String[] MATCH_XML_VARIANTS_OLD = {};
 	
 	static String CONTAINS_XML_DEFAULT = 
 			"{\"template\":\"Contains_xml\","
@@ -79,10 +86,13 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"element\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\"},"
 				+ "{\"text\":\"where at least one\"},"
 				+ "{\"name\":\"property\",\"params\":[3],\"exampleValue\":\"Education\",\"description\":\"analysed property\"},"
-				+ "{\"name\":\"does / does not\",\"params\":[0],\"exampleValue\":\"does\"},"
+				+ "{\"name\":\"does / does not\",\"params\":[0],\"map\":{\"true\":\"does\",\"false\":\"does not\"},\"exampleValue\":\"does\"},"
 				+ "{\"text\":\"contain\"},"
 				+ "{\"name\":\"a specific term\",\"params\":[1],\"exampleValue\":\"Master of\"},"
 				+ "{\"text\":\".\"}]}";
+	
+	static String[] CONTAINS_XML_VARIANTS = {CONTAINS_XML_DEFAULT};
+	static String[] CONTAINS_XML_VARIANTS_OLD = {};
 	
 	static String STRINGLENGTH_XML_DEFAULT = 
 			"{\"template\":\"StringLength_xml\","
@@ -111,6 +121,9 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"compared to\",\"params\":[0],\"exampleValue\":\"less than\",\"comparisonOperatorValueMap\":\"true\"},"
 				+ "{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":\"10\"},"
 				+ "{\"text\":\".\"}]}";
+	
+	static String[] STRINGLENGTH_XML_VARIANTS = {STRINGLENGTH_XML_DEFAULT};
+	static String[] STRINGLENGTH_XML_VARIANTS_OLD = {STRINGLENGTH_XML_DEFAULT_OLD};
 
 	static String COMPSET_XML_DEFAULT = 
 			"{\"template\":\"CompSet_xml\","
@@ -139,6 +152,9 @@ public class XmlPatternVariants {
 				+ "{\"text\":\"in the list:\"},"
 				+ "{\"name\":\"terms\",\"params\":[0],\"exampleValue\": \"Mueller, Meier\"}]}";
 
+	static String[] COMPSET_XML_VARIANTS = {COMPSET_XML_DEFAULT};
+	static String[] COMPSET_XML_VARIANTS_OLD = {COMPSET_XML_DEFAULT_OLD};
+	
 	static String UNIQUE_XML_DEFAULT = 
 			"{\"template\":\"Unique_xml\","
 			+ "\"language\":\"xml\","
@@ -161,6 +177,9 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"property\",\"params\":[3,4],\"exampleValue\":\"Identifier (Value)\",\"description\":\"value that gets analysed\"},"
 				+ "{\"text\":\"is not unique within the data set.\"}]}";
 
+	static String[] UNIQUE_XML_VARIANTS = {UNIQUE_XML_DEFAULT};
+	static String[] UNIQUE_XML_VARIANTS_OLD = {UNIQUE_XML_DEFAULT_OLD};
+	
 	static String MANDATT_XML_DEFAULT = 
 			"{\"template\":\"MandAtt_xml\","
 			+ "\"language\":\"xml\","
@@ -171,6 +190,9 @@ public class XmlPatternVariants {
 				+ "{\"text\":\"without a\"},"
 				+ "{\"name\":\"child element\",\"params\":[1],\"exampleValue\":\"Birthdate\",\"description\":\"value that gets analysed\"},"
 				+ "{\"text\":\".\"}]}";
+
+	static String[] MANDATT_XML_VARIANTS = {MANDATT_XML_DEFAULT};
+	static String[] MANDATT_XML_VARIANTS_OLD = {};
 	
 	static String INVALIDLINK_XML_DEFAULT = 
 			"{\"template\":\"InvalidLink_xml\","
@@ -195,4 +217,7 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"property\",\"params\":[2],\"exampleValue\":\"Birth Certificate Source\",\"description\":\"property of interest,that should contain a valid link.\"},"
 				+ "{\"name\":\"is / is not\",\"params\":[0],\"map\":{\"true\":\"is\",\"false\":\"is not\"},\"exampleValue\":\"is\",\"description\":\"Do you search for elements that contain a valid link (‘is’) or invalid links (‘is not’)?\"},"
 				+ "{\"text\":\"valid?\"}]}";
+	
+	static String[] INVALIDLINK_XML_VARIANTS = {INVALIDLINK_XML_DEFAULT};
+	static String[] INVALIDLINK_XML_VARIANTS_OLD = {INVALIDLINK_XML_QUESTION};
 }

@@ -15,12 +15,11 @@ import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
-import qualitypatternmodel.newservlets.TemplateDeleteServlet;
-import qualitypatternmodel.newservlets.TemplateGetServlet;
-import qualitypatternmodel.newservlets.TemplateInitialisationServlet;
+import qualitypatternmodel.newservlets.ConstraintServlet;
+import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
-import qualitypatternmodel.newservlets.TemplateMqafConstraintServlet;
-import qualitypatternmodel.newservlets.TemplateQueryServlet;
+import qualitypatternmodel.newservlets.ConstraintMqafServlet;
+import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 
 public class InstantiationTest {
 
@@ -48,7 +47,7 @@ public class InstantiationTest {
         		"/xml/InvalidLink_xml/default",
         		"/xml/InvalidLink_xml/default_question");
         ArrayList<String> patternIDs = new ArrayList<String>();
-		TemplateInitialisationServlet.initialisation(context);
+		InitialisationServlet.initialisation(context);
 
 		for (String inst: listInstantiate){
 			JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut(inst, parameterMap));
@@ -59,27 +58,27 @@ public class InstantiationTest {
 		
 		System.out.println();
 		for (String get: patternIDs){
-			System.out.println(TemplateGetServlet.applyGet("/xml/" + get, parameterMap));
+			System.out.println(ConstraintServlet.applyGet("/xml/" + get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 		
 		System.out.println();
 		for (String get: patternIDs){
-			System.out.println(TemplateQueryServlet.applyGet3("/xml/" + get, parameterMap));
+			System.out.println(ConstraintQueryServlet.applyGet3("/xml/" + get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 		
 		System.out.println();
 		for (String get: patternIDs){
 			System.out.println(get);
-			System.out.println("  " + TemplateMqafConstraintServlet.applyGet3("/xml/" + get, parameterMap));
+			System.out.println("  " + ConstraintMqafServlet.applyGet3("/xml/" + get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 		
 		System.out.println();
 		List<String> delete = new ArrayList<String>(patternIDs);
 		for (String del: delete) {
-			TemplateDeleteServlet.applyDelete("/xml/" + del, parameterMap);
+			ConstraintServlet.applyDelete("/xml/" + del, parameterMap);
 			patternIDs.remove(del);
 		}
 		
