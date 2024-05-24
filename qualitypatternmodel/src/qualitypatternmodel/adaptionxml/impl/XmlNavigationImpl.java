@@ -194,7 +194,128 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		return query;
 	}
 
-	private String generateNextXQueryVariable() throws InvalidityException {
+	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		if(getGraph() == null) {
+			throw new InvalidityException("container Graph null");
+		}
+		EList<String> vars = ((XmlNode) getTarget()).getVariables();
+		String variable = vars.size() == 0? generateNextXQueryVariable() : vars.get(vars.size()-1);
+		
+		// Basic Translation via xmlPathParam
+		String xPathExpression = "";
+		if (xmlPathParam != null) {
+			String sourcevariable = getSourceVariable();
+			if (!(getSource() instanceof XmlRoot) && sourcevariable == "") {
+				throw new InvalidityException("SourceVariable in Relation [" + getInternalId() + "] from Element [" + getSource().getInternalId() + "] is empty");
+			}
+			xPathExpression = sourcevariable + xmlPathParam.generateXQuery();
+		} else 
+			throw new InvalidityException("option null");
+		
+		// setTranslated
+		
+		if(getTarget() instanceof XmlElement) {
+			XmlElement element = (XmlElement) getTarget();
+			element.setTranslated(true);
+		} else if(getTarget() instanceof XmlProperty) {
+			XmlProperty property = (XmlProperty) getTarget();
+			property.setTranslated(true);
+		} else {
+			throw new InvalidityException("target of relation not XmlNode");
+		}
+		
+		// Predicate
+		String xPredicates = "";
+		if(getTarget() instanceof XmlNode) {
+			XmlNode targetElement = (XmlNode) getTarget();
+			xPredicates = targetElement.translatePredicates();
+		} else {
+			throw new InvalidityException("target of relation not XmlNode");
+		}
+		
+		// Structure Translation (For, Some, Every)
+		String query = FOR + variable + IN; 			
+		if(getTarget() instanceof XmlNode) {
+			XmlNode node = (XmlNode) getTarget();
+			xPredicates += node.translateMultipleIncoming();
+		}
+		query += xPathExpression + xPredicates;
+
+		translated = true;
+		
+		String target = getTarget().generateXQuery();
+		query += target;
+		
+		if (xPredicates == "" && xPathExpression == "" && target == "") {
+			return "";
+		}
+		return query;
+	}
+	
+	@Override
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		if(getGraph() == null) {
+			throw new InvalidityException("container Graph null");
+		}
+		EList<String> vars = ((XmlNode) getTarget()).getVariables();
+		String variable = vars.size() == 0? generateNextXQueryVariable() : vars.get(vars.size()-1);
+		
+		// Basic Translation via xmlPathParam
+		String xPathExpression = "";
+		if (xmlPathParam != null) {
+			String sourcevariable = getSourceVariable();
+			if (!(getSource() instanceof XmlRoot) && sourcevariable == "") {
+				throw new InvalidityException("SourceVariable in Relation [" + getInternalId() + "] from Element [" + getSource().getInternalId() + "] is empty");
+			}
+			xPathExpression = sourcevariable + xmlPathParam.generateXQuery();
+		} else 
+			throw new InvalidityException("option null");
+		
+		// setTranslated
+		
+		if(getTarget() instanceof XmlElement) {
+			XmlElement element = (XmlElement) getTarget();
+			element.setTranslated(true);
+		} else if(getTarget() instanceof XmlProperty) {
+			XmlProperty property = (XmlProperty) getTarget();
+			property.setTranslated(true);
+		} else {
+			throw new InvalidityException("target of relation not XmlNode");
+		}
+		
+		// Predicate
+		String xPredicates = "";
+		if(getTarget() instanceof XmlNode) {
+			XmlNode targetElement = (XmlNode) getTarget();
+			xPredicates = targetElement.translatePredicates();
+		} else {
+			throw new InvalidityException("target of relation not XmlNode");
+		}
+		
+		// Structure Translation (For, Some, Every)
+		String query = FOR + variable + IN; 			
+		if(getTarget() instanceof XmlNode) {
+			XmlNode node = (XmlNode) getTarget();
+			xPredicates += node.translateMultipleIncoming();
+		}
+		query += xPathExpression + xPredicates;
+
+		translated = true;
+		
+		String target = getTarget().generateXQuery();
+		query += target;
+		
+		if (xPredicates == "" && xPathExpression == "" && target == "") {
+			return "";
+		}
+		if (query.startsWith("\n"))
+			query = query.substring(1);
+//		return "  " + query + "\n  return (";
+		return query;
+	}
+
+	protected String generateNextXQueryVariable() throws InvalidityException {
 		String variable = VARIABLE + getInternalId() + "_" + getVariableCounter();
 		setVariableCounter(getVariableCounter()+1);
 
@@ -425,6 +546,12 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	@Override
 	public int getVariableCounter() {
 		return variableCounter;
+	}
+	
+	@Override
+	public void initializeTranslation() {
+		super.initializeTranslation();
+		setVariableCounter(VARIABLE_COUNTER_EDEFAULT);
 	}
 
 	/**

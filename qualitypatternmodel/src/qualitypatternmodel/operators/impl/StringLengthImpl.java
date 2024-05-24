@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.operators.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -179,17 +178,14 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 			if(getOption() == null) {
 				ComparisonOptionParam op = new ComparisonOptionParamImpl();				
 				setOption(op);
-			} else {
-				parameterList.add(getOption());
 			}
+			parameterList.add(getOption());
 			if(getNumber() == null) {
 				NumberParam numb = new NumberParamImpl();				
 				setNumber(numb);
-			} else {
-				parameterList.add(getNumber());
 			}
+			parameterList.add(getNumber());
 		}
-		
 	}	
 	
 	/**
@@ -576,20 +572,6 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 		return super.eIsSet(featureID);
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case OperatorsPackage.STRING_LENGTH___GET_ELEMENT:
-				return getElement();
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
 	@Override
 	public String myToString() {
 		String res = "LENGTH (" + getInternalId() + ") [";

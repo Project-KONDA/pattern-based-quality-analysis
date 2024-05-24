@@ -4,9 +4,17 @@ package qualitypatternmodel.patternstructure.impl;
 
 import static qualitypatternmodel.utility.Constants.RETURN;
 import static qualitypatternmodel.utility.Constants.WHERE;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.INTERIM;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.RETURNSTART;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.RETURNEND;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.CONDITIONSTART;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.CONDITIONEND;
+
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -27,6 +35,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
@@ -39,6 +48,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -169,12 +179,21 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		
 		String forClauses = graph.generateXQuery();
 		
-		String whereClause = "";
+		String whereClause = "\n";
 		if (!(condition instanceof TrueElement)) {
 			String condQuery = condition.generateXQuery().replace("\n", "\n  ");
 			whereClause = WHERE + condQuery;
 		}
 
+		String returnClause = generateXQueryReturnClause();
+		
+		String query = forClauses + whereClause + returnClause;
+		setXmlQuery(query);
+		setPartialXmlQuery(forClauses + returnClause);		
+		return query;
+	}
+	
+	private String generateXQueryReturnClause() throws InvalidityException {
 		String returnClause = "";
 		EList<Node> returnElements = graph.getReturnNodes();
 		if (returnElements.isEmpty())
@@ -182,7 +201,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		for (int i = 0; i < returnElements.size(); i++) {
 			if (i != 0)
 				returnClause += ", ";
-			XmlNode r = ((XmlNode) returnElements.get(i)); 
+			XmlNode r = ((XmlNode) returnElements.get(i));
 			if (r.getVariables() == null || r.getVariables().isEmpty()) {
 				throw new InvalidityException("There was no associated variable generated to the return node");
 			}
@@ -191,13 +210,70 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 		if (returnElements.size()>1)
 			returnClause = "(" + returnClause + ")";
-		returnClause = RETURN + returnClause;	
+		return RETURN + returnClause;	
+	}
+	
+	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		if (!containsJavaOperator())
+			return generateXQuery();
 		
+		String forClauses = graph.generateXQuery();
+		if (graph.containsJavaOperator())
+			throw new UnsupportedOperationException("Java Operator in Return Graph");
 		
+		String whereClause = "\n";
+		if (!(condition instanceof TrueElement)) {
+			String condQuery = condition.generateXQueryJava();
+			if (!condQuery.equals("(true())") && !condQuery.equals("")) {
+				condQuery = condQuery.replace("\n", "\n  ");
+				whereClause = WHERE + condQuery;
+			}
+		}
+		
+		String returnClause = generateXQueryJavaReturn();
+
 		String query = forClauses + whereClause + returnClause;
+//		String query = forClauses + "\n" + returnClause;
 		setXmlQuery(query);
-		setPartialXmlQuery(forClauses + returnClause);		
-		return query;
+		setPartialXmlQuery(forClauses + "\n" + generateXQueryReturnClause());		
+		return query;	
+	}
+
+	@Override
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		if (!containsJavaOperator())
+			return null;
+		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
+			throw new InvalidityException("return elements missing in " + getClass().getSimpleName() + " [" + getInternalId() + "]");
+		}
+		
+		EList<Node> returnElements = graph.getReturnNodes();
+		if (returnElements.isEmpty())
+			throw new InvalidityException("no return nodes in return graph");
+		
+		List<String> nodes = new ArrayList<String>();
+		for (Node node: returnElements) {
+			XmlNode xmlnode = ((XmlNode) node);
+			nodes.add(xmlnode.getVariables().get(0)); //  VARIABLE + ((Node) xmlnode).getInternalId() + "_0");
+		}
+		
+		String graphString = getGraph().generateXQueryJavaReturn();
+		String conditionString = getCondition().generateXQueryJavaReturn();
+		
+		String resultString = getResultString(nodes, graphString, conditionString); 
+		return resultString;
+	}
+	
+	private String getResultString(List<String> nodes, String graphString, String conditionString){
+		List<String> resultList = new ArrayList<String>();
+		resultList.add(RETURNSTART);
+		resultList.addAll(nodes);
+		if (!graphString.equals("()"))
+			resultList.addAll(List.of(RETURNEND, CONDITIONSTART, graphString, conditionString, CONDITIONEND));
+		else 
+			resultList.addAll(List.of(RETURNEND, CONDITIONSTART, conditionString, CONDITIONEND));
+		return JavaQueryTranslationUtility.getXQueryReturnList(resultList, INTERIM, true, true, false); 
 	}
 	
 	@Override
@@ -205,7 +281,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException("return elements missing");
 		}
-		
 		String query = "";
 		query += graph.generateSparql();
 		query += condition.generateSparql();
@@ -464,6 +539,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		getCondition().recordValues(database);
 	}
 	
+	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> parameters = graph.getAllParameters();
 		if (condition != null)
@@ -471,6 +547,14 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		return parameters;
 	}
 
+	@Override
+	public EList<Operator> getAllOperators() throws InvalidityException {
+		EList<Operator> operators = graph.getAllOperators();
+		if (condition != null)
+			return condition.getAllOperators();
+		return operators;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

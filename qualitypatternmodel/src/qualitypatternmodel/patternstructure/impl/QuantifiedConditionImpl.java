@@ -2,8 +2,16 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+//import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIED;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIEDSTART;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIEDEND;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIER;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIERSTART;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIEREND;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -26,6 +34,12 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
+import qualitypatternmodel.javaquery.BooleanFilterPart;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.impl.BooleanFilterElementImpl;
+import qualitypatternmodel.javaquery.impl.ListFilterPartImpl;
+import qualitypatternmodel.javaquery.impl.QuantifierFilterPartImpl;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
@@ -40,7 +54,9 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -126,6 +142,48 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		setCondition(new TrueElementImpl());
 	}
 
+	
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		if (containsJavaOperator()) {
+			EList<BooleanFilterPart> subfilter = new BasicEList<BooleanFilterPart>();
+			Boolean graph = getGraph().containsJavaOperator();
+			Boolean condition = getCondition().containsJavaOperator();
+			
+			if (graph) {
+				List<BooleanFilterPart> graphFilter = ((GraphImpl) getGraph()).generateQueryFilterParts();
+				for (BooleanFilterPart filter: graphFilter)
+					subfilter.add(new ListFilterPartImpl(getQuantifier(), filter));
+				
+			}
+
+			if (condition) {
+				BooleanFilterPart conditionFilter = (BooleanFilterPart) getCondition().generateQueryFilterPart();
+				subfilter.add(new ListFilterPartImpl(getQuantifier(), conditionFilter));
+				
+			}
+//			if (graph && condition) {
+//				subfilter = new FormulaFilterPartImpl(
+//					LogicalOperator.AND,
+//					(BooleanFilterPart) getGraph().generateQueryFilterPart(),
+//					(BooleanFilterPart) getCondition().generateQueryFilterPart());
+//			} else if (graph) {
+//				subfilter = (BooleanFilterPart) getGraph().generateQueryFilterPart();
+//				if (subfilter instanceof FormulaFilterPartImpl) {
+//					FormulaFilterPartImpl formula = (FormulaFilterPartImpl) subfilter;
+//					formula.addQuantifiersToArguments(getQuantifier());
+//					return formula;
+//				}
+//			} else 
+//				subfilter = (BooleanFilterPart) getCondition().generateQueryFilterPart();
+//			return new ListFilterPartImpl(getQuantifier(), subfilter);
+			
+
+			return new QuantifierFilterPartImpl(subfilter);
+		}
+		return new BooleanFilterElementImpl();
+	}
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		String result;
@@ -136,8 +194,84 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 		result += "(" + condition.generateXQuery() + ")";
 		return result;
-
 	}
+	
+	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		String result;
+		if (quantifier == Quantifier.EXISTS || quantifier == Quantifier.FORALL) {
+			result = graph.generateXQueryJava();
+		} else {
+			throw new InvalidityException("invalid quantifier");
+		}
+		result += "(" + condition.generateXQueryJava() + ")";
+		return result;
+	}
+	
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		Boolean graphJava = getGraph().containsJavaOperator();
+		Boolean conditionJava = getCondition().containsJavaOperator();
+		if (!graphJava && !conditionJava)
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(generateXQuery()), QUANTIFIER, false, false, false);
+		
+		String graphString = graphJava? getGraph().generateXQueryJavaReturn(): "";
+		String conditionPath = conditionJava? ((GraphImpl) getGraph()).generateXQueryJavaReturnCondition(): "";
+		String conditionString = conditionJava? QUANTIFIEDSTART + ",\n  " + getCondition().generateXQueryJavaReturn() + ",\n  " + QUANTIFIEDEND : "";
+		
+		String result = "";
+		if (graphJava)
+			result += graphString;
+		if (graphJava && conditionJava)
+			result += ",\n";
+		if (conditionJava)
+			result += Constants.addMissingBrackets(conditionPath + conditionString);
+
+//		System.out.println("CONDITIONSTRING:::\n" + conditionString + "\n:::: CONDITIONSTRINGEND");
+		
+		result = QUANTIFIERSTART + ",\n  " + result + ",\n  " + QUANTIFIEREND;
+
+		return result;
+	}
+		
+//		else if (!graphJava)
+//			result = JavaQueryTranslationUtility.getXQueryReturnList(List.of(conditionString), QUANTIFIED);
+//		else if (!conditionJava)
+//			result = JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString), QUANTIFIER, false, false, false);
+//		else {
+////			result = JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString + conditionString), QUANTIFIED, false, true, false);
+//			result = QUANTIFIERSTART + ",\n  ";
+//			result += "(\n  " + graphString;
+//			result += conditionString + "),\n  ";
+//			result += QUANTIFIEREND;
+//			result = Constants.addMissingBrackets(result);
+//		}
+//		return result;
+//	}
+	
+	// OLD:
+//	public String generateXQueryJavaReturn() throws InvalidityException {
+//		Boolean graphJava = getGraph().containsJavaOperator();
+//		Boolean conditionJava = getCondition().containsJavaOperator();
+//		String graphString = getGraph().generateXQueryJavaReturn();
+//		String conditionString = QUANTIFIEDSTART + ",\n  " + getCondition().generateXQueryJavaReturn() + ",\n  " + QUANTIFIEDEND;
+//		
+//		String result = "";
+//		if (!graphJava && !conditionJava)
+//			result = JavaQueryTranslationUtility.getXQueryReturnList(List.of(generateXQuery()), QUANTIFIER, false, false, false);
+////		else if (!graphJava)
+////			result = JavaQueryTranslationUtility.getXQueryReturnList(List.of(conditionString), QUANTIFIED);
+//		else if (!conditionJava)
+//			result = JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString), QUANTIFIER, false, false, false);
+//		else {
+////			result = JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString + conditionString), QUANTIFIED, false, true, false);
+//			result = QUANTIFIERSTART + ",\n  ";
+//			result += "(\n  " + graphString;
+//			result += conditionString + "),\n  ";
+//			result += QUANTIFIEREND;
+//			result = Constants.addMissingBrackets(result);
+//		}
+//		return result;
+//	}
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
@@ -324,6 +458,15 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			parameters.addAll(condition.getAllParameters());
 		}
 		return parameters;
+	}
+
+	@Override
+	public EList<Operator> getAllOperators() throws InvalidityException {
+		EList<Operator> operators = graph.getAllOperators();
+		if (condition != null) {
+			operators.addAll(condition.getAllOperators());
+		}
+		return operators;
 	}
 
 	@Override
@@ -1108,9 +1251,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * Since the lists contains the actual node different possible possible methods, depending on the type of the Node, can be accessed
 	 * It has the advantage that the method works with references instead of creating new Objects or simple returning a String-Value. 
 	 * <b>Attention<\b> <i> No node will be return which has been handled in a previews Condition <\i>.
+	 * @throws InvalidityException 
 	 */
 	private final void getAllNeoPropertiesToAddress(final EList<NeoPropertyEdge> neoPropertyEdges,
-			final EList<NeoPropertyEdge> neoVarPropertyEdges, final Set<NeoPropertyNode> uniqueNeoPropertyNodes) {
+			final EList<NeoPropertyEdge> neoVarPropertyEdges, final Set<NeoPropertyNode> uniqueNeoPropertyNodes) throws InvalidityException {
 		NeoPropertyEdge neoPropertyEdge = null;
 		for (Relation r : getGraph().getRelations()) {
 			if (r instanceof NeoPropertyEdge) {
@@ -1263,8 +1407,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * @return boolean.class
 	 * This method checks if an implicit exists check is already happening.
 	 * An implicit exists happens if an operator is specified or more then one edge goes into a NeoPropertyNode.
+	 * @throws InvalidityException 
 	 */
-	private final boolean isImplicitlyExitsChecked(final NeoPropertyEdge originalNeoPropertyEdge) {
+	private final boolean isImplicitlyExitsChecked(final NeoPropertyEdge originalNeoPropertyEdge) throws InvalidityException {
 		return originalNeoPropertyEdge.getTarget().getIncoming().size() != 1 || originalNeoPropertyEdge.getTarget().getAllOperators().size() != 0;
 	}
 	//END - Methods for Where-Clause

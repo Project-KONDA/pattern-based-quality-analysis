@@ -11,12 +11,6 @@ import qualitypatternmodel.operators.OperatorsFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Contains</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link qualitypatternmodel.operators.Contains#getElement() <em>Get Element</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public class ContainsTest extends BooleanOperatorTest {
@@ -71,19 +65,6 @@ public class ContainsTest extends BooleanOperatorTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.operators.Contains#getElement() <em>Get Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.operators.Contains#getElement()
-	 * @generated
-	 */
-	public void testGetElement() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 } //ContainsTest

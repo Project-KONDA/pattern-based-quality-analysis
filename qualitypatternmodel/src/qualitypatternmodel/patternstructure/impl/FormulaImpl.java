@@ -2,7 +2,10 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
-import static qualitypatternmodel.utility.Constants.*;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.FORMULA;
+import static qualitypatternmodel.utility.Constants.addMissingBrackets;
+
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -17,6 +20,11 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.javaquery.BooleanFilterPart;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.impl.BooleanFilterElementImpl;
+import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
@@ -27,6 +35,7 @@ import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -120,14 +129,32 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		if (!containsJavaOperator())
+			return new BooleanFilterElementImpl();
+		
+		
+//		Boolean c1 = getCondition1().containsJavaOperator();
+//		Boolean c2 = getCondition2().containsJavaOperator();
+//		Boolean isAnd = (getOperator() == LogicalOperator.AND);
+
+//		if (isAnd && c1 && !c2) 
+//			return (BooleanFilterPart) getCondition1().generateQueryFilterPart();
+//		if (isAnd && !c1 && c2)
+//			return (BooleanFilterPart) getCondition2().generateQueryFilterPart();
+		
+		BooleanFilterPart qfp1 = (BooleanFilterPart) getCondition1().generateQueryFilterPart();
+		BooleanFilterPart qfp2 = (BooleanFilterPart) getCondition2().generateQueryFilterPart();
+		return new FormulaFilterPartImpl(getOperator(), qfp1, qfp2);
+	}
+
+	@Override
 	public String generateXQuery() throws InvalidityException {
 		String result = "";
 		if (operator != null) {
 			if (condition1 != null && condition2 != null) {
-				
 				String condition1Query = condition1.generateXQuery();
 				String condition2Query = condition2.generateXQuery();
-				
 				switch (operator) {
 				case AND:
 				case OR:
@@ -153,17 +180,42 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				default:
 					throw new InvalidityException("invalid arguments");
 				}
-				
 			} else {
 				throw new InvalidityException("invalid arguments");
 			}
-			
 			return addMissingBrackets(result);
-					
 		} else {
 			throw new InvalidityException("operator null");
 		}
+	}
+	
+	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		return "";
+	}
+	
+	@Override
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		Boolean cond1Java = getCondition1().containsJavaOperator();
+		Boolean cond2Java = getCondition2().containsJavaOperator();
+
+		String cond1String = cond1Java? 
+				getCondition1().generateXQueryJavaReturn()
+				: "\"<boolean>\",\n  (" 
+				+ getCondition1().generateXQuery().indent(2) 
+				+ "  ),\n  \"</boolean>\"";
+		String cond2String = cond2Java? getCondition2().generateXQueryJavaReturn()
+				: "\"<boolean>\",\n  (" + getCondition2().generateXQuery().indent(2) + "  ),\n  \"</boolean>\"";
 		
+		
+		if (!cond1Java && !cond2Java)
+			return generateXQuery();
+//		else if (!cond1Java)
+//			return cond2String;
+//		else if (!cond2Java)
+//			return cond1String;
+		else 
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(cond1String, cond2String), FORMULA, false, false, false);
 	}
 	
 	@Override
@@ -198,13 +250,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				default:
 					throw new InvalidityException("invalid arguments");
 				}
-				
 			} else {
 				throw new InvalidityException("invalid arguments");
 			}
-			
 			return addMissingBrackets(result);
-			
 		} else {
 			throw new InvalidityException("operator null");
 		}
@@ -382,6 +431,16 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 			parameters.addAll(condition2.getAllParameters());
 		}	
 		return parameters;
+	}
+
+	@Override
+	public EList<Operator> getAllOperators() throws InvalidityException {
+		EList<Operator> operators = new BasicEList<Operator>();
+		operators.addAll(condition1.getAllOperators());
+		if(condition2 != null) {
+			operators.addAll(condition2.getAllOperators());
+		}	
+		return operators;
 	}
 
 	@Override

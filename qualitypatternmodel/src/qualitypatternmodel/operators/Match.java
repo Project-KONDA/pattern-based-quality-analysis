@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.operators;
 
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -74,15 +73,6 @@ public interface Match extends BooleanOperator {
 	 * @generated
 	 */
 	void setRegularExpression(TextLiteralParam value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns the <code>Element</code> that contains the <code>property</code> that is matched against the regular expression.
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	Node getElement();
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.

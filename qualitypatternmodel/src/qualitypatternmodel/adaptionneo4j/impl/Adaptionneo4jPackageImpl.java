@@ -50,10 +50,15 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
 
+import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
+import qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl;
+import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl;
+import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl;
 import qualitypatternmodel.operators.OperatorsPackage;
 
 import qualitypatternmodel.operators.impl.OperatorsPackageImpl;
-
 import qualitypatternmodel.parameters.ParametersPackage;
 
 import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
@@ -269,6 +274,12 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		TextrepresentationPackageImpl theTextrepresentationPackage = (TextrepresentationPackageImpl)(registeredPackage instanceof TextrepresentationPackageImpl ? registeredPackage : TextrepresentationPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdaptionrdfPackage.eNS_URI);
 		AdaptionrdfPackageImpl theAdaptionrdfPackage = (AdaptionrdfPackageImpl)(registeredPackage instanceof AdaptionrdfPackageImpl ? registeredPackage : AdaptionrdfPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(JavaoperatorsPackage.eNS_URI);
+		JavaoperatorsPackageImpl theJavaoperatorsPackage = (JavaoperatorsPackageImpl)(registeredPackage instanceof JavaoperatorsPackageImpl ? registeredPackage : JavaoperatorsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(JavaqueryPackage.eNS_URI);
+		JavaqueryPackageImpl theJavaqueryPackage = (JavaqueryPackageImpl)(registeredPackage instanceof JavaqueryPackageImpl ? registeredPackage : JavaqueryPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(JavaqueryoutputPackage.eNS_URI);
+		JavaqueryoutputPackageImpl theJavaqueryoutputPackage = (JavaqueryoutputPackageImpl)(registeredPackage instanceof JavaqueryoutputPackageImpl ? registeredPackage : JavaqueryoutputPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAdaptionneo4jPackage.createPackageContents();
@@ -280,6 +291,9 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		theExecutionPackage.createPackageContents();
 		theTextrepresentationPackage.createPackageContents();
 		theAdaptionrdfPackage.createPackageContents();
+		theJavaoperatorsPackage.createPackageContents();
+		theJavaqueryPackage.createPackageContents();
+		theJavaqueryoutputPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAdaptionneo4jPackage.initializePackageContents();
@@ -291,6 +305,9 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		theExecutionPackage.initializePackageContents();
 		theTextrepresentationPackage.initializePackageContents();
 		theAdaptionrdfPackage.initializePackageContents();
+		theJavaoperatorsPackage.initializePackageContents();
+		theJavaqueryPackage.initializePackageContents();
+		theJavaqueryoutputPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAdaptionneo4jPackage.freeze();

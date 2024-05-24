@@ -11,6 +11,8 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -173,6 +175,14 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	EList<Operator> getAllOperators() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Recursively replaces <code>this</code> and its contents by their XML-specific equivalent.
 	 * 
 	 * An instance of the corresponding XML-specific subclass in the <code>package</code> <code>adaptionxml</code> is created.
@@ -202,6 +212,38 @@ public interface PatternElement extends EObject {
 	 * @generated
 	 */
 	PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	Boolean containsJavaOperator() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	JavaFilterPart generateQueryFilterPart() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String generateXQueryJavaReturn() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String generateXQueryJava() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

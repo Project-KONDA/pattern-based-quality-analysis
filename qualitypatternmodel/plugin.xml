@@ -78,4 +78,28 @@
             genModel="model/qualitypatternmodel.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated qualitypatternmodel -->
+      <package
+            uri="javaoperators"
+            class="qualitypatternmodel.javaoperators.JavaoperatorsPackage"
+            genModel="model/qualitypatternmodel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated qualitypatternmodel -->
+      <package
+            uri="javaquery"
+            class="qualitypatternmodel.javaquery.JavaqueryPackage"
+            genModel="model/qualitypatternmodel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated qualitypatternmodel -->
+      <package
+            uri="javaqueryoutput"
+            class="qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage"
+            genModel="model/qualitypatternmodel.genmodel"/>
+   </extension>
+
 </plugin>

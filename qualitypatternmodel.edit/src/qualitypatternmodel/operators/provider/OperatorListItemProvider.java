@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import qualitypatternmodel.javaoperators.JavaoperatorsFactory;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsFactory;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -166,6 +167,11 @@ public class OperatorListItemProvider extends PatternElementItemProvider {
 			(createChildParameter
 				(OperatorsPackage.Literals.OPERATOR_LIST__OPERATORS,
 				 OperatorsFactory.eINSTANCE.createStringLength()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OperatorsPackage.Literals.OPERATOR_LIST__OPERATORS,
+				 JavaoperatorsFactory.eINSTANCE.createValidateLinkOperator()));
 	}
 
 	/**

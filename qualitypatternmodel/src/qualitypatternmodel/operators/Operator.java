@@ -54,17 +54,6 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns a list containing <code>this</code>.
-	 * 
-	 * @return a list containing <code>this</code>.
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<Operator> getAllOperators();
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * Returns true if <code>this</code> is valid.
 	 * 
 	 * @return true if <code>this</code> is valid

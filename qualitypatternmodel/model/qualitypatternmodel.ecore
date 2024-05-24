@@ -77,6 +77,8 @@
           eType="#//operators/Contains" eOpposite="#//operators/Contains/option"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nullCheck" upperBound="-1"
           eType="#//operators/NullCheck" eOpposite="#//operators/NullCheck/option"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="oneArgJavaOperator" upperBound="-1"
+          eType="#//javaoperators/OneArgJavaOperator" eOpposite="#//javaoperators/OneArgJavaOperator/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TextListParam" eSuperTypes="#//parameters/ListParam"/>
     <eClassifiers xsi:type="ecore:EClass" name="TextLiteralParam" eSuperTypes="#//parameters/ParameterValue">
@@ -226,6 +228,7 @@
       <eOperations name="removeElement">
         <eParameters name="element" eType="#//graphstructure/Node"/>
       </eOperations>
+      <eOperations name="getElement" eType="#//graphstructure/Node"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
           eType="#//graphstructure/Node" eOpposite="#//graphstructure/Node/predicates"/>
     </eClassifiers>
@@ -239,7 +242,6 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"/>
       <eOperations name="getArguments" upperBound="-1" eType="#//graphstructure/Comparable"/>
       <eOperations name="getRootBooleanOperators" upperBound="-1" eType="#//operators/BooleanOperator"/>
       <eOperations name="isCycleFree" eExceptions="#//operators/OperatorCycleExceptionWrapper"/>
@@ -251,7 +253,6 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberOperator" abstract="true" eSuperTypes="#//operators/Operator"/>
     <eClassifiers xsi:type="ecore:EClass" name="Match" eSuperTypes="#//operators/BooleanOperator">
-      <eOperations name="getElement" eType="#//graphstructure/Node"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
           eOpposite="#//graphstructure/PrimitiveNode/match"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
@@ -261,7 +262,6 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//operators/BooleanOperator">
       <eOperations name="isPrimitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eOperations name="getElement" eType="#//graphstructure/Node"/>
       <eOperations name="copy" eType="#//operators/Comparison"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" eType="#//graphstructure/Comparable"
           eOpposite="#//graphstructure/Comparable/comparison1"/>
@@ -292,7 +292,6 @@
     <eClassifiers xsi:type="ecore:EDataType" name="OperatorCycleExceptionWrapper"
         instanceClassName="qualitypatternmodel.exceptions.OperatorCycleException"/>
     <eClassifiers xsi:type="ecore:EClass" name="Contains" eSuperTypes="#//operators/BooleanOperator">
-      <eOperations name="getElement" eType="#//graphstructure/Node"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
           eOpposite="#//graphstructure/PrimitiveNode/contains"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
@@ -301,14 +300,12 @@
           eType="#//parameters/TextLiteralParam" eOpposite="#//parameters/TextLiteralParam/contains"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NullCheck" eSuperTypes="#//operators/BooleanOperator">
-      <eOperations name="getElement" eType="#//graphstructure/Node"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
           eOpposite="#//graphstructure/PrimitiveNode/nullCheck"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/BooleanParam"
           eOpposite="#//parameters/BooleanParam/nullCheck"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StringLength" eSuperTypes="#//operators/BooleanOperator">
-      <eOperations name="getElement" eType="#//graphstructure/Node"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
           eOpposite="#//graphstructure/PrimitiveNode/stringLength"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="number" eType="#//parameters/NumberParam"
@@ -335,6 +332,7 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsPropertyEdge" eType="#//adaptionneo4j/NeoPropertyEdge"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="inJavaReturnRequired" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/relations"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//graphstructure/ComplexNode"
@@ -359,6 +357,12 @@
           eOpposite="#//operators/NullCheck/primitiveNode"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="stringLength" upperBound="-1"
           eType="#//operators/StringLength" eOpposite="#//operators/StringLength/primitiveNode"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="oneArgJavaOperator" upperBound="-1"
+          eType="#//javaoperators/OneArgJavaOperator" eOpposite="#//javaoperators/OneArgJavaOperator/primitiveNode"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="twoArgJavaOperator1"
+          upperBound="-1" eType="#//javaoperators/TwoArgJavaOperator" eOpposite="#//javaoperators/TwoArgJavaOperator/argument1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="twoArgJavaOperator2"
+          upperBound="-1" eType="#//javaoperators/TwoArgJavaOperator" eOpposite="#//javaoperators/TwoArgJavaOperator/argument2"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="setGraphSimple">
@@ -367,7 +371,6 @@
       <eOperations name="getRelationsTo" upperBound="-1" eType="#//graphstructure/Relation">
         <eParameters name="node" eType="#//graphstructure/Node"/>
       </eOperations>
-      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"/>
       <eOperations name="addOutgoing" eType="#//graphstructure/Relation" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="addOutgoing" eType="#//graphstructure/Relation" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="graph" eType="#//graphstructure/Graph"/>
@@ -413,10 +416,11 @@
         <eParameters name="option" eType="#//operators/ComparisonOperator"/>
         <eParameters name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
       </eOperations>
-      <eOperations name="addPrimitiveNullCheck" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
-      <eOperations name="addPrimitiveNullCheck" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eOperations name="addPrimitiveNullCheck" eType="#//operators/NullCheck"/>
+      <eOperations name="addPrimitiveNullCheck" eType="#//operators/NullCheck">
         <eParameters name="isNull" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
       </eOperations>
+      <eOperations name="addPrimitiveValidateLink" eType="#//javaoperators/ValidateLinkOperator"/>
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="comp" eType="#//operators/Comparison"/>
@@ -436,6 +440,9 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsNeoPropertyNode" eType="#//adaptionneo4j/NeoPropertyNode"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="inJavaReturnRequired" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eOperations name="inJavaGraphReturnRequired" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eOperations name="inJavaWhere" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/nodes"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -454,7 +461,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="Graph" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="isReturnGraph" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="getReturnNodes" upperBound="-1" eType="#//graphstructure/Node"/>
-      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"/>
       <eOperations name="addRelation" eType="#//graphstructure/Relation">
         <eParameters name="from" eType="#//graphstructure/ComplexNode"/>
         <eParameters name="to" eType="#//graphstructure/Node"/>
@@ -602,6 +608,7 @@
       <eOperations name="generateXmlConstraintYAMLFile" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//execution/IoExceptionWrapper">
         <eParameters name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
+      <eOperations name="generateQueryFilter" eType="#//javaquery/JavaFilter" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" lowerBound="1"
           eType="#//parameters/ParameterList" containment="true" eOpposite="#//parameters/ParameterList/pattern"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -659,6 +666,8 @@
       <eOperations name="initializeTranslation"/>
       <eOperations name="prepareTranslation"/>
       <eOperations name="getOperatorList" eType="#//operators/OperatorList"/>
+      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getParameterList" eType="#//parameters/ParameterList"/>
       <eOperations name="getAllParameters" upperBound="-1" eType="#//parameters/Parameter"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
@@ -683,6 +692,14 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
       <eOperations name="createNeo4jAdaption" eType="#//patternstructure/PatternElement"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
+      <eOperations name="containsJavaOperator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateQueryFilterPart" eType="#//javaquery/JavaFilterPart"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateXQueryJava" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateXQueryJavaReturn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" lowerBound="1"
@@ -1408,5 +1425,198 @@
     <eClassifiers xsi:type="ecore:EClass" name="NeoEdgeLabelParam" eSuperTypes="#//parameters/TextLiteralParam #//adaptionneo4j/NeoLabel"/>
     <eClassifiers xsi:type="ecore:EClass" name="NeoLabel" abstract="true" interface="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPropertyNameParam" eSuperTypes="#//parameters/TextLiteralParam"/>
+  </eSubpackages>
+  <eSubpackages name="javaoperators" nsURI="javaoperators" nsPrefix="javaoperators">
+    <eClassifiers xsi:type="ecore:EClass" name="JavaOperator" abstract="true" eSuperTypes="#//operators/BooleanOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="OneArgJavaOperator" abstract="true"
+        eSuperTypes="#//javaoperators/JavaOperator">
+      <eOperations name="apply" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+        <eParameters name="param1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
+          eOpposite="#//graphstructure/PrimitiveNode/oneArgJavaOperator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
+          eType="#//parameters/BooleanParam" eOpposite="#//parameters/BooleanParam/oneArgJavaOperator"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TwoArgJavaOperator" abstract="true"
+        eSuperTypes="#//javaoperators/JavaOperator">
+      <eOperations name="apply" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+        <eParameters name="param1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="param2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" eType="#//graphstructure/PrimitiveNode"
+          eOpposite="#//graphstructure/PrimitiveNode/twoArgJavaOperator1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" eType="#//graphstructure/PrimitiveNode"
+          eOpposite="#//graphstructure/PrimitiveNode/twoArgJavaOperator2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ValidateLinkOperator" eSuperTypes="#//javaoperators/OneArgJavaOperator"/>
+  </eSubpackages>
+  <eSubpackages name="javaquery" nsURI="javaquery" nsPrefix="javaquery">
+    <eClassifiers xsi:type="ecore:EClass" name="JavaFilter">
+      <eOperations name="filterQueryResults" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="createInterimResultContainer" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="objectList" eType="#//javaquery/ObjectListWrapper"/>
+      </eOperations>
+      <eOperations name="executeXQueryJava" eType="#//javaquery/StringListWrapper"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="databasename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="datapath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//javaquery/BooleanFilterPart"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="structure" lowerBound="1"
+          eType="#//javaqueryoutput/InterimResultStructure" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interimResults" upperBound="-1"
+          eType="#//javaqueryoutput/InterimResultContainer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="query" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="#//patternstructure/Language"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BooleanFilterPart" abstract="true"
+        eSuperTypes="#//javaquery/JavaFilterPart">
+      <eOperations name="apply" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="parameter" eType="#//javaqueryoutput/InterimResult"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FormulaFilterPart" eSuperTypes="#//javaquery/BooleanFilterPart">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter1" lowerBound="1"
+          eType="#//javaquery/BooleanFilterPart" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter2" lowerBound="1"
+          eType="#//javaquery/BooleanFilterPart" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//patternstructure/LogicalOperator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
+          eType="#//javaqueryoutput/FixedContainerInterim"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BooleanFilterElement" eSuperTypes="#//javaquery/BooleanFilterPart">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
+          eType="#//javaqueryoutput/FixedContainerInterim"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OneArgFunctionFilterPart" eSuperTypes="#//javaquery/BooleanFilterPart">
+      <eOperations name="apply" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+        <eParameters name="param1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
+          eType="#//javaqueryoutput/ValueInterim"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="negate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ListFilterPart" eSuperTypes="#//javaquery/BooleanFilterPart">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter" lowerBound="1"
+          eType="#//javaquery/BooleanFilterPart" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
+          eType="#//javaqueryoutput/VariableContainerInterim"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//patternstructure/Quantifier"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TwoArgFunctionFilterPart" abstract="true"
+        eSuperTypes="#//javaquery/BooleanFilterPart">
+      <eOperations name="apply" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+        <eParameters name="param1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="param2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" lowerBound="1"
+          eType="#//javaqueryoutput/ValueInterim"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
+          eType="#//javaqueryoutput/ValueInterim"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NotFilterPart" eSuperTypes="#//javaquery/BooleanFilterPart">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter" lowerBound="1"
+          eType="#//javaquery/BooleanFilterPart" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CountFilterPart" eSuperTypes="#//javaquery/BooleanFilterPart">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter1" lowerBound="1"
+          eType="#//javaquery/NumberFilterPart" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter2" lowerBound="1"
+          eType="#//javaquery/NumberFilterPart" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//operators/ComparisonOperator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
+          eType="#//javaqueryoutput/FixedContainerInterim"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NumberFilterPart" abstract="true"
+        eSuperTypes="#//javaquery/JavaFilterPart">
+      <eOperations name="apply" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="parameter" eType="#//javaqueryoutput/InterimResult"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CountFilterElement" eSuperTypes="#//javaquery/NumberFilterPart">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter" lowerBound="1"
+          eType="#//javaquery/BooleanFilterPart" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
+          eType="#//javaqueryoutput/VariableContainerInterim"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NumberFilterElement" eSuperTypes="#//javaquery/NumberFilterPart">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
+          eType="#//javaqueryoutput/ValueInterim"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="JavaFilterPart" abstract="true">
+      <eOperations name="getArguments" upperBound="-1" eType="#//javaqueryoutput/InterimResultPart"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NumberValueFilterElement" eSuperTypes="#//javaquery/NumberFilterPart">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="StringListWrapper" instanceClassName="java.util.List&lt;String>"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="ObjectListWrapper" instanceClassName="java.util.List&lt;Object>"/>
+    <eClassifiers xsi:type="ecore:EClass" name="QuantifierFilterPart" eSuperTypes="#//javaquery/BooleanFilterPart">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subfilter" lowerBound="1"
+          upperBound="-1" eType="#//javaquery/BooleanFilterPart" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
+          eType="#//javaqueryoutput/FixedContainerInterim"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//patternstructure/Quantifier"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="javaqueryoutput" nsURI="javaqueryoutput" nsPrefix="javaqueryoutput">
+    <eClassifiers xsi:type="ecore:EClass" name="InterimResultStructure">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="substructure" eType="#//javaqueryoutput/InterimResultPart"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="record" lowerBound="1"
+          eType="#//javaqueryoutput/InterimResultPart" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InterimResultPart" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ContainerInterim" abstract="true"
+        eSuperTypes="#//javaqueryoutput/InterimResultPart">
+      <eOperations name="getSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ValueInterim" eSuperTypes="#//javaqueryoutput/InterimResultPart"/>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableContainerInterim" eSuperTypes="#//javaqueryoutput/ContainerInterim">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contained" lowerBound="1"
+          eType="#//javaqueryoutput/InterimResultPart"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FixedContainerInterim" eSuperTypes="#//javaqueryoutput/ContainerInterim">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contained" lowerBound="1"
+          upperBound="-1" eType="#//javaqueryoutput/InterimResultPart" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="canBeEmpty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+          defaultValueLiteral="false"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InterimResult" abstract="true">
+      <eOperations name="setCorresponding" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="corresponding" eType="#//javaqueryoutput/InterimResultPart"/>
+      </eOperations>
+      <eOperations name="isValidToCorresponding" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="correspondsTo" eType="#//javaqueryoutput/InterimResultPart"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContainerResult" eSuperTypes="#//javaqueryoutput/InterimResult">
+      <eOperations name="stream" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subresult" upperBound="-1"
+          eType="#//javaqueryoutput/InterimResult" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="tagname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ValueResult" eSuperTypes="#//javaqueryoutput/InterimResult">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InterimResultContainer">
+      <eOperations name="isValidToStructure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eOperations name="stream" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="correspondsTo" eType="#//javaqueryoutput/InterimResultStructure"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//javaqueryoutput/InterimResult"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="return" lowerBound="1"
+          eType="#//javaqueryoutput/InterimResult" containment="true"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

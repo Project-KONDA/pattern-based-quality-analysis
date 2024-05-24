@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.operators;
 
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 
 import qualitypatternmodel.parameters.ComparisonOptionParam;
@@ -98,13 +97,5 @@ public interface StringLength extends BooleanOperator {
 	 * @generated
 	 */
 	void setOption(ComparisonOptionParam value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	Node getElement();
 
 } // StringLength

@@ -4,6 +4,7 @@ package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -40,6 +41,8 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.javaquery.BooleanFilterPart;
+import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -56,6 +59,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -142,6 +146,59 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		setOperatorList(new OperatorListImpl());
 	}
 
+	public EList<Node> javaParameterNodes(){
+		EList<Node> parameterNodes = new BasicEList<Node>();
+		for (Node node: getNodes()){
+			try {
+				if (node.containsJavaOperator())
+					parameterNodes.add(node);
+			} catch (InvalidityException e) {
+			}
+		}
+		return parameterNodes;
+	}
+
+	public EList<Node> javaLocalRequiredNodes(){
+		EList<Node> parameterNodes = new BasicEList<Node>();
+		for (Node node: getNodes())
+			if (node.inJavaGraphReturnRequired())
+				parameterNodes.add(node);
+		return parameterNodes;
+	}
+
+	public EList<Node> javaLaterRequiredNodes(){
+		EList<Node> parameterNodes = new BasicEList<Node>();
+		for (Node node: getNodes())
+			if (node.inJavaReturnRequired()&& node.inJavaGraphReturnRequired())
+				parameterNodes.add(node);
+		return parameterNodes;
+	}
+
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		EList<BooleanFilterPart> filters = new BasicEList<BooleanFilterPart>();
+		for (Node node: getNodes()) {
+			if (node instanceof PrimitiveNode) {
+				BooleanFilterPart filter = (BooleanFilterPart) node.generateQueryFilterPart();
+				if (filter != null)
+					filters.add(filter);
+			}
+		}
+		return BooleanFilterPart.combine(filters);
+	}
+
+	public List<BooleanFilterPart> generateQueryFilterParts() throws InvalidityException {
+		EList<BooleanFilterPart> filters = new BasicEList<BooleanFilterPart>();
+		for (Node node: getNodes()) {
+			if (node instanceof PrimitiveNode) {
+				BooleanFilterPart filter = (BooleanFilterPart) node.generateQueryFilterPart();
+				if (filter != null)
+					filters.add(filter);
+			}
+		}
+		return filters;
+	}
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		String result = "";
@@ -170,6 +227,61 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			throw ex;
 		}
 		return result;
+	}
+	
+	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		String result = "";
+		EList<Relation> relations = new BasicEList<Relation>();
+		for(Relation relation : getRelations()) 
+			if (relation.getTarget() != null && relation.getTarget().inJavaWhere())
+				relations.add(relation);
+		
+		for(Relation relation : relations) {
+			if (relation instanceof XmlPropertyNavigation && relation.isCrossGraph()) {
+				XmlPropertyNavigationImpl nav = (XmlPropertyNavigationImpl) relation;
+				if( relation.inJavaReturnRequired())
+					result += nav.generateXQueryJava();
+				else
+					result += nav.generateXQuery2();
+			}
+		}
+		for(Relation relation : relations) {
+			if (relation instanceof XmlElementNavigation && relation.isCrossGraph())
+				result += relation.generateXQuery();
+		}
+		return result;
+	}
+	
+	@Override
+	public String generateXQueryJavaReturn() throws InvalidityException {
+//		if(!containsJavaOperator())
+//			return "";
+		String result = "";
+		
+		List<Relation> relations = new BasicEList<Relation>();
+		for(Relation relation : getRelations()) {
+			if (relation.isCrossGraph() && !relation.isTranslated() && !relation.getTarget().inJavaWhere())
+				relations.add(relation);
+		}
+		relations = JavaQueryTranslationUtility.orderRelationsJavaQuery(relations);
+		for(int i = 0; i< relations.size(); i++) {
+			Relation relation = relations.get(i);
+			String relationtranslation = relation.generateXQueryJavaReturn();
+			if (relation instanceof XmlPropertyNavigation) {
+				relationtranslation = "(" + relationtranslation + "\n  )";
+				if (i < relations.size()-1)
+					relationtranslation += ",\n  ";
+			}	
+			else if (relation instanceof XmlElementNavigation)
+				relationtranslation = relationtranslation + "\n  return (\n  ";
+			result += relationtranslation + "";
+		}
+		return result;
+	}
+
+	public String generateXQueryJavaReturnCondition() {
+		return "(";
 	}
 	
 	@Override
@@ -961,7 +1073,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	@Override
-	public EList<Operator> getAllOperators() {
+	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> res = new BasicEList<Operator>();
 		for(Node node : getNodes()) {
 			res.addAll(node.getAllOperators());
@@ -1522,8 +1634,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return isReturnGraph();
 			case GraphstructurePackage.GRAPH___GET_RETURN_NODES:
 				return getReturnNodes();
-			case GraphstructurePackage.GRAPH___GET_ALL_OPERATORS:
-				return getAllOperators();
 			case GraphstructurePackage.GRAPH___ADD_RELATION__COMPLEXNODE_NODE:
 				return addRelation((ComplexNode)arguments.get(0), (Node)arguments.get(1));
 			case GraphstructurePackage.GRAPH___ADD_NODE:

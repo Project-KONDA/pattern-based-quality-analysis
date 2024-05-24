@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.operators;
 
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 
 import qualitypatternmodel.parameters.BooleanParam;
@@ -98,13 +97,5 @@ public interface Contains extends BooleanOperator {
 	 * @generated
 	 */
 	void setContent(TextLiteralParam value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	Node getElement();
 
 } // Contains

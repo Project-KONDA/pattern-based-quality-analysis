@@ -3,6 +3,7 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,13 +28,20 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
+import qualitypatternmodel.javaquery.BooleanFilterPart;
+import qualitypatternmodel.javaquery.FormulaFilterPart;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
+import qualitypatternmodel.javaquery.impl.CountFilterElementImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -80,6 +88,31 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		getInternalId();
 		setCondition(new TrueElementImpl());
 	}
+
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+				
+		Boolean graph = getGraph().containsJavaOperator();
+		Boolean condition = getCondition().containsJavaOperator();
+		
+		if (!graph && !condition)
+			return null;
+		else {
+			BooleanFilterPart subfilter = null;
+			if (graph && condition) {
+				FormulaFilterPart container = new FormulaFilterPartImpl(
+					LogicalOperator.AND, 
+					(BooleanFilterPart) getGraph().generateQueryFilterPart(),
+					(BooleanFilterPart) getCondition().generateQueryFilterPart());
+				subfilter = container;
+			}
+			else if (graph)
+				subfilter = (BooleanFilterPart) getGraph().generateQueryFilterPart();
+			else if (condition)
+				subfilter = (BooleanFilterPart) getCondition().generateQueryFilterPart();
+			return new CountFilterElementImpl(subfilter);
+		}
+	}
 	
 	@Override
 	public String generateXQuery() throws InvalidityException {
@@ -89,6 +122,20 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		return "\ncount (" + super.generateXQuery().replace("\n", "\n  ") + "\n)";
 	}
 	
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		Boolean graphJava = getGraph().containsJavaOperator();
+		Boolean conditionJava = getCondition().containsJavaOperator();
+		String graphString = getGraph().generateXQueryJavaReturn();
+		String conditionString = getCondition().generateXQueryJavaReturn();
+		if (!graphJava && !conditionJava)
+			return generateXQuery();
+		else if (!graphJava)
+			return conditionString;
+		else if (!conditionJava)
+			return graphString;
+		else 
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString, conditionString), "condition", false, true, false);
+	}
 	
 	
 	//BEGIN - CYPHER (Simples Count)

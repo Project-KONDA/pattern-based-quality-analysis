@@ -226,6 +226,15 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR___GET_OPERATOR_LIST = GraphstructurePackage.COMPARABLE___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___GET_ALL_OPERATORS = GraphstructurePackage.COMPARABLE___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -325,6 +334,42 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR___CREATE_NEO4J_ADAPTION = GraphstructurePackage.COMPARABLE___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.COMPARABLE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.COMPARABLE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___GENERATE_XQUERY_JAVA = GraphstructurePackage.COMPARABLE___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.COMPARABLE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -370,22 +415,13 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR___GET_ALL_OPERATORS = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 1;
-
-	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___GET_ARGUMENTS = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 2;
+	int OPERATOR___GET_ARGUMENTS = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Root Boolean Operators</em>' operation.
@@ -394,7 +430,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___GET_ROOT_BOOLEAN_OPERATORS = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 3;
+	int OPERATOR___GET_ROOT_BOOLEAN_OPERATORS = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Cycle Free</em>' operation.
@@ -403,7 +439,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___IS_CYCLE_FREE = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 4;
+	int OPERATOR___IS_CYCLE_FREE = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Cycle Free</em>' operation.
@@ -412,7 +448,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___IS_CYCLE_FREE__ELIST = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 5;
+	int OPERATOR___IS_CYCLE_FREE__ELIST = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Operator</em>' class.
@@ -421,7 +457,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_OPERATION_COUNT = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 6;
+	int OPERATOR_OPERATION_COUNT = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.BooleanOperatorImpl <em>Boolean Operator</em>}' class.
@@ -596,6 +632,15 @@ public interface OperatorsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___GET_OPERATOR_LIST = OPERATOR___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GET_ALL_OPERATORS = OPERATOR___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -695,6 +740,42 @@ public interface OperatorsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___CREATE_NEO4J_ADAPTION = OPERATOR___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___CONTAINS_JAVA_OPERATOR = OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GENERATE_QUERY_FILTER_PART = OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA = OPERATOR___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -738,15 +819,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_OPERATOR___GET_ALL_OPERATORS = OPERATOR___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -812,13 +884,22 @@ public interface OperatorsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE = OPERATOR_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GET_ELEMENT = OPERATOR_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Boolean Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 3;
+	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.NumberOperatorImpl <em>Number Operator</em>}' class.
@@ -984,6 +1065,15 @@ public interface OperatorsPackage extends EPackage {
 	int NUMBER_OPERATOR___GET_OPERATOR_LIST = OPERATOR___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___GET_ALL_OPERATORS = OPERATOR___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1083,6 +1173,42 @@ public interface OperatorsPackage extends EPackage {
 	int NUMBER_OPERATOR___CREATE_NEO4J_ADAPTION = OPERATOR___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___CONTAINS_JAVA_OPERATOR = OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___GENERATE_QUERY_FILTER_PART = OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___GENERATE_XQUERY_JAVA = OPERATOR___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1126,15 +1252,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_OPERATOR___GET_ALL_OPERATORS = OPERATOR___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -1381,6 +1498,15 @@ public interface OperatorsPackage extends EPackage {
 	int MATCH___GET_OPERATOR_LIST = BOOLEAN_OPERATOR___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1480,6 +1606,42 @@ public interface OperatorsPackage extends EPackage {
 	int MATCH___CREATE_NEO4J_ADAPTION = BOOLEAN_OPERATOR___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___CONTAINS_JAVA_OPERATOR = BOOLEAN_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GENERATE_QUERY_FILTER_PART = BOOLEAN_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GENERATE_XQUERY_JAVA = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GENERATE_XQUERY_JAVA_RETURN = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1523,15 +1685,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___VALIDATE__DIAGNOSTICCHAIN_MAP = BOOLEAN_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -1603,7 +1756,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+	int MATCH___GET_ELEMENT = BOOLEAN_OPERATOR___GET_ELEMENT;
 
 	/**
 	 * The number of operations of the '<em>Match</em>' class.
@@ -1612,7 +1765,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
+	int MATCH_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.ComparisonImpl <em>Comparison</em>}' class.
@@ -1823,6 +1976,15 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___GET_OPERATOR_LIST = BOOLEAN_OPERATOR___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1922,6 +2084,42 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___CREATE_NEO4J_ADAPTION = BOOLEAN_OPERATOR___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___CONTAINS_JAVA_OPERATOR = BOOLEAN_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GENERATE_QUERY_FILTER_PART = BOOLEAN_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GENERATE_XQUERY_JAVA = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GENERATE_XQUERY_JAVA_RETURN = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1965,15 +2163,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON___VALIDATE__DIAGNOSTICCHAIN_MAP = BOOLEAN_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -2039,6 +2228,15 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___REMOVE_ELEMENT__NODE = BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE;
 
 	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GET_ELEMENT = BOOLEAN_OPERATOR___GET_ELEMENT;
+
+	/**
 	 * The operation id for the '<em>Is Primitive</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2048,22 +2246,13 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___IS_PRIMITIVE = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
-
-	/**
 	 * The operation id for the '<em>Copy</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___COPY = BOOLEAN_OPERATOR_OPERATION_COUNT + 2;
+	int COMPARISON___COPY = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Comparison</em>' class.
@@ -2072,7 +2261,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 3;
+	int COMPARISON_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.OperatorListImpl <em>Operator List</em>}' class.
@@ -2238,6 +2427,15 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR_LIST___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___GET_ALL_OPERATORS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2335,6 +2533,42 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR_LIST___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___GENERATE_XQUERY_JAVA = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Add</em>' operation.
@@ -2554,6 +2788,15 @@ public interface OperatorsPackage extends EPackage {
 	int CONTAINS___GET_OPERATOR_LIST = BOOLEAN_OPERATOR___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2653,6 +2896,42 @@ public interface OperatorsPackage extends EPackage {
 	int CONTAINS___CREATE_NEO4J_ADAPTION = BOOLEAN_OPERATOR___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___CONTAINS_JAVA_OPERATOR = BOOLEAN_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GENERATE_QUERY_FILTER_PART = BOOLEAN_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GENERATE_XQUERY_JAVA = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GENERATE_XQUERY_JAVA_RETURN = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2696,15 +2975,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTAINS___VALIDATE__DIAGNOSTICCHAIN_MAP = BOOLEAN_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINS___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -2776,7 +3046,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINS___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+	int CONTAINS___GET_ELEMENT = BOOLEAN_OPERATOR___GET_ELEMENT;
 
 	/**
 	 * The number of operations of the '<em>Contains</em>' class.
@@ -2785,7 +3055,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINS_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
+	int CONTAINS_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.NullCheckImpl <em>Null Check</em>}' class.
@@ -2978,6 +3248,15 @@ public interface OperatorsPackage extends EPackage {
 	int NULL_CHECK___GET_OPERATOR_LIST = BOOLEAN_OPERATOR___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_CHECK___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3077,6 +3356,42 @@ public interface OperatorsPackage extends EPackage {
 	int NULL_CHECK___CREATE_NEO4J_ADAPTION = BOOLEAN_OPERATOR___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_CHECK___CONTAINS_JAVA_OPERATOR = BOOLEAN_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_CHECK___GENERATE_QUERY_FILTER_PART = BOOLEAN_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_CHECK___GENERATE_XQUERY_JAVA = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_CHECK___GENERATE_XQUERY_JAVA_RETURN = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3120,15 +3435,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NULL_CHECK___VALIDATE__DIAGNOSTICCHAIN_MAP = BOOLEAN_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NULL_CHECK___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -3200,7 +3506,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NULL_CHECK___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+	int NULL_CHECK___GET_ELEMENT = BOOLEAN_OPERATOR___GET_ELEMENT;
 
 	/**
 	 * The number of operations of the '<em>Null Check</em>' class.
@@ -3209,7 +3515,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NULL_CHECK_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
+	int NULL_CHECK_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.StringLengthImpl <em>String Length</em>}' class.
@@ -3411,6 +3717,15 @@ public interface OperatorsPackage extends EPackage {
 	int STRING_LENGTH___GET_OPERATOR_LIST = BOOLEAN_OPERATOR___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3510,6 +3825,42 @@ public interface OperatorsPackage extends EPackage {
 	int STRING_LENGTH___CREATE_NEO4J_ADAPTION = BOOLEAN_OPERATOR___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___CONTAINS_JAVA_OPERATOR = BOOLEAN_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GENERATE_QUERY_FILTER_PART = BOOLEAN_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GENERATE_XQUERY_JAVA = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GENERATE_XQUERY_JAVA_RETURN = BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3553,15 +3904,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRING_LENGTH___VALIDATE__DIAGNOSTICCHAIN_MAP = BOOLEAN_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_LENGTH___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -3633,7 +3975,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_LENGTH___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+	int STRING_LENGTH___GET_ELEMENT = BOOLEAN_OPERATOR___GET_ELEMENT;
 
 	/**
 	 * The number of operations of the '<em>String Length</em>' class.
@@ -3642,7 +3984,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_LENGTH_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
+	int STRING_LENGTH_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}' enum.
@@ -3707,6 +4049,16 @@ public interface OperatorsPackage extends EPackage {
 	EOperation getBooleanOperator__RemoveElement__Node();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.operators.BooleanOperator#getElement() <em>Get Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Element</em>' operation.
+	 * @see qualitypatternmodel.operators.BooleanOperator#getElement()
+	 * @generated
+	 */
+	EOperation getBooleanOperator__GetElement();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.operators.BooleanOperator#createParameters() <em>Create Parameters</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3736,16 +4088,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOperator_OperatorList();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.operators.Operator#getAllOperators() <em>Get All Operators</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Operators</em>' operation.
-	 * @see qualitypatternmodel.operators.Operator#getAllOperators()
-	 * @generated
-	 */
-	EOperation getOperator__GetAllOperators();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.operators.Operator#getRootBooleanOperators() <em>Get Root Boolean Operators</em>}' operation.
@@ -3851,16 +4193,6 @@ public interface OperatorsPackage extends EPackage {
 	EReference getMatch_RegularExpression();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.operators.Match#getElement() <em>Get Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Element</em>' operation.
-	 * @see qualitypatternmodel.operators.Match#getElement()
-	 * @generated
-	 */
-	EOperation getMatch__GetElement();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.operators.Comparison <em>Comparison</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3923,16 +4255,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getComparison__IsPrimitive();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.operators.Comparison#getElement() <em>Get Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Element</em>' operation.
-	 * @see qualitypatternmodel.operators.Comparison#getElement()
-	 * @generated
-	 */
-	EOperation getComparison__GetElement();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.operators.Comparison#copy() <em>Copy</em>}' operation.
@@ -4030,16 +4352,6 @@ public interface OperatorsPackage extends EPackage {
 	EReference getContains_Content();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.operators.Contains#getElement() <em>Get Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Element</em>' operation.
-	 * @see qualitypatternmodel.operators.Contains#getElement()
-	 * @generated
-	 */
-	EOperation getContains__GetElement();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.operators.NullCheck <em>Null Check</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4070,16 +4382,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNullCheck_Option();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.operators.NullCheck#getElement() <em>Get Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Element</em>' operation.
-	 * @see qualitypatternmodel.operators.NullCheck#getElement()
-	 * @generated
-	 */
-	EOperation getNullCheck__GetElement();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.operators.StringLength <em>String Length</em>}'.
@@ -4123,16 +4425,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStringLength_Option();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.operators.StringLength#getElement() <em>Get Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Element</em>' operation.
-	 * @see qualitypatternmodel.operators.StringLength#getElement()
-	 * @generated
-	 */
-	EOperation getStringLength__GetElement();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}'.
@@ -4213,6 +4505,14 @@ public interface OperatorsPackage extends EPackage {
 		EOperation BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE = eINSTANCE.getBooleanOperator__RemoveElement__Node();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_OPERATOR___GET_ELEMENT = eINSTANCE.getBooleanOperator__GetElement();
+
+		/**
 		 * The meta object literal for the '<em><b>Create Parameters</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4237,14 +4537,6 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OPERATOR__OPERATOR_LIST = eINSTANCE.getOperator_OperatorList();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Operators</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation OPERATOR___GET_ALL_OPERATORS = eINSTANCE.getOperator__GetAllOperators();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Root Boolean Operators</b></em>' operation.
@@ -4331,14 +4623,6 @@ public interface OperatorsPackage extends EPackage {
 		EReference MATCH__REGULAR_EXPRESSION = eINSTANCE.getMatch_RegularExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MATCH___GET_ELEMENT = eINSTANCE.getMatch__GetElement();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.operators.impl.ComparisonImpl <em>Comparison</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4387,14 +4671,6 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPARISON___IS_PRIMITIVE = eINSTANCE.getComparison__IsPrimitive();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPARISON___GET_ELEMENT = eINSTANCE.getComparison__GetElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Copy</b></em>' operation.
@@ -4473,14 +4749,6 @@ public interface OperatorsPackage extends EPackage {
 		EReference CONTAINS__CONTENT = eINSTANCE.getContains_Content();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation CONTAINS___GET_ELEMENT = eINSTANCE.getContains__GetElement();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.operators.impl.NullCheckImpl <em>Null Check</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4505,14 +4773,6 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NULL_CHECK__OPTION = eINSTANCE.getNullCheck_Option();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NULL_CHECK___GET_ELEMENT = eINSTANCE.getNullCheck__GetElement();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.operators.impl.StringLengthImpl <em>String Length</em>}' class.
@@ -4547,14 +4807,6 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STRING_LENGTH__OPTION = eINSTANCE.getStringLength_Option();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STRING_LENGTH___GET_ELEMENT = eINSTANCE.getStringLength__GetElement();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}' enum.

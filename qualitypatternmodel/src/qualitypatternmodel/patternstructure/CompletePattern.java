@@ -9,6 +9,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
+import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.textrepresentation.PatternText;
@@ -398,5 +399,13 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void generateXmlConstraintYAMLFile(String path) throws InvalidityException, IOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	JavaFilter generateQueryFilter() throws InvalidityException;
 
 } // Pattern

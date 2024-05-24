@@ -171,7 +171,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 			condition = getXmlPropertyOption().generateXQuery().substring(1);
 		
 		if (literal.equals("") || literal.equals("\"\"") || literal.equals("\"*\"")){
-			if (condition == "name()") {
+			if (condition.equals("name()")) {
 				return query;
 			}
 			else {
@@ -754,7 +754,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getValueAsString() {

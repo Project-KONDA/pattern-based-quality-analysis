@@ -10,10 +10,11 @@ import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.javaoperators.ValidateLinkOperator;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.operators.Operator;
+import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -277,17 +278,6 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns a list of all <code>Operators</code> referenced by <code>this</code>.
-	 * 
-	 * @return a list of all <code>Operators</code> referenced by <code>this</code>
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<Operator> getAllOperators();
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * Creates a <code>Property</code> and
 	 * a <code>Comparison</code> based on <code>operator</code> that compares the new <code>Property</code>
 	 * with <code>input</code>.
@@ -480,7 +470,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model
 	 * @generated
 	 */
-	Boolean addPrimitiveNullCheck();
+	Boolean inJavaReturnRequired();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -488,7 +478,39 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model
 	 * @generated
 	 */
-	Boolean addPrimitiveNullCheck(Boolean isNull);
+	Boolean inJavaGraphReturnRequired();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Boolean inJavaWhere();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	NullCheck addPrimitiveNullCheck();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	NullCheck addPrimitiveNullCheck(Boolean isNull);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	ValidateLinkOperator addPrimitiveValidateLink();
 
 	/**
 	 * <!-- begin-user-doc -->

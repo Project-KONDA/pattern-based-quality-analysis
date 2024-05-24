@@ -3,6 +3,7 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -25,6 +26,9 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
+import qualitypatternmodel.javaoperators.JavaOperator;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -109,6 +113,13 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	public EList<Operator> getAllOperators() throws InvalidityException {
+		return new BasicEList<Operator>();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @throws OperatorCycleException 
 	 * @throws MissingPatternContainerException 
 	 */
@@ -147,7 +158,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			e.printStackTrace();
 			return false;
 		}
-//		System.out.println("Validation successfull at " + this.getClass().getSimpleName() + " " + this.getId() + "!");
+//		System.out.println("Validation successful at " + this.getClass().getSimpleName() + " " + this.getId() + "!");
 		return true;
 	}
 
@@ -155,13 +166,11 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException("Operation 'prepareParameterUpdates' not implemented for class " + getClass().getSimpleName());
 	}
 
 	/**
@@ -232,6 +241,30 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Boolean containsJavaOperator() throws InvalidityException {
+		List<Operator> ops = getAllOperators();
+		for (Operator o: ops)
+			if (o instanceof JavaOperator)
+				return true;
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		throw new UnsupportedOperationException("Class " + getClass().getSimpleName() + " does not implement generateQueryFilterPart().");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -270,20 +303,20 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public void triggerParameterUpdates(PatternElement newContainer) {
-		ParameterList oldParameterList = getParameterList();		
+//		ParameterList oldParameterList = getParameterList();		
 		
 		ParameterList newParameterList = null;
 		if(newContainer != null) {
 			newParameterList = newContainer.getParameterList();
 		}		
 		
-		if(oldParameterList == null) {
-			// TODO
-		} else if(newParameterList == null) {
-			// TODO
-		} else if(oldParameterList.equals(newParameterList)) {
-			// TODO
-		}
+//		if(oldParameterList == null) {
+//			// TODO
+//		} else if(newParameterList == null) {
+//			// TODO
+//		} else if(oldParameterList.equals(newParameterList)) {
+//			// TODO
+//		}
 		
 		updateParameters(newParameterList);
 	}
@@ -426,6 +459,25 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated NOT
 	 */
 	public String generateXQuery() throws InvalidityException {
+		throw new UnsupportedOperationException();
+	}
+	
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		if (containsJavaOperator())
+			throw new UnsupportedOperationException(getClass().getSimpleName());
+		else 
+			return generateXQuery();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
@@ -584,6 +636,13 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				return null;
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST:
 				return getOperatorList();
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_OPERATORS:
+				try {
+					return getAllOperators();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST:
 				return getParameterList();
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_PARAMETERS:
@@ -626,6 +685,34 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION:
 				try {
 					return createNeo4jAdaption();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR:
+				try {
+					return containsJavaOperator();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART:
+				try {
+					return generateQueryFilterPart();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA:
+				try {
+					return generateXQueryJava();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN:
+				try {
+					return generateXQueryJavaReturn();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

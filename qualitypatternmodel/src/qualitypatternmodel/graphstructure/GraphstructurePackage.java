@@ -259,6 +259,15 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___GET_ALL_OPERATORS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -358,6 +367,42 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___GENERATE_XQUERY_JAVA = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -448,13 +493,22 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___ADAPT_AS_PROPERTY_EDGE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
 
 	/**
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___IN_JAVA_RETURN_REQUIRED = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
+
+	/**
 	 * The number of operations of the '<em>Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
+	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}' class.
@@ -611,6 +665,15 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPARABLE___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE___GET_ALL_OPERATORS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -708,6 +771,42 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARABLE___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE___GENERATE_XQUERY_JAVA = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -990,6 +1089,15 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___GET_OPERATOR_LIST = COMPARABLE___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___GET_ALL_OPERATORS = COMPARABLE___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1089,6 +1197,42 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___CREATE_NEO4J_ADAPTION = COMPARABLE___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___CONTAINS_JAVA_OPERATOR = COMPARABLE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___GENERATE_QUERY_FILTER_PART = COMPARABLE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___GENERATE_XQUERY_JAVA = COMPARABLE___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___GENERATE_XQUERY_JAVA_RETURN = COMPARABLE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1170,13 +1314,13 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___GET_RELATIONS_TO__NODE = COMPARABLE_OPERATION_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___GET_ALL_OPERATORS = COMPARABLE_OPERATION_COUNT + 4;
+	int NODE___ADD_OUTGOING = COMPARABLE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.
@@ -1185,7 +1329,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_OUTGOING = COMPARABLE_OPERATION_COUNT + 5;
+	int NODE___ADD_OUTGOING__GRAPH = COMPARABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.
@@ -1194,16 +1338,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_OUTGOING__GRAPH = COMPARABLE_OPERATION_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>Add Outgoing</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE___ADD_OUTGOING__NODE = COMPARABLE_OPERATION_COUNT + 7;
+	int NODE___ADD_OUTGOING__NODE = COMPARABLE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Add Incomming</em>' operation.
@@ -1212,7 +1347,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_INCOMMING__COMPLEXNODE = COMPARABLE_OPERATION_COUNT + 8;
+	int NODE___ADD_INCOMMING__COMPLEXNODE = COMPARABLE_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Add Comparison</em>' operation.
@@ -1221,7 +1356,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_COMPARISON__NODE = COMPARABLE_OPERATION_COUNT + 9;
+	int NODE___ADD_COMPARISON__NODE = COMPARABLE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1230,7 +1365,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 10;
+	int NODE___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1239,7 +1374,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_COMPARISON__STRING = COMPARABLE_OPERATION_COUNT + 11;
+	int NODE___ADD_PRIMITIVE_COMPARISON__STRING = COMPARABLE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1248,7 +1383,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 12;
+	int NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1257,7 +1392,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 13;
+	int NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1266,7 +1401,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 14;
+	int NODE___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1275,7 +1410,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_MATCH__STRING = COMPARABLE_OPERATION_COUNT + 15;
+	int NODE___ADD_PRIMITIVE_MATCH__STRING = COMPARABLE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
@@ -1284,7 +1419,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_CONTAINS = COMPARABLE_OPERATION_COUNT + 16;
+	int NODE___ADD_PRIMITIVE_CONTAINS = COMPARABLE_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
@@ -1293,7 +1428,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_CONTAINS__STRING = COMPARABLE_OPERATION_COUNT + 17;
+	int NODE___ADD_PRIMITIVE_CONTAINS__STRING = COMPARABLE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
@@ -1302,7 +1437,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_STRING_LENGTH = COMPARABLE_OPERATION_COUNT + 18;
+	int NODE___ADD_PRIMITIVE_STRING_LENGTH = COMPARABLE_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
@@ -1311,7 +1446,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE = COMPARABLE_OPERATION_COUNT + 19;
+	int NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE = COMPARABLE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
@@ -1320,7 +1455,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_NULL_CHECK = COMPARABLE_OPERATION_COUNT + 20;
+	int NODE___ADD_PRIMITIVE_NULL_CHECK = COMPARABLE_OPERATION_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
@@ -1329,7 +1464,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = COMPARABLE_OPERATION_COUNT + 21;
+	int NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = COMPARABLE_OPERATION_COUNT + 20;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Validate Link</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___ADD_PRIMITIVE_VALIDATE_LINK = COMPARABLE_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -1458,13 +1602,40 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___ADAPT_AS_NEO_PROPERTY_NODE = COMPARABLE_OPERATION_COUNT + 35;
 
 	/**
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___IN_JAVA_RETURN_REQUIRED = COMPARABLE_OPERATION_COUNT + 36;
+
+	/**
+	 * The operation id for the '<em>In Java Graph Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = COMPARABLE_OPERATION_COUNT + 37;
+
+	/**
+	 * The operation id for the '<em>In Java Where</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___IN_JAVA_WHERE = COMPARABLE_OPERATION_COUNT + 38;
+
+	/**
 	 * The number of operations of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 36;
+	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 39;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
@@ -1621,13 +1792,40 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE__STRING_LENGTH = NODE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>One Arg Java Operator</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE__ONE_ARG_JAVA_OPERATOR = NODE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Two Arg Java Operator1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR1 = NODE_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Two Arg Java Operator2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR2 = NODE_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Primitive Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 4;
+	int PRIMITIVE_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1729,6 +1927,15 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___GET_OPERATOR_LIST = NODE___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___GET_ALL_OPERATORS = NODE___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1828,6 +2035,42 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___CREATE_NEO4J_ADAPTION = NODE___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___CONTAINS_JAVA_OPERATOR = NODE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___GENERATE_QUERY_FILTER_PART = NODE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___GENERATE_XQUERY_JAVA = NODE___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___GENERATE_XQUERY_JAVA_RETURN = NODE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1907,15 +2150,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_NODE___GET_RELATIONS_TO__NODE = NODE___GET_RELATIONS_TO__NODE;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_NODE___GET_ALL_OPERATORS = NODE___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.
@@ -2071,6 +2305,15 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Validate Link</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___ADD_PRIMITIVE_VALIDATE_LINK = NODE___ADD_PRIMITIVE_VALIDATE_LINK;
+
+	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2195,6 +2438,33 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_NODE___ADAPT_AS_NEO_PROPERTY_NODE = NODE___ADAPT_AS_NEO_PROPERTY_NODE;
+
+	/**
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___IN_JAVA_RETURN_REQUIRED = NODE___IN_JAVA_RETURN_REQUIRED;
+
+	/**
+	 * The operation id for the '<em>In Java Graph Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = NODE___IN_JAVA_GRAPH_RETURN_REQUIRED;
+
+	/**
+	 * The operation id for the '<em>In Java Where</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___IN_JAVA_WHERE = NODE___IN_JAVA_WHERE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -2423,6 +2693,15 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___GET_ALL_OPERATORS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2522,6 +2801,42 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___GENERATE_XQUERY_JAVA = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Is Return Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2540,22 +2855,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___GET_RETURN_NODES = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH___GET_ALL_OPERATORS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
-
-	/**
 	 * The operation id for the '<em>Add Relation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___ADD_RELATION__COMPLEXNODE_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int GRAPH___ADD_RELATION__COMPLEXNODE_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Add Node</em>' operation.
@@ -2564,7 +2870,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___ADD_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int GRAPH___ADD_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Add Complex Node</em>' operation.
@@ -2573,7 +2879,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___ADD_COMPLEX_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+	int GRAPH___ADD_COMPLEX_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Node</em>' operation.
@@ -2582,7 +2888,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___ADD_PRIMITIVE_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
+	int GRAPH___ADD_PRIMITIVE_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher Where</em>' operation.
@@ -2591,7 +2897,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___GENERATE_CYPHER_WHERE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
+	int GRAPH___GENERATE_CYPHER_WHERE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get All Sub Graphs</em>' operation.
@@ -2600,7 +2906,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___GET_ALL_SUB_GRAPHS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
+	int GRAPH___GET_ALL_SUB_GRAPHS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
@@ -2609,7 +2915,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___IS_BEFORE__GRAPH = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
+	int GRAPH___IS_BEFORE__GRAPH = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Get Nodes From All Previous Graphs</em>' operation.
@@ -2618,7 +2924,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___GET_NODES_FROM_ALL_PREVIOUS_GRAPHS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
+	int GRAPH___GET_NODES_FROM_ALL_PREVIOUS_GRAPHS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Get Relations From All Previous Graphs</em>' operation.
@@ -2627,7 +2933,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___GET_RELATIONS_FROM_ALL_PREVIOUS_GRAPHS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 11;
+	int GRAPH___GET_RELATIONS_FROM_ALL_PREVIOUS_GRAPHS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Graph</em>' class.
@@ -2636,7 +2942,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 12;
+	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Adaptable <em>Adaptable</em>}' class.
@@ -2784,6 +3090,15 @@ public interface GraphstructurePackage extends EPackage {
 	int ADAPTABLE___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADAPTABLE___GET_ALL_OPERATORS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2881,6 +3196,42 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int ADAPTABLE___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADAPTABLE___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADAPTABLE___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADAPTABLE___GENERATE_XQUERY_JAVA = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADAPTABLE___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -3145,6 +3496,15 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___GET_OPERATOR_LIST = NODE___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GET_ALL_OPERATORS = NODE___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3244,6 +3604,42 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___CREATE_NEO4J_ADAPTION = NODE___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___CONTAINS_JAVA_OPERATOR = NODE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GENERATE_QUERY_FILTER_PART = NODE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GENERATE_XQUERY_JAVA = NODE___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GENERATE_XQUERY_JAVA_RETURN = NODE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3323,15 +3719,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPLEX_NODE___GET_RELATIONS_TO__NODE = NODE___GET_RELATIONS_TO__NODE;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_NODE___GET_ALL_OPERATORS = NODE___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.
@@ -3487,6 +3874,15 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Validate Link</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADD_PRIMITIVE_VALIDATE_LINK = NODE___ADD_PRIMITIVE_VALIDATE_LINK;
+
+	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3611,6 +4007,33 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPLEX_NODE___ADAPT_AS_NEO_PROPERTY_NODE = NODE___ADAPT_AS_NEO_PROPERTY_NODE;
+
+	/**
+	 * The operation id for the '<em>In Java Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___IN_JAVA_RETURN_REQUIRED = NODE___IN_JAVA_RETURN_REQUIRED;
+
+	/**
+	 * The operation id for the '<em>In Java Graph Return Required</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = NODE___IN_JAVA_GRAPH_RETURN_REQUIRED;
+
+	/**
+	 * The operation id for the '<em>In Java Where</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___IN_JAVA_WHERE = NODE___IN_JAVA_WHERE;
 
 	/**
 	 * The number of operations of the '<em>Complex Node</em>' class.
@@ -3769,6 +4192,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getRelation__AdaptAsPropertyEdge();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#inJavaReturnRequired() <em>In Java Return Required</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>In Java Return Required</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#inJavaReturnRequired()
+	 * @generated
+	 */
+	EOperation getRelation__InJavaReturnRequired();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3841,6 +4274,39 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPrimitiveNode_StringLength();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getOneArgJavaOperator <em>One Arg Java Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>One Arg Java Operator</em>'.
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getOneArgJavaOperator()
+	 * @see #getPrimitiveNode()
+	 * @generated
+	 */
+	EReference getPrimitiveNode_OneArgJavaOperator();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getTwoArgJavaOperator1 <em>Two Arg Java Operator1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Two Arg Java Operator1</em>'.
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getTwoArgJavaOperator1()
+	 * @see #getPrimitiveNode()
+	 * @generated
+	 */
+	EReference getPrimitiveNode_TwoArgJavaOperator1();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getTwoArgJavaOperator2 <em>Two Arg Java Operator2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Two Arg Java Operator2</em>'.
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getTwoArgJavaOperator2()
+	 * @see #getPrimitiveNode()
+	 * @generated
+	 */
+	EReference getPrimitiveNode_TwoArgJavaOperator2();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}' operation.
@@ -4009,16 +4475,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNode__AddPrimitiveComparison();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#getAllOperators() <em>Get All Operators</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Operators</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Node#getAllOperators()
-	 * @generated
-	 */
-	EOperation getNode__GetAllOperators();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}' operation.
@@ -4231,6 +4687,36 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getNode__AdaptAsNeoPropertyNode();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#inJavaReturnRequired() <em>In Java Return Required</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>In Java Return Required</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#inJavaReturnRequired()
+	 * @generated
+	 */
+	EOperation getNode__InJavaReturnRequired();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#inJavaGraphReturnRequired() <em>In Java Graph Return Required</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>In Java Graph Return Required</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#inJavaGraphReturnRequired()
+	 * @generated
+	 */
+	EOperation getNode__InJavaGraphReturnRequired();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#inJavaWhere() <em>In Java Where</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>In Java Where</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#inJavaWhere()
+	 * @generated
+	 */
+	EOperation getNode__InJavaWhere();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck() <em>Add Primitive Null Check</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4249,6 +4735,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNode__AddPrimitiveNullCheck__Boolean();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveValidateLink() <em>Add Primitive Validate Link</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Primitive Validate Link</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveValidateLink()
+	 * @generated
+	 */
+	EOperation getNode__AddPrimitiveValidateLink();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveStringLength() <em>Add Primitive String Length</em>}' operation.
@@ -4376,16 +4872,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGraph_Pattern();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Operators</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Graph#getAllOperators()
-	 * @generated
-	 */
-	EOperation getGraph__GetAllOperators();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph() <em>Is Return Graph</em>}' operation.
@@ -4762,6 +5248,14 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation RELATION___ADAPT_AS_PROPERTY_EDGE = eINSTANCE.getRelation__AdaptAsPropertyEdge();
 
 		/**
+		 * The meta object literal for the '<em><b>In Java Return Required</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RELATION___IN_JAVA_RETURN_REQUIRED = eINSTANCE.getRelation__InJavaReturnRequired();
+
+		/**
 		 * The meta object literal for the '<em><b>Set Graph Simple</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4826,6 +5320,30 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PRIMITIVE_NODE__STRING_LENGTH = eINSTANCE.getPrimitiveNode_StringLength();
+
+		/**
+		 * The meta object literal for the '<em><b>One Arg Java Operator</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRIMITIVE_NODE__ONE_ARG_JAVA_OPERATOR = eINSTANCE.getPrimitiveNode_OneArgJavaOperator();
+
+		/**
+		 * The meta object literal for the '<em><b>Two Arg Java Operator1</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR1 = eINSTANCE.getPrimitiveNode_TwoArgJavaOperator1();
+
+		/**
+		 * The meta object literal for the '<em><b>Two Arg Java Operator2</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRIMITIVE_NODE__TWO_ARG_JAVA_OPERATOR2 = eINSTANCE.getPrimitiveNode_TwoArgJavaOperator2();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.
@@ -4956,14 +5474,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NODE___ADD_PRIMITIVE_COMPARISON = eINSTANCE.getNode__AddPrimitiveComparison();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Operators</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NODE___GET_ALL_OPERATORS = eINSTANCE.getNode__GetAllOperators();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Primitive Comparison</b></em>' operation.
@@ -5134,6 +5644,30 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation NODE___ADAPT_AS_NEO_PROPERTY_NODE = eINSTANCE.getNode__AdaptAsNeoPropertyNode();
 
 		/**
+		 * The meta object literal for the '<em><b>In Java Return Required</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___IN_JAVA_RETURN_REQUIRED = eINSTANCE.getNode__InJavaReturnRequired();
+
+		/**
+		 * The meta object literal for the '<em><b>In Java Graph Return Required</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = eINSTANCE.getNode__InJavaGraphReturnRequired();
+
+		/**
+		 * The meta object literal for the '<em><b>In Java Where</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___IN_JAVA_WHERE = eINSTANCE.getNode__InJavaWhere();
+
+		/**
 		 * The meta object literal for the '<em><b>Add Primitive Null Check</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5148,6 +5682,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = eINSTANCE.getNode__AddPrimitiveNullCheck__Boolean();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Primitive Validate Link</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___ADD_PRIMITIVE_VALIDATE_LINK = eINSTANCE.getNode__AddPrimitiveValidateLink();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Primitive String Length</b></em>' operation.
@@ -5246,14 +5788,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference GRAPH__PATTERN = eINSTANCE.getGraph_Pattern();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Operators</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GRAPH___GET_ALL_OPERATORS = eINSTANCE.getGraph__GetAllOperators();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Return Graph</b></em>' operation.

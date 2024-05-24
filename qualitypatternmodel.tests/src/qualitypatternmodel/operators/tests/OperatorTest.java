@@ -13,7 +13,6 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.operators.Operator#getAllOperators() <em>Get All Operators</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.Operator#getArguments() <em>Get Arguments</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.Operator#getRootBooleanOperators() <em>Get Root Boolean Operators</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.Operator#isCycleFree() <em>Is Cycle Free</em>}</li>
@@ -47,19 +46,6 @@ public abstract class OperatorTest extends PatternElementTest {
 	@Override
 	protected Operator getFixture() {
 		return (Operator)fixture;
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.operators.Operator#getAllOperators() <em>Get All Operators</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.operators.Operator#getAllOperators()
-	 * @generated
-	 */
-	public void testGetAllOperators() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 	/**

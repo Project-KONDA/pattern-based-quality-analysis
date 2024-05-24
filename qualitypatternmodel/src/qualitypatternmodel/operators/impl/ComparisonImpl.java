@@ -612,8 +612,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- begin-user-doc --> 
 	 * Returns this and all contained <code>Operator</code>s.
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 */
-	public EList<Operator> getAllOperators() {
+	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> res = new BasicEList<Operator>();
 		res.add(this);
 		if (argument1 instanceof Operator) {
@@ -699,15 +700,13 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			if (getOption() == null) {
 				ComparisonOptionParam comparisonOption = new ComparisonOptionParamImpl();
 				setOption(comparisonOption);
-			} else {
-				parameterList.add(getOption());
 			}
+			parameterList.add(getOption());
 			if (getTypeOption() == null) {
 				TypeOptionParam typeOption = new TypeOptionParamImpl();
 				setTypeOption(typeOption);
-			} else {
-				parameterList.add(getTypeOption());
 			}
+			parameterList.add(getTypeOption());
 		}		
 	}
 
@@ -1425,8 +1424,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		switch (operationID) {
 			case OperatorsPackage.COMPARISON___IS_PRIMITIVE:
 				return isPrimitive();
-			case OperatorsPackage.COMPARISON___GET_ELEMENT:
-				return getElement();
 			case OperatorsPackage.COMPARISON___COPY:
 				return copy();
 		}

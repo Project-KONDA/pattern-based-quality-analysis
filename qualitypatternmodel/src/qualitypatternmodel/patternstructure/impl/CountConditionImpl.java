@@ -2,7 +2,10 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.COUNT;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -18,7 +21,11 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.NumberFilterPart;
+import qualitypatternmodel.javaquery.impl.CountFilterPartImpl;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -37,6 +44,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.CypherSpecificConstants;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -97,6 +105,15 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		getCountPattern();
 		setArgument2(new NumberElementImpl());
 	}
+
+	
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		NumberFilterPart arg1filter = (NumberFilterPart) getCountPattern().generateQueryFilterPart();
+		NumberFilterPart arg2filter = (NumberFilterPart) getArgument2().generateQueryFilterPart();
+		
+		return new CountFilterPartImpl(getOption().getValue(), arg1filter, arg2filter); 
+	}
 	
 	@Override
 	public String generateXQuery() throws InvalidityException {
@@ -107,7 +124,31 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		} else {
 			throw new InvalidityException("invalid option");
 		}
+	}
+	
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		if (!containsJavaOperator())
+			return generateXQuery();
 		
+		Boolean arg1Java = getCountPattern().containsJavaOperator();
+		Boolean arg2Java = getArgument2().containsJavaOperator();
+		
+		String arg1String;
+		if (arg1Java)
+			arg1String = getCountPattern().generateXQueryJavaReturn();
+		else 
+			arg1String = getCountPattern().generateXQuery();
+		
+		String arg2String;
+		if (arg2Java)
+			arg2String = getCountPattern().generateXQueryJavaReturn();
+		else 
+			if (getArgument2() instanceof CountPattern)
+				arg2String = getCountPattern().generateXQuery();
+			else arg2String = null;
+
+		return (arg2String == null)? arg1String : 
+			JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String, arg2String), COUNT, false, true, false);
 	}
 	
 	@Override
@@ -307,6 +348,14 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		}		
 		res.addAll(getCountPattern().getAllParameters());
 		res.addAll(getArgument2().getAllParameters());		
+		return res;
+	}
+	
+	@Override
+	public EList<Operator> getAllOperators() throws InvalidityException {
+		EList<Operator> res = new BasicEList<Operator>();
+		res.addAll(getCountPattern().getAllOperators());
+		res.addAll(getArgument2().getAllOperators());		
 		return res;
 	}
 

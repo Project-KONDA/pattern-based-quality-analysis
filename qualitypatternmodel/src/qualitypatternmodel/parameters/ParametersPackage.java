@@ -233,6 +233,15 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___GET_ALL_OPERATORS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -330,6 +339,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___GENERATE_XQUERY_JAVA = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -648,6 +693,15 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___GET_OPERATOR_LIST = PARAMETER___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___GET_ALL_OPERATORS = PARAMETER___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -745,6 +799,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON_OPTION_PARAM___CREATE_NEO4J_ADAPTION = PARAMETER___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___GENERATE_XQUERY_JAVA = PARAMETER___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___GENERATE_XQUERY_JAVA_RETURN = PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1018,6 +1108,15 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_LIST___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___GET_ALL_OPERATORS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1115,6 +1214,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_LIST___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___GENERATE_XQUERY_JAVA = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -1352,6 +1487,15 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___GET_OPERATOR_LIST = PARAMETER___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GET_ALL_OPERATORS = PARAMETER___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1449,6 +1593,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_VALUE___CREATE_NEO4J_ADAPTION = PARAMETER___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR = PARAMETER___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART = PARAMETER___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GENERATE_XQUERY_JAVA = PARAMETER___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GENERATE_XQUERY_JAVA_RETURN = PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -1812,13 +1992,22 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM__NULL_CHECK = PARAMETER_VALUE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>One Arg Java Operator</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM__ONE_ARG_JAVA_OPERATOR = PARAMETER_VALUE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Boolean Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 4;
+	int BOOLEAN_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1920,6 +2109,15 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GET_ALL_OPERATORS = PARAMETER_VALUE___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2017,6 +2215,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_PARAM___CREATE_NEO4J_ADAPTION = PARAMETER_VALUE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GENERATE_XQUERY_JAVA = PARAMETER_VALUE___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GENERATE_XQUERY_JAVA_RETURN = PARAMETER_VALUE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -2470,6 +2704,15 @@ public interface ParametersPackage extends EPackage {
 	int LIST_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_PARAM___GET_ALL_OPERATORS = PARAMETER_VALUE___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2567,6 +2810,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST_PARAM___CREATE_NEO4J_ADAPTION = PARAMETER_VALUE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_PARAM___GENERATE_XQUERY_JAVA = PARAMETER_VALUE___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_PARAM___GENERATE_XQUERY_JAVA_RETURN = PARAMETER_VALUE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -3047,6 +3326,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM___GET_OPERATOR_LIST = LIST_PARAM___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GET_ALL_OPERATORS = LIST_PARAM___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3144,6 +3432,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___CREATE_NEO4J_ADAPTION = LIST_PARAM___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___CONTAINS_JAVA_OPERATOR = LIST_PARAM___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GENERATE_QUERY_FILTER_PART = LIST_PARAM___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GENERATE_XQUERY_JAVA = LIST_PARAM___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GENERATE_XQUERY_JAVA_RETURN = LIST_PARAM___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -3660,6 +3984,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GET_ALL_OPERATORS = PARAMETER_VALUE___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3757,6 +4090,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LITERAL_PARAM___CREATE_NEO4J_ADAPTION = PARAMETER_VALUE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA = PARAMETER_VALUE___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA_RETURN = PARAMETER_VALUE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -4228,6 +4597,15 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GET_ALL_OPERATORS = PARAMETER_VALUE___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4325,6 +4703,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_PARAM___CREATE_NEO4J_ADAPTION = PARAMETER_VALUE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GENERATE_XQUERY_JAVA = PARAMETER_VALUE___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GENERATE_XQUERY_JAVA_RETURN = PARAMETER_VALUE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -4778,6 +5192,15 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GET_ALL_OPERATORS = PARAMETER_VALUE___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4875,6 +5298,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM___CREATE_NEO4J_ADAPTION = PARAMETER_VALUE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GENERATE_XQUERY_JAVA = PARAMETER_VALUE___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GENERATE_XQUERY_JAVA_RETURN = PARAMETER_VALUE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -5328,6 +5787,15 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GET_ALL_OPERATORS = PARAMETER_VALUE___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5425,6 +5893,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TIME_PARAM___CREATE_NEO4J_ADAPTION = PARAMETER_VALUE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GENERATE_XQUERY_JAVA = PARAMETER_VALUE___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GENERATE_XQUERY_JAVA_RETURN = PARAMETER_VALUE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -5869,6 +6373,15 @@ public interface ParametersPackage extends EPackage {
 	int UNTYPED_PARAMETER_VALUE___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___GET_ALL_OPERATORS = PARAMETER_VALUE___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5966,6 +6479,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNTYPED_PARAMETER_VALUE___CREATE_NEO4J_ADAPTION = PARAMETER_VALUE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___GENERATE_XQUERY_JAVA = PARAMETER_VALUE___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___GENERATE_XQUERY_JAVA_RETURN = PARAMETER_VALUE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -6419,6 +6968,15 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GET_ALL_OPERATORS = PARAMETER_VALUE___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6516,6 +7074,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_TIME_PARAM___CREATE_NEO4J_ADAPTION = PARAMETER_VALUE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER_VALUE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER_VALUE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GENERATE_XQUERY_JAVA = PARAMETER_VALUE___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GENERATE_XQUERY_JAVA_RETURN = PARAMETER_VALUE___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -6960,6 +7554,15 @@ public interface ParametersPackage extends EPackage {
 	int TYPE_OPTION_PARAM___GET_OPERATOR_LIST = PARAMETER___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM___GET_ALL_OPERATORS = PARAMETER___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7057,6 +7660,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_OPTION_PARAM___CREATE_NEO4J_ADAPTION = PARAMETER___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM___GENERATE_XQUERY_JAVA = PARAMETER___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM___GENERATE_XQUERY_JAVA_RETURN = PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -7339,6 +7978,15 @@ public interface ParametersPackage extends EPackage {
 	int KEY_VALUE_PARAM___GET_OPERATOR_LIST = PARAMETER___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GET_ALL_OPERATORS = PARAMETER___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7436,6 +8084,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int KEY_VALUE_PARAM___CREATE_NEO4J_ADAPTION = PARAMETER___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___CONTAINS_JAVA_OPERATOR = PARAMETER___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GENERATE_QUERY_FILTER_PART = PARAMETER___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GENERATE_XQUERY_JAVA = PARAMETER___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GENERATE_XQUERY_JAVA_RETURN = PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -7763,6 +8447,15 @@ public interface ParametersPackage extends EPackage {
 	int MULTI_LIST_PARAM___GET_OPERATOR_LIST = LIST_PARAM___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LIST_PARAM___GET_ALL_OPERATORS = LIST_PARAM___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7860,6 +8553,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTI_LIST_PARAM___CREATE_NEO4J_ADAPTION = LIST_PARAM___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LIST_PARAM___CONTAINS_JAVA_OPERATOR = LIST_PARAM___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LIST_PARAM___GENERATE_QUERY_FILTER_PART = LIST_PARAM___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LIST_PARAM___GENERATE_XQUERY_JAVA = LIST_PARAM___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LIST_PARAM___GENERATE_XQUERY_JAVA_RETURN = LIST_PARAM___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -8494,6 +9223,17 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBooleanParam_NullCheck();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.BooleanParam#getOneArgJavaOperator <em>One Arg Java Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>One Arg Java Operator</em>'.
+	 * @see qualitypatternmodel.parameters.BooleanParam#getOneArgJavaOperator()
+	 * @see #getBooleanParam()
+	 * @generated
+	 */
+	EReference getBooleanParam_OneArgJavaOperator();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.BooleanParam#setValueIfValid(java.lang.Boolean) <em>Set Value If Valid</em>}' operation.
@@ -9357,6 +10097,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BOOLEAN_PARAM__NULL_CHECK = eINSTANCE.getBooleanParam_NullCheck();
+
+		/**
+		 * The meta object literal for the '<em><b>One Arg Java Operator</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOLEAN_PARAM__ONE_ARG_JAVA_OPERATOR = eINSTANCE.getBooleanParam_OneArgJavaOperator();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.

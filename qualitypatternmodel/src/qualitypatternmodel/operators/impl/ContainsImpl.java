@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.operators.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -218,17 +216,14 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 			if(getOption() == null) {
 				BooleanParam bool = new BooleanParamImpl();				
 				setOption(bool);
-			} else {
-				parameterList.add(getOption());
 			}
+			parameterList.add(getOption());
 			if(getContent() == null) {
 				TextLiteralParam textLiteral = new TextLiteralParamImpl();				
 				setContent(textLiteral);
-			} else {
-				parameterList.add(getContent());
 			}
+			parameterList.add(getContent());
 		}
-		
 	}
 
 	/**
@@ -612,20 +607,6 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 		return super.eIsSet(featureID);
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case OperatorsPackage.CONTAINS___GET_ELEMENT:
-				return getElement();
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
 	@Override
 	public String myToString() {
 		String res = "CONTAINS (" + getInternalId() + ") [";

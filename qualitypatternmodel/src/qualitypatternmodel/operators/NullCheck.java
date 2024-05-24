@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.operators;
 
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.BooleanParam;
 
@@ -71,13 +70,5 @@ public interface NullCheck extends BooleanOperator {
 	 * @generated
 	 */
 	void setOption(BooleanParam value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	Node getElement();
 
 } // NullCheck

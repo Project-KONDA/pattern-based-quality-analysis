@@ -205,13 +205,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___GET_OPERATOR_LIST = 11;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GET_ALL_OPERATORS = 12;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GET_PARAMETER_LIST = 12;
+	int PATTERN_ELEMENT___GET_PARAMETER_LIST = 13;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -220,7 +229,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GET_ALL_PARAMETERS = 13;
+	int PATTERN_ELEMENT___GET_ALL_PARAMETERS = 14;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -229,7 +238,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES = 14;
+	int PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES = 15;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -238,7 +247,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = 15;
+	int PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = 16;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -247,7 +256,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = 16;
+	int PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = 17;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -256,7 +265,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = 17;
+	int PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = 18;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -265,7 +274,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE = 18;
+	int PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE = 19;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -274,7 +283,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___RELATIONS_XML_ADAPTED = 19;
+	int PATTERN_ELEMENT___RELATIONS_XML_ADAPTED = 20;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -283,7 +292,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___CREATE_XML_ADAPTION = 20;
+	int PATTERN_ELEMENT___CREATE_XML_ADAPTION = 21;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -292,7 +301,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___CREATE_RDF_ADAPTION = 21;
+	int PATTERN_ELEMENT___CREATE_RDF_ADAPTION = 22;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -301,7 +310,43 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION = 22;
+	int PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION = 23;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR = 24;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART = 25;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GENERATE_XQUERY_JAVA = 26;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = 27;
 
 	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
@@ -310,7 +355,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 23;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 28;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.ConditionImpl <em>Condition</em>}' class.
@@ -503,6 +548,15 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___GET_ALL_OPERATORS = PATTERN_ELEMENT___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -600,6 +654,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___GENERATE_XQUERY_JAVA = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -855,6 +945,15 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -952,6 +1051,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int QUANTIFIED_CONDITION___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -1180,6 +1315,15 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___GET_ALL_OPERATORS = PATTERN_ELEMENT___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1277,6 +1421,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___GENERATE_XQUERY_JAVA = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
@@ -1514,6 +1694,15 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1611,6 +1800,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int FORMULA___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -1830,6 +2055,15 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1927,6 +2161,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int TRUE_ELEMENT___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -2137,6 +2407,15 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___GET_ALL_OPERATORS = PATTERN_ELEMENT___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2234,6 +2513,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PATTERN___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___GENERATE_XQUERY_JAVA = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
@@ -2543,6 +2858,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___GET_OPERATOR_LIST = PATTERN___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GET_ALL_OPERATORS = PATTERN___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2642,6 +2966,42 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___CREATE_NEO4J_ADAPTION = PATTERN___CREATE_NEO4J_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___CONTAINS_JAVA_OPERATOR = PATTERN___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_QUERY_FILTER_PART = PATTERN___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_XQUERY_JAVA = PATTERN___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_XQUERY_JAVA_RETURN = PATTERN___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2732,13 +3092,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_YAML_FILE__STRING = PATTERN_OPERATION_COUNT + 8;
 
 	/**
+	 * The operation id for the '<em>Generate Query Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_QUERY_FILTER = PATTERN_OPERATION_COUNT + 9;
+
+	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 9;
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -2940,6 +3309,15 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3037,6 +3415,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NOT_CONDITION___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -3292,6 +3706,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3389,6 +3812,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COUNT_CONDITION___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -3590,6 +4049,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___GET_ALL_OPERATORS = PATTERN_ELEMENT___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3687,6 +4155,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COUNT_CONDITION_ARGUMENT___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The number of operations of the '<em>Count Condition Argument</em>' class.
@@ -3852,6 +4356,15 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_CONTAINER___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___GET_ALL_OPERATORS = PATTERN_ELEMENT___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3949,6 +4462,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM_CONTAINER___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___GENERATE_XQUERY_JAVA = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Graph</em>' operation.
@@ -4186,6 +4735,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN___GET_OPERATOR_LIST = PATTERN___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___GET_ALL_OPERATORS = PATTERN___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4283,6 +4841,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COUNT_PATTERN___CREATE_NEO4J_ADAPTION = PATTERN___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___CONTAINS_JAVA_OPERATOR = PATTERN___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___GENERATE_QUERY_FILTER_PART = PATTERN___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___GENERATE_XQUERY_JAVA = PATTERN___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___GENERATE_XQUERY_JAVA_RETURN = PATTERN___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
@@ -4484,6 +5078,15 @@ public interface PatternstructurePackage extends EPackage {
 	int NUMBER_ELEMENT___GET_OPERATOR_LIST = COUNT_CONDITION_ARGUMENT___GET_OPERATOR_LIST;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___GET_ALL_OPERATORS = COUNT_CONDITION_ARGUMENT___GET_ALL_OPERATORS;
+
+	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4581,6 +5184,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_ELEMENT___CREATE_NEO4J_ADAPTION = COUNT_CONDITION_ARGUMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___CONTAINS_JAVA_OPERATOR = COUNT_CONDITION_ARGUMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___GENERATE_QUERY_FILTER_PART = COUNT_CONDITION_ARGUMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___GENERATE_XQUERY_JAVA = COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA_RETURN;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -5158,6 +5797,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getCompletePattern__GenerateXmlConstraintYAMLFile__String();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#generateQueryFilter() <em>Generate Query Filter</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Query Filter</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#generateQueryFilter()
+	 * @generated
+	 */
+	EOperation getCompletePattern__GenerateQueryFilter();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5300,6 +5949,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__GetOperatorList();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getAllOperators() <em>Get All Operators</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Operators</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getAllOperators()
+	 * @generated
+	 */
+	EOperation getPatternElement__GetAllOperators();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#createRdfAdaption() <em>Create Rdf Adaption</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5318,6 +5977,46 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__CreateNeo4jAdaption();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#containsJavaOperator() <em>Contains Java Operator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Contains Java Operator</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#containsJavaOperator()
+	 * @generated
+	 */
+	EOperation getPatternElement__ContainsJavaOperator();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#generateQueryFilterPart() <em>Generate Query Filter Part</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Query Filter Part</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#generateQueryFilterPart()
+	 * @generated
+	 */
+	EOperation getPatternElement__GenerateQueryFilterPart();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#generateXQueryJavaReturn() <em>Generate XQuery Java Return</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate XQuery Java Return</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#generateXQueryJavaReturn()
+	 * @generated
+	 */
+	EOperation getPatternElement__GenerateXQueryJavaReturn();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#generateXQueryJava() <em>Generate XQuery Java</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate XQuery Java</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#generateXQueryJava()
+	 * @generated
+	 */
+	EOperation getPatternElement__GenerateXQueryJava();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#recordValues(qualitypatternmodel.execution.XmlDataDatabase) <em>Record Values</em>}' operation.
@@ -6171,6 +6870,14 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_YAML_FILE__STRING = eINSTANCE.getCompletePattern__GenerateXmlConstraintYAMLFile__String();
 
 		/**
+		 * The meta object literal for the '<em><b>Generate Query Filter</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPLETE_PATTERN___GENERATE_QUERY_FILTER = eINSTANCE.getCompletePattern__GenerateQueryFilter();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6285,6 +6992,14 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation PATTERN_ELEMENT___GET_OPERATOR_LIST = eINSTANCE.getPatternElement__GetOperatorList();
 
 		/**
+		 * The meta object literal for the '<em><b>Get All Operators</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___GET_ALL_OPERATORS = eINSTANCE.getPatternElement__GetAllOperators();
+
+		/**
 		 * The meta object literal for the '<em><b>Create Xml Adaption</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6307,6 +7022,38 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION = eINSTANCE.getPatternElement__CreateNeo4jAdaption();
+
+		/**
+		 * The meta object literal for the '<em><b>Contains Java Operator</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR = eINSTANCE.getPatternElement__ContainsJavaOperator();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Query Filter Part</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART = eINSTANCE.getPatternElement__GenerateQueryFilterPart();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate XQuery Java Return</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = eINSTANCE.getPatternElement__GenerateXQueryJavaReturn();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate XQuery Java</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___GENERATE_XQUERY_JAVA = eINSTANCE.getPatternElement__GenerateXQueryJava();
 
 		/**
 		 * The meta object literal for the '<em><b>Record Values</b></em>' operation.

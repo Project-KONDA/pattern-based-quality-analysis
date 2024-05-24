@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.impl.NumberValueFilterElementImpl;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -62,6 +64,11 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	public NumberElementImpl() {
 		super();
 		createParameters();
+	}
+	
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		return new NumberValueFilterElementImpl(getNumberParam().getValue()); 
 	}
 	
 	@Override

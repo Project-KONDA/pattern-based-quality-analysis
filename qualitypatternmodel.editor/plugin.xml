@@ -258,4 +258,88 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.javaoperators.presentation.JavaoperatorsModelWizardID"
+            name="%_UI_JavaoperatorsModelWizard_label"
+            class="qualitypatternmodel.javaoperators.presentation.JavaoperatorsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/JavaoperatorsModelFile.gif">
+         <description>%_UI_JavaoperatorsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.javaoperators.presentation.JavaoperatorsEditorID"
+            name="%_UI_JavaoperatorsEditor_label"
+            icon="icons/full/obj16/JavaoperatorsModelFile.gif"
+            extensions="javaoperators"
+            class="qualitypatternmodel.javaoperators.presentation.JavaoperatorsEditor"
+            contributorClass="qualitypatternmodel.javaoperators.presentation.JavaoperatorsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.javaquery.presentation.JavaqueryModelWizardID"
+            name="%_UI_JavaqueryModelWizard_label"
+            class="qualitypatternmodel.javaquery.presentation.JavaqueryModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/JavaqueryModelFile.gif">
+         <description>%_UI_JavaqueryModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.javaquery.presentation.JavaqueryEditorID"
+            name="%_UI_JavaqueryEditor_label"
+            icon="icons/full/obj16/JavaqueryModelFile.gif"
+            extensions="javaquery"
+            class="qualitypatternmodel.javaquery.presentation.JavaqueryEditor"
+            contributorClass="qualitypatternmodel.javaquery.presentation.JavaqueryActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.javaqueryoutput.presentation.JavaqueryoutputModelWizardID"
+            name="%_UI_JavaqueryoutputModelWizard_label"
+            class="qualitypatternmodel.javaqueryoutput.presentation.JavaqueryoutputModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/JavaqueryoutputModelFile.gif">
+         <description>%_UI_JavaqueryoutputModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.javaqueryoutput.presentation.JavaqueryoutputEditorID"
+            name="%_UI_JavaqueryoutputEditor_label"
+            icon="icons/full/obj16/JavaqueryoutputModelFile.gif"
+            extensions="javaqueryoutput"
+            class="qualitypatternmodel.javaqueryoutput.presentation.JavaqueryoutputEditor"
+            contributorClass="qualitypatternmodel.javaqueryoutput.presentation.JavaqueryoutputActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

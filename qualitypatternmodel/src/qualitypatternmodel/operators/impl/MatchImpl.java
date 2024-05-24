@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.operators.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -204,17 +203,14 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			if(getOption() == null) {
 				BooleanParam bool = new BooleanParamImpl();				
 				setOption(bool);
-			} else {
-				parameterList.add(getOption());
 			}
+			parameterList.add(getOption());
 			if(getRegularExpression() == null) {
 				TextLiteralParam textLiteral = new TextLiteralParamImpl();				
 				setRegularExpression(textLiteral);
-			} else {
-				parameterList.add(getRegularExpression());
 			}
+			parameterList.add(getRegularExpression());
 		}
-		
 	}	
 	
 	/**
@@ -608,20 +604,6 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		return super.eIsSet(featureID);
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case OperatorsPackage.MATCH___GET_ELEMENT:
-				return getElement();
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
 	@Override
 	public String myToString() {
 		String res = "MATCH (" + getInternalId() + ") [";

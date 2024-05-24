@@ -14,6 +14,7 @@ import qualitypatternmodel.operators.BooleanOperator;
  *   <li>{@link qualitypatternmodel.operators.BooleanOperator#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Node) <em>Add Element</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Node) <em>Remove Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.BooleanOperator#getElement() <em>Get Element</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -75,6 +76,19 @@ public abstract class BooleanOperatorTest extends OperatorTest {
 	 * @generated
 	 */
 	public void testRemoveElement__Node() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.operators.BooleanOperator#getElement() <em>Get Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.operators.BooleanOperator#getElement()
+	 * @generated
+	 */
+	public void testGetElement() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -3,18 +3,27 @@
 package qualitypatternmodel.adaptionxml.impl;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static qualitypatternmodel.utility.Constants.FOR;
+import static qualitypatternmodel.utility.Constants.IN;
+import static qualitypatternmodel.utility.Constants.RETURN;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.VALUE;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.BOOLEAN;
+import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,6 +77,51 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 
 	public String generateXQuery2() throws InvalidityException {
 		return super.generateXQuery();
+	}
+
+	@Override
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		if (!getTarget().containsJavaOperator()) {
+			String query = generateXQuery2() + "(true())\n";
+			query = query.indent(2);
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(query), BOOLEAN, false, false, true);
+		}	
+			
+		String variable = generateNextXQueryVariable();
+		
+		if (!getTarget().containsJavaOperator())
+			new InvalidityException("This query should not get translated here: " + variable);
+		
+		// Basic Translation via xmlPathParam
+		String path = "";
+		if (xmlPathParam == null)
+			throw new InvalidityException("option null");
+			
+		String sourcevariable = ((XmlNode) source).getVariables().size()>0? ((XmlNode) source).getVariables().get(0) : "X";
+//		String sourcevariable = getSourceVariable();
+		if (!(getSource() instanceof XmlRoot) && sourcevariable == "") {
+			throw new InvalidityException("SourceVariable in Relation [" + getInternalId() + "] from Element [" + getSource().getInternalId() + "] is empty");
+		}
+			
+		path = sourcevariable + xmlPathParam.generateXQuery();
+
+		// Predicate
+		String predicates = "";
+		if(getTarget() instanceof XmlNode) {
+			getTarget().setTranslated(true);
+			XmlNode targetElement = (XmlNode) getTarget();
+			predicates = targetElement.translatePredicates();
+		} else {
+			throw new InvalidityException("target of relation not XmlNode");
+		}
+		
+		String query1 = FOR + variable + IN + path + predicates;
+		String query2 = RETURN + variable;
+		String query = query1 + query2;
+		query = query.indent(2);
+		query = JavaQueryTranslationUtility.getXQueryReturnList(List.of(query), VALUE, false, false, true);
+//		query = "\n  " + VALUESTART +",\n  (" + query + "  ),\n  "+ VALUEEND; // + "\n  ";
+		return query; 
 	}
 	
 	

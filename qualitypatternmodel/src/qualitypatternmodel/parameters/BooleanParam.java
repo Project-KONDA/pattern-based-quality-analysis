@@ -5,6 +5,7 @@ package qualitypatternmodel.parameters;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.javaoperators.OneArgJavaOperator;
 import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.NullCheck;
@@ -24,6 +25,7 @@ import qualitypatternmodel.operators.NullCheck;
  *   <li>{@link qualitypatternmodel.parameters.BooleanParam#getMatches <em>Matches</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.BooleanParam#getContains <em>Contains</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.BooleanParam#getNullCheck <em>Null Check</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.BooleanParam#getOneArgJavaOperator <em>One Arg Java Operator</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getBooleanParam()
@@ -95,6 +97,20 @@ public interface BooleanParam extends ParameterValue {
 	 * @generated
 	 */
 	EList<NullCheck> getNullCheck();
+
+	/**
+	 * Returns the value of the '<em><b>One Arg Java Operator</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.javaoperators.OneArgJavaOperator}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.javaoperators.OneArgJavaOperator#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>One Arg Java Operator</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getBooleanParam_OneArgJavaOperator()
+	 * @see qualitypatternmodel.javaoperators.OneArgJavaOperator#getOption
+	 * @model opposite="option"
+	 * @generated
+	 */
+	EList<OneArgJavaOperator> getOneArgJavaOperator();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -16,6 +16,10 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.javaquery.BooleanFilterPart;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.impl.NotFilterPartImpl;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
@@ -59,6 +63,11 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 		super();
 		setCondition(new TrueElementImpl());
 	}
+	
+	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException{
+		return new NotFilterPartImpl((BooleanFilterPart) getCondition().generateQueryFilterPart());
+	}
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
@@ -72,6 +81,28 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			throw new InvalidityException("invalid condition");
 		}
 	}
+
+	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		if (condition instanceof NotCondition) {
+			return ((NotCondition) condition).getCondition().generateXQuery();
+		}
+		if (condition != null) {
+			String conQuery = condition.generateXQueryJava().replace("\n", "\n  "); 
+			return "not(" + conQuery + ")";
+		} else {
+			throw new InvalidityException("invalid condition");
+		}
+	}
+	
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		String conditionString = getCondition().generateXQueryJavaReturn();
+		if (conditionString == null)
+			return null;
+		else 
+			return conditionString;
+	}
+	
 	@Override
 	public int getNotSequenceSize() {
 		if(getCondition() instanceof NotConditionImpl) {
@@ -196,10 +227,13 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	}
 
 	@Override
-	public EList<Parameter> getAllParameters() throws InvalidityException {
-		EList<Parameter> parameters = new BasicEList<Parameter>();
-		parameters.addAll(condition.getAllParameters());		
-		return parameters;
+	public EList<Parameter> getAllParameters() throws InvalidityException {		
+		return condition.getAllParameters();
+	}
+
+	@Override
+	public EList<Operator> getAllOperators() throws InvalidityException {	
+		return condition.getAllOperators();
 	}
 	
 	@Override
