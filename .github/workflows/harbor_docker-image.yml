@@ -4,6 +4,10 @@ on:
   push:
     branches: [ "master" ]
 
+defaults:
+  run:
+    working-directory: ./qualitypatternmodel
+    
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,5 +23,7 @@ jobs:
       - name: Harbor Build and Push
         uses: docker/build-push-action@v5
         with:
+          context: ./qualitypatternmodel
+          file: qualitypatternmodel/Dockerfile
           push: true
           tags: aqinda/qpm:latest
