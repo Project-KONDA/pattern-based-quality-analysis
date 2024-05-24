@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.textrepresentation;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Parameter Fragment</b></em>'.
@@ -80,5 +82,13 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	 * @generated
 	 */
 	String getRole();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void setValue(String value) throws InvalidityException;
 
 } // ParameterFragment

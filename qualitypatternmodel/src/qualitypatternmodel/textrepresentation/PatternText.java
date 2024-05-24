@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -153,6 +154,14 @@ public interface PatternText extends EObject {
 	 * @generated
 	 */
 	String generateSparqlTemplate() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
+	 * @generated
+	 */
+	JSONObject generateJSONObject();
 
 	/**
 	 * <!-- begin-user-doc -->

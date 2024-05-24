@@ -336,7 +336,7 @@ public class CypherTest11CountCondition extends CypherTranslation {
 		
 		CompletePattern completePattern = factory.createCompletePattern();
 		completePattern.getGraph().getNodes().get(0).makeComplex();
-		completePattern.setName("MyPattern");
+		completePattern.setPatternId("MyPattern");
 	
 		return completePattern;	
 	}

@@ -611,13 +611,23 @@
       <eOperations name="generateQueryFilter" eType="#//javaquery/JavaFilter" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" lowerBound="1"
           eType="#//parameters/ParameterList" containment="true" eOpposite="#//parameters/ParameterList/pattern"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="database" eType="#//execution/Database"
           eOpposite="#//execution/Database/patterns"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="text" upperBound="-1"
           eType="#//textrepresentation/PatternText" containment="true" eOpposite="#//textrepresentation/PatternText/pattern"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="#//patternstructure/Language"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataModelName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="databaseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="keywords" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterCounter" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+          defaultValueLiteral="1"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="counter" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
           defaultValueLiteral="1"/>
@@ -630,10 +640,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="operatorCounter" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
           defaultValueLiteral="1"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterCounter" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
-          defaultValueLiteral="1"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="#//patternstructure/Language"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PatternElement" abstract="true">
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -764,9 +770,9 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Language">
       <eLiterals name="GENERIC"/>
-      <eLiterals name="XML" value="1"/>
-      <eLiterals name="RDF" value="2"/>
-      <eLiterals name="NEO4J" value="3"/>
+      <eLiterals name="XML" value="1" literal="xml"/>
+      <eLiterals name="RDF" value="2" literal="rdf"/>
+      <eLiterals name="NEO4J" value="3" literal="neo4j"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="BaseSchemaWrapper" instanceClassName="de.gwdg.metadataqa.api.schema.BaseSchema"/>
   </eSubpackages>
@@ -1173,6 +1179,7 @@
       <eOperations name="instantiate" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="generateSparqlTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
+      <eOperations name="generateJSONObject" eType="#//textrepresentation/JSONObjectWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
           eType="#//patternstructure/CompletePattern" eOpposite="#//patternstructure/CompletePattern/text"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" lowerBound="1"
@@ -1187,6 +1194,9 @@
     <eClassifiers xsi:type="ecore:EClass" name="ParameterFragment" eSuperTypes="#//textrepresentation/Fragment #//textrepresentation/ParameterReference">
       <eOperations name="getType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getRole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="setValue" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="exampleValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
@@ -1195,6 +1205,7 @@
       <eOperations name="getPreview" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="generateSparqlTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateJSONObject" eType="#//textrepresentation/JSONObjectWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="patternText" lowerBound="1"
           eType="#//textrepresentation/PatternText" eOpposite="#//textrepresentation/PatternText/fragments"/>
     </eClassifiers>
@@ -1213,6 +1224,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
           upperBound="-1" eType="#//parameters/Parameter" eOpposite="#//parameters/Parameter/parameterReferences"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="JSONObjectWrapper" instanceClassName="org.json.JSONObject"/>
   </eSubpackages>
   <eSubpackages name="adaptionrdf" nsURI="adaptionrdf" nsPrefix="adaptionrdf">
     <eClassifiers xsi:type="ecore:EClass" name="RdfPredicate" eSuperTypes="#//graphstructure/Relation">

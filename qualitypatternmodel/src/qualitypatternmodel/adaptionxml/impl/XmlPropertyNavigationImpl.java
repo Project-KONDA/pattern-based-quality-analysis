@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+//import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static qualitypatternmodel.utility.Constants.FOR;
 import static qualitypatternmodel.utility.Constants.IN;
 import static qualitypatternmodel.utility.Constants.RETURN;
@@ -163,7 +163,15 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 	@Override
 	public void setTarget(Node newTarget) {
 		if (newTarget != null)
-			assertDoesNotThrow(() -> {newTarget.checkPrimitive();});
+			try {
+				newTarget.checkPrimitive();
+			} catch (InvalidityException e) {
+				throw new ClassCastException();
+			}
+//			assertDoesNotThrow(() -> {newTarget.checkPrimitive();});
+		int a = 1;
+		a += 1;
+		a = a+1;
 		super.setTarget(newTarget);
 	}
 

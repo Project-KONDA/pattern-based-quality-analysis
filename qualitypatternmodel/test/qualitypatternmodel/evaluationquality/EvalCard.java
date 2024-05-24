@@ -95,7 +95,7 @@ public class EvalCard {
 	
 	public static CompletePattern getCARD1() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTest11CountCondition.getComplexBasePattern();
-		completePattern.setName("CARD1");
+		completePattern.setPatternId("CARD1");
 		completePattern.getGraph().getReturnNodes().get(0).setName("Return");
 		
 		ComplexNode complexNode = completePattern.getGraph().addComplexNode();

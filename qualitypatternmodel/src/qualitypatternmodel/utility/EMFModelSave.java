@@ -1,5 +1,6 @@
 package qualitypatternmodel.utility;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
@@ -10,6 +11,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+
+import jakarta.servlet.ServletContext;
 
 public class EMFModelSave {
 	
@@ -22,4 +25,60 @@ public class EMFModelSave {
 	  resource.getContents().add(data);
 	  resource.save(Collections.EMPTY_MAP);
 	}
+
+    public static void exportToFile2(EObject data, ServletContext servletContext, String relativeFolderPath, String fileName, String fileExtension) throws IOException {
+    	exportToFile2(data, servletContext.getRealPath(relativeFolderPath), fileName, fileExtension);
+    }
+    
+    public static void exportToFile2(EObject data, String absoluteFolderPath, String fileName, String fileExtension) throws IOException {
+    	
+    	String absolutePath = absoluteFolderPath + "/" + fileName + "." + fileExtension;
+        // Create a ResourceSet
+        ResourceSet resourceSet = new ResourceSetImpl();
+
+        // Register the appropriate resource factory
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
+                Resource.Factory.Registry.DEFAULT_EXTENSION, new org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl());
+        
+        // Print the absolute path for debugging
+//        System.out.println("Absolute Path: " + URI.createFileURI(absolutePath).toFileString());
+
+        // Create a Resource with an appropriate URI
+        URI fileURI = URI.createFileURI(absolutePath);
+        Resource resource = resourceSet.createResource(fileURI);
+        
+        // Add the model instance to the resource's contents
+        resource.getContents().add(data);
+
+        // Save the resource
+        try {
+            resource.save(null);
+            resource.unload();
+        } catch (IOException e) {
+            resource.unload();
+            throw e;
+        }
+    }
+
+	public static String exportToString(EObject eObject) {
+        // Create a resource set and register XMI resource factory
+        ResourceSet resourceSet = new ResourceSetImpl();
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
+
+        // Create a resource
+        Resource resource = resourceSet.createResource(URI.createURI("temp.xmi"));
+        
+        // Add the EObject to the resource
+        resource.getContents().add(eObject);
+
+        try {
+            // Write the resource to a StringWriter
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            resource.save(outputStream, null);
+            return outputStream.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

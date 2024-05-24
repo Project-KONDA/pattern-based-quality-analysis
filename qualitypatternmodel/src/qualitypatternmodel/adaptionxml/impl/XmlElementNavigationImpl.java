@@ -2,10 +2,17 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
+import static qualitypatternmodel.utility.Constants.FOR_LITE;
+import static qualitypatternmodel.utility.Constants.IN;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNode;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
+import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
@@ -23,6 +30,69 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 	 */
 	public XmlElementNavigationImpl() {
 		super();
+	}
+	
+	@Override
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		if(getGraph() == null) {
+			throw new InvalidityException("container Graph null");
+		}
+		EList<String> vars = ((XmlNode) getTarget()).getVariables();
+		String variable = vars.size() == 0? generateNextXQueryVariable() : vars.get(vars.size()-1);
+		
+		// Basic Translation via xmlPathParam
+		String xPathExpression = "";
+		if (xmlPathParam != null) {
+			String sourcevariable = getSourceVariable();
+			if (!(getSource() instanceof XmlRoot) && sourcevariable == "") {
+				throw new InvalidityException("SourceVariable in Relation [" + getInternalId() + "] from Element [" + getSource().getInternalId() + "] is empty");
+			}
+			xPathExpression = sourcevariable + xmlPathParam.generateXQuery();
+		} else 
+			throw new InvalidityException("option null");
+		
+		// setTranslated
+		
+		if(getTarget() instanceof XmlElement) {
+			XmlElement element = (XmlElement) getTarget();
+			element.setTranslated(true);
+		} else if(getTarget() instanceof XmlProperty) {
+			XmlProperty property = (XmlProperty) getTarget();
+			property.setTranslated(true);
+		} else {
+			throw new InvalidityException("target of relation not XmlNode");
+		}
+		
+		// Predicate
+		String xPredicates = "";
+		if(getTarget() instanceof XmlNode) {
+			XmlNode targetElement = (XmlNode) getTarget();
+			xPredicates = targetElement.translatePredicates();
+		} else {
+			throw new InvalidityException("target of relation not XmlNode");
+		}
+		
+		// Structure Translation (For, Some, Every)
+		String query = FOR_LITE + variable + IN;
+		if(getTarget() instanceof XmlNode) {
+			XmlNode node = (XmlNode) getTarget();
+			xPredicates += node.translateMultipleIncoming();
+		}
+		query += xPathExpression + xPredicates;
+
+		translated = true;
+		
+		String target = getTarget().generateXQuery();
+		query += target;
+		
+		if (xPredicates == "" && xPathExpression == "" && target == "") {
+			return "";
+		}
+//		if (query.startsWith("\n"))
+//			query = query.substring(1);
+//		return "  " + query + "\n  return (";
+		query += getTarget().generateXQueryJavaReturn();
+		return query;
 	}
 	
 	@Override

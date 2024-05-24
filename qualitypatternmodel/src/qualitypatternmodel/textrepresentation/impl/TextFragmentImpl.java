@@ -7,6 +7,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.textrepresentation.TextFragment;
@@ -164,7 +166,17 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 	
 	@Override
 	public String generateJSON() {
-		return '"' + getText() + '"';
+		return "{\"text\": \"" + getText() + "\"}";
+//		return '"' + getText() + '"';
+	}
+	
+	@Override
+	public JSONObject generateJSONObject() {
+		JSONObject json = new JSONObject();
+		try {
+			json.put("text", getText());
+		} catch (JSONException e) {}
+		return json;
 	}
 
 	/**

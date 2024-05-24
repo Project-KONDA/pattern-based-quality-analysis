@@ -5,5 +5,6 @@
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="lib" path="/qualitypatternmodel/lib/BaseX931.jar"/>
 	<classpathentry kind="lib" path="/qualitypatternmodel/lib/metadata-qa-api-0.9.3.jar"/>
+	<classpathentry kind="lib" path="/qualitypatternmodel/WebContent/WEB-INF/lib/java-json.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -284,7 +284,7 @@ public class CypherTest06Comparison extends CypherTranslation {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
+		completePattern.setPatternId("MyPattern");
 		
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
 		PrimitiveNode pn = completePattern.getGraph().addPrimitiveNode();
@@ -300,7 +300,7 @@ public class CypherTest06Comparison extends CypherTranslation {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
+		completePattern.setPatternId("MyPattern");
 		
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
 		PrimitiveNode primitiveNode1 = completePattern.getGraph().addPrimitiveNode();

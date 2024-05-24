@@ -23,6 +23,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -240,28 +243,48 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 */
 	@Override
 	public String generateJSON() {
-		String name = getPattern().getName();
-		String json = "{\"PatternName\": \"" + name + "\", ";
-		String abstractName = getPattern().getAbstractName();
-		if (abstractName != null & abstractName != "") {
-			json += "\"AbstractPatternName\": \"" + getPattern().getAbstractName() + "\", ";
-		}
-		String description = getPattern().getDescription();
-		if(description == null) {
-			description = "";
-		}
-		json += "\"PatternDescription\": \"" + description + "\",";
-		json += "\"PatternTextName\": \"" + getName() + "\","; 
-		json += "\"Fragments\" : [";
-		for(Fragment f : getFragmentsOrdered()) {
-			json += "  " + f.generateJSON() + ", ";
+		String json = "{";
+//		String name = getPattern().getName();
+//		json += "\"PatternName\": \"" + name + "\", ";
+//		String abstractName = getPattern().getAbstractName();
+//		if (abstractName != null & abstractName != "") {
+//			json += "\"AbstractPatternName\": \"" + getPattern().getAbstractName() + "\", ";
+//		}
+//		String description = getPattern().getDescription();
+//		if(description == null) {
+//			description = "";
+//		}
+//		json += "\"PatternDescription\": \"" + description + "\",";
+//		json += "\"PatternTextName\": \"" + getName() + "\",";
+
+		json += "\"name\": \"" + getName() + "\", ";
+		json += "\"fragments\" : [";
+		for(int i = 0; i< getFragmentsOrdered().size(); i++) {
+			if (i>0)
+				json += ", ";
+			json += getFragmentsOrdered().get(i).generateJSON();
 		}
 		json += "]}";
-		json = json.replace(", ]", "]");
-		json = json.replace(", }", "}");
 		return json;
 	}
 
+	
+	@Override
+	public JSONObject generateJSONObject() {
+		JSONObject json = new JSONObject();
+		try {
+			json.put("name", getName());
+			JSONArray fragments = new JSONArray();
+			for (Fragment fragment: getFragmentsOrdered()) {
+				fragments.put(fragment.generateJSONObject());
+			}
+			json.put("fragments", fragments);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return json;
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -356,7 +379,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 					remaining += "\n  - " + p.myToString() + ", ";
 				}
 			}
-			throw new InvalidityException("pattern text does not reference all parameters: " + remaining);
+			throw new InvalidityException("pattern text '" + getName() + "'does not reference all parameters: " + remaining);
 		}
 		if(!patternParametersNonPredefined.containsAll(referencedParameters)) {
 			String remaining = "";
@@ -760,6 +783,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_JSON_OBJECT:
+				return generateJSONObject();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

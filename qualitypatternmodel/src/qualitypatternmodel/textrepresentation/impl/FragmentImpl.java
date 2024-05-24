@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.PatternText;
@@ -97,38 +98,34 @@ public abstract class FragmentImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
-	public String generateJSON() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public String generateJSON();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
-	public String getPreview() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public String getPreview();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
-	public String generateSparqlTemplate() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public String generateSparqlTemplate() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated not
+	 */
+	@Override
+	abstract public JSONObject generateJSONObject();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -251,6 +248,8 @@ public abstract class FragmentImpl extends MinimalEObjectImpl.Container implemen
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case TextrepresentationPackage.FRAGMENT___GENERATE_JSON_OBJECT:
+				return generateJSONObject();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

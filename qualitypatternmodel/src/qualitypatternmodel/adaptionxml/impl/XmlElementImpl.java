@@ -4,6 +4,8 @@ package qualitypatternmodel.adaptionxml.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -30,6 +32,7 @@ import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -175,6 +178,29 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			}
 		}
 		return query;					
+	}
+	
+	@Override 
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		if(getGraph() == null) {
+			throw new InvalidityException("container Graph null");
+		}
+		setTranslated(true);
+		String query = "";
+		List<Relation> relations = JavaQueryTranslationUtility.orderRelationsJavaQuery(getOutgoing());
+		for (Relation relation: relations) {
+			if (relation.isCrossGraph()) {
+//				query += JavaQueryTranslationUtility.PLACEHOLDER;
+				break;
+			}
+			
+//			if (!relation.containsJavaOperator())
+//				query += relation.generateXQueryJavaReturn();
+//			else
+//				query += relation.generateXQueryJavaReturn();
+			query += relation.generateXQueryJavaReturn();
+		}
+		return query;
 	}
 
 	@Override

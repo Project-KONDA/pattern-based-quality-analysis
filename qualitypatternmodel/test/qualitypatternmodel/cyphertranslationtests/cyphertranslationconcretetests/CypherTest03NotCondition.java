@@ -75,7 +75,7 @@ public class CypherTest03NotCondition extends CypherTranslation {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
+		completePattern.setPatternId("MyPattern");
 		completePattern.getGraph().getNodes().get(0).makeComplex();
 		
 	    completePattern.getGraph().getNodes().get(0).makeComplex();
@@ -133,7 +133,7 @@ public class CypherTest03NotCondition extends CypherTranslation {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
+		completePattern.setPatternId("MyPattern");
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
 		PrimitiveNode primitiveNode1 = completePattern.getGraph().addPrimitiveNode();
 		PrimitiveNode primitiveNode2 = completePattern.getGraph().addPrimitiveNode();
@@ -232,7 +232,7 @@ public class CypherTest03NotCondition extends CypherTranslation {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
+		completePattern.setPatternId("MyPattern");
 		completePattern.getGraph().getNodes().get(0).makeComplex();
 		
 	    completePattern.getGraph().getNodes().get(0).makeComplex();
@@ -294,7 +294,7 @@ public class CypherTest03NotCondition extends CypherTranslation {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
+		completePattern.setPatternId("MyPattern");
 		completePattern.getGraph().getNodes().get(0).makeComplex();
 		
 	    completePattern.getGraph().getNodes().get(0).makeComplex();
@@ -527,7 +527,7 @@ public class CypherTest03NotCondition extends CypherTranslation {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
+		completePattern.setPatternId("MyPattern");
 		
 		completePattern.getGraph().getNodes().get(0).makeComplex();
 	

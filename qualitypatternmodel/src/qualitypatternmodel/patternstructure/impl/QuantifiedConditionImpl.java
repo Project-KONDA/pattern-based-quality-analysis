@@ -154,7 +154,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				List<BooleanFilterPart> graphFilter = ((GraphImpl) getGraph()).generateQueryFilterParts();
 				for (BooleanFilterPart filter: graphFilter)
 					subfilter.add(new ListFilterPartImpl(getQuantifier(), filter));
-				
 			}
 
 			if (condition) {
@@ -212,17 +211,22 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		Boolean graphJava = getGraph().containsJavaOperator();
 		Boolean conditionJava = getCondition().containsJavaOperator();
 		if (!graphJava && !conditionJava)
+			// should not occur
 			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(generateXQuery()), QUANTIFIER, false, false, false);
-		
-		String graphString = graphJava? getGraph().generateXQueryJavaReturn(): "";
+
+//		String graphString = graphJava? getGraph().generateXQueryJavaReturn(): "";
+		String graphString = getGraph().generateXQueryJavaReturn();
 		String conditionPath = conditionJava? ((GraphImpl) getGraph()).generateXQueryJavaReturnCondition(): "";
 		String conditionString = conditionJava? QUANTIFIEDSTART + ",\n  " + getCondition().generateXQueryJavaReturn() + ",\n  " + QUANTIFIEDEND : "";
 		
 		String result = "";
-		if (graphJava)
+//		if (graphJava) {
 			result += graphString;
-		if (graphJava && conditionJava)
-			result += ",\n";
+//			System.err.println("QCon224:\n" + graphString + "\n");
+//		}
+
+//		if (graphJava && conditionJava)
+//			result += ",\n";
 		if (conditionJava)
 			result += Constants.addMissingBrackets(conditionPath + conditionString);
 

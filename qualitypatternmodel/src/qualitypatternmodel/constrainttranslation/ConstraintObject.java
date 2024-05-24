@@ -81,17 +81,18 @@ public class ConstraintObject {
 	public String getStringRepresentation() throws InvalidityException {
 		if (rule == null)
 			return "ERROR";
-		String result = "format XML\nfields:\n";
+		String result = "format: XML\nfields:\n";
 		
 		EList<Pair<String, String>> fields = rule.getAllFields();
 		
 		for (Pair<String, String> fieldpair: fields) {
-			result += "- field: " + fieldpair.name() +
+			result += "- name: " + fieldpair.name() +
 					"\n  path: " + fieldpair.value() + "\n";
 		}
 		
-		result += "- field: " + fieldNodes[0].getName().replace(" ", "_") + "\n";
+		result += "- name: " + fieldNodes[0].getName().replace(" ", "_") + "\n";
 		result += "  path: " + fieldPath + "\n";
+		result += "  extractable: true\n";
 		result += "  rules:\n" + rule.getStringRepresentation();
 		
 		return result;
@@ -185,7 +186,7 @@ public class ConstraintObject {
 			throw new InvalidityException("Count Condition invalidly specified: multiple nodes");
 		Node node = graph.getNodes().get(0);
 		if (!(node instanceof XmlProperty))
-			throw new InvalidityException("Count Condition invalidly specified: node has wrong type");
+			throw new InvalidityException("Count Condition invalidly specified: Node " + (node != null? node.getName(): "") + " is of type " + node.getClass().getSimpleName() + " instead of XmlProperty");
 
 		ComparisonOperator operator = condition.getOption().getValue();
 		
@@ -193,7 +194,6 @@ public class ConstraintObject {
 			throw new InvalidityException("Count Condition invalidly specified: argument 2 invalid");
 		
 		Double number = ((NumberElement) condition.getArgument2()).getNumberParam().getValue();
-		
 		
 		ConstraintRuleObject rule = new CardinalityConstraintRuleObject(operator, number);
 		

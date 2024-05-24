@@ -185,7 +185,7 @@ public class CypherTest02Return extends CypherTranslation {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.setName("MyPattern");
+		completePattern.setPatternId("MyPattern");
 		
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
 		completePattern.getGraph().addNode();

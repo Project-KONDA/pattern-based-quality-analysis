@@ -16,6 +16,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getType() <em>Get Type</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getRole() <em>Get Role</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#setValue(java.lang.String) <em>Set Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
  * </ul>
  * </p>
@@ -96,6 +97,19 @@ public class ParameterFragmentTest extends FragmentTest {
 	 * @generated
 	 */
 	public void testGetRole() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#setValue(java.lang.String) <em>Set Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#setValue(java.lang.String)
+	 * @generated
+	 */
+	public void testSetValue__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -498,20 +498,26 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/Formula/clamped"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/TrueElement"/>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/CompletePattern">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/CompletePattern"
+          labelFeature="#//qualitypatternmodel/patternstructure/PatternElement/id">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CompletePattern/parameterList"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/name"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CompletePattern/database"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CompletePattern/text"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/patternId"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/abstractId"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/description"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/abstractName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/shortDescription"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/language"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/dataModelName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/databaseName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/keywords"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/parameterCounter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/counter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/elementCounter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/relationCounter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/operatorCounter"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/parameterCounter"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/language"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/validateAgainstSchema"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/getAbstractionLevel"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/getNewRefNo">
@@ -946,6 +952,7 @@
     <nestedGenPackages prefix="Textrepresentation" disposableProviderFactory="true"
         ecorePackage="qualitypatternmodel.ecore#//textrepresentation">
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//textrepresentation/ObjectWrapper"/>
+      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//textrepresentation/JSONObjectWrapper"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/PatternText">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/pattern"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/fragments"/>
@@ -964,6 +971,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/delete"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/instantiate"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/generateSparqlTemplate"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/generateJSONObject"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -971,12 +979,16 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/name"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getType"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getRole"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/setValue">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/setValue/value"/>
+        </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//textrepresentation/Fragment">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/Fragment/patternText"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/Fragment/generateJSON"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/Fragment/getPreview"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/Fragment/generateSparqlTemplate"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/Fragment/generateJSONObject"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/TextFragment">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/TextFragment/text"/>

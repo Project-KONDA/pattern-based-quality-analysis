@@ -24,17 +24,15 @@ public class AbstractPatternListServlet extends HttpServlet {
 			List<String> fileNames = Util.getListOfFileNamesInFolder(Util.ABSTRACT_PATTERNS_PATH, getClass());			
 			
 			if(fileNames == null) {
-				response.sendError(404);
-				response.getOutputStream().println("{ \"error\": \"Loading abstract pattern folder failed.\"}");
+				response.sendError(404, "{ \"error\": \"Loading abstract pattern folder failed.\"}");
 			} else if(fileNames.isEmpty()) {
-				response.sendError(404);
-				response.getOutputStream().println("{ \"error\": \"No abstract patterns found.\"}");
+				response.sendError(404, "{ \"error\": \"No abstract patterns found.\"}");
 			} else {
 				String result = "[";
 				for (String name: fileNames) {
-					result += "{\"Name\":";
+					result += "{\"name\":";
 					result += "\"" + name + "\", ";
-					result += "\"Description\":";
+					result += "\"description\":";
 					
 					String filePath = Util.ABSTRACT_PATTERNS_PATH + name + ".patternstructure";	
 					URL folderURL = getClass().getClassLoader().getResource(Util.ABSTRACT_PATTERNS_PATH);
@@ -48,7 +46,7 @@ public class AbstractPatternListServlet extends HttpServlet {
 							result += "\"\", ";
 						}
 						if(pattern.getText().size() > 0) {
-							result += "\"ExampleText\":";							
+							result += "\"exampleText\":";							
 							PatternText text = pattern.getText().get(0);
 							String json = text.generateJSON();
 							result += json;

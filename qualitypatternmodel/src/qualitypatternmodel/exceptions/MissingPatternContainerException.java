@@ -14,4 +14,8 @@ public class MissingPatternContainerException extends Exception {
 	public MissingPatternContainerException(String message) {
 		super(message);
 	}
+
+	public MissingPatternContainerException(String message, Exception e) {
+		super(message, e);
+	}
 }

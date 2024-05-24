@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import org.json.JSONObject;
 import qualitypatternmodel.textrepresentation.*;
 
 /**
@@ -76,6 +77,8 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 		switch (eDataType.getClassifierID()) {
 			case TextrepresentationPackage.OBJECT_WRAPPER:
 				return createObjectWrapperFromString(eDataType, initialValue);
+			case TextrepresentationPackage.JSON_OBJECT_WRAPPER:
+				return createJSONObjectWrapperFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -91,6 +94,8 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 		switch (eDataType.getClassifierID()) {
 			case TextrepresentationPackage.OBJECT_WRAPPER:
 				return convertObjectWrapperToString(eDataType, instanceValue);
+			case TextrepresentationPackage.JSON_OBJECT_WRAPPER:
+				return convertJSONObjectWrapperToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -155,6 +160,24 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 	 * @generated
 	 */
 	public String convertObjectWrapperToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JSONObject createJSONObjectWrapperFromString(EDataType eDataType, String initialValue) {
+		return (JSONObject)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertJSONObjectWrapperToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

@@ -17,6 +17,7 @@ public class Constants {
 	public static final String AND = "\nand\n";
 	public static final String NOT = "not ";
 	public static final String FOR = "\nfor ";
+	public static final String FOR_LITE = "for ";
 	public static final String LET = "\nlet ";
 	public static final String WHERE = "\nwhere ";
 	public static final String RETURN = "\nreturn ";

@@ -25,17 +25,22 @@ import qualitypatternmodel.textrepresentation.PatternText;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getParameterList <em>Parameter List</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabase <em>Database</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getText <em>Text</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getPatternId <em>Pattern Id</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractId <em>Abstract Id</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDescription <em>Description</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractName <em>Abstract Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getShortDescription <em>Short Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getLanguage <em>Language</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDataModelName <em>Data Model Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabaseName <em>Database Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getKeywords <em>Keywords</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getParameterCounter <em>Parameter Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getCounter <em>Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getRelationCounter <em>Relation Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getOperatorCounter <em>Operator Counter</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getParameterCounter <em>Parameter Counter</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getLanguage <em>Language</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern()
@@ -89,6 +94,28 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Abstract Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Abstract Id</em>' attribute.
+	 * @see #setAbstractId(String)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_AbstractId()
+	 * @model
+	 * @generated
+	 */
+	String getAbstractId();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractId <em>Abstract Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Abstract Id</em>' attribute.
+	 * @see #getAbstractId()
+	 * @generated
+	 */
+	void setAbstractId(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Database</b></em>' reference.
@@ -209,6 +236,62 @@ public interface CompletePattern extends Pattern {
 	void setLanguage(Language value);
 
 	/**
+	 * Returns the value of the '<em><b>Data Model Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Data Model Name</em>' attribute.
+	 * @see #setDataModelName(String)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_DataModelName()
+	 * @model
+	 * @generated
+	 */
+	String getDataModelName();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getDataModelName <em>Data Model Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Data Model Name</em>' attribute.
+	 * @see #getDataModelName()
+	 * @generated
+	 */
+	void setDataModelName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Database Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Database Name</em>' attribute.
+	 * @see #setDatabaseName(String)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_DatabaseName()
+	 * @model
+	 * @generated
+	 */
+	String getDatabaseName();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabaseName <em>Database Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Database Name</em>' attribute.
+	 * @see #getDatabaseName()
+	 * @generated
+	 */
+	void setDatabaseName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Keywords</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Keywords</em>' attribute list.
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_Keywords()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getKeywords();
+
+	/**
 	 * Returns the value of the '<em><b>Operator Counter</b></em>' attribute.
 	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
@@ -269,6 +352,28 @@ public interface CompletePattern extends Pattern {
 	EList<PatternText> getText();
 
 	/**
+	 * Returns the value of the '<em><b>Pattern Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern Id</em>' attribute.
+	 * @see #setPatternId(String)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_PatternId()
+	 * @model
+	 * @generated
+	 */
+	String getPatternId();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getPatternId <em>Pattern Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern Id</em>' attribute.
+	 * @see #getPatternId()
+	 * @generated
+	 */
+	void setPatternId(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -291,26 +396,26 @@ public interface CompletePattern extends Pattern {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Abstract Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Short Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Name</em>' attribute.
-	 * @see #setAbstractName(String)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_AbstractName()
+	 * @return the value of the '<em>Short Description</em>' attribute.
+	 * @see #setShortDescription(String)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_ShortDescription()
 	 * @model
 	 * @generated
 	 */
-	String getAbstractName();
+	String getShortDescription();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractName <em>Abstract Name</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getShortDescription <em>Short Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Abstract Name</em>' attribute.
-	 * @see #getAbstractName()
+	 * @param value the new value of the '<em>Short Description</em>' attribute.
+	 * @see #getShortDescription()
 	 * @generated
 	 */
-	void setAbstractName(String value);
+	void setShortDescription(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
