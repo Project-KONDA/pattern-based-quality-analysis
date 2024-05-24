@@ -27,9 +27,10 @@ public class JavaFilterCompleteTest {
 		boolean filterResult = true;
 		boolean queryResult = false;
 		boolean interimResults = false;
+		boolean partialResults = true;
 		
-		int from = 9;
-		int to = 9;
+		int from = 14;
+		int to = 15;
 		for (int i = from-1; i<patterns.size() && i < to; i++) {
 			System.out.println("Example " + (i+1) + ":");
 			// generate Filter and structure
@@ -54,9 +55,13 @@ public class JavaFilterCompleteTest {
 				EList<Boolean> allfits = new BasicEList<Boolean>();
 				for (InterimResultContainer interim: filter.getInterimResults())
 					allfits.add(interim.isValidToStructure());
-				System.out.println("allfits : " + allfits);
-				System.out.println("everyfits : " + !allfits.contains(false));
-				System.out.println("anyfits : " + allfits.contains(true));
+				
+				if (partialResults) {
+					System.out.println("allfits : " + allfits);
+					System.out.println("everyfits : " + !allfits.contains(false));
+					System.out.println("anyfits : " + allfits.contains(true));
+				}
+				else System.out.println("  done: " + (!allfits.contains(false) && allfits.contains(true)));
 				
 				Boolean fits = !allfits.isEmpty() && !allfits.contains(false);
 //				.getInterimResults().stream().allMatch(x-> x.isValidToStructure());
@@ -73,6 +78,7 @@ public class JavaFilterCompleteTest {
 				if (fits) {
 					List<String> result = filter.filterQueryResults();
 					results.add(result);
+					System.out.println("results : " + !result.isEmpty());
 				}
 				else
 					results.add(null);
@@ -84,10 +90,13 @@ public class JavaFilterCompleteTest {
 			}
 		}
 
-		System.out.println("__RESULTS:__");
-		System.out.println(valid);
-		System.out.println(results);
-		System.out.print("total: " + (!valid.contains(false)));
+//		if (from != to) 
+		{
+			System.out.println("\n__RESULTS:__");
+			System.out.println(valid);
+			System.out.println(results.toString().replace("\r\n", " "));
+			System.out.print("total: " + (!valid.contains(false)));
+		}
 	}
 	
 	public List<String> executeJavaPattern(CompletePattern pattern, String database_name, String database_path) throws InvalidityException {

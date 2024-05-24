@@ -478,7 +478,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	public String generateXQueryJava() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException(this.getClass().getSimpleName());
 	}
 
 	/**

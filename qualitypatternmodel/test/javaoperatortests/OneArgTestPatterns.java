@@ -10,12 +10,16 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.CountCondition;
+import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 
 public class OneArgTestPatterns {
@@ -46,7 +50,9 @@ public class OneArgTestPatterns {
 				pattern.createXmlAdaption();
 				pattern = Test00.replace(pattern);
 				result.add(pattern);
-			} catch (Exception e) {}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		return result;
 	}
@@ -79,6 +85,11 @@ public class OneArgTestPatterns {
 		result.add(getTestPattern8());
 		result.add(getTestPattern9());
 		result.add(getTestPattern10());
+		result.add(getTestPattern11());
+		result.add(getTestPattern12());
+		result.add(getTestPattern13());
+		result.add(getTestPattern14());
+		result.add(getTestPattern15());
 		return result;
 	}
 	
@@ -260,6 +271,130 @@ public class OneArgTestPatterns {
 		
 		return completePattern;
 	}
+
 	
+	public static CompletePattern getTestPattern11() throws InvalidityException {
+		// return graph
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		Graph pgraph = completePattern.getGraph();
+		ComplexNode retnode = pgraph.getNodes().get(0).makeComplex();
+		
+		// count condition
+
+		CountCondition countCondition = PatternstructureFactory.eINSTANCE.createCountCondition();
+		completePattern.setCondition(countCondition);
+		countCondition.createCountPattern();
+		NumberElementImpl ne = new NumberElementImpl();
+		countCondition.setArgument2(ne);
+		ne.createParameters();
+		ne.getNumberParam().setValue(1.);
+		countCondition.getOption().setValue(ComparisonOperator.EQUAL);
+		
+		Graph qcongraph = countCondition.getCountPattern().getGraph();
+		
+		// node
+		PrimitiveNode conditionNode = retnode.addOutgoing(qcongraph).getTarget().makePrimitive();
+		conditionNode.setReturnNode(true);
+		conditionNode.addPrimitiveValidateLink();
+		System.out.println(completePattern.myToString());
+		return completePattern;
+	}
+
+
+	public static CompletePattern getTestPattern12() throws InvalidityException {
+		return getTestPatternCountCondition(true);
+	}
+	public static CompletePattern getTestPattern13() throws InvalidityException {
+		return getTestPatternCountCondition(false);
+	}
+	
+	
+	public static CompletePattern getTestPatternCountCondition(Boolean java2) throws InvalidityException {
+		// return graph
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		Graph pgraph = completePattern.getGraph();
+		ComplexNode retnode = pgraph.getNodes().get(0).makeComplex();
+		
+		// count condition
+
+		CountCondition countCondition = PatternstructureFactory.eINSTANCE.createCountCondition();
+		completePattern.setCondition(countCondition);
+		countCondition.createCountPattern();
+		
+		CountPattern ne = PatternstructureFactory.eINSTANCE.createCountPattern();
+		countCondition.setArgument2(ne);
+		
+		
+		countCondition.getOption().setValue(ComparisonOperator.EQUAL);
+
+		Graph qcongraph1 = countCondition.getCountPattern().getGraph();
+		Graph qcongraph2 = ((CountPattern) countCondition.getArgument2()).getGraph();
+		
+		// node
+		PrimitiveNode conditionNode = retnode.addOutgoing(qcongraph1).getTarget().makePrimitive();
+		conditionNode.setReturnNode(true);
+		conditionNode.addPrimitiveValidateLink();
+		
+		PrimitiveNode conditionNode2 = retnode.addOutgoing(qcongraph2).getTarget().makePrimitive();
+		conditionNode2.setReturnNode(true);
+		if (java2)
+			conditionNode2.addPrimitiveValidateLink();
+		else 
+			conditionNode2.addPrimitiveMatch(".*a.*");
+		
+		return completePattern;
+	}
+	
+	public static CompletePattern getTestPattern14() throws InvalidityException {
+		// nested in one quantified condition
+		
+		// return graph
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		Graph pgraph = completePattern.getGraph();
+		ComplexNode retnode = pgraph.getNodes().get(0).makeComplex();
+		
+		// condition
+		QuantifiedCondition qcon = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		completePattern.setCondition(qcon);
+		Graph qcongraph = qcon.getGraph();
+		
+		// node
+		ComplexNode node1 = retnode.addOutgoing(qcongraph).getTarget().makeComplex();
+
+		PrimitiveNode node2 = node1.addOutgoing().getTarget().makePrimitive();
+		node2.addPrimitiveValidateLink();
+		
+		ComplexNode node3 = node1.addOutgoing().getTarget().makeComplex();
+		PrimitiveNode node4 = node3.addOutgoing().getTarget().makePrimitive();
+		node4.addPrimitiveValidateLink();
+		
+		return completePattern;
+	}
+	
+	public static CompletePattern getTestPattern15() throws InvalidityException {
+		// nested via two quantified conditions,
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		Graph pgraph = completePattern.getGraph();
+		ComplexNode retnode = pgraph.getNodes().get(0).makeComplex();
+
+		// Condition Structure
+		QuantifiedCondition qcon1 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		completePattern.setCondition(qcon1);
+		qcon1.setQuantifier(Quantifier.FORALL);
+		Graph qcon1graph = qcon1.getGraph();
+		
+		QuantifiedCondition qcon2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		qcon1.setCondition(qcon2);
+		Graph qcon2graph = qcon2.getGraph();
+
+		// Nodes
+		ComplexNode midNode = retnode.addOutgoing(qcon1graph).getTarget().makeComplex();
+		PrimitiveNode node1 = midNode.addOutgoing(qcon1graph).getTarget().makePrimitive();
+		node1.addPrimitiveValidateLink();
+		PrimitiveNode node2 = midNode.addOutgoing(qcon2graph).getTarget().makePrimitive();
+		node2.addPrimitiveValidateLink();
+		
+		return completePattern;
+	}
 
 }

@@ -41,6 +41,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Pattern;
@@ -219,7 +220,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			return generateXQuery();
 		
 		String forClauses = graph.generateXQuery();
-		if (graph.containsJavaOperator())
+		if (graph.containsJavaOperator() && this instanceof CompletePattern)
 			throw new UnsupportedOperationException("Java Operator in Return Graph");
 		
 		String whereClause = "\n";
@@ -549,9 +550,10 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 
 	@Override
 	public EList<Operator> getAllOperators() throws InvalidityException {
-		EList<Operator> operators = graph.getAllOperators();
+		EList<Operator> operators = new BasicEList<Operator> (); 
+		operators.addAll(graph.getAllOperators());
 		if (condition != null)
-			return condition.getAllOperators();
+			operators.addAll(condition.getAllOperators());
 		return operators;
 	}
 	

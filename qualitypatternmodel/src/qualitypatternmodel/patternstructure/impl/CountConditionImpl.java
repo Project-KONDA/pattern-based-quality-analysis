@@ -111,7 +111,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		NumberFilterPart arg1filter = (NumberFilterPart) getCountPattern().generateQueryFilterPart();
 		NumberFilterPart arg2filter = (NumberFilterPart) getArgument2().generateQueryFilterPart();
-		
 		return new CountFilterPartImpl(getOption().getValue(), arg1filter, arg2filter); 
 	}
 	
@@ -125,6 +124,22 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			throw new InvalidityException("invalid option");
 		}
 	}
+	
+	@Override
+	public String generateXQueryJava() throws InvalidityException {
+		if (containsJavaOperator())
+			return "";
+		String argument1 = getCountPattern().generateXQueryJava();
+		String argument2 = getArgument2().generateXQueryJava();
+		if(getOption() != null && getOption().getValue() != null) {
+			return argument1 + " " + getOption().getValue() + " " + argument2;
+		} else {
+			throw new InvalidityException("invalid option");
+		}
+	}
+	
+	@Override
+	
 	
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		if (!containsJavaOperator())
@@ -144,11 +159,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			arg2String = getCountPattern().generateXQueryJavaReturn();
 		else 
 			if (getArgument2() instanceof CountPattern)
-				arg2String = getCountPattern().generateXQuery();
-			else arg2String = null;
-
-		return (arg2String == null)? arg1String : 
-			JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String, arg2String), COUNT, false, true, false);
+				arg2String = ((CountPattern) getArgument2()).generateXQuery().substring(1).replace("\n", "\n  ");
+			else 
+				return JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String), COUNT, false, true, false);
+		return JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String, arg2String), COUNT, false, true, false);
 	}
 	
 	@Override

@@ -88,7 +88,10 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			return ((NotCondition) condition).getCondition().generateXQuery();
 		}
 		if (condition != null) {
-			String conQuery = condition.generateXQueryJava().replace("\n", "\n  "); 
+			String conQuery = condition.generateXQueryJava();
+			if (conQuery.equals(""))
+				return "";
+			conQuery = conQuery.replace("\n", "\n  "); 
 			return "not(" + conQuery + ")";
 		} else {
 			throw new InvalidityException("invalid condition");
