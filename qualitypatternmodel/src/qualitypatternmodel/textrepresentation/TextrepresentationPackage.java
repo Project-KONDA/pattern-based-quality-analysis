@@ -368,13 +368,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT__PLURAL = FRAGMENT_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Attribute Map</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT__ATTRIBUTE_MAP = FRAGMENT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Parameter Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 8;
+	int PARAMETER_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Generate JSON</em>' operation.
@@ -1025,6 +1034,17 @@ public interface TextrepresentationPackage extends EPackage {
 	EAttribute getParameterFragment_Plural();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getAttributeMap <em>Attribute Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Attribute Map</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#getAttributeMap()
+	 * @see #getParameterFragment()
+	 * @generated
+	 */
+	EReference getParameterFragment_AttributeMap();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getType() <em>Get Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1535,6 +1555,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PARAMETER_FRAGMENT__PLURAL = eINSTANCE.getParameterFragment_Plural();
+
+		/**
+		 * The meta object literal for the '<em><b>Attribute Map</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_FRAGMENT__ATTRIBUTE_MAP = eINSTANCE.getParameterFragment_AttributeMap();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Type</b></em>' operation.

@@ -3,6 +3,7 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -277,6 +278,7 @@ public class ConstraintServlet extends HttpServlet {
 						else
 							failed.put(key);
 					} catch (InvalidityException e) {
+						e.printStackTrace();
 						failed.put(key);
 					}
 		
@@ -291,79 +293,64 @@ public class ConstraintServlet extends HttpServlet {
 	}
 	
 	private static boolean changeParameterFragment(ParameterFragment frag, String[] call_values) throws InvalidityException {
-		boolean result = true;
 		if (call_values.length != 1)
 			throw new InvalidityException("multiple values for a single parameter");
 		
+		// Old Values
 		String oldValue = null;
 		try {
 			oldValue = frag.getAttributeValue("value");
 		} catch (InvalidityException e) {}
-		
-		
-		String oldUserValue = null;
-		try {
-			oldUserValue = frag.getAttributeValue("userValue");
-		} catch (InvalidityException e) {}
-		String oldAbsolutePath = null;
-		try {
-			oldAbsolutePath = frag.getAttributeValue("absolutePath");
-		} catch (InvalidityException e) {}
 
+		// input
 		String input = call_values[0];
-		String newValue = null;
-		String newUserValue = null;
-		String newAbsolutePath = null;
-		
 		JSONObject ob = null;
 		try {
 			ob = new JSONObject(input);
 		} catch (JSONException e) {}
 		
-		if (ob != null) {
+		if (ob == null) {
 			try {
-				newValue = (String) ob.get("value");
-			} catch (JSONException e) {}
-			try {
-				newUserValue = (String) ob.get("userValue");
-			} catch (JSONException e) {}
-			try {
-				newAbsolutePath = (String) ob.get("absolutePath");
-			} catch (JSONException e) {}	
-		}
-		else
-			newValue = input;
-		
-		Boolean valueSet = true;
-//		Boolean userValueSet = true;
-		Boolean absolutePathSet = true;
-		if (newValue != null) {
-			valueSet = frag.setAttributeValue("value", newValue);
-		
-			if (valueSet) {
-//				if (newUserValue != null)
-//					userValueSet = 
-				frag.setAttributeValue("userValue", newUserValue);
-				
-				if (newAbsolutePath != null)
-					absolutePathSet = frag.setAttributeValue("absolutePath", newAbsolutePath);
+				frag.setValue(input);
+				return true;
+			} catch (InvalidityException e) {
+				frag.setValue(oldValue);
+				return false;
 			}
 		}
 		
-		if(!valueSet || !absolutePathSet) {
-			frag.setAttributeValue("value", oldValue);
-			frag.setAttributeValue("userValue", oldUserValue);
-			frag.setAttributeValue("absolutePath", oldAbsolutePath);
-		}
+		HashMap<String, String> jsonMap = convertJSONObjectToHashMap(ob);
 		
-		try {
-			frag.setValue(newValue);
-			frag.setUserValue(newUserValue);
-		} catch (InvalidityException e) {
-			frag.setValue(oldValue);
-			frag.setUserValue(oldUserValue);
-			result = false;
+		if(jsonMap.containsKey("value")) {
+			try {
+				frag.setValue(jsonMap.get("value"));
+			} catch (InvalidityException e) {
+				frag.setValue(oldValue);
+				e.printStackTrace();
+				return false;
+			}
 		}
-		return result;
+		for (String key: jsonMap.keySet()) {
+			frag.setAttributeValue(key, jsonMap.get(key));
+		}
+		return true;
 	}
+	
+    public static HashMap<String, String> convertJSONObjectToHashMap(JSONObject jsonObject) {
+        HashMap<String, String> hashMap = new HashMap<>();
+        @SuppressWarnings("unchecked")
+		Iterator<String> keys = jsonObject.keys();
+
+        try {
+            while (keys.hasNext()) {
+                String key = keys.next();
+                String value = jsonObject.get(key).toString();
+                hashMap.put(key, value);
+            }
+            
+            return hashMap;
+        } catch (JSONException e) {
+        	return null;
+        }
+    }
 }

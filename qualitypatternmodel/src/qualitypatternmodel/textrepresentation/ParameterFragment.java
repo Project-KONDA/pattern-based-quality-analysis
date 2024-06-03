@@ -21,6 +21,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getUserValue <em>User Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#isPlural <em>Plural</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getAttributeMap <em>Attribute Map</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterFragment()
@@ -159,6 +160,28 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	 * @generated
 	 */
 	void setPlural(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Attribute Map</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Attribute Map</em>' containment reference.
+	 * @see #setAttributeMap(ValueMap)
+	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterFragment_AttributeMap()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ValueMap getAttributeMap();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getAttributeMap <em>Attribute Map</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Attribute Map</em>' containment reference.
+	 * @see #getAttributeMap()
+	 * @generated
+	 */
+	void setAttributeMap(ValueMap value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Map</b></em>' containment reference.

@@ -54,7 +54,6 @@ import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.utility.Constants;
-import qualitypatternmodel.utility.ConstantsXml;
  
 
 /**
@@ -73,6 +72,7 @@ import qualitypatternmodel.utility.ConstantsXml;
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getUserValue <em>User Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#isPlural <em>Plural</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getAttributeMap <em>Attribute Map</em>}</li>
  * </ul>
  *
  * @generated
@@ -219,6 +219,16 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * @ordered
 	 */
 	protected boolean plural = PLURAL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAttributeMap() <em>Attribute Map</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttributeMap()
+	 * @generated
+	 * @ordered
+	 */
+	protected ValueMap attributeMap;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -454,6 +464,53 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public ValueMap getAttributeMap() {
+		if (attributeMap == null)
+			attributeMap = new ValueMapImpl();
+		return attributeMap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAttributeMap(ValueMap newAttributeMap, NotificationChain msgs) {
+		ValueMap oldAttributeMap = attributeMap;
+		attributeMap = newAttributeMap;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__ATTRIBUTE_MAP, oldAttributeMap, newAttributeMap);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAttributeMap(ValueMap newAttributeMap) {
+		if (newAttributeMap != attributeMap) {
+			NotificationChain msgs = null;
+			if (attributeMap != null)
+				msgs = ((InternalEObject)attributeMap).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TextrepresentationPackage.PARAMETER_FRAGMENT__ATTRIBUTE_MAP, null, msgs);
+			if (newAttributeMap != null)
+				msgs = ((InternalEObject)newAttributeMap).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TextrepresentationPackage.PARAMETER_FRAGMENT__ATTRIBUTE_MAP, null, msgs);
+			msgs = basicSetAttributeMap(newAttributeMap, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__ATTRIBUTE_MAP, newAttributeMap, newAttributeMap));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -526,24 +583,25 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		case "userValue":
 			setUserValue(attValue);
 			return true;
-		case "absolutePath":
-			// check if parameter is really of type XmlPathParam
-			Parameter p = getParameter().get(0);
-			if (!(p instanceof XmlPathParam))
-				return false;
-			// validate Value
-			XmlPathParam path = (XmlPathParam) p;
-			Boolean isPropertyPath = (path.getXmlNavigation() != null) && (path.getXmlNavigation() instanceof XmlPropertyNavigation);
-			Boolean isElementPath = (path.getXmlNavigation() != null) && (path.getXmlNavigation() instanceof XmlElementNavigation);
-			
-			Boolean isValid = attValue == null
-					|| (isPropertyPath && attValue.matches(ConstantsXml.REGEX_XMLPATH_VALUE))
-					|| (isElementPath && attValue.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT));
-			if (isValid)
-				((XmlPathParam) p).setAbsolutePath(attValue);
-			return isValid;
+//		case "absolutePath":
+//			// check if parameter is really of type XmlPathParam
+//			Parameter p = getParameter().get(0);
+//			if (!(p instanceof XmlPathParam))
+//				return false;
+//			// validate Value
+//			XmlPathParam path = (XmlPathParam) p;
+//			Boolean isPropertyPath = (path.getXmlNavigation() != null) && (path.getXmlNavigation() instanceof XmlPropertyNavigation);
+//			Boolean isElementPath = (path.getXmlNavigation() != null) && (path.getXmlNavigation() instanceof XmlElementNavigation);
+//			
+//			Boolean isValid = attValue == null
+//					|| (isPropertyPath && attValue.matches(ConstantsXml.REGEX_XMLPATH_VALUE))
+//					|| (isElementPath && attValue.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT));
+//			if (isValid)
+//				((XmlPathParam) p).setAbsolutePath(attValue);
+//			return isValid;
 		default:
-			return false;
+			getAttributeMap().put(attName, attValue);
+			return true;
 		}
 	}
 	/**
@@ -558,15 +616,16 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return getValue();
 		case "userValue":
 			return getUserValue();
-		case "absolutePath":
-			Parameter p = getParameter().get(0);
-			if (!(p instanceof XmlPathParam))
-				throw new InvalidityException("Attribute '" + attName + "' not found.");
-			// validate Value
-			XmlPathParam path = (XmlPathParam) p;
-			return path.getAbsolutePath();
+//		case "absolutePath":
+//			Parameter p = getParameter().get(0);
+//			if (!(p instanceof XmlPathParam))
+//				throw new InvalidityException("Attribute '" + attName + "' not found.");
+//			// validate Value
+//			XmlPathParam path = (XmlPathParam) p;
+//			return path.getAbsolutePath();
 		default:
-			throw new InvalidityException("Attribute '" + attName + "' not found.");
+			return getAttributeMap().get(attName);
+//			throw new InvalidityException("Attribute '" + attName + "' not found.");
 		}
 	}
 
@@ -674,6 +733,10 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			else if (getType().equals("Enumeration")) {
 				json.put("options", parameter.getOptionsAsJsonArray());
 			}
+			for (String key: getAttributeMap().getKeys()) {
+				json.put(key, getAttributeMap().get(key));
+			}
+			
 			if (parameter instanceof ParameterValue) {
 				ParameterValue parameterValue = (ParameterValue) parameter;
 				if(parameterValue.isTypeModifiable()) {
@@ -707,9 +770,6 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				if (!sourceParamIds.isEmpty()) {
 					json.put("startpoint", new JSONArray(sourceParamIds));
 				}
-				String absPath = getAbsolutePath(getParameter());
-				if (absPath != null)
-					json.put("absolutePath", absPath);
 			}
 		} catch (JSONException e) {}
 		return json;
@@ -750,20 +810,6 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			if (sourcefrag instanceof ParameterFragment)
 				sourcefragids.add(((ParameterFragment)sourcefrag).getId());
 		return sourcefragids;
-	}
-	
-	// get absolutePath attribute value 
-	private String getAbsolutePath(EList<Parameter> parameters){
-		HashSet<String> absPaths = new HashSet<String>();
-		for (Parameter p: parameters)
-			if (p instanceof XmlPathParam) {
-				String ap = ((XmlPathParam) p).getAbsolutePath(); 
-				if ( ap != null)
-					absPaths.add(ap);
-			}
-		if (absPaths.size() == 1)
-			return absPaths.iterator().next();
-		return null;
 	}
 	
 	/**
@@ -880,17 +926,6 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 
 		if (getValueMap() != null)
 			myValue = getValueMap().getKey(value);
-		
-		
-//		Map<String, String> valueMap = new HashMap<String, String>();
-//		if (valueMap != null && valueMap.containsValue(value)) {
-//			for (String key: valueMap.keySet()) {
-//				if (valueMap.get(key).equals(value)) {
-//					myValue = key;
-//					break;
-//				}
-//			}
-//		}
 		for (Parameter p: getParameter())
 			p.setValueFromString(myValue);
 	}
@@ -926,33 +961,6 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				
 				if(!myEClass.equals(firstEClass))
 					throw new InvalidityException("Referenced parameters have different types ");
-				
-//				if(value != null && !value.equals(firstValue) || value == null && firstValue != null) {
-//					String types = "";
-//					for (Parameter p2 : getParameter()) {
-//						String p2val;
-//						try {
-//							p2val = p2.getValueAsString();
-//						} catch (NullPointerException e) {
-//							p2val = null;
-//						}
-//						types += ", " + p2.getClass().getSimpleName() + ":" + p2val;
-//					}
-//					throw new InvalidityException("Referenced parameters have different values: " + types);
-//				}
-//				
-//				if(!p.eClass().equals(firstEClass)) {
-//					throw new InvalidityException("Referenced parameters are not of same type");
-//				}
-//				
-//				try {
-//					if(getExampleValue() != null && abstractionLevel != AbstractionLevel.CONCRETE) {
-//						p.validateExampleValue(getExampleValue());
-//					}	
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//					throw new InvalidityException("Example value '" + getExampleValue() + "' has wrong type");
-//				}
 			}
 		}
 	}
@@ -984,6 +992,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return ((InternalEList<?>)getParameter()).basicRemove(otherEnd, msgs);
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__VALUE_MAP:
 				return basicSetValueMap(null, msgs);
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__ATTRIBUTE_MAP:
+				return basicSetAttributeMap(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1022,6 +1032,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return getDescription();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PLURAL:
 				return isPlural();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__ATTRIBUTE_MAP:
+				return getAttributeMap();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1060,6 +1072,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PLURAL:
 				setPlural((Boolean)newValue);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__ATTRIBUTE_MAP:
+				setAttributeMap((ValueMap)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1096,6 +1111,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PLURAL:
 				setPlural(PLURAL_EDEFAULT);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__ATTRIBUTE_MAP:
+				setAttributeMap((ValueMap)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1124,6 +1142,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PLURAL:
 				return plural != PLURAL_EDEFAULT;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__ATTRIBUTE_MAP:
+				return attributeMap != null;
 		}
 		return super.eIsSet(featureID);
 	}
