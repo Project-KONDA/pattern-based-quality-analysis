@@ -40,16 +40,37 @@ public class Constants {
 	public static final String JSON_TEMPLATE = "template";
 	public static final String JSON_LANGUAGE = "language";
 	public static final String JSON_NAME = "name";
+	public static final String JSON_ID = "id";
+	public static final String JSON_PATTERNID = "patternID";
 	public static final String JSON_FRAGMENTS = "fragments";
 	public static final String JSON_TEXT = "text";
+	public static final String JSON_TYPE = "type";
+	public static final String JSON_ROLE = "role";
 	public static final String JSON_PARAMETER = "params";
 	public static final String JSON_EXAMPLEVALUE = "exampleValue";
 	public static final String JSON_DESCRIPTION = "description";
+	public static final String JSON_SHORTDESCRIPTION = "shortDescription";
 	public static final String JSON_NEWID = "newId";
 	public static final String JSON_MAP = "map";
 	public static final String JSON_COMPARISONMAP = "comparisonMap";
 	public static final String JSON_VALUE = "value";
+	public static final String JSON_VARIANTS = "variants";
+	public static final String JSON_USERVALUE = "userValue";
+	public static final String JSON_DATABASE = "database";
+	public static final String JSON_DATAMODEL = "datamodel";
 	public static final String JSON_PLURAL = "plural";
+	public static final String JSON_TAG = "tag";
+	public static final String JSON_STARTPOINT = "startpoint";
+	public static final String JSON_EXECUTABLE = "executable";
+	public static final String JSON_EXECUTABLE_MQAF = "mqafexecutable";
+	public static final String JSON_EXECUTABLE_QUERY = "queryexecutable";
+	public static final String JSON_EXECUTABLE_FILTER = "filterexecutable";
+	public static final String JSON_OPTIONS = "options";
+	public static final String JSON_ENABLE = "enable";
+	public static final String JSON_ENABLE_IF = "if";
+	public static final String JSON_ENABLE_PARAMETER = "parameter";
+	public static final String JSON_TYPEMODIFIABLE = "typeModifiable";
+	public static final String JSON_DEPENDANT = "dependant";
 	
 
 	//Global Exception Messages -- Introduced by Lukas Sebastian Hofmann. Existing code of the framework has not been touched.

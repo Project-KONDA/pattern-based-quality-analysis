@@ -24,6 +24,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class ConstraintServlet extends HttpServlet {
@@ -210,38 +211,38 @@ public class ConstraintServlet extends HttpServlet {
 		Boolean name = false, database = false, datamodel = false;
 		
 		// name?
-		String[] nameArray = parameterMap.get("name");
+		String[] nameArray = parameterMap.get(Constants.JSON_NAME);
 		if (nameArray != null && nameArray.length == 1 && !nameArray[0].equals("")) {
 			String newName = nameArray[0];
 			pattern.setName(newName);
 			name = true;
-			parameterMap.remove("name");
+			parameterMap.remove(Constants.JSON_NAME);
 		}
 		// database?
-		String[] databaseArray = parameterMap.get("database");
+		String[] databaseArray = parameterMap.get(Constants.JSON_DATABASE);
 		if (databaseArray != null && databaseArray.length == 1 && !databaseArray[0].equals("")) {
 			String newDatabase = databaseArray[0];
 			pattern.setDatabaseName(newDatabase);
 			database = true;
-			parameterMap.remove("database");
+			parameterMap.remove(Constants.JSON_DATABASE);
 		}
 		// datamodel?
-		String[] datamodelArray = parameterMap.get("datamodel");
+		String[] datamodelArray = parameterMap.get(Constants.JSON_DATAMODEL);
 		if (datamodelArray != null && datamodelArray.length == 1 && !datamodelArray[0].equals("")) {
 			String newDatamodel = datamodelArray[0];
 			pattern.setDataModelName(newDatamodel);
 			datamodel = true;
-			parameterMap.remove("datamodel");
+			parameterMap.remove(Constants.JSON_DATAMODEL);
 		}
 				
 		JSONObject output = changeParameters(pattern, parameterMap);
 		try {
 			if (name)
-				output.getJSONArray("success").put("name");
+				output.getJSONArray("success").put(Constants.JSON_NAME);
 			if (database)
-				output.getJSONArray("success").put("database");
+				output.getJSONArray("success").put(Constants.JSON_DATABASE);
 			if (datamodel)
-				output.getJSONArray("success").put("datamodel");
+				output.getJSONArray("success").put(Constants.JSON_DATAMODEL);
 		} catch (JSONException e) {
 		}
 		
@@ -299,7 +300,7 @@ public class ConstraintServlet extends HttpServlet {
 		// Old Values
 		String oldValue = null;
 		try {
-			oldValue = frag.getAttributeValue("value");
+			oldValue = frag.getAttributeValue(Constants.JSON_VALUE);
 		} catch (InvalidityException e) {}
 
 		// input
@@ -320,18 +321,22 @@ public class ConstraintServlet extends HttpServlet {
 		}
 		
 		HashMap<String, String> jsonMap = convertJSONObjectToHashMap(ob);
+
+		for (String key: jsonMap.keySet()) {
+			if (key != Constants.JSON_VALUE && key != Constants.JSON_USERVALUE)
+				frag.setAttributeValue(key, jsonMap.get(key));
+		} 
 		
-		if(jsonMap.containsKey("value")) {
+		if(jsonMap.containsKey(Constants.JSON_VALUE)) {
 			try {
-				frag.setValue(jsonMap.get("value"));
+				frag.setValue(jsonMap.get(Constants.JSON_VALUE));
+				if (jsonMap.containsKey(Constants.JSON_USERVALUE))
+					frag.setUserValue(jsonMap.get(Constants.JSON_USERVALUE));
 			} catch (InvalidityException e) {
 				frag.setValue(oldValue);
 				e.printStackTrace();
 				return false;
 			}
-		}
-		for (String key: jsonMap.keySet()) {
-			frag.setAttributeValue(key, jsonMap.get(key));
 		}
 		return true;
 	}

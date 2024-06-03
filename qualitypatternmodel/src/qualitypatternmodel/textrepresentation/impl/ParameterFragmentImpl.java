@@ -573,14 +573,14 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	@Override
 	public boolean setAttributeValue(String attName, String attValue) {
 		switch(attName) {
-		case "value": 
+		case Constants.JSON_VALUE: 
 			try {
 				setValue(attValue);
 				return true;
 			} catch (InvalidityException e) {
 				return false;
 			}
-		case "userValue":
+		case Constants.JSON_USERVALUE:
 			setUserValue(attValue);
 			return true;
 //		case "absolutePath":
@@ -612,9 +612,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	@Override
 	public String getAttributeValue(String attName) throws InvalidityException {
 		switch(attName) {
-		case "value": 
+		case Constants.JSON_VALUE: 
 			return getValue();
-		case "userValue":
+		case Constants.JSON_USERVALUE:
 			return getUserValue();
 //		case "absolutePath":
 //			Parameter p = getParameter().get(0);
@@ -712,26 +712,26 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 //		String urlsJSON = generateJSONList(urls);
 		JSONObject json = new JSONObject();
 		try {
-			json.put("id", getId());
-			json.put("name", getName());
-			json.put("type", getType());
-			json.put("role", getRole());
+			json.put(Constants.JSON_ID, getId());
+			json.put(Constants.JSON_NAME, getName());
+			json.put(Constants.JSON_TYPE, getType());
+			json.put(Constants.JSON_ROLE, getRole());
 			if (getValue() != null)
-				json.put("value", getValue());
+				json.put(Constants.JSON_VALUE, getValue());
 			if (getUserValue() != null)
-				json.put("userValue", getUserValue());
+				json.put(Constants.JSON_USERVALUE, getUserValue());
 			if (getDescription() != null)
-				json.put("description", getDescription());
+				json.put(Constants.JSON_DESCRIPTION, getDescription());
 			if (getExampleValue() != null)
-				json.put("exampleValue", getExampleValue());
+				json.put(Constants.JSON_EXAMPLEVALUE, getExampleValue());
 			if (isPlural())
-				json.put("plural", plural);
+				json.put(Constants.JSON_PLURAL, plural);
 			
 			if (getValueMap() != null) {
-				json.put("options", getValueMap().getValuesAsJsonArray());
+				json.put(Constants.JSON_OPTIONS, getValueMap().getValuesAsJsonArray());
 			}	
 			else if (getType().equals("Enumeration")) {
-				json.put("options", parameter.getOptionsAsJsonArray());
+				json.put(Constants.JSON_OPTIONS, parameter.getOptionsAsJsonArray());
 			}
 			for (String key: getAttributeMap().getKeys()) {
 				json.put(key, getAttributeMap().get(key));
@@ -740,13 +740,13 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			if (parameter instanceof ParameterValue) {
 				ParameterValue parameterValue = (ParameterValue) parameter;
 				if(parameterValue.isTypeModifiable()) {
-					json.put("typeModifiable", true);
+					json.put(Constants.JSON_TYPEMODIFIABLE, true);
 				}
 			}
 			else if (parameter instanceof TextLiteralParamImpl) {
 				TextLiteralParamImpl textLiteral = (TextLiteralParamImpl) parameter;
 				if(textLiteral.getXmlPropertyOptionParam() != null && textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
-					json.put("dependant", true);
+					json.put(Constants.JSON_DEPENDANT, true);
 				}
 			}
 			else if (parameter instanceof XmlPropertyOptionParamImpl) {
@@ -760,15 +760,15 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 					String cond = XmlPropertyKind.ATTRIBUTE.getLiteral();
 					
 					JSONObject enable = new JSONObject();
-					enable.put("parameter", id);
-					enable.put("if", cond);
-					json.put("enable", enable);
+					enable.put(Constants.JSON_ENABLE_PARAMETER, id);
+					enable.put(Constants.JSON_ENABLE_IF, cond);
+					json.put(Constants.JSON_ENABLE, enable);
 				}
 			}
 			else if (parameter instanceof XmlPathParam) {
 				HashSet<String> sourceParamIds = getSourceParamIDs(getParameter());
 				if (!sourceParamIds.isEmpty()) {
-					json.put("startpoint", new JSONArray(sourceParamIds));
+					json.put(Constants.JSON_STARTPOINT, new JSONArray(sourceParamIds));
 				}
 			}
 		} catch (JSONException e) {}
