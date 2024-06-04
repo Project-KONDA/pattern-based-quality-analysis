@@ -600,16 +600,6 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXmlPathParam_AbsolutePath() {
-		return (EAttribute)xmlPathParamEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getXmlPathParam__SetXmlAxis__XmlAxisKind_String() {
 		return xmlPathParamEClass.getEOperations().get(0);
 	}
@@ -1012,7 +1002,6 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEReference(xmlPathParamEClass, XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM);
 		createEReference(xmlPathParamEClass, XML_PATH_PARAM__XML_AXIS_PARTS);
 		createEReference(xmlPathParamEClass, XML_PATH_PARAM__XML_NAVIGATION);
-		createEAttribute(xmlPathParamEClass, XML_PATH_PARAM__ABSOLUTE_PATH);
 		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING);
 		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___ADD_XML_AXIS__XMLAXISKIND_STRING);
 		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND);
@@ -1160,7 +1149,6 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		initEReference(getXmlPathParam_XmlPropertyOptionParam(), this.getXmlPropertyOptionParam(), this.getXmlPropertyOptionParam_XmlPathParam(), "xmlPropertyOptionParam", null, 0, 1, XmlPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXmlPathParam_XmlAxisParts(), this.getXmlAxisPart(), this.getXmlAxisPart_XmlPathParam(), "xmlAxisParts", null, 0, -1, XmlPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXmlPathParam_XmlNavigation(), this.getXmlNavigation(), this.getXmlNavigation_XmlPathParam(), "xmlNavigation", null, 0, 1, XmlPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getXmlPathParam_AbsolutePath(), ecorePackage.getEString(), "absolutePath", null, 0, 1, XmlPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getXmlPathParam__SetXmlAxis__XmlAxisKind_String(), null, "setXmlAxis", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getXmlAxisKind(), "axis", 0, 1, IS_UNIQUE, IS_ORDERED);

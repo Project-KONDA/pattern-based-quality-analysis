@@ -56,7 +56,6 @@ import qualitypatternmodel.utility.ConstantsXml;
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getXmlPropertyOptionParam <em>Xml Property Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getXmlAxisParts <em>Xml Axis Parts</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getXmlNavigation <em>Xml Navigation</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getAbsolutePath <em>Absolute Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -137,26 +136,6 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	 * @ordered
 	 */
 	protected XmlNavigation xmlNavigation;
-
-	/**
-	 * The default value of the '{@link #getAbsolutePath() <em>Absolute Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAbsolutePath()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ABSOLUTE_PATH_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getAbsolutePath() <em>Absolute Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAbsolutePath()
-	 * @generated
-	 * @ordered
-	 */
-	protected String absolutePath = ABSOLUTE_PATH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -454,29 +433,6 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getAbsolutePath() {
-		return absolutePath;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setAbsolutePath(String newAbsolutePath) {
-		String oldAbsolutePath = absolutePath;
-		absolutePath = newAbsolutePath;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__ABSOLUTE_PATH, oldAbsolutePath, absolutePath));
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -673,8 +629,6 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				if (resolve) return getXmlNavigation();
 				return basicGetXmlNavigation();
-			case AdaptionxmlPackage.XML_PATH_PARAM__ABSOLUTE_PATH:
-				return getAbsolutePath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -710,9 +664,6 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				setXmlNavigation((XmlNavigation)newValue);
 				return;
-			case AdaptionxmlPackage.XML_PATH_PARAM__ABSOLUTE_PATH:
-				setAbsolutePath((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -745,9 +696,6 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				setXmlNavigation((XmlNavigation)null);
 				return;
-			case AdaptionxmlPackage.XML_PATH_PARAM__ABSOLUTE_PATH:
-				setAbsolutePath(ABSOLUTE_PATH_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -773,8 +721,6 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 				return xmlAxisParts != null && !xmlAxisParts.isEmpty();
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				return xmlNavigation != null;
-			case AdaptionxmlPackage.XML_PATH_PARAM__ABSOLUTE_PATH:
-				return ABSOLUTE_PATH_EDEFAULT == null ? absolutePath != null : !ABSOLUTE_PATH_EDEFAULT.equals(absolutePath);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -925,8 +871,6 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		result.append(predefined);
 		result.append(", description: ");
 		result.append(description);
-		result.append(", absolutePath: ");
-		result.append(absolutePath);
 		result.append(')');
 		return result.toString();
 	}

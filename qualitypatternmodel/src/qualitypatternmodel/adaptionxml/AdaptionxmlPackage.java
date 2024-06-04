@@ -5555,22 +5555,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM__XML_NAVIGATION = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Absolute Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PATH_PARAM__ABSOLUTE_PATH = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
-
-	/**
 	 * The number of structural features of the '<em>Xml Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 8;
+	int XML_PATH_PARAM_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -7369,17 +7360,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlPathParam_XmlNavigation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionxml.XmlPathParam#getAbsolutePath <em>Absolute Path</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Absolute Path</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#getAbsolutePath()
-	 * @see #getXmlPathParam()
-	 * @generated
-	 */
-	EAttribute getXmlPathParam_AbsolutePath();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#setXmlAxis(qualitypatternmodel.adaptionxml.XmlAxisKind, java.lang.String) <em>Set Xml Axis</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8017,14 +7997,6 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference XML_PATH_PARAM__XML_NAVIGATION = eINSTANCE.getXmlPathParam_XmlNavigation();
-
-		/**
-		 * The meta object literal for the '<em><b>Absolute Path</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute XML_PATH_PARAM__ABSOLUTE_PATH = eINSTANCE.getXmlPathParam_AbsolutePath();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Xml Axis</b></em>' operation.

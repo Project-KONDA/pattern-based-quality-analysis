@@ -3,6 +3,7 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -23,6 +24,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class ConstraintServlet extends HttpServlet {
@@ -209,38 +211,38 @@ public class ConstraintServlet extends HttpServlet {
 		Boolean name = false, database = false, datamodel = false;
 		
 		// name?
-		String[] nameArray = parameterMap.get("name");
+		String[] nameArray = parameterMap.get(Constants.JSON_NAME);
 		if (nameArray != null && nameArray.length == 1 && !nameArray[0].equals("")) {
 			String newName = nameArray[0];
 			pattern.setName(newName);
 			name = true;
-			parameterMap.remove("name");
+			parameterMap.remove(Constants.JSON_NAME);
 		}
 		// database?
-		String[] databaseArray = parameterMap.get("database");
+		String[] databaseArray = parameterMap.get(Constants.JSON_DATABASE);
 		if (databaseArray != null && databaseArray.length == 1 && !databaseArray[0].equals("")) {
 			String newDatabase = databaseArray[0];
 			pattern.setDatabaseName(newDatabase);
 			database = true;
-			parameterMap.remove("database");
+			parameterMap.remove(Constants.JSON_DATABASE);
 		}
 		// datamodel?
-		String[] datamodelArray = parameterMap.get("datamodel");
+		String[] datamodelArray = parameterMap.get(Constants.JSON_DATAMODEL);
 		if (datamodelArray != null && datamodelArray.length == 1 && !datamodelArray[0].equals("")) {
 			String newDatamodel = datamodelArray[0];
 			pattern.setDataModelName(newDatamodel);
 			datamodel = true;
-			parameterMap.remove("datamodel");
+			parameterMap.remove(Constants.JSON_DATAMODEL);
 		}
 				
 		JSONObject output = changeParameters(pattern, parameterMap);
 		try {
 			if (name)
-				output.getJSONArray("success").put("name");
+				output.getJSONArray("success").put(Constants.JSON_NAME);
 			if (database)
-				output.getJSONArray("success").put("database");
+				output.getJSONArray("success").put(Constants.JSON_DATABASE);
 			if (datamodel)
-				output.getJSONArray("success").put("datamodel");
+				output.getJSONArray("success").put(Constants.JSON_DATAMODEL);
 		} catch (JSONException e) {
 		}
 		
@@ -277,6 +279,7 @@ public class ConstraintServlet extends HttpServlet {
 						else
 							failed.put(key);
 					} catch (InvalidityException e) {
+						e.printStackTrace();
 						failed.put(key);
 					}
 		
@@ -291,79 +294,68 @@ public class ConstraintServlet extends HttpServlet {
 	}
 	
 	private static boolean changeParameterFragment(ParameterFragment frag, String[] call_values) throws InvalidityException {
-		boolean result = true;
 		if (call_values.length != 1)
 			throw new InvalidityException("multiple values for a single parameter");
 		
+		// Old Values
 		String oldValue = null;
 		try {
-			oldValue = frag.getAttributeValue("value");
-		} catch (InvalidityException e) {}
-		
-		
-		String oldUserValue = null;
-		try {
-			oldUserValue = frag.getAttributeValue("userValue");
-		} catch (InvalidityException e) {}
-		String oldAbsolutePath = null;
-		try {
-			oldAbsolutePath = frag.getAttributeValue("absolutePath");
+			oldValue = frag.getAttributeValue(Constants.JSON_VALUE);
 		} catch (InvalidityException e) {}
 
+		// input
 		String input = call_values[0];
-		String newValue = null;
-		String newUserValue = null;
-		String newAbsolutePath = null;
-		
 		JSONObject ob = null;
 		try {
 			ob = new JSONObject(input);
 		} catch (JSONException e) {}
 		
-		if (ob != null) {
+		if (ob == null) {
 			try {
-				newValue = (String) ob.get("value");
-			} catch (JSONException e) {}
-			try {
-				newUserValue = (String) ob.get("userValue");
-			} catch (JSONException e) {}
-			try {
-				newAbsolutePath = (String) ob.get("absolutePath");
-			} catch (JSONException e) {}	
-		}
-		else
-			newValue = input;
-		
-		Boolean valueSet = true;
-//		Boolean userValueSet = true;
-		Boolean absolutePathSet = true;
-		if (newValue != null) {
-			valueSet = frag.setAttributeValue("value", newValue);
-		
-			if (valueSet) {
-//				if (newUserValue != null)
-//					userValueSet = 
-				frag.setAttributeValue("userValue", newUserValue);
-				
-				if (newAbsolutePath != null)
-					absolutePathSet = frag.setAttributeValue("absolutePath", newAbsolutePath);
+				frag.setValue(input);
+				return true;
+			} catch (InvalidityException e) {
+				frag.setValue(oldValue);
+				return false;
 			}
 		}
 		
-		if(!valueSet || !absolutePathSet) {
-			frag.setAttributeValue("value", oldValue);
-			frag.setAttributeValue("userValue", oldUserValue);
-			frag.setAttributeValue("absolutePath", oldAbsolutePath);
-		}
+		HashMap<String, String> jsonMap = convertJSONObjectToHashMap(ob);
+
+		for (String key: jsonMap.keySet()) {
+			if (key != Constants.JSON_VALUE && key != Constants.JSON_USERVALUE)
+				frag.setAttributeValue(key, jsonMap.get(key));
+		} 
 		
-		try {
-			frag.setValue(newValue);
-			frag.setUserValue(newUserValue);
-		} catch (InvalidityException e) {
-			frag.setValue(oldValue);
-			frag.setUserValue(oldUserValue);
-			result = false;
+		if(jsonMap.containsKey(Constants.JSON_VALUE)) {
+			try {
+				frag.setValue(jsonMap.get(Constants.JSON_VALUE));
+				if (jsonMap.containsKey(Constants.JSON_USERVALUE))
+					frag.setUserValue(jsonMap.get(Constants.JSON_USERVALUE));
+			} catch (InvalidityException e) {
+				frag.setValue(oldValue);
+				e.printStackTrace();
+				return false;
+			}
 		}
-		return result;
+		return true;
 	}
+	
+    public static HashMap<String, String> convertJSONObjectToHashMap(JSONObject jsonObject) {
+        HashMap<String, String> hashMap = new HashMap<>();
+        @SuppressWarnings("unchecked")
+		Iterator<String> keys = jsonObject.keys();
+
+        try {
+            while (keys.hasNext()) {
+                String key = keys.next();
+                String value = jsonObject.get(key).toString();
+                hashMap.put(key, value);
+            }
+            
+            return hashMap;
+        } catch (JSONException e) {
+        	return null;
+        }
+    }
 }

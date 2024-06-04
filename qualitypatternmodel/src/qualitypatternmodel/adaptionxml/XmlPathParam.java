@@ -20,7 +20,6 @@ import qualitypatternmodel.parameters.Parameter;
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlPathParam#getXmlPropertyOptionParam <em>Xml Property Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlPathParam#getXmlAxisParts <em>Xml Axis Parts</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlPathParam#getXmlNavigation <em>Xml Navigation</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlPathParam#getAbsolutePath <em>Absolute Path</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlPathParam()
@@ -89,28 +88,6 @@ public interface XmlPathParam extends Adaptable, Parameter {
 	 * @generated
 	 */
 	void setXmlNavigation(XmlNavigation value);
-
-	/**
-	 * Returns the value of the '<em><b>Absolute Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Absolute Path</em>' attribute.
-	 * @see #setAbsolutePath(String)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlPathParam_AbsolutePath()
-	 * @model
-	 * @generated
-	 */
-	String getAbsolutePath();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#getAbsolutePath <em>Absolute Path</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Absolute Path</em>' attribute.
-	 * @see #getAbsolutePath()
-	 * @generated
-	 */
-	void setAbsolutePath(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

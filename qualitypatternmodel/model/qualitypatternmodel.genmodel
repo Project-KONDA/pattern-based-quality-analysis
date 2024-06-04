@@ -685,7 +685,6 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/xmlAxisParts"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/xmlNavigation"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/absolutePath"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/setXmlAxis">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/setXmlAxis/axis"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/setXmlAxis/tag"/>
@@ -1002,6 +1001,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/userValue"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/description"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/plural"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/attributeMap"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getType"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getRole"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/setValue">

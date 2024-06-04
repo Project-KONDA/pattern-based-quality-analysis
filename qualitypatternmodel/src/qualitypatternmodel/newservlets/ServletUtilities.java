@@ -29,6 +29,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.textrepresentation.PatternText;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
 //import qualitypatternmodel.utility.EMFModelSave;
@@ -160,17 +161,17 @@ public abstract class ServletUtilities {
 	public static JSONObject getPatternJSON(CompletePattern pattern) {
 		JSONObject json = new JSONObject();
 		try {
-			json.put("patternID", pattern.getPatternId());
-			json.put("name", pattern.getName());
-			json.put("shortDescription", pattern.getShortDescription());
-			json.put("description", pattern.getDescription());
+			json.put(Constants.JSON_PATTERNID, pattern.getPatternId());
+			json.put(Constants.JSON_NAME, pattern.getName());
+			json.put(Constants.JSON_SHORTDESCRIPTION, pattern.getShortDescription());
+			json.put(Constants.JSON_DESCRIPTION, pattern.getDescription());
 			if (pattern.getDatabaseName() != null)
-				json.put("database", pattern.getDatabaseName());
+				json.put(Constants.JSON_DATABASE, pattern.getDatabaseName());
 			if (pattern.getDataModelName() != null)
-				json.put("datamodel", pattern.getDataModelName());
+				json.put(Constants.JSON_DATAMODEL, pattern.getDataModelName());
 			if (pattern.getKeywords() != null && !pattern.getKeywords().isEmpty()) {
 				JSONArray tags = new JSONArray(pattern.getKeywords());
-				json.put("tag", tags);
+				json.put(Constants.JSON_TAG, tags);
 			}
 			
 			Boolean concrete = false;
@@ -192,16 +193,17 @@ public abstract class ServletUtilities {
 			}
 			catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {}
 			
-			json.put("executable", concrete);
-			json.put("mqafexecutable", mqaf);
-			json.put("queryexecutable", query);
-			json.put("filterexecutable", filter);
+			json.put(Constants.JSON_EXECUTABLE , concrete);
+			json.put(Constants.JSON_EXECUTABLE_MQAF, mqaf);
+			json.put(Constants.JSON_EXECUTABLE_QUERY, query);
+			json.put(Constants.JSON_EXECUTABLE_FILTER, filter);
+
 			
 			JSONArray variants = new JSONArray();
 			for (PatternText text: pattern.getText()) {
 				variants.put(text.generateJSONObject());
 			}
-			json.put("variants", variants);
+			json.put(Constants.JSON_VARIANTS, variants);
 		} catch (JSONException e) {}
 		return json;
 	}
