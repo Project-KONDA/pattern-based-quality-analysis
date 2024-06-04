@@ -3,6 +3,7 @@ package qualitypatternmodel.xmlparametervalidity;
 import java.io.IOException;
 
 import qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -50,6 +51,8 @@ public class XmlPathParamTests {
 		for (String test: teststings) {
 			System.out.println(test + ":");
 			XmlPathParamImpl path = new XmlPathParamImpl();
+			XmlElementNavigationImpl nav = new XmlElementNavigationImpl();
+			nav.setXmlPathParam(path);
 			path.setValueFromString(test);
 			System.out.println("  " + path.myToString());
 			System.out.println("  -> " + path.generateXQuery());

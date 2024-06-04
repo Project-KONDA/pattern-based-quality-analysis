@@ -61,7 +61,7 @@ public class XmlPatterns {
 		
 		// READY
 		try {
-			patterns.add(getXmlConcrete(GenericPatterns.getGenericCard(), Language.XML,
+			patterns.add(getConcrete(GenericPatterns.getGenericCard(), Language.XML,
 					Map.of(2, "//*", 3, "/*"), 
 					XmlPatternVariants.CARD_XML_VARIANTS, 
 					XmlPatternVariants.CARD_XML_VARIANTS_OLD));
@@ -70,7 +70,7 @@ public class XmlPatterns {
 		}
 
 		try {
-			patterns.add(getXmlConcrete(GenericPatterns.getGenericMandAtt(), Language.XML,
+			patterns.add(getConcrete(GenericPatterns.getGenericMandAtt(), Language.XML,
 					Map.of(0, "//*", 1, "/*/text()"), 
 					XmlPatternVariants.MANDATT_XML_VARIANTS, 
 					XmlPatternVariants.MANDATT_XML_VARIANTS_OLD));
@@ -79,7 +79,7 @@ public class XmlPatterns {
 		}
 
 		try {
-			patterns.add(getXmlConcrete(GenericPatterns.getGenericMatch(), Language.XML,
+			patterns.add(getConcrete(GenericPatterns.getGenericMatch(), Language.XML,
 					Map.of(2, "//*", 3, "/*/text()"), 
 					XmlPatternVariants.MATCH_XML_VARIANTS, 
 					XmlPatternVariants.MATCH_XML_VARIANTS_OLD));
@@ -88,7 +88,7 @@ public class XmlPatterns {
 		}
 
 		try {
-			patterns.add(getXmlConcrete(GenericPatterns.getGenericContains(), Language.XML,
+			patterns.add(getConcrete(GenericPatterns.getGenericContains(), Language.XML,
 					Map.of(2, "//*", 3, "/*/text()"), 
 					XmlPatternVariants.CONTAINS_XML_VARIANTS, 
 					XmlPatternVariants.CONTAINS_XML_VARIANTS_OLD));
@@ -97,7 +97,7 @@ public class XmlPatterns {
 		}
 
 		try {
-			patterns.add(getXmlConcrete(GenericPatterns.getGenericStringLength(), Language.XML,
+			patterns.add(getConcrete(GenericPatterns.getGenericStringLength(), Language.XML,
 					Map.of(2, "//*", 3, "/*/text()"), 
 					XmlPatternVariants.STRINGLENGTH_XML_VARIANTS, 
 					XmlPatternVariants.STRINGLENGTH_XML_VARIANTS_OLD));
@@ -106,7 +106,7 @@ public class XmlPatterns {
 		}
 
 		try {
-			patterns.add(getXmlConcrete(GenericPatterns.getGenericCompSet(), Language.XML,
+			patterns.add(getConcrete(GenericPatterns.getGenericCompSet(), Language.XML,
 					Map.of(3, "//*", 4, "/*/text()"), 
 					XmlPatternVariants.COMPSET_XML_VARIANTS, 
 					XmlPatternVariants.COMPSET_XML_VARIANTS_OLD));
@@ -115,7 +115,7 @@ public class XmlPatterns {
 		}
 
 		try {
-			patterns.add(getXmlConcrete(GenericPatterns.getGenericInvalidLink(), Language.XML,
+			patterns.add(getConcrete(GenericPatterns.getGenericInvalidLink(), Language.XML,
 					Map.of(1, "//*", 2, "/*/text()"),
 					XmlPatternVariants.INVALIDLINK_XML_VARIANTS, 
 					XmlPatternVariants.INVALIDLINK_XML_VARIANTS_OLD));
@@ -124,7 +124,7 @@ public class XmlPatterns {
 		}
 
 		try {
-			patterns.add(getXmlConcrete(GenericPatterns.getGenericUnique(), Language.XML,
+			patterns.add(getConcrete(GenericPatterns.getGenericUnique(), Language.XML,
 					Map.of(2, "//*", 3, "/*/text()", 4, "/*/text()", 5, "//*"), 
 					XmlPatternVariants.UNIQUE_XML_VARIANTS, 
 					XmlPatternVariants.UNIQUE_XML_VARIANTS_OLD));
@@ -198,7 +198,7 @@ public class XmlPatterns {
 		return patterns;
 	}
 	
-	public static CompletePattern getXmlConcrete(CompletePattern pattern, Language lan, Map<Integer, String> values, String[] variants, String[] oldvariants) 
+	public static CompletePattern getConcrete(CompletePattern pattern, Language lan, Map<Integer, String> values, String[] variants, String[] oldvariants) 
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		switch(lan) {
 		case XML: 
@@ -215,8 +215,8 @@ public class XmlPatterns {
 		}
 		
 		String name = pattern.getName();
-		pattern.setPatternId(name + "_xml");
-		pattern.setAbstractId(name + "xml");
+		pattern.setPatternId(name + "_" + lan.getLiteral());
+		pattern.setAbstractId(name + "_" + lan.getLiteral());
 		List<Parameter> params = pattern.getParameterList().getParameters();
 		
 		if (AXIS && values != null)
