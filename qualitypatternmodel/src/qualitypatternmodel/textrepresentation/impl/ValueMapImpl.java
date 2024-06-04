@@ -7,6 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Iterator;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -90,28 +91,30 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * returns a clone of keys
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<String> getKeys() {
 		if (keys == null) {
 			keys = new EDataTypeUniqueEList<String>(String.class, this, TextrepresentationPackage.VALUE_MAP__KEYS);
 		}
-		return keys;
+		return new BasicEList<String>(keys);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * returns a clone of values
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<String> getValues() {
 		if (values == null) {
 			values = new EDataTypeUniqueEList<String>(String.class, this, TextrepresentationPackage.VALUE_MAP__VALUES);
 		}
-		return values;
+		return new BasicEList<String>(values);
 	}
 
 	/**
@@ -121,8 +124,13 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	 */
 	@Override
 	public void put(String key, String value) {
-		getKeys().add(key);
-		getValues().add(value);
+		int index = getKeys().indexOf(key);
+		if (index == -1) {
+			getKeys().add(key);
+			getValues().add(value);
+		} else {
+			getValues().set(index, value);
+		}
 	}
 
 	/**
