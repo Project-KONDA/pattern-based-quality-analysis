@@ -766,25 +766,19 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public RdfPredicate adaptAsRdfPredicate() throws InvalidityException {
 		if (!(this instanceof RdfPredicate)) {
 			RdfPredicate predicate = new RdfPredicateImpl();
-
 			predicate.setName(getName());
-			
 			predicate.setGraphSimple(getGraph());
+			predicate.setSource(getSource());
+			predicate.setTarget(getTarget());
+			setSource(null);
+			setTarget(null);
+			setGraph(null);
 			
 			predicate.createParameters();
 			
-			predicate.setSource(getSource());
-			predicate.setTarget(getTarget());
-		
-			setSource(null);
-			setTarget(null);			
-			setGraph(null);
-			
-			if(predicate.getTarget() instanceof ComplexNode) {
-				predicate.getTarget().adaptAsRdfIriNode();
-			} else if(predicate.getTarget() instanceof PrimitiveNode) {
+			if(predicate.getTarget() instanceof PrimitiveNode) {
 				predicate.getTarget().adaptAsRdfLiteralNode();
-			} else if(predicate.getTarget() instanceof Node) {
+			} else if(predicate.getTarget() instanceof Node || predicate.getTarget() instanceof ComplexNode) {
 				predicate.getTarget().adaptAsRdfIriNode();
 			}
 			
@@ -807,22 +801,18 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 			edge.setName(getName());
 			edge.setGraph(getGraph());
-			
-//			edge.createParameters();
-			
 			edge.setSource(getSource());
 			edge.setTarget(getTarget());
-		
 			setSource(null);
 			setTarget(null);			
 			setGraph(null);
+			edge.createParameters();
 			
-			if(edge.getTarget() instanceof ComplexNode) {
-				edge.getTarget().adaptAsNeoElementNode();
-			} else if(edge.getTarget() instanceof PrimitiveNode) {
+			if(edge.getTarget() instanceof PrimitiveNode) {
 				edge.getTarget().adaptAsNeoPropertyNode();
-			} else if(edge.getTarget() instanceof Node) {
-				edge.getTarget().adaptAsNeoElementNode();
+			} else if(edge.getTarget() instanceof ComplexNode || edge.getTarget() instanceof Node) {
+				throw new InvalidityException();
+//				edge.getTarget().adaptAsNeoElementNode();
 			}
 			edge.createParameters();
 			return edge;
@@ -853,21 +843,17 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 			edge.setName(getName());
 			edge.setGraph(getGraph());
-			
-//			edge.createParameters();
-			
 			edge.setSource(getSource());
 			edge.setTarget(getTarget());
-		
 			setSource(null);
 			setTarget(null);			
 			setGraph(null);
+			edge.createParameters();
 			
-			if(edge.getTarget() instanceof ComplexNode) {
-				edge.getTarget().adaptAsNeoElementNode();
-			} else if(edge.getTarget() instanceof PrimitiveNode) {
-				edge.getTarget().adaptAsNeoPropertyNode();
-			} else if(edge.getTarget() instanceof Node) {
+			if(edge.getTarget() instanceof PrimitiveNode) {
+				throw new InvalidityException();
+//				edge.getTarget().adaptAsNeoPropertyNode();
+			} else if(edge.getTarget() instanceof ComplexNode || edge.getTarget() instanceof Node) {
 				edge.getTarget().adaptAsNeoElementNode();
 			}
 			

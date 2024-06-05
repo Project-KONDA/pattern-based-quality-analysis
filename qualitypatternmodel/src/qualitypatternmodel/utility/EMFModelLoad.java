@@ -24,8 +24,9 @@ import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.impl.DatabasesImpl;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.impl.PatternstructureFactoryImpl;
+//import qualitypatternmodel.patternstructure.impl.PatternstructureFactoryImpl;
 
 public class EMFModelLoad {
 	
@@ -39,7 +40,7 @@ public class EMFModelLoad {
 
 		EObject object = loadFromFile(fullPath);
 		if (object == null) {
-			throw new IOException("Wrong file : resource in " + fullPath + " is null");
+			throw new IOException("Wrong file : resource in " + fullPath + " is not a valid CompletePattern");
 		}
 		else if(object instanceof CompletePattern) {
 			return (CompletePattern) object;	         
@@ -177,7 +178,7 @@ public class EMFModelLoad {
         ResourceSetImpl resourceSet = new ResourceSetImpl();
 
         // Register the factory for Patternstructure
-        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(ServletUtilities.EXTENSION, new PatternstructureFactoryImpl());
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(ServletUtilities.EXTENSION, PatternstructureFactory.eINSTANCE);
 
         // Load the resource
         Resource resource = resourceSet.getResource(URI.createFileURI(path), true);
@@ -206,7 +207,9 @@ public class EMFModelLoad {
         Resource resource = null;
         try {
         	resource = resourceSet.getResource(fileURI, true);
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
 
         // Check if the resource was loaded successfully
         if (resource == null) {
