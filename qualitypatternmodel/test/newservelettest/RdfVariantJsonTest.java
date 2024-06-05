@@ -4,7 +4,6 @@ import java.util.Map;
 
 import qualitypatternmodel.newservlets.initialisation.GenericPatterns;
 import qualitypatternmodel.newservlets.initialisation.RdfPatternVariants;
-import qualitypatternmodel.newservlets.initialisation.XmlPatterns;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
@@ -22,7 +21,7 @@ public class RdfVariantJsonTest {
 			}
 			
 			pattern = GenericPatterns.getGenericCard();
-			pattern = XmlPatterns.getConcrete(pattern, Language.RDF,
+			pattern = GenericPatterns.getConcrete(pattern, Language.RDF,
 					Map.of(), 
 					RdfPatternVariants.CARD_RDF_VARIANTS, 
 					RdfPatternVariants.CARD_RDF_VARIANTS_OLD);
