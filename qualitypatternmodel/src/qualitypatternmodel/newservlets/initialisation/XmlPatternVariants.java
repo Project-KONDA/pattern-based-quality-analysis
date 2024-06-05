@@ -57,8 +57,8 @@ public class XmlPatternVariants {
 				+ "{\"text\":\".\"}"
 				+ "]}";
 	
-	static String[] CARD_XML_VARIANTS = {CARD_XML_DEFAULT};
-	static String[] CARD_XML_VARIANTS_OLD = {CARD_XML_DEFAULT_OLD, CARD_XML_QUESTION_SIMPLE, CARD_XML_QUESTION};
+	public static String[] CARD_XML_VARIANTS = {CARD_XML_DEFAULT};
+	public static String[] CARD_XML_VARIANTS_OLD = {CARD_XML_DEFAULT_OLD, CARD_XML_QUESTION_SIMPLE, CARD_XML_QUESTION};
 	
 	static String MATCH_XML_DEFAULT = 
 			"{\"template\":\"Match_xml\","

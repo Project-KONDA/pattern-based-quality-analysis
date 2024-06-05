@@ -60,11 +60,11 @@ public class GenericPatterns {
 		patterns.add(getGenericInvalidLink());
 
 		patterns.add(getGenericMandAtt());
-		patterns.add(getGenericLocalUnique());
 		patterns.add(getGenericStringLength());
 		patterns.add(getGenericCompVal());
-		patterns.add(getGenericCompValAny());
-		patterns.add(getGenericCardImpliesMandAtt());
+//		patterns.add(getGenericLocalUnique());
+//		patterns.add(getGenericCompValAny());
+//		patterns.add(getGenericCardImpliesMandAtt());
 //		patterns.add(getGenericCheckFormat());
 //		patterns.add(getGenericCompDatabase());
 		
@@ -429,17 +429,17 @@ public class GenericPatterns {
 		return pattern;
 	}
 	
-	public static CompletePattern getGenericLocalUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("LocalUnique_generic");
-		pattern.setAbstractId("LocalUnique_generic");
-		pattern.setName("LocalUnique");
-		pattern.setShortDescription("Local Unique Attribute Value");
-		pattern.setDescription("Check whether all field values are unique within a record.");
-		// TODO
-		pattern.isValid(AbstractionLevel.GENERIC);
-		return pattern;
-	}
+//	public static CompletePattern getGenericLocalUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		pattern.setPatternId("LocalUnique_generic");
+//		pattern.setAbstractId("LocalUnique_generic");
+//		pattern.setName("LocalUnique");
+//		pattern.setShortDescription("Local Unique Attribute Value");
+//		pattern.setDescription("Check whether all field values are unique within a record.");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
 	
 	public static CompletePattern getGenericStringLength() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
@@ -490,32 +490,35 @@ public class GenericPatterns {
 		return pattern;
 	}
 	
-	public static CompletePattern getGenericCompValAny() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("CompValAny_generic");
-		pattern.setAbstractId("CompValAny_generic");
-		pattern.setName("CompValAny");
-		pattern.setShortDescription("");
-		pattern.setDescription("Check whether any value of a specific field within a record does comply to a value restriction.");
-		// TODO
-		pattern.isValid(AbstractionLevel.GENERIC);
-		return pattern;
-	}
+//	public static CompletePattern getGenericCompValAny() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		pattern.setPatternId("CompValAny_generic");
+//		pattern.setAbstractId("CompValAny_generic");
+//		pattern.setName("CompValAny");
+//		pattern.setShortDescription("");
+//		pattern.setDescription("Check whether any value of a specific field within a record does comply to a value restriction.");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
 	
-	public static CompletePattern getGenericCardImpliesMandAtt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("CardImpliesMandAtt_generic");
-		pattern.setAbstractId("CardImpliesMandAtt_generic");
-		pattern.setName("CardImpliesMandAtt");
-		pattern.setShortDescription("Mandatory Attribute based on Cardinality Constraint");
-		pattern.setDescription("Check whether a attribute exists, that is mandatory on specific cardinalities of a field.");
-		// TODO
-		pattern.isValid(AbstractionLevel.GENERIC);
-		return pattern;
-	}
+//	public static CompletePattern getGenericCardImpliesMandAtt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		pattern.setPatternId("CardImpliesMandAtt_generic");
+//		pattern.setAbstractId("CardImpliesMandAtt_generic");
+//		pattern.setName("CardImpliesMandAtt");
+//		pattern.setShortDescription("Mandatory Attribute based on Cardinality Constraint");
+//		pattern.setDescription("Check whether a attribute exists, that is mandatory on specific cardinalities of a field.");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
 
 	public static CompletePattern getConcrete(CompletePattern pattern, Language lan, Map<Integer, String> values, String[] variants, String[] oldvariants) 
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		if (pattern.getLanguage() != Language.GENERIC)
+			throw new InvalidityException("Pattern '" + pattern.getName() + "' is not generic.");
+		
 		switch(lan) {
 		case XML: 
 			pattern.createXmlAdaption();
@@ -524,7 +527,7 @@ public class GenericPatterns {
 			pattern.createRdfAdaption();
 			break;
 		case NEO4J:
-			pattern.createRdfAdaption();
+			pattern.createNeo4jAdaption();
 			break;
 		default:
 			throw new InvalidityException("Invalid Language");
