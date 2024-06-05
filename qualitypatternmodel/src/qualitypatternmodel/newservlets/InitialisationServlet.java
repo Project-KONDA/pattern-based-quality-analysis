@@ -38,6 +38,21 @@ public class InitialisationServlet extends HttpServlet {
 		response.getOutputStream().println(getWebsite());
 		response.setStatus(HttpServletResponse.SC_OK);
 	}
+
+	@Override
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		doGet(request, response);
+	}
+
+	@Override
+	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		doGet(request, response);
+	}
+
+	@Override
+	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		doGet(request, response);
+	}
 	
 	public static void initialisation(ServletContext scon) throws ServletException {
 		String templates = System.getenv().get("TEMPLATE_VOLUME");
