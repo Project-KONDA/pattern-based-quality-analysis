@@ -45,40 +45,47 @@ public class InstantiationTest {
         		"/xml/MandAtt_xml/default",
         		"/xml/CompSet_xml/default",
         		"/xml/InvalidLink_xml/default",
-        		"/xml/InvalidLink_xml/default_question");
+        		"/xml/InvalidLink_xml/default_question",
+        		"/rdf/Card_rdf/default",
+        		"/neo4j/Card_neo4j/default"
+        		);
         ArrayList<String> patternIDs = new ArrayList<String>();
 		InitialisationServlet.initialisation(context);
 
 		for (String inst: listInstantiate){
-			JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut(inst, parameterMap));
-			Object a = json.get("patternID");
-			String st = (String) a;
-			patternIDs.add(st);
+			try {
+				JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut(inst, parameterMap));
+				String st = "/" + json.getString("language") + "/" + json.getString("patternID");
+				patternIDs.add(st);
+			} catch (Exception e) {
+				System.err.println("'" + inst + "' failed");
+				e.printStackTrace();
+			}
 		}
 		
 		System.out.println();
 		for (String get: patternIDs){
-			System.out.println(ConstraintServlet.applyGet("/xml/" + get, parameterMap));
+			System.out.println(ConstraintServlet.applyGet(get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 		
 		System.out.println();
 		for (String get: patternIDs){
-			System.out.println(ConstraintQueryServlet.applyGet3("/xml/" + get, parameterMap));
+			System.out.println(ConstraintQueryServlet.applyGet3(get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 		
 		System.out.println();
 		for (String get: patternIDs){
 			System.out.println(get);
-			System.out.println("  " + ConstraintMqafServlet.applyGet3("/xml/" + get, parameterMap));
+			System.out.println("  " + ConstraintMqafServlet.applyGet3(get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 		
 		System.out.println();
 		List<String> delete = new ArrayList<String>(patternIDs);
 		for (String del: delete) {
-			ConstraintServlet.applyDelete("/xml/" + del, parameterMap);
+			ConstraintServlet.applyDelete(del, parameterMap);
 			patternIDs.remove(del);
 		}
 		

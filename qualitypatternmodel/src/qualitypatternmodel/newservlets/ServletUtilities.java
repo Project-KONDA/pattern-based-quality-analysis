@@ -165,6 +165,7 @@ public abstract class ServletUtilities {
 			json.put(Constants.JSON_NAME, pattern.getName());
 			json.put(Constants.JSON_SHORTDESCRIPTION, pattern.getShortDescription());
 			json.put(Constants.JSON_DESCRIPTION, pattern.getDescription());
+			json.put(Constants.JSON_LANGUAGE, pattern.getLanguage());
 			if (pattern.getDatabaseName() != null)
 				json.put(Constants.JSON_DATABASE, pattern.getDatabaseName());
 			if (pattern.getDataModelName() != null)
