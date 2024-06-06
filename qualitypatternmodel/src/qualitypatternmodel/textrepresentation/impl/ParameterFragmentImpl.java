@@ -20,6 +20,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl;
+import qualitypatternmodel.adaptionneo4j.impl.NeoNodeLabelsParamImpl;
+import qualitypatternmodel.adaptionrdf.impl.IriListParamImpl;
+import qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlNode;
@@ -847,10 +851,24 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return Constants.PARAMETER_TYPE_UNTYPED;
 		} else if (type.equals(ComparisonOptionParamImpl.class) || type.equals(TypeOptionParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_ENUMERATION;
-		} else if (type.equals(XmlPathParamImpl.class)) {
+		} 	
+		// XML
+		else if (type.equals(XmlPathParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_XML_PATH;
+		} 
+		// RDF
+		else if (type.equals(RdfPathParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_RDF_PATH;
+		} 
+		// NEO4J
+		else if (type.equals(IriListParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_IRI_LIST;
+		} else if (type.equals(NeoNodeLabelsParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_NEO_NODE_LABEL;
+		} else if (type.equals(NeoElementPathParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_NEO_ELEMENT_PATH;
 		} else {
-			return null;
+			throw new UnsupportedOperationException("Type '" + type + "' not implemented");
 		}		
 	}	
 

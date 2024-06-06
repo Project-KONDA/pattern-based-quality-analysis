@@ -35,6 +35,10 @@ public class Constants {
 	public static final String PARAMETER_TYPE_TYPE = "TypeOption";
 	public static final String PARAMETER_TYPE_XML_PATH = "XmlPath";
 	public static final String PARAMETER_TYPE_REGEX = "RegEx";
+	public static final String PARAMETER_TYPE_RDF_PATH = "RdfPath";
+	public static final String PARAMETER_TYPE_IRI_LIST = "IriList";
+	public static final String PARAMETER_TYPE_NEO_NODE_LABEL = "NeoNodeLabel";
+	public static final String PARAMETER_TYPE_NEO_ELEMENT_PATH = "NeoElementPath";
 	
 	// JSON variables
 	public static final String JSON_TEMPLATE = "template";

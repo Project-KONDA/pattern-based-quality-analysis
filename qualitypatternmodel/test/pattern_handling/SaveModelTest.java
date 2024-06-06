@@ -41,19 +41,20 @@ public class SaveModelTest {
 			pattern.createRdfAdaption();
 			System.out.println(pattern.getName() + " " + path);
 			String should = pattern.myToString();
-			System.out.println(" --- should --- \n" + should);
 			try {
 				EMFModelSave.exportToFile2(pattern, path, "testpattern", "patternstructure");
 				pattern = EMFModelLoad.loadCompletePattern(path + "/testpattern.patternstructure");
 				String is = pattern.myToString();
-				System.out.println(" --- is --- \n" + is);
-				Files.delete(Paths.get(path + "/testpattern.patternstructure"));
 				boools[i] = should.equals(is);
-
-//				int j = 0;
-//				while (j < should.length() && j < is.length() && should.subSequence(0, j).equals(is.subSequence(0, j)))
-//					j++;
-//				System.out.println("XXXXXXX " + j + "(" +  should.length()+ "," + is.length()+")");
+				Files.delete(Paths.get(path + "/testpattern.patternstructure"));
+				if (!boools[i]) {
+//					System.out.println(" --- should --- \n" + should);
+//					System.out.println(" --- is --- \n" + is);
+					int j = 0;
+					while (j < should.length() && j < is.length() && should.subSequence(0, j).equals(is.subSequence(0, j)))
+						j++;
+					System.out.println(" XXX " + j + " XXX (" +  should.length()+ "," + is.length()+")");
+				}
 				
 			} catch (Exception e) {
 				boools[i] = false;
