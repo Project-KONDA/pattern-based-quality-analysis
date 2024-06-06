@@ -1,6 +1,8 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Map;
 
 import org.json.JSONException;
@@ -12,6 +14,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.PatternText;
@@ -86,22 +90,42 @@ public class TemplateVariantServlet extends HttpServlet {
 		
 		// 3 load template
 		CompletePattern pattern = ServletUtilities.loadTemplate(technology, templateId);
+		CompletePattern patternSave = ServletUtilities.loadTemplate(technology, templateId);
 		if (pattern == null)
 			throw new FailedServletCallException("404 Requested template '" + templateId + "' does not exist");
 		
-		// 4 add variant
+		// 4 check for possibly dublicate variant names:
+		ArrayList<String> patternTextNames = new ArrayList<String>();
+		ArrayList<String> variantNames = new ArrayList<String>();
+		
+		
 		for (String variant: variants) {
 			try {
 				JSONObject json = new JSONObject(variant);
-				String name = json.getString("name");
-				for (PatternText text: pattern.getText()) {
-					if (text.getName().equals(name))
-						throw new InvalidityException("Pattern '" + pattern.getPatternId() + "' already contains a variant of name '" + name + "'.");
-				}
+				variantNames.add(json.getString("name"));
+			} catch (Exception e) {
+				throw new FailedServletCallException("Invalid JSON format.", e);
+			}
+		}
+		
+		for (PatternText text: pattern.getText())
+			patternTextNames.add(text.getName());
+		
+		for (String variantName: variantNames) {
+			if (patternTextNames.contains(variantName))
+				throw new FailedServletCallException("Variant with name '" + variantName + "' already exists.");
+		}
+		if (new HashSet<String>(variantNames).size() != variantNames.size())
+			throw new FailedServletCallException("The call contains variants with the same name.");
+
+		// 5 add variant
+		for (String variant: variants) {
+			try {
+				JSONObject json = new JSONObject(variant);
 				new PatternTextImpl(pattern, json);
 			} catch (JSONException e) {
 				e.printStackTrace();
-				throw new FailedServletCallException("Invalid JSON: invalid format.", e);
+				throw new FailedServletCallException("Invalid JSON format.", e);
 			} catch (InvalidityException e) {
 				e.printStackTrace();
 				throw new FailedServletCallException("Invalid JSON: " + e.getMessage(), e);
@@ -110,22 +134,28 @@ public class TemplateVariantServlet extends HttpServlet {
 				throw new FailedServletCallException("error: " + e.getMessage(), e);
 			}
 		}
+		try {
+			pattern.isValid(AbstractionLevel.ABSTRACT);
+		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+			throw new FailedServletCallException("Invalid variant(s).", e); 
+		}
 				
-		// 5 save template
+		// 6 save template
 		try {
 			ServletUtilities.saveTemplate(technology, templateId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException("Failed to update template.");
+			throw new FailedServletCallException("Failed to update template.", e);
 		}
 		
 		CompletePattern pattern2 = ServletUtilities.loadTemplate(technology, templateId);
-		for (PatternText text: pattern2.getText())
-			try {
+		try {
+			pattern2.isValid(AbstractionLevel.ABSTRACT);
+			for (PatternText text: pattern2.getText())
 				text.isValid(AbstractionLevel.ABSTRACT);
-			} catch (InvalidityException e) {
-				throw new FailedServletCallException("", e);
-			}
-		 
+		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+			ServletUtilities.saveTemplate(technology, templateId, patternSave);
+			throw new FailedServletCallException("", e);
+		}
 		
 		return "New variant(s) added successfully to '" + templateId + "'.";
 	}
