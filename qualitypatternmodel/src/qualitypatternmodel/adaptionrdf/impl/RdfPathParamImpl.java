@@ -188,6 +188,15 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 		return rdfPathParts;
 	}
 
+	@Override
+	public String getValueAsString() {
+		try {
+			return generateSparql();
+		} catch (InvalidityException e) {
+			return null;
+		}
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

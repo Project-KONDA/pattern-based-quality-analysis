@@ -158,6 +158,15 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 		}
 	}
 
+	@Override
+	public String getValueAsString() {
+		try {
+			return generateSparql();
+		} catch (InvalidityException e) {
+			return null;
+		}
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
