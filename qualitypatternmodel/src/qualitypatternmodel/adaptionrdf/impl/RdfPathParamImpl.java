@@ -395,6 +395,11 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public boolean isUsed() {
+		return getRdfPredicate() != null;
+	}
 
 	@Override
 	public String myToString() {

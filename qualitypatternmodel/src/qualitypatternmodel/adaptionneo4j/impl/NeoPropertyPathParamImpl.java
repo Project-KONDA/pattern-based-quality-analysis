@@ -442,25 +442,6 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		}
 	}
 
-	/**
-	 * @author Lukas Sebastian Hofmann
-	 * @return String
-	 * Creates the myString for the NeoPropertyPathParam.
-	 */
-	@Override
-	public String myToString() {
-		String result = String.format(NEO_PROPERTY_PATH_PARAM, getInternalId());
-		try {
-			String temp = generateCypher();
-			if (!temp.isEmpty()) {
-				result += ConstantsNeo.ONE_WHITESPACE + generateCypher();
-			} else if (neoPropertyName != null) {
-				result += ConstantsNeo.ONE_WHITESPACE + getNeoPropertyEdge().generateCypherPropertyAddressing();
-			}
-		} catch (InvalidityException e) {} 
-		return result;
-	}
-
 	
 	@Override
 	protected int getRelationNumber() {
@@ -479,5 +460,29 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	public String generateDescription() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public boolean isUsed() {
+		return getNeoPropertyEdge() != null;
+	}
+
+	/**
+	 * @author Lukas Sebastian Hofmann
+	 * @return String
+	 * Creates the myString for the NeoPropertyPathParam.
+	 */
+	@Override
+	public String myToString() {
+		String result = String.format(NEO_PROPERTY_PATH_PARAM, getInternalId());
+		try {
+			String temp = generateCypher();
+			if (!temp.isEmpty()) {
+				result += ConstantsNeo.ONE_WHITESPACE + generateCypher();
+			} else if (neoPropertyName != null) {
+				result += ConstantsNeo.ONE_WHITESPACE + getNeoPropertyEdge().generateCypherPropertyAddressing();
+			}
+		} catch (InvalidityException e) {} 
+		return result;
 	}
 } //NeoAttributePathParamImpl

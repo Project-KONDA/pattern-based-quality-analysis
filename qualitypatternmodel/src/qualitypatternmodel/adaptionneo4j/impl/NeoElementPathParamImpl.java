@@ -361,4 +361,9 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 	protected String getEdgeNaming() {
 		return ConstantsNeo.VARIABLE_ELEMENT_EGDE;
 	}
+	
+	@Override
+	public boolean isUsed() {
+		return getNeoElementEdge() != null;
+	}
 } //Neo4JPathParamImpl

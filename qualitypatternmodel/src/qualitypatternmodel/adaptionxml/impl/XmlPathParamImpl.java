@@ -880,12 +880,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
+	
 	@Override
 	public boolean isUsed() {
 		return getXmlNavigation() != null;
