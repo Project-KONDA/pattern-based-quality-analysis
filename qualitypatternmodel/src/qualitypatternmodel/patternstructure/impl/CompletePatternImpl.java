@@ -457,6 +457,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public JavaFilter generateQueryFilter() throws InvalidityException {
+		if (getLanguage() != Language.XML)
+			throw new InvalidityException("Query Filter not implemented for Language " + getLanguage().getName());
 		JavaFilter filter = new JavaFilterImpl();
 		filter.setPatternId(getId());
 		filter.setPatternName(getName());
@@ -510,6 +512,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	@Override
 	public String generateSparql() throws InvalidityException {
+		if (containsJavaOperator()) 
+			throw new InvalidityException("This pattern cannot be executed via default Sparql query. A custom Java Filter build is required. However this is not implemented for RDF yet.");
 		initializeTranslation();
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException("return elements missing");
@@ -569,7 +573,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * <i>At least on Return-Node has to be given.</i>
 	 */
 	@Override
-	public String generateCypher() throws InvalidityException {		
+	public String generateCypher() throws InvalidityException {
+		if (containsJavaOperator()) 
+			throw new InvalidityException("This pattern cannot be executed via default Cypher query. A custom Java Filter build is required. However this is not implemented for Neo4j yet.");
+
 		initializeTranslation();
 		
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
@@ -584,7 +591,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		
 		return completeCyString;
 	}
-	//PROTOTYP: in Zuk�nftigen Versionen m�sste man noch das SET/REMOVE f�r das COUNT-Pattern integrieren --> Ist aber in dem Modell nicht vorgesehen
+	//PROTOTYP: in future versions a SET/REMOVE for COUNT-Pattern must be ingegrated. This is not intended in the current version
 	
 	/**
 	 * <!-- begin-user-doc -->

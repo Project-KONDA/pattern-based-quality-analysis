@@ -71,6 +71,57 @@ public class GenericPatterns {
 		return patterns;
 	}
 
+	public static CompletePattern getConcrete(CompletePattern pattern, Language lan, Map<Integer, String> values, String[] variants, String[] oldvariants) 
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		if (pattern.getLanguage() != Language.GENERIC)
+			throw new InvalidityException("Pattern '" + pattern.getName() + "' is not generic.");
+		
+		switch(lan) {
+		case XML: 
+			pattern.createXmlAdaption();
+			break;
+		case RDF: 
+			pattern.createRdfAdaption();
+			break;
+		case NEO4J:
+			pattern.createNeo4jAdaption();
+			break;
+		default:
+			throw new InvalidityException("Invalid Language");
+		}
+		
+		String name = pattern.getName();
+		pattern.setPatternId(name + "_" + lan.getLiteral());
+		pattern.setAbstractId(name + "_" + lan.getLiteral());
+		List<Parameter> params = pattern.getParameterList().getParameters();
+		
+		if (XmlPatterns.AXIS && values != null)
+			for (Integer index: values.keySet())
+				params.get(index).setValueFromString(values.get(index));
+		
+		if (XmlPatterns.DEFAULT_VARIANTS && variants != null)
+			for (String json: variants)
+				try {
+					new PatternTextImpl(pattern, new JSONObject(json));
+				} catch(JSONException e) {
+					e.printStackTrace();
+				}
+		
+		if (XmlPatterns.OLD_VARIANTS && oldvariants != null)
+			for (String json: oldvariants)
+				try {
+					new PatternTextImpl(pattern, new JSONObject(json));
+				} catch(JSONException e) {
+					e.printStackTrace();
+				}
+	
+		pattern.isValid(AbstractionLevel.ABSTRACT);
+		return pattern;
+	}
+	
+	
+	// GENERIC PATTERNS
+
 	public static CompletePattern getGenericCard() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("Card_generic");
@@ -429,18 +480,6 @@ public class GenericPatterns {
 		return pattern;
 	}
 	
-//	public static CompletePattern getGenericLocalUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-//		pattern.setPatternId("LocalUnique_generic");
-//		pattern.setAbstractId("LocalUnique_generic");
-//		pattern.setName("LocalUnique");
-//		pattern.setShortDescription("Local Unique Attribute Value");
-//		pattern.setDescription("Check whether all field values are unique within a record.");
-//		// TODO
-//		pattern.isValid(AbstractionLevel.GENERIC);
-//		return pattern;
-//	}
-	
 	public static CompletePattern getGenericStringLength() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("StringLength_generic");
@@ -490,6 +529,18 @@ public class GenericPatterns {
 		return pattern;
 	}
 	
+//	public static CompletePattern getGenericLocalUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		pattern.setPatternId("LocalUnique_generic");
+//		pattern.setAbstractId("LocalUnique_generic");
+//		pattern.setName("LocalUnique");
+//		pattern.setShortDescription("Local Unique Attribute Value");
+//		pattern.setDescription("Check whether all field values are unique within a record.");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
+	
 //	public static CompletePattern getGenericCompValAny() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 //		pattern.setPatternId("CompValAny_generic");
@@ -513,54 +564,6 @@ public class GenericPatterns {
 //		pattern.isValid(AbstractionLevel.GENERIC);
 //		return pattern;
 //	}
-
-	public static CompletePattern getConcrete(CompletePattern pattern, Language lan, Map<Integer, String> values, String[] variants, String[] oldvariants) 
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (pattern.getLanguage() != Language.GENERIC)
-			throw new InvalidityException("Pattern '" + pattern.getName() + "' is not generic.");
-		
-		switch(lan) {
-		case XML: 
-			pattern.createXmlAdaption();
-			break;
-		case RDF: 
-			pattern.createRdfAdaption();
-			break;
-		case NEO4J:
-			pattern.createNeo4jAdaption();
-			break;
-		default:
-			throw new InvalidityException("Invalid Language");
-		}
-		
-		String name = pattern.getName();
-		pattern.setPatternId(name + "_" + lan.getLiteral());
-		pattern.setAbstractId(name + "_" + lan.getLiteral());
-		List<Parameter> params = pattern.getParameterList().getParameters();
-		
-		if (XmlPatterns.AXIS && values != null)
-			for (Integer index: values.keySet())
-				params.get(index).setValueFromString(values.get(index));
-		
-		if (XmlPatterns.DEFAULT_VARIANTS && variants != null)
-			for (String json: variants)
-				try {
-					new PatternTextImpl(pattern, new JSONObject(json));
-				} catch(JSONException e) {
-					e.printStackTrace();
-				}
-		
-		if (XmlPatterns.OLD_VARIANTS && oldvariants != null)
-			for (String json: oldvariants)
-				try {
-					new PatternTextImpl(pattern, new JSONObject(json));
-				} catch(JSONException e) {
-					e.printStackTrace();
-				}
-	
-		pattern.isValid(AbstractionLevel.ABSTRACT);
-		return pattern;
-	}
 	
 //	public static CompletePattern getGenericCheckFormat() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();

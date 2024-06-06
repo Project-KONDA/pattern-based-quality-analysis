@@ -54,6 +54,7 @@ public class InstantiationTest {
 
 		for (String inst: listInstantiate){
 			try {
+				System.out.println("INSTANTIATE");
 				JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut(inst, parameterMap));
 				String st = "/" + json.getString("language") + "/" + json.getString("patternID");
 				patternIDs.add(st);
@@ -64,18 +65,21 @@ public class InstantiationTest {
 		}
 		
 		System.out.println();
+		System.out.println("GET");
 		for (String get: patternIDs){
 			System.out.println(ConstraintServlet.applyGet(get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 		
 		System.out.println();
+		System.out.println("QUERY");
 		for (String get: patternIDs){
 			System.out.println(ConstraintQueryServlet.applyGet3(get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 		
 		System.out.println();
+		System.out.println("MQAF");
 		for (String get: patternIDs){
 			System.out.println(get);
 			System.out.println("  " + ConstraintMqafServlet.applyGet3(get, parameterMap));
@@ -83,6 +87,7 @@ public class InstantiationTest {
 		}
 		
 		System.out.println();
+		System.out.println("DELETE");
 		List<String> delete = new ArrayList<String>(patternIDs);
 		for (String del: delete) {
 			ConstraintServlet.applyDelete(del, parameterMap);
