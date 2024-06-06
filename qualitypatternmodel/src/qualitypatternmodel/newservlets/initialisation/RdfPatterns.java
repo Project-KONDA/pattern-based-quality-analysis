@@ -80,15 +80,6 @@ public class RdfPatterns {
 		}
 
 		try {
-			patterns.add(GenericPatterns.getConcrete(GenericPatterns.getGenericInvalidLink(), Language.RDF,
-					Map.of(),
-					RdfPatternVariants.INVALIDLINK_RDF_VARIANTS, 
-					RdfPatternVariants.INVALIDLINK_RDF_VARIANTS_OLD));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
 			patterns.add(GenericPatterns.getConcrete(GenericPatterns.getGenericUnique(), Language.RDF,
 					Map.of(), 
 					RdfPatternVariants.UNIQUE_RDF_VARIANTS, 

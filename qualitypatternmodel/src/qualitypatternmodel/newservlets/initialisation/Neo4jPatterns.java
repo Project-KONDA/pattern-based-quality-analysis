@@ -80,15 +80,6 @@ public class Neo4jPatterns {
 		}
 
 		try {
-			patterns.add(GenericPatterns.getConcrete(GenericPatterns.getGenericInvalidLink(), Language.NEO4J,
-					Map.of(),
-					Neo4jPatternVariants.INVALIDLINK_NEO_VARIANTS, 
-					Neo4jPatternVariants.INVALIDLINK_NEO_VARIANTS_OLD));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		try {
 			patterns.add(GenericPatterns.getConcrete(GenericPatterns.getGenericUnique(), Language.NEO4J,
 					Map.of(), 
 					Neo4jPatternVariants.UNIQUE_NEO_VARIANTS, 

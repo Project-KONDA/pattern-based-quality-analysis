@@ -175,14 +175,12 @@ public abstract class ServletUtilities {
 				json.put(Constants.JSON_TAG, tags);
 			}
 			
-			Boolean concrete = false;
 			Boolean mqaf = false;
 			Boolean query = false;
 			Boolean filter = false;
 			try {
 				pattern.isValid(AbstractionLevel.CONCRETE);
-				concrete = true;
-				filter = true;
+				filter = pattern.getLanguage().equals(Language.XML);
 				try {
 					mqaf = ConstraintTranslationValidation.checkPatternTranslatable(pattern);
 				}
@@ -194,7 +192,7 @@ public abstract class ServletUtilities {
 			}
 			catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {}
 			
-			json.put(Constants.JSON_EXECUTABLE , concrete);
+			json.put(Constants.JSON_EXECUTABLE , mqaf || query || filter);
 			json.put(Constants.JSON_EXECUTABLE_MQAF, mqaf);
 			json.put(Constants.JSON_EXECUTABLE_QUERY, query);
 			json.put(Constants.JSON_EXECUTABLE_FILTER, filter);

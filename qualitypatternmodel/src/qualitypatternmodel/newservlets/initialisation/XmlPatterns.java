@@ -18,7 +18,7 @@ import qualitypatternmodel.utility.XmlPatternUtility;
 
 public class XmlPatterns {
 	
-	static Boolean AXIS = false;
+	static Boolean AXIS = true;
 	static Boolean DEFAULT_VARIANTS = true;
 	static Boolean OLD_VARIANTS = false;
 	

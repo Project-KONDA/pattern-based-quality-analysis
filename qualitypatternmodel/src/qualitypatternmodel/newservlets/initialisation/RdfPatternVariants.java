@@ -38,7 +38,4 @@ public class RdfPatternVariants {
 
 	static String[] MANDATT_RDF_VARIANTS = {};
 	static String[] MANDATT_RDF_VARIANTS_OLD = {};
-	
-	static String[] INVALIDLINK_RDF_VARIANTS = {};
-	static String[] INVALIDLINK_RDF_VARIANTS_OLD = {};
 }

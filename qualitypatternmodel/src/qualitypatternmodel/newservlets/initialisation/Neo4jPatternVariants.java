@@ -39,8 +39,5 @@ public class Neo4jPatternVariants {
 
 	static String[] MANDATT_NEO_VARIANTS = {};
 	static String[] MANDATT_NEO_VARIANTS_OLD = {};
-	
-	static String[] INVALIDLINK_NEO_VARIANTS = {};
-	static String[] INVALIDLINK_NEO_VARIANTS_OLD = {};
 
 }
