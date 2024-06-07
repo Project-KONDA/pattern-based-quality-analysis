@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriListParam;
@@ -23,6 +25,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
+import qualitypatternmodel.utility.Constants;
 
 /**
  * <!-- begin-user-doc -->
@@ -98,6 +101,44 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 				result += "\n" + variable + " " + RdfIriNodeImpl.RDF_PREDICATE + " " + iri.generateSparql() + "."; 
 			}
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getValueAsString() {
+		JSONObject job = new JSONObject();
+		try {
+			job.put(Constants.JSON_RDF_PATH, getRdfPath().getValueAsString());
+			job.put(Constants.JSON_RDF_NODE_TYPE, getRdfPath().getValueAsString());
+		} catch (JSONException e) {
+			// never happens
+		}
+		return job.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		RdfPathComponent path;
+		IriListParamImpl iri;
+		try {
+			JSONObject job = new JSONObject(value);
+			path = RdfPathComponent.createNewRdfPathComponent(job.getString(Constants.JSON_RDF_PATH));
+			iri = new IriListParamImpl();
+			iri.setValueFromString(job.getString(Constants.JSON_RDF_NODE_TYPE));
+		} catch (JSONException e) {
+			throw new InvalidityException("", e);
+		}
+		setRdfPath(path);
+		setTargetNodeTypes(iri);
 	}
 
 	/**
@@ -377,6 +418,16 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 			case AdaptionrdfPackage.RDF_PATH_PART___GENERATE_RDF_PART_TYPES__STRING:
 				try {
 					return generateRdfPartTypes((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case AdaptionrdfPackage.RDF_PATH_PART___GET_VALUE_AS_STRING:
+				return getValueAsString();
+			case AdaptionrdfPackage.RDF_PATH_PART___SET_VALUE_FROM_STRING__STRING:
+				try {
+					setValueFromString((String)arguments.get(0));
+					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

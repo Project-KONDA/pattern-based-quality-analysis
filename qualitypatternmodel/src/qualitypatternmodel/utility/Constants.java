@@ -75,11 +75,16 @@ public class Constants {
 	public static final String JSON_ENABLE_PARAMETER = "parameter";
 	public static final String JSON_TYPEMODIFIABLE = "typeModifiable";
 	public static final String JSON_DEPENDANT = "dependant";
+	public static final String JSON_RDF_PATH_XOR = "xor";
+	public static final String JSON_RDF_PATH_SEQUENCE = "seq";
+	public static final String JSON_RDF_PATH = "rdfpath";
+	public static final String JSON_RDF_NODE_TYPE = "nodetypes";
 	
 
 	//Global Exception Messages -- Introduced by Lukas Sebastian Hofmann. Existing code of the framework has not been touched.
 	public static final String INVALID_OPTION = "invalid option";
 	public static final String INVALID_ARGUMENTS = "invalid arguments";
+	public static final String INVALID_VALUE = "invalid value";
 	public static final String INVALID_OPERATOR = "invalid operator";
 	public static final String OPERATOR_NULL = "operator null";
 	

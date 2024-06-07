@@ -352,6 +352,26 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 	 * @generated
 	 */
 	@Override
+	public EOperation getRdfPathComponent__GetValueAsString() {
+		return rdfPathComponentEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getRdfPathComponent__SetValueFromString__String() {
+		return rdfPathComponentEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getRdfPathParam() {
 		return rdfPathParamEClass;
 	}
@@ -444,6 +464,26 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 	@Override
 	public EOperation getRdfPathPart__GenerateRdfPartTypes__String() {
 		return rdfPathPartEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getRdfPathPart__GetValueAsString() {
+		return rdfPathPartEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getRdfPathPart__SetValueFromString__String() {
+		return rdfPathPartEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -695,6 +735,8 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		createEAttribute(rdfPathComponentEClass, RDF_PATH_COMPONENT__INVERT);
 		createEAttribute(rdfPathComponentEClass, RDF_PATH_COMPONENT__QUANTIFIER);
 		createEOperation(rdfPathComponentEClass, RDF_PATH_COMPONENT___GET_RDF_SINGLE_PREDICATES);
+		createEOperation(rdfPathComponentEClass, RDF_PATH_COMPONENT___GET_VALUE_AS_STRING);
+		createEOperation(rdfPathComponentEClass, RDF_PATH_COMPONENT___SET_VALUE_FROM_STRING__STRING);
 
 		rdfSinglePredicateEClass = createEClass(RDF_SINGLE_PREDICATE);
 		createEReference(rdfSinglePredicateEClass, RDF_SINGLE_PREDICATE__IRI_PARAM);
@@ -734,6 +776,8 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		createEReference(rdfPathPartEClass, RDF_PATH_PART__RDF_PATH);
 		createEReference(rdfPathPartEClass, RDF_PATH_PART__TARGET_NODE_TYPES);
 		createEOperation(rdfPathPartEClass, RDF_PATH_PART___GENERATE_RDF_PART_TYPES__STRING);
+		createEOperation(rdfPathPartEClass, RDF_PATH_PART___GET_VALUE_AS_STRING);
+		createEOperation(rdfPathPartEClass, RDF_PATH_PART___SET_VALUE_FROM_STRING__STRING);
 
 		// Create enums
 		rdfQuantifierEEnum = createEEnum(RDF_QUANTIFIER);
@@ -800,12 +844,18 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 
 		initEOperation(getRdfPathComponent__GetRdfSinglePredicates(), this.getRdfSinglePredicate(), "getRdfSinglePredicates", 0, -1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getRdfPathComponent__GetValueAsString(), ecorePackage.getEString(), "getValueAsString", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		EOperation op = initEOperation(getRdfPathComponent__SetValueFromString__String(), null, "setValueFromString", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
 		initEClass(rdfSinglePredicateEClass, RdfSinglePredicate.class, "RdfSinglePredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRdfSinglePredicate_IriParam(), this.getIriParam(), this.getIriParam_RdfSinglePredicate(), "iriParam", null, 0, 1, RdfSinglePredicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rdfNodeEClass, RdfNode.class, "RdfNode", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = initEOperation(getRdfNode__GenerateRdfTypes(), ecorePackage.getEString(), "generateRdfTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRdfNode__GenerateRdfTypes(), ecorePackage.getEString(), "generateRdfTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(rdfLiteralNodeEClass, RdfLiteralNode.class, "RdfLiteralNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -847,6 +897,12 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 
 		op = initEOperation(getRdfPathPart__GenerateRdfPartTypes__String(), ecorePackage.getEString(), "generateRdfPartTypes", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "variable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEOperation(getRdfPathPart__GetValueAsString(), ecorePackage.getEString(), "getValueAsString", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getRdfPathPart__SetValueFromString__String(), null, "setValueFromString", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		// Initialize enums and add enum literals

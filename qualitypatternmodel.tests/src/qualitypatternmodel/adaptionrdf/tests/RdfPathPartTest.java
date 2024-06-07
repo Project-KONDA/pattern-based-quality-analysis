@@ -17,6 +17,8 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathPart#generateRdfPartTypes(java.lang.String) <em>Generate Rdf Part Types</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getValueAsString() <em>Get Value As String</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathPart#setValueFromString(java.lang.String) <em>Set Value From String</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -83,6 +85,32 @@ public class RdfPathPartTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGenerateRdfPartTypes__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getValueAsString() <em>Get Value As String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getValueAsString()
+	 * @generated
+	 */
+	public void testGetValueAsString() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#setValueFromString(java.lang.String) <em>Set Value From String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#setValueFromString(java.lang.String)
+	 * @generated
+	 */
+	public void testSetValueFromString__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

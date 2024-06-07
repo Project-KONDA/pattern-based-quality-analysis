@@ -1291,6 +1291,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="RdfPathComponent" abstract="true"
         eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getRdfSinglePredicates" upperBound="-1" eType="#//adaptionrdf/RdfSinglePredicate"/>
+      <eOperations name="getValueAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="setValueFromString" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="invert" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//adaptionrdf/RdfQuantifier"/>
     </eClassifiers>
@@ -1351,6 +1355,10 @@
       <eOperations name="generateRdfPartTypes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="variable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getValueAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="setValueFromString" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPathParam" eType="#//adaptionrdf/RdfPathParam"
           eOpposite="#//adaptionrdf/RdfPathParam/rdfPathParts"/>

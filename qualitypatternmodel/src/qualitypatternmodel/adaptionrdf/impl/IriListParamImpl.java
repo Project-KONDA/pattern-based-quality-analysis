@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionrdf.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -16,6 +17,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriListParam;
@@ -89,11 +92,30 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 
 	@Override
 	public String getValueAsString() {
-		try {
-			return generateSparql();
-		} catch (InvalidityException e) {
-			return null;
+		JSONArray jarr = new JSONArray();
+		for (IriParam iri: getIriParams()) {
+			jarr.put(iri.getValueAsString());
 		}
+		return jarr.toString();
+	}
+
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		ArrayList<IriParam> x = new ArrayList<IriParam>();
+		JSONArray jarr;
+		try {
+			jarr = new JSONArray(value);
+	        for (int i = 0; i < jarr.length(); i++) {
+	            IriParam iri = new IriParamImpl();
+	            iri.setValueFromString(jarr.getString(i));
+	            x.add(iri);   
+	        }
+		} catch (JSONException e) {
+			throw new InvalidityException("", e);
+		}
+        
+        getIriParams().clear();
+        getIriParams().addAll(x);
 	}
 
 	/**

@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.adaptionrdf.RdfPathComponent;
 import qualitypatternmodel.adaptionrdf.RdfQuantifier;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -144,6 +145,22 @@ public abstract class RdfPathComponentImpl extends PatternElementImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	abstract public String getValueAsString();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	abstract public void setValueFromString(String value) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -219,6 +236,16 @@ public abstract class RdfPathComponentImpl extends PatternElementImpl implements
 		switch (operationID) {
 			case AdaptionrdfPackage.RDF_PATH_COMPONENT___GET_RDF_SINGLE_PREDICATES:
 				return getRdfSinglePredicates();
+			case AdaptionrdfPackage.RDF_PATH_COMPONENT___GET_VALUE_AS_STRING:
+				return getValueAsString();
+			case AdaptionrdfPackage.RDF_PATH_COMPONENT___SET_VALUE_FROM_STRING__STRING:
+				try {
+					setValueFromString((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

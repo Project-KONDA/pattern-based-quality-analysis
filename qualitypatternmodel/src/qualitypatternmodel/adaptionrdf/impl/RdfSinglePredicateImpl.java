@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriParam;
+import qualitypatternmodel.adaptionrdf.RdfQuantifier;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -63,6 +64,40 @@ public class RdfSinglePredicateImpl extends RdfPathComponentImpl implements RdfS
 //			return super.generateSparql();
 		} else {
 			return (invert ? "^" : "" ) + iri + getQuantifier().getLiteral();
+		}
+	}
+
+	@Override
+	public String getValueAsString() {
+		try {
+			return generateSparql();
+		} catch (InvalidityException e) {
+			return null;
+		}
+	}
+
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		if (value.equals(ConstantsRdf.WILDCARD))
+			setIriParam(null);
+		else {
+
+//			return (invert ? "^" : "" ) + iri + getQuantifier().getLiteral();
+			
+			setInvert(value.startsWith("^"));
+			if (isInvert())
+				value = value.substring(1);
+			
+			for (RdfQuantifier quan: RdfQuantifier.VALUES) {
+				if (value.endsWith(quan.getLiteral())) {
+					quantifier = quan;
+					value = value.substring(0, value.length() - quan.getLiteral().length());
+				}
+			}
+			
+			IriParam iri = new IriParamImpl(); 
+			setIriParam(iri);
+			iri.setValueFromString(value);
 		}
 	}
 	

@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionrdf.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -15,6 +16,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfPathPart;
@@ -190,11 +194,28 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 
 	@Override
 	public String getValueAsString() {
-		try {
-			return generateSparql();
-		} catch (InvalidityException e) {
-			return null;
+		JSONArray jarr = new JSONArray();
+		for (int i = 0; i < getRdfPathParts().size(); i++) {
+			jarr.put(getRdfPathParts().get(i).getValueAsString());
 		}
+		return jarr.toString();
+	}
+	
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		ArrayList<RdfPathPart> parts = new ArrayList<RdfPathPart>();
+		try {
+			JSONArray jarr = new JSONArray(value);
+	        for (int i = 0; i < jarr.length(); i++) {
+	        	RdfPathPart part = new RdfPathPartImpl();
+	        	part.setValueFromString(jarr.getString(i));
+	        	parts.add(part);
+	        }			
+		} catch (JSONException e) {
+			throw new InvalidityException("", e);
+		}
+		getRdfPathParts().clear();
+		getRdfPathParts().addAll(parts);
 	}
 
 	/**

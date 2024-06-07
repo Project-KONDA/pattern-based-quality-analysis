@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionrdf.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -13,6 +14,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfPathComponent;
@@ -22,6 +26,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.Constants;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,6 +81,34 @@ public class RdfSequenceImpl extends RdfPathComponentImpl implements RdfSequence
 		query += ")" + getQuantifier().getLiteral();
 		
 		return query;
+	}
+
+	@Override
+	public String getValueAsString() {
+		JSONArray jarr = new JSONArray();
+		for (RdfPathComponent component: getItems())
+			jarr.put(component.getValueAsString());
+		JSONObject jobj = new JSONObject();
+		try {
+			jobj.put(Constants.JSON_RDF_PATH_SEQUENCE, jarr);
+		} catch (JSONException e) {
+		}
+		return jobj.toString();
+	}
+
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		try {
+			JSONObject jobj = new JSONObject(value);
+			JSONArray arr = jobj.getJSONArray(Constants.JSON_RDF_PATH_SEQUENCE);
+			ArrayList<RdfPathComponent> newItems = new ArrayList<RdfPathComponent>();
+	        for (int i = 0; i < arr.length(); i++)
+	        	newItems.add(RdfPathComponent.createNewRdfPathComponent(arr.getString(i)));
+			getItems().clear();
+			getItems().addAll(newItems);
+		} catch (Exception e) {
+			throw new InvalidityException(Constants.INVALID_VALUE, e);
+		}
 	}
 
 	/**
