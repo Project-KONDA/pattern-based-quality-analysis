@@ -69,7 +69,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 */
 	protected RdfPathParamImpl() {
 		super();
-		getRdfPathParts().add(new RdfPathPartImpl());
+//		getRdfPathParts().add(new RdfPathPartImpl());
 	}
 
 	/**
@@ -225,10 +225,12 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 */
 	@Override
 	public void createParameters() {
-		RdfPathPart part = new RdfPathPartImpl();
-		setRdfPathPart(part);
-		RdfSinglePredicate rsp = new RdfSinglePredicateImpl();
-		part.setRdfPath(rsp);		
+		if (getRdfPathParts().isEmpty()) {
+			RdfPathPart part = new RdfPathPartImpl();
+			setRdfPathPart(part);
+			RdfSinglePredicate rsp = new RdfSinglePredicateImpl();
+			part.setRdfPath(rsp);
+		}	
 	}
 
 	/**

@@ -46,9 +46,5 @@ public class RdfInstantiationTest {
 			System.err.println("'" + inst + "' failed");
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
-
 }
