@@ -26,6 +26,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsRdf;
 
 /**
  * <!-- begin-user-doc -->
@@ -85,6 +86,8 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
+		if (getRdfPath() == null)
+			return ConstantsRdf.WILDCARD;
 		return getRdfPath().generateSparql();
 	}
 
@@ -113,7 +116,8 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 		JSONObject job = new JSONObject();
 		try {
 			job.put(Constants.JSON_RDF_PATH, getRdfPath().getValueAsString());
-			job.put(Constants.JSON_RDF_NODE_TYPE, getRdfPath().getValueAsString());
+			if (getTargetNodeTypes() != null)
+				job.put(Constants.JSON_RDF_NODE_TYPE, getTargetNodeTypes().getValueAsString());
 		} catch (JSONException e) {
 			// never happens
 		}
@@ -128,15 +132,23 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		RdfPathComponent path;
-		IriListParamImpl iri;
+		IriListParamImpl iri = null;
 		try {
 			JSONObject job = new JSONObject(value);
 			path = RdfPathComponent.createNewRdfPathComponent(job.getString(Constants.JSON_RDF_PATH));
-			iri = new IriListParamImpl();
-			iri.setValueFromString(job.getString(Constants.JSON_RDF_NODE_TYPE));
-		} catch (JSONException e) {
-			throw new InvalidityException("", e);
+			if (job.has(Constants.JSON_RDF_NODE_TYPE)) {
+				iri = new IriListParamImpl();
+				iri.setValueFromString(job.getString(Constants.JSON_RDF_NODE_TYPE));
+			}
+		} catch (JSONException | InvalidityException e) {
+			try {
+				path = RdfPathComponent.createNewRdfPathComponent(value);
+			} catch (InvalidityException f) {
+				throw new InvalidityException("Cannot build a correct RdfPathComponent from '" + value + "'", f);
+			}
 		}
+		if (path == null)
+			throw new InvalidityException("Path cannot be null in RdfPathPart (" + value + ")");
 		setRdfPath(path);
 		setTargetNodeTypes(iri);
 	}

@@ -97,10 +97,14 @@ public class RdfXorImpl extends RdfPathComponentImpl implements RdfXor {
 	public void setValueFromString(String value) throws InvalidityException {
 		try {
 			JSONObject jobj = new JSONObject(value);
+			if (!jobj.has(Constants.JSON_RDF_PATH_XOR))
+				throw new InvalidityException(Constants.INVALID_VALUE);
 			JSONArray arr = jobj.getJSONArray(Constants.JSON_RDF_PATH_XOR);
+			if (arr.length() < 2)
+				throw new InvalidityException("Not enough arguments for Rdf Xor: '" + value + "'");
 			ArrayList<RdfPathComponent> newItems = new ArrayList<RdfPathComponent>();
 	        for (int i = 0; i < arr.length(); i++)
-	        	newItems.add(RdfPathComponent.createNewRdfPathComponent(arr.getString(i)));
+	        	newItems.add(RdfPathComponent.createNewRdfPathComponent(arr.get(i).toString()));
 			getItems().clear();
 			getItems().addAll(newItems);
 		} catch (Exception e) {

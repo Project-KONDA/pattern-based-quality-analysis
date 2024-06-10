@@ -92,11 +92,18 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 
 	@Override
 	public String getValueAsString() {
-		JSONArray jarr = new JSONArray();
-		for (IriParam iri: getIriParams()) {
-			jarr.put(iri.getValueAsString());
+		if (getIriParams().size() == 0) {
+			return new JSONArray().toString();
 		}
-		return jarr.toString();
+		else if (getIriParams().size() == 1) {
+			return getIriParams().get(0).getValueAsString();
+		} else {
+			JSONArray jarr = new JSONArray();
+			for (IriParam iri: getIriParams()) {
+				jarr.put(iri.getValueAsString());
+			}
+			return jarr.toString();
+		}
 	}
 
 	@Override

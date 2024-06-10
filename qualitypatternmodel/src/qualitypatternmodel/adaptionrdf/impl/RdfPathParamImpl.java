@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
@@ -29,6 +30,7 @@ import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsRdf;
 
 /**
@@ -194,25 +196,47 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 
 	@Override
 	public String getValueAsString() {
-		JSONArray jarr = new JSONArray();
-		for (int i = 0; i < getRdfPathParts().size(); i++) {
-			jarr.put(getRdfPathParts().get(i).getValueAsString());
+		if (getRdfPathParts().size() == 0)
+			return new JSONObject().toString();
+		else if (getRdfPathParts().size() == 1)
+			return getRdfPathParts().get(0).getValueAsString();
+		else {
+			JSONArray jarr = new JSONArray();
+			for (int i = 0; i < getRdfPathParts().size(); i++) {
+				jarr.put(getRdfPathParts().get(i).getValueAsString());
+			}
+			JSONObject job = new JSONObject();
+			try {
+				job.put(Constants.JSON_RDF_PART, jarr);
+			} catch (JSONException e) {}
+			return job.toString();	
 		}
-		return jarr.toString();
 	}
 	
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		if (value.equals("")) {
+			getRdfPathParts().clear();
+			return;
+		}
 		ArrayList<RdfPathPart> parts = new ArrayList<RdfPathPart>();
 		try {
-			JSONArray jarr = new JSONArray(value);
+			JSONObject job = new JSONObject(value);
+			if (job.length() == 0) {
+				getRdfPathParts().clear();
+				return;
+			}
+			JSONArray jarr = job.getJSONArray(Constants.JSON_RDF_PART);
 	        for (int i = 0; i < jarr.length(); i++) {
 	        	RdfPathPart part = new RdfPathPartImpl();
 	        	part.setValueFromString(jarr.getString(i));
 	        	parts.add(part);
 	        }			
-		} catch (JSONException e) {
-			throw new InvalidityException("", e);
+		} catch (JSONException | InvalidityException e) {
+        	RdfPathPart part = new RdfPathPartImpl();
+        	part.setValueFromString(value);
+        	parts.clear();
+        	parts.add(part);
 		}
 		getRdfPathParts().clear();
 		getRdfPathParts().addAll(parts);

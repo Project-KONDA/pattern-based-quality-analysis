@@ -100,17 +100,21 @@ public interface RdfPathComponent extends PatternElement {
 	 */
 	void setValueFromString(String value) throws InvalidityException;
 
-	static RdfPathComponent createNewRdfPathComponent(String string) throws InvalidityException {
+	static RdfPathComponent createNewRdfPathComponent(String value) throws InvalidityException {
 		RdfPathComponent comp = null;
+		JSONObject jobj;
 		try {
-			JSONObject jobj = new JSONObject(string);
+			jobj = new JSONObject(value);
 			if (jobj.has(Constants.JSON_RDF_PATH_XOR))
 				comp = AdaptionrdfFactory.eINSTANCE.createRdfXor();
 			else if (jobj.has(Constants.JSON_RDF_PATH_SEQUENCE) )
 				comp = AdaptionrdfFactory.eINSTANCE.createRdfSequence();
+			else
+				throw new InvalidityException("Invalid JSONObject: '" + value + "'");
 		} catch (JSONException e) {
 			comp = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
 		}
+		comp.setValueFromString(value);
 		return comp;
 	}
 

@@ -284,7 +284,7 @@ public class ConstraintServlet extends HttpServlet {
 						else
 							failed.put(key);
 					} catch (InvalidityException e) {
-						e.printStackTrace();
+						ServletUtilities.logError(e);
 						failed.put(key);
 					}
 				}
@@ -332,6 +332,7 @@ public class ConstraintServlet extends HttpServlet {
 				return true;
 			} catch (InvalidityException e) {
 				frag.setValue(oldValue);
+				e.printStackTrace();
 				return false;
 			}
 		}

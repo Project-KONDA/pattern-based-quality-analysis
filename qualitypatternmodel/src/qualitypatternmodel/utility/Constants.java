@@ -75,8 +75,9 @@ public class Constants {
 	public static final String JSON_ENABLE_PARAMETER = "parameter";
 	public static final String JSON_TYPEMODIFIABLE = "typeModifiable";
 	public static final String JSON_DEPENDANT = "dependant";
+	public static final String JSON_RDF_PART = "rdfpart";
 	public static final String JSON_RDF_PATH_XOR = "xor";
-	public static final String JSON_RDF_PATH_SEQUENCE = "seq";
+	public static final String JSON_RDF_PATH_SEQUENCE = "sequence";
 	public static final String JSON_RDF_PATH = "rdfpath";
 	public static final String JSON_RDF_NODE_TYPE = "nodetypes";
 	
