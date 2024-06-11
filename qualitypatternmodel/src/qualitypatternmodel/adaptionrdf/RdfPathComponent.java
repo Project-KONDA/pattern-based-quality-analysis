@@ -86,7 +86,6 @@ public interface RdfPathComponent extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
 	 * @model kind="operation"
 	 * @generated
 	 */

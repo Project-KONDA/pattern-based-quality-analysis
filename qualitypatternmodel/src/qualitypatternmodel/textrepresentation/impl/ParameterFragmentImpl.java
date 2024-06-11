@@ -279,7 +279,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
         	String newid = json.get(Constants.JSON_NEWID).toString();
         	setId(newid + "_" + nid);
         } else
-        	setId(getType() + "_" + nid);
+        	setId(getRole() + "_" + nid);
         
 		// map
 		if (json.has(Constants.JSON_MAP))
@@ -731,11 +731,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			if (isPlural())
 				json.put(Constants.JSON_PLURAL, plural);
 			
-			if (getValueMap() != null) {
-				json.put(Constants.JSON_OPTIONS, getValueMap().getValuesAsJsonArray());
-			}	
-			else if (getType().equals("Enumeration")) {
-				json.put(Constants.JSON_OPTIONS, parameter.getOptionsAsJsonArray());
+			if (getType().equals(Constants.PARAMETER_TYPE_ENUMERATION)) {
+				if (getValueMap() != null)
+					json.put(Constants.JSON_OPTIONS, getValueMap().getValuesAsJsonArray());
+				else 
+					json.put(Constants.JSON_OPTIONS, parameter.getOptionsAsJsonArray());
 			}
 			for (String key: getAttributeMap().getKeys()) {
 				json.put(key, getAttributeMap().get(key));
@@ -928,7 +928,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return Constants.PARAMETER_TYPE_PROPERTY;
 			if (nav instanceof XmlElementNavigation)
 				return Constants.PARAMETER_TYPE_RELATION;
-		} 
+		} else if (type.equals(IriListParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_IRI_LIST;
+		} else if (type.equals(RdfPathParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_RDF_PATH;
+		}
 		ServletUtilities.log("No Role for class " + type.getSimpleName());
 		return "";
 	}
@@ -942,8 +946,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	public void setValue(String value) throws InvalidityException {
 		String myValue = value;
 
-		if (getValueMap() != null)
+		if (getValueMap() != null) {
 			myValue = getValueMap().getKey(value);
+			if (myValue.equals(value))
+				throw new InvalidityException("value " + value + " not found in ValueMap");
+		}
 		for (Parameter p: getParameter())
 			p.setValueFromString(myValue);
 	}

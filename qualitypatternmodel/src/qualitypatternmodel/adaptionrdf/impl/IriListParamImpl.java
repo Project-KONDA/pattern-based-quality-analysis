@@ -118,7 +118,14 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 	            x.add(iri);   
 	        }
 		} catch (JSONException e) {
-			throw new InvalidityException("", e);
+			try {
+	            IriParam iri = new IriParamImpl();
+	            iri.setValueFromString(value);
+	            x.add(iri);   
+			}
+			catch (InvalidityException f) {
+				throw new InvalidityException("", e);
+			}
 		}
         
         getIriParams().clear();

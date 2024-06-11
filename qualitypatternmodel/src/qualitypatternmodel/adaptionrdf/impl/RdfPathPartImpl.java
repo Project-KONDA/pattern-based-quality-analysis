@@ -109,13 +109,17 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getValueAsString() {
+		String path = getRdfPath().getValueAsString();
+		if (getTargetNodeTypes() == null || getTargetNodeTypes().getIriParams().isEmpty())
+			return path;
+		
 		JSONObject job = new JSONObject();
 		try {
-			job.put(Constants.JSON_RDF_PATH, getRdfPath().getValueAsString());
+			job.put(Constants.JSON_RDF_PATH, path);
 			if (getTargetNodeTypes() != null)
 				job.put(Constants.JSON_RDF_NODE_TYPE, getTargetNodeTypes().getValueAsString());
 		} catch (JSONException e) {
