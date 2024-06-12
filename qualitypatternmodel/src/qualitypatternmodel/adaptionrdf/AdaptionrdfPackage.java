@@ -1642,13 +1642,31 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_COMPONENT___GET_RDF_SINGLE_PREDICATES = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_COMPONENT___GET_VALUE_AS_STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_COMPONENT___SET_VALUE_FROM_STRING__STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Rdf Path Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_COMPONENT_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int RDF_PATH_COMPONENT_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl <em>Rdf Path Param</em>}' class.
@@ -1984,6 +2002,24 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_SINGLE_PREDICATE___GET_RDF_SINGLE_PREDICATES = RDF_PATH_COMPONENT___GET_RDF_SINGLE_PREDICATES;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_SINGLE_PREDICATE___GET_VALUE_AS_STRING = RDF_PATH_COMPONENT___GET_VALUE_AS_STRING;
+
+	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_SINGLE_PREDICATE___SET_VALUE_FROM_STRING__STRING = RDF_PATH_COMPONENT___SET_VALUE_FROM_STRING__STRING;
 
 	/**
 	 * The number of operations of the '<em>Rdf Single Predicate</em>' class.
@@ -3844,6 +3880,24 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_XOR___GET_RDF_SINGLE_PREDICATES = RDF_PATH_COMPONENT___GET_RDF_SINGLE_PREDICATES;
 
 	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_XOR___GET_VALUE_AS_STRING = RDF_PATH_COMPONENT___GET_VALUE_AS_STRING;
+
+	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_XOR___SET_VALUE_FROM_STRING__STRING = RDF_PATH_COMPONENT___SET_VALUE_FROM_STRING__STRING;
+
+	/**
 	 * The number of operations of the '<em>Rdf Xor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4176,6 +4230,24 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_SEQUENCE___GET_RDF_SINGLE_PREDICATES = RDF_PATH_COMPONENT___GET_RDF_SINGLE_PREDICATES;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_SEQUENCE___GET_VALUE_AS_STRING = RDF_PATH_COMPONENT___GET_VALUE_AS_STRING;
+
+	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_SEQUENCE___SET_VALUE_FROM_STRING__STRING = RDF_PATH_COMPONENT___SET_VALUE_FROM_STRING__STRING;
 
 	/**
 	 * The number of operations of the '<em>Rdf Sequence</em>' class.
@@ -5575,13 +5647,31 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_PART___GENERATE_RDF_PART_TYPES__STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___GET_VALUE_AS_STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PART___SET_VALUE_FROM_STRING__STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Rdf Path Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PART_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int RDF_PATH_PART_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.RdfQuantifier <em>Rdf Quantifier</em>}' enum.
@@ -5676,6 +5766,26 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRdfPathComponent__GetRdfSinglePredicates();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#getValueAsString() <em>Get Value As String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Value As String</em>' operation.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathComponent#getValueAsString()
+	 * @generated
+	 */
+	EOperation getRdfPathComponent__GetValueAsString();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionrdf.RdfPathComponent#setValueFromString(java.lang.String) <em>Set Value From String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Value From String</em>' operation.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathComponent#setValueFromString(java.lang.String)
+	 * @generated
+	 */
+	EOperation getRdfPathComponent__SetValueFromString__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfPathParam <em>Rdf Path Param</em>}'.
@@ -5781,6 +5891,26 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRdfPathPart__GenerateRdfPartTypes__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#getValueAsString() <em>Get Value As String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Value As String</em>' operation.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#getValueAsString()
+	 * @generated
+	 */
+	EOperation getRdfPathPart__GetValueAsString();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionrdf.RdfPathPart#setValueFromString(java.lang.String) <em>Set Value From String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Value From String</em>' operation.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart#setValueFromString(java.lang.String)
+	 * @generated
+	 */
+	EOperation getRdfPathPart__SetValueFromString__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfSinglePredicate <em>Rdf Single Predicate</em>}'.
@@ -6097,6 +6227,22 @@ public interface AdaptionrdfPackage extends EPackage {
 		EOperation RDF_PATH_COMPONENT___GET_RDF_SINGLE_PREDICATES = eINSTANCE.getRdfPathComponent__GetRdfSinglePredicates();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Value As String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RDF_PATH_COMPONENT___GET_VALUE_AS_STRING = eINSTANCE.getRdfPathComponent__GetValueAsString();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Value From String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RDF_PATH_COMPONENT___SET_VALUE_FROM_STRING__STRING = eINSTANCE.getRdfPathComponent__SetValueFromString__String();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl <em>Rdf Path Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6179,6 +6325,22 @@ public interface AdaptionrdfPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RDF_PATH_PART___GENERATE_RDF_PART_TYPES__STRING = eINSTANCE.getRdfPathPart__GenerateRdfPartTypes__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Value As String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RDF_PATH_PART___GET_VALUE_AS_STRING = eINSTANCE.getRdfPathPart__GetValueAsString();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Value From String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RDF_PATH_PART___SET_VALUE_FROM_STRING__STRING = eINSTANCE.getRdfPathPart__SetValueFromString__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfSinglePredicateImpl <em>Rdf Single Predicate</em>}' class.

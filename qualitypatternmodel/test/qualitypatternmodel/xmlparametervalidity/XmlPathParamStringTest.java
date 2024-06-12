@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.impl.XmlAxisPartConditionImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -50,6 +51,8 @@ public class XmlPathParamStringTest {
 //				if (i == -1 || i != path.length())
 //					failed.add(path + " [" + i + "]");
 				XmlPathParamImpl xpath = new XmlPathParamImpl();
+				XmlElementNavigationImpl nav = new XmlElementNavigationImpl();
+				nav.setXmlPathParam(xpath);
 				xpath.setValueFromString(path);
 				String path2 = path.replace("data()", "text()").replace("[]", "");
 				for (String n: node)

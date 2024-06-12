@@ -18,7 +18,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getRole() <em>Get Role</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#setValue(java.lang.String) <em>Set Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getValue() <em>Get Value</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#setComparisonOperatorValueMap() <em>Set Comparison Operator Value Map</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#setDefaultValueMap(java.lang.String) <em>Set Default Value Map</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#setAttributeValue(java.lang.String, java.lang.String) <em>Set Attribute Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getAttributeValue(java.lang.String) <em>Get Attribute Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
@@ -133,13 +133,13 @@ public class ParameterFragmentTest extends FragmentTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#setComparisonOperatorValueMap() <em>Set Comparison Operator Value Map</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#setDefaultValueMap(java.lang.String) <em>Set Default Value Map</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#setComparisonOperatorValueMap()
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#setDefaultValueMap(java.lang.String)
 	 * @generated
 	 */
-	public void testSetComparisonOperatorValueMap() {
+	public void testSetDefaultValueMap__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionrdf.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -15,6 +16,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfPathPart;
@@ -25,6 +30,7 @@ import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsRdf;
 
 /**
@@ -69,7 +75,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 */
 	protected RdfPathParamImpl() {
 		super();
-		getRdfPathParts().add(new RdfPathPartImpl());
+//		getRdfPathParts().add(new RdfPathPartImpl());
 	}
 
 	/**
@@ -188,6 +194,54 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 		return rdfPathParts;
 	}
 
+	@Override
+	public String getValueAsString() {
+		if (getRdfPathParts().size() == 0)
+			return new JSONObject().toString();
+		else if (getRdfPathParts().size() == 1)
+			return getRdfPathParts().get(0).getValueAsString();
+		else {
+			JSONArray jarr = new JSONArray();
+			for (int i = 0; i < getRdfPathParts().size(); i++) {
+				jarr.put(getRdfPathParts().get(i).getValueAsString());
+			}
+			JSONObject job = new JSONObject();
+			try {
+				job.put(Constants.JSON_RDF_PART, jarr);
+			} catch (JSONException e) {}
+			return job.toString();	
+		}
+	}
+	
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		if (value.equals("")) {
+			getRdfPathParts().clear();
+			return;
+		}
+		ArrayList<RdfPathPart> parts = new ArrayList<RdfPathPart>();
+		try {
+			JSONObject job = new JSONObject(value);
+			if (job.length() == 0) {
+				getRdfPathParts().clear();
+				return;
+			}
+			JSONArray jarr = job.getJSONArray(Constants.JSON_RDF_PART);
+	        for (int i = 0; i < jarr.length(); i++) {
+	        	RdfPathPart part = new RdfPathPartImpl();
+	        	part.setValueFromString(jarr.getString(i));
+	        	parts.add(part);
+	        }			
+		} catch (JSONException | InvalidityException e) {
+        	RdfPathPart part = new RdfPathPartImpl();
+        	part.setValueFromString(value);
+        	parts.clear();
+        	parts.add(part);
+		}
+		getRdfPathParts().clear();
+		getRdfPathParts().addAll(parts);
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -216,10 +270,12 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 */
 	@Override
 	public void createParameters() {
-		RdfPathPart part = new RdfPathPartImpl();
-		setRdfPathPart(part);
-		RdfSinglePredicate rsp = new RdfSinglePredicateImpl();
-		part.setRdfPath(rsp);		
+		if (getRdfPathParts().isEmpty()) {
+			RdfPathPart part = new RdfPathPartImpl();
+			setRdfPathPart(part);
+			RdfSinglePredicate rsp = new RdfSinglePredicateImpl();
+			part.setRdfPath(rsp);
+		}	
 	}
 
 	/**
@@ -394,6 +450,11 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	public String generateDescription() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public boolean isUsed() {
+		return getRdfPredicate() != null;
 	}
 
 	@Override

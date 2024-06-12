@@ -158,6 +158,15 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 		}
 	}
 
+	@Override
+	public String getValueAsString() {
+		try {
+			return generateSparql();
+		} catch (InvalidityException e) {
+			return null;
+		}
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -269,11 +278,8 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 			}
 		}
 		else if (value.matches("<[a-zA-A0-9]+>")) {
-			String uri = value.substring(1, value.length()-2);
-			if (value.length()-2 == uri.length()) {
-				setUri(uri);
-				return;
-			}
+			setUri(value.substring(1, value.length()-1));
+			return;
 		}
 		throw new InvalidityException("Value \"" + value + "\" not valid for IriParam");
 	}

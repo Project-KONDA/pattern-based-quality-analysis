@@ -35,6 +35,10 @@ public class Constants {
 	public static final String PARAMETER_TYPE_TYPE = "TypeOption";
 	public static final String PARAMETER_TYPE_XML_PATH = "XmlPath";
 	public static final String PARAMETER_TYPE_REGEX = "RegEx";
+	public static final String PARAMETER_TYPE_RDF_PATH = "RdfPath";
+	public static final String PARAMETER_TYPE_IRI_LIST = "IriList";
+	public static final String PARAMETER_TYPE_NEO_NODE_LABEL = "NeoNodeLabel";
+	public static final String PARAMETER_TYPE_NEO_ELEMENT_PATH = "NeoElementPath";
 	
 	// JSON variables
 	public static final String JSON_TEMPLATE = "template";
@@ -52,7 +56,7 @@ public class Constants {
 	public static final String JSON_SHORTDESCRIPTION = "shortDescription";
 	public static final String JSON_NEWID = "newId";
 	public static final String JSON_MAP = "map";
-	public static final String JSON_COMPARISONMAP = "comparisonMap";
+	public static final String JSON_DEFAULTMAP = "defaultMap";
 	public static final String JSON_VALUE = "value";
 	public static final String JSON_VARIANTS = "variants";
 	public static final String JSON_USERVALUE = "userValue";
@@ -71,11 +75,17 @@ public class Constants {
 	public static final String JSON_ENABLE_PARAMETER = "parameter";
 	public static final String JSON_TYPEMODIFIABLE = "typeModifiable";
 	public static final String JSON_DEPENDANT = "dependant";
+	public static final String JSON_RDF_PART = "rdfpart";
+	public static final String JSON_RDF_PATH_XOR = "xor";
+	public static final String JSON_RDF_PATH_SEQUENCE = "sequence";
+	public static final String JSON_RDF_PATH = "rdfpath";
+	public static final String JSON_RDF_NODE_TYPE = "nodetypes";
 	
 
 	//Global Exception Messages -- Introduced by Lukas Sebastian Hofmann. Existing code of the framework has not been touched.
 	public static final String INVALID_OPTION = "invalid option";
 	public static final String INVALID_ARGUMENTS = "invalid arguments";
+	public static final String INVALID_VALUE = "invalid value";
 	public static final String INVALID_OPERATOR = "invalid operator";
 	public static final String OPERATOR_NULL = "operator null";
 	

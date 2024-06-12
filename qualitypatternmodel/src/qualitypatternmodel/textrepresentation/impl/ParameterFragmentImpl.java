@@ -20,6 +20,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl;
+import qualitypatternmodel.adaptionneo4j.impl.NeoNodeLabelsParamImpl;
+import qualitypatternmodel.adaptionrdf.impl.IriListParamImpl;
+import qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlNode;
@@ -275,15 +279,15 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
         	String newid = json.get(Constants.JSON_NEWID).toString();
         	setId(newid + "_" + nid);
         } else
-        	setId(getType() + "_" + nid);
+        	setId(getRole() + "_" + nid);
         
 		// map
 		if (json.has(Constants.JSON_MAP))
 			setValueMap(new ValueMapImpl(json.getJSONObject(Constants.JSON_MAP)));
 		
 		// comparisonMap
-		if(json.has(Constants.JSON_COMPARISONMAP) && json.getBoolean(Constants.JSON_COMPARISONMAP))
-			setComparisonOperatorValueMap();
+		if(json.has(Constants.JSON_DEFAULTMAP))
+			setDefaultValueMap(json.getString(Constants.JSON_DEFAULTMAP));
 
 		// plural
 		if(json.has(Constants.JSON_PLURAL) && json.getBoolean(Constants.JSON_PLURAL))
@@ -554,14 +558,59 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	}
 	
 	@Override
-	public void setComparisonOperatorValueMap() {
+	public void setDefaultValueMap(String name) {
 		ValueMap map = new ValueMapImpl();
-		map.put(ComparisonOperator.EQUAL.getName(), "equal to");
-		map.put(ComparisonOperator.NOTEQUAL.getName(), "not equal to");
-		map.put(ComparisonOperator.LESS.getName(), "less than");
-		map.put(ComparisonOperator.GREATER.getName(), "greater than");
-		map.put(ComparisonOperator.GREATEROREQUAL.getName(), "greater than or equal to");
-		map.put(ComparisonOperator.LESSOREQUAL.getName(), "less than or equal to");
+		
+		switch(name) {
+		case "comparison":
+			map.put(ComparisonOperator.EQUAL.getName(), "exactly");
+			map.put(ComparisonOperator.NOTEQUAL.getName(), "exactly not");
+			map.put(ComparisonOperator.LESS.getName(), "less than");
+			map.put(ComparisonOperator.GREATER.getName(), "more than");
+			map.put(ComparisonOperator.GREATEROREQUAL.getName(), "at least");
+			map.put(ComparisonOperator.LESSOREQUAL.getName(), "at most");
+			break;
+
+		case "comparison_negated":
+			map.put(ComparisonOperator.EQUAL.getName(), "exactly not");
+			map.put(ComparisonOperator.NOTEQUAL.getName(), "exactly");
+			map.put(ComparisonOperator.LESS.getName(), "at least");
+			map.put(ComparisonOperator.GREATER.getName(), "at most");
+			map.put(ComparisonOperator.GREATEROREQUAL.getName(), "less than");
+			map.put(ComparisonOperator.LESSOREQUAL.getName(), "more than");
+			break;
+			
+		case "is":
+			map.put("true", "is");
+			map.put("false", "is not");
+			break;
+			
+		case "is not":
+			map.put("true", "is not");
+			map.put("false", "is");
+			break;
+			
+		case "do":
+			map.put("true", "do");
+			map.put("false", "do not");
+			break;
+			
+		case "do not":
+			map.put("true", "do not");
+			map.put("false", "do");
+			break;
+			
+		case "does":
+			map.put("true", "does");
+			map.put("false", "does not");
+			break;
+			
+		case "does not":
+			map.put("true", "does not");
+			map.put("false", "does");
+			break;
+		}
+		
 		setValueMap(map);
 	}
 
@@ -727,11 +776,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			if (isPlural())
 				json.put(Constants.JSON_PLURAL, plural);
 			
-			if (getValueMap() != null) {
-				json.put(Constants.JSON_OPTIONS, getValueMap().getValuesAsJsonArray());
-			}	
-			else if (getType().equals("Enumeration")) {
-				json.put(Constants.JSON_OPTIONS, parameter.getOptionsAsJsonArray());
+			if (getType().equals(Constants.PARAMETER_TYPE_ENUMERATION)) {
+				if (getValueMap() != null)
+					json.put(Constants.JSON_OPTIONS, getValueMap().getValuesAsJsonArray());
+				else 
+					json.put(Constants.JSON_OPTIONS, parameter.getOptionsAsJsonArray());
 			}
 			for (String key: getAttributeMap().getKeys()) {
 				json.put(key, getAttributeMap().get(key));
@@ -847,10 +896,24 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return Constants.PARAMETER_TYPE_UNTYPED;
 		} else if (type.equals(ComparisonOptionParamImpl.class) || type.equals(TypeOptionParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_ENUMERATION;
-		} else if (type.equals(XmlPathParamImpl.class)) {
+		} 	
+		// XML
+		else if (type.equals(XmlPathParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_XML_PATH;
+		} 
+		// RDF
+		else if (type.equals(RdfPathParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_RDF_PATH;
+		} 
+		// NEO4J
+		else if (type.equals(IriListParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_IRI_LIST;
+		} else if (type.equals(NeoNodeLabelsParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_NEO_NODE_LABEL;
+		} else if (type.equals(NeoElementPathParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_NEO_ELEMENT_PATH;
 		} else {
-			return null;
+			throw new UnsupportedOperationException("Type '" + type + "' not implemented");
 		}		
 	}	
 
@@ -910,7 +973,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return Constants.PARAMETER_TYPE_PROPERTY;
 			if (nav instanceof XmlElementNavigation)
 				return Constants.PARAMETER_TYPE_RELATION;
-		} 
+		} else if (type.equals(IriListParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_IRI_LIST;
+		} else if (type.equals(RdfPathParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_RDF_PATH;
+		}
 		ServletUtilities.log("No Role for class " + type.getSimpleName());
 		return "";
 	}
@@ -924,8 +991,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	public void setValue(String value) throws InvalidityException {
 		String myValue = value;
 
-		if (getValueMap() != null)
+		if (getValueMap() != null) {
 			myValue = getValueMap().getKey(value);
+			if (myValue.equals(value))
+				throw new InvalidityException("value " + value + " not found in ValueMap");
+		}
 		for (Parameter p: getParameter())
 			p.setValueFromString(myValue);
 	}
@@ -1218,8 +1288,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				}
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_VALUE:
 				return getValue();
-			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_COMPARISON_OPERATOR_VALUE_MAP:
-				setComparisonOperatorValueMap();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_DEFAULT_VALUE_MAP__STRING:
+				setDefaultValueMap((String)arguments.get(0));
 				return null;
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_ATTRIBUTE_VALUE__STRING_STRING:
 				return setAttributeValue((String)arguments.get(0), (String)arguments.get(1));

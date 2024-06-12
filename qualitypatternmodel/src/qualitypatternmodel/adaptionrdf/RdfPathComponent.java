@@ -3,7 +3,12 @@
 package qualitypatternmodel.adaptionrdf;
 
 import org.eclipse.emf.common.util.EList;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.Constants;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,5 +82,39 @@ public interface RdfPathComponent extends PatternElement {
 	 * @generated
 	 */
 	EList<RdfSinglePredicate> getRdfSinglePredicates();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getValueAsString();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void setValueFromString(String value) throws InvalidityException;
+
+	static RdfPathComponent createNewRdfPathComponent(String value) throws InvalidityException {
+		RdfPathComponent comp = null;
+		JSONObject jobj;
+		try {
+			jobj = new JSONObject(value);
+			if (jobj.has(Constants.JSON_RDF_PATH_XOR))
+				comp = AdaptionrdfFactory.eINSTANCE.createRdfXor();
+			else if (jobj.has(Constants.JSON_RDF_PATH_SEQUENCE) )
+				comp = AdaptionrdfFactory.eINSTANCE.createRdfSequence();
+			else
+				throw new InvalidityException("Invalid JSONObject: '" + value + "'");
+		} catch (JSONException e) {
+			comp = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
+		}
+		comp.setValueFromString(value);
+		return comp;
+	}
 
 } // RdfPathParam

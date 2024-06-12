@@ -1215,7 +1215,9 @@
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="setComparisonOperatorValueMap"/>
+      <eOperations name="setDefaultValueMap">
+        <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eOperations name="setAttributeValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eParameters name="attName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="attValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1273,6 +1275,14 @@
       <eOperations name="getKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
+      <eOperations name="addAll">
+        <eParameters name="collection">
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="keys" upperBound="-1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
@@ -1291,6 +1301,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="RdfPathComponent" abstract="true"
         eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getRdfSinglePredicates" upperBound="-1" eType="#//adaptionrdf/RdfSinglePredicate"/>
+      <eOperations name="getValueAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="setValueFromString" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="invert" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//adaptionrdf/RdfQuantifier"/>
     </eClassifiers>
@@ -1351,6 +1365,10 @@
       <eOperations name="generateRdfPartTypes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="variable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getValueAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="setValueFromString" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPathParam" eType="#//adaptionrdf/RdfPathParam"
           eOpposite="#//adaptionrdf/RdfPathParam/rdfPathParts"/>

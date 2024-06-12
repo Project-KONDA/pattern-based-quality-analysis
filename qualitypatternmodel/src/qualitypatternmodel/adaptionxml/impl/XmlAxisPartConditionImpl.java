@@ -408,6 +408,17 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 	}
 
 	@Override
+	public String generateDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public boolean isUsed() {
+		return getXmlAxisPart() != null;
+	}
+
+	@Override
 	public String myToString() {
 		String result = "[cond(" + getInternalId() + "): ";
 		if (getXmlPropertyOption() != null)
@@ -415,12 +426,6 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 		if (getTextLiteralParam() != null)
 			result += getTextLiteralParam();
 		return result += "]";
-	}
-
-	@Override
-	public String generateDescription() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 } //XmlAxisPartConditionImpl

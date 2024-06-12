@@ -467,13 +467,13 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT___GET_VALUE = FRAGMENT_OPERATION_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Set Comparison Operator Value Map</em>' operation.
+	 * The operation id for the '<em>Set Default Value Map</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT___SET_COMPARISON_OPERATOR_VALUE_MAP = FRAGMENT_OPERATION_COUNT + 5;
+	int PARAMETER_FRAGMENT___SET_DEFAULT_VALUE_MAP__STRING = FRAGMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Set Attribute Value</em>' operation.
@@ -760,13 +760,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int VALUE_MAP___GET_KEY__STRING = 3;
 
 	/**
+	 * The operation id for the '<em>Add All</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_MAP___ADD_ALL__MAP = 4;
+
+	/**
 	 * The number of operations of the '<em>Value Map</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_MAP_OPERATION_COUNT = 4;
+	int VALUE_MAP_OPERATION_COUNT = 5;
 
 	/**
 	 * The meta object id for the '<em>Object Wrapper</em>' data type.
@@ -1085,14 +1094,14 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getParameterFragment__GetValue();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#setComparisonOperatorValueMap() <em>Set Comparison Operator Value Map</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#setDefaultValueMap(java.lang.String) <em>Set Default Value Map</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Comparison Operator Value Map</em>' operation.
-	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#setComparisonOperatorValueMap()
+	 * @return the meta object for the '<em>Set Default Value Map</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#setDefaultValueMap(java.lang.String)
 	 * @generated
 	 */
-	EOperation getParameterFragment__SetComparisonOperatorValueMap();
+	EOperation getParameterFragment__SetDefaultValueMap__String();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#setAttributeValue(java.lang.String, java.lang.String) <em>Set Attribute Value</em>}' operation.
@@ -1319,6 +1328,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getValueMap__GetKey__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#addAll(java.util.Map) <em>Add All</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add All</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#addAll(java.util.Map)
+	 * @generated
+	 */
+	EOperation getValueMap__AddAll__Map();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Object Wrapper</em>}'.
@@ -1597,12 +1616,12 @@ public interface TextrepresentationPackage extends EPackage {
 		EOperation PARAMETER_FRAGMENT___GET_VALUE = eINSTANCE.getParameterFragment__GetValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Set Comparison Operator Value Map</b></em>' operation.
+		 * The meta object literal for the '<em><b>Set Default Value Map</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PARAMETER_FRAGMENT___SET_COMPARISON_OPERATOR_VALUE_MAP = eINSTANCE.getParameterFragment__SetComparisonOperatorValueMap();
+		EOperation PARAMETER_FRAGMENT___SET_DEFAULT_VALUE_MAP__STRING = eINSTANCE.getParameterFragment__SetDefaultValueMap__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Attribute Value</b></em>' operation.
@@ -1789,6 +1808,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation VALUE_MAP___GET_KEY__STRING = eINSTANCE.getValueMap__GetKey__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Add All</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_MAP___ADD_ALL__MAP = eINSTANCE.getValueMap__AddAll__Map();
 
 		/**
 		 * The meta object literal for the '<em>Object Wrapper</em>' data type.

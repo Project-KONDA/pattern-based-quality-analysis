@@ -1,8 +1,11 @@
 package qualitypatternmodel.newservlets.initialisation;
 
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicEList;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -18,14 +21,17 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
+import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
+import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 
 public class GenericPatterns {
 	
@@ -54,16 +60,67 @@ public class GenericPatterns {
 		patterns.add(getGenericInvalidLink());
 
 		patterns.add(getGenericMandAtt());
-		patterns.add(getGenericLocalUnique());
 		patterns.add(getGenericStringLength());
 		patterns.add(getGenericCompVal());
-		patterns.add(getGenericCompValAny());
-		patterns.add(getGenericCardImpliesMandAtt());
+//		patterns.add(getGenericLocalUnique());
+//		patterns.add(getGenericCompValAny());
+//		patterns.add(getGenericCardImpliesMandAtt());
 //		patterns.add(getGenericCheckFormat());
 //		patterns.add(getGenericCompDatabase());
 		
 		return patterns;
 	}
+
+	public static CompletePattern getConcrete(CompletePattern pattern, Language lan, Map<Integer, String> values, String[] variants, String[] oldvariants) 
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		if (pattern.getLanguage() != Language.GENERIC)
+			throw new InvalidityException("Pattern '" + pattern.getName() + "' is not generic.");
+		
+		switch(lan) {
+		case XML: 
+			pattern.createXmlAdaption();
+			break;
+		case RDF: 
+			pattern.createRdfAdaption();
+			break;
+		case NEO4J:
+			pattern.createNeo4jAdaption();
+			break;
+		default:
+			throw new InvalidityException("Invalid Language");
+		}
+		
+		String name = pattern.getName();
+		pattern.setPatternId(name + "_" + lan.getLiteral());
+		pattern.setAbstractId(name + "_" + lan.getLiteral());
+		List<Parameter> params = pattern.getParameterList().getParameters();
+		
+		if (XmlPatterns.AXIS && values != null)
+			for (Integer index: values.keySet())
+				params.get(index).setValueFromString(values.get(index));
+		
+		if (XmlPatterns.DEFAULT_VARIANTS && variants != null)
+			for (String json: variants)
+				try {
+					new PatternTextImpl(pattern, new JSONObject(json));
+				} catch(JSONException e) {
+					e.printStackTrace();
+				}
+		
+		if (XmlPatterns.OLD_VARIANTS && oldvariants != null)
+			for (String json: oldvariants)
+				try {
+					new PatternTextImpl(pattern, new JSONObject(json));
+				} catch(JSONException e) {
+					e.printStackTrace();
+				}
+	
+		pattern.isValid(AbstractionLevel.ABSTRACT);
+		return pattern;
+	}
+	
+	
+	// GENERIC PATTERNS
 
 	public static CompletePattern getGenericCard() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
@@ -423,18 +480,6 @@ public class GenericPatterns {
 		return pattern;
 	}
 	
-	public static CompletePattern getGenericLocalUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("LocalUnique_generic");
-		pattern.setAbstractId("LocalUnique_generic");
-		pattern.setName("LocalUnique");
-		pattern.setShortDescription("Local Unique Attribute Value");
-		pattern.setDescription("Check whether all field values are unique within a record.");
-		// TODO
-		pattern.isValid(AbstractionLevel.GENERIC);
-		return pattern;
-	}
-	
 	public static CompletePattern getGenericStringLength() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.setPatternId("StringLength_generic");
@@ -484,29 +529,41 @@ public class GenericPatterns {
 		return pattern;
 	}
 	
-	public static CompletePattern getGenericCompValAny() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("CompValAny_generic");
-		pattern.setAbstractId("CompValAny_generic");
-		pattern.setName("CompValAny");
-		pattern.setShortDescription("");
-		pattern.setDescription("Check whether any value of a specific field within a record does comply to a value restriction.");
-		// TODO
-		pattern.isValid(AbstractionLevel.GENERIC);
-		return pattern;
-	}
+//	public static CompletePattern getGenericLocalUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		pattern.setPatternId("LocalUnique_generic");
+//		pattern.setAbstractId("LocalUnique_generic");
+//		pattern.setName("LocalUnique");
+//		pattern.setShortDescription("Local Unique Attribute Value");
+//		pattern.setDescription("Check whether all field values are unique within a record.");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
 	
-	public static CompletePattern getGenericCardImpliesMandAtt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("CardImpliesMandAtt_generic");
-		pattern.setAbstractId("CardImpliesMandAtt_generic");
-		pattern.setName("CardImpliesMandAtt");
-		pattern.setShortDescription("Mandatory Attribute based on Cardinality Constraint");
-		pattern.setDescription("Check whether a attribute exists, that is mandatory on specific cardinalities of a field.");
-		// TODO
-		pattern.isValid(AbstractionLevel.GENERIC);
-		return pattern;
-	}
+//	public static CompletePattern getGenericCompValAny() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		pattern.setPatternId("CompValAny_generic");
+//		pattern.setAbstractId("CompValAny_generic");
+//		pattern.setName("CompValAny");
+//		pattern.setShortDescription("");
+//		pattern.setDescription("Check whether any value of a specific field within a record does comply to a value restriction.");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
+	
+//	public static CompletePattern getGenericCardImpliesMandAtt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+//		pattern.setPatternId("CardImpliesMandAtt_generic");
+//		pattern.setAbstractId("CardImpliesMandAtt_generic");
+//		pattern.setName("CardImpliesMandAtt");
+//		pattern.setShortDescription("Mandatory Attribute based on Cardinality Constraint");
+//		pattern.setDescription("Check whether a attribute exists, that is mandatory on specific cardinalities of a field.");
+//		// TODO
+//		pattern.isValid(AbstractionLevel.GENERIC);
+//		return pattern;
+//	}
 	
 //	public static CompletePattern getGenericCheckFormat() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();

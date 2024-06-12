@@ -266,28 +266,44 @@ public class ConstraintServlet extends HttpServlet {
 			if (frag instanceof ParameterFragment)
 				paramfragments.add((ParameterFragment)frag);
 		
+		JSONArray available = new JSONArray();
 		JSONArray success = new JSONArray();
 		JSONArray failed = new JSONArray();
+		JSONArray notfound = new JSONArray();
 		
 		// change parameters
-		for (String key: keys)
-			for (ParameterFragment frag: paramfragments)
-				if (frag.getId().equals(key))
+		for (String key: keys) {
+			boolean found = false;
+			for (ParameterFragment frag: paramfragments) {
+				available.put(frag.getId());
+				if (!found && frag.getId().equals(key)) {
+					found = true;
 					try {
 						if (changeParameterFragment(frag, parameterMap.get(key)))
 							success.put(key);
 						else
 							failed.put(key);
 					} catch (InvalidityException e) {
-						e.printStackTrace();
+						ServletUtilities.logError(e);
 						failed.put(key);
 					}
+				}
+			}
+			if (!found)
+				notfound.put(key);
+		}
 		
 		// output
 		JSONObject json = new JSONObject();
 		try {
-			json.put("success", success);
-			json.put("failed", failed);
+			if(success.length() > 0 || keys.size() == 0)
+				json.put("success", success);
+			if(failed.length() > 0)
+				json.put("failed", failed);
+			if(notfound.length() > 0)
+				json.put("notfound", notfound);
+			if(failed.length() > 0 || notfound.length() > 0)
+				json.put("available", available);
 		} catch (JSONException e) {
 		}
 		return json;
@@ -316,6 +332,7 @@ public class ConstraintServlet extends HttpServlet {
 				return true;
 			} catch (InvalidityException e) {
 				frag.setValue(oldValue);
+				e.printStackTrace();
 				return false;
 			}
 		}
