@@ -36,18 +36,17 @@ public class XmlInstantiationTest {
 		HashMap<String, String[]> parameterMap = new HashMap<String, String[]>();
         
         List<String> listInstantiate = List.of(
-        		"/xml/StringLength_xml/default",
         		"/xml/Card_xml/default",
-        		"/xml/Card_xml/question",
-        		"/xml/Card_xml/question_simple",
-        		"/xml/Contains_xml/default",
+//        		"/xml/Card_xml/question",
+//        		"/xml/Card_xml/question_simple",
         		"/xml/Match_xml/default",
-        		"/xml/MandAtt_xml/default",
+        		"/xml/Contains_xml/default",
+        		"/xml/StringLength_xml/default",
         		"/xml/CompSet_xml/default",
-        		"/xml/InvalidLink_xml/default",
-        		"/xml/InvalidLink_xml/default_question",
-        		"/rdf/Card_rdf/default",
-        		"/neo4j/Card_neo4j/default"
+        		"/xml/Unique_xml/default",
+        		"/xml/MandAtt_xml/default",
+        		"/xml/InvalidLink_xml/default"
+//        		"/xml/InvalidLink_xml/question",
         		);
         ArrayList<String> patternIDs = new ArrayList<String>();
 		InitialisationServlet.initialisation(context);

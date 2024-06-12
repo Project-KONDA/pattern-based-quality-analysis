@@ -56,7 +56,7 @@ public class Constants {
 	public static final String JSON_SHORTDESCRIPTION = "shortDescription";
 	public static final String JSON_NEWID = "newId";
 	public static final String JSON_MAP = "map";
-	public static final String JSON_COMPARISONMAP = "comparisonMap";
+	public static final String JSON_DEFAULTMAP = "defaultMap";
 	public static final String JSON_VALUE = "value";
 	public static final String JSON_VARIANTS = "variants";
 	public static final String JSON_USERVALUE = "userValue";

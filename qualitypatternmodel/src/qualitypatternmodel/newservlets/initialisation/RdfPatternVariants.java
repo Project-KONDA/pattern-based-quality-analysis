@@ -14,7 +14,7 @@ public class RdfPatternVariants {
 				+ "{\"text\":\"that are connected via \"},"
 				+ "{\"name\":\"a dependancy\",\"params\":[3],\"exampleValue\":\"Birthdates\",\"description\":\"counted elements\"},"
 				+ "{\"text\":\"is\"},"
-				+ "{\"name\":\"compared to\",\"params\":[0],\"exampleValue\":\"more than\",\"comparisonMap\":\"true\"},"
+				+ "{\"name\":\"compared to\",\"params\":[0],\"exampleValue\":\"more than\",\"defaultMap\":\"comparison\"},"
 				+ "{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":1},"
 				+ "{\"text\":\".\"}]}";
 	

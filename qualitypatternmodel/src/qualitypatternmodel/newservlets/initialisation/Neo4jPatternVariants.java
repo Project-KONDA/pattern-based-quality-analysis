@@ -14,7 +14,7 @@ public class Neo4jPatternVariants {
 				+ "{\"text\":\"that are connected via \"},"
 				+ "{\"name\":\"a dependancy\",\"params\":[4],\"description\":\"relationship between elements and nodes\"},"
 				+ "{\"text\":\"is\"},"
-				+ "{\"name\":\"compared to\",\"params\":[0],\"exampleValue\":\"more than\",\"comparisonMap\":\"true\"},"
+				+ "{\"name\":\"compared to\",\"params\":[0],\"exampleValue\":\"more than\",\"defaultMap\":\"comparison\"},"
 				+ "{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":1},"
 				+ "{\"text\":\".\"}]}";
 	

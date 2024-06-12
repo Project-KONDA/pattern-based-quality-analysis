@@ -286,8 +286,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			setValueMap(new ValueMapImpl(json.getJSONObject(Constants.JSON_MAP)));
 		
 		// comparisonMap
-		if(json.has(Constants.JSON_COMPARISONMAP))
-			setDefaultValueMap(json.getString(Constants.JSON_COMPARISONMAP));
+		if(json.has(Constants.JSON_DEFAULTMAP))
+			setDefaultValueMap(json.getString(Constants.JSON_DEFAULTMAP));
 
 		// plural
 		if(json.has(Constants.JSON_PLURAL) && json.getBoolean(Constants.JSON_PLURAL))
