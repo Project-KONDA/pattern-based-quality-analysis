@@ -37,16 +37,24 @@ public class XmlInstantiationTest {
         
         List<String> listInstantiate = List.of(
         		"/xml/Card_xml/default",
+        		"/xml/Card_xml/default_constraint",
 //        		"/xml/Card_xml/question",
 //        		"/xml/Card_xml/question_simple",
         		"/xml/Match_xml/default",
+        		"/xml/Match_xml/default_constraint",
         		"/xml/Contains_xml/default",
+        		"/xml/Contains_xml/default_constraint",
         		"/xml/StringLength_xml/default",
+        		"/xml/StringLength_xml/default_constraint",
         		"/xml/CompSet_xml/default",
+        		"/xml/CompSet_xml/default_constraint",
         		"/xml/Unique_xml/default",
+        		"/xml/Unique_xml/default_constraint",
         		"/xml/MandAtt_xml/default",
-        		"/xml/InvalidLink_xml/default"
+        		"/xml/MandAtt_xml/default_constraint",
+        		"/xml/InvalidLink_xml/default",
 //        		"/xml/InvalidLink_xml/question",
+        		"/xml/InvalidLink_xml/default_constraint"
         		);
         ArrayList<String> patternIDs = new ArrayList<String>();
 		InitialisationServlet.initialisation(context);
