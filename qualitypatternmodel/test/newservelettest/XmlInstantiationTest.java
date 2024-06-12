@@ -21,7 +21,7 @@ import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
 import qualitypatternmodel.newservlets.ConstraintMqafServlet;
 import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 
-public class InstantiationTest {
+public class XmlInstantiationTest {
 
 	public static void main(String[] args) throws ServletException, InvalidServletCallException, FailedServletCallException, IOException, JSONException {
 		ServletContext context = mock(ServletContext.class);
