@@ -1008,7 +1008,9 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/setValue/value"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getValue"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/setComparisonOperatorValueMap"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/setDefaultValueMap">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/setDefaultValueMap/name"/>
+        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/setAttributeValue">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/setAttributeValue/attName"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/setAttributeValue/attValue"/>
@@ -1050,6 +1052,9 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/getKey">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/ValueMap/getKey/value"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/addAll">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/ValueMap/addAll/collection"/>
         </genOperations>
       </genClasses>
     </nestedGenPackages>

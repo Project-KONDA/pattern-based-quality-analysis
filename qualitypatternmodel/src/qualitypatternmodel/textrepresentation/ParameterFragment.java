@@ -243,7 +243,7 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	 * @model
 	 * @generated
 	 */
-	void setComparisonOperatorValueMap();
+	void setDefaultValueMap(String name);
 
 	/**
 	 * <!-- begin-user-doc -->

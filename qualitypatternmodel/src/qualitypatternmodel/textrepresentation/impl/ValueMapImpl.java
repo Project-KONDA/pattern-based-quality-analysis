@@ -7,6 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Iterator;
 
+import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -176,6 +177,17 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addAll(Map<String, String> collection) {
+		for (String key: collection.keySet())
+			put(key, collection.get(key));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -250,6 +262,7 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case TextrepresentationPackage.VALUE_MAP___PUT__STRING_STRING:
@@ -261,6 +274,9 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 				return get((String)arguments.get(0));
 			case TextrepresentationPackage.VALUE_MAP___GET_KEY__STRING:
 				return getKey((String)arguments.get(0));
+			case TextrepresentationPackage.VALUE_MAP___ADD_ALL__MAP:
+				addAll((Map<String, String>)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

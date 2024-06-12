@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.textrepresentation;
 
+import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -81,5 +82,13 @@ public interface ValueMap extends EObject {
 	 * @generated
 	 */
 	String getKey(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addAll(Map<String, String> collection);
 
 } // ValueMap

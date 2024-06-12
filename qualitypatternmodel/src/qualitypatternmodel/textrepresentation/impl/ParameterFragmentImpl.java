@@ -286,8 +286,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			setValueMap(new ValueMapImpl(json.getJSONObject(Constants.JSON_MAP)));
 		
 		// comparisonMap
-		if(json.has(Constants.JSON_COMPARISONMAP) && json.getBoolean(Constants.JSON_COMPARISONMAP))
-			setComparisonOperatorValueMap();
+		if(json.has(Constants.JSON_COMPARISONMAP))
+			setDefaultValueMap(json.getString(Constants.JSON_COMPARISONMAP));
 
 		// plural
 		if(json.has(Constants.JSON_PLURAL) && json.getBoolean(Constants.JSON_PLURAL))
@@ -558,14 +558,59 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	}
 	
 	@Override
-	public void setComparisonOperatorValueMap() {
+	public void setDefaultValueMap(String name) {
 		ValueMap map = new ValueMapImpl();
-		map.put(ComparisonOperator.EQUAL.getName(), "equal to");
-		map.put(ComparisonOperator.NOTEQUAL.getName(), "not equal to");
-		map.put(ComparisonOperator.LESS.getName(), "less than");
-		map.put(ComparisonOperator.GREATER.getName(), "greater than");
-		map.put(ComparisonOperator.GREATEROREQUAL.getName(), "greater than or equal to");
-		map.put(ComparisonOperator.LESSOREQUAL.getName(), "less than or equal to");
+		
+		switch(name) {
+		case "comparison":
+			map.put(ComparisonOperator.EQUAL.getName(), "exactly");
+			map.put(ComparisonOperator.NOTEQUAL.getName(), "exactly not");
+			map.put(ComparisonOperator.LESS.getName(), "less than");
+			map.put(ComparisonOperator.GREATER.getName(), "more than");
+			map.put(ComparisonOperator.GREATEROREQUAL.getName(), "at least");
+			map.put(ComparisonOperator.LESSOREQUAL.getName(), "at most");
+			break;
+
+		case "comparison_negated":
+			map.put(ComparisonOperator.EQUAL.getName(), "exactly not");
+			map.put(ComparisonOperator.NOTEQUAL.getName(), "exactly");
+			map.put(ComparisonOperator.LESS.getName(), "at least");
+			map.put(ComparisonOperator.GREATER.getName(), "at most");
+			map.put(ComparisonOperator.GREATEROREQUAL.getName(), "less than");
+			map.put(ComparisonOperator.LESSOREQUAL.getName(), "more than");
+			break;
+			
+		case "is":
+			map.put("true", "is");
+			map.put("false", "is not");
+			break;
+			
+		case "is not":
+			map.put("true", "is not");
+			map.put("false", "is");
+			break;
+			
+		case "do":
+			map.put("true", "do");
+			map.put("false", "do not");
+			break;
+			
+		case "do not":
+			map.put("true", "do not");
+			map.put("false", "do");
+			break;
+			
+		case "does":
+			map.put("true", "does");
+			map.put("false", "does not");
+			break;
+			
+		case "does not":
+			map.put("true", "does not");
+			map.put("false", "does");
+			break;
+		}
+		
 		setValueMap(map);
 	}
 
@@ -1243,8 +1288,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				}
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_VALUE:
 				return getValue();
-			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_COMPARISON_OPERATOR_VALUE_MAP:
-				setComparisonOperatorValueMap();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_DEFAULT_VALUE_MAP__STRING:
+				setDefaultValueMap((String)arguments.get(0));
 				return null;
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_ATTRIBUTE_VALUE__STRING_STRING:
 				return setAttributeValue((String)arguments.get(0), (String)arguments.get(1));

@@ -5,6 +5,7 @@ package qualitypatternmodel.textrepresentation.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -515,7 +516,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameterFragment__SetComparisonOperatorValueMap() {
+	public EOperation getParameterFragment__SetDefaultValueMap__String() {
 		return parameterFragmentEClass.getEOperations().get(4);
 	}
 
@@ -745,6 +746,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EOperation getValueMap__AddAll__Map() {
+		return valueMapEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getObjectWrapper() {
 		return objectWrapperEDataType;
 	}
@@ -826,7 +837,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_ROLE);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___SET_VALUE__STRING);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_VALUE);
-		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___SET_COMPARISON_OPERATOR_VALUE_MAP);
+		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___SET_DEFAULT_VALUE_MAP__STRING);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___SET_ATTRIBUTE_VALUE__STRING_STRING);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_ATTRIBUTE_VALUE__STRING);
 
@@ -854,6 +865,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEOperation(valueMapEClass, VALUE_MAP___GET_VALUES_AS_JSON_ARRAY);
 		createEOperation(valueMapEClass, VALUE_MAP___GET__STRING);
 		createEOperation(valueMapEClass, VALUE_MAP___GET_KEY__STRING);
+		createEOperation(valueMapEClass, VALUE_MAP___ADD_ALL__MAP);
 
 		// Create data types
 		objectWrapperEDataType = createEDataType(OBJECT_WRAPPER);
@@ -950,7 +962,8 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		initEOperation(getParameterFragment__GetValue(), ecorePackage.getEString(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getParameterFragment__SetComparisonOperatorValueMap(), null, "setComparisonOperatorValueMap", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getParameterFragment__SetDefaultValueMap__String(), null, "setDefaultValueMap", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getParameterFragment__SetAttributeValue__String_String(), ecorePackage.getEBoolean(), "setAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "attName", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1000,6 +1013,14 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		op = initEOperation(getValueMap__GetKey__String(), ecorePackage.getEString(), "getKey", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getValueMap__AddAll__Map(), null, "addAll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "collection", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(objectWrapperEDataType, Object.class, "ObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

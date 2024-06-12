@@ -20,6 +20,7 @@ import qualitypatternmodel.textrepresentation.ValueMap;
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#getValuesAsJsonArray() <em>Get Values As Json Array</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#get(java.lang.String) <em>Get</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#getKey(java.lang.String) <em>Get Key</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#addAll(java.util.Map) <em>Add All</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -142,6 +143,19 @@ public class ValueMapTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetKey__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.ValueMap#addAll(java.util.Map) <em>Add All</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#addAll(java.util.Map)
+	 * @generated
+	 */
+	public void testAddAll__Map() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
