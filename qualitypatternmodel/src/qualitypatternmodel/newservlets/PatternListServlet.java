@@ -76,7 +76,7 @@ public class PatternListServlet extends HttpServlet {
 		if (patterns == null)
 			throw new FailedServletCallException("No " + ((level == ServletUtilities.LVLTEMPLATE)? "template":"constraint") + " found for the technology " + technology + " on level " + level + ".");
 		
-		return ServletUtilities.getPatternJSON(patterns).toString();
+		return ServletUtilities.getPatternListJSON(patterns).toString();
 	}
 
 	private static List<CompletePattern> getPatterns(String technology, String level)
