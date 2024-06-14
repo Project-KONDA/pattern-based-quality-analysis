@@ -183,25 +183,26 @@ paths:
         - name: <parameterName>
           description: specify the value of a parameter via string
           in: query
-          required: true
           schema:
             type: string
         - name: name
           description: set the name of the new constraint
           in: query
-          required: false
           schema:
             type: string
         - name: database
           description: set the database of the new constraint
           in: query
-          required: false
           schema:
             type: string
         - name: datamodel
           description: set the datamodel of the new constraint
           in: query
-          required: false
+          schema:
+            type: string
+        - name: <custom-parameter>
+          description: specify the value of a custom parameter via string
+          in: query
           schema:
             type: string
       responses:
@@ -421,7 +422,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ParameterRequest'
+                $ref: '#/components/schemas/ParameterReturn'
         '400':
           description: Bad request
         '404':
@@ -494,7 +495,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ParameterRequest'
+                $ref: '#/components/schemas/ParameterReturn'
         '400':
           description: Bad request
         '404':
@@ -756,7 +757,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QueryOut'
+                $ref: '#/components/schemas/Query'
         '400':
           description: Bad request
         '404':
@@ -801,7 +802,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/QueryOut'
+                $ref: '#/components/schemas/Query'
         '400':
           description: Bad request
         '404':
@@ -856,7 +857,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/QueryIn'
+              $ref: '#/components/schemas/Query'
       responses:
         '200':
           description: Successful operation
@@ -909,7 +910,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/Variant'
+              $ref: '#/components/schemas/VariantSpecification'
       responses:
         '200':
           description: Successful operation
@@ -929,23 +930,353 @@ paths:
 
 components:
   schemas:
-    Pattern:
+    Pattern: # 2, 3, 4
       type: object
-    PatternList:
-      type: object
-    ParameterResponse:
-      type: object
-    ParameterRequest:
-      type: object
-    TagSuccess:
-      type: object
+      properties:
+        name:
+          type: string
+          description: custom user-defined name
+        patternID:
+          type: string
+          description: identifier
+        variants:
+          type: array
+          description: list of variants
+          items:
+            $ref: '#/components/schemas/Variant'
+        description:
+          type: string
+          description: some additional information or explanation text for parameters
+        shortdescription:
+          type: string
+          description: shortened explanation text for parameters
+        language:
+          type: string
+          description: technology
+          enum:
+            - xml
+            - rdf
+            - neo4j
+        executable:
+          type: boolean
+          description: is this pattern executable
+        mqafexecutable:
+          type: boolean
+          description: is this pattern executable via the mqaf framework
+        queryexecutable:
+          type: boolean
+          description: is this pattern executable via a technology-specific query
+        filterexecutable:
+          type: boolean
+          description: is this pattern executable via a java filter in the qpm framework
+        database:
+          type: string
+          description: string for a database
+        datamodel:
+          type: string
+          description: string for a datamodel
+        tag:
+          type: array
+          items:
+            type: string
+          description: user tags
+
     Variant:
       type: object
-    MQAF:
+      properties:
+        name:
+          type: string
+          description: variant id
+        fragments:
+          type: array
+          description: fragments of the sentence
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/TextFragment'
+              - $ref: '#/components/schemas/ParameterFragment'
+
+    TextFragment:
       type: object
-    QueryIn:
+      properties:
+        text:
+          type: string
+          description: text fragment
+      required:
+        - text
+
+    ParameterFragment: 
       type: object
-    QueryOut:
+      properties:
+        id:
+          type: string
+          description: identifier of the parameter
+        name:
+          type: string
+          description: name of the parameter
+        value:
+          type: string
+          description: current value
+        userValue:
+          type: string
+          description: input of the user that got used to calculate the real value
+        exampleValue:
+          type: string
+          description: example on how to use the constraint
+        type:
+          type: string
+          description: type of the parameter
+        role:
+          type: string
+          description: additional information of the parameter type
+        options:
+          type: array
+          description: all available options for enumeration parameters
+          items:
+            type: string
+        plural:
+          type: boolean
+          description: wether the parameter shall be formulated as a plural in the context of the sentence formulation
+        description:
+          type: string
+          description: additional information of the parameter
+        startpoint:
+          type: array
+          description: for path parameter, this contains the parameter IDs, on which this parameter depends as path startpoint
+          items:
+            type: string
+        <custom>:
+          type: string
+          description: user defined values
+
+    ParameterFragmentDefinition:
       type: object
-    AnalysisResult:
+      properties:
+        name:
+          type: string
+          description: name of the parameter
+        params:
+          type: array
+          items:
+            type: integer
+          description: indices of the referenced parameters 
+        exampleValue:
+          type: string
+          description: example value for users
+        newid:
+          type: string
+          description: specify new parameter id if wanted
+        description:
+          type: string
+          description: additional explanation of a parameter
+        map:
+          type: object
+          description: map from real values to the values that the user gets presented
+        defaultMap:
+          type: string
+          description: name of a default map, that is implemented already
+          enum:
+            - comparison
+            - comparison_negated
+            - is
+            - is not
+            - do
+            - do not
+            - does
+            - does not
+        plural:
+          type: boolean
+          description: wether the parameter shall be formulated as a plural in the context of the sentence formulation
+
+
+    ParameterPredefinition:
       type: object
+      properties:
+        params:
+          type: array
+          items:
+            type: integer
+          description: indices of the referenced parameters
+        value:
+          type: string
+          description: predefined value for referenced parameters 
+
+    PatternList: # 1, 1.1
+      type: object
+      properties:
+        size:
+          type: integer
+          description: amount of returned patterns
+        ids:
+          type: array
+          description: list of the patternIDs of the returned patterns
+          items:
+            type: string
+        templates: # description: complete pattern json
+          $ref: '#/components/schemas/Pattern'
+
+
+    ParameterResponse: # 6
+      type: object
+      properties:
+        success:
+          type: array
+          items:
+            type: string
+            description: successful modified parameter
+        failed:
+          type: array
+          items:
+            type: string
+          description: parameter that failed to be modified
+
+    ParameterReturn: # 8, 10
+      type: object
+      properties:
+        database:
+          type: string
+          description: current database value of the pattern
+        datamodel:
+          type: string
+          description: current datamodel value of the pattern
+
+    TagSuccess: # 12, 13
+      type: object
+      properties:
+        success:
+          type: array
+          items:
+            type: string
+          description: successful modified tags
+        failed:
+          type: array
+          items:
+            type: string
+          description: successful modified tags
+
+    VariantSpecification: # 17
+      type: object
+      properties:
+        template:
+          type: string
+          description: identifier of the template
+        language:
+          type: string
+          description: identifier of the technology
+          enum:
+            - xml
+            - rdf
+            - neo4j
+        name:
+          description: identifier of the variant
+          type: string
+        fragments:
+          type: array
+          description: fragments of the variant sentence
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/TextFragment'
+              - $ref: '#/components/schemas/ParameterFragmentDefinition'
+              - $ref: '#/components/schemas/ParameterPredefinition'
+
+    MQAF: # 14, 14.1
+      type: object
+      properties:
+        failed:
+          type: array
+          description: all constraint that failed to be translated
+          items:
+            type:
+              string
+        constraint:
+          type: object
+          description: json generated by mqaf framework from a BaseSchema object via ConfigurationReader.toJson
+
+    Query: # 15, 15.1, 16
+      type: object
+      properties:
+        constraints:
+          type: object
+          description: successfully translated constraints
+          properties:
+            name:
+              type: string
+              description: constraintname
+            id: 
+              type: string
+              description: identifier of the constraint
+            technology:
+              type: string
+              description: technology of the constraint
+              enum:
+                - xml
+                - rdf
+                - neo4j
+            language:
+              type: string
+              description: language of the constraint query
+              enum:
+                - XQuery
+                - Sparql
+                - Cypher
+            query:
+              type: string
+              description: technology-specific query
+            query_line:
+              type: string
+              description: technology-specific query without linebreaks
+        failed:
+          type: array
+          description: constraints that failed to be translated
+          items:
+            type: string
+
+
+    AnalysisResult: # 16
+      type: object
+      properties:
+        failedfiles:
+          type: array
+          description: file paths that were not found
+          items:
+            type: string
+        failedconstraints:
+          type: array
+          description: constraint IDs that could not be executed
+          items:
+            type: string
+        result:
+          type: array
+          description: result of the executed constraints
+          items:
+            type: object
+            properties:
+              file:
+                type: string
+                description: path of the file
+              constraintID:
+                type: string
+                description: identifier of the constraint
+              constraintName:
+                type: string
+                description: user-defined name of the constraint
+              query:
+                type: string
+                description: generated query
+              language:
+                type: string
+                description: language of the constraint
+                enum: # XQuery, Sparql, Cypher
+                  - XQuery
+              technology:
+                type: string
+                description: technology of the constraint
+                enum: # xml, rdf, neo4j
+                  - xml
+              result:
+                type: array
+                description: found violations of the constraint in the file
+                items:
+                  type: string
+              size:
+                type: integer
+                description: amount of found violations of the constraint in the file
