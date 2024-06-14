@@ -19,6 +19,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class ConstraintQueryServlet extends HttpServlet {
@@ -168,7 +169,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 				pattern.isValid(AbstractionLevel.CONCRETE);
 			// 2 generate query
 				JSONObject queryJson = generateQueryJson(pattern, technology);
-				result.append("constraints", queryJson);
+				result.append(Constants.JSON_CONSTRAINTS, queryJson);
 			} catch (Exception e) {
 				System.err.println(constraintId);
 //				e.printStackTrace();
@@ -179,7 +180,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 			}
 		}
 		try {
-			result.put("failed", failed);
+			result.put(Constants.JSON_FAILED, failed);
 		} catch (JSONException e) {
 		}
 		return result.toString();
@@ -189,12 +190,12 @@ public class ConstraintQueryServlet extends HttpServlet {
 	static JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
 		JSONObject json = new JSONObject();
 
-		json.put("name", pattern.getName());
-		json.put("id", pattern.getPatternId());
+		json.put(Constants.JSON_NAME, pattern.getName());
+		json.put(Constants.JSON_PATTERNID, pattern.getPatternId());
 		
 		// 1 technology
-		json.put("technology", pattern.getLanguage().getLiteral());
-		json.put("technology", technology);
+		json.put(Constants.JSON_TECHNOLOGY, pattern.getLanguage().getLiteral());
+//		json.put(Constants.JSON_TECHNOLOGY, technology);
 //		pattern.getLanguage().getLiteral();
 		
 		// 2 query
@@ -203,28 +204,28 @@ public class ConstraintQueryServlet extends HttpServlet {
 				if (pattern.containsJavaOperator()) {
 					JavaFilter filter = pattern.generateQueryFilter();
 					String serializedFilter = filter.toJson().toString();
-					json.put("filter", serializedFilter);
+					json.put(Constants.JSON_FILTER, serializedFilter);
 				}
-				json.put("language", "XQuery");
+				json.put(Constants.JSON_LANGUAGE, "XQuery");
 				String xquery = pattern.generateXQuery();
-				json.put("query", xquery);
-				json.put("query_line", makeQueryOneLine(xquery));
+				json.put(Constants.JSON_QUERY, xquery);
+				json.put(Constants.JSON_QUERY_LINE, makeQueryOneLine(xquery));
 				
 			} else if (technology.equals(ServletUtilities.RDF)) {
 				if (pattern.containsJavaOperator())
 					throw new InvalidServletCallException("Not implemented for RDF.");
-				json.put("language", "Sparql");
+				json.put(Constants.JSON_LANGUAGE, "Sparql");
 				String sparql = pattern.generateSparql();
-				json.put("query", sparql);
-				json.put("query_line", makeQueryOneLine(sparql));
+				json.put(Constants.JSON_QUERY, sparql);
+				json.put(Constants.JSON_QUERY_LINE, makeQueryOneLine(sparql));
 				
 			} else if (technology.equals(ServletUtilities.NEO4J)) {
 				if (pattern.containsJavaOperator())
 					throw new InvalidServletCallException("Not implemented for Neo4j.");
-				json.put("language", "Cypher");
+				json.put(Constants.JSON_LANGUAGE, "Cypher");
 				String cypher = pattern.generateCypher();
-				json.put("query", cypher);
-				json.put("query_line", makeQueryOneLine(cypher));
+				json.put(Constants.JSON_QUERY, cypher);
+				json.put(Constants.JSON_QUERY_LINE, makeQueryOneLine(cypher));
 
 			} else {
 				throw new InvalidServletCallException();

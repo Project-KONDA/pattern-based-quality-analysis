@@ -798,22 +798,22 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 					json.put(Constants.JSON_DEPENDANT, true);
 				}
 			}
-			else if (parameter instanceof XmlPropertyOptionParamImpl) {
-				XmlPropertyOptionParamImpl propertyOption = (XmlPropertyOptionParamImpl) parameter;
-//				Node node = propertyOption.getXmlPathParam().getXmlNavigation().getTarget();
-//				XmlProperty xmlProperty = (XmlProperty) node;
-				TextLiteralParam textLiteral = propertyOption.getAttributeName();
-				if(textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
-					int dependentParameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(textLiteral);
-					String id = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(dependentParameterID);
-					String cond = XmlPropertyKind.ATTRIBUTE.getLiteral();
-					
-					JSONObject enable = new JSONObject();
-					enable.put(Constants.JSON_ENABLE_PARAMETER, id);
-					enable.put(Constants.JSON_ENABLE_IF, cond);
-					json.put(Constants.JSON_ENABLE, enable);
-				}
-			}
+//			else if (parameter instanceof XmlPropertyOptionParamImpl) {
+//				XmlPropertyOptionParamImpl propertyOption = (XmlPropertyOptionParamImpl) parameter;
+////				Node node = propertyOption.getXmlPathParam().getXmlNavigation().getTarget();
+////				XmlProperty xmlProperty = (XmlProperty) node;
+//				TextLiteralParam textLiteral = propertyOption.getAttributeName();
+//				if(textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
+//					int dependentParameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(textLiteral);
+//					String id = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(dependentParameterID);
+//					String cond = XmlPropertyKind.ATTRIBUTE.getLiteral();
+//					
+//					JSONObject enable = new JSONObject();
+//					enable.put(Constants.JSON_ENABLE_PARAMETER, id);
+//					enable.put(Constants.JSON_ENABLE_IF, cond);
+//					json.put(Constants.JSON_ENABLE, enable);
+//				}
+//			}
 			else if (parameter instanceof XmlPathParam) {
 				HashSet<String> sourceParamIds = getSourceParamIDs(getParameter());
 				if (!sourceParamIds.isEmpty()) {

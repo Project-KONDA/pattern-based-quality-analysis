@@ -148,9 +148,9 @@ public abstract class ServletUtilities {
 				ids.put(pattern.getPatternId());
 				templates.put(getPatternJSON(pattern));
 			}
-			json.put("templates", templates);
-			json.put("size", patterns.size());
-			json.put("ids", ids);
+			json.put(Constants.JSON_TEMPLATES, templates);
+			json.put(Constants.JSON_SIZE, patterns.size());
+			json.put(Constants.JSON_IDS, ids);
 		} catch (JSONException e) {}
 		return json;
 		

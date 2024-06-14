@@ -8,6 +8,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 
 public class Constants {
+
+	public static final Object XML = "xml";
+	public static final Object RDF = "rdf";
+	public static final Object NEO4J= "neo4j";
+	public static final Object XQUERY = "XQuery";
+	public static final Object SPARQL = "Sparql";
+	public static final Object CYPHER = "Cypher";
+	
 	public static final String INSTANCES_FOLDER = "instances";
 	public static final String TRANSLATION_TESTS_FOLDER = INSTANCES_FOLDER + "/translationtests";
 	public static final String VALIDITY_CHECKS_FOLDER = INSTANCES_FOLDER + "/validitychecks";
@@ -75,6 +83,26 @@ public class Constants {
 	public static final String JSON_ENABLE_PARAMETER = "parameter";
 	public static final String JSON_TYPEMODIFIABLE = "typeModifiable";
 	public static final String JSON_DEPENDANT = "dependant";
+	public static final String JSON_QUERY = "query";
+	public static final String JSON_QUERY_LINE = "query_line";
+	public static final String JSON_FILTER = "filter";
+	public static final String JSON_TECHNOLOGY = "technology";
+	public static final String JSON_CONSTRAINTS = "constraints";
+	public static final String JSON_CONSTRAINT = "constraint";
+	public static final String JSON_SUCCESS = "success";
+	public static final String JSON_FAILED = "failed";
+	public static final String JSON_FILE = "file";
+	public static final Object JSON_FILES = "files";
+	public static final String JSON_FAILEDFILES = "failedfiles";
+	public static final Object JSON_CONSTRAINT_IDS = "constraintIDs";
+	public static final String JSON_CONSTRAINT_ID = "constraintID";
+	public static final String JSON_CONSTRAINT_NAME = "constraintName";
+	public static final String JSON_FAILEDCONSTRAINTS = "failedconstraints";
+	public static final String JSON_RESULT = "result";
+	public static final String JSON_SIZE = "size";
+	public static final String JSON_TEMPLATES = "templates";
+	public static final String JSON_IDS = "ids";
+	
 	public static final String JSON_RDF_PART = "rdfpart";
 	public static final String JSON_RDF_PATH_XOR = "xor";
 	public static final String JSON_RDF_PATH_SEQUENCE = "sequence";

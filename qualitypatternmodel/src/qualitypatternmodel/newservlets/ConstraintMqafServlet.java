@@ -20,6 +20,7 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class ConstraintMqafServlet extends HttpServlet {
@@ -206,9 +207,9 @@ public class ConstraintMqafServlet extends HttpServlet {
 		// 4 return merged schema as JSON
 		JSONObject jobj = new JSONObject();
 		try {
-			jobj.put("failed", failed);
+			jobj.put(Constants.JSON_FAILED, failed);
 			JSONObject constraint = new JSONObject(ConfigurationReader.toJson(mergedSchema));
-			jobj.put("constraint", constraint);
+			jobj.put(Constants.JSON_CONSTRAINT, constraint);
 		} catch (JSONException e) {}
 		return jobj.toString();
 	}

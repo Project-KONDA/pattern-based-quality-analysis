@@ -319,12 +319,12 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	public JSONObject generateJSONObject() {
 		JSONObject json = new JSONObject();
 		try {
-			json.put("name", getName());
+			json.put(Constants.JSON_NAME, getName());
 			JSONArray fragments = new JSONArray();
 			for (Fragment fragment: getFragmentsOrdered()) {
 				fragments.put(fragment.generateJSONObject());
 			}
-			json.put("fragments", fragments);
+			json.put(Constants.JSON_FRAGMENTS, fragments);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
