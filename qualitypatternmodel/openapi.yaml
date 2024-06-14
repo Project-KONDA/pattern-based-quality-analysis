@@ -12,6 +12,29 @@ info:
 paths:
 
   /qpm/pattern/list/{technology}/{abstraction}:
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: abstraction
+        in: path
+        description: specification of abstraction level
+        required: true
+        schema:
+          type: string
+          enum:
+            - all
+            - template
+            - concrete
+            - ready
+
     get: #1
       tags:
         - pattern
@@ -19,28 +42,6 @@ paths:
       summary: Requests list of patterns
       description: Requests list of patterns of a specific technology with the specified degree of abstraction
       operationId: getpatternlist
-      parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: abstraction
-          in: path
-          description: specification of abstraction level
-          required: true
-          schema:
-            type: string
-            enum:
-              - all
-              - template
-              - concrete
-              - ready
       responses:
         '200':
           description: Successful operation
@@ -55,7 +56,37 @@ paths:
         '500':
           description: Internal server error
 
+
   /qpm/pattern/list/{technology}/{abstraction}/{datamodel}:
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: abstraction
+        in: path
+        description: identifier of abstraction level
+        required: true
+        schema:
+          type: string
+          enum:
+            - all
+            - template
+            - constraint
+            - ready
+      - name: datamodel
+        in: path
+        description: Optional filter for datamodels
+        required: true
+        schema:
+          type: string
+
     get: #1.1
       tags:
         - pattern
@@ -64,34 +95,6 @@ paths:
       summary: Requests filtered list of patterns
       description: Requests list of patterns of a specific technology with the specified degree of abstraction that is assigned to a specific datamodel
       operationId: getpatternlistmodel
-      parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: abstraction
-          in: path
-          description: identifier of abstraction level
-          required: true
-          schema:
-            type: string
-            enum:
-              - all
-              - template
-              - constraint
-              - ready
-        - name: datamodel
-          in: path
-          description: Optional filter for datamodels
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: Successful operation
@@ -106,7 +109,26 @@ paths:
         '500':
           description: Internal server error
 
+
   /qpm/constraint/{technology}/{constraintID}:
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: constraintID
+        in: path
+        description: identifier of constraint
+        required: true
+        schema:
+          type: string
+
     get: #2
       tags:
         - constraint
@@ -114,23 +136,6 @@ paths:
       summary: Requests information of a constraint
       description: Requests information of a specific constraint
       operationId: constraint
-      parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: constraintID
-          in: path
-          description: identifier of constraint
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: Successful operation
@@ -152,26 +157,13 @@ paths:
       summary: Delete an existing constraint
       description: Delete a specific existing constraint
       operationId: deleteconstraint
-      parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: constraintID
-          in: path
-          description: identifier of constraint
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
         '400':
           description: Bad request
         '404':
@@ -188,20 +180,28 @@ paths:
       description: Modify parameters of a specific constraint with paramID or add (or override) custom parameters
       operationId: setparameter
       parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
+        - name: <parameterName>
+          description: specify the value of a parameter via string
+          in: query
           required: true
           schema:
             type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: constraintID
-          in: path
-          description: identifier of constraint
-          required: true
+        - name: name
+          description: set the name of the new constraint
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: database
+          description: set the database of the new constraint
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: datamodel
+          description: set the datamodel of the new constraint
+          in: query
+          required: false
           schema:
             type: string
       responses:
@@ -210,7 +210,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Parameter'
+                $ref: '#/components/schemas/ParameterResponse'
+        '304':
+          description: Not modified  
         '400':
           description: Bad request
         '404':
@@ -218,7 +220,38 @@ paths:
         '500':
           description: Internal server error
 
+
   /qpm/template/instantiate/{technology}/{templateID}/{variantID}:
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: templateID
+        in: path
+        description: identifier of template
+        required: true
+        schema:
+          type: string
+      - name: variantID
+        in: path
+        description: identifier of variant
+        required: true
+        schema:
+          type: string
+      - name: name
+        description: set the name of the new constraint
+        in: query
+        required: false
+        schema:
+          type: string
+
     put: #3
       tags:
         - template
@@ -227,28 +260,6 @@ paths:
       description: Create a constraint from a specific template
       operationId: instantiate
       parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: templateID
-          in: path
-          description: identifier of template
-          required: true
-          schema:
-            type: string
-        - name: variantID
-          in: path
-          description: identifier of variant
-          required: true
-          schema:
-            type: string
         - name: name
           description: set the name of the new constraint
           in: query
@@ -278,10 +289,31 @@ paths:
           description: Bad request
         '404':
           description: Not found
+        '409':
+          description: Conflict
         '500':
           description: Internal server error
 
+
   /qpm/constraint/copy/{technology}/{constraintID}:
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: constraintID
+        in: path
+        description: identifier of constraint
+        required: true
+        schema:
+          type: string
+
     put: #4
       tags:
         - constraint
@@ -290,22 +322,6 @@ paths:
       description: Copy a specific constraint
       operationId: copy
       parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: constraintID
-          in: path
-          description: identifier of constraint
-          required: true
-          schema:
-            type: string
         - name: name
           description: set the name of the new constraint
           in: query
@@ -335,10 +351,31 @@ paths:
           description: Bad request
         '404':
           description: Not found
+        '409':
+          description: Conflict
         '500':
           description: Internal server error
 
+
   /qpm/constraint/database/{technology}/{constraintID}:
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: constraintID
+        in: path
+        description: identifier of constraint
+        required: true
+        schema:
+          type: string
+
     post: #7
       tags:
         - constraint
@@ -349,22 +386,6 @@ paths:
       description: Set the database parameter of a constrant
       operationId: postdatabase
       parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: constraintID
-          in: path
-          description: identifier of constraint
-          required: true
-          schema:
-            type: string
         - name: database
           in: query
           description: specification of the database
@@ -374,6 +395,10 @@ paths:
       responses:
         '200':
           description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
         '400':
           description: Bad request
         '404':
@@ -390,26 +415,13 @@ paths:
       summary: Request the database parameter from a constrant
       description: Request the database parameter from a constrant
       operationId: requestdatabase
-      parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: constraintID
-          in: path
-          description: identifier of constraint
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParameterRequest'
         '400':
           description: Bad request
         '404':
@@ -417,7 +429,26 @@ paths:
         '500':
           description: Internal server error
 
+
   /qpm/constraint/datamodel/{technology}/{constraintID}:
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: constraintID
+        in: path
+        description: identifier of constraint
+        required: true
+        schema:
+          type: string
+
     post: #9
       tags:
         - constraint
@@ -428,22 +459,6 @@ paths:
       description: Set the datamodel parameter of a constrant
       operationId: postdatamodel
       parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: constraintID
-          in: path
-          description: identifier of constraint
-          required: true
-          schema:
-            type: string
         - name: datamodel
           in: query
           description: name of the datamodel
@@ -453,6 +468,10 @@ paths:
       responses:
         '200':
           description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
         '400':
           description: Bad request
         '404':
@@ -469,26 +488,13 @@ paths:
       summary: Request the datamodel parameter from a constrant
       description: Request the datamodel parameter from a constrant
       operationId: requestdatamodel
-      parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: constraintID
-          in: path
-          description: identifier of constraint
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParameterRequest'
         '400':
           description: Bad request
         '404':
@@ -496,7 +502,26 @@ paths:
         '500':
           description: Internal server error
 
+
   /qpm/constraint/name/{technology}/{constraintID}:
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: constraintID
+        in: path
+        description: identifier of constraint
+        required: true
+        schema:
+          type: string
+
     post: #11
       tags:
         - constraint
@@ -506,22 +531,6 @@ paths:
       description: Post a new name parameter to a constraint
       operationId: name
       parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: constraintID
-          in: path
-          description: identifier of constraint
-          required: true
-          schema:
-            type: string
         - name: name
           in: query
           description: specification of the new name
@@ -542,7 +551,26 @@ paths:
         '500':
           description: Internal server error
 
+
   /qpm/constraint/tag/{technology}/{constraintID}:
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: constraintID
+        in: path
+        description: identifier of constraint
+        required: true
+        schema:
+          type: string
+
     post: #12
       tags:
         - constraint
@@ -553,22 +581,6 @@ paths:
       description: add new tags to a constraint
       operationId: addtag
       parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: constraintID
-          in: path
-          description: identifier of constraint
-          required: true
-          schema:
-            type: string
         - name: tag
           in: query
           description: specification of the new tags
@@ -583,7 +595,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Success'
+                $ref: '#/components/schemas/TagSuccess'
         '400':
           description: Bad request
         '404':
@@ -601,35 +613,21 @@ paths:
       description: Delete old tags of a constraint
       operationId: deletetag
       parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: constraintID
-          in: path
-          description: identifier of constraint
-          required: true
-          schema:
-            type: string
         - name: tag
           in: query
           description: specification of the tags to delete
           required: true
           schema:
-            type: string
+            type: array
+            items:
+              type: string
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Success'
+                $ref: '#/components/schemas/TagSuccess'
         '400':
           description: Bad request
         '404':
@@ -637,7 +635,26 @@ paths:
         '500':
           description: Internal server error
 
+
   /qpm/constraint/mqaf/{technology}/{constraintID}:
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: constraintID
+        in: path
+        description: identifier of constraint
+        required: true
+        schema:
+          type: string
+
     get: #14
       tags:
         - constraint
@@ -646,23 +663,6 @@ paths:
       summary: Request MQAF constraint from a constraint
       description: Request MQAF constraint schema in json format from a constraint
       operationId: mqaf-single
-      parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: constraintID
-          in: path
-          description: identifier of constraint
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: Successful operation
@@ -677,7 +677,20 @@ paths:
         '500':
           description: Internal server error
 
+
   /qpm/constraint/mqaf/{technology}:
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+
     get:  #14.1
       tags:
         - constraint
@@ -687,16 +700,14 @@ paths:
       description: Request MQAF constraint schema in json format from multiple constraints
       operationId: mqaf-multiple
       parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
+        - name: constraints
+          in: query
+          description: specification of the constraints to include in the MQAF constraint
           required: true
           schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
+            type: array
+            items:
+              type: string
       responses:
         '200':
           description: Successful operation
@@ -711,7 +722,26 @@ paths:
         '500':
           description: Internal server error
 
+
   /qpm/constraint/query/{technology}/{constraintID}:
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: constraintID
+        in: path
+        description: identifier of constraint
+        required: true
+        schema:
+          type: string
+
     get: #15
       tags:
         - constraint
@@ -720,30 +750,13 @@ paths:
       summary: Request generated query from a constraint
       description: Request generated technology-specific query from a constraint
       operationId: query-single
-      parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: constraintID
-          in: path
-          description: identifier of constraint
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Query'
+                $ref: '#/components/schemas/QueryOut'
         '400':
           description: Bad request
         '404':
@@ -751,33 +764,44 @@ paths:
         '500':
           description: Internal server error
 
+
   /qpm/constraint/query/{technology}:
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+
     get: #15.1
       tags:
         - constraint
         - query
         - request
-      summary: Request generated query from multiple constraints
-      description: Request generated technology-specific query from multiple constraints
+      summary: Request generated queries from multiple constraints
+      description: Request generated technology-specific queries from multiple constraints
       operationId: query-multiple
       parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
+        - name: constraints
+          in: query
+          description: specification of the constraints to translate to technology-specific queries
           required: true
           schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
+            type: array
+            items:
+              type: string
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Query'
+                $ref: '#/components/schemas/QueryOut'
         '400':
           description: Bad request
         '404':
@@ -785,7 +809,20 @@ paths:
         '500':
           description: Internal server error
 
+
   /qpm/constraint/execute/{technology}:
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+
     get: #16
       tags:
         - constraint
@@ -794,23 +831,39 @@ paths:
       description: Analyze one or more files with one or more constraints
       operationId: execute
       parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
+        - name: files
+          in: query
+          description: links to files to be analyzed
           required: true
           schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
+            type: array
+            items:
+              type: string
+        - name: constraintIDs
+          in: query
+          description: identifier of existing constraints to check on the files
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+        - name: constraints
+          in: query
+          description: links to files to be analyzed
+          required: true
+          style: deepObject
+          explode: true
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/QueryIn'
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Result'
+                $ref: '#/components/schemas/AnalysisResult'
         '400':
           description: Bad request
         '404':
@@ -818,7 +871,26 @@ paths:
         '500':
           description: Internal server error
 
+
   /qpm/template/variant/{technology}/{templateID}:
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: templateID
+        in: path
+        description: identifier of template
+        required: true
+        schema:
+          type: string
+
     put: #17
       tags:
         - template
@@ -828,30 +900,16 @@ paths:
       description: Add a new variant to a specific template
       operationId: variant
       parameters:
-        - name: technology
-          in: path
-          description: identifier of technology
-          required: true
-          schema:
-            type: string
-            enum:
-              - xml
-              - rdf
-              - neo4j
-        - name: templateID
-          in: path
-          description: identifier of template
-          required: true
-          schema:
-            type: string
         - name: variants
           in: query
           description: specification of new variant(s)
           required: true
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Variant'
+          style: deepObject
+          explode: true
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Variant'
       responses:
         '200':
           description: Successful operation
@@ -863,8 +921,11 @@ paths:
           description: Bad request
         '404':
           description: Not found
+        '409':
+          description: Conflict
         '500':
           description: Internal server error
+
 
 components:
   schemas:
@@ -872,15 +933,19 @@ components:
       type: object
     PatternList:
       type: object
-    Parameter:
+    ParameterResponse:
       type: object
-    Success:
+    ParameterRequest:
+      type: object
+    TagSuccess:
       type: object
     Variant:
       type: object
     MQAF:
       type: object
-    Query:
+    QueryIn:
       type: object
-    Result:
+    QueryOut:
+      type: object
+    AnalysisResult:
       type: object

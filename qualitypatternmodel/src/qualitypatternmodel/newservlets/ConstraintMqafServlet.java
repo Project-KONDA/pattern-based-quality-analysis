@@ -47,11 +47,11 @@ public class ConstraintMqafServlet extends HttpServlet {
 //			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
 //			response.getWriter().write("{ \"error\": \"not implemented\"}");
 		}
-//		catch (InvalidServletCallException e) {
-//	        response.setContentType("application/json");
-//			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-//			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-//		}
+		catch (InvalidServletCallException e) {
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+		}
 //		catch (FailedServletCallException e) {
 //        response.setContentType("application/json");
 //		response.setStatus(HttpServletResponse.SC_NOT_FOUND);
