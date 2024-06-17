@@ -1,10 +1,12 @@
 package qualitypatternmodel.newservlets;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,11 +22,42 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
+import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class TemplateVariantServlet extends HttpServlet {
 	
 	// .. /template/instantiate   /<technology>/<abstracttemplate>
+	
+	@Override
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String path = request.getPathInfo();
+		Map<String, String[]> params = request.getParameterMap();
+		ServletUtilities.logCall(this.getClass().getName(), path, params);
+		try{
+			String result = applyGet(path, params);
+			ServletUtilities.logOutput(result);
+			response.getOutputStream().println(result);
+			response.setStatus(HttpServletResponse.SC_OK);
+		}
+		catch (InvalidServletCallException e) {
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+		}
+		catch (FileNotFoundException e) {
+			ServletUtilities.logError(e);
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			response.getWriter().write("{ \"error\": \"unable to find specified constraint\"}");
+		}
+		catch (Exception e) {
+			ServletUtilities.logError(e);
+	        response.setContentType("application/json");
+			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+		}
+	}
 	
 	@Override
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -98,6 +131,31 @@ public class TemplateVariantServlet extends HttpServlet {
 			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
 		}
+	}
+	
+	public static String applyGet (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+		String[] pathparts = path.split("/");
+		if (pathparts.length != 3 || !pathparts[0].equals(""))
+			throw new InvalidServletCallException("Wrong url for instantiate in a constraint: '.. /template/variant/<technology>/<constraintId>/<variantId>' (not " + path + ")");
+
+		// 1 get parameters
+		String technology = pathparts[1];
+		String templateId = pathparts[2];
+		
+		if (!ServletUtilities.TECHS.contains(technology))
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		
+		// 2 load template
+		CompletePattern pattern = ServletUtilities.loadTemplate(technology, templateId);
+		if (pattern == null)
+			throw new FailedServletCallException("Requested template '" + templateId + "' does not exist");
+		
+		JSONArray array = new JSONArray();
+		
+		for (PatternText text: pattern.getText())
+			array.put(text.generateVariantJSONObject());
+		
+		return array.toString();
 	}
 	
 	public static String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
