@@ -1227,7 +1227,6 @@ components:
           items:
             type: string
 
-
     AnalysisResult: # 16
       type: object
       properties:
@@ -1277,7 +1276,7 @@ components:
               size:
                 type: integer
                 description: amount of found violations of the constraint in the file
-      
+
     ParameterSetter: #6
       type: object
       properties:
