@@ -1197,6 +1197,7 @@
       <eOperations name="generateSparqlTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
       <eOperations name="generateJSONObject" eType="#//textrepresentation/JSONObjectWrapper"/>
+      <eOperations name="generateVariantJSONObject" eType="#//textrepresentation/JSONObjectWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
           eType="#//patternstructure/CompletePattern" eOpposite="#//patternstructure/CompletePattern/text"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" lowerBound="1"
@@ -1243,6 +1244,7 @@
       <eOperations name="generateSparqlTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="generateJSONObject" eType="#//textrepresentation/JSONObjectWrapper"/>
+      <eOperations name="generateVariantJSONObject" eType="#//textrepresentation/JSONObjectWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="patternText" lowerBound="1"
           eType="#//textrepresentation/PatternText" eOpposite="#//textrepresentation/PatternText/fragments"/>
     </eClassifiers>
@@ -1258,6 +1260,7 @@
       <eOperations name="isValid" unique="false" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="abstractionLevel" eType="#//patternstructure/AbstractionLevel"/>
       </eOperations>
+      <eOperations name="generateVariantJSONObject" eType="#//textrepresentation/JSONObjectWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
           upperBound="-1" eType="#//parameters/Parameter" eOpposite="#//parameters/Parameter/parameterReferences"/>
     </eClassifiers>
@@ -1283,6 +1286,7 @@
           </eGenericType>
         </eParameters>
       </eOperations>
+      <eOperations name="generateVariantJSONObject" eType="#//textrepresentation/JSONObjectWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="keys" upperBound="-1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"

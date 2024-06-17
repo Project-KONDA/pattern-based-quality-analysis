@@ -188,6 +188,21 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public JSONObject generateVariantJSONObject() {
+		JSONObject result = new JSONObject();
+		try {
+			for (int i = 0; i<getKeys().size(); i++)
+				result.put(getKeys().get(i), getValues().get(i));
+		} catch (JSONException e) {}
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -277,6 +292,8 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 			case TextrepresentationPackage.VALUE_MAP___ADD_ALL__MAP:
 				addAll((Map<String, String>)arguments.get(0));
 				return null;
+			case TextrepresentationPackage.VALUE_MAP___GENERATE_VARIANT_JSON_OBJECT:
+				return generateVariantJSONObject();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -83,4 +83,12 @@ public interface Fragment extends EObject {
 	 * @generated
 	 */
 	JSONObject generateJSONObject();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
+	 * @generated
+	 */
+	JSONObject generateVariantJSONObject();
 } // Fragment

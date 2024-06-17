@@ -183,6 +183,31 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public JSONObject generateVariantJSONObject() {
+		JSONArray params = new JSONArray();
+		try {
+			EList<Parameter> allParams = getParameter().get(0).getAllParameters();
+			for (Parameter pa: getParameter()) {
+				int index = allParams.indexOf(pa);
+				if (index != -1)
+					params.put(index);
+			}
+		} catch (Exception e) {}
+		
+		JSONObject result = new JSONObject();
+		try {
+			result.put(Constants.JSON_PARAMETER, params);
+			result.put(Constants.JSON_VALUE, getValue());	
+		} catch (Exception e) {}
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -295,6 +320,8 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case TextrepresentationPackage.PARAMETER_PREDEFINITION___GENERATE_VARIANT_JSON_OBJECT:
+				return generateVariantJSONObject();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

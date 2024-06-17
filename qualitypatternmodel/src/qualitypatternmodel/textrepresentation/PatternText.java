@@ -166,6 +166,14 @@ public interface PatternText extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
+	 * @generated
+	 */
+	JSONObject generateVariantJSONObject();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */

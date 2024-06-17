@@ -331,6 +331,34 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		}
 		return json;
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public JSONObject generateVariantJSONObject() {
+		JSONObject result = new JSONObject();
+		try {
+			result.put(Constants.JSON_TEMPLATE, getPattern().getAbstractId());
+			result.put(Constants.JSON_LANGUAGE, getPattern().getLanguage());
+			result.put(Constants.JSON_NAME, getName());
+			
+			JSONArray fragments = new JSONArray();
+			
+			for (Fragment fragment: getFragmentsOrdered()) {
+				fragments.put(fragment.generateVariantJSONObject());
+			}
+			
+			for (ParameterPredefinition predefinition: getParameterPredefinitions()) {
+				fragments.put(predefinition.generateVariantJSONObject());
+			}
+		} catch (JSONException e) {}
+		return result;
+	}
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -831,6 +859,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				}
 			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_JSON_OBJECT:
 				return generateJSONObject();
+			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_VARIANT_JSON_OBJECT:
+				return generateVariantJSONObject();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

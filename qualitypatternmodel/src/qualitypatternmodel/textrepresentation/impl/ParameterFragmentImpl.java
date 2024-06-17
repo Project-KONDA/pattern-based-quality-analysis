@@ -824,6 +824,33 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		return json;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public JSONObject generateVariantJSONObject() {
+		JSONObject object = new JSONObject();
+		try {
+			object.put(Constants.JSON_NAME, getName());
+			object.put(Constants.JSON_PARAMETER, getName());
+			object.put(Constants.JSON_EXAMPLEVALUE, getName());
+			object.put(Constants.JSON_NEWID, getId());
+			
+			if (getDescription() != null && !getDescription().equals(""))
+				object.put(Constants.JSON_DESCRIPTION, getDescription());
+			
+			if (getValueMap() != null)
+				object.put(Constants.JSON_MAP, getValueMap().generateVariantJSONObject());
+			
+			if (isPlural())
+				object.put(Constants.JSON_PLURAL, true);
+			
+		}catch (Exception e) {}
+		return object;
+	}
+
 	
 	// XmlPathParam helper functions
 	// get Param IDs of source params for relative paths
@@ -1260,6 +1287,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		if (baseClass == ParameterReference.class) {
 			switch (baseOperationID) {
 				case TextrepresentationPackage.PARAMETER_REFERENCE___IS_VALID__ABSTRACTIONLEVEL: return TextrepresentationPackage.PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL;
+				case TextrepresentationPackage.PARAMETER_REFERENCE___GENERATE_VARIANT_JSON_OBJECT: return TextrepresentationPackage.PARAMETER_FRAGMENT___GENERATE_VARIANT_JSON_OBJECT;
 				default: return -1;
 			}
 		}
