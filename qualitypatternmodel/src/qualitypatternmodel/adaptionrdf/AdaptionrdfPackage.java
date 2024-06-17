@@ -3393,6 +3393,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int IRI_PARAM___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER_VALUE___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___CLEAR = ParametersPackage.PARAMETER_VALUE___CLEAR;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4710,6 +4719,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int IRI_LIST_PARAM___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER_VALUE___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___CLEAR = ParametersPackage.PARAMETER_VALUE___CLEAR;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5275,6 +5293,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_PATH_PARAM___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PARAM___CLEAR = ParametersPackage.PARAMETER___CLEAR;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.

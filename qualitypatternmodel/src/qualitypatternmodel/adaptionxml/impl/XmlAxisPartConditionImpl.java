@@ -121,6 +121,14 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 		}
 	}
 
+	@Override
+	public void clear() {
+		if (getXmlPropertyOption() != null)
+			getXmlPropertyOption().clear();
+		if (getTextLiteralParam() != null)
+			getTextLiteralParam().clear();
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.KeyValueParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 
@@ -93,6 +94,34 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 		if (!(this.keyValuePair.containsKey(key) && this.keyValuePair.containsValue(value))) {
 			this.keyValuePair.put(key, value);
 		}		
+	}
+
+	@Override
+	public String getValueAsString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public boolean inputIsValid() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isUsed() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	/**
@@ -217,12 +246,6 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 	public String myToString() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public boolean inputIsValid() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 } //KeyValueParamImpl

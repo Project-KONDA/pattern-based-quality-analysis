@@ -4413,6 +4413,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PARAM___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PARAM___CLEAR = ParametersPackage.PARAMETER___CLEAR;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4880,6 +4889,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_ELEMENT_PATH_PARAM___GENERATE_DESCRIPTION = NEO_PATH_PARAM___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_PATH_PARAM___CLEAR = NEO_PATH_PARAM___CLEAR;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -5358,6 +5376,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_PATH_PARAM___GENERATE_DESCRIPTION = NEO_PATH_PARAM___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM___CLEAR = NEO_PATH_PARAM___CLEAR;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -6361,6 +6388,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_NODE_LABELS_PARAM___GENERATE_DESCRIPTION = ParametersPackage.TEXT_LIST_PARAM___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___CLEAR = ParametersPackage.TEXT_LIST_PARAM___CLEAR;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7017,6 +7053,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_EDGE_LABEL_PARAM___GENERATE_DESCRIPTION = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___CLEAR = ParametersPackage.TEXT_LITERAL_PARAM___CLEAR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -7676,6 +7721,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NAME_PARAM___GENERATE_DESCRIPTION = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NAME_PARAM___CLEAR = ParametersPackage.TEXT_LITERAL_PARAM___CLEAR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.

@@ -110,7 +110,12 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 			if(kind.getName().equals(value)) {			
 				setValue(kind);
 			}
-		}		
+		}
+	}
+
+	@Override
+	public void clear() {
+		setValue(null);
 	}
 	
 	@Override

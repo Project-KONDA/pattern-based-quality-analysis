@@ -43,6 +43,22 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	protected EClass eStaticClass() {
 		return ParametersPackage.Literals.MULTI_LIST_PARAM;
 	}
+	
+	@Override
+	public void setValueFromString(String value) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public String getValueAsString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+	}
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
@@ -175,6 +191,12 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 		isValueFloat = matching(value, regex);
 		return isValueFloat;
 	}
+
+	@Override
+	public String generateDescription() {
+		String res = "Input of a String List which will be converted to the fitting datatyp";
+		return res;
+	}
 	
 	/**
 	 * @author Lukas Sebastian Hofmann
@@ -189,17 +211,6 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 			res += "'" + getValues().get(i) + "'";
 		}
 		return res + ")";
-	}
-
-	@Override
-	public String generateDescription() {
-		String res = "Input of a String List which will be converted to the fitting datatyp";
-		return res;
-	}
-	
-	@Override
-	public void setValueFromString(String value) {
-		throw new UnsupportedOperationException();
 	}
 
 } //MultiListParamImpl

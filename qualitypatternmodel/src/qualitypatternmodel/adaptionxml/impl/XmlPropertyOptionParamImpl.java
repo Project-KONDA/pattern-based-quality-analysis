@@ -151,6 +151,12 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			}
 		} 
 	}
+
+	@Override
+	public void clear() {
+		setValue(null);
+		setAttributeName(null);
+	}
 	
 	@Override
 	public JSONArray getOptionsAsJsonArray() {

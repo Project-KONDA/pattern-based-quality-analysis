@@ -28,6 +28,7 @@
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getOptionsAsJsonArray" eType="#//textrepresentation/JSONArrayWrapper"/>
       <eOperations name="generateDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="clear"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" eType="#//parameters/ParameterList"
           eOpposite="#//parameters/ParameterList/parameters"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="predefined" lowerBound="1"

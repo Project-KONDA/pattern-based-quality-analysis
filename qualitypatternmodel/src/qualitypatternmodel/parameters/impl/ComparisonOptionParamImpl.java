@@ -148,6 +148,11 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 			}
 		}		
 	}
+
+	@Override
+	public void clear() {
+		setValue(null);
+	}
 	
 	@Override
 	public JSONArray getOptionsAsJsonArray() {

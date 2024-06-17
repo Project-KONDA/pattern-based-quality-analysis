@@ -242,6 +242,13 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 		getRdfPathParts().addAll(parts);
 	}
 
+	@Override
+	public void clear() {
+		if (getRdfPathParts() != null)
+			getRdfPathParts().clear();
+	}
+	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

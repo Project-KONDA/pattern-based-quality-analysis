@@ -756,6 +756,18 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 * @generated NOT
 	 */
 	@Override
+	public void clear() {
+		setXmlAxisOptionParam(null);
+		if (getXmlAxisPartConditions() != null)
+			getXmlAxisPartConditions().clear();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
 	public EList<String> inferElementTagSuggestionsFromIncomingRelations() {
 		if(getXmlAxisOptionParam() == null || getXmlAxisOptionParam().getValue() == null) {
 			return new BasicEList<String>();
@@ -1143,6 +1155,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				case ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY: return AdaptionxmlPackage.XML_AXIS_PART___CHECK_COMPARISON_CONSISTENCY;
 				case ParametersPackage.PARAMETER___GET_OPTIONS_AS_JSON_ARRAY: return AdaptionxmlPackage.XML_AXIS_PART___GET_OPTIONS_AS_JSON_ARRAY;
 				case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION: return AdaptionxmlPackage.XML_AXIS_PART___GENERATE_DESCRIPTION;
+				case ParametersPackage.PARAMETER___CLEAR: return AdaptionxmlPackage.XML_AXIS_PART___CLEAR;
 				default: return -1;
 			}
 		}
@@ -1211,6 +1224,9 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				return getOptionsAsJsonArray();
 			case AdaptionxmlPackage.XML_AXIS_PART___GENERATE_DESCRIPTION:
 				return generateDescription();
+			case AdaptionxmlPackage.XML_AXIS_PART___CLEAR:
+				clear();
+				return null;
 			case AdaptionxmlPackage.XML_AXIS_PART___CREATE_PARAMETERS:
 				createParameters();
 				return null;

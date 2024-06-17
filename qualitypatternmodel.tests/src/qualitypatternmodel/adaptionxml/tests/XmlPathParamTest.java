@@ -30,6 +30,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.parameters.Parameter#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getOptionsAsJsonArray() <em>Get Options As Json Array</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#clear() <em>Clear</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  * </ul>
@@ -267,6 +268,19 @@ public class XmlPathParamTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGenerateDescription() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#clear() <em>Clear</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.Parameter#clear()
+	 * @generated
+	 */
+	public void testClear() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

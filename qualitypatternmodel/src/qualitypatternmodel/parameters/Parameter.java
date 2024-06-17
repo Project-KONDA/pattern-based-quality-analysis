@@ -207,4 +207,12 @@ public interface Parameter extends PatternElement {
 	 */
 	String generateDescription();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void clear();
+
 } // Input

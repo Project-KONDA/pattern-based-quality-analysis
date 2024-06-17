@@ -467,13 +467,22 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___GENERATE_DESCRIPTION = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___CLEAR = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
+
+	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
+	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl <em>Comparison Option Param</em>}' class.
@@ -925,6 +934,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON_OPTION_PARAM___GENERATE_DESCRIPTION = PARAMETER___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___CLEAR = PARAMETER___CLEAR;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -1712,6 +1730,15 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___GENERATE_DESCRIPTION = PARAMETER___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___CLEAR = PARAMETER___CLEAR;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2334,6 +2361,15 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___CLEAR = PARAMETER_VALUE___CLEAR;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2927,6 +2963,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_PARAM___CLEAR = PARAMETER_VALUE___CLEAR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3549,6 +3594,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___GENERATE_DESCRIPTION = LIST_PARAM___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___CLEAR = LIST_PARAM___CLEAR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4209,6 +4263,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___CLEAR = PARAMETER_VALUE___CLEAR;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4822,6 +4885,15 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___CLEAR = PARAMETER_VALUE___CLEAR;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5415,6 +5487,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___CLEAR = PARAMETER_VALUE___CLEAR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -6012,6 +6093,15 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___CLEAR = PARAMETER_VALUE___CLEAR;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6596,6 +6686,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNTYPED_PARAMETER_VALUE___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___CLEAR = PARAMETER_VALUE___CLEAR;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -7193,6 +7292,15 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___CLEAR = PARAMETER_VALUE___CLEAR;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7788,6 +7896,15 @@ public interface ParametersPackage extends EPackage {
 	int TYPE_OPTION_PARAM___GENERATE_DESCRIPTION = PARAMETER___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM___CLEAR = PARAMETER___CLEAR;
+
+	/**
 	 * The number of operations of the '<em>Type Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8210,6 +8327,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int KEY_VALUE_PARAM___GENERATE_DESCRIPTION = PARAMETER___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___CLEAR = PARAMETER___CLEAR;
 
 	/**
 	 * The operation id for the '<em>Add Value</em>' operation.
@@ -8672,6 +8798,15 @@ public interface ParametersPackage extends EPackage {
 	int MULTI_LIST_PARAM___GENERATE_DESCRIPTION = LIST_PARAM___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LIST_PARAM___CLEAR = LIST_PARAM___CLEAR;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9032,6 +9167,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameter__GenerateDescription();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#clear() <em>Clear</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clear</em>' operation.
+	 * @see qualitypatternmodel.parameters.Parameter#clear()
+	 * @generated
+	 */
+	EOperation getParameter__Clear();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.ComparisonOptionParam <em>Comparison Option Param</em>}'.
@@ -9947,6 +10092,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER___GENERATE_DESCRIPTION = eINSTANCE.getParameter__GenerateDescription();
+
+		/**
+		 * The meta object literal for the '<em><b>Clear</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER___CLEAR = eINSTANCE.getParameter__Clear();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl <em>Comparison Option Param</em>}' class.

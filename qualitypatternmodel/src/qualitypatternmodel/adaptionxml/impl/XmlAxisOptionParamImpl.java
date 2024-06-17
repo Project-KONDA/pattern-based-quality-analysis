@@ -117,6 +117,11 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 		}
 		setValueIfValid(result);
 	}
+
+	@Override
+	public void clear() {
+		setValue(null);
+	}
 	
 	@Override
 	public JSONArray getOptionsAsJsonArray() {

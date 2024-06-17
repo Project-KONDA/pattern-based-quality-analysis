@@ -59,6 +59,12 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	        }
 		}
 	}
+
+	@Override
+	public void clear() {
+		if (getValues() != null)
+			getValues().clear();
+	}
 	
 	@Override
 	public String generateXQuery() throws InvalidityException {

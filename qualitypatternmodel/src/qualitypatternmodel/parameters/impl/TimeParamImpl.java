@@ -70,6 +70,11 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	public void setValueFromString(String value) throws InvalidityException {
 		setValueIfValid(value);
 	}
+
+	@Override
+	public void clear() {
+		setValue(null);
+	}
 	
 	@Override
 	public String generateXQuery() throws InvalidityException {

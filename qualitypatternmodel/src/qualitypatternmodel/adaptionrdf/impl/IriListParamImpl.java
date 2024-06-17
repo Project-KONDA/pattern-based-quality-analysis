@@ -132,6 +132,12 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
         getIriParams().addAll(x);
 	}
 
+	@Override
+	public void clear() {
+		if (getIriParams() != null)
+			getIriParams().clear();
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

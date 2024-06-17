@@ -42,6 +42,10 @@ public class UntypedParameterValueImpl extends ParameterValueImpl implements Unt
 	}
 
 	@Override
+	public void clear() {
+	}
+
+	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.UNSPECIFIED;
 	}

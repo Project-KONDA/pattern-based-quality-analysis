@@ -71,6 +71,12 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		super();
 	}
 
+	@Override
+	public String getValueAsString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,6 +94,11 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		} catch (Exception e) {
 			
 		}
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub	
 	}
 	
 	/**
