@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: QPM Constrainify
   description: |-
@@ -8,7 +8,7 @@ info:
     - [Quality Pattern Model](https://github.com/Project-KONDA/pattern-based-quality-analysis)
   contact:
     email: arno.kesper@uni-marburg.de
-  version: 0.0.1
+  version: 1.0.0
 paths:
 
   /qpm/pattern/list/{technology}/{abstraction}:
@@ -181,10 +181,12 @@ paths:
       operationId: setparameter
       parameters:
         - name: <parameterName>
-          description: specify the value of a parameter via string
+          description: specify the value of a parameter via string or object
           in: query
           schema:
-            type: string
+            oneOf:
+              - $ref: '#/components/schemas/ParameterSetter'
+              - type: string
         - name: name
           description: set the name of the new constraint
           in: query
@@ -197,11 +199,6 @@ paths:
             type: string
         - name: datamodel
           description: set the datamodel of the new constraint
-          in: query
-          schema:
-            type: string
-        - name: <custom-parameter>
-          description: specify the value of a custom parameter via string
           in: query
           schema:
             type: string
@@ -1280,3 +1277,13 @@ components:
               size:
                 type: integer
                 description: amount of found violations of the constraint in the file
+      
+    ParameterSetter: #6
+      type: object
+      properties:
+        value:
+          type: string
+        userValue:
+          type: string
+        <custom-attribute>:
+          type: string
