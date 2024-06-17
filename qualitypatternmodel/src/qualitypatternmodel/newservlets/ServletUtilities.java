@@ -139,15 +139,18 @@ public abstract class ServletUtilities {
 	// ---------------
 	
 	
-	public static JSONObject getPatternJSON(List<CompletePattern> patterns) {
+	public static JSONObject getPatternListJSON(List<CompletePattern> patterns) {
 		JSONObject json = new JSONObject();
+		JSONArray ids = new JSONArray();
 		try {
 			JSONArray templates = new JSONArray();
 			for (CompletePattern pattern: patterns) {
+				ids.put(pattern.getPatternId());
 				templates.put(getPatternJSON(pattern));
 			}
-			json.put("templates", templates);
-			json.put("size", patterns.size());
+			json.put(Constants.JSON_TEMPLATES, templates);
+			json.put(Constants.JSON_SIZE, patterns.size());
+			json.put(Constants.JSON_IDS, ids);
 		} catch (JSONException e) {}
 		return json;
 		

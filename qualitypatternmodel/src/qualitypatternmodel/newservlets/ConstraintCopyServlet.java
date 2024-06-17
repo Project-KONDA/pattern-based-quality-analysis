@@ -78,9 +78,19 @@ public class ConstraintCopyServlet extends HttpServlet {
 		}
 
 		// Optional: set name
-		String[] names = parameterMap.get("name");
-		if (names != null && names[0] != null) {
-			pattern.setName(names[0]);
+		if (parameterMap != null) {
+			String[] names = parameterMap.get("name");
+			if (names != null && names[0] != null) {
+				pattern.setName(names[0]);
+			}
+			String[] datamodel = parameterMap.get("datamodel");
+			if (datamodel != null && datamodel[0] != null) {
+				pattern.setDataModelName(datamodel[0]);
+			}
+			String[] database = parameterMap.get("database");
+			if (database != null && database[0] != null) {
+				pattern.setDatabaseName(database[0]);
+			}
 		}
 		
 		// 2 create new patternID

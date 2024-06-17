@@ -27,12 +27,20 @@ public class ConstraintTranslationValidation {
 	public static Boolean checkPatternTranslatable (CompletePattern completePattern) throws InvalidityException {
 		// check is valid and is XML
 		Boolean xmlvalid = validatePatternXmlAdapted(completePattern);
+		// check for JavaOperators
+		if (!validateOperatorConfiguration(completePattern))
+			return false;
 		// check has valid Node configuration
 		Boolean nodesValid = false;
 		if (xmlvalid)
 			nodesValid = validateNodeConfiguration(completePattern);
 		
 		return nodesValid;
+	}
+	
+	
+	static Boolean validateOperatorConfiguration(CompletePattern completePattern) throws InvalidityException {
+		return !completePattern.containsJavaOperator();
 	}
 	
 	
