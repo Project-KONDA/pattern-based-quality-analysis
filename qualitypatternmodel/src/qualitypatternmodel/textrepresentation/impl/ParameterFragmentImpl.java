@@ -581,13 +581,13 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			break;
 			
 		case "is":
-			map.put("true", "is");
-			map.put("false", "is not");
+			map.put(ComparisonOperator.EQUAL.getName(), "is");
+			map.put(ComparisonOperator.NOTEQUAL.getName(), "is not");
 			break;
 			
 		case "is not":
-			map.put("true", "is not");
-			map.put("false", "is");
+			map.put(ComparisonOperator.EQUAL.getName(), "is not");
+			map.put(ComparisonOperator.NOTEQUAL.getName(), "is");
 			break;
 			
 		case "do":
