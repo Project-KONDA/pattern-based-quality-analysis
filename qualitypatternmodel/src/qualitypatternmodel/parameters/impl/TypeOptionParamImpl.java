@@ -115,7 +115,7 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 
 	@Override
 	public void clear() {
-		setValue(null);
+		value = null;
 	}
 	
 	@Override

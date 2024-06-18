@@ -70,10 +70,10 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	 * 
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final ComparisonOperator VALUE_EDEFAULT = ComparisonOperator.EQUAL;
+	protected static final ComparisonOperator VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -125,12 +125,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	 */
 	public ComparisonOptionParamImpl() {
 		super();
-		getOptions().add(ComparisonOperator.EQUAL);
-		getOptions().add(ComparisonOperator.LESS);
-		getOptions().add(ComparisonOperator.GREATER);
-		getOptions().add(ComparisonOperator.GREATEROREQUAL);
-		getOptions().add(ComparisonOperator.LESSOREQUAL);
-		getOptions().add(ComparisonOperator.NOTEQUAL);
+		getOptions().addAll(ComparisonOperator.VALUES);
 	}
 	
 	@Override

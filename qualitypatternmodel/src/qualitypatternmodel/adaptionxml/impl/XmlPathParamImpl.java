@@ -913,7 +913,10 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	@Override
 	public String getValueAsString() {
 		try {
-			return generateXQuery();
+			String query = generateXQuery(); 
+			if (query == "")
+				return null;
+			return query;
 		} catch (InvalidityException e) {
 			return null;
 		}
