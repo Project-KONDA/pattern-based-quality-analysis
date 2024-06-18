@@ -1228,6 +1228,7 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="attName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
+      <eOperations name="clearValue"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="exampleValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="valueMap" eType="#//textrepresentation/ValueMap"

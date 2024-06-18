@@ -70,6 +70,7 @@ public class Constants {
 	public static final String JSON_USERVALUE = "userValue";
 	public static final String JSON_DATABASE = "database";
 	public static final String JSON_DATAMODEL = "datamodel";
+	public static final String JSON_CLEAR = "clear";
 	public static final String JSON_PLURAL = "plural";
 	public static final String JSON_TAG = "tag";
 	public static final String JSON_STARTPOINT = "startpoint";

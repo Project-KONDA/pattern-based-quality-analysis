@@ -326,6 +326,7 @@ public class ConstraintServlet extends HttpServlet {
 			ob = new JSONObject(input);
 		} catch (JSONException e) {}
 		
+		// case: value is not a json object
 		if (ob == null) {
 			try {
 				frag.setValue(input);
@@ -337,14 +338,17 @@ public class ConstraintServlet extends HttpServlet {
 			}
 		}
 		
+		// case: value is a json object
+		
 		HashMap<String, String> jsonMap = convertJSONObjectToHashMap(ob);
-
 		for (String key: jsonMap.keySet()) {
 			if (key != Constants.JSON_VALUE && key != Constants.JSON_USERVALUE)
 				frag.setAttributeValue(key, jsonMap.get(key));
-		} 
+		}
 		
-		if(jsonMap.containsKey(Constants.JSON_VALUE)) {
+		if(jsonMap.containsKey(Constants.JSON_CLEAR)) {
+			frag.clearValue();
+		} else if(jsonMap.containsKey(Constants.JSON_VALUE)) {
 			try {
 				frag.setValue(jsonMap.get(Constants.JSON_VALUE));
 				if (jsonMap.containsKey(Constants.JSON_USERVALUE))

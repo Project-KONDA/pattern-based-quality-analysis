@@ -1341,5 +1341,7 @@ components:
           type: string
         userValue:
           type: string
+        clear:
+          type: boolean
         <custom-attribute>:
           type: string

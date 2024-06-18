@@ -678,6 +678,17 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		}
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void clearValue() {
+		for(Parameter p : getParameter())
+			p.clear();
+	}
+
 	@Override
 	public String generateJSON() {
 		String patternName = getPatternText().getPattern().getPatternId();
@@ -1328,6 +1339,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___CLEAR_VALUE:
+				clearValue();
+				return null;
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL:
 				try {
 					isValid((AbstractionLevel)arguments.get(0));
