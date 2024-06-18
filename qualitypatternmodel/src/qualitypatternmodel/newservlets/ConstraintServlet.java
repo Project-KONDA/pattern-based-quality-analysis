@@ -266,16 +266,13 @@ public class ConstraintServlet extends HttpServlet {
 			if (frag instanceof ParameterFragment)
 				paramfragments.add((ParameterFragment)frag);
 		
-		JSONArray available = new JSONArray();
 		JSONArray success = new JSONArray();
 		JSONArray failed = new JSONArray();
 		JSONArray notfound = new JSONArray();
-		
 		// change parameters
 		for (String key: keys) {
 			boolean found = false;
 			for (ParameterFragment frag: paramfragments) {
-				available.put(frag.getId());
 				if (!found && frag.getId().equals(key)) {
 					found = true;
 					try {
@@ -302,10 +299,15 @@ public class ConstraintServlet extends HttpServlet {
 				json.put("failed", failed);
 			if(notfound.length() > 0)
 				json.put("notfound", notfound);
-			if(failed.length() > 0 || notfound.length() > 0)
+			if(failed.length() > 0 || notfound.length() > 0) {
+				JSONArray available = new JSONArray();
+				for (ParameterFragment frag: paramfragments) {
+					available.put(frag.getId());
+				}
 				json.put("available", available);
-		} catch (JSONException e) {
-		}
+			}
+				
+		} catch (JSONException e) {}
 		return json;
 	}
 	
@@ -372,9 +374,7 @@ public class ConstraintServlet extends HttpServlet {
                 String key = keys.next();
                 String value = jsonObject.get(key).toString();
                 hashMap.put(key, value);
-            }
-            
-            return hashMap;
+            }            return hashMap;
         } catch (JSONException e) {
         	return null;
         }

@@ -197,7 +197,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	@Override
 	public String getValueAsString() {
 		if (getRdfPathParts().size() == 0)
-			return new JSONObject().toString();
+			return null;
 		else if (getRdfPathParts().size() == 1)
 			return getRdfPathParts().get(0).getValueAsString();
 		else {

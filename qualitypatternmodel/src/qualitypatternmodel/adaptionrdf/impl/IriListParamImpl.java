@@ -92,6 +92,8 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 
 	@Override
 	public String getValueAsString() {
+		if (iriParams == null)
+			return null;
 		if (getIriParams().size() == 0) {
 			return new JSONArray().toString();
 		}
@@ -134,8 +136,8 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 
 	@Override
 	public void clear() {
-		if (getIriParams() != null)
-			getIriParams().clear();
+		getIriParams().clear();
+		iriParams = null;
 	}
 
 	/**

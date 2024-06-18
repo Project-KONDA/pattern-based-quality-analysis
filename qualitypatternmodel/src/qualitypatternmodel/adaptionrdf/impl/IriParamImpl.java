@@ -146,6 +146,8 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 
 	@Override
 	public String getValueAsString() {
+		if (prefix == null && suffix == null && uri == null)
+			return null;
 		try {
 			return generateSparql();
 		} catch (InvalidityException e) {
@@ -174,6 +176,7 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 	public void clear() {
 		setPrefix(null);
 		setSuffix(null);
+		setUri(null);
 	}
 	
 	@Override
