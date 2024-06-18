@@ -196,10 +196,12 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			if (xmlPropertyOptionParam != null) {
 				throw new InvalidityException("propertyOptionParam is existent for XmlNavigation" + xmlPropertyOptionParam.generateXQuery());
 			}
-			if (xmlAxisParts == null)
-				throw new InvalidityException("axisPart is null");
-			if (xmlAxisParts.isEmpty())
-				throw new InvalidityException("axisPart is empty");
+			if (abstractionLevel == AbstractionLevel.CONCRETE) {
+				if (xmlAxisParts == null)
+					throw new InvalidityException("axisPart is null");
+				if (xmlAxisParts.isEmpty())
+					throw new InvalidityException("axisPart is empty");
+			}
 		}
 	}
 
