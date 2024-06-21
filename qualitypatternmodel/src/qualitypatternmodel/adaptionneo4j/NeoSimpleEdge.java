@@ -15,11 +15,11 @@ import qualitypatternmodel.parameters.KeyValueParam;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getKeyValueParam <em>Key Value Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getNeoDirection <em>Neo Direction</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getNeoEdgeLabel <em>Neo Edge Label</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getEdgeNumber <em>Edge Number</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getKeyValueParam <em>Key Value Param</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoSimpleEdge()
@@ -29,12 +29,14 @@ import qualitypatternmodel.parameters.KeyValueParam;
 public interface NeoSimpleEdge extends NeoPathPart {
 	/**
 	 * Returns the value of the '<em><b>Key Value Param</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.KeyValueParam#getNeoSimpleEdge <em>Neo Simple Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Key Value Param</em>' containment reference.
 	 * @see #setKeyValueParam(KeyValueParam)
 	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoSimpleEdge_KeyValueParam()
-	 * @model containment="true"
+	 * @see qualitypatternmodel.parameters.KeyValueParam#getNeoSimpleEdge
+	 * @model opposite="neoSimpleEdge" containment="true"
 	 * @generated
 	 */
 	KeyValueParam getKeyValueParam();

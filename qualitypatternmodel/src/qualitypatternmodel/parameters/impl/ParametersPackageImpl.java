@@ -1102,6 +1102,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EReference getKeyValueParam_NeoSimpleEdge() {
+		return (EReference)keyValueParamEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getKeyValueParam__AddValue__String_String() {
 		return keyValueParamEClass.getEOperations().get(0);
 	}
@@ -1327,6 +1337,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		keyValueParamEClass = createEClass(KEY_VALUE_PARAM);
 		createEAttribute(keyValueParamEClass, KEY_VALUE_PARAM__KEY_VALUE_PAIR);
+		createEReference(keyValueParamEClass, KEY_VALUE_PARAM__NEO_SIMPLE_EDGE);
 		createEOperation(keyValueParamEClass, KEY_VALUE_PARAM___ADD_VALUE__STRING_STRING);
 		createEOperation(keyValueParamEClass, KEY_VALUE_PARAM___SET_NEW_MAP__MAP);
 
@@ -1374,6 +1385,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		JavaoperatorsPackage theJavaoperatorsPackage = (JavaoperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(JavaoperatorsPackage.eNS_URI);
 		AdaptionxmlPackage theAdaptionxmlPackage = (AdaptionxmlPackage)EPackage.Registry.INSTANCE.getEPackage(AdaptionxmlPackage.eNS_URI);
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
+		Adaptionneo4jPackage theAdaptionneo4jPackage = (Adaptionneo4jPackage)EPackage.Registry.INSTANCE.getEPackage(Adaptionneo4jPackage.eNS_URI);
 
 		// Create type parameters
 		addETypeParameter(stringToIntEMapEDataType, "K");
@@ -1590,6 +1602,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getKeyValueParam_KeyValuePair(), g1, "keyValuePair", null, 0, 1, KeyValueParam.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getKeyValueParam_NeoSimpleEdge(), theAdaptionneo4jPackage.getNeoSimpleEdge(), theAdaptionneo4jPackage.getNeoSimpleEdge_KeyValueParam(), "neoSimpleEdge", null, 0, 1, KeyValueParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getKeyValueParam__AddValue__String_String(), null, "addValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);

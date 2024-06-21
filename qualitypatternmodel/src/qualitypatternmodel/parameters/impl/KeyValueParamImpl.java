@@ -4,16 +4,22 @@ package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.KeyValueParam;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -27,6 +33,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.impl.KeyValueParamImpl#getKeyValuePair <em>Key Value Pair</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.KeyValueParamImpl#getNeoSimpleEdge <em>Neo Simple Edge</em>}</li>
  * </ul>
  *
  * @generated
@@ -82,6 +89,49 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 		keyValuePair = newKeyValuePair;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.KEY_VALUE_PARAM__KEY_VALUE_PAIR, oldKeyValuePair, keyValuePair));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NeoSimpleEdge getNeoSimpleEdge() {
+		if (eContainerFeatureID() != ParametersPackage.KEY_VALUE_PARAM__NEO_SIMPLE_EDGE) return null;
+		return (NeoSimpleEdge)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNeoSimpleEdge(NeoSimpleEdge newNeoSimpleEdge, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newNeoSimpleEdge, ParametersPackage.KEY_VALUE_PARAM__NEO_SIMPLE_EDGE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNeoSimpleEdge(NeoSimpleEdge newNeoSimpleEdge) {
+		if (newNeoSimpleEdge != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.KEY_VALUE_PARAM__NEO_SIMPLE_EDGE && newNeoSimpleEdge != null)) {
+			if (EcoreUtil.isAncestor(this, newNeoSimpleEdge))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newNeoSimpleEdge != null)
+				msgs = ((InternalEObject)newNeoSimpleEdge).eInverseAdd(this, Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM, NeoSimpleEdge.class, msgs);
+			msgs = basicSetNeoSimpleEdge(newNeoSimpleEdge, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.KEY_VALUE_PARAM__NEO_SIMPLE_EDGE, newNeoSimpleEdge, newNeoSimpleEdge));
 	}
 
 	/**
@@ -148,10 +198,56 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ParametersPackage.KEY_VALUE_PARAM__NEO_SIMPLE_EDGE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetNeoSimpleEdge((NeoSimpleEdge)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ParametersPackage.KEY_VALUE_PARAM__NEO_SIMPLE_EDGE:
+				return basicSetNeoSimpleEdge(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case ParametersPackage.KEY_VALUE_PARAM__NEO_SIMPLE_EDGE:
+				return eInternalContainer().eInverseRemove(this, Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM, NeoSimpleEdge.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ParametersPackage.KEY_VALUE_PARAM__KEY_VALUE_PAIR:
 				return getKeyValuePair();
+			case ParametersPackage.KEY_VALUE_PARAM__NEO_SIMPLE_EDGE:
+				return getNeoSimpleEdge();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -197,6 +293,8 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 		switch (featureID) {
 			case ParametersPackage.KEY_VALUE_PARAM__KEY_VALUE_PAIR:
 				return keyValuePair != null;
+			case ParametersPackage.KEY_VALUE_PARAM__NEO_SIMPLE_EDGE:
+				return getNeoSimpleEdge() != null;
 		}
 		return super.eIsSet(featureID);
 	}

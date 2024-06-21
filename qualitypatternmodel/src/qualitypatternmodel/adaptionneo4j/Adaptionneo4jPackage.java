@@ -2782,22 +2782,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__NEO_COMPLEX_EDGE = NEO_PATH_PART__NEO_COMPLEX_EDGE;
 
 	/**
-	 * The feature id for the '<em><b>Key Value Param</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_SIMPLE_EDGE__KEY_VALUE_PARAM = NEO_PATH_PART_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Neo Direction</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE__NEO_DIRECTION = NEO_PATH_PART_FEATURE_COUNT + 1;
+	int NEO_SIMPLE_EDGE__NEO_DIRECTION = NEO_PATH_PART_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Neo Target Node Labels</b></em>' containment reference.
@@ -2806,7 +2797,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS = NEO_PATH_PART_FEATURE_COUNT + 2;
+	int NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS = NEO_PATH_PART_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Neo Edge Label</b></em>' containment reference.
@@ -2815,7 +2806,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE__NEO_EDGE_LABEL = NEO_PATH_PART_FEATURE_COUNT + 3;
+	int NEO_SIMPLE_EDGE__NEO_EDGE_LABEL = NEO_PATH_PART_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Edge Number</b></em>' attribute.
@@ -2824,7 +2815,16 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE__EDGE_NUMBER = NEO_PATH_PART_FEATURE_COUNT + 4;
+	int NEO_SIMPLE_EDGE__EDGE_NUMBER = NEO_PATH_PART_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Key Value Param</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE__KEY_VALUE_PARAM = NEO_PATH_PART_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Neo Simple Edge</em>' class.

@@ -150,6 +150,7 @@
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/KeyValueParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/KeyValueParam/keyValuePair"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/KeyValueParam/neoSimpleEdge"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/KeyValueParam/addValue">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/KeyValueParam/addValue/key"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/KeyValueParam/addValue/value"/>
@@ -1176,14 +1177,14 @@
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/keyValueParam"/>
         <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/neoDirection"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/neoTargetNodeLabels"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/neoEdgeLabel"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/edgeNumber"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/keyValueParam"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/setNeoDirection">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/setNeoDirection/neoDirection"/>
         </genOperations>
