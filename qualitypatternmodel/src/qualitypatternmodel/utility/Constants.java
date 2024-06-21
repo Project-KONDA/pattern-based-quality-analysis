@@ -109,6 +109,10 @@ public class Constants {
 	public static final String JSON_RDF_PATH_SEQUENCE = "sequence";
 	public static final String JSON_RDF_PATH = "rdfpath";
 	public static final String JSON_RDF_NODE_TYPE = "nodetypes";
+
+	public static final String JSON_NEO_EDGE = "edgetype";
+	public static final String JSON_NEO_TARGETS = "targettype";
+	public static final String JSON_NEO_KEYVALUE = "keyvalue";
 	
 
 	//Global Exception Messages -- Introduced by Lukas Sebastian Hofmann. Existing code of the framework has not been touched.

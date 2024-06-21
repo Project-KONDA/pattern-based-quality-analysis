@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
@@ -148,30 +150,49 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 
 	@Override
 	public String getValueAsString() {
-		// TODO Auto-generated method stub
-		return null;
+		if (getKeyValuePair() == null) 
+			return null;
+		JSONObject object = new JSONObject();
+		try {
+			for (String key: getKeyValuePair().keySet()) {
+					object.put(key, getKeyValuePair().get(key));
+			}
+		} catch (JSONException e) {}
+		return object.toString();
 	}
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		// TODO Auto-generated method stub
+		HashMap<String, String> map = new HashMap<String, String>();
+		try {
+			JSONObject object = new JSONObject(value);
+		
+			@SuppressWarnings("unchecked")
+			Iterator<String> keys = object.keys(); 
+			while (keys.hasNext()) {
+				String next = keys.next();
+				map.put(next, object.get(next).toString());
+			}
+		} catch (JSONException e) {
+			throw new InvalidityException("Invalid value", e);
+		}
+		getKeyValuePair().clear();
+		getKeyValuePair().putAll(map);
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
+		setKeyValuePair(null);
 	}
 
 	@Override
 	public boolean inputIsValid() {
-		// TODO Auto-generated method stub
-		return false;
+		return getKeyValuePair() != null;
 	}
 
 	@Override
 	public boolean isUsed() {
-		// TODO Auto-generated method stub
-		return false;
+		return getNeoSimpleEdge() != null;
 	}
 
 	/**

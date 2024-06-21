@@ -3,6 +3,10 @@
 package qualitypatternmodel.adaptionneo4j.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -11,6 +15,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoDirection;
 import qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam;
@@ -24,7 +31,9 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.KeyValueParam;
+import qualitypatternmodel.parameters.impl.KeyValueParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
@@ -35,11 +44,11 @@ import qualitypatternmodel.utility.ConstantsNeo;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl#getKeyValueParam <em>Key Value Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl#getNeoDirection <em>Neo Direction</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl#getNeoTargetNodeLabels <em>Neo Target Node Labels</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl#getNeoEdgeLabel <em>Neo Edge Label</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl#getEdgeNumber <em>Edge Number</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl#getKeyValueParam <em>Key Value Param</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,16 +62,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	private static final String SOMETHING_WENT_WRONG_IN_THE_SIMPLE_NEO_EDGE_DIRECTION_HAS_NOT_BEEN_SET_CORRECTLY = "Something went wrong in the SimpleNeoEdge - direction has not been set correctly";
 	private static final String NEO_SIMPLE_EDGE = "NeoSimpleEdge [%s] ";
 	
-	/**
-	 * The cached value of the '{@link #getKeyValueParam() <em>Key Value Param</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getKeyValueParam()
-	 * @generated
-	 * @ordered
-	 */
-	protected KeyValueParam keyValueParam;
-
 	/**
 	 * The default value of the '{@link #getNeoDirection() <em>Neo Direction</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -128,6 +127,15 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @ordered
 	 */
 	protected boolean edgeNumberESet;
+	/**
+	 * The cached value of the '{@link #getKeyValueParam() <em>Key Value Param</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyValueParam()
+	 * @generated
+	 * @ordered
+	 */
+	protected KeyValueParam keyValueParam;
 
 	protected static final boolean IS_LAST_EDGE_EDEFAULT = true;
 
@@ -309,14 +317,68 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		this.neoEdgeLabel.setValueIfValid(label);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
+				if (keyValueParam != null)
+					msgs = ((InternalEObject)keyValueParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM, null, msgs);
+				return basicSetKeyValueParam((KeyValueParam)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		throw new UnsupportedOperationException();
+		try {
+			JSONObject object = new JSONObject(value);
+			
+			@SuppressWarnings("unchecked")
+			Iterator<String> keys = object.keys();
+			List<String> allowedKeys = Arrays.asList(Constants.JSON_NEO_EDGE, Constants.JSON_NEO_TARGETS, Constants.JSON_NEO_KEYVALUE);
+			while (keys.hasNext()) {
+				String next = keys.next();
+				if (!allowedKeys.contains(next))
+					throw new InvalidityException(next + " is not an allowed key");
+			}
+			
+			if (object.has(Constants.JSON_NEO_EDGE)) {
+				NeoEdgeLabelParam edgelabel = new NeoEdgeLabelParamImpl();
+				edgelabel.setValueFromString(object.get(Constants.JSON_NEO_EDGE).toString());
+				setNeoEdgeLabel(edgelabel);
+			}
+			if (object.has(Constants.JSON_NEO_TARGETS)) {
+				NeoNodeLabelsParam targets = new NeoNodeLabelsParamImpl();
+				targets.setValueFromString(object.get(Constants.JSON_NEO_TARGETS).toString());
+				setNeoTargetNodeLabels(targets);
+			}
+			if (object.has(Constants.JSON_NEO_KEYVALUE)) {
+				KeyValueParam keyvalue = new KeyValueParamImpl();
+				keyvalue.setValueFromString(object.get(Constants.JSON_NEO_KEYVALUE).toString());
+				setKeyValueParam(keyvalue);
+			}
+		} catch (JSONException e) {
+			throw new InvalidityException("Invalid Value ", e);
+		}
 	}
 
 	@Override
 	public String getValueAsString() {
-		throw new UnsupportedOperationException();
+		JSONObject object = new JSONObject();
+		try {
+			if (getNeoEdgeLabel() != null)
+					object.put(Constants.JSON_NEO_EDGE, getNeoEdgeLabel().getValueAsString().toString());
+			if (getNeoTargetNodeLabels() != null)
+				object.put(Constants.JSON_NEO_TARGETS, getNeoTargetNodeLabels().getValueAsString().toString());
+			if (getNeoTargetNodeLabels() != null)
+				object.put(Constants.JSON_NEO_KEYVALUE, getKeyValueParam().getValueAsString().toString());
+		} catch (JSONException e) {}
+		return object.toString();
 	}
 
 	/**
@@ -327,12 +389,12 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
-				return basicSetKeyValueParam(null, msgs);
 			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
 				return basicSetNeoTargetNodeLabels(null, msgs);
 			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_EDGE_LABEL:
 				return basicSetNeoEdgeLabel(null, msgs);
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
+				return basicSetKeyValueParam(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -345,8 +407,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
-				return getKeyValueParam();
 			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_DIRECTION:
 				return getNeoDirection();
 			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
@@ -355,6 +415,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				return getNeoEdgeLabel();
 			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
 				return getEdgeNumber();
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
+				return getKeyValueParam();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -367,9 +429,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
-				setKeyValueParam((KeyValueParam)newValue);
-				return;
 			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
 				setNeoTargetNodeLabels((NeoNodeLabelsParam)newValue);
 				return;
@@ -378,6 +437,9 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				return;
 			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
 				setEdgeNumber((Integer)newValue);
+				return;
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
+				setKeyValueParam((KeyValueParam)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -391,9 +453,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
-				setKeyValueParam((KeyValueParam)null);
-				return;
 			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
 				setNeoTargetNodeLabels((NeoNodeLabelsParam)null);
 				return;
@@ -402,6 +461,9 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				return;
 			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
 				unsetEdgeNumber();
+				return;
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
+				setKeyValueParam((KeyValueParam)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -415,8 +477,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
-				return keyValueParam != null;
 			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_DIRECTION:
 				return neoDirection != NEO_DIRECTION_EDEFAULT;
 			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS:
@@ -425,6 +485,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				return neoEdgeLabel != null;
 			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__EDGE_NUMBER:
 				return isSetEdgeNumber();
+			case Adaptionneo4jPackage.NEO_SIMPLE_EDGE__KEY_VALUE_PARAM:
+				return keyValueParam != null;
 		}
 		return super.eIsSet(featureID);
 	}

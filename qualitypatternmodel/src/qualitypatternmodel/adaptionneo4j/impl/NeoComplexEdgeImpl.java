@@ -10,6 +10,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
@@ -155,12 +158,24 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		throw new UnsupportedOperationException();
+		JSONArray array;
+		try {
+			array = new JSONArray(value);
+			for (int i = 0; i < array.length(); i++) {
+				array.get(i);
+				
+			}
+		} catch (JSONException e) {
+			throw new InvalidityException("Invalid value", e);
+		}
 	}
 
 	@Override
 	public String getValueAsString() {
-		throw new UnsupportedOperationException();
+		JSONArray array = new JSONArray();
+		for (NeoPathPart part: neoPathParts)
+			array.put(part.getValueAsString());
+		return array.toString();
 	}
 
 	/**
