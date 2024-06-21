@@ -2312,13 +2312,31 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PART___GET_NEO_LAST_EDGE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___SET_VALUE_FROM_STRING__STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___GET_VALUE_AS_STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Neo Path Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int NEO_PATH_PART_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl <em>Neo Complex Edge</em>}' class.
@@ -2671,6 +2689,24 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_COMPLEX_EDGE___GET_NEO_LAST_EDGE = NEO_PATH_PART___GET_NEO_LAST_EDGE;
+
+	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___SET_VALUE_FROM_STRING__STRING = NEO_PATH_PART___SET_VALUE_FROM_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___GET_VALUE_AS_STRING = NEO_PATH_PART___GET_VALUE_AS_STRING;
 
 	/**
 	 * The operation id for the '<em>Add Neo Path Part</em>' operation.
@@ -3086,6 +3122,24 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_SIMPLE_EDGE___GET_NEO_LAST_EDGE = NEO_PATH_PART___GET_NEO_LAST_EDGE;
+
+	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___SET_VALUE_FROM_STRING__STRING = NEO_PATH_PART___SET_VALUE_FROM_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___GET_VALUE_AS_STRING = NEO_PATH_PART___GET_VALUE_AS_STRING;
 
 	/**
 	 * The operation id for the '<em>Set Neo Direction</em>' operation.
@@ -8217,6 +8271,26 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EOperation getNeoPathPart__GetNeoLastEdge();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#setValueFromString(java.lang.String) <em>Set Value From String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Value From String</em>' operation.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#setValueFromString(java.lang.String)
+	 * @generated
+	 */
+	EOperation getNeoPathPart__SetValueFromString__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getValueAsString() <em>Get Value As String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Value As String</em>' operation.
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#getValueAsString()
+	 * @generated
+	 */
+	EOperation getNeoPathPart__GetValueAsString();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionneo4j.NeoPropertyNode <em>Neo Property Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8768,6 +8842,22 @@ public interface Adaptionneo4jPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_PATH_PART___GET_NEO_LAST_EDGE = eINSTANCE.getNeoPathPart__GetNeoLastEdge();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Value From String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PATH_PART___SET_VALUE_FROM_STRING__STRING = eINSTANCE.getNeoPathPart__SetValueFromString__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Value As String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_PATH_PART___GET_VALUE_AS_STRING = eINSTANCE.getNeoPathPart__GetValueAsString();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionneo4j.impl.NeoPropertyNodeImpl <em>Neo Property Node</em>}' class.

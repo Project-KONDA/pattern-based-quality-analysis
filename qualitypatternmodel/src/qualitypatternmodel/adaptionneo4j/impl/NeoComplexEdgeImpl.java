@@ -153,6 +153,16 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}
 	}
 
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public String getValueAsString() {
+		throw new UnsupportedOperationException();
+	}
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return EList<NeoPathPart>

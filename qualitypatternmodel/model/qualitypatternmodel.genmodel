@@ -1203,6 +1203,10 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/getCypherInnerEdgeNodes/isReturn"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/getNeoLastEdge"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/setValueFromString">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/setValueFromString/value"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart/getValueAsString"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode/generateCypherPropertyAddressing"/>

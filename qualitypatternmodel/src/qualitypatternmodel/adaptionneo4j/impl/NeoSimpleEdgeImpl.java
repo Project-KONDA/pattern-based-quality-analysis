@@ -309,6 +309,16 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		this.neoEdgeLabel.setValueIfValid(label);
 	}
 
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public String getValueAsString() {
+		throw new UnsupportedOperationException();
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

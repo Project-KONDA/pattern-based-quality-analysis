@@ -45,9 +45,9 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected KeyValueParamImpl() {
+	public KeyValueParamImpl() {
 		super();
 	}
 
