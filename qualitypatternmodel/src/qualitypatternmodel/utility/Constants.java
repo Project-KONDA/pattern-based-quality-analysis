@@ -113,6 +113,8 @@ public class Constants {
 	public static final String JSON_NEO_EDGE = "edgetype";
 	public static final String JSON_NEO_TARGETS = "targettype";
 	public static final String JSON_NEO_KEYVALUE = "keyvalue";
+	public static final String JSON_NEO_PATH_PART = "pathpart";
+	public static final String JSON_NEO_PROPERTY_NAME = "propertyname";
 	
 
 	//Global Exception Messages -- Introduced by Lukas Sebastian Hofmann. Existing code of the framework has not been touched.

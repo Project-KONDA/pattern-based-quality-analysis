@@ -12,13 +12,19 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl.InternalCounter;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
+import qualitypatternmodel.utility.Constants;
 
 /**
  * <!-- begin-user-doc -->
@@ -396,4 +402,22 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	
 	//for the counting
 	protected abstract void setCount(InternalCounter count);
+
+	static NeoPathPart createNewNeoPathPart(String value) throws InvalidityException {
+		JSONObject jobj;
+		try {
+			jobj = new JSONObject(value);
+		} catch (JSONException e) {
+			throw new InvalidityException("invalid value", e);
+		}
+		if (jobj.has(Constants.JSON_NEO_PROPERTY_NAME)) {
+			NeoSimpleEdge simple = Adaptionneo4jFactory.eINSTANCE.createNeoSimpleEdge();
+			simple.setValueFromString(value);
+			return simple;
+		} else {
+			NeoComplexEdge complex = Adaptionneo4jFactory.eINSTANCE.createNeoComplexEdge();
+			complex.setValueFromString(value);
+			return complex;
+		}
+	}
 } //NeoPathPartImpl

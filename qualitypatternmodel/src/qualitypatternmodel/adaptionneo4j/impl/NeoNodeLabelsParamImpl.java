@@ -5,6 +5,9 @@ package qualitypatternmodel.adaptionneo4j.impl;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -41,13 +44,25 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	}
 	
 	@Override
-	public void setValueFromString(String value) {
-		if(values != null)
-			values.clear();
+	public void setValueFromString(String value) throws InvalidityException {
+		EList<String> newVals = new BasicEList<String>();
 		try {
-			addStringValue(value);
-		} catch (InvalidityException e) {
+			JSONArray jarray = new JSONArray(value);
+	        for (int i = 0; i<jarray.length();i++) {
+	        	String v = jarray.getString(i);
+	        	newVals.add(v);
+	        }
 		}
+		catch (JSONException e){
+			value = value.trim();
+			String trimmed = value.substring(1, value.length() - 1);
+	        String[] values = trimmed.split(",");
+	        for (String val: values) {
+	        	String v = val.trim().replaceAll("\"",  "").trim();
+	        	newVals.add(v);
+	        }
+		}
+		setValueIfValid(newVals);	
 	}
 	
 	@Override
