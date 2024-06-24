@@ -158,11 +158,12 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 
 	@Override
 	public String getValueAsString() {
-		JSONObject jobj = new JSONObject();
-		try {
-			jobj.put(Constants.JSON_NEO_PATH_PART, getNeoPathPart().getValueAsString());
-		} catch (JSONException e) {}
-		return jobj.toString();
+		return getNeoPathPart().getValueAsString();
+//		JSONObject jobj = new JSONObject();
+//		try {
+//			jobj.put(Constants.JSON_NEO_PATH_PART, getNeoPathPart().getValueAsString());
+//		} catch (JSONException e) {}
+//		return jobj.toString();
 	}
 
 	@Override

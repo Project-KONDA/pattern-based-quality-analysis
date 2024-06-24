@@ -20,6 +20,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 
@@ -158,16 +159,21 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		EList<NeoPathPart> newPathParts = new BasicEList<NeoPathPart>();
 		JSONArray array;
 		try {
 			array = new JSONArray(value);
+			if (array.length() < 2)
+				throw new InvalidityException(Constants.INVALID_VALUE + ": Not enough items");
+			
 			for (int i = 0; i < array.length(); i++) {
-				array.get(i);
-				
+				newPathParts.add(NeoPathPartImpl.createNewNeoPathPart(array.get(i).toString()));
 			}
 		} catch (JSONException e) {
 			throw new InvalidityException("Invalid value", e);
 		}
+		getNeoPathParts().clear();
+		getNeoPathParts().addAll(newPathParts);
 	}
 
 	@Override

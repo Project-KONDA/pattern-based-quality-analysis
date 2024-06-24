@@ -12,6 +12,7 @@ import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
@@ -54,13 +55,7 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	        }
 		}
 		catch (JSONException e){
-			value = value.trim();
-			String trimmed = value.substring(1, value.length() - 1);
-	        String[] values = trimmed.split(",");
-	        for (String val: values) {
-	        	String v = val.trim().replaceAll("\"",  "").trim();
-	        	newVals.add(v);
-	        }
+			throw new InvalidityException(Constants.INVALID_VALUE, e);
 		}
 		setValueIfValid(newVals);	
 	}
