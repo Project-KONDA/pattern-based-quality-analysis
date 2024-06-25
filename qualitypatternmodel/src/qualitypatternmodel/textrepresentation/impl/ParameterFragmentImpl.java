@@ -22,6 +22,7 @@ import org.json.JSONObject;
 
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoNodeLabelsParamImpl;
+import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionrdf.impl.IriListParamImpl;
 import qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
@@ -1015,6 +1016,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return Constants.PARAMETER_TYPE_IRI_LIST;
 		} else if (type.equals(RdfPathParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_RDF_PATH;
+		} else if (type.equals(NeoNodeLabelsParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_NEO_NODE_LABEL;
+		} else if (type.equals(NeoElementPathParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_NEO_ELEMENT_PATH;
+		} else if (type.equals(NeoPropertyPathParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_NEO_PROPERTY_PATH;
 		}
 		ServletUtilities.log("No Role for class " + type.getSimpleName());
 		return "";
@@ -1057,18 +1064,15 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			
 			for(Parameter p : getParameter()) {
 				String value;
-				try {
-					value = p.getValueAsString();
-				} catch (NullPointerException e) {
-					value = null;
-				}
+				value = p.getValueAsString();
 				EClass myEClass = p.eClass();
-				
-				if(!value.equals(firstValue))
-					throw new InvalidityException("Referenced parameters have different values '" + value + "' != '" + firstValue + "'");
 				
 				if(!myEClass.equals(firstEClass))
 					throw new InvalidityException("Referenced parameters have different types ");
+				if (firstValue != null && value != null) {
+					if(value == null || !value.equals(firstValue))
+						throw new InvalidityException("Referenced parameters have different values '" + value + "' != '" + firstValue + "'");
+				}
 			}
 		}
 	}

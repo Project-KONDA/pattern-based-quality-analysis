@@ -47,6 +47,7 @@ public class Constants {
 	public static final String PARAMETER_TYPE_IRI_LIST = "IriList";
 	public static final String PARAMETER_TYPE_NEO_NODE_LABEL = "NeoNodeLabel";
 	public static final String PARAMETER_TYPE_NEO_ELEMENT_PATH = "NeoElementPath";
+	public static final String PARAMETER_TYPE_NEO_PROPERTY_PATH = "NeoPropertyPath";
 	
 	// JSON variables
 	public static final String JSON_TEMPLATE = "template";
