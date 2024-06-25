@@ -985,7 +985,18 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 */
 	@Override
 	public String getRole() {
-		Class<?> type = getParameter().get(0).getClass();
+		if (getParameter() == null || getParameter().isEmpty())
+			return null;
+		String role = getRole(getParameter().get(0));
+		if (role == null || role.equals(""))
+			ServletUtilities.log("No Role for class " + getParameter().get(0).getClass().getSimpleName());
+		return role;
+	}
+	
+	public static String getRole(Parameter param) {
+		if (param == null)
+			return null;
+		Class<?> type = param.getClass();
 		if (type.equals(DateParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_DATE;			
 		} else if(type.equals(TimeParamImpl.class)) {
@@ -1007,7 +1018,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		} else if (type.equals(TypeOptionParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_TYPE;
 		} else if (type.equals(XmlPathParamImpl.class)) {
-			XmlNavigation nav = ((XmlPathParamImpl) getParameter().get(0)).getXmlNavigation();
+			XmlNavigation nav = ((XmlPathParamImpl) param).getXmlNavigation();
 			if (nav instanceof XmlPropertyNavigation)
 				return Constants.PARAMETER_TYPE_PROPERTY;
 			if (nav instanceof XmlElementNavigation)
@@ -1024,7 +1035,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return Constants.PARAMETER_TYPE_NEO_PROPERTY_PATH;
 		}
 		ServletUtilities.log("No Role for class " + type.getSimpleName());
-		return "";
+		return null;
+		
 	}
 	
 	/**

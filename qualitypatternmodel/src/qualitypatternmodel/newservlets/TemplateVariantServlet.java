@@ -17,10 +17,12 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.PatternText;
+import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 import qualitypatternmodel.utility.Constants;
 
@@ -150,12 +152,32 @@ public class TemplateVariantServlet extends HttpServlet {
 		if (pattern == null)
 			throw new FailedServletCallException("Requested template '" + templateId + "' does not exist");
 		
-		JSONArray array = new JSONArray();
-		
+		JSONArray parameter = new JSONArray();
+		int i = 0;
+		for (Parameter param: pattern.getParameterList().getParameters()) {
+			JSONObject paramobj = new JSONObject();
+			try {
+				paramobj.put("nr", i);
+				i++;
+				paramobj.put("class", param.getClass().getSimpleName());
+				paramobj.put("role", ParameterFragmentImpl.getRole(param));
+				if (param.getValueAsString() != null)
+					paramobj.put("value", param.getValueAsString());
+			} catch (JSONException e) {}
+			parameter.put(paramobj);
+		}
+
+		JSONArray variants = new JSONArray();
 		for (PatternText text: pattern.getText())
-			array.put(text.generateVariantJSONObject());
+			variants.put(text.generateVariantJSONObject());
 		
-		return array.toString();
+		JSONObject result = new JSONObject();
+		try {
+			result.put("variants", variants);
+			result.put("parameter", parameter);
+		} catch (JSONException e) {}
+		
+		return result.toString();
 	}
 	
 	public static String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
@@ -276,14 +298,17 @@ public class TemplateVariantServlet extends HttpServlet {
 		JSONArray failed = new JSONArray();
 	
 		for (String variantName: variants) {
+			boolean done = true;
 			for (PatternText text: pattern.getText()) {
 				if (variantName.equals(text.getName())) {
 					text.delete();
 					success.put(text.getName());
+					done = true;
 					break;
 				}
 			}
-			failed.put(variantName);
+			if (!done)
+				failed.put(variantName);
 		}
 				
 		// 5 save template
