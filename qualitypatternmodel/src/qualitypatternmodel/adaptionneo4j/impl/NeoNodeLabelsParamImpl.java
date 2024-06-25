@@ -51,6 +51,7 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 			JSONArray jarray = new JSONArray(value);
 	        for (int i = 0; i<jarray.length();i++) {
 	        	String v = jarray.getString(i);
+	        	checkLabel(v);
 	        	newVals.add(v);
 	        }
 		}

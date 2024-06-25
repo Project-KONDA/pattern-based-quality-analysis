@@ -31,7 +31,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.KeyValueParam;
-import qualitypatternmodel.parameters.impl.KeyValueParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
@@ -358,9 +357,10 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				setNeoTargetNodeLabels(targets);
 			}
 			if (object.has(Constants.JSON_NEO_KEYVALUE)) {
-				KeyValueParam keyvalue = new KeyValueParamImpl();
-				keyvalue.setValueFromString(object.get(Constants.JSON_NEO_KEYVALUE).toString());
-				setKeyValueParam(keyvalue);
+				throw new InvalidityException("KeyValueParams are not supported");
+//				KeyValueParam keyvalue = new KeyValueParamImpl();
+//				keyvalue.setValueFromString(object.get(Constants.JSON_NEO_KEYVALUE).toString());
+//				setKeyValueParam(keyvalue);
 			}
 		} catch (JSONException e) {
 			throw new InvalidityException("Invalid Value ", e);
@@ -371,11 +371,11 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	public String getValueAsString() {
 		JSONObject object = new JSONObject();
 		try {
-			if (getNeoEdgeLabel() != null)
-					object.put(Constants.JSON_NEO_EDGE, getNeoEdgeLabel().getValueAsString().toString());
-			if (getNeoTargetNodeLabels() != null)
+			if (getNeoEdgeLabel() != null && getNeoEdgeLabel().getValueAsString() != null)
+				object.put(Constants.JSON_NEO_EDGE, getNeoEdgeLabel().getValueAsString().toString());
+			if (getNeoTargetNodeLabels() != null && getNeoTargetNodeLabels().getValueAsString() != null)
 				object.put(Constants.JSON_NEO_TARGETS, getNeoTargetNodeLabels().getValueAsString().toString());
-			if (getNeoTargetNodeLabels() != null)
+			if (getKeyValueParam() != null && getKeyValueParam().getValueAsString() != null)
 				object.put(Constants.JSON_NEO_KEYVALUE, getKeyValueParam().getValueAsString().toString());
 		} catch (JSONException e) {}
 		return object.toString();
