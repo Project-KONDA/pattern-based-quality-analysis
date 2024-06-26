@@ -378,6 +378,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			if (getKeyValueParam() != null && getKeyValueParam().getValueAsString() != null)
 				object.put(Constants.JSON_NEO_KEYVALUE, getKeyValueParam().getValueAsString().toString());
 		} catch (JSONException e) {}
+		if (object.length() < 1)
+			return null;
 		return object.toString();
 	}
 

@@ -150,7 +150,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 	public boolean inputIsValid() {
 		try {
 			getNeoPathPart().isValid(AbstractionLevel.CONCRETE);
-			return true; 
+			return true;
 		} catch (Exception e) {
 			return false;
 		}
@@ -158,10 +158,13 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 
 	@Override
 	public String getValueAsString() {
+		if (getNeoPathPart() == null)
+			return null;
 		return getNeoPathPart().getValueAsString();
 //		JSONObject jobj = new JSONObject();
 //		try {
-//			jobj.put(Constants.JSON_NEO_PATH_PART, getNeoPathPart().getValueAsString());
+//			if (getNeoPathPart() != null)
+//				jobj.put(Constants.JSON_NEO_PATH_PART, getNeoPathPart().getValueAsString());
 //		} catch (JSONException e) {}
 //		return jobj.toString();
 	}

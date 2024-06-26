@@ -79,8 +79,13 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	public String getValueAsString() {
 		JSONObject jobj = new JSONObject();
 		try {
-			jobj.put(Constants.JSON_NEO_PATH_PART, getNeoPathPart().getValueAsString());
+			if (getNeoPathPart() != null)
+				jobj.put(Constants.JSON_NEO_PATH_PART, getNeoPathPart().getValueAsString());
+			if (getNeoPropertyName() != null)
+				jobj.put(Constants.JSON_NEO_PROPERTY_NAME, getNeoPropertyName().getValueAsString());
 		} catch (JSONException e) {}
+		if (jobj.length() < 1)
+			return null;
 		return jobj.toString();
 	}
 

@@ -182,9 +182,13 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 
 	@Override
 	public String getValueAsString() {
+		if (getNeoPathParts() == null)
+			return null;
 		JSONArray array = new JSONArray();
-		for (NeoPathPart part: neoPathParts)
+		for (NeoPathPart part: getNeoPathParts())
 			array.put(part.getValueAsString());
+		if (array.length() < 1)
+			return null;
 		return array.toString();
 	}
 
