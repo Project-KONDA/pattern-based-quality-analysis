@@ -633,6 +633,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		case Constants.JSON_USERVALUE:
 			setUserValue(attValue);
 			return true;
+		case Constants.JSON_CLEAR:
+			clearValue();
+			return true;
 //		case "absolutePath":
 //			// check if parameter is really of type XmlPathParam
 //			Parameter p = getParameter().get(0);
@@ -688,6 +691,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	public void clearValue() {
 		for(Parameter p : getParameter())
 			p.clear();
+		setUserValue(null);
 	}
 
 	@Override

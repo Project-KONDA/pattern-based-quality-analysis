@@ -236,7 +236,7 @@ public class EMFModelLoad {
 			try {
 				patterns.add(loadCompletePattern(path + "/" + file));
 			} catch (Exception e) {
-				System.out.println("Failed to load pattern: " + path + "/" + file +"." + extension);
+				System.out.println("Failed to load pattern: " + path + "/" + file);
 				e.printStackTrace();
 			}
 		}
