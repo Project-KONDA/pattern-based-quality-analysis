@@ -152,19 +152,19 @@ public class TemplateVariantServlet extends HttpServlet {
 		if (pattern == null)
 			throw new FailedServletCallException("Requested template '" + templateId + "' does not exist");
 		
-		JSONArray parameter = new JSONArray();
+		JSONObject parameter = new JSONObject();
 		int i = 0;
 		for (Parameter param: pattern.getParameterList().getParameters()) {
-			JSONObject paramobj = new JSONObject();
 			try {
-				paramobj.put("nr", i);
-				i++;
-				paramobj.put("class", param.getClass().getSimpleName());
-				paramobj.put("role", ParameterFragmentImpl.getRole(param));
-				if (param.getValueAsString() != null)
-					paramobj.put("value", param.getValueAsString());
+//				JSONObject paramobj = new JSONObject();
+//				paramobj.put(Constants.JSON_TYPE, param.getClass().getSimpleName());
+//				paramobj.put(Constants.JSON_ROLE, ParameterFragmentImpl.getRole(param));
+//				if (param.getValueAsString() != null)
+//					paramobj.put(Constants.JSON_VALUE, param.getValueAsString());
+//				parameter.put(Integer.toString(i), paramobj);
+				parameter.put(Integer.toString(i), ParameterFragmentImpl.getRole(param));
 			} catch (JSONException e) {}
-			parameter.put(paramobj);
+			i++;
 		}
 
 		JSONArray variants = new JSONArray();
@@ -173,8 +173,8 @@ public class TemplateVariantServlet extends HttpServlet {
 		
 		JSONObject result = new JSONObject();
 		try {
-			result.put("variants", variants);
-			result.put("parameter", parameter);
+			result.put(Constants.JSON_VARIANTS, variants);
+			result.put(Constants.JSON_PARAMETER, parameter);
 		} catch (JSONException e) {}
 		
 		return result.toString();
