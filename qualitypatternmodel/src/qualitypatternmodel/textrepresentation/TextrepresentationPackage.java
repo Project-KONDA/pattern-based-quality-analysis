@@ -195,13 +195,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT___GENERATE_JSON_OBJECT = 7;
 
 	/**
+	 * The operation id for the '<em>Generate Variant JSON Object</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT___GENERATE_VARIANT_JSON_OBJECT = 8;
+
+	/**
 	 * The number of operations of the '<em>Pattern Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT_OPERATION_COUNT = 8;
+	int PATTERN_TEXT_OPERATION_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.FragmentImpl <em>Fragment</em>}' class.
@@ -268,13 +277,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int FRAGMENT___GENERATE_JSON_OBJECT = 3;
 
 	/**
+	 * The operation id for the '<em>Generate Variant JSON Object</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT___GENERATE_VARIANT_JSON_OBJECT = 4;
+
+	/**
 	 * The number of operations of the '<em>Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FRAGMENT_OPERATION_COUNT = 4;
+	int FRAGMENT_OPERATION_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl <em>Parameter Fragment</em>}' class.
@@ -431,13 +449,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL = FRAGMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Generate Variant JSON Object</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT___GENERATE_VARIANT_JSON_OBJECT = FRAGMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The operation id for the '<em>Get Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT___GET_TYPE = FRAGMENT_OPERATION_COUNT + 1;
+	int PARAMETER_FRAGMENT___GET_TYPE = FRAGMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Role</em>' operation.
@@ -446,7 +473,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT___GET_ROLE = FRAGMENT_OPERATION_COUNT + 2;
+	int PARAMETER_FRAGMENT___GET_ROLE = FRAGMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Set Value</em>' operation.
@@ -455,7 +482,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT___SET_VALUE__STRING = FRAGMENT_OPERATION_COUNT + 3;
+	int PARAMETER_FRAGMENT___SET_VALUE__STRING = FRAGMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Value</em>' operation.
@@ -464,7 +491,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT___GET_VALUE = FRAGMENT_OPERATION_COUNT + 4;
+	int PARAMETER_FRAGMENT___GET_VALUE = FRAGMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Set Default Value Map</em>' operation.
@@ -473,7 +500,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT___SET_DEFAULT_VALUE_MAP__STRING = FRAGMENT_OPERATION_COUNT + 5;
+	int PARAMETER_FRAGMENT___SET_DEFAULT_VALUE_MAP__STRING = FRAGMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Set Attribute Value</em>' operation.
@@ -482,7 +509,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT___SET_ATTRIBUTE_VALUE__STRING_STRING = FRAGMENT_OPERATION_COUNT + 6;
+	int PARAMETER_FRAGMENT___SET_ATTRIBUTE_VALUE__STRING_STRING = FRAGMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get Attribute Value</em>' operation.
@@ -491,7 +518,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT___GET_ATTRIBUTE_VALUE__STRING = FRAGMENT_OPERATION_COUNT + 7;
+	int PARAMETER_FRAGMENT___GET_ATTRIBUTE_VALUE__STRING = FRAGMENT_OPERATION_COUNT + 8;
+
+	/**
+	 * The operation id for the '<em>Clear Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT___CLEAR_VALUE = FRAGMENT_OPERATION_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Parameter Fragment</em>' class.
@@ -500,7 +536,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT_OPERATION_COUNT = FRAGMENT_OPERATION_COUNT + 8;
+	int PARAMETER_FRAGMENT_OPERATION_COUNT = FRAGMENT_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.TextFragmentImpl <em>Text Fragment</em>}' class.
@@ -576,6 +612,15 @@ public interface TextrepresentationPackage extends EPackage {
 	int TEXT_FRAGMENT___GENERATE_JSON_OBJECT = FRAGMENT___GENERATE_JSON_OBJECT;
 
 	/**
+	 * The operation id for the '<em>Generate Variant JSON Object</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FRAGMENT___GENERATE_VARIANT_JSON_OBJECT = FRAGMENT___GENERATE_VARIANT_JSON_OBJECT;
+
+	/**
 	 * The number of operations of the '<em>Text Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -623,13 +668,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_REFERENCE___IS_VALID__ABSTRACTIONLEVEL = 0;
 
 	/**
+	 * The operation id for the '<em>Generate Variant JSON Object</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE___GENERATE_VARIANT_JSON_OBJECT = 1;
+
+	/**
 	 * The number of operations of the '<em>Parameter Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_REFERENCE_OPERATION_COUNT = 1;
+	int PARAMETER_REFERENCE_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.ParameterPredefinitionImpl <em>Parameter Predefinition</em>}' class.
@@ -676,6 +730,15 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_PREDEFINITION___IS_VALID__ABSTRACTIONLEVEL = PARAMETER_REFERENCE___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Generate Variant JSON Object</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_PREDEFINITION___GENERATE_VARIANT_JSON_OBJECT = PARAMETER_REFERENCE___GENERATE_VARIANT_JSON_OBJECT;
 
 	/**
 	 * The number of operations of the '<em>Parameter Predefinition</em>' class.
@@ -769,13 +832,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int VALUE_MAP___ADD_ALL__MAP = 4;
 
 	/**
+	 * The operation id for the '<em>Generate Variant JSON Object</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_MAP___GENERATE_VARIANT_JSON_OBJECT = 5;
+
+	/**
 	 * The number of operations of the '<em>Value Map</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_MAP_OPERATION_COUNT = 5;
+	int VALUE_MAP_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '<em>Object Wrapper</em>' data type.
@@ -924,6 +996,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternText__GenerateJSONObject();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#generateVariantJSONObject() <em>Generate Variant JSON Object</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Variant JSON Object</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#generateVariantJSONObject()
+	 * @generated
+	 */
+	EOperation getPatternText__GenerateVariantJSONObject();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}' operation.
@@ -1124,6 +1206,16 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getParameterFragment__GetAttributeValue__String();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#clearValue() <em>Clear Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clear Value</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#clearValue()
+	 * @generated
+	 */
+	EOperation getParameterFragment__ClearValue();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.Fragment <em>Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1183,6 +1275,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getFragment__GenerateJSONObject();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.Fragment#generateVariantJSONObject() <em>Generate Variant JSON Object</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Variant JSON Object</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.Fragment#generateVariantJSONObject()
+	 * @generated
+	 */
+	EOperation getFragment__GenerateVariantJSONObject();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.TextFragment <em>Text Fragment</em>}'.
@@ -1256,6 +1358,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameterReference__IsValid__AbstractionLevel();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterReference#generateVariantJSONObject() <em>Generate Variant JSON Object</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Variant JSON Object</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ParameterReference#generateVariantJSONObject()
+	 * @generated
+	 */
+	EOperation getParameterReference__GenerateVariantJSONObject();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.ValueMap <em>Value Map</em>}'.
@@ -1338,6 +1450,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getValueMap__AddAll__Map();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#generateVariantJSONObject() <em>Generate Variant JSON Object</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Variant JSON Object</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#generateVariantJSONObject()
+	 * @generated
+	 */
+	EOperation getValueMap__GenerateVariantJSONObject();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Object Wrapper</em>}'.
@@ -1484,6 +1606,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_TEXT___GENERATE_JSON_OBJECT = eINSTANCE.getPatternText__GenerateJSONObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Variant JSON Object</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_TEXT___GENERATE_VARIANT_JSON_OBJECT = eINSTANCE.getPatternText__GenerateVariantJSONObject();
 
 		/**
 		 * The meta object literal for the '<em><b>Delete</b></em>' operation.
@@ -1640,6 +1770,14 @@ public interface TextrepresentationPackage extends EPackage {
 		EOperation PARAMETER_FRAGMENT___GET_ATTRIBUTE_VALUE__STRING = eINSTANCE.getParameterFragment__GetAttributeValue__String();
 
 		/**
+		 * The meta object literal for the '<em><b>Clear Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_FRAGMENT___CLEAR_VALUE = eINSTANCE.getParameterFragment__ClearValue();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.FragmentImpl <em>Fragment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1688,6 +1826,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation FRAGMENT___GENERATE_JSON_OBJECT = eINSTANCE.getFragment__GenerateJSONObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Variant JSON Object</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation FRAGMENT___GENERATE_VARIANT_JSON_OBJECT = eINSTANCE.getFragment__GenerateVariantJSONObject();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.TextFragmentImpl <em>Text Fragment</em>}' class.
@@ -1750,6 +1896,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER_REFERENCE___IS_VALID__ABSTRACTIONLEVEL = eINSTANCE.getParameterReference__IsValid__AbstractionLevel();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Variant JSON Object</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_REFERENCE___GENERATE_VARIANT_JSON_OBJECT = eINSTANCE.getParameterReference__GenerateVariantJSONObject();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.ValueMapImpl <em>Value Map</em>}' class.
@@ -1816,6 +1970,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation VALUE_MAP___ADD_ALL__MAP = eINSTANCE.getValueMap__AddAll__Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Variant JSON Object</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_MAP___GENERATE_VARIANT_JSON_OBJECT = eINSTANCE.getValueMap__GenerateVariantJSONObject();
 
 		/**
 		 * The meta object literal for the '<em>Object Wrapper</em>' data type.

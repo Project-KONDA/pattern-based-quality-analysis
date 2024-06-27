@@ -5,6 +5,7 @@ package qualitypatternmodel.textrepresentation;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
+import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -42,4 +43,12 @@ public interface ParameterReference extends EObject {
 	EList<Parameter> getParameter();
 
 	void isValid(AbstractionLevel abstractionLevel) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
+	 * @generated
+	 */
+	JSONObject generateVariantJSONObject();
 } // ParameterReference

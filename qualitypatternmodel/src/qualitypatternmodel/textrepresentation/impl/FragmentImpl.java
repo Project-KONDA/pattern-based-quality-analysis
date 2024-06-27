@@ -130,6 +130,14 @@ public abstract class FragmentImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	abstract public JSONObject generateVariantJSONObject();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -250,6 +258,8 @@ public abstract class FragmentImpl extends MinimalEObjectImpl.Container implemen
 				}
 			case TextrepresentationPackage.FRAGMENT___GENERATE_JSON_OBJECT:
 				return generateJSONObject();
+			case TextrepresentationPackage.FRAGMENT___GENERATE_VARIANT_JSON_OBJECT:
+				return generateVariantJSONObject();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

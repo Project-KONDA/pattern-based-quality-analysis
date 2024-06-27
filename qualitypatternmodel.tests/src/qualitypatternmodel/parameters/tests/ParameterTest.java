@@ -22,6 +22,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.parameters.Parameter#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getOptionsAsJsonArray() <em>Get Options As Json Array</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#clear() <em>Clear</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -161,6 +162,19 @@ public abstract class ParameterTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGenerateDescription() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#clear() <em>Clear</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.Parameter#clear()
+	 * @generated
+	 */
+	public void testClear() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

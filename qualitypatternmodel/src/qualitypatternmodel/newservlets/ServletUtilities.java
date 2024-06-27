@@ -291,14 +291,18 @@ public abstract class ServletUtilities {
 		log("OUTPUT: " + text);
 	}
 	
-	public static void logError(Exception ex) {
+	public static void logError(Throwable th) {
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
-        printWriter.println(ex.getMessage());
-        for (StackTraceElement element : ex.getStackTrace()) {
+        printWriter.println(th.getMessage());
+		for (StackTraceElement element : th.getStackTrace()) {
             printWriter.println("    " + element.toString());
         }
         log("ERROR: " + stringWriter.toString());
+		if(th.getCause() != null) {
+			log("CAUSED BY");
+			logError(th.getCause());
+		}
 	}
 
 	public static void logCall(String clazz, String path, Map<String, String[]> params) {

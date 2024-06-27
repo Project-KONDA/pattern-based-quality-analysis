@@ -196,10 +196,12 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			if (xmlPropertyOptionParam != null) {
 				throw new InvalidityException("propertyOptionParam is existent for XmlNavigation" + xmlPropertyOptionParam.generateXQuery());
 			}
-			if (xmlAxisParts == null)
-				throw new InvalidityException("axisPart is null");
-			if (xmlAxisParts.isEmpty())
-				throw new InvalidityException("axisPart is empty");
+			if (abstractionLevel == AbstractionLevel.CONCRETE) {
+				if (xmlAxisParts == null)
+					throw new InvalidityException("axisPart is null");
+				if (xmlAxisParts.isEmpty())
+					throw new InvalidityException("axisPart is empty");
+			}
 		}
 	}
 
@@ -779,6 +781,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 				case ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY: return AdaptionxmlPackage.XML_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY;
 				case ParametersPackage.PARAMETER___GET_OPTIONS_AS_JSON_ARRAY: return AdaptionxmlPackage.XML_PATH_PARAM___GET_OPTIONS_AS_JSON_ARRAY;
 				case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION: return AdaptionxmlPackage.XML_PATH_PARAM___GENERATE_DESCRIPTION;
+				case ParametersPackage.PARAMETER___CLEAR: return AdaptionxmlPackage.XML_PATH_PARAM___CLEAR;
 				default: return -1;
 			}
 		}
@@ -848,6 +851,9 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 				return getOptionsAsJsonArray();
 			case AdaptionxmlPackage.XML_PATH_PARAM___GENERATE_DESCRIPTION:
 				return generateDescription();
+			case AdaptionxmlPackage.XML_PATH_PARAM___CLEAR:
+				clear();
+				return null;
 			case AdaptionxmlPackage.XML_PATH_PARAM___CREATE_PARAMETERS:
 				createParameters();
 				return null;
@@ -881,6 +887,19 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		return null;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void clear() {
+		if (getXmlAxisParts() != null)
+			getXmlAxisParts().clear();
+		if (getXmlPropertyOptionParam() != null)
+			getXmlPropertyOptionParam().clear();
+	}
+
 	@Override
 	public boolean isUsed() {
 		return getXmlNavigation() != null;
@@ -894,7 +913,10 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	@Override
 	public String getValueAsString() {
 		try {
-			return generateXQuery();
+			String query = generateXQuery(); 
+			if (query == "")
+				return null;
+			return query;
 		} catch (InvalidityException e) {
 			return null;
 		}

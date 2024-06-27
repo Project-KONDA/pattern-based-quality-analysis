@@ -261,4 +261,12 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	 */
 	String getAttributeValue(String attName) throws InvalidityException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void clearValue();
+
 } // ParameterFragment

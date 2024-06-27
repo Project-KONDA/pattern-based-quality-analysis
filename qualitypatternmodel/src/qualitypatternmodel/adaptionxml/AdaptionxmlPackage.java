@@ -4960,6 +4960,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_OPTION_PARAM___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_OPTION_PARAM___CLEAR = ParametersPackage.PARAMETER___CLEAR;
+
+	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5436,6 +5445,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY_OPTION_PARAM___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_OPTION_PARAM___CLEAR = ParametersPackage.PARAMETER___CLEAR;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -5915,13 +5933,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM___GENERATE_DESCRIPTION = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 9;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___CLEAR = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 10;
+
+	/**
 	 * The operation id for the '<em>Set Xml Axis</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 10;
+	int XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Add Xml Axis</em>' operation.
@@ -5930,7 +5957,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___ADD_XML_AXIS__XMLAXISKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 11;
+	int XML_PATH_PARAM___ADD_XML_AXIS__XMLAXISKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Set Xml Axis</em>' operation.
@@ -5939,7 +5966,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 12;
+	int XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Set Xml Axis</em>' operation.
@@ -5948,7 +5975,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING_1 = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 13;
+	int XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING_1 = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Specify Axis</em>' operation.
@@ -5957,7 +5984,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___SPECIFY_AXIS__XMLAXISKIND_XMLPROPERTYKIND_STRING_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 14;
+	int XML_PATH_PARAM___SPECIFY_AXIS__XMLAXISKIND_XMLPROPERTYKIND_STRING_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 15;
 
 	/**
 	 * The number of operations of the '<em>Xml Path Param</em>' class.
@@ -5966,7 +5993,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 15;
+	int XML_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 16;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl <em>Xml Axis Part</em>}' class.
@@ -6420,13 +6447,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART___GENERATE_DESCRIPTION = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 9;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART___CLEAR = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 10;
+
+	/**
 	 * The operation id for the '<em>Get Next Xml Axis Pairs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___GET_NEXT_XML_AXIS_PAIRS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 10;
+	int XML_AXIS_PART___GET_NEXT_XML_AXIS_PAIRS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Get Previous Xml Axis Pairs</em>' operation.
@@ -6435,7 +6471,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___GET_PREVIOUS_XML_AXIS_PAIRS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 11;
+	int XML_AXIS_PART___GET_PREVIOUS_XML_AXIS_PAIRS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Infer Axis Suggestions</em>' operation.
@@ -6444,7 +6480,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___INFER_AXIS_SUGGESTIONS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 12;
+	int XML_AXIS_PART___INFER_AXIS_SUGGESTIONS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
@@ -6453,7 +6489,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 13;
+	int XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Infer Element Tag Suggestions From Incoming Relations</em>' operation.
@@ -6462,7 +6498,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 14;
+	int XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Infer Element Tag Suggestions From Outgoing Relations</em>' operation.
@@ -6471,7 +6507,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 15;
+	int XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Set Axis Option</em>' operation.
@@ -6480,7 +6516,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___SET_AXIS_OPTION__XMLAXISKIND = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 16;
+	int XML_AXIS_PART___SET_AXIS_OPTION__XMLAXISKIND = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Add Axis Condition</em>' operation.
@@ -6489,7 +6525,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 17;
+	int XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Add Axis Condition</em>' operation.
@@ -6498,7 +6534,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 18;
+	int XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 19;
 
 	/**
 	 * The number of operations of the '<em>Xml Axis Part</em>' class.
@@ -6507,7 +6543,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 19;
+	int XML_AXIS_PART_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' attribute list.
@@ -6995,6 +7031,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_AXIS_PART_CONDITION___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___CLEAR = ParametersPackage.PARAMETER___CLEAR;
 
 	/**
 	 * The number of operations of the '<em>Xml Axis Part Condition</em>' class.

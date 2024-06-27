@@ -889,6 +889,30 @@ paths:
         schema:
           type: string
 
+    get: #18
+      tags:
+        - template
+        - variant
+        - request
+      summary: Request variants of a template
+      description: Request variants of a template
+      operationId: getvariant
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Variant'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+
     put: #17
       tags:
         - template
@@ -896,7 +920,7 @@ paths:
         - post
       summary: Add a variant to a template
       description: Add a new variant to a specific template
-      operationId: variant
+      operationId: postvariant
       parameters:
         - name: variants
           in: query
@@ -921,6 +945,39 @@ paths:
           description: Not found
         '409':
           description: Conflict
+        '500':
+          description: Internal server error
+
+    delete: #19
+      tags:
+        - template
+        - variant
+        - request
+      summary: Request variants of a template
+      description: Request variants of a template
+      operationId: deletevariant
+      parameters:
+        - name: variants
+          in: query
+          description: specification of variant(s) to delete
+          required: true
+          style: deepObject
+          explode: true
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/VariantSpecification'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParameterResponse'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
         '500':
           description: Internal server error
 
@@ -1284,5 +1341,7 @@ components:
           type: string
         userValue:
           type: string
+        clear:
+          type: boolean
         <custom-attribute>:
           type: string

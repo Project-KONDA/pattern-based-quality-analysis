@@ -132,6 +132,11 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 		setValueIfValid(Boolean.parseBoolean(value));
 	}
 
+	@Override
+	public void clear() {
+		setValue(null);
+	}
+
 
 	@Override
 	public String generateXQuery() throws InvalidityException {

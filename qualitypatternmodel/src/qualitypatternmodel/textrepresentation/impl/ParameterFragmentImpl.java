@@ -581,13 +581,13 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			break;
 			
 		case "is":
-			map.put("true", "is");
-			map.put("false", "is not");
+			map.put(ComparisonOperator.EQUAL.getName(), "is");
+			map.put(ComparisonOperator.NOTEQUAL.getName(), "is not");
 			break;
 			
 		case "is not":
-			map.put("true", "is not");
-			map.put("false", "is");
+			map.put(ComparisonOperator.EQUAL.getName(), "is not");
+			map.put(ComparisonOperator.NOTEQUAL.getName(), "is");
 			break;
 			
 		case "do":
@@ -676,6 +676,17 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return getAttributeMap().get(attName);
 //			throw new InvalidityException("Attribute '" + attName + "' not found.");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void clearValue() {
+		for(Parameter p : getParameter())
+			p.clear();
 	}
 
 	@Override
@@ -822,6 +833,33 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}
 		} catch (JSONException e) {}
 		return json;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public JSONObject generateVariantJSONObject() {
+		JSONObject object = new JSONObject();
+		try {
+			object.put(Constants.JSON_NAME, getName());
+			object.put(Constants.JSON_PARAMETER, getName());
+			object.put(Constants.JSON_EXAMPLEVALUE, getName());
+			object.put(Constants.JSON_NEWID, getId());
+			
+			if (getDescription() != null && !getDescription().equals(""))
+				object.put(Constants.JSON_DESCRIPTION, getDescription());
+			
+			if (getValueMap() != null)
+				object.put(Constants.JSON_MAP, getValueMap().generateVariantJSONObject());
+			
+			if (isPlural())
+				object.put(Constants.JSON_PLURAL, true);
+			
+		}catch (Exception e) {}
+		return object;
 	}
 
 	
@@ -1260,6 +1298,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		if (baseClass == ParameterReference.class) {
 			switch (baseOperationID) {
 				case TextrepresentationPackage.PARAMETER_REFERENCE___IS_VALID__ABSTRACTIONLEVEL: return TextrepresentationPackage.PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL;
+				case TextrepresentationPackage.PARAMETER_REFERENCE___GENERATE_VARIANT_JSON_OBJECT: return TextrepresentationPackage.PARAMETER_FRAGMENT___GENERATE_VARIANT_JSON_OBJECT;
 				default: return -1;
 			}
 		}
@@ -1300,6 +1339,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___CLEAR_VALUE:
+				clearValue();
+				return null;
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL:
 				try {
 					isValid((AbstractionLevel)arguments.get(0));

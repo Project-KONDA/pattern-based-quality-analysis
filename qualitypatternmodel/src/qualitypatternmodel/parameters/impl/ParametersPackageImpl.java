@@ -462,6 +462,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getParameter__Clear() {
+		return parameterEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getComparisonOptionParam() {
 		return comparisonOptionParamEClass;
 	}
@@ -1240,6 +1250,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(parameterEClass, PARAMETER___CHECK_COMPARISON_CONSISTENCY);
 		createEOperation(parameterEClass, PARAMETER___GET_OPTIONS_AS_JSON_ARRAY);
 		createEOperation(parameterEClass, PARAMETER___GENERATE_DESCRIPTION);
+		createEOperation(parameterEClass, PARAMETER___CLEAR);
 
 		comparisonOptionParamEClass = createEClass(COMPARISON_OPTION_PARAM);
 		createEAttribute(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__OPTIONS);
@@ -1427,6 +1438,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEOperation(getParameter__GetOptionsAsJsonArray(), theTextrepresentationPackage.getJSONArrayWrapper(), "getOptionsAsJsonArray", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getParameter__GenerateDescription(), ecorePackage.getEString(), "generateDescription", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getParameter__Clear(), null, "clear", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(comparisonOptionParamEClass, ComparisonOptionParam.class, "ComparisonOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComparisonOptionParam_Options(), theOperatorsPackage.getComparisonOperator(), "options", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

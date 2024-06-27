@@ -103,6 +103,11 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 			return null;
 		return Double.toString(getValue());
 	}
+
+	@Override
+	public void clear() {
+		setValue(null);
+	}
 	
 	@Override
 	public String generateXQuery() throws InvalidityException {

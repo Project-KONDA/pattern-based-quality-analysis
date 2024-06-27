@@ -292,38 +292,34 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public boolean isUsed() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public void clear();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public String getValueAsString() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public boolean isUsed();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public void setValueFromString(String value) throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public String getValueAsString();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	abstract public void setValueFromString(String value) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -364,9 +360,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @generated NOT
 	 */
 	@Override
-	public void validateExampleValue(String val) throws InvalidityException {
-		
-	}
+	public void validateExampleValue(String val) throws InvalidityException {}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -543,6 +537,9 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return getOptionsAsJsonArray();
 			case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION:
 				return generateDescription();
+			case ParametersPackage.PARAMETER___CLEAR:
+				clear();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

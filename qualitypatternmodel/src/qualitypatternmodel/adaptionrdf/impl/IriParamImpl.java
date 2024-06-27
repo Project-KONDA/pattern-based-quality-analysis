@@ -143,6 +143,41 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 			throw new InvalidityException("invalid iri");
 		}
 	}
+
+	@Override
+	public String getValueAsString() {
+		if (prefix == null && suffix == null && uri == null)
+			return null;
+		try {
+			return generateSparql();
+		} catch (InvalidityException e) {
+			return null;
+		}
+	}
+	
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		if (value.matches("[a-z]+:[a-zA-Z0-9]+")) {
+			String[] parts = value.split(":");
+			if (parts.length == 2) {
+				setPrefix(parts[0]);
+				setSuffix(parts[1]);
+				return;
+			}
+		}
+		else if (value.matches("<[a-zA-A0-9]+>")) {
+			setUri(value.substring(1, value.length()-1));
+			return;
+		}
+		throw new InvalidityException("Value \"" + value + "\" not valid for IriParam");
+	}
+
+	@Override
+	public void clear() {
+		setPrefix(null);
+		setSuffix(null);
+		setUri(null);
+	}
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
@@ -155,15 +190,6 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 			return null;
 		} else {
 			return super.generateSparql();
-		}
-	}
-
-	@Override
-	public String getValueAsString() {
-		try {
-			return generateSparql();
-		} catch (InvalidityException e) {
-			return null;
 		}
 	}
 
@@ -264,24 +290,6 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 		uri = newUri;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.IRI_PARAM__URI, oldUri, uri));
-	}
-	
-
-	@Override
-	public void setValueFromString(String value) throws InvalidityException {
-		if (value.matches("[a-z]+:[a-zA-Z0-9]+")) {
-			String[] parts = value.split(":");
-			if (parts.length == 2) {
-				setPrefix(parts[0]);
-				setSuffix(parts[1]);
-				return;
-			}
-		}
-		else if (value.matches("<[a-zA-A0-9]+>")) {
-			setUri(value.substring(1, value.length()-1));
-			return;
-		}
-		throw new InvalidityException("Value \"" + value + "\" not valid for IriParam");
 	}
 
 	/**

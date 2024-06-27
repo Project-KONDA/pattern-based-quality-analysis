@@ -17,6 +17,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterReference#generateVariantJSONObject() <em>Generate Variant JSON Object</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -100,6 +101,19 @@ public class ParameterPredefinitionTest extends TestCase {
 	 * @generated
 	 */
 	public void testIsValid__AbstractionLevel() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.ParameterReference#generateVariantJSONObject() <em>Generate Variant JSON Object</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.ParameterReference#generateVariantJSONObject()
+	 * @generated
+	 */
+	public void testGenerateVariantJSONObject() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

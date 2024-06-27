@@ -21,6 +21,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#setDefaultValueMap(java.lang.String) <em>Set Default Value Map</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#setAttributeValue(java.lang.String, java.lang.String) <em>Set Attribute Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getAttributeValue(java.lang.String) <em>Get Attribute Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#clearValue() <em>Clear Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
  * </ul>
  * </p>
@@ -166,6 +167,19 @@ public class ParameterFragmentTest extends FragmentTest {
 	 * @generated
 	 */
 	public void testGetAttributeValue__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#clearValue() <em>Clear Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#clearValue()
+	 * @generated
+	 */
+	public void testClearValue() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

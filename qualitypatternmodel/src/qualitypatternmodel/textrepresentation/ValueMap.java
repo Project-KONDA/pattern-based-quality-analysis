@@ -8,6 +8,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -90,5 +91,13 @@ public interface ValueMap extends EObject {
 	 * @generated
 	 */
 	void addAll(Map<String, String> collection);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
+	 * @generated
+	 */
+	JSONObject generateVariantJSONObject();
 
 } // ValueMap

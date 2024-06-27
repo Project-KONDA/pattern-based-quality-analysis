@@ -152,6 +152,29 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 		}
 	}
 
+	@Override
+	public String getValueAsString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public boolean isUsed() {
+		return getNeoElementEdge() != null;
+	}
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * Creates the needed report description for the NeoElementPathParam. 
@@ -360,10 +383,5 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 	@Override
 	protected String getEdgeNaming() {
 		return ConstantsNeo.VARIABLE_ELEMENT_EGDE;
-	}
-	
-	@Override
-	public boolean isUsed() {
-		return getNeoElementEdge() != null;
 	}
 } //Neo4JPathParamImpl

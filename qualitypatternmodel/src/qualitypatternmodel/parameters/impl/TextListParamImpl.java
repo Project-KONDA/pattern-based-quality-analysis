@@ -32,7 +32,7 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	
 	@Override
 	public String getValueAsString() {
-		if (getValues() == null)
+		if (values == null)
 			return null;
 		JSONArray jarray = new JSONArray(getValues());
 		return jarray.toString();
@@ -58,6 +58,11 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	        	getValues().add(v);
 	        }
 		}
+	}
+
+	@Override
+	public void clear() {
+		values = null;
 	}
 	
 	@Override

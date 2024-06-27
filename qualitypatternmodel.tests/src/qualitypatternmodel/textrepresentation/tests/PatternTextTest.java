@@ -24,6 +24,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#instantiate() <em>Instantiate</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#generateSparqlTemplate() <em>Generate Sparql Template</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#generateJSONObject() <em>Generate JSON Object</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#generateVariantJSONObject() <em>Generate Variant JSON Object</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -198,6 +199,19 @@ public class PatternTextTest extends TestCase {
 	 * @generated
 	 */
 	public void testGenerateJSONObject() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#generateVariantJSONObject() <em>Generate Variant JSON Object</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.PatternText#generateVariantJSONObject()
+	 * @generated
+	 */
+	public void testGenerateVariantJSONObject() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
