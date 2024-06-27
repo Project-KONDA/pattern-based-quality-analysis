@@ -162,7 +162,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
             else if (hasText) {
             	String text = fragmentObject.getString(Constants.JSON_TEXT);
             	addFragment(new TextFragmentImpl(text));
-            } else throw new InvalidityException();
+            } else throw new InvalidityException("Fragment needs text or params and value or name!");
 		}
 		isValid(AbstractionLevel.ABSTRACT);
 	}

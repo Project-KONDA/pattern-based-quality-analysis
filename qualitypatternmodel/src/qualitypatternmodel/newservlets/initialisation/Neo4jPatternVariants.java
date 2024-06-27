@@ -19,7 +19,7 @@ public class Neo4jPatternVariants {
 				+ "{\"text\":\".\"}]}";
 	
 	
-	public static String[] CARD_NEO_VARIANTS = {};
+	public static String[] CARD_NEO_VARIANTS = {CARD_NEO_DEFAULT};
 	public static String[] CARD_NEO_VARIANTS_OLD = {};
 	
 	public static String MATCH_NEO_DEFAULT = 
@@ -37,7 +37,7 @@ public class Neo4jPatternVariants {
 				+ "{\"name\":\"a specific pattern\",\"params\":[1]},"
 				+ "{\"text\":\".\"}]}";
 	
-	static String[] MATCH_NEO_VARIANTS = {};
+	static String[] MATCH_NEO_VARIANTS = {MATCH_NEO_DEFAULT};
 	static String[] MATCH_NEO_VARIANTS_OLD = {};
 	
 	public static String CONTAINS_NEO_DEFAULT = 
@@ -54,7 +54,7 @@ public class Neo4jPatternVariants {
 				+ "{\"name\":\"a specific term\",\"params\":[1]},"
 				+ "{\"text\":\".\"}]}";
 	
-	static String[] CONTAINS_NEO_VARIANTS = {};
+	static String[] CONTAINS_NEO_VARIANTS = {CONTAINS_NEO_DEFAULT};
 	static String[] CONTAINS_NEO_VARIANTS_OLD = {};
 	
 	public static String STRINGLENGTH_NEO_DEFAULT = 
@@ -71,7 +71,7 @@ public class Neo4jPatternVariants {
 				+ "{\"name\":\"a specific number of\",\"params\":[1]},"
 				+ "{\"text\":\"characters in length.\"}]}";
 	
-	static String[] STRINGLENGTH_NEO_VARIANTS = {};
+	static String[] STRINGLENGTH_NEO_VARIANTS = {STRINGLENGTH_NEO_DEFAULT};
 	static String[] STRINGLENGTH_NEO_VARIANTS_OLD = {};
 	
 	public static String COMPSET_NEO_DEFAULT = 
@@ -88,7 +88,7 @@ public class Neo4jPatternVariants {
 				+ "{\"name\":\"terms\",\"params\":[0]},"
 				+ "{\"text\":\".\"}]}";
 
-	static String[] COMPSET_NEO_VARIANTS = {};
+	static String[] COMPSET_NEO_VARIANTS = {COMPSET_NEO_DEFAULT};
 	static String[] COMPSET_NEO_VARIANTS_OLD = {};
 	
 	public static String UNIQUE_NEO_DEFAULT = 
@@ -102,11 +102,11 @@ public class Neo4jPatternVariants {
 				+ "{\"name\":\"an neo property path\",\"params\":[4,5],\"exampleValue\":\"has\"},"
 				+ "{\"text\":\"is not unique within the data set.\"}]}";
 
-	static String[] UNIQUE_NEO_VARIANTS = {};
+	static String[] UNIQUE_NEO_VARIANTS = {UNIQUE_NEO_DEFAULT};
 	static String[] UNIQUE_NEO_VARIANTS_OLD = {};
 	
 	public static String MANDATT_NEO_DEFAULT = 
-			"{\"template\":\"Unique_neo4j\","
+			"{\"template\":\"MandAtt_neo4j\","
 			+ "\"language\":\"neo4j\","
 			+ "\"name\":\"default-antipattern\","
 			+ "\"fragments\":["
@@ -116,7 +116,7 @@ public class Neo4jPatternVariants {
 				+ "{\"name\":\"an neo property path\",\"params\":[1],\"exampleValue\":\"has\"},"
 				+ "{\"text\":\".\"}]}";
 
-	static String[] MANDATT_NEO_VARIANTS = {};
+	static String[] MANDATT_NEO_VARIANTS = {MANDATT_NEO_DEFAULT};
 	static String[] MANDATT_NEO_VARIANTS_OLD = {};
 
 }
