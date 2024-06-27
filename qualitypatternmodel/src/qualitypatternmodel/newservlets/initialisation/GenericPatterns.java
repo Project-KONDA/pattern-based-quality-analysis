@@ -124,15 +124,14 @@ public class GenericPatterns {
 
 	public static CompletePattern getGenericCard() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("Card_generic");
-		pattern.setAbstractId("Card_generic");
-		pattern.setName("Card");
-		pattern.setShortDescription("Cardinality Constraint");
-		pattern.setDescription("Check, wether the occurence count of specific elements apply.");
+		pattern.setPatternId(GenericPatternInformation.CARD_ID_GENERIC);
+		pattern.setAbstractId(GenericPatternInformation.CARD_ID_GENERIC);
+		pattern.setName(GenericPatternInformation.CARD_NAME);
+		pattern.setShortDescription(GenericPatternInformation.CARD_SHORTDESCR);
+		pattern.setDescription(GenericPatternInformation.CARD_DESCR);
 		
 		// Context graph of pattern:
 		Node returnNode = pattern.getGraph().getNodes().get(0).makeComplex();
-		returnNode.setName("RecordElement");
 		
 		// First-order logic condition of pattern:
 		CountCondition countCondition = PatternstructureFactory.eINSTANCE.createCountCondition();
@@ -149,7 +148,6 @@ public class GenericPatterns {
 		Node countReturn = returnNode.addOutgoing(countCondition.getCountPattern().getGraph()).getTarget().makePrimitive();
 //		countReturn = countReturn.makePrimitive();
 		countReturn = countReturn.makeComplex();
-		countReturn.setName("PropertyToCount");
 		countReturn.setReturnNode(true);
 		
 		pattern.isValid(AbstractionLevel.GENERIC);
@@ -158,11 +156,11 @@ public class GenericPatterns {
 	
 	public static CompletePattern getGenericComp() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("Comp_generic");
-		pattern.setAbstractId("Comp_generic");
-		pattern.setName("Comp");
-		pattern.setShortDescription("Comparison Pattern");
-		pattern.setDescription("Check, wether the occurence count of specific elements apply.");
+		pattern.setPatternId(GenericPatternInformation.COMP_ID_GENERIC);
+		pattern.setAbstractId(GenericPatternInformation.COMP_ID_GENERIC);
+		pattern.setName(GenericPatternInformation.COMP_NAME);
+		pattern.setShortDescription(GenericPatternInformation.COMP_SHORTDESCR);
+		pattern.setDescription(GenericPatternInformation.COMP_DESCR);
 		
 		Graph graph1 = pattern.getGraph();
 		Node returnNode = graph1.getReturnNodes().get(0).makeComplex();
@@ -186,11 +184,11 @@ public class GenericPatterns {
 	
 	public static CompletePattern getGenericCompSet() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("CompSet_generic");
-		pattern.setAbstractId("CompSet_generic");
-		pattern.setName("CompSet");
-		pattern.setShortDescription("Comparison Pattern with Set");
-		pattern.setDescription("Check, wether the vallue of fields are within a list of allowed (/forbidden) wo.");
+		pattern.setPatternId(GenericPatternInformation.COMPSET_ID_GENERIC);
+		pattern.setAbstractId(GenericPatternInformation.COMPSET_ID_GENERIC);
+		pattern.setName(GenericPatternInformation.COMPSET_NAME);
+		pattern.setShortDescription(GenericPatternInformation.COMPSET_SHORTDESCR);
+		pattern.setDescription(GenericPatternInformation.COMPSET_DESCR);
 		
 		Graph graph1 = pattern.getGraph();
 		Node returnNode = graph1.getReturnNodes().get(0).makeComplex();
@@ -215,11 +213,11 @@ public class GenericPatterns {
 	
 	public static CompletePattern getGenericFunc() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("Func_generic");
-		pattern.setAbstractId("Func_generic");
-		pattern.setName("Func");
-		pattern.setShortDescription("Functional Dependency Constraint");
-		pattern.setDescription("Validate a dependency between two subordinate fields is valid in comparison to data records next to it.");
+		pattern.setPatternId(GenericPatternInformation.FUNC_ID_GENERIC);
+		pattern.setAbstractId(GenericPatternInformation.FUNC_ID_GENERIC);
+		pattern.setName(GenericPatternInformation.FUNC_NAME);
+		pattern.setShortDescription(GenericPatternInformation.FUNC_SHORTDESCR);
+		pattern.setDescription(GenericPatternInformation.FUNC_DESCR);
 		
 		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		
@@ -254,11 +252,11 @@ public class GenericPatterns {
 	
 	public static CompletePattern getGenericUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("Unique_generic");
-		pattern.setAbstractId("Unique_generic");
-		pattern.setName("Unique");
-		pattern.setShortDescription("Uniqueness Constraint");
-		pattern.setDescription("Check, whether a value is unique within the dataset.");
+		pattern.setPatternId(GenericPatternInformation.UNIQUE_ID_GENERIC);
+		pattern.setAbstractId(GenericPatternInformation.UNIQUE_ID_GENERIC);
+		pattern.setName(GenericPatternInformation.UNIQUE_NAME);
+		pattern.setShortDescription(GenericPatternInformation.UNIQUE_SHORTDESCR);
+		pattern.setDescription(GenericPatternInformation.UNIQUE_DESCR);
 		
 //		NotCondition notCon = PatternstructureFactory.eINSTANCE.createNotCondition();
 //		pattern.setCondition(notCon);
@@ -286,11 +284,11 @@ public class GenericPatterns {
 	
 	public static CompletePattern getGenericMatch() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("Match_generic");
-		pattern.setAbstractId("Match_generic");
-		pattern.setName("Match");
-		pattern.setShortDescription("Regular Expression Check");
-		pattern.setDescription("Check, whether a value matches a specific regular expression.");
+		pattern.setPatternId(GenericPatternInformation.MATCH_ID_GENERIC);
+		pattern.setAbstractId(GenericPatternInformation.MATCH_ID_GENERIC);
+		pattern.setName(GenericPatternInformation.MATCH_NAME);
+		pattern.setShortDescription(GenericPatternInformation.MATCH_SHORTDESCR);
+		pattern.setDescription(GenericPatternInformation.MATCH_DESCR);
 		
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		
@@ -310,11 +308,11 @@ public class GenericPatterns {
 	
 	public static CompletePattern getGenericContains() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("Contains_generic");
-		pattern.setAbstractId("Contains_generic");
-		pattern.setName("Contains");
-		pattern.setShortDescription("Contains Check");
-		pattern.setDescription("Check, whether a value contains a specific substring.");
+		pattern.setPatternId(GenericPatternInformation.CONTAINS_ID_GENERIC);
+		pattern.setAbstractId(GenericPatternInformation.CONTAINS_ID_GENERIC);
+		pattern.setName(GenericPatternInformation.CONTAINS_NAME);
+		pattern.setShortDescription(GenericPatternInformation.CONTAINS_SHORTDESCR);
+		pattern.setDescription(GenericPatternInformation.CONTAINS_DESCR);
 		
 		// Context graph of pattern:
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -337,11 +335,11 @@ public class GenericPatterns {
 
 	public static CompletePattern getGenericAppdup2() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("Appdup2_generic");
-		pattern.setAbstractId("Appdup2_generic");
-		pattern.setName("Appdup2");
-		pattern.setShortDescription("Approximate Duplicate based on two attributes");
-		pattern.setDescription("Check whether there are records that have the same value in two important attributes, suggesting that they describe the same real-world object.");
+		pattern.setPatternId(GenericPatternInformation.APPDUP2_ID_GENERIC);
+		pattern.setAbstractId(GenericPatternInformation.APPDUP2_ID_GENERIC);
+		pattern.setName(GenericPatternInformation.APPDUP2_NAME);
+		pattern.setShortDescription(GenericPatternInformation.APPDUP2_SHORTDESCR);
+		pattern.setDescription(GenericPatternInformation.APPDUP2_DESCR);
 		
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		pattern.getGraph().getReturnNodes().get(0).setName("main");
@@ -373,11 +371,11 @@ public class GenericPatterns {
 
 	public static CompletePattern getGenericAppdup3() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = getGenericAppdup2();
-		pattern.setPatternId("Appdup3_generic");
-		pattern.setAbstractId("Appdup3_generic");
-		pattern.setName("Appdup3");
-		pattern.setShortDescription("Approximate Duplicate based on three attributes");
-		pattern.setDescription("Check whether there are records that have the same value in three important attributes, suggesting that they describe the same real-world object.");
+		pattern.setPatternId(GenericPatternInformation.APPDUP3_ID_GENERIC);
+		pattern.setAbstractId(GenericPatternInformation.APPDUP3_ID_GENERIC);
+		pattern.setName(GenericPatternInformation.APPDUP3_NAME);
+		pattern.setShortDescription(GenericPatternInformation.APPDUP3_SHORTDESCR);
+		pattern.setDescription(GenericPatternInformation.APPDUP3_DESCR);
 		
 		Graph g0 = pattern.getGraph();
 		QuantifiedCondition qc1 = (QuantifiedCondition) pattern.getCondition();
@@ -395,11 +393,11 @@ public class GenericPatterns {
 	
 	public static CompletePattern getGenericDupVal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("DupVal_generic");
-		pattern.setAbstractId("DupVal_generic");
-		pattern.setName("DupVal");
-		pattern.setShortDescription("Duplicate value");
-		pattern.setDescription("Check whether a record has the same value in two distinct fields.");
+		pattern.setPatternId(GenericPatternInformation.DUPVAL_ID_GENERIC);
+		pattern.setAbstractId(GenericPatternInformation.DUPVAL_ID_GENERIC);
+		pattern.setName(GenericPatternInformation.DUPVAL_NAME);
+		pattern.setShortDescription(GenericPatternInformation.DUPVAL_SHORTDESCR);
+		pattern.setDescription(GenericPatternInformation.DUPVAL_DESCR);
 		
 		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
@@ -437,11 +435,11 @@ public class GenericPatterns {
 
 	public static CompletePattern getGenericInvalidLink() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("InvalidLink_generic");
-		pattern.setAbstractId("InvalidLink_generic");
-		pattern.setName("InvalidLink");
-		pattern.setShortDescription("Invalid Link");
-		pattern.setDescription("Check whether a record an invalid link in a field.");
+		pattern.setPatternId(GenericPatternInformation.INVALIDLINK_ID_GENERIC);
+		pattern.setAbstractId(GenericPatternInformation.INVALIDLINK_ID_GENERIC);
+		pattern.setName(GenericPatternInformation.INVALIDLINK_NAME);
+		pattern.setShortDescription(GenericPatternInformation.INVALIDLINK_SHORTDESCR);
+		pattern.setDescription(GenericPatternInformation.INVALIDLINK_DESCR);
 
 		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
@@ -461,11 +459,11 @@ public class GenericPatterns {
 	
 	public static CompletePattern getGenericMandAtt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("MandAtt_generic");
-		pattern.setAbstractId("MandAtt_generic");
-		pattern.setName("MandAtt");
-		pattern.setShortDescription("Mandatory Attribute");
-		pattern.setDescription("Check whether a record has a mandatory field.");
+		pattern.setPatternId(GenericPatternInformation.MANDATT_ID_GENERIC);
+		pattern.setAbstractId(GenericPatternInformation.MANDATT_ID_GENERIC);
+		pattern.setName(GenericPatternInformation.MANDATT_NAME);
+		pattern.setShortDescription(GenericPatternInformation.MANDATT_SHORTDESCR);
+		pattern.setDescription(GenericPatternInformation.MANDATT_DESCR);
 
 		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
@@ -482,11 +480,11 @@ public class GenericPatterns {
 	
 	public static CompletePattern getGenericStringLength() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("StringLength_generic");
-		pattern.setAbstractId("StringLength_generic");
-		pattern.setName("StringLength");
-		pattern.setShortDescription("String value length restriction");
-		pattern.setDescription("Check whether all field values comply to the length restriction.");
+		pattern.setPatternId(GenericPatternInformation.STRINGLENGTH_ID_GENERIC);
+		pattern.setAbstractId(GenericPatternInformation.STRINGLENGTH_ID_GENERIC);
+		pattern.setName(GenericPatternInformation.STRINGLENGTH_NAME);
+		pattern.setShortDescription(GenericPatternInformation.STRINGLENGTH_SHORTDESCR);
+		pattern.setDescription(GenericPatternInformation.STRINGLENGTH_DESCR);
 
 		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
@@ -508,11 +506,11 @@ public class GenericPatterns {
 	
 	public static CompletePattern getGenericCompVal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId("CompVal_generic");
-		pattern.setAbstractId("CompVal_generic");
-		pattern.setName("CompVal");
-		pattern.setShortDescription("");
-		pattern.setDescription("Check whether all values of a specific field within a record does comply to a value restriction.");
+		pattern.setPatternId(GenericPatternInformation.COMPVAL_ID_GENERIC);
+		pattern.setAbstractId(GenericPatternInformation.COMPVAL_ID_GENERIC);
+		pattern.setName(GenericPatternInformation.COMPVAL_NAME);
+		pattern.setShortDescription(GenericPatternInformation.COMPVAL_SHORTDESCR);
+		pattern.setDescription(GenericPatternInformation.COMPVAL_DESCR);
 
 		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
@@ -531,59 +529,59 @@ public class GenericPatterns {
 	
 //	public static CompletePattern getGenericLocalUnique() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-//		pattern.setPatternId("LocalUnique_generic");
-//		pattern.setAbstractId("LocalUnique_generic");
-//		pattern.setName("LocalUnique");
-//		pattern.setShortDescription("Local Unique Attribute Value");
-//		pattern.setDescription("Check whether all field values are unique within a record.");
+//		pattern.setPatternId(GenericPatternInformation.LOCALUNIQUE_ID_GENERIC);
+//		pattern.setAbstractId(GenericPatternInformation.LOCALUNIQUE_ID_GENERIC);
+//		pattern.setName(GenericPatternInformation.LOCALUNIQUE_NAME);
+//		pattern.setShortDescription(GenericPatternInformation.LOCALUNIQUE_SHORTDESCR);
+//		pattern.setDescription(GenericPatternInformation.LOCALUNIQUE_DESCR);
 //		// TODO
 //		pattern.isValid(AbstractionLevel.GENERIC);
 //		return pattern;
 //	}
-	
+//	
 //	public static CompletePattern getGenericCompValAny() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-//		pattern.setPatternId("CompValAny_generic");
-//		pattern.setAbstractId("CompValAny_generic");
-//		pattern.setName("CompValAny");
-//		pattern.setShortDescription("");
-//		pattern.setDescription("Check whether any value of a specific field within a record does comply to a value restriction.");
+//		pattern.setPatternId(GenericPatternInformation.COMPVALANY_ID_GENERIC);
+//		pattern.setAbstractId(GenericPatternInformation.COMPVALANY_ID_GENERIC);
+//		pattern.setName(GenericPatternInformation.COMPVALANY_NAME);
+//		pattern.setShortDescription(GenericPatternInformation.COMPVALANY_SHORTDESCR);
+//		pattern.setDescription(GenericPatternInformation.COMPVALANY_DESCR);
 //		// TODO
 //		pattern.isValid(AbstractionLevel.GENERIC);
 //		return pattern;
 //	}
-	
+//	
 //	public static CompletePattern getGenericCardImpliesMandAtt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-//		pattern.setPatternId("CardImpliesMandAtt_generic");
-//		pattern.setAbstractId("CardImpliesMandAtt_generic");
-//		pattern.setName("CardImpliesMandAtt");
-//		pattern.setShortDescription("Mandatory Attribute based on Cardinality Constraint");
-//		pattern.setDescription("Check whether a attribute exists, that is mandatory on specific cardinalities of a field.");
+//		pattern.setPatternId(GenericPatternInformation.CARDIMPLIESMANDATT_ID_GENERIC);
+//		pattern.setAbstractId(GenericPatternInformation.CARDIMPLIESMANDATT_ID_GENERIC);
+//		pattern.setName(GenericPatternInformation.CARDIMPLIESMANDATT_NAME);
+//		pattern.setShortDescription(GenericPatternInformation.CARDIMPLIESMANDATT_SHORTDESCR);
+//		pattern.setDescription(GenericPatternInformation.CARDIMPLIESMANDATT_DESCR);
 //		// TODO
 //		pattern.isValid(AbstractionLevel.GENERIC);
 //		return pattern;
 //	}
-	
+//	
 //	public static CompletePattern getGenericCheckFormat() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-//		pattern.setPatternId("CheckFormat_generic");
-//		pattern.setAbstractId("CheckFormat_generic");
-//		pattern.setName("CheckFormat");
-//		pattern.setShortDescription("Check the format of a resource.");
-//		pattern.setDescription("Check if the ressource under an URL is of a specific format.");
+//		pattern.setPatternId(GenericPatternInformation.CHECKFORMAT_ID_GENERIC);
+//		pattern.setAbstractId(GenericPatternInformation.CHECKFORMAT_ID_GENERIC);
+//		pattern.setName(GenericPatternInformation.CHECKFORMAT_NAME);
+//		pattern.setShortDescription(GenericPatternInformation.CHECKFORMAT_SHORTDESCR);
+//		pattern.setDescription(GenericPatternInformation.CHECKFORMAT_DESCR);
 //		// TODO
 //		pattern.isValid(AbstractionLevel.GENERIC);
 //		return pattern;
 //	}
-	
+//	
 //	public static CompletePattern getGenericCompDatabase() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-//		pattern.setPatternId("CompDatabase_generic");
-//		pattern.setAbstractId("CompDatabase_generic");
-//		pattern.setName("CompDatabase");
-//		pattern.setShortDescription("Fieldvalue in Database");
-//		pattern.setDescription("Check whether all values in a field are in a database.");
+//		pattern.setPatternId(GenericPatternInformation.COMPDATABASE_ID_GENERIC);
+//		pattern.setAbstractId(GenericPatternInformation.COMPDATABASE_ID_GENERIC);
+//		pattern.setName(GenericPatternInformation.COMPDATABASE_NAME);
+//		pattern.setShortDescription(GenericPatternInformation.COMPDATABASE_SHORTDESCR);
+//		pattern.setDescription(GenericPatternInformation.COMPDATABASE_DESCR);
 //		// TODO
 //		pattern.isValid(AbstractionLevel.GENERIC);
 //		return pattern;
