@@ -4,11 +4,9 @@ package qualitypatternmodel.adaptionneo4j.impl;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
@@ -23,26 +21,7 @@ import qualitypatternmodel.utility.ConstantsNeo;
  * @generated
  */
 public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNodeLabelsParam {
-	private static final String OF_LABEL = " of Label";
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NeoNodeLabelsParamImpl() {
-		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return Adaptionneo4jPackage.Literals.NEO_NODE_LABELS_PARAM;
-	}
+//	private static final String OF_LABEL = " of Label";
 	
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
@@ -84,16 +63,9 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	 */
 	@Override
 	public void addStringValue(String value) throws InvalidityException {
-		if (value == null) {
-			return;
-		}
-		if (this.values == null) {
-			this.values = new BasicEList<String>();
-		}
-		if (!this.values.contains(value)) {
+		if (value != null)
 			checkLabel(value);
-			this.values.add(value);
-		}
+		super.addStringValue(value);
 	}
 	
 	/**
@@ -103,20 +75,9 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	 */
 	@Override
 	public void setValueIfValid(EList<String> newValue) throws InvalidityException {
-		if (newValue == null) {
-			getValues().clear();
-			return;
-		}
-		for (String tempValue : newValue) {
-			try {
-				checkLabel(tempValue);
-			} catch (InvalidityException e) {
-				throw new InvalidityException(e.getMessage() + OF_LABEL + tempValue);
-			}
-		}
-		EList<String> oldValue = getValues();
-		oldValue.clear();	
-		oldValue.addAll(newValue);
+		for (String value: newValue)
+			checkLabel(value);
+		super.setValueIfValid(newValue);
 	}
 	
 	@Override
