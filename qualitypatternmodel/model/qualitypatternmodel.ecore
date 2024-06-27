@@ -1289,6 +1289,7 @@
         </eParameters>
       </eOperations>
       <eOperations name="generateVariantJSONObject" eType="#//textrepresentation/JSONObjectWrapper"/>
+      <eOperations name="clear"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="keys" upperBound="-1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"

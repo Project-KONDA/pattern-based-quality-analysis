@@ -203,6 +203,17 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void clear() {
+		getKeys().clear();
+		getValues().clear();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -294,6 +305,9 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 				return null;
 			case TextrepresentationPackage.VALUE_MAP___GENERATE_VARIANT_JSON_OBJECT:
 				return generateVariantJSONObject();
+			case TextrepresentationPackage.VALUE_MAP___CLEAR:
+				clear();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
