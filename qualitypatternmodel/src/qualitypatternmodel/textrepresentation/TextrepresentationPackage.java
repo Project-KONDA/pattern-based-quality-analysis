@@ -841,13 +841,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int VALUE_MAP___GENERATE_VARIANT_JSON_OBJECT = 5;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_MAP___CLEAR = 6;
+
+	/**
 	 * The number of operations of the '<em>Value Map</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_MAP_OPERATION_COUNT = 6;
+	int VALUE_MAP_OPERATION_COUNT = 7;
 
 	/**
 	 * The meta object id for the '<em>Object Wrapper</em>' data type.
@@ -1462,6 +1471,16 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getValueMap__GenerateVariantJSONObject();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#clear() <em>Clear</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clear</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#clear()
+	 * @generated
+	 */
+	EOperation getValueMap__Clear();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Object Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1978,6 +1997,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation VALUE_MAP___GENERATE_VARIANT_JSON_OBJECT = eINSTANCE.getValueMap__GenerateVariantJSONObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Clear</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_MAP___CLEAR = eINSTANCE.getValueMap__Clear();
 
 		/**
 		 * The meta object literal for the '<em>Object Wrapper</em>' data type.

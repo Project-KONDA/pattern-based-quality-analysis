@@ -691,6 +691,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		for(Parameter p : getParameter())
 			p.clear();
 		setUserValue(null);
+		getAttributeMap().clear();
 	}
 
 	@Override
