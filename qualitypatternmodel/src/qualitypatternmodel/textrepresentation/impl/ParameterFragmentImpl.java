@@ -852,17 +852,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	}
 	
 	private JSONArray getOptionValues() {
-		System.out.println("HERE");
 		JSONArray array;
-		if (getValueMap() != null) {
+		if (getValueMap() != null)
 			array = getValueMap().getValuesAsJsonArray();
-			System.out.println("VM: " + array);
-		}	
-		else {
+		else
 			array = getParameter().get(0).getOptionsAsJsonArray();
-			System.out.println("PO: " + array);
-		}
-			
 		return array;
 	}
 
