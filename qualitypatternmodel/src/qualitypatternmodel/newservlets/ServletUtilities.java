@@ -166,7 +166,6 @@ public abstract class ServletUtilities {
 		try {
 			json.put(Constants.JSON_PATTERNID, pattern.getPatternId());
 			json.put(Constants.JSON_NAME, pattern.getName());
-			json.put(Constants.JSON_SHORTDESCRIPTION, pattern.getShortDescription());
 			json.put(Constants.JSON_DESCRIPTION, pattern.getDescription());
 			json.put(Constants.JSON_LANGUAGE, pattern.getLanguage());
 			if (pattern.getDatabaseName() != null)
@@ -223,7 +222,6 @@ public abstract class ServletUtilities {
 		try {
 			json.put("patternID", pattern.getPatternId());
 			json.put("name", pattern.getName());
-			json.put("shortDescription", pattern.getShortDescription());
 			json.put("description", pattern.getDescription());
 		} catch (JSONException e) {}
 		return json;

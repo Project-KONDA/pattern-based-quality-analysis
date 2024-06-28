@@ -56,7 +56,6 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 			addNamePropertyDescriptor(object);
 			addAbstractIdPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addShortDescriptionPropertyDescriptor(object);
 			addLanguagePropertyDescriptor(object);
 			addDataModelNamePropertyDescriptor(object);
 			addDatabaseNamePropertyDescriptor(object);
@@ -172,28 +171,6 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 				 getString("_UI_CompletePattern_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_description_feature", "_UI_CompletePattern_type"),
 				 PatternstructurePackage.Literals.COMPLETE_PATTERN__DESCRIPTION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Short Description feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addShortDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CompletePattern_shortDescription_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_shortDescription_feature", "_UI_CompletePattern_type"),
-				 PatternstructurePackage.Literals.COMPLETE_PATTERN__SHORT_DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -473,7 +450,6 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
 			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_ID:
 			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
-			case PatternstructurePackage.COMPLETE_PATTERN__SHORT_DESCRIPTION:
 			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
 			case PatternstructurePackage.COMPLETE_PATTERN__DATA_MODEL_NAME:
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE_NAME:

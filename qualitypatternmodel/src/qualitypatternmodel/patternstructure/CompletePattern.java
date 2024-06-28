@@ -31,7 +31,6 @@ import qualitypatternmodel.textrepresentation.PatternText;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractId <em>Abstract Id</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDescription <em>Description</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getLanguage <em>Language</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDataModelName <em>Data Model Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabaseName <em>Database Name</em>}</li>
@@ -394,28 +393,6 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void setDescription(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Short Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Short Description</em>' attribute.
-	 * @see #setShortDescription(String)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_ShortDescription()
-	 * @model
-	 * @generated
-	 */
-	String getShortDescription();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getShortDescription <em>Short Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Short Description</em>' attribute.
-	 * @see #getShortDescription()
-	 * @generated
-	 */
-	void setShortDescription(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

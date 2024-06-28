@@ -62,7 +62,6 @@ public class Constants {
 	public static final String JSON_PARAMETER = "params";
 	public static final String JSON_EXAMPLEVALUE = "exampleValue";
 	public static final String JSON_DESCRIPTION = "description";
-	public static final String JSON_SHORTDESCRIPTION = "shortDescription";
 	public static final String JSON_NEWID = "newId";
 	public static final String JSON_MAP = "map";
 	public static final String JSON_DEFAULTMAP = "defaultMap";
