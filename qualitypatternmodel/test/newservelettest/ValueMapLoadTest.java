@@ -20,7 +20,7 @@ import qualitypatternmodel.utility.EMFModelSave;
 public class ValueMapLoadTest {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException, JSONException {
-		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCard(), Language.XML,
+		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCard(), Language.XML, "Card_xml", 
 				Map.of(2, "//*", 3, "/*"), 
 				XmlPatternVariants.CARD_XML_VARIANTS, 
 				XmlPatternVariants.CARD_XML_VARIANTS_OLD);

@@ -27,6 +27,7 @@ public class RdfPatterns {
 
 		try {
 			patterns.add(GenericPatterns.getConcrete(GenericPatterns.getGenericCard(), Language.RDF,
+					GenericPatternInformation.CARD_ID_RDF,
 					Map.of(), 
 					RdfPatternVariants.CARD_RDF_VARIANTS, 
 					RdfPatternVariants.CARD_RDF_VARIANTS_OLD));
@@ -36,6 +37,7 @@ public class RdfPatterns {
 
 		try {
 			patterns.add(GenericPatterns.getConcrete(GenericPatterns.getGenericMandAtt(), Language.RDF,
+					GenericPatternInformation.MANDATT_ID_RDF,
 					Map.of(), 
 					RdfPatternVariants.MANDATT_RDF_VARIANTS, 
 					RdfPatternVariants.MANDATT_RDF_VARIANTS_OLD));
@@ -45,6 +47,7 @@ public class RdfPatterns {
 
 		try {
 			patterns.add(GenericPatterns.getConcrete(GenericPatterns.getGenericMatch(), Language.RDF,
+					GenericPatternInformation.MATCH_ID_RDF,
 					Map.of(), 
 					RdfPatternVariants.MATCH_RDF_VARIANTS, 
 					RdfPatternVariants.MATCH_RDF_VARIANTS_OLD));
@@ -54,6 +57,7 @@ public class RdfPatterns {
 
 		try {
 			patterns.add(GenericPatterns.getConcrete(GenericPatterns.getGenericContains(), Language.RDF,
+					GenericPatternInformation.CONTAINS_ID_RDF,
 					Map.of(), 
 					RdfPatternVariants.CONTAINS_RDF_VARIANTS, 
 					RdfPatternVariants.CONTAINS_RDF_VARIANTS_OLD));
@@ -63,6 +67,7 @@ public class RdfPatterns {
 
 		try {
 			patterns.add(GenericPatterns.getConcrete(GenericPatterns.getGenericStringLength(), Language.RDF,
+					GenericPatternInformation.STRINGLENGTH_ID_RDF,
 					Map.of(), 
 					RdfPatternVariants.STRINGLENGTH_RDF_VARIANTS, 
 					RdfPatternVariants.STRINGLENGTH_RDF_VARIANTS_OLD));
@@ -72,6 +77,7 @@ public class RdfPatterns {
 
 		try {
 			patterns.add(GenericPatterns.getConcrete(GenericPatterns.getGenericCompSet(), Language.RDF,
+					GenericPatternInformation.COMPSET_ID_RDF,
 					Map.of(), 
 					RdfPatternVariants.COMPSET_RDF_VARIANTS, 
 					RdfPatternVariants.COMPSET_RDF_VARIANTS_OLD));
@@ -81,6 +87,7 @@ public class RdfPatterns {
 
 		try {
 			patterns.add(GenericPatterns.getConcrete(GenericPatterns.getGenericUnique(), Language.RDF,
+					GenericPatternInformation.UNIQUE_ID_RDF,
 					Map.of(), 
 					RdfPatternVariants.UNIQUE_RDF_VARIANTS, 
 					RdfPatternVariants.UNIQUE_RDF_VARIANTS_OLD));

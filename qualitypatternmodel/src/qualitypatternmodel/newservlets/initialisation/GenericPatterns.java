@@ -71,7 +71,7 @@ public class GenericPatterns {
 		return patterns;
 	}
 
-	public static CompletePattern getConcrete(CompletePattern pattern, Language lan, Map<Integer, String> values, String[] variants, String[] oldvariants) 
+	public static CompletePattern getConcrete(CompletePattern pattern, Language lan, String new_id, Map<Integer, String> values, String[] variants, String[] oldvariants) 
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (pattern.getLanguage() != Language.GENERIC)
 			throw new InvalidityException("Pattern '" + pattern.getName() + "' is not generic.");
@@ -90,9 +90,8 @@ public class GenericPatterns {
 			throw new InvalidityException("Invalid Language");
 		}
 		
-		String name = pattern.getName();
-		pattern.setPatternId(name + "_" + lan.getLiteral());
-		pattern.setAbstractId(name + "_" + lan.getLiteral());
+		pattern.setAbstractId(pattern.getPatternId());
+		pattern.setPatternId(new_id);
 		List<Parameter> params = pattern.getParameterList().getParameters();
 		
 		if (XmlPatterns.AXIS && values != null)

@@ -24,7 +24,7 @@ public class VariantJsonTest {
 			}
 			
 			pattern = GenericPatterns.getGenericCard();
-			pattern = GenericPatterns.getConcrete(pattern, Language.XML,
+			pattern = GenericPatterns.getConcrete(pattern, Language.XML, "Card_xml", 
 					Map.of(), 
 					XmlPatternVariants.CARD_XML_VARIANTS, 
 					XmlPatternVariants.CARD_XML_VARIANTS_OLD);
@@ -44,6 +44,7 @@ public class VariantJsonTest {
 			
 			pattern = GenericPatterns.getGenericCard();
 			pattern = GenericPatterns.getConcrete(pattern, Language.RDF,
+					"Card_rdf",
 					Map.of(), 
 					RdfPatternVariants.CARD_RDF_VARIANTS, 
 					RdfPatternVariants.CARD_RDF_VARIANTS_OLD);
@@ -63,6 +64,7 @@ public class VariantJsonTest {
 			
 			pattern = GenericPatterns.getGenericCard();
 			pattern = GenericPatterns.getConcrete(pattern, Language.NEO4J,
+					"Card_neo4j",
 					Map.of(), 
 					Neo4jPatternVariants.CARD_NEO_VARIANTS, 
 					Neo4jPatternVariants.CARD_NEO_VARIANTS_OLD);

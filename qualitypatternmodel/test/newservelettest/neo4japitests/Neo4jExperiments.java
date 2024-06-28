@@ -44,7 +44,7 @@ public class Neo4jExperiments {
 	}
 
 	public static boolean testSaveLoad(boolean set) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
-		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCard(), Language.NEO4J, Map.of(), new String[] {}, new String[] {});
+		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCard(), Language.NEO4J, "Card_neo4j", Map.of(), new String[] {}, new String[] {});
 		
 		EList<Parameter> params = pattern.getParameterList().getParameters();
 		ComparisonOptionParam comp = (ComparisonOptionParam) params.get(0);
@@ -106,7 +106,7 @@ public class Neo4jExperiments {
 //					+ "{\"text\":\".\"}]}";
 //		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCard(), Language.NEO4J, Map.of(), new String[] {neodefault}, new String[] {});
 
-		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCard(), Language.NEO4J, Map.of(), new String[] {}, new String[] {});
+		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCard(), Language.NEO4J, "Card_neo4j", Map.of(), new String[] {}, new String[] {});
 //		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericContains(), Language.NEO4J, Map.of(), new String[] {}, new String[] {});
 		
 		EList<Parameter> params = pattern.getParameterList().getParameters();
@@ -138,7 +138,7 @@ public class Neo4jExperiments {
 	}
 	
 	private static boolean testXmlList() throws IOException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCompSet(), Language.XML, Map.of(), new String[] {}, new String[] {});
+		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCompSet(), Language.XML, "Comp_xml", Map.of(), new String[] {}, new String[] {});
 		return testSaveAndLoad(pattern);
 	}
 	
