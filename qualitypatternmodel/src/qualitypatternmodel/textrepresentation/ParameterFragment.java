@@ -240,10 +240,10 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void setDefaultValueMap(String name);
+	void setDefaultValueMap(String name) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -559,7 +559,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	}
 	
 	@Override
-	public void setDefaultValueMap(String name) {
+	public void setDefaultValueMap(String name) throws InvalidityException {
 		ValueMap map = new ValueMapImpl();
 		
 		switch(name) {
@@ -581,14 +581,24 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			map.put(ComparisonOperator.LESSOREQUAL.getName(), "more than");
 			break;
 			
-		case "is":
+		case "comparison_is":
 			map.put(ComparisonOperator.EQUAL.getName(), "is");
 			map.put(ComparisonOperator.NOTEQUAL.getName(), "is not");
 			break;
 			
-		case "is not":
+		case "comparison_isnot":
 			map.put(ComparisonOperator.EQUAL.getName(), "is not");
 			map.put(ComparisonOperator.NOTEQUAL.getName(), "is");
+			break;
+			
+		case "is":
+			map.put("true", "is");
+			map.put("false", "is not");
+			break;
+			
+		case "is not":
+			map.put("true", "is not");
+			map.put("false", "is");
 			break;
 			
 		case "do":
@@ -610,6 +620,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			map.put("true", "does not");
 			map.put("false", "does");
 			break;
+
+		default:
+			throw new InvalidityException("No default value map for '" + name + "'");
 		}
 		
 		setValueMap(map);
@@ -794,10 +807,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				json.put(Constants.JSON_PLURAL, plural);
 			
 			if (getType().equals(Constants.PARAMETER_TYPE_ENUMERATION)) {
-				if (getValueMap() != null)
-					json.put(Constants.JSON_OPTIONS, getValueMap().getValuesAsJsonArray());
-				else 
-					json.put(Constants.JSON_OPTIONS, parameter.getOptionsAsJsonArray());
+				json.put(Constants.JSON_OPTIONS, getOptionValues());
 			}
 			for (String key: getAttributeMap().getKeys()) {
 				json.put(key, getAttributeMap().get(key));
@@ -839,6 +849,21 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}
 		} catch (JSONException e) {}
 		return json;
+	}
+	
+	private JSONArray getOptionValues() {
+		System.out.println("HERE");
+		JSONArray array;
+		if (getValueMap() != null) {
+			array = getValueMap().getValuesAsJsonArray();
+			System.out.println("VM: " + array);
+		}	
+		else {
+			array = getParameter().get(0).getOptionsAsJsonArray();
+			System.out.println("PO: " + array);
+		}
+			
+		return array;
 	}
 
 	/**
@@ -1349,8 +1374,13 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_VALUE:
 				return getValue();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_DEFAULT_VALUE_MAP__STRING:
-				setDefaultValueMap((String)arguments.get(0));
-				return null;
+				try {
+					setDefaultValueMap((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_ATTRIBUTE_VALUE__STRING_STRING:
 				return setAttributeValue((String)arguments.get(0), (String)arguments.get(1));
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_ATTRIBUTE_VALUE__STRING:

@@ -81,7 +81,7 @@ public class RdfPatternVariants {
 				+ "{\"name\":\"elements\",\"params\":[3],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\",\"plural\":\"true\"},"
 				+ "{\"text\":\"where at least one property reached by\"},"
 				+ "{\"name\":\"an rdf property path\",\"params\":[4],\"exampleValue\":\"has\"},"
-				+ "{\"name\":\"is / is not\",\"params\":[1], \"exampleValue\":\"exactly\", \"defaultMap\":\"is\"},"
+				+ "{\"name\":\"is / is not\",\"params\":[1], \"exampleValue\":\"exactly\", \"defaultMap\":\"comparison_is\"},"
 				+ "{\"text\":\"in the list of\"},"
 				+ "{\"name\":\"terms\",\"params\":[0]},"
 				+ "{\"text\":\".\"}]}";

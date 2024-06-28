@@ -1032,6 +1032,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		op = initEOperation(getParameterFragment__SetDefaultValueMap__String(), null, "setDefaultValueMap", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getParameterFragment__SetAttributeValue__String_String(), ecorePackage.getEBoolean(), "setAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "attName", 0, 1, IS_UNIQUE, IS_ORDERED);

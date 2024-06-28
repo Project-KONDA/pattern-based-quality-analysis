@@ -189,7 +189,7 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"elements\",\"params\":[3],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\", \"plural\": \"true\"},"
 				+ "{\"text\":\", each\"},"
 				+ "{\"name\":\"property\",\"params\":[4],\"exampleValue\":\"Surname\",\"description\":\"value that gets analysed\"},"
-				+ "{\"name\":\"is/is not\",\"params\":[1],\"exampleValue\":\"is\",”defaultMap”:”is not”},"
+				+ "{\"name\":\"is/is not\",\"params\":[1],\"exampleValue\":\"is\",”defaultMap”:”comparison_isnot”},"
 				+ "{\"text\":\"in the list of\"},"
 				+ "{\"name\":\"terms\",\"params\":[0],\"exampleValue\": \"Mueller, Meier\"},"
 				+ "{\"text\":\".\"}]}";
@@ -203,7 +203,7 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"elements\",\"params\":[3],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\", \"plural\": \"true\"},"
 				+ "{\"text\":\"where at least one\"},"
 				+ "{\"name\":\"property\",\"params\":[4],\"exampleValue\":\"Surname\",\"description\":\"value that gets analysed\"},"
-				+ "{\"name\":\"is / is not\",\"params\":[1],\"exampleValue\":\"is\",\"defaultMap\":\"is\"},"
+				+ "{\"name\":\"is / is not\",\"params\":[1],\"exampleValue\":\"is\",\"defaultMap\":\"comparison_is\"},"
 				+ "{\"text\":\"in the list of\"},"
 				+ "{\"name\":\"terms\",\"params\":[0],\"exampleValue\": \"Mueller, Meier\"},"
 				+ "{\"text\":\".\"}]}";
@@ -217,7 +217,7 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"elements\",\"params\":[3],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\", \"plural\": \"true\"},"
 				+ "{\"text\":\"where at least one value in\"},"
 				+ "{\"name\":\"property\",\"params\":[4],\"exampleValue\":\"Surname\",\"description\":\"value that gets analysed\"},"
-				+ "{\"name\":\"is / is not\",\"params\":[1],\"exampleValue\":\"is\",\"defaultMap\":\"is\"},"
+				+ "{\"name\":\"is / is not\",\"params\":[1],\"exampleValue\":\"is\",\"defaultMap\":\"comparison_isnot\"},"
 				+ "{\"text\":\"in the list:\"},"
 				+ "{\"name\":\"terms\",\"params\":[0],\"exampleValue\": \"Mueller, Meier\"}]}";
 
