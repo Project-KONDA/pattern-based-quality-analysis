@@ -100,4 +100,12 @@ public interface ValueMap extends EObject {
 	 */
 	JSONObject generateVariantJSONObject();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void clear();
+
 } // ValueMap

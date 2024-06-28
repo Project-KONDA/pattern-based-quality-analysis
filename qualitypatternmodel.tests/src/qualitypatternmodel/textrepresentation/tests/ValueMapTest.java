@@ -22,6 +22,7 @@ import qualitypatternmodel.textrepresentation.ValueMap;
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#getKey(java.lang.String) <em>Get Key</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#addAll(java.util.Map) <em>Add All</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#generateVariantJSONObject() <em>Generate Variant JSON Object</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#clear() <em>Clear</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -170,6 +171,19 @@ public class ValueMapTest extends TestCase {
 	 * @generated
 	 */
 	public void testGenerateVariantJSONObject() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.ValueMap#clear() <em>Clear</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#clear()
+	 * @generated
+	 */
+	public void testClear() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

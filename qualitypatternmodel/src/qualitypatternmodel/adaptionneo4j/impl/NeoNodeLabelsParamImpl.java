@@ -4,9 +4,11 @@ package qualitypatternmodel.adaptionneo4j.impl;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
@@ -23,6 +25,25 @@ import qualitypatternmodel.utility.ConstantsNeo;
 public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNodeLabelsParam {
 //	private static final String OF_LABEL = " of Label";
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NeoNodeLabelsParamImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return Adaptionneo4jPackage.Literals.NEO_NODE_LABELS_PARAM;
+	}
+
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		EList<String> newVals = new BasicEList<String>();
