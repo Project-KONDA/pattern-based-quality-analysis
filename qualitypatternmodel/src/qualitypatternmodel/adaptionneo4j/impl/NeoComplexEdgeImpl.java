@@ -10,6 +10,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
@@ -17,6 +20,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 
@@ -151,6 +155,41 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		} catch (Exception e) {
 			throw new InvalidityException(String.format(NEO_COMPLEX_PATH_CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS, getId()));
 		}
+	}
+
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		EList<NeoPathPart> newPathParts = new BasicEList<NeoPathPart>();
+		JSONArray array = null;
+		try {
+			array = new JSONArray(value);
+		} catch (JSONException e) {
+			throw new InvalidityException(Constants.INVALID_VALUE + " [" + value + "]", e);
+		}
+		if (array == null || array.length() < 2)
+			throw new InvalidityException(Constants.INVALID_VALUE + ": Not enough items");
+		
+		for (int i = 0; i < array.length(); i++) {
+			try {
+				newPathParts.add(NeoPathPartImpl.createNewNeoPathPart(array.get(i).toString()));
+			} catch (JSONException e) {
+				throw new InvalidityException(Constants.INVALID_VALUE + " [" + value + "]", e);
+			}
+		}
+		getNeoPathParts().clear();
+		getNeoPathParts().addAll(newPathParts);
+	}
+
+	@Override
+	public String getValueAsString() {
+		if (getNeoPathParts() == null)
+			return null;
+		JSONArray array = new JSONArray();
+		for (NeoPathPart part: getNeoPathParts())
+			array.put(part.getValueAsString());
+		if (array.length() < 1)
+			return null;
+		return array.toString();
 	}
 
 	/**

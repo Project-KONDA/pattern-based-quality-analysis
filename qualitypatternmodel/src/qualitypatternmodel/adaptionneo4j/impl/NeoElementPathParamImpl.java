@@ -9,6 +9,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
@@ -16,6 +19,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
@@ -146,7 +150,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 	public boolean inputIsValid() {
 		try {
 			getNeoPathPart().isValid(AbstractionLevel.CONCRETE);
-			return true; 
+			return true;
 		} catch (Exception e) {
 			return false;
 		}
@@ -154,20 +158,39 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 
 	@Override
 	public String getValueAsString() {
-		// TODO Auto-generated method stub
-		return null;
+		if (getNeoPathPart() == null)
+			return null;
+		return getNeoPathPart().getValueAsString();
+//		JSONObject jobj = new JSONObject();
+//		try {
+//			if (getNeoPathPart() != null)
+//				jobj.put(Constants.JSON_NEO_PATH_PART, getNeoPathPart().getValueAsString());
+//		} catch (JSONException e) {}
+//		return jobj.toString();
 	}
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		// TODO Auto-generated method stub
+		try {
+			NeoPathPart part = NeoPathPartImpl.createNewNeoPathPart(value);
+			setNeoPathPart(part);
+			return;
+		} catch (InvalidityException e) {}
 		
+		try {
+			JSONObject jobj = new JSONObject(value);
+			String val = jobj.get(Constants.JSON_NEO_PATH_PART).toString();
+			NeoPathPart part = NeoPathPartImpl.createNewNeoPathPart(val);
+			setNeoPathPart(part);
+			return;
+		} catch (JSONException e) {
+			throw new InvalidityException(Constants.INVALID_VALUE + ": '" + value + "'", e);
+		}
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		setNeoPathPart(null);
 	}
 	
 	@Override

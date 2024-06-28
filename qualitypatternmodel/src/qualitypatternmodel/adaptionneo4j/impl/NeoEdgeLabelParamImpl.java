@@ -43,7 +43,7 @@ public class NeoEdgeLabelParamImpl extends TextLiteralParamImpl implements NeoEd
 	@Override
 	public void setValueIfValid(String newValue) throws InvalidityException {
 		try {
-			setValue(newValue);					
+			setValue(newValue);
 		} catch (RuntimeException e) {
 			throw new InvalidityException(e.getMessage());
 		}
@@ -55,9 +55,9 @@ public class NeoEdgeLabelParamImpl extends TextLiteralParamImpl implements NeoEd
 			value = newValue;
 			return;
 		}
-		if (newValue.isEmpty()) {
-			return;
-		}
+//		if (newValue.isEmpty()) {
+//			return;
+//		}
 		try {
 			checkLabel(newValue);
 		} catch (InvalidityException e) {

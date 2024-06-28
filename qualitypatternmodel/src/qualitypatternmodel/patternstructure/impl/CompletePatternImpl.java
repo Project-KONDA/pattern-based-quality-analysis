@@ -79,7 +79,6 @@ import qualitypatternmodel.utility.ConstantsRdf;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getAbstractId <em>Abstract Id</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getLanguage <em>Language</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDataModelName <em>Data Model Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDatabaseName <em>Database Name</em>}</li>
@@ -208,26 +207,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getShortDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SHORT_DESCRIPTION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getShortDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected String shortDescription = SHORT_DESCRIPTION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLanguage() <em>Language</em>}' attribute.
@@ -1396,31 +1375,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getShortDescription() {
-		return shortDescription;
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setShortDescription(String newShortDescription) {
-		String oldShortDescription = shortDescription;
-		shortDescription = newShortDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__SHORT_DESCRIPTION, oldShortDescription, shortDescription));
-	}
-
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1481,8 +1435,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return getAbstractId();
 			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
 				return getDescription();
-			case PatternstructurePackage.COMPLETE_PATTERN__SHORT_DESCRIPTION:
-				return getShortDescription();
 			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
 				return getLanguage();
 			case PatternstructurePackage.COMPLETE_PATTERN__DATA_MODEL_NAME:
@@ -1534,9 +1486,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
 				setDescription((String)newValue);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__SHORT_DESCRIPTION:
-				setShortDescription((String)newValue);
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
 				setLanguage((Language)newValue);
@@ -1598,9 +1547,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__SHORT_DESCRIPTION:
-				setShortDescription(SHORT_DESCRIPTION_EDEFAULT);
-				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
 				setLanguage(LANGUAGE_EDEFAULT);
 				return;
@@ -1653,8 +1599,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return ABSTRACT_ID_EDEFAULT == null ? abstractId != null : !ABSTRACT_ID_EDEFAULT.equals(abstractId);
 			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case PatternstructurePackage.COMPLETE_PATTERN__SHORT_DESCRIPTION:
-				return SHORT_DESCRIPTION_EDEFAULT == null ? shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals(shortDescription);
 			case PatternstructurePackage.COMPLETE_PATTERN__LANGUAGE:
 				return language != LANGUAGE_EDEFAULT;
 			case PatternstructurePackage.COMPLETE_PATTERN__DATA_MODEL_NAME:
@@ -1764,8 +1708,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		result.append(abstractId);
 		result.append(", description: ");
 		result.append(description);
-		result.append(", shortDescription: ");
-		result.append(shortDescription);
 		result.append(", language: ");
 		result.append(language);
 		result.append(", dataModelName: ");

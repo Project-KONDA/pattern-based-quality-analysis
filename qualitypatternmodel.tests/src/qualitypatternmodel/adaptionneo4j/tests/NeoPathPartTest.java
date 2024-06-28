@@ -17,6 +17,8 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getCypherVariable() <em>Get Cypher Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getCypherInnerEdgeNodes(boolean) <em>Get Cypher Inner Edge Nodes</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getNeoLastEdge() <em>Get Neo Last Edge</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#setValueFromString(java.lang.String) <em>Set Value From String</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getValueAsString() <em>Get Value As String</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -91,6 +93,32 @@ public abstract class NeoPathPartTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetNeoLastEdge() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#setValueFromString(java.lang.String) <em>Set Value From String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#setValueFromString(java.lang.String)
+	 * @generated
+	 */
+	public void testSetValueFromString__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionneo4j.NeoPathPart#getValueAsString() <em>Get Value As String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionneo4j.NeoPathPart#getValueAsString()
+	 * @generated
+	 */
+	public void testGetValueAsString() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

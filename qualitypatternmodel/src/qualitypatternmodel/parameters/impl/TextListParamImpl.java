@@ -39,7 +39,7 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	}
 	
 	@Override
-	public void setValueFromString(String value) {
+	public void setValueFromString(String value) throws InvalidityException {
 		try {
 			JSONArray jarray = new JSONArray(value);
 	        getValues().clear();   

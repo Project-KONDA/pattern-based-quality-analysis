@@ -626,7 +626,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EAttribute getCompletePattern_ElementCounter() {
-		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(14);
+		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -636,7 +636,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EAttribute getCompletePattern_RelationCounter() {
-		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(15);
+		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -646,46 +646,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EAttribute getCompletePattern_ParameterCounter() {
-		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCompletePattern_Language() {
-		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCompletePattern_DataModelName() {
-		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCompletePattern_DatabaseName() {
-		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCompletePattern_Keywords() {
 		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -695,8 +655,48 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EAttribute getCompletePattern_Language() {
+		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCompletePattern_DataModelName() {
+		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCompletePattern_DatabaseName() {
+		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCompletePattern_Keywords() {
+		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EAttribute getCompletePattern_OperatorCounter() {
-		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(16);
+		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -706,7 +706,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EAttribute getCompletePattern_Counter() {
-		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(13);
+		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -737,16 +737,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EAttribute getCompletePattern_Description() {
 		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCompletePattern_ShortDescription() {
-		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1564,7 +1554,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__NAME);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__ABSTRACT_ID);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__DESCRIPTION);
-		createEAttribute(completePatternEClass, COMPLETE_PATTERN__SHORT_DESCRIPTION);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__LANGUAGE);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__DATA_MODEL_NAME);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__DATABASE_NAME);
@@ -1758,7 +1747,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEAttribute(getCompletePattern_Name(), ecorePackage.getEString(), "name", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_AbstractId(), ecorePackage.getEString(), "abstractId", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_Description(), ecorePackage.getEString(), "description", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCompletePattern_ShortDescription(), ecorePackage.getEString(), "shortDescription", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_Language(), this.getLanguage(), "language", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_DataModelName(), ecorePackage.getEString(), "dataModelName", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_DatabaseName(), ecorePackage.getEString(), "databaseName", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

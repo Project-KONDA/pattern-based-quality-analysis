@@ -7,7 +7,7 @@ public class XmlPatternVariants {
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-constraint\","
 			+ "\"fragments\":["
-				+ "{\"text\":\"”Each”\"},"
+				+ "{\"text\":\"Each\"},"
 				+ "{\"name\":\"element\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\"},"
 				+ "{\"text\":\"has \"},"
 				+ "{\"name\":\"a comparison with\",\"params\":[0],\"exampleValue\":\"at most\",\"defaultMap\":\"comparison_negated\"},"
@@ -146,7 +146,7 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"property\",\"params\":[3],\"exampleValue\":\"LastName\",\"description\":\"value that gets analysed\"},"
 				+ "{\"text\":\"is\"},"
 				+ "{\"name\":\"compared to\",\"params\":[0],\"exampleValue\":\"less than\",\"defaultMap\":\"comparison_negated\"},"
-				+ "{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":“10”},"
+				+ "{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":\"10\"},"
 				+ "{\"text\":\"characters in length.\"}]}";
 	
 	static String STRINGLENGTH_XML_DEFAULT_ANTIPATTERN = 
@@ -189,7 +189,7 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"elements\",\"params\":[3],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\", \"plural\": \"true\"},"
 				+ "{\"text\":\", each\"},"
 				+ "{\"name\":\"property\",\"params\":[4],\"exampleValue\":\"Surname\",\"description\":\"value that gets analysed\"},"
-				+ "{\"name\":\"is/is not\",\"params\":[1],\"exampleValue\":\"is\",”defaultMap”:”is not”},"
+				+ "{\"name\":\"is/is not\",\"params\":[1],\"exampleValue\":\"is\",\"defaultMap\":\"comparison_isnot\"},"
 				+ "{\"text\":\"in the list of\"},"
 				+ "{\"name\":\"terms\",\"params\":[0],\"exampleValue\": \"Mueller, Meier\"},"
 				+ "{\"text\":\".\"}]}";
@@ -203,7 +203,7 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"elements\",\"params\":[3],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\", \"plural\": \"true\"},"
 				+ "{\"text\":\"where at least one\"},"
 				+ "{\"name\":\"property\",\"params\":[4],\"exampleValue\":\"Surname\",\"description\":\"value that gets analysed\"},"
-				+ "{\"name\":\"is / is not\",\"params\":[1],\"exampleValue\":\"is\",\"defaultMap\":\"is\"},"
+				+ "{\"name\":\"is / is not\",\"params\":[1],\"exampleValue\":\"is\",\"defaultMap\":\"comparison_is\"},"
 				+ "{\"text\":\"in the list of\"},"
 				+ "{\"name\":\"terms\",\"params\":[0],\"exampleValue\": \"Mueller, Meier\"},"
 				+ "{\"text\":\".\"}]}";
@@ -217,7 +217,7 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"elements\",\"params\":[3],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\", \"plural\": \"true\"},"
 				+ "{\"text\":\"where at least one value in\"},"
 				+ "{\"name\":\"property\",\"params\":[4],\"exampleValue\":\"Surname\",\"description\":\"value that gets analysed\"},"
-				+ "{\"name\":\"is / is not\",\"params\":[1],\"exampleValue\":\"is\",\"defaultMap\":\"is\"},"
+				+ "{\"name\":\"is / is not\",\"params\":[1],\"exampleValue\":\"is\",\"defaultMap\":\"comparison_isnot\"},"
 				+ "{\"text\":\"in the list:\"},"
 				+ "{\"name\":\"terms\",\"params\":[0],\"exampleValue\": \"Mueller, Meier\"}]}";
 

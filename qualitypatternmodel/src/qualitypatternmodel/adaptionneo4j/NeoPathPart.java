@@ -107,4 +107,20 @@ public interface NeoPathPart extends PatternElement {
 	 */
 	NeoPathPart getNeoLastEdge() throws InvalidityException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void setValueFromString(String value) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getValueAsString();
+
 } // NeoPathPart

@@ -45,11 +45,11 @@ public class NeoSimpleEdgeItemProvider extends NeoPathPartItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addKeyValueParamPropertyDescriptor(object);
 			addNeoDirectionPropertyDescriptor(object);
 			addNeoTargetNodeLabelsPropertyDescriptor(object);
 			addNeoEdgeLabelPropertyDescriptor(object);
 			addEdgeNumberPropertyDescriptor(object);
+			addKeyValueParamPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

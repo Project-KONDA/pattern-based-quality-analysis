@@ -204,6 +204,8 @@
           <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </eGenericType>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neoSimpleEdge" eType="#//adaptionneo4j/NeoSimpleEdge"
+          eOpposite="#//adaptionneo4j/NeoSimpleEdge/keyValueParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ListParam" abstract="true" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
@@ -620,7 +622,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstractId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" eType="#//patternstructure/Language"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataModelName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="databaseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1217,7 +1218,7 @@
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="setDefaultValueMap">
+      <eOperations name="setDefaultValueMap" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eOperations name="setAttributeValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -1428,8 +1429,6 @@
       <eOperations name="addNeoEdgeLabel" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="keyValueParam" eType="#//parameters/KeyValueParam"
-          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="neoDirection" unique="false"
           eType="#//adaptionneo4j/NeoDirection" changeable="false"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoTargetNodeLabels"
@@ -1438,6 +1437,8 @@
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="edgeNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           unsettable="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="keyValueParam" eType="#//parameters/KeyValueParam"
+          containment="true" eOpposite="#//parameters/KeyValueParam/neoSimpleEdge"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPathPart" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getNeoPathPartEdgeLeafs" upperBound="-1" eType="#//adaptionneo4j/NeoPathPart"/>
@@ -1448,6 +1449,10 @@
         <eParameters name="isReturn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
       <eOperations name="getNeoLastEdge" eType="#//adaptionneo4j/NeoPathPart" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="setValueFromString" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getValueAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoPathParam" eType="#//adaptionneo4j/NeoPathParam"
           eOpposite="#//adaptionneo4j/NeoPathParam/neoPathPart"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoComplexEdge" eType="#//adaptionneo4j/NeoComplexEdge"

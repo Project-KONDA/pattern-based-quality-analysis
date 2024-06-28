@@ -5,10 +5,14 @@ package qualitypatternmodel.adaptionneo4j.impl;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
@@ -19,8 +23,8 @@ import qualitypatternmodel.utility.ConstantsNeo;
  * @generated
  */
 public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNodeLabelsParam {
-	private static final String OF_LABEL = " of Label";
-
+//	private static final String OF_LABEL = " of Label";
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,15 +43,22 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	protected EClass eStaticClass() {
 		return Adaptionneo4jPackage.Literals.NEO_NODE_LABELS_PARAM;
 	}
-	
+
 	@Override
-	public void setValueFromString(String value) {
-		if(values != null)
-			values.clear();
+	public void setValueFromString(String value) throws InvalidityException {
+		EList<String> newVals = new BasicEList<String>();
 		try {
-			addStringValue(value);
-		} catch (InvalidityException e) {
+			JSONArray jarray = new JSONArray(value);
+	        for (int i = 0; i<jarray.length();i++) {
+	        	String v = jarray.getString(i);
+	        	checkLabel(v);
+	        	newVals.add(v);
+	        }
 		}
+		catch (JSONException e){
+			throw new InvalidityException(Constants.INVALID_VALUE, e);
+		}
+		setValueIfValid(newVals);	
 	}
 	
 	@Override
@@ -73,16 +84,9 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	 */
 	@Override
 	public void addStringValue(String value) throws InvalidityException {
-		if (value == null) {
-			return;
-		}
-		if (this.values == null) {
-			this.values = new BasicEList<String>();
-		}
-		if (!this.values.contains(value)) {
+		if (value != null)
 			checkLabel(value);
-			this.values.add(value);
-		}
+		super.addStringValue(value);
 	}
 	
 	/**
@@ -92,20 +96,9 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	 */
 	@Override
 	public void setValueIfValid(EList<String> newValue) throws InvalidityException {
-		if (newValue == null) {
-			getValues().clear();
-			return;
-		}
-		for (String tempValue : newValue) {
-			try {
-				checkLabel(tempValue);
-			} catch (InvalidityException e) {
-				throw new InvalidityException(e.getMessage() + OF_LABEL + tempValue);
-			}
-		}
-		EList<String> oldValue = getValues();
-		oldValue.clear();	
-		oldValue.addAll(newValue);
+		for (String value: newValue)
+			checkLabel(value);
+		super.setValueIfValid(newValue);
 	}
 	
 	@Override

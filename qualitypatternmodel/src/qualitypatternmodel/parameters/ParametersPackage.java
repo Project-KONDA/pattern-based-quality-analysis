@@ -7987,13 +7987,22 @@ public interface ParametersPackage extends EPackage {
 	int KEY_VALUE_PARAM__KEY_VALUE_PAIR = PARAMETER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Neo Simple Edge</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM__NEO_SIMPLE_EDGE = PARAMETER_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Key Value Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PARAM_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 1;
+	int KEY_VALUE_PARAM_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -9837,6 +9846,17 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getKeyValueParam_KeyValuePair();
 
 	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.parameters.KeyValueParam#getNeoSimpleEdge <em>Neo Simple Edge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Neo Simple Edge</em>'.
+	 * @see qualitypatternmodel.parameters.KeyValueParam#getNeoSimpleEdge()
+	 * @see #getKeyValueParam()
+	 * @generated
+	 */
+	EReference getKeyValueParam_NeoSimpleEdge();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.KeyValueParam#addValue(java.lang.String, java.lang.String) <em>Add Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10630,6 +10650,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute KEY_VALUE_PARAM__KEY_VALUE_PAIR = eINSTANCE.getKeyValueParam_KeyValuePair();
+
+		/**
+		 * The meta object literal for the '<em><b>Neo Simple Edge</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference KEY_VALUE_PARAM__NEO_SIMPLE_EDGE = eINSTANCE.getKeyValueParam_NeoSimpleEdge();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Value</b></em>' operation.

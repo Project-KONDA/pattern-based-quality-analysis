@@ -71,7 +71,7 @@ public class GenericPatterns {
 		return patterns;
 	}
 
-	public static CompletePattern getConcrete(CompletePattern pattern, Language lan, Map<Integer, String> values, String[] variants, String[] oldvariants) 
+	public static CompletePattern getConcrete(CompletePattern pattern, Language lan, String new_id, Map<Integer, String> values, String[] variants, String[] oldvariants) 
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (pattern.getLanguage() != Language.GENERIC)
 			throw new InvalidityException("Pattern '" + pattern.getName() + "' is not generic.");
@@ -90,9 +90,8 @@ public class GenericPatterns {
 			throw new InvalidityException("Invalid Language");
 		}
 		
-		String name = pattern.getName();
-		pattern.setPatternId(name + "_" + lan.getLiteral());
-		pattern.setAbstractId(name + "_" + lan.getLiteral());
+		pattern.setAbstractId(pattern.getPatternId());
+		pattern.setPatternId(new_id);
 		List<Parameter> params = pattern.getParameterList().getParameters();
 		
 		if (XmlPatterns.AXIS && values != null)
@@ -127,7 +126,6 @@ public class GenericPatterns {
 		pattern.setPatternId(GenericPatternInformation.CARD_ID_GENERIC);
 		pattern.setAbstractId(GenericPatternInformation.CARD_ID_GENERIC);
 		pattern.setName(GenericPatternInformation.CARD_NAME);
-		pattern.setShortDescription(GenericPatternInformation.CARD_SHORTDESCR);
 		pattern.setDescription(GenericPatternInformation.CARD_DESCR);
 		
 		// Context graph of pattern:
@@ -159,7 +157,6 @@ public class GenericPatterns {
 		pattern.setPatternId(GenericPatternInformation.COMP_ID_GENERIC);
 		pattern.setAbstractId(GenericPatternInformation.COMP_ID_GENERIC);
 		pattern.setName(GenericPatternInformation.COMP_NAME);
-		pattern.setShortDescription(GenericPatternInformation.COMP_SHORTDESCR);
 		pattern.setDescription(GenericPatternInformation.COMP_DESCR);
 		
 		Graph graph1 = pattern.getGraph();
@@ -187,7 +184,6 @@ public class GenericPatterns {
 		pattern.setPatternId(GenericPatternInformation.COMPSET_ID_GENERIC);
 		pattern.setAbstractId(GenericPatternInformation.COMPSET_ID_GENERIC);
 		pattern.setName(GenericPatternInformation.COMPSET_NAME);
-		pattern.setShortDescription(GenericPatternInformation.COMPSET_SHORTDESCR);
 		pattern.setDescription(GenericPatternInformation.COMPSET_DESCR);
 		
 		Graph graph1 = pattern.getGraph();
@@ -216,7 +212,6 @@ public class GenericPatterns {
 		pattern.setPatternId(GenericPatternInformation.FUNC_ID_GENERIC);
 		pattern.setAbstractId(GenericPatternInformation.FUNC_ID_GENERIC);
 		pattern.setName(GenericPatternInformation.FUNC_NAME);
-		pattern.setShortDescription(GenericPatternInformation.FUNC_SHORTDESCR);
 		pattern.setDescription(GenericPatternInformation.FUNC_DESCR);
 		
 		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -255,7 +250,6 @@ public class GenericPatterns {
 		pattern.setPatternId(GenericPatternInformation.UNIQUE_ID_GENERIC);
 		pattern.setAbstractId(GenericPatternInformation.UNIQUE_ID_GENERIC);
 		pattern.setName(GenericPatternInformation.UNIQUE_NAME);
-		pattern.setShortDescription(GenericPatternInformation.UNIQUE_SHORTDESCR);
 		pattern.setDescription(GenericPatternInformation.UNIQUE_DESCR);
 		
 //		NotCondition notCon = PatternstructureFactory.eINSTANCE.createNotCondition();
@@ -287,7 +281,6 @@ public class GenericPatterns {
 		pattern.setPatternId(GenericPatternInformation.MATCH_ID_GENERIC);
 		pattern.setAbstractId(GenericPatternInformation.MATCH_ID_GENERIC);
 		pattern.setName(GenericPatternInformation.MATCH_NAME);
-		pattern.setShortDescription(GenericPatternInformation.MATCH_SHORTDESCR);
 		pattern.setDescription(GenericPatternInformation.MATCH_DESCR);
 		
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -311,7 +304,6 @@ public class GenericPatterns {
 		pattern.setPatternId(GenericPatternInformation.CONTAINS_ID_GENERIC);
 		pattern.setAbstractId(GenericPatternInformation.CONTAINS_ID_GENERIC);
 		pattern.setName(GenericPatternInformation.CONTAINS_NAME);
-		pattern.setShortDescription(GenericPatternInformation.CONTAINS_SHORTDESCR);
 		pattern.setDescription(GenericPatternInformation.CONTAINS_DESCR);
 		
 		// Context graph of pattern:
@@ -338,7 +330,6 @@ public class GenericPatterns {
 		pattern.setPatternId(GenericPatternInformation.APPDUP2_ID_GENERIC);
 		pattern.setAbstractId(GenericPatternInformation.APPDUP2_ID_GENERIC);
 		pattern.setName(GenericPatternInformation.APPDUP2_NAME);
-		pattern.setShortDescription(GenericPatternInformation.APPDUP2_SHORTDESCR);
 		pattern.setDescription(GenericPatternInformation.APPDUP2_DESCR);
 		
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -374,7 +365,6 @@ public class GenericPatterns {
 		pattern.setPatternId(GenericPatternInformation.APPDUP3_ID_GENERIC);
 		pattern.setAbstractId(GenericPatternInformation.APPDUP3_ID_GENERIC);
 		pattern.setName(GenericPatternInformation.APPDUP3_NAME);
-		pattern.setShortDescription(GenericPatternInformation.APPDUP3_SHORTDESCR);
 		pattern.setDescription(GenericPatternInformation.APPDUP3_DESCR);
 		
 		Graph g0 = pattern.getGraph();
@@ -396,7 +386,6 @@ public class GenericPatterns {
 		pattern.setPatternId(GenericPatternInformation.DUPVAL_ID_GENERIC);
 		pattern.setAbstractId(GenericPatternInformation.DUPVAL_ID_GENERIC);
 		pattern.setName(GenericPatternInformation.DUPVAL_NAME);
-		pattern.setShortDescription(GenericPatternInformation.DUPVAL_SHORTDESCR);
 		pattern.setDescription(GenericPatternInformation.DUPVAL_DESCR);
 		
 		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -438,7 +427,6 @@ public class GenericPatterns {
 		pattern.setPatternId(GenericPatternInformation.INVALIDLINK_ID_GENERIC);
 		pattern.setAbstractId(GenericPatternInformation.INVALIDLINK_ID_GENERIC);
 		pattern.setName(GenericPatternInformation.INVALIDLINK_NAME);
-		pattern.setShortDescription(GenericPatternInformation.INVALIDLINK_SHORTDESCR);
 		pattern.setDescription(GenericPatternInformation.INVALIDLINK_DESCR);
 
 		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -462,7 +450,6 @@ public class GenericPatterns {
 		pattern.setPatternId(GenericPatternInformation.MANDATT_ID_GENERIC);
 		pattern.setAbstractId(GenericPatternInformation.MANDATT_ID_GENERIC);
 		pattern.setName(GenericPatternInformation.MANDATT_NAME);
-		pattern.setShortDescription(GenericPatternInformation.MANDATT_SHORTDESCR);
 		pattern.setDescription(GenericPatternInformation.MANDATT_DESCR);
 
 		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -483,7 +470,6 @@ public class GenericPatterns {
 		pattern.setPatternId(GenericPatternInformation.STRINGLENGTH_ID_GENERIC);
 		pattern.setAbstractId(GenericPatternInformation.STRINGLENGTH_ID_GENERIC);
 		pattern.setName(GenericPatternInformation.STRINGLENGTH_NAME);
-		pattern.setShortDescription(GenericPatternInformation.STRINGLENGTH_SHORTDESCR);
 		pattern.setDescription(GenericPatternInformation.STRINGLENGTH_DESCR);
 
 		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -509,7 +495,6 @@ public class GenericPatterns {
 		pattern.setPatternId(GenericPatternInformation.COMPVAL_ID_GENERIC);
 		pattern.setAbstractId(GenericPatternInformation.COMPVAL_ID_GENERIC);
 		pattern.setName(GenericPatternInformation.COMPVAL_NAME);
-		pattern.setShortDescription(GenericPatternInformation.COMPVAL_SHORTDESCR);
 		pattern.setDescription(GenericPatternInformation.COMPVAL_DESCR);
 
 		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -532,7 +517,6 @@ public class GenericPatterns {
 //		pattern.setPatternId(GenericPatternInformation.LOCALUNIQUE_ID_GENERIC);
 //		pattern.setAbstractId(GenericPatternInformation.LOCALUNIQUE_ID_GENERIC);
 //		pattern.setName(GenericPatternInformation.LOCALUNIQUE_NAME);
-//		pattern.setShortDescription(GenericPatternInformation.LOCALUNIQUE_SHORTDESCR);
 //		pattern.setDescription(GenericPatternInformation.LOCALUNIQUE_DESCR);
 //		// TODO
 //		pattern.isValid(AbstractionLevel.GENERIC);
@@ -544,7 +528,6 @@ public class GenericPatterns {
 //		pattern.setPatternId(GenericPatternInformation.COMPVALANY_ID_GENERIC);
 //		pattern.setAbstractId(GenericPatternInformation.COMPVALANY_ID_GENERIC);
 //		pattern.setName(GenericPatternInformation.COMPVALANY_NAME);
-//		pattern.setShortDescription(GenericPatternInformation.COMPVALANY_SHORTDESCR);
 //		pattern.setDescription(GenericPatternInformation.COMPVALANY_DESCR);
 //		// TODO
 //		pattern.isValid(AbstractionLevel.GENERIC);
@@ -556,7 +539,6 @@ public class GenericPatterns {
 //		pattern.setPatternId(GenericPatternInformation.CARDIMPLIESMANDATT_ID_GENERIC);
 //		pattern.setAbstractId(GenericPatternInformation.CARDIMPLIESMANDATT_ID_GENERIC);
 //		pattern.setName(GenericPatternInformation.CARDIMPLIESMANDATT_NAME);
-//		pattern.setShortDescription(GenericPatternInformation.CARDIMPLIESMANDATT_SHORTDESCR);
 //		pattern.setDescription(GenericPatternInformation.CARDIMPLIESMANDATT_DESCR);
 //		// TODO
 //		pattern.isValid(AbstractionLevel.GENERIC);
@@ -568,7 +550,6 @@ public class GenericPatterns {
 //		pattern.setPatternId(GenericPatternInformation.CHECKFORMAT_ID_GENERIC);
 //		pattern.setAbstractId(GenericPatternInformation.CHECKFORMAT_ID_GENERIC);
 //		pattern.setName(GenericPatternInformation.CHECKFORMAT_NAME);
-//		pattern.setShortDescription(GenericPatternInformation.CHECKFORMAT_SHORTDESCR);
 //		pattern.setDescription(GenericPatternInformation.CHECKFORMAT_DESCR);
 //		// TODO
 //		pattern.isValid(AbstractionLevel.GENERIC);
@@ -580,7 +561,6 @@ public class GenericPatterns {
 //		pattern.setPatternId(GenericPatternInformation.COMPDATABASE_ID_GENERIC);
 //		pattern.setAbstractId(GenericPatternInformation.COMPDATABASE_ID_GENERIC);
 //		pattern.setName(GenericPatternInformation.COMPDATABASE_NAME);
-//		pattern.setShortDescription(GenericPatternInformation.COMPDATABASE_SHORTDESCR);
 //		pattern.setDescription(GenericPatternInformation.COMPDATABASE_DESCR);
 //		// TODO
 //		pattern.isValid(AbstractionLevel.GENERIC);

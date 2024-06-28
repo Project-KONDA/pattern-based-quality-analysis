@@ -12,6 +12,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
@@ -21,6 +24,7 @@ import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
@@ -73,8 +77,35 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 
 	@Override
 	public String getValueAsString() {
-		// TODO Auto-generated method stub
-		return null;
+		JSONObject jobj = new JSONObject();
+		try {
+			if (getNeoPathPart() != null)
+				jobj.put(Constants.JSON_NEO_PATH_PART, getNeoPathPart().getValueAsString());
+			if (getNeoPropertyName() != null)
+				jobj.put(Constants.JSON_NEO_PROPERTY_NAME, getNeoPropertyName().getValueAsString());
+		} catch (JSONException e) {}
+		if (jobj.length() < 1)
+			return null;
+		return jobj.toString();
+	}
+
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		try {
+			JSONObject jobj = new JSONObject(value);
+			String partstring = jobj.get(Constants.JSON_NEO_PATH_PART).toString();
+			NeoPathPart part = NeoPathPartImpl.createNewNeoPathPart(partstring);
+
+			String propertystring = jobj.get(Constants.JSON_NEO_PROPERTY_NAME).toString();
+			NeoPropertyNameParam property = new NeoPropertyNameParamImpl();
+			property.setValueFromString(propertystring);
+			
+			setNeoPathPart(part);
+			setNeoPropertyName(property);
+			return;
+		} catch (JSONException e) {
+			throw new InvalidityException(Constants.INVALID_VALUE, e);
+		}
 	}
 
 	/**
@@ -86,19 +117,11 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	protected EClass eStaticClass() {
 		return Adaptionneo4jPackage.Literals.NEO_PROPERTY_PATH_PARAM;
 	}
-	
-	@Override
-	public void setValueFromString(String value) throws InvalidityException{
-		try {
-			getNeoPropertyName().setValue(value);
-		} catch (Exception e) {
-			
-		}
-	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub	
+		setNeoPropertyName((NeoPropertyNameParam) null);
+		setNeoPathPart(null);
 	}
 	
 	/**

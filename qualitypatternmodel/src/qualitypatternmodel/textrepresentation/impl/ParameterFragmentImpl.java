@@ -22,6 +22,7 @@ import org.json.JSONObject;
 
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoNodeLabelsParamImpl;
+import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionrdf.impl.IriListParamImpl;
 import qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
@@ -558,7 +559,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	}
 	
 	@Override
-	public void setDefaultValueMap(String name) {
+	public void setDefaultValueMap(String name) throws InvalidityException {
 		ValueMap map = new ValueMapImpl();
 		
 		switch(name) {
@@ -580,14 +581,24 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			map.put(ComparisonOperator.LESSOREQUAL.getName(), "more than");
 			break;
 			
-		case "is":
+		case "comparison_is":
 			map.put(ComparisonOperator.EQUAL.getName(), "is");
 			map.put(ComparisonOperator.NOTEQUAL.getName(), "is not");
 			break;
 			
-		case "is not":
+		case "comparison_isnot":
 			map.put(ComparisonOperator.EQUAL.getName(), "is not");
 			map.put(ComparisonOperator.NOTEQUAL.getName(), "is");
+			break;
+			
+		case "is":
+			map.put("true", "is");
+			map.put("false", "is not");
+			break;
+			
+		case "is not":
+			map.put("true", "is not");
+			map.put("false", "is");
 			break;
 			
 		case "do":
@@ -609,6 +620,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			map.put("true", "does not");
 			map.put("false", "does");
 			break;
+
+		default:
+			throw new InvalidityException("No default value map for '" + name + "'");
 		}
 		
 		setValueMap(map);
@@ -793,10 +807,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				json.put(Constants.JSON_PLURAL, plural);
 			
 			if (getType().equals(Constants.PARAMETER_TYPE_ENUMERATION)) {
-				if (getValueMap() != null)
-					json.put(Constants.JSON_OPTIONS, getValueMap().getValuesAsJsonArray());
-				else 
-					json.put(Constants.JSON_OPTIONS, parameter.getOptionsAsJsonArray());
+				json.put(Constants.JSON_OPTIONS, getOptionValues());
 			}
 			for (String key: getAttributeMap().getKeys()) {
 				json.put(key, getAttributeMap().get(key));
@@ -838,6 +849,15 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}
 		} catch (JSONException e) {}
 		return json;
+	}
+	
+	private JSONArray getOptionValues() {
+		JSONArray array;
+		if (getValueMap() != null)
+			array = getValueMap().getValuesAsJsonArray();
+		else
+			array = getParameter().get(0).getOptionsAsJsonArray();
+		return array;
 	}
 
 	/**
@@ -989,7 +1009,18 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 */
 	@Override
 	public String getRole() {
-		Class<?> type = getParameter().get(0).getClass();
+		if (getParameter() == null || getParameter().isEmpty())
+			return null;
+		String role = getRole(getParameter().get(0));
+		if (role == null || role.equals(""))
+			ServletUtilities.log("No Role for class " + getParameter().get(0).getClass().getSimpleName());
+		return role;
+	}
+	
+	public static String getRole(Parameter param) {
+		if (param == null)
+			return null;
+		Class<?> type = param.getClass();
 		if (type.equals(DateParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_DATE;			
 		} else if(type.equals(TimeParamImpl.class)) {
@@ -1011,7 +1042,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		} else if (type.equals(TypeOptionParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_TYPE;
 		} else if (type.equals(XmlPathParamImpl.class)) {
-			XmlNavigation nav = ((XmlPathParamImpl) getParameter().get(0)).getXmlNavigation();
+			XmlNavigation nav = ((XmlPathParamImpl) param).getXmlNavigation();
 			if (nav instanceof XmlPropertyNavigation)
 				return Constants.PARAMETER_TYPE_PROPERTY;
 			if (nav instanceof XmlElementNavigation)
@@ -1020,9 +1051,16 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return Constants.PARAMETER_TYPE_IRI_LIST;
 		} else if (type.equals(RdfPathParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_RDF_PATH;
+		} else if (type.equals(NeoNodeLabelsParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_NEO_NODE_LABEL;
+		} else if (type.equals(NeoElementPathParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_NEO_ELEMENT_PATH;
+		} else if (type.equals(NeoPropertyPathParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_NEO_PROPERTY_PATH;
 		}
 		ServletUtilities.log("No Role for class " + type.getSimpleName());
-		return "";
+		return null;
+		
 	}
 	
 	/**
@@ -1062,18 +1100,15 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			
 			for(Parameter p : getParameter()) {
 				String value;
-				try {
-					value = p.getValueAsString();
-				} catch (NullPointerException e) {
-					value = null;
-				}
+				value = p.getValueAsString();
 				EClass myEClass = p.eClass();
-				
-				if(!value.equals(firstValue))
-					throw new InvalidityException("Referenced parameters have different values '" + value + "' != '" + firstValue + "'");
 				
 				if(!myEClass.equals(firstEClass))
 					throw new InvalidityException("Referenced parameters have different types ");
+				if (firstValue != null && value != null) {
+					if(value == null || !value.equals(firstValue))
+						throw new InvalidityException("Referenced parameters have different values '" + value + "' != '" + firstValue + "'");
+				}
 			}
 		}
 	}
@@ -1333,8 +1368,13 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_VALUE:
 				return getValue();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_DEFAULT_VALUE_MAP__STRING:
-				setDefaultValueMap((String)arguments.get(0));
-				return null;
+				try {
+					setDefaultValueMap((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_ATTRIBUTE_VALUE__STRING_STRING:
 				return setAttributeValue((String)arguments.get(0), (String)arguments.get(1));
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_ATTRIBUTE_VALUE__STRING:

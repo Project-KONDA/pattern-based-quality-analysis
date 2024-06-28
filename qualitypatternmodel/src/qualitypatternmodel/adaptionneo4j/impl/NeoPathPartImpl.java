@@ -12,10 +12,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl.InternalCounter;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -207,6 +209,22 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	abstract public void setValueFromString(String value) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	abstract public String getValueAsString();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -363,6 +381,16 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case Adaptionneo4jPackage.NEO_PATH_PART___SET_VALUE_FROM_STRING__STRING:
+				try {
+					setValueFromString((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case Adaptionneo4jPackage.NEO_PATH_PART___GET_VALUE_AS_STRING:
+				return getValueAsString();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -370,4 +398,16 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	
 	//for the counting
 	protected abstract void setCount(InternalCounter count);
+
+	static NeoPathPart createNewNeoPathPart(String value) throws InvalidityException {
+		try {
+			NeoSimpleEdge simple = Adaptionneo4jFactory.eINSTANCE.createNeoSimpleEdge();
+			simple.setValueFromString(value);
+			return simple;
+		} catch (InvalidityException e) {}
+		
+		NeoComplexEdge complex = Adaptionneo4jFactory.eINSTANCE.createNeoComplexEdge();
+		complex.setValueFromString(value);
+		return complex;
+	}
 } //NeoPathPartImpl

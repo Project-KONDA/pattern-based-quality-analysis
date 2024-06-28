@@ -47,6 +47,7 @@ public class Constants {
 	public static final String PARAMETER_TYPE_IRI_LIST = "IriList";
 	public static final String PARAMETER_TYPE_NEO_NODE_LABEL = "NeoNodeLabel";
 	public static final String PARAMETER_TYPE_NEO_ELEMENT_PATH = "NeoElementPath";
+	public static final String PARAMETER_TYPE_NEO_PROPERTY_PATH = "NeoPropertyPath";
 	
 	// JSON variables
 	public static final String JSON_TEMPLATE = "template";
@@ -61,7 +62,6 @@ public class Constants {
 	public static final String JSON_PARAMETER = "params";
 	public static final String JSON_EXAMPLEVALUE = "exampleValue";
 	public static final String JSON_DESCRIPTION = "description";
-	public static final String JSON_SHORTDESCRIPTION = "shortDescription";
 	public static final String JSON_NEWID = "newId";
 	public static final String JSON_MAP = "map";
 	public static final String JSON_DEFAULTMAP = "defaultMap";
@@ -109,6 +109,12 @@ public class Constants {
 	public static final String JSON_RDF_PATH_SEQUENCE = "sequence";
 	public static final String JSON_RDF_PATH = "rdfpath";
 	public static final String JSON_RDF_NODE_TYPE = "nodetypes";
+
+	public static final String JSON_NEO_EDGE = "edgetype";
+	public static final String JSON_NEO_TARGETS = "targettype";
+	public static final String JSON_NEO_KEYVALUE = "keyvalue";
+	public static final String JSON_NEO_PATH_PART = "pathpart";
+	public static final String JSON_NEO_PROPERTY_NAME = "propertyname";
 	
 
 	//Global Exception Messages -- Introduced by Lukas Sebastian Hofmann. Existing code of the framework has not been touched.

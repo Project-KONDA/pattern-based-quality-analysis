@@ -3,6 +3,7 @@
 package qualitypatternmodel.parameters;
 
 import java.util.Map;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,7 @@ import java.util.Map;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.KeyValueParam#getKeyValuePair <em>Key Value Pair</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.KeyValueParam#getNeoSimpleEdge <em>Neo Simple Edge</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getKeyValueParam()
@@ -42,6 +44,30 @@ public interface KeyValueParam extends Parameter {
 	 * @generated NOT
 	 */
 	void setKeyValuePair(Map<String, String> value);
+
+	/**
+	 * Returns the value of the '<em><b>Neo Simple Edge</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getKeyValueParam <em>Key Value Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Neo Simple Edge</em>' container reference.
+	 * @see #setNeoSimpleEdge(NeoSimpleEdge)
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getKeyValueParam_NeoSimpleEdge()
+	 * @see qualitypatternmodel.adaptionneo4j.NeoSimpleEdge#getKeyValueParam
+	 * @model opposite="keyValueParam" transient="false"
+	 * @generated
+	 */
+	NeoSimpleEdge getNeoSimpleEdge();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.KeyValueParam#getNeoSimpleEdge <em>Neo Simple Edge</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Neo Simple Edge</em>' container reference.
+	 * @see #getNeoSimpleEdge()
+	 * @generated
+	 */
+	void setNeoSimpleEdge(NeoSimpleEdge value);
 
 	/**
 	 * <!-- begin-user-doc -->
