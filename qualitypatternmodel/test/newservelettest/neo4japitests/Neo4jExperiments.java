@@ -2,6 +2,7 @@ package newservelettest.neo4japitests;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,6 +16,9 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.newservlets.initialisation.GenericPatterns;
+import qualitypatternmodel.newservlets.initialisation.Neo4jPatterns;
+import qualitypatternmodel.newservlets.initialisation.RdfPatterns;
+import qualitypatternmodel.newservlets.initialisation.XmlPatterns;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.NumberParam;
@@ -31,19 +35,27 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 public class Neo4jExperiments {
 	static String PATH = "D:/neotest.patternstructure";
+	static boolean log = false;
 	
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
-		boolean res1 = testSaveLoad(true);
-		System.out.println(res1);
-		boolean res2 = testSaveLoad(false);
-		System.out.println(res2);
-		boolean res3 = testVariantSaveLoad();
-		System.out.println(res3);
-		boolean res4 = testXmlList();
-		System.out.println(res4);
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		boolean res1 = testSaveLoad(true);
+//		System.out.println("### " + res1 + " ###\n");
+//		boolean res2 = testSaveLoad(false);
+//		System.out.println("### " + res2 + " ###\n");
+//		boolean res3 = testVariantSaveLoad();
+//		System.out.println("### " + res3 + " ###\n");
+//		boolean res4 = testXmlList();
+//		System.out.println("### " + res4 + " ###\n");
+
+		boolean res5 = testNeoVariants();
+		System.out.println("### " + res5 + " ###\n");
+		boolean res6 = testRdfVariants();
+		System.out.println("### " + res6 + " ###\n");
+		boolean res7 = testXmlVariants();
+		System.out.println("### " + res7 + " ###\n");
 	}
 
-	public static boolean testSaveLoad(boolean set) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
+	public static boolean testSaveLoad(boolean set) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCard(), Language.NEO4J, "Card_neo4j", Map.of(), new String[] {}, new String[] {});
 		
 		EList<Parameter> params = pattern.getParameterList().getParameters();
@@ -82,7 +94,7 @@ public class Neo4jExperiments {
 		return testSaveAndLoad(pattern);
 	}
 	
-	private static boolean testVariantSaveLoad() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
+	private static boolean testVariantSaveLoad() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		String neodefault = 
 //				"{\"template\":\"Card_neo4j\","
 //				+ "\"language\":\"neo4j\","
@@ -110,8 +122,8 @@ public class Neo4jExperiments {
 //		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericContains(), Language.NEO4J, Map.of(), new String[] {}, new String[] {});
 		
 		EList<Parameter> params = pattern.getParameterList().getParameters();
-		for (Parameter p: params)
-			System.out.println(p.getClass().getSimpleName());
+//		for (Parameter p: params)
+//			System.out.println(p.getClass().getSimpleName());
 		
 		PatternText text = TextrepresentationFactory.eINSTANCE.createPatternText();
 		TextFragment textfrag = TextrepresentationFactory.eINSTANCE.createTextFragment();
@@ -137,30 +149,67 @@ public class Neo4jExperiments {
 		return testSaveAndLoad(pattern);
 	}
 	
-	private static boolean testXmlList() throws IOException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static boolean testXmlList() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCompSet(), Language.XML, "Comp_xml", Map.of(), new String[] {}, new String[] {});
 		return testSaveAndLoad(pattern);
 	}
 	
-	private static boolean testSaveAndLoad(CompletePattern pattern) throws IOException {
+
+	private static boolean testRdfVariants() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		List<CompletePattern> list = RdfPatterns.getAllRdfPattern();
+		return testSaveAndLoadList(list);
+	}
+	private static boolean testNeoVariants() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		List<CompletePattern> list = Neo4jPatterns.getAllNeoPattern();
+		return testSaveAndLoadList(list);
+	}
+	
+	private static boolean testXmlVariants() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		List<CompletePattern> list = XmlPatterns.getAllXmlPattern();
+		return testSaveAndLoadList(list);
+	}
+
+	private static boolean testSaveAndLoadList(List<CompletePattern> list) {
+		Boolean all = true;
+		for (CompletePattern p: list) {
+			boolean res = false;
+			try {
+				res = testSaveAndLoad(p);
+			} catch (Exception e) {
+				if (log) 
+					e.printStackTrace();
+			}
+			all &= res;
+			System.out.println(p.getName() + " " + res);
+		}
+		return all;
+	}
+	private static boolean testSaveAndLoad(CompletePattern pattern) {
 		String saved = pattern.myToString();
 		
-		EMFModelSave.exportToFile2(pattern, "D:", "neotest", "patternstructure");
-
 		String loaded = null;
 		try {
+			EMFModelSave.exportToFile2(pattern, "D:", "neotest", "patternstructure");
 			CompletePattern pattern2 = EMFModelLoad.loadCompletePattern(PATH);
 			loaded = pattern2.myToString();
 		} catch (Exception e) {
-			e.printStackTrace();
+			if (log) 
+				e.printStackTrace();
 		}
 		
 		try {
 	        File file = new File(PATH);
 	        file.delete();
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			if (log)
+				e.printStackTrace();
+		}
+		
+		if (log && !saved.equals(loaded)) {
+			System.out.println(saved);
+			System.out.println(loaded);
+		}
 		
 		return saved.equals(loaded);
-		
 	}
 }
