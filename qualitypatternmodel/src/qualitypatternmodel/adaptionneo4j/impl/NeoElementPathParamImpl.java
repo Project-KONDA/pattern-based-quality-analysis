@@ -53,11 +53,10 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	protected NeoElementPathParamImpl() {
 		super();
-		createParameters();
 	}
 
 	// --> Specific behaviour which can not be necessarily generalised

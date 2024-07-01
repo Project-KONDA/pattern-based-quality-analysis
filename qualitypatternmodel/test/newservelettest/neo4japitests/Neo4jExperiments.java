@@ -1,7 +1,6 @@
 package newservelettest.neo4japitests;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -38,21 +37,21 @@ public class Neo4jExperiments {
 	static boolean log = false;
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		boolean res1 = testSaveLoad(true);
-//		System.out.println("### " + res1 + " ###\n");
-//		boolean res2 = testSaveLoad(false);
-//		System.out.println("### " + res2 + " ###\n");
-//		boolean res3 = testVariantSaveLoad();
-//		System.out.println("### " + res3 + " ###\n");
-//		boolean res4 = testXmlList();
-//		System.out.println("### " + res4 + " ###\n");
+		boolean res1 = testSaveLoad(true);
+		System.out.println("### 1 " + res1 + " ###\n");
+		boolean res2 = testSaveLoad(false);
+		System.out.println("### 2 " + res2 + " ###\n");
+		boolean res3 = testVariantSaveLoad();
+		System.out.println("### 3 " + res3 + " ###\n");
+		boolean res4 = testXmlList();
+		System.out.println("### 4 " + res4 + " ###\n");
 
 		boolean res5 = testNeoVariants();
-		System.out.println("### " + res5 + " ###\n");
+		System.out.println("### 5 " + res5 + " ###\n");
 		boolean res6 = testRdfVariants();
-		System.out.println("### " + res6 + " ###\n");
+		System.out.println("### 6 " + res6 + " ###\n");
 		boolean res7 = testXmlVariants();
-		System.out.println("### " + res7 + " ###\n");
+		System.out.println("### 7 " + res7 + " ###\n");
 	}
 
 	public static boolean testSaveLoad(boolean set) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -121,7 +120,7 @@ public class Neo4jExperiments {
 		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCard(), Language.NEO4J, "Card_neo4j", Map.of(), new String[] {}, new String[] {});
 //		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericContains(), Language.NEO4J, Map.of(), new String[] {}, new String[] {});
 		
-		EList<Parameter> params = pattern.getParameterList().getParameters();
+//		EList<Parameter> params = pattern.getParameterList().getParameters();
 //		for (Parameter p: params)
 //			System.out.println(p.getClass().getSimpleName());
 		
