@@ -1,0 +1,33 @@
+{
+	"template":"Contains_rdf",
+	"language":"rdf",
+	"name":"default-antipattern",
+	"fragments":[
+		{"text":"Search for"},
+		{
+			"name":"elements",
+			"params":[2],
+			"exampleValue":"Actors",
+			"description":"anchor for analysis",
+			"plural":"true"
+		},
+		{"text":"where at least one property reached by"},
+		{
+			"name":"an rdf property path",
+			"params":[3],
+			"exampleValue":"has"
+		},
+		{
+			"name":"does / does not",
+			"params":[0],
+			"exampleValue":"does",
+			"defaultMap":"does"
+		},
+		{"text":"contain"},
+		{
+			"name":"a specific term",
+			"params":[1]
+		},
+		{"text":"."}
+	]
+}

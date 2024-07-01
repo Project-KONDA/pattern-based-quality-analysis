@@ -1,0 +1,31 @@
+{
+	"template":"StringLength_neo4j",
+	"language":"neo4j",
+	"name":"default-antipattern",
+	"fragments":[
+		{"text":"Search for"},
+		{
+			"name":"elements",
+			"params":[2],
+			"exampleValue":"Actors",
+			"description":"anchor for analysis",
+			"plural":"true"
+		},
+		{"text":"where at least one property reached by"},
+		{
+			"name":"an neo property path","params":[3],"exampleValue":"has"
+		},
+		{"text":"is"},
+		{
+			"name":"compared to",
+			"params":[0],
+			"exampleValue":"exactly",
+			"defaultMap":"comparison"
+		},
+		{
+			"name":"a specific number of",
+			"params":[1]
+		},
+		{"text":"characters in length."}
+	]
+}

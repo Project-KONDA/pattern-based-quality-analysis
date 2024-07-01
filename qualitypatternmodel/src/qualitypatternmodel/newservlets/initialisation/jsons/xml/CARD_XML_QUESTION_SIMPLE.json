@@ -1,0 +1,31 @@
+{
+    "template":"Card_xml",
+    "language":"xml",
+    "name":"question_simple",
+    "fragments":[
+        {"text":"Is there a"},
+        {
+            "name":"element",
+            "params":[2],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis"
+        },
+        {"text":"with more than one"},
+        {
+            "params":[0],
+            "value":"more than"
+        },
+        {
+            "params":[1],
+            "value":"1"
+        },
+        {
+            "name":"child elements",
+            "params":[3],
+            "exampleValue":"Birthdates",
+            "description":"counted elements",
+            "plural":"true"
+        },
+        {"text":"."}
+    ]
+}

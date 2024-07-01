@@ -1,0 +1,22 @@
+{
+	"template":"Unique_neo4j",
+	"language":"neo4j",
+	"name":"default-antipattern",
+	"fragments":[
+		{"text":"Search for"},
+		{
+			"name":"elements",
+			"params":[2,3],
+			"exampleValue":"Actors",
+			"description":"anchor for analysis",
+			"plural":"true"
+		},
+		{"text":"where a property reached by"},
+		{
+			"name":"an neo property path",
+			"params":[4,5],
+			"exampleValue":"has"
+		},
+		{"text":"is not unique within the data set."}
+	]
+}
