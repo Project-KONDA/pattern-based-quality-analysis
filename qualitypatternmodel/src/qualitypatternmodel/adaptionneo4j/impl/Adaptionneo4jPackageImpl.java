@@ -1077,7 +1077,7 @@ public class Adaptionneo4jPackageImpl extends EPackageImpl implements Adaptionne
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(neoElementNodeEClass, NeoElementNode.class, "NeoElementNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNeoElementNode_NeoNodeLabels(), this.getNeoNodeLabelsParam(), null, "neoNodeLabels", null, 0, 1, NeoElementNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNeoElementNode_NeoNodeLabels(), this.getNeoNodeLabelsParam(), null, "neoNodeLabels", null, 0, 1, NeoElementNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNeoElementNode_NeoPlace(), this.getNeoPlace(), "neoPlace", "FOLLOWING", 0, 1, NeoElementNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNeoElementNode_IsVariableDistinctInUse(), ecorePackage.getEBoolean(), "isVariableDistinctInUse", "true", 0, 1, NeoElementNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

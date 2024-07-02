@@ -275,7 +275,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE__OUTGOING = GraphstructurePackage.COMPLEX_NODE__OUTGOING;
 
 	/**
-	 * The feature id for the '<em><b>Neo Node Labels</b></em>' containment reference.
+	 * The feature id for the '<em><b>Neo Node Labels</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -7999,10 +7999,10 @@ public interface Adaptionneo4jPackage extends EPackage {
 	EClass getNeoElementNode();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionneo4j.NeoElementNode#getNeoNodeLabels <em>Neo Node Labels</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionneo4j.NeoElementNode#getNeoNodeLabels <em>Neo Node Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Neo Node Labels</em>'.
+	 * @return the meta object for the reference '<em>Neo Node Labels</em>'.
 	 * @see qualitypatternmodel.adaptionneo4j.NeoElementNode#getNeoNodeLabels()
 	 * @see #getNeoElementNode()
 	 * @generated
@@ -8628,7 +8628,7 @@ public interface Adaptionneo4jPackage extends EPackage {
 		EClass NEO_ELEMENT_NODE = eINSTANCE.getNeoElementNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Node Labels</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Neo Node Labels</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

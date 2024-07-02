@@ -1396,8 +1396,7 @@
       <eOperations name="addNeoLabel" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neoNodeLabels" eType="#//adaptionneo4j/NeoNodeLabelsParam"
-          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neoNodeLabels" eType="#//adaptionneo4j/NeoNodeLabelsParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="neoPlace" eType="#//adaptionneo4j/NeoPlace"
           defaultValueLiteral="FOLLOWING"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVariableDistinctInUse"
