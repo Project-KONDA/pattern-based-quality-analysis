@@ -169,6 +169,8 @@ public class Neo4jExperiments {
 	}
 
 	private static boolean testSaveAndLoadList(List<CompletePattern> list) {
+		int total = 0;
+		int success = 0;
 		Boolean all = true;
 		for (CompletePattern p: list) {
 			boolean res = false;
@@ -180,9 +182,14 @@ public class Neo4jExperiments {
 			}
 			all &= res;
 			System.out.println(p.getName() + " " + res);
+			if (res)
+				success += 1;
+			total += 1;
 		}
+		System.out.println(success + " / " + total);
 		return all;
 	}
+	
 	private static boolean testSaveAndLoad(CompletePattern pattern) {
 		String saved = pattern.myToString();
 		
