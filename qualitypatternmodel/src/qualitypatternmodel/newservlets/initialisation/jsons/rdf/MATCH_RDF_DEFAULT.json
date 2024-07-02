@@ -1,0 +1,34 @@
+{
+	"template":"Match_rdf",
+	"language":"rdf",
+	"name":"default-antipattern",
+	"fragments":[
+		{"text":"Search for"},
+		{
+			"name":"elements",
+			"params":[2],
+			"exampleValue":"Actors",
+			"description":"anchor for analysis",
+			"plural":"true"
+		},
+		{"text":"where a property reached by"},
+		{
+			"name":"an rdf property path",
+			"params":[3],
+			"exampleValue":"has"
+		},
+		{"text":"is"},
+		{
+			"name":"does / does not",
+			"params":[0],
+			"exampleValue":"does",
+			"defaultMap":"does"
+		},
+		{"text":"match"},
+		{
+			"name":"a specific pattern",
+			"params":[1]
+		},
+		{"text":"."}
+	]
+}

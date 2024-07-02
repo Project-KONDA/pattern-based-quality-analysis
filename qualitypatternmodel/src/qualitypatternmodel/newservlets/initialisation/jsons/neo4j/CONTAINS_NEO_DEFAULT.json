@@ -1,0 +1,32 @@
+{
+	"template":"Contains_neo4j",
+	"language":"neo4j",
+	"name":"default-antipattern",
+	"fragments":[
+		{"text":"Search for"},
+		{
+			"name":"elements","params":[2],
+			"exampleValue":"Actors",
+			"description":"anchor for analysis",
+			"plural":"true"
+		},
+		{"text":"where a property reached by"},
+		{
+			"name":"an neo property path",
+			"params":[3],
+			"exampleValue":"has"
+		},
+		{
+			"name":"does / does not",
+			"params":[0],
+			"exampleValue":"does",
+			"defaultMap":"does"
+		},
+		{"text":"contain"},
+		{
+			"name":"a specific term",
+			"params":[1]
+		},
+		{"text":"."}
+	]
+}

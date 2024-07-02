@@ -4,7 +4,6 @@ package qualitypatternmodel.adaptionneo4j.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
@@ -48,7 +47,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	private static final String CYPHER_RETURN_QUERY_PART = ConstantsNeo.CYPHER_SPECIAL_FUNCTION_DISTINCT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + "%s" + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
 	private static final int CYPHER_RETURN_ID = 0;
 	/**
-	 * The cached value of the '{@link #getNeoNodeLabels() <em>Neo Node Labels</em>}' containment reference.
+	 * The cached value of the '{@link #getNeoNodeLabels() <em>Neo Node Labels</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNeoNodeLabels()
@@ -157,20 +156,6 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 		}
 		returnElement.put(NeoElementNodeImpl.CYPHER_RETURN_ID, cypher);
 		return returnElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS:
-				return basicSetNeoNodeLabels(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	@Override
@@ -302,6 +287,14 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	 */
 	@Override
 	public NeoNodeLabelsParam getNeoNodeLabels() {
+		if (neoNodeLabels != null && neoNodeLabels.eIsProxy()) {
+			InternalEObject oldNeoNodeLabels = (InternalEObject)neoNodeLabels;
+			neoNodeLabels = (NeoNodeLabelsParam)eResolveProxy(oldNeoNodeLabels);
+			if (neoNodeLabels != oldNeoNodeLabels) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS, oldNeoNodeLabels, neoNodeLabels));
+			}
+		}
 		return neoNodeLabels;
 	}
 
@@ -310,14 +303,8 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNeoNodeLabels(NeoNodeLabelsParam newNeoNodeLabels, NotificationChain msgs) {
-		NeoNodeLabelsParam oldNeoNodeLabels = neoNodeLabels;
-		neoNodeLabels = newNeoNodeLabels;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS, oldNeoNodeLabels, newNeoNodeLabels);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public NeoNodeLabelsParam basicGetNeoNodeLabels() {
+		return neoNodeLabels;
 	}
 
 	/**
@@ -327,17 +314,10 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	 */
 	@Override
 	public void setNeoNodeLabels(NeoNodeLabelsParam newNeoNodeLabels) {
-		if (newNeoNodeLabels != neoNodeLabels) {
-			NotificationChain msgs = null;
-			if (neoNodeLabels != null)
-				msgs = ((InternalEObject)neoNodeLabels).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS, null, msgs);
-			if (newNeoNodeLabels != null)
-				msgs = ((InternalEObject)newNeoNodeLabels).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS, null, msgs);
-			msgs = basicSetNeoNodeLabels(newNeoNodeLabels, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS, newNeoNodeLabels, newNeoNodeLabels));
+		NeoNodeLabelsParam oldNeoNodeLabels = neoNodeLabels;
+		neoNodeLabels = newNeoNodeLabels;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS, oldNeoNodeLabels, neoNodeLabels));
 	}
 
 	/**
@@ -362,7 +342,8 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_NODE_LABELS:
-				return getNeoNodeLabels();
+				if (resolve) return getNeoNodeLabels();
+				return basicGetNeoNodeLabels();
 			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__NEO_PLACE:
 				return getNeoPlace();
 			case Adaptionneo4jPackage.NEO_ELEMENT_NODE__IS_VARIABLE_DISTINCT_IN_USE:

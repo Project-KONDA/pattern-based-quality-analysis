@@ -1,0 +1,35 @@
+{
+    "template":"Match_xml",
+    "language":"xml",
+    "name":"default-antipattern",
+    "fragments":[
+        {"text":"Search for"},
+        {
+            "name":"elements",
+            "params":[2],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis",
+            "plural":"true"
+        },
+        {"text":"where a"},
+        {
+            "name":"property",
+            "params":[3],
+            "exampleValue":"Surname",
+            "description":"value that gets analysed"
+        },
+        {
+            "name":"does / does not",
+            "params":[0],
+            "defaultMap":"does",
+            "exampleValue":"does"
+        },
+        {"text":"match"},
+        {
+            "name":"a specific pattern (RegEx)",
+            "params":[1],
+            "exampleValue":"[A-Z][a-z][a-z]+"
+        },
+        {"text":"."}
+    ]
+}

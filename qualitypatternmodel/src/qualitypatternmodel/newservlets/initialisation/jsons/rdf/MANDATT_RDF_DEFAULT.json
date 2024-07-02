@@ -1,0 +1,22 @@
+{
+    "template":"MandAtt_rdf",
+    "language":"rdf",
+    "name":"default-antipattern",
+    "fragments":[
+        {"text":"Search for"},
+        {
+            "name":"elements",
+            "params":[0],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis",
+            "plural":"true"
+        },
+        {"text":"without a property reached by"},
+        {
+            "name":"an rdf property path",
+            "params":[1],
+            "exampleValue":"has"
+        },
+        {"text":"."}
+    ]
+}

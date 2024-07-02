@@ -1,0 +1,40 @@
+{
+	"template":"Card_rdf",
+	"language":"rdf",
+	"name":"default-antipattern",
+	"fragments":[
+		{"text":"Search for"},
+		{
+			"name":"elements",
+			"params":[2],
+			"exampleValue":"Actors",
+			"description":"anchor for analysis",
+			"plural":"true"
+		},
+		{"text":"where the number of"},
+		{
+			"name":"child elements",
+			"params":[4],
+			"exampleValue":"Birthdate"
+		},
+		{"text":"reached by"},
+		{
+			"name":"an rdf path",
+			"params":[3],
+			"exampleValue":"has",
+			"defaultmap":"comparison"
+		},
+		{"text":"is"},
+		{
+			"name":"compared to",
+			"params":[0],
+			"exampleValue":"exactly",
+			"defaultMap":"comparison"
+		},
+		{
+			"name":"a specific number",
+			"params":[1]
+		},
+		{"text":"."}
+	]
+}

@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1719569267302">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1719924658033">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -15687,9 +15687,10 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_fKZZzxP3Ee2iRvdfpvWkRA" name="[0..1] neoNodeLabels" sourceNode="_sYj54Ph8EeyEAYheLQgtPA" targetNode="_SbIdYJylEe2ibZnWAsK9tw">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoElementNode/neoNodeLabels"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoElementNode/neoNodeLabels"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_5mffLKDCEe2OiJGrF3tShA" description="_GtUWabX8EeqMwsh8KfYQSg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_5mffLqDCEe2OiJGrF3tShA" showIcon="false"/>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_5mffLaDCEe2OiJGrF3tShA" labelSize="6" showIcon="false" labelColor="39,76,114"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_sDoQuThxEe-Xeee9Fhr-Ng" routingStyle="manhattan" strokeColor="0,0,0">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_sDoQuzhxEe-Xeee9Fhr-Ng" showIcon="false"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_sDoQujhxEe-Xeee9Fhr-Ng" labelSize="6" showIcon="false" labelColor="39,76,114"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
@@ -15707,9 +15708,9 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_amsSrB77Ee20H_6KewSmww" name="[0..1] neoTargetNodeLabels" sourceNode="_vQuu8Ph-EeyEAYheLQgtPA" targetNode="_SbIdYJylEe2ibZnWAsK9tw">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/neoTargetNodeLabels"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/neoTargetNodeLabels"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_zEFiEKDCEe2OiJGrF3tShA" description="_GtUWabX8EeqMwsh8KfYQSg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_zEFiEqDCEe2OiJGrF3tShA" showIcon="false"/>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_zEFiEaDCEe2OiJGrF3tShA" labelSize="6" showIcon="false" labelColor="39,76,114"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ukm_0zhxEe-Xeee9Fhr-Ng" description="_GtUWabX8EeqMwsh8KfYQSg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_ukm_1ThxEe-Xeee9Fhr-Ng" showIcon="false"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_ukm_1DhxEe-Xeee9Fhr-Ng" labelSize="6" showIcon="false" labelColor="39,76,114"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
@@ -15729,9 +15730,9 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_hCEv8x79Ee20H_6KewSmww" name="[0..1] neoEdgeLabel" sourceNode="_vQuu8Ph-EeyEAYheLQgtPA" targetNode="_Sz_pUJylEe2ibZnWAsK9tw">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/neoEdgeLabel"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge/neoEdgeLabel"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_eIYkNqDCEe2mhLOBYCJYVw" description="_GtUWabX8EeqMwsh8KfYQSg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_eIYkOKDCEe2mhLOBYCJYVw" showIcon="false"/>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_eIYkN6DCEe2mhLOBYCJYVw" labelSize="6" showIcon="false" labelColor="39,76,114"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_tSlXLDhxEe-Xeee9Fhr-Ng" description="_GtUWabX8EeqMwsh8KfYQSg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_tSlXLjhxEe-Xeee9Fhr-Ng" showIcon="false"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_tSlXLThxEe-Xeee9Fhr-Ng" labelSize="6" showIcon="false" labelColor="39,76,114"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>

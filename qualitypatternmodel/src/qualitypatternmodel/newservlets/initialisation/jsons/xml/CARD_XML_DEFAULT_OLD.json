@@ -1,0 +1,35 @@
+{
+    "template":"Card_xml",
+    "language":"xml",
+    "name":"default_old",
+    "fragments":[
+        {"text":"Search for"},
+        {
+            "name":"elements",
+            "params":[2],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis",
+            "plural":"true"
+        },
+        {"text":"that do have"},
+        {
+            "name":"compared to",
+            "params":[0],
+            "exampleValue":"more than",
+            "defaultMap":"comparison"
+        },
+        {
+            "name":"a specific number",
+            "params":[1],
+            "exampleValue":1
+        },
+        {
+            "name":"child elements",
+            "params":[3],
+            "exampleValue":"Birthdates",
+            "description":"counted elements",
+            "plural":"true"
+        },
+        {"text":"."}
+    ]
+}
