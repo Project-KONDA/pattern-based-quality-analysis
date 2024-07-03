@@ -37,8 +37,8 @@ paths:
 
     get: #1
       tags:
-        - pattern
-        - request
+        - Pattern
+        - Request
       summary: Requests list of patterns
       description: Requests list of patterns of a specific technology with the specified degree of abstraction
       operationId: getpatternlist
@@ -89,9 +89,9 @@ paths:
 
     get: #1.1
       tags:
-        - pattern
-        - request
-        - datamodel
+        - Pattern
+        - Request
+        - Datamodel
       summary: Requests filtered list of patterns
       description: Requests list of patterns of a specific technology with the specified degree of abstraction that is assigned to a specific datamodel
       operationId: getpatternlistmodel
@@ -131,8 +131,8 @@ paths:
 
     get: #2
       tags:
-        - constraint
-        - request
+        - Constraint
+        - Request
       summary: Requests information of a constraint
       description: Requests information of a specific constraint
       operationId: constraint
@@ -152,8 +152,8 @@ paths:
 
     delete: #5
       tags:
-        - constraint
-        - delete
+        - Constraint
+        - Deletion
       summary: Delete an existing constraint
       description: Delete a specific existing constraint
       operationId: deleteconstraint
@@ -173,9 +173,9 @@ paths:
 
     post: #6
       tags:
-        - constraint
-        - post
-        - parameter
+        - Constraint
+        - Modification
+        - Parameter
       summary: Set parameter of a constraint
       description: Modify parameters of a specific constraint with paramID or add (or override) custom parameters
       operationId: setparameter
@@ -252,8 +252,8 @@ paths:
 
     put: #3
       tags:
-        - template
-        - create
+        - Template
+        - Creation
       summary: Instantiate a template
       description: Create a constraint from a specific template
       operationId: instantiate
@@ -314,8 +314,8 @@ paths:
 
     put: #4
       tags:
-        - constraint
-        - create
+        - Constraint
+        - Creation
       summary: Copy a constraint
       description: Copy a specific constraint
       operationId: copy
@@ -376,10 +376,10 @@ paths:
 
     post: #7
       tags:
-        - constraint
-        - database
-        - post
-        - parameter
+        - Constraint
+        - Database
+        - Modification
+        - Parameter
       summary: Set the database parameter of a constrant
       description: Set the database parameter of a constrant
       operationId: postdatabase
@@ -406,10 +406,10 @@ paths:
 
     get: #8
       tags:
-        - constraint
-        - database
-        - request
-        - parameter
+        - Constraint
+        - Database
+        - Request
+        - Parameter
       summary: Request the database parameter from a constrant
       description: Request the database parameter from a constrant
       operationId: requestdatabase
@@ -449,10 +449,10 @@ paths:
 
     post: #9
       tags:
-        - constraint
-        - datamodel
-        - post
-        - parameter
+        - Constraint
+        - Datamodel
+        - Modification
+        - Parameter
       summary: Set the datamodel parameter of a constrant
       description: Set the datamodel parameter of a constrant
       operationId: postdatamodel
@@ -479,10 +479,10 @@ paths:
 
     get: #10
       tags:
-        - constraint
-        - datamodel
-        - request
-        - parameter
+        - Constraint
+        - Datamodel
+        - Request
+        - Parameter
       summary: Request the datamodel parameter from a constrant
       description: Request the datamodel parameter from a constrant
       operationId: requestdatamodel
@@ -522,9 +522,9 @@ paths:
 
     post: #11
       tags:
-        - constraint
-        - post
-        - parameter
+        - Constraint
+        - Modification
+        - Parameter
       summary: Change the name of a constraint
       description: Post a new name parameter to a constraint
       operationId: name
@@ -571,10 +571,10 @@ paths:
 
     post: #12
       tags:
-        - constraint
-        - tag
-        - post
-        - parameter
+        - Constraint
+        - Tag
+        - Modification
+        - Parameter
       summary: Add tags to a constraint
       description: add new tags to a constraint
       operationId: addtag
@@ -603,10 +603,10 @@ paths:
 
     delete: #13
       tags:
-        - constraint
-        - tag
-        - delete
-        - parameter
+        - Constraint
+        - Tag
+        - Deletion
+        - Parameter
       summary: Delete tags of a constraint
       description: Delete old tags of a constraint
       operationId: deletetag
@@ -655,9 +655,9 @@ paths:
 
     get: #14
       tags:
-        - constraint
-        - mqaf
-        - request
+        - Constraint
+        - MQAF
+        - Request
       summary: Request MQAF constraint from a constraint
       description: Request MQAF constraint schema in json format from a constraint
       operationId: mqaf-single
@@ -691,9 +691,9 @@ paths:
 
     get:  #14.1
       tags:
-        - constraint
-        - mqaf
-        - request
+        - Constraint
+        - MQAF
+        - Request
       summary: Request MQAF constraint from multiple constraints
       description: Request MQAF constraint schema in json format from multiple constraints
       operationId: mqaf-multiple
@@ -742,9 +742,9 @@ paths:
 
     get: #15
       tags:
-        - constraint
-        - query
-        - request
+        - Constraint
+        - Query
+        - Request
       summary: Request generated query from a constraint
       description: Request generated technology-specific query from a constraint
       operationId: query-single
@@ -778,9 +778,9 @@ paths:
 
     get: #15.1
       tags:
-        - constraint
-        - query
-        - request
+        - Constraint
+        - Query
+        - Request
       summary: Request generated queries from multiple constraints
       description: Request generated technology-specific queries from multiple constraints
       operationId: query-multiple
@@ -823,8 +823,8 @@ paths:
 
     get: #16
       tags:
-        - constraint
-        - request
+        - Constraint
+        - Request
       summary: Analyze file(s) with constraint(s)
       description: Analyze one or more files with one or more constraints
       operationId: execute
@@ -891,9 +891,9 @@ paths:
 
     get: #18
       tags:
-        - template
-        - variant
-        - request
+        - Template
+        - Variant
+        - Request
       summary: Request parameters of a template
       description: Request parameters of a template to define 
       operationId: getvariant
@@ -915,9 +915,9 @@ paths:
 
     put: #17
       tags:
-        - template
-        - variant
-        - post
+        - Template
+        - Variant
+        - Modification
       summary: Add a variant to a template
       description: Add a new variant to a specific template
       operationId: postvariant
@@ -950,9 +950,9 @@ paths:
 
     delete: #19
       tags:
-        - template
-        - variant
-        - delete
+        - Template
+        - Variant
+        - Deletion
       summary: Request variants of a template
       description: Request variants of a template
       operationId: deletevariant
@@ -1369,20 +1369,29 @@ components:
 
     RdfPathParam:
       oneOf:
-        - type: object
-          properties:
-            rdfpart:
-              $ref: '#/components/schemas/RdfPathPart'
-            nodetypes:
-              type: array
-              items:
-                $ref: '#/components/schemas/RdfLabel'
         - $ref: '#/components/schemas/RdfPathPart'
+        - type: array
+          items:
+            $ref: '#/components/schemas/RdfPathPart'
 
     RdfPathPart:
       oneOf:
+        - $ref: '#/components/schemas/RdfPathComponent'
+        - type: object
+          properties:
+            rdfpath:
+              $ref: '#/components/schemas/RdfPathComponent'
+            nodetypes:
+              oneOf:
+                - $ref: '#/components/schemas/RdfLabel'
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/RdfLabel'
+
+    RdfPathComponent:
+      oneOf:
         - $ref: '#/components/schemas/RdfPathSequence'
-        - $ref: '#/components/schemas/RdfXorSequence'
+        - $ref: '#/components/schemas/RdfPathXor'
         - $ref: '#/components/schemas/RdfLabel'
 
     RdfPathSequence:
@@ -1393,7 +1402,7 @@ components:
           items:
             $ref: '#/components/schemas/RdfPathPart'
 
-    RdfXorSequence:
+    RdfPathXor:
       type: object
       properties:
         xor:
@@ -1403,6 +1412,7 @@ components:
 
     RdfLabel:
       type: string
+      pattern: '^?([a-z]+:[a-zA-Z0-9]+|<[a-zA-A0-9]+>)'
 
     NeoElementPath:
       oneOf:
@@ -1439,3 +1449,4 @@ components:
 
     NeoLabel:
       type: string
+      pattern: '[A-Za-z_0-9]+'
