@@ -18,10 +18,6 @@ import qualitypatternmodel.utility.XmlPatternUtility;
 
 public class XmlPatterns {
 	
-	static Boolean AXIS = true;
-	static Boolean DEFAULT_VARIANTS = true;
-	static Boolean OLD_VARIANTS = false;
-	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
 		
 		for (CompletePattern pattern: getAllXmlPattern()) {
