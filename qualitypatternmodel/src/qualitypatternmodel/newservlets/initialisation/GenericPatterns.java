@@ -35,7 +35,7 @@ import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 
 public class GenericPatterns {
 	
-	private static boolean VALUES = true;
+	private static boolean VALUES = false;
 	static Boolean DEFAULT_VARIANTS = true;
 	static Boolean OLD_VARIANTS = false;
 	
