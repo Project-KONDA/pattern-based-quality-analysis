@@ -215,8 +215,8 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		if (value.equals("")) {
-			getRdfPathParts().clear();
+		if (value == null || value.equals("")) {
+			clear();
 			return;
 		}
 		ArrayList<RdfPathPart> parts = new ArrayList<RdfPathPart>();
@@ -246,6 +246,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	public void clear() {
 		if (getRdfPathParts() != null)
 			getRdfPathParts().clear();
+		rdfPathParts = null;
 	}
 	
 

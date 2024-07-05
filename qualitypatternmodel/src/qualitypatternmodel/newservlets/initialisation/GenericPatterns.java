@@ -36,6 +36,8 @@ import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 public class GenericPatterns {
 	
 	private static boolean VALUES = true;
+	static Boolean DEFAULT_VARIANTS = true;
+	static Boolean OLD_VARIANTS = false;
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		int i = 0;
@@ -94,11 +96,11 @@ public class GenericPatterns {
 		pattern.setPatternId(new_id);
 		List<Parameter> params = pattern.getParameterList().getParameters();
 		
-		if (XmlPatterns.AXIS && values != null)
+		if (VALUES && values != null)
 			for (Integer index: values.keySet())
 				params.get(index).setValueFromString(values.get(index));
 		
-		if (XmlPatterns.DEFAULT_VARIANTS && variants != null)
+		if (DEFAULT_VARIANTS && variants != null)
 			for (String json: variants)
 				try {
 					new PatternTextImpl(pattern, new JSONObject(json));
@@ -106,7 +108,7 @@ public class GenericPatterns {
 					e.printStackTrace();
 				}
 		
-		if (XmlPatterns.OLD_VARIANTS && oldvariants != null)
+		if (OLD_VARIANTS && oldvariants != null)
 			for (String json: oldvariants)
 				try {
 					new PatternTextImpl(pattern, new JSONObject(json));
