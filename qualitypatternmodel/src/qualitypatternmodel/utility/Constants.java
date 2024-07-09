@@ -55,6 +55,7 @@ public class Constants {
 	public static final String JSON_NAME = "name";
 	public static final String JSON_ID = "id";
 	public static final String JSON_PATTERNID = "patternID";
+	public static final String JSON_LASTSAVED = "lastSaved";
 	public static final String JSON_FRAGMENTS = "fragments";
 	public static final String JSON_TEXT = "text";
 	public static final String JSON_TYPE = "type";
