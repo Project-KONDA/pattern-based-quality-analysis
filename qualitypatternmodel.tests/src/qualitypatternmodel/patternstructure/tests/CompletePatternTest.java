@@ -24,6 +24,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateXmlConstraintSchema() <em>Generate Xml Constraint Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateXmlConstraintYAMLFile(java.lang.String) <em>Generate Xml Constraint YAML File</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateQueryFilter() <em>Generate Query Filter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#updateLastSaved() <em>Update Last Saved</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -207,6 +208,19 @@ public class CompletePatternTest extends PatternTest {
 	 * @generated
 	 */
 	public void testGenerateQueryFilter() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#updateLastSaved() <em>Update Last Saved</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#updateLastSaved()
+	 * @generated
+	 */
+	public void testUpdateLastSaved() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

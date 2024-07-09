@@ -9,6 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -88,6 +89,7 @@ import qualitypatternmodel.utility.ConstantsRdf;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getRelationCounter <em>Relation Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getOperatorCounter <em>Operator Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getLastSaved <em>Last Saved</em>}</li>
  * </ul>
  *
  * @generated
@@ -384,6 +386,26 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	protected Integer operatorCounter = OPERATOR_COUNTER_EDEFAULT;
 
+	/**
+	 * The default value of the '{@link #getLastSaved() <em>Last Saved</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastSaved()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date LAST_SAVED_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLastSaved() <em>Last Saved</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastSaved()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date lastSaved = LAST_SAVED_EDEFAULT;
+
 	//	protected int[] elementCounter = {1,1,1,1,1,1};
 
 	protected CompletePatternImpl() {
@@ -448,6 +470,17 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return filter;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void updateLastSaved() {
+		lastSaved = new Date();
+	}
+
+
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		Boolean graph = getGraph().containsJavaOperator();
@@ -1291,6 +1324,31 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 */
 	@Override
+	public Date getLastSaved() {
+		return lastSaved;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLastSaved(Date newLastSaved) {
+		Date oldLastSaved = lastSaved;
+		lastSaved = newLastSaved;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__LAST_SAVED, oldLastSaved, lastSaved));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Integer getCounter() {
 		return counter;
 	}
@@ -1453,6 +1511,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return getRelationCounter();
 			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
 				return getOperatorCounter();
+			case PatternstructurePackage.COMPLETE_PATTERN__LAST_SAVED:
+				return getLastSaved();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1515,6 +1575,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
 				setOperatorCounter((Integer)newValue);
 				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__LAST_SAVED:
+				setLastSaved((Date)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1574,6 +1637,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
 				setOperatorCounter(OPERATOR_COUNTER_EDEFAULT);
 				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__LAST_SAVED:
+				setLastSaved(LAST_SAVED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1617,6 +1683,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return RELATION_COUNTER_EDEFAULT == null ? relationCounter != null : !RELATION_COUNTER_EDEFAULT.equals(relationCounter);
 			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
 				return OPERATOR_COUNTER_EDEFAULT == null ? operatorCounter != null : !OPERATOR_COUNTER_EDEFAULT.equals(operatorCounter);
+			case PatternstructurePackage.COMPLETE_PATTERN__LAST_SAVED:
+				return LAST_SAVED_EDEFAULT == null ? lastSaved != null : !LAST_SAVED_EDEFAULT.equals(lastSaved);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1687,6 +1755,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case PatternstructurePackage.COMPLETE_PATTERN___UPDATE_LAST_SAVED:
+				updateLastSaved();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -1726,6 +1797,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		result.append(relationCounter);
 		result.append(", operatorCounter: ");
 		result.append(operatorCounter);
+		result.append(", lastSaved: ");
+		result.append(lastSaved);
 		result.append(')');
 		return result.toString();
 	}

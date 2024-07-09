@@ -65,6 +65,7 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 			addElementCounterPropertyDescriptor(object);
 			addRelationCounterPropertyDescriptor(object);
 			addOperatorCounterPropertyDescriptor(object);
+			addLastSavedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -268,6 +269,28 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Last Saved feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLastSavedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CompletePattern_lastSaved_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_lastSaved_feature", "_UI_CompletePattern_type"),
+				 PatternstructurePackage.Literals.COMPLETE_PATTERN__LAST_SAVED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Parameter Counter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -459,6 +482,7 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
 			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
 			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
+			case PatternstructurePackage.COMPLETE_PATTERN__LAST_SAVED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:

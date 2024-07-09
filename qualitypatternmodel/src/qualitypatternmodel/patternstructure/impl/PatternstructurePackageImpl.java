@@ -705,6 +705,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EAttribute getCompletePattern_LastSaved() {
+		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EAttribute getCompletePattern_Counter() {
 		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(12);
 	}
@@ -837,6 +847,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EOperation getCompletePattern__GenerateQueryFilter() {
 		return completePatternEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getCompletePattern__UpdateLastSaved() {
+		return completePatternEClass.getEOperations().get(10);
 	}
 
 	/**
@@ -1563,6 +1583,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__ELEMENT_COUNTER);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__RELATION_COUNTER);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__OPERATOR_COUNTER);
+		createEAttribute(completePatternEClass, COMPLETE_PATTERN__LAST_SAVED);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS);
@@ -1573,6 +1594,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_SCHEMA);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_YAML_FILE__STRING);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_QUERY_FILTER);
+		createEOperation(completePatternEClass, COMPLETE_PATTERN___UPDATE_LAST_SAVED);
 
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
@@ -1756,6 +1778,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEAttribute(getCompletePattern_ElementCounter(), ecorePackage.getEIntegerObject(), "elementCounter", "1", 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_RelationCounter(), ecorePackage.getEIntegerObject(), "relationCounter", "1", 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_OperatorCounter(), ecorePackage.getEIntegerObject(), "operatorCounter", "1", 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompletePattern_LastSaved(), ecorePackage.getEDate(), "lastSaved", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getCompletePattern__ValidateAgainstSchema(), theParametersPackage.getParameter(), "validateAgainstSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
@@ -1788,6 +1811,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		op = initEOperation(getCompletePattern__GenerateQueryFilter(), theJavaqueryPackage.getJavaFilter(), "generateQueryFilter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
+
+		initEOperation(getCompletePattern__UpdateLastSaved(), null, "updateLastSaved", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(patternElementEClass, PatternElement.class, "PatternElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPatternElement_Id(), ecorePackage.getEString(), "id", null, 1, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

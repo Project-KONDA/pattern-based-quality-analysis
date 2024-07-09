@@ -2777,13 +2777,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__OPERATOR_COUNTER = PATTERN_FEATURE_COUNT + 15;
 
 	/**
+	 * The feature id for the '<em><b>Last Saved</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__LAST_SAVED = PATTERN_FEATURE_COUNT + 16;
+
+	/**
 	 * The number of structural features of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 16;
+	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3137,13 +3146,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___GENERATE_QUERY_FILTER = PATTERN_OPERATION_COUNT + 9;
 
 	/**
+	 * The operation id for the '<em>Update Last Saved</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___UPDATE_LAST_SAVED = PATTERN_OPERATION_COUNT + 10;
+
+	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 10;
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -5743,6 +5761,17 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getCompletePattern_OperatorCounter();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getLastSaved <em>Last Saved</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Saved</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getLastSaved()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_LastSaved();
+
+	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getCounter <em>Counter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5885,6 +5914,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getCompletePattern__GenerateQueryFilter();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#updateLastSaved() <em>Update Last Saved</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Update Last Saved</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#updateLastSaved()
+	 * @generated
+	 */
+	EOperation getCompletePattern__UpdateLastSaved();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
@@ -6878,6 +6917,14 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute COMPLETE_PATTERN__OPERATOR_COUNTER = eINSTANCE.getCompletePattern_OperatorCounter();
 
 		/**
+		 * The meta object literal for the '<em><b>Last Saved</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__LAST_SAVED = eINSTANCE.getCompletePattern_LastSaved();
+
+		/**
 		 * The meta object literal for the '<em><b>Counter</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6988,6 +7035,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPLETE_PATTERN___GENERATE_QUERY_FILTER = eINSTANCE.getCompletePattern__GenerateQueryFilter();
+
+		/**
+		 * The meta object literal for the '<em><b>Update Last Saved</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPLETE_PATTERN___UPDATE_LAST_SAVED = eINSTANCE.getCompletePattern__UpdateLastSaved();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.
