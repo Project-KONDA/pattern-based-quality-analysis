@@ -3,12 +3,16 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 import java.util.Map;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class ConstraintNameServlet extends HttpServlet {
@@ -76,14 +80,24 @@ public class ConstraintNameServlet extends HttpServlet {
 		// 2. change name
 		String oldName = pattern.getName();
 		pattern.setName(newName);
-		
+
 		// 3. save constraint
+		String timestamp = null;
 		try {
-			ServletUtilities.saveConstraint(technology, constraintId, pattern);
+			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
 			throw new FailedServletCallException("Failed to save new constraint");
 		}
 		
-		return "Name of constraint updated successfully from '" + oldName + "' to '" + newName + "'.";
+		JSONObject result = new JSONObject();
+		try {
+			result.put(Constants.JSON_CONSTRAINT_ID, pattern.getPatternId());
+			result.put(Constants.JSON_OLD_NAME, oldName);
+			result.put(Constants.JSON_NAME, newName);
+			result.put(Constants.JSON_LASTSAVED, timestamp);
+		} catch (JSONException e) {}
+		
+		return result.toString();
+//		return "Name of constraint updated successfully from '" + oldName + "' to '" + newName + "'.";
 	}
 }

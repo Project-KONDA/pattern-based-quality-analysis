@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class ConstraintDataModelServlet extends HttpServlet {
@@ -141,12 +142,22 @@ public class ConstraintDataModelServlet extends HttpServlet {
 		pattern.setDataModelName(newDataModelName);
 		
 		// 3. save constraint
+		String timestamp = null;
 		try {
-			ServletUtilities.saveConstraint(technology, constraintId, pattern);
+			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
 			throw new FailedServletCallException("Failed to save new constraint");
 		}
 		
-		return "Datamodel of constraint of constraint '" + pattern.getPatternId() + "' updated successfully from '" + oldDataModelName + "' to '" + newDataModelName + "'.";
+		JSONObject result = new JSONObject();
+		try {
+			result.put(Constants.JSON_CONSTRAINT_ID, pattern.getPatternId());
+			result.put(Constants.JSON_OLD_DATAMODEL, oldDataModelName);
+			result.put(Constants.JSON_DATAMODEL, newDataModelName);
+			result.put(Constants.JSON_LASTSAVED, timestamp);
+		} catch (JSONException e) {}
+		
+		return result.toString();
+//		return "Datamodel of constraint of constraint '" + pattern.getPatternId() + "' updated successfully from '" + oldDataModelName + "' to '" + newDataModelName + "'.";
 	}
 }

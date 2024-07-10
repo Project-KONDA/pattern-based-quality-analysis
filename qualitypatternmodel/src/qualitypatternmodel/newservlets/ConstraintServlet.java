@@ -247,11 +247,15 @@ public class ConstraintServlet extends HttpServlet {
 		}
 		
 		// 3. save constraint
+		String timestamp = null;
 		try {
-			ServletUtilities.saveConstraint(technology, constraintId, pattern);
+			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
 			throw new FailedServletCallException("Failed to save new constraint");
 		}
+		try {
+			output.put(Constants.JSON_LASTSAVED, timestamp);
+		} catch (JSONException e) {}
 		
 		return output.toString();
 	}

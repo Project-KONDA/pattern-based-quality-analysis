@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class ConstraintDatabaseServlet extends HttpServlet {
@@ -141,13 +142,23 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		pattern.setDatabaseName(newDatabaseName);
 		
 		// 3. save constraint
+		String timestamp = null;
 		try {
-			ServletUtilities.saveConstraint(technology, constraintId, pattern);
+			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
 			throw new FailedServletCallException("Failed to save new constraint");
 		}
 		
-		return "Database of constraint of constraint '" + pattern.getPatternId() + "' updated successfully from '" + oldDatabaseName + "' to '" + newDatabaseName + "'.";
+		JSONObject result = new JSONObject();
+		try {
+			result.put(Constants.JSON_CONSTRAINT_ID, pattern.getPatternId());
+			result.put(Constants.JSON_OLD_DATABASE, oldDatabaseName);
+			result.put(Constants.JSON_DATABASE, newDatabaseName);
+			result.put(Constants.JSON_LASTSAVED, timestamp);
+		} catch (JSONException e) {}
+		
+		return result.toString();
+//		return "Database of constraint of constraint '" + pattern.getPatternId() + "' updated successfully from '" + oldDatabaseName + "' to '" + newDatabaseName + "'.";
 	}
 	
 }

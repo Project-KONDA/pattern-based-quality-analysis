@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class ConstraintTagServlet extends HttpServlet {
@@ -155,11 +156,15 @@ public class ConstraintTagServlet extends HttpServlet {
 		}
 		
 		// 3. save constraint
+		String timestamp = null;
 		try {
-			ServletUtilities.saveConstraint(technology, constraintId, pattern);
+			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
 			throw new FailedServletCallException("Failed to save new constraint");
 		}
+		try {
+			json.put(Constants.JSON_LASTSAVED, timestamp);
+		} catch (JSONException e) {}
 		
 		return json.toString();
 	}

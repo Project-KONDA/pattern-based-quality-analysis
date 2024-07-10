@@ -246,10 +246,11 @@ public abstract class ServletUtilities {
 		EMFModelSave.exportToFile2(pattern, folderpath, templateId, EXTENSION);
 	}
 
-	public static void saveConstraint(String technology, String constraintId, CompletePattern pattern) throws IOException {
+	public static String saveConstraint(String technology, String constraintId, CompletePattern pattern) throws IOException {
 		pattern.updateLastSaved();
 		String folderpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER;
 		EMFModelSave.exportToFile2(pattern, folderpath, constraintId, EXTENSION);
+		return new Timestamp(pattern.getLastSaved().getTime()).toString();
 	}
 	
 	public static String generateNewId(String technology, String templateId, String variantname) throws IOException {
