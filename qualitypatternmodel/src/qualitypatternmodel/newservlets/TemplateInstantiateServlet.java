@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import org.json.JSONObject;
+
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,7 +18,7 @@ import qualitypatternmodel.textrepresentation.PatternText;
 @SuppressWarnings("serial")
 public class TemplateInstantiateServlet extends HttpServlet {
 	
-	// .. /template/instantiate   /<technology>/<abstracttemplate>
+	// PUT .. /template/instantiate    /<technology>/<templateID>/<variantID>
 	
 	@Override
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -24,43 +26,16 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try{
-			String result = applyPut(path, params);
+			JSONObject result = applyPut(path, params);
 			ServletUtilities.logOutput(result);
-			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_OK);
-		}
-		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"1 " + e.getMessage() + "\"}");
-		}
-		catch (FailedServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-	        if (e.getMessage().startsWith("404")) {
-				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-				response.getWriter().write("{ \"error\": \"2 " + e.getMessage().substring(4) + "\"}");
-	        }
-	        else if (e.getMessage().startsWith("409")) {
-				response.setStatus(HttpServletResponse.SC_CONFLICT);
-				response.getWriter().write("{ \"error\": \"3 " + e.getMessage().substring(4) + "\"}");
-	        	
-	        } else {
-				response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-				response.getWriter().write("{ \"error\": \"internal " + e.getMessage() + "\"}");
-	        }
+			ServletUtilities.putResponse(response, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"4 " + e.getClass().getSimpleName() + " " + e.getMessage() + "\"}");
+			ServletUtilities.putResponseError(response, e);
 		}
-//		response.getOutputStream().println("{ \"call\": \"TemplateInstantiateServlet.doPost()\"}");
 	}
 	
-	public static String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public static JSONObject applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 4 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for instantiate in a constraint: '.. /template/instantiate/<technology>/<constraintId>/<variantId>' (not " + path + ")");
@@ -129,7 +104,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		}
 		
 		
-		return ServletUtilities.getPatternJSON(pattern).toString();
+		return ServletUtilities.getPatternJSON(pattern);
 //		return "Template '" + templateId + "' instantiated successfully to '" + constraintId + "'.";
 	}
 }

@@ -16,8 +16,8 @@ import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class ConstraintTagServlet extends HttpServlet {
-	// POST or DELETE
-	// .. /template/tag   /<technology>/<name>/ {"tag": <value>}
+	
+	// POST .. /template/tag    /<technology>/<name>    {"tag": <value>}
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -25,30 +25,16 @@ public class ConstraintTagServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
-			String result = applyPost(path, params);
+			JSONObject result = applyPost(path, params);
 			ServletUtilities.logOutput(result);
-			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_OK);
-		}
-		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-		}
-		catch (FailedServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponse(response, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponseError(response, e);
 		}
 	}
+	
+	// DELETE .. /template/tag    /<technology>/<name>    {"tag": <value>}
 	
 	@Override
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -56,32 +42,16 @@ public class ConstraintTagServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try{
-			String result = applyDelete(path, params);
+			JSONObject result = applyDelete(path, params);
 			ServletUtilities.logOutput(result);
-			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_OK);
-		}
-		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-		}
-		catch (FailedServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponse(response, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponseError(response, e);
 		}
 	}
 	
-	public static String applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for posting tags in a constraint: '.. /constraint/tag/<technology>/<name>/' (not " + path + ")");
@@ -122,10 +92,10 @@ public class ConstraintTagServlet extends HttpServlet {
 			throw new FailedServletCallException("Failed to modify Constraint");
 		}
 		
-		return json.toString();
+		return json;
 	}
 	
-	public static String applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONObject applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for deleting tags in a constraint: '.. /constraint/tag/<technology>/<name>/' (not " + path + ")");
@@ -166,6 +136,6 @@ public class ConstraintTagServlet extends HttpServlet {
 			json.put(Constants.JSON_LASTSAVED, timestamp);
 		} catch (JSONException e) {}
 		
-		return json.toString();
+		return json;
 	}
 }

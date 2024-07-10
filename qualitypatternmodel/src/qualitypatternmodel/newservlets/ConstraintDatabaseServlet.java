@@ -17,7 +17,7 @@ import qualitypatternmodel.utility.Constants;
 @SuppressWarnings("serial")
 public class ConstraintDatabaseServlet extends HttpServlet {
 	
-	// GET .. /template/database   /<technology>/<name>
+	// GET .. /constraint/database    /<technology>/<name>
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -25,33 +25,15 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
-			String result = applyGet(path, params);
-			ServletUtilities.logOutput(result);
-			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_OK);
-//			response.getWriter().write("{ \"error\": \"databases not implemented \"}");
-		}
-		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-		}
-		catch (FailedServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			JSONObject result = applyGet(path, params);
+			ServletUtilities.putResponse(response, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponseError(response, e);
 		}
 	}
 	
-	// POST .. /template/database   /<technology>/<name>
+	// POST .. /constraint/database    /<technology>/<name>    {"database": <datamode-name>}
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -59,34 +41,15 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try{
-			String result = applyPost(path, params);
-			ServletUtilities.logOutput(result);
-			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_OK);
-//			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
-//			response.getWriter().write("{ \"error\": \"databases not implemented \"}");
-		}
-		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-		}
-		catch (FailedServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			JSONObject result = applyPost(path, params);
+			ServletUtilities.putResponse(response, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponseError(response, e);
 		}
 	}
 	
-	public static String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
@@ -106,14 +69,14 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		}
 
 		// 2 return database name
+		JSONObject result = new JSONObject();
 		try {
-			return new JSONObject().put("database", pattern.getDatabaseName() ).toString();
-		} catch (JSONException e) {
-			return "{\"database\":\"" + pattern.getDatabaseName() + "\"}"; 
-		}
+			result.put(Constants.JSON_DATABASE, pattern.getDatabaseName());
+		} catch (JSONException e) {}
+		return result;
 	}
 	
-	public static String applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/setparameter/<technology>/<name>/' (not " + path + ")");
@@ -157,7 +120,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 			result.put(Constants.JSON_LASTSAVED, timestamp);
 		} catch (JSONException e) {}
 		
-		return result.toString();
+		return result;
 //		return "Database of constraint of constraint '" + pattern.getPatternId() + "' updated successfully from '" + oldDatabaseName + "' to '" + newDatabaseName + "'.";
 	}
 	

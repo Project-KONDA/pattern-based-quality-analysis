@@ -29,36 +29,24 @@ import qualitypatternmodel.utility.Constants;
 @SuppressWarnings("serial")
 public class ConstraintServlet extends HttpServlet {
 
+	// GET .. /constraint    /<technology>/<name>/
+	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
-			String result = applyGet(path, params);
+			JSONObject result = applyGet(path, params);
 			ServletUtilities.logOutput(result);
-			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_OK);
-		}
-		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-		}
-		catch (FailedServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponse(response, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponseError(response, e);
 		}
 	}
+	
+	// DELETE .. /constraint    /<technology>/<name>/
 	
 	@Override
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -68,30 +56,14 @@ public class ConstraintServlet extends HttpServlet {
 		try {
 			String result = applyDelete(path, params);
 			ServletUtilities.logOutput(result);
-			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_OK);
-		}
-		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-		}
-		catch (FailedServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponse(response, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponseError(response, e);
 		}
 	}
 	
-	// .. /template/setparameter   /<technology>/<name>/
+	// POST .. /constraint    /<technology>/<name>/
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -99,38 +71,22 @@ public class ConstraintServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try{
-			String result = applyPost(path, params);
+			JSONObject result = applyPost(path, params);
 			ServletUtilities.logOutput(result);
-			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_OK);
-		}
-		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponse(response, result);
 		}
 		catch (FailedServletCallException e) {
-			ServletUtilities.logError(e);
-			if (e.getMessage().startsWith("404")) {
-				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-		        response.setContentType("application/json");
-				response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-			}
-			else
-				response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
+	        if (e.getMessage().startsWith("404"))
+				ServletUtilities.putResponseError(response, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
+	        else
+				ServletUtilities.putResponseError(response, e, HttpServletResponse.SC_NOT_MODIFIED);
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-			e.printStackTrace();
+			ServletUtilities.putResponseError(response, e);
 		}
-//		response.getOutputStream().println("{ \"call\": \"TemplateSetParameterServlet.doPost(" + path + ")\"}");
 	}
 	
-	public static String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
@@ -155,7 +111,7 @@ public class ConstraintServlet extends HttpServlet {
 		}
 		
 		// 2 return json
-		return ServletUtilities.getPatternJSON(pattern).toString();
+		return ServletUtilities.getPatternJSON(pattern);
 	}
 
 	public static String applyDelete(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
@@ -187,7 +143,7 @@ public class ConstraintServlet extends HttpServlet {
 		return "Constraint deleted successfully.";
 	}
 	
-	public static String applyPost (String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONObject applyPost (String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException {
 		Map<String, String[]> parameterMap = new HashMap<>(parameter);
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
@@ -257,7 +213,7 @@ public class ConstraintServlet extends HttpServlet {
 			output.put(Constants.JSON_LASTSAVED, timestamp);
 		} catch (JSONException e) {}
 		
-		return output.toString();
+		return output;
 	}
 	
 	private static JSONObject changeParameters(CompletePattern pattern, Map<String, String[]> parameterMap) {

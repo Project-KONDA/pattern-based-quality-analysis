@@ -25,7 +25,7 @@ import qualitypatternmodel.utility.Constants;
 @SuppressWarnings("serial")
 public class ConstraintExecuteServlet extends HttpServlet {
 	
-	// .. /template/execute {"files": filename-string , "constraints": <constraint-json>}
+	// GET .. /constraint/execute    /<technology>    {"files": filename-string , "constraints": <constraint-json>, "constraintIDs": <constraint-ids>}
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -33,33 +33,15 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
-			String result = applyGet(path, params);
-			ServletUtilities.logOutput(result);
-			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_OK);
-		}
-		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-		}
-		catch (FailedServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			JSONArray result = applyGet(path, params);
+			ServletUtilities.putResponse(response, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponseError(response, e);
 		}
-//		response.getOutputStream().println("{ \"call\": \"TemplateQueryServlet.doGet(" + path + ")\"}");
 	}
 
-	public static String applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONArray applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length < 2  || pathparts.length > 2  || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getlist/<technology>/<level>' (not " + path + ")");
@@ -72,7 +54,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 			throw new FailedServletCallException("Technology '" + technology + "' currently not supported");
 	}
 
-	public static String applyGetXml(String path, String technology, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONArray applyGetXml(String path, String technology, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		// get parameters
 		String[] filepaths = parameterMap.get(Constants.JSON_FILES);
 		String[] constraintsCompiled = parameterMap.get(Constants.JSON_CONSTRAINTS);
@@ -167,7 +149,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		return results.toString();
+		return results;
 	}
 	
 	private static JSONObject queryFileToJSONObject (File file, JSONObject constraint) throws JSONException, FailedServletCallException {

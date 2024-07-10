@@ -72,7 +72,7 @@ public class XPathParameterTests {
 			HashMap<String, String[]> param = new HashMap<String, String[]>();
 			String[] val = {arg};
 			param.put("xmlpath_rootToReturn", val);
-			if (ConstraintServlet.applyPost("/xml/" + id, param).startsWith("{\"success\":[],"))
+			if (ConstraintServlet.applyPost("/xml/" + id, param).toString().startsWith("{\"success\":[],"))
 				System.out.println(arg);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -89,7 +89,7 @@ public class XPathParameterTests {
 			HashMap<String, String[]> param = new HashMap<String, String[]>();
 			String[] val = {arg};
 			param.put("xmlpath_returnToCondition", val);
-			String output = ConstraintServlet.applyPost(id, param); 
+			String output = ConstraintServlet.applyPost(id, param).toString(); 
 			if (output.startsWith("{\"success\":[],"))
 				System.out.println("failed: " + arg);
 			checkParameterValue(id, "xmlpath_returnToCondition", arg);
@@ -101,7 +101,7 @@ public class XPathParameterTests {
 	}
 	
 	private static void checkParameterValue(String id, String parameter_id, String expected) throws InvalidServletCallException, FailedServletCallException, JSONException {
-		String get = ConstraintServlet.applyGet(id, null);
+		String get = ConstraintServlet.applyGet(id, null).toString();
 		String value = getParameterValue(get, parameter_id);
 		expected = replaceExpected(expected);
 		if (value == null)
