@@ -9,6 +9,7 @@ import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -168,6 +169,8 @@ public abstract class ServletUtilities {
 			json.put(Constants.JSON_NAME, pattern.getName());
 			json.put(Constants.JSON_DESCRIPTION, pattern.getDescription());
 			json.put(Constants.JSON_LANGUAGE, pattern.getLanguage());
+			if (pattern.getLastSaved() != null)
+				json.put(Constants.JSON_LASTSAVED, new Timestamp(pattern.getLastSaved().getTime()).toString());
 			if (pattern.getDatabaseName() != null)
 				json.put(Constants.JSON_DATABASE, pattern.getDatabaseName());
 			if (pattern.getDataModelName() != null)
@@ -244,6 +247,7 @@ public abstract class ServletUtilities {
 	}
 
 	public static void saveConstraint(String technology, String constraintId, CompletePattern pattern) throws IOException {
+		pattern.updateLastSaved();
 		String folderpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER;
 		EMFModelSave.exportToFile2(pattern, folderpath, constraintId, EXTENSION);
 	}

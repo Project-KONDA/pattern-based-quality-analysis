@@ -4,6 +4,7 @@ package qualitypatternmodel.patternstructure;
 
 import de.gwdg.metadataqa.api.schema.BaseSchema;
 import java.io.IOException;
+import java.util.Date;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -40,6 +41,7 @@ import qualitypatternmodel.textrepresentation.PatternText;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getRelationCounter <em>Relation Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getOperatorCounter <em>Operator Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getLastSaved <em>Last Saved</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern()
@@ -314,6 +316,28 @@ public interface CompletePattern extends Pattern {
 	void setOperatorCounter(Integer value);
 
 	/**
+	 * Returns the value of the '<em><b>Last Saved</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Last Saved</em>' attribute.
+	 * @see #setLastSaved(Date)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_LastSaved()
+	 * @model
+	 * @generated
+	 */
+	Date getLastSaved();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getLastSaved <em>Last Saved</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Last Saved</em>' attribute.
+	 * @see #getLastSaved()
+	 * @generated
+	 */
+	void setLastSaved(Date value);
+
+	/**
 	 * Returns the value of the '<em><b>Counter</b></em>' attribute.
 	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
@@ -489,5 +513,13 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	JavaFilter generateQueryFilter() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void updateLastSaved();
 
 } // Pattern
