@@ -460,7 +460,7 @@ public class GenericPatterns {
 		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		pattern.setCondition(qc);
 
-		PrimitiveNode field = main.addOutgoing(qc.getGraph()).getTarget().makePrimitive();
+		ComplexNode field = main.addOutgoing(qc.getGraph()).getTarget().makeComplex();
 		field.setName("field");
 		
 		pattern.isValid(AbstractionLevel.GENERIC);
