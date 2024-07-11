@@ -86,11 +86,15 @@ public class ConstraintTagServlet extends HttpServlet {
 		}
 		
 		// 3. save constraint
+		String timestamp = null;
 		try {
-			ServletUtilities.saveConstraint(technology, constraintId, pattern);
+			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException("Failed to modify Constraint");
+			throw new FailedServletCallException("Failed to save updated constraint");
 		}
+		try {
+			json.put(Constants.JSON_LASTSAVED, timestamp);
+		} catch (JSONException e) {}
 		
 		return json;
 	}
@@ -130,7 +134,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		try {
 			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException("Failed to save new constraint");
+			throw new FailedServletCallException("Failed to save updated constraint");
 		}
 		try {
 			json.put(Constants.JSON_LASTSAVED, timestamp);

@@ -394,9 +394,9 @@ paths:
         '200':
           description: Successful operation
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/ParameterReturn'
         '400':
           description: Bad request
         '404':
@@ -467,9 +467,9 @@ paths:
         '200':
           description: Successful operation
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/ParameterReturn'
         '400':
           description: Bad request
         '404':
@@ -539,9 +539,9 @@ paths:
         '200':
           description: Successful operation
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
+                $ref: '#/components/schemas/ParameterReturn'
         '400':
           description: Bad request
         '404':
@@ -1184,16 +1184,37 @@ components:
           items:
             type: string
           description: parameter that failed to be modified
+        lastSaved:
+          type: string
+          description: timestamp of the applied change
+          pattern: '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3}$'
 
     ParameterReturn: # 8, 10
       type: object
       properties:
+        name:
+          type: string
+          description: current name value of the pattern
+        oldName:
+          type: string
+          description: previous name value
         database:
           type: string
           description: current database value of the pattern
+        oldDatabase:
+          type: string
+          description: previous database value
         datamodel:
           type: string
           description: current datamodel value of the pattern
+        oldDatamodel:
+          type: string
+          description: previous datamodel value
+        lastSaved:
+          type: string
+          description: timestamp of the last time a constraint was saved
+          pattern: '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3}$'
+
 
     TagSuccess: # 12, 13
       type: object
@@ -1208,6 +1229,10 @@ components:
           items:
             type: string
           description: successful modified tags
+        lastSaved:
+          type: string
+          description: timestamp of the last time a constraint was saved
+          pattern: '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3}$'
 
     VariantSpecification: # 17
       type: object
