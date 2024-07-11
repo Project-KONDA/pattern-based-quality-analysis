@@ -214,6 +214,16 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isEmpty() {
+		return getKeys().isEmpty();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -308,6 +318,8 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 			case TextrepresentationPackage.VALUE_MAP___CLEAR:
 				clear();
 				return null;
+			case TextrepresentationPackage.VALUE_MAP___IS_EMPTY:
+				return isEmpty();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

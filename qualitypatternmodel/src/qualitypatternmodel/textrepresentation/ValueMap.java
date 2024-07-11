@@ -108,4 +108,12 @@ public interface ValueMap extends EObject {
 	 */
 	void clear();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isEmpty();
+
 } // ValueMap

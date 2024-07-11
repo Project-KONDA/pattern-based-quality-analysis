@@ -63,6 +63,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.ConstantsRdf;
 
@@ -90,6 +91,7 @@ import qualitypatternmodel.utility.ConstantsRdf;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getRelationCounter <em>Relation Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getOperatorCounter <em>Operator Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getLastSaved <em>Last Saved</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getNamespaces <em>Namespaces</em>}</li>
  * </ul>
  *
  * @generated
@@ -406,6 +408,16 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	protected Date lastSaved = LAST_SAVED_EDEFAULT;
 
+	/**
+	 * The cached value of the '{@link #getNamespaces() <em>Namespaces</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNamespaces()
+	 * @generated
+	 * @ordered
+	 */
+	protected ValueMap namespaces;
+
 	//	protected int[] elementCounter = {1,1,1,1,1,1};
 
 	protected CompletePatternImpl() {
@@ -481,6 +493,27 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String generateXQueryNamespaces() throws InvalidityException {
+		ValueMap namespaces = getNamespaces();
+		if (namespaces == null || namespaces.isEmpty())
+			return null;
+		
+		String result = "";
+		for (String prefix: namespaces.getKeys()) {
+			String uri = namespaces.get(prefix);
+			result += "declare namespace " + prefix + "=\"" + uri + "\";\n";
+		}
+		result += "\n";
+		return result;
+	}
+
+
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		Boolean graph = getGraph().containsJavaOperator();
@@ -504,8 +537,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	public String generateXQuery() throws InvalidityException {
 		if (containsJavaOperator()) 
 			throw new InvalidityException("This pattern cannot be executed via default XQuery. A custom Java Filter build is required.");
+		String res = "";
 		initializeTranslation();
-		String res = getParameterList().generateXQuery();
+		if (!getNamespaces().isEmpty()) {
+			res += generateXQueryNamespaces();
+		}
+		res += getParameterList().generateXQuery();
 		res += super.generateXQuery();
 		return res;
 	}
@@ -1349,6 +1386,54 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 */
 	@Override
+	public ValueMap getNamespaces() {
+		return namespaces;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNamespaces(ValueMap newNamespaces, NotificationChain msgs) {
+		ValueMap oldNamespaces = namespaces;
+		namespaces = newNamespaces;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES, oldNamespaces, newNamespaces);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNamespaces(ValueMap newNamespaces) {
+		if (newNamespaces != namespaces) {
+			NotificationChain msgs = null;
+			if (namespaces != null)
+				msgs = ((InternalEObject)namespaces).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES, null, msgs);
+			if (newNamespaces != null)
+				msgs = ((InternalEObject)newNamespaces).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES, null, msgs);
+			msgs = basicSetNamespaces(newNamespaces, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES, newNamespaces, newNamespaces));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Integer getCounter() {
 		return counter;
 	}
@@ -1467,6 +1552,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return basicSetDatabase(null, msgs);
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				return ((InternalEList<?>)getText()).basicRemove(otherEnd, msgs);
+			case PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES:
+				return basicSetNamespaces(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1513,6 +1600,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return getOperatorCounter();
 			case PatternstructurePackage.COMPLETE_PATTERN__LAST_SAVED:
 				return getLastSaved();
+			case PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES:
+				return getNamespaces();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1578,6 +1667,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__LAST_SAVED:
 				setLastSaved((Date)newValue);
 				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES:
+				setNamespaces((ValueMap)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1640,6 +1732,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__LAST_SAVED:
 				setLastSaved(LAST_SAVED_EDEFAULT);
 				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES:
+				setNamespaces((ValueMap)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1685,6 +1780,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return OPERATOR_COUNTER_EDEFAULT == null ? operatorCounter != null : !OPERATOR_COUNTER_EDEFAULT.equals(operatorCounter);
 			case PatternstructurePackage.COMPLETE_PATTERN__LAST_SAVED:
 				return LAST_SAVED_EDEFAULT == null ? lastSaved != null : !LAST_SAVED_EDEFAULT.equals(lastSaved);
+			case PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES:
+				return namespaces != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1758,6 +1855,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN___UPDATE_LAST_SAVED:
 				updateLastSaved();
 				return null;
+			case PatternstructurePackage.COMPLETE_PATTERN___GENERATE_XQUERY_NAMESPACES:
+				try {
+					return generateXQueryNamespaces();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

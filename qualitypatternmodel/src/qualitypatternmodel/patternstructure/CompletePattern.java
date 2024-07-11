@@ -14,6 +14,7 @@ import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.textrepresentation.PatternText;
+import qualitypatternmodel.textrepresentation.ValueMap;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,6 +43,7 @@ import qualitypatternmodel.textrepresentation.PatternText;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getRelationCounter <em>Relation Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getOperatorCounter <em>Operator Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getLastSaved <em>Last Saved</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getNamespaces <em>Namespaces</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern()
@@ -338,6 +340,28 @@ public interface CompletePattern extends Pattern {
 	void setLastSaved(Date value);
 
 	/**
+	 * Returns the value of the '<em><b>Namespaces</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Namespaces</em>' containment reference.
+	 * @see #setNamespaces(ValueMap)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_Namespaces()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ValueMap getNamespaces();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getNamespaces <em>Namespaces</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Namespaces</em>' containment reference.
+	 * @see #getNamespaces()
+	 * @generated
+	 */
+	void setNamespaces(ValueMap value);
+
+	/**
 	 * Returns the value of the '<em><b>Counter</b></em>' attribute.
 	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
@@ -521,5 +545,13 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void updateLastSaved();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String generateXQueryNamespaces() throws InvalidityException;
 
 } // Pattern

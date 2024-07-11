@@ -414,6 +414,7 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(PatternstructurePackage.Literals.COMPLETE_PATTERN__PARAMETER_LIST);
 			childrenFeatures.add(PatternstructurePackage.Literals.COMPLETE_PATTERN__TEXT);
+			childrenFeatures.add(PatternstructurePackage.Literals.COMPLETE_PATTERN__NAMESPACES);
 		}
 		return childrenFeatures;
 	}
@@ -487,6 +488,7 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
+			case PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -513,6 +515,11 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 			(createChildParameter
 				(PatternstructurePackage.Literals.COMPLETE_PATTERN__TEXT,
 				 TextrepresentationFactory.eINSTANCE.createPatternText()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PatternstructurePackage.Literals.COMPLETE_PATTERN__NAMESPACES,
+				 TextrepresentationFactory.eINSTANCE.createValueMap()));
 	}
 
 }

@@ -25,6 +25,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateXmlConstraintYAMLFile(java.lang.String) <em>Generate Xml Constraint YAML File</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateQueryFilter() <em>Generate Query Filter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#updateLastSaved() <em>Update Last Saved</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateXQueryNamespaces() <em>Generate XQuery Namespaces</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -221,6 +222,19 @@ public class CompletePatternTest extends PatternTest {
 	 * @generated
 	 */
 	public void testUpdateLastSaved() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#generateXQueryNamespaces() <em>Generate XQuery Namespaces</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#generateXQueryNamespaces()
+	 * @generated
+	 */
+	public void testGenerateXQueryNamespaces() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

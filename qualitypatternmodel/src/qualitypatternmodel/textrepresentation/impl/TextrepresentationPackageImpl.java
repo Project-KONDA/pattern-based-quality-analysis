@@ -816,6 +816,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EOperation getValueMap__IsEmpty() {
+		return valueMapEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getObjectWrapper() {
 		return objectWrapperEDataType;
 	}
@@ -932,6 +942,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEOperation(valueMapEClass, VALUE_MAP___ADD_ALL__MAP);
 		createEOperation(valueMapEClass, VALUE_MAP___GENERATE_VARIANT_JSON_OBJECT);
 		createEOperation(valueMapEClass, VALUE_MAP___CLEAR);
+		createEOperation(valueMapEClass, VALUE_MAP___IS_EMPTY);
 
 		// Create data types
 		objectWrapperEDataType = createEDataType(OBJECT_WRAPPER);
@@ -1100,6 +1111,8 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		initEOperation(getValueMap__GenerateVariantJSONObject(), this.getJSONObjectWrapper(), "generateVariantJSONObject", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getValueMap__Clear(), null, "clear", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getValueMap__IsEmpty(), ecorePackage.getEBoolean(), "isEmpty", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(objectWrapperEDataType, Object.class, "ObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
