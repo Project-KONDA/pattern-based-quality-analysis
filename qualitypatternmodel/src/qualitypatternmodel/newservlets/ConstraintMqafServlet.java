@@ -1,6 +1,5 @@
 package qualitypatternmodel.newservlets;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
@@ -24,8 +23,9 @@ import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class ConstraintMqafServlet extends HttpServlet {
-	
-	// .. /template/mqafjson   /<technology>/<constraintId>
+
+	// GET .. /constraint/mqaf    /<technology>/<constraintId>
+	// GET .. /constraint/mqaf    /<technology>    {"constraints":<constraint-ids>}
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -34,7 +34,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
 			int i = path.split("/").length;
-			String result = "";
+			JSONObject result;
 			if (i == 2)
 				result = applyGet2(path, params);
 			else if (i == 3)
@@ -42,38 +42,14 @@ public class ConstraintMqafServlet extends HttpServlet {
 			else 
 				throw new InvalidServletCallException("Wrong url for requesting the mqaf constraint: '.. /template/getdatabase/<technology>/<name>' or '.. /template/getdatabase/<technology>' + {parameter = [..]} (not " + path + ")");
 			ServletUtilities.logOutput(result);
-//			String result = applyGet(path, request.getParameterMap());
-			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_OK);
-//			response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);
-//			response.getWriter().write("{ \"error\": \"not implemented\"}");
-		}
-		catch (InvalidServletCallException e) {
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-		}
-//		catch (FailedServletCallException e) {
-//        response.setContentType("application/json");
-//		response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-//		response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-//	}
-		catch (FileNotFoundException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			response.getWriter().write("{ \"error\": \"unable to find specified constraint\"}");
+			ServletUtilities.putResponse(response, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponseError(response, e);
 		}
-//		response.getOutputStream().println("{ \"call\": \"TemplateMqafJsonServlet.doGet(" + path + ")\"}");
 	}
 
-	public static String applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONObject applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for requesting the mqaf constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
@@ -84,9 +60,13 @@ public class ConstraintMqafServlet extends HttpServlet {
 		if (!ServletUtilities.TECHS.contains(technology))
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 
-		String result = getJsonStringSchemaFromConstraintIds(new String[] { constraintId }, technology);
-		if (result == null)
-			result = "{\"failed\":[\"" + constraintId + "\"]}";
+		JSONObject result = getJsonStringSchemaFromConstraintIds(new String[] { constraintId }, technology);
+		if (result == null) {
+			result = new JSONObject();
+			try {
+				result.put(Constants.JSON_FAILED, constraintId);
+			} catch (JSONException e) {}
+		}
 		return result; 
 
 //		// 1 load constraint
@@ -119,7 +99,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 	}
 	
 
-	public String applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public JSONObject applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 2 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong api call for requesting the database of a constraint: '.. /template/getdatabase/<technology>' + {\"constraints\" = [..]} (not " + path + ")");
@@ -176,7 +156,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 //		return ConfigurationReader.toJson(schema);
 	}
 	
-	private static String getJsonStringSchemaFromConstraintIds(String[] constraintIds, String technology) throws FailedServletCallException {
+	private static JSONObject getJsonStringSchemaFromConstraintIds(String[] constraintIds, String technology) throws FailedServletCallException {
 		ArrayList<BaseSchema> schemas = new ArrayList<BaseSchema>();
 		JSONArray failed = new JSONArray();
 		
@@ -211,7 +191,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 			JSONObject constraint = new JSONObject(ConfigurationReader.toJson(mergedSchema));
 			jobj.put(Constants.JSON_CONSTRAINT, constraint);
 		} catch (JSONException e) {}
-		return jobj.toString();
+		return jobj;
 	}
 
 //    public static JSONObject convertYamlToJson(String yamlString) throws IOException, JSONException {

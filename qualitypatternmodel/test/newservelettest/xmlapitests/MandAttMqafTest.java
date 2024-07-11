@@ -1,4 +1,4 @@
-package newservelettest;
+package newservelettest.xmlapitests;
 
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doAnswer;

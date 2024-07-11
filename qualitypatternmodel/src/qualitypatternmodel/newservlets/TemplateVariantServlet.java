@@ -1,6 +1,5 @@
 package qualitypatternmodel.newservlets;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -29,7 +28,7 @@ import qualitypatternmodel.utility.Constants;
 @SuppressWarnings("serial")
 public class TemplateVariantServlet extends HttpServlet {
 	
-	// .. /template/instantiate   /<technology>/<abstracttemplate>
+	// GET .. /template/variant    /<technology>/<templateID>
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -37,29 +36,16 @@ public class TemplateVariantServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try{
-			String result = applyGet(path, params);
+			JSONObject result = applyGet(path, params);
 			ServletUtilities.logOutput(result);
-			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_OK);
-		}
-		catch (InvalidServletCallException e) {
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-		}
-		catch (FileNotFoundException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			response.getWriter().write("{ \"error\": \"unable to find specified constraint\"}");
+			ServletUtilities.putResponse(response, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponseError(response, e);
 		}
 	}
+	
+	// PUT .. /template/variant    /<technology>/<templateID>    {"variants":<variant-jsons>}
 	
 	@Override
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -69,41 +55,22 @@ public class TemplateVariantServlet extends HttpServlet {
 		try{
 			String result = applyPut(path, params);
 			ServletUtilities.logOutput(result);
-			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_OK);
-		}
-		catch (InvalidServletCallException e) {
-			e.printStackTrace();
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"1 " + e.getMessage() + "\"}");
+			ServletUtilities.putResponse(response, result);
 		}
 		catch (FailedServletCallException e) {
-			e.printStackTrace();
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-	        if (e.getMessage().startsWith("404")) {
-				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-				response.getWriter().write("{ \"error\": \"2 " + e.getMessage().substring(4) + "\"}");
-	        }
-	        else if (e.getMessage().startsWith("409")) {
-				response.setStatus(HttpServletResponse.SC_CONFLICT);
-				response.getWriter().write("{ \"error\": \"3 " + e.getMessage().substring(4) + "\"}");
-	        	
-	        } else {
-				response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-				response.getWriter().write("{ \"error\": \"internal " + e.getMessage() + "\"}");
-	        }
+	        if (e.getMessage().startsWith("404"))
+				ServletUtilities.putResponseError(response, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
+	        else if (e.getMessage().startsWith("409"))
+				ServletUtilities.putResponseError(response, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_CONFLICT);
+	        else
+				ServletUtilities.putResponseError(response, e, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 		}
 		catch (Exception e) {
-			e.printStackTrace();
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"4 " + e.getClass().getSimpleName() + " " + e.getMessage() + "\"}");
+			ServletUtilities.putResponseError(response, e);
 		}
 	}
+	
+	// DELETE .. /template/variant    /<technology>/<templateID>    {"variants":<variant-ids>}
 	
 	@Override
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -111,31 +78,16 @@ public class TemplateVariantServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try{
-			String result = applyDelete(path, params);
+			JSONObject result = applyDelete(path, params);
 			ServletUtilities.logOutput(result);
-			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_OK);
-		}
-		catch (InvalidServletCallException e) {
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-		}
-		catch (FileNotFoundException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			response.getWriter().write("{ \"error\": \"unable to find specified constraint\"}");
+			ServletUtilities.putResponse(response, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponseError(response, e);
 		}
 	}
 	
-	public static String applyGet (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public static JSONObject applyGet (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for instantiate in a constraint: '.. /template/variant/<technology>/<constraintId>/<variantId>' (not " + path + ")");
@@ -177,7 +129,7 @@ public class TemplateVariantServlet extends HttpServlet {
 			result.put(Constants.JSON_PARAMETER, parameter);
 		} catch (JSONException e) {}
 		
-		return result.toString();
+		return result;
 	}
 	
 	public static String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
@@ -270,7 +222,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		return "New variant(s) added successfully to '" + templateId + "'.";
 	}
 	
-	public static String applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public static JSONObject applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for instantiate in a constraint: '.. /template/variant/<technology>/<constraintId>/<variantId>' (not " + path + ")");
@@ -325,6 +277,6 @@ public class TemplateVariantServlet extends HttpServlet {
 			object.put(Constants.JSON_SUCCESS, success);
 			object.put(Constants.JSON_FAILED, failed);
 		} catch (Exception e) {}
-		return object.toString();
+		return object;
 	}
 }

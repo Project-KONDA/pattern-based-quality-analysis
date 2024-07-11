@@ -3,6 +3,8 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 import java.util.Map;
 
+import org.json.JSONObject;
+
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,7 +15,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 @SuppressWarnings("serial")
 public class ConstraintCopyServlet extends HttpServlet {
 	
-	// .. /template/copy   /<technology>/<oldname>/<newname>
+	// PUT .. /constraint/copy    /<technology>/<constraintID>
 	
 	@Override
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -21,43 +23,23 @@ public class ConstraintCopyServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
-			String result = applyPut(path, params);
-			ServletUtilities.logOutput(result);
-			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_OK);
-		}
-		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			JSONObject result = applyPut(path, params);
+			ServletUtilities.putResponse(response, result);
 		}
 		catch (FailedServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-	        if (e.getMessage().startsWith("404")) {
-				response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-				response.getWriter().write("{ \"error\": \"" + e.getMessage().substring(4) + "\"}");
-	        }
-	        else if (e.getMessage().startsWith("409")) {
-				response.setStatus(HttpServletResponse.SC_CONFLICT);
-				response.getWriter().write("{ \"error\": \"" + e.getMessage().substring(4) + "\"}");
-	        	
-	        } else {
-				response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-				response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-	        }
+	        if (e.getMessage().startsWith("404"))
+				ServletUtilities.putResponseError(response, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
+	        else if (e.getMessage().startsWith("409"))
+				ServletUtilities.putResponseError(response, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_CONFLICT);
+	        else
+				ServletUtilities.putResponseError(response, e, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-		}
-//		response.getOutputStream().println("{ \"call\": \"TemplateCopyServlet.doPut()\"}");
+			ServletUtilities.putResponseError(response, e);
+		}	
 	}
 	
-	public static String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public static JSONObject applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/copy/<technology>/<concretetemplate>' (not " + path + ")");
@@ -105,6 +87,6 @@ public class ConstraintCopyServlet extends HttpServlet {
 		if (ServletUtilities.loadConstraint(technology, newID) == null)
 			throw new FailedServletCallException("saving new constraint failed");
 		
-		return ServletUtilities.getPatternJSON(pattern).toString(); 
+		return ServletUtilities.getPatternJSON(pattern); 
 	}
 }

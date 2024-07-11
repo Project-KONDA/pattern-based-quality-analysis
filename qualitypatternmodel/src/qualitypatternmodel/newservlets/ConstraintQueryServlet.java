@@ -23,8 +23,9 @@ import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class ConstraintQueryServlet extends HttpServlet {
-	
-	// .. /template/query   /<technology>/<constraintId>
+
+	// GET .. /constraint/query    /<technology>/<constraintId>
+	// GET .. /constraint/query    /<technology>    {"constraints":<constraint-ids>}
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -33,7 +34,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
 			int i = path.split("/").length;
-			String result = ""; // = applyGet(path, params);
+			JSONObject result = null; // = applyGet(path, params);
 			if (i == 2)
 				result = applyGet2(path, params);
 			else if (i == 3)
@@ -42,31 +43,14 @@ public class ConstraintQueryServlet extends HttpServlet {
 				throw new InvalidServletCallException("Wrong url for requesting the mqaf constraint: '.. /template/getdatabase/<technology>/<name>' or '.. /template/getdatabase/<technology>' + {parameter = [..]} (not " + path + ")");
 
 			ServletUtilities.logOutput(result);
-			response.getOutputStream().println(result);
-			response.setStatus(HttpServletResponse.SC_OK);
-		}
-		catch (InvalidServletCallException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
-		}
-		catch (FailedServletCallException | IOException e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponse(response, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.logError(e);
-	        response.setContentType("application/json");
-			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			response.getWriter().write("{ \"error\": \"" + e.getMessage() + "\"}");
+			ServletUtilities.putResponseError(response, e);
 		}
-//		response.getOutputStream().println("{ \"call\": \"TemplateQueryServlet.doGet(" + path + ")\"}");
 	}
 
-	public static String applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONObject applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
@@ -110,7 +94,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 //		return json.toString();
 	}
 
-	public static String applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONObject applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 2 || !pathparts[0].equals(""))
 			throw new InvalidServletCallException("Wrong api call for requesting the database of a constraint: '.. /template/query/<technology>' + {\"constraints\" = [..]} (not " + path + ")");
@@ -156,7 +140,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 		return applyGet(technology, constraintIds);
 	}
 	
-	public static String applyGet(String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONObject applyGet(String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
 		
 		JSONObject result = new JSONObject();
 		JSONArray failed = new JSONArray();
@@ -183,7 +167,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 			result.put(Constants.JSON_FAILED, failed);
 		} catch (JSONException e) {
 		}
-		return result.toString();
+		return result;
 	}
 
 

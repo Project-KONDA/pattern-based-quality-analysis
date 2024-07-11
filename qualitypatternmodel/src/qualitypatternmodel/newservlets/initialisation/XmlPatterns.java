@@ -65,7 +65,7 @@ public class XmlPatterns {
 		try {
 			patterns.add(GenericPatterns.getConcrete(GenericPatterns.getGenericMandAtt(), Language.XML,
 					GenericPatternInformation.MANDATT_ID_XML,
-					Map.of(0, "//*", 1, "/*/text()"), 
+					Map.of(0, "//*", 1, "/*"), 
 					XmlPatternVariants.MANDATT_XML_VARIANTS, 
 					XmlPatternVariants.MANDATT_XML_VARIANTS_OLD));
 		} catch (Exception e) {

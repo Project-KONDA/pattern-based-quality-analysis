@@ -38,7 +38,7 @@ public class Constants {
 	public static final String PARAMETER_TYPE_ENUMERATION = "Enumeration";
 	public static final String PARAMETER_TYPE_UNTYPED = "Untyped";
 	public static final String PARAMETER_TYPE_RELATION = "XmlPath_Element";
-	public static final String PARAMETER_TYPE_PROPERTY = "XmlPath_Value";
+	public static final String PARAMETER_TYPE_PROPERTY = "XmlPath_Property";
 	public static final String PARAMETER_TYPE_COMPARISON = "ComparisonOption";
 	public static final String PARAMETER_TYPE_TYPE = "TypeOption";
 	public static final String PARAMETER_TYPE_XML_PATH = "XmlPath";
@@ -53,6 +53,7 @@ public class Constants {
 	public static final String JSON_TEMPLATE = "template";
 	public static final String JSON_LANGUAGE = "language";
 	public static final String JSON_NAME = "name";
+	public static final String JSON_OLD_NAME = "oldName";
 	public static final String JSON_ID = "id";
 	public static final String JSON_PATTERNID = "patternID";
 	public static final String JSON_LASTSAVED = "lastSaved";
@@ -70,7 +71,9 @@ public class Constants {
 	public static final String JSON_VARIANTS = "variants";
 	public static final String JSON_USERVALUE = "userValue";
 	public static final String JSON_DATABASE = "database";
+	public static final String JSON_OLD_DATABASE = "oldDatabase";
 	public static final String JSON_DATAMODEL = "datamodel";
+	public static final String JSON_OLD_DATAMODEL = "oldDatamodel";
 	public static final String JSON_CLEAR = "clear";
 	public static final String JSON_PLURAL = "plural";
 	public static final String JSON_TAG = "tag";

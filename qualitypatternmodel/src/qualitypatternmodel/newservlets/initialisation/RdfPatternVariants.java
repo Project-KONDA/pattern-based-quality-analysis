@@ -110,7 +110,9 @@ public class RdfPatternVariants {
 			+ "\"fragments\":["
 				+ "{\"text\":\"Search for\"},"
 				+ "{\"name\":\"elements\",\"params\":[0],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\",\"plural\":\"true\"},"
-				+ "{\"text\":\"without a property reached by\"},"
+				+ "{\"text\":\"without a property of type\"},"
+				+ "{\"name\":\"type\",\"params\":[2],\"exampleValue\":\"\"},"
+				+ "{\"text\":\"reached by\"},"
 				+ "{\"name\":\"an rdf property path\",\"params\":[1],\"exampleValue\":\"has\"},"
 				+ "{\"text\":\".\"}]}";
 

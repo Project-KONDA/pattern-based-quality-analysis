@@ -1,5 +1,7 @@
 package qualitypatternmodel.newservlets;
 
+import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -22,6 +24,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import qualitypatternmodel.constrainttranslation.ConstraintTranslationValidation;
+import qualitypatternmodel.exceptions.FailedServletCallException;
+import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -126,19 +130,7 @@ public abstract class ServletUtilities {
 		return concrete;
 	}
 	
-	public static void deleteConstraint(String technology, String constraintId) throws IOException {
-		String patternpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER + "/" + constraintId + "." + EXTENSION;
-//		patternpath = servletContext.getRealPath(patternpath);
-		
-		CompletePattern constraint = EMFModelLoad.loadCompletePattern(patternpath);
-		if (constraint instanceof CompletePattern)
-			Files.delete(Paths.get(patternpath));
-		else {
-			throw new IOException("Wrong file format");
-		}
-	}
-	// ---------------
-	
+	// JSON
 	
 	public static JSONObject getPatternListJSON(List<CompletePattern> patterns) {
 		JSONObject json = new JSONObject();
@@ -228,8 +220,9 @@ public abstract class ServletUtilities {
 			json.put("description", pattern.getDescription());
 		} catch (JSONException e) {}
 		return json;
-		
 	}
+	
+	// LOAD SAVE DELETE
 
 	protected static CompletePattern loadConstraint(String technology, String name) throws IOException {
 		String patternpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER + "/" + name + "." + EXTENSION;
@@ -246,10 +239,11 @@ public abstract class ServletUtilities {
 		EMFModelSave.exportToFile2(pattern, folderpath, templateId, EXTENSION);
 	}
 
-	public static void saveConstraint(String technology, String constraintId, CompletePattern pattern) throws IOException {
+	public static String saveConstraint(String technology, String constraintId, CompletePattern pattern) throws IOException {
 		pattern.updateLastSaved();
 		String folderpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER;
 		EMFModelSave.exportToFile2(pattern, folderpath, constraintId, EXTENSION);
+		return new Timestamp(pattern.getLastSaved().getTime()).toString();
 	}
 	
 	public static String generateNewId(String technology, String templateId, String variantname) throws IOException {
@@ -263,6 +257,104 @@ public abstract class ServletUtilities {
 		}
 		return name + "_" + number;
 	}
+	
+	public static Integer getNextNumber(String filepath, String variableName) throws JSONException, IOException {
+        File file = new File(filepath);
+        if (!file.exists()) {
+            // If the file doesn't exist, create it and initialize with an empty JSON object
+            JSONObject jsonObject = new JSONObject();
+//            jsonObject.put(variableName, 0);
+            Files.write(Paths.get(filepath), jsonObject.toString().getBytes(), StandardOpenOption.CREATE);
+            System.out.println("File created successfully: " + filepath);
+//            return 0; // Return 0 as the initial value
+        }
+
+        // Read JSON file
+        String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
+        JSONObject jsonObject = new JSONObject(jsonString);
+
+        // Retrieve the value associated with the provided variable name
+        int currentValue;
+        if (!jsonObject.has(variableName) || !(jsonObject.get(variableName) instanceof Integer)) {
+            // If variable doesn't exist or is not an integer, initialize it with a default value
+            currentValue = 0;
+            jsonObject.put(variableName, currentValue);
+            Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
+        } else {
+            currentValue = jsonObject.getInt(variableName);
+        }
+
+        // Update the JSON with the new value
+        jsonObject.put(variableName, currentValue + 1);
+        Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
+
+        return currentValue;
+	}
+	
+	public static void deleteConstraint(String technology, String constraintId) throws IOException {
+		String patternpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER + "/" + constraintId + "." + EXTENSION;
+//		patternpath = servletContext.getRealPath(patternpath);
+		
+		CompletePattern constraint = EMFModelLoad.loadCompletePattern(patternpath);
+		if (constraint instanceof CompletePattern)
+			Files.delete(Paths.get(patternpath));
+		else {
+			throw new IOException("Wrong file format");
+		}
+	}
+	
+	// RESPONSE HANDLING
+	
+	public static void putResponse(HttpServletResponse response, JSONObject jsonObject, int responseCode) throws IOException {
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.setStatus(responseCode);
+        response.getWriter().write(jsonObject.toString());
+	}
+	
+	public static void putResponse(HttpServletResponse response, JSONArray jsonArray, int responseCode) throws IOException {
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.setStatus(responseCode);
+        response.getWriter().write(jsonArray.toString());
+	}
+	
+	public static void putResponse(HttpServletResponse response, String text, int responseCode) throws IOException {
+	    response.setContentType("text/plain");
+        response.setCharacterEncoding("UTF-8");
+        response.setStatus(responseCode);
+        response.getWriter().write(text);
+	}
+	
+	public static void putResponseError(HttpServletResponse response, Exception error, int responseCode) throws IOException {
+		logError(error);
+		JSONObject object = new JSONObject();
+		try {
+			object.put("error", error.getMessage());
+		} catch (JSONException e) {}
+		putResponse(response, object, responseCode);
+	}
+	
+	public static void putResponseError(HttpServletResponse response, Exception error) throws IOException {
+		int responseCode = HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
+		if (error.getClass().equals(InvalidServletCallException.class))
+			responseCode = HttpServletResponse.SC_BAD_REQUEST;
+		if (error.getClass().equals(FailedServletCallException.class))
+			responseCode = HttpServletResponse.SC_NOT_FOUND;
+		putResponseError(response, error, responseCode);
+	}
+
+	public static void putResponse(HttpServletResponse response, JSONObject jsonObject) throws IOException {
+        putResponse(response, jsonObject, HttpServletResponse.SC_OK);
+	}
+	public static void putResponse(HttpServletResponse response, JSONArray jsonArray) throws IOException {
+        putResponse(response, jsonArray, HttpServletResponse.SC_OK);
+	}
+	public static void putResponse(HttpServletResponse response, String text) throws IOException {
+        putResponse(response, text, HttpServletResponse.SC_OK);
+	}
+	
+	// LOGGING
 	
 	public static void log(String text) {
 		try {
@@ -289,8 +381,11 @@ public abstract class ServletUtilities {
         }
 	}
 	
+	public static void logOutput(JSONObject json) {
+		log("OUTPUT: " + json);
+	}
+	
 	public static void logOutput(String text) {
-		log("OUTPUT: " + text);
 	}
 	
 	public static void logError(Throwable th) {
@@ -325,38 +420,5 @@ public abstract class ServletUtilities {
 			} catch (JSONException e) {}
 		}
 		return job.toString();
-	}
-	
-	public static Integer getNextNumber(String filepath, String variableName) throws JSONException, IOException {
-        File file = new File(filepath);
-        if (!file.exists()) {
-            // If the file doesn't exist, create it and initialize with an empty JSON object
-            JSONObject jsonObject = new JSONObject();
-//            jsonObject.put(variableName, 0);
-            Files.write(Paths.get(filepath), jsonObject.toString().getBytes(), StandardOpenOption.CREATE);
-            System.out.println("File created successfully: " + filepath);
-//            return 0; // Return 0 as the initial value
-        }
-
-        // Read JSON file
-        String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
-        JSONObject jsonObject = new JSONObject(jsonString);
-
-        // Retrieve the value associated with the provided variable name
-        int currentValue;
-        if (!jsonObject.has(variableName) || !(jsonObject.get(variableName) instanceof Integer)) {
-            // If variable doesn't exist or is not an integer, initialize it with a default value
-            currentValue = 0;
-            jsonObject.put(variableName, currentValue);
-            Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
-        } else {
-            currentValue = jsonObject.getInt(variableName);
-        }
-
-        // Update the JSON with the new value
-        jsonObject.put(variableName, currentValue + 1);
-        Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
-
-        return currentValue;
 	}
 }
