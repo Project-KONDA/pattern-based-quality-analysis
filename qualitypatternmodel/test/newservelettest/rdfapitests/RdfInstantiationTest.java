@@ -1,4 +1,4 @@
-package newservelettest;
+package newservelettest.rdfapitests;
 
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doAnswer;
