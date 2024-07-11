@@ -112,8 +112,10 @@ public class Neo4jPatternVariants {
 			+ "\"fragments\":["
 				+ "{\"text\":\"Search for\"},"
 				+ "{\"name\":\"elements\",\"params\":[0],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\",\"plural\":\"true\"},"
-				+ "{\"text\":\"without a property reached by\"},"
-				+ "{\"name\":\"an neo property path\",\"params\":[1],\"exampleValue\":\"has\"},"
+				+ "{\"text\":\"without a property of type\"},"
+				+ "{\"name\":\"type\",\"params\":[1],\"exampleValue\":\"\"},"
+				+ "{\"text\":\"reached by\"},"
+				+ "{\"name\":\"an neo property path\",\"params\":[2],\"exampleValue\":\"has\"},"
 				+ "{\"text\":\".\"}]}";
 
 	static String[] MANDATT_NEO_VARIANTS = {MANDATT_NEO_DEFAULT};
