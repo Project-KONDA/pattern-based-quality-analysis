@@ -79,9 +79,9 @@ public class Constants {
 	public static final String JSON_TAG = "tag";
 	public static final String JSON_STARTPOINT = "startpoint";
 	public static final String JSON_EXECUTABLE = "executable";
-	public static final String JSON_EXECUTABLE_MQAF = "mqafexecutable";
-	public static final String JSON_EXECUTABLE_QUERY = "queryexecutable";
-	public static final String JSON_EXECUTABLE_FILTER = "filterexecutable";
+	public static final String JSON_EXECUTABLE_MQAF = "mqafExecutable";
+	public static final String JSON_EXECUTABLE_QUERY = "queryExecutable";
+	public static final String JSON_EXECUTABLE_FILTER = "filterExecutable";
 	public static final String JSON_OPTIONS = "options";
 	public static final String JSON_ENABLE = "enable";
 	public static final String JSON_ENABLE_IF = "if";
@@ -98,11 +98,11 @@ public class Constants {
 	public static final String JSON_FAILED = "failed";
 	public static final String JSON_FILE = "file";
 	public static final Object JSON_FILES = "files";
-	public static final String JSON_FAILEDFILES = "failedfiles";
+	public static final String JSON_FAILEDFILES = "failedFiles";
 	public static final Object JSON_CONSTRAINT_IDS = "constraintIDs";
 	public static final String JSON_CONSTRAINT_ID = "constraintID";
 	public static final String JSON_CONSTRAINT_NAME = "constraintName";
-	public static final String JSON_FAILEDCONSTRAINTS = "failedconstraints";
+	public static final String JSON_FAILEDCONSTRAINTS = "failedConstraints";
 	public static final String JSON_RESULT = "result";
 	public static final String JSON_SIZE = "size";
 	public static final String JSON_TEMPLATES = "templates";
