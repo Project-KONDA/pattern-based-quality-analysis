@@ -48,6 +48,7 @@ public class Test01Reference {
 		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		
 		completePattern.setCondition(qc);
+		completePattern.getGraph().getNodes().get(0).addOutgoing(qc.getGraph());
 //		Graph g = qc.getGraph();
 //		System.out.println(completePattern.myToString());
 		

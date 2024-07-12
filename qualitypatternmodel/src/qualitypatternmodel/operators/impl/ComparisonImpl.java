@@ -574,7 +574,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		if (argument1 instanceof ComplexNode && argument2 instanceof ComplexNode) {
 			if (option.getValue() != ComparisonOperator.EQUAL && option.getValue() != ComparisonOperator.NOTEQUAL) {
 				throw new InvalidityException(
-						"invalid comparison operator for arguments of type Element" + " (" + getInternalId() + ")");
+						"'" + option.getValue() + "' is an invalid comparison operator for arguments of type Element" + " (" + getInternalId() + ")");
 			}
 		}
 		

@@ -7,12 +7,15 @@ import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.utility.XmlPatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
+import qualitypatternmodel.adaptionxml.impl.XmlAxisPartConditionImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.*;
@@ -72,13 +75,19 @@ public class Test01Axis {
 		completePattern.createXmlAdaption();
 		XmlPathParam relation = ((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam();
 		XmlAxisPart part = relation.getXmlAxisParts().get(0);
-		XmlAxisPartCondition cond = part.getXmlAxisPartConditions().get(0);
-		XmlPropertyOptionParam property = cond.getXmlPropertyOption();
-		property.setValue(type);
+		XmlAxisPartCondition cond = new XmlAxisPartConditionImpl();
+		part.getXmlAxisPartConditions().clear();
+		part.getXmlAxisPartConditions().add(cond);
+		if (cond.getXmlPropertyOption() == null)
+			cond.setXmlPropertyOption(new XmlPropertyOptionParamImpl());
+		cond.getXmlPropertyOption().setValue(type);
 		if (type.equals(XmlPropertyKind.ATTRIBUTE))
-			property.getAttributeName().setValue("attribute");
-		if (value != null)
+			cond.getXmlPropertyOption().getAttributeName().setValue("attribute");
+		if (value != null) {
+			if (cond.getTextLiteralParam() == null)
+				cond.setTextLiteralParam(new TextLiteralParamImpl());
 			cond.getTextLiteralParam().setValue(value);
+		}	
 		return completePattern;
 	}
 

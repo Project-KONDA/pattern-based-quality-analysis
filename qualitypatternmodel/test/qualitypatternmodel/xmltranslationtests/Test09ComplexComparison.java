@@ -3,6 +3,8 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.solr.client.solrj.io.comp.ComparatorOrder;
+
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -17,6 +19,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsFactory;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -115,26 +118,20 @@ public class Test09ComplexComparison {
 //		GraphstructurePackage.eINSTANCE.eClass();
 //		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		OperatorsPackage.eINSTANCE.eClass();
-		OperatorsFactory functionFactory = OperatorsFactory.eINSTANCE;
 
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		Node ret = completePattern.getGraph().getNodes().get(0).makeComplex();
 		
 		Relation r1 = ret.addOutgoing();
 		ret = r1.getSource();
-		Relation r2 = ret.addOutgoing();
-		Node se1 = r1.getTarget();
-		Node se2 = r2.getTarget();
+		Node se1 = r1.getTarget().makeComplex();
+		Node se2 = ret.addOutgoing().getTarget().makeComplex();
 		
-		Comparison comp = functionFactory.createComparison();
-		
-		completePattern.getGraph().getOperatorList().add(comp);
-		comp.createParameters();
-		comp.setArgument1(se1);
-		comp.setArgument2(se2);
+		Comparison co = se1.addComparison(se2);
+		co.getOption().setValue(ComparisonOperator.EQUAL);
 		
 		completePattern.createXmlAdaption();
-		completePattern.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
+//		completePattern.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 		completePattern.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 		
 		return completePattern;
