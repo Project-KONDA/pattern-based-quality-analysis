@@ -2,11 +2,15 @@ package qualitypatternmodel.rdftranslationtests;
 
 import java.util.ArrayList;
 
+import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.IriParam;
+import qualitypatternmodel.adaptionrdf.RdfPathPart;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.RdfQuantifier;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
+import qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -29,7 +33,11 @@ public class RdfTest02Return {
 		completePattern.getGraph().getNodes().get(1).setReturnNode(true);
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		RdfSinglePredicate rdfSinglePredicate = (RdfSinglePredicate) relation.getRdfPathParam().getRdfPathParts().get(0).getRdfPath();
+		EList<RdfPathPart> partlist = relation.getRdfPathParam().getRdfPathParts();
+		partlist.clear();
+		RdfPathPart part = new RdfPathPartImpl();
+		partlist.add(part);
+		RdfSinglePredicate rdfSinglePredicate = (RdfSinglePredicate) part.getRdfPath();
 		rdfSinglePredicate.setIriParam(iriParam);
 		rdfSinglePredicate.setQuantifier(RdfQuantifier.ZERO_OR_ONE);
 		iriParam.setPrefix("wdt");

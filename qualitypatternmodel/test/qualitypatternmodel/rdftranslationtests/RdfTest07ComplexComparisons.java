@@ -8,6 +8,8 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class RdfTest07ComplexComparisons {
@@ -48,7 +50,8 @@ public class RdfTest07ComplexComparisons {
 		completePattern.getGraph().addRelation(complexNode1, node2);
 		ComplexNode complexNode2 = node2.makeComplex();
 		
-		complexNode3.addComparison(complexNode2);
+		Comparison comp = complexNode3.addComparison(complexNode2);
+		comp.getOption().setValue(ComparisonOperator.EQUAL);
 		
 		completePattern.createRdfAdaption();
 		return completePattern;

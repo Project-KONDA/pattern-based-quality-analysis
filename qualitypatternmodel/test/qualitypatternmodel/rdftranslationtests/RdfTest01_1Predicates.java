@@ -2,6 +2,8 @@ package qualitypatternmodel.rdftranslationtests;
 
 import java.util.ArrayList;
 
+import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPathPart;
@@ -10,6 +12,7 @@ import qualitypatternmodel.adaptionrdf.RdfQuantifier;
 import qualitypatternmodel.adaptionrdf.RdfSequence;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.RdfXor;
+import qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -47,7 +50,11 @@ public class RdfTest01_1Predicates {
 		CompletePattern completePattern = getBasePatternPredicates();
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		RdfSinglePredicate rdfSinglePredicate = (RdfSinglePredicate) relation.getRdfPathParam().getRdfPathParts().get(0).getRdfPath();
+		EList<RdfPathPart> partlist = relation.getRdfPathParam().getRdfPathParts();
+		partlist.clear();
+		RdfPathPart part = new RdfPathPartImpl();
+		partlist.add(part);
+		RdfSinglePredicate rdfSinglePredicate = (RdfSinglePredicate) part.getRdfPath();
 		rdfSinglePredicate.setIriParam(iriParam);
 		rdfSinglePredicate.setQuantifier(q);
 		iriParam.setPrefix("wdt");
@@ -60,7 +67,10 @@ public class RdfTest01_1Predicates {
 		CompletePattern completePattern = getBasePatternPredicates();
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		RdfPathPart p = relation.getRdfPathParam().getRdfPathParts().get(0);
+		EList<RdfPathPart> pl = relation.getRdfPathParam().getRdfPathParts();
+		pl.clear();
+		RdfPathPart p = new RdfPathPartImpl();
+		pl.add(p);
 		((RdfSinglePredicate) p.getRdfPath()).setIriParam(iriParam);
 		iriParam.setUri("thisisatesturi");
 		return completePattern;		

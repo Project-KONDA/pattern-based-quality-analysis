@@ -27,7 +27,7 @@ public class RdfJUnitTests {
 			ArrayList<CompletePattern> testpairs = RdfTest01_1Predicates.getPatterns();
 			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
-			assert(false);
+			e.printStackTrace(); assert(false);
 		}
 		assert(true);
 	}
@@ -38,7 +38,7 @@ public class RdfJUnitTests {
 			ArrayList<CompletePattern> testpairs = RdfTest01_2Types.getPatterns();
 			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
-			assert(false);
+			e.printStackTrace(); assert(false);
 		}
 		assert(true);
 	}
@@ -49,7 +49,7 @@ public class RdfJUnitTests {
 			ArrayList<CompletePattern> testpairs = RdfTest01_3PredicateTypes.getPatterns();
 			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
-			assert(false);
+			e.printStackTrace(); assert(false);
 		}
 		assert(true);
 	}
@@ -60,7 +60,7 @@ public class RdfJUnitTests {
 			ArrayList<CompletePattern> testpairs = RdfTest02Return.getPatterns();
 			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
-			assert(false);
+			e.printStackTrace(); assert(false);
 		}
 		assert(true);
 	}
@@ -71,7 +71,7 @@ public class RdfJUnitTests {
 			ArrayList<CompletePattern> testpairs = RdfTest03Quantor.getPatterns();
 			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
-			assert(false);
+			e.printStackTrace(); assert(false);
 		}
 		assert(true);
 	}
@@ -82,7 +82,7 @@ public class RdfJUnitTests {
 			ArrayList<CompletePattern> testpairs = RdfTest04NotElement.getPatterns();
 			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
-			assert(false);
+			e.printStackTrace(); assert(false);
 		}
 	}
 	
@@ -92,7 +92,7 @@ public class RdfJUnitTests {
 			ArrayList<CompletePattern> testpairs = RdfTest05Formula.getPatterns();
 			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
-			assert(false);
+			e.printStackTrace(); assert(false);
 		}
 	}
 	
@@ -102,7 +102,7 @@ public class RdfJUnitTests {
 			ArrayList<CompletePattern> testpairs = RdfTest06ParameterValues.getPatterns();
 			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
-			assert(false);
+			e.printStackTrace(); assert(false);
 		}
 	}
 	
@@ -112,7 +112,7 @@ public class RdfJUnitTests {
 			ArrayList<CompletePattern> testpairs = RdfTest07ComplexComparisons.getPatterns();
 			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
-			assert(false);
+			e.printStackTrace(); assert(false);
 		}
 		assert(true);
 	}
@@ -123,7 +123,7 @@ public class RdfJUnitTests {
 			ArrayList<CompletePattern> testpairs = RdfTest08Count.getPatterns();
 			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
-			assert(false);
+			e.printStackTrace(); assert(false);
 		}
 		assert(true);
 	}
@@ -134,7 +134,7 @@ public class RdfJUnitTests {
 			ArrayList<CompletePattern> testpairs = RdfTest09Cycle.getPatterns();
 			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
-			assert(false);
+			e.printStackTrace(); assert(false);
 		}
 		assert(true);
 	}
@@ -145,7 +145,7 @@ public class RdfJUnitTests {
 			ArrayList<CompletePattern> testpairs = RdfTest11Contains.getPatterns();
 			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
-			assert(false);
+			e.printStackTrace(); assert(false);
 		}
 		assert(true);
 	}
@@ -156,7 +156,7 @@ public class RdfJUnitTests {
 			ArrayList<CompletePattern> testpairs = RdfTest11Match.getPatterns();
 			assert(!testpairs.isEmpty());
 		} catch (Exception e) {
-			assert(false);
+			e.printStackTrace(); assert(false);
 		}
 		assert(true);
 	}
