@@ -5,12 +5,20 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.impl.XmlAxisOptionParamImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlAxisPartConditionImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
@@ -18,6 +26,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
@@ -77,7 +86,6 @@ public class XmlPatternUtility {
 				try {
 					((UntypedParameterValue) param).replace(text);
 				} catch (InvalidityException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -85,6 +93,12 @@ public class XmlPatternUtility {
 				TextLiteralParam text = (TextLiteralParam) param;
 				if(text.getValue() == null) {
 					text.setValue("something");
+				}
+			}
+			if (param instanceof ComparisonOptionParam) {
+				ComparisonOptionParam comp = (ComparisonOptionParam) param;
+				if(comp.getValue() == null) {
+					comp.setValue(ComparisonOperator.EQUAL);
 				}
 			}
 			if (param instanceof BooleanParam) {
@@ -101,10 +115,26 @@ public class XmlPatternUtility {
 			}
 			if (param instanceof XmlPathParam) {
 				XmlPathParam xmlPathParam = (XmlPathParam) param;
-				for(XmlAxisPart pair : xmlPathParam.getXmlAxisParts())
-					for (XmlAxisPartCondition cond : pair.getXmlAxisPartConditions())
+				if (xmlPathParam.getXmlAxisParts().isEmpty())
+					xmlPathParam.getXmlAxisParts().add(new XmlAxisPartImpl());
+				for (XmlAxisPart pair : xmlPathParam.getXmlAxisParts()) {
+					if (pair.getXmlAxisPartConditions().isEmpty())
+						pair.getXmlAxisPartConditions().add(new XmlAxisPartConditionImpl());
+					if (pair.getXmlAxisOptionParam() == null)
+						pair.setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
+					if (pair.getXmlAxisOptionParam().getValue() == null)
+						pair.getXmlAxisOptionParam().setValue(XmlAxisKind.CHILD);
+					for (XmlAxisPartCondition cond : pair.getXmlAxisPartConditions()) {
+						if (cond.getXmlPropertyOption() == null)
+							cond.setXmlPropertyOption(new XmlPropertyOptionParamImpl());
+						if (cond.getXmlPropertyOption().getValue() == null)
+							cond.getXmlPropertyOption().setValue(XmlPropertyKind.DATA);	
+						if(cond.getTextLiteralParam() == null)
+							cond.setTextLiteralParam(new TextLiteralParamImpl());
 						if(cond.getTextLiteralParam().getValue() == null)
 							cond.getTextLiteralParam().setValue("");
+					}
+				}
 			}
 			if (param instanceof TypeOptionParam) {
 				TypeOptionParam typeOptionParam = (TypeOptionParam) param;

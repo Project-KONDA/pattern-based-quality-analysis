@@ -7,6 +7,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -64,7 +65,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<XmlPropertyKind> options;
+	protected EList<XmlPropertyKind> options = new BasicEList<XmlPropertyKind>(XmlPropertyKind.VALUES);
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -105,9 +106,6 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	 */
 	public XmlPropertyOptionParamImpl() {
 		super();
-		getOptions().add(XmlPropertyKind.TAG);
-		getOptions().add(XmlPropertyKind.DATA);
-		getOptions().add(XmlPropertyKind.ATTRIBUTE);
 	}
 	
 	@Override
@@ -203,7 +201,6 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 		default:
 			throw new InvalidityException("error in location specification");
 		}
-		
 	}
 	
 	@Override
