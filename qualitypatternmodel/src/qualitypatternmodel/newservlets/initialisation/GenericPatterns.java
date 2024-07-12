@@ -145,9 +145,7 @@ public class GenericPatterns {
 			countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		}
 
-		Node countReturn = returnNode.addOutgoing(countCondition.getCountPattern().getGraph()).getTarget().makePrimitive();
-//		countReturn = countReturn.makePrimitive();
-		countReturn = countReturn.makeComplex();
+		Node countReturn = returnNode.addOutgoing(countCondition.getCountPattern().getGraph()).getTarget().makeComplex(); //.makePrimitive();
 		countReturn.setReturnNode(true);
 		
 		pattern.isValid(AbstractionLevel.GENERIC);

@@ -1,4 +1,4 @@
-package patterntoconstrainttranslation;
+package mqaftranslationtest;
 
 import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_DATABASE_NAME;
 import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_DATA_PATH;
@@ -42,7 +42,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
-public class ConstraintApplicationTest {
+public class MqafApplicationTest {
 
 	private static String RECORD_PATH = "/*[name() = \"demo:data\"]/*";
 	private static String SOURCEFIELD_PATH = "/*[name() = \"demo:source\"]/data()";

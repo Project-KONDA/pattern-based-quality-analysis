@@ -1,4 +1,4 @@
-package patterntoconstrainttranslation;
+package mqaftranslationtest;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -12,13 +12,13 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
-import qualitypatternmodel.constrainttranslation.ConstraintTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.mqaftranslation.MqafTranslation;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.Parameter;
@@ -30,7 +30,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 
-public class ConstraintToStringTranslationTest {
+public class MqafStringTranslationTest {
 	
 	static String RECORD_PATH = "/descendant::*";
 	static String FIELD_PATH = "/descendant::*";
@@ -47,7 +47,7 @@ public class ConstraintToStringTranslationTest {
 		for (CompletePattern c: patterns) {
 			try {
 				System.out.println("____ " + c.getDescription() + " _____");
-				System.out.println(ConstraintTranslation.translateToConstraintString(c));
+				System.out.println(MqafTranslation.translateToConstraintString(c));
 				System.out.println();
 				valid += 1;
 			} catch (Exception e) {

@@ -23,12 +23,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import qualitypatternmodel.constrainttranslation.ConstraintTranslationValidation;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.mqaftranslation.MqafTranslationValidation;
 //import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -181,7 +181,7 @@ public abstract class ServletUtilities {
 				pattern.isValid(AbstractionLevel.CONCRETE);
 				filter = pattern.getLanguage().equals(Language.XML);
 				try {
-					mqaf = ConstraintTranslationValidation.checkPatternTranslatable(pattern);
+					mqaf = MqafTranslationValidation.checkPatternTranslatable(pattern);
 				}
 				catch (InvalidityException e) {}
 				try {

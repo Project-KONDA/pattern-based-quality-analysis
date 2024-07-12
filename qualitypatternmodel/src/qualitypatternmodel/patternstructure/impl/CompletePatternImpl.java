@@ -30,7 +30,6 @@ import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPathComponent;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl;
-import qualitypatternmodel.constrainttranslation.ConstraintTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -47,6 +46,7 @@ import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.FormulaFilterPart;
 import qualitypatternmodel.javaquery.impl.JavaFilterImpl;
+import qualitypatternmodel.mqaftranslation.MqafTranslation;
 import qualitypatternmodel.operators.impl.OperatorImpl;
 import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
 import qualitypatternmodel.parameters.Parameter;
@@ -920,7 +920,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public BaseSchema generateXmlConstraintSchema() throws InvalidityException {
-		return ConstraintTranslation.translateToConstraintSchema(this);
+		return MqafTranslation.translateToConstraintSchema(this);
 	}
 
 
@@ -932,13 +932,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public void generateXmlConstraintYAMLFile(String path) throws InvalidityException, IOException {
-		String content = ConstraintTranslation.translateToConstraintString(this);
+		String content = MqafTranslation.translateToConstraintString(this);
 		Files.write( Paths.get(path), content.getBytes());
 	}
 
 	@Override
 	public String generateXmlConstraintYAMLFileContent() throws InvalidityException {
-		return ConstraintTranslation.translateToConstraintString(this);
+		return MqafTranslation.translateToConstraintString(this);
 	}
 	
 

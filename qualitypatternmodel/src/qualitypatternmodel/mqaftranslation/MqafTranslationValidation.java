@@ -1,4 +1,4 @@
-package qualitypatternmodel.constrainttranslation;
+package qualitypatternmodel.mqaftranslation;
 
 import org.basex.util.Pair;
 
@@ -22,7 +22,7 @@ import qualitypatternmodel.patternstructure.TrueElement;
 //import de.gwdg.metadataqa.api.schema.BaseSchema;
 //import de.gwdg.metadataqa.api.schema.Format;
 
-public class ConstraintTranslationValidation {
+public class MqafTranslationValidation {
 	
 	public static Boolean checkPatternTranslatable (CompletePattern completePattern) throws InvalidityException {
 		// check is valid and is XML
@@ -62,7 +62,7 @@ public class ConstraintTranslationValidation {
 		
 		ComplexNode record;
 		try{
-			record = FieldNodeIdentification.identifyRecordNode(completePattern);
+			record = MqafFieldNodeIdentification.identifyRecordNode(completePattern);
 		} catch (Exception e) {
 			return false;
 		}
@@ -74,7 +74,7 @@ public class ConstraintTranslationValidation {
 	
 	static Boolean validateNodeConfigurationCondition (Condition condition, ComplexNode record) throws InvalidityException {
 		
-		Pair<Node, Boolean> pair = UniquenessConditionCheck.uniquenessConditionField(condition, record);
+		Pair<Node, Boolean> pair = MqafUniquenessConditionCheck.uniquenessConditionField(condition, record);
 		if (pair != null)
 			return true;
 		

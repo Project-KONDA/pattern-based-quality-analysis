@@ -1,4 +1,4 @@
-package qualitypatternmodel.constrainttranslation;
+package qualitypatternmodel.mqaftranslation;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -25,7 +25,7 @@ import qualitypatternmodel.patternstructure.TrueElement;
 //import de.gwdg.metadataqa.api.schema.BaseSchema;
 //import de.gwdg.metadataqa.api.schema.Format;
 
-public class ConstraintTranslationHelper {
+public class MqafTranslationHelper {
 	
 	static Boolean checkPatternTranslatable (CompletePattern completePattern) {
 		// check is valid and is XML
@@ -58,7 +58,7 @@ public class ConstraintTranslationHelper {
 		
 		ComplexNode record;
 		try{
-			record = FieldNodeIdentification.identifyRecordNode(completePattern);
+			record = MqafFieldNodeIdentification.identifyRecordNode(completePattern);
 		} catch (Exception e) {
 			return false;
 		}

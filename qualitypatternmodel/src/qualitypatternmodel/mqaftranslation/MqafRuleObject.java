@@ -1,4 +1,4 @@
-package qualitypatternmodel.constrainttranslation;
+package qualitypatternmodel.mqaftranslation;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 
-public abstract class ConstraintRuleObject {
+public abstract class MqafRuleObject {
 	abstract String getStringRepresentation() throws InvalidityException;
 	abstract void addConstraintRuleTo(Rule rule);
 	abstract EList<Pair<String, String>> getAllFields();
@@ -31,7 +31,7 @@ public abstract class ConstraintRuleObject {
 		return "  " + s.replace("\n", "\n  ");
 	}
 
-	public ConstraintRuleObject realInvert() {
+	public MqafRuleObject realInvert() {
 		if (this.invert())
 			return this;
 		else {
@@ -52,9 +52,9 @@ public abstract class ConstraintRuleObject {
 	
 	// TRANSLATION CLASSES 
 	
-	public static class FormulaConstraintRuleObject extends ConstraintRuleObject {
+	public static class FormulaConstraintRuleObject extends MqafRuleObject {
 		public LogicalOperator operator;
-		public List<ConstraintRuleObject> arguments;
+		public List<MqafRuleObject> arguments;
 
 		private String getArgString(int index) throws InvalidityException {
 			return arguments.get(index).getStringRepresentation();
@@ -71,7 +71,7 @@ public abstract class ConstraintRuleObject {
 			return rulelist;
 		}
 		
-		FormulaConstraintRuleObject(LogicalOperator op, List<ConstraintRuleObject> args) throws InvalidityException {
+		FormulaConstraintRuleObject(LogicalOperator op, List<MqafRuleObject> args) throws InvalidityException {
 			if (args.isEmpty() || args.size()<2 || args.contains(null))
 				throw new InvalidityException();
 			if (op != LogicalOperator.AND && op != LogicalOperator.OR && args.size() != 2)
@@ -87,12 +87,12 @@ public abstract class ConstraintRuleObject {
 			switch(operator) {
 			case AND:
 				result = "- and:";
-				for (ConstraintRuleObject arg: arguments)
+				for (MqafRuleObject arg: arguments)
 					result += "\n" + arg.getStringRepresentation();
 				break;
 			case OR:
 				result = "- or:";
-				for (ConstraintRuleObject arg: arguments)
+				for (MqafRuleObject arg: arguments)
 					result += "\n" + arg.getStringRepresentation();
 				break;
 			case IMPLIES:
@@ -163,7 +163,7 @@ public abstract class ConstraintRuleObject {
 		
 		EList<Pair<String, String>> getAllFields() {
 			EList<Pair<String, String>> fields = new BasicEList<Pair<String, String>>();
-			for (ConstraintRuleObject arg: arguments) {
+			for (MqafRuleObject arg: arguments) {
 				EList<Pair<String, String>> list = arg.getAllFields();
 				if (list != null)
 					fields.addAll(list);
@@ -198,10 +198,10 @@ public abstract class ConstraintRuleObject {
 		}
 	}
 	
-	public static class NotConstraintRuleObject extends ConstraintRuleObject {
-		public ConstraintRuleObject arg;
+	public static class NotConstraintRuleObject extends MqafRuleObject {
+		public MqafRuleObject arg;
 		
-		NotConstraintRuleObject (ConstraintRuleObject a){
+		NotConstraintRuleObject (MqafRuleObject a){
 			arg = a;
 		}
 		
@@ -229,7 +229,7 @@ public abstract class ConstraintRuleObject {
 		}
 	}
 	
-	public static abstract class SingleConstraintRuleObject extends ConstraintRuleObject {
+	public static abstract class SingleConstraintRuleObject extends MqafRuleObject {
 		EList<Pair<String, String>> getAllFields() {
 			return new BasicEList<Pair<String, String>>();
 		}
@@ -475,7 +475,7 @@ public abstract class ConstraintRuleObject {
 			node = n;
 			operator = co;
 			nodename = node.getName().replace(" ", "_");
-			nodepath = ConstraintTranslationHelper.getRelationPathTo(node);
+			nodepath = MqafTranslationHelper.getRelationPathTo(node);
 		}
 		
 		String getStringRepresentation() {

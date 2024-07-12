@@ -1,4 +1,4 @@
- package qualitypatternmodel.constrainttranslation;
+ package qualitypatternmodel.mqaftranslation;
 
 import org.basex.util.Pair;
 import org.eclipse.emf.common.util.BasicEList;
@@ -23,10 +23,10 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.TrueElement;
 
-public class UniquenessConditionCheck {
+public class MqafUniquenessConditionCheck {
 
 	public static Pair<Node, Boolean> uniquenessConditionField(CompletePattern pattern) throws InvalidityException {
-		ComplexNode recordNode = FieldNodeIdentification.identifyRecordNode(pattern);
+		ComplexNode recordNode = MqafFieldNodeIdentification.identifyRecordNode(pattern);
 		return uniquenessConditionField(pattern.getCondition(), recordNode);
 	}
 	
@@ -85,7 +85,7 @@ public class UniquenessConditionCheck {
 			
 			EList<Node> othernodes = new BasicEList<Node>();
 			for (Node n:condition.getGraph().getNodes())
-				if (!(FieldNodeIdentification.areEqualNodes(n, recordNode)))
+				if (!(MqafFieldNodeIdentification.areEqualNodes(n, recordNode)))
 					othernodes.add(n);
 
 			if (othernodes.size() == 1) {
@@ -167,7 +167,7 @@ public class UniquenessConditionCheck {
 		}
 		
 		for (Node n: conditiongraph.getNodes())
-			if (!(FieldNodeIdentification.areEqualNodes(n, recordNode)))
+			if (!(MqafFieldNodeIdentification.areEqualNodes(n, recordNode)))
 				return null;
 
 		EList<Node> nextnodes = next.getGraph().getNodes();
@@ -254,7 +254,7 @@ public class UniquenessConditionCheck {
 		EList<Node> records = new BasicEList<Node>();
 		
 		for (Node n: nodes) {
-			if (FieldNodeIdentification.areEqualNodes(n, recordNode))
+			if (MqafFieldNodeIdentification.areEqualNodes(n, recordNode))
 				records.add(n);
 		}
 		
@@ -275,7 +275,7 @@ public class UniquenessConditionCheck {
 //		
 //		Graph g = element.getGraph();
 //		EList<Node> n = g.getNodes();
-//		if (n.size() != 1 || !FieldNodeIdentification.areEqualNodes(n.get(0), recordNode))
+//		if (n.size() != 1 || !MqafFieldNodeIdentification.areEqualNodes(n.get(0), recordNode))
 //			return null;
 //
 //		QuantifiedCondition quantified2 = (QuantifiedCondition) element.getCondition();
@@ -297,7 +297,7 @@ public class UniquenessConditionCheck {
 //			
 //		} else return null;
 //		
-//		FieldNodeIdentification.areEqualNodes(recordNode, recordNode);
+//		MqafFieldNodeIdentification.areEqualNodes(recordNode, recordNode);
 //		
 //		return null;
 //	}
@@ -315,7 +315,7 @@ public class UniquenessConditionCheck {
 //			return null;
 //		if (!eachFieldHasXmlNavigationFrom(recordnodes,fieldnodes))
 //			return null;
-//		if (fieldnodes.size() == 2 && !FieldNodeIdentification.areEqualNodes(fieldnodes.get(0), fieldnodes.get(1)))
+//		if (fieldnodes.size() == 2 && !MqafFieldNodeIdentification.areEqualNodes(fieldnodes.get(0), fieldnodes.get(1)))
 //			return null;
 //		
 //		for (Node field: fieldnodes)
@@ -341,7 +341,7 @@ public class UniquenessConditionCheck {
 //	Boolean areAllEqual(EList<Node> nodes) {
 //		for (Node n: nodes)
 //			for (Node n2: nodes)
-//				if (!(FieldNodeIdentification.areEqualNodes(n, n2)))
+//				if (!(MqafFieldNodeIdentification.areEqualNodes(n, n2)))
 //					return false;
 //		return true;
 //	}

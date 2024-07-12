@@ -1,24 +1,24 @@
-package patterntoconstrainttranslation;
+package mqaftranslationtest;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.constrainttranslation.FieldNodeIdentification;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.mqaftranslation.MqafFieldNodeIdentification;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-public class ConstraintFieldIdentificationTest {
+public class MqafFieldIdentificationTest {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
-		EList<CompletePattern> patterns = ConstraintToStringTranslationTest.getTestPatternCollection();
+		EList<CompletePattern> patterns = MqafStringTranslationTest.getTestPatternCollection();
 		
 		for (CompletePattern pattern: patterns) {
 			
 			String description = pattern.getDescription();
-			Node[] fields = FieldNodeIdentification.identifyFieldNodes(pattern);
+			Node[] fields = MqafFieldNodeIdentification.identifyFieldNodes(pattern);
 			
 			System.out.println("__" + description + "__");
 			for (Node field: fields)

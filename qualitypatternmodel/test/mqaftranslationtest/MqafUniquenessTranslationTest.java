@@ -1,34 +1,34 @@
-package patterntoconstrainttranslation;
+package mqaftranslationtest;
 
 import org.basex.util.Pair;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.constrainttranslation.UniquenessConditionCheck;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.mqaftranslation.MqafUniquenessConditionCheck;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
-public class UniquenessConstraintTranslationTest {
+public class MqafUniquenessTranslationTest {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
 
-		patterns.add(ConstraintToStringTranslationTest.uniqueness1_1nPattern());
-		patterns.add(ConstraintToStringTranslationTest.uniqueness1_2nPattern());
-		patterns.add(ConstraintToStringTranslationTest.uniqueness2_1nPattern());
-		patterns.add(ConstraintToStringTranslationTest.uniqueness2_2nPattern());
-		patterns.add(ConstraintToStringTranslationTest.uniqueness3_1nPattern());
-		patterns.add(ConstraintToStringTranslationTest.uniqueness3_2nPattern());
+		patterns.add(MqafStringTranslationTest.uniqueness1_1nPattern());
+		patterns.add(MqafStringTranslationTest.uniqueness1_2nPattern());
+		patterns.add(MqafStringTranslationTest.uniqueness2_1nPattern());
+		patterns.add(MqafStringTranslationTest.uniqueness2_2nPattern());
+		patterns.add(MqafStringTranslationTest.uniqueness3_1nPattern());
+		patterns.add(MqafStringTranslationTest.uniqueness3_2nPattern());
 
 		
 		for (CompletePattern pattern: patterns) {
 			try {
 				System.out.println("__ " + pattern.getDescription() + " __");
 //				System.out.println(pattern.myToString());
-				Pair<Node, Boolean> pair = UniquenessConditionCheck.uniquenessConditionField(pattern);
+				Pair<Node, Boolean> pair = MqafUniquenessConditionCheck.uniquenessConditionField(pattern);
 				if (pair == null)
 					System.out.println("null");
 				else {

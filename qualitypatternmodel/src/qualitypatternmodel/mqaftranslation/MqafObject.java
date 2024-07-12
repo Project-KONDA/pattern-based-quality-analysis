@@ -1,4 +1,4 @@
-package qualitypatternmodel.constrainttranslation;
+package qualitypatternmodel.mqaftranslation;
 
 import java.util.List;
 
@@ -10,22 +10,22 @@ import de.gwdg.metadataqa.api.configuration.schema.Rule;
 import de.gwdg.metadataqa.api.json.DataElement;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
 import de.gwdg.metadataqa.api.schema.Format;
-import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.FormulaConstraintRuleObject;
-import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.HasValueRuleObject;
-import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.ListComparisonRuleObject;
-import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.NotConstraintRuleObject;
-import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.NumberComparisonRuleObject;
-import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.PatternRuleObject;
-import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.SingleConstraintRuleObject;
-import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.StringLengthRuleObject;
-import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.CardinalityConstraintRuleObject;
-import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.UniqueRuleObject;
-import qualitypatternmodel.constrainttranslation.ConstraintRuleObject.ComparisonRuleObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.mqaftranslation.MqafRuleObject.CardinalityConstraintRuleObject;
+import qualitypatternmodel.mqaftranslation.MqafRuleObject.ComparisonRuleObject;
+import qualitypatternmodel.mqaftranslation.MqafRuleObject.FormulaConstraintRuleObject;
+import qualitypatternmodel.mqaftranslation.MqafRuleObject.HasValueRuleObject;
+import qualitypatternmodel.mqaftranslation.MqafRuleObject.ListComparisonRuleObject;
+import qualitypatternmodel.mqaftranslation.MqafRuleObject.NotConstraintRuleObject;
+import qualitypatternmodel.mqaftranslation.MqafRuleObject.NumberComparisonRuleObject;
+import qualitypatternmodel.mqaftranslation.MqafRuleObject.PatternRuleObject;
+import qualitypatternmodel.mqaftranslation.MqafRuleObject.SingleConstraintRuleObject;
+import qualitypatternmodel.mqaftranslation.MqafRuleObject.StringLengthRuleObject;
+import qualitypatternmodel.mqaftranslation.MqafRuleObject.UniqueRuleObject;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
@@ -48,30 +48,30 @@ import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
-public class ConstraintObject {
+public class MqafObject {
 	
 	CompletePattern pattern;
 	ComplexNode record;
 	Node[] fieldNodes;
 	String fieldPath;
 	
-	ConstraintRuleObject rule;
+	MqafRuleObject rule;
 	
 	EList<String> rules;
 	EList<Pair<String, String>> fieldPaths;
 
 	
-	public ConstraintObject (CompletePattern completePattern) throws InvalidityException {
+	public MqafObject (CompletePattern completePattern) throws InvalidityException {
 		
-		if (!ConstraintTranslationValidation.checkPatternTranslatable (completePattern))
+		if (!MqafTranslationValidation.checkPatternTranslatable (completePattern))
 			throw new InvalidityException();
 
 		pattern = completePattern;
-		record = FieldNodeIdentification.identifyRecordNode(pattern);
-		fieldNodes = FieldNodeIdentification.identifyFieldNodes(pattern);
+		record = MqafFieldNodeIdentification.identifyRecordNode(pattern);
+		fieldNodes = MqafFieldNodeIdentification.identifyFieldNodes(pattern);
 		rule = transformCondition(completePattern.getCondition(), record, fieldNodes).realInvert();
 		
-		fieldPath = ConstraintTranslationHelper.getRelationPathTo(fieldNodes[0]);
+		fieldPath = MqafTranslationHelper.getRelationPathTo(fieldNodes[0]);
 		if (rule != null)
 			fieldPaths = rule.getAllFields();
 	}
@@ -121,15 +121,15 @@ public class ConstraintObject {
 	
 	// local functions
 	
-	private static ConstraintRuleObject transformCondition(Condition condition, ComplexNode recordNode, Node[] fieldNodes) throws InvalidityException {
+	private static MqafRuleObject transformCondition(Condition condition, ComplexNode recordNode, Node[] fieldNodes) throws InvalidityException {
 		
-		Pair<Node, Boolean> pair = UniquenessConditionCheck.uniquenessConditionField (condition, recordNode);
+		Pair<Node, Boolean> pair = MqafUniquenessConditionCheck.uniquenessConditionField (condition, recordNode);
 		if (pair != null)
 			return new UniqueRuleObject(pair.value());
 		
 		if (condition instanceof Formula) {
 			Formula formula = (Formula) condition;
-			List<ConstraintRuleObject> ruleobjectlist = new BasicEList<ConstraintRuleObject>();
+			List<MqafRuleObject> ruleobjectlist = new BasicEList<MqafRuleObject>();
 			ruleobjectlist.add(transformCondition(formula.getCondition1(), recordNode, fieldNodes));
 			ruleobjectlist.add(transformCondition(formula.getCondition2(), recordNode, fieldNodes));
 			FormulaConstraintRuleObject frule = new FormulaConstraintRuleObject(formula.getOperator(), ruleobjectlist);
@@ -140,21 +140,21 @@ public class ConstraintObject {
 			return frule;
 		} else if (condition instanceof QuantifiedCondition) {
 			QuantifiedCondition qcond = (QuantifiedCondition) condition;
-			ConstraintRuleObject rule = transformQuantifiedCondition(qcond, fieldNodes);
+			MqafRuleObject rule = transformQuantifiedCondition(qcond, fieldNodes);
 			return rule;
 		} else if (condition instanceof QuantifiedCondition) {
 			QuantifiedCondition qcond = (QuantifiedCondition) condition;
-			ConstraintRuleObject rule = transformQuantifiedCondition(qcond, fieldNodes);
+			MqafRuleObject rule = transformQuantifiedCondition(qcond, fieldNodes);
 			return rule;
 		} else if (condition instanceof CountCondition) {
 			CountCondition ccond = (CountCondition) condition;
-			ConstraintRuleObject rule = transformCountCondition(ccond, fieldNodes);
+			MqafRuleObject rule = transformCountCondition(ccond, fieldNodes);
 			return rule;
 		}
 		throw new InvalidityException();
 	}
 	
-	private static ConstraintRuleObject transformQuantifiedCondition(QuantifiedCondition condition, Node[] fieldNodes) throws InvalidityException {
+	private static MqafRuleObject transformQuantifiedCondition(QuantifiedCondition condition, Node[] fieldNodes) throws InvalidityException {
 		if (!condition.getQuantifier().equals(Quantifier.EXISTS))
 			throw new InvalidityException();
 		
@@ -182,7 +182,7 @@ public class ConstraintObject {
 			return transformCombinationGraph(graph, fieldNodes);
 	}
 	
-	private static ConstraintRuleObject transformCountCondition(CountCondition condition, Node[] fieldNodes) throws InvalidityException {
+	private static MqafRuleObject transformCountCondition(CountCondition condition, Node[] fieldNodes) throws InvalidityException {
 		Graph graph = condition.getCountPattern().getGraph();
 		if (graph.getNodes().size() != 1)
 			throw new InvalidityException("Count Condition invalidly specified: multiple nodes");
@@ -197,22 +197,22 @@ public class ConstraintObject {
 		
 		Double number = ((NumberElement) condition.getArgument2()).getNumberParam().getValue();
 		
-		ConstraintRuleObject rule = new CardinalityConstraintRuleObject(operator, number);
+		MqafRuleObject rule = new CardinalityConstraintRuleObject(operator, number);
 		
 		return rule;
 	}
 	
-	private static ConstraintRuleObject transformSingleNodeExistsGraph (Graph graph, Node[] fieldNodes) throws InvalidityException {
+	private static MqafRuleObject transformSingleNodeExistsGraph (Graph graph, Node[] fieldNodes) throws InvalidityException {
 		return new CardinalityConstraintRuleObject(ComparisonOperator.LESS, 1.);
 	}
 	
-	private static ConstraintRuleObject transformSingleNodeGraph (Graph graph, Node[] fieldNodes) throws InvalidityException {
+	private static MqafRuleObject transformSingleNodeGraph (Graph graph, Node[] fieldNodes) throws InvalidityException {
 		Node node = graph.getNodes().get(0);
 		Operator op = graph.getOperatorList().getOperators().get(0);
 		return transformOperator(op, node);
 	}
 	
-	private static ConstraintRuleObject transformOperator(Operator op, Node node) throws InvalidityException {
+	private static MqafRuleObject transformOperator(Operator op, Node node) throws InvalidityException {
 		SingleConstraintRuleObject rule = null;
 		
 		if (op instanceof Comparison) {
@@ -281,7 +281,7 @@ public class ConstraintObject {
 		return rule;
 	}
 
-	private static ConstraintRuleObject transformNodeComparisonGraph (Graph graph, Node[] fieldNodes) throws InvalidityException {
+	private static MqafRuleObject transformNodeComparisonGraph (Graph graph, Node[] fieldNodes) throws InvalidityException {
 		
 		EList<Node> nodes = graph.getNodes();
 		
@@ -319,7 +319,7 @@ public class ConstraintObject {
 		return new ComparisonRuleObject(other, comp.getOption().getValue());
 	}
 
-	private static ConstraintRuleObject transformCombinationGraph (Graph graph, Node[] fieldNodes) throws InvalidityException {
+	private static MqafRuleObject transformCombinationGraph (Graph graph, Node[] fieldNodes) throws InvalidityException {
 
 		EList<Node> nodes = graph.getNodes();
 		
@@ -345,15 +345,15 @@ public class ConstraintObject {
 		if (field == null)
 			throw new InvalidityException();
 		
-		EList<ConstraintRuleObject> rules = new BasicEList<ConstraintRuleObject>();
+		EList<MqafRuleObject> rules = new BasicEList<MqafRuleObject>();
 		
 		EList<BooleanOperator> ops = field.getPredicates();
 		
 		for (Operator o: ops) {
-			ConstraintRuleObject rule = transformOperator(o, field);
+			MqafRuleObject rule = transformOperator(o, field);
 			rules.add(rule);
 		}
-		ConstraintRuleObject result = new FormulaConstraintRuleObject(LogicalOperator.AND, rules);
+		MqafRuleObject result = new FormulaConstraintRuleObject(LogicalOperator.AND, rules);
 
 		return result;
 	}

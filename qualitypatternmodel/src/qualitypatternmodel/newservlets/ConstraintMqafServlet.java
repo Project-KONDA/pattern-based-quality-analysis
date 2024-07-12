@@ -14,9 +14,9 @@ import de.gwdg.metadataqa.api.schema.BaseSchema;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import qualitypatternmodel.constrainttranslation.ConstraintTranslation;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.mqaftranslation.MqafTranslation;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
@@ -133,7 +133,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 //			
 //			// 2 generate mqaf constraint
 //			try {
-//				BaseSchema schema = ConstraintTranslation.translateToConstraintSchema(pattern);
+//				BaseSchema schema = MqafTranslation.translateToConstraintSchema(pattern);
 //				schemas.add(schema);
 //			} catch (InvalidityException e) {
 //				throw new FailedServletCallException(e.getClass().getName() + ": " + e.getMessage(), e);
@@ -168,7 +168,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 				pattern.isValid(AbstractionLevel.CONCRETE);
 				
 				// 2 generate mqaf constraint
-				BaseSchema schema = ConstraintTranslation.translateToConstraintSchema(pattern);
+				BaseSchema schema = MqafTranslation.translateToConstraintSchema(pattern);
 				schemas.add(schema);
 			} catch (Exception e) {
 				failed.put(constraintId);

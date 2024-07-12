@@ -7,10 +7,10 @@ import java.util.Map;
 import org.eclipse.emf.common.util.BasicEList;
 import de.gwdg.metadataqa.api.configuration.ConfigurationReader;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
-import qualitypatternmodel.constrainttranslation.ConstraintTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.mqaftranslation.MqafTranslation;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
@@ -40,7 +40,7 @@ public class XmlPatterns {
 				e.printStackTrace();
 			}
 			try {
-				BaseSchema schema = ConstraintTranslation.translateToConstraintSchema(pattern);
+				BaseSchema schema = MqafTranslation.translateToConstraintSchema(pattern);
 				ConfigurationReader.toJson(schema);
 			} catch (Exception e) {
 				e.printStackTrace();

@@ -1,4 +1,4 @@
-package patterntoconstrainttranslation;
+package mqaftranslationtest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,7 +14,7 @@ import de.gwdg.metadataqa.api.json.DataElement;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
 import de.gwdg.metadataqa.api.schema.Format;
 
-public class ConstraintSchemaTest {
+public class MqafSchemaTest {
 	
 	static Boolean printConstraintResultsAdditionally = false;
 

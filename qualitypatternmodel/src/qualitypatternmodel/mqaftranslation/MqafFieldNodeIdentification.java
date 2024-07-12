@@ -1,4 +1,4 @@
-package qualitypatternmodel.constrainttranslation;
+package qualitypatternmodel.mqaftranslation;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -22,7 +22,7 @@ import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class FieldNodeIdentification {
+public class MqafFieldNodeIdentification {
 
 	static Boolean validateNodes (CompletePattern pattern) throws InvalidityException {
 		EList<Node> allNodes = getAllPatternNodes(pattern);
@@ -153,7 +153,7 @@ public class FieldNodeIdentification {
 	public static EList<EList<Node>> identifyPotentialFieldNodes (PatternElement element, ComplexNode rec) throws InvalidityException {
 		EList<EList<Node>> nodes = new BasicEList<EList<Node>>();
 		
-		Pair<Node, Boolean> pair = UniquenessConditionCheck.uniquenessConditionField (element, rec);
+		Pair<Node, Boolean> pair = MqafUniquenessConditionCheck.uniquenessConditionField (element, rec);
 		
 		if (pair != null) {
 			EList<Node> uniquefieldnode = new BasicEList<Node>();
