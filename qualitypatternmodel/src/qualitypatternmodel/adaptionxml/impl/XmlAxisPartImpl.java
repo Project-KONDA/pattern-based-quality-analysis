@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
 import org.basex.query.QueryException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -157,10 +159,37 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		String query = getXmlAxisOptionParam().generateXQuery();
-		for (XmlAxisPartCondition cond: getXmlAxisPartConditions())
-			query = query + cond.generateXQuery();
+		XmlAxisPartCondition nameTagCondition = identifyNameTagCondition();
+		if (nameTagCondition != null) {
+			query = query.substring(0,  query.length()-1);
+			query += nameTagCondition.getTextLiteralParam().getValue();
+		}
+		for (XmlAxisPartCondition cond: getXmlAxisPartConditions()) {
+			if (!cond.equals(nameTagCondition))
+				query = query + cond.generateXQuery();
+		}	
 		return query;
 	}
+	
+	private XmlAxisPartCondition identifyNameTagCondition() {
+		List<String> keys;
+		try {
+			keys = ((CompletePattern) getAncestor(CompletePattern.class)).getNamespaces().getKeys();
+		} catch (MissingPatternContainerException e) {
+			return null;
+		}
+		for (XmlAxisPartCondition cond: getXmlAxisPartConditions()) {
+			if (cond == null || cond.getXmlPropertyOption() == null || cond.getTextLiteralParam() == null || !cond.getXmlPropertyOption().getValue().equals(XmlPropertyKind.TAG))
+				break;
+			String tag = cond.getTextLiteralParam().getValue();
+			if (tag == null || !tag.contains(":"))
+				break;
+			if (keys.contains(tag.split(":")[0])) 
+				return cond;
+		}
+		return null;
+	}
+	
 	
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
