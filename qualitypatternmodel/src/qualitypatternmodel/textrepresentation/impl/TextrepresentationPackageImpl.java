@@ -826,6 +826,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EOperation getValueMap__AsMap() {
+		return valueMapEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getObjectWrapper() {
 		return objectWrapperEDataType;
 	}
@@ -943,6 +953,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEOperation(valueMapEClass, VALUE_MAP___GENERATE_VARIANT_JSON_OBJECT);
 		createEOperation(valueMapEClass, VALUE_MAP___CLEAR);
 		createEOperation(valueMapEClass, VALUE_MAP___IS_EMPTY);
+		createEOperation(valueMapEClass, VALUE_MAP___AS_MAP);
 
 		// Create data types
 		objectWrapperEDataType = createEDataType(OBJECT_WRAPPER);
@@ -1113,6 +1124,14 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		initEOperation(getValueMap__Clear(), null, "clear", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getValueMap__IsEmpty(), ecorePackage.getEBoolean(), "isEmpty", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getValueMap__AsMap(), null, "asMap", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
 		// Initialize data types
 		initEDataType(objectWrapperEDataType, Object.class, "ObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

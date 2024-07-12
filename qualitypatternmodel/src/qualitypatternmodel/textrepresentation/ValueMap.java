@@ -116,4 +116,12 @@ public interface ValueMap extends EObject {
 	 */
 	boolean isEmpty();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Map<String, String> asMap();
+
 } // ValueMap

@@ -5,6 +5,7 @@ package qualitypatternmodel.textrepresentation.impl;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import java.util.Map;
@@ -224,6 +225,21 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Map<String, String> asMap() {
+		Map<String, String> map = new HashMap<String, String>();
+		
+		for (String key: keys) {
+			map.put(key, get(key));
+		}
+		return map;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -320,6 +336,8 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 				return null;
 			case TextrepresentationPackage.VALUE_MAP___IS_EMPTY:
 				return isEmpty();
+			case TextrepresentationPackage.VALUE_MAP___AS_MAP:
+				return asMap();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

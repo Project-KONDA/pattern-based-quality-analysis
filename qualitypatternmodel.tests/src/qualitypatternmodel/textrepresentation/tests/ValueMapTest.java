@@ -24,6 +24,7 @@ import qualitypatternmodel.textrepresentation.ValueMap;
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#generateVariantJSONObject() <em>Generate Variant JSON Object</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#clear() <em>Clear</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#isEmpty() <em>Is Empty</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#asMap() <em>As Map</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -198,6 +199,19 @@ public class ValueMapTest extends TestCase {
 	 * @generated
 	 */
 	public void testIsEmpty() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.ValueMap#asMap() <em>As Map</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#asMap()
+	 * @generated
+	 */
+	public void testAsMap() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

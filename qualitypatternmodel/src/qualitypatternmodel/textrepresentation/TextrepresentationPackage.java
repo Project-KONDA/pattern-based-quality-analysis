@@ -859,13 +859,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int VALUE_MAP___IS_EMPTY = 7;
 
 	/**
+	 * The operation id for the '<em>As Map</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_MAP___AS_MAP = 8;
+
+	/**
 	 * The number of operations of the '<em>Value Map</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_MAP_OPERATION_COUNT = 8;
+	int VALUE_MAP_OPERATION_COUNT = 9;
 
 	/**
 	 * The meta object id for the '<em>Object Wrapper</em>' data type.
@@ -1500,6 +1509,16 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getValueMap__IsEmpty();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#asMap() <em>As Map</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>As Map</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#asMap()
+	 * @generated
+	 */
+	EOperation getValueMap__AsMap();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Object Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2032,6 +2051,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation VALUE_MAP___IS_EMPTY = eINSTANCE.getValueMap__IsEmpty();
+
+		/**
+		 * The meta object literal for the '<em><b>As Map</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_MAP___AS_MAP = eINSTANCE.getValueMap__AsMap();
 
 		/**
 		 * The meta object literal for the '<em>Object Wrapper</em>' data type.

@@ -48,8 +48,5 @@ public class MqafSchemaTranslationTest {
 
 		System.out.println("out of " + (valid + invalid) + " testpatterns " + valid + " were valid and " + invalid
 				+ " were invalid");
-
-		// TODO Auto-generated method stub
-
 	}
 }

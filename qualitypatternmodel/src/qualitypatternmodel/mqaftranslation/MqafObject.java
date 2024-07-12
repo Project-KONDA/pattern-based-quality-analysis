@@ -1,6 +1,7 @@
 package qualitypatternmodel.mqaftranslation;
 
 import java.util.List;
+import java.util.Map;
 
 import org.basex.util.Pair;
 import org.eclipse.emf.common.util.BasicEList;
@@ -47,6 +48,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
+import qualitypatternmodel.textrepresentation.ValueMap;
 
 public class MqafObject {
 	
@@ -54,6 +56,7 @@ public class MqafObject {
 	ComplexNode record;
 	Node[] fieldNodes;
 	String fieldPath;
+	Map<String, String> namespaces;
 	
 	MqafRuleObject rule;
 	
@@ -67,6 +70,7 @@ public class MqafObject {
 			throw new InvalidityException();
 
 		pattern = completePattern;
+		namespaces = pattern.getNamespaces().asMap();
 		record = MqafFieldNodeIdentification.identifyRecordNode(pattern);
 		fieldNodes = MqafFieldNodeIdentification.identifyFieldNodes(pattern);
 		rule = transformCondition(completePattern.getCondition(), record, fieldNodes).realInvert();
@@ -82,8 +86,8 @@ public class MqafObject {
 			return "ERROR";
 		String result = "format: XML\nfields:\n";
 		
+		// Fields
 		EList<Pair<String, String>> fields = rule.getAllFields();
-		
 		for (Pair<String, String> fieldpair: fields) {
 			result += "- name: " + fieldpair.name() +
 					"\n  path: " + fieldpair.value() + "\n";
@@ -92,7 +96,16 @@ public class MqafObject {
 		result += "- name: " + fieldNodes[0].getName().replace(" ", "_") + "\n";
 		result += "  path: " + fieldPath + "\n";
 		result += "  extractable: true\n";
+		
+		// Rules
 		result += "  rules:\n" + rule.getStringRepresentation();
+		
+		// Namespaces
+		if (namespaces != null && !namespaces.isEmpty()) {
+			result += "\nnamespaces:";
+			for (String key: namespaces.keySet())
+				result += "\n  " + key + ": " + namespaces.get(key);
+		}
 		
 		return result;
 	}
@@ -109,6 +122,7 @@ public class MqafObject {
 			DataElement field = new DataElement(fieldpair.name(), fieldpair.value()).setExtractable();
 			schema.addField(field);
 		}
+		schema.setNamespaces(namespaces);
 		
 		Rule constraintrule = new Rule().withSuccessScore(1);
 		rule.addConstraintRuleTo(constraintrule);

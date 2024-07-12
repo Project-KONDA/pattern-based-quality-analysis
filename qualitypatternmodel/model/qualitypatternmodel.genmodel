@@ -1068,6 +1068,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/generateVariantJSONObject"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/clear"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/isEmpty"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/asMap"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Adaptionrdf" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//adaptionrdf">
