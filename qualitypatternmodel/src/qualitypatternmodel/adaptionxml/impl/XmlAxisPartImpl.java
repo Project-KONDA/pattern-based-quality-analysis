@@ -52,6 +52,7 @@ import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.utility.ConstantsXml;
 
 /**
@@ -174,7 +175,10 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	private XmlAxisPartCondition identifyNameTagCondition() {
 		List<String> keys;
 		try {
-			keys = ((CompletePattern) getAncestor(CompletePattern.class)).getNamespaces().getKeys();
+			ValueMap namespaces = ((CompletePattern) getAncestor(CompletePattern.class)).getNamespaces();
+			if (namespaces == null)
+				return null;
+			keys = namespaces.getKeys();
 		} catch (MissingPatternContainerException e) {
 			return null;
 		}

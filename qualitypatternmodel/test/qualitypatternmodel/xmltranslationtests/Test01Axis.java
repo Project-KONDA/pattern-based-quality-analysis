@@ -13,7 +13,6 @@ import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.adaptionxml.impl.XmlAxisPartConditionImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;

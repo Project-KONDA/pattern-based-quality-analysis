@@ -539,7 +539,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			throw new InvalidityException("This pattern cannot be executed via default XQuery. A custom Java Filter build is required.");
 		String res = "";
 		initializeTranslation();
-		if (!getNamespaces().isEmpty()) {
+		if (getNamespaces() != null && !getNamespaces().isEmpty()) {
 			res += generateXQueryNamespaces();
 		}
 		res += getParameterList().generateXQuery();

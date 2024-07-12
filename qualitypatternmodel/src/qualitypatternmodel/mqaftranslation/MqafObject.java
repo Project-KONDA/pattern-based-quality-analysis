@@ -48,7 +48,6 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
-import qualitypatternmodel.textrepresentation.ValueMap;
 
 public class MqafObject {
 	

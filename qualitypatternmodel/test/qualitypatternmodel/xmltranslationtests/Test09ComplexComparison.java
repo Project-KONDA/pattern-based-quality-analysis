@@ -3,8 +3,6 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.solr.client.solrj.io.comp.ComparatorOrder;
-
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
