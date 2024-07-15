@@ -514,6 +514,24 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void printParameters() {
+		int i=0;
+		for (Parameter p: getParameterList().getParameters()){
+			String out = p.getClass().getSimpleName().replace("Impl", "");
+			out += " p" + i + " = ((" + p.getClass().getSimpleName().replace("Impl", "");
+			out += ") params.get(" + i + "));";
+			System.out.println(out);
+			i++;
+		}
+	}
+
+
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		Boolean graph = getGraph().containsJavaOperator();
@@ -1862,6 +1880,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case PatternstructurePackage.COMPLETE_PATTERN___PRINT_PARAMETERS:
+				printParameters();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

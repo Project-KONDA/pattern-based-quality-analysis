@@ -3173,13 +3173,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___GENERATE_XQUERY_NAMESPACES = PATTERN_OPERATION_COUNT + 11;
 
 	/**
+	 * The operation id for the '<em>Print Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___PRINT_PARAMETERS = PATTERN_OPERATION_COUNT + 12;
+
+	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 12;
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 13;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -5965,6 +5974,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getCompletePattern__GenerateXQueryNamespaces();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#printParameters() <em>Print Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Print Parameters</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#printParameters()
+	 * @generated
+	 */
+	EOperation getCompletePattern__PrintParameters();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7098,6 +7117,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPLETE_PATTERN___GENERATE_XQUERY_NAMESPACES = eINSTANCE.getCompletePattern__GenerateXQueryNamespaces();
+
+		/**
+		 * The meta object literal for the '<em><b>Print Parameters</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPLETE_PATTERN___PRINT_PARAMETERS = eINSTANCE.getCompletePattern__PrintParameters();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.

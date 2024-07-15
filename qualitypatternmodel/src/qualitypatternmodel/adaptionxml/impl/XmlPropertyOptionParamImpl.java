@@ -7,7 +7,6 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -65,7 +64,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<XmlPropertyKind> options = new BasicEList<XmlPropertyKind>(XmlPropertyKind.VALUES);
+	protected EList<XmlPropertyKind> options;
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

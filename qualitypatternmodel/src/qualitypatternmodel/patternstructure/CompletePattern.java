@@ -554,4 +554,12 @@ public interface CompletePattern extends Pattern {
 	 */
 	String generateXQueryNamespaces() throws InvalidityException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void printParameters();
+
 } // Pattern

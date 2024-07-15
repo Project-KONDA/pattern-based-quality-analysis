@@ -26,6 +26,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateQueryFilter() <em>Generate Query Filter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#updateLastSaved() <em>Update Last Saved</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateXQueryNamespaces() <em>Generate XQuery Namespaces</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#printParameters() <em>Print Parameters</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -235,6 +236,19 @@ public class CompletePatternTest extends PatternTest {
 	 * @generated
 	 */
 	public void testGenerateXQueryNamespaces() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#printParameters() <em>Print Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#printParameters()
+	 * @generated
+	 */
+	public void testPrintParameters() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
