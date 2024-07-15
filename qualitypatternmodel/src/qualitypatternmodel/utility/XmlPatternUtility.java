@@ -10,6 +10,7 @@ import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.impl.XmlAxisOptionParamImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlAxisPartConditionImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl;
@@ -134,6 +135,12 @@ public class XmlPatternUtility {
 						if(cond.getTextLiteralParam().getValue() == null)
 							cond.getTextLiteralParam().setValue("");
 					}
+				}
+				if (xmlPathParam.getXmlNavigation() instanceof XmlPropertyNavigation) {
+					if (xmlPathParam.getXmlPropertyOptionParam() == null)
+						xmlPathParam.setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
+					if (xmlPathParam.getXmlPropertyOptionParam().getValue() == null)
+						xmlPathParam.getXmlPropertyOptionParam().setValue(XmlPropertyKind.DATA);
 				}
 			}
 			if (param instanceof TypeOptionParam) {

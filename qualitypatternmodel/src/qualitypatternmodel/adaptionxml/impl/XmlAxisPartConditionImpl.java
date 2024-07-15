@@ -428,11 +428,13 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 
 	@Override
 	public String myToString() {
-		String result = "[cond(" + getInternalId() + "): ";
+		String result = "[cond (" + getInternalId() + "): ";
 		if (getXmlPropertyOption() != null)
 			result += getXmlPropertyOption().myToString();
+		if (getXmlPropertyOption() != null && getTextLiteralParam() != null)
+			result += " ";
 		if (getTextLiteralParam() != null)
-			result += getTextLiteralParam();
+			result += getTextLiteralParam().myToString();
 		return result += "]";
 	}
 
