@@ -21,10 +21,11 @@ import qualitypatternmodel.textrepresentation.ValueMap;
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#get(java.lang.String) <em>Get</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#getKey(java.lang.String) <em>Get Key</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#addAll(java.util.Map) <em>Add All</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#generateVariantJSONObject() <em>Generate Variant JSON Object</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#generateJSONObject() <em>Generate JSON Object</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#clear() <em>Clear</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#isEmpty() <em>Is Empty</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#asMap() <em>As Map</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#setValuesFromJSONObject(org.json.JSONObject) <em>Set Values From JSON Object</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -166,13 +167,13 @@ public class ValueMapTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.textrepresentation.ValueMap#generateVariantJSONObject() <em>Generate Variant JSON Object</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.ValueMap#generateJSONObject() <em>Generate JSON Object</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.textrepresentation.ValueMap#generateVariantJSONObject()
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#generateJSONObject()
 	 * @generated
 	 */
-	public void testGenerateVariantJSONObject() {
+	public void testGenerateJSONObject() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -212,6 +213,19 @@ public class ValueMapTest extends TestCase {
 	 * @generated
 	 */
 	public void testAsMap() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.ValueMap#setValuesFromJSONObject(org.json.JSONObject) <em>Set Values From JSON Object</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#setValuesFromJSONObject(org.json.JSONObject)
+	 * @generated
+	 */
+	public void testSetValuesFromJSONObject__JSONObject() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

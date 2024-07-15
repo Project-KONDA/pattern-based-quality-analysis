@@ -832,13 +832,13 @@ public interface TextrepresentationPackage extends EPackage {
 	int VALUE_MAP___ADD_ALL__MAP = 4;
 
 	/**
-	 * The operation id for the '<em>Generate Variant JSON Object</em>' operation.
+	 * The operation id for the '<em>Generate JSON Object</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_MAP___GENERATE_VARIANT_JSON_OBJECT = 5;
+	int VALUE_MAP___GENERATE_JSON_OBJECT = 5;
 
 	/**
 	 * The operation id for the '<em>Clear</em>' operation.
@@ -868,13 +868,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int VALUE_MAP___AS_MAP = 8;
 
 	/**
+	 * The operation id for the '<em>Set Values From JSON Object</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__JSONOBJECT = 9;
+
+	/**
 	 * The number of operations of the '<em>Value Map</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_MAP_OPERATION_COUNT = 9;
+	int VALUE_MAP_OPERATION_COUNT = 10;
 
 	/**
 	 * The meta object id for the '<em>Object Wrapper</em>' data type.
@@ -1479,14 +1488,14 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getValueMap__AddAll__Map();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#generateVariantJSONObject() <em>Generate Variant JSON Object</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#generateJSONObject() <em>Generate JSON Object</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Generate Variant JSON Object</em>' operation.
-	 * @see qualitypatternmodel.textrepresentation.ValueMap#generateVariantJSONObject()
+	 * @return the meta object for the '<em>Generate JSON Object</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#generateJSONObject()
 	 * @generated
 	 */
-	EOperation getValueMap__GenerateVariantJSONObject();
+	EOperation getValueMap__GenerateJSONObject();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#clear() <em>Clear</em>}' operation.
@@ -1517,6 +1526,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getValueMap__AsMap();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#setValuesFromJSONObject(org.json.JSONObject) <em>Set Values From JSON Object</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Values From JSON Object</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#setValuesFromJSONObject(org.json.JSONObject)
+	 * @generated
+	 */
+	EOperation getValueMap__SetValuesFromJSONObject__JSONObject();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Object Wrapper</em>}'.
@@ -2029,12 +2048,12 @@ public interface TextrepresentationPackage extends EPackage {
 		EOperation VALUE_MAP___ADD_ALL__MAP = eINSTANCE.getValueMap__AddAll__Map();
 
 		/**
-		 * The meta object literal for the '<em><b>Generate Variant JSON Object</b></em>' operation.
+		 * The meta object literal for the '<em><b>Generate JSON Object</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation VALUE_MAP___GENERATE_VARIANT_JSON_OBJECT = eINSTANCE.getValueMap__GenerateVariantJSONObject();
+		EOperation VALUE_MAP___GENERATE_JSON_OBJECT = eINSTANCE.getValueMap__GenerateJSONObject();
 
 		/**
 		 * The meta object literal for the '<em><b>Clear</b></em>' operation.
@@ -2059,6 +2078,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation VALUE_MAP___AS_MAP = eINSTANCE.getValueMap__AsMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Values From JSON Object</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__JSONOBJECT = eINSTANCE.getValueMap__SetValuesFromJSONObject__JSONObject();
 
 		/**
 		 * The meta object literal for the '<em>Object Wrapper</em>' data type.

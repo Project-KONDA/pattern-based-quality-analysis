@@ -98,7 +98,7 @@ public interface ValueMap extends EObject {
 	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	JSONObject generateVariantJSONObject();
+	JSONObject generateJSONObject();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,5 +123,13 @@ public interface ValueMap extends EObject {
 	 * @generated
 	 */
 	Map<String, String> asMap();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model objectDataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
+	 * @generated
+	 */
+	void setValuesFromJSONObject(JSONObject object);
 
 } // ValueMap

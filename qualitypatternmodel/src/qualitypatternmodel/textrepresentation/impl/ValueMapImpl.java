@@ -192,7 +192,7 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	 * @generated NOT
 	 */
 	@Override
-	public JSONObject generateVariantJSONObject() {
+	public JSONObject generateJSONObject() {
 		JSONObject result = new JSONObject();
 		try {
 			for (int i = 0; i<getKeys().size(); i++)
@@ -235,6 +235,24 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 			map.put(key, get(key));
 		}
 		return map;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setValuesFromJSONObject(JSONObject object) {
+		clear();
+        @SuppressWarnings("unchecked")
+		Iterator<String> keys = object.keys();
+        while(keys.hasNext()) {
+            String key = keys.next();
+            try {
+				put(key, object.getString(key));
+			} catch (JSONException e) {}
+        }
 	}
 
 	/**
@@ -329,8 +347,8 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 			case TextrepresentationPackage.VALUE_MAP___ADD_ALL__MAP:
 				addAll((Map<String, String>)arguments.get(0));
 				return null;
-			case TextrepresentationPackage.VALUE_MAP___GENERATE_VARIANT_JSON_OBJECT:
-				return generateVariantJSONObject();
+			case TextrepresentationPackage.VALUE_MAP___GENERATE_JSON_OBJECT:
+				return generateJSONObject();
 			case TextrepresentationPackage.VALUE_MAP___CLEAR:
 				clear();
 				return null;
@@ -338,6 +356,9 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 				return isEmpty();
 			case TextrepresentationPackage.VALUE_MAP___AS_MAP:
 				return asMap();
+			case TextrepresentationPackage.VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__JSONOBJECT:
+				setValuesFromJSONObject((JSONObject)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

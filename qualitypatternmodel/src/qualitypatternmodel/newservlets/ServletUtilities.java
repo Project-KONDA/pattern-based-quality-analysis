@@ -164,7 +164,7 @@ public abstract class ServletUtilities {
 			if (pattern.getLastSaved() != null)
 				json.put(Constants.JSON_LASTSAVED, new Timestamp(pattern.getLastSaved().getTime()).toString());
 			if (pattern.getNamespaces() != null)
-				json.put(Constants.JSON_NAMESPACES, pattern.getNamespaces().getValuesAsJsonArray());
+				json.put(Constants.JSON_NAMESPACES, pattern.getNamespaces().generateJSONObject());
 			if (pattern.getDatabaseName() != null)
 				json.put(Constants.JSON_DATABASE, pattern.getDatabaseName());
 			if (pattern.getDataModelName() != null)

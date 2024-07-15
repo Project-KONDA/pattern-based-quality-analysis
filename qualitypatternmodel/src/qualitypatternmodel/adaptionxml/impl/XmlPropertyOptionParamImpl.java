@@ -62,7 +62,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	 * A subset of all XML property types to choose from during the concretization.
 	 * <!-- end-user-doc -->
 	 * @see #getOptions()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected EList<XmlPropertyKind> options = new BasicEList<XmlPropertyKind>(XmlPropertyKind.VALUES);
