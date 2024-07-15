@@ -319,13 +319,14 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	}	
 
 	@Override
-	public void removeParametersFromParameterList() {		
-		XmlPathParam option = xmlPathParam;
-		setXmlPathParam(null);
+	public void removeParametersFromParameterList() {
+		XmlPathParam option = getXmlPathParam();
 		ParameterList parameterList = getParameterList();	
 		if(parameterList != null) {
 			parameterList.remove(option);
 		}
+		option.setParameterList(null);
+		setXmlPathParam(null);
 	}
 	
 	@Override

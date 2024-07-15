@@ -749,9 +749,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			setGraph(null);
 			
 			reference.getTarget().adaptAsXmlElement();
-			
+			this.removeParametersFromParameterList();
 			return reference;
-			
 		}
 		return (XmlReference) this;
 	}

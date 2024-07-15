@@ -34,7 +34,10 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 public class XmlPatternUtility {
 
 	public static void testPatterns(List<CompletePattern> completePatterns) {
+		int valid = 0;
+		int total = 0;
 		for (CompletePattern completePattern : completePatterns) {
+			total++;
 			XmlPatternUtility.fillParameterXml(completePattern);
 			try {
 				completePattern.isValid(AbstractionLevel.CONCRETE);
@@ -43,6 +46,7 @@ public class XmlPatternUtility {
 				System.out.println(result);
 				System.out.print("\n___TRANSLATION___");
 				System.out.println(completePattern.generateXQuery());
+				valid++;
 			} catch (Exception e) {
 				System.out.print("\n####### PATTERN INVALID #######");
 				try {
@@ -55,6 +59,7 @@ public class XmlPatternUtility {
 				}
 			}
 		}
+		System.out.println(valid + " / " + total + " valid");
 	}
 
 	public static void getQueries(ArrayList<CompletePattern> completePatterns) {

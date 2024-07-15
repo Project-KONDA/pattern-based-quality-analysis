@@ -117,7 +117,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		if (graph.getNodes().size() != 1) {
+		if (graph.getReturnNodes().size() != 1) {
 			throw new InvalidityException("too much nodes in " + getClass().getSimpleName() + " [" + getInternalId() + "]");
 		}
 		return "\ncount (" + super.generateXQuery().replace("\n", "\n  ") + "\n)";
