@@ -24,6 +24,8 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.textrepresentation.ValueMap;
+import qualitypatternmodel.textrepresentation.impl.ValueMapImpl;
 import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
@@ -164,7 +166,7 @@ public class ConstraintServlet extends HttpServlet {
 		}
 		
 		// 2. change patterns
-		Boolean name = false, database = false, datamodel = false;
+		Boolean name = false, database = false, datamodel = false, namespaces = false;
 		
 		// name?
 		String[] nameArray = parameterMap.get(Constants.JSON_NAME);
@@ -190,6 +192,25 @@ public class ConstraintServlet extends HttpServlet {
 			datamodel = true;
 			parameterMap.remove(Constants.JSON_DATAMODEL);
 		}
+		// namespaces?
+		String[] namespacesArray = parameterMap.get(Constants.JSON_NAMESPACES);
+		if (namespacesArray != null && namespacesArray.length == 1 && !namespacesArray[0].equals("")) {
+			try {
+				JSONArray jsonArray = new JSONArray(namespacesArray[0]);
+				// [{prefix: "", uri:""}]
+				if (pattern.getNamespaces() == null)
+					pattern.setNamespaces(new ValueMapImpl());
+				ValueMap vm = pattern.getNamespaces();
+				vm.clear();
+		        for (int i = 0; i < jsonArray.length(); i++) {
+		            JSONObject jsonObject = jsonArray.getJSONObject(i);
+		            jsonObject.keys();
+		        }
+		        namespaces = true;
+				parameterMap.remove(Constants.JSON_NAMESPACES);
+			} catch (JSONException e) {
+			}
+		}
 				
 		JSONObject output = changeParameters(pattern, parameterMap);
 		try {
@@ -199,6 +220,8 @@ public class ConstraintServlet extends HttpServlet {
 				output.getJSONArray("success").put(Constants.JSON_DATABASE);
 			if (datamodel)
 				output.getJSONArray("success").put(Constants.JSON_DATAMODEL);
+			if (namespaces)
+				output.getJSONArray("success").put(Constants.JSON_NAMESPACES);
 		} catch (JSONException e) {
 		}
 		
