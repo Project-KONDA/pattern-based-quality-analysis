@@ -19,7 +19,7 @@ import qualitypatternmodel.utility.XmlPatternUtility;
 
 public class XmlEvalCompset {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ArrayList<CompletePattern> completePatterns = new ArrayList<>();
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 
 		completePatterns.add(getCompsetMidas3270());
 		completePatterns.add(getCompsetMidas3270Aps());

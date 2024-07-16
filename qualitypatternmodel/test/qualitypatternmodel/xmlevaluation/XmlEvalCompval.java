@@ -17,7 +17,7 @@ import qualitypatternmodel.utility.XmlPatternUtility;
 
 public class XmlEvalCompval {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ArrayList<CompletePattern> completePatterns = new ArrayList<>();
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getCompvalMidas5230Objekt());
 		completePatterns.add(getCompvalMidas5230ApsObjekt());
 		completePatterns.add(getCompvalMidas5230Schloss());
