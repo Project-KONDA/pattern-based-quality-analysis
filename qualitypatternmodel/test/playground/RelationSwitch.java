@@ -20,6 +20,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 //import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -34,7 +35,7 @@ public class RelationSwitch {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<>();
 		completePatterns.add(getRefintAbstractRunningExample());
 		completePatterns.add(getRefintRunningExample());
-		PatternUtility.getQueries(completePatterns);
+		PatternUtility.getQueries(completePatterns, Language.XML);
 //		Test00.test(completePatterns);
 	}
 

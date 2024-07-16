@@ -135,7 +135,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				}
 			}
 		}
-		throw new InvalidityException("invalid parameter value in [" + getInternalId() + "]");
+		throw new InvalidityException("invalid parameter value in " + getClass().getSimpleName() + " [" + getInternalId() + "]");
 	}
 
 	/**

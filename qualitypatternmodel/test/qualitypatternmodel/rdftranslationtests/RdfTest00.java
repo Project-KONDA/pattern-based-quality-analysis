@@ -65,7 +65,7 @@ public class RdfTest00 {
 		completePatterns.add(getBasePatternFinal());
 		completePatterns.add(getBasePatternCondConcrete("2022-12-31"));
 		completePatterns.add(getBasePatternMatchConcrete("^2022"));
-//		completePatterns.add(getBasePatternMatchNotConcrete("^2022"));
+		completePatterns.add(getBasePatternMatchNotConcrete("^2022"));
 		RdfTest00.test(completePatterns);
 	}
 
@@ -123,7 +123,10 @@ public class RdfTest00 {
 		CompletePattern completePattern = getBasePatternMatch(comp);
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathParts().get(0).getRdfPath()).setIriParam(iriParam);
+		RdfSinglePredicate rdfSingle = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
+		rdfSingle.setIriParam(iriParam);
+		RdfPathPart rdfPathPart = AdaptionrdfFactory.eINSTANCE.createRdfPathPart();
+		relation.getRdfPathParam().getRdfPathParts().add(rdfPathPart);
 		iriParam.setPrefix("wdt");
 		iriParam.setSuffix("P569");
 		return completePattern;
@@ -134,7 +137,10 @@ public class RdfTest00 {
 		((Match) completePattern.getGraph().getOperatorList().getOperators().get(0)).getOption().setValue(false);
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathParts().get(0).getRdfPath()).setIriParam(iriParam);
+		RdfSinglePredicate rdfSingle = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
+		rdfSingle.setIriParam(iriParam);
+		RdfPathPart rdfPathPart = AdaptionrdfFactory.eINSTANCE.createRdfPathPart();
+		relation.getRdfPathParam().getRdfPathParts().add(rdfPathPart);
 		iriParam.setPrefix("wdt");
 		iriParam.setSuffix("P569");
 		return completePattern;
