@@ -8,7 +8,7 @@ import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsRdf;
 
 /**
  * <!-- begin-user-doc -->
@@ -104,9 +104,9 @@ public interface RdfPathComponent extends PatternElement {
 		JSONObject jobj;
 		try {
 			jobj = new JSONObject(value);
-			if (jobj.has(Constants.JSON_RDF_PATH_XOR)) {
+			if (jobj.has(ConstantsRdf.JSON_RDF_PATH_XOR)) {
 				comp = AdaptionrdfFactory.eINSTANCE.createRdfXor();
-			} else if (jobj.has(Constants.JSON_RDF_PATH_SEQUENCE) ) {
+			} else if (jobj.has(ConstantsRdf.JSON_RDF_PATH_SEQUENCE) ) {
 				comp = AdaptionrdfFactory.eINSTANCE.createRdfSequence();
 			} else {
 				throw new InvalidityException("Invalid JSONObject: '" + value + "'");

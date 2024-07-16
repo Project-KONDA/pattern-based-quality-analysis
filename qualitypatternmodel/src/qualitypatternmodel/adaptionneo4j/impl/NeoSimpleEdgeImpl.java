@@ -31,7 +31,6 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.KeyValueParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
@@ -338,7 +337,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 
 			@SuppressWarnings("unchecked")
 			Iterator<String> keys = object.keys();
-			List<String> allowedKeys = Arrays.asList(Constants.JSON_NEO_EDGE, Constants.JSON_NEO_TARGETS, Constants.JSON_NEO_KEYVALUE);
+			List<String> allowedKeys = Arrays.asList(ConstantsNeo.JSON_NEO_EDGE, ConstantsNeo.JSON_NEO_TARGETS, ConstantsNeo.JSON_NEO_KEYVALUE);
 			while (keys.hasNext()) {
 				String next = keys.next();
 				if (!allowedKeys.contains(next)) {
@@ -346,17 +345,17 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 				}
 			}
 
-			if (object.has(Constants.JSON_NEO_EDGE)) {
+			if (object.has(ConstantsNeo.JSON_NEO_EDGE)) {
 				NeoEdgeLabelParam edgelabel = new NeoEdgeLabelParamImpl();
-				edgelabel.setValueFromString(object.get(Constants.JSON_NEO_EDGE).toString());
+				edgelabel.setValueFromString(object.get(ConstantsNeo.JSON_NEO_EDGE).toString());
 				setNeoEdgeLabel(edgelabel);
 			}
-			if (object.has(Constants.JSON_NEO_TARGETS)) {
+			if (object.has(ConstantsNeo.JSON_NEO_TARGETS)) {
 				NeoNodeLabelsParam targets = new NeoNodeLabelsParamImpl();
-				targets.setValueFromString(object.get(Constants.JSON_NEO_TARGETS).toString());
+				targets.setValueFromString(object.get(ConstantsNeo.JSON_NEO_TARGETS).toString());
 				setNeoTargetNodeLabels(targets);
 			}
-			if (object.has(Constants.JSON_NEO_KEYVALUE)) {
+			if (object.has(ConstantsNeo.JSON_NEO_KEYVALUE)) {
 				throw new InvalidityException("KeyValueParams are not supported");
 //				KeyValueParam keyvalue = new KeyValueParamImpl();
 //				keyvalue.setValueFromString(object.get(Constants.JSON_NEO_KEYVALUE).toString());
@@ -372,13 +371,13 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		JSONObject object = new JSONObject();
 		try {
 			if (getNeoEdgeLabel() != null && getNeoEdgeLabel().getValueAsString() != null) {
-				object.put(Constants.JSON_NEO_EDGE, getNeoEdgeLabel().getValueAsString().toString());
+				object.put(ConstantsNeo.JSON_NEO_EDGE, getNeoEdgeLabel().getValueAsString().toString());
 			}
 			if (getNeoTargetNodeLabels() != null && getNeoTargetNodeLabels().getValueAsString() != null) {
-				object.put(Constants.JSON_NEO_TARGETS, getNeoTargetNodeLabels().getValueAsString().toString());
+				object.put(ConstantsNeo.JSON_NEO_TARGETS, getNeoTargetNodeLabels().getValueAsString().toString());
 			}
 			if (getKeyValueParam() != null && getKeyValueParam().getValueAsString() != null) {
-				object.put(Constants.JSON_NEO_KEYVALUE, getKeyValueParam().getValueAsString().toString());
+				object.put(ConstantsNeo.JSON_NEO_KEYVALUE, getKeyValueParam().getValueAsString().toString());
 			}
 		} catch (JSONException e) {}
 		if (object.length() < 1) {

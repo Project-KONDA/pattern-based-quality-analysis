@@ -28,7 +28,6 @@ import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsRdf;
 
 /**
@@ -209,7 +208,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 			}
 			JSONObject job = new JSONObject();
 			try {
-				job.put(Constants.JSON_RDF_PART, jarr);
+				job.put(ConstantsRdf.JSON_RDF_PART, jarr);
 			} catch (JSONException e) {}
 			return job.toString();
 		}
@@ -228,7 +227,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 				getRdfPathParts().clear();
 				return;
 			}
-			JSONArray jarr = job.getJSONArray(Constants.JSON_RDF_PART);
+			JSONArray jarr = job.getJSONArray(ConstantsRdf.JSON_RDF_PART);
 	        for (int i = 0; i < jarr.length(); i++) {
 	        	RdfPathPart part = new RdfPathPartImpl();
 	        	part.setValueFromString(jarr.getString(i));

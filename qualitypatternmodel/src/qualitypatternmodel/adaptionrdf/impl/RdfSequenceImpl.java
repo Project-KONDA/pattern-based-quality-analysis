@@ -25,6 +25,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsRdf;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,7 +93,7 @@ public class RdfSequenceImpl extends RdfPathComponentImpl implements RdfSequence
 		}
 		JSONObject jobj = new JSONObject();
 		try {
-			jobj.put(Constants.JSON_RDF_PATH_SEQUENCE, jarr);
+			jobj.put(ConstantsRdf.JSON_RDF_PATH_SEQUENCE, jarr);
 		} catch (JSONException e) {
 		}
 		return jobj.toString();
@@ -102,10 +103,10 @@ public class RdfSequenceImpl extends RdfPathComponentImpl implements RdfSequence
 	public void setValueFromString(String value) throws InvalidityException {
 		try {
 			JSONObject jobj = new JSONObject(value);
-			if (!jobj.has(Constants.JSON_RDF_PATH_SEQUENCE)) {
+			if (!jobj.has(ConstantsRdf.JSON_RDF_PATH_SEQUENCE)) {
 				throw new InvalidityException(Constants.INVALID_VALUE);
 			}
-			JSONArray arr = jobj.getJSONArray(Constants.JSON_RDF_PATH_SEQUENCE);
+			JSONArray arr = jobj.getJSONArray(ConstantsRdf.JSON_RDF_PATH_SEQUENCE);
 			if (arr.length() < 2) {
 				throw new InvalidityException("Not enough arguments for Rdf Sequence: '" + value + "'");
 			}

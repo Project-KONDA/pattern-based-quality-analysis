@@ -125,21 +125,6 @@ public class Constants {
 	// MQAF
 	public static final String JSON_CONSTRAINT = "constraint";
 
-	// RDF
-	public static final String JSON_RDF_PART = "rdfpart";
-	public static final String JSON_RDF_PATH_XOR = "xor";
-	public static final String JSON_RDF_PATH_SEQUENCE = "sequence";
-	public static final String JSON_RDF_PATH = "rdfpath";
-	public static final String JSON_RDF_NODE_TYPE = "nodetypes";
-
-	// Neo4j
-	public static final String JSON_NEO_EDGE = "edgetype";
-	public static final String JSON_NEO_TARGETS = "targettype";
-	public static final String JSON_NEO_KEYVALUE = "keyvalue";
-	public static final String JSON_NEO_PATH_PART = "pathpart";
-	public static final String JSON_NEO_PROPERTY_NAME = "propertyname";
-
-
 	//Global Exception Messages -- Introduced by Lukas Sebastian Hofmann. Existing code of the framework has not been touched.
 	public static final String INVALID_OPTION = "invalid option";
 	public static final String INVALID_ARGUMENTS = "invalid arguments";

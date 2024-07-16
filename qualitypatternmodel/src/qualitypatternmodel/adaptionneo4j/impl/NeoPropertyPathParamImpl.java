@@ -78,10 +78,10 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		JSONObject jobj = new JSONObject();
 		try {
 			if (getNeoPathPart() != null) {
-				jobj.put(Constants.JSON_NEO_PATH_PART, getNeoPathPart().getValueAsString());
+				jobj.put(ConstantsNeo.JSON_NEO_PATH_PART, getNeoPathPart().getValueAsString());
 			}
 			if (getNeoPropertyName() != null) {
-				jobj.put(Constants.JSON_NEO_PROPERTY_NAME, getNeoPropertyName().getValueAsString());
+				jobj.put(ConstantsNeo.JSON_NEO_PROPERTY_NAME, getNeoPropertyName().getValueAsString());
 			}
 		} catch (JSONException e) {}
 		if (jobj.length() < 1) {
@@ -94,10 +94,10 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	public void setValueFromString(String value) throws InvalidityException {
 		try {
 			JSONObject jobj = new JSONObject(value);
-			String partstring = jobj.get(Constants.JSON_NEO_PATH_PART).toString();
+			String partstring = jobj.get(ConstantsNeo.JSON_NEO_PATH_PART).toString();
 			NeoPathPart part = NeoPathPartImpl.createNewNeoPathPart(partstring);
 
-			String propertystring = jobj.get(Constants.JSON_NEO_PROPERTY_NAME).toString();
+			String propertystring = jobj.get(ConstantsNeo.JSON_NEO_PROPERTY_NAME).toString();
 			NeoPropertyNameParam property = new NeoPropertyNameParamImpl();
 			property.setValueFromString(propertystring);
 

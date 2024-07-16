@@ -178,7 +178,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 
 		try {
 			JSONObject jobj = new JSONObject(value);
-			String val = jobj.get(Constants.JSON_NEO_PATH_PART).toString();
+			String val = jobj.get(ConstantsNeo.JSON_NEO_PATH_PART).toString();
 			NeoPathPart part = NeoPathPartImpl.createNewNeoPathPart(val);
 			setNeoPathPart(part);
 			return;

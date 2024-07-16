@@ -84,4 +84,11 @@ public class ConstantsNeo {
 
 	//EXCEPTIONS
 	public static final String ONLY_ALPHANUMERICAL_VALUES_AND_UNDERSCORE = "Only numerical, alphanumerical values and underscore are allowed";
+	
+	// JSON
+	public static final String JSON_NEO_EDGE = "edgetype";
+	public static final String JSON_NEO_TARGETS = "targettype";
+	public static final String JSON_NEO_KEYVALUE = "keyvalue";
+	public static final String JSON_NEO_PATH_PART = "pathpart";
+	public static final String JSON_NEO_PROPERTY_NAME = "propertyname";
 }
