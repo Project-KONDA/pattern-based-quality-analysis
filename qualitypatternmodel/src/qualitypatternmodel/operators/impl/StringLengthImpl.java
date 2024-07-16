@@ -8,15 +8,14 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Comparable;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.operators.BooleanOperator;
@@ -86,18 +85,18 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 	 * @generated NOT
 	 */
 	public StringLengthImpl() {
-		super();	
+		super();
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		if(number != null && number.getValue() != null && option != null && option.getValue() != null && primitiveNode != null) {
-			return primitiveNode.generateXQuery() + "string-length(.) " + option.generateXQuery() + " " + number.generateXQuery();	
+			return primitiveNode.generateXQuery() + "string-length(.) " + option.generateXQuery() + " " + number.generateXQuery();
 		} else {
 			throw new InvalidityException("invalid option");
 		}
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(number != null && number.getValue() != null && option != null && option.getValue() != null && primitiveNode != null) {
@@ -106,39 +105,44 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 			throw new InvalidityException("invalid option");
 		}
 	}
-	
-	@Override 
+
+	@Override
 	public String generateCypher() throws InvalidityException {
 		if(number != null && number.getValue() != null && option != null && option.getValue() != null && primitiveNode != null) {
-			String tempCypherPropertyAddressing = (String) ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
+			String tempCypherPropertyAddressing = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
 			String res = "size (" + tempCypherPropertyAddressing + ") " + option.generateCypher() + " " + number.generateCypher();
 			return res;
 		}
 		throw new InvalidityException(Constants.INVALID_OPTION);
 	}
-	
+
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
-		option.isValid(abstractionLevel);		
+		option.isValid(abstractionLevel);
 		number.isValid(abstractionLevel);
 	}
-	
+
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
-		if (option == null)
+		if (option == null) {
 			throw new InvalidityException("options null");
-		if (number == null)
+		}
+		if (number == null) {
 			throw new InvalidityException("regularExpression null");
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && primitiveNode == null)
-			throw new InvalidityException("property null");		
-		
+		}
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && primitiveNode == null) {
+			throw new InvalidityException("property null");
+		}
+
 		super.isValidLocal(abstractionLevel);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		res.add(number);
@@ -150,44 +154,44 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 	public boolean isTranslatable() {
 		return primitiveNode.isTranslatable();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * 
+	 * @throws InvalidityException
+	 *
 	 */
 	@Override
-	public EList<Node> getAllArgumentElements() {		
+	public EList<Node> getAllArgumentElements() {
 		return primitiveNode.getAllArgumentElements();
 	}
-	
+
 	@Override
 	public EList<Comparable> getArguments(){
-		EList<Comparable> list = new BasicEList<Comparable>();		
+		EList<Comparable> list = new BasicEList<Comparable>();
 		list.add(primitiveNode);
 		list.add(number);
 //		list.add(option);
 		return list;
 	}
-	
+
 	@Override
-	public void createParameters() {		
-		ParameterList parameterList = getParameterList();	
+	public void createParameters() {
+		ParameterList parameterList = getParameterList();
 		if(parameterList != null) {
 			if(getOption() == null) {
-				ComparisonOptionParam op = new ComparisonOptionParamImpl();				
+				ComparisonOptionParam op = new ComparisonOptionParamImpl();
 				setOption(op);
 			}
 			parameterList.add(getOption());
 			if(getNumber() == null) {
-				NumberParam numb = new NumberParamImpl();				
+				NumberParam numb = new NumberParamImpl();
 				setNumber(numb);
 			}
 			parameterList.add(getNumber());
 		}
-	}	
-	
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -233,7 +237,7 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 	public NotificationChain basicSetPrimitiveNode(PrimitiveNode newPrimitiveNode, NotificationChain msgs) {
 		PrimitiveNode oldPrimitiveNode = primitiveNode;
 		primitiveNode = newPrimitiveNode;
-		
+
 		if(oldPrimitiveNode instanceof PrimitiveNode && newPrimitiveNode == null) {
 			try {
 				((Node) oldPrimitiveNode).makeGeneric();
@@ -241,15 +245,19 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 				// there is another reason why this node needs to be PrimitiveNode
 			}
 		}
-		
+
 		if(oldPrimitiveNode != null) {
 			oldPrimitiveNode.getPredicates().remove(this);
 		}
 		newPrimitiveNode.getPredicates().add(this);
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PRIMITIVE_NODE, oldPrimitiveNode, newPrimitiveNode);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -274,7 +282,11 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 		}
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PRIMITIVE_NODE, oldProperty, newProperty);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -417,7 +429,7 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 	public Node getElement() {
 		return getPrimitiveNode();
 	}
-	
+
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
@@ -476,17 +488,21 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetOption(ComparisonOptionParam newOption, NotificationChain msgs) {
-		ComparisonOptionParam oldOption = option;		
+		ComparisonOptionParam oldOption = option;
 
-		ParameterList varlist = getParameterList();				
-		varlist.remove(oldOption);					
-		varlist.add(newOption);				
-		
+		ParameterList varlist = getParameterList();
+		varlist.remove(oldOption);
+		varlist.add(newOption);
+
 		option = newOption;
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__OPTION, oldOption, newOption);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -571,19 +587,22 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	@Override
 	public String myToString() {
 		String res = "LENGTH (" + getInternalId() + ") [";
 		if (getOption() != null) {
-			if (getOption().getValue() != null) 
+			if (getOption().getValue() != null) {
 				res += getOption().getValue();
+			}
 				res += " (" + getOption().getInternalId() + ")";
 		}
-		if (getPrimitiveNode() != null)
+		if (getPrimitiveNode() != null) {
 			res += " (" + getPrimitiveNode().getInternalId() + ")";
-		if (getNumber() != null)
+		}
+		if (getNumber() != null) {
 			res += " (" + getNumber().getInternalId() + ")";
+		}
 		return res + "]";
 	}
 

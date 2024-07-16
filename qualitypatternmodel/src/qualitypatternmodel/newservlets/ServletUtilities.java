@@ -1,7 +1,5 @@
 package qualitypatternmodel.newservlets;
 
-import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -23,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -47,7 +46,7 @@ public abstract class ServletUtilities {
 	public static String LOG_FILENAME = ((System.getenv("LOG_FILENAME") != null)? System.getenv("LOG_FILENAME"): "logfile.log");
 //	public static String SAVE_FILEPATH = PATTERNFOLDER + "/" + SAVE_FILENAME;
 //	public static String LOG_FILEPATH = PATTERNFOLDER + "/" + LOG_FILENAME;
-	
+
 	public static final String CONSTRAINTFOLDER = "concrete-patterns";
 	public static final String TEMPLATEFOLDER = "abstract-patterns";
 	public static final String EXTENSION = "patternstructure";
@@ -60,41 +59,46 @@ public abstract class ServletUtilities {
 	public static final String LVLCONSTRAINT = "concrete";
 	public static final String LVLREADY = "ready";
 	public static final List<String> LEVELS = List.of(LVLALL, LVLTEMPLATE, LVLCONSTRAINT, LVLREADY);
-	
+
 	// Pattern request
-	
+
 	public static List<CompletePattern> getAllPattern(String technology) {
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		List<CompletePattern> astr = getTemplates(technology);
 		List<CompletePattern> conc = getReadyConstraints(technology);
-		if (astr!=null)
+		if (astr!=null) {
 			patterns.addAll(astr);
-		if (conc!=null)
+		}
+		if (conc!=null) {
 			patterns.addAll(conc);
+		}
 		return patterns;
 	}
-	
+
 	// for efficiency when requested once, the templates do not need to be reloaded that often
 	private static List<CompletePattern> abstractPatternXml = null;
 	private static List<CompletePattern> abstractPatternRdf = null;
 	private static List<CompletePattern> abstractPatternNeo = null;
-	
+
 	public static List<CompletePattern> getTemplates(String technology) {
 		String path = PATTERNFOLDER + "/" + technology + "/" + TEMPLATEFOLDER;
 		try {
 			abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
 			if (technology.equals(XML)) {
-				if (abstractPatternXml == null)
+				if (abstractPatternXml == null) {
 					abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
+				}
 				return abstractPatternXml;
 			} else if (technology.equals(RDF)) {
-				if (abstractPatternRdf == null)
+				if (abstractPatternRdf == null) {
 					abstractPatternRdf = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
+				}
 				return abstractPatternRdf;
-				
+
 			} else if (technology.equals(NEO4J)) {
-				if (abstractPatternNeo == null)
+				if (abstractPatternNeo == null) {
 					abstractPatternNeo = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
+				}
 				return abstractPatternNeo;
 			} else {
 				return null;
@@ -108,30 +112,32 @@ public abstract class ServletUtilities {
 
 	public static List<CompletePattern> getConstraints(String technology) {
 
-		if (TECHS.contains(technology))
+		if (TECHS.contains(technology)) {
 			try {
 				return EMFModelLoad.loadCompletePatternFromFolder(PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER, EXTENSION);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
 		return new BasicEList<CompletePattern>();
 	}
-	
+
 	public static List<CompletePattern> getReadyConstraints(String technology) {
 		List<CompletePattern> concrete = new BasicEList<CompletePattern>();
 		List<CompletePattern> semiconcrete = getConstraints(technology);
-		if (semiconcrete != null)
+		if (semiconcrete != null) {
 			for (CompletePattern semi: semiconcrete) {
 				try {
 					semi.isValid(AbstractionLevel.CONCRETE);
 					concrete.add(semi);
 				} catch (Exception e) {}
 			}
+		}
 		return concrete;
 	}
-	
+
 	// JSON
-	
+
 	public static JSONObject getPatternListJSON(List<CompletePattern> patterns) {
 		JSONObject json = new JSONObject();
 		JSONArray ids = new JSONArray();
@@ -146,14 +152,14 @@ public abstract class ServletUtilities {
 			json.put(Constants.JSON_IDS, ids);
 		} catch (JSONException e) {}
 		return json;
-		
+
 //		String result = "{\"Templates\": [ ";
 //		for (CompletePattern pattern: patterns) {
 //			result += getPatternJSON(pattern);
 //		}
 //		return result += "]}"; // templatelist end
 	}
-	
+
 	public static JSONObject getPatternJSON(CompletePattern pattern) {
 		JSONObject json = new JSONObject();
 		try {
@@ -161,19 +167,23 @@ public abstract class ServletUtilities {
 			json.put(Constants.JSON_NAME, pattern.getName());
 			json.put(Constants.JSON_DESCRIPTION, pattern.getDescription());
 			json.put(Constants.JSON_LANGUAGE, pattern.getLanguage());
-			if (pattern.getLastSaved() != null)
+			if (pattern.getLastSaved() != null) {
 				json.put(Constants.JSON_LASTSAVED, new Timestamp(pattern.getLastSaved().getTime()).toString());
-			if (pattern.getNamespaces() != null)
+			}
+			if (pattern.getNamespaces() != null) {
 				json.put(Constants.JSON_NAMESPACES, pattern.getNamespaces().generateJSONObject());
-			if (pattern.getDatabaseName() != null)
+			}
+			if (pattern.getDatabaseName() != null) {
 				json.put(Constants.JSON_DATABASE, pattern.getDatabaseName());
-			if (pattern.getDataModelName() != null)
+			}
+			if (pattern.getDataModelName() != null) {
 				json.put(Constants.JSON_DATAMODEL, pattern.getDataModelName());
+			}
 			if (pattern.getKeywords() != null && !pattern.getKeywords().isEmpty()) {
 				JSONArray tags = new JSONArray(pattern.getKeywords());
 				json.put(Constants.JSON_TAG, tags);
 			}
-			
+
 			Boolean mqaf = false;
 			Boolean query = false;
 			Boolean filter = false;
@@ -190,13 +200,13 @@ public abstract class ServletUtilities {
 				catch (InvalidityException e) {}
 			}
 			catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {}
-			
+
 			json.put(Constants.JSON_EXECUTABLE , mqaf || query || filter);
 			json.put(Constants.JSON_EXECUTABLE_MQAF, mqaf);
 			json.put(Constants.JSON_EXECUTABLE_QUERY, query);
 			json.put(Constants.JSON_EXECUTABLE_FILTER, filter);
 
-			
+
 			JSONArray variants = new JSONArray();
 			for (PatternText text: pattern.getText()) {
 				variants.put(text.generateJSONObject());
@@ -205,7 +215,7 @@ public abstract class ServletUtilities {
 		} catch (JSONException e) {}
 		return json;
 	}
-	
+
 	public static String getPatternJSONHeads(List<CompletePattern> patterns) {
 		JSONArray jsonarray = new JSONArray();
 		for (CompletePattern pattern: patterns) {
@@ -213,7 +223,7 @@ public abstract class ServletUtilities {
 		}
 		return jsonarray.toString();
 	}
-	
+
 	public static JSONObject getPatternJSONHead(CompletePattern pattern) {
 		JSONObject json = new JSONObject();
 		try {
@@ -223,18 +233,18 @@ public abstract class ServletUtilities {
 		} catch (JSONException e) {}
 		return json;
 	}
-	
+
 	// LOAD SAVE DELETE
 
 	protected static CompletePattern loadConstraint(String technology, String name) throws IOException {
 		String patternpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER + "/" + name + "." + EXTENSION;
 		return EMFModelLoad.loadCompletePattern(patternpath);
-	};
+	}
 
 	protected static CompletePattern loadTemplate(String technology, String templateId) throws IOException {
 		String folderPath = PATTERNFOLDER + "/" + technology + "/" + TEMPLATEFOLDER;
 		return EMFModelLoad.loadCompletePattern(folderPath, templateId, EXTENSION);
-	};
+	}
 
 	public static void saveTemplate(String technology, String templateId, CompletePattern pattern) throws IOException {
 		String folderpath = PATTERNFOLDER + "/" + technology + "/" + TEMPLATEFOLDER;
@@ -247,7 +257,7 @@ public abstract class ServletUtilities {
 		EMFModelSave.exportToFile2(pattern, folderpath, constraintId, EXTENSION);
 		return new Timestamp(pattern.getLastSaved().getTime()).toString();
 	}
-	
+
 	public static String generateNewId(String technology, String templateId, String variantname) throws IOException {
 		String name = technology + "_" + templateId + "_" + variantname;
 		String filepath = PATTERNFOLDER + "/" + SAVE_FILENAME;
@@ -259,7 +269,7 @@ public abstract class ServletUtilities {
 		}
 		return name + "_" + number;
 	}
-	
+
 	public static Integer getNextNumber(String filepath, String variableName) throws JSONException, IOException {
         File file = new File(filepath);
         if (!file.exists()) {
@@ -292,42 +302,42 @@ public abstract class ServletUtilities {
 
         return currentValue;
 	}
-	
+
 	public static void deleteConstraint(String technology, String constraintId) throws IOException {
 		String patternpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER + "/" + constraintId + "." + EXTENSION;
 //		patternpath = servletContext.getRealPath(patternpath);
-		
+
 		CompletePattern constraint = EMFModelLoad.loadCompletePattern(patternpath);
-		if (constraint instanceof CompletePattern)
+		if (constraint instanceof CompletePattern) {
 			Files.delete(Paths.get(patternpath));
-		else {
+		} else {
 			throw new IOException("Wrong file format");
 		}
 	}
-	
+
 	// RESPONSE HANDLING
-	
+
 	public static void putResponse(HttpServletResponse response, JSONObject jsonObject, int responseCode) throws IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.setStatus(responseCode);
         response.getWriter().write(jsonObject.toString());
 	}
-	
+
 	public static void putResponse(HttpServletResponse response, JSONArray jsonArray, int responseCode) throws IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.setStatus(responseCode);
         response.getWriter().write(jsonArray.toString());
 	}
-	
+
 	public static void putResponse(HttpServletResponse response, String text, int responseCode) throws IOException {
 	    response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
         response.setStatus(responseCode);
         response.getWriter().write(text);
 	}
-	
+
 	public static void putResponseError(HttpServletResponse response, Exception error, int responseCode) throws IOException {
 		logError(error);
 		JSONObject object = new JSONObject();
@@ -336,13 +346,15 @@ public abstract class ServletUtilities {
 		} catch (JSONException e) {}
 		putResponse(response, object, responseCode);
 	}
-	
+
 	public static void putResponseError(HttpServletResponse response, Exception error) throws IOException {
 		int responseCode = HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
-		if (error.getClass().equals(InvalidServletCallException.class))
+		if (error.getClass().equals(InvalidServletCallException.class)) {
 			responseCode = HttpServletResponse.SC_BAD_REQUEST;
-		if (error.getClass().equals(FailedServletCallException.class))
+		}
+		if (error.getClass().equals(FailedServletCallException.class)) {
 			responseCode = HttpServletResponse.SC_NOT_FOUND;
+		}
 		putResponseError(response, error, responseCode);
 	}
 
@@ -355,9 +367,9 @@ public abstract class ServletUtilities {
 	public static void putResponse(HttpServletResponse response, String text) throws IOException {
         putResponse(response, text, HttpServletResponse.SC_OK);
 	}
-	
+
 	// LOGGING
-	
+
 	public static void log(String text) {
 		try {
 			String filepath = PATTERNFOLDER + "/" + LOG_FILENAME;
@@ -366,14 +378,15 @@ public abstract class ServletUtilities {
 	        if (!file.exists()) {
 	        	String dirPath = filepath.substring(0, filepath.lastIndexOf('/'));
 	            File directory = new File(dirPath);
-	            if (!directory.exists())
-	            	directory.mkdirs();
+	            if (!directory.exists()) {
+					directory.mkdirs();
+				}
 	            Files.write(Paths.get(filepath), new byte[0], StandardOpenOption.CREATE);
 	            System.out.println("File created successfully: " + filepath);
 	        }
 	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
 	        String timestamp = LocalDateTime.now().format(formatter);
-			
+
 	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
 				writer.newLine();
 				writer.write("[" + timestamp + "] " + text);
@@ -382,14 +395,14 @@ public abstract class ServletUtilities {
             e.printStackTrace();
         }
 	}
-	
+
 	public static void logOutput(JSONObject json) {
 		log("OUTPUT: " + json);
 	}
-	
+
 	public static void logOutput(String text) {
 	}
-	
+
 	public static void logError(Throwable th) {
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
@@ -407,15 +420,15 @@ public abstract class ServletUtilities {
 	public static void logCall(String clazz, String path, Map<String, String[]> params) {
 		log("CALL: " + clazz + "(" + path + ")" + mapToString(params));
 	}
-	
+
 	private static String mapToString(Map<String, String[]> map) {
 		JSONObject job = new JSONObject();
 		for (String key: map.keySet()) {
 			try {
 				String[] vals = map.get(key);
-				if (vals.length > 1)
+				if (vals.length > 1) {
 					job.put(key, vals[0]);
-				else {
+				} else {
 					JSONArray jarr = new JSONArray(vals);
 					job.put(key, jarr);
 				}

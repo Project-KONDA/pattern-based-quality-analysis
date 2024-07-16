@@ -13,11 +13,11 @@ import qualitypatternmodel.graphstructure.impl.RelationImpl;
 public abstract class NeoNodeTest implements INeoNodeTest {
 	protected static final int GENERIC_NODE_ID = 1;
 	protected NeoNode neoAbstractNode;
-	
+
 	public void setUp(NeoNode neoAbstractNode) {
 		this.neoAbstractNode = neoAbstractNode;
 	}
-	
+
 	public void tearDown() {
 		neoAbstractNode = null;
 	}
@@ -31,7 +31,7 @@ public abstract class NeoNodeTest implements INeoNodeTest {
 		m.invoke(node, id);
 		assumeTrue(((NodeImpl) node).getInternalId() == id);
 	}
-	
+
 	protected void initGetCypherVariableTest(NeoEdge edge, int id)
 			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 		Class<?> obj = edge.getClass();

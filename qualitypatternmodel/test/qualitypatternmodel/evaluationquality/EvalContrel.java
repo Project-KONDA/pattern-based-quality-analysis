@@ -24,10 +24,12 @@ public class EvalContrel {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 
 		completePatterns.add(getContrelGeneric());
-		
+
 		for (CompletePattern cp: completePatterns)
+		 {
 			Test00.printGenericPatternExampleXQuery(cp);
 //			System.out.println(cp.myToString());
+		}
 	}
 
 	public static CompletePattern getContrelGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -35,16 +37,16 @@ public class EvalContrel {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		
+
 		CompletePattern pattern = factory.createCompletePattern();
-		
+
 		QuantifiedCondition qc = factory.createQuantifiedCondition();
 		pattern.setCondition(qc);
-		
+
 		Graph g1 = pattern.getGraph();
-		Graph g2 = qc.getGraph();		
+		Graph g2 = qc.getGraph();
 		ComplexNode ret = g1.getNodes().get(0).makeComplex();
-		
+
 		ComplexNode g2c1 = graphFactory.createComplexNode();
 		g2c1.setGraph(g2);
 
@@ -53,10 +55,10 @@ public class EvalContrel {
 
 		PrimitiveNode g2n2 = ret.addOutgoing(g2).getTarget().makePrimitive();
 		PrimitiveNode g2c2 = g2c1.addOutgoing().getTarget().makePrimitive();
-		
+
 		PrimitiveNode g2n3 = g2n.addOutgoing().getTarget().makePrimitive();
 		PrimitiveNode g2c3 = g2c.addOutgoing().getTarget().makePrimitive();
-		
+
 		PrimitiveNode g2n4 = g2n.addOutgoing().getTarget().makePrimitive();
 		PrimitiveNode g2c4 = g2c.addOutgoing().getTarget().makePrimitive();
 
@@ -66,7 +68,7 @@ public class EvalContrel {
 		comp3.getTypeOption().setValue(ReturnType.STRING);
 		Comparison comp4 = g2n4.addComparison(g2c2);
 		comp4.getTypeOption().setValue(ReturnType.STRING);
-		
+
 		return pattern;
 	}
 }

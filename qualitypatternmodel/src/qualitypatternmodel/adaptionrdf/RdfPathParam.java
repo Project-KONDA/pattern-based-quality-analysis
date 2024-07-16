@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionrdf;
 
 import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.parameters.Parameter;
 

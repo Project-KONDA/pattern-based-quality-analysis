@@ -3,14 +3,13 @@
 package qualitypatternmodel.adaptionneo4j.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
@@ -71,7 +70,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 	public NeoPropertyEdge adaptAsPropertyEdge() throws InvalidityException {
 		return this;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
@@ -91,12 +90,12 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 		//ELSE: An empty String will be returned as an indicator for not appending the translation.
 		return cypher;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
 	 * @return EMap<Integer, String> the integer is for the place in the Return-Clause and the String is the value which shall be added.
-	 * It is a prototype function for returning the Edges. FUTURE WORK is needed. 
+	 * It is a prototype function for returning the Edges. FUTURE WORK is needed.
 	 * It is for returning the Edge variables.
 	 */
 	@Override
@@ -111,16 +110,16 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 				returnElement.put(NeoEdgeImpl.CYPHER_RETURN_ID, cypher);
 			}
 		} else {
-			throw new InvalidityException(NO_NEO_PROPERTY_PATH_PARAM_NEED_TO_BE_SET); 
+			throw new InvalidityException(NO_NEO_PROPERTY_PATH_PARAM_NEED_TO_BE_SET);
 		}
 		return returnElement;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
 	 * @return String
-	 * It is a prototype function for returning the inner Edge Nodes. FUTURE WORK is needed. 
+	 * It is a prototype function for returning the inner Edge Nodes. FUTURE WORK is needed.
 	 * It is for returning the inner Edge Nodes variables.
 	 */
 	@Override
@@ -131,7 +130,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 		}
 		return cypher;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
@@ -141,11 +140,11 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 	public String myToString() {
 		String result = super.myToString();
 		if (getNeoPropertyPathParam() != null) {
-			result += ConstantsNeo.ONE_WHITESPACE + getNeoPropertyPathParam().myToString(); 
+			result += ConstantsNeo.ONE_WHITESPACE + getNeoPropertyPathParam().myToString();
 		}
 		return result;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * Generates the CypherProertyAddressing.
@@ -158,12 +157,14 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 		final NeoPropertyPathParam neoPropertyPathParam = getNeoPropertyPathParam();
 		if (neoPropertyPathParam != null) {
 			String cypher = null;
-			String variable = null; 
+			String variable = null;
 			if (neoPropertyPathParam.getNeoPathPart() == null) {
 				if (getSource() != null) {
 					NeoElementNode neoNode = (NeoElementNode) getSource();
 					variable = neoNode.getCypherVariable();
-				} else throw new InvalidityException(THE_SOURCE_NEEDS_TO_BE_SET);
+				} else {
+					throw new InvalidityException(THE_SOURCE_NEEDS_TO_BE_SET);
+				}
 			} else {
 				NeoPathPart neoPathPart = neoPropertyPathParam.getNeoPathPart();
 				neoPathPart = neoPathPart.getNeoLastEdge();
@@ -178,7 +179,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 		}
 		return result;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * Gets the Node in which the Property is stored. Can be used in FUTURE WORK.
@@ -201,7 +202,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 				}
 				cypher = neoLastEdge.getCypherInnerEdgeNodes(false);
 			}
-			
+
 			return cypher;
 		}
 		return new String();
@@ -212,7 +213,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 	 * Creates the Parameter for the NeoPropertyEdge.
 	 * Thus it creates the NeoPropertyPathParam and adds it to the ParameterList.
 	 */
-	@Override 
+	@Override
 	public void createParameters() {
 		ParameterList pList = getParameterList();
 		if (pList != null) {
@@ -221,23 +222,24 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 				neoPropertyPathParam = new NeoPropertyPathParamImpl();
 				neoPropertyPathParam.setNeoPropertyName(new NeoPropertyNameParamImpl());
 				setNeoPropertyPathParam(neoPropertyPathParam);
-				pList.add(neoPropertyPathParam);	
+				pList.add(neoPropertyPathParam);
 			}
 			if (!pList.equals(neoPropertyPathParam.getParameterList())) {
 				pList.add(neoPropertyPathParam);
 			}
 		}
-	}	
-	
+	}
+
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = super.getAllParameters();
-		if (getNeoPropertyPathParam() == null)
+		if (getNeoPropertyPathParam() == null) {
 			createParameters();
+		}
 		res.add(getNeoPropertyPathParam());
 		return res;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,7 +248,7 @@ public class NeoPropertyEdgeImpl extends NeoEdgeImpl implements NeoPropertyEdge 
 	public NeoPropertyPathParam basicGetNeoPropertyPathParam() {
 		return neoPropertyPathParam;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

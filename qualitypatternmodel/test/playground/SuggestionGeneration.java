@@ -26,41 +26,41 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class SuggestionGeneration {
+
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		
 		CompletePattern completePattern = Test00.getBasePatternCond("*");
 
 		List<Parameter> params = completePattern.getParameterList().getParameters();
-		
+
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
 //		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
 //		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
 //		XmlPathParam p3 = ((XmlPathParam) params.get(3));
 		XmlPathParam p4 = ((XmlPathParam) params.get(4));
-		
+
 //		p0.setValue("demo:name");
 		p4.setXmlAxis(XmlAxisKind.DESCENDANT, "demo:name");
-		
+
 		System.out.println(completePattern.myToString());
-		
+
 		try {
 			completePattern.isValid(AbstractionLevel.ABSTRACT);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-        LocalXmlDataDatabase db = new LocalXmlDataDatabaseImpl(DEMO_DATABASE_NAME, DEMO_DATA_PATH);        
+
+        LocalXmlDataDatabase db = new LocalXmlDataDatabaseImpl(DEMO_DATABASE_NAME, DEMO_DATA_PATH);
         LocalXmlSchemaDatabase schema = new LocalXmlSchemaDatabaseImpl(DEMO_SCHEMA_NAME, DEMO_SCHEMA_PATH);
         schema.setNamespace("demo:");
-        db.setXmlSchema(schema);                   
-        
+        db.setXmlSchema(schema);
+
         try {
 			db.init();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
         completePattern.setDatabase(db);
-        
+
         System.out.println("> P0 Element Tag Suggestions:\n");
         for(String s : p0.inferSuggestions()) {
         	System.out.println(s);
@@ -73,4 +73,5 @@ public class SuggestionGeneration {
         	System.out.println(s);
         }
     }
+
 }

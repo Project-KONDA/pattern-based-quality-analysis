@@ -11,11 +11,11 @@ import qualitypatternmodel.exceptions.InvalidityException;
 
 public abstract class NeoPathPartTest implements INeoPathPartTest {
 	protected NeoPathPart neoPathPart;
-	
+
 	public void setUp(NeoPathPart neoPathPart) {
 		this.neoPathPart = neoPathPart;
 	}
-	
+
 	public void tearDown() {
 		neoPathPart = null;
 	}

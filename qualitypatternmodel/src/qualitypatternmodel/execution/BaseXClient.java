@@ -3,7 +3,9 @@
 package qualitypatternmodel.execution;
 
 import java.io.IOException;
+
 import org.eclipse.emf.ecore.EObject;
+
 import qualitypatternmodel.execution.impl.BaseXClientImpl.Query;
 
 /**

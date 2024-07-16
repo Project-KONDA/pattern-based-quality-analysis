@@ -251,5 +251,5 @@ public enum Language implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 } //Language

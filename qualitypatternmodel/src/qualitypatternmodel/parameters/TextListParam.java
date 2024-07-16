@@ -19,5 +19,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
  */
 public interface TextListParam extends ListParam {
 
+	@Override
 	void setValueIfValid(EList<String> newValue) throws InvalidityException;
 } // TextList

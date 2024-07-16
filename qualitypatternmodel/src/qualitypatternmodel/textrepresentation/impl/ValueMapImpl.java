@@ -3,20 +3,15 @@
 package qualitypatternmodel.textrepresentation.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
-
 import java.util.Map;
+
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -71,7 +66,7 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	public ValueMapImpl(JSONObject json) throws JSONException {
 		super();
 		@SuppressWarnings("unchecked")
-		Iterator<String> keys = (Iterator<String>) json.keys();
+		Iterator<String> keys = json.keys();
 
         while (keys.hasNext()) {
             String key = keys.next();
@@ -140,8 +135,9 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	@Override
 	public JSONArray getValuesAsJsonArray() {
 		JSONArray jarray = new JSONArray();
-		for (String val: getValues())
+		for (String val: getValues()) {
 			jarray.put(val);
+		}
 		return jarray;
 	}
 
@@ -182,8 +178,9 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	 */
 	@Override
 	public void addAll(Map<String, String> collection) {
-		for (String key: collection.keySet())
+		for (String key: collection.keySet()) {
 			put(key, collection.get(key));
+		}
 	}
 
 	/**
@@ -195,8 +192,9 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	public JSONObject generateJSONObject() {
 		JSONObject result = new JSONObject();
 		try {
-			for (int i = 0; i<getKeys().size(); i++)
+			for (int i = 0; i<getKeys().size(); i++) {
 				result.put(getKeys().get(i), getValues().get(i));
+			}
 		} catch (JSONException e) {}
 		return result;
 	}
@@ -230,7 +228,7 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	@Override
 	public Map<String, String> asMap() {
 		Map<String, String> map = new HashMap<String, String>();
-		
+
 		for (String key: keys) {
 			map.put(key, get(key));
 		}

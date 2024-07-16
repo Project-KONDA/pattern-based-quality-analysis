@@ -4,12 +4,11 @@ package qualitypatternmodel.adaptionxml.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
@@ -65,12 +64,13 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 	public XmlAxisPartConditionImpl() {
 		super();
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		String query = getXmlPropertyOption().generateXQuery().substring(1); // remove '/'
-		if (getTextLiteralParam() != null)
+		if (getTextLiteralParam() != null) {
 			query += "=" + getTextLiteralParam().generateXQuery();
+		}
 		return "[" + query + "]";
 	}
 
@@ -81,29 +81,35 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 	 */
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		if (!(value.startsWith("[") && value.endsWith("]")))
+		if (!(value.startsWith("[") && value.endsWith("]"))) {
 			throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+		}
 
 		value = value.substring(1, value.length() - 1).trim();
 		String[] propertySplit = value.split("=", 2);
-		
+
 		propertySplit[0] = propertySplit[0].trim();
-		
-		if (!propertySplit[0].matches(ConstantsXml.REGEX_PROPERTY_SPEC))
+
+		if (!propertySplit[0].matches(ConstantsXml.REGEX_PROPERTY_SPEC)) {
 			throw new InvalidityException("new property value invalid in " + myToString() + ": '" + value + "', [" + propertySplit[0] + "]");
-		
-		if(getXmlPropertyOption() == null)
+		}
+
+		if(getXmlPropertyOption() == null) {
 			setXmlPropertyOption(new XmlPropertyOptionParamImpl());
+		}
 		getXmlPropertyOption().setValueFromString(propertySplit[0]);
-		
+
 		if (propertySplit.length>1) {
 			propertySplit[1] = propertySplit[1].trim();
-			if (!propertySplit[1].startsWith("\"") || !propertySplit[1].endsWith("\""))
+			if (!propertySplit[1].startsWith("\"") || !propertySplit[1].endsWith("\"")) {
 				throw new InvalidityException("new property value invalid in " + myToString() + ": " + value);
+			}
 			String propertyvalue = propertySplit[1].substring(1, propertySplit[1].length() - 1);
-			if(getTextLiteralParam() == null)
+			if(getTextLiteralParam() == null) {
 				setTextLiteralParam(new TextLiteralParamImpl(propertyvalue));
-			else getTextLiteralParam().setValue(propertyvalue);
+			} else {
+				getTextLiteralParam().setValue(propertyvalue);
+			}
 		}
 	}
 
@@ -123,10 +129,12 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 
 	@Override
 	public void clear() {
-		if (getXmlPropertyOption() != null)
+		if (getXmlPropertyOption() != null) {
 			getXmlPropertyOption().clear();
-		if (getTextLiteralParam() != null)
+		}
+		if (getTextLiteralParam() != null) {
 			getTextLiteralParam().clear();
+		}
 	}
 
 	/**
@@ -408,10 +416,9 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 
 	@Override
 	public boolean inputIsValid() {
-		if (getXmlPropertyOption() == null)
+		if ((getXmlPropertyOption() == null) || !getXmlPropertyOption().inputIsValid()) {
 			return false;
-		if (!getXmlPropertyOption().inputIsValid())
-			return false;
+		}
 		return getTextLiteralParam().inputIsValid();
 	}
 
@@ -420,7 +427,7 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	@Override
 	public boolean isUsed() {
 		return getXmlAxisPart() != null;
@@ -429,12 +436,15 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 	@Override
 	public String myToString() {
 		String result = "[cond (" + getInternalId() + "): ";
-		if (getXmlPropertyOption() != null)
+		if (getXmlPropertyOption() != null) {
 			result += getXmlPropertyOption().myToString();
-		if (getXmlPropertyOption() != null && getTextLiteralParam() != null)
+		}
+		if (getXmlPropertyOption() != null && getTextLiteralParam() != null) {
 			result += " ";
-		if (getTextLiteralParam() != null)
+		}
+		if (getTextLiteralParam() != null) {
 			result += getTextLiteralParam().myToString();
+		}
 		return result += "]";
 	}
 

@@ -1,18 +1,18 @@
 package qualitypatternmodel.servlets;
 
 import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class ParameterExplanationServlet extends HttpServlet {
 
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {		
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String result = "["
 				+ "{\"Parameter\":\""+Constants.PARAMETER_TYPE_TEXT+"\", \"Explanation\":\"An arbitrary string value\"}, "
 				+ "{\"Parameter\":\""+Constants.PARAMETER_TYPE_TEXT_LIST+"\", \"Explanation\":\"A list of string values\"}, "
@@ -27,7 +27,7 @@ public class ParameterExplanationServlet extends HttpServlet {
 				+ "{\"Parameter\":\""+Constants.PARAMETER_TYPE_TYPE+"\", \"Explanation\":\"A type of a comparison\"}, "
 				+ "{\"Parameter\":\""+Constants.PARAMETER_TYPE_UNTYPED+"\", \"Explanation\":\"A value of any type\"}"
 				+ "]";
-		response.getOutputStream().println(result);		
+		response.getOutputStream().println(result);
 	}
-	
+
 }

@@ -10,12 +10,12 @@ public class Util {
 	static final String ABSTRACT_PATTERNS_PATH = "../../abstract-patterns/";
 	static final String CONCRETE_PATTERNS_PATH = "../../concrete-patterns/";
 	static final String DATABASES_PATH = "../../databases/";
-	
+
 	static final String DATABASES_NAME = "databases";
 
 
 	public static final String PROJECT_PREFIX_ENDPOINT = "/qualitypatternmodel";
-	
+
 	public static final String PARAMETER_EXPLANATIONS_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/parameter-explanations";
 	public static final String ABSTRACT_PATTERN_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/xml/abstract-patterns";
 	public static final String CONCRETE_PATTERN_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/xml/concrete-patterns";
@@ -35,7 +35,7 @@ public class Util {
 	public static final String FINALIZED_PATTERN_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/xml/finalized-patterns";
 	public static final String FINALIZED_PATTERN_DATABASE_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/xml/finalized-patterns/database/";
 
-	
+
 	public static final String DATABASE_REGISTRATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/xml/databases/registration/";
 	public static final String DATABASE_SETTING_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/xml/databases/set/";
 	public static final String DATABASE_DELETION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/xml/databases/deletion/";
@@ -45,10 +45,10 @@ public class Util {
 
 
 
-	
+
 	public static String getFileNamesInFolder(String path, Class<?> clas) throws URISyntaxException {
-		URL url = clas.getClassLoader().getResource(path);		
-		if(url != null) {			
+		URL url = clas.getClassLoader().getResource(path);
+		if(url != null) {
 			File[] files = Paths.get(url.toURI()).toFile().listFiles();
 			if(files.length == 0) {
 				return "";
@@ -61,17 +61,17 @@ public class Util {
 			json = json.substring(0, json.length()-2);
 //			json += "]}";
 			json += "]";
-			return json;			     
-			
+			return json;
+
 		} else {
 			return null;
 		}
 	}
-	
+
 	public static ArrayList<String> getListOfFileNamesInFolder(String path, Class<?> clas) throws URISyntaxException {
 		URL url = clas.getClassLoader().getResource(path);
 		ArrayList<String> fileNames = new ArrayList<String>();
-		if(url != null) {			
+		if(url != null) {
 			File[] files = Paths.get(url.toURI()).toFile().listFiles();
 			if(files.length == 0) {
 				return null;
@@ -79,8 +79,8 @@ public class Util {
 			for(File f : files) {
 				fileNames.add(f.getName().split("\\.")[0]);
 			}
-			return fileNames;			     
-			
+			return fileNames;
+
 		} else {
 			return null;
 		}

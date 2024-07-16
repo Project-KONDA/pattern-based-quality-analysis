@@ -12,12 +12,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -85,7 +86,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	public XmlElementImpl() {
 		super();
 	}
-	
+
 	@Override
 	public String getName() {
 		if(name == null || name.equals("")) {
@@ -106,7 +107,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	protected EClass eStaticClass() {
 		return AdaptionxmlPackage.Literals.XML_ELEMENT;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,7 +120,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		}
 		return variables;
 	}
-	
+
 	@Override
 	public void initializeTranslation() {
 		super.initializeTranslation();
@@ -172,15 +173,15 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 					XmlElementNavigation nav = (XmlElementNavigation) relation;
 					nav.setSourceVariable(getVariables().get(getVariables().size()-1));
 					if (relation.getGraph().equals(getGraph())) {
-						query += relation.generateXQuery();	
+						query += relation.generateXQuery();
 					}
 				}
 			}
 		}
-		return query;					
+		return query;
 	}
-	
-	@Override 
+
+	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		if(getGraph() == null) {
 			throw new InvalidityException("container Graph null");
@@ -193,7 +194,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 //				query += JavaQueryTranslationUtility.PLACEHOLDER;
 				break;
 			}
-			
+
 //			if (!relation.containsJavaOperator())
 //				query += relation.generateXQueryJavaReturn();
 //			else
@@ -205,18 +206,19 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE) {
 			throw new InvalidityException("non-generic class in generic pattern");
+		}
 		super.isValid(abstractionLevel);
 	}
-	
+
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
-		
+
 		validateCycles(false);
-		
-		
+
+
 		if ( getIncoming() == null && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
 			throw new InvalidityException("no incoming relation at XMLElement " + getInternalId());
 		}
@@ -230,9 +232,9 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		if (!hasIncomingXMLNavigation  && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
 			throw new InvalidityException("no incoming XMLNavigations at " + myToString());
 		}
-		
+
 	}
-	
+
 	public void validateCycles(boolean change) throws InvalidityException {
 		EList<EList<XmlElementImpl>> cycles = findCycles(new BasicEList<XmlElementImpl>());
 		for(EList<XmlElementImpl> cycle : cycles) {
@@ -247,7 +249,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 					throw new InvalidityException("Cycle must contain at least one XmlElement with xQueryDeepEqual false");
 				}
 			}
-		}		
+		}
 	}
 
 	private EList<EList<XmlElementImpl>> findCycles(EList<XmlElementImpl> path){
@@ -255,36 +257,36 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		if(!path.isEmpty() && path.get(0).equals(this)) {
 			cycles.add(path);
 		} else if(!path.contains(this)) {
-			for(Relation r : getOutgoing()) {			
+			for(Relation r : getOutgoing()) {
 				if(r.getTarget() instanceof XmlElementImpl) {
-					XmlElementImpl target = (XmlElementImpl) r.getTarget();					
+					XmlElementImpl target = (XmlElementImpl) r.getTarget();
 					EList<XmlElementImpl> nextPath = new BasicEList<XmlElementImpl>();
 					nextPath.addAll(path);
 					nextPath.add(this);
 					cycles.addAll(target.findCycles(nextPath));
 				}
 			}
-		}		
+		}
 		return cycles;
 	}
 
-	
+
 	@Override
 	public boolean isTranslatable() {
 		return translated;
 	}
-	
+
 	@Override
 	public String translatePredicates() throws InvalidityException {
 		String xPredicates = "";
 		predicatesAreBeingTranslated = true;
-		
+
 		for (BooleanOperator predicate : predicates) {
 			if (predicate.isTranslatable()) {
 				xPredicates += "[" + predicate.generateXQuery() + "]";
 			}
 		}
-		
+
 		if(xQueryDeepEqual || getVariables().size() == 1) {
 			for(Relation relation : getOutgoing()) {
 				if(relation instanceof XmlPropertyNavigation) {
@@ -292,13 +294,13 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 					if (nav.getXmlPathParam().getXmlAxisParts().isEmpty()) {
 						nav.setSourceVariable(getVariables().get(getVariables().size()-1));
 						if (getGraph().equals(relation.getGraph())) {
-							xPredicates += nav.generateXQuery();	
+							xPredicates += nav.generateXQuery();
 						}
 					}
 				}
 			}
 		}
-		
+
 		predicatesAreBeingTranslated = false;
 		return xPredicates;
 	}
@@ -313,12 +315,12 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		String xPredicates = "";
 		if(xQueryDeepEqual) {
 			for (int i = 0; i < getVariables().size()-1; i++) {
-				xPredicates += "[deep-equal(.," + getVariables().get(i) + ")]"; 
+				xPredicates += "[deep-equal(.," + getVariables().get(i) + ")]";
 			}
 		} else {
 			for (int i = 0; i < getVariables().size()-1; i++) {
 				xPredicates += "[. is " + getVariables().get(i) + "]";
-			}			
+			}
 		}
 		return xPredicates;
 	}
@@ -467,12 +469,12 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return this;
 	}
-	
+
 	@Override
 	public XmlElement adaptAsXmlElement() throws InvalidityException {
 		return this;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -483,7 +485,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		for(Relation r : getOutgoing()) {
 			if(r instanceof XmlPropertyNavigation) {
 				XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
-				if(nav.getXmlPathParam() != null && nav.getXmlPathParam().getXmlPropertyOptionParam() != null 
+				if(nav.getXmlPathParam() != null && nav.getXmlPathParam().getXmlPropertyOptionParam() != null
 						&& nav.getXmlPathParam().getXmlPropertyOptionParam().getValue() == XmlPropertyKind.TAG) {
 					Node target = nav.getTarget();
 					if(target instanceof XmlProperty) {
@@ -518,22 +520,22 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	public Node makeGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-		
+
 	@Override
 	public void checkGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
+
 	@Override
 	public PrimitiveNode makePrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
+
 	@Override
 	public void checkPrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

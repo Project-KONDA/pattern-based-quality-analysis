@@ -4,6 +4,7 @@ package qualitypatternmodel.execution.impl;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+
 import org.basex.core.BaseXException;
 import org.basex.core.cmd.Close;
 import org.basex.core.cmd.Open;
@@ -18,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDatabase;
@@ -280,8 +282,8 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
-	 * @throws InvalidityException 
+	 * @throws IOException
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -289,9 +291,9 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 		if(!context.listDBs().contains(name)) {
 			create();
 		}
-		
+
 //		if(context == null) {
-//			context = new Context();			
+//			context = new Context();
 //		}
 	}
 
@@ -301,7 +303,7 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	 * @generated NOT
 	 */
 	@Override
-	public void open() throws BaseXException {		
+	public void open() throws BaseXException {
 		new Open(name).execute(context);
 	}
 
@@ -320,16 +322,16 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws QueryException 
+	 * @throws QueryException
 	 * @throws QueryIOException
-	 * @throws BaseXException 
-	 * @throws IOException 
+	 * @throws BaseXException
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
 	public EList<String> execute(String query) throws QueryException, QueryIOException, BaseXException, IOException {
 		open();
-		EList<String> queryResult = new BasicEList<String>();		
+		EList<String> queryResult = new BasicEList<String>();
 	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
 	      Iter iter = proc.iter();
 	      for(Item item; (item = iter.next()) != null;) {

@@ -9,7 +9,6 @@ import java.util.Date;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.execution.Database;
-
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**

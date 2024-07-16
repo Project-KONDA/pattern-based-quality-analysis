@@ -16,9 +16,9 @@ import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class ConstraintDatabaseServlet extends HttpServlet {
-	
+
 	// GET .. /constraint/database    /<technology>/<name>
-	
+
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
@@ -32,7 +32,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 			ServletUtilities.putResponseError(response, e);
 		}
 	}
-	
+
 	// POST .. /constraint/database    /<technology>/<name>    {"database": <datamode-name>}
 
 	@Override
@@ -48,17 +48,19 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 			ServletUtilities.putResponseError(response, e);
 		}
 	}
-	
+
 	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 3 || !pathparts[0].equals(""))
+		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
+		}
 
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology))
+		if (!ServletUtilities.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		}
 
 		// 1 load constraint
 		CompletePattern pattern;
@@ -75,23 +77,26 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		} catch (JSONException e) {}
 		return result;
 	}
-	
+
 	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 3 || !pathparts[0].equals(""))
+		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/setparameter/<technology>/<name>/' (not " + path + ")");
+		}
 
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology))
+		if (!ServletUtilities.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		}
 
 		String[] databaseNameArray = parameterMap.get("database");
-		if (databaseNameArray == null || databaseNameArray.length != 1 || databaseNameArray[0].equals(""))
+		if (databaseNameArray == null || databaseNameArray.length != 1 || databaseNameArray[0].equals("")) {
 			throw new InvalidServletCallException("Invalid parameter for setting name.");
+		}
 		String newDatabaseName = databaseNameArray[0];
-		
+
 		// 1. load Pattern
 		CompletePattern pattern;
 		try {
@@ -99,11 +104,11 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		} catch (IOException e) {
 			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
 		}
-		
+
 		// 2. change name
 		String oldDatabaseName = pattern.getDatabaseName();
 		pattern.setDatabaseName(newDatabaseName);
-		
+
 		// 3. save constraint
 		String timestamp = null;
 		try {
@@ -111,7 +116,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		} catch (IOException e) {
 			throw new FailedServletCallException("Failed to save new constraint");
 		}
-		
+
 		JSONObject result = new JSONObject();
 		try {
 			result.put(Constants.JSON_CONSTRAINT_ID, pattern.getPatternId());
@@ -119,9 +124,9 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 			result.put(Constants.JSON_DATABASE, newDatabaseName);
 			result.put(Constants.JSON_LASTSAVED, timestamp);
 		} catch (JSONException e) {}
-		
+
 		return result;
 //		return "Database of constraint of constraint '" + pattern.getPatternId() + "' updated successfully from '" + oldDatabaseName + "' to '" + newDatabaseName + "'.";
 	}
-	
+
 }

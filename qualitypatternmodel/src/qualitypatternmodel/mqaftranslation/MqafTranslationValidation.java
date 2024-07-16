@@ -23,27 +23,29 @@ import qualitypatternmodel.patternstructure.TrueElement;
 //import de.gwdg.metadataqa.api.schema.Format;
 
 public class MqafTranslationValidation {
-	
+
 	public static Boolean checkPatternTranslatable (CompletePattern completePattern) throws InvalidityException {
 		// check is valid and is XML
 		Boolean xmlvalid = validatePatternXmlAdapted(completePattern);
 		// check for JavaOperators
-		if (!validateOperatorConfiguration(completePattern))
+		if (!validateOperatorConfiguration(completePattern)) {
 			return false;
+		}
 		// check has valid Node configuration
 		Boolean nodesValid = false;
-		if (xmlvalid)
+		if (xmlvalid) {
 			nodesValid = validateNodeConfiguration(completePattern);
-		
+		}
+
 		return nodesValid;
 	}
-	
-	
+
+
 	static Boolean validateOperatorConfiguration(CompletePattern completePattern) throws InvalidityException {
 		return !completePattern.containsJavaOperator();
 	}
-	
-	
+
+
 	static Boolean validatePatternXmlAdapted (CompletePattern completePattern) {
 		try {
 			if (completePattern.getLanguage() != Language.XML) {
@@ -55,36 +57,37 @@ public class MqafTranslationValidation {
 		}
 		return true;
 	}
-	
+
 
 	static Boolean validateNodeConfiguration (CompletePattern completePattern) throws InvalidityException {
 //		Graph graph = completePattern.getGraph();
-		
+
 		ComplexNode record;
 		try{
 			record = MqafFieldNodeIdentification.identifyRecordNode(completePattern);
 		} catch (Exception e) {
 			return false;
 		}
-		
+
 		Condition cond = completePattern.getCondition();
 		return validateNodeConfigurationCondition(cond, record);
 	}
-	
-	
+
+
 	static Boolean validateNodeConfigurationCondition (Condition condition, ComplexNode record) throws InvalidityException {
-		
+
 		Pair<Node, Boolean> pair = MqafUniquenessConditionCheck.uniquenessConditionField(condition, record);
-		if (pair != null)
+		if (pair != null) {
 			return true;
-		
+		}
+
 		if (condition instanceof TrueElement || condition == null) {
 			return true;
-			
+
 		} else if (condition instanceof NotCondition) {
 			NotCondition not = (NotCondition) condition;
 			return validateNodeConfigurationCondition( not.getCondition(), record);
-			
+
 		} else if (condition instanceof Formula) {
 			Formula formula = (Formula) condition;
 
@@ -93,7 +96,7 @@ public class MqafTranslationValidation {
 			Boolean cond1 = validateNodeConfigurationCondition (formula.getCondition1(), record);
 			Boolean cond2 = validateNodeConfigurationCondition (formula.getCondition2(), record);
 			return cond1 && cond2;
-			
+
 		} else if (condition instanceof CountCondition) {
 			CountCondition countcond = (CountCondition) condition;
 			CountPattern countPattern = countcond.getCountPattern();
@@ -107,28 +110,30 @@ public class MqafTranslationValidation {
 
 		} else if (condition instanceof QuantifiedCondition) {
 			QuantifiedCondition quantified = (QuantifiedCondition) condition;
-			if (quantified.getQuantifier().equals(Quantifier.FORALL))
+			if (quantified.getQuantifier().equals(Quantifier.FORALL)) {
 				return false;
-			
-			if (validateNodeConfigurationGraph(quantified.getGraph(), record))
+			}
+
+			if (validateNodeConfigurationGraph(quantified.getGraph(), record)) {
 				return true;
+			}
 
 			Condition following = quantified.getCondition();
 			if (following instanceof TrueElement || following == null) {
 				return true;
 			}
+		} else {
+			throw new InvalidityException(condition.getClass().getName());
 		}
-		
-		else throw new InvalidityException(condition.getClass().getName());
 		return false;
 	}
-	
-	
+
+
 	static Boolean validateNodeConfigurationGraph (Graph graph, ComplexNode record) {
 //		EList<Operator> ops = graph.getOperatorList().getOperators();
-		
+
 		// TODO
-		
+
 		return true;
 	}
 }

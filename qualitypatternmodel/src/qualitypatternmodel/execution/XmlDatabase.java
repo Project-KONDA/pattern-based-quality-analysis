@@ -3,12 +3,14 @@
 package qualitypatternmodel.execution;
 
 import java.io.IOException;
+
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
@@ -30,7 +32,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  * @generated
  */
 public interface XmlDatabase extends EObject {
-	
+
 	static final Context context = new Context();
 
 	/**
@@ -80,7 +82,7 @@ public interface XmlDatabase extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Analyses <code>this</code> database concerning XML element names and attribute names.
-	 * 
+	 *
 	 * @throws BaseXException
 	 * @throws QueryException
 	 * @throws QueryIOException
@@ -91,9 +93,9 @@ public interface XmlDatabase extends EObject {
 	void analyse() throws BaseXException, QueryException, QueryIOException, IOException, InvalidityException;
 
 	/**
-	 * <!-- begin-user-doc --> 
+	 * <!-- begin-user-doc -->
 	 * Initializes <code>this</code> BaseX database.
-	 * 
+	 *
 	 * @throws BaseXException
 	 * @throws QueryException
 	 * @throws QueryIOException
@@ -106,7 +108,7 @@ public interface XmlDatabase extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Opens <code>this</code> BaseX database.
-	 * 
+	 *
 	 * @throws BaseXException
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper"
@@ -117,7 +119,7 @@ public interface XmlDatabase extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Creates a BaseX database called <code>name</code>.
-	 * 
+	 *
 	 * @throws BaseXException
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper"
@@ -128,7 +130,7 @@ public interface XmlDatabase extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Executes <code>query</code> on <code>this</code> database and returns the result.
-	 * 
+	 *
 	 * @return the list of XML elements that were selected by the applied query
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"

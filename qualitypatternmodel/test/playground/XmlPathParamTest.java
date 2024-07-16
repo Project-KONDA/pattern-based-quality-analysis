@@ -16,7 +16,7 @@ public class XmlPathParamTest {
 //				"/*[]",
 //				"/*[data()]",
 //				"/*[data()=\"something\"]",
-//				"/*[data() = \"something\"]",				
+//				"/*[data() = \"something\"]",
 //			};
 //		for (String str: teststrings) {
 //			System.out.println(str);

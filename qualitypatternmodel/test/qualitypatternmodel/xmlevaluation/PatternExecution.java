@@ -13,6 +13,7 @@ import org.basex.query.QueryIOException;
 import org.basex.query.QueryProcessor;
 import org.basex.query.iter.Iter;
 import org.basex.query.value.item.Item;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -21,13 +22,13 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class PatternExecution {
 	static Context context;
-	
+
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// application of all concrete patterns created for the evaluation on cultural heritage databases (BaseX) of the formats MIDAS and LIDO
-		
+
 		// MIDAS database
-		String databaseNameMidas = "MIDAS";		
-		
+		String databaseNameMidas = "MIDAS";
+
 		execute(XmlEvalMatch.getMatch3MidasOb30Child(), databaseNameMidas); // 4.1.1 Wrong Datatype
 		execute(XmlEvalCompset.getCompsetMIDAS3140(), databaseNameMidas); // 4.1.2 Domain Violation
 		execute(XmlEvalMandAtt.getMandattMidasHida(), databaseNameMidas); // 4.2.1 Missing Values
@@ -39,9 +40,9 @@ public class PatternExecution {
 		execute(XmlEvalFunc.getFuncMidas(), databaseNameMidas); // 4.5 Violation of a Functional Dependency
 		execute(XmlEvalContrel.getContrelMidas(), databaseNameMidas); // 4.6 Contradictory Relationships
 		execute(XmlEvalCard.getCardMidasHidaOb30(), databaseNameMidas); // 4.7.1 Alternative Possible Values
-		execute(XmlEvalMatch.getMatchMidas3270Imprecise(), databaseNameMidas); // 4.7.2 Imprecise Numerical Values 
+		execute(XmlEvalMatch.getMatchMidas3270Imprecise(), databaseNameMidas); // 4.7.2 Imprecise Numerical Values
 		execute(XmlEvalCompval.getCompvalMidas5230Objekt(), databaseNameMidas); // 4.7.3 Abstract Terms
-		execute(XmlEvalCompval.getCompvalMidas5230Schloss(), databaseNameMidas); // 4.7.4 Ambiguous Values 
+		execute(XmlEvalCompval.getCompvalMidas5230Schloss(), databaseNameMidas); // 4.7.4 Ambiguous Values
 		execute(XmlEvalMatch.getMatchMidas3100Abbreviation(), databaseNameMidas); // 4.7.5 Abbreviations
 		execute(XmlEvalMatch.getMatchMidas5060(), databaseNameMidas); // 4.8.1 Misfielded Values
 		execute(XmlEvalMatch.getMatchMidas5064(), databaseNameMidas); // 4.8.2 Extraneous Data
@@ -53,12 +54,12 @@ public class PatternExecution {
 		// 4.11 Misspellings (not covered)
 		// 4.12.1 False Values (not covered)
 		// 4.12.2 False References (not covered)
-		execute(XmlEvalMatch.getMatchMidas3270(), databaseNameMidas); // 4.12.3 Doubtful Data	
-		
-		
+		execute(XmlEvalMatch.getMatchMidas3270(), databaseNameMidas); // 4.12.3 Doubtful Data
+
+
 		// LIDO database
-		String databaseNameLido = "LIDO";	
-		
+		String databaseNameLido = "LIDO";
+
 		execute(XmlEvalMatch.getMatchLidoMeasurementValue(), databaseNameLido); // 4.1.1 Wrong Datatype
 		execute(XmlEvalCompset.getCompsetLidoGenderActor(), databaseNameLido); // 4.1.2 Domain Violation
 		execute(XmlEvalMandAtt.getMandatt3Lido(), databaseNameLido); // 4.2.1 Missing Values
@@ -101,33 +102,33 @@ public class PatternExecution {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Executes a pattern on the existing BaseX database with the provided name
 	 * @param pattern the pattern to be executed
 	 * @param databaseName the name of the existing BaseX database
 	 */
-	static void execute(CompletePattern pattern, String databaseName) {        
+	static void execute(CompletePattern pattern, String databaseName) {
         try {
 			pattern.isValid(AbstractionLevel.CONCRETE);
 		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		}
 		try {
 			String query = pattern.generateXQuery();
 			System.out.println(query);
 			new Open(databaseName).execute(context);
-		
+
 			List<String> queryResult = new ArrayList<String>();
 			Date startDate = new Date();
-			
-		    try(QueryProcessor proc = new QueryProcessor(query, context)) {		    
+
+		    try(QueryProcessor proc = new QueryProcessor(query, context)) {
 		    	Iter iter = proc.iter();
 			  	for(Item item; (item = iter.next()) != null;) {
 			  		queryResult.add(item.serialize().toString());
 		        }
-			  	
+
 			  	Date endDate = new Date();
 		    	long runtime = endDate.getTime() - startDate.getTime();
 		    	System.out.println("\nruntime = " + runtime + " ms");
@@ -142,5 +143,5 @@ public class PatternExecution {
 			e.printStackTrace();
 		}
 	}
-	
+
 }

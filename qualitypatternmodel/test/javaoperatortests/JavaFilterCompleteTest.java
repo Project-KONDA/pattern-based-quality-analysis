@@ -28,15 +28,16 @@ public class JavaFilterCompleteTest {
 		boolean queryResult = false;
 		boolean interimResults = false;
 		boolean partialResults = true;
-		
+
 		int from = 14;
 		int to = 15;
 		for (int i = from-1; i<patterns.size() && i < to; i++) {
 			System.out.println("Example " + (i+1) + ":");
 			// generate Filter and structure
 			JavaFilter filter = patterns.get(i).generateQueryFilter();
-			if (filterResult)
+			if (filterResult) {
 				System.out.println(filter);
+			}
 			filters.add(filter);
 			try {
 				// Query Results
@@ -53,35 +54,37 @@ public class JavaFilterCompleteTest {
 				}
 				// check validity of InterimResults
 				EList<Boolean> allfits = new BasicEList<Boolean>();
-				for (InterimResultContainer interim: filter.getInterimResults())
+				for (InterimResultContainer interim: filter.getInterimResults()) {
 					allfits.add(interim.isValidToStructure());
-				
+				}
+
 				if (partialResults) {
 					System.out.println("allfits : " + allfits);
 					System.out.println("everyfits : " + !allfits.contains(false));
 					System.out.println("anyfits : " + allfits.contains(true));
+				} else {
+					System.out.println("  done: " + (!allfits.contains(false) && allfits.contains(true)));
 				}
-				else System.out.println("  done: " + (!allfits.contains(false) && allfits.contains(true)));
-				
+
 				Boolean fits = !allfits.isEmpty() && !allfits.contains(false);
 //				.getInterimResults().stream().allMatch(x-> x.isValidToStructure());
 				valid.add(fits);
-				
-				
+
+
 //				System.out.println("\nONE EXAMPLE");
 //				InterimResultContainer first = filter.getInterimResults().get(30);
 //				System.out.println(first);
 //				System.out.println(first.getCorrespondsTo());
 //				System.out.println(first.isValidToStructure());
 //				System.out.println("\n");
-				
+
 				if (fits) {
 					List<String> result = filter.filterQueryResults();
 					results.add(result);
 					System.out.println("results : " + !result.isEmpty());
-				}
-				else
+				} else {
 					results.add(null);
+				}
 			}
 			catch (InvalidityException e) {
 				e.printStackTrace();
@@ -90,7 +93,7 @@ public class JavaFilterCompleteTest {
 			}
 		}
 
-//		if (from != to) 
+//		if (from != to)
 		{
 			System.out.println("\n__RESULTS:__");
 			System.out.println(valid);
@@ -98,7 +101,7 @@ public class JavaFilterCompleteTest {
 			System.out.print("total: " + (!valid.contains(false)));
 		}
 	}
-	
+
 	public List<String> executeJavaPattern(CompletePattern pattern, String database_name, String database_path) throws InvalidityException {
 		JavaFilter filter = pattern.generateQueryFilter();
 		List<String> list = filter.executeXQueryJava(database_name, database_path);

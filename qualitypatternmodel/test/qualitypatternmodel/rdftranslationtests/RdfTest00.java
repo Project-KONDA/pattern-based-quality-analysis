@@ -38,7 +38,7 @@ public class RdfTest00 {
 			}
 		}
 	}
-	
+
 	public static void getQueries(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			XmlPatternUtility.fillParameterXml(completePattern);
@@ -52,7 +52,7 @@ public class RdfTest00 {
 			}
 		}
 	}
-	
+
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getBasePatternFinal());
@@ -71,17 +71,17 @@ public class RdfTest00 {
 	public static CompletePattern getBasePattern() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		
+
 		CompletePattern completePattern = factory.createCompletePattern();
 		completePattern.setPatternId("MyPattern");
-		
+
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
 		Node node2 = completePattern.getGraph().addNode();
 		completePattern.getGraph().addRelation(complexNode1, node2);
-		
+
 		return completePattern;
 	}
-	
+
 	public static CompletePattern getBasePatternCond(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		Node se = completePattern.getGraph().getNodes().get(1);
@@ -89,7 +89,7 @@ public class RdfTest00 {
 		completePattern.createRdfAdaption();
 		return completePattern;
 	}
-	
+
 	public static CompletePattern getBasePatternCondConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternCond(comp);
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
@@ -97,9 +97,9 @@ public class RdfTest00 {
 		((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathParts().get(0).getRdfPath()).setIriParam(iriParam);
 		iriParam.setPrefix("wdt");
 		iriParam.setSuffix("P569");
-		return completePattern;		
+		return completePattern;
 	}
-	
+
 	public static CompletePattern getBasePatternMatch(String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		Node se = completePattern.getGraph().getNodes().get(1);
@@ -107,7 +107,7 @@ public class RdfTest00 {
 		completePattern.createRdfAdaption();
 		return completePattern;
 	}
-	
+
 	public static CompletePattern getBasePatternMatchConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternMatch(comp);
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
@@ -115,9 +115,9 @@ public class RdfTest00 {
 		((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathParts().get(0).getRdfPath()).setIriParam(iriParam);
 		iriParam.setPrefix("wdt");
 		iriParam.setSuffix("P569");
-		return completePattern;		
+		return completePattern;
 	}
-	
+
 	public static CompletePattern getBasePatternMatchNotConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternMatch(comp);
 		((Match) completePattern.getGraph().getOperatorList().getOperators().get(0)).getOption().setValue(false);
@@ -126,7 +126,7 @@ public class RdfTest00 {
 		((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathParts().get(0).getRdfPath()).setIriParam(iriParam);
 		iriParam.setPrefix("wdt");
 		iriParam.setSuffix("P569");
-		return completePattern;		
+		return completePattern;
 	}
-	
+
 }

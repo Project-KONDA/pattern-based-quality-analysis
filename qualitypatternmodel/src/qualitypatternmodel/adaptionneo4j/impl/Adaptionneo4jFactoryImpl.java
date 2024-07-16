@@ -6,12 +6,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import qualitypatternmodel.adaptionneo4j.*;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
+import qualitypatternmodel.adaptionneo4j.NeoDirection;
+import qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam;
+import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
+import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
+import qualitypatternmodel.adaptionneo4j.NeoPlace;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 
 /**
  * <!-- begin-user-doc -->

@@ -45,14 +45,14 @@ public abstract class JavaOperatorImpl extends BooleanOperatorImpl implements Ja
 
 	@Override
 	abstract public EList<PatternElement> prepareParameterUpdates();
-	
-	@Override 
+
+	@Override
 	abstract public EList<Parameter> getAllParameters() throws InvalidityException;
-	
+
 	@Override
 	public boolean isTranslatable() {
 		return false;
 	}
-	
+
 
 } //JavaOperatorImpl

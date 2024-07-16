@@ -11,7 +11,7 @@ import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class InterimResultTest {
-	
+
 	private static Boolean output = false;
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -33,29 +33,37 @@ public class InterimResultTest {
 
 	static Boolean testTestPattern(CompletePattern testpattern, List<Object> rawResults, List<String> expected, Boolean output)
 			throws InvalidityException {
-		if (rawResults == null)
+		if (rawResults == null) {
 			return false;
-		
+		}
+
 		try {
 			// Pattern
-			if (output) System.out.println(testpattern.myToString());  
-			
+			if (output) {
+				System.out.println(testpattern.myToString());
+			}
+
 			// Filter & Structure
 			JavaFilter filter = testpattern.generateQueryFilter();
-			if (output) 
-				System.out.println(filter.getFilter()); 
-			if (output) 
+			if (output) {
+				System.out.println(filter.getFilter());
+			}
+			if (output) {
 				System.out.println(filter.getStructure());
-			
+			}
+
 			// Result
 			filter.createInterimResultContainer(rawResults);
 			List<String> result = filter.filterQueryResults();
-			if (output) 
+			if (output) {
 				System.out.println("res: " + result);
-			if (output) 
+			}
+			if (output) {
 				System.out.println("exp: " + expected);
-			if (output) 
+			}
+			if (output) {
 				System.out.println(Objects.equals(expected, result));
+			}
 			return Objects.equals(expected, result);
 		}
 		catch(Exception e) {
@@ -63,8 +71,8 @@ public class InterimResultTest {
 			return false;
 		}
 	}
-	
-	
+
+
 //	private static List<Object> testList1 = List.of(
 //		List.of("record0", List.of()),
 //		List.of("record1",
@@ -80,7 +88,7 @@ public class InterimResultTest {
 //		List.of("record9", List.of()), List.of("record10", List.of()),
 //		List.of("record11", List.of("thisisnotevenalink")), // invalid
 //		List.of("record12", List.of("https://en.wikipedia.org/wiki/Leonardo_da_Vinci")));
-	
+
 	private static String valid = "https://en.wikipedia.org/wiki/Main_Page";
 	private static String invalid = "invalid link";
 	private static List<String> booleanStrings = List.of("true()", "false");
@@ -97,7 +105,7 @@ public class InterimResultTest {
 
         // 1
         for (T element : elements) {
-            List<T> combination = new ArrayList<>();
+            List<T> combination = new ArrayList<T>();
             combination.add(element);
             result.add(combination);
         }
@@ -121,7 +129,7 @@ public class InterimResultTest {
 		for (List<String> list: lists) {
 			result.add(List.of("record" + i, list));
 			i++;
-		}	
+		}
 		return result;
 	}
 	@SuppressWarnings("unchecked")
@@ -131,23 +139,25 @@ public class InterimResultTest {
 			List<Object> lst = (List<Object>) list;
 			String record = (String) lst.get(0);
 			List<Object> test = ((List<Object>) lst.get(1));
-			if (test.contains(invalid))
+			if (test.contains(invalid)) {
 				result.add(record);
-		}	
+			}
+		}
 		return result;
 	}
-	
-	
-	
+
+
+
 	static List<Object> testList2 = testList2();
 	private static List<Object> testList2(){
 		List<Object> result = new ArrayList<Object>();
 		int i = 0;
-		for (String bool: booleanStrings)
+		for (String bool: booleanStrings) {
 			for (List<String> list: lists) {
 				result.add(List.of("record" + i, List.of(bool, list)));
 				i++;
-			}	
+			}
+		}
 		return result;
 	}
 
@@ -155,27 +165,28 @@ public class InterimResultTest {
 	private static List<Object> testList3(){
 		List<Object> result = new ArrayList<Object>();
 		int i = 0;
-		for (List<String> list1: lists)
+		for (List<String> list1: lists) {
 			for (List<String> list2: lists) {
 				result.add(List.of("record" + i, List.of(list1, list2)));
 				i++;
 			}
+		}
 		return result;
 	}
-	
+
 	static List<Object> testList7 = testList7();
 	private static List<Object> testList7(){
 		List<Object> result = new ArrayList<Object>();
 		int i = 0;
-		
+
 		for (List<List<String>> sublist: listCombinations) {
 			result.add(List.of("record" + i, sublist));
 			i++;
 		}
 		return result;
-		
+
 	}
-	
+
 	static List<Object> testList8 = testList8();
 	private static List<Object> testList8(){
 		List<Object> result = new ArrayList<Object>();
@@ -186,7 +197,7 @@ public class InterimResultTest {
 		}
 		return result;
 	}
-	
+
 	private static List<String> getExpectedList8(){
 		List<String> result = new ArrayList<String>();
 		int i = 0;
@@ -203,31 +214,34 @@ public class InterimResultTest {
 						}
 					}
 					every = every && some;
-					if (!every)
+					if (!every) {
 						break;
+					}
 				}
 				if (every) {
 					outersome = true;
 					break;
 				}
 			}
-			if (outersome)
+			if (outersome) {
 				result.add("record" + i);
+			}
 			i++;
 		}
 		return result;
 	}
-	
+
 	static List<Object> testList10 = testList10(); //testList10old();
 	private static List<Object> testList10(){
 		List<Object> result = new ArrayList<Object>();
 		int i = 0;
-		for (List<String> lst1: lists)
+		for (List<String> lst1: lists) {
 			for (List<String> lst2: lists) {
 				List<Object> myList = List.of(lst1, lst2);
 				result.add(List.of("record" + i, myList));
 				i++;
 			}
+		}
 		return result;
 	}
 //	private static List<Object> testList10old(){
@@ -248,7 +262,7 @@ public class InterimResultTest {
 //		}
 //		return result;
 //	}
-	
+
 	static List<String> expectedList1 = getExpectedList1(); // List.of("record2", "record4", "record5");
 	static List<String> expectedList2 = expectedList1;
 	static List<String> expectedList3 = List.of("record14", "record16", "record17", "record26", "record28", "record29", "record32", "record34", "record35");
@@ -261,9 +275,9 @@ public class InterimResultTest {
 	static List<String> expectedList9 = expectedList1;
 //	static List<String> expectedList10old = List.of("record4", "record8", "record12", "record16", "record17", "record18", "record19", "record20");
 	static List<String> expectedList10 = List.of("record14", "record16", "record17", "record26", "record28", "record29", "record32", "record34", "record35");
-	
-	
-	
-	
+
+
+
+
 
 }

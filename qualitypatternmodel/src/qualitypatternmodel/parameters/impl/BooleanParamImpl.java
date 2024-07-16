@@ -4,19 +4,16 @@ package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import java.lang.Boolean;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
@@ -26,8 +23,8 @@ import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.BooleanParam;
-import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.ParametersPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -119,14 +116,15 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	public BooleanParamImpl() {
 		super();
 	}
-	
+
 	@Override
 	public String getValueAsString() {
-		if (getValue() == null)
+		if (getValue() == null) {
 			return null;
+		}
 		return getValue().toString();
 	}
-	
+
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		setValueIfValid(Boolean.parseBoolean(value));
@@ -146,7 +144,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 			throw new InvalidityException("invalid value");
 		}
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(getValue() != null) {
@@ -155,35 +153,35 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 			return super.generateSparql();
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
 	 * @return String
-	 * In Neo4J upper- and lower-case are possible for boolean values. 
+	 * In Neo4J upper- and lower-case are possible for boolean values.
 	 * However, we use LowerCase since:
 	 * 		Neo4J follows partly the Java StyleGuide. Thus, we also use the way to write true/false lower-case.
 	 */
-	@Override 
+	@Override
 	public String generateCypher() throws InvalidityException {
 		if (getValue() != null) {
 			return getValue().toString().toLowerCase();
 		}
 		return super.generateCypher();
 	}
-	
+
 	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.BOOLEAN;
 	}
-	
+
 	@Override
 	public boolean inputIsValid() {
 		return (getValue() instanceof Boolean);
 	}
-	
+
 	@Override
-	public boolean isUsed() {		
+	public boolean isUsed() {
 		return super.isUsed() || !getMatches().isEmpty();
 	}
 
@@ -206,12 +204,13 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	public Boolean getValue() {
 		return value;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
 		if(newVariableList == null) {
 			getMatches().clear();
@@ -292,7 +291,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	@Override
 	public void setValueIfValid(Boolean newValue) throws InvalidityException {
 		Boolean oldValue = getValue();
-		setValue(newValue);		
+		setValue(newValue);
 		try {
 			checkComparisonConsistency();
 		} catch (Exception e) {
@@ -300,10 +299,10 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 			throw e;
 		}
 	}
-	
+
 	@Override
 	public void validateExampleValue(String val) throws InvalidityException {
-		Boolean.parseBoolean(val);	
+		Boolean.parseBoolean(val);
 	}
 
 	/**
@@ -485,12 +484,12 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 		result.append(')');
 		return result.toString();
 	}
-	
-	@Override 
+
+	@Override
 	public String myToString() {
 		return "bool [" + getInternalId() + "] " + getValue();
 	}
-	
+
 	@Override
 	public String generateDescription() {
 		String res = "Eingabe des boolschen Wertes";

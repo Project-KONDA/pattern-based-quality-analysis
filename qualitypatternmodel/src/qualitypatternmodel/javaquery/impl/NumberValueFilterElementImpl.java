@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -61,12 +60,12 @@ public class NumberValueFilterElementImpl extends NumberFilterPartImpl implement
 	public NumberValueFilterElementImpl() {
 		super();
 	}
-	
+
 	public NumberValueFilterElementImpl(Double num) {
 		super();
 		setNumber(num);
 	}
-	
+
 	public NumberValueFilterElementImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
@@ -87,7 +86,7 @@ public class NumberValueFilterElementImpl extends NumberFilterPartImpl implement
 	public EList<InterimResultPart> getArguments() {
 		return new BasicEList<InterimResultPart>();
 	}
-	
+
 	@Override
 	public JSONObject toJson() {
 		JSONObject result = new JSONObject();
@@ -98,16 +97,13 @@ public class NumberValueFilterElementImpl extends NumberFilterPartImpl implement
 		}
 		return result;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "(constant " + getJavaFilterPartId() + " [" + getNumber() + "])";
 	}
-	
-	
-	
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

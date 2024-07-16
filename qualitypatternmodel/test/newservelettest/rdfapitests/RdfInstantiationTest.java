@@ -3,6 +3,7 @@ package newservelettest.rdfapitests;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
+
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -24,14 +25,15 @@ public class RdfInstantiationTest {
 		ServletContext context = mock(ServletContext.class);
         doAnswer(invocation -> {
             String argument = invocation.getArgument(0);
-            if (argument.startsWith("/"))
-            	return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp" + argument;
-            else 
-            	return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp/" + argument;
+            if (argument.startsWith("/")) {
+				return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp" + argument;
+			} else {
+				return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp/" + argument;
+			}
         }).when(context).getRealPath(anyString());
-        
+
 		HashMap<String, String[]> emptyParameter = new HashMap<String, String[]>();
-        
+
 		String inst = "/rdf/Card_rdf/default";
 		String get = null;
 		try {
@@ -39,10 +41,10 @@ public class RdfInstantiationTest {
 			System.out.println("INSTANTIATE");
 			JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut(inst, emptyParameter));
 			get = "/" + json.getString("language") + "/" + json.getString("patternID");
-			
+
 			System.out.println("GET");
 			System.out.println(ConstraintServlet.applyGet(get, emptyParameter));
-			
+
 			System.out.println("SET PARAMETER");
 			HashMap<String, String[]> parameter = new HashMap<String, String[]>();
 			parameter.put("IriList_0", new String[]{new JSONArray().put("wdt:iri").toString()});
@@ -53,17 +55,17 @@ public class RdfInstantiationTest {
 			parameter.put("database", new String[]{"dbname"});
 			System.out.println(ConstraintServlet.applyPost(get, parameter));
 			System.out.println(ConstraintServlet.applyGet(get, emptyParameter));
-			
+
 			System.out.println("DELETE");
 			System.out.println(ConstraintServlet.applyDelete(get, emptyParameter));
-			
+
 		} catch (Exception e) {
-			
+
 			try {
 				System.out.println("DELETE");
 				System.out.println(ConstraintServlet.applyDelete(get, emptyParameter));
 			} catch (Exception x) {}
-			
+
 			System.err.println("'" + inst + "' failed");
 			e.printStackTrace();
 		}

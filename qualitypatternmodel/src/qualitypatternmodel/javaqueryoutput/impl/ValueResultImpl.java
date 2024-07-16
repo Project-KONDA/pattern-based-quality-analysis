@@ -3,7 +3,6 @@
 package qualitypatternmodel.javaqueryoutput.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -61,23 +60,22 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 
 	@Override
 	public void setCorresponding(InterimResultPart corresponding) throws InvalidityException {
-		if (corresponding instanceof ValueInterimImpl)
-			setCorrespondsTo((ValueInterimImpl) corresponding);
-		else throw new InvalidityException(
-				corresponding.getClass().getSimpleName() 
-				+ " (" + ( getCorrespondsTo() == null? "x": getCorrespondsTo().getInterimPartId()) + ") " 
-				+ "cannot be cast to ValueInterimImpl for ValueResultImpl (" + getValue() + ")");
+		if (corresponding instanceof ValueInterimImpl) {
+			setCorrespondsTo(corresponding);
+		} else {
+			throw new InvalidityException(
+					corresponding.getClass().getSimpleName()
+					+ " (" + ( getCorrespondsTo() == null? "x": getCorrespondsTo().getInterimPartId()) + ") "
+					+ "cannot be cast to ValueInterimImpl for ValueResultImpl (" + getValue() + ")");
+		}
 	}
-	
+
 	@Override
 	public Boolean isValidToCorresponding() {
 		return getCorrespondsTo() != null && value != null;
 	}
-	
-	
-	
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,8 +176,9 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	public String toString() {
 		String val = value.replace("\r\n", " ");
 		int max = 100;
-		if (val.length() > max)
+		if (val.length() > max) {
 			val = val.substring(0, max - 10) + " ...";
+		}
 		return "ValueResult (" + val + ")";
 	}
 } //ValueResultImpl

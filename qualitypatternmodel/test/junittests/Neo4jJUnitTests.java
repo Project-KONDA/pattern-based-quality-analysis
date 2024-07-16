@@ -11,10 +11,10 @@ import qualitypatternmodel.cyphertranslationtests.CypherTestSuiteTranslationWith
 @Suite
 @SuiteDisplayName("Component/Systemt-TestSuite")
 @SelectClasses({
-				TestSuiteClassTests.class, 
+				TestSuiteClassTests.class,
 				CypherTestSuiteTranslationWithDbTests.class,
 				CypherTestSuiteTranslationWithoutDbTests.class
 			})
 public class Neo4jJUnitTests {
-	
+
 }

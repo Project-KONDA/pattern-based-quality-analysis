@@ -9,24 +9,24 @@ import org.basex.query.iter.Iter;
 import org.basex.query.value.item.Item;
 
 public class BaseXJavaQueryInterimContainer extends JavaQueryInterimContainer {
-	
+
 	public BaseXJavaQueryInterimContainer(String databasename, String datapath, String query) {
-		results = new ArrayList<InterimContainer>();
+		results = new ArrayList<>();
 		Context context = new Context();
 		try {
 			new CreateDB(databasename, datapath).execute(context);
-	
+
 			try (QueryProcessor proc = new QueryProcessor(query, context)) {
 				Iter iter = proc.iter();
 				for (Item item; (item = iter.next()) != null;) {
 					streamNext(item.serialize().toString());
 				}
-			} 
+			}
 			context.closeDB();
 			context.close();
 		} catch (Exception e) { // QueryIOException  QueryException BaseXException
 			e.printStackTrace();
 		}
-		
+
 	}
 }

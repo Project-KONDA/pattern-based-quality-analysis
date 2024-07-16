@@ -3,6 +3,7 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.COUNT;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
@@ -12,7 +13,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -107,14 +107,14 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		setArgument2(new NumberElementImpl());
 	}
 
-	
+
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		NumberFilterPart arg1filter = (NumberFilterPart) getCountPattern().generateQueryFilterPart();
 		NumberFilterPart arg2filter = (NumberFilterPart) getArgument2().generateQueryFilterPart();
-		return new CountFilterPartImpl(getOption().getValue(), arg1filter, arg2filter); 
+		return new CountFilterPartImpl(getOption().getValue(), arg1filter, arg2filter);
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		String argument1 = getCountPattern().generateXQuery();
@@ -125,11 +125,12 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			throw new InvalidityException("invalid option");
 		}
 	}
-	
+
 	@Override
 	public String generateXQueryJava() throws InvalidityException {
-		if (containsJavaOperator())
+		if (containsJavaOperator()) {
 			return "";
+		}
 		String argument1 = getCountPattern().generateXQueryJava();
 		String argument2 = getArgument2().generateXQueryJava();
 		if(getOption() != null && getOption().getValue() != null) {
@@ -138,46 +139,49 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			throw new InvalidityException("invalid option");
 		}
 	}
-	
+
 	@Override
-	
-	
+
+
 	public String generateXQueryJavaReturn() throws InvalidityException {
-		if (!containsJavaOperator())
+		if (!containsJavaOperator()) {
 			return generateXQuery();
-		
+		}
+
 		Boolean arg1Java = getCountPattern().containsJavaOperator();
 		Boolean arg2Java = getArgument2().containsJavaOperator();
-		
+
 		String arg1String;
-		if (arg1Java)
+		if (arg1Java) {
 			arg1String = getCountPattern().generateXQueryJavaReturn();
-		else 
+		} else {
 			arg1String = getCountPattern().generateXQuery();
-		
+		}
+
 		String arg2String;
-		if (arg2Java)
+		if (arg2Java) {
 			arg2String = getCountPattern().generateXQueryJavaReturn();
-		else 
-			if (getArgument2() instanceof CountPattern)
+		} else
+			if (getArgument2() instanceof CountPattern) {
 				arg2String = ((CountPattern) getArgument2()).generateXQuery().substring(1).replace("\n", "\n  ");
-			else 
+			} else {
 				return JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String), COUNT, false, true, false);
+			}
 		return JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String, arg2String), COUNT, false, true, false);
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		String argument1 = getCountPattern().generateSparql().replace("/n", "/n  ");
 		String argument2 = getArgument2().generateSparql().replace("/n", "/n  ");
-		
+
 		if(getOption() != null && getOption().getValue() != null) {
 			String comp = getOption().getValue().getLiteral();
-			String selects = "";			
+			String selects = "";
 			for(Node n : getCountPattern().getGraph().getNodes()) {
 				selects += "\n  ?var" + n.getInternalId();
 			}
-			String query = "\n{SELECT";;
+			String query = "\n{SELECT";
 			query += selects;
 			query += ConstantsRdf.COUNT_BY;
 			query += ConstantsRdf.WHERE +"{";
@@ -191,9 +195,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		} else {
 			throw new InvalidityException("invalid option");
 		}
-		
+
 	}
-	
+
 	//BEGIN - CYPHER
 	//SIMPLE CYPHER COUNT --> has many restrictions, such as that it cannot be part of another condition.
 	//The second argument can not be an other COUNT-PATTERN --> Implement that --> Would lead to diverse challenges.
@@ -203,7 +207,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * COUNTS in Return-Clause is not supported by the model.
 	 * <b>No support</b> for <b>nested COUNT</b> Cypher v4.4 and below.
 	 */
-	@Override 
+	@Override
 	public String generateCypher() throws InvalidityException {
 		if (getArgument2() instanceof CountPattern) {
 			throw new UnsupportedOperationException(ConstantsNeo.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
@@ -216,12 +220,12 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			cypher.append(tempCypher);
 			tempCypher = generateCypherCountWhere();
 			cypher.append(tempCypher);
-			
+
 			return cypher.toString();
 		}
 		throw new InvalidityException(Constants.INVALID_OPTION);
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
@@ -238,7 +242,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			multi = true;
 		}
 		final EList<String> myCounters = ((CountPatternImpl)getCountPattern()).generateCypherCounters();
-		
+
 		for (String entry : myCounters) {
 			if (multi) {
 				cypher += ConstantsNeo.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE;
@@ -248,7 +252,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		}
 		return cypher;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
@@ -260,21 +264,21 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		final String comp = getOption().getValue().getLiteral();
 		final StringBuilder tempCypher = new StringBuilder();
 		String cypher = new String();
-		
+
 		for (String entry : myCounters) {
 		    if (tempCypher.length() != 0) {
 		    	tempCypher.append(ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
 		    }
-		    tempCypher.append(entry.substring(entry.indexOf(ConstantsNeo.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING)));				
+		    tempCypher.append(entry.substring(entry.indexOf(ConstantsNeo.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING)));
 			tempCypher.append(ConstantsNeo.ONE_WHITESPACE + comp + ConstantsNeo.ONE_WHITESPACE);
 			tempCypher.append(getArgument2().generateCypher());
 		}
 		cypher = ConstantsNeo.CLAUSE_WHERE + ConstantsNeo.ONE_WHITESPACE + tempCypher.toString();
-		
+
 		return cypher;
 	}
 	//END - CYPHER
-	
+
 	@Override
 	public void initializeTranslation() {
 		if(getCountPattern() != null) {
@@ -284,7 +288,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			getArgument2().initializeTranslation();
 		}
 	}
-	
+
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -294,40 +298,41 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			getArgument2().isValid(abstractionLevel);
 		}
 		getOption().isValid(abstractionLevel);
-		
+
 	}
 
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if(getCountPattern() == null) {
 			throw new InvalidityException("argument1 missing");
-		} 		
+		}
 		if(abstractionLevel != AbstractionLevel.SEMI_GENERIC && getArgument2() == null) {
 			throw new InvalidityException("argument2 missing");
 		}
 		if(getOption() == null) {
 			throw new InvalidityException("invalid option");
-		} 		
+		}
 	}
-	
+
 	@Override
 	public boolean relationsXmlAdapted() {
 		return getCountPattern().relationsXmlAdapted() && getArgument2().relationsXmlAdapted();
 	}
-	
+
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getCountPattern().createXmlAdaption();
 		getArgument2().createXmlAdaption();
 		return this;
 	}
-	
+
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getCountPattern().createRdfAdaption();
 		getArgument2().createRdfAdaption();
 		return this;
 	}
-	
+
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getCountPattern().createNeo4jAdaption();
@@ -336,41 +341,41 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		super.setNeo4JBeginnings(graph);
 		return this;
 	}
-	
+
 	@Override
-	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {		
+	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		BasicEList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		if(getCountPattern() instanceof CountPattern) {
-			result.add((MorphismContainer) getCountPattern());
+			result.add(getCountPattern());
 		}
 		if(getArgument2() instanceof CountPattern) {
 			result.add((MorphismContainer) getArgument2());
 		}
 		return result;
-	}	
-	
+	}
+
 	@Override
 	public void recordValues(XmlDataDatabase database) {
 		getCountPattern().recordValues(database);
 		getArgument2().recordValues(database);
 	}
-	
+
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		if(getOption() != null) {
 			res.add(getOption());
-		}		
+		}
 		res.addAll(getCountPattern().getAllParameters());
-		res.addAll(getArgument2().getAllParameters());		
+		res.addAll(getArgument2().getAllParameters());
 		return res;
 	}
-	
+
 	@Override
 	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> res = new BasicEList<Operator>();
 		res.addAll(getCountPattern().getAllOperators());
-		res.addAll(getArgument2().getAllOperators());		
+		res.addAll(getArgument2().getAllOperators());
 		return res;
 	}
 
@@ -399,20 +404,24 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetCountPattern(CountPattern newCountPattern, NotificationChain msgs) {		
+	public NotificationChain basicSetCountPattern(CountPattern newCountPattern, NotificationChain msgs) {
 		CountPattern oldCountPattern = countPattern;
 		countPattern = newCountPattern;
-		
+
 //		if(newCountPattern != null) {
 //			newCountPattern.prepareParameterUpdates(getParameterList());
 //		}
 //		if(oldCountPattern != null) {
 //			oldCountPattern.prepareParameterUpdates(null);
 //		}
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN, oldCountPattern, newCountPattern);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -436,18 +445,18 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN, newCountPattern, newCountPattern));
 	}
-	
+
 	@Override
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
-				
+
 		msgs = super.basicSetPattern(newPattern, msgs);
-		
+
 		createParameters();
 		createCountPattern();
-		
+
 		return msgs;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -463,7 +472,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 //				parameterList.add(comparisonOption);
 			} else {
 				parameterList.add(getOption());
-			}		
+			}
 		}
 	}
 
@@ -484,45 +493,45 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		patternElements.add(getOption());
 		patternElements.add(getCountPattern());
-		patternElements.add(getArgument2());		
+		patternElements.add(getArgument2());
 //		super.triggerParameterUpdates(newContainer, patternElements);
 		setOption(null);
 		return patternElements;
 	}
-	
+
 	@Override
-	public NotificationChain basicSetFormula1(Formula newFormula, NotificationChain msgs) {		
-		msgs = super.basicSetFormula1(newFormula, msgs);		
+	public NotificationChain basicSetFormula1(Formula newFormula, NotificationChain msgs) {
+		msgs = super.basicSetFormula1(newFormula, msgs);
 		createParameters();
-		createCountPattern();			
+		createCountPattern();
 		return msgs;
 	}
-	
+
 	@Override
-	public NotificationChain basicSetFormula2(Formula newFormula, NotificationChain msgs) {		
-		msgs = super.basicSetFormula2(newFormula, msgs);		
+	public NotificationChain basicSetFormula2(Formula newFormula, NotificationChain msgs) {
+		msgs = super.basicSetFormula2(newFormula, msgs);
 		createParameters();
-		createCountPattern();		
+		createCountPattern();
 		return msgs;
 	}
-	
+
 	@Override
 	public NotificationChain basicSetNotCondition(NotCondition newNotCondition, NotificationChain msgs) {
-		msgs = super.basicSetNotCondition(newNotCondition, msgs);		
+		msgs = super.basicSetNotCondition(newNotCondition, msgs);
 		createParameters();
-		createCountPattern();	
+		createCountPattern();
 		return msgs;
 	}
-	
-	@Override 
-	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition, NotificationChain msgs) {	
-		msgs = super.basicSetQuantifiedCondition(newQuantifiedCondition, msgs);		
+
+	@Override
+	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition, NotificationChain msgs) {
+		msgs = super.basicSetQuantifiedCondition(newQuantifiedCondition, msgs);
 		createParameters();
-		createCountPattern();		
+		createCountPattern();
 		return msgs;
 	}
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -557,23 +566,27 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 */
 	public NotificationChain basicSetOption(ComparisonOptionParam newOption, NotificationChain msgs) {
 		ComparisonOptionParam oldOption = option;
-		
+
 		ParameterList varlist = getParameterList();
 		if(varlist != null) {
-			varlist.remove(oldOption);			
+			varlist.remove(oldOption);
 			varlist.add(newOption);
 		}
-		
+
 		option = newOption;
-		
+
 		if(option != null) {
 			option.getOptions().clear();
 			option.getOptions().addAll(ComparisonOperator.VALUES);
 		}
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__OPTION, oldOption, newOption);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -613,20 +626,24 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetArgument2(CountConditionArgument newArgument2, NotificationChain msgs) {		
+	public NotificationChain basicSetArgument2(CountConditionArgument newArgument2, NotificationChain msgs) {
 		CountConditionArgument oldArgument2 = argument2;
 		argument2 = newArgument2;
-		
+
 //		if(newArgument2 != null) {
 //			newArgument2.prepareParameterUpdates(getParameterList());
 //		}
 //		if(oldArgument2 != null) {
 //			oldArgument2.prepareParameterUpdates(null);
 //		}
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__ARGUMENT2, oldArgument2, newArgument2);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -651,7 +668,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__ARGUMENT2, newArgument2, newArgument2));
 	}
 
-	
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -796,10 +813,11 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	public String myToString() {
 //		String res = "CountCondition [" + getInternalId() + "]";
 		String res = "CountCondition";
-		if (getOption().getValue() != null)
+		if (getOption().getValue() != null) {
 			res += " " + getOption().getValue().getLiteral() + " [" + getOption().getInternalId() + "]";
-		else
+		} else {
 			res += " <null> [" + getOption().getInternalId() + "]";
+		}
 		res += ("\n" + getCountPattern().myToString()).replace("\n", "\n#  ");
 		res += ("\n" + getArgument2().myToString()).replace("\n", "\n#  ");
 		return res;

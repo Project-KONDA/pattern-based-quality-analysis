@@ -30,19 +30,20 @@ public class ValueInterimImpl extends InterimResultPartImpl implements ValueInte
 	public ValueInterimImpl() {
 		super();
 	}
-	
+
 	public ValueInterimImpl(String json) throws InvalidityException {
 		super();
 		try {
 			JSONObject jsono = new JSONObject(json);
-			if (!jsono.get("class").equals(getClass().getSimpleName()))
+			if (!jsono.get("class").equals(getClass().getSimpleName())) {
 				throw new InvalidityException("Wrong class");
+			}
 			setInterimPartId(jsono.getInt("id"));
 		} catch (JSONException e) {
 			throw new InvalidityException("Wrong class");
 		}
 	}
-	
+
 	@Override
 	public JSONObject toJson() {
 		JSONObject result = new JSONObject();
@@ -65,11 +66,8 @@ public class ValueInterimImpl extends InterimResultPartImpl implements ValueInte
 	public String toString(){
 		return "<value " + getInterimPartId() + ">";
 	}
-	
-	
-	
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

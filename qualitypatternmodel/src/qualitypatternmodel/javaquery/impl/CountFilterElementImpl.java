@@ -10,7 +10,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -75,12 +74,12 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 		setArgument(new VariableContainerInterimImpl());
 		setSubfilter(subfilter);
 	}
-	
+
 	public CountFilterElementImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
 			JSONObject jsono = new JSONObject(json);
-			VariableContainerInterim argument = (VariableContainerInterim) map.get(jsono.getInt("argument")); 
+			VariableContainerInterim argument = (VariableContainerInterim) map.get(jsono.getInt("argument"));
 			setArgument(argument);
 		}
 		catch (Exception e) {
@@ -94,12 +93,14 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 		ContainerResult param = (ContainerResult) parameter;
 		EList<InterimResult> arguments = param.getSubresult();
 		int i = 0;
-		for (InterimResult argument: arguments)
-			if (getSubfilter().apply(argument))
+		for (InterimResult argument: arguments) {
+			if (getSubfilter().apply(argument)) {
 				i++;
+			}
+		}
 		return (double) i;
-		
-	};
+
+	}
 
 	@Override
 	public EList<InterimResultPart> getArguments() {
@@ -107,17 +108,18 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 		result.add(getArgument());
 		return result;
 	}
-	
+
 	protected void updateArgument() throws InvalidityException {
 		EList<InterimResultPart> contained = getSubfilter().getArguments();
-		if (contained == null)
+		if (contained == null) {
 			getArgument().setContained(null);
-		else if (contained.size() == 1)
+		} else if (contained.size() == 1) {
 			getArgument().setContained(contained.get(0));
-		else 
+		} else {
 			throw new InvalidityException("CountFilterElement has too much arguments");
+		}
 	}
-	
+
 	@Override
 	public JSONObject toJson() {
 		JSONObject result = new JSONObject();
@@ -128,15 +130,15 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 		}
 		return result;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "[count " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> " + getSubfilter().toString() + "]";
 	}
-	
-	
-	
-	
+
+
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,10 +172,14 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 		} catch (InvalidityException e) {
 			e.printStackTrace();
 		}
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_ELEMENT__SUBFILTER, oldSubfilter, newSubfilter);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}

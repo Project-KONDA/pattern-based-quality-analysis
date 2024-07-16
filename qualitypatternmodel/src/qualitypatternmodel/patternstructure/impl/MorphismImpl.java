@@ -6,18 +6,18 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -40,7 +40,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * begin-user-doc -->
 	 * The container of the <code>source</code> of contained <code>mappings</code> and the previous <code>Graph</code> in the condition hierarchy.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getSource()
 	 * @generated
 	 * @ordered
@@ -52,7 +52,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * begin-user-doc -->
 	 * The container of the <code>target</code> of contained <code>mappings</code> and the <code>Graph</code> contained in the same container.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getTarget()
 	 * @generated
 	 * @ordered
@@ -72,13 +72,16 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		super.isValid(abstractionLevel);
 	}
 
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (source == null)
+		if (source == null) {
 			throw new InvalidityException("Morphism " + getInternalId() + ": from null");
-		if (target == null)
+		}
+		if (target == null) {
 			throw new InvalidityException("Morphism " + getInternalId() + ": to null");
+		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

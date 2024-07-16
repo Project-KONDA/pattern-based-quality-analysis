@@ -3,9 +3,7 @@
 package qualitypatternmodel.adaptionneo4j;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-
 import qualitypatternmodel.graphstructure.Adaptable;
-
 import qualitypatternmodel.parameters.Parameter;
 
 /**

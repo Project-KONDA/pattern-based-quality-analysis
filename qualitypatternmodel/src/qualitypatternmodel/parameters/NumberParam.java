@@ -3,6 +3,7 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.patternstructure.NumberElement;

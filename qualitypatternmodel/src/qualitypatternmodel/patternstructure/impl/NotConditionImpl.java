@@ -3,13 +3,13 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -64,7 +64,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 		super();
 		setCondition(new TrueElementImpl());
 	}
-	
+
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException{
 		return new NotFilterPartImpl((BooleanFilterPart) getCondition().generateQueryFilterPart());
@@ -76,7 +76,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			return ((NotCondition) condition).getCondition().generateXQuery();
 		}
 		if (condition != null) {
-			String conQuery = condition.generateXQuery().replace("\n", "\n  "); 
+			String conQuery = condition.generateXQuery().replace("\n", "\n  ");
 			return "not(" + conQuery + ")";
 		} else {
 			throw new InvalidityException("invalid condition");
@@ -90,23 +90,26 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 		}
 		if (condition != null) {
 			String conQuery = condition.generateXQueryJava();
-			if (conQuery.equals(""))
+			if (conQuery.equals("")) {
 				return "";
-			conQuery = conQuery.replace("\n", "\n  "); 
+			}
+			conQuery = conQuery.replace("\n", "\n  ");
 			return "not(" + conQuery + ")";
 		} else {
 			throw new InvalidityException("invalid condition");
 		}
 	}
-	
+
+	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		String conditionString = getCondition().generateXQueryJavaReturn();
-		if (conditionString == null)
+		if (conditionString == null) {
 			return null;
-		else 
+		} else {
 			return conditionString;
+		}
 	}
-	
+
 	@Override
 	public int getNotSequenceSize() {
 		if(getCondition() instanceof NotConditionImpl) {
@@ -116,7 +119,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			return 1;
 		}
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if (condition != null) {
@@ -126,14 +129,16 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 //			boolean firstNot = getNotCondition() == null;
 //			boolean unevenNot = getNotSequenceSize() % 2 == 1;
 			boolean notForall = !(getCondition() instanceof QuantifiedCondition && ((QuantifiedCondition) getCondition()).getQuantifier() == Quantifier.FORALL);
-			boolean not = notForall; // firstNot && unevenNot && 
+			boolean not = notForall; // firstNot && unevenNot &&
 			String query = condition.generateSparql();
-			if (query.equals(""))
+			if (query.equals("")) {
 				return "";
-			if (query.startsWith("\n"))
+			}
+			if (query.startsWith("\n")) {
 				query = query.substring(1);
+			}
 			if(not) {
-				query = ConstantsRdf.NOT + query; 
+				query = ConstantsRdf.NOT + query;
 			}
 			if(!isInRdfFilter()) {
 				query = ConstantsRdf.FILTER + query;
@@ -143,7 +148,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			throw new InvalidityException("invalid condition");
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * Negates a Condition and negates it.
@@ -153,13 +158,13 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	@Override
 	public String generateCypher() throws InvalidityException {
 		super.checkNextConditon(getCondition());
-		
-		if (!(condition == null)) {			
+
+		if (!(condition == null)) {
 			String cypher = new String();
 			if (condition instanceof NotCondition) {
 				return ((NotCondition) condition).getCondition().generateCypher();
 			}
-			
+
 			//In future Versions this should be reduced
 			//Until now we have one the options that FORALL gets true or the TrueElement is there
 			//The framework misses constrains
@@ -169,84 +174,86 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			}
 			cypher = ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE;
 			cypher += ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + temp + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
-			return cypher;	
+			return cypher;
 		}
 		throw new InvalidityException(INVALID_CONDITION);
 	}
 	//END - NEO4J
-	
+
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
-		
+
 		if(condition != null) {
 			condition.isValid(abstractionLevel);
 		}
 	}
-	
+
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && condition == null)
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && condition == null) {
 			throw new InvalidityException("condition null (" + getInternalId() + ")");
+		}
 	}
-	
+
 	@Override
 	public boolean relationsXmlAdapted() {
 		return getCondition().relationsXmlAdapted();
 	}
-	
+
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getCondition().createXmlAdaption();
 		return this;
 	}
-	
+
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getCondition().createRdfAdaption();
 		return this;
 	}
-	
+
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getCondition().createNeo4jAdaption();
 		return this;
 	}
-	
+
 	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		result.addAll(getCondition().getNextMorphismContainers());
 		return result;
-	}	
-	
+	}
+
 	@Override
 	public void prepareTranslation() {
 		condition.prepareTranslation();
-				
+
 	}
-	
+
 	@Override
 	public void recordValues(XmlDataDatabase database) {
 		getCondition().recordValues(database);
 	}
 
 	@Override
-	public EList<Parameter> getAllParameters() throws InvalidityException {		
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 		return condition.getAllParameters();
 	}
 
 	@Override
-	public EList<Operator> getAllOperators() throws InvalidityException {	
+	public EList<Operator> getAllOperators() throws InvalidityException {
 		return condition.getAllOperators();
 	}
-	
+
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		patternElements.add(getCondition());
 		return patternElements;
 	}
-		
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -382,7 +389,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -2,12 +2,11 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.INTERIM;
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.RETURNSTART;
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.RETURNEND;
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.CONDITIONSTART;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.CONDITIONEND;
-
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.CONDITIONSTART;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.INTERIM;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.RETURNEND;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.RETURNSTART;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -32,11 +31,11 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
-import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -137,7 +136,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	protected PatternImpl() {
 		super();
 	}
-	
+
 	@Override
 	public void initializeTranslation() {
 		if(getGraph() != null) {
@@ -151,33 +150,35 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		super.isValid(abstractionLevel);		
+		super.isValid(abstractionLevel);
 		graph.isValid(abstractionLevel);
-		
+
 		if (condition != null) {
 			condition.isValid(abstractionLevel);
 		}
 	}
-	
+
 	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {		
-		if (graph == null)
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		if (graph == null) {
 			throw new InvalidityException("Graph null" + " (" + getInternalId() + ")");
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && condition == null)
+		}
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && condition == null) {
 			throw new InvalidityException("condition null" + " (" + getInternalId() + ")");
-		
+		}
+
 		checkMorphismOfNextGraph();
 	}
-	
-	
+
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException("return elements missing in " + getClass().getSimpleName() + " [" + getInternalId() + "]");
 		}
-		
+
 		String forClauses = graph.generateXQuery();
-		
+
 		String whereClause = "\n";
 		if (!(condition instanceof TrueElement)) {
 			String condQuery = condition.generateXQuery().replace("\n", "\n  ");
@@ -185,42 +186,49 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 
 		String returnClause = generateXQueryReturnClause();
-		
+
 		String query = forClauses + whereClause + returnClause;
 		setXmlQuery(query);
-		setPartialXmlQuery(forClauses + returnClause);		
+		setPartialXmlQuery(forClauses + returnClause);
 		return query;
 	}
-	
+
 	private String generateXQueryReturnClause() throws InvalidityException {
 		String returnClause = "";
 		EList<Node> returnElements = graph.getReturnNodes();
-		if (returnElements.isEmpty())
+		if (returnElements.isEmpty()) {
 			throw new InvalidityException("no return nodes in return graph");
+		}
 		for (int i = 0; i < returnElements.size(); i++) {
-			if (i != 0)
+			if (i != 0) {
 				returnClause += ", ";
+			}
 			XmlNode r = ((XmlNode) returnElements.get(i));
 			if (r.getVariables() == null || r.getVariables().isEmpty()) {
 				throw new InvalidityException("There was no associated variable generated to the return node");
 			}
-			else returnClause += ((XmlNode) returnElements.get(i)).getVariables().get(0);	
-//			returnClause += VARIABLE + returnElements.get(i).getOriginalID();			
+			else {
+				returnClause += ((XmlNode) returnElements.get(i)).getVariables().get(0);
+//			returnClause += VARIABLE + returnElements.get(i).getOriginalID();
+			}
 		}
-		if (returnElements.size()>1)
+		if (returnElements.size()>1) {
 			returnClause = "(" + returnClause + ")";
-		return ConstantsXml.RETURN + returnClause;	
+		}
+		return ConstantsXml.RETURN + returnClause;
 	}
-	
+
 	@Override
 	public String generateXQueryJava() throws InvalidityException {
-		if (!containsJavaOperator())
+		if (!containsJavaOperator()) {
 			return generateXQuery();
-		
+		}
+
 		String forClauses = graph.generateXQuery();
-		if (graph.containsJavaOperator() && this instanceof CompletePattern)
+		if (graph.containsJavaOperator() && this instanceof CompletePattern) {
 			throw new UnsupportedOperationException("Java Operator in Return Graph");
-		
+		}
+
 		String whereClause = "\n";
 		if (!(condition instanceof TrueElement)) {
 			String condQuery = condition.generateXQueryJava();
@@ -230,52 +238,55 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				whereClause = ConstantsXml.WHERE + condQuery + "\n";
 			}
 		}
-		
+
 		String returnClause = generateXQueryJavaReturn();
 
 		String query = forClauses + whereClause + returnClause;
 //		String query = forClauses + "\n" + returnClause;
 		setXmlQuery(query);
-		setPartialXmlQuery(forClauses + "\n" + generateXQueryReturnClause());		
-		return query;	
+		setPartialXmlQuery(forClauses + "\n" + generateXQueryReturnClause());
+		return query;
 	}
 
 	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
-		if (!containsJavaOperator())
+		if (!containsJavaOperator()) {
 			return null;
+		}
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException("return elements missing in " + getClass().getSimpleName() + " [" + getInternalId() + "]");
 		}
-		
+
 		EList<Node> returnElements = graph.getReturnNodes();
-		if (returnElements.isEmpty())
+		if (returnElements.isEmpty()) {
 			throw new InvalidityException("no return nodes in return graph");
-		
+		}
+
 		List<String> nodes = new ArrayList<String>();
 		for (Node node: returnElements) {
 			XmlNode xmlnode = ((XmlNode) node);
 			nodes.add(xmlnode.getVariables().get(0)); //  VARIABLE + ((Node) xmlnode).getInternalId() + "_0");
 		}
-		
+
 		String graphString = getGraph().generateXQueryJavaReturn();
 		String conditionString = getCondition().generateXQueryJavaReturn();
-		
-		String resultString = getResultString(nodes, graphString, conditionString); 
+
+		String resultString = getResultString(nodes, graphString, conditionString);
 		return resultString;
 	}
-	
+
 	private String getResultString(List<String> nodes, String graphString, String conditionString){
 		List<String> resultList = new ArrayList<String>();
 		resultList.add(RETURNSTART);
 		resultList.addAll(nodes);
-		if (!graphString.equals("()"))
+		if (!graphString.equals("()")) {
 			resultList.addAll(List.of(RETURNEND, CONDITIONSTART, graphString, conditionString, CONDITIONEND));
-		else 
+		} else {
 			resultList.addAll(List.of(RETURNEND, CONDITIONSTART, conditionString, CONDITIONEND));
-		return JavaQueryTranslationUtility.getXQueryReturnList(resultList, INTERIM, true, true, false); 
+		}
+		return JavaQueryTranslationUtility.getXQueryReturnList(resultList, INTERIM, true, true, false);
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
@@ -286,7 +297,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		query += condition.generateSparql();
 		return query;
 	}
-	
+
 	//BEGIN - NEO4J/CYPHER
 	/**
 	 * @author Lukas Sebastian Hofmann
@@ -300,23 +311,24 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		if(!matchClause.isEmpty()) {
 			matchClause = ConstantsNeo.CLAUSE_MATCH + ConstantsNeo.ONE_WHITESPACE  + matchClause;
 		} else {
-			throw new InvalidityException(A_CYPHER_QUERY_NEED_A_MATCH_CLAUSE);		
+			throw new InvalidityException(A_CYPHER_QUERY_NEED_A_MATCH_CLAUSE);
 		}
-		
+
 		String whereClause = new String();
 		String tempWhere = graph.generateCypherWhere();
 		if (!tempWhere.isEmpty()) {
 			whereClause = tempWhere;
 		}
-		
+
 		//In the current version this feature is not supported. Hence Cypher does not allow AGGREGATION-FUNCTIONS to be nested.
 		if (!(condition instanceof CountConditionImpl)) {
 			String cond = condition.generateCypher();
 			if (!cond.isEmpty()) {
-				cond = addWhiteSpacesForConditions(cond, whereClause);					
-				if (!whereClause.isEmpty() && !cond.isEmpty()) 
-					whereClause +=  "\n" + ConstantsNeo.THREE_WHITESPACES + ConstantsNeo.BOOLEAN_OPERATOR_AND 
+				cond = addWhiteSpacesForConditions(cond, whereClause);
+				if (!whereClause.isEmpty() && !cond.isEmpty()) {
+					whereClause +=  "\n" + ConstantsNeo.THREE_WHITESPACES + ConstantsNeo.BOOLEAN_OPERATOR_AND
 									+ ConstantsNeo.ONE_WHITESPACE;
+				}
 				whereClause += cond;
 			}
 		}
@@ -326,21 +338,21 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		if (whereClause.length() == 0) {
 			whereClause = null;
 		}
-		
+
 		String cypher = matchClause;
 		if (whereClause != null) {
 			cypher += whereClause;
 		}
-		
+
 		//The CountCondition will be added after the first MATCH-/Where-Structure is built.
 		if ((condition instanceof CountConditionImpl)) {
 			Condition count = getCondition();
 			cypher += count.generateCypher();
 		}
-		
+
 		return cypher;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
@@ -351,7 +363,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	protected String generateCypherReturnNodes(String cypher) throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
@@ -362,7 +374,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	protected String generateCypherReturnEdges(String cypher) throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param forNode
@@ -373,7 +385,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	protected final Map<Integer, String> buildCypherReturnSortedMap(boolean forNode) throws InvalidityException {
 		Map<Integer, StringBuilder> cypherReturn = new TreeMap<Integer, StringBuilder>();
 		NeoElement neoElement = null;
-		
+
 		if (forNode) {
 			for (Node n : graph.getNodes()) {
 				neoElement = (NeoElement) n;
@@ -391,16 +403,16 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				}
 			}
 		}
-		
+
 		//Turns the StringBuilders into Strings since the memory consumption of a string is less as from a StringBuilder.
-		//Further on StringBuilders can be modified in a unmodifiable Map. However, a Strings not. 
+		//Further on StringBuilders can be modified in a unmodifiable Map. However, a Strings not.
 		Map<Integer, String> cypherReturnFixed = new TreeMap<Integer, String>();
 		for (Map.Entry<Integer, StringBuilder> entry : cypherReturn.entrySet()) {
 			cypherReturnFixed.put(entry.getKey(), entry.getValue().toString());
 		}
 		return Collections.unmodifiableMap(cypherReturnFixed);
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypherReturn
@@ -413,11 +425,11 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		StringBuilder tempSb = null;
 		Integer i = null;
 		tempMap = neoElement.getCypherReturn();
-		
+
 		if (tempMap.keySet().stream().count() != 1) {
-			throw new InvalidityException(A_MAP_FROM_RECHIVED_FROM_A_NEO4J_COMPONENT_SHOULD_ONLY_CONTAIN_ONE_ENTRY);			
+			throw new InvalidityException(A_MAP_FROM_RECHIVED_FROM_A_NEO4J_COMPONENT_SHOULD_ONLY_CONTAIN_ONE_ENTRY);
 		}
-		
+
 		for (Map.Entry<Integer, String> entry : tempMap.entrySet()) {
 		    i = entry.getKey();
 		    //if the regarding key does not exists in the to be filled Map. --> It will be created.
@@ -431,7 +443,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		    }
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
@@ -439,7 +451,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 * @throws InvalidityException
 	 * This method generates the Returns for the inner edge nodes.
 	 * It considers the previews build String via the @param cypher.
-	 * Until now it is just a prototype method.  
+	 * Until now it is just a prototype method.
 	 */
 	protected String generateCypherSpecialInnerEdgeNodesString(String cypher) throws InvalidityException {
 		final StringBuilder cypherInnerEdgeNodes = new StringBuilder(cypher);
@@ -450,19 +462,21 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 		return cypherInnerEdgeNodes.toString();
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
 	 * @return String
 	 * @throws InvalidityException
 	 * This method appends the inner edge nodes to the passed @param cypher.
-	 * Until now it is just a prototype method.  
+	 * Until now it is just a prototype method.
 	 */
 	protected void appendInnerEdgeNodes(final StringBuilder cypherInnerEdgeNodes, NeoEdge neoAbstractEdge)
 			throws InvalidityException {
 		if (neoAbstractEdge.getReturnInnerEdgeNodes() != null) {
-			if (cypherInnerEdgeNodes.length() != 0) cypherInnerEdgeNodes.append(ConstantsNeo.CYPHER_SEPERATOR + ConstantsNeo.ONE_WHITESPACE);
+			if (cypherInnerEdgeNodes.length() != 0) {
+				cypherInnerEdgeNodes.append(ConstantsNeo.CYPHER_SEPERATOR + ConstantsNeo.ONE_WHITESPACE);
+			}
 			cypherInnerEdgeNodes.append(neoAbstractEdge.getReturnInnerEdgeNodes());
 		}
 	}
@@ -499,63 +513,65 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 		return cond;
 	}
-	//END - NEO4J/CYPHER	
-	
+	//END - NEO4J/CYPHER
+
 	@Override
 	public boolean relationsXmlAdapted() {
 		return getGraph().relationsXmlAdapted() && getCondition().relationsXmlAdapted();
 	}
-	
+
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getGraph().createXmlAdaption();
 		getCondition().createXmlAdaption();
 		return this;
 	}
-	
+
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getGraph().createRdfAdaption();
 		getCondition().createRdfAdaption();
 		return this;
 	}
-	
+
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getGraph().createNeo4jAdaption();
 		getCondition().createNeo4jAdaption();
 		return this;
 	}
-	
+
 	@Override
 	public void prepareTranslation() {
 		graph.prepareTranslation();
 		condition.prepareTranslation();
 	}
-	
+
 	@Override
 	public void recordValues(XmlDataDatabase database) {
 		getGraph().recordValues(database);
 		getCondition().recordValues(database);
 	}
-	
+
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> parameters = graph.getAllParameters();
-		if (condition != null)
+		if (condition != null) {
 			parameters.addAll(condition.getAllParameters());
+		}
 		return parameters;
 	}
 
 	@Override
 	public EList<Operator> getAllOperators() throws InvalidityException {
-		EList<Operator> operators = new BasicEList<Operator> (); 
+		EList<Operator> operators = new BasicEList<Operator>();
 		operators.addAll(graph.getAllOperators());
-		if (condition != null)
+		if (condition != null) {
 			operators.addAll(condition.getAllOperators());
+		}
 		return operators;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -567,7 +583,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			EList<MorphismContainer> nextQuantifiedConditions = getCondition().getNextMorphismContainers();
 			for(MorphismContainer next : nextQuantifiedConditions) {
 				if(!getGraph().equals(next.getMorphism().getSource())) {
-					throw new InvalidityException("[" + getInternalId() + "] wrong morphism source in " + next.getInternalId() + ": " 
+					throw new InvalidityException("[" + getInternalId() + "] wrong morphism source in " + next.getInternalId() + ": "
 						+ next.getMorphism().getSource().getInternalId() + " instead of " + getGraph().getInternalId());
 				}
 				if(!next.getGraph().equals(next.getMorphism().getTarget())) {
@@ -576,7 +592,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			}
 		}
 	}
-	
+
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
@@ -584,7 +600,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		patternElements.add(getGraph());
 		return patternElements;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -614,16 +630,20 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			getGraph().setIncomingMorphism(null);
 //			getGraph().getOutgoingMorphisms().clear();
 		}
-		
+
 		Graph oldGraph = graph;
 		graph = newGraph;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__GRAPH, oldGraph, newGraph);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -896,6 +916,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		return result.toString();
 	}
 
-	
+
 
 } //PatternImpl

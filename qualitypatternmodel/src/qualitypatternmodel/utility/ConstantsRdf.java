@@ -18,7 +18,4 @@ public class ConstantsRdf {
 	public static final String WILDCARD = "(<>|!<>)";
 	public static final String PREDICATE = "rdf:type";
 	public static final String PREDICATE_WIKIDATA = "wdt:P31";
-	
-
-
 }

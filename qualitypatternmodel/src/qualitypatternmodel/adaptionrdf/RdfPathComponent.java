@@ -104,12 +104,13 @@ public interface RdfPathComponent extends PatternElement {
 		JSONObject jobj;
 		try {
 			jobj = new JSONObject(value);
-			if (jobj.has(Constants.JSON_RDF_PATH_XOR))
+			if (jobj.has(Constants.JSON_RDF_PATH_XOR)) {
 				comp = AdaptionrdfFactory.eINSTANCE.createRdfXor();
-			else if (jobj.has(Constants.JSON_RDF_PATH_SEQUENCE) )
+			} else if (jobj.has(Constants.JSON_RDF_PATH_SEQUENCE) ) {
 				comp = AdaptionrdfFactory.eINSTANCE.createRdfSequence();
-			else
+			} else {
 				throw new InvalidityException("Invalid JSONObject: '" + value + "'");
+			}
 		} catch (JSONException e) {
 			comp = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
 		}

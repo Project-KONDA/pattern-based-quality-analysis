@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.json.JSONException;
@@ -46,7 +45,7 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 	 * @ordered
 	 */
 	protected ValueInterim argument;
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,12 +55,12 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 		super();
 		setArgument(new ValueInterimImpl());
 	}
-	
+
 	public NumberFilterElementImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
 			JSONObject jsono = new JSONObject(json);
-			ValueInterim argument = (ValueInterim) map.get(jsono.getInt("argument")); 
+			ValueInterim argument = (ValueInterim) map.get(jsono.getInt("argument"));
 			setArgument(argument);
 		}
 		catch (Exception e) {
@@ -80,15 +79,15 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 			throw new InvalidityException(e.getMessage());
 		}
 		return result;
-	};
+	}
 
 	@Override
 	public EList<InterimResultPart> getArguments() {
-		EList<InterimResultPart> result = new BasicEList<InterimResultPart>();
+		EList<InterimResultPart> result = new BasicEList<>();
 		result.add(getArgument());
 		return result;
 	}
-	
+
 	@Override
 	public JSONObject toJson() {
 		JSONObject result = new JSONObject();
@@ -99,16 +98,13 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 		}
 		return result;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "(number " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + ">)";
 	}
-	
-	
-	
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -3,13 +3,14 @@
 package qualitypatternmodel.adaptionneo4j.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
@@ -112,11 +113,11 @@ public abstract class NeoPathParamImpl extends ParameterImpl implements NeoPathP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT 
+	 * @generated NOT
 	 */
 	@Override
 	public String getCypherReturnVariable() throws InvalidityException {
-		String cypher = getNeoPathPart().getCypherVariable();	
+		String cypher = getNeoPathPart().getCypherVariable();
 		return cypher;
 	}
 
@@ -134,7 +135,7 @@ public abstract class NeoPathParamImpl extends ParameterImpl implements NeoPathP
 		cypher = getNeoPathPart().getCypherInnerEdgeNodes(true);
 		return cypher;
 	}
-	
+
 	protected boolean existsTargetNode(NeoSimpleEdge neoSimpleEdge) {
 		return neoSimpleEdge.getNeoTargetNodeLabels() != null;
 	}
@@ -260,7 +261,7 @@ public abstract class NeoPathParamImpl extends ParameterImpl implements NeoPathP
 			return false;
 		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

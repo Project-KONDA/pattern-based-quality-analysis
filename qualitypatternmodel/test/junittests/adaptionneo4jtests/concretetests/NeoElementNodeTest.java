@@ -23,9 +23,9 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
 import junittests.adaptionneo4jtests.NeoNodeTest;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
-import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.impl.ParameterListImpl;
@@ -36,29 +36,30 @@ public class NeoElementNodeTest extends NeoNodeTest {
 	private static final String VAR_NODE1 = "(varENode1)";
 	private static final String VAR_NODE1_REGESTA_INDEX_PLACE = "(varENode1:Regesta:IndexPlace)";
 	NeoElementNode neoNode;
-	
+
 	@BeforeAll
     static void initAll() {
-		
+
     }
-	
+
 	@BeforeEach
 	public void setUp() {
 		super.setUp(FACTORY.createNeoElementNode());
 		neoNode = (NeoElementNode) super.neoAbstractNode;
 	}
-	
+
+	@Override
 	@AfterEach
 	public void tearDown() {
 		super.tearDown();
 		neoNode = null;
 	}
-	
+
 	@AfterAll
 	static void tearDownAll() {
-		
+
     }
-		
+
 	@ParameterizedTest
 	@ValueSource(strings = {"Regesta1", "Regesta2", "IndexPlace", "IndexEntry" })
 	public void addLabel(String labels) {
@@ -67,11 +68,11 @@ public class NeoElementNodeTest extends NeoNodeTest {
 
 		EList<String> labelList = neoNode.getNeoNodeLabels().getValues();
 		assumeNotNull(labelList);
-		
+
 		assertTrue(labelList.size() == 1);
 		assertEquals(label, labelList.get(0));
 	}
-	
+
 	@ParameterizedTest
 	@ValueSource(strings = {"1,Regesta,IndexPlace", "Regesta,IndexPlace", "Regesta,IndexPlace,IndexEntry"})
 	public void multiLabel(String labelsParam) {
@@ -81,13 +82,13 @@ public class NeoElementNodeTest extends NeoNodeTest {
 		}
 		EList<String> labelList = neoNode.getNeoNodeLabels().getValues();
 		assumeNotNull(labelList);
-		
+
 		assertTrue(labels.length == labelList.size());
 		for (int i = 0; i < labels.length; i++) {
 			assertEquals(labels[i], labelList.get(i));
 		}
 	}
-	
+
 	@ParameterizedTest
 	@ValueSource(strings = {"Regesta,IndexThing,Regesta,IndexThing"})
 	public void setSameLabels(String labelsParam) {
@@ -97,12 +98,12 @@ public class NeoElementNodeTest extends NeoNodeTest {
 		}
 		EList<String> labelList = neoNode.getNeoNodeLabels().getValues();
 		assumeNotNull(labelList);
-		
+
 		assertTrue(labels.length - 2 == labelList.size());
 		assertEquals(labels[0], labelList.get(0));
 		assertEquals(labels[1], labelList.get(1));
 	}
-	
+
 	@Test
 	public void addLabelThrowInvalidityException() {
 		String label = " ";
@@ -119,13 +120,13 @@ public class NeoElementNodeTest extends NeoNodeTest {
 			initGetCypherVariableTest(node, id);
 			String variable;
 			variable = assertDoesNotThrow(() -> {return node.getCypherVariable();});
-		    assertTrue(variable.matches(ConstantsNeo.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*")); //--> Checks if the first is the normal prefix + the last digitis are numbers 
+		    assertTrue(variable.matches(ConstantsNeo.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*")); //--> Checks if the first is the normal prefix + the last digitis are numbers
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
 		}
 	}
-	
+
 	@ParameterizedTest
 	@ValueSource(ints = {0,-1,-10,-100,-1000})
 	public void getCypherVariableNotValidNumber(int number) {
@@ -135,7 +136,7 @@ public class NeoElementNodeTest extends NeoNodeTest {
 			initGetCypherVariableTest(node, id);
 			String variable;
 			variable = assertDoesNotThrow(() -> {return node.getCypherVariable();});
-		    assertFalse(variable.matches(ConstantsNeo.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*")); 
+		    assertFalse(variable.matches(ConstantsNeo.VARIABLE_ELEMENT_NODE + "[1-9][0-9]*"));
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -149,7 +150,7 @@ public class NeoElementNodeTest extends NeoNodeTest {
 		NeoNode node = super.neoAbstractNode;
 		initGetCypherReturnVariableTest(node, number, true);
 	}
-	
+
 	@ParameterizedTest
 	@ValueSource(ints = {1,10,100,1000})
 	public void generateCypherReturnVariableDistinct(int number) {
@@ -157,7 +158,7 @@ public class NeoElementNodeTest extends NeoNodeTest {
 		((NeoElementNode) node).setIsVariableDistinctInUse(false);
 		initGetCypherReturnVariableTest(node, number, false);
 	}
-	
+
 	private void initGetCypherReturnVariableTest(NeoNode node, int number, boolean isDistinct) {
 		int id = number;
 		try {
@@ -176,7 +177,7 @@ public class NeoElementNodeTest extends NeoNodeTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	@Override
 	@Test
 	public void generateCypher() {
@@ -199,7 +200,7 @@ public class NeoElementNodeTest extends NeoNodeTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
 	public void generateCypherWithNoLabels() {
 		NeoNode node = super.neoAbstractNode;
@@ -220,9 +221,9 @@ public class NeoElementNodeTest extends NeoNodeTest {
 	public void myToString() {
 		assertDoesNotThrow(() -> initGetCypherVariableTest(neoNode, 1));
 		final String temp = neoNode.myToString();
-		assertTrue(temp.toString().compareTo("NeoElementNodeImpl Element 1 [1]") == 0);			
+		assertTrue(temp.toString().compareTo("NeoElementNodeImpl Element 1 [1]") == 0);
 	}
-	
+
 	@Test
 	@Override
 	public void toStringT() {
@@ -235,7 +236,7 @@ public class NeoElementNodeTest extends NeoNodeTest {
 		final String temp = neoNode.toString();
 		assertTrue(temp.endsWith(suffix));
 	}
-	
+
 	@Test
 	public void createParamters() {
 		final ParameterListImpl list = new ParameterListImpl(null);
@@ -245,11 +246,11 @@ public class NeoElementNodeTest extends NeoNodeTest {
 		Mockito.when(mockNeoElementNode.getNeoNodeLabels()).thenCallRealMethod();
 		Mockito.when(mockNeoElementNode.getParameterList()).thenReturn(null).
 									thenReturn(list);
-		
+
 		//Try to fill empty list
 		mockNeoElementNode.createParameters();
 		assertNull(mockNeoElementNode.getNeoNodeLabels());
-		
+
 		//List has the gets the label instance
 		assertNull(mockNeoElementNode.getNeoNodeLabels());
 		mockNeoElementNode.createParameters();
@@ -260,15 +261,15 @@ public class NeoElementNodeTest extends NeoNodeTest {
 		} catch (Exception e) {
 			assertFalse(true);
 		}
-		
+
 		//Do it again --> No changes
 		Mockito.when(mockNeoElementNode.getNeoNodeLabels()).thenReturn((NeoNodeLabelsParam) list.getParameters().get(0));
 		mockNeoElementNode.createParameters();
 		assumeNotNull(list.getParameters().get(0));
-		
+
 		assertEquals(neoNodeLabelsParam, list.getParameters().get(0));
-		
-		//A label is already set 
+
+		//A label is already set
 		final NeoNodeLabelsParam labels = FACTORY.createNeoNodeLabelsParam();
 		Mockito.when(mockNeoElementNode.getNeoNodeLabels()).thenReturn(labels);
 		mockNeoElementNode.createParameters();

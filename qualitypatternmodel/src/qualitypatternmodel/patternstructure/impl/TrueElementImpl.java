@@ -9,9 +9,9 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.TrueElement;
 
@@ -36,47 +36,48 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		return null;
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		return "true()";
 	}
-	
+
 	@Override
 	public String generateXQueryJava() throws InvalidityException {
 		return "true()";
 	}
-	
+
+	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		return null;
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		return "";
 	}
-	
-	@Override 
+
+	@Override
 	public String generateCypher() throws InvalidityException {
-		return new String(); 
+		return new String();
 	}
-	
+
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) {}
 
 	@Override
 	public void recordValues(XmlDataDatabase database) {}
-	
+
 	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() {
 		return new BasicEList<MorphismContainer>();
-	}	
-	
+	}
+
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		return new BasicEList<PatternElement>();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,7 +87,7 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 	protected EClass eStaticClass() {
 		return PatternstructurePackage.Literals.TRUE_ELEMENT;
 	}
-	
+
 	@Override
 	public String myToString() {
 		return "TRUE";

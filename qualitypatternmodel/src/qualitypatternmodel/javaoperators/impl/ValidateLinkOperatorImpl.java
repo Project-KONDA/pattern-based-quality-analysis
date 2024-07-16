@@ -6,6 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import org.eclipse.emf.ecore.EClass;
+
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.ValidateLinkOperator;
 
@@ -45,7 +46,7 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 	        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 	        connection.setRequestMethod("HEAD");
 	        int responseCode = connection.getResponseCode();
-	        Boolean result = responseCode == HttpURLConnection.HTTP_OK; 
+	        Boolean result = responseCode == HttpURLConnection.HTTP_OK;
 	        return result != negate;
 	    } catch (Exception e) {
 	        return negate;
@@ -57,17 +58,19 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 		String res = "ValidateLink (" + getInternalId() + ")";
 		if (getOption() != null) {
 			res +=  "[";
-			if (!getOption().getValue()) 
+			if (!getOption().getValue()) {
 				res += "not ";
+			}
 			res += getOption().getInternalId() + "]";
-		}
-		else 
+		} else {
 			res += "[no option] ";
+		}
 
-		if (getPrimitiveNode() != null)
+		if (getPrimitiveNode() != null) {
 			res += "[" + getPrimitiveNode().getInternalId() + "]";
-		else 
+		} else {
 			res += "[no node] ";
+		}
 		return res;
 	}
 } //ValidateLinkOperatorImpl

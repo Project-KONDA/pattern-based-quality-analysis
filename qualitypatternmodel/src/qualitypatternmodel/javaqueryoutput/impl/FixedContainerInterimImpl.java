@@ -10,7 +10,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -82,13 +81,14 @@ public class FixedContainerInterimImpl extends ContainerInterimImpl implements F
 		getContained().clear();
 		getContained().addAll(interims);
 	}
-	
+
 	public FixedContainerInterimImpl(String json) throws InvalidityException {
 		super();
 		try {
 			JSONObject jsono = new JSONObject(json);
-			if (!jsono.get("class").equals(getClass().getSimpleName()))
+			if (!jsono.get("class").equals(getClass().getSimpleName())) {
 				throw new InvalidityException("Wrong class");
+			}
 			setInterimPartId(jsono.getInt("id"));
 			JSONArray containedarray = new JSONArray(jsono.getString("contained"));
 			for (int i = 0; i < containedarray.length(); i++) {
@@ -98,12 +98,12 @@ public class FixedContainerInterimImpl extends ContainerInterimImpl implements F
 			throw new InvalidityException("Wrong class");
 		}
 	}
-	
+
 	@Override
 	public Integer getSize() {
 		return getContained().size();
 	}
-	
+
 	@Override
 	public JSONObject toJson() {
 		JSONObject result = new JSONObject();
@@ -111,8 +111,9 @@ public class FixedContainerInterimImpl extends ContainerInterimImpl implements F
 			result.put("class", getClass().getSimpleName());
 			result.put("id", getInterimPartId());
 			JSONArray contained = new JSONArray();
-			for (InterimResultPart container: getContained())
+			for (InterimResultPart container: getContained()) {
 				contained.put(container.toJson());
+			}
 			result.put("contained", contained);
 		} catch (JSONException e) {
 		}
@@ -123,8 +124,9 @@ public class FixedContainerInterimImpl extends ContainerInterimImpl implements F
 	public Map<Integer, InterimResultPart> getInterimResultParts() {
 		Map<Integer, InterimResultPart> map = new HashMap<Integer, InterimResultPart>();
 		map.put(getInterimPartId(), this);
-		for (InterimResultPart contained: getContained())
+		for (InterimResultPart contained: getContained()) {
 			map.putAll(((InterimResultPartImpl) contained).getInterimResultParts());
+		}
 		return map;
 	}
 
@@ -133,9 +135,10 @@ public class FixedContainerInterimImpl extends ContainerInterimImpl implements F
 		int containedSize = getContained().size();
 		String containedString = "";
 		for (int i = 0; i < containedSize; i++) {
-			if (i>0)
+			if (i>0) {
 				containedString += ", ";
-			containedString += getContained().get(i); 
+			}
+			containedString += getContained().get(i);
 		}
 		return "<containerF " + getInterimPartId() + " " + containedString + ">";
 	}

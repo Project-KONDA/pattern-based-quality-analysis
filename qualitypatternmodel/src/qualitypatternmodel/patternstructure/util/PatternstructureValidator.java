@@ -2,18 +2,35 @@
  */
 package qualitypatternmodel.patternstructure.util;
 
-import de.gwdg.metadataqa.api.schema.BaseSchema;
 import java.util.Map;
+
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
+import de.gwdg.metadataqa.api.schema.BaseSchema;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.patternstructure.*;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.Condition;
+import qualitypatternmodel.patternstructure.CountCondition;
+import qualitypatternmodel.patternstructure.CountConditionArgument;
+import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.patternstructure.LogicalOperator;
+import qualitypatternmodel.patternstructure.Morphism;
+import qualitypatternmodel.patternstructure.MorphismContainer;
+import qualitypatternmodel.patternstructure.NotCondition;
+import qualitypatternmodel.patternstructure.NumberElement;
+import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.patternstructure.TrueElement;
 
 /**
  * <!-- begin-user-doc -->

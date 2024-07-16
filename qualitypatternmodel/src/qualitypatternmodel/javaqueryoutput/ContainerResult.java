@@ -3,6 +3,7 @@
 package qualitypatternmodel.javaqueryoutput;
 
 import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 
 

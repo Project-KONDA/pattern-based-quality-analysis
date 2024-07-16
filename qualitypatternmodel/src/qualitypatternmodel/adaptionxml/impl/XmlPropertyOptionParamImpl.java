@@ -4,17 +4,14 @@ package qualitypatternmodel.adaptionxml.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.json.JSONArray;
@@ -31,11 +28,11 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.parameters.impl.ParameterImpl;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.impl.ParameterImpl;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
@@ -107,47 +104,51 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	public XmlPropertyOptionParamImpl() {
 		super();
 	}
-	
+
 	@Override
 	public String getValueAsString() {
-		if (getValue() == null)
+		if (getValue() == null) {
 			return null;
+		}
 		return getValue().getName();
 	}
-	
+
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		XmlPropertyKind result = null;
 		String attName = "";
 		for(XmlPropertyKind kind : XmlPropertyKind.values()) {
-			if(kind.getName().equals(value)) {	
+			if(kind.getName().equals(value)) {
 				result = kind;
 				break;
 			}
 		}
 		if (result == null) {
-			if (value.equals("/data()") || value.equals("data()") || value.equals("/text()") || value.equals("text()"))
-				result = XmlPropertyKind.DATA;	
-			else if (value.equals("/name()") || value.equals("name()"))
+			if (value.equals("/data()") || value.equals("data()") || value.equals("/text()") || value.equals("text()")) {
+				result = XmlPropertyKind.DATA;
+			} else if (value.equals("/name()") || value.equals("name()")) {
 				result = XmlPropertyKind.TAG;
-			else if (value.startsWith("/@") || value.startsWith("@")) {
-				if(value.startsWith("/@"))
+			} else if (value.startsWith("/@") || value.startsWith("@")) {
+				if(value.startsWith("/@")) {
 					attName = value.substring(2);
-				else 
+				} else {
 					attName = value.substring(1);
-				if (!attName.matches("[a-zA-Z0-9]+"))
+				}
+				if (!attName.matches("[a-zA-Z0-9]+")) {
 					throw new InvalidityException("new property kind value invalid in " + myToString() + ": " + value);
+				}
 				result = XmlPropertyKind.ATTRIBUTE;
+			} else {
+				throw new InvalidityException("new property kind value invalid in " + myToString() + ": " + value);
 			}
-			else throw new InvalidityException("new property kind value invalid in " + myToString() + ": " + value);
 		}
-		
+
 		if (result != null) {
 			setValueIfValid(result);
 			if (result == XmlPropertyKind.ATTRIBUTE) {
 				getAttributeName().setValue(attName);
 			}
-		} 
+		}
 	}
 
 	@Override
@@ -155,35 +156,37 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 		setValue(null);
 		setAttributeName(null);
 	}
-	
+
 	@Override
 	public JSONArray getOptionsAsJsonArray() {
 		JSONArray jarray = new JSONArray();
-		for (XmlPropertyKind axis: getOptions())
+		for (XmlPropertyKind axis: getOptions()) {
 			jarray.put(axis);
+		}
 		return jarray;
 	}
-	
+
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
 		XmlPathParam xpath = getXmlPathParam();
 		if (xpath != null) {
-			XmlNavigation xnav = xpath.getXmlNavigation(); 
+			XmlNavigation xnav = xpath.getXmlNavigation();
 			if (xnav != null) {
 				Node tar = getXmlPathParam().getXmlNavigation().getTarget();
-				if (tar != null)
+				if (tar != null) {
 					tar.checkComparisonConsistency();
+				}
 			}
 		}
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		
+
 		if(getValue() == null) {
 			throw new InvalidityException("propertyOption invalid");
-		}				
-		
+		}
+
 		switch (getValue()) {
 		case ATTRIBUTE:
 			if (attributeName == null || attributeName.getValue() == null) {
@@ -191,8 +194,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			} else {
 				if (attributeName.getValue().contains(":")) {
 					return "/@*[name()=\"" + attributeName.getValue() + "\"]";
-				} 
-				return "/@" + attributeName.getValue() + "";				
+				}
+				return "/@" + attributeName.getValue() + "";
 			}
 		case DATA:
 			return "/text()";
@@ -202,48 +205,53 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			throw new InvalidityException("error in location specification");
 		}
 	}
-	
+
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
 		super.isValid(abstractionLevel);
-		if(getAttributeName() != null && getValue() == XmlPropertyKind.ATTRIBUTE)
+		if(getAttributeName() != null && getValue() == XmlPropertyKind.ATTRIBUTE) {
 			getAttributeName().isValid(abstractionLevel);
+		}
 	}
-	
+
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (getOptions() == null) 
+		if (getOptions() == null) {
 			throw new InvalidityException("options null");
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getOptions().isEmpty()) 
+		}
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getOptions().isEmpty()) {
 			throw new InvalidityException("not enough options");
-		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
+		}
+		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid())) {
 			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")");
+		}
 		if(isPredefined() && !inputIsValid()) {
 			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + ")");
 		}
-		if (getAttributeName() == null && getValue() == XmlPropertyKind.ATTRIBUTE)
+		if (getAttributeName() == null && getValue() == XmlPropertyKind.ATTRIBUTE) {
 			throw new InvalidityException("attributeName null");
+		}
 		if(getParameterList() != null) {
 			throw new InvalidityException("PropertyOptionParam contained in ParameterList instead of PathParam");
 		}
 	}
-	
+
 	@Override
 	public boolean inputIsValid() {
 		return getValue() != null && getOptions().contains(getValue());
 	}
-	
+
 	@Override
-	public void createParameters() {	
-		ParameterList parameterList = getParameterList();		
+	public void createParameters() {
+		ParameterList parameterList = getParameterList();
 		if(parameterList != null) {
 			if(getAttributeName() == null) {
 				TextLiteralParam textLiteral = new TextLiteralParamImpl();
 				setAttributeName(textLiteral);
-			}	
+			}
 		}
 	}
-	
+
 	@Override
 	public boolean isUsed() {
 		return !(getXmlPathParam() == null) && !(getXmlPathParam().getXmlNavigation() == null);
@@ -254,10 +262,11 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {		
+	@Override
+	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -282,7 +291,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			EList<XmlPropertyKind> options2 = new EDataTypeUniqueEList<XmlPropertyKind>(XmlPropertyKind.class, this, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__OPTIONS);
 			for (XmlPropertyKind cop: options) {
 				if (!options2.contains(cop)) {
-					options2.add(cop);				
+					options2.add(cop);
 				}
 			}
 			options = options2;
@@ -317,9 +326,10 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 		} else {
 			setAttributeName(null);
 		}
-		
-		if (eNotificationRequired())
+
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__VALUE, oldValue, value));
+		}
 	}
 
 	/**
@@ -382,21 +392,26 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	 */
 	public NotificationChain basicSetAttributeName(TextLiteralParam newAttributeName, NotificationChain msgs) {
 		TextLiteralParam oldAttributeName = attributeName;
-		
+
 		ParameterList varlist = getParameterList();
 		if (varlist != null){
-			if (oldAttributeName != null)
+			if (oldAttributeName != null) {
 				varlist.remove(oldAttributeName);
+			}
 			if (newAttributeName != null) {
 				newAttributeName.setParameterList(varlist);
 			}
-		} 
+		}
 
 		attributeName = newAttributeName;
 
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, oldAttributeName, newAttributeName);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -472,7 +487,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	@Override
 	public void setValueIfValid(XmlPropertyKind newValue) throws InvalidityException {
 		XmlPropertyKind oldValue = getValue();
-		setValue(newValue);		
+		setValue(newValue);
 		try {
 			checkComparisonConsistency();
 		} catch (Exception e) {
@@ -711,13 +726,14 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 		result.append(')');
 		return result.toString();
 	}
-	
-	@Override 
+
+	@Override
 	public String myToString() {
 		String result = "{";
 		result += getValueAsString();
-		if (getAttributeName() != null)
+		if (getAttributeName() != null) {
 			result += ", " + getAttributeName().myToString();
+		}
 		return result += "}";
 	}
 
@@ -727,7 +743,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 		try {
 			res += " von " + getXmlPathParam().getXmlNavigation().getName();
 		} catch (Exception e) {}
-		
+
 		return res;
 //		setDescription(res);
 	}

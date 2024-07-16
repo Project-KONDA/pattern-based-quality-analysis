@@ -13,29 +13,27 @@ import qualitypatternmodel.utility.XmlPatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test14StringLength {
-	
+
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
-		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		ArrayList<CompletePattern> completePatterns = new ArrayList<>();
 		completePatterns.add(getPatternLength(ComparisonOperator.EQUAL, 5.));
 		completePatterns.add(getPatternLength(ComparisonOperator.LESSOREQUAL, 10.));
 		return completePatterns;
 	}
-	
+
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		XmlPatternUtility.testPatterns(getPatterns());
 	}
-	
+
 	public static CompletePattern getPatternLength(ComparisonOperator op, Double num) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveStringLength(op, num);
 		pattern.createXmlAdaption();
-		return pattern;		
-		
+		return pattern;
 	}
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		
 		return testPairs;
 	}
 

@@ -4,18 +4,17 @@ package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
@@ -26,8 +25,8 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
-import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -105,26 +104,29 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	public TextLiteralParamImpl() {
 		super();
 	}
-	
+
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		String container = "";
-		if (eContainer() instanceof PatternElement)
+		if (eContainer() instanceof PatternElement) {
 			container += " in " + eContainer().getClass().getSimpleName() + " [" + ((PatternElement) eContainer()).getInternalId() + "]";
-		if (getParameterList() == null && getXmlAxisPartCondition() == null && getXmlPropertyOptionParam() == null)
+		}
+		if (getParameterList() == null && getXmlAxisPartCondition() == null && getXmlPropertyOptionParam() == null) {
 			throw new InvalidityException("variableList and axisPart null" + " (" + getInternalId() + container + ")");
-		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
+		}
+		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid())) {
 			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + container + ")");
+		}
 		if(isPredefined() && !inputIsValid()) {
 			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + container + ")");
-		}		
+		}
 	}
-	
+
 	@Override
 	public String getValueAsString() {
 		return getValue();
 	}
-	
+
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		setValueIfValid(value);
@@ -134,12 +136,12 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	public void clear() {
 		setValue(null);
 	}
-	
+
 	public TextLiteralParamImpl(String value) {
 		super();
 		this.value = value;
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		if(inputIsValid()) {
@@ -148,7 +150,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			throw new InvalidityException("invalid string at textlistparam " + getInternalId());
 		}
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(inputIsValid()) {
@@ -157,45 +159,45 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			return super.generateSparql();
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @throws InvalidityException
 	 * Generates the sub-query for TextLiteralParam.
 	 */
-	@Override 
+	@Override
 	public String generateCypher() throws InvalidityException {
 		if (inputIsValid()) {
 			return String.format(TextLiteralParamImpl.TEXT_CYPHER, getValue());
 		}
 		return super.generateCypher();
 	}
-		
+
 	@Override
 	public boolean inputIsValid() {
 		return getValue() != null;
 	}
-	
+
 	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.STRING;
 	}
-	
+
 	@Override
-	public boolean isUsed() {		
+	public boolean isUsed() {
 		return super.isUsed() || !getMatches().isEmpty() || getXmlPropertyOptionParam() != null;
 	}
-	
+
 	@Override
 	public EList<String> getSuggestions() {
-		EList<String> suggestions = super.getSuggestions();			
+		EList<String> suggestions = super.getSuggestions();
 		if(getXmlPropertyOptionParam().getValue() == XmlPropertyKind.ATTRIBUTE) {
 			suggestions.addAll(Constants.sortByValue(getAttributeNames()).keySet());
-		}			
+		}
 		return suggestions;
 	}
-	
+
 	@Override
 	public EList<String> inferSuggestions() {
 		EList<String> suggestions = super.inferSuggestions();
@@ -207,15 +209,15 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		} else {
 			suggestions.retainAll(suggestionsFromPath);
 		}
-				
+
 		return suggestions;
 	}
-	
+
 	@Override
 	protected EList<XmlPropertyKind> getPrimitiveComparisonPropertyKinds() {
 		EList<XmlPropertyKind> list = super.getPrimitiveComparisonPropertyKinds();
 		if(this instanceof TextLiteralParam) {
-			TextLiteralParam text = (TextLiteralParam) this;
+			TextLiteralParam text = this;
 			if(text.getXmlAxisPartCondition() != null) {
 				list.add(XmlPropertyKind.TAG);
 			}
@@ -223,7 +225,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		return list;
 	}
 
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -239,6 +241,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
 		if(newVariableList == null) {
 			getMatches().clear();
@@ -247,7 +250,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		return super.basicSetParameterList(newVariableList, msgs);
 	}
 
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -391,13 +394,13 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override
 	public void setValueIfValid(String newValue) throws InvalidityException {
 		String oldValue = getValue();
-		setValue(newValue);		
+		setValue(newValue);
 		try {
 			checkComparisonConsistency();
 		} catch (Exception e) {
 			setValue(oldValue);
 			throw e;
-		}		
+		}
 	}
 
 	/**
@@ -597,13 +600,13 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		result.append(')');
 		return result.toString();
 	}
-	
-	@Override 
+
+	@Override
 	public String myToString() {
-		
+
 		return "text [" + getInternalId() + "] '" + getValue() + "'";
 	}
-	
+
 	@Override
 	public String generateDescription() {
 		String res = "Textfeld";

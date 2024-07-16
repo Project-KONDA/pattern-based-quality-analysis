@@ -278,18 +278,18 @@ public enum LogicalOperator implements Enumerator {
 
 	public static Boolean evaluate(LogicalOperator operator, Boolean result1, Boolean result2) {
 		switch (operator) {
-			case AND: 
+			case AND:
 				return (result1 && result2);
-			case OR: 
+			case OR:
 				return (result1 || result2);
-			case IMPLIES: 
+			case IMPLIES:
 				return (!result1 || result2);
-			case XOR: 
+			case XOR:
 				return (result1 != result2);
 			case EQUAL:
 				return (result1 == result2);
 		}
 		return false;
 	}
-	
+
 } //LogicalOperator

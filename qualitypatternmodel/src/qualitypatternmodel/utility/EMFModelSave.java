@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import jakarta.servlet.ServletContext;
 
 public class EMFModelSave {
-	
-	public static void exportToFile(EObject data, String filePath, String packageName) throws IOException {		
+
+	public static void exportToFile(EObject data, String filePath, String packageName) throws IOException {
 	  Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 	  Map<String, Object> m = reg.getExtensionToFactoryMap();
 	  m.put(packageName, new XMIResourceFactoryImpl());
@@ -29,9 +29,9 @@ public class EMFModelSave {
     public static void exportToFile2(EObject data, ServletContext servletContext, String relativeFolderPath, String fileName, String fileExtension) throws IOException {
     	exportToFile2(data, servletContext.getRealPath(relativeFolderPath), fileName, fileExtension);
     }
-    
+
     public static void exportToFile2(EObject data, String absoluteFolderPath, String fileName, String fileExtension) throws IOException {
-    	
+
     	String absolutePath = absoluteFolderPath + "/" + fileName + "." + fileExtension;
         // Create a ResourceSet
         ResourceSet resourceSet = new ResourceSetImpl();
@@ -39,14 +39,14 @@ public class EMFModelSave {
         // Register the appropriate resource factory
         resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(
                 Resource.Factory.Registry.DEFAULT_EXTENSION, new org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl());
-        
+
         // Print the absolute path for debugging
 //        System.out.println("Absolute Path: " + URI.createFileURI(absolutePath).toFileString());
 
         // Create a Resource with an appropriate URI
         URI fileURI = URI.createFileURI(absolutePath);
         Resource resource = resourceSet.createResource(fileURI);
-        
+
         // Add the model instance to the resource's contents
         resource.getContents().add(data);
 
@@ -67,7 +67,7 @@ public class EMFModelSave {
 
         // Create a resource
         Resource resource = resourceSet.createResource(URI.createURI("temp.xmi"));
-        
+
         // Add the EObject to the resource
         resource.getContents().add(eObject);
 

@@ -4,16 +4,14 @@ package qualitypatternmodel.textrepresentation.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.json.JSONArray;
@@ -85,9 +83,10 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 
 	protected ParameterPredefinitionImpl(CompletePattern pattern, JSONObject json) throws JSONException, InvalidityException {
 		super();
-		if (!json.has(Constants.JSON_VALUE) || !json.has(Constants.JSON_PARAMETER))
+		if (!json.has(Constants.JSON_VALUE) || !json.has(Constants.JSON_PARAMETER)) {
 			throw new InvalidityException("Not valid JSON to a create ParameterPredefinition");
-		
+		}
+
 		String value = json.getString(Constants.JSON_VALUE);
         JSONArray params = json.getJSONArray(Constants.JSON_PARAMETER);
         for (int i = 0; i < params.length(); i++) {
@@ -99,9 +98,9 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
             	e.printStackTrace();
             }
         }
-        setValue(value);		
+        setValue(value);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,24 +158,24 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 		EClass firstEClass = getParameter().get(0).eClass();
 		for(Parameter p : getParameter()) {
 			String value = p.getValueAsString();
-			
+
 			if(!value.equals(firstValue)) {
 				throw new InvalidityException("Referenced parameters have different values");
 			}
-			
+
 			if(!p.eClass().equals(firstEClass)) {
 				throw new InvalidityException("Referenced parameters are not of same type");
 			}
-			
+
 			try {
 				if(getValue() != null && abstractionLevel != AbstractionLevel.CONCRETE) {
 					p.setValueFromString(getValue());
 					p.setValueFromString(value);
-				}	
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 				throw new InvalidityException("Predefined value '" + getValue() + "' has wrong type");
-			}		
+			}
 		}
 	}
 
@@ -192,15 +191,16 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 			EList<Parameter> allParams = getParameter().get(0).getAllParameters();
 			for (Parameter pa: getParameter()) {
 				int index = allParams.indexOf(pa);
-				if (index != -1)
+				if (index != -1) {
 					params.put(index);
+				}
 			}
 		} catch (Exception e) {}
-		
+
 		JSONObject result = new JSONObject();
 		try {
 			result.put(Constants.JSON_PARAMETER, params);
-			result.put(Constants.JSON_VALUE, getValue());	
+			result.put(Constants.JSON_VALUE, getValue());
 		} catch (Exception e) {}
 		return result;
 	}

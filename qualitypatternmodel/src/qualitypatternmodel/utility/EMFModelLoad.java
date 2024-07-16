@@ -1,13 +1,13 @@
 package qualitypatternmodel.utility;
 
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -29,11 +29,11 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 //import qualitypatternmodel.patternstructure.impl.PatternstructureFactoryImpl;
 
 public class EMFModelLoad {
-	
+
 	public static CompletePattern loadCompletePattern(String absoluteFolderPath, String patternId, String extension) throws IOException {
 		return loadCompletePattern(absoluteFolderPath + "/" + patternId + "." + extension);
 	}
-	
+
 	public static CompletePattern loadCompletePattern(String fullPath) throws IOException {
 		// Initialize the model
         PatternstructurePackage.eINSTANCE.eClass();
@@ -43,26 +43,26 @@ public class EMFModelLoad {
 			throw new IOException("Wrong file : resource in " + fullPath + " is not a valid CompletePattern");
 		}
 		else if(object instanceof CompletePattern) {
-			return (CompletePattern) object;	         
+			return (CompletePattern) object;
 		} else {
 			throw new IOException("Wrong file format: " + object.getClass().getSimpleName() + " in " + fullPath);
 		}
 	}
-	
+
 	public static Databases loadDatabases(String path) throws IOException {
 		// Initialize the model
         ExecutionPackage.eINSTANCE.eClass();
 
 		EObject object = loadFromFile(path);
 		if(object instanceof Databases) {
-			return (Databases) object;	         
+			return (Databases) object;
 		} else {
 			throw new IOException("Wrong file format");
 		}
 	}
-	
+
 	public static ResourceSet loadDatabasesInResourceSet(String dbPath) {
-		
+
 		ExecutionPackage.eINSTANCE.eClass();
 		String fileEnding = "execution";
 		// Register the XMI resource factory for the .patternstructure extension
@@ -83,12 +83,12 @@ public class EMFModelLoad {
 			return null;
 		}
 	}
-	
+
 	public static CompletePattern loadCompletePatternInResourceSet(String patternPath, ResourceSet resSet) {
-		
+
 		EList<XmlDatabase> correctList = new BasicEList<XmlDatabase>();
 		correctList.addAll(DatabasesImpl.getInstance().getXmlDatabases());
-				
+
 		PatternstructurePackage.eINSTANCE.eClass();
 		String path = patternPath;
 		String fileEnding = ServletUtilities.EXTENSION;
@@ -100,20 +100,20 @@ public class EMFModelLoad {
         // Get the resource
         Resource resource2 = resSet.getResource(URI
                 .createURI(path), true);
-       
+
 		EList<XmlDatabase> copy = new BasicEList<XmlDatabase>();
 		copy.addAll(DatabasesImpl.getInstance().getXmlDatabases());
-		
+
 		for(XmlDatabase db : copy) {
-			if(db.eIsProxy()) {			
+			if(db.eIsProxy()) {
 				DatabasesImpl.getInstance().getXmlDatabases().remove(db);
 			}
 		}
-		
+
 		assert(correctList.containsAll(DatabasesImpl.getInstance().getXmlDatabases()) && DatabasesImpl.getInstance().getXmlDatabases().containsAll(correctList));
 
 		if(resource2.getContents().get(0) instanceof CompletePattern) {
-			return (CompletePattern) resource2.getContents().get(0);	  
+			return (CompletePattern) resource2.getContents().get(0);
 		} else {
 			return null;
 		}
@@ -135,14 +135,14 @@ public class EMFModelLoad {
         Resource resource = resSet.getResource(URI
                 .createURI(path), true);
 		if(resource.getContents().get(0) instanceof Databases) {
-//			Databases db = (Databases) resource.getContents().get(0);	         
+//			Databases db = (Databases) resource.getContents().get(0);
 		} else {
 			return null;
 		}
-		
+
 		EList<XmlDatabase> correctList = new BasicEList<XmlDatabase>();
 		correctList.addAll(DatabasesImpl.getInstance().getXmlDatabases());
-				
+
 		PatternstructurePackage.eINSTANCE.eClass();
 		path = patternPath;
 		fileEnding = ServletUtilities.EXTENSION;
@@ -154,25 +154,25 @@ public class EMFModelLoad {
         // Get the resource
         Resource resource2 = resSet.getResource(URI
                 .createURI(path), true);
-       
+
 		EList<XmlDatabase> copy = new BasicEList<XmlDatabase>();
 		copy.addAll(DatabasesImpl.getInstance().getXmlDatabases());
-		
+
 		for(XmlDatabase db : copy) {
-			if(db.eIsProxy()) {			
+			if(db.eIsProxy()) {
 				DatabasesImpl.getInstance().getXmlDatabases().remove(db);
 			}
 		}
-		
+
 		assert(correctList.containsAll(DatabasesImpl.getInstance().getXmlDatabases()) && DatabasesImpl.getInstance().getXmlDatabases().containsAll(correctList));
 
 		if(resource2.getContents().get(0) instanceof CompletePattern) {
-			return (CompletePattern) resource2.getContents().get(0);	  
+			return (CompletePattern) resource2.getContents().get(0);
 		} else {
 			return null;
 		}
 	}
-	
+
     public static CompletePattern loadCompletePatternResource(String path) {
         // Obtain a resource set
         ResourceSetImpl resourceSet = new ResourceSetImpl();
@@ -191,7 +191,7 @@ public class EMFModelLoad {
             throw new IllegalArgumentException("The loaded resource is not an instance of MyResource.");
         }
     }
-	
+
 	public static EObject loadFromFile(String filePath) throws IOException {
         // Create a ResourceSet
         ResourceSet resourceSet = new ResourceSetImpl();
@@ -230,7 +230,7 @@ public class EMFModelLoad {
 	public static List<CompletePattern> loadCompletePatternFromFolder(String path, String extension) throws IOException {
 //		String path = context.getRealPath(relativepath);
 		List<String> files = getFilesInDirectory(path);
-		
+
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		for (String file: files) {
 			try {
@@ -253,6 +253,6 @@ public class EMFModelLoad {
 		}
         Stream <String> filestream = pathstream.map(Path::toString);
         List<String> results = filestream.collect(Collectors.toList());
-        return results;       
+        return results;
     }
 }

@@ -19,7 +19,7 @@ public class RdfTest01_2Types {
 		completePatterns.add(getBaseRdfPatternMoreIris());
 		return completePatterns;
 	}
-	
+
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		RdfTest00.test(getPatterns());
 	}

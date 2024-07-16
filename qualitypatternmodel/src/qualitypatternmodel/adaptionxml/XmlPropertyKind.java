@@ -229,5 +229,5 @@ public enum XmlPropertyKind implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 } //PropertyLocation

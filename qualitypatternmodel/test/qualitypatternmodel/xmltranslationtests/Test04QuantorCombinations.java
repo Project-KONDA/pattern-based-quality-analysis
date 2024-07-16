@@ -2,21 +2,31 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.utility.XmlPatternUtility;
-import qualitypatternmodel.xmltestutility.PatternTestPair;
-import qualitypatternmodel.graphstructure.*;
+import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
+import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.XmlProperty;
-import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
-import qualitypatternmodel.adaptionxml.XmlReference;
-import qualitypatternmodel.exceptions.*;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test04QuantorCombinations {
-	
+
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternExistsInExistsFinal());
@@ -25,30 +35,30 @@ public class Test04QuantorCombinations {
 		completePatterns.add(getPatternForallInForall());
 		return completePatterns;
 	}
-	
+
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		XmlPatternUtility.testPatterns(getPatterns());
 	}
-	
+
 	public static CompletePattern getPatternExistsInExistsFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
+
 		CompletePattern completePattern = getPatternExistsInExists();
-		
+
 		completePattern.createXmlAdaption();
-		
+
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		QuantifiedCondition quantifiedCondition2 = (QuantifiedCondition) quantifiedCondition.getCondition();
-		
+
 //		Graph g1 = completePattern.getGraph();
 //		Graph g2 = quantifiedCondition.getGraph();
 		Graph g3 = quantifiedCondition2.getGraph();
-		
-		
+
+
 		XmlReference ref = g3.getRelations().get(0).adaptAsXmlReference();
 		ref.setType(ReturnType.STRING);
-		
+
 		XmlProperty prop0 = (XmlProperty) g3.getNodes().get(1);
 		Relation rel = prop0.getIncoming().get(0);
 		if(rel instanceof XmlPropertyNavigation) {
@@ -58,12 +68,12 @@ public class Test04QuantorCombinations {
 			text.setValue("demo:id");
 			nav.getXmlPathParam().getXmlPropertyOptionParam().setAttributeName(text);
 		}
-		
+
 		return completePattern;
 	}
 
 	public static CompletePattern getPatternExistsInExists() throws InvalidityException {
-		
+
 		// PatternStructure
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
@@ -71,34 +81,34 @@ public class Test04QuantorCombinations {
 		QuantifiedCondition qcond = (QuantifiedCondition) completePattern.getCondition();
 		QuantifiedCondition qcond2 =  factory.createQuantifiedCondition();
 		qcond.setCondition(qcond2);
-		
+
 		// EXISTS 2 additional graph structure
 		GraphstructurePackage.eINSTANCE.eClass();
 //		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		
+
 		Graph g1 = completePattern.getGraph();
 		Graph g2 = qcond.getGraph();
 		Graph g3 = qcond2.getGraph();
-		
+
 		Node e1q1 = g1.getNodes().get(0);
 		Node e2q1 = e1q1.addOutgoing(g2).getTarget();
-		
-//		Node se3 = 
-		e2q1.addOutgoing(g3).getTarget();		
-		
+
+//		Node se3 =
+		e2q1.addOutgoing(g3).getTarget();
+
 //		completePattern.createXMLAdaption();
 //		relation2.adaptAsXMLNavigation();
 //		XMLReference ref = relation.adaptAsXMLReference();
 //		ref.setType(ReturnType.STRING);
-//		completePattern.finalizeXMLAdaption();		
-		
+//		completePattern.finalizeXMLAdaption();
+
 		return completePattern;
 	}
-	
+
 	public static CompletePattern getPatternForallInExists() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternExistsInExistsFinal();
 		((QuantifiedCondition)((QuantifiedCondition) completePattern.getCondition()).getCondition()).setQuantifier(Quantifier.FORALL);
-		return completePattern;		
+		return completePattern;
 	}
 
 	public static CompletePattern getPatternExistsInForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -106,8 +116,8 @@ public class Test04QuantorCombinations {
 		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition();
 		Node n1 = quantifiedCondition.getGraph().getNodes().get(1);
-		n1.addPrimitiveComparison("demo:artist");;
-		
+		n1.addPrimitiveComparison("demo:artist");
+
 		return completePattern;
 	}
 	public static CompletePattern getPatternForallInForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -122,10 +132,10 @@ public class Test04QuantorCombinations {
 		testPairs.add(new PatternTestPair("EXFA", 	getPatternForallInExists(), "/*[./*]"));
 		testPairs.add(new PatternTestPair("FAEX", 	getPatternExistsInForall(), "for $x in /* where every $y in $x/child::*[./name()=\"demo:artist\"] satisfies ($y[exists(./@*[name()=\"demo:id\"])] and /descendant::*[exists(./data())][$y/@*[name()=\"demo:id\"]=./data()]) return $x"));
 		testPairs.add(new PatternTestPair("FAFA", 	getPatternForallInForall(), "for $var4 in /* where every $var7 in $var4/* satisfies ($var7[exists(./@*[name()=\"demo:id\"])]) return ($var4)"));
-		
+
 		// TODO: complete test cases
-		
-		return testPairs;		
+
+		return testPairs;
 	}
-	
+
 }

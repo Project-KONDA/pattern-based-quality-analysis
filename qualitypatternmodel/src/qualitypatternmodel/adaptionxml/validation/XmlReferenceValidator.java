@@ -5,7 +5,6 @@
 package qualitypatternmodel.adaptionxml.validation;
 
 import qualitypatternmodel.adaptionxml.XmlProperty;
-
 import qualitypatternmodel.graphstructure.ReturnType;
 
 /**

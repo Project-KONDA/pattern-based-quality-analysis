@@ -6,17 +6,22 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import qualitypatternmodel.exceptions.OperatorCycleException;
-
 import qualitypatternmodel.graphstructure.util.GraphstructureValidator;
-
-import qualitypatternmodel.operators.*;
-
+import qualitypatternmodel.operators.BooleanOperator;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.Contains;
+import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.NullCheck;
+import qualitypatternmodel.operators.NumberOperator;
+import qualitypatternmodel.operators.Operator;
+import qualitypatternmodel.operators.OperatorList;
+import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
 
 /**

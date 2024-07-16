@@ -4,12 +4,19 @@ package qualitypatternmodel.javaqueryoutput.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import qualitypatternmodel.javaqueryoutput.*;
+import qualitypatternmodel.javaqueryoutput.ContainerInterim;
+import qualitypatternmodel.javaqueryoutput.ContainerResult;
+import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
+import qualitypatternmodel.javaqueryoutput.InterimResult;
+import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
+import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
+import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.javaqueryoutput.ValueInterim;
+import qualitypatternmodel.javaqueryoutput.ValueResult;
+import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
 
 /**
  * <!-- begin-user-doc -->

@@ -21,19 +21,21 @@ import qualitypatternmodel.exceptions.InvalidityException;
 public class NeoNodeLabelsParamTest extends NeoLabelTest {
 
 	NeoNodeLabelsParam nodeLabel = null;
-	
+
+	@Override
 	@BeforeEach
 	public void setUp() {
 		nodeLabel = FACTORY.createNeoNodeLabelsParam();
 		label = nodeLabel;
 	}
-	
+
+	@Override
 	@AfterEach
 	public void tearDown() {
 		super.tearDown();
 		nodeLabel = null;
 	}
-	
+
 	@Override
 	@ParameterizedTest
 	@ValueSource(strings = {"Regesta1", "Regesta_2,IndexPlace", "Index_Entry,Index_Entry", "null"})
@@ -41,12 +43,12 @@ public class NeoNodeLabelsParamTest extends NeoLabelTest {
 		if (label.compareTo("null") == 0) {
 			assertDoesNotThrow(() -> nodeLabel.setValueIfValid(null));
 		} else {
-			final EList<String> newValue = new BasicEList<>();
+			final EList<String> newValue = new BasicEList<String>();
 			fillLabelList(label, newValue);
-			assertDoesNotThrow(() -> nodeLabel.setValueIfValid(newValue));			
+			assertDoesNotThrow(() -> nodeLabel.setValueIfValid(newValue));
 		}
 	}
-	
+
 	@ParameterizedTest
 	@ValueSource(strings = {"Regesta1", "Regesta_2,IndexPlace", "Index_Entry,Index_Entry", "null"})
 	public void addStringValue(String label) {
@@ -59,23 +61,23 @@ public class NeoNodeLabelsParamTest extends NeoLabelTest {
 				assertDoesNotThrow(() -> nodeLabel.addStringValue(templabel));
 				if (label.compareTo("Index_Entry,Index_Entry") != 0) {
 					assertEquals(templabel, nodeLabel.getValues().get(i));
-					i++;					
+					i++;
 				} else {
 					assertTrue(nodeLabel.getValues().size() == 1);
 				}
 			}
 		}
 	}
-		
+
 	@Override
 	@ParameterizedTest
 	@ValueSource(strings = {"Regesta1@, Reges ta2", "Index-Place", "Index<>Entry,Index\\Entry", "Index||Entry",  "Index$ Entry"})
 	public void setValueIfValidException(String label) {
-		final EList<String> newValue = new BasicEList<>();
+		final EList<String> newValue = new BasicEList<String>();
 		fillLabelList(label, newValue);
 		assertThrows(InvalidityException.class, () -> nodeLabel.setValueIfValid(newValue));
 	}
-	
+
 	@ParameterizedTest
 	@ValueSource(strings = {"Regesta1@, Reges ta2", "Index-Place", "Index<>Entry,Index\\Entry", "Index||Entry", "Index$ Entry"})
 	public void addStringValueException(String label) {
@@ -89,28 +91,28 @@ public class NeoNodeLabelsParamTest extends NeoLabelTest {
 	@Override
 	public void generateCypher() {
 		try {
-			final EList<String> newValue = new BasicEList<>();
+			final EList<String> newValue = new BasicEList<String>();
 			final String seperator = ":";
 			newValue.add("Regesta1");
 			nodeLabel.setValueIfValid(newValue);
 			assertTrue(nodeLabel.generateCypher().compareTo(seperator + "Regesta1") == 0);
-			
+
 			newValue.add("IndexPlace");
 			nodeLabel.setValueIfValid(newValue);
 			assertTrue(nodeLabel.generateCypher().compareTo(seperator + "Regesta1" + seperator + "IndexPlace") == 0);
-			
+
 			newValue.add("");
 			nodeLabel.setValueIfValid(newValue);
-			assertTrue(nodeLabel.generateCypher().compareTo(seperator + "Regesta1" + seperator + "IndexPlace") == 0);			
+			assertTrue(nodeLabel.generateCypher().compareTo(seperator + "Regesta1" + seperator + "IndexPlace") == 0);
 		} catch (Exception e) {
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
 	@Override
 	public void myToString() {
-		final EList<String> newValue = new BasicEList<>();
+		final EList<String> newValue = new BasicEList<String>();
 		newValue.add("Regesta");
 		newValue.add("IndexPlace");
 		assertDoesNotThrow(() -> nodeLabel.setValueIfValid(newValue));
@@ -120,13 +122,13 @@ public class NeoNodeLabelsParamTest extends NeoLabelTest {
 	@Test
 	@Override
 	public void toStringT() {
-		final EList<String> newValue = new BasicEList<>();
+		final EList<String> newValue = new BasicEList<String>();
 		newValue.add("Regesta");
 		newValue.add("IndexPlace");
 		assertDoesNotThrow(() -> nodeLabel.setValueIfValid(newValue));
 		assertTrue(nodeLabel.myToString().compareTo("NeoNodeLabels [-1] ('Regesta', 'IndexPlace')") == 0);
 	}
-	
+
 	//FACTORY- and HELPER-METHODS
 	private final void fillLabelList(String label, final EList<String> newValue) {
 		final String[] labels = label.split(",");

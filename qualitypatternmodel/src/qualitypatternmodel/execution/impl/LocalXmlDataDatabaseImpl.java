@@ -6,8 +6,8 @@ import org.basex.core.BaseXException;
 import org.basex.core.cmd.CreateDB;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.LocalXmlDataDatabase;
 
@@ -53,35 +53,35 @@ public class LocalXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Loc
 	protected LocalXmlDataDatabaseImpl() {
 		super();
 	}
-	
+
 	public LocalXmlDataDatabaseImpl(String name, String dataPath) {
 		super();
 		this.name = name;
-		this.dataPath = dataPath;		
+		this.dataPath = dataPath;
 	}
-	
+
 //	public LocalXmlDatabaseImpl(String name, String dataPath, String schemaPath) {
 //		super();
 //		this.name = name;
-//		this.dataPath = dataPath;	
+//		this.dataPath = dataPath;
 //		this.schemaPath = schemaPath;
 //	}
 
 //	@Override
 //	public void init() throws BaseXException, QueryIOException, QueryException {
 ////		super.init();
-//		
+//
 //		if(!context.listDBs().contains(name)) {
 //			create();
 //		}
-//		
+//
 ////		try {
-////			
+////
 ////			new Open(name).execute(context);
 ////			new Close().execute(context);
 ////		} catch(BaseXException e) {
 ////			create();
-////		}		
+////		}
 ////		analyse();
 //	}
 
@@ -125,9 +125,9 @@ public class LocalXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Loc
 	 */
 	@Override
 	public void create() throws BaseXException {
-		new CreateDB(name, dataPath).execute(context);	
+		new CreateDB(name, dataPath).execute(context);
 //		new Close().execute(context);
-	}	
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

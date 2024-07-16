@@ -3,12 +3,12 @@
 package qualitypatternmodel.adaptionrdf.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.json.JSONException;
@@ -83,11 +83,12 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 	protected EClass eStaticClass() {
 		return AdaptionrdfPackage.Literals.RDF_PATH_PART;
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
-		if (getRdfPath() == null)
+		if (getRdfPath() == null) {
 			return ConstantsRdf.WILDCARD;
+		}
 		return getRdfPath().generateSparql();
 	}
 
@@ -99,10 +100,11 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 	@Override
 	public String generateRdfPartTypes(String variable) throws InvalidityException {
 		String result = "";
-		if (getTargetNodeTypes() != null)
+		if (getTargetNodeTypes() != null) {
 			for (IriParam iri: getTargetNodeTypes().getIriParams()) {
-				result += "\n" + variable + " " + RdfIriNodeImpl.RDF_PREDICATE + " " + iri.generateSparql() + "."; 
+				result += "\n" + variable + " " + RdfIriNodeImpl.RDF_PREDICATE + " " + iri.generateSparql() + ".";
 			}
+		}
 		return result;
 	}
 
@@ -114,14 +116,16 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 	@Override
 	public String getValueAsString() {
 		String path = getRdfPath().getValueAsString();
-		if (getTargetNodeTypes() == null || getTargetNodeTypes().getIriParams().isEmpty())
+		if (getTargetNodeTypes() == null || getTargetNodeTypes().getIriParams().isEmpty()) {
 			return path;
-		
+		}
+
 		JSONObject job = new JSONObject();
 		try {
 			job.put(Constants.JSON_RDF_PATH, path);
-			if (getTargetNodeTypes() != null)
+			if (getTargetNodeTypes() != null) {
 				job.put(Constants.JSON_RDF_NODE_TYPE, getTargetNodeTypes().getValueAsString());
+			}
 		} catch (JSONException e) {
 			// never happens
 		}
@@ -151,8 +155,9 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 				throw new InvalidityException("Cannot build a correct RdfPathComponent from '" + value + "'", f);
 			}
 		}
-		if (path == null)
+		if (path == null) {
 			throw new InvalidityException("Path cannot be null in RdfPathPart (" + value + ")");
+		}
 		setRdfPath(path);
 		setTargetNodeTypes(iri);
 	}
@@ -456,7 +461,7 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 	public void isValidLocal(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

@@ -24,15 +24,15 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 import junittests.adaptionneo4jtests.NeoPathPartTest;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
-import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
-import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
@@ -52,9 +52,9 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 	private static final String VARIABLE_PROPERTY_NODE_ID_3 = ConstantsNeo.VARIABLE_PROPERTY_NODE + 3 + "-";
 	private static final Class<NeoComplexEdgeImpl> neoComplexEdgeImplclass = NeoComplexEdgeImpl.class;
 	private static Method validateComplexEdge;
-	
-	
-	
+
+
+
 	@BeforeAll
     static void initAll() {
 		try {
@@ -64,42 +64,43 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			System.out.println(e);
 		}
     }
-	
+
 	@BeforeEach
 	public void setUp() {
 		super.setUp(FACTORY.createNeoComplexEdge());
 		neoComplexEdge = (NeoComplexEdge) super.neoPathPart;
 	}
-	
+
+	@Override
 	@AfterEach
 	public void tearDown() {
 		super.tearDown();
 		neoComplexEdge = null;
 	}
-	
+
 	@AfterAll
 	static void tearDownAll() {
 		validateComplexEdge.setAccessible(false);
 		validateComplexEdge = null;
     }
-	
+
 	@Test
 	public void validateComplexEdge() {
 		try {
 			//Just with NeoSimpleEdges
 			neoComplexEdge.addNeoPathPart(FACTORY.createNeoSimpleEdge());
 			neoComplexEdge.addNeoPathPart(FACTORY.createNeoSimpleEdge());
-						
+
 			assertDoesNotThrow(() -> validateComplexEdge.invoke(neoComplexEdge));
 			unsetNeoPathPartInComplexEdge();
-			
+
 			//Just with NeoSimpleEdges and NeoLastEdge
 			neoComplexEdge.addNeoPathPart(FACTORY.createNeoSimpleEdge());
 			NeoSimpleEdge neoSimpleEdge0 = FACTORY.createNeoSimpleEdge();
 			neoComplexEdge.addNeoPathPart(neoSimpleEdge0);
 			assertDoesNotThrow(() -> validateComplexEdge.invoke(neoComplexEdge));
 			unsetNeoPathPartInComplexEdge();
-			
+
 			//In NeoComplexEdges
 			NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
 			neoComplexEdge1.addNeoPathPart(FACTORY.createNeoSimpleEdge());
@@ -110,7 +111,7 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			neoComplexEdge.addNeoPathPart(neoComplexEdge2);
 			assertDoesNotThrow(() -> validateComplexEdge.invoke(neoComplexEdge));
 			unsetNeoPathPartInComplexEdge();
-			
+
 			//In NeoComplexEdges -- WITH LAST EDGE
 			NeoComplexEdge neoComplexEdge3 = FACTORY.createNeoComplexEdge();
 			neoComplexEdge3.addNeoPathPart(FACTORY.createNeoSimpleEdge());
@@ -128,22 +129,22 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 	}
 
 	private void unsetNeoPathPartInComplexEdge() {
-		((NeoComplexEdgeImpl) neoComplexEdge).eUnset((int) Adaptionneo4jPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS);
+		((NeoComplexEdgeImpl) neoComplexEdge).eUnset(Adaptionneo4jPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS);
 		assumeNotNull(neoComplexEdge.getNeoPathPartEdgeLeafs());
 		assertTrue(neoComplexEdge.getNeoPathPartEdgeLeafs().size() == 0);
 	}
-	
+
 	//tested indirectly: countOfEdges()
 	@Test
 	public void notValidatComplexEdge() {
 		checkIfComplexEdgeIsNotValid();
-		
+
 		//WITH TWO NEOCOMPLEXEDGES
 		neoComplexEdge.addNeoPathPart(FACTORY.createNeoComplexEdge());
 		neoComplexEdge.addNeoPathPart(FACTORY.createNeoComplexEdge());
 		checkIfComplexEdgeIsNotValid();
 		unsetNeoPathPartInComplexEdge();
-		
+
 		//Last Edge is not @ the end
 		try {
 			Field f = getFieldIsLastEdge();
@@ -182,7 +183,7 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 		NeoComplexEdge neoComplexEdge2 = FACTORY.createNeoComplexEdge();
 		neoComplexEdge2.setNeoComplexEdge(neoComplexEdge1);
 		neoComplexEdge.addNeoPathPart(neoComplexEdge1);
-		
+
 		checkIfComplexEdgeIsNotValid();
 
 		unsetNeoPathPartInComplexEdge();
@@ -195,7 +196,7 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 		checkIfComplexEdgeIsNotValid();
 		unsetNeoPathPartInComplexEdge();
 	}
-	
+
 
 	protected Field getFieldIsLastEdge() throws NoSuchFieldException {
 		Class<NeoSimpleEdgeImpl> c2 = NeoSimpleEdgeImpl.class;
@@ -203,7 +204,7 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 		f.setAccessible(true);
 		return f;
 	}
-	
+
 	@Test
 	@SuppressWarnings("unchecked")
 	public void addNeoPathPart() {
@@ -211,14 +212,14 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			//No null value can be added to the List
 			neoComplexEdge.addNeoPathPart(null);
 			assertTrue(neoComplexEdge.getNeoPathPartEdgeLeafs().size() == 0);
-			
+
 			//Two Leafs
 			assertTrue(neoPathPart.getNeoPathPartEdgeLeafs().size() == 0);
 			NeoSimpleEdge neoSimpleEdge1 = FACTORY.createNeoSimpleEdge();
 			neoComplexEdge.addNeoPathPart(neoSimpleEdge1);
 			assumeTrue(neoComplexEdge.getNeoPathPartEdgeLeafs().size() == 1);
 			assertEquals(neoSimpleEdge1, neoPathPart.getNeoPathPartEdgeLeafs().get(0));
-			
+
 			//Complex Structure
 			NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
 			neoComplexEdge.addNeoPathPart(neoComplexEdge1);
@@ -247,7 +248,7 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
 	@Override
 	public void myToString() {
@@ -264,24 +265,25 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			Mockito.when(mockNeoSimpleEdge2.getNeoPathPartEdgeLeafs()).thenReturn(l);
 			NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
 			neoComplexEdge1.addNeoPathPart(mockNeoSimpleEdge2);
-			
+
 			neoComplexEdge.addNeoPathPart(mockNeoSimpleEdge1);
 			neoComplexEdge.addNeoPathPart(neoComplexEdge1);
-			
+
 			Class<PatternElementImpl> c = PatternElementImpl.class;
 			Field f = c.getDeclaredField("id");
 			f.setAccessible(true);
 			f.set(neoComplexEdge, "1");
 			f.set(neoComplexEdge1, "2");
-			
+
 			assertTrue(neoComplexEdge.myToString().compareTo(myToStringRef) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
 		}
 	}
-	
-	@Test 
+
+	@Override
+	@Test
 	public void getNeoLastEdge() {
 		try {
 			//Simple Version with two NeSimpleEdges
@@ -291,7 +293,7 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			neoComplexEdge.addNeoPathPart(neoSimpleEdge2);
 			assertEquals(neoSimpleEdge2, neoPathPart.getNeoLastEdge());
 			unsetNeoPathPartInComplexEdge();
-			
+
 			//NeoLastEdge is in a Container
 			NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
 			NeoComplexEdge neoComplexEdge2 = FACTORY.createNeoComplexEdge();
@@ -299,13 +301,13 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			neoComplexEdge2.addNeoPathPart(neoSimpleEdge2);
 			neoComplexEdge.addNeoPathPart(neoComplexEdge1);
 			neoComplexEdge.addNeoPathPart(neoComplexEdge2);
-			
+
 			assertEquals(neoSimpleEdge2, neoPathPart.getNeoLastEdge());
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
 		}
-		
+
 	}
 
 	//Check if the setting of NeoAbstractPathParam in the substructure is correct
@@ -348,22 +350,23 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			neoComplexEdge.addNeoPathPart(mockNeoSimpleEdge1);
 			neoComplexEdge.addNeoPathPart(mockNeoSimpleEdge2);
 			neoComplexEdge.addNeoPathPart(mockNeoSimpleEdge3);
-			
+
 			assertTrue(neoPathPart.getCypherVariable().compareTo(VARIABLE_ELEMENT_EDGE_1 + ", " + VARIABLE_ELEMENT_EDGE_2 + ", " + VARIABLE_ELEMENT_EDGE_3) == 0);
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
-	public void getCypherVariableException() {	
+	public void getCypherVariableException() {
 		assertThrows(InvalidityException.class, ()-> neoPathPart.getCypherVariable());
 		neoComplexEdge.addNeoPathPart(FACTORY.createNeoComplexEdge());
 		assertThrows(InvalidityException.class, ()-> neoPathPart.getCypherVariable());
 	}
 
 	//I do often the mocking since the structure of a component is relativly complex
+	@Override
 	@ParameterizedTest
 	@ValueSource(booleans =  {true, false})
 	public void getCypherInnerEdgeNodes(boolean isReturn) {
@@ -373,25 +376,25 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			EList<NeoPathPart> sEdgeList = new BasicEList<NeoPathPart>();
 			sEdgeList.add(mockSimple1);
 			Mockito.when(mockSimple1.getNeoPathPartEdgeLeafs()).thenReturn(sEdgeList);
-			Mockito.when(mockSimple1.getCypherInnerEdgeNodes(Mockito.anyBoolean())).thenReturn(ConstantsNeo.INTERNAL_EDGE_NODE + 1)
+			Mockito.when(mockSimple1.getCypherInnerEdgeNodes(ArgumentMatchers.anyBoolean())).thenReturn(ConstantsNeo.INTERNAL_EDGE_NODE + 1)
 																		.thenReturn(ConstantsNeo.VARIABLE_PROPERTY_NODE + 1)
 																		.thenReturn(null);
 			sEdgeList = new BasicEList<NeoPathPart>();
 			sEdgeList.add(mockSimple2);
 			Mockito.when(mockSimple2.getNeoPathPartEdgeLeafs()).thenReturn(sEdgeList);
-			Mockito.when(mockSimple2.getCypherInnerEdgeNodes(Mockito.anyBoolean())).thenReturn(ConstantsNeo.INTERNAL_EDGE_NODE + 2)
+			Mockito.when(mockSimple2.getCypherInnerEdgeNodes(ArgumentMatchers.anyBoolean())).thenReturn(ConstantsNeo.INTERNAL_EDGE_NODE + 2)
 																		.thenReturn(ConstantsNeo.VARIABLE_PROPERTY_NODE + 2)
 																		.thenReturn(null);
 			neoComplexEdge.addNeoPathPart(mockSimple1);
 			neoComplexEdge.addNeoPathPart(mockSimple2);
 			assertDoesNotThrow(() -> validateComplexEdge.invoke(neoComplexEdge));
-			
+
 			String temp = neoComplexEdge.getCypherInnerEdgeNodes(isReturn);
 			assertTrue(temp.compareTo(ConstantsNeo.INTERNAL_EDGE_NODE + 1 + ", " + ConstantsNeo.INTERNAL_EDGE_NODE + 2) == 0);
-			
+
 			temp = neoComplexEdge.getCypherInnerEdgeNodes(isReturn);
 			assertTrue(temp.isEmpty());
-			
+
 			temp = neoComplexEdge.getCypherInnerEdgeNodes(isReturn);
 			assertTrue(temp.isEmpty());
 		} catch (Exception e) {
@@ -399,7 +402,7 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	@ParameterizedTest
 	@ValueSource(booleans =  {true, false})
 	public void getCypherInnerEdgeNodesException(boolean isReturn) {
@@ -423,7 +426,7 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
 	public void generateCypherWithException() {
 		try {
@@ -439,7 +442,7 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 	public void generateInternalCypher() {
 		try {
 			buildStructureForNeoSimpleEdgesStoredInComplexEdge(INTERNAL_ELEMENT_EDGE_NODE_ID_1, INTERNAL_ELEMENT_EDGE_NODE_ID_2, VARIABLE_PROPERTY_NODE_ID_3);
-			
+
 			Class<NeoComplexEdgeImpl> c = NeoComplexEdgeImpl.class;
 			Method m = c.getDeclaredMethod("generateInternalCypher");
 			m.setAccessible(true);
@@ -460,7 +463,7 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 		Mockito.when(mockNeoSimpleEdge2.generateCypher()).thenReturn(s2);
 		Mockito.when(mockNeoSimpleEdge3.generateCypher()).thenReturn(s3);
 		BasicEList<NeoPathPart> listNeoPathParts = new BasicEList<NeoPathPart>();
-		
+
 		//Redundancy maybe something can be extracted
 		listNeoPathParts.add(mockNeoSimpleEdge1);
 		Mockito.when(mockNeoSimpleEdge1.getNeoPathPartEdgeLeafs()).thenReturn(listNeoPathParts);
@@ -470,9 +473,9 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 		listNeoPathParts = new BasicEList<NeoPathPart>();
 		listNeoPathParts.add(mockNeoSimpleEdge3);
 		Mockito.when(mockNeoSimpleEdge3.getNeoPathPartEdgeLeafs()).thenReturn(listNeoPathParts);
-		neoComplexEdge.addNeoPathPart((NeoPathPart) mockNeoSimpleEdge1);
-		neoComplexEdge.addNeoPathPart((NeoPathPart) mockNeoSimpleEdge2);
-		neoComplexEdge.addNeoPathPart((NeoPathPart) mockNeoSimpleEdge3);
+		neoComplexEdge.addNeoPathPart(mockNeoSimpleEdge1);
+		neoComplexEdge.addNeoPathPart(mockNeoSimpleEdge2);
+		neoComplexEdge.addNeoPathPart(mockNeoSimpleEdge3);
 	}
 
 	//Inidectly tested: getHighestComplexEdge
@@ -483,33 +486,33 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 		try {
 			//If nothing is set return null
 			assertNull(neoPathPart.getNeoComplexEdge());
-			
+
 			//If the NeoPathPart is set return it
 			NeoPathParam neoAbstractPathParam = FACTORY.createNeoElementPathParam();
-			neoPathPart.setNeoPathParam((NeoElementPathParam) neoAbstractPathParam);
+			neoPathPart.setNeoPathParam(neoAbstractPathParam);
 			assertEquals(neoAbstractPathParam, neoPathPart.getNeoPathParam());
 			neoPathPart.setNeoPathParam((NeoElementPathParam) null);
 			assertNull(neoPathPart.getNeoPathParam());
-			
+
 			//If the NeoPropertyPathPart is set return it
 			neoAbstractPathParam = FACTORY.createNeoPropertyPathParam();
-			neoPathPart.setNeoPathParam((NeoPropertyPathParam) neoAbstractPathParam);
+			neoPathPart.setNeoPathParam(neoAbstractPathParam);
 			assertEquals(neoAbstractPathParam, neoPathPart.getNeoPathParam());
 			neoPathPart.setNeoPathParam((NeoElementPathParam) null);
-			assertNull(neoPathPart.getNeoPathParam());		
-			
+			assertNull(neoPathPart.getNeoPathParam());
+
 			//If a NeoComplexEdge is set then return the NeoAbstractPathParam from that (NeoPathParam)
 			NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
 			neoAbstractPathParam = FACTORY.createNeoElementPathParam();
-			neoComplexEdge.setNeoPathParam((NeoElementPathParam) neoAbstractPathParam);
+			neoComplexEdge.setNeoPathParam(neoAbstractPathParam);
 			neoComplexEdge1.setNeoComplexEdge(neoComplexEdge);
 			assertEquals(neoAbstractPathParam, neoComplexEdge1.getNeoPathParam());
 			assumeNotNull(neoComplexEdge1.getNeoComplexEdge());
-			
+
 			//If a NeoComplexEdge is set then return the NeoAbstractPathParam from that (NeoPropertyPathParam)
 			neoComplexEdge.setNeoPathParam(null);
 			neoAbstractPathParam = FACTORY.createNeoPropertyPathParam();
-			neoComplexEdge.setNeoPathParam((NeoPropertyPathParam) neoAbstractPathParam);
+			neoComplexEdge.setNeoPathParam(neoAbstractPathParam);
 			assertEquals(neoAbstractPathParam, neoComplexEdge1.getNeoPathParam());
 			assumeNotNull(neoComplexEdge1.getNeoComplexEdge());
 		} catch (Exception e) {
@@ -517,13 +520,13 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
 	@Override
 	public void getNeoPathParamException() {
 		assertThrows(InvalidityException.class, () -> neoComplexEdge.getNeoPathParam());
 	}
-	
+
 	@Test
 	public void setJustNeoComplexEdge() {
 		//a NeoComplexEdge can not be changed --> Why ? --> I believe EMF is doing something --> Look it up
@@ -538,7 +541,7 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 	@Test
 	public void setNeoComplexEdge() {
 		//A NeoComplexEdge will be set with a NeoComplexEdge and NeoSimpleEdge inside
-		try {			
+		try {
 			NeoComplexEdge neoComplexEdge1 = FACTORY.createNeoComplexEdge();
 			neoComplexEdge1.addNeoPathPart(FACTORY.createNeoComplexEdge());
 			neoComplexEdge1.addNeoPathPart(FACTORY.createNeoSimpleEdge());
@@ -547,7 +550,7 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			assertTrue(((NeoComplexEdge) neoPathPart).getNeoPathParts().size() == 1);
 			assumeNotNull(neoComplexEdge1.getNeoPathParts());
 			assertTrue(neoComplexEdge1.getNeoPathParts().size() == 2);
-			
+
 			assertEquals(neoComplexEdge, neoComplexEdge1.getNeoComplexEdge());
 			Class<NeoComplexEdgeImpl> c = NeoComplexEdgeImpl.class;
 			Field f = c.getDeclaredField("count");

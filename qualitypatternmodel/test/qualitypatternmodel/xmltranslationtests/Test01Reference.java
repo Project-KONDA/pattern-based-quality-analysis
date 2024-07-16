@@ -59,7 +59,7 @@ public class Test01Reference {
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		
+
 		return testPairs;
 	}
 

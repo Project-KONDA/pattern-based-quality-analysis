@@ -6,53 +6,35 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
-
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl;
-
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
-
 import qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl;
-
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-
 import qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl;
-
 import qualitypatternmodel.execution.ExecutionPackage;
-
 import qualitypatternmodel.execution.impl.ExecutionPackageImpl;
-
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
-
 import qualitypatternmodel.javaoperators.JavaOperator;
 import qualitypatternmodel.javaoperators.JavaoperatorsFactory;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.OneArgJavaOperator;
 import qualitypatternmodel.javaoperators.TwoArgJavaOperator;
 import qualitypatternmodel.javaoperators.ValidateLinkOperator;
-
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl;
 import qualitypatternmodel.operators.OperatorsPackage;
-
 import qualitypatternmodel.operators.impl.OperatorsPackageImpl;
 import qualitypatternmodel.parameters.ParametersPackage;
-
 import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
-
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-
 import qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl;
-
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
-
 import qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl;
 
 /**

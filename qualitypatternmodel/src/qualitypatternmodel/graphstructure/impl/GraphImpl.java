@@ -5,6 +5,7 @@ package qualitypatternmodel.graphstructure.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -16,12 +17,14 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+
 import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
+import qualitypatternmodel.adaptionrdf.RdfNode;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -31,7 +34,6 @@ import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlRootImpl;
-import qualitypatternmodel.adaptionrdf.RdfNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -39,6 +41,8 @@ import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilterPart;
@@ -46,8 +50,6 @@ import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.OperatorListImpl;
-import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -149,8 +151,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		EList<Node> parameterNodes = new BasicEList<Node>();
 		for (Node node: getNodes()){
 			try {
-				if (node.containsJavaOperator())
+				if (node.containsJavaOperator()) {
 					parameterNodes.add(node);
+				}
 			} catch (InvalidityException e) {
 			}
 		}
@@ -192,8 +195,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		for (Node node: getNodes()) {
 			if (node instanceof PrimitiveNode) {
 				BooleanFilterPart filter = (BooleanFilterPart) node.generateQueryFilterPart();
-				if (filter != null)
+				if (filter != null) {
 					filters.add(filter);
+				}
 			}
 		}
 		return filters;
@@ -217,8 +221,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					}
 				}
 				for(Relation relation : getRelations()) {
-					if (relation instanceof XmlElementNavigation && relation.isCrossGraph())
+					if (relation instanceof XmlElementNavigation && relation.isCrossGraph()) {
 						result += relation.generateXQuery();
+					}
 				}
 			}
 		} catch (MissingPatternContainerException e) {
@@ -228,41 +233,46 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		return result;
 	}
-	
+
 	@Override
 	public String generateXQueryJava() throws InvalidityException {
 		String result = "";
 		EList<Relation> relations = new BasicEList<Relation>();
-		for(Relation relation : getRelations()) 
-			if (relation.getTarget() != null && relation.getTarget().inJavaWhere())
+		for(Relation relation : getRelations()) {
+			if (relation.getTarget() != null && relation.getTarget().inJavaWhere()) {
 				relations.add(relation);
-		
+			}
+		}
+
 		for(Relation relation : relations) {
 			if (relation instanceof XmlPropertyNavigation && relation.isCrossGraph()) {
 				XmlPropertyNavigationImpl nav = (XmlPropertyNavigationImpl) relation;
-				if( relation.inJavaReturnRequired())
+				if( relation.inJavaReturnRequired()) {
 					result += nav.generateXQueryJava();
-				else
+				} else {
 					result += nav.generateXQuery2();
+				}
 			}
 		}
 		for(Relation relation : relations) {
-			if (relation instanceof XmlElementNavigation && relation.isCrossGraph())
+			if (relation instanceof XmlElementNavigation && relation.isCrossGraph()) {
 				result += relation.generateXQuery();
+			}
 		}
 		return result;
 	}
-	
+
 	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
 //		if(!containsJavaOperator())
 //			return "";
 		String result = "";
-		
 		List<Relation> relations = new BasicEList<Relation>();
+
 		for(Relation relation : getRelations()) {
-			if (relation.isCrossGraph() && !relation.isTranslated() && !relation.getTarget().inJavaWhere())
+			if (relation.isCrossGraph() && !relation.isTranslated() && !relation.getTarget().inJavaWhere()) {
 				relations.add(relation);
+			}
 		}
 		relations = JavaQueryTranslationUtility.orderRelationsJavaQuery(relations);
 		for(int i = 0; i< relations.size(); i++) {
@@ -270,11 +280,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			String relationtranslation = relation.generateXQueryJavaReturn();
 			if (relation instanceof XmlPropertyNavigation) {
 				relationtranslation = "(" + relationtranslation + "\n  )";
-				if (i < relations.size()-1)
+				if (i < relations.size()-1) {
 					relationtranslation += ",\n  ";
-			}	
-			else if (relation instanceof XmlElementNavigation)
+				}
+			}
+			else if (relation instanceof XmlElementNavigation) {
 				relationtranslation = relationtranslation + "\n  return\n  ";
+			}
 			result += relationtranslation + "";
 		}
 		return result;
@@ -283,13 +295,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public String generateXQueryJavaReturnCondition() {
 		return "(";
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		String result = "";
-		for(Node node: getNodes())
+		for(Node node: getNodes()) {
 			result += ((RdfNode) node).generateRdfTypes();
-		
+		}
+
 		for(Relation relation: getRelations()) {
 			if(relation.isCrossGraph()) {
 				if (!relation.getSource().getGraph().isBefore(this)) {
@@ -304,7 +317,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				for(Relation r : c.getOutgoing()) {
 					if (r.getGraph().isBefore(this)) {
 						result += r.generateSparql();
-					}	
+					}
 				}
 			}
 		}
@@ -315,21 +328,21 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		return result;
 	}
-	
-	//BEGIN - Neo4J	
+
+	//BEGIN - Neo4J
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @exception InvalidityException
 	 * Returns the needed Graph-Pattern-Matching for the Match-Clause in Cypher.
 	 */
 	@Override
-	public String generateCypher() throws InvalidityException {	
+	public String generateCypher() throws InvalidityException {
 		final EList<Node> allNodesList = getNodesFromAllPreviousGraphs();
-		
-		if (allNodesList != null && allNodesList.size() > 0) { 
-			final StringBuilder cypher = new StringBuilder();	
+
+		if (allNodesList != null && allNodesList.size() > 0) {
+			final StringBuilder cypher = new StringBuilder();
 			final EList<NeoNode> beginningNodesList = new BasicEList<NeoNode>();
-			
+
 			//Finding ComplexNode which represent the beginning
 			//Since we have independent graphs we can have multiple beginnings
 			//How to integrate Maybe a OPTIONAL MATCH? - OPTIONAL - How to consider (r:A)--(B:B), (r)--(C:C)?
@@ -342,7 +355,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					throw new InvalidityException(NO_INSTANCE_OF_NEO_ELEMENT_NODE);
 				}
 			}
-			
+
 			boolean isFirst = true;
 			for (NeoNode n : beginningNodesList) {
 				if (!isFirst) {
@@ -367,9 +380,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * Separation with a <p>,</p> would build a cross-product which leads to higher runtime; due to higher ressource needs.
 	 * Thus various path in a pattern matching can be defined.
 	 */
-	private final void buildNeoGraphPatternRecursively(StringBuilder cypher, NeoNode n) throws InvalidityException {		
+	private final void buildNeoGraphPatternRecursively(StringBuilder cypher, NeoNode n) throws InvalidityException {
 		EList<StringBuilder> listCypher = new BasicEList<StringBuilder>();
-		listCypher = traverseOverPattern((ComplexNode) n, listCypher, 0);		
+		listCypher = traverseOverPattern((ComplexNode) n, listCypher, 0);
 		boolean localSeperationNeeded = false;
 		for (StringBuilder sb : listCypher) {
 			if (localSeperationNeeded) {
@@ -381,7 +394,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		listCypher = null;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param node
@@ -389,14 +402,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @param counterString
 	 * @return EList<StringBuilder>
 	 * @throws InvalidityException
-	 * This method traversals recursively over the graph by hopping from one node to an other via the edges. 
+	 * This method traversals recursively over the graph by hopping from one node to an other via the edges.
 	 */
 	private final EList<StringBuilder> traverseOverPattern(ComplexNode node, EList<StringBuilder> cyphers, int counterString) throws InvalidityException {
 		int innerCounterString = counterString;
 		StringBuilder cypher = null;
 		StringBuilder cypherEdge = null;
 		StringBuilder preCypher = null;
-		String nodeCypher = node.generateCypher(); 
+		String nodeCypher = node.generateCypher();
 		EList<StringBuilder> result = new BasicEList<StringBuilder>();
 		if (cyphers.size() == 0) {
 			cypher = new StringBuilder();
@@ -417,7 +430,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			cypher = new StringBuilder();
 			cypher.append(nodeCypher);
 			if (node instanceof NeoElementNode) {
-				((NeoElementNode) node).setIsVariableDistinctInUse(false);				
+				((NeoElementNode) node).setIsVariableDistinctInUse(false);
 			}
 		} else {
 			preCypher = cyphers.get(innerCounterString);
@@ -427,21 +440,21 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 
 		String cypherText;
-		
+
 		boolean hasEdges = false;
 		for (Relation innerEdges : node.getOutgoing()) {
 			if (innerEdges.getGraph().isBefore(this)) {
 				cypherText = innerEdges.generateCypher();
 				//Checks for the morphism. No Edge will be printed if it is from a previews graph --> No reprinting of the edge
-				if (!cypherText.isEmpty()) { 
+				if (!cypherText.isEmpty()) {
 					cypherEdge = new StringBuilder();
 					cypherEdge.append(cypher.toString());
-					
+
 					if (innerEdges instanceof NeoElementEdge) {
 						cypherEdge.append(cypherText);
 						cyphers.add(cypherEdge);
 						innerCounterString = cyphers.size() - 1;
-						result.addAll(traverseOverPattern((ComplexNode) innerEdges.getTarget(), cyphers, innerCounterString));	
+						result.addAll(traverseOverPattern((ComplexNode) innerEdges.getTarget(), cyphers, innerCounterString));
 						hasEdges = true;
 					} else {
 						cypherEdge.append(cypherText);
@@ -455,7 +468,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if (!hasEdges) {
 			result.add(cypher);
 		}
-			
+
 		return result;
 	}
 
@@ -469,15 +482,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	private final boolean checkIfVisibleForks(ComplexNode node) {
 		int i = 0;
-		int distinctNeoPropertyNode = 0; 
+		int distinctNeoPropertyNode = 0;
 		NeoPropertyEdge neoPropertyEdge;
 		for (Relation r : node.getOutgoing()) {
 			if (r.getGraph().isBefore(this)) {
-				//--> Mapped Relations are not considered in morphed Graphs 
+				//--> Mapped Relations are not considered in morphed Graphs
 				if (r instanceof NeoElementEdge) {
 					i++;
 				} else {
-					neoPropertyEdge = (NeoPropertyEdge) r; 
+					neoPropertyEdge = (NeoPropertyEdge) r;
 					if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
 						distinctNeoPropertyNode++;
 					}
@@ -486,17 +499,17 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		if (i + distinctNeoPropertyNode >= 2) {
 			if (node instanceof NeoElementNode) {
-				((NeoElementNode) node).setIsVariableDistinctInUse(false);				
+				((NeoElementNode) node).setIsVariableDistinctInUse(false);
 			}
 		}
 		return i + distinctNeoPropertyNode >= 2;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * Creates the WHERE-Clause for Neo4J/Cypher.
 	 * The is different to the generateCypher due to the fact that the MATCH-Clause needed to be separated from the WHERE-Clause.
-	 * All Cypher-Clause are slightly different build. 
+	 * All Cypher-Clause are slightly different build.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -508,14 +521,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if (!cypherWhere.isEmpty() && !cypherWhereStructurComps.isEmpty()) {
 			cypher = ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET;
 			cypher += cypherWhere;
-			cypher += ConstantsNeo.BOOLEAN_OPERATOR_PREFIX 
+			cypher += ConstantsNeo.BOOLEAN_OPERATOR_PREFIX
 					+ ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE;
 			cypher += cypherWhereStructurComps;
 			cypher += ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
 		//Check if the else is correct
 		} else {
 			cypher += cypherWhere;
-			cypher += cypherWhereStructurComps;			
+			cypher += cypherWhereStructurComps;
 		}
 		return cypher;
 	}
@@ -535,13 +548,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			String opCypher = operator.generateCypher();
 			if (opCypher != null) {
 				if (cypherOperators.length() != 1) {
-					cypherOperators.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX 
+					cypherOperators.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX
 							+ ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
 				}
-				cypherOperators.append(opCypher);	
+				cypherOperators.append(opCypher);
 			}
 		}
-		
+
 		if (cypherOperators.length() != 1) {
 			cypherOperators.append(ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
 		} else {
@@ -560,13 +573,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public EList<Node> getNodesFromAllPreviousGraphs() {
 		EList<Node> nodes = new BasicEList<Node>();
 		try {
-			for (Node n: getNodes())
+			for (Node n: getNodes()) {
 				nodes.add(n);
+			}
 			GraphImpl prevGraph = (GraphImpl) getIncomingMorphism().getSource();
 			EList<Node> nodes2 = prevGraph.getNodesFromAllPreviousGraphs();
 			for (Node n:nodes) {
-				if (!nodes2.contains(n))
+				if (!nodes2.contains(n)) {
 					nodes2.add(n);
+				}
 			}
 			return nodes2;
 		} catch (Exception e) {}
@@ -596,7 +611,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @throws InvalidityException
 	 * Generates internally the WHERE-Clause for the specified NeoPropertyNodes.
 	 * The model allows to have multiple incoming relations from the same or different NeoElementNode.
-	 * Thus the various Property-Addressings have to be checked if the contained value is the same. 
+	 * Thus the various Property-Addressings have to be checked if the contained value is the same.
 	 */
 	private final String generateComparisonsOfSameNeoPropertyNodes() throws InvalidityException {
 		final StringBuilder cypher = new StringBuilder();
@@ -608,14 +623,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				if (!tempCypher.isEmpty()) {
 					if (!cypher.isEmpty()) {
 						cypher.append(anotherStringPart);
-					} 
+					}
 					cypher.append(tempCypher);
-					tempCypher.setLength(0);					
+					tempCypher.setLength(0);
 				}
 			}
 		}
 
-		String resultCypher = new String(); 
+		String resultCypher = new String();
 		if (!(cypher.length() == 0)) {
 			seperateMultiPropertyComps(cypher);
 			resultCypher = ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + cypher.toString() + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
@@ -647,18 +662,18 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					for (int i = 1; i < tempList.size(); i++) {
 						if (!first) {
 							tempCypher.append(ConstantsNeo.ONE_WHITESPACE);
-							tempCypher.append(ConstantsNeo.BOOLEAN_OPERATOR_AND);							
+							tempCypher.append(ConstantsNeo.BOOLEAN_OPERATOR_AND);
 							tempCypher.append(ConstantsNeo.ONE_WHITESPACE);
 						} else {
 							first = false;
 						}
-						
+
 						tempCypher.append(startNeoPropertyNode);
 						tempCypher.append(ConstantsNeo.ONE_WHITESPACE);
 						tempCypher.append(ConstantsNeo.CYPHER_COMPARISON_OPERATOR_EQUAL);
 						tempCypher.append(ConstantsNeo.ONE_WHITESPACE);
 						tempCypher.append(tempList.get(i));
-						
+
 						//If everything worked until here fine do:
 						cypher.append(tempCypher.toString());
 						tempCypher.setLength(0);
@@ -669,41 +684,41 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			throw e;
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
 	 * This method is used to seperate the contained String of the StringBuilder into fractions of NeoPropertyNodes comparisons.
-	 * Thus each comparison which deals with one NeoPropertyNode comparison has its own line. 
+	 * Thus each comparison which deals with one NeoPropertyNode comparison has its own line.
 	 */
 	private final void seperateMultiPropertyComps(final StringBuilder cypher) {
 		final String[] temp = cypher.toString().split(ConstantsNeo.SEPERATOR);
-		//For separating the same comparisons in there own lines. 
+		//For separating the same comparisons in there own lines.
 		if (temp.length > 1) {
 			cypher.setLength(0);
 			boolean first = true;
 			for (String s : temp) {
 				if (!first) {
-					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX);						
+					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX);
 					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_AND);
 					cypher.append(ConstantsNeo.ONE_WHITESPACE);
 				} else {
 					first = false;
 				}
 				cypher.append(s);
-			}				
+			}
 		}
 	}
 	//END - Neo4J
 
-	
-	//BEGIN - Handling Subgraphs	
+
+	//BEGIN - Handling Subgraphs
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * <!-- begin-user-doc -->
 	 * Loads all independent subgraphs in a graph.
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -723,15 +738,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		return graphs;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param node
 	 * @param nodeList
-	 * Traverse recursively over one subgraph to collect all its nodes. 
+	 * Traverse recursively over one subgraph to collect all its nodes.
 	 * The edges can be accessed via the stored node in the passed List.
 	 * Thus we see no need in defining two new lists which are pointing to the same values.
-	 * A list of nodes of a subgraph is enough. 
+	 * A list of nodes of a subgraph is enough.
 	 */
 	private final void getAllSubGraphRecursive(final Node node, final EList<Node> nodeList) {
 		if (!containedInGraphList(nodeList, node)) {
@@ -741,14 +756,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				Node tempNode = null;
 				for (Relation r : complexNode.getOutgoing()) {
 					if (r.getGraph().isBefore(this)) {
-						tempNode = (Node) r.getTarget();
-						getAllSubGraphRecursive(tempNode, nodeList);						
+						tempNode = r.getTarget();
+						getAllSubGraphRecursive(tempNode, nodeList);
 					}
 				}
 			}
 		}
 	}
-		
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param graphs
@@ -764,7 +779,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param graph
@@ -778,14 +793,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return this.containedInSubGraphList(graphs, node);
 	}
 	//END - Handling Subgraphs
-	
+
 	@Override
 	public void initializeTranslation() {
 		EList<Node> allNodes = getNodes();
-		for(Node node : allNodes) {	
+		for(Node node : allNodes) {
 			node.initializeTranslation();
 		}
-		for(Relation relation: getRelations()) {	
+		for(Relation relation: getRelations()) {
 			relation.initializeTranslation();
 		}
 	}
@@ -803,41 +818,45 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		operatorList.isValid(abstractionLevel);
 	}
 
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, MissingPatternContainerException {
 
-		if ((getNodes().isEmpty()))
+		if ((getNodes().isEmpty())) {
 			throw new InvalidityException("No Element in Graph (" + getInternalId() + ")");
-		
-		if ((getReturnNodes().isEmpty() && getIncomingMorphism() == null))
+		}
+
+		if ((getReturnNodes().isEmpty() && getIncomingMorphism() == null)) {
 			throw new InvalidityException("no ReturnElement in Graph (" + getInternalId() + ")");
-		
-		if (operatorList == null)
+		}
+
+		if (operatorList == null) {
 			throw new InvalidityException("operatorList null (" + getInternalId() + ")");
-		
+		}
+
 //		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getNodes().isEmpty())
 //			throw new InvalidityException("no element in graph (" + getInternalId() + ")");
-			
+
 
 		for (Node returnNode : getReturnNodes()) {
 			if (returnNode.getGraph() == null || !returnNode.getGraph().equals(this)) {
 				throw new InvalidityException("returnElement not contained in this graph (" + getInternalId() + ")");
 			}
 		}
-		
+
 		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
-			// SEMI_GENERIC or GENERIC 
+			// SEMI_GENERIC or GENERIC
 			for(Node node : getNodes()) {
 				if(!node.getClass().equals(NodeImpl.class) && !node.getClass().equals(ComplexNodeImpl.class) && !node.getClass().equals(PrimitiveNodeImpl.class)) {
 					throw new InvalidityException("Generic pattern contains non-generic class (" + getInternalId() + ")");
-				}				
+				}
 			}
 			for(Relation relation : getRelations()) {
 				if(!relation.getClass().equals(RelationImpl.class)) {
 					throw new InvalidityException("Generic pattern contains non-generic class (" + getInternalId() + ")");
-				}				
+				}
 			}
-		} 
-		
+		}
+
 
 		if (abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
 			for(Node node : getNodes()) {
@@ -848,7 +867,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			for(Relation relation : getRelations()) {
 				if(relation.getClass().equals(RelationImpl.class)) {
 					throw new InvalidityException("Non-generic pattern contains generic Relation (" + getInternalId() + ")");
-				}				
+				}
 			}
 
 //			if (getNodes().get(0) instanceof XmlNode) {
@@ -857,15 +876,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 //						throw new InvalidityException("XML-adapted pattern contains non-XML-Node (" + getInternalId() + ": " + node.getClass() + "(" +  + node.getInternalId() + "))");
 //					}
 //				}
-//				
+//
 //				for(Relation relation : getRelations()) {
 //					if( !(relation instanceof XmlNavigation) && !(relation instanceof XmlReference)) {
 //						throw new InvalidityException("XML-adapted pattern contains non-XML-Relation (" + getInternalId() + ")");
-//					}				
+//					}
 //				}
-//				
-//				// ABSTRACT, SEMI_CONCRETE or CONCRETE 		
-//				int noRoot = 0;		
+//
+//				// ABSTRACT, SEMI_CONCRETE or CONCRETE
+//				int noRoot = 0;
 //				for(Node node : getNodes()) {
 //					if(node instanceof XmlRoot) {
 //						noRoot++;
@@ -874,14 +893,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 //
 //				if (noRoot == 0)
 //					throw new InvalidityException("XML-adapted pattern is missing a XMLRoot (" + getInternalId() + ")");
-//				
+//
 //				if (noRoot > 1)
 //					throw new InvalidityException("XML-adapted pattern has too many XMLRoots (" + getInternalId() + ")");
 //			}
 		}
-		
+
 	}
-	
+
 	@Override
 	public boolean relationsXmlAdapted() {
 		for(Relation relation : getRelations()) {
@@ -891,37 +910,37 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		return true;
 	}
-	
+
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		EList<Node> elementsCopy = new BasicEList<Node>();
 		elementsCopy.addAll(getNodes());
 		for(Node node : elementsCopy) {
 			node.createXmlAdaption();
-		}	
+		}
 		EList<Relation> relationsCopy = new BasicEList<Relation>();
 		relationsCopy.addAll(getRelations());
 		for(Relation relation : relationsCopy) {
 			relation.createXmlAdaption();
 		}
 		createXmlRoot();
-		
+
 		return this;
 	}
-	
+
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		EList<Node> elementsCopy = new BasicEList<Node>();
 		elementsCopy.addAll(getNodes());
 		for(Node node : elementsCopy) {
 			node.createRdfAdaption();
-		}	
+		}
 		EList<Relation> relationsCopy = new BasicEList<Relation>();
 		relationsCopy.addAll(getRelations());
 		for(Relation relation : relationsCopy) {
 			relation.createRdfAdaption();
 		}
-		
+
 		return this;
 	}
 
@@ -937,18 +956,18 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		elementsCopy.addAll(getNodes());
 		for(Node node : elementsCopy) {
 			node.createNeo4jAdaption();
-		}	
+		}
 		//No need for checking the distinguishing between if there are nodes or not
-		//Since Relations can just exists if at least two nodes exists which are connected. 
+		//Since Relations can just exists if at least two nodes exists which are connected.
 		EList<Relation> relationsCopy = new BasicEList<Relation>();
 		relationsCopy.addAll(getRelations());
 		for(Relation relation : relationsCopy) {
 			relation.createNeo4jAdaption();
 		}
-		
+
 		return this;
 	}
-	
+
 	private XmlRoot findXmlRoot() throws InvalidityException {
 		XmlRoot root = null;
 		if (getIncomingMorphism() == null) {
@@ -957,7 +976,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					root = (XmlRoot) node;
 				}
 			}
-			if(root == null) {	
+			if(root == null) {
 				root = new XmlRootImpl();
 				root.setGraph(this);
 			}
@@ -977,17 +996,17 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		return root;
 	}
-		
+
 	private void createXmlRoot() throws MissingPatternContainerException, InvalidityException {
 		XmlRoot root = findXmlRoot();
-		
+
 		if (getIncomingMorphism() == null) {
 			for(Node node : getNodes()) {
 				if(node instanceof XmlRoot) {
 					root = (XmlRoot) node;
 				}
 			}
-			if(root == null) {	
+			if(root == null) {
 				root = new XmlRootImpl();
 				root.setGraph(this);
 			}
@@ -1005,8 +1024,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 			}
 		}
-		if (root == null)
+		if (root == null) {
 			throw new InvalidityException("No XmlRoot found when adaption Graph " + getInternalId());
+		}
 
 		for(Node node : getNodes()) {
 			boolean hasIncomingNavigation = false;
@@ -1035,10 +1055,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 						}
 					}
 				}
-				if(!hasIncomingNavigation) {			
+				if(!hasIncomingNavigation) {
 					XmlPropertyNavigationImpl navigation = new XmlPropertyNavigationImpl();
 					navigation.setGraphSimple(this);
-					navigation.createParameters();					
+					navigation.createParameters();
 					navigation.setSource(root);
 					navigation.setTarget(node);
 				}
@@ -1055,7 +1075,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			relation.prepareTranslation();
 		}
 	}
-	
+
 	@Override
 	public void recordValues(XmlDataDatabase database) {
 		for(Node e : getNodes()) {
@@ -1446,7 +1466,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * Checks if Graph *other* is this or related with a morphism to *this*
@@ -1456,12 +1476,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public Boolean isBefore(Graph other) {
 		if (other != null) {
-			if (other.equals(this))
+			if (other.equals(this)) {
 				return true;
+			}
 			if (other.getIncomingMorphism() != null) {
 				Graph g = other.getIncomingMorphism().getSource();
-				if (g != null)
+				if (g != null) {
 					return isBefore(g);
+				}
 			}
 		}
 		return false;
@@ -1672,8 +1694,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public String myToString() {
 		String res = "";
-		if (isReturnGraph())
+		if (isReturnGraph()) {
 			res += "Return-";
+		}
 		res += "Graph [" + getInternalId() + "]";
 		for (Node e : getNodes()) {
 			res += "\n| > " + e.myToString().replace("\n", "\n|   ");

@@ -8,8 +8,8 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfQuantifier;
@@ -52,7 +52,7 @@ public class RdfSinglePredicateImpl extends RdfPathComponentImpl implements RdfS
 	public RdfSinglePredicateImpl() {
 		super();
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(getIriParam() == null) {
@@ -78,29 +78,29 @@ public class RdfSinglePredicateImpl extends RdfPathComponentImpl implements RdfS
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		if (value.equals(ConstantsRdf.WILDCARD))
+		if (value.equals(ConstantsRdf.WILDCARD)) {
 			setIriParam(null);
-		else {
+		} else {
 
 //			return (invert ? "^" : "" ) + iri + getQuantifier().getLiteral();
-			
+
 			setInvert(value.startsWith("^"));
-			if (isInvert())
+			if (isInvert()) {
 				value = value.substring(1);
-			
+			}
+
 			for (RdfQuantifier quan: RdfQuantifier.VALUES) {
 				if (value.endsWith(quan.getLiteral())) {
 					quantifier = quan;
 					value = value.substring(0, value.length() - quan.getLiteral().length());
 				}
 			}
-			
-			IriParam iri = new IriParamImpl(); 
+			IriParam iri = new IriParamImpl();
 			setIriParam(iri);
 			iri.setValueFromString(value);
 		}
 	}
-	
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,7 +158,7 @@ public class RdfSinglePredicateImpl extends RdfPathComponentImpl implements RdfS
 	}
 
 	@Override
-	public EList<RdfSinglePredicate> getRdfSinglePredicates() {	
+	public EList<RdfSinglePredicate> getRdfSinglePredicates() {
 		EList<RdfSinglePredicate> list = new BasicEList<RdfSinglePredicate>();
 		list.add(this);
 		return list;

@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
@@ -54,13 +55,13 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	public RdfPredicateImpl() {
 		super();
 	}
-		
+
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return this;
 	}
-	
-	
+
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		String query = "";
@@ -78,7 +79,7 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 		}
 		return query;
 	}
-	
+
 	@Override
 	public void createParameters() {
 		ParameterList parameterList = getParameterList();
@@ -94,26 +95,26 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 			}
 		}
 	}
-	
+
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
-		EList<Parameter> res = new BasicEList<Parameter>();		
+		EList<Parameter> res = new BasicEList<Parameter>();
 		if (rdfPathParam != null) {
 			res.addAll(rdfPathParam.getAllParameters());
 		} else {
 			throw new InvalidityException("rdfPathParam missing on " + this + " " + getName());
 		}
 		return res;
-	}	
-	
+	}
+
 	@Override
-	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {		
-		NotificationChain res = super.basicSetGraph(newGraph, msgs);		
+	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
+		NotificationChain res = super.basicSetGraph(newGraph, msgs);
 		createParameters();
 		return res;
 	}
 
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -180,12 +181,16 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	public NotificationChain basicSetRdfPathParam(RdfPathParam newRdfPathParam, NotificationChain msgs) {
 		RdfPathParam oldRdfPathParam = rdfPathParam;
 		rdfPathParam = newRdfPathParam;
-		
+
 		createParameters();
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM, oldRdfPathParam, newRdfPathParam);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -278,12 +283,13 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	@Override
 	public String myToString() {
 		String result = super.myToString();
-		if (getRdfPathParam() != null) 
+		if (getRdfPathParam() != null) {
 			result += " " + getRdfPathParam().myToString();
+		}
 		return result;
 	}
 

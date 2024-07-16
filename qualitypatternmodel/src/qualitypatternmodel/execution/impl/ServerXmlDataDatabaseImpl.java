@@ -3,6 +3,7 @@
 package qualitypatternmodel.execution.impl;
 
 import java.io.IOException;
+
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
@@ -11,7 +12,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -74,39 +74,39 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 	protected ServerXmlDataDatabaseImpl() {
 		super();
 	}
-	
+
 	public ServerXmlDataDatabaseImpl(String localName, String host, int port, String name, String username, String password) throws IOException, InvalidityException {
 		super();
 		for(XmlDataDatabase db : DatabasesImpl.getInstance().getXmlDatabases()) {
 			if(db instanceof ServerXmlDataDatabaseImpl) {
-				ServerXmlDataDatabaseImpl serverDb = (ServerXmlDataDatabaseImpl) db;	
+				ServerXmlDataDatabaseImpl serverDb = (ServerXmlDataDatabaseImpl) db;
 				if(serverDb.getLocalName() != null && serverDb.getLocalName().equals(localName)) {
 					DatabasesImpl.getInstance().getXmlDatabases().remove(this);
 					throw new InvalidityException("Local database name already used");
 				}
-			}			
+			}
 		}
 		setLocalName(localName);
 		setName(name);
-		setBaseXClient(new BaseXClientImpl(host, port, username, password));		
+		setBaseXClient(new BaseXClientImpl(host, port, username, password));
 	}
-	
+
 	@Override
 	public void init() throws QueryException, IOException {
 //		open();
 		// TODO
-		analyse();		
+		analyse();
 	}
-	
+
 	@Override
-	public EList<String> execute(String queryString) throws QueryException, QueryIOException, BaseXException, IOException {	
+	public EList<String> execute(String queryString) throws QueryException, QueryIOException, BaseXException, IOException {
 		EList<String> resultList = new BasicEList<String>();
 		getBaseXClient().execute("OPEN " + getName());
-		Query query = getBaseXClient().query(queryString);		
+		Query query = getBaseXClient().query(queryString);
         while(query.more()) {
         	resultList.add(query.next());
-        } 			
-        return resultList;		
+        }
+        return resultList;
 	}
 
 	/**

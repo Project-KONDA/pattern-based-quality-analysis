@@ -5,31 +5,31 @@ package qualitypatternmodel.adaptionxml.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.json.JSONArray;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
-import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
+import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -83,7 +83,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	 * The cached value of the '{@link #getParameterReferences() <em>Parameter
 	 * References</em>}' reference list. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getParameterReferences()
 	 * @generated
 	 * @ordered
@@ -112,7 +112,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	 * The cached value of the '{@link #getPropertyOptionParam() <em>Property Option
 	 * Param</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
-	 * 
+	 *
 	 * @see #getPropertyOptionParam()
 	 * @generated
 	 * @ordered
@@ -139,7 +139,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public XmlPathParamImpl() {
@@ -159,7 +159,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		}
 		return query;
 	}
-	
+
 	public Boolean equals(XmlPathParamImpl that) {
 		try {
 			return this.generateXQuery().equals(that.generateXQuery());
@@ -171,36 +171,42 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE) {
 			throw new InvalidityException("non-generic class in generic pattern");
+		}
 		super.isValid(abstractionLevel);
 		if (xmlAxisParts != null) {
 			for (XmlAxisPart a : xmlAxisParts) {
 				a.isValid(abstractionLevel);
 			}
 		}
-		if (xmlPropertyOptionParam != null)
+		if (xmlPropertyOptionParam != null) {
 			xmlPropertyOptionParam.isValid(abstractionLevel);
+		}
 	}
 
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 //		super.isValidLocal(abstractionLevel);
-		if (getXmlNavigation() == null)
+		if (getXmlNavigation() == null) {
 			throw new InvalidityException("PathParam is not assigned to a Relation");
-		if (getXmlNavigation() instanceof XmlPropertyNavigation)
+		}
+		if (getXmlNavigation() instanceof XmlPropertyNavigation) {
 			if (xmlPropertyOptionParam == null) {
 				throw new InvalidityException("propertyOptionParam is null for XmlPropertyNavigation");
 			}
+		}
 		if (getXmlNavigation() instanceof XmlElementNavigation) {
 			if (xmlPropertyOptionParam != null) {
 				throw new InvalidityException("propertyOptionParam is existent for XmlNavigation" + xmlPropertyOptionParam.generateXQuery());
 			}
 			if (abstractionLevel == AbstractionLevel.CONCRETE) {
-				if (xmlAxisParts == null)
+				if (xmlAxisParts == null) {
 					throw new InvalidityException("axisPart is null");
-				if (xmlAxisParts.isEmpty())
+				}
+				if (xmlAxisParts.isEmpty()) {
 					throw new InvalidityException("axisPart is empty");
+				}
 			}
 		}
 	}
@@ -317,13 +323,14 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
 	public XmlPropertyOptionParam getXmlPropertyOptionParam() {
-		if (getXmlNavigation() instanceof XmlElementNavigation && xmlPropertyOptionParam != null)
+		if (getXmlNavigation() instanceof XmlElementNavigation && xmlPropertyOptionParam != null) {
 			throw new RuntimeException("XmlPropertyOption is not null, but should in " + myToString());
+		}
 		if (xmlPropertyOptionParam == null && getXmlNavigation() instanceof XmlPropertyNavigation) {
 			setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
 			xmlPropertyOptionParam.createParameters();
@@ -436,7 +443,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -459,16 +466,17 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	public void setXmlAxis(XmlAxisKind[] axis, String tag) {
 		getXmlAxisParts().clear();
 		for (int i = 0; i < axis.length; i++) {
-			if (i == axis.length - 1)
+			if (i == axis.length - 1) {
 				addXmlAxis(axis[i], tag);
-			else
+			} else {
 				addXmlAxis(axis[i], null);
+			}
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -494,8 +502,9 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			int index = axes.length - 1;
 			XmlAxisPart part = getXmlAxisParts().get(index);
 			XmlAxisPartCondition cond = part.addAxisCondition(propertyKind, name);
-			if(attributeName != null && attributeName != "")
-				cond.getXmlPropertyOption().getAttributeName().setValue(attributeName);;
+			if(attributeName != null && attributeName != "") {
+				cond.getXmlPropertyOption().getAttributeName().setValue(attributeName);
+			}
 		}
 
 	}
@@ -524,7 +533,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -886,7 +895,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -894,10 +903,12 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	 */
 	@Override
 	public void clear() {
-		if (getXmlAxisParts() != null)
+		if (getXmlAxisParts() != null) {
 			getXmlAxisParts().clear();
-		if (getXmlPropertyOptionParam() != null)
+		}
+		if (getXmlPropertyOptionParam() != null) {
 			getXmlPropertyOptionParam().clear();
+		}
 	}
 
 	@Override
@@ -907,21 +918,22 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
 	public String getValueAsString() {
 		try {
-			String query = generateXQuery(); 
-			if (query == "")
+			String query = generateXQuery();
+			if (query == "") {
 				return null;
+			}
 			return query;
 		} catch (InvalidityException e) {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -954,27 +966,30 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	public void setValueFromString(String value) throws InvalidityException {
 		Boolean isValue = getXmlNavigation() instanceof XmlElementNavigation;
 		Boolean isProperty = getXmlNavigation() instanceof XmlPropertyNavigation;
-		
-		if (!(isValue || isProperty))
+
+		if (!(isValue || isProperty)) {
 			throw new InvalidityException("Invalid Dangling XmlPathParam");
-		
-		if(isValue && value != null && !value.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT))
+		}
+
+		if(isValue && value != null && !value.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT)) {
 			throw new InvalidityException("Invalid XPath value '" + value + "'. It should specify an XML element.");
-		if(isProperty && value != null && !value.matches(ConstantsXml.REGEX_XMLPATH_VALUE))
+		}
+		if(isProperty && value != null && !value.matches(ConstantsXml.REGEX_XMLPATH_VALUE)) {
 			throw new InvalidityException("Invalid XPath value '" + value + "'. It should specify an XML property.");
-		
+		}
+
 //		value = value.replace("//", "/descendant::");
 		if (value == null || value == "") {
 			getXmlAxisParts().clear();
 			xmlPropertyOptionParam = null;
 			return;
-		}	
+		}
 		ArrayList<String> parts = new ArrayList<String>();
 		String[] split = value.split("(?=/)");
-		
+
 		String current = "";
-		for (int i = 0; i<split.length;i++) {
-			current += split[i].trim();
+		for (String element : split) {
+			current += element.trim();
 			current = current.trim();
 			if (current.matches(ConstantsXml.REGEX_NAVIGATION)) {
 				parts.add(current);
@@ -983,33 +998,36 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		}
 
 		current = current.trim();
-		
+
 		if (!current.equals("") && !current.matches(ConstantsXml.REGEX_PROPERTY_PART)) {
 			throw new InvalidityException("value invalid property specification: '" + current + "' - match :" +  current.matches(ConstantsXml.REGEX_PROPERTY_PART));
 		}
-			
+
 //		assertTrue((getXmlNavigation() instanceof XmlElementNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));
 //		assertTrue((getXmlNavigation() instanceof XmlPropertyNavigation) == ( value == "" || value.matches(PROPERTY_PART_REGEX)));
-		
+
 		getXmlAxisParts().clear();
 		for (String v: parts) {
 			XmlAxisPart part = new XmlAxisPartImpl();
 			part.setXmlPathParam(this);
 			part.setValueFromString(v);
 		}
-		
+
 		if (isValue) {
 			if (!current.trim().equals("")) {
 				throw new InvalidityException("invalid rest value for XmlElementNavigation: '" + current + "' but should be ''");
 			}
 		} else if (isProperty) {
-			if (!current.matches(ConstantsXml.REGEX_PROPERTY_PART))
+			if (!current.matches(ConstantsXml.REGEX_PROPERTY_PART)) {
 				throw new InvalidityException("invalid rest value for XmlElementNavigation: '" + current + "' does not specify a value");
-			if (getXmlPropertyOptionParam() == null)
+			}
+			if (getXmlPropertyOptionParam() == null) {
 				setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
+			}
 			getXmlPropertyOptionParam().setValueFromString(current);
-		} else 
+		} else {
 			throw new InvalidityException("invalid type " + getXmlNavigation().getClass().getSimpleName());
+		}
 	}
 
 	/**
@@ -1042,10 +1060,14 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			for (XmlAxisPart xmlAxisPart : getXmlAxisParts()) {
 				res += " {" + xmlAxisPart.myToString() + "}";
 			}
-		} else res += "[]";
+		} else {
+			res += "[]";
+		}
 		if (getXmlNavigation() instanceof XmlPropertyNavigation) {
 			res += " " + getXmlPropertyOptionParam().myToString();
-		} else  res += ".";
+		} else {
+			res += ".";
+		}
 		return res;
 	}
 

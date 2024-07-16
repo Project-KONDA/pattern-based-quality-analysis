@@ -4,13 +4,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import org.basex.query.QueryException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import org.basex.query.QueryException;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -21,39 +20,39 @@ import qualitypatternmodel.utility.EMFModelLoad;
 
 @SuppressWarnings("serial")
 public class PatternApplicationServlet extends HttpServlet {
-	
+
 
 	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {		
-		String[] patternNames = request.getParameterValues("pattern-names");	
-		
-		String filePathDb = Util.DATABASES_PATH + Util.DATABASES_NAME + ".execution";	
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String[] patternNames = request.getParameterValues("pattern-names");
+
+		String filePathDb = Util.DATABASES_PATH + Util.DATABASES_NAME + ".execution";
 		URL folderURLDb = getClass().getClassLoader().getResource(Util.DATABASES_PATH);
 		URL fileURLDb = getClass().getClassLoader().getResource(filePathDb);
-		
+
 		if(fileURLDb != null && folderURLDb != null) {
 			String json = "[";
 			for(String patternName : patternNames) {
-				
-				String filePath = Util.CONCRETE_PATTERNS_PATH + patternName + ".patternstructure";	
+
+				String filePath = Util.CONCRETE_PATTERNS_PATH + patternName + ".patternstructure";
 				URL folderURL = getClass().getClassLoader().getResource(Util.CONCRETE_PATTERNS_PATH);
-				URL fileURL = getClass().getClassLoader().getResource(filePath);				
-								
-				if(fileURL != null && folderURL != null) {										
-					
+				URL fileURL = getClass().getClassLoader().getResource(filePath);
+
+				if(fileURL != null && folderURL != null) {
+
 					CompletePattern pattern = EMFModelLoad.loadCompletePatternAndDatabase(fileURL.toString(), fileURLDb.toString());
-					Database database = pattern.getDatabase();	
-					
+					Database database = pattern.getDatabase();
+
 					try {
 						Result result = database.execute(pattern, null, null);
-						
+
 						json += "{";
 						json += "\"Pattern\":";
 						json += "\"" + patternName + "\", ";
 						json += "\"Count\":";
 						json += "\"" + result.getProblemNumber() + "\", ";
 						json += "\"Results\":";
-						
+
 						json += "[";
 						for(String s : result.getSplitResult()) {
 							String escaped = s;
@@ -67,43 +66,43 @@ public class PatternApplicationServlet extends HttpServlet {
 							json += "\"" + escaped +"\", ";
 						}
 						json += "], ";
-						json = json.replace(", ]", "]");		
+						json = json.replace(", ]", "]");
 						json += "\"Runtime\":";
-						String time = String.format("%d min, %d sec, %d msec", 
+						String time = String.format("%d min, %d sec, %d msec",
 							    TimeUnit.MILLISECONDS.toMinutes(result.getRuntime()),
-							    TimeUnit.MILLISECONDS.toSeconds(result.getRuntime()) - 
+							    TimeUnit.MILLISECONDS.toSeconds(result.getRuntime()) -
 							    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(result.getRuntime())),
-							    result.getRuntime() - 
+							    result.getRuntime() -
 							    TimeUnit.MINUTES.toMillis(TimeUnit.MILLISECONDS.toMinutes(result.getRuntime())) -
-							    TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(result.getRuntime()) - 
+							    TimeUnit.SECONDS.toMillis(TimeUnit.MILLISECONDS.toSeconds(result.getRuntime()) -
 									    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(result.getRuntime())))
 							);
 						json += "\"" + time + "\"";
-						json += "}, ";						
-						
+						json += "}, ";
+
 					} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException
 							| QueryException e) {
 						response.sendError(409);
 						response.getOutputStream().println("{ \"error\": \"Pattern invalid\"}");
 					}
-										
-					
+
+
 				} else {
 					response.sendError(404);
 					response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
 				}
-				
+
 			}
 			json += "]";
-			json = json.replace(", ]", "]");	
+			json = json.replace(", ]", "]");
 			response.setCharacterEncoding("UTF-8");
 			response.getWriter().println(json);
-				
+
 		} else {
 			response.sendError(404);
 			response.getOutputStream().println("{ \"error\": \"Loading databases folder failed\"}");
 		}
-		
-	}	
-	
+
+	}
+
 }

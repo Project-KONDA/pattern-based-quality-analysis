@@ -17,19 +17,21 @@ import qualitypatternmodel.exceptions.InvalidityException;
 
 public class NeoEdgeLabelParamTest extends NeoLabelTest {
 	NeoEdgeLabelParam edgeLabel = null;
-	
+
+	@Override
 	@BeforeEach
 	public void setUp() {
 		edgeLabel = FACTORY.createNeoEdgeLabelParam();
 		label = edgeLabel;
 	}
-	
+
+	@Override
 	@AfterEach
 	public void tearDown() {
 		super.tearDown();
 		edgeLabel = null;
 	}
-	
+
 	@Override
 	@ParameterizedTest
 	@ValueSource(strings = {"Regesta1", "Regesta_2", "IndexPlace", "Index_Entry", "", "null"})
@@ -39,12 +41,12 @@ public class NeoEdgeLabelParamTest extends NeoLabelTest {
 		}
 		assertDoesNotThrow(() -> edgeLabel.setValueIfValid(label));
 	}
-	
+
 	@Override
 	@ParameterizedTest
 	@ValueSource(strings = {"Regesta1@", "Reges ta2", "Index-Place", "Index<>Entry", "Index\\Entry", "Index||Entry",  "Index$ Entry" })
 	public void setValueIfValidException(String label) {
-		assertThrows(InvalidityException.class, () -> edgeLabel.setValueIfValid(label));		
+		assertThrows(InvalidityException.class, () -> edgeLabel.setValueIfValid(label));
 	}
 
 	@Test
@@ -55,19 +57,19 @@ public class NeoEdgeLabelParamTest extends NeoLabelTest {
 			String correctLabel = "Regesta1";
 			edgeLabel.setValueIfValid(correctLabel);
 			assertTrue(edgeLabel.generateCypher().compareTo(seperator + correctLabel) == 0);
-			
+
 			correctLabel = "IndexPlace";
 			edgeLabel.setValueIfValid(correctLabel);
 			assertTrue(edgeLabel.generateCypher().compareTo(seperator + correctLabel) == 0);
-			
+
 			correctLabel = "IndexEntry";
 			edgeLabel.setValueIfValid(correctLabel);
-			assertTrue(edgeLabel.generateCypher().compareTo(seperator + correctLabel) == 0);			
+			assertTrue(edgeLabel.generateCypher().compareTo(seperator + correctLabel) == 0);
 		} catch (Exception e) {
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
 	@Override
 	public void myToString() {

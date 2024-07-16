@@ -34,14 +34,14 @@ import qualitypatternmodel.utility.ConstantsNeo;
 import utilis.Java2Neo4JConnector;
 
 /**
- * <p> 
+ * <p>
  * 	<b>
  * 		This fill is structured as followed:
- * 			- Constants 
+ * 			- Constants
  * 			- Procedural methods for execution
  * 			- FACTORY-METHODS for common Patterns and Structures
- * 	<\b> 
- * <\p> 
+ * 	<\b>
+ * <\p>
  */
 
 public abstract class CypherTranslation implements ICypherTranslatione {
@@ -62,7 +62,7 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 	public static final String BEGIN_BUILD_PATTERN_EXCEPTIONS = "<<< BEGIN - Build-Pattern-Exceptions >>>";
 	public static final String END_SPECIFIC_TESTS = "<<< END - Specific Tests >>>";
 	public static final String BEGIN_SPECIFIC_TESTS = "<<< BEGIN - Specific Tests >>>";
-	
+
 	//BEGIN - Procedural methods for execution
 	public static void exceptionTestHandler(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
@@ -121,7 +121,7 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 				System.out.print(TRANSLATION);
 				String query = completePattern.generateCypher();
 				checkForNullInMatchAndReturn(query);
-				
+
 				//Depending on the test mode activated.
 				//If db is activeted or a connection can be established
 				if (connector != null) {
@@ -146,7 +146,7 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 			}
 		}
 	}
-	
+
 	protected static void innerTestAllCompletePatternsThrow(ArrayList<CompletePattern> completePatterns, Java2Neo4JConnector connector) throws Exception {
 		for (CompletePattern completePattern : completePatterns) {
 			replace(completePattern);
@@ -155,7 +155,7 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 			System.out.print(TRANSLATION);
 			String query = completePattern.generateCypher();
 			checkForNullInMatchAndReturn(query);
-			
+
 			//Depending on the test mode activated.
 			//If db is activeted or a connection can be established
 			if (connector != null) {
@@ -175,8 +175,8 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 		if (matchString.toLowerCase().contains(CypherTestSuiteTranslation.NULL)) {
 			throw new InvalidityException(CypherTestSuiteTranslation.THE_MATCH_CLAUSE_CONTAINS_NULL);
 		}
-		matchString = null;						
-		
+		matchString = null;
+
 		//Test for null in RETURN
 		String returnString = query.substring(query.indexOf(ConstantsNeo.CLAUSE_RETURN));
 		if (returnString.toLowerCase().contains(CypherTestSuiteTranslation.NULL)) {
@@ -184,7 +184,7 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 		}
 		returnString  = null;
 	}
-	
+
 	public void tester()
 			throws Exception {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
@@ -197,7 +197,7 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 			System.out.println("");
 		}
 	}
-	
+
 	@SuppressWarnings("static-access")
 	public void complexTester()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -208,14 +208,14 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 			System.out.println(CypherTranslation.BEGIN_TESTS);
 			try {
 				try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
-					if (connector.verifyConnectivity()) {
+					if (Java2Neo4JConnector.verifyConnectivity()) {
 						String tempQuery = null;
 						for (CompletePattern comp : complexQueries) {
 							System.out.println("\n--- new Query ---");
 							tempQuery = comp.generateCypher();
 							System.out.println(tempQuery);
 							connector.queryTesterForToComplexQueries(tempQuery, comp.generateCypher().hashCode() + "", true);
-						}									
+						}
 					} else {
 						for (CompletePattern comp : complexQueries) {
 							System.out.println("\n--- new Query ---");
@@ -224,7 +224,7 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 					}
 				}
 			} catch (Exception e) {
-				e.printStackTrace();	
+				e.printStackTrace();
 			}
 			System.out.println(CypherTranslation.END_TESTS);
 			System.out.println("");
@@ -237,33 +237,33 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 		buildInvalidityExceptionPatterns(completePatternsExceptions);
 		if (completePatternsExceptions.size() != 0) {
 			System.out.println("");
-			System.out.println(CypherTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
+			System.out.println(CypherTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);
 			CypherTranslation.exceptionTestHandler(completePatternsExceptions);
 			System.out.println(CypherTranslation.END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
 		}
 	}
-	
+
 	public void unsupportedExceptionTester()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
 		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
 		buildUnsupportedException(completePatternsExceptions);
 		if (completePatternsExceptions.size() != 0) {
 			System.out.println("");
-			System.out.println(CypherTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
+			System.out.println(CypherTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);
 			CypherTranslation.exceptionTestHandler(completePatternsExceptions);
 			System.out.println(CypherTranslation.END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
 		}
 	}
-	
+
 	public void otherExceptionTester()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
 		ArrayList<CompletePattern> completePatternsExceptions = new ArrayList<CompletePattern>();
 		buildOtherException(completePatternsExceptions);
 		if (completePatternsExceptions.size() != 0) {
 			System.out.println("");
-			System.out.println(CypherTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);		
+			System.out.println(CypherTranslation.BEGIN_BUILD_PATTERN_EXCEPTIONS);
 			CypherTranslation.exceptionTestHandler(completePatternsExceptions);
 			System.out.println(CypherTranslation.END_BUILD_PATTERN_EXCEPTIONS);
 			System.out.println("");
@@ -274,7 +274,7 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 	public final static CompletePattern replace(CompletePattern pattern) throws InvalidityException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
+
 		EList<Parameter> params = pattern.getParameterList().getParameters();
 		for (int i = params.size()-1; i > -1; i--) {
 			Parameter param = pattern.getParameterList().getParameters().get(i);
@@ -313,7 +313,7 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 	//END - Procedural methods for execution
 
 	//BEGIN - FACTORY-METHODS for common Patterns and Structures
-	protected static CountCondition setCountCounditionInsideOfAnotherCondition(CompletePattern completePattern) {		
+	protected static CountCondition setCountCounditionInsideOfAnotherCondition(CompletePattern completePattern) {
 		CountCondition countCondition = PatternstructureFactory.eINSTANCE.createCountCondition();
 		Condition cond = completePattern.getCondition();
 		if (cond instanceof QuantifiedCondition) {
@@ -324,61 +324,61 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 			((Formula) cond).setCondition1(countCondition);
 		} else {
 			throw new UnsupportedOperationException();
-		}		
+		}
 		CountPattern countPattern = PatternstructureFactory.eINSTANCE.createCountPattern();
-	
+
 		NumberElement numberElement = PatternstructureFactory.eINSTANCE.createNumberElement();
 		countCondition.setCountPattern(countPattern);
 		NumberParam nb = new NumberParamImpl();
 		nb.setValue(1.);
 		numberElement.setNumberParam(nb);
-		
+
 		countCondition.setArgument2(numberElement);
-		
+
 		return countCondition;
 	}
-	
+
 	protected static CompletePattern getBasePatternComplex() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		
+
 		CompletePattern completePattern = factory.createCompletePattern();
 		completePattern.setPatternId("MyPattern");
-		
+
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
 		completePattern.getGraph().addNode();
 		ComplexNode complexNode2 = completePattern.getGraph().getNodes().get(1).makeComplex();
 		completePattern.getGraph().addRelation(complexNode1, complexNode2);
-		
-		return completePattern;		
+
+		return completePattern;
 	}
-	
+
 	protected static CompletePattern getBasePattern() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		
+
 		CompletePattern completePattern = factory.createCompletePattern();
 		completePattern.setPatternId("MyPattern");
-		
+
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
 		PrimitiveNode pn = completePattern.getGraph().addPrimitiveNode();
 		completePattern.getGraph().addRelation(complexNode1, pn);
-	
-		return completePattern;	
+
+		return completePattern;
 	}
-	
+
 	public static CompletePattern getCompBasePattern() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		
+
 		CompletePattern completePattern = factory.createCompletePattern();
 		completePattern.setPatternId("MyPattern");
-		
+
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
 		PrimitiveNode pn = completePattern.getGraph().addPrimitiveNode();
 		completePattern.getGraph().addRelation(complexNode1, pn);
-	
-		return completePattern;	
+
+		return completePattern;
 	}
 	//END - FACTORY-METHODS for common Patterns and Structures
 }

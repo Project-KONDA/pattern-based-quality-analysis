@@ -7,7 +7,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -18,17 +17,17 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
 public class ConcretisationFinalizationServlet extends HttpServlet {
-	
-	
+
+
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String requestUrl = request.getRequestURI();
 		String name = requestUrl.substring(Util.CONCRETISATION_FINALIZATION_ENDPOINT.length());
-		
-		String filePath = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";	
+
+		String filePath = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";
 		URL folderURL = getClass().getClassLoader().getResource(Util.CONCRETE_PATTERNS_PATH);
-		URL fileURL = getClass().getClassLoader().getResource(filePath);	
-		
+		URL fileURL = getClass().getClassLoader().getResource(filePath);
+
 		if(fileURL != null && folderURL != null) {
 			CompletePattern pattern = EMFModelLoad.loadCompletePattern(fileURL.toString());
 			try {
@@ -39,13 +38,13 @@ public class ConcretisationFinalizationServlet extends HttpServlet {
 			} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
 				response.sendError(409);
 				response.getOutputStream().println("{ \"error\": \"Concrete pattern not valid\"}");
-			}			
-			
+			}
+
 		} else {
 			response.sendError(404);
 			response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
 		}
-		
+
 	}
 
 

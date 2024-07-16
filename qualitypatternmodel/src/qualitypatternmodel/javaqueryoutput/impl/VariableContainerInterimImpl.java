@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.json.JSONException;
@@ -50,13 +49,14 @@ public class VariableContainerInterimImpl extends ContainerInterimImpl implement
 	public VariableContainerInterimImpl() {
 		super();
 	}
-		
+
 	public VariableContainerInterimImpl(String json) throws InvalidityException {
 		super();
 		try {
 			JSONObject jsono = new JSONObject(json);
-			if (!jsono.get("class").equals(getClass().getSimpleName()))
+			if (!jsono.get("class").equals(getClass().getSimpleName())) {
 				throw new InvalidityException("Wrong class");
+			}
 			setInterimPartId(jsono.getInt("id"));
 			setContained(InterimResultPartImpl.fromJson(jsono.getString("contained")));
 		} catch (JSONException e) {
@@ -68,7 +68,7 @@ public class VariableContainerInterimImpl extends ContainerInterimImpl implement
 	public Integer getSize() {
 		return -1;
 	}
-	
+
 	@Override
 	public JSONObject toJson() {
 		JSONObject result = new JSONObject();
@@ -83,21 +83,18 @@ public class VariableContainerInterimImpl extends ContainerInterimImpl implement
 
 	@Override
 	public Map<Integer, InterimResultPart> getInterimResultParts() {
-		Map<Integer, InterimResultPart> map = new HashMap<Integer, InterimResultPart>();
+		Map<Integer, InterimResultPart> map = new HashMap<>();
 		map.put(getInterimPartId(), this);
 		map.putAll(((InterimResultPartImpl) getContained()).getInterimResultParts());
 		return map;
 	}
-	
+
 	@Override
 	public String toString(){
 		return "<containerV " + getInterimPartId() + " " + getContained().toString() + ">";
 	}
-	
-	
-	
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

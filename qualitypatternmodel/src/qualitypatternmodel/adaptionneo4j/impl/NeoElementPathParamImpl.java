@@ -7,14 +7,13 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
-import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
+import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -64,7 +63,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 	 * @author Lukas Sebastian Hofmann
 	 * @exception InvalidityException
 	 * @return String
-	 * Generates the NeoElementPath. 
+	 * Generates the NeoElementPath.
 	 * If no NeoPathPart is specified for the NeoElementPathParam the Cypher equivalent "--" for a not specified edge shall be added.
 	 */
 	@Override
@@ -72,11 +71,11 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 		if (neoPathPart != null) {
 			final StringBuilder cypher = new StringBuilder();
 			final EList<NeoPathPart> neoPathParts = getNeoPathPart().getNeoPathPartEdgeLeafs();
-			
+
 			if (neoPathParts == null || neoPathParts.size() == 0) {
 				throw new InvalidityException(NEO_PARTS_CAN_NOT_BE_EMPTY);
 			}
-			
+
 			if (neoPathParts.size() > 1) {
 					generateMultiEdgeCypher(cypher);
 			} else {
@@ -84,7 +83,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 			}
 			return cypher.toString();
 		}
-		return ConstantsNeo.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES;	
+		return ConstantsNeo.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES;
 	}
 
 	/**
@@ -103,8 +102,8 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 		}
 		cypher.append(neoPathParts.get(0).generateCypher());
 		NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge) neoPathParts.get(0);
-		if (existsTargetNode(neoSimpleEdge)) { 
-			cypher.append(ConstantsNeo.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES); 
+		if (existsTargetNode(neoSimpleEdge)) {
+			cypher.append(ConstantsNeo.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
 		}
 	}
 
@@ -127,10 +126,10 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 			cypher.append(ConstantsNeo.SPECIAL_CYPHER_MULTIPLE_EDGES_NODES);
 		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
-	 * Creates a NeoSimpleEdge for the NeoPathPart. 
+	 * Creates a NeoSimpleEdge for the NeoPathPart.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -139,11 +138,11 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 		NeoSimpleEdgeImpl nse = new NeoSimpleEdgeImpl();
 		setNeoPathPart(nse);
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return boolean.class
-	 * Checks if the abstraction level of an NeoPathPart is correct. 
+	 * Checks if the abstraction level of an NeoPathPart is correct.
 	 */
 	@Override
 	public boolean inputIsValid() {
@@ -157,8 +156,9 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 
 	@Override
 	public String getValueAsString() {
-		if (getNeoPathPart() == null)
+		if (getNeoPathPart() == null) {
 			return null;
+		}
 		return getNeoPathPart().getValueAsString();
 //		JSONObject jobj = new JSONObject();
 //		try {
@@ -175,7 +175,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 			setNeoPathPart(part);
 			return;
 		} catch (InvalidityException e) {}
-		
+
 		try {
 			JSONObject jobj = new JSONObject(value);
 			String val = jobj.get(Constants.JSON_NEO_PATH_PART).toString();
@@ -191,7 +191,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 	public void clear() {
 		setNeoPathPart(null);
 	}
-	
+
 	@Override
 	public boolean isUsed() {
 		return getNeoElementEdge() != null;
@@ -199,15 +199,15 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 
 	/**
 	 * @author Lukas Sebastian Hofmann
-	 * Creates the needed report description for the NeoElementPathParam. 
-	 * Equal to the RdfParam describtion. 
+	 * Creates the needed report description for the NeoElementPathParam.
+	 * Equal to the RdfParam describtion.
 	 */
-	@Override 
+	@Override
 	public String generateDescription() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
@@ -234,7 +234,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 		}
 		return getNeoElementEdge().getInternalId();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -244,7 +244,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 	protected EClass eStaticClass() {
 		return Adaptionneo4jPackage.Literals.NEO_ELEMENT_PATH_PARAM;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -283,7 +283,11 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 		neoElementEdge = newNeoElementEdge;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Adaptionneo4jPackage.NEO_ELEMENT_PATH_PARAM__NEO_ELEMENT_EDGE, oldNeoElementEdge, newNeoElementEdge);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -337,7 +341,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

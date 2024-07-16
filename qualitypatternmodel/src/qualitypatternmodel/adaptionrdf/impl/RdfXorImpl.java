@@ -8,10 +8,8 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.json.JSONArray;
@@ -62,18 +60,21 @@ public class RdfXorImpl extends RdfPathComponentImpl implements RdfXor {
 		getItems().add(new RdfSinglePredicateImpl());
 		getItems().add(new RdfSinglePredicateImpl());
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
-		if (getItems().size() < 2)
+		if (getItems().size() < 2) {
 			return null;
+		}
 		String query = (invert ? "^" : "" ) + "(";
 		for (int i = 0; i < getItems().size(); i++) {
-			if(i > 0)
+			if(i > 0) {
 				query += "|";
-			String itemQuery = getItems().get(i).generateSparql(); 
-			if (itemQuery == null)
+			}
+			String itemQuery = getItems().get(i).generateSparql();
+			if (itemQuery == null) {
 				return null;
+			}
 			query += itemQuery;
 		}
 		query += ")" + getQuantifier().getLiteral();
@@ -83,8 +84,9 @@ public class RdfXorImpl extends RdfPathComponentImpl implements RdfXor {
 	@Override
 	public String getValueAsString() {
 		JSONArray jarr = new JSONArray();
-		for (RdfPathComponent component: getItems())
+		for (RdfPathComponent component: getItems()) {
 			jarr.put(component.getValueAsString());
+		}
 		JSONObject jobj = new JSONObject();
 		try {
 			jobj.put(Constants.JSON_RDF_PATH_XOR, jarr);
@@ -97,14 +99,17 @@ public class RdfXorImpl extends RdfPathComponentImpl implements RdfXor {
 	public void setValueFromString(String value) throws InvalidityException {
 		try {
 			JSONObject jobj = new JSONObject(value);
-			if (!jobj.has(Constants.JSON_RDF_PATH_XOR))
+			if (!jobj.has(Constants.JSON_RDF_PATH_XOR)) {
 				throw new InvalidityException(Constants.INVALID_VALUE);
+			}
 			JSONArray arr = jobj.getJSONArray(Constants.JSON_RDF_PATH_XOR);
-			if (arr.length() < 2)
+			if (arr.length() < 2) {
 				throw new InvalidityException("Not enough arguments for Rdf Xor: '" + value + "'");
+			}
 			ArrayList<RdfPathComponent> newItems = new ArrayList<RdfPathComponent>();
-	        for (int i = 0; i < arr.length(); i++)
-	        	newItems.add(RdfPathComponent.createNewRdfPathComponent(arr.get(i).toString()));
+	        for (int i = 0; i < arr.length(); i++) {
+				newItems.add(RdfPathComponent.createNewRdfPathComponent(arr.get(i).toString()));
+			}
 			getItems().clear();
 			getItems().addAll(newItems);
 		} catch (Exception e) {
@@ -208,7 +213,7 @@ public class RdfXorImpl extends RdfPathComponentImpl implements RdfXor {
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	@Override
 	public EList<RdfSinglePredicate> getRdfSinglePredicates() {
 		EList<RdfSinglePredicate> list = new BasicEList<RdfSinglePredicate>();
@@ -222,14 +227,16 @@ public class RdfXorImpl extends RdfPathComponentImpl implements RdfXor {
 	public void isValidLocal(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public String myToString() {
 		String result = "RdfXor [" + getId() + "] (";
 		for (int i = 0; i < getItems().size(); i++){
-			if (i > 0) result += ", ";
+			if (i > 0) {
+				result += ", ";
+			}
 			result += getItems().get(i).myToString();
 		}
 		result += ")";

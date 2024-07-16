@@ -53,8 +53,7 @@ public enum EverySomeNoneQuantifier implements Enumerator {
 	public static final List<EverySomeNoneQuantifier> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	public static EverySomeNoneQuantifier get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			EverySomeNoneQuantifier result = VALUES_ARRAY[i];
+		for (EverySomeNoneQuantifier result : VALUES_ARRAY) {
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -63,8 +62,7 @@ public enum EverySomeNoneQuantifier implements Enumerator {
 	}
 
 	public static EverySomeNoneQuantifier getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			EverySomeNoneQuantifier result = VALUES_ARRAY[i];
+		for (EverySomeNoneQuantifier result : VALUES_ARRAY) {
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -112,5 +110,5 @@ public enum EverySomeNoneQuantifier implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 } //EverySomeNoneQuantifier

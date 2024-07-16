@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,13 +32,13 @@ public abstract class JavaFilterPartImpl extends MinimalEObjectImpl.Container im
 	protected JavaFilterPartImpl() {
 		super();
 	}
-	
+
 	@Override
 	abstract public JSONObject toJson();
-	
+
 	@Override
 	abstract public String toString();
-	
+
 	private static Integer idCounter = 1;
 	private Integer javaFilterPartId = -1;
 	public Integer getJavaFilterPartId() {
@@ -92,7 +91,7 @@ public abstract class JavaFilterPartImpl extends MinimalEObjectImpl.Container im
 		try {
 			JSONObject jsono = new JSONObject(json);
 			String clazz = jsono.getString("class");
-			
+
 			//BooleanFilterParts
 			if (clazz.equals(FormulaFilterPartImpl.class.getSimpleName())) {
 				return new FormulaFilterPartImpl(json, map);

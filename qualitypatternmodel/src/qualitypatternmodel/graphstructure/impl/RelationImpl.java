@@ -3,16 +3,16 @@
 package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
@@ -33,11 +33,11 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.ComplexNode;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -154,34 +154,36 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public RelationImpl() {
 		super();
 	}
-	
+
 	@Override
 	public void isValid (AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (getClass().equals(RelationImpl.class) && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE)
+		if (getClass().equals(RelationImpl.class) && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE) {
 			throw new InvalidityException("generic class in non-generic pattern");
+		}
 		super.isValid(abstractionLevel);
 	}
 
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		
+
 		if(getSource() == null || getSource().getGraph() == null) {
 			throw new InvalidityException("source invalid of " + myToString());
 		}
-		
+
 		if(getTarget() == null || getTarget().getGraph() == null) {
 			throw new InvalidityException("target invalid of " + myToString());
 		}
-			
-		if (getTarget().getGraph() != getGraph() && getSource().getGraph() != getGraph()) 
+
+		if (getTarget().getGraph() != getGraph() && getSource().getGraph() != getGraph()) {
 			throw new InvalidityException( myToString() + " is not in Graph of Source Node "+ getSource().myToString() + " or Target Node ("+ getTarget().myToString() + ")");
+		}
 	}
 
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		return new BasicEList<PatternElement>();
 	}
-	
+
 	@Override
 	public void initializeTranslation() {
 		setTranslated(false);
@@ -206,9 +208,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if (eContainerFeatureID() != GraphstructurePackage.RELATION__GRAPH) return null;
 		return (Graph)eInternalContainer();
 	}
-	
+
 	public NotificationChain basicSetGraphSimple(Graph newGraph, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.RELATION__GRAPH, msgs);		
+		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.RELATION__GRAPH, msgs);
 		return msgs;
 	}
 
@@ -219,12 +221,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
 		triggerParameterUpdates(newGraph);
-		
+
 //		if (newGraph == null || getGraph() != null && !newGraph.equals(getGraph())) {
 //			setSource(null);
 //			setTarget(null);
 //		}
-		
+
 		if(getGraph() == null && newGraph != null) {
 			if(getSource() != null && getSource().getGraph() != null && !getSource().getGraph().equals(newGraph)) {
 				setSource(null);
@@ -236,7 +238,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		this.createParameters();
 
 		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.RELATION__GRAPH, msgs);
-		
+
 		return msgs;
 	}
 
@@ -261,7 +263,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__GRAPH, newGraph, newGraph));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -270,18 +272,24 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public void setGraphSimple(Graph newGraph) {
 		if (newGraph != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.RELATION__GRAPH && newGraph != null)) {
-			if (EcoreUtil.isAncestor(this, newGraph))
+			if (EcoreUtil.isAncestor(this, newGraph)) {
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			}
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
+			if (eInternalContainer() != null) {
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newGraph != null)
+			}
+			if (newGraph != null) {
 				msgs = ((InternalEObject)newGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__RELATIONS, Graph.class, msgs);
+			}
 			msgs = basicSetGraphSimple(newGraph, msgs);
-			if (msgs != null) msgs.dispatch();
+			if (msgs != null) {
+				msgs.dispatch();
+			}
 		}
-		else if (eNotificationRequired())
+		else if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__GRAPH, newGraph, newGraph));
+		}
 	}
 
 	/**
@@ -293,7 +301,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public Boolean isCrossGraph() {
 		try {
 			Graph sourceGraph = getSource().getGraph();
-			Graph targetGraph = getTarget().getGraph(); 
+			Graph targetGraph = getTarget().getGraph();
 			if (sourceGraph != null && sourceGraph != targetGraph) {
 				return true;
 			}
@@ -340,22 +348,28 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				try {
 					newSource = newSource.makeComplex();
 				} catch (InvalidityException e) {
-					if (eNotificationRequired())
+					if (eNotificationRequired()) {
 						eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, newSource, newSource));
+					}
 					return;
 				}
 			}
 			NotificationChain msgs = null;
-			if (source != null)
+			if (source != null) {
 				msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.COMPLEX_NODE__OUTGOING, ComplexNode.class, msgs);
-			if (newSource != null)
+			}
+			if (newSource != null) {
 				msgs = ((InternalEObject)newSource).eInverseAdd(this, GraphstructurePackage.COMPLEX_NODE__OUTGOING, ComplexNode.class, msgs);
-			
+			}
+
 			msgs = basicSetSource((ComplexNode) newSource, msgs);
-			if (msgs != null) msgs.dispatch();
+			if (msgs != null) {
+				msgs.dispatch();
+			}
 		}
-		else if (eNotificationRequired())
+		else if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, newSource, newSource));
+		}
 	}
 
 	/**
@@ -387,13 +401,18 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		Node oldSource = source;
 
 		if (setGraphConsistently(newSource, getTarget(), this)) {
-			source = (ComplexNode) newSource;
+			source = newSource;
+		} else {
+			throw new RuntimeException("Source not set");
 		}
-		else throw new RuntimeException("Source not set");
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, oldSource, newSource);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -429,72 +448,86 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws Exception 
+	 * @throws Exception
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetTarget(Node newTarget, NotificationChain msgs) {
 		Node oldTarget = target;
-		
+
 		if (setGraphConsistently(getSource(), newTarget, this)) {
 			target = newTarget;
+		} else {
+			throw new RuntimeException("Target not set");
 		}
-		else throw new RuntimeException("Target not set");
-						
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__TARGET, oldTarget, newTarget);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
-	
+
 	private boolean setGraphConsistently(Node source, Node target, Relation r) {
 		Graph ownGraph = getGraph();
 		Graph sourceGraph = null;
-		if (getSource() != null)
+		if (getSource() != null) {
 			sourceGraph = getSource().getGraph();
+		}
 		Graph targetGraph = null;
-		if (target != null)
+		if (target != null) {
 			targetGraph = target.getGraph();
+		}
 
 		// check if target is in graph that is hierarchically after
 		if (sourceGraph == null) {
 			if (targetGraph == null) {
 				if (ownGraph != null) {
-					if (getSource() != null)
+					if (getSource() != null) {
 						source.setGraph(targetGraph);
-					if (target != null)
+					}
+					if (target != null) {
 						target.setGraph(targetGraph);
+					}
 				}
 			} else {
 				setGraph(targetGraph);
-				if (getSource() != null)
+				if (getSource() != null) {
 					source.setGraph(targetGraph);
+				}
 			}
 		} else {
 			if (targetGraph == null) {
 				if (ownGraph == null) {
 					setGraph(sourceGraph);
-					if (target != null)
+					if (target != null) {
 						target.setGraph(sourceGraph);
+					}
 				} else {
 					if (sourceGraph.isBefore(ownGraph)) {
 						target.setGraph(ownGraph);
 					}
 					else {
 						setGraph(sourceGraph);
-						if (target != null)
+						if (target != null) {
 							target.setGraph(sourceGraph);
+						}
 					}
 				}
 			}
 			else {
 				if(sourceGraph.isBefore(targetGraph)) {
-					if (!targetGraph.equals(ownGraph))
+					if (!targetGraph.equals(ownGraph)) {
 						setGraph(targetGraph);
+					}
 				} else {
 					if(targetGraph.isBefore(sourceGraph)) {
-						if (!sourceGraph.equals(ownGraph))
+						if (!sourceGraph.equals(ownGraph)) {
 							setGraph(sourceGraph);
+						}
 					} else {
 						return false;
 					}
@@ -513,21 +546,27 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public void setTarget(Node newTarget) {
 		if (newTarget != target) {
 			NotificationChain msgs = null;
-			if (target != null)
+			if (target != null) {
 				msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.NODE__INCOMING, Node.class, msgs);
-			if (newTarget != null)
+			}
+			if (newTarget != null) {
 				msgs = ((InternalEObject)newTarget).eInverseAdd(this, GraphstructurePackage.NODE__INCOMING, Node.class, msgs);
+			}
 			msgs = basicSetTarget(newTarget, msgs);
-			if (msgs != null) msgs.dispatch();
-			if (eNotificationRequired())
+			if (msgs != null) {
+				msgs.dispatch();
+			}
+			if (eNotificationRequired()) {
 				eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__TARGET, target, target));
+			}
 		}
 		else {
 			System.out.println("RelImpl515 target set failed somehow");
-			if (eNotificationRequired())
+			if (eNotificationRequired()) {
 				eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__TARGET, newTarget, newTarget));
+			}
 		}
-			
+
 	}
 
 	/**
@@ -545,11 +584,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		}
 		return name;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -564,21 +603,23 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			} else {
 				navigation.setName(getName());
 			}
-			
+
 			navigation.setGraphSimple(getGraph());
-			
+
 				navigation.createParameters();
-			if (getSource() != null)
+			if (getSource() != null) {
 				navigation.setSource(getSource());
-			if (getTarget() != null)
+			}
+			if (getTarget() != null) {
 				navigation.setTarget(getTarget());
-		
+			}
+
 			setSource(null);
-			setTarget(null);			
+			setTarget(null);
 			setGraph(null);
-			
+
 			navigation.getTarget().adaptAsXmlProperty();
-			
+
 			return navigation;
 		}
 		return (XmlPropertyNavigation) this;
@@ -598,11 +639,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return;
 			}
 		}
-		
+
 		String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__NAME, oldName, name));
+		}
 	}
 
 	/**
@@ -659,30 +701,31 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			return adaptAsXmlElementNavigation();
 		}
 	}
-	
+
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return adaptAsRdfPredicate();
-	}	
+	}
 
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return {@link PatternElement}
 	 * @exception InvalidityException, OperatorCycleException, MissingPatternContainerException
-	 * 
+	 *
 	 */
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (getTarget() instanceof NeoPropertyNode) {
 			return adaptAsPropertyEdge();
-		} 
-		else return adaptAsNeoElementEdge();
+		} else {
+			return adaptAsNeoElementEdge();
+		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -694,7 +737,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			navigation.setSource(getSource());
 			navigation.setTarget(getTarget());
 			setSource(null);
-			setTarget(null);			
+			setTarget(null);
 			setGraph(null);
 			navigation.createParameters();
 			navigation.getTarget().adaptAsXmlElement();
@@ -706,23 +749,25 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
 	public XmlReference adaptAsXmlReference() throws InvalidityException {
 		if(!(this instanceof XmlReference)) {
-			XmlReference reference = new XmlReferenceImpl();			
+			XmlReference reference = new XmlReferenceImpl();
 			reference.setGraphSimple(getGraph());
 
 //			ComplexNode sourceNode = getSource().makeComplex();
 			ComplexNode sourceNode = getSource();
 			ComplexNode targetNode;
-			if (getTarget() instanceof XmlElement)
+			if (getTarget() instanceof XmlElement) {
 				targetNode = (ComplexNode) getTarget();
-				else targetNode = getTarget().makeComplex();
-			
-			
+			} else {
+				targetNode = getTarget().makeComplex();
+			}
+
+
 			if(getName().matches("Relation [0-9]+")) {
 				reference.setName(getName().replace("Relation", "XmlReference"));
 			} else if(getName().matches("XmlNavigation [0-9]+")) {
@@ -730,32 +775,32 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			} else {
 				reference.setName(getName());
 			}
-			
+
 			reference.setSource(sourceNode);
-			reference.setTarget(targetNode);			
-			
+			reference.setTarget(targetNode);
+
 			XmlProperty property = new XmlPropertyImpl();
 			Graph graph = getGraph();
 			property.setGraph(getGraph());
 			graph.addRelation(sourceNode, property).adaptAsXmlPropertyNavigation();
 			graph.addRelation(targetNode, property).adaptAsXmlPropertyNavigation();
 			property.createParameters();
-			
-			reference.setProperty(property);	
-			
+
+			reference.setProperty(property);
+
 			setSource(null);
 			setTarget(null);
-			
+
 			setGraph(null);
-			
+
 			reference.getTarget().adaptAsXmlElement();
 			this.removeParametersFromParameterList();
 			return reference;
 		}
 		return (XmlReference) this;
 	}
-	
-		
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -772,20 +817,20 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			setSource(null);
 			setTarget(null);
 			setGraph(null);
-			
+
 			predicate.createParameters();
-			
+
 			if(predicate.getTarget() instanceof PrimitiveNode) {
 				predicate.getTarget().adaptAsRdfLiteralNode();
 			} else if(predicate.getTarget() instanceof Node || predicate.getTarget() instanceof ComplexNode) {
 				predicate.getTarget().adaptAsRdfIriNode();
 			}
-			
+
 			return predicate;
 		}
 		return (RdfPredicate) this;
 	}
-	
+
 	//BEGIN - Neo4J/Cypher
 	/**
 	 * <!-- begin-user-doc -->
@@ -796,17 +841,17 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public NeoPropertyEdge adaptAsPropertyEdge() throws InvalidityException {
 		if (!(this instanceof NeoPropertyEdge)) {
-			NeoPropertyEdge edge = (NeoPropertyEdge) Adaptionneo4jFactoryImpl.init().createNeoPropertyEdge();
+			NeoPropertyEdge edge = Adaptionneo4jFactoryImpl.init().createNeoPropertyEdge();
 
 			edge.setName(getName());
 			edge.setGraph(getGraph());
 			edge.setSource(getSource());
 			edge.setTarget(getTarget());
 			setSource(null);
-			setTarget(null);			
+			setTarget(null);
 			setGraph(null);
 			edge.createParameters();
-			
+
 			if(edge.getTarget() instanceof PrimitiveNode) {
 				edge.getTarget().adaptAsNeoPropertyNode();
 			} else if(edge.getTarget() instanceof ComplexNode || edge.getTarget() instanceof Node) {
@@ -818,7 +863,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		}
 		return (NeoPropertyEdge) this;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -838,24 +883,24 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public NeoElementEdge adaptAsNeoElementEdge() throws InvalidityException {
 		if (!(this instanceof NeoElementEdge)) {
-			NeoElementEdge edge = (NeoElementEdge) Adaptionneo4jFactoryImpl.init().createNeoElementEdge();
+			NeoElementEdge edge = Adaptionneo4jFactoryImpl.init().createNeoElementEdge();
 
 			edge.setName(getName());
 			edge.setGraph(getGraph());
 			edge.setSource(getSource());
 			edge.setTarget(getTarget());
 			setSource(null);
-			setTarget(null);			
+			setTarget(null);
 			setGraph(null);
 			edge.createParameters();
-			
+
 			if(edge.getTarget() instanceof PrimitiveNode) {
 				throw new InvalidityException();
 //				edge.getTarget().adaptAsNeoPropertyNode();
 			} else if(edge.getTarget() instanceof ComplexNode || edge.getTarget() instanceof Node) {
 				edge.getTarget().adaptAsNeoElementNode();
 			}
-			
+
 			return edge;
 		}
 		return (NeoElementEdge) this;
@@ -865,7 +910,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 
 	/**
-	 * <!-- begin-user-doc --> 
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1131,12 +1176,17 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public String myToString() {
 		String res = this.getClass().getSimpleName(); // + " " + getName();
-		if (getInternalId() == getInternalId())
+		if (getInternalId() == getInternalId()) {
 			res += " [" + getInternalId() + "]";
-		else
+		} else {
 			res += " [" + getInternalId() + " (" + getInternalId() + ")]";
-		if (getSource() != null) res += " from " + getSource().getInternalId();
-		if (getTarget() != null) res += " to " + getTarget().getInternalId();
+		}
+		if (getSource() != null) {
+			res += " from " + getSource().getInternalId();
+		}
+		if (getTarget() != null) {
+			res += " to " + getTarget().getInternalId();
+		}
 		return res;
 	}
 
@@ -1152,7 +1202,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	@Override
 	public void removeParametersFromParameterList() {
-		
+
 	}
 
 } // RelationImpl

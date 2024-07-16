@@ -13,10 +13,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -26,6 +24,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -36,7 +35,6 @@ import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-
 import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
@@ -121,48 +119,52 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	protected PatternTextImpl() {
 		super();
 	}
-	
+
 
 	public PatternTextImpl(CompletePattern pattern, JSONObject json) throws JSONException, InvalidityException {
 		super();
-		
+
 		//template check
 		String template = json.getString("template");
-		if (!pattern.getPatternId().equals(template))
+		if (!pattern.getPatternId().equals(template)) {
 			throw new InvalidityException("Selected Pattern '" + pattern.getPatternId() + "' does not match '" + template + "'.");
+		}
 		pattern.getLanguage().getLiteral();
 		String language = json.getString("language");
-		if (!pattern.getLanguage().getLiteral().equals(language))
+		if (!pattern.getLanguage().getLiteral().equals(language)) {
 			throw new InvalidityException("The language of the selected Pattern '" + pattern.getName() + "' is '" + pattern.getLanguage().getLiteral() + "', which does not match '" + language + "'.");
+		}
 
 		// pattern
 		pattern.getText().add(this);
-		
+
 		// name
 		String name = json.getString("name");
 		this.setName(name);
-				
+
 		// fragments
 		JSONArray fragments = json.getJSONArray("fragments");
 		int id_counter = 0;
 		for (int i = 0; i < fragments.length(); i++) {
             JSONObject fragmentObject = fragments.getJSONObject(i);
-            
+
             boolean hasText = fragmentObject.has(Constants.JSON_TEXT);
             boolean hasParams = fragmentObject.has(Constants.JSON_PARAMETER);
             boolean hasName = fragmentObject.has(Constants.JSON_NAME);
             boolean hasValue = fragmentObject.has(Constants.JSON_VALUE);
-            
+
             if (hasParams && hasName) {
             	addFragment(new ParameterFragmentImpl(pattern, fragmentObject, id_counter));
             	id_counter++;
-            }	
-            else if (hasParams && hasValue)
-            	getParameterPredefinitions().add(new ParameterPredefinitionImpl(pattern, fragmentObject));
-            else if (hasText) {
+            }
+            else if (hasParams && hasValue) {
+				getParameterPredefinitions().add(new ParameterPredefinitionImpl(pattern, fragmentObject));
+			} else if (hasText) {
             	String text = fragmentObject.getString(Constants.JSON_TEXT);
             	addFragment(new TextFragmentImpl(text));
-            } else throw new InvalidityException("Fragment needs text or params and value or name!");
+            } else {
+				throw new InvalidityException("Fragment needs text or params and value or name!");
+			}
 		}
 		isValid(AbstractionLevel.ABSTRACT);
 	}
@@ -306,15 +308,16 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		json += "\"name\": \"" + getName() + "\", ";
 		json += "\"fragments\" : [";
 		for(int i = 0; i< getFragmentsOrdered().size(); i++) {
-			if (i>0)
+			if (i>0) {
 				json += ", ";
+			}
 			json += getFragmentsOrdered().get(i).generateJSON();
 		}
 		json += "]}";
 		return json;
 	}
 
-	
+
 	@Override
 	public JSONObject generateJSONObject() {
 		JSONObject json = new JSONObject();
@@ -331,7 +334,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		}
 		return json;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -344,13 +347,13 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			result.put(Constants.JSON_TEMPLATE, getPattern().getAbstractId());
 			result.put(Constants.JSON_LANGUAGE, getPattern().getLanguage());
 			result.put(Constants.JSON_NAME, getName());
-			
+
 			JSONArray fragments = new JSONArray();
-			
+
 			for (Fragment fragment: getFragmentsOrdered()) {
 				fragments.put(fragment.generateVariantJSONObject());
 			}
-			
+
 			for (ParameterPredefinition predefinition: getParameterPredefinitions()) {
 				fragments.put(predefinition.generateVariantJSONObject());
 			}
@@ -366,7 +369,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 */
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException {
-		
+
 		// get all referenced parameters
 		List<Parameter> referencedParameters = new ArrayList<Parameter>();
 		for(Fragment f : getFragments()) {
@@ -377,9 +380,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			}
 		}
 		for(ParameterPredefinition p : getParameterPredefinitions()) {
-			referencedParameters.addAll(p.getParameter());			
+			referencedParameters.addAll(p.getParameter());
 		}
-		
+
 		// get all parameters from the pattern, that needs to be specified
 //		List<Parameter> patternParametersNonPredefinedNotAutomaticTypeNotRootRelation = new ArrayList<Parameter>();
 		List<Parameter> patternParametersNonPredefined = new ArrayList<Parameter>();
@@ -405,12 +408,12 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 //						XmlAxisOptionParam r = (XmlAxisOptionParam) p;
 //						boolean rootRelation = true;
 //						Relation relation = r.getXmlAxisPart().getXmlPathParam().getXmlNavigation();
-//						rootRelation &= relation.getSource() instanceof XmlRoot;						
+//						rootRelation &= relation.getSource() instanceof XmlRoot;
 //						if(!rootRelation) {
 //							patternParametersNonPredefinedNotAutomaticTypeNotRootRelation.add(p);
 //						}
-//					}					
-//					
+//					}
+//
 //				} else {
 //					TypeOptionParam t = (TypeOptionParam) p;
 //					boolean automaticType = true;
@@ -432,16 +435,16 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 //				}
 //				for(XmlAxisPart axisPair : pathParam.getXmlAxisParts()) {
 //					if(axisPair.getXmlAxisOptionParam() != null && !axisPair.getXmlAxisOptionParam().isPredefined()) {
-//						patternParametersNonPredefined.add(axisPair.getXmlAxisOptionParam());						
+//						patternParametersNonPredefined.add(axisPair.getXmlAxisOptionParam());
 //						boolean rootRelation = true;
 //						Relation relation = axisPair.getXmlAxisOptionParam().getXmlAxisPart().getXmlPathParam().getXmlNavigation();
-//						rootRelation &= relation.getSource() instanceof XmlRoot;						
+//						rootRelation &= relation.getSource() instanceof XmlRoot;
 //						if(!rootRelation) {
 //							patternParametersNonPredefinedNotAutomaticTypeNotRootRelation.add(axisPair.getXmlAxisOptionParam());
 //						}
 //					}
 //					if(axisPair.getTextLiteralParam() != null && !axisPair.getTextLiteralParam().isPredefined()) {
-//						patternParametersNonPredefined.add(axisPair.getTextLiteralParam());						
+//						patternParametersNonPredefined.add(axisPair.getTextLiteralParam());
 //					}
 //				}
 //			}
@@ -466,12 +469,12 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		}
 
 		// Check Parameters not referenced multiple times
-		Set<Parameter> referencedParametersSet = new HashSet<>(referencedParameters);
+		Set<Parameter> referencedParametersSet = new HashSet<Parameter>(referencedParameters);
 		if(referencedParameters.size() != referencedParametersSet.size()) {
 			throw new InvalidityException("pattern text references parameters multiple times");
 		}
-		
-		
+
+
 		// Check Parameter Fragment names unique
 		List<String> names = new BasicEList<String>();
 		for(Fragment f : getFragments()) {
@@ -481,7 +484,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 					if(n.equals(frag.getId())) {
 						throw new InvalidityException("Parameter fragment name not unique: " + frag.getId());
 					}
-				}					
+				}
 				names.add(frag.getId());
 			}
 		}
@@ -490,8 +493,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws OperatorCycleException 
-	 * @throws InvalidityException 
+	 * @throws OperatorCycleException
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -514,22 +517,22 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws MissingPatternContainerException 
-	 * @throws OperatorCycleException 
+	 * @throws MissingPatternContainerException
+	 * @throws OperatorCycleException
 	 * @generated not
 	 */
 	@Override
 	public String generateSparqlTemplate() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// build sentence:
 //		getPattern().isValid(AbstractionLevel.ABSTRACT); // TODO: technology-specific validation
-		
+
 		String text = "#TEMPLATE={\"template\":\"";
 		for(Fragment f : getFragmentsOrdered()) {
 			text += f.generateSparqlTemplate() + " ";
 		}
-		
+
 		// add variables:
-		text += "\",\"variables\":{";		
+		text += "\",\"variables\":{";
 		int c = 0;
 		int size = getFragmentsOrdered().size();
 		for(Fragment f : getFragmentsOrdered()) {
@@ -543,10 +546,10 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			c++;
 		}
 		text += "}}";
-		
+
 		// query:
 		String query = getPattern().generateSparql();
-		
+
 		// add example values as BINDs:
 //		String[] split = query.split("WHERE\n\\{");
 //		assert split.length == 2;
@@ -567,12 +570,12 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		}
 //		query = split[0] + "WHERE\n{\n" + binds + split[1];
 		query = query.substring(0,index) + binds + query.substring(index);
-		
+
 		// inline VALUES:
 		/* TODO: we could omit this if we add a dedicated generateSparqlTemplate()
 		 * method in PatternElement that directly translates RDF nodes with a primitive
 		 * comparison via the name of the associated ParameterFragment
-		 */		
+		 */
 //		String[] splitValues = query.split("VALUES ");
 //		query = splitValues[0];
 //		for(int i=1; i<splitValues.length; i++) {
@@ -584,13 +587,13 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 //		}
 //		while(query.endsWith(" ")) {
 //			query = query.substring(0, query.length()-1);
-//		}		
+//		}
 //		query += "}";
-//		
+//
 //		return text + "\n" + query;
 		String regex = "[ ]*FILTER \\(\\?[a-z0-9]* = \\?[a-z0-9]*\\).";
-		List<String[]> replacements = new BasicEList<>();
-		
+		List<String[]> replacements = new BasicEList<String[]>();
+
 		String result = text;
 		for(String line: query.split("\n")) {
 			if (line.matches(regex)){
@@ -609,13 +612,13 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 					String[] pair = {vars[1], vars[0]};
 					replacements.add(pair);
 				}
-			}
-			else
+			} else {
 				result += "\n" + line;
+			}
 		}
 		for (String[] p: replacements) {
 			result = result.replace(p[0] , p[1]);
-		}	
+		}
 		return result;
 	}
 
@@ -630,7 +633,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		for(Fragment fragment : getFragments()) {
 			if(fragment instanceof ParameterFragment) {
 				ParameterFragment parameterFragment = (ParameterFragment) fragment;
-				parameterFragment.getParameter().clear();;
+				parameterFragment.getParameter().clear();
 			}
 		}
 		for(ParameterPredefinition p : getParameterPredefinitions()) {
@@ -658,7 +661,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @generated NOT
 	 */
 	@Override
-	public void addFragment(Fragment fragment) {		
+	public void addFragment(Fragment fragment) {
 		getFragmentsOrdered().add(fragment);
 		getFragments().add(fragment);
 	}

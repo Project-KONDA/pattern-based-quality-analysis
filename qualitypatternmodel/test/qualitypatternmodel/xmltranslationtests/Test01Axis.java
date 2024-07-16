@@ -3,21 +3,27 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.utility.XmlPatternUtility;
-import qualitypatternmodel.xmltestutility.PatternTestPair;
-import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.impl.XmlAxisPartConditionImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
-import qualitypatternmodel.exceptions.*;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.GraphstructureFactory;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test01Axis {
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
@@ -32,12 +38,12 @@ public class Test01Axis {
 		}
 		return completePatterns;
 	}
-	
+
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		XmlPatternUtility.testPatterns(getPatterns());
 	}
 
-	public static CompletePattern getBasePatternAxisRoot(XmlAxisKind xmlAxisKind) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
+	public static CompletePattern getBasePatternAxisRoot(XmlAxisKind xmlAxisKind) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.createXmlAdaption();
 		XmlNavigation relation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
@@ -47,22 +53,22 @@ public class Test01Axis {
 		axisOption.setXmlAxis(xmlAxisKind, "");
 		return completePattern;
 	}
-	
-	public static CompletePattern getBasePatternAxisNotRoot(XmlAxisKind xmlAxisKind) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
+
+	public static CompletePattern getBasePatternAxisNotRoot(XmlAxisKind xmlAxisKind) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		
-		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
-		
+
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+
 		Graph graph = completePattern.getGraph();
 		Node element1 = completePattern.getGraph().getReturnNodes().get(0);
 		Node element2 = graphFactory.createNode();
 		element2.setGraph(graph);
-		element2.addOutgoing(element1);		
-		
+		element2.addOutgoing(element1);
+
 		completePattern.createXmlAdaption();
-		XmlElementNavigation navigation = (XmlElementNavigation) graph.getRelations().get(0);		
-		
+		XmlElementNavigation navigation = (XmlElementNavigation) graph.getRelations().get(0);
+
 		XmlPathParam axisOption = navigation.getXmlPathParam();
 		axisOption.setXmlAxis(xmlAxisKind, "");
 		return completePattern;
@@ -70,23 +76,26 @@ public class Test01Axis {
 
 	private static CompletePattern getBasePatternAxisPart(XmlPropertyKind type, String value) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		
+
 		completePattern.createXmlAdaption();
 		XmlPathParam relation = ((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam();
 		XmlAxisPart part = relation.getXmlAxisParts().get(0);
 		XmlAxisPartCondition cond = new XmlAxisPartConditionImpl();
 		part.getXmlAxisPartConditions().clear();
 		part.getXmlAxisPartConditions().add(cond);
-		if (cond.getXmlPropertyOption() == null)
+		if (cond.getXmlPropertyOption() == null) {
 			cond.setXmlPropertyOption(new XmlPropertyOptionParamImpl());
+		}
 		cond.getXmlPropertyOption().setValue(type);
-		if (type.equals(XmlPropertyKind.ATTRIBUTE))
+		if (type.equals(XmlPropertyKind.ATTRIBUTE)) {
 			cond.getXmlPropertyOption().getAttributeName().setValue("attribute");
+		}
 		if (value != null) {
-			if (cond.getTextLiteralParam() == null)
+			if (cond.getTextLiteralParam() == null) {
 				cond.setTextLiteralParam(new TextLiteralParamImpl());
+			}
 			cond.getTextLiteralParam().setValue(value);
-		}	
+		}
 		return completePattern;
 	}
 
@@ -97,9 +106,9 @@ public class Test01Axis {
 			testPairs.add(new PatternTestPair(ax.getName()+"_ROOT", getBasePatternAxisRoot(ax), ax.getLiteral()));
 			testPairs.add(new PatternTestPair(ax.getName(), getBasePatternAxisNotRoot(ax), "for $x in /* for $y in $x" + ax.getLiteral() + " return $x"));
 		}
-		
-		
-		
+
+
+
 //		testPairs.add(new PatternTestPair("CHILD", 				getBasePatternAxis(Axis.CHILD), 				"/child::*"));
 ////		testPairs.add(new PatternTestPair("PARENT", 			getBasePatternAxis(Axis.PARENT), 				"/parent::*"));
 //		testPairs.add(new PatternTestPair("SELF", 				getBasePatternAxis(Axis.SELF), 				"/self::*"));

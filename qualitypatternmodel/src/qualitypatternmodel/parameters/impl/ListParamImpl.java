@@ -3,18 +3,14 @@
 package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-
 import qualitypatternmodel.parameters.ListParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.utility.ConstantsXml;
@@ -78,11 +74,11 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 	@Override
 	public boolean inputIsValid() {
 		if (getValues() == null || getValues().isEmpty()) {
-			return false;	
+			return false;
 		}
 		return true;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,14 +88,14 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 	public void setValueIfValid(EList<String> newValue) throws InvalidityException {
 		EList<String> oldValue = getValues();
 		getValues().clear();
-		getValues().addAll(newValue);	
+		getValues().addAll(newValue);
 		try {
 			checkComparisonConsistency();
 		} catch (Exception e) {
 			getValues().clear();
 			getValues().addAll(oldValue);
 			throw e;
-		}			
+		}
 	}
 
 	/**
@@ -121,7 +117,9 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 	public String getListDeclaration() {
 		String res = ConstantsXml.LET + getListVar() + " := (";
 		for (int i = 0; i<getValues().size(); i++) {
-			if (i!=0) res += ", ";
+			if (i!=0) {
+				res += ", ";
+			}
 			res += "'" + getValues().get(i) + "'";
 		}
 		return res + ")";
@@ -130,7 +128,7 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override

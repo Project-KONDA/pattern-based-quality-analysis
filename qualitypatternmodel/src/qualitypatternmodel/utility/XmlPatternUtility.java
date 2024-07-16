@@ -65,7 +65,7 @@ public class XmlPatternUtility {
 	public static void getQueries(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
 			XmlPatternUtility.fillParameterXml(completePattern);
-	
+
 			try {
 				completePattern.isValid(AbstractionLevel.CONCRETE);
 				String result = completePattern.generateXQuery();
@@ -82,7 +82,7 @@ public class XmlPatternUtility {
 	public static CompletePattern fillParameterXml(CompletePattern pattern) {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
+
 		EList<Parameter> params = pattern.getParameterList().getParameters();
 		for (int i = params.size()-1; i > -1; i--) {
 			Parameter param = pattern.getParameterList().getParameters().get(i);
@@ -121,31 +121,41 @@ public class XmlPatternUtility {
 			}
 			if (param instanceof XmlPathParam) {
 				XmlPathParam xmlPathParam = (XmlPathParam) param;
-				if (xmlPathParam.getXmlAxisParts().isEmpty())
+				if (xmlPathParam.getXmlAxisParts().isEmpty()) {
 					xmlPathParam.getXmlAxisParts().add(new XmlAxisPartImpl());
+				}
 				for (XmlAxisPart pair : xmlPathParam.getXmlAxisParts()) {
-					if (pair.getXmlAxisPartConditions().isEmpty())
+					if (pair.getXmlAxisPartConditions().isEmpty()) {
 						pair.getXmlAxisPartConditions().add(new XmlAxisPartConditionImpl());
-					if (pair.getXmlAxisOptionParam() == null)
+					}
+					if (pair.getXmlAxisOptionParam() == null) {
 						pair.setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
-					if (pair.getXmlAxisOptionParam().getValue() == null)
+					}
+					if (pair.getXmlAxisOptionParam().getValue() == null) {
 						pair.getXmlAxisOptionParam().setValue(XmlAxisKind.CHILD);
+					}
 					for (XmlAxisPartCondition cond : pair.getXmlAxisPartConditions()) {
-						if (cond.getXmlPropertyOption() == null)
+						if (cond.getXmlPropertyOption() == null) {
 							cond.setXmlPropertyOption(new XmlPropertyOptionParamImpl());
-						if (cond.getXmlPropertyOption().getValue() == null)
-							cond.getXmlPropertyOption().setValue(XmlPropertyKind.DATA);	
-						if(cond.getTextLiteralParam() == null)
+						}
+						if (cond.getXmlPropertyOption().getValue() == null) {
+							cond.getXmlPropertyOption().setValue(XmlPropertyKind.DATA);
+						}
+						if(cond.getTextLiteralParam() == null) {
 							cond.setTextLiteralParam(new TextLiteralParamImpl());
-						if(cond.getTextLiteralParam().getValue() == null)
+						}
+						if(cond.getTextLiteralParam().getValue() == null) {
 							cond.getTextLiteralParam().setValue("");
+						}
 					}
 				}
 				if (xmlPathParam.getXmlNavigation() instanceof XmlPropertyNavigation) {
-					if (xmlPathParam.getXmlPropertyOptionParam() == null)
+					if (xmlPathParam.getXmlPropertyOptionParam() == null) {
 						xmlPathParam.setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
-					if (xmlPathParam.getXmlPropertyOptionParam().getValue() == null)
+					}
+					if (xmlPathParam.getXmlPropertyOptionParam().getValue() == null) {
 						xmlPathParam.getXmlPropertyOptionParam().setValue(XmlPropertyKind.DATA);
+					}
 				}
 			}
 			if (param instanceof TypeOptionParam) {

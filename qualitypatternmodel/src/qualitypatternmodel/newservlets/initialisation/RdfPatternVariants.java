@@ -1,8 +1,8 @@
 package qualitypatternmodel.newservlets.initialisation;
 
 public class RdfPatternVariants {
-	
-	public static String CARD_RDF_DEFAULT = 
+
+	public static String CARD_RDF_DEFAULT =
 			"{\"template\":\"Card_rdf\","
 			+ "\"language\":\"rdf\","
 			+ "\"name\":\"default-antipattern\","
@@ -17,11 +17,11 @@ public class RdfPatternVariants {
 				+ "{\"name\":\"compared to\",\"params\":[0], \"exampleValue\":\"exactly\", \"defaultMap\":\"comparison\"},"
 				+ "{\"name\":\"a specific number\",\"params\":[1]},"
 				+ "{\"text\":\".\"}]}";
-	
+
 	public static String[] CARD_RDF_VARIANTS = {CARD_RDF_DEFAULT};
 	public static String[] CARD_RDF_VARIANTS_OLD = {};
-	
-	public static String MATCH_RDF_DEFAULT = 
+
+	public static String MATCH_RDF_DEFAULT =
 			"{\"template\":\"Match_rdf\","
 			+ "\"language\":\"rdf\","
 			+ "\"name\":\"default-antipattern\","
@@ -35,11 +35,11 @@ public class RdfPatternVariants {
 				+ "{\"text\":\"match\"},"
 				+ "{\"name\":\"a specific pattern\",\"params\":[1]},"
 				+ "{\"text\":\".\"}]}";
-	
+
 	static String[] MATCH_RDF_VARIANTS = {MATCH_RDF_DEFAULT};
 	static String[] MATCH_RDF_VARIANTS_OLD = {};
-	
-	public static String CONTAINS_RDF_DEFAULT = 
+
+	public static String CONTAINS_RDF_DEFAULT =
 			"{\"template\":\"Contains_rdf\","
 			+ "\"language\":\"rdf\","
 			+ "\"name\":\"default-antipattern\","
@@ -51,11 +51,11 @@ public class RdfPatternVariants {
 				+ "{\"text\":\"contain\"},"
 				+ "{\"name\":\"a specific term\",\"params\":[1]},"
 				+ "{\"text\":\".\"}]}";
-	
+
 	static String[] CONTAINS_RDF_VARIANTS = {CONTAINS_RDF_DEFAULT};
 	static String[] CONTAINS_RDF_VARIANTS_OLD = {};
-	
-	public static String STRINGLENGTH_RDF_DEFAULT = 
+
+	public static String STRINGLENGTH_RDF_DEFAULT =
 			"{\"template\":\"StringLength_rdf\","
 			+ "\"language\":\"rdf\","
 			+ "\"name\":\"default-antipattern\","
@@ -68,11 +68,11 @@ public class RdfPatternVariants {
 				+ "{\"name\":\"compared to\",\"params\":[0], \"exampleValue\":\"exactly\", \"defaultMap\":\"comparison\"},"
 				+ "{\"name\":\"a specific number of\",\"params\":[1]},"
 				+ "{\"text\":\"characters in length.\"}]}";
-	
+
 	static String[] STRINGLENGTH_RDF_VARIANTS = {STRINGLENGTH_RDF_DEFAULT};
 	static String[] STRINGLENGTH_RDF_VARIANTS_OLD = {};
-	
-	public static String COMPSET_RDF_DEFAULT = 
+
+	public static String COMPSET_RDF_DEFAULT =
 			"{\"template\":\"CompSet_rdf\","
 			+ "\"language\":\"rdf\","
 			+ "\"name\":\"default-antipattern\","
@@ -88,8 +88,8 @@ public class RdfPatternVariants {
 
 	static String[] COMPSET_RDF_VARIANTS = {COMPSET_RDF_DEFAULT};
 	static String[] COMPSET_RDF_VARIANTS_OLD = {};
-	
-	public static String UNIQUE_RDF_DEFAULT = 
+
+	public static String UNIQUE_RDF_DEFAULT =
 			"{\"template\":\"Unique_rdf\","
 			+ "\"language\":\"rdf\","
 			+ "\"name\":\"default-antipattern\","
@@ -102,8 +102,8 @@ public class RdfPatternVariants {
 
 	static String[] UNIQUE_RDF_VARIANTS = {UNIQUE_RDF_DEFAULT};
 	static String[] UNIQUE_RDF_VARIANTS_OLD = {};
-	
-	public static String MANDATT_RDF_DEFAULT = 
+
+	public static String MANDATT_RDF_DEFAULT =
 			"{\"template\":\"MandAtt_rdf\","
 			+ "\"language\":\"rdf\","
 			+ "\"name\":\"default-antipattern\","

@@ -11,9 +11,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.json.JSONArray;
@@ -100,24 +98,24 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 	public QuantifierFilterPartImpl(EList<BooleanFilterPart> subfilter) {
 		super();
 		FixedContainerInterim container = new FixedContainerInterimImpl();
-		
+
 		for (BooleanFilterPart sub: subfilter) {
 			getSubfilter().add(sub);
 			container.getContained().addAll(sub.getArguments());
 		}
 		setArgument(container);
-		
+
 	}
-	
+
 	public QuantifierFilterPartImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
 
 			JSONObject jsono = new JSONObject(json);
 			setQuantifier(Quantifier.get(jsono.getString("quantifier")));
-			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument")); 
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument"));
 			setArgument(argument);
-			
+
 			JSONArray subfilters = new JSONArray(jsono.getString("subfilters"));
 			for (int i = 0; i < subfilters.length(); i++) {
 				BooleanFilterPart bfp = (BooleanFilterPart) JavaFilterPartImpl.fromJson(subfilters.get(i).toString(), map);
@@ -131,26 +129,30 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 
 	@Override
 	public Boolean apply(InterimResult parameter) throws InvalidityException {
-		if (parameter == null)
+		if (parameter == null) {
 			throw new InvalidityException("parameter null");
-		if(!(parameter instanceof ContainerResult))
+		}
+		if(!(parameter instanceof ContainerResult)) {
 			throw new InvalidityException("parameter not a container");
+		}
 		ContainerResult param = (ContainerResult) parameter;
-		if (!(param.getCorrespondsTo() instanceof FixedContainerInterim))
+		if (!(param.getCorrespondsTo() instanceof FixedContainerInterim)) {
 			throw new InvalidityException((param.getCorrespondsTo() != null? "Class of param is " + param.getCorrespondsTo().getClass().getSimpleName() : "Param is null") + ", but a fixed container was expected. " + this.toString());
+		}
 		FixedContainerInterim fixedContainer = (FixedContainerInterim) param.getCorrespondsTo();
 		int sizeResult = fixedContainer.getContained().size();
 		int sizeFilter = getSubfilter().size();
-		
-		if (sizeResult != sizeFilter)
+
+		if (sizeResult != sizeFilter) {
 			return false;
+		}
 
 		EList<Boolean> in = new BasicEList<Boolean>();
 		for (int i = 0; i<sizeResult; i++ ) {
 			in.add(getSubfilter().get(i).apply(param.getSubresult().get(i)));
 		}
 		return !in.isEmpty() && !in.contains(false);
-	};
+	}
 
 	@Override
 	public EList<InterimResultPart> getArguments() {
@@ -158,7 +160,7 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 		result.add(getArgument());
 		return result;
 	}
-	
+
 	@Override
 	public JSONObject toJson() {
 		JSONObject result = new JSONObject();
@@ -167,21 +169,22 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 			result.put("quantifier", getQuantifier());
 			result.put("argument", getArgument().getInterimPartId());
 			JSONArray subfilters = new JSONArray();
-			for (BooleanFilterPart subfilter: getSubfilter())
+			for (BooleanFilterPart subfilter: getSubfilter()) {
 				subfilters.put(subfilter.toJson());
+			}
 			result.put("subfilters", subfilters);
 		} catch (JSONException e) {
 		}
 		return result;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "[quantifier " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> " 
+		return "[quantifier " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> "
 				+ " " + getSubfilter().toString() + "]";
 	}
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

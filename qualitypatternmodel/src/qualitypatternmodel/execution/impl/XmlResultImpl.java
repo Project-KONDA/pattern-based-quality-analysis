@@ -39,7 +39,7 @@ public class XmlResultImpl extends ResultImpl implements XmlResult {
 	}
 
 	@Override
-	public void export(String path) {		
+	public void export(String path) {
 		try {
 			ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(path));
 			objectOutputStream.writeObject(this);
@@ -47,7 +47,7 @@ public class XmlResultImpl extends ResultImpl implements XmlResult {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
 	}
 
 } //XmlResultImpl

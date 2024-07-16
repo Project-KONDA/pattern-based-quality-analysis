@@ -15,19 +15,19 @@ public class XQueryJavaTest_specific {
 //		List<String> expectations = List.of(expectedReturn1, expectedReturn2, expectedReturn3, expectedReturn4,
 //				expectedReturn5, expectedReturn6, expectedReturn7where, expectedReturn8where, expectedReturn9where, expectedReturn10);
 		List<CompletePattern> patterns = OneArgTestPatterns.getXmlTestPatterns();
-		
+
 //		System.out.println(expectedReturn7where);
 		String result = " ";
 		try {
-			CompletePattern pattern7 = patterns.get(2); 
+			CompletePattern pattern7 = patterns.get(2);
 			result = pattern7.generateXQueryJava();
-			
+
 			System.out.println(result);
 		} catch (InvalidityException e) {
 			e.printStackTrace();
 		}
-		
-		
+
+
 //		int from = 1;
 //		int to = 10;
 //		for (int i = from-1; i<patterns.size() && i < expectations.size() && i < to; i++) {
@@ -40,7 +40,7 @@ public class XQueryJavaTest_specific {
 //				results.add(false);
 //			}
 //		}
-//			
+//
 //		System.out.println(results);
 //		System.out.print("total: " + (!results.contains(false)));
 	}
@@ -62,8 +62,8 @@ public class XQueryJavaTest_specific {
 		}
 		return equal;
 	}
-	
-	
+
+
 	static String expectedStart = "return\n"
 			+ "  (\n"
 			+ "  \"<interim>\",\n"
@@ -72,8 +72,8 @@ public class XQueryJavaTest_specific {
 			+ "  \"<condition>\",\n";
 	static String expectedEnd = "  \"</condition>\",\n"
 			+ "  \"</interim>\")";
-	
-	static String expectedReturn1 = 
+
+	static String expectedReturn1 =
 			"for $var2_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var2_0,\n"
@@ -88,7 +88,7 @@ public class XQueryJavaTest_specific {
 			+ "  ),\n"
 			+ "  \"</quantifier>\",\n"
 			+ expectedEnd;
-	static String expectedReturn2 = 
+	static String expectedReturn2 =
 			"for $var2_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var2_0,\n"
@@ -103,7 +103,7 @@ public class XQueryJavaTest_specific {
 			+ "  ),\n"
 			+ "  \"</quantifier>\",\n"
 			+ expectedEnd;
-	static String expectedReturn3 = 
+	static String expectedReturn3 =
 			"for $var3_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var3_0,\n"
@@ -129,7 +129,7 @@ public class XQueryJavaTest_specific {
 			+ "  \"</quantifier>\",\n"
 			+ "  \"</formula>\",\n"
 			+ expectedEnd;
-	static String expectedReturn4 = 
+	static String expectedReturn4 =
 			"for $var3_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var3_0,\n"
@@ -155,7 +155,7 @@ public class XQueryJavaTest_specific {
 			+ "  \"</quantifier>\",\n"
 			+ "  \"</formula>\",\n"
 			+ expectedEnd;
-	static String expectedReturn4Where = 
+	static String expectedReturn4Where =
 			"for $var3_0 in /descendant::*\n"
 			+ "where ((\n"
 			+ "  some $var4_0 in $var3_0/text()[matches(., \"\"something\"\")]\n"
@@ -206,11 +206,11 @@ public class XQueryJavaTest_specific {
 			+ "  \"</quantifier>\",\n"
 			+ "  \"</formula>\",\n"
 			+ expectedEnd;
-	static String expectedReturn5Where = 
+	static String expectedReturn5Where =
 			"for $var3_0 in /descendant::*\n"
 			+ "where ((\n"
 			+ "  some $var4_0 in $var3_0/text()[matches(., \"\"something\"\")]\n"
-			+ "  satisfies (true()))\n" 
+			+ "  satisfies (true()))\n"
 			+ expectedStart
 			+ "  $var3_0,\n"
 			+ expectedMid
@@ -226,7 +226,7 @@ public class XQueryJavaTest_specific {
 			+ "  \"</quantifier>\",\n"
 			+ "  \"</formula>\",\n"
 			+ expectedEnd;
-	static String expectedReturn6 = 
+	static String expectedReturn6 =
 			"for $var3_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var3_0,\n"
@@ -249,8 +249,8 @@ public class XQueryJavaTest_specific {
 			+ "  \"</quantifier>\",\n"
 			+ "  \"</formula>\",\n"
 			+ expectedEnd;
-	static String expectedReturn7Old = 
-			"for $var3_0 in /descendant::*\n" 
+	static String expectedReturn7Old =
+			"for $var3_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var3_0,\n"
 			+ expectedMid
@@ -265,7 +265,7 @@ public class XQueryJavaTest_specific {
 			+ "  )\n"
 			+ "  \"</quantifier>\",\n"
 			+ expectedEnd;
-	static String expectedReturn7 = 
+	static String expectedReturn7 =
 			"for $var3_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var3_0,\n"
@@ -285,7 +285,7 @@ public class XQueryJavaTest_specific {
 			+ "  \"</quantifier>\"),\n"
 			+ "  \"</quantifier>\"),\n"
 			+ expectedEnd;
-	static String expectedReturn7where = 
+	static String expectedReturn7where =
 			"for $var3_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var3_0,\n"
@@ -305,7 +305,7 @@ public class XQueryJavaTest_specific {
 			+ "  \"</quantified>\"),\n"
 			+ "  \"</quantified>\"),\n"
 			+ expectedEnd;
-	static String expectedReturn8 = 
+	static String expectedReturn8 =
 			"for $var4_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var4_0,\n"
@@ -330,7 +330,7 @@ public class XQueryJavaTest_specific {
 			+ "  \"</quantifier>\")),\n"
 			+ "  \"</quantifier>\"),\n"
 			+ expectedEnd;
-	static String expectedReturn8where = 
+	static String expectedReturn8where =
 			"for $var4_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var4_0,\n"
@@ -355,11 +355,11 @@ public class XQueryJavaTest_specific {
 			+ "  \"</quantifier>\")),\n"
 			+ "  \"</quantifier>\"),\n"
 			+ expectedEnd;
-	static String expectedReturn9where = 
+	static String expectedReturn9where =
 			"for $var3_0 in /descendant::*\n"
 			+ "where \n"
 			+ "  some $var4_0 in $var3_0/text()[matches(., \".*a.*\")]\n"
-			+ "  satisfies (true())\n" 
+			+ "  satisfies (true())\n"
 			+ expectedStart
 			+ "  $var3_0,\n"
 			+ expectedMid
@@ -373,7 +373,7 @@ public class XQueryJavaTest_specific {
 			+ "  ),\n"
 			+ "  \"</quantifier>\",\n"
 			+ expectedEnd;
-	static String expectedReturn9 = 
+	static String expectedReturn9 =
 			"for $var3_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var3_0,\n"
@@ -395,7 +395,7 @@ public class XQueryJavaTest_specific {
 			+ "  ),\n"
 			+ "  \"</quantifier>\",\n"
 			+ expectedEnd;
-	static String expectedReturn10 = 
+	static String expectedReturn10 =
 			"for $var3_0 in /descendant::*\n"
 			+ expectedStart
 			+ "  $var3_0,\n"
@@ -417,7 +417,7 @@ public class XQueryJavaTest_specific {
 			+ "  ),\n"
 			+ "  \"</quantifier>\",\n"
 			+ expectedEnd;
-	
+
 	private static String restAfterDif(String a, String b) {
 		while(!a.isBlank() && !b.isBlank() && a.charAt(0) == b.charAt(0)) {
 			a = a.substring(1);
@@ -427,8 +427,8 @@ public class XQueryJavaTest_specific {
 			a = a.substring(0, a.length()-2);
 			b = b.substring(0, b.length()-2);
 		}
-		
-		
+
+
 		return "'" + a + "' \n '" + b + "'";
 	}
 }

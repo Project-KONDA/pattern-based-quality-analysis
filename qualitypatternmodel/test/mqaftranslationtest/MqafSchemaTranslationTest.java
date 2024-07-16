@@ -2,11 +2,11 @@ package mqaftranslationtest;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.mqaftranslation.MqafTranslation;
+import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class MqafSchemaTranslationTest {
 
@@ -24,9 +24,9 @@ public class MqafSchemaTranslationTest {
 
 		for (CompletePattern c : patterns) {
 			try {
-				
+
 				System.out.println("____ " + c.getDescription() + " _____");
-				
+
 				if (SHOW_QUERY) {
 					System.out.println(c.generateXQuery());
 					System.out.println();

@@ -5,6 +5,7 @@ import org.eclipse.emf.common.util.EList;
 
 public class TestGround {
 	public static final String name = "%sHello";
+
 	public static void main(String[] args) {
 		EList<Object> l = new BasicEList<Object>();
 		EList<Object> l2 = new BasicEList<Object>();
@@ -13,4 +14,5 @@ public class TestGround {
 		l.addAll(l3);
 		System.out.println(l.size());
 	}
+
 }

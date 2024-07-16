@@ -17,19 +17,19 @@ import qualitypatternmodel.execution.ServerXmlDataDatabase;
 
 public class XmlDataDatabaseTest {
 	ServerXmlDataDatabase db;
-	
+
 //	@Before
 //	public void before() throws IOException, InvalidityException {
 //		db = new ServerXmlDataDatabaseImpl("test_db_4", "localhost", 1984, "ddb_20190606", "admin", "admin");
 //
 //	}
-	
+
 //	@Test
 //	public void findXSDURLTest() throws IOException, QueryException, InvalidityException {
 //		String url = db.findXSDURL();
 //		assertEquals(url, "http://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd");
 //	}
-	
+
 //	@Test
 //	public void createSchemaDatabaseFromReferencedSchemaTest() throws IOException, QueryException, InvalidityException {
 //		LocalXmlSchemaDatabase schemaDb = db.createSchemaDatabaseFromReferencedSchema();

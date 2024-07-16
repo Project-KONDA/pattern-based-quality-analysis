@@ -10,6 +10,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.List;
+
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
@@ -58,7 +59,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 * @ordered
 	 */
 	protected EList<XmlDataDatabase> xmlDatabases;
-	
+
 	/**
 	 * The cached value of the '{@link #getElementNames() <em>Element Names</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -123,50 +124,50 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
-	 * @throws InvalidityException 
+	 * @throws IOException
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
 	public void analyse() throws QueryException, IOException, InvalidityException {
 		retrievePrefix();
 		retrieveNamespace();
-		
+
 		if(getElementNames().isEmpty()) {
 			retrieveElementNames();
 			updateElementNamesInXmlDatabases();
 		}
-		if(getAttributeNames().isEmpty()) {			
+		if(getAttributeNames().isEmpty()) {
 			retrieveAttributeNames();
 			updateAttributeNamesInXmlDatabases();
 		}
-		if(getRootElementNames().isEmpty()) {			
+		if(getRootElementNames().isEmpty()) {
 			retrieveRootElementNames();
 		}
-		
+
 	}
-	
+
 	private void retrieveNamespace() throws QueryIOException, BaseXException, QueryException, IOException {
 		String path = "queries/GetNamespace.xq";
-		
+
 		String checkQuery;
 		try {
 			checkQuery = readFile(path, StandardCharsets.US_ASCII);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			
+
 			return;
 		}
-				
+
 		checkQuery = checkQuery.replace("xs:", getPrefix() + ":");
-		
-		
+
+
 		List<String> queryResult = execute(checkQuery);
-		if(queryResult.size() == 1) {	
+		if(queryResult.size() == 1) {
 			setNamespace(queryResult.get(0) + ":");
 		}
-		
+
 	}
 
 	private void retrievePrefix()
@@ -197,53 +198,53 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	}
 
 	private void retrieveElementNames() throws QueryException, IOException {
-//		open();	
+//		open();
 		List<String> retrievedElementNames = execute("//*[name()=\"" + getPrefix() + ":element\"]/data(@name)");
 		getElementNames().addAll(retrievedElementNames);
 	}
-	
+
 	private void retrieveRootElementNames() throws QueryException, IOException {
-//		open();	
+//		open();
 		List<String> retrievedElementNames = execute("/*/*[name()=\"" + getPrefix() + ":element\"]/data(@name)");
 		getRootElementNames().addAll(retrievedElementNames);
 	}
 
 	private void retrieveAttributeNames() throws QueryException, IOException {
-//		open();	
+//		open();
 		List<String> retrievedAttributeNames = execute("//*[name()=\"" + getPrefix() + ":attribute\"]/data(@name)");
 		getAttributeNames().addAll(retrievedAttributeNames);
 	}
-	
+
 	private EList<String> getElementNamesFromQueryExecution(String elementName, String queryPath, String xQueryMethodName) throws QueryException, IOException {
 //		open();
 
-		String checkQuery; 
-		
+		String checkQuery;
+
 		try {
 			checkQuery = readFile(queryPath, StandardCharsets.US_ASCII);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();		
-			
+			e.printStackTrace();
+
 			return new BasicEList<String>();
 		}
-		
+
 		String call = distinctNamesQuery(xQueryMethodName, elementName);
-		
+
 		String query = checkQuery + call;
-		
+
 		List<String> queryResult = execute(query);
-		
+
 		EList<String> result = new BasicEList<String>();
-		result.addAll(queryResult);	
-		
+		result.addAll(queryResult);
+
 		return result;
 	}
-	
-	private static String readFile(String path, Charset encoding) throws IOException {		
+
+	private static String readFile(String path, Charset encoding) throws IOException {
 //		path = "../" + path;
 		String out = "";
-		
+
 		try(BufferedReader br = new BufferedReader(new FileReader(path))) {
 		    StringBuilder sb = new StringBuilder();
 		    String line = br.readLine();
@@ -255,23 +256,23 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		    }
 		    out = sb.toString();
 		}
-		
+
 		return out;
 	}
-	
+
 	private String distinctNamesQuery (String methodName, String elementName) {
 		return "distinct-values(\r\n" +
-				"  let $ns := \""+getNamespace()+"\"" + 
-				"  let $elements := (\r\n" + 
-				"    for $root in /" + getPrefix() + ":schema\r\n" + 
-				"    return local:"+methodName+"($root, \""+elementName.replace(getNamespace(), "")+"\", $ns))\r\n" + 
-				"  for $element in $elements\r\n" + 
-				"  return\r\n" + 
-				"    if(exists($element/@name)) then $ns || $element/@name/data()\r\n" + 
-				"    else $element/@ref/data()\r\n" + 
+				"  let $ns := \""+getNamespace()+"\"" +
+				"  let $elements := (\r\n" +
+				"    for $root in /" + getPrefix() + ":schema\r\n" +
+				"    return local:"+methodName+"($root, \""+elementName.replace(getNamespace(), "")+"\", $ns))\r\n" +
+				"  for $element in $elements\r\n" +
+				"  return\r\n" +
+				"    if(exists($element/@name)) then $ns || $element/@name/data()\r\n" +
+				"    else $element/@ref/data()\r\n" +
 				")";
 	}
-	
+
 	@Override
 	public void setNamespace(String newNamespace) {
 		super.setNamespace(newNamespace);
@@ -279,7 +280,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 			db.setNamespace(newNamespace);
 		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -313,16 +314,16 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		if (elementNames == null) {
 			elementNames = new EDataTypeUniqueEList<String>(String.class, this, ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES);
 		}
-		
-//		if(elementNames.isEmpty()) {			
+
+//		if(elementNames.isEmpty()) {
 //			try {
 //				retrieveElementNames();
 //			} catch (QueryIOException | BaseXException | QueryException e) {
 //				// do nothing
 ////				e.printStackTrace();
-//			}			
+//			}
 //		}
-		
+
 		return elementNames;
 	}
 
@@ -336,17 +337,17 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		if (attributeNames == null) {
 			attributeNames = new EDataTypeUniqueEList<String>(String.class, this, ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES);
 		}
-		
+
 //		if(attributeNames.isEmpty()) {
 //			try {
 //				retrieveAttributeNames();
 //			} catch (QueryIOException | BaseXException | QueryException e) {
 //				// do nothing
 ////				e.printStackTrace();
-//			}	
-//			
+//			}
+//
 //		}
-		
+
 		return attributeNames;
 	}
 
@@ -689,55 +690,55 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws QueryException 
-	 * @throws IOException 
+	 * @throws QueryException
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
 	public boolean checkChildInSchema(String elementName1, String elementName2) throws QueryException, IOException {
-		return checkAxis(elementName1, elementName2, "queries/CheckChild.xq", "checkChild");		
+		return checkAxis(elementName1, elementName2, "queries/CheckChild.xq", "checkChild");
 	}
 
 	private boolean checkAxis(String elementName1, String elementName2, String path, String methodName)
 			throws QueryException, IOException {
 //		open();
-		
+
 		String checkQuery;
 		try {
 			checkQuery = readFile(path, StandardCharsets.US_ASCII);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			
+
 			return true;
 		}
-		
+
 		String ns = "declare namespace " + getPrefix() + " = \"http://www.w3.org/2001/XMLSchema\";\n";
-		
+
 		String call = "\nfor $root in /" + getPrefix() + ":schema\r\n" + "return local:" + methodName + "($root, \""
 				+ (getNamespace() == null ? elementName1 : elementName1.replace(getNamespace(), "")) + "\", \"" + (getNamespace() == null ? elementName2 : elementName2.replace(getNamespace(), ""))
 				+ "\", \"" + getNamespace() + "\")";
-		
-		
+
+
 		String query = ns + checkQuery.replace("xs:", getPrefix() + ":") + call;
-				
+
 		List<String> queryResult = execute(query);
-		if(queryResult.size() == 1) {			
+		if(queryResult.size() == 1) {
 			if(queryResult.get(0).equals("false")) {
 				return false;
 			}
 		}
-		
+
 		// TODO: else throw exception ?
-		
+
 		return true;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws QueryException 
-	 * @throws IOException 
+	 * @throws QueryException
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
@@ -748,20 +749,20 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws QueryException 
-	 * @throws IOException 
+	 * @throws QueryException
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkDescendantInSchema(String elementName1, String elementName2) throws QueryException, IOException {		
-		return checkAxis(elementName1, elementName2, "queries/CheckDescendant.xq", "checkDescendant");			
+	public boolean checkDescendantInSchema(String elementName1, String elementName2) throws QueryException, IOException {
+		return checkAxis(elementName1, elementName2, "queries/CheckDescendant.xq", "checkDescendant");
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws QueryException 
-	 * @throws IOException 
+	 * @throws QueryException
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
@@ -772,30 +773,30 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws QueryException 
-	 * @throws IOException 
+	 * @throws QueryException
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
 	public boolean checkAttributeInSchema(String elementName, String attributeName) throws QueryException, IOException {
-		return checkAxis(elementName, attributeName, "queries/CheckAttribute.xq", "checkAttribute");		
+		return checkAxis(elementName, attributeName, "queries/CheckAttribute.xq", "checkAttribute");
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
 	public boolean checkFollowingSiblingInSchema(String elementName1, String elementName2) throws QueryException, IOException {
-		return checkAxis(elementName1, elementName2, "queries/CheckFollowingSibling.xq", "checkFollowingSibling");		
+		return checkAxis(elementName1, elementName2, "queries/CheckFollowingSibling.xq", "checkFollowingSibling");
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
@@ -806,12 +807,12 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
 	public boolean checkFollowingInSchema(String elementName1, String elementName2) throws QueryException, IOException {
-		return checkAxis(elementName1, elementName2, "queries/CheckFollowing.xq", "checkFollowing");			
+		return checkAxis(elementName1, elementName2, "queries/CheckFollowing.xq", "checkFollowing");
 	}
 
 	/**
@@ -835,51 +836,51 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	@Override
 	public void checkKeyRefInSchema(String elementName1, String elementName2) {
 		// TODO: create/open schema database
-	
-		
-		String namespace = "declare namespace " + getPrefix() + " = \"http://www.w3.org/2001/XMLSchema\";\r\n" + 
+
+
+		String namespace = "declare namespace " + getPrefix() + " = \"http://www.w3.org/2001/XMLSchema\";\r\n" +
 				"";
-		
+
 		/* The following function checks whether there might exist a reference between an element named $n1 and an element named $n2 by analysing the XML schema.
 		 * However, there may be false positives.
 		 * For reliably checking this, the structural context of both elements must be known.
 		 * This is not possible here.
 		 * Furthermore, for a precise check the schema analysis would be much more complex.
-		 * 
+		 *
 		 */
-		
-		String checkRefId = "declare function local:checkRefId($r as element(), $n1 as " + getPrefix() + ":string, $n2 as " + getPrefix() + ":string)\r\n" + 
-				"as " + getPrefix() + ":boolean\r\n" + 
-				"{\r\n" + 
-				"some $ref in $r//" + getPrefix() + ":keyref[./" + getPrefix() + ":selector/@xpath = $n1 or matches(./" + getPrefix() + ":selector/@xpath, \"/\" || $n1 || \"$\")] \r\n" + 
-				"satisfies some $key in $r//" + getPrefix() + ":key[@name = $ref/@refer]\r\n" + 
-				"satisfies $key/" + getPrefix() + ":selector/@xpath = $n2 or matches($key/" + getPrefix() + ":selector/@xpath, \"/\" || $n2 || \"$\")\r\n" + 
+
+		String checkRefId = "declare function local:checkRefId($r as element(), $n1 as " + getPrefix() + ":string, $n2 as " + getPrefix() + ":string)\r\n" +
+				"as " + getPrefix() + ":boolean\r\n" +
+				"{\r\n" +
+				"some $ref in $r//" + getPrefix() + ":keyref[./" + getPrefix() + ":selector/@xpath = $n1 or matches(./" + getPrefix() + ":selector/@xpath, \"/\" || $n1 || \"$\")] \r\n" +
+				"satisfies some $key in $r//" + getPrefix() + ":key[@name = $ref/@refer]\r\n" +
+				"satisfies $key/" + getPrefix() + ":selector/@xpath = $n2 or matches($key/" + getPrefix() + ":selector/@xpath, \"/\" || $n2 || \"$\")\r\n" +
 				"};";
-		
-		String getRefId = "declare function local:getRefId($r as element(), $n1 as " + getPrefix() + ":string, $n2 as " + getPrefix() + ":string)\r\n" + 
-				"as " + getPrefix() + ":string+\r\n" + 
-				"{\r\n" + 
-				"for $ref in $r//" + getPrefix() + ":keyref[./" + getPrefix() + ":selector/@xpath = $n1 or matches(./" + getPrefix() + ":selector/@xpath, \"/\" || $n1 || \"$\")] \r\n" + 
-				"for $key in $r//" + getPrefix() + ":key[@name = $ref/@refer]\r\n" + 
-				"where $key/" + getPrefix() + ":selector/@xpath = $n2 or matches($key/" + getPrefix() + ":selector/@xpath, \"/\" || $n2 || \"$\")\r\n" + 
-				"return ($ref/" + getPrefix() + ":field/@xpath, $key/" + getPrefix() + ":field/@xpath)\r\n" + 
+
+		String getRefId = "declare function local:getRefId($r as element(), $n1 as " + getPrefix() + ":string, $n2 as " + getPrefix() + ":string)\r\n" +
+				"as " + getPrefix() + ":string+\r\n" +
+				"{\r\n" +
+				"for $ref in $r//" + getPrefix() + ":keyref[./" + getPrefix() + ":selector/@xpath = $n1 or matches(./" + getPrefix() + ":selector/@xpath, \"/\" || $n1 || \"$\")] \r\n" +
+				"for $key in $r//" + getPrefix() + ":key[@name = $ref/@refer]\r\n" +
+				"where $key/" + getPrefix() + ":selector/@xpath = $n2 or matches($key/" + getPrefix() + ":selector/@xpath, \"/\" || $n2 || \"$\")\r\n" +
+				"return ($ref/" + getPrefix() + ":field/@xpath, $key/" + getPrefix() + ":field/@xpath)\r\n" +
 				"};";
-		
-		String callCheck = "for $x in /" + getPrefix() + ":schema\r\n" + 
+
+		String callCheck = "for $x in /" + getPrefix() + ":schema\r\n" +
 				"return local:checkRefId($x, \""+elementName1+"\",\""+elementName2+"\")";
-		
-		String callGet = "for $x in /" + getPrefix() + ":schema\r\n" + 
+
+		String callGet = "for $x in /" + getPrefix() + ":schema\r\n" +
 				"return local:getRefId($x, \""+elementName1+"\",\""+elementName2+"\")";
-		
+
 		// TODO: execute query
-		
+
 		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
@@ -890,7 +891,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
@@ -901,7 +902,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
@@ -912,7 +913,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
@@ -935,7 +936,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
@@ -958,7 +959,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
@@ -978,6 +979,6 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		throw new UnsupportedOperationException();
 	}
 
-	
+
 
 } //XmlSchemaImpl

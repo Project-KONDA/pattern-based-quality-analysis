@@ -3,11 +3,11 @@
 package qualitypatternmodel.adaptionrdf.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -40,9 +40,9 @@ import qualitypatternmodel.utility.ConstantsRdf;
  * @generated
  */
 public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
-	
+
 	public static String RDF_PREDICATE = ConstantsRdf.PREDICATE;
-	
+
 	/**
 	 * The cached value of the '{@link #getRdfIriNodeTypes() <em>Rdf Iri Node Types</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -62,7 +62,7 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 		super();
 		createParameters();
 	}
-	
+
 	@Override
 	public String generateSparql() {
 		return ConstantsRdf.VARIABLE + getInternalId();
@@ -83,14 +83,14 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 		}
 		return result;
 	}
-	
+
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = super.getAllParameters();
 		res.add(getRdfIriNodeTypes());
 		return res;
 	}
-	
+
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return this;
@@ -100,17 +100,17 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 	public Node makeGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-		
+
 	@Override
 	public void checkGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
+
 	@Override
 	public PrimitiveNode makePrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-		
+
 	@Override
 	public void checkPrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
@@ -190,10 +190,12 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 
 	@Override
 	public void createParameters() {
-		if (getRdfIriNodeTypes() == null)
+		if (getRdfIriNodeTypes() == null) {
 			setRdfIriNodeTypes(new IriListParamImpl());
-		if (getParameterList() != null && getParameterList() != getRdfIriNodeTypes().getParameterList())
+		}
+		if (getParameterList() != null && getParameterList() != getRdfIriNodeTypes().getParameterList()) {
 			getRdfIriNodeTypes().setParameterList(getParameterList());
+		}
 	}
 
 	/**

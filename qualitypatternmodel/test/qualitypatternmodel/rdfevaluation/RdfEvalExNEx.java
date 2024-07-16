@@ -18,13 +18,13 @@ import qualitypatternmodel.rdftranslationtests.RdfTest00;
 
 public class RdfEvalExNEx {
 	// also called MANDSTRUC2
-	
+
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 //		completePatterns.add(getExNexAbstract());
 		completePatterns.add(getExNexFather());
 		completePatterns.add(getExNexGender());
-		
+
 //		RdfTest00.test(completePatterns);
 		RdfTest00.getQueries(completePatterns);
 	}
@@ -32,34 +32,34 @@ public class RdfEvalExNEx {
 	private static CompletePattern getExNexAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalExNEx.getExNExGeneric();
 		completePattern.createRdfAdaption();
-		return completePattern;		
+		return completePattern;
 	}
-	
+
 	static CompletePattern getExNexFather() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getExNexAbstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
-		
+
 		IriListParam p0 = ((IriListParam) params.get(0));
 		RdfPathParam p1 = ((RdfPathParam) params.get(1));
 //		IriListParam p2 = ((IriListParam) params.get(2));
-		
+
 		p0.getIriParams().add(new IriParamImpl("wd:Q5"));
 		((RdfSinglePredicate) p1.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wd:P22"));
-		
+
 		return completePattern;
 	}
-	
+
 	static CompletePattern getExNexGender() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getExNexAbstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
-		
+
 		IriListParam p0 = ((IriListParam) params.get(0));
 		RdfPathParam p1 = ((RdfPathParam) params.get(1));
 //		IriListParam p2 = ((IriListParam) params.get(2));
-		
+
 		p0.getIriParams().add(new IriParamImpl("wd:Q5"));
 		((RdfSinglePredicate) p1.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wd:P21"));
 		return completePattern;
 	}
-	
+
 }

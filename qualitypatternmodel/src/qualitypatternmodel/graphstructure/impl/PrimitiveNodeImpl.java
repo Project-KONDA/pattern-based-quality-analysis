@@ -2,6 +2,13 @@
  */
 package qualitypatternmodel.graphstructure.impl;
 
+import static qualitypatternmodel.operators.ComparisonOperator.EQUAL;
+import static qualitypatternmodel.operators.ComparisonOperator.GREATER;
+import static qualitypatternmodel.operators.ComparisonOperator.GREATEROREQUAL;
+import static qualitypatternmodel.operators.ComparisonOperator.LESS;
+import static qualitypatternmodel.operators.ComparisonOperator.LESSOREQUAL;
+import static qualitypatternmodel.operators.ComparisonOperator.NOTEQUAL;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
@@ -9,13 +16,11 @@ import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.core.cmd.XQuery;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -57,8 +62,6 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.TimeParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
-
-import static qualitypatternmodel.operators.ComparisonOperator.*;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -157,50 +160,55 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	protected PrimitiveNodeImpl() {
 		super();
 	}
-	
-	
+
+
 	@Override
 	public void isValid (AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (getClass().equals(PrimitiveNodeImpl.class) && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE)
+		if (getClass().equals(PrimitiveNodeImpl.class) && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE) {
 			throw new InvalidityException("generic class in non-generic pattern");
+		}
 		super.isValid(abstractionLevel);
 	}
-	
+
 	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {}	
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {}
 
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		if(containsJavaOperator()) {
 			EList<BooleanFilterPart> filterparts = new BasicEList<BooleanFilterPart>();
-			for (BooleanOperator op: getPredicates())
-				if (op instanceof JavaOperator)
+			for (BooleanOperator op: getPredicates()) {
+				if (op instanceof JavaOperator) {
 					filterparts.add((BooleanFilterPart) op.generateQueryFilterPart());
+				}
+			}
 			return BooleanFilterPart.combine(filterparts);
-		} else return null;
+		} else {
+			return null;
+		}
 	}
-	
+
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException {
 		return adaptAsXmlProperty();
 	}
-	
+
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException {
 		return adaptAsRdfLiteralNode();
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return PatternElement
 	 * @throws InvalidityException
 	 * A PrimitiveNode will be converted to a NeoPropertyNode.
 	 */
-	@Override 
+	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException {
 		return adaptAsNeoPropertyNode();
 	}
-	
+
 	@Override
 	public XmlElement adaptAsXmlElement() throws InvalidityException {
 		if(isTypeModifiable()) {
@@ -209,7 +217,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 			throw new InvalidityException("This PrimitiveNode cannot be adapted as an XmlElement");
 		}
 	}
-	
+
 	@Override
 	public XmlProperty adaptAsXmlProperty() throws InvalidityException {
 		XmlProperty xmlProperty = super.adaptAsXmlProperty();
@@ -218,17 +226,17 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		}
 		return xmlProperty;
 	}
-	
+
 	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.UNSPECIFIED;
-	}	
-		
+	}
+
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		return new BasicEList<PatternElement>();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -250,7 +258,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	 */
 	@Override
 	public void checkComparisonConsistency(ParameterValue param) throws InvalidityException {
-//		String value = 
+//		String value =
 		param.getValueAsString();
 		Comparison effectedComp = null;
 		ComparisonOperator op = null;
@@ -271,7 +279,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		}
 		if(effectedComp == null || op == null) {
 			return;
-		}	
+		}
 	}
 
 	@Override
@@ -280,14 +288,14 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		if(op == null) {
 			return;
 		}
-		
+
 		Comparable argument1 = comp.getArgument1();
 		Comparable argument2 = comp.getArgument2();
-		
+
 		if(!argument1.equals(this) && !argument2.equals(this) || argument1.equals(this) && argument2.equals(this)) {
 			return;
-		}	
-		
+		}
+
 		if(argument1.equals(this)) {
 			if(argument2 instanceof ParameterValue) {
 				ParameterValue param = (ParameterValue) argument2;
@@ -298,20 +306,20 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 			if(argument1 instanceof ParameterValue) {
 				ParameterValue param = (ParameterValue) argument1;
 				checkComparisonConsistency(param);
-			}			
-		}		
+			}
+		}
 	}
-	
+
 	@Override
 	public Relation addOutgoing(Graph graph) throws InvalidityException {
 		throw new InvalidityException("PrimitiveNodes can not have subnodes.");
 	}
-	
+
 	@Override
 	public Relation addOutgoing(Node node) throws InvalidityException {
 		throw new InvalidityException("PrimitiveNodes can not have subnodes.");
 	}
-	
+
 
 	@SuppressWarnings("unused")
 	private void checkPropertyPropertyComparisonConstraints(ComparisonOperator op, ComparisonOperator otherOp)
@@ -327,7 +335,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		}
 		if(op == GREATER && otherOp == LESSOREQUAL || op == LESSOREQUAL && otherOp == GREATER) {
 			throw new InvalidityException("Requiring that a property is smaller or equal and greater to another property will always yield false");
-		}		
+		}
 		if(op == EQUAL && otherOp == GREATER || op == GREATER && otherOp == EQUAL) {
 			throw new InvalidityException("Requiring that a property is equal and greater to another property will always yield false");
 		}
@@ -343,7 +351,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 			return;
 		}
 		if(op == EQUAL && otherOp == EQUAL && !value.equals(otherValue)) {
-			throw new InvalidityException("Requiring that a property is equal to two different values will always yield false");						
+			throw new InvalidityException("Requiring that a property is equal to two different values will always yield false");
 		}
 		if((op == EQUAL && otherOp == NOTEQUAL || op == NOTEQUAL && otherOp == EQUAL) && value.equals(otherValue)) {
 			throw new InvalidityException("Requiring that a property is equal and unequal to the same value will always yield false");
@@ -360,40 +368,40 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		if(op == GREATER && otherOp == LESSOREQUAL && parameterValue.getClass().equals(otherParam.getClass()) && lessOrEqual(parameterValue.getClass(), otherValue, value)) {
 			throw new InvalidityException("Requiring that a property is <= X and > Y with X <= Y will always yield false");
 		}
-		
+
 		if(op == LESS && otherOp == GREATEROREQUAL && parameterValue.getClass().equals(otherParam.getClass()) && lessOrEqual(parameterValue.getClass(), value, otherValue)) {
 			throw new InvalidityException("Requiring that a property is <= X and > Y with X <= Y will always yield false");
 		}
 		if(op == GREATEROREQUAL && otherOp == LESS && parameterValue.getClass().equals(otherParam.getClass()) && lessOrEqual(parameterValue.getClass(), otherValue, value)) {
 			throw new InvalidityException("Requiring that a property is < X and >= Y with X <= Y will always yield false");
 		}
-		
+
 		if(op == LESSOREQUAL && otherOp == GREATEROREQUAL && parameterValue.getClass().equals(otherParam.getClass()) && less(parameterValue.getClass(), value, otherValue)) {
 			throw new InvalidityException("Requiring that a property is <= X and >= Y with X < Y will always yield false");
 		}
 		if(op == GREATEROREQUAL && otherOp == LESSOREQUAL && parameterValue.getClass().equals(otherParam.getClass()) && less(parameterValue.getClass(), otherValue, value)) {
 			throw new InvalidityException("Requiring that a property is <= X and >= Y with X < Y will always yield false");
-		}		
-		
+		}
+
 		if(op == EQUAL && otherOp == GREATER && parameterValue.getClass().equals(otherParam.getClass()) && lessOrEqual(parameterValue.getClass(), value, otherValue)) {
 			throw new InvalidityException("Requiring that a property is = X and > Y with X <= Y will always yield false");
 		}
 		if(op == GREATER && otherOp == EQUAL && parameterValue.getClass().equals(otherParam.getClass()) && lessOrEqual(parameterValue.getClass(), otherValue, value)) {
 			throw new InvalidityException("Requiring that a property is = X and > Y with X <= Y will always yield false");
-		}		
+		}
 		if(op == EQUAL && otherOp == LESS && parameterValue.getClass().equals(otherParam.getClass()) && lessOrEqual(parameterValue.getClass(), otherValue, value)) {
 			throw new InvalidityException("Requiring that a property is = X and < Y with X >= Y will always yield false");
 		}
 		if(op == LESS && otherOp == EQUAL && parameterValue.getClass().equals(otherParam.getClass()) && lessOrEqual(parameterValue.getClass(), value, otherValue)) {
 			throw new InvalidityException("Requiring that a property is = X and < Y with X >= Y will always yield false");
-		}		
-		
+		}
+
 		if(op == EQUAL && otherOp == GREATEROREQUAL && parameterValue.getClass().equals(otherParam.getClass()) && less(parameterValue.getClass(), value, otherValue)) {
 			throw new InvalidityException("Requiring that a property is = X and >= Y with X < Y will always yield false");
 		}
 		if(op == GREATEROREQUAL && otherOp == EQUAL && parameterValue.getClass().equals(otherParam.getClass()) && less(parameterValue.getClass(), otherValue, value)) {
 			throw new InvalidityException("Requiring that a property is = X and >= Y with X < Y will always yield false");
-		}		
+		}
 		if(op == EQUAL && otherOp == LESSOREQUAL && parameterValue.getClass().equals(otherParam.getClass()) && less(parameterValue.getClass(), otherValue, value)) {
 			throw new InvalidityException("Requiring that a property is = X and <= Y with X > Y will always yield false");
 		}
@@ -461,7 +469,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				return false;
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -523,7 +531,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				return false;
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -701,15 +709,16 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	public void setName(String newName) {
 		if(newName == null || newName.equals("")) {
 			if(getInternalId() > -1) {
-				newName = "Property " + getInternalId();				
+				newName = "Property " + getInternalId();
 			} else {
 				return;
 			}
 		}
 		String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PRIMITIVE_NODE__NAME, oldName, name));
+		}
 	}
 
 	/**

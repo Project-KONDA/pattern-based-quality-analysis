@@ -3,10 +3,10 @@
 package qualitypatternmodel.graphstructure.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -61,11 +61,13 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 
 	@Override
 	public Boolean inJavaReturnRequired() {
-		if (super.inJavaReturnRequired())
+		if (super.inJavaReturnRequired()) {
 			return true;
+		}
 		for (Relation relation: getOutgoing()) {
-			if(relation != null && relation.getTarget() != null && relation.getTarget().inJavaReturnRequired())
+			if(relation != null && relation.getTarget() != null && relation.getTarget().inJavaReturnRequired()) {
 				return true;
+			}
 		}
 		return false;
 	}
@@ -79,17 +81,17 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return adaptAsRdfIriNode();
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * Adapts the ComplexNode to a NeoElementNode.
 	 */
-	@Override 
+	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return adaptAsNeoElementNode();
 	}
-	
-	
+
+
 	@Override
 	public XmlProperty adaptAsXmlProperty() throws InvalidityException {
 		if(isTypeModifiable()) {
@@ -98,7 +100,7 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 			throw new InvalidityException("This ComplexNode cannot be adapted as an XmlProperty");
 		}
 	}
-	
+
 	@Override
 	public XmlElement adaptAsXmlElement() throws InvalidityException {
 		XmlElement xmlElement = super.adaptAsXmlElement();
@@ -107,7 +109,7 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 		}
 		return xmlElement;
 	}
-	
+
 	@Override
 	public void checkComparisonConsistency(Comparison comp) throws InvalidityException {
 		if(comp == null || comp.getOption() == null) {
@@ -133,9 +135,9 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 		ComparisonOperator op = comp.getOption().getValue();
 		if(op != ComparisonOperator.EQUAL && op != ComparisonOperator.NOTEQUAL) {
 			return;
-		}	
+		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

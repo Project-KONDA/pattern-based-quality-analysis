@@ -1,8 +1,8 @@
 package qualitypatternmodel.newservlets.initialisation;
 
 public class Neo4jPatternVariants {
-	
-	public static String CARD_NEO_DEFAULT = 
+
+	public static String CARD_NEO_DEFAULT =
 			"{\"template\":\"Card_neo4j\","
 			+ "\"language\":\"neo4j\","
 			+ "\"name\":\"default-antipattern\","
@@ -17,12 +17,12 @@ public class Neo4jPatternVariants {
 				+ "{\"name\":\"compared to\",\"params\":[0],\"exampleValue\":\"more than\",\"defaultMap\":\"comparison\"},"
 				+ "{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":1},"
 				+ "{\"text\":\".\"}]}";
-	
-	
+
+
 	public static String[] CARD_NEO_VARIANTS = {CARD_NEO_DEFAULT};
 	public static String[] CARD_NEO_VARIANTS_OLD = {};
-	
-	public static String MATCH_NEO_DEFAULT = 
+
+	public static String MATCH_NEO_DEFAULT =
 			"{\"template\":\"Match_neo4j\","
 			+ "\"language\":\"neo4j\","
 			+ "\"name\":\"default-antipattern\","
@@ -36,11 +36,11 @@ public class Neo4jPatternVariants {
 				+ "{\"text\":\"match\"},"
 				+ "{\"name\":\"a specific pattern\",\"params\":[1]},"
 				+ "{\"text\":\".\"}]}";
-	
+
 	static String[] MATCH_NEO_VARIANTS = {MATCH_NEO_DEFAULT};
 	static String[] MATCH_NEO_VARIANTS_OLD = {};
-	
-	public static String CONTAINS_NEO_DEFAULT = 
+
+	public static String CONTAINS_NEO_DEFAULT =
 			"{\"template\":\"Contains_neo4j\","
 			+ "\"language\":\"neo4j\","
 			+ "\"name\":\"default-antipattern\","
@@ -53,11 +53,11 @@ public class Neo4jPatternVariants {
 				+ "{\"text\":\"contain\"},"
 				+ "{\"name\":\"a specific term\",\"params\":[1]},"
 				+ "{\"text\":\".\"}]}";
-	
+
 	static String[] CONTAINS_NEO_VARIANTS = {CONTAINS_NEO_DEFAULT};
 	static String[] CONTAINS_NEO_VARIANTS_OLD = {};
-	
-	public static String STRINGLENGTH_NEO_DEFAULT = 
+
+	public static String STRINGLENGTH_NEO_DEFAULT =
 			"{\"template\":\"StringLength_neo4j\","
 			+ "\"language\":\"neo4j\","
 			+ "\"name\":\"default-antipattern\","
@@ -70,11 +70,11 @@ public class Neo4jPatternVariants {
 				+ "{\"name\":\"compared to\",\"params\":[0], \"exampleValue\":\"exactly\", \"defaultMap\":\"comparison\"},"
 				+ "{\"name\":\"a specific number of\",\"params\":[1]},"
 				+ "{\"text\":\"characters in length.\"}]}";
-	
+
 	static String[] STRINGLENGTH_NEO_VARIANTS = {STRINGLENGTH_NEO_DEFAULT};
 	static String[] STRINGLENGTH_NEO_VARIANTS_OLD = {};
-	
-	public static String COMPSET_NEO_DEFAULT = 
+
+	public static String COMPSET_NEO_DEFAULT =
 			"{\"template\":\"CompSet_neo4j\","
 			+ "\"language\":\"neo4j\","
 			+ "\"name\":\"default-antipattern\","
@@ -90,8 +90,8 @@ public class Neo4jPatternVariants {
 
 	static String[] COMPSET_NEO_VARIANTS = {COMPSET_NEO_DEFAULT};
 	static String[] COMPSET_NEO_VARIANTS_OLD = {};
-	
-	public static String UNIQUE_NEO_DEFAULT = 
+
+	public static String UNIQUE_NEO_DEFAULT =
 			"{\"template\":\"Unique_neo4j\","
 			+ "\"language\":\"neo4j\","
 			+ "\"name\":\"default-antipattern\","
@@ -104,8 +104,8 @@ public class Neo4jPatternVariants {
 
 	static String[] UNIQUE_NEO_VARIANTS = {UNIQUE_NEO_DEFAULT};
 	static String[] UNIQUE_NEO_VARIANTS_OLD = {};
-	
-	public static String MANDATT_NEO_DEFAULT = 
+
+	public static String MANDATT_NEO_DEFAULT =
 			"{\"template\":\"MandAtt_neo4j\","
 			+ "\"language\":\"neo4j\","
 			+ "\"name\":\"default-antipattern\","

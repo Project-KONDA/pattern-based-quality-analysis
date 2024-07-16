@@ -23,18 +23,18 @@ public class MqafUniquenessTranslationTest {
 		patterns.add(MqafStringTranslationTest.uniqueness3_1nPattern());
 		patterns.add(MqafStringTranslationTest.uniqueness3_2nPattern());
 
-		
+
 		for (CompletePattern pattern: patterns) {
 			try {
 				System.out.println("__ " + pattern.getDescription() + " __");
 //				System.out.println(pattern.myToString());
 				Pair<Node, Boolean> pair = MqafUniquenessConditionCheck.uniquenessConditionField(pattern);
-				if (pair == null)
+				if (pair == null) {
 					System.out.println("null");
-				else {
+				} else {
 					System.out.println(pair.name().myToString());
 					System.out.println(pair.value());
-				}	
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

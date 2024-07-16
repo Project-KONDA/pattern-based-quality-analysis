@@ -19,7 +19,7 @@ public class NewInterimResultTest {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
 		List<CompletePattern> patterns = OneArgTestPatterns.getXmlTestPatterns();
-		
+
 		int from = 1;
 		int to = 1;
 		for (int i = from-1; i<patterns.size() && i < to; i++) {
@@ -31,16 +31,16 @@ public class NewInterimResultTest {
 //			JavaFilter filter2 = (JavaFilterImpl) EMFModelLoad.loadFromString(xmi);
 //			String xmi2 = EMFModelSave.exportToString(filter2);
 //			System.out.println(xmi.equals(xmi2));
-			
-			
-			
+
+
+
 			String json = filter.toJson().toString();
 			System.out.println(json);
 //			JavaFilter filter2 = JavaFilterImpl.fromJson(json);
 //			String json2 = filter2.toJson();
 //			System.out.println(json.equals(json2));
-			
-			
+
+
 //			filter.execute(DEMO_DATABASE_NAME, DEMO_DATA_PATH);
 		}
 	}

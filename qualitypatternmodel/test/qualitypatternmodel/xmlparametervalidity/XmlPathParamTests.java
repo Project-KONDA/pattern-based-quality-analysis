@@ -10,7 +10,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 
 public class XmlPathParamTests {
-	static String[] teststings = 
+	static String[] teststings =
 			{"/child::*", "/descendant::*", "/self::*",
 				"/child::*[data()]", "/descendant::*[name()]", "/self::*[@attribute]",
 				"/child::*[data()=\"\"]", "/descendant::*[name()=\"something\"]",
@@ -21,7 +21,7 @@ public class XmlPathParamTests {
 				"/descendant::*[@attribute=\"nothing\"]",
 				};
 
-	static String[] teststings2 = 
+	static String[] teststings2 =
 			{"/child::*", "/descendant::*", "/self::*",
 				"/child::*[data()]", "/descendant::*[name()]", "/self::*[@attribute]",
 				"/child::*[data()=\"\"]", "/descendant::*[name()=\"something\"]",
@@ -30,10 +30,10 @@ public class XmlPathParamTests {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
 //		splitTest();
 		generationTest();
-//		axisPairTest();		
+//		axisPairTest();
 //		stringTests();
 	}
-	
+
 //	public static void splitTest() throws InvalidityException {
 //		System.out.println("start split test");
 //		for (String test: teststings) {
@@ -41,11 +41,11 @@ public class XmlPathParamTests {
 //			int index = XmlPathParamImpl.indexWhereSplit(test);
 //			System.out.println("     \"" + test.substring(0, index) + "\"    +    \"" + test.substring(index) + "\"" );
 //			System.out.println();
-//			
+//
 //		}
 //		System.out.println("finished split test");
 //	}
-	
+
 	public static void generationTest() throws InvalidityException {
 		System.out.println("start generation test");
 		for (String test: teststings) {
@@ -56,11 +56,11 @@ public class XmlPathParamTests {
 			path.setValueFromString(test);
 			System.out.println("  " + path.myToString());
 			System.out.println("  -> " + path.generateXQuery());
-			
+
 		}
 		System.out.println("finished generation test");
 	}
-	
+
 	public static void axisPairTest() throws InvalidityException {
 		System.out.println("start axisPair Test");
 		for (String test: teststings2) {
@@ -72,17 +72,17 @@ public class XmlPathParamTests {
 		}
 		System.out.println("finished generation test");
 	}
-	
+
 	public static void stringTests()  {
 		String test = "ab[cde]fg";
 //		System.out.println(test.substring(test.indexOf('[')+1, test.indexOf(']')));
 //		System.out.println(test.substring(1, test.length()-1));
 		System.out.println(test.split("::/")[0]);
 		System.out.println(test.split("\\[")[1]);
-		
+
 		test = "/child::*/descendant::*";
 		System.out.println(test.split("::\\*")[0]);
 		System.out.println(test.split("::\\*")[1]);
 	}
-		
+
 }

@@ -4,6 +4,7 @@ package qualitypatternmodel.execution.impl;
 
 import java.io.IOException;
 import java.util.Map;
+
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
@@ -13,14 +14,13 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-
 import qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl;
 import qualitypatternmodel.execution.BaseXClient;
 import qualitypatternmodel.execution.Database;
@@ -36,13 +36,10 @@ import qualitypatternmodel.execution.ServerXmlSchemaDatabase;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.XmlResult;
-
 import qualitypatternmodel.execution.XmlSchemaDatabase;
 import qualitypatternmodel.execution.impl.BaseXClientImpl.Query;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
-
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
@@ -50,14 +47,10 @@ import qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl;
 import qualitypatternmodel.operators.OperatorsPackage;
-
 import qualitypatternmodel.operators.impl.OperatorsPackageImpl;
 import qualitypatternmodel.parameters.ParametersPackage;
-
 import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
-
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-
 import qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl;

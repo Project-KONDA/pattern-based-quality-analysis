@@ -30,7 +30,7 @@ public abstract class NumberOperatorImpl extends OperatorImpl implements NumberO
 	public ReturnType getReturnType() {
 		return ReturnType.NUMBER;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

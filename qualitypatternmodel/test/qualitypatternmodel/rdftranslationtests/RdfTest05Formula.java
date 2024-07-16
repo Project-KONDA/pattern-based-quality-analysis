@@ -13,7 +13,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class RdfTest05Formula {
-	
+
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		for (LogicalOperator lo: LogicalOperator.VALUES) {
@@ -21,7 +21,7 @@ public class RdfTest05Formula {
 		}
 		return completePatterns;
 	}
-	
+
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		RdfTest00.test(getPatterns());
 	}
@@ -29,22 +29,22 @@ public class RdfTest05Formula {
 	private static CompletePattern getFormulaPattern(LogicalOperator lo) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		CompletePattern completePattern = RdfTest00.getBasePattern();
-		
+
 		Formula formula = PatternstructureFactory.eINSTANCE.createFormula();
 		completePattern.setCondition(formula);
 		formula.setOperator(lo);
-		
+
 		QuantifiedCondition quantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		formula.setCondition1(quantifiedCond);
-		
+
 		ComplexNode complexNode = completePattern.getGraph().getNodes().get(1).makeComplex();
-		complexNode.addOutgoing(quantifiedCond.getGraph());	
-		
+		complexNode.addOutgoing(quantifiedCond.getGraph());
+
 		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		formula.setCondition2(quantifiedCond2);
 
 		complexNode.addOutgoing(quantifiedCond2.getGraph());
-		
+
 		completePattern.createRdfAdaption();
 		return completePattern;
 	}

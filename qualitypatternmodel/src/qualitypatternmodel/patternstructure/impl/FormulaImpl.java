@@ -2,8 +2,8 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.FORMULA;
 import static qualitypatternmodel.utility.Constants.addMissingBrackets;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.FORMULA;
 
 import java.util.List;
 
@@ -11,11 +11,10 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -29,9 +28,9 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
@@ -97,7 +96,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * @ordered
 	 */
 	protected Condition condition2;
-	
+
 /**
 	 * The default value of the '{@link #isClamped() <em>Clamped</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -108,7 +107,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 */
 	protected static final boolean CLAMPED_EDEFAULT = false;
 
-    
+
 
 	/**
 	 * The cached value of the '{@link #isClamped() <em>Clamped</em>}' attribute.
@@ -132,19 +131,20 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
-		if (!containsJavaOperator())
+		if (!containsJavaOperator()) {
 			return new BooleanFilterElementImpl();
-		
-		
+		}
+
+
 //		Boolean c1 = getCondition1().containsJavaOperator();
 //		Boolean c2 = getCondition2().containsJavaOperator();
 //		Boolean isAnd = (getOperator() == LogicalOperator.AND);
 
-//		if (isAnd && c1 && !c2) 
+//		if (isAnd && c1 && !c2)
 //			return (BooleanFilterPart) getCondition1().generateQueryFilterPart();
 //		if (isAnd && !c1 && c2)
 //			return (BooleanFilterPart) getCondition2().generateQueryFilterPart();
-		
+
 		BooleanFilterPart qfp1 = (BooleanFilterPart) getCondition1().generateQueryFilterPart();
 		BooleanFilterPart qfp2 = (BooleanFilterPart) getCondition2().generateQueryFilterPart();
 		return new FormulaFilterPartImpl(getOperator(), qfp1, qfp2);
@@ -169,15 +169,15 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					result += ConstantsXml.OR;
 					result += "(" + condition2Query + "))";
 					break;
-				case XOR:					
+				case XOR:
 					result = "(" + ConstantsXml.NOT + "(" + condition1Query + "))";
 					result += " = ";
-					result += "(" + condition2Query + ")";				
+					result += "(" + condition2Query + ")";
 					break;
-				case EQUAL:					
+				case EQUAL:
 					result = "(" + condition1Query + ")";
 					result += " = ";
-					result += "(" + condition2Query + ")";					
+					result += "(" + condition2Query + ")";
 					break;
 				default:
 					throw new InvalidityException("invalid arguments");
@@ -190,49 +190,50 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 			throw new InvalidityException("operator null");
 		}
 	}
-	
+
 	@Override
 	public String generateXQueryJava() throws InvalidityException {
 		return "";
 	}
-	
+
 	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		Boolean cond1Java = getCondition1().containsJavaOperator();
 		Boolean cond2Java = getCondition2().containsJavaOperator();
 
-		String cond1String = cond1Java? 
+		String cond1String = cond1Java?
 				getCondition1().generateXQueryJavaReturn()
-				: "\"<boolean>\",\n  (" 
-				+ getCondition1().generateXQuery().indent(2) 
+				: "\"<boolean>\",\n  ("
+				+ getCondition1().generateXQuery().indent(2)
 				+ "  ),\n  \"</boolean>\"";
 		String cond2String = cond2Java? getCondition2().generateXQueryJavaReturn()
 				: "\"<boolean>\",\n  (" + getCondition2().generateXQuery().indent(2) + "  ),\n  \"</boolean>\"";
-		
-		
-		if (!cond1Java && !cond2Java)
+
+
+		if (!cond1Java && !cond2Java) {
 			return generateXQuery();
 //		else if (!cond1Java)
 //			return cond2String;
 //		else if (!cond2Java)
 //			return cond1String;
-		else 
+		} else {
 			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(cond1String, cond2String), FORMULA, false, false, false);
+		}
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		String result = "";
 		if (operator != null) {
 			if (condition1 != null && condition2 != null) {
-				
+
 				String condition1Query = condition1.generateSparql().substring(1);
 				String condition2Query = condition2.generateSparql();
-				
+
 				if(operator != LogicalOperator.AND && !isInRdfFilter()) {
 					result += ConstantsRdf.FILTER;
 				}
-				
+
 				switch (operator) {
 				case AND:
 					result += condition1Query + condition2Query;
@@ -243,10 +244,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				case IMPLIES:
 					result += "( NOT " + condition1Query + " || " + condition2Query + " )";
 					break;
-				case XOR:			
+				case XOR:
 					result += "(" + condition1Query + " != " + condition2Query + ")";
 					break;
-				case EQUAL:	
+				case EQUAL:
 					result += "(" + condition1Query + " = " + condition2Query + ")";
 					break;
 				default:
@@ -260,19 +261,19 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 			throw new InvalidityException("operator null");
 		}
 	}
-	
+
 	//BEGIN - Neo4J
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
-	 * Implements all framework operators into existing or non existing Neo4J-Operators. Moreover, it considers if something should be clamped or not. 
+	 * Implements all framework operators into existing or non existing Neo4J-Operators. Moreover, it considers if something should be clamped or not.
 	 * <i>AND, OR, XOR, IMPLIES, EQUALS<\i>.
 	 */
-	@Override 
+	@Override
 	public String generateCypher() throws InvalidityException {
 		super.checkNextConditon(getCondition1());
 		super.checkNextConditon(getCondition2());
-		
+
 		if (this.operator != null) {
 			StringBuilder cypher = new StringBuilder();
 			if (this.condition1 != null && this.condition2 != null) {
@@ -285,7 +286,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					super.addWhiteSpacesForPreviewsCondition(temp, ConstantsNeo.THREE_WHITESPACES);
 					condition1Query = temp.toString();
 				}
-				
+
 				//If the generated Condition isBlank (Cases: TrueElement, FORALL [true])
 				String condition2Query = condition2.generateCypher();
 				if (condition1Query.isBlank()) {
@@ -295,7 +296,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					super.addWhiteSpacesForPreviewsCondition(temp, ConstantsNeo.THREE_WHITESPACES);
 					condition2Query = temp.toString();
 				}
-				
+
 				//For cypher there are less Boolean Operators
 				switch (operator) {
 				case AND:
@@ -359,7 +360,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
-		
+
 		if(condition1 != null) {
 			condition1.isValid(abstractionLevel);
 		}
@@ -368,6 +369,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		}
 	}
 
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (operator == null) {
 			throw new InvalidityException("operator null" + " (" + getInternalId() + ")");
@@ -376,33 +378,33 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 			throw new InvalidityException("arguments invalid" + " (" + getInternalId() + ")");
 		}
 	}
-	
+
 	@Override
 	public boolean relationsXmlAdapted() {
 		return getCondition1().relationsXmlAdapted() && getCondition2().relationsXmlAdapted();
 	}
-	
+
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getCondition1().createXmlAdaption();
 		getCondition2().createXmlAdaption();
 		return this;
 	}
-	
+
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getCondition1().createRdfAdaption();
 		getCondition2().createRdfAdaption();
 		return this;
 	}
-	
+
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getCondition1().createNeo4jAdaption();
 		getCondition2().createNeo4jAdaption();
 		return this;
 	}
-	
+
 	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
@@ -416,9 +418,9 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		condition1.prepareTranslation();
 		if(condition2 != null) {
 			condition2.prepareTranslation();
-		}		
+		}
 	}
-	
+
 	@Override
 	public void recordValues(XmlDataDatabase database) {
 		getCondition1().recordValues(database);
@@ -431,7 +433,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		parameters.addAll(condition1.getAllParameters());
 		if(condition2 != null) {
 			parameters.addAll(condition2.getAllParameters());
-		}	
+		}
 		return parameters;
 	}
 
@@ -441,7 +443,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		operators.addAll(condition1.getAllOperators());
 		if(condition2 != null) {
 			operators.addAll(condition2.getAllOperators());
-		}	
+		}
 		return operators;
 	}
 
@@ -452,7 +454,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		patternElements.add(getCondition2());
 		return patternElements;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -731,14 +733,14 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		result.append(')');
 		return result.toString();
 	}
-	
+
 	@Override
 	public String myToString() {
-		String res = "( " + getCondition1().myToString().replace("\n", "\n. ") + "\n)\n"; 
-//		res += getOperator().getName() + " " + getInternalId(); 
+		String res = "( " + getCondition1().myToString().replace("\n", "\n. ") + "\n)\n";
+//		res += getOperator().getName() + " " + getInternalId();
 		res += getOperator().getName();
 		res += "\n( " + getCondition2().myToString().replace("\n", "\n. ") + "\n)";
 		return res;
 	}
-	
+
 } // FormulaImpl

@@ -9,23 +9,22 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
-import qualitypatternmodel.adaptionneo4j.NeoEdge;
-import qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam;
-import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoDirection;
-import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
+import qualitypatternmodel.adaptionneo4j.NeoEdge;
+import qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam;
 import qualitypatternmodel.adaptionneo4j.NeoElement;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
-import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
+import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoLabel;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
+import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
@@ -33,23 +32,14 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
-
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
-
 import qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl;
-
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-
 import qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl;
-
 import qualitypatternmodel.execution.ExecutionPackage;
-
 import qualitypatternmodel.execution.impl.ExecutionPackageImpl;
-
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
-
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
@@ -57,18 +47,12 @@ import qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl;
 import qualitypatternmodel.operators.OperatorsPackage;
-
 import qualitypatternmodel.operators.impl.OperatorsPackageImpl;
 import qualitypatternmodel.parameters.ParametersPackage;
-
 import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
-
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-
 import qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl;
-
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
-
 import qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl;
 
 /**

@@ -7,7 +7,6 @@ package qualitypatternmodel.execution.validation;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.execution.Result;
-
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**

@@ -6,11 +6,10 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -22,7 +21,6 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.OperatorsPackage;
-
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -99,20 +97,20 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	protected EClass eStaticClass() {
 		return OperatorsPackage.Literals.CONTAINS;
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		if(option!=null && content != null && content.getValue() != null && primitiveNode != null) {
-			if (option.getValue()){				
-				return primitiveNode.generateXQuery() + "contains(., \"" + content.getValue() + "\")";				
+			if (option.getValue()){
+				return primitiveNode.generateXQuery() + "contains(., \"" + content.getValue() + "\")";
 			} else {
 				return primitiveNode.generateXQuery() + "not(contains(., \"" + content.getValue() + "\"))";
-			}	
+			}
 		} else {
 			throw new InvalidityException("invalid option");
 		}
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(option!=null && content != null && content.getValue() != null && primitiveNode != null) {
@@ -125,58 +123,63 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 				return result;
 			} else {
 				return "\nFILTER (!contains(" + primitiveNode.generateSparql() + ", " + content.generateSparql() + "))";
-			}	
+			}
 		} else {
 			throw new InvalidityException("invalid option");
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
 	 * Generates the substring for contains.
 	 */
-	@Override 
+	@Override
 	public String generateCypher() throws InvalidityException {
 		if(option != null && content != null && content.getValue() != null && primitiveNode != null) {
-			String tempCypherPropertyAddressing = (String) ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
+			String tempCypherPropertyAddressing = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
 			if (!tempCypherPropertyAddressing.isEmpty()) {
 				if (option.getValue()) {
 					return tempCypherPropertyAddressing + ConstantsNeo.ONE_WHITESPACE +
 							  ConstantsNeo.OPERATOR_CONTAINS + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + ConstantsNeo.CYPHER_QUOTATION_MARK + content.getValue() +
 							  ConstantsNeo.CYPHER_QUOTATION_MARK + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
-				} 
+				}
 				return  ConstantsNeo.BOOLEAN_OPERATOR_NOT+ ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + tempCypherPropertyAddressing + ConstantsNeo.ONE_WHITESPACE +
-						  ConstantsNeo.OPERATOR_CONTAINS + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET +  ConstantsNeo.CYPHER_QUOTATION_MARK + content.getValue() + 
+						  ConstantsNeo.OPERATOR_CONTAINS + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET +  ConstantsNeo.CYPHER_QUOTATION_MARK + content.getValue() +
 						  ConstantsNeo.CYPHER_QUOTATION_MARK + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
 			}
 			throw new InvalidityException(ConstantsNeo.NO_VALID_PROPERTY_IS_ACCESSABLE);
 		}
 		throw new InvalidityException(Constants.INVALID_OPTION);
 	}
-	
+
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
-		option.isValid(abstractionLevel);		
+		option.isValid(abstractionLevel);
 		content.isValid(abstractionLevel);
 	}
-	
+
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
-		if (option == null)
+		if (option == null) {
 			throw new InvalidityException("options null");
-		if (content == null)
+		}
+		if (content == null) {
 			throw new InvalidityException("content null");
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && primitiveNode == null)
-			throw new InvalidityException("property null");		
-		
+		}
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && primitiveNode == null) {
+			throw new InvalidityException("property null");
+		}
+
 		super.isValidLocal(abstractionLevel);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		res.add(content);
@@ -188,38 +191,38 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	public boolean isTranslatable() {
 		return primitiveNode.isTranslatable();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * 
+	 * @throws InvalidityException
+	 *
 	 */
 	@Override
-	public EList<Node> getAllArgumentElements() {		
+	public EList<Node> getAllArgumentElements() {
 		return primitiveNode.getAllArgumentElements();
 	}
-	
+
 	@Override
 	public EList<Comparable> getArguments(){
-		EList<Comparable> list = new BasicEList<Comparable>();		
+		EList<Comparable> list = new BasicEList<Comparable>();
 		list.add(primitiveNode);
 		list.add(content);
 		list.add(option);
 		return list;
 	}
-	
+
 	@Override
-	public void createParameters() {		
-		ParameterList parameterList = getParameterList();	
+	public void createParameters() {
+		ParameterList parameterList = getParameterList();
 		if(parameterList != null) {
 			if(getOption() == null) {
-				BooleanParam bool = new BooleanParamImpl();				
+				BooleanParam bool = new BooleanParamImpl();
 				setOption(bool);
 			}
 			parameterList.add(getOption());
 			if(getContent() == null) {
-				TextLiteralParam textLiteral = new TextLiteralParamImpl();				
+				TextLiteralParam textLiteral = new TextLiteralParamImpl();
 				setContent(textLiteral);
 			}
 			parameterList.add(getContent());
@@ -261,7 +264,7 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	public NotificationChain basicSetPrimitiveNode(PrimitiveNode newPrimitiveNode, NotificationChain msgs) {
 		PrimitiveNode oldPrimitiveNode = primitiveNode;
 		primitiveNode = newPrimitiveNode;
-		
+
 		if(oldPrimitiveNode instanceof PrimitiveNode && newPrimitiveNode == null) {
 			try {
 				((Node) oldPrimitiveNode).makeGeneric();
@@ -269,15 +272,19 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 				// there is another reason why this node needs to be PrimitiveNode
 			}
 		}
-		
+
 		if(oldPrimitiveNode != null) {
 			oldPrimitiveNode.getPredicates().remove(this);
 		}
 		newPrimitiveNode.getPredicates().add(this);
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.CONTAINS__PRIMITIVE_NODE, oldPrimitiveNode, newPrimitiveNode);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -302,7 +309,11 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 		}
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.CONTAINS__PRIMITIVE_NODE, oldProperty, newProperty);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -361,17 +372,21 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	 */
 	public NotificationChain basicSetContent(TextLiteralParam newContent, NotificationChain msgs) {
 		TextLiteralParam oldContent = content;
-		
+
 		ParameterList varlist = getParameterList();
 		varlist.remove(oldContent);
-		varlist.add(newContent);			
-	
+		varlist.add(newContent);
+
 		content = newContent;
 
-			
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.CONTAINS__CONTENT, oldContent, newContent);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -405,7 +420,7 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	public Node getElement() {
 		return getPrimitiveNode();
 	}
-	
+
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
@@ -484,24 +499,28 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	public BooleanParam basicGetOption() {
 		return option;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetOption(BooleanParam newOption, NotificationChain msgs) {
-		BooleanParam oldOption = option;		
+		BooleanParam oldOption = option;
 
-		ParameterList varlist = getParameterList();				
-		varlist.remove(oldOption);					
-		varlist.add(newOption);				
-		
+		ParameterList varlist = getParameterList();
+		varlist.remove(oldOption);
+		varlist.add(newOption);
+
 		option = newOption;
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.CONTAINS__OPTION, oldOption, newOption);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -606,11 +625,13 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	@Override
 	public String myToString() {
 		String res = "CONTAINS (" + getInternalId() + ") [";
-		if (!getOption().getValue()) res += "not ";
+		if (!getOption().getValue()) {
+			res += "not ";
+		}
 		res += getOption().getInternalId() + "]";
 		res += "[" + getPrimitiveNode().getInternalId() + ", " + getContent().getInternalId() + "]";
 		return res;

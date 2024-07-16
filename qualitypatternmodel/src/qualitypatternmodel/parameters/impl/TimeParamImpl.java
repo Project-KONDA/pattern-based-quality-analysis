@@ -2,9 +2,12 @@
  */
 package qualitypatternmodel.parameters.impl;
 
-import static qualitypatternmodel.utility.Constants.*;
+import static qualitypatternmodel.utility.Constants.REGEX_POSITIVE_NEGATIVE;
+import static qualitypatternmodel.utility.Constants.REGEX_TIME_HOURS_MINUTES;
+import static qualitypatternmodel.utility.Constants.REGEX_TIME_HOURS_MINUTES_SECONDS;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -60,12 +63,12 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	public TimeParamImpl() {
 		super();
 	}
-	
+
 	@Override
 	public String getValueAsString() {
 		return getValue();
 	}
-	
+
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		setValueIfValid(value);
@@ -75,7 +78,7 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	public void clear() {
 		setValue(null);
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		if(getValue() != null) {
@@ -84,32 +87,32 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 			throw new InvalidityException("invalid number");
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @throws InvalidityException
 	 * Generates the sub-query for TimeParam.
 	 */
-	@Override 
+	@Override
 	public String generateCypher() throws InvalidityException {
 		if (getValue() != null) {
 			return String.format(TimeParamImpl.TIME_CYPHER, getValue());
 		}
 		return super.generateCypher();
 	}
-	
+
 	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.TIME;
 	}
-	
+
 	@Override
-	public boolean inputIsValid() {		
+	public boolean inputIsValid() {
 		String regex = "(" + REGEX_TIME_HOURS_MINUTES_SECONDS + REGEX_POSITIVE_NEGATIVE + REGEX_TIME_HOURS_MINUTES + ")" + "|(" + REGEX_TIME_HOURS_MINUTES_SECONDS + "Z?)";
 		return getValue() != null && getValue().matches(regex);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,7 +122,7 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	protected EClass eStaticClass() {
 		return ParametersPackage.Literals.TIME_PARAM;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,46 +164,40 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 		} catch (Exception e) {
 			setValue(oldValue);
 			throw e;
-		}		
+		}
 	}
-	
+
 	@Override
 	public void validateExampleValue(String val) throws InvalidityException {
-		if(!val.equals(VALUE_EDEFAULT) && !isFormatValid(val)) {			
+		if(!val.equals(VALUE_EDEFAULT) && !isFormatValid(val)) {
 			throw new InvalidityException("Time format invalid");
 		}
 	}
 
 	static boolean isFormatValid(String newValue) {
 		// hh:mm:ss[Z|(+|-)hh:mm]
-				
+
 		if(newValue.length() < 8 || newValue.length() > 14) {
 			return false;
 		}
-		
+
 		String hours = newValue.substring(0, 2);
 		String firstColon = newValue.substring(2, 3);
 		String minutes = newValue.substring(3, 5);
 		String secondColon = newValue.substring(5, 6);
 		String seconds = newValue.substring(6, 8);
-		
-		if(!firstColon.equals(":")) {
-			return false;
-		}  
-		if(!secondColon.equals(":")) {
-			return false;
-		}
-		if(!hours.matches("0[0-9]|1[0-9]|2[0-4]")) {
+
+		if(!firstColon.equals(":") || !secondColon.equals(":") || !hours.matches("0[0-9]|1[0-9]|2[0-4]")) {
 			return false;
 		}
 		if(!minutes.matches("[0-5][0-9]|60") || !seconds.matches("[0-5][0-9]|60")) {
 			return false;
 		}
-		
+
 		if(newValue.length() > 8) {
-			return DateParamImpl.validateTimeZone(newValue, 8); 
+			return DateParamImpl.validateTimeZone(newValue, 8);
 		}
-		
+
 		return true;
 	}
 
@@ -297,12 +294,12 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 		result.append(')');
 		return result.toString();
 	}
-	
-	@Override 
+
+	@Override
 	public String myToString() {
 		return "time [" + getInternalId() + "] " + getValue();
 	}
-	
+
 	@Override
 	public String generateDescription() {
 		String res = "Eingabe der Zeitangabe";
@@ -310,6 +307,6 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 //		try {} catch (Exception e) {}
 //		setDescription(res);
 	}
-	
+
 
 } //TimeImpl

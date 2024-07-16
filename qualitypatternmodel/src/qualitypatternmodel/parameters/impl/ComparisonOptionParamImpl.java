@@ -4,35 +4,31 @@ package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.json.JSONArray;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Comparable;
+import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.StringLength;
-import qualitypatternmodel.graphstructure.Comparable;
-import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CountCondition;
-import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
@@ -67,7 +63,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
-	 * 
+	 *
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated NOT
@@ -127,36 +123,38 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 		super();
 		getOptions().addAll(ComparisonOperator.VALUES);
 	}
-	
+
 	@Override
 	public String getValueAsString() {
-		if (getValue() == null)
+		if (getValue() == null) {
 			return null;
+		}
 		return getValue().getName();
 	}
-	
+
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		for(ComparisonOperator operator : ComparisonOperator.values()) {
-			if(operator.getName().equals(value)) {			
+			if(operator.getName().equals(value)) {
 				setValueIfValid(operator);
 			}
-		}		
+		}
 	}
 
 	@Override
 	public void clear() {
 		setValue(null);
 	}
-	
+
 	@Override
 	public JSONArray getOptionsAsJsonArray() {
 		JSONArray jarray = new JSONArray();
-		for (ComparisonOperator comp: getOptions())
+		for (ComparisonOperator comp: getOptions()) {
 			jarray.put(comp.getName());
+		}
 		return jarray;
 	}
-	
+
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
 		for(Comparison comp : getComparisons()) {
@@ -168,7 +166,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 				PrimitiveNode p = (PrimitiveNode) comp.getArgument2();
 				p.checkComparisonConsistency(comp);
 			}
-			
+
 			if(comp.getArgument1() instanceof Node) {
 				Node e = (Node) comp.getArgument1();
 				e.checkComparisonConsistency(comp);
@@ -179,26 +177,28 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 			}
 		}
 	}
-	
+
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (getOptions() == null) 
+		if (getOptions() == null) {
 			throw new InvalidityException("options null");
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getOptions().isEmpty()) 
+		}
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getOptions().isEmpty()) {
 			throw new InvalidityException("not enough options");
+		}
 		super.isValidLocal(abstractionLevel);
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		return getValue().getLiteral();
 	}
-	
+
 	@Override
 	public boolean inputIsValid() {
 		return getValue() != null && options.contains(getValue());
 	}
-	
+
 	@Override
 	public boolean isUsed() {
 		return !getComparisons().isEmpty() || !getCountConditions().isEmpty();
@@ -213,17 +213,18 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	protected EClass eStaticClass() {
 		return ParametersPackage.Literals.COMPARISON_OPTION_PARAM;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
 		if(newVariableList == null) {
 			getComparisons().clear();
 		}
-		
+
 		return super.basicSetParameterList(newVariableList, msgs);
 	}
 
@@ -236,12 +237,12 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	public EList<ComparisonOperator> getOptions() {
 		if (options == null) {
 			options = new EDataTypeUniqueEList<ComparisonOperator>(ComparisonOperator.class, this, ParametersPackage.COMPARISON_OPTION_PARAM__OPTIONS);
-		} 
+		}
 		else if (options.size() > 1){
 			EList<ComparisonOperator> options2 = new EDataTypeUniqueEList<ComparisonOperator>(ComparisonOperator.class, this, ParametersPackage.COMPARISON_OPTION_PARAM__OPTIONS);
 			for (ComparisonOperator cop: options) {
 				if (!options2.contains(cop)) {
-					options2.add(cop);				
+					options2.add(cop);
 				}
 			}
 			options = options2;
@@ -319,7 +320,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	@Override
 	public void setValueIfValid(ComparisonOperator newValue) throws InvalidityException {
 		ComparisonOperator oldValue = getValue();
-		setValue(newValue);		
+		setValue(newValue);
 		try {
 			checkComparisonConsistency();
 		} catch (Exception e) {
@@ -505,12 +506,12 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 		result.append(')');
 		return result.toString();
 	}
-	
-	@Override 
+
+	@Override
 	public String myToString() {
 		return "comp [" + getInternalId() + "] " + getValue();
 	}
-	
+
 	@Override
 	public String generateDescription() {
 		String res = "Angabe des Vergleichsoperators";

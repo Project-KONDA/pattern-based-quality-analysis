@@ -3,6 +3,7 @@
 package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
@@ -30,12 +31,12 @@ public class UntypedParameterValueImpl extends ParameterValueImpl implements Unt
 		super();
 		setTypeModifiable(true);
 	}
-	
+
 	@Override
 	public String getValueAsString() {
 		return null;
 	}
-	
+
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		setValue(value);
@@ -49,12 +50,12 @@ public class UntypedParameterValueImpl extends ParameterValueImpl implements Unt
 	public ReturnType getReturnType() {
 		return ReturnType.UNSPECIFIED;
 	}
-	
+
 	@Override
 	public boolean isUsed() {
 		return !getComparison1().isEmpty() || !getComparison2().isEmpty();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,7 +74,7 @@ public class UntypedParameterValueImpl extends ParameterValueImpl implements Unt
 	 */
 	@Override
 	public void setValue(String val) throws InvalidityException {
-		replace(new TextLiteralParamImpl(val));	
+		replace(new TextLiteralParamImpl(val));
 	}
 
 	/**
@@ -102,12 +103,12 @@ public class UntypedParameterValueImpl extends ParameterValueImpl implements Unt
 	public boolean inputIsValid() {
 		return false;
 	}
-	
-	@Override 
+
+	@Override
 	public String myToString() {
 		return "unknown" + " [" + getInternalId() + "]";
 	}
-	
+
 	@Override
 	public String generateDescription() {
 		String res = "Eingabe eines unspezifizierten Datentypes";

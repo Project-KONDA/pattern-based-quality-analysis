@@ -76,7 +76,7 @@ public class JavaQueryInterimContainer {
 			}
 		}
 	}
-	
+
 	public void resetFilters() {
 		for (InterimContainer irc : rejected) {
 			results.add(irc);

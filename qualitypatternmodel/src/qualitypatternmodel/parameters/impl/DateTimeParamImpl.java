@@ -65,12 +65,12 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 	public DateTimeParamImpl() {
 		super();
 	}
-	
+
 	@Override
 	public String getValueAsString() {
 		return getValue();
 	}
-	
+
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		setValueIfValid(value);
@@ -80,7 +80,7 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 	public void clear() {
 		setValue(null);
 	}
-		
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		if(getValue() != null) {
@@ -89,7 +89,7 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 			throw new InvalidityException("invalid number");
 		}
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(getValue() != null) {
@@ -98,7 +98,7 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 			return super.generateSparql();
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
@@ -108,19 +108,19 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 	@Override
 	public String generateCypher() throws InvalidityException {
 		if (getValue() != null) {
-			return String.format(DateTimeParamImpl.DATETIME_CYPHER, getValue()); 
+			return String.format(DateTimeParamImpl.DATETIME_CYPHER, getValue());
 		}
 		return super.generateCypher();
 	}
-	
+
 	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.DATETIME;
 	}
-	
+
 	@Override
-	public boolean inputIsValid() {		
-		String regex = REGEX_DATE_TIME + "(Z|" + REGEX_POSITIVE_NEGATIVE + REGEX_TIME_HOURS_MINUTES + ")?";		
+	public boolean inputIsValid() {
+		String regex = REGEX_DATE_TIME + "(Z|" + REGEX_POSITIVE_NEGATIVE + REGEX_TIME_HOURS_MINUTES + ")?";
 		return getValue() != null && getValue().matches(regex);
 	}
 
@@ -177,35 +177,32 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 			throw e;
 		}
 	}
-	
+
 	@Override
 	public void validateExampleValue(String val) throws InvalidityException {
-		if(!val.equals(VALUE_EDEFAULT) && !isFormatValid(val)) {			
+		if(!val.equals(VALUE_EDEFAULT) && !isFormatValid(val)) {
 			throw new InvalidityException("DateTime format invalid");
 		}
 	}
 
 	private static boolean isFormatValid(String newValue) {
 		// [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
-		
+
 		int offset = 0;
 		if(newValue.substring(0, 1).equals("-")) {
 			offset = 1;
 		}
-		
+
 		if(newValue.length() < offset + 19 || newValue.length() > offset + 25) {
 			return false;
 		}
-		
+
 		String date = newValue.substring(0, offset + 10);
 		String t = newValue.substring(offset + 10, offset + 11);
 		String time = newValue.substring(offset + 11, offset + 19);
-		
-		
-		if(!DateParamImpl.validateDate(date, offset)) {
-			return false;
-		}
-		if(!t.equals("T")) {
+
+
+		if(!DateParamImpl.validateDate(date, offset) || !t.equals("T")) {
 			return false;
 		}
 		return TimeParamImpl.isFormatValid(time);
@@ -304,13 +301,13 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 		result.append(')');
 		return result.toString();
 	}
-	
-	@Override 
+
+	@Override
 	public String myToString() {
 		return "dati [" + getInternalId() + "] " + getValue();
 	}
 
-	
+
 	@Override
 	public String generateDescription() {
 		String res = "Eingabe des Datums mit Zeitangabe";

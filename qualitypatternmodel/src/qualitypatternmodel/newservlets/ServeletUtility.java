@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class ServeletUtility {
 
 	public static String getFileNamesInFolder(String path, Class<?> clas) throws URISyntaxException {
-		URL url = clas.getClassLoader().getResource(path);		
-		if(url != null) {			
+		URL url = clas.getClassLoader().getResource(path);
+		if(url != null) {
 			File[] files = Paths.get(url.toURI()).toFile().listFiles();
 			if(files.length == 0) {
 				return "";
@@ -23,17 +23,17 @@ public class ServeletUtility {
 			json = json.substring(0, json.length()-2);
 //			json += "]}";
 			json += "]";
-			return json;			     
-			
+			return json;
+
 		} else {
 			return null;
 		}
 	}
-	
+
 	public static ArrayList<String> getListOfFileNamesInFolder(String path, Class<?> clas) throws URISyntaxException {
 		URL url = clas.getClassLoader().getResource(path);
 		ArrayList<String> fileNames = new ArrayList<String>();
-		if(url != null) {			
+		if(url != null) {
 			File[] files = Paths.get(url.toURI()).toFile().listFiles();
 			if(files.length == 0) {
 				return null;
@@ -41,8 +41,8 @@ public class ServeletUtility {
 			for(File f : files) {
 				fileNames.add(f.getName().split("\\.")[0]);
 			}
-			return fileNames;			     
-			
+			return fileNames;
+
 		} else {
 			return null;
 		}

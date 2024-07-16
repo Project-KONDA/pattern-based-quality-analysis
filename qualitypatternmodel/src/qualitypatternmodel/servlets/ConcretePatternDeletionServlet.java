@@ -12,15 +12,15 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
 public class ConcretePatternDeletionServlet extends HttpServlet {
-	
+
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String requestUrl = request.getRequestURI();
 		String name = requestUrl.substring(Util.CONCRETE_PATTERN_DELETION_ENDPOINT.length());
-		
-		String filePath = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";	
-		URL fileURL = getClass().getClassLoader().getResource(filePath);	
-		
+
+		String filePath = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";
+		URL fileURL = getClass().getClassLoader().getResource(filePath);
+
 		if (fileURL == null) {
 			response.sendError(404);
 			response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
@@ -30,13 +30,13 @@ public class ConcretePatternDeletionServlet extends HttpServlet {
 				response.getOutputStream().println("Successfully deleted concrete pattern '" + name + "'.");
 			} catch (Exception e) {
 				e.printStackTrace();
-				
+
 				response.sendError(500);
 				response.getOutputStream().println("{ \"error\": \"Deleting concrete pattern failed\"}");
 			}
 		}
-		
+
 	}
-	
+
 
 }

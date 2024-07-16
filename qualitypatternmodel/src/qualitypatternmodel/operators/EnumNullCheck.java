@@ -89,8 +89,7 @@ public enum EnumNullCheck implements Enumerator {
 	 * @generated
 	 */
 	public static EnumNullCheck get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			EnumNullCheck result = VALUES_ARRAY[i];
+		for (EnumNullCheck result : VALUES_ARRAY) {
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -107,8 +106,7 @@ public enum EnumNullCheck implements Enumerator {
 	 * @generated
 	 */
 	public static EnumNullCheck getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			EnumNullCheck result = VALUES_ARRAY[i];
+		for (EnumNullCheck result : VALUES_ARRAY) {
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -205,5 +203,5 @@ public enum EnumNullCheck implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 } //EnumNullCheck

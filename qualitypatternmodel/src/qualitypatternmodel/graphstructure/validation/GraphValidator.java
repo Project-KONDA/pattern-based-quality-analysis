@@ -6,12 +6,12 @@ package qualitypatternmodel.graphstructure.validation;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.OperatorList;
-import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
-import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 /**

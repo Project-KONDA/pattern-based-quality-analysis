@@ -2,7 +2,7 @@ package junittests.adaptionneo4jtests;
 
 interface INeoPathParamTest extends INeo4JTest {
 	void getReturnInnerEdgeNodes();
-	void getCypherReturnVariable();	
+	void getCypherReturnVariable();
 	void createParameters();
 	void getRelationNumber();
 }

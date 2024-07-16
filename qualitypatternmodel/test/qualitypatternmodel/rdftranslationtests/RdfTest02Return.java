@@ -17,13 +17,13 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class RdfTest02Return {
-	
+
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getMultipleReturnPattern());
 		return completePatterns;
 	}
-	
+
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		RdfTest00.test(getPatterns());
 	}
@@ -42,7 +42,7 @@ public class RdfTest02Return {
 		rdfSinglePredicate.setQuantifier(RdfQuantifier.ZERO_OR_ONE);
 		iriParam.setPrefix("wdt");
 		iriParam.setSuffix("P569");
-		
-		return completePattern;	
+
+		return completePattern;
 	}
 }

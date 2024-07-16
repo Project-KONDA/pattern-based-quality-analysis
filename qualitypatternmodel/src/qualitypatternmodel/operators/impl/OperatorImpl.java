@@ -3,23 +3,23 @@
 package qualitypatternmodel.operators.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Comparable;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
@@ -79,14 +79,15 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 */
+	@Override
 	public EList<Operator> getAllOperators() throws InvalidityException {
 		BasicEList<Operator> operators = new BasicEList<Operator>();
 		operators.add(this);
 		return operators;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,8 +95,8 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	 */
 	@Override
 	public EList<BooleanOperator> getRootBooleanOperators() {
-		BasicEList<BooleanOperator> opList = new BasicEList<BooleanOperator>(); 
-		if(getComparison1().isEmpty() && getComparison2().isEmpty() && this instanceof BooleanOperator) {			
+		BasicEList<BooleanOperator> opList = new BasicEList<BooleanOperator>();
+		if(getComparison1().isEmpty() && getComparison2().isEmpty() && this instanceof BooleanOperator) {
 			opList.add((BooleanOperator) this);
 			return opList;
 		}
@@ -107,11 +108,11 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 				if(graphElement instanceof Operator) {
 					Operator op = (Operator) graphElement;
 					opList.addAll(op.getRootBooleanOperators());
-				}			
+				}
 			}
 		}
 		return opList;
-	} 
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -120,9 +121,9 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	 */
 	@Override
 	public void isCycleFree(EList<Operator> visitedOperators) throws OperatorCycleException {
-		if(getArguments().isEmpty()) {			
+		if(getArguments().isEmpty()) {
 			visitedOperators.add(this);
-		} else {			
+		} else {
 			visitedOperators.add(this);
 			for(Comparable graphElement : getArguments()) {
 				if (graphElement instanceof Operator) {
@@ -133,11 +134,11 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 						throw new OperatorCycleException("operator tree contains cycle");
 					}
 				}
-				
-			}	
-		}		
+
+			}
+		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,18 +147,18 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	@Override
 	public void isCycleFree() throws OperatorCycleException {
 		EList<Operator> list = new BasicEList<Operator>();
-		isCycleFree(list);		
+		isCycleFree(list);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->	
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
 	public abstract EList<Comparable> getArguments();
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * Type of the return value.
@@ -411,6 +412,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		return new BasicEList<Parameter>();
 	}

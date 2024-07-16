@@ -3,43 +3,43 @@ package qualitypatternmodel.xmlevaluation;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.evaluationquality.EvalRefInt;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.evaluationquality.EvalRefInt;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.XmlPatternUtility;
 
 public class XmlEvalRefInt {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		ArrayList<CompletePattern> completePatterns = new ArrayList<>();
 		completePatterns.add(getRefintAbstract());
 //		completePatterns.add(getRefintCondAbstract());
 		completePatterns.add(getRefintMidasWer());
 		completePatterns.add(getRefintMidasWerAps());
 		completePatterns.add(getRefintRunningExampleAbstract());
 		completePatterns.add(getRefintRunningExample());
-		
+
 		XmlPatternUtility.getQueries(completePatterns);
-//		Test00.test(completePatterns);	
+//		Test00.test(completePatterns);
 	}
-	
+
 	public static CompletePattern getRefintAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalRefInt.getRefintGeneric();
-		completePattern.createXmlAdaption();		
-		return completePattern; 
+		completePattern.createXmlAdaption();
+		return completePattern;
 	}
-	
+
 	public static CompletePattern getRefintRunningExampleAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalRefInt.getRefintRunningExampleGeneric();
 		completePattern.createXmlAdaption();
-		return completePattern; 
+		return completePattern;
 	}
-	
+
 	public static CompletePattern getRefintMidasWer() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getRefintAbstract();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
@@ -61,10 +61,10 @@ public class XmlEvalRefInt {
 		p6.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
 		p6.getXmlPropertyOptionParam().getAttributeName().setValue("Value");
 		p7.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Type", "wer");
-		
-		return completePattern;		
+
+		return completePattern;
 	}
-	
+
 	public static CompletePattern getRefintMidasWerAps() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getRefintAbstract();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
@@ -84,10 +84,10 @@ public class XmlEvalRefInt {
 		p5.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "a3600");
 		p6.getXmlPropertyOptionParam().setValue(XmlPropertyKind.DATA);
 		p7.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "wer");
-		
-		return completePattern;		
+
+		return completePattern;
 	}
-	
+
 	public static CompletePattern getRefintRunningExample() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getRefintRunningExampleAbstract();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
@@ -107,7 +107,7 @@ public class XmlEvalRefInt {
 		p5.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
 		p5.getXmlPropertyOptionParam().getAttributeName().setValue("id");
 		p6.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.TAG, null, "artist");
-				
-		return completePattern;		
+
+		return completePattern;
 	}
 }

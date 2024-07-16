@@ -10,7 +10,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.json.JSONException;
@@ -72,26 +71,28 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 		try {
 			result.put("class", getClass().getSimpleName());
 			result.put("record", getRecord().toJson());
-			if (getSubstructure() != null)
+			if (getSubstructure() != null) {
 				result.put("substructure", getSubstructure().toJson());
+			}
 		} catch (JSONException e) {
 		}
 		return result;
 	}
-	
+
 	public static InterimResultStructureImpl fromJson(String json) throws InvalidityException {
 		try {
 			JSONObject jsono = new JSONObject(json);
 			InterimResultStructureImpl structure = new InterimResultStructureImpl();
 			structure.setRecord(InterimResultPartImpl.fromJson(jsono.get("record").toString()));
-			if(jsono.has("substructure"))
+			if(jsono.has("substructure")) {
 				structure.setSubstructure(InterimResultPartImpl.fromJson(jsono.get("substructure").toString()));
+			}
 			return structure;
 		} catch (JSONException e) {
 			return null;
 		}
 	}
-	
+
 	public Map<Integer, InterimResultPart> getInterimResultParts() {
 		Map<Integer, InterimResultPart> map = ((InterimResultPartImpl) getRecord()).getInterimResultParts();
 		map.putAll(((InterimResultPartImpl) getSubstructure()).getInterimResultParts());
@@ -101,22 +102,21 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public String toString(){
 		String res = "";
-		if (getRecord() != null)
+		if (getRecord() != null) {
 			res += getRecord().toString();
-		else 
+		} else {
 			res += "no record";
+		}
 		res += " | ";
-		if (getSubstructure() != null)
+		if (getSubstructure() != null) {
 			res += getSubstructure().toString();
-		else 
+		} else {
 			res += "no substructure";
+		}
 		return "[" + res + "]";
 	}
-	
-	
-	
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -10,11 +10,12 @@ import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoElement;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
-import qualitypatternmodel.adaptionneo4j.NeoElement;
-import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
-import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -43,7 +44,7 @@ import qualitypatternmodel.utility.ConstantsNeo;
  * @generated
  */
 public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNode {
-	
+
 	private static final String CYPHER_RETURN_QUERY_PART = ConstantsNeo.CYPHER_SPECIAL_FUNCTION_DISTINCT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + "%s" + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
 	private static final int CYPHER_RETURN_ID = 0;
 	/**
@@ -115,7 +116,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 		cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET);
 		cypher.append(ConstantsNeo.VARIABLE_ELEMENT_NODE);
 		cypher.append(getInternalId());
-		if((!translated) && getNeoNodeLabels() != null) { 
+		if((!translated) && getNeoNodeLabels() != null) {
 			final String labels = getNeoNodeLabels().generateCypher();
 			cypher.append(labels);
 			translated = true;
@@ -123,14 +124,14 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 		cypher.append(ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
 		return cypher.toString();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns just the alias for the Variable.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	@Override 
+	@Override
 	public String getCypherVariable() throws InvalidityException {
 		String var;
 		var = ConstantsNeo.VARIABLE_ELEMENT_NODE;
@@ -147,7 +148,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	 */
 	@Override
 	public EMap<Integer, String> getCypherReturn() throws InvalidityException {
-		EMap<Integer, String> returnElement = new BasicEMap<Integer, String>();
+		EMap<Integer, String> returnElement = new BasicEMap<>();
 		String cypher = null;
 		if (isVariableDistinctInUse) {
 			cypher = this.getCypherVariable();
@@ -167,27 +168,27 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	public NeoElementNode adaptAsNeoElementNode() throws InvalidityException {
 		return this;
 	}
-	
+
 	@Override
 	public Node makeGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-		
+
 	@Override
 	public void checkGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
+
 	@Override
 	public PrimitiveNode makePrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-		
+
 	@Override
 	public void checkPrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
-	}	
-	
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,7 +231,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	public boolean isIsVariableDistinctInUse() {
 		return isVariableDistinctInUse;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * Creates the Parameters for the NeoElementNode
@@ -243,27 +244,30 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 			NeoNodeLabelsParam labels = getNeoNodeLabels();
 			if (labels == null) {
 				neoNodeLabels = new NeoNodeLabelsParamImpl();
-				pList.add(neoNodeLabels);	
+				pList.add(neoNodeLabels);
 			}
 			else if (!pList.equals(labels.getParameterList())) {
 				pList.add(labels);
 			}
 		}
 		else {
-			if (getGraph() != null)
+			if (getGraph() != null) {
 				new InvalidityException("ElementNode is in a Graph without ParameterList").printStackTrace();
+			}
 		}
 	}
-	
+
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = super.getAllParameters();
-		if (getNeoNodeLabels() == null)
+		if (getNeoNodeLabels() == null) {
 			createParameters();
-		if (getNeoNodeLabels() != null)
+		}
+		if (getNeoNodeLabels() != null) {
 			res.add(getNeoNodeLabels());
-		else 
+		} else {
 			new InvalidityException("NeoNodeLabels of NeoElementNode [" + getInternalId() + "] is null").printStackTrace();
+		}
 		return res;
 	}
 
@@ -323,7 +327,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT 
+	 * @generated NOT
 	 */
 	@Override
 	public void addNeoLabel(String label) throws InvalidityException {
@@ -352,7 +356,7 @@ public class NeoElementNodeImpl extends ComplexNodeImpl implements NeoElementNod
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-	
+
 
 	/**
 	 * <!-- begin-user-doc -->

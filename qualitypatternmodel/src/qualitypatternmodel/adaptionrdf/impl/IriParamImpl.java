@@ -10,14 +10,13 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriListParam;
 import qualitypatternmodel.adaptionrdf.IriParam;
-
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -97,7 +96,7 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 	 * @ordered
 	 */
 	protected String suffix = SUFFIX_EDEFAULT;
-	
+
 	public static Map<String, String> standardIris;
 	static {
 		standardIris = new HashMap<>();
@@ -130,7 +129,7 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
@@ -146,15 +145,16 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 
 	@Override
 	public String getValueAsString() {
-		if (prefix == null && suffix == null && uri == null)
+		if (prefix == null && suffix == null && uri == null) {
 			return null;
+		}
 		try {
 			return generateSparql();
 		} catch (InvalidityException e) {
 			return null;
 		}
 	}
-	
+
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		if (value.matches("[a-z]+:[a-zA-Z0-9]+")) {
@@ -178,7 +178,7 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 		setSuffix(null);
 		setUri(null);
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(prefix != null && suffix != null) {

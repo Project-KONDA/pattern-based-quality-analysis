@@ -8,12 +8,9 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -49,7 +46,7 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 	 * @generated NOT
 	 * @ordered
 	 */
-	protected Map<String, String> keyValuePair = new HashMap<>();
+	protected Map<String, String> keyValuePair = new HashMap<String, String>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,8 +86,9 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 	public void setKeyValuePair(Map<String, String> newKeyValuePair) {
 		Map<String, String> oldKeyValuePair = keyValuePair;
 		keyValuePair = newKeyValuePair;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.KEY_VALUE_PARAM__KEY_VALUE_PAIR, oldKeyValuePair, keyValuePair));
+		}
 	}
 
 	/**
@@ -145,13 +143,14 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 	public void addValue(String key, String value) {
 		if (!(this.keyValuePair.containsKey(key) && this.keyValuePair.containsValue(value))) {
 			this.keyValuePair.put(key, value);
-		}		
+		}
 	}
 
 	@Override
 	public String getValueAsString() {
-		if (getKeyValuePair() == null) 
+		if (getKeyValuePair() == null) {
 			return null;
+		}
 		JSONObject object = new JSONObject();
 		try {
 			for (String key: getKeyValuePair().keySet()) {
@@ -166,9 +165,9 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 		HashMap<String, String> map = new HashMap<String, String>();
 		try {
 			JSONObject object = new JSONObject(value);
-		
+
 			@SuppressWarnings("unchecked")
-			Iterator<String> keys = object.keys(); 
+			Iterator<String> keys = object.keys();
 			while (keys.hasNext()) {
 				String next = keys.next();
 				map.put(next, object.get(next).toString());
@@ -206,7 +205,7 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 			if (newKeyValueMap != null) {
 				this.keyValuePair = newKeyValueMap;
 			} else {
-				this.keyValuePair = new HashMap<>();
+				this.keyValuePair = new HashMap<String, String>();
 			}
 		} catch (Exception e) {
 			throw new RuntimeException("Your Map is incorrect", e);

@@ -8,13 +8,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.adaptionneo4j.NeoElementEdge;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -54,7 +53,7 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	protected NeoElementEdgeImpl() {
 		super();
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return PatternElement
@@ -64,7 +63,7 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	public PatternElement createNeo4jAdaption() throws InvalidityException {
 		return this;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return PatternElement
@@ -74,7 +73,7 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	public NeoElementEdge adaptAsNeoElementEdge() throws InvalidityException {
 		return this;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @exception InvalidityException
@@ -92,7 +91,7 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 		}
 		return cypher;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return EMap<Integer, String>
@@ -116,7 +115,7 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 		}
 		return returnElement;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
@@ -132,13 +131,13 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 		}
 		return cypher;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
-	 * Creates the parameters for the NeoElementEdge. 
+	 * Creates the parameters for the NeoElementEdge.
 	 * Thus it crates the NeoElementPathParam and adds it to the ParameterList if it does not already exists.
 	 */
-	@Override 
+	@Override
 	public void createParameters() {
 		ParameterList pList = getParameterList();
 		if (pList != null) {
@@ -146,22 +145,23 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 			if (neoPathParam == null) {
 				neoPathParam = new NeoElementPathParamImpl();
 				setNeoElementPathParam(neoPathParam);
-				pList.add(neoPathParam);	
+				pList.add(neoPathParam);
 			}
 			if (!pList.equals(neoPathParam.getParameterList())) {
 				pList.add(neoPathParam);
 			}
 		}
 	}
-	
+
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = super.getAllParameters();
 		NeoElementPathParam neoElementPath = getNeoElementPathParam();
-		if (neoElementPath == null)
+		if (neoElementPath == null) {
 			throw new InvalidityException("NeoElementPathParam null in NeoElementEdge [" + getInternalId() + "]");
-		else 
+		} else {
 			res.add(neoElementPath);
+		}
 		return res;
 	}
 
@@ -174,7 +174,7 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	protected EClass eStaticClass() {
 		return Adaptionneo4jPackage.Literals.NEO_ELEMENT_EDGE;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -330,13 +330,14 @@ public class NeoElementEdgeImpl extends NeoEdgeImpl implements NeoElementEdge {
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * Creates the myString for the generation Report.
-	 * It creates it for the whole NeoElementEdge structure. 
+	 * It creates it for the whole NeoElementEdge structure.
 	 */
 	@Override
 	public String myToString() {
 		String result = super.myToString();
-		if (getNeoElementPathParam() != null) 
-			result += ConstantsNeo.ONE_WHITESPACE + getNeoElementPathParam().myToString(); 
+		if (getNeoElementPathParam() != null) {
+			result += ConstantsNeo.ONE_WHITESPACE + getNeoElementPathParam().myToString();
+		}
 		return result;
 	}
 } //NeoEdgeImpl

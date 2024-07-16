@@ -77,7 +77,7 @@ public interface XmlReference extends Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns <code>true</code> if <code>this</code> can be translated to XQuery.
-	 * 
+	 *
 	 * @return <code>true</code> if <code>this</code> can be translated to XQuery
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"

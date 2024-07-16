@@ -4,16 +4,15 @@ package qualitypatternmodel.javaoperators.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import qualitypatternmodel.javaoperators.*;
-
+import qualitypatternmodel.javaoperators.JavaOperator;
+import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
+import qualitypatternmodel.javaoperators.OneArgJavaOperator;
+import qualitypatternmodel.javaoperators.TwoArgJavaOperator;
+import qualitypatternmodel.javaoperators.ValidateLinkOperator;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Operator;
-
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**

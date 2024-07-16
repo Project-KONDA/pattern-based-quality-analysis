@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionrdf.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
@@ -35,7 +36,7 @@ public class RdfLiteralNodeImpl extends PrimitiveNodeImpl implements RdfLiteralN
 	public RdfLiteralNodeImpl() {
 		super();
 	}
-	
+
 	@Override
 	public String generateSparql() {
 		if (getPredicates().size() == 1 && getPredicates().get(0) != null && getPredicates().get(0) instanceof Comparison) {
@@ -59,8 +60,8 @@ public class RdfLiteralNodeImpl extends PrimitiveNodeImpl implements RdfLiteralN
 	public String generateRdfTypes() throws InvalidityException {
 		return "";
 	}
-	
-	
+
+
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException {
 		return this;

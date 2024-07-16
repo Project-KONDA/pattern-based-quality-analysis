@@ -17,9 +17,9 @@ import qualitypatternmodel.textrepresentation.PatternText;
 
 @SuppressWarnings("serial")
 public class TemplateInstantiateServlet extends HttpServlet {
-	
+
 	// PUT .. /template/instantiate    /<technology>/<templateID>/<variantID>
-	
+
 	@Override
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
@@ -34,24 +34,27 @@ public class TemplateInstantiateServlet extends HttpServlet {
 			ServletUtilities.putResponseError(response, e);
 		}
 	}
-	
+
 	public static JSONObject applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 4 || !pathparts[0].equals(""))
+		if (pathparts.length != 4 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong url for instantiate in a constraint: '.. /template/instantiate/<technology>/<constraintId>/<variantId>' (not " + path + ")");
+		}
 
 		// 1 get parameters
 		String technology = pathparts[1];
 		String templateId = pathparts[2];
 		String textid = pathparts[3];
-		
-		if (!ServletUtilities.TECHS.contains(technology))
+
+		if (!ServletUtilities.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		}
 
 		// 2 load constraint with old name
 		CompletePattern pattern = ServletUtilities.loadTemplate(technology, templateId);
-		if (pattern == null)
+		if (pattern == null) {
 			throw new FailedServletCallException("404 Requested template '" + templateId + "' does not exist");
+		}
 
 		// Optional: set name
 		if (parameterMap != null) {
@@ -68,9 +71,9 @@ public class TemplateInstantiateServlet extends HttpServlet {
 				pattern.setDatabaseName(database[0]);
 			}
 		}
-		
+
 		// 3 remove unused variants
-		Boolean instantiated = false;
+		boolean instantiated = false;
 		for (PatternText t: pattern.getText()) {
 			if (t.getName().equals(textid)) {
 				try {
@@ -83,7 +86,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 				}
 			}
 		}
-		
+
 		if (!instantiated) {
 			ArrayList<String> textNames = new ArrayList<String>();
 			for (PatternText t: pattern.getText()) {
@@ -95,15 +98,15 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		// 4 create new constraint id
 		String constraintId = ServletUtilities.generateNewId(technology, templateId, pattern.getText().get(0).getName());
 		pattern.setPatternId(constraintId);
-		
+
 		// 5 save constraint
 		try {
 			ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
 			throw new FailedServletCallException("Failed to create new constraint.");
 		}
-		
-		
+
+
 		return ServletUtilities.getPatternJSON(pattern);
 //		return "Template '" + templateId + "' instantiated successfully to '" + constraintId + "'.";
 	}

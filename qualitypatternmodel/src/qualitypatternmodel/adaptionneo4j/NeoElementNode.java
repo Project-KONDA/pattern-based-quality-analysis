@@ -3,7 +3,6 @@
 package qualitypatternmodel.adaptionneo4j;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-
 import qualitypatternmodel.graphstructure.ComplexNode;
 
 /**

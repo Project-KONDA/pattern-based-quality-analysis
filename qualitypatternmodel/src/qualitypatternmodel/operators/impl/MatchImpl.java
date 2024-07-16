@@ -8,15 +8,14 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Comparable;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.operators.BooleanOperator;
@@ -52,7 +51,7 @@ import qualitypatternmodel.utility.ConstantsNeo;
 public class MatchImpl extends BooleanOperatorImpl implements Match {
 	private final static String CYPHER_REGEX = "%1$s" + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SPECIAL_CYPHER_REGEX_EXPRESSION + ConstantsNeo.ONE_WHITESPACE + "%2$s";
 	private final static String CYPHER_NOT_REGEX = ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + "%1$s" + ConstantsNeo.ONE_WHITESPACE +	ConstantsNeo.SPECIAL_CYPHER_REGEX_EXPRESSION + ConstantsNeo.ONE_WHITESPACE + "%2$s" + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
-	
+
 	/**
 	 * The cached value of the '{@link #getPrimitiveNode() <em>Primitive Node</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -92,78 +91,83 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated NOT
 	 */
 	public MatchImpl() {
-		super();	
+		super();
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		if(option!=null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
-			if (option.getValue()){				
-				return primitiveNode.generateXQuery() + "matches(., \"" + regularExpression.getValue() + "\")";				
+			if (option.getValue()){
+				return primitiveNode.generateXQuery() + "matches(., \"" + regularExpression.getValue() + "\")";
 			} else {
 				return primitiveNode.generateXQuery() + "not(matches(., \"" + regularExpression.getValue() + "\"))";
-			}	
+			}
 		} else {
 			throw new InvalidityException("invalid option");
 		}
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(option!=null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
-			if (option.getValue()){			
+			if (option.getValue()){
 				return "\nFILTER (regex(" + primitiveNode.generateSparql() + ", " + regularExpression.generateSparql() + "))";
 			} else {
 				return "\nFILTER (!regex(" + primitiveNode.generateSparql() + ", " + regularExpression.generateSparql() + "))";
-			}	
+			}
 		} else {
 			throw new InvalidityException("invalid option");
 		}
 	}
-	
-	
+
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
 	 * Generates the substring for match/regex.
 	 */
-	@Override 
+	@Override
 	public String generateCypher() throws InvalidityException {
 		if (option != null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
-			String tempCypherPropertyAddressing = (String) ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
-			if (!tempCypherPropertyAddressing.isEmpty()) {				
+			String tempCypherPropertyAddressing = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
+			if (!tempCypherPropertyAddressing.isEmpty()) {
 				if (option.getValue()) {
 					return String.format(CYPHER_REGEX, tempCypherPropertyAddressing, regularExpression.generateCypher());
-				} 
+				}
 				return  String.format(CYPHER_NOT_REGEX, tempCypherPropertyAddressing, regularExpression.generateCypher());
 			}
 			throw new InvalidityException(ConstantsNeo.NO_VALID_PROPERTY_IS_ACCESSABLE);
 		}
 		throw new InvalidityException(Constants.INVALID_OPTION);
 	}
-	
+
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
-		option.isValid(abstractionLevel);		
+		option.isValid(abstractionLevel);
 		regularExpression.isValid(abstractionLevel);
 	}
-	
+
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
-		if (option == null)
+		if (option == null) {
 			throw new InvalidityException("options null");
-		if (regularExpression == null)
+		}
+		if (regularExpression == null) {
 			throw new InvalidityException("regularExpression null");
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && primitiveNode == null)
-			throw new InvalidityException("property null");		
-		
+		}
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && primitiveNode == null) {
+			throw new InvalidityException("property null");
+		}
+
 		super.isValidLocal(abstractionLevel);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		res.add(regularExpression);
@@ -175,44 +179,44 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	public boolean isTranslatable() {
 		return primitiveNode.isTranslatable();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * 
+	 * @throws InvalidityException
+	 *
 	 */
 	@Override
-	public EList<Node> getAllArgumentElements() {		
+	public EList<Node> getAllArgumentElements() {
 		return primitiveNode.getAllArgumentElements();
 	}
-	
+
 	@Override
 	public EList<Comparable> getArguments(){
-		EList<Comparable> list = new BasicEList<Comparable>();		
+		EList<Comparable> list = new BasicEList<Comparable>();
 		list.add(primitiveNode);
 		list.add(regularExpression);
 		list.add(option);
 		return list;
 	}
-	
+
 	@Override
-	public void createParameters() {		
-		ParameterList parameterList = getParameterList();	
+	public void createParameters() {
+		ParameterList parameterList = getParameterList();
 		if(parameterList != null) {
 			if(getOption() == null) {
-				BooleanParam bool = new BooleanParamImpl();				
+				BooleanParam bool = new BooleanParamImpl();
 				setOption(bool);
 			}
 			parameterList.add(getOption());
 			if(getRegularExpression() == null) {
-				TextLiteralParam textLiteral = new TextLiteralParamImpl();				
+				TextLiteralParam textLiteral = new TextLiteralParamImpl();
 				setRegularExpression(textLiteral);
 			}
 			parameterList.add(getRegularExpression());
 		}
-	}	
-	
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -258,7 +262,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	public NotificationChain basicSetPrimitiveNode(PrimitiveNode newPrimitiveNode, NotificationChain msgs) {
 		PrimitiveNode oldPrimitiveNode = primitiveNode;
 		primitiveNode = newPrimitiveNode;
-		
+
 		if(oldPrimitiveNode instanceof PrimitiveNode && newPrimitiveNode == null) {
 			try {
 				((Node) oldPrimitiveNode).makeGeneric();
@@ -266,15 +270,19 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				// there is another reason why this node needs to be PrimitiveNode
 			}
 		}
-		
+
 		if(oldPrimitiveNode != null) {
 			oldPrimitiveNode.getPredicates().remove(this);
 		}
 		newPrimitiveNode.getPredicates().add(this);
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PRIMITIVE_NODE, oldPrimitiveNode, newPrimitiveNode);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -299,7 +307,11 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		}
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PRIMITIVE_NODE, oldProperty, newProperty);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -358,17 +370,21 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 */
 	public NotificationChain basicSetRegularExpression(TextLiteralParam newRegularExpression, NotificationChain msgs) {
 		TextLiteralParam oldRegularExpression = regularExpression;
-		
+
 		ParameterList varlist = getParameterList();
 		varlist.remove(oldRegularExpression);
-		varlist.add(newRegularExpression);			
-	
+		varlist.add(newRegularExpression);
+
 		regularExpression = newRegularExpression;
 
-			
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, newRegularExpression);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -402,7 +418,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	public Node getElement() {
 		return getPrimitiveNode();
 	}
-	
+
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
@@ -481,24 +497,28 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	public BooleanParam basicGetOption() {
 		return option;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetOption(BooleanParam newOption, NotificationChain msgs) {
-		BooleanParam oldOption = option;		
+		BooleanParam oldOption = option;
 
-		ParameterList varlist = getParameterList();				
-		varlist.remove(oldOption);					
-		varlist.add(newOption);				
-		
+		ParameterList varlist = getParameterList();
+		varlist.remove(oldOption);
+		varlist.add(newOption);
+
 		option = newOption;
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__OPTION, oldOption, newOption);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -603,11 +623,13 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	@Override
 	public String myToString() {
 		String res = "MATCH (" + getInternalId() + ") [";
-		if (!getOption().getValue()) res += "not ";
+		if (!getOption().getValue()) {
+			res += "not ";
+		}
 		res += getOption().getInternalId() + "]";
 		res += "[" + getPrimitiveNode().getInternalId() + ", " + getRegularExpression().getInternalId() + "]";
 		return res;

@@ -10,7 +10,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -103,7 +102,7 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 		super();
 		setArgument(new FixedContainerInterimImpl());
 	}
-	
+
 	public FormulaFilterPartImpl(LogicalOperator op, BooleanFilterPart booleanFilterPart,
 			BooleanFilterPart booleanFilterPart2) {
 		super();
@@ -112,17 +111,17 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 		setSubfilter1(booleanFilterPart);
 		setSubfilter2(booleanFilterPart2);
 	}
-	
+
 	public FormulaFilterPartImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
 
 			JSONObject jsono = new JSONObject(json);
 			setOperator(LogicalOperator.get(jsono.getString("operator")));
-			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument")); 
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument"));
 			setArgument(argument);
 			setSubfilter1((BooleanFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter1"), map));
-			setSubfilter2((BooleanFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter2"), map));	
+			setSubfilter2((BooleanFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter2"), map));
 		}
 		catch (Exception e) {
 			throw new InvalidityException();
@@ -135,14 +134,15 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 		assert(((ContainerResult) parameter).getCorrespondsTo() instanceof FixedContainerInterim);
 		assert(((FixedContainerInterim) ((ContainerResult) parameter).getCorrespondsTo()).getSize() == 2);
 		ContainerResult param = (ContainerResult) parameter;
-		if (param.getSubresult().size() != 2)
+		if (param.getSubresult().size() != 2) {
 			throw new InvalidityException(parameter + " is not of size 2");
+		}
 		InterimResult argument1 = param.getSubresult().get(0);
 		InterimResult argument2 = param.getSubresult().get(1);
 		Boolean result1 = getSubfilter1().apply(argument1);
 		Boolean result2 = getSubfilter2().apply(argument2);
 		return LogicalOperator.evaluate(getOperator(), result1, result2);
-	};
+	}
 
 	@Override
 	public EList<InterimResultPart> getArguments() {
@@ -150,17 +150,19 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 		result.add(getArgument());
 		return result;
 	}
-	
+
 	protected void updateArgument() {
 		FixedContainerInterim arg = getArgument();
 		EList<InterimResultPart> contained = arg.getContained();
 		contained.clear();
-		if (getSubfilter1() != null)
+		if (getSubfilter1() != null) {
 			contained.addAll(getSubfilter1().getArguments());
-		if (getSubfilter2() != null)
+		}
+		if (getSubfilter2() != null) {
 			contained.addAll(getSubfilter2().getArguments());
+		}
 	}
-	
+
 	@Override
 	public JSONObject toJson() {
 		JSONObject result = new JSONObject();
@@ -170,34 +172,36 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 			result.put("argument", getArgument().getInterimPartId());
 			result.put("subfilter1", getSubfilter1().toJson());
 			result.put("subfilter2", getSubfilter2().toJson());
-				
+
 		} catch (JSONException e) {
 		}
 		return result;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "[formula " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> " 
+		return "[formula " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> "
 				+ " " + getSubfilter1().toString() + " " + getOperator().toString() + " " + getSubfilter2().toString() + "]";
 	}
-	
+
 	public void addQuantifiersToArguments(Quantifier quantifier) {
-		if(getSubfilter1() instanceof FormulaFilterPartImpl)
+		if(getSubfilter1() instanceof FormulaFilterPartImpl) {
 			((FormulaFilterPartImpl) getSubfilter1()).addQuantifiersToArguments(quantifier);
-		else 
+		} else {
 			setSubfilter1(new ListFilterPartImpl(quantifier, getSubfilter1()));
-		
-		if(getSubfilter2() instanceof FormulaFilterPartImpl)
+		}
+
+		if(getSubfilter2() instanceof FormulaFilterPartImpl) {
 			((FormulaFilterPartImpl)getSubfilter2()).addQuantifiersToArguments(quantifier);
-		else 
+		} else {
 			setSubfilter2(new ListFilterPartImpl(quantifier, getSubfilter2()));
+		}
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -227,10 +231,14 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 		BooleanFilterPart oldSubfilter1 = subfilter1;
 		subfilter1 = newSubfilter1;
 		updateArgument();
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER1, oldSubfilter1, newSubfilter1);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -274,10 +282,14 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 		BooleanFilterPart oldSubfilter2 = subfilter2;
 		subfilter2 = newSubfilter2;
 		updateArgument();
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.FORMULA_FILTER_PART__SUBFILTER2, oldSubfilter2, newSubfilter2);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}

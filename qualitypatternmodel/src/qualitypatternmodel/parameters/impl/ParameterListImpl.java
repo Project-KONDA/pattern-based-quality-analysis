@@ -9,28 +9,26 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
+import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
- * <!-- begin-user-doc --> 
- * An implementation of the model object '<em><b>ParameterList</b></em>'. 
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>ParameterList</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -76,32 +74,36 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (getPattern() == null)
+		if (getPattern() == null) {
 			throw new InvalidityException("ParameterList not in Pattern" + " (" + getInternalId() + ")");
+		}
 
 		EList<Parameter> patternVars = getPattern().getAllParameters();
 		EList<Parameter> parameterList = getParameters();
-		if (patternVars == null)
+		if (patternVars == null) {
 			throw new InvalidityException("invalid Operators of Graph" + " (" + getInternalId() + ")");
-		
+		}
+
 		if(abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
 			if (!(patternVars.containsAll(getParameters()) && parameterList.containsAll(patternVars))) {
 				String msg = "parameters from ParameterList (" + getInternalId() + ") not equal to parameters used in Pattern:";
 				msg += "\nin Pattern:       ";
 				for (Parameter var: patternVars) {
 					msg += "[" + var.myToString() + "]";
-					if (!parameterList.contains(var))
+					if (!parameterList.contains(var)) {
 						msg += "- ";
-					else
+					} else {
 						msg += "+ ";
+					}
 				}
 				msg += "\nin ParameterList: ";
 				for (Parameter var: parameterList) {
 					msg += "[" + var.myToString() + "]";
-					if (!patternVars.contains(var))
+					if (!patternVars.contains(var)) {
 						msg += "- ";
-					else
+					} else {
 						msg += "+ ";
+					}
 				}
 				throw new InvalidityException(msg + " (" + getInternalId() + ")");
 			}
@@ -112,8 +114,9 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	public String generateXQuery() throws InvalidityException {
 		String res = "";
 		for (Parameter parameter : getParameters()) {
-			if (parameter instanceof TextListParamImpl)
+			if (parameter instanceof TextListParamImpl) {
 				res += ((TextListParamImpl) parameter).getListDeclaration();
+			}
 		}
 		return res;
 	}
@@ -151,7 +154,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetPattern(CompletePattern newPattern, NotificationChain msgs) {
@@ -183,7 +186,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override

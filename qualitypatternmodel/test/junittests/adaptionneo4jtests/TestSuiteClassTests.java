@@ -8,5 +8,5 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 @SuiteDisplayName("Neo4J/Cypher Component-TestSuite")
 @SelectPackages({"junittests.adaptionneo4jtests.concretetests"})
 public class TestSuiteClassTests {
-	
+
 }

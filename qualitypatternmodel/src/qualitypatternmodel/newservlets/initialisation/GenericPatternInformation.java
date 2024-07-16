@@ -1,21 +1,21 @@
 package qualitypatternmodel.newservlets.initialisation;
 
 public class GenericPatternInformation {
-	
+
 	static String CARD_ID_GENERIC = "Card_generic";
 	static String CARD_ID_XML = "Card_xml";
 	static String CARD_ID_RDF = "Card_rdf";
 	static String CARD_ID_NEO = "Card_neo4j";
 	static String CARD_NAME = "Cardinality Constraint";
 	static String CARD_DESCR = "Check, wether the occurence count of specific elements apply.";
-	
+
 	static String COMP_ID_GENERIC = "Comp_generic";
 	static String COMP_ID_XML = "Comp_xml";
 	static String COMP_ID_RDF = "Comp_rdf";
 	static String COMP_ID_NEO = "Comp_neo4j";
 	static String COMP_NAME = "Comparison Pattern";
 	static String COMP_DESCR = "Check, wether the occurence count of specific elements apply.";
-	
+
 	static String COMPSET_ID_GENERIC = "CompSet_generic";
 	static String COMPSET_ID_XML = "CompSet_xml";
 	static String COMPSET_ID_RDF = "CompSet_rdf";

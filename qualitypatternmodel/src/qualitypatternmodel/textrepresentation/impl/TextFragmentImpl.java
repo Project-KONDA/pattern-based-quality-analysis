@@ -3,9 +3,7 @@
 package qualitypatternmodel.textrepresentation.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -63,12 +61,12 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 		super();
 		setText(value);
 	}
-	
+
 	@Override
-	public String getPreview() {		
+	public String getPreview() {
 		return getText();
 	}
-	
+
 	@Override
 	public String generateSparqlTemplate() throws InvalidityException {
 		return getText();
@@ -164,13 +162,13 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	@Override
 	public String generateJSON() {
 		return "{\"text\": \"" + getText() + "\"}";
 //		return '"' + getText() + '"';
 	}
-	
+
 	@Override
 	public JSONObject generateJSONObject() {
 		JSONObject json = new JSONObject();

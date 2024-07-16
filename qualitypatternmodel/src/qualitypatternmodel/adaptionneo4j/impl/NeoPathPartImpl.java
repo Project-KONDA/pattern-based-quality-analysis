@@ -3,19 +3,19 @@
 package qualitypatternmodel.adaptionneo4j.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
-import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
+import qualitypatternmodel.adaptionneo4j.NeoPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoComplexEdgeImpl.InternalCounter;
@@ -37,7 +37,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * @generated
  */
 public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoPathPart {
-	
+
 	private static final String NO_NEO_PATH_PARAM_IS_SET = "No NeoAbstractPathParam is set";
 
 	/**
@@ -72,12 +72,14 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 			do {
 				neoComplexEdge = nextNeoComplexEdge;
 				nextNeoComplexEdge = neoComplexEdge.getNeoComplexEdge();
-			} while (nextNeoComplexEdge != null);			
+			} while (nextNeoComplexEdge != null);
 		}
 		if (neoComplexEdge == null) {
-			if (eContainerFeatureID() != Adaptionneo4jPackage.NEO_PATH_PART__NEO_PATH_PARAM) throw new InvalidityException(NO_NEO_PATH_PARAM_IS_SET);
+			if (eContainerFeatureID() != Adaptionneo4jPackage.NEO_PATH_PART__NEO_PATH_PARAM) {
+				throw new InvalidityException(NO_NEO_PATH_PARAM_IS_SET);
+			}
 			final NeoPathParam neoPathParam = (NeoPathParam)eInternalContainer();
-			return neoPathParam;		
+			return neoPathParam;
 		} else {
 			return neoComplexEdge.getNeoPathParam();
 		}
@@ -284,7 +286,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 		switch (featureID) {
 			case Adaptionneo4jPackage.NEO_PATH_PART__NEO_PATH_PARAM:
 				try {
-					return getNeoPathParam();					
+					return getNeoPathParam();
 				} catch (Exception e) {
 					throw new RuntimeException(e.getCause());
 				}
@@ -394,8 +396,8 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 		}
 		return super.eInvoke(operationID, arguments);
 	}
-	
-	
+
+
 	//for the counting
 	protected abstract void setCount(InternalCounter count);
 
@@ -405,7 +407,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 			simple.setValueFromString(value);
 			return simple;
 		} catch (InvalidityException e) {}
-		
+
 		NeoComplexEdge complex = Adaptionneo4jFactory.eINSTANCE.createNeoComplexEdge();
 		complex.setValueFromString(value);
 		return complex;

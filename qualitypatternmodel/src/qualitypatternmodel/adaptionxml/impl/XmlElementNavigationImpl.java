@@ -4,6 +4,7 @@ package qualitypatternmodel.adaptionxml.impl;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
@@ -30,7 +31,7 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 	public XmlElementNavigationImpl() {
 		super();
 	}
-	
+
 	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		if(getGraph() == null) {
@@ -38,7 +39,7 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 		}
 		EList<String> vars = ((XmlNode) getTarget()).getVariables();
 		String variable = vars.size() == 0? generateNextXQueryVariable() : vars.get(vars.size()-1);
-		
+
 		// Basic Translation via xmlPathParam
 		String xPathExpression = "";
 		if (xmlPathParam != null) {
@@ -47,11 +48,12 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 				throw new InvalidityException("SourceVariable in Relation [" + getInternalId() + "] from Element [" + getSource().getInternalId() + "] is empty");
 			}
 			xPathExpression = sourcevariable + xmlPathParam.generateXQuery();
-		} else 
+		} else {
 			throw new InvalidityException("option null");
-		
+		}
+
 		// setTranslated
-		
+
 		if(getTarget() instanceof XmlElement) {
 			XmlElement element = (XmlElement) getTarget();
 			element.setTranslated(true);
@@ -61,7 +63,7 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 		} else {
 			throw new InvalidityException("target of relation not XmlNode");
 		}
-		
+
 		// Predicate
 		String xPredicates = "";
 		if(getTarget() instanceof XmlNode) {
@@ -70,7 +72,7 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 		} else {
 			throw new InvalidityException("target of relation not XmlNode");
 		}
-		
+
 		// Structure Translation (For, Some, Every)
 		String query = ConstantsXml.FOR_LITE + variable + ConstantsXml.IN;
 		if(getTarget() instanceof XmlNode) {
@@ -80,10 +82,10 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 		query += xPathExpression + xPredicates;
 
 		translated = true;
-		
+
 		String target = getTarget().generateXQuery();
 		query += target;
-		
+
 		if (xPredicates == "" && xPathExpression == "" && target == "") {
 			return "";
 		}
@@ -94,7 +96,7 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 		query += targetquery;
 		return query;
 	}
-	
+
 	@Override
 	public XmlPropertyNavigation adaptAsXmlPropertyNavigation() throws InvalidityException {
 		if(target.isTypeModifiable()) {
@@ -104,12 +106,12 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 			throw new InvalidityException("XmlElementNavigation with a non-modifiable target cannot be adapted as an XmlPropertyNavigation.");
 		}
 	}
-	
+
 	@Override
 	public XmlElementNavigation adaptAsXmlElementNavigation() {
 		return this;
 	}
-	
+
 	@Override
 	public String getName() {
 		if(name == null || name.equals("")) {

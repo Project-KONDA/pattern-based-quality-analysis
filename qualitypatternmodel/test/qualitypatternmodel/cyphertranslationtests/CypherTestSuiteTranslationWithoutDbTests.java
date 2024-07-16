@@ -22,7 +22,7 @@ public class CypherTestSuiteTranslationWithoutDbTests extends CypherTestSuiteTra
 		testAllCompletePatterns(completePatterns, false);
 	    System.out.println(CypherTranslation.END_TESTS);
 	}
-	
+
 	@Override
 	protected void testerForToComplexQueries(ArrayList<CompletePattern> completePatterns) throws Exception {
 		tester(completePatterns);
@@ -31,7 +31,7 @@ public class CypherTestSuiteTranslationWithoutDbTests extends CypherTestSuiteTra
 	public ConditionEvaluationResult evaluateExecutionCondition(ExtensionContext context) {
 		if (utilis.Java2Neo4JConnector.verifyConnectivity()) {
             return ConditionEvaluationResult.disabled(TEST_DISABLED_ON_QA_ENVIRONMENT);
-        } 
+        }
         return ConditionEvaluationResult.enabled(TEST_ENABLED_ON_QA_ENVIRONMENT);
 	}
 

@@ -4,10 +4,23 @@ package qualitypatternmodel.javaquery.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import qualitypatternmodel.javaquery.*;
+import qualitypatternmodel.javaquery.BooleanFilterElement;
+import qualitypatternmodel.javaquery.BooleanFilterPart;
+import qualitypatternmodel.javaquery.CountFilterElement;
+import qualitypatternmodel.javaquery.CountFilterPart;
+import qualitypatternmodel.javaquery.FormulaFilterPart;
+import qualitypatternmodel.javaquery.JavaFilter;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.javaquery.ListFilterPart;
+import qualitypatternmodel.javaquery.NotFilterPart;
+import qualitypatternmodel.javaquery.NumberFilterElement;
+import qualitypatternmodel.javaquery.NumberFilterPart;
+import qualitypatternmodel.javaquery.NumberValueFilterElement;
+import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
+import qualitypatternmodel.javaquery.QuantifierFilterPart;
+import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
 
 /**
  * <!-- begin-user-doc -->

@@ -3,14 +3,12 @@
 package qualitypatternmodel.parameters.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
@@ -19,7 +17,6 @@ import org.json.JSONArray;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
-
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParameterList;
@@ -96,18 +93,19 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 		super();
 		getOptions().addAll(ReturnType.VALUES);
 	}
-	
+
 	@Override
 	public String getValueAsString() {
-		if (getValue() == null)
+		if (getValue() == null) {
 			return null;
+		}
 		return getValue().getName();
 	}
-	
+
 	@Override
 	public void setValueFromString(String value) {
 		for(ReturnType kind : ReturnType.values()) {
-			if(kind.getName().equals(value)) {			
+			if(kind.getName().equals(value)) {
 				setValue(kind);
 			}
 		}
@@ -117,35 +115,38 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	public void clear() {
 		value = null;
 	}
-	
+
 	@Override
 	public JSONArray getOptionsAsJsonArray() {
 		JSONArray jarray = new JSONArray();
-		for (ReturnType type: getOptions())
+		for (ReturnType type: getOptions()) {
 			jarray.put(type.getName());
+		}
 		return jarray;
 	}
-	
-	
+
+
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (getOptions() == null) 
+		if (getOptions() == null) {
 			throw new InvalidityException("options null");
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getOptions().isEmpty()) 
+		}
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getOptions().isEmpty()) {
 			throw new InvalidityException("not enough options");
+		}
 		super.isValidLocal(abstractionLevel);
 	}
-	
+
 	@Override
 	public boolean inputIsValid() {
 		return getValue() != null && options.contains(getValue());
 	}
-	
+
 	@Override
 	public boolean isUsed() {
 		return !getTypeComparisons().isEmpty();
 	}
-	
+
 	@Override
 	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
 		if(newVariableList == null) {
@@ -153,7 +154,7 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 		}
 		return super.basicSetParameterList(newVariableList, msgs);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,7 +179,7 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 			EList<ReturnType> options2 = new EDataTypeUniqueEList<ReturnType>(ReturnType.class, this, ParametersPackage.TYPE_OPTION_PARAM__OPTIONS);
 			for (ReturnType cop: options) {
 				if (!options2.contains(cop)) {
-					options2.add(cop);				
+					options2.add(cop);
 				}
 			}
 			options = options2;

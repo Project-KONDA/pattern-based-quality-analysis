@@ -37,116 +37,137 @@ public class JavaQueryTranslationUtility {
 	public static String BOOLEAN = "boolean";
 	public static String RETURNSTATEMENT = "return\n  ";
 	public static String COUNT = "count";
-	
+
 	public static String getXQueryReturnList(List<String> elements, String tagname, boolean ret, boolean outerbrackets, boolean innerbrackets) {
 		String returnstring = "\"<" + tagname + ">\",\n  ";
-		if (innerbrackets)
+		if (innerbrackets) {
 			returnstring += "(";
+		}
 //		returnstring = "\n  " + returnstring;
-		if (outerbrackets)
+		if (outerbrackets) {
 			returnstring = "(\n  " + returnstring;
-		if (ret)
+		}
+		if (ret) {
 			returnstring = RETURNSTATEMENT + returnstring;
+		}
 		for (int i = 0; i < elements.size(); i++) {
 			String element = elements.get(i);
 			if (element != null && !element.equals("")) {
 				returnstring += element;
-				if (i == elements.size()-1 && innerbrackets)
+				if (i == elements.size()-1 && innerbrackets) {
 					returnstring += "  )";
+				}
 				returnstring += ",\n  ";
 			}
 		}
-		
+
 		returnstring += "\"</" + tagname + ">\"";
-		if (outerbrackets)
+		if (outerbrackets) {
 			returnstring += ")";
+		}
 		return returnstring;
 	}
-	
+
 	public static List<Relation> orderRelationsJavaQuery(List<Relation> relations) {
 		@SuppressWarnings("unchecked")
 		List<Relation>[] relationgroups = new BasicEList[6];
-		for (int i = 0; i<6; i++)
+		for (int i = 0; i<6; i++) {
 			relationgroups[i] = new BasicEList<Relation>();
-		
+		}
+
 		for (Relation r: relations) {
 			Boolean java = hasJavaTargetSomewhere(r);
 			Boolean condition = hasConditionNode(r);
 			Boolean property = (r.getTarget() instanceof PrimitiveNode);
-			
+
 			if (!condition) {
 				if (!java) {
-					if (property)
+					if (property) {
 						relationgroups[0].add(r); // 1. propertyrelations without java operators (!java !condition property)
-					else 
-						relationgroups[1].add(r); // 2. noderelations without java operators (!condition !java)	
+					}
+					else {
+						relationgroups[1].add(r); // 2. noderelations without java operators (!condition !java)
+					}
 				} else {
-					if (property)
+					if (property) {
 						relationgroups[2].add(r); // 3. propertyrelations with java operators (!condition property
-					else 
+					}
+					else {
 						relationgroups[3].add(r); // 4. noderelations with java operators (!condition)
+					}
 				}}
-				else if (java)
+				else if (java) {
 					relationgroups[4].add(r); // 5. noderelations with java operators and conditionnodes (condition java)
-				else
+				}
+				else {
 					relationgroups[5].add(r); // 6. noderelations with conditionnodes (condition !java)
+				}
 		}
-				
+
 		List<Relation> result = new BasicEList<Relation>();
-		for (List<Relation> rellist: relationgroups)
+		for (List<Relation> rellist: relationgroups) {
 			result.addAll(rellist);
+		}
 		return result;
 	}
-	
+
 	private static List<Relation> currentRelations = new ArrayList<Relation>();
-	
+
 	public static Boolean hasJavaTargetSomewhere(Relation rel) {
-		if (currentRelations.contains(rel))
+		if (currentRelations.contains(rel)) {
 			return false;
+		}
 		currentRelations.add(rel);
 		Node n = rel.getTarget();
 		if (n instanceof PrimitiveNode) {
 			for (BooleanOperator op: n.getPredicates()) {
-				if (op instanceof JavaOperator)
+				if (op instanceof JavaOperator) {
 					return true;
+				}
 			}
 		}
 		if (n instanceof ComplexNode) {
-			for (Relation rel2 : ((ComplexNode) n).getOutgoing())
-				if (hasJavaTargetSomewhere(rel2))
+			for (Relation rel2 : ((ComplexNode) n).getOutgoing()) {
+				if (hasJavaTargetSomewhere(rel2)) {
 					return true;
+				}
+			}
 		}
 		currentRelations.remove(rel);
 		return false;
 	}
-	
+
 	public static Boolean hasConditionNode(Relation rel) {
-		if (currentRelations.contains(rel))
+		if (currentRelations.contains(rel)) {
 			return false;
+		}
 		currentRelations.add(rel);
-		
-		if (rel.isCrossGraph())
+
+		if (rel.isCrossGraph()) {
 			return true;
+		}
 		Node n = rel.getTarget();
 		if (n instanceof ComplexNode) {
-			for (Relation rel2 : ((ComplexNode) n).getOutgoing())
-				if (hasConditionNode(rel2))
+			for (Relation rel2 : ((ComplexNode) n).getOutgoing()) {
+				if (hasConditionNode(rel2)) {
 					return true;
+				}
+			}
 		}
 		currentRelations.remove(rel);
 		return false;
 	}
-	
+
 	public static Boolean isStartTag(String value) {
 		return value.startsWith("<") && !value.startsWith("</") && !value.contains(" ");
 	}
-	
+
 	public static Boolean isValue(String value) {
 		return !isStartTag(value) && !isEndTag(value);
 	}
-	
+
 	public static Boolean isEndTag(String value) {
 		return value.startsWith("</") && !value.contains(" ");
 	}
-	
+
 }

@@ -3,7 +3,6 @@
 package qualitypatternmodel.operators;
 
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.NumberParam;
 

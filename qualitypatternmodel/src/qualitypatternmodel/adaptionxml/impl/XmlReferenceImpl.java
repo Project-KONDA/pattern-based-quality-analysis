@@ -3,17 +3,17 @@
 package qualitypatternmodel.adaptionxml.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -88,9 +88,9 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 //
 //			String conversionStartArgument2 = getType().getConversion();
 //			String conversionEndArgument2 = getType().getConversionEnd();
-//					
-//			ComparisonOperator operator = ComparisonOperator.EQUAL;				
-//			return conversionStartArgument1 + getSourcePropertyPath().generateQuery() + conversionEndArgument1 + operator.getLiteral() 
+//
+//			ComparisonOperator operator = ComparisonOperator.EQUAL;
+//			return conversionStartArgument1 + getSourcePropertyPath().generateQuery() + conversionEndArgument1 + operator.getLiteral()
 //			+ conversionStartArgument2 +  getSourcePropertyPath().generateQuery() + conversionEndArgument2;
 //		} else {
 //			throw new InvalidityException("invalid arguments for Reference" + " (" + getInternalId() + ")");
@@ -98,29 +98,33 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 		throw new InvalidityException("XmlReference can not be translated");
 //		return "";
 	}
-	
+
+	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE) {
 			throw new InvalidityException("non-generic class in generic pattern");
-		
+		}
+
 		super.isValid(abstractionLevel);
-		
+
 		getProperty().isValid(abstractionLevel);
 	}
-	
+
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
-		
-		if (getProperty() == null)
-			throw new InvalidityException("target property null (" + getInternalId() + ")" );				
 
-		
-		if(abstractionLevel == AbstractionLevel.CONCRETE && type == ReturnType.UNSPECIFIED) {
-			throw new InvalidityException("input value type unspecified" + " (" + getInternalId() + ")" );	
+		if (getProperty() == null) {
+			throw new InvalidityException("target property null (" + getInternalId() + ")" );
 		}
-	
+
+
+		if(abstractionLevel == AbstractionLevel.CONCRETE && type == ReturnType.UNSPECIFIED) {
+			throw new InvalidityException("input value type unspecified" + " (" + getInternalId() + ")" );
+		}
+
 	}
-	
+
 	@Override
 	public String getName() {
 		if(name == null || name.equals("")) {
@@ -132,17 +136,17 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 		return name;
 	}
 
-	
+
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return this;
 	}
-	
+
 	@Override
 	public XmlReference adaptAsXmlReference() {
 		return this;
 	}
-	
+
 	@Override
 	public XmlElementNavigation adaptAsXmlElementNavigation() throws InvalidityException {
 		if(getProperty() != null) {
@@ -150,10 +154,10 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 			getProperty().setGraph(null);
 			setProperty(null);
 		}
-		
-		return super.adaptAsXmlElementNavigation();		
+
+		return super.adaptAsXmlElementNavigation();
 	}
-	
+
 	@Override
 	public XmlPropertyNavigation adaptAsXmlPropertyNavigation() throws InvalidityException {
 		if(target.isTypeModifiable()) {
@@ -163,12 +167,12 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 			throw new InvalidityException("XmlReference with a non-modifiable target cannot be adapted as an XmlPropertyNavigation.");
 		}
 	}
-	
+
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
 		return getProperty() != null && getProperty().isTranslatable();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -220,7 +224,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -423,11 +427,15 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 		result.append(')');
 		return result.toString();
 	}
-	
+
 	@Override
 	public String myToString() {
 		String res = super.myToString() + " [";
-		if (getProperty() != null) res += getProperty().getInternalId(); else res += "-";
+		if (getProperty() != null) {
+			res += getProperty().getInternalId();
+		} else {
+			res += "-";
+		}
 		res += "]";
 		return res;
 	}

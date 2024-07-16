@@ -3,8 +3,8 @@
 package qualitypatternmodel.adaptionxml.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -62,7 +63,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public XmlPropertyImpl() {
@@ -77,8 +78,9 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE) {
 			throw new InvalidityException("non-generic class in generic pattern");
+		}
 		super.isValid(abstractionLevel);
 	}
 
@@ -98,7 +100,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 				xPredicates += "[" + predicate.generateXQuery() + "]";
 			}
 		}
-		
+
 		predicatesAreBeingTranslated = false;
 		return xPredicates;
 	}
@@ -115,7 +117,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 			xPredicates += "[. = " + getVariables().get(i) + "]";
 		}
 //		for(String v : getVariables()) {
-//			xPredicates += "[. = " + v + "]";				
+//			xPredicates += "[. = " + v + "]";
 //		}
 		return xPredicates;
 	}
@@ -163,16 +165,16 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 
 	@Override
 	public void recordValues(XmlDataDatabase database) {
-//		if(getOption() != null && getOption().getValue() != null) {			
+//		if(getOption() != null && getOption().getValue() != null) {
 //			EList<Comparison> comps = new BasicEList<Comparison>();
 //			comps.addAll(getComparison1());
 //			comps.addAll(getComparison2());
 //			for(Comparison comp : comps) {
 //				String value = null;
-//				if(comp.getArgument1() instanceof TextLiteralParam) {						
-//					value = ((TextLiteralParam) comp.getArgument1()).getValue(); 
+//				if(comp.getArgument1() instanceof TextLiteralParam) {
+//					value = ((TextLiteralParam) comp.getArgument1()).getValue();
 //				} else if (comp.getArgument2() instanceof TextLiteralParam) {
-//					value = ((TextLiteralParam) comp.getArgument2()).getValue(); 
+//					value = ((TextLiteralParam) comp.getArgument2()).getValue();
 //				}
 //				// TODO: support other parameter types as well
 //				if(value != null && comp.getOption() != null && comp.getOption().getValue() != null) {
@@ -181,19 +183,19 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 //						if(getAttributeName() != null && getAttributeName().getValue() != null) {
 //							database.recordAttributeName(getAttributeName().getValue());
 //						}
-//						database.recordAttributeValue(value);						
+//						database.recordAttributeValue(value);
 //						break;
 //					case TAG:
-//						database.recordElementName(value);			
+//						database.recordElementName(value);
 //						break;
 //					case DATA:
 //						database.recordDataValue(value);
 //						break;
 //					default:
 //						break;
-//					}					
+//					}
 //				}
-//			}			
+//			}
 //		}
 	}
 
@@ -244,7 +246,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 		}
 		return variables;
 	}
-	
+
 	@Override
 	public void initializeTranslation() {
 		super.initializeTranslation();

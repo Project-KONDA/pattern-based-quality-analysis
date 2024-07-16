@@ -6,12 +6,21 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import qualitypatternmodel.adaptionrdf.*;
+import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
+import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
+import qualitypatternmodel.adaptionrdf.IriListParam;
+import qualitypatternmodel.adaptionrdf.IriParam;
+import qualitypatternmodel.adaptionrdf.RdfIriNode;
+import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
+import qualitypatternmodel.adaptionrdf.RdfPathParam;
+import qualitypatternmodel.adaptionrdf.RdfPathPart;
+import qualitypatternmodel.adaptionrdf.RdfPredicate;
+import qualitypatternmodel.adaptionrdf.RdfQuantifier;
+import qualitypatternmodel.adaptionrdf.RdfSequence;
+import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
+import qualitypatternmodel.adaptionrdf.RdfXor;
 
 /**
  * <!-- begin-user-doc -->

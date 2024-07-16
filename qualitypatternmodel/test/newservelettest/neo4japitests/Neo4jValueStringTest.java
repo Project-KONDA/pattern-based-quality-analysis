@@ -11,22 +11,22 @@ import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 public class Neo4jValueStringTest {
-	
+
 	static Adaptionneo4jFactory factory = Adaptionneo4jFactory.eINSTANCE;
-	
+
 	public static void main(String[] args) throws InvalidityException {
 		testNeoPropertyName();
 		testEdgeLabel();
 		testNodeLabels();
-		
+
 		testSimpleEdge();
 		testComplexEdge();
-		
+
 		testElementPath();
 		testPropertyPath();
 	}
-	
-		
+
+
 	private static void testNeoPropertyName() throws InvalidityException {
 		System.out.println("_PROPERTY_NAME_");
 		String[] valid = new String[] {
@@ -147,7 +147,7 @@ public class Neo4jValueStringTest {
 
 	private static void testSimpleEdge() throws InvalidityException {
 		System.out.println("_SIMPLE_EDGE_");
-		
+
 		String[] valid = new String[] {
 			"{}",
 			"{\"edgetype\":\"abc\"}",

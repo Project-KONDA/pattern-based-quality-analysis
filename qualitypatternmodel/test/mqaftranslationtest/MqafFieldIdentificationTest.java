@@ -12,21 +12,17 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 public class MqafFieldIdentificationTest {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		
 		EList<CompletePattern> patterns = MqafStringTranslationTest.getTestPatternCollection();
-		
 		for (CompletePattern pattern: patterns) {
-			
 			String description = pattern.getDescription();
 			Node[] fields = MqafFieldNodeIdentification.identifyFieldNodes(pattern);
-			
+
 			System.out.println("__" + description + "__");
-			for (Node field: fields)
+			for (Node field: fields) {
 				System.out.println(field.myToString());
+			}
 			System.out.println();
-			
 		}
-		
 	}
 
 }

@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,6 +34,7 @@ public abstract class InterimResultPartImpl extends MinimalEObjectImpl.Container
 
 	private static Integer idCounter = 1;
 	private Integer interimPartId = -1;
+	@Override
 	public Integer getInterimPartId() {
 		if (interimPartId == -1) {
 			idCounter++;
@@ -42,19 +42,17 @@ public abstract class InterimResultPartImpl extends MinimalEObjectImpl.Container
 		}
 		return interimPartId;
 	}
-	
+
 	protected void setInterimPartId(Integer id) {
 		interimPartId = id;
-		if (idCounter < id)
+		if (idCounter < id) {
 			idCounter = id;
+		}
 	}
-	
+
 	abstract public Map<Integer, InterimResultPart> getInterimResultParts();
-	
-	
-	
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

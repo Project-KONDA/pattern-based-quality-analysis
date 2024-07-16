@@ -3,8 +3,10 @@
 package qualitypatternmodel.javaqueryoutput.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+
 import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 
@@ -16,7 +18,7 @@ import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
  * @generated
  */
 public abstract class ContainerInterimImpl extends InterimResultPartImpl implements ContainerInterim {
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

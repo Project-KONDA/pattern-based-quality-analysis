@@ -23,9 +23,9 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
 public class InitialisationServlet extends HttpServlet {
-	
+
 	private static boolean OVERRIDE = true;
-	
+
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
@@ -55,13 +55,13 @@ public class InitialisationServlet extends HttpServlet {
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		doGet(request, response);
 	}
-	
+
 	public static void initialisation(ServletContext scon) throws ServletException {
 		String templates = System.getenv().get("TEMPLATE_VOLUME");
 		String files = System.getenv().get("SHARED_VOLUME");
 		ServletUtilities.PATTERNFOLDER = templates == null? scon.getRealPath("/templates") : templates;
 		ServletUtilities.FILEFOLDER = files == null? scon.getRealPath("/files") : files;
-		
+
 		System.out.println("Files can be found at " + ServletUtilities.PATTERNFOLDER);
 		ServletUtilities.log("Initializing ...");
 		try {
@@ -79,7 +79,7 @@ public class InitialisationServlet extends HttpServlet {
 			for (CompletePattern pattern: XmlPatterns.getAllXmlPattern()) {
 				String id = pattern.getPatternId();
 				if (!fileExists(xmlfolder, id)) {
-					pattern.isValid(AbstractionLevel.ABSTRACT);				
+					pattern.isValid(AbstractionLevel.ABSTRACT);
 					EMFModelSave.exportToFile2(pattern, xmlfolder, id, ServletUtilities.EXTENSION);
 				}
 			}
@@ -94,7 +94,7 @@ public class InitialisationServlet extends HttpServlet {
 				}
 			}
 			ServletUtilities.log("RDF Patterns created:     " + rdffolder);
-			
+
 			String neofolder = ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER;
 			for (CompletePattern pattern: Neo4jPatterns.getAllNeoPattern()) {
 				String id = pattern.getPatternId();
@@ -121,7 +121,7 @@ public class InitialisationServlet extends HttpServlet {
 			throw new ServletException("Unexpected Error: " + e.getMessage(), e);
 		}
 	}
-	
+
 	private static boolean fileExists(String folder, String id) {
 		String filepath = folder + "/" + id + "." + ServletUtilities.EXTENSION;
 		File file = new File(filepath);
