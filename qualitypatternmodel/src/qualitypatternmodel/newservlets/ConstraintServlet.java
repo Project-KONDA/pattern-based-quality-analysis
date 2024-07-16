@@ -204,17 +204,14 @@ public class ConstraintServlet extends HttpServlet {
 		String[] namespacesArray = parameterMap.get(Constants.JSON_NAMESPACES);
 		if (namespacesArray != null && namespacesArray.length == 1 && !namespacesArray[0].equals("")) {
 			try {
-				JSONArray jsonArray = new JSONArray(namespacesArray[0]);
+				JSONObject object = new JSONObject(namespacesArray[0]);
 				// [{prefix: "", uri:""}]
 				if (pattern.getNamespaces() == null) {
 					pattern.setNamespaces(new ValueMapImpl());
 				}
 				ValueMap vm = pattern.getNamespaces();
 				vm.clear();
-		        for (int i = 0; i < jsonArray.length(); i++) {
-		            JSONObject jsonObject = jsonArray.getJSONObject(i);
-		            jsonObject.keys();
-		        }
+				vm.setValuesFromJSONObject(object);
 		        namespaces = true;
 				parameterMap.remove(Constants.JSON_NAMESPACES);
 			} catch (JSONException e) {
