@@ -18,7 +18,7 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test02Return {
@@ -31,7 +31,7 @@ public class Test02Return {
 	}
 
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		XmlPatternUtility.testPatterns(getPatterns());
+		PatternUtility.testPatterns(getPatterns());
 	}
 
 	public static CompletePattern getPatternMultipleReturnNavigation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

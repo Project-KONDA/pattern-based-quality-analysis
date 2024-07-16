@@ -8,9 +8,10 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 
 public class Test01XmlPropertyNavigation {
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
@@ -29,8 +30,7 @@ public class Test01XmlPropertyNavigation {
 	}
 
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		Test00.test(getPatterns());
-    	XmlPatternUtility.getQueries(getPatterns());
+    	PatternUtility.testPatterns(getPatterns());
 	}
 
 	public static CompletePattern getProperty() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

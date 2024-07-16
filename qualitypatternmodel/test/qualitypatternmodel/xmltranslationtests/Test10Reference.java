@@ -17,7 +17,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test10Reference {
@@ -33,7 +33,7 @@ public class Test10Reference {
 	}
 
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		XmlPatternUtility.testPatterns(getPatterns());
+		PatternUtility.testPatterns(getPatterns());
 	}
 
 	public static CompletePattern getPatternReferenceSimple() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

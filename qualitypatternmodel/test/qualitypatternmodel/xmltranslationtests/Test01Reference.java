@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.exceptions.*;
@@ -19,7 +19,7 @@ public class Test01Reference {
 	}
 	
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		XmlPatternUtility.testPatterns(getPatterns());
+		PatternUtility.testPatterns(getPatterns());
 	}
 
 	public static CompletePattern getBaseReference() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	

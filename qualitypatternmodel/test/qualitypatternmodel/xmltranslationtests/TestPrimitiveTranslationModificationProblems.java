@@ -15,7 +15,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 
 public class TestPrimitiveTranslationModificationProblems {
 
@@ -27,7 +27,7 @@ public class TestPrimitiveTranslationModificationProblems {
 		completePatterns.add(getPrimitiveTranslationTestPattern());
 		completePatterns.add(getReferenceTranslationTestPattern());
 
-		XmlPatternUtility.testPatterns(completePatterns);
+		PatternUtility.testPatterns(completePatterns);
 	}
 
 	public static CompletePattern getPrimitiveTranslationTestPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

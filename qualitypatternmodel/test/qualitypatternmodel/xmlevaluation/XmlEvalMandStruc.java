@@ -12,7 +12,8 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.utility.PatternUtility;
 
 public class XmlEvalMandStruc {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -23,7 +24,7 @@ public class XmlEvalMandStruc {
 		completePatterns.add(getMandstruc3MidasAps());
 		completePatterns.add(getMandstruc3MidasHida());
 
-		XmlPatternUtility.getQueries(completePatterns);
+		PatternUtility.getQueries(completePatterns, Language.XML);
 //		Test00.test(completePatterns);
 	}
 

@@ -15,7 +15,8 @@ import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.utility.PatternUtility;
 
 public class XmlEvalMandAtt {
 
@@ -33,7 +34,7 @@ public class XmlEvalMandAtt {
 		completePatterns.add(getMandatt3Lido());
 		completePatterns.add(getMandatt3CondLido());
 
-		XmlPatternUtility.getQueries(completePatterns);
+		PatternUtility.getQueries(completePatterns, Language.XML);
 //		Test00.test(completePatterns);
 	}
 

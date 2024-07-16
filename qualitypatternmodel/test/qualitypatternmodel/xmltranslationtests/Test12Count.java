@@ -27,7 +27,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test12Count {
@@ -46,7 +46,7 @@ public class Test12Count {
 	}
 
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		XmlPatternUtility.testPatterns(getPatterns());
+		PatternUtility.testPatterns(getPatterns());
 	}
 
 	public static CompletePattern getPatternCountInPatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

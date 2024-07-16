@@ -30,15 +30,16 @@ import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.Language;
 
-public class XmlPatternUtility {
+public class PatternUtility {
 
 	public static void testPatterns(List<CompletePattern> completePatterns) {
 		int valid = 0;
 		int total = 0;
 		for (CompletePattern completePattern : completePatterns) {
 			total++;
-			XmlPatternUtility.fillParameterXml(completePattern);
+			PatternUtility.fillParameter(completePattern);
 			try {
 				completePattern.isValid(AbstractionLevel.CONCRETE);
 				String result = completePattern.myToString();
@@ -62,13 +63,26 @@ public class XmlPatternUtility {
 		System.out.println(valid + " / " + total + " valid");
 	}
 
-	public static void getQueries(ArrayList<CompletePattern> completePatterns) {
+	public static void getQueries(ArrayList<CompletePattern> completePatterns, Language lan) {
 		for (CompletePattern completePattern : completePatterns) {
-			XmlPatternUtility.fillParameterXml(completePattern);
+			PatternUtility.fillParameter(completePattern);
 
 			try {
 				completePattern.isValid(AbstractionLevel.CONCRETE);
-				String result = completePattern.generateXQuery();
+				String result = null;
+				switch (lan){
+				case XML:
+					completePattern.generateXQuery();
+					break;
+				case RDF:
+					completePattern.generateSparql();
+					break;
+				case NEO4J:
+					completePattern.generateCypher();
+					break;
+				default:
+					throw new RuntimeException();
+				}
 				System.out.println("\n\n___PATTERN_(VALID)___");
 				System.out.println(result);
 			} catch (Exception e) {
@@ -79,7 +93,7 @@ public class XmlPatternUtility {
 		}
 	}
 
-	public static CompletePattern fillParameterXml(CompletePattern pattern) {
+	public static CompletePattern fillParameter(CompletePattern pattern) {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 

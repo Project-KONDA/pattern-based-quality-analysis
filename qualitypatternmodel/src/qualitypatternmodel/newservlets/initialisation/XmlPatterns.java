@@ -15,7 +15,7 @@ import qualitypatternmodel.mqaftranslation.MqafTranslation;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 
 public class XmlPatterns {
 
@@ -30,7 +30,7 @@ public class XmlPatterns {
 				e.printStackTrace();
 			}
 			try {
-				XmlPatternUtility.fillParameterXml(pattern);
+				PatternUtility.fillParameter(pattern);
 				pattern.getText().get(0).instantiate();
 			} catch (Exception e) {
 				e.printStackTrace();

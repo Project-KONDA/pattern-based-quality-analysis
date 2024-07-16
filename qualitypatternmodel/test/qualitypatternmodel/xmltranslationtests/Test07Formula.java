@@ -21,7 +21,7 @@ import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test07Formula {
@@ -35,7 +35,7 @@ public class Test07Formula {
 	}
 
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		XmlPatternUtility.testPatterns(getPatterns());
+		PatternUtility.testPatterns(getPatterns());
 	}
 
 	public static CompletePattern getFormulaPattern(LogicalOperator op) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

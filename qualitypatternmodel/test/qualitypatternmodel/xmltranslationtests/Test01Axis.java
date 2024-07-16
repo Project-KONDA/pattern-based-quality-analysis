@@ -22,7 +22,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test01Axis {
@@ -40,7 +40,7 @@ public class Test01Axis {
 	}
 
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		XmlPatternUtility.testPatterns(getPatterns());
+		PatternUtility.testPatterns(getPatterns());
 	}
 
 	public static CompletePattern getBasePatternAxisRoot(XmlAxisKind xmlAxisKind) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

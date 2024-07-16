@@ -13,7 +13,8 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.utility.PatternUtility;
 
 public class XmlEvalCompval {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -30,7 +31,7 @@ public class XmlEvalCompval {
 		completePatterns.add(getCompvalLidoObjectWorkTypeSchloss());
 		completePatterns.add(getCompvalLidoObjectWorkTypePrint());
 
-		XmlPatternUtility.getQueries(completePatterns);
+		PatternUtility.getQueries(completePatterns, Language.XML);
 //		Test00.test(completePatterns);
 	}
 

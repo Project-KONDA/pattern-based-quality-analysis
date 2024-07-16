@@ -52,7 +52,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.utility.EMFModelSave;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 
 public class DemoPatterns {
 
@@ -510,7 +510,7 @@ public class DemoPatterns {
 	}
 
 	public static CompletePattern getConcreteFinalizedCardPatternFromConcrete(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePattern = XmlPatternUtility.fillParameterXml(completePattern);
+		completePattern = PatternUtility.fillParameter(completePattern);
 		completePattern.setPatternId("cardinality_concrete_finalized");
 //		completePattern.isValid(AbstractionLevel.CONCRETE);
 //		completePattern.generateXQuery();

@@ -14,7 +14,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelSave;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 
 public class DemoPatternTexts {
 
@@ -55,7 +55,7 @@ public class DemoPatternTexts {
 //		completePatterns.add(getConcreteFuncPatternWithText());
 //		completePatterns.add(getConcreteLidoFuncPatternWithText());
 
-		XmlPatternUtility.testPatterns(completePatterns);
+		PatternUtility.testPatterns(completePatterns);
 	}
 
 	public static void exportAllDemoPatternTexts() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {

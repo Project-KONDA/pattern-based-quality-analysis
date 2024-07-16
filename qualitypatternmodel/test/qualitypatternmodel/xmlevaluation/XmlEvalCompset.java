@@ -15,7 +15,8 @@ import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.utility.PatternUtility;
 
 public class XmlEvalCompset {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -29,7 +30,7 @@ public class XmlEvalCompset {
 
 		completePatterns.add(getCompsetLidoAppellationValue());
 
-		XmlPatternUtility.getQueries(completePatterns);
+		PatternUtility.getQueries(completePatterns, Language.XML);
 //		Test00.test(completePatterns);
 	}
 

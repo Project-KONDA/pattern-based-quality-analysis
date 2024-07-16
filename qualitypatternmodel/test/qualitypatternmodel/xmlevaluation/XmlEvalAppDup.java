@@ -18,7 +18,8 @@ import qualitypatternmodel.parameters.Parameter;
 //import qualitypatternmodel.parameters.TextLiteralParam;
 //import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.utility.PatternUtility;
 
 public class XmlEvalAppDup {
 
@@ -29,7 +30,7 @@ public class XmlEvalAppDup {
 		completePatterns.add(getAppdup3MidasAPS());
 
 //		Test00.test(completePatterns);
-		XmlPatternUtility.getQueries(completePatterns);
+		PatternUtility.getQueries(completePatterns, Language.XML);
 	}
 
 	public static CompletePattern getAppdup2Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

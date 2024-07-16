@@ -9,7 +9,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test00 {
@@ -19,7 +19,7 @@ public class Test00 {
 		completePatterns.add(getBasePatternFinal());
 		completePatterns.add(getBasePatternCond("USA"));
 		completePatterns.add(getBasePatternMatch("^New"));
-		XmlPatternUtility.testPatterns(completePatterns);
+		PatternUtility.testPatterns(completePatterns);
 	}
 
 	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -69,10 +69,10 @@ public class Test00 {
 
 	public static void printGenericPatternExampleXQuery(CompletePattern pattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		pattern.createXmlAdaption();
-		XmlPatternUtility.fillParameterXml(pattern);
+		PatternUtility.fillParameter(pattern);
 		ArrayList<CompletePattern> patternlist = new ArrayList<CompletePattern>();
 		patternlist.add(pattern);
-		XmlPatternUtility.testPatterns(patternlist);
+		PatternUtility.testPatterns(patternlist);
 //		System.out.println(pattern.generateXQuery());
 
 	}

@@ -25,7 +25,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltranslationtests.Test03Quantor;
 
 public class RelationSwitch {
@@ -34,7 +34,7 @@ public class RelationSwitch {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<>();
 		completePatterns.add(getRefintAbstractRunningExample());
 		completePatterns.add(getRefintRunningExample());
-		XmlPatternUtility.getQueries(completePatterns);
+		PatternUtility.getQueries(completePatterns);
 //		Test00.test(completePatterns);
 	}
 

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.IriParam;
+import qualitypatternmodel.adaptionrdf.RdfPathParam;
+import qualitypatternmodel.adaptionrdf.RdfPathPart;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -16,18 +18,22 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 
 public class RdfTest00 {
 	public static void test(ArrayList<CompletePattern> completePatterns) throws InvalidityException {
+		int valid = 0;
+		int total = 0;
 		for (CompletePattern completePattern : completePatterns) {
-			XmlPatternUtility.fillParameterXml(completePattern);
+			total++;
+			PatternUtility.fillParameter(completePattern);
 			try {
 //				completePattern.isValid(AbstractionLevel.CONCRETE); // TODO: allow technology-dependent validation
 				System.out.println("\n\n___PATTERN_(VALID)___");
 				System.out.println(completePattern.myToString());
 				System.out.print("\n___TRANSLATION___");
 				System.out.println(completePattern.generateWikidataSparql());
+				valid++;
 			} catch (Exception e) {
 				e.printStackTrace();
 				try {
@@ -37,11 +43,12 @@ public class RdfTest00 {
 				}
 			}
 		}
+		System.out.println(valid + " / " + total + " valid");
 	}
 
 	public static void getQueries(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
-			XmlPatternUtility.fillParameterXml(completePattern);
+			PatternUtility.fillParameter(completePattern);
 			try {
 				completePattern.isValid(AbstractionLevel.CONCRETE);
 				System.out.println(completePattern.generateSparql());
@@ -58,7 +65,7 @@ public class RdfTest00 {
 		completePatterns.add(getBasePatternFinal());
 		completePatterns.add(getBasePatternCondConcrete("2022-12-31"));
 		completePatterns.add(getBasePatternMatchConcrete("^2022"));
-		completePatterns.add(getBasePatternMatchNotConcrete("^2022"));
+//		completePatterns.add(getBasePatternMatchNotConcrete("^2022"));
 		RdfTest00.test(completePatterns);
 	}
 
@@ -94,7 +101,11 @@ public class RdfTest00 {
 		CompletePattern completePattern = getBasePatternCond(comp);
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathParts().get(0).getRdfPath()).setIriParam(iriParam);
+		RdfSinglePredicate rdfSingle = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
+		rdfSingle.setIriParam(iriParam);
+		RdfPathPart rdfPathPart = AdaptionrdfFactory.eINSTANCE.createRdfPathPart();
+		relation.getRdfPathParam().getRdfPathParts().add(rdfPathPart);
+//		((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathParts().get(0).getRdfPath()).setIriParam(iriParam);
 		iriParam.setPrefix("wdt");
 		iriParam.setSuffix("P569");
 		return completePattern;
