@@ -447,6 +447,8 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 
 	@Override
 	public boolean inputIsValid() {
+		if (getRdfPathParts().isEmpty())
+			return false;
 		try{
 			for (RdfPathPart part: getRdfPathParts()) {
 				part.isValid(AbstractionLevel.CONCRETE);

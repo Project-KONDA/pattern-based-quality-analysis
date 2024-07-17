@@ -5,6 +5,15 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
+import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
+import qualitypatternmodel.adaptionrdf.IriListParam;
+import qualitypatternmodel.adaptionrdf.IriParam;
+import qualitypatternmodel.adaptionrdf.RdfPathParam;
+import qualitypatternmodel.adaptionrdf.RdfPathPart;
+import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
@@ -100,6 +109,9 @@ public class PatternUtility {
 		EList<Parameter> params = pattern.getParameterList().getParameters();
 		for (int i = params.size()-1; i > -1; i--) {
 			Parameter param = pattern.getParameterList().getParameters().get(i);
+			
+			// GENERIC
+			
 			if (param instanceof UntypedParameterValue) {
 				TextLiteralParam text = parametersFactory.createTextLiteralParam();
 				text.setValue("unknown");
@@ -133,6 +145,14 @@ public class PatternUtility {
 					number.setValue(0.0);
 				}
 			}
+			if (param instanceof TypeOptionParam) {
+				TypeOptionParam typeOptionParam = (TypeOptionParam) param;
+				if(typeOptionParam.getValue() == null || typeOptionParam.getValue() == ReturnType.UNSPECIFIED) {
+					typeOptionParam.setValue(ReturnType.STRING);
+				}
+			}
+			
+			// XML
 			if (param instanceof XmlPathParam) {
 				XmlPathParam xmlPathParam = (XmlPathParam) param;
 				if (xmlPathParam.getXmlAxisParts().isEmpty()) {
@@ -172,12 +192,47 @@ public class PatternUtility {
 					}
 				}
 			}
-			if (param instanceof TypeOptionParam) {
-				TypeOptionParam typeOptionParam = (TypeOptionParam) param;
-				if(typeOptionParam.getValue() == null || typeOptionParam.getValue() == ReturnType.UNSPECIFIED) {
-					typeOptionParam.setValue(ReturnType.STRING);
+			
+			// RDF
+			if (param instanceof RdfPathParam) {
+				RdfPathParam rdfPathParam = (RdfPathParam) param;
+				if (!rdfPathParam.inputIsValid()) {
+					IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
+					RdfSinglePredicate rdfSingle = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
+					RdfPathPart rdfPathPart = AdaptionrdfFactory.eINSTANCE.createRdfPathPart();
+					rdfSingle.setIriParam(iriParam);
+					rdfPathPart.setRdfPath(rdfSingle);
+					rdfPathParam.getRdfPathParts().add(rdfPathPart);
+					iriParam.setPrefix("wdt");
+					iriParam.setSuffix("P569");
 				}
 			}
+			
+			if (param instanceof IriListParam) {
+				IriListParam iriList = (IriListParam) param;
+				if (!iriList.inputIsValid() || iriList.getIriParams().isEmpty()) {
+					iriList.clear();
+					IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
+					iriParam.setPrefix("wdt");
+					iriParam.setSuffix("P569");
+					iriList.getIriParams().add(iriParam);
+				}
+			}
+			
+			// NEO4J
+			if (param instanceof NeoNodeLabelsParam) {
+//				NeoNodeLabelsParam neoNodeLabels = (NeoNodeLabelsParam) param;
+				throw new UnsupportedOperationException();
+			}
+			if (param instanceof NeoElementPathParam) {
+//				NeoElementPathParam neoElementPath = (NeoElementPathParam) param;
+				throw new UnsupportedOperationException();
+			}
+			if (param instanceof NeoPropertyPathParam) {
+//				NeoPropertyPathParam neoPropertyPath = (NeoPropertyPathParam) param;
+				throw new UnsupportedOperationException();
+			}
+			
 		}
 		return pattern;
 	}
