@@ -18,13 +18,19 @@ public class XmlPathParamStringTest {
 	static List<String> node = Arrays.asList("*", "lido:lido", "lido", "abc:def", "abc");
 	static List<String> node2 = Arrays.asList("*", "*[name()=\"lido:lido\"]", "*[name()=\"lido\"]", "*[name()=\"abc:def\"]", "*[name()=\"abc\"]");
 //	static List<String> node = Arrays.asList("*");
-	static List<String> cond = Arrays.asList("", "[]", "[data()]", "[@abc]", "[text()=\"\"]", "[text()=\"anything\"]", "[name()=\"lido:lido\"]");
+	static List<String> cond = Arrays.asList("", "[]", "[text()]", "[@abc]", "[text()=\"\"]", "[text()=\"anything\"]", "[name()=\"lido:lido\"]");
 	static List<String> propops = Arrays.asList("@abc", "text()", "name()");
 
 	public static void main(String[] args) throws InvalidityException {
+		
+		System.out.println("Test 1: XmlPathParam");
 		xmlPathParamImplTest();
-//		xmlPathParamConditionImplTest();
-//		xmlPropertyOptionImplTest();
+		
+		System.out.println("\nTest 2: XmlPathParamCondition");
+		xmlPathParamConditionImplTest();
+		
+		System.out.println("\nTest 3: XmlPropertyOption");
+		xmlPropertyOptionImplTest();
 	}
 
 
