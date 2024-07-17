@@ -300,10 +300,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public Boolean isCrossGraph() {
 		try {
+			Graph graph = this.getGraph();
 			Graph sourceGraph = getSource().getGraph();
 			Graph targetGraph = getTarget().getGraph();
 			if (sourceGraph != null && sourceGraph != targetGraph) {
-				return true;
+				return graph == targetGraph;
 			}
 		} catch (Exception e) {}
 		return false;
