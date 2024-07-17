@@ -38,7 +38,7 @@ public class XmlRootImpl extends ComplexNodeImpl implements XmlRoot {
 		super();
 		setName("Root");
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		String result = "";
@@ -51,35 +51,36 @@ public class XmlRootImpl extends ComplexNodeImpl implements XmlRoot {
 				}
 			}
 		}
-		return result;		
+		return result;
 	}
-	
+
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE) {
 			throw new InvalidityException("non-generic class in generic pattern");
+		}
 		super.isValid(abstractionLevel);
 	}
 
 	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {	
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
-		
+
 		if(!getIncoming().isEmpty()) {
 			throw new InvalidityException("incoming relation at XMLRoot " + getId());
 		}
-		
+
 		if(!getPredicates().isEmpty()) {
 			throw new InvalidityException("XMLRoot has predicate");
 		}
-		
+
 		for(Relation relation : getOutgoing()) {
 			if(relation instanceof XmlReference) {
 				throw new InvalidityException("XMLRoot has XMLReference");
 			}
 		}
 	}
-	
+
 	@Override
 	public String getName() {
 		if(name == null || name.equals("")) {
@@ -90,53 +91,53 @@ public class XmlRootImpl extends ComplexNodeImpl implements XmlRoot {
 		}
 		return name;
 	}
-	
+
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return this;
 	}
-	
+
 	@Override
 	public XmlElement adaptAsXmlElement() throws InvalidityException {
 		throw new InvalidityException("XmlRoot cannot be adapted as XmlElement");
 	}
-	
+
 	@Override
 	public XmlProperty adaptAsXmlProperty() throws InvalidityException {
 		throw new InvalidityException("XmlRoot cannot be adapted as XmlProperty");
 	}
-	
+
 	@Override
 	public Node makeGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
+
 	@Override
 	public void checkGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
+
 	@Override
-	
+
 	public ComplexNode makeComplex() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-		
+
 	@Override
 	public void checkComplex() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
+
 	@Override
 	public PrimitiveNode makePrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-		
+
 	@Override
 	public void checkPrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

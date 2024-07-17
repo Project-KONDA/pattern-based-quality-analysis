@@ -375,9 +375,9 @@ public enum ReturnType implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 	private String conversion;
-	
+
 	static {
 		NUMBER.conversion = "xs:double(";
 //		STRING.conversion = "xs:string(";
@@ -386,16 +386,16 @@ public enum ReturnType implements Enumerator {
 		DATE.conversion = "xs:date(";
 		TIME.conversion = "xs:time(";
 		DATETIME.conversion = "xs:dateTime(";
-		ELEMENT.conversion = "";		
+		ELEMENT.conversion = "";
 		UNSPECIFIED.conversion = "";
 	}
-	
+
 	public String getConversion() {
 		return conversion;
 	}
-	
+
 	private String conversionEnd;
-	
+
 	static {
 		NUMBER.conversionEnd = ")";
 //		STRING.conversionEnd = ")";
@@ -404,16 +404,16 @@ public enum ReturnType implements Enumerator {
 		DATE.conversionEnd = ")";
 		TIME.conversionEnd = ")";
 		DATETIME.conversionEnd = ")";
-		ELEMENT.conversionEnd = "";	
+		ELEMENT.conversionEnd = "";
 		UNSPECIFIED.conversionEnd = "";
 	}
-	
+
 	public String getConversionEnd() {
 		return conversionEnd;
 	}
-	
+
 	private String tryStatement;
-	
+
 	static {
 		NUMBER.tryStatement = TRY;
 		STRING.tryStatement = "";
@@ -421,16 +421,16 @@ public enum ReturnType implements Enumerator {
 		DATE.tryStatement = TRY;
 		TIME.tryStatement = TRY;
 		DATETIME.tryStatement = TRY;
-		ELEMENT.tryStatement = "";		
+		ELEMENT.tryStatement = "";
 		UNSPECIFIED.tryStatement = "";
 	}
-	
+
 	public String getTryStatement() {
 		return tryStatement;
 	}
-	
+
 	private String catchCastingError;
-	
+
 	static {
 		NUMBER.catchCastingError = CATCH_CASTING_ERROR;
 		STRING.catchCastingError = "";
@@ -438,12 +438,12 @@ public enum ReturnType implements Enumerator {
 		DATE.catchCastingError = CATCH_CASTING_ERROR;
 		TIME.catchCastingError = CATCH_CASTING_ERROR;
 		DATETIME.catchCastingError = CATCH_CASTING_ERROR;
-		ELEMENT.catchCastingError = "";		
+		ELEMENT.catchCastingError = "";
 		UNSPECIFIED.catchCastingError = "";
 	}
-	
+
 	public String getCatchCastingError() {
 		return catchCastingError;
 	}
-	
+
 } //ReturnType

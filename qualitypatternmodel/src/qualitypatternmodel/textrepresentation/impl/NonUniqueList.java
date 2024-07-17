@@ -10,13 +10,13 @@ public class NonUniqueList<E> extends EObjectEList<E> {
 		super(dataClass, owner, featureID);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	protected boolean isUnique(){
 		return false;
     }
 
 
-	
+
 
 }

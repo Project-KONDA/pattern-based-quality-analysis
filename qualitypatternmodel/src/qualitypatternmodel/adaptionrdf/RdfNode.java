@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionrdf;
 
 import org.eclipse.emf.ecore.EObject;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 
 /**

@@ -20,7 +20,7 @@ import qualitypatternmodel.rdftranslationtests.RdfTest11Contains;
 import qualitypatternmodel.rdftranslationtests.RdfTest11Match;
 
 public class RdfJUnitTests {
-	
+
 	@Test
 	public void test01() {
 		try {
@@ -31,7 +31,7 @@ public class RdfJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test01_2() {
 		try {
@@ -42,7 +42,7 @@ public class RdfJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test01_3() {
 		try {
@@ -53,7 +53,7 @@ public class RdfJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test02() {
 		try {
@@ -64,7 +64,7 @@ public class RdfJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test03() {
 		try {
@@ -75,7 +75,7 @@ public class RdfJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test04() {
 		try {
@@ -85,7 +85,7 @@ public class RdfJUnitTests {
 			assert(false);
 		}
 	}
-	
+
 	@Test
 	public void test05() {
 		try {
@@ -95,7 +95,7 @@ public class RdfJUnitTests {
 			assert(false);
 		}
 	}
-	
+
 	@Test
 	public void test06() {
 		try {
@@ -105,7 +105,7 @@ public class RdfJUnitTests {
 			assert(false);
 		}
 	}
-	
+
 	@Test
 	public void test07() {
 		try {
@@ -116,7 +116,7 @@ public class RdfJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test08() {
 		try {
@@ -127,7 +127,7 @@ public class RdfJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test09() {
 		try {
@@ -138,7 +138,7 @@ public class RdfJUnitTests {
 		}
 		assert(true);
 	}
-		
+
 	@Test
 	public void test11() {
 		try {
@@ -149,7 +149,7 @@ public class RdfJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test11m() {
 		try {

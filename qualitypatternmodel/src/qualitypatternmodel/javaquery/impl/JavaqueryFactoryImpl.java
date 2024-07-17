@@ -3,16 +3,26 @@
 package qualitypatternmodel.javaquery.impl;
 
 import java.util.List;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import qualitypatternmodel.javaquery.*;
+import qualitypatternmodel.javaquery.BooleanFilterElement;
+import qualitypatternmodel.javaquery.CountFilterElement;
+import qualitypatternmodel.javaquery.CountFilterPart;
+import qualitypatternmodel.javaquery.FormulaFilterPart;
+import qualitypatternmodel.javaquery.JavaFilter;
+import qualitypatternmodel.javaquery.JavaqueryFactory;
+import qualitypatternmodel.javaquery.JavaqueryPackage;
+import qualitypatternmodel.javaquery.ListFilterPart;
+import qualitypatternmodel.javaquery.NotFilterPart;
+import qualitypatternmodel.javaquery.NumberFilterElement;
+import qualitypatternmodel.javaquery.NumberValueFilterElement;
+import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
+import qualitypatternmodel.javaquery.QuantifierFilterPart;
 
 /**
  * <!-- begin-user-doc -->

@@ -9,7 +9,6 @@ import org.basex.core.cmd.CreateDB;
 import org.basex.query.QueryException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -57,11 +56,11 @@ public class LocalXmlSchemaDatabaseImpl extends XmlSchemaDatabaseImpl implements
 	protected LocalXmlSchemaDatabaseImpl() {
 		super();
 	}
-	
+
 	public LocalXmlSchemaDatabaseImpl(String name, String schemaPath) {
 		super();
 		this.name = name;
-		this.schemaPath = schemaPath;	
+		this.schemaPath = schemaPath;
 	}
 
 	/**
@@ -71,14 +70,14 @@ public class LocalXmlSchemaDatabaseImpl extends XmlSchemaDatabaseImpl implements
 	 */
 	@Override
 	public void create() throws BaseXException {
-		new CreateDB(name, schemaPath).execute(context);		
+		new CreateDB(name, schemaPath).execute(context);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
-	 * @throws InvalidityException 
+	 * @throws IOException
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -91,7 +90,7 @@ public class LocalXmlSchemaDatabaseImpl extends XmlSchemaDatabaseImpl implements
 //			new Open(name).execute(context);
 //		} catch(BaseXException e) {
 //			create();
-//		}		
+//		}
 		analyse();
 	}
 

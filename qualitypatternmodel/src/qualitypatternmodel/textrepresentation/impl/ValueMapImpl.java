@@ -3,19 +3,15 @@
 package qualitypatternmodel.textrepresentation.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
-
 import java.util.Map;
+
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -70,7 +66,7 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	public ValueMapImpl(JSONObject json) throws JSONException {
 		super();
 		@SuppressWarnings("unchecked")
-		Iterator<String> keys = (Iterator<String>) json.keys();
+		Iterator<String> keys = json.keys();
 
         while (keys.hasNext()) {
             String key = keys.next();
@@ -139,8 +135,9 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	@Override
 	public JSONArray getValuesAsJsonArray() {
 		JSONArray jarray = new JSONArray();
-		for (String val: getValues())
+		for (String val: getValues()) {
 			jarray.put(val);
+		}
 		return jarray;
 	}
 
@@ -181,8 +178,9 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	 */
 	@Override
 	public void addAll(Map<String, String> collection) {
-		for (String key: collection.keySet())
+		for (String key: collection.keySet()) {
 			put(key, collection.get(key));
+		}
 	}
 
 	/**
@@ -191,11 +189,12 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	 * @generated NOT
 	 */
 	@Override
-	public JSONObject generateVariantJSONObject() {
+	public JSONObject generateJSONObject() {
 		JSONObject result = new JSONObject();
 		try {
-			for (int i = 0; i<getKeys().size(); i++)
+			for (int i = 0; i<getKeys().size(); i++) {
 				result.put(getKeys().get(i), getValues().get(i));
+			}
 		} catch (JSONException e) {}
 		return result;
 	}
@@ -209,6 +208,49 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	public void clear() {
 		getKeys().clear();
 		getValues().clear();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isEmpty() {
+		return getKeys().isEmpty();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Map<String, String> asMap() {
+		Map<String, String> map = new HashMap<String, String>();
+
+		for (String key: keys) {
+			map.put(key, get(key));
+		}
+		return map;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setValuesFromJSONObject(JSONObject object) {
+		clear();
+        @SuppressWarnings("unchecked")
+		Iterator<String> keys = object.keys();
+        while(keys.hasNext()) {
+            String key = keys.next();
+            try {
+				put(key, object.getString(key));
+			} catch (JSONException e) {}
+        }
 	}
 
 	/**
@@ -303,10 +345,17 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 			case TextrepresentationPackage.VALUE_MAP___ADD_ALL__MAP:
 				addAll((Map<String, String>)arguments.get(0));
 				return null;
-			case TextrepresentationPackage.VALUE_MAP___GENERATE_VARIANT_JSON_OBJECT:
-				return generateVariantJSONObject();
+			case TextrepresentationPackage.VALUE_MAP___GENERATE_JSON_OBJECT:
+				return generateJSONObject();
 			case TextrepresentationPackage.VALUE_MAP___CLEAR:
 				clear();
+				return null;
+			case TextrepresentationPackage.VALUE_MAP___IS_EMPTY:
+				return isEmpty();
+			case TextrepresentationPackage.VALUE_MAP___AS_MAP:
+				return asMap();
+			case TextrepresentationPackage.VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__JSONOBJECT:
+				setValuesFromJSONObject((JSONObject)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

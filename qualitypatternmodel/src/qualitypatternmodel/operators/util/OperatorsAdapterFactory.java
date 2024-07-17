@@ -4,13 +4,18 @@ package qualitypatternmodel.operators.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import qualitypatternmodel.operators.*;
-
+import qualitypatternmodel.operators.BooleanOperator;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.Contains;
+import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.NullCheck;
+import qualitypatternmodel.operators.NumberOperator;
+import qualitypatternmodel.operators.Operator;
+import qualitypatternmodel.operators.OperatorList;
+import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**

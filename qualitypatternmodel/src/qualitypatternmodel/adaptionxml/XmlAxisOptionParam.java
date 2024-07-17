@@ -95,7 +95,7 @@ public interface XmlAxisOptionParam extends Parameter {
 	 * <!-- begin-user-doc -->
 	 * Returns a list of suggested <code>RelationsKinds</code> for the <code>value</code> based on
 	 * already specified tag names of <code>source</code> and <code>target</code>.
-	 * 
+	 *
 	 * @return a list of suggested <code>RelationsKinds</code> for the <code>value</code> based on
 	 * already specified tag names of <code>source</code> and <code>target</code>
 	 * <!-- end-user-doc -->

@@ -7,10 +7,10 @@ package qualitypatternmodel.graphstructure.validation;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.BooleanOperator;
-import qualitypatternmodel.graphstructure.Node;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.graphstructure.Node}.
@@ -20,7 +20,7 @@ import qualitypatternmodel.graphstructure.Node;
  */
 public interface ElementValidator {
 	boolean validate();
-	
+
 	boolean validatePrevious(Node value);
 	boolean validateNextSet(EList<Node> value);
 

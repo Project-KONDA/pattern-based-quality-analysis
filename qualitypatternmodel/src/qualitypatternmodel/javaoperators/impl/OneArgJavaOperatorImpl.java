@@ -9,10 +9,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -22,7 +20,6 @@ import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.OneArgJavaOperator;
 import qualitypatternmodel.javaquery.JavaFilterPart;
@@ -94,13 +91,13 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 		OneArgFunctionFilterPart filterPart = new OneArgFunctionFilterPartImpl(this.getClass());
 		return filterPart;
 	}
-	
+
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
-		option.isValid(abstractionLevel);		
+		option.isValid(abstractionLevel);
 	}
-	
+
     public static OneArgJavaOperatorImpl getOneInstanceOf(String subclassname) {
         try {
             String packageName = OneArgJavaOperatorImpl.class.getPackage().getName() + ".";
@@ -108,7 +105,7 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
             Constructor<?> constructor = subclass.getDeclaredConstructor();
             constructor.setAccessible(true);
             OneArgJavaOperatorImpl instance = (OneArgJavaOperatorImpl) constructor.newInstance();
-            
+
             return instance;
         } catch (Exception e) {
             e.printStackTrace(); // Handle exception appropriately
@@ -118,14 +115,16 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
-		if (option == null)
+		if (option == null) {
 			throw new InvalidityException("options null");
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && primitiveNode == null)
+		}
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && primitiveNode == null) {
 			throw new InvalidityException("property null");
-		
+		}
+
 		super.isValidLocal(abstractionLevel);
 	}
-	
+
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
@@ -135,7 +134,7 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 
 	@Override
 	public EList<Comparable> getArguments(){
-		EList<Comparable> list = new BasicEList<Comparable>();		
+		EList<Comparable> list = new BasicEList<Comparable>();
 		list.add(getPrimitiveNode());
 		list.add(getOption());
 		return list;
@@ -143,16 +142,16 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 
 	@Override
 	public void createParameters() {
-		ParameterList parameterList = getParameterList();	
+		ParameterList parameterList = getParameterList();
 		if(parameterList != null) {
 			if(getOption() == null) {
-				BooleanParam bool = new BooleanParamImpl();				
+				BooleanParam bool = new BooleanParamImpl();
 				setOption(bool);
-			} 
+			}
 			parameterList.add(getOption());
 		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -198,7 +197,7 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	public NotificationChain basicSetPrimitiveNode(PrimitiveNode newPrimitiveNode, NotificationChain msgs) {
 		PrimitiveNode oldPrimitiveNode = primitiveNode;
 		primitiveNode = newPrimitiveNode;
-		
+
 		if(oldPrimitiveNode instanceof PrimitiveNode && newPrimitiveNode == null) {
 			try {
 				((Node) oldPrimitiveNode).makeGeneric();
@@ -206,15 +205,19 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 				// there is another reason why this node needs to be PrimitiveNode
 			}
 		}
-		
+
 		if(oldPrimitiveNode != null) {
 			oldPrimitiveNode.getPredicates().remove(this);
 		}
 		newPrimitiveNode.getPredicates().add(this);
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PRIMITIVE_NODE, oldPrimitiveNode, newPrimitiveNode);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -310,7 +313,7 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	public Node getElement() {
 		return getPrimitiveNode();
 	}
-	
+
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
@@ -320,7 +323,7 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	}
 
 	@Override
-	public EList<Node> getAllArgumentElements() {		
+	public EList<Node> getAllArgumentElements() {
 		return primitiveNode.getAllArgumentElements();
 	}
 	/**

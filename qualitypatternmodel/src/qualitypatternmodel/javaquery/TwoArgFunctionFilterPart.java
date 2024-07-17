@@ -22,7 +22,7 @@ import qualitypatternmodel.javaqueryoutput.ValueInterim;
  * @generated
  */
 public interface TwoArgFunctionFilterPart extends BooleanFilterPart {
-	
+
 	/**
 	 * Returns the value of the '<em><b>Argument1</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -66,7 +66,7 @@ public interface TwoArgFunctionFilterPart extends BooleanFilterPart {
 	 * @generated
 	 */
 	void setArgument2(ValueInterim value);
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -79,7 +79,7 @@ public interface TwoArgFunctionFilterPart extends BooleanFilterPart {
 	interface Function {
 	    Boolean evaluate(String str, String str2);
 	}
-	
+
 	void setFunction(Function object);
-	
+
 } // TwoArgFunctionFilterPart

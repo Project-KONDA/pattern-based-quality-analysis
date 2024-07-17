@@ -5,8 +5,8 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 public class PatternTestPair {
 	private String name;
 	private CompletePattern completePattern;
-	private String manualQuery;	
-	
+	private String manualQuery;
+
 	public PatternTestPair(String name, CompletePattern completePattern, String manualQuery) {
 		super();
 		this.name = name;
@@ -31,7 +31,7 @@ public class PatternTestPair {
 	public void setManualQuery(String manualQuery) {
 		this.manualQuery = manualQuery;
 	}
-	
-	
+
+
 
 }

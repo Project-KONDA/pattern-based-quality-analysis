@@ -5,7 +5,6 @@
 package qualitypatternmodel.patternstructure.validation;
 
 import qualitypatternmodel.parameters.ComparisonOptionParam;
-
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.CountPattern;
 

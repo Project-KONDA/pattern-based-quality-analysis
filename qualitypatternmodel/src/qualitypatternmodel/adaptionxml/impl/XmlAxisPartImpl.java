@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
 import org.basex.query.QueryException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -13,24 +15,23 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.json.JSONArray;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
-import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -43,13 +44,13 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.utility.ConstantsXml;
 
 /**
@@ -74,7 +75,7 @@ import qualitypatternmodel.utility.ConstantsXml;
 public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 
 	static String PROPERTY_PART_REGEX = "(((data|text|name)\\(\\))|(@[A-Za-z0-9]+))";
-	
+
 	/**
 	 * The default value of the '{@link #isPredefined() <em>Predefined</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -153,27 +154,64 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	public XmlAxisPartImpl() {
 		super();
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		String query = getXmlAxisOptionParam().generateXQuery();
-		for (XmlAxisPartCondition cond: getXmlAxisPartConditions())
-			query = query + cond.generateXQuery();
+		XmlAxisPartCondition nameTagCondition = identifyNameTagCondition();
+		if (nameTagCondition != null) {
+			query = query.substring(0,  query.length()-1);
+			query += nameTagCondition.getTextLiteralParam().getValue();
+		}
+		for (XmlAxisPartCondition cond: getXmlAxisPartConditions()) {
+			if (!cond.equals(nameTagCondition)) {
+				query = query + cond.generateXQuery();
+			}
+		}
 		return query;
 	}
-	
+
+	private XmlAxisPartCondition identifyNameTagCondition() {
+		List<String> keys;
+		try {
+			ValueMap namespaces = ((CompletePattern) getAncestor(CompletePattern.class)).getNamespaces();
+			if (namespaces == null) {
+				return null;
+			}
+			keys = namespaces.getKeys();
+		} catch (MissingPatternContainerException e) {
+			return null;
+		}
+		for (XmlAxisPartCondition cond: getXmlAxisPartConditions()) {
+			if (cond == null || cond.getXmlPropertyOption() == null || cond.getTextLiteralParam() == null || !cond.getXmlPropertyOption().getValue().equals(XmlPropertyKind.TAG)) {
+				break;
+			}
+			String tag = cond.getTextLiteralParam().getValue();
+			if (tag == null || !tag.contains(":")) {
+				break;
+			}
+			if (keys.contains(tag.split(":")[0])) {
+				return cond;
+			}
+		}
+		return null;
+	}
+
+
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE) {
 			throw new InvalidityException("non-generic class in generic pattern");
+		}
 		super.isValid(abstractionLevel);
-//		if (textLiteralParam != null) 
+//		if (textLiteralParam != null)
 //			textLiteralParam.isValid(abstractionLevel);
-		if (xmlAxisOptionParam != null) 
+		if (xmlAxisOptionParam != null) {
 			xmlAxisOptionParam.isValid(abstractionLevel);
+		}
 	}
-	
-	
+
+
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 //		if (textLiteralParam == null) {
@@ -183,12 +221,13 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 			throw new InvalidityException("axisOptionParam null");
 		}
 	}
-	
+
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
-		EList<Parameter> res = new BasicEList<Parameter>();
-		for (XmlAxisPartCondition con : getXmlAxisPartConditions())
+		EList<Parameter> res = new BasicEList<>();
+		for (XmlAxisPartCondition con : getXmlAxisPartConditions()) {
 			res.addAll(con.getAllParameters());
+		}
 //		if (textLiteralParam != null) {
 //			res.add(textLiteralParam);
 //		}
@@ -197,8 +236,8 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 		}
 		return res;
 	}
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -424,7 +463,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 		if(index < getXmlPathParam().getXmlAxisParts().size()-1) {
 			xmlAxisParts.add(getXmlPathParam().getXmlAxisParts().get(index+1));
 		} else if(getXmlPathParam().getXmlPropertyOptionParam() == null && getXmlPathParam().getXmlNavigation() instanceof XmlElementNavigation) {
-			XmlElement element = (XmlElement) getXmlPathParam().getXmlNavigation().getTarget();			
+			XmlElement element = (XmlElement) getXmlPathParam().getXmlNavigation().getTarget();
 			for(Relation r : element.getOutgoing()) {
 				if(r instanceof XmlElementNavigation) {
 					XmlElementNavigation nav = (XmlElementNavigation) r;
@@ -433,8 +472,9 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				if(r instanceof XmlPropertyNavigation) {
 					XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
 					EList<XmlAxisPart> pairs = nav.getXmlPathParam().getXmlAxisParts();
-					if (pairs.size() > 0)
+					if (pairs.size() > 0) {
 						xmlAxisParts.add(pairs.get(0));
+					}
 				}
 			}
 		}
@@ -459,9 +499,9 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 						XmlNavigation nav = (XmlNavigation) r;
 						xmlAxisParts.add(nav.getXmlPathParam().getXmlAxisParts().get(nav.getXmlPathParam().getXmlAxisParts().size()-1));
 					}
-				}						
-			} 
-		}		
+				}
+			}
+		}
 		return xmlAxisParts;
 	}
 
@@ -473,22 +513,22 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public EList<String> inferElementTagSuggestions() {
 		EList<String> suggestions = new BasicEList<String>();
-		
+
 		EList<String> suggestionsFromIncoming = inferElementTagSuggestionsFromIncomingRelations();
 		if(suggestions.isEmpty() || suggestionsFromIncoming.isEmpty()) {
 			suggestions.addAll(suggestionsFromIncoming);
 		} else {
 			suggestions.retainAll(suggestionsFromIncoming);
-		}		
-		
-		EList<String> suggestionsFromOutgoing = inferElementTagSuggestionsFromOutgoingRelations();		
+		}
+
+		EList<String> suggestionsFromOutgoing = inferElementTagSuggestionsFromOutgoingRelations();
 		if(suggestions.isEmpty() || suggestionsFromOutgoing.isEmpty()) {
 			suggestions.addAll(suggestionsFromOutgoing);
 		} else {
 			suggestions.retainAll(suggestionsFromOutgoing);
 		}
-				
-		return suggestions;			
+
+		return suggestions;
 	}
 
 	/**
@@ -500,42 +540,42 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	public EList<String> inferElementTagSuggestionsFromOutgoingRelations() {
 		EList<String> suggestions = new BasicEList<String>();
 //		EList<XmlAxisPart> nextAxisPairs = getNextXmlAxisPairs();
-//		for(XmlAxisPart next : nextAxisPairs) {		
+//		for(XmlAxisPart next : nextAxisPairs) {
 //			if(next != null && next.getXmlAxisOptionParam() != null && next.getXmlAxisOptionParam().getValue() != null
 //					&& next.getTextLiteralParam() != null && next.getTextLiteralParam().getValue() != null) {
-//	
+//
 //				XmlAxisKind axis = next.getXmlAxisOptionParam().getValue();
-//				String nextTag = null;			
-//				
+//				String nextTag = null;
+//
 //				if(next.getTextLiteralParam().getValue().equals("") || next.getTextLiteralParam().getValue().equals("*")) {
 //					boolean nextIsLast = next.getXmlPathParam().getXmlAxisParts().get(next.getXmlPathParam().getXmlAxisParts().size()-1).equals(next);
 //					if(nextIsLast && getXmlPathParam().getXmlNavigation() != null && getXmlPathParam().getXmlNavigation().getTarget() instanceof XmlElement) {
 //						XmlElement xmlElement = (XmlElement) getXmlPathParam().getXmlNavigation().getTarget();
-//						nextTag = xmlElement.getTagFromComparisons();					
+//						nextTag = xmlElement.getTagFromComparisons();
 //					}
 //				} else {
 //					nextTag = next.getTextLiteralParam().getValue();
 //				}
 //				if(nextTag != null) {
-//					try {			
+//					try {
 //						Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
 //						if (db instanceof XmlDataDatabase) {
 //							XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
-//							
+//
 //							EList<String> nextSuggestions = xmlDataDatabase.getSuggestionsFromAxisNextTag(axis, nextTag);
-//							
+//
 //							if(suggestions.isEmpty() || nextSuggestions.isEmpty()) {
 //								suggestions.addAll(nextSuggestions);
 //							} else {
-//								suggestions.retainAll(nextSuggestions);						
+//								suggestions.retainAll(nextSuggestions);
 //							}
 //						}
 //					} catch (MissingPatternContainerException | QueryException | IOException e) {
 //						// TODO Auto-generated catch block
-//						e.printStackTrace();				
+//						e.printStackTrace();
 //					}
 //				}
-//			}		
+//			}
 //		}
 		return suggestions;
 	}
@@ -547,8 +587,9 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 */
 	@Override
 	public XmlAxisOptionParam setAxisOption(XmlAxisKind axis) {
-		if (getXmlAxisOptionParam() == null)
+		if (getXmlAxisOptionParam() == null) {
 			setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
+		}
 		getXmlAxisOptionParam().setValue(axis);
 		return getXmlAxisOptionParam();
 	}
@@ -561,14 +602,16 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public XmlAxisPartCondition addAxisCondition(XmlPropertyKind propertyKind, String value) {
 		XmlAxisPartCondition cond = new XmlAxisPartConditionImpl();
-		if (cond.getXmlPropertyOption() == null)
+		if (cond.getXmlPropertyOption() == null) {
 			cond.setXmlPropertyOption(new XmlPropertyOptionParamImpl());
+		}
 		cond.getXmlPropertyOption().setValue(propertyKind);
-		if (value == null) 
+		if (value == null) {
 			cond.setTextLiteralParam(null);
-		else {
-			if (cond.getTextLiteralParam() == null)
+		} else {
+			if (cond.getTextLiteralParam() == null) {
 				cond.setTextLiteralParam(new TextLiteralParamImpl());
+			}
 			cond.getTextLiteralParam().setValue(value);
 		}
 		getXmlAxisPartConditions().add(cond);
@@ -582,7 +625,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 */
 	@Override
 	public XmlAxisPartCondition addAxisCondition(XmlPropertyKind propertyKind) {
-		return addAxisCondition(propertyKind, null); 
+		return addAxisCondition(propertyKind, null);
 	}
 
 	/**
@@ -641,13 +684,15 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		value = value.trim();
-		if (value.startsWith("//")) 
+		if (value.startsWith("//")) {
 			value = "/descendant::" + value.substring(2);
-			
-		if(getXmlAxisOptionParam() == null)
+		}
+
+		if(getXmlAxisOptionParam() == null) {
 			setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
-		
-		Boolean axisdone = false;
+		}
+
+		boolean axisdone = false;
 		for (XmlAxisKind axis: XmlAxisKind.VALUES) {
 			String literal = axis.getLiteral();
 			literal = literal.substring(0, literal.length()-1);
@@ -658,41 +703,46 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				break;
 			}
 		}
-		if (!axisdone) 
+		if (!axisdone) {
 			if (value.startsWith("/")) {
 				value = value.substring(1);
 				this.getXmlAxisOptionParam().setValue(XmlAxisKind.CHILD);
 				axisdone = true;
-			} else
+			} else {
 				throw new InvalidityException("Invalid axis");
+			}
+		}
 		value = value.trim();
-		
+
 		String[] split = value.split("(?=\\[)");
-		
-		for (int i = 0; i < split.length; i++)
+
+		for (int i = 0; i < split.length; i++) {
 			split[i] = split[i].trim();
-		
+		}
+
 		// nodename
-		if (split[0].matches(ConstantsXml.REGEX_NODENAME))
+		if (split[0].matches(ConstantsXml.REGEX_NODENAME)) {
 			addAxisCondition(XmlPropertyKind.TAG, split[0]);
-		else if (!split[0].equals("*"))
+		} else if (!split[0].equals("*")) {
 			throw new InvalidityException();
-		
+		}
+
 		// conditions
-		ArrayList<String> conditions = new ArrayList<String>();
-		
+		ArrayList<String> conditions = new ArrayList<>();
+
 		String current = "";
 		for (int i = 1; i < split.length; i++) {
 			current += split[i];
-			if (current.equals("[]"))
+			if (current.equals("[]")) {
 				current = "";
-			else if (current.matches(ConstantsXml.REGEX_CONDITION)) {
+			} else if (current.matches(ConstantsXml.REGEX_CONDITION)) {
 				conditions.add(current);
 				current = "";
-			}			
+			}
 		}
-		if (!current.equals(""))
+		if (!current.equals("")) {
 			throw new InvalidityException();
+		}
 		for (String condition: conditions) {
 			XmlAxisPartConditionImpl cond = new XmlAxisPartConditionImpl();
 			cond.setValueFromString(condition);
@@ -758,8 +808,9 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public void clear() {
 		setXmlAxisOptionParam(null);
-		if (getXmlAxisPartConditions() != null)
+		if (getXmlAxisPartConditions() != null) {
 			getXmlAxisPartConditions().clear();
+		}
 	}
 
 	/**
@@ -770,12 +821,12 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	@Override
 	public EList<String> inferElementTagSuggestionsFromIncomingRelations() {
 		if(getXmlAxisOptionParam() == null || getXmlAxisOptionParam().getValue() == null) {
-			return new BasicEList<String>();
+			return new BasicEList<>();
 		}
 		XmlAxisKind axis = getXmlAxisOptionParam().getValue();
-		
+
 		int index = getXmlPathParam().getXmlAxisParts().indexOf(this);
-		
+
 		if (index == 0 && getXmlPathParam().getXmlNavigation() != null && getXmlPathParam().getXmlNavigation().getSource() instanceof XmlRoot) {
 			try {
 				Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
@@ -785,51 +836,51 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				}
 			} catch (MissingPatternContainerException | QueryException | IOException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();					
+				e.printStackTrace();
 			}
-			
+
 		} else {
-			EList<String> suggestions = new BasicEList<String>();
+			EList<String> suggestions = new BasicEList<>();
 //			EList<XmlAxisPart> previousAxisPairs = getPreviousXmlAxisPairs();
 //			for(XmlAxisPart previous : previousAxisPairs) {
-//			
+//
 //				if(previous != null && previous.getTextLiteralParam() != null && previous.getTextLiteralParam().getValue() != null) {
 //					String previousTag = null;
 //					if(previous.getTextLiteralParam().getValue().equals("") || previous.getTextLiteralParam().getValue().equals("*")) {
 //						boolean previousIsLast = previous.getXmlPathParam().getXmlAxisParts().get(previous.getXmlPathParam().getXmlAxisParts().size()-1).equals(previous);
 //						if(previousIsLast && previous.getXmlPathParam().getXmlNavigation() != null && previous.getXmlPathParam().getXmlNavigation().getTarget() instanceof XmlElement) {
 //							XmlElement xmlElement = (XmlElement) previous.getXmlPathParam().getXmlNavigation().getTarget();
-//							previousTag = xmlElement.getTagFromComparisons();	
-//						}					
+//							previousTag = xmlElement.getTagFromComparisons();
+//						}
 //					} else {
 //						previousTag = previous.getTextLiteralParam().getValue();
 //					}
-//					
-//					if(previousTag != null) {	
-//						
+//
+//					if(previousTag != null) {
+//
 //						try {
 //							Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
 //							if (db instanceof XmlDataDatabase) {
-//								XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;	
+//								XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
 //								EList<String> previousSuggestions = xmlDataDatabase.getSuggestionsFromAxisPreviousTag(axis, previousTag);
-//													
+//
 //								if(suggestions.isEmpty() || previousSuggestions.isEmpty()) {
 //									suggestions.addAll(previousSuggestions);
 //								} else {
-//									suggestions.retainAll(previousSuggestions);						
+//									suggestions.retainAll(previousSuggestions);
 //								}
 //							}
 //						} catch (MissingPatternContainerException | QueryException | IOException e) {
 //							// TODO Auto-generated catch block
-//							e.printStackTrace();						
-//						}						
+//							e.printStackTrace();
+//						}
 //					}
-//				}	
+//				}
 //			}
 			return suggestions;
 		}
 
-		return new BasicEList<String>();
+		return new BasicEList<>();
 	}
 
 	/**
@@ -839,16 +890,16 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 */
 	@Override
 	public EList<XmlAxisKind> inferAxisSuggestions() {
-		EList<XmlAxisKind> suggestions = new BasicEList<XmlAxisKind>();
-		
-//		if(getTextLiteralParam() == null || getTextLiteralParam().getValue() == null 
+		EList<XmlAxisKind> suggestions = new BasicEList<>();
+
+//		if(getTextLiteralParam() == null || getTextLiteralParam().getValue() == null
 //				|| getTextLiteralParam().getValue().equals("") || getTextLiteralParam().getValue().equals("*")) {
 //			return suggestions;
 //		}
-//		
+//
 //		String targetTag = getTextLiteralParam().getValue();
-//		
-//		
+//
+//
 //		EList<XmlAxisPart> previousAxisPairs = getPreviousXmlAxisPairs();
 //		for (XmlAxisPart previous : previousAxisPairs) {
 //			if(previous != null && previous.getTextLiteralParam() != null && previous.getTextLiteralParam().getValue() != null) {
@@ -857,31 +908,31 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 //					boolean previousIsLast = previous.getXmlPathParam().getXmlAxisParts().get(previous.getXmlPathParam().getXmlAxisParts().size()-1).equals(previous);
 //					if(previousIsLast && previous.getXmlPathParam().getXmlNavigation() != null && previous.getXmlPathParam().getXmlNavigation().getTarget() instanceof XmlElement) {
 //						XmlElement xmlElement = (XmlElement) previous.getXmlPathParam().getXmlNavigation().getTarget();
-//						sourceTag = xmlElement.getTagFromComparisons();	
+//						sourceTag = xmlElement.getTagFromComparisons();
 //					}
-//				} else {	
+//				} else {
 //					sourceTag = previous.getTextLiteralParam().getValue();
 //				}
 //				if(sourceTag != null && targetTag != null) {
 //					try {
 //						Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
 //						if(db instanceof XmlDataDatabase) {
-//							XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;					
-//							EList<XmlAxisKind> newSuggestions = xmlDataDatabase.getSuggestionsFromSourceTargetTag(sourceTag, targetTag);	
+//							XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
+//							EList<XmlAxisKind> newSuggestions = xmlDataDatabase.getSuggestionsFromSourceTargetTag(sourceTag, targetTag);
 //							if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
 //								suggestions.addAll(newSuggestions);
 //							} else {
-//								suggestions.retainAll(newSuggestions);						
+//								suggestions.retainAll(newSuggestions);
 //							}
 //						}
 //					} catch (MissingPatternContainerException | IOException | QueryException e) {
 //						// TODO Auto-generated catch block
 //						e.printStackTrace();
 //					}
-//				}	
+//				}
 //			}
 //		}
-		
+
 		return suggestions;
 	}
 
@@ -898,15 +949,15 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	}
 
 	@Override
-	public void createParameters() {	
-		ParameterList parameterList = getParameterList();		
+	public void createParameters() {
+		ParameterList parameterList = getParameterList();
 		if(parameterList != null) {
 			if(getXmlAxisOptionParam() == null) {
 				setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
-			}	
+			}
 			if(getXmlAxisOptionParam() == null) {
 				setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
-			}	
+			}
 		}
 	}
 
@@ -1260,12 +1311,13 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 		try {
 			String result = "[";
 			result += getXmlAxisOptionParam().myToString();
-			
-			for (XmlAxisPartCondition cond : getXmlAxisPartConditions())
+
+			for (XmlAxisPartCondition cond : getXmlAxisPartConditions()) {
 				result += cond.myToString();
+			}
 //			if (getXmlPropertyOption() != null) {
 //				result += ", " + getXmlPropertyOption().myToString();
-//			} 
+//			}
 //			if (getTextLiteralParam() != null && getTextLiteralParam().getValue() != null)
 //				result += ", " + getTextLiteralParam().myToString();
 			return result;

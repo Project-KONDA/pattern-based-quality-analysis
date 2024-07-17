@@ -310,7 +310,7 @@ public enum ComparisonOperator implements Enumerator {
 		}
 		return null;
 	}
-	
+
 	public static ComparisonOperator invertDirection(ComparisonOperator operator) {
 		switch(operator) {
 			case EQUAL: return EQUAL;

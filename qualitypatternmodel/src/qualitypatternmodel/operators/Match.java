@@ -98,6 +98,5 @@ public interface Match extends BooleanOperator {
 	 */
 	void setOption(BooleanParam value);
 
-	
 
 } // Match

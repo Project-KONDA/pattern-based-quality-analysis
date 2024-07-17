@@ -202,6 +202,15 @@ paths:
           in: query
           schema:
             type: string
+        - name: namespace
+          description: set the datamodel of the new constraint
+          in: query
+          schema:
+            type: object
+            properties:
+              <prefix>:
+                type: string
+                description: prefix and uri of a namespace
       responses:
         '200':
           description: Successful operation
@@ -1014,13 +1023,13 @@ components:
         executable:
           type: boolean
           description: is this pattern executable
-        mqafexecutable:
+        mqafExecutable:
           type: boolean
           description: is this pattern executable via the mqaf framework
-        queryexecutable:
+        queryExecutable:
           type: boolean
           description: is this pattern executable via a technology-specific query
-        filterexecutable:
+        filterExecutable:
           type: boolean
           description: is this pattern executable via a java filter in the qpm framework
         database:
@@ -1333,12 +1342,12 @@ components:
     AnalysisResult: # 16
       type: object
       properties:
-        failedfiles:
+        failedFiles:
           type: array
           description: file paths that were not found
           items:
             type: string
-        failedconstraints:
+        failedConstraints:
           type: array
           description: constraint IDs that could not be executed
           items:

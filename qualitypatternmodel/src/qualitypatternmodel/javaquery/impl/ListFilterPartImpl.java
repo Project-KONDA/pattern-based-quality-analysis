@@ -8,7 +8,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -96,21 +95,24 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 		setQuantifier(quantifier);
 		setSubfilter(subfilter);
 	}
-	
+
 	@Override
 	public Boolean apply(InterimResult parameter) throws InvalidityException {
-		if (parameter == null)
+		if (parameter == null) {
 			throw new InvalidityException("Parameter null");
+		}
 		ContainerResult container = (ContainerResult) parameter;
 		for(InterimResult argument: container.getSubresult()) {
 			Boolean arg = getSubfilter().apply(argument);
-			if (arg && getQuantifier() == Quantifier.EXISTS)
+			if (arg && getQuantifier() == Quantifier.EXISTS) {
 				return true;
-			if (!arg && getQuantifier() == Quantifier.FORALL)
+			}
+			if (!arg && getQuantifier() == Quantifier.FORALL) {
 				return false;
+			}
 		}
 		return getQuantifier() == Quantifier.FORALL;
-	};
+	}
 
 	@Override
 	public EList<InterimResultPart> getArguments() {
@@ -121,15 +123,15 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 
 	protected void updateArgument() throws InvalidityException {
 		EList<InterimResultPart> contained = getSubfilter().getArguments();
-		if (contained == null)
+		if (contained == null) {
 			getArgument().setContained(null);
-		else if (contained.size() == 1)
+		} else if (contained.size() == 1) {
 			getArgument().setContained(contained.get(0));
-		else 
+		} else {
 			throw new InvalidityException("CountFilterElement has too much arguments");
-		
+		}
 	}
-	
+
 	@Override
 	public JSONObject toJson() {
 		JSONObject result = new JSONObject();
@@ -137,24 +139,20 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 			result.put("class", getClass().getSimpleName());
 			result.put("quantifier", getQuantifier().getLiteral());
 			result.put("argument", getArgument().getInterimPartId());
-			
+
 			result.put("subfilter", getSubfilter().toJson());
-				
+
 		} catch (JSONException e) {
 		}
 		return result;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "[list " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> " 
+		return "[list " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> "
 				+ " " + (getSubfilter() != null? getSubfilter().toString() : "null" ) + "]";
 	}
-	
-	
-	
-	
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -187,11 +185,15 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 			updateArgument();
 		} catch (InvalidityException e) {
 			e.printStackTrace();
-		};
-		
+		}
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.LIST_FILTER_PART__SUBFILTER, oldSubfilter, newSubfilter);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}

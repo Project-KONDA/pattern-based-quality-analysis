@@ -49,9 +49,12 @@ public interface CountPattern extends Pattern, MorphismContainer, CountCondition
 	 */
 	void setCountCondition(CountCondition value);
 
+	@Override
 	String generateXQuery() throws InvalidityException;
 
+	@Override
 	void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException;
 
+	@Override
 	void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 } // CountPattern

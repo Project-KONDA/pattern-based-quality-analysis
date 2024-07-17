@@ -2,19 +2,25 @@
  */
 package qualitypatternmodel.execution.impl;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import qualitypatternmodel.execution.BaseXClient;
@@ -40,7 +46,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 	/**
 	 * The default value of the '{@link #getHost() <em>Host</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getHost()
 	 * @generated
 	 * @ordered
@@ -62,7 +68,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 	/**
 	 * The default value of the '{@link #getPort() <em>Port</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getPort()
 	 * @generated
 	 * @ordered
@@ -117,7 +123,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * <!-- begin-user-doc --> Constructor.
-	 * 
+	 *
 	 * @param host     server name
 	 * @param port     server port
 	 * @param username user name
@@ -148,7 +154,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * Executes a command and serializes the result to an output stream.
-	 * 
+	 *
 	 * @param command command
 	 * @param output  output stream
 	 * @throws IOException Exception
@@ -158,13 +164,14 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 		send(command);
 		receive(in, output);
 		info = receive();
-		if (!ok())
+		if (!ok()) {
 			throw new IOException(info);
+		}
 	}
 
 	/**
 	 * Executes a command and returns the result.
-	 * 
+	 *
 	 * @param command command
 	 * @return result
 	 * @throws IOException Exception
@@ -181,11 +188,12 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * Creates a query object.
-	 * 
+	 *
 	 * @param query query string
 	 * @return query
 	 * @throws IOException Exception
 	 */
+	@Override
 	public Query query(final String query) throws IOException {
 		if(!isConnected()) {
 			connect();
@@ -206,7 +214,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
@@ -215,7 +223,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 		socket.setTcpNoDelay(true);
 		socket.connect(new InetSocketAddress(host, port), 5000);
 		in = new BufferedInputStream(socket.getInputStream());
-		out = socket.getOutputStream();		
+		out = socket.getOutputStream();
 
 		// receive server response
 		final String[] response = receive().split(":");
@@ -234,8 +242,9 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 		send(md5(md5(code) + nonce));
 
 		// receive success flag
-		if (!ok())
+		if (!ok()) {
 			throw new IOException("Access denied.");
+		}
 	}
 
 	/**
@@ -388,7 +397,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * Creates a database.
-	 * 
+	 *
 	 * @param name  name of database
 	 * @param input xml input
 	 * @throws IOException I/O exception
@@ -399,7 +408,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * Adds a document to a database.
-	 * 
+	 *
 	 * @param path  path to resource
 	 * @param input xml input
 	 * @throws IOException I/O exception
@@ -410,7 +419,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * Replaces a document in a database.
-	 * 
+	 *
 	 * @param path  path to resource
 	 * @param input xml input
 	 * @throws IOException I/O exception
@@ -421,7 +430,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * Stores a binary resource in a database.
-	 * 
+	 *
 	 * @param path  path to resource
 	 * @param input xml input
 	 * @throws IOException I/O exception
@@ -432,7 +441,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * Returns command information.
-	 * 
+	 *
 	 * @return string info
 	 */
 	public String info() {
@@ -441,7 +450,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * Closes the session.
-	 * 
+	 *
 	 * @throws IOException Exception
 	 */
 	@Override
@@ -453,7 +462,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * Checks the next success flag.
-	 * 
+	 *
 	 * @return value of check
 	 * @throws IOException Exception
 	 */
@@ -464,7 +473,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * Returns the next received string.
-	 * 
+	 *
 	 * @return String result or info
 	 * @throws IOException I/O exception
 	 */
@@ -476,7 +485,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * Sends a string to the server.
-	 * 
+	 *
 	 * @param string string to be sent
 	 * @throws IOException I/O exception
 	 */
@@ -492,7 +501,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * Receives a string and writes it to the specified output stream.
-	 * 
+	 *
 	 * @param input  input stream
 	 * @param output output stream
 	 * @throws IOException I/O exception
@@ -506,7 +515,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * Sends a command, argument, and input.
-	 * 
+	 *
 	 * @param code  command code
 	 * @param path  name, or path to resource
 	 * @param input xml input
@@ -520,7 +529,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * Sends an input stream to the server.
-	 * 
+	 *
 	 * @param input xml input
 	 * @throws IOException I/O exception
 	 */
@@ -529,20 +538,22 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 		final BufferedOutputStream bos = new BufferedOutputStream(out);
 		for (int b; (b = bis.read()) != -1;) {
 			// 0x00 and 0xFF will be prefixed by 0xFF
-			if (b == 0x00 || b == 0xFF)
+			if (b == 0x00 || b == 0xFF) {
 				bos.write(0xFF);
+			}
 			bos.write(b);
 		}
 		bos.write(0);
 		bos.flush();
 		info = receive();
-		if (!ok())
+		if (!ok()) {
 			throw new IOException(info);
+		}
 	}
 
 	/**
 	 * Returns an MD5 hash.
-	 * 
+	 *
 	 * @param pw String
 	 * @return String
 	 */
@@ -553,8 +564,9 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 			md.update(pw.getBytes());
 			for (final byte b : md.digest()) {
 				final String s = Integer.toHexString(b & 0xFF);
-				if (s.length() == 1)
+				if (s.length() == 1) {
 					sb.append('0');
+				}
 				sb.append(s);
 			}
 		} catch (final NoSuchAlgorithmException ex) {
@@ -577,7 +589,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 		/**
 		 * Standard constructor.
-		 * 
+		 *
 		 * @param query query string
 		 * @throws IOException I/O exception
 		 */
@@ -587,7 +599,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 		/**
 		 * Binds a value to an external variable.
-		 * 
+		 *
 		 * @param name  name of variable
 		 * @param value value
 		 * @throws IOException I/O exception
@@ -598,7 +610,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 		/**
 		 * Binds a value with the specified type to an external variable.
-		 * 
+		 *
 		 * @param name  name of variable
 		 * @param value value
 		 * @param type  type (can be an empty string)
@@ -611,7 +623,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 		/**
 		 * Binds a value to the context item.
-		 * 
+		 *
 		 * @param value value
 		 * @throws IOException I/O exception
 		 */
@@ -621,7 +633,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 		/**
 		 * Binds a value with the specified type to the context item.
-		 * 
+		 *
 		 * @param value value
 		 * @param type  type (can be an empty string)
 		 * @throws IOException I/O exception
@@ -633,7 +645,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 		/**
 		 * Checks for the next item.
-		 * 
+		 *
 		 * @return result of check
 		 * @throws IOException I/O exception
 		 */
@@ -648,19 +660,21 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 					cache.add(os.toByteArray());
 					os.reset();
 				}
-				if (!ok())
+				if (!ok()) {
 					throw new IOException(receive());
+				}
 				pos = 0;
 			}
-			if (pos < cache.size())
+			if (pos < cache.size()) {
 				return true;
+			}
 			cache = null;
 			return false;
 		}
 
 		/**
 		 * Returns the next item.
-		 * 
+		 *
 		 * @return item string
 		 * @throws IOException I/O Exception
 		 */
@@ -670,7 +684,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 		/**
 		 * Returns the whole result of the query.
-		 * 
+		 *
 		 * @return query result
 		 * @throws IOException I/O Exception
 		 */
@@ -680,7 +694,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 		/**
 		 * Returns query info in a string.
-		 * 
+		 *
 		 * @return query info
 		 * @throws IOException I/O exception
 		 */
@@ -690,7 +704,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 		/**
 		 * Returns serialization parameters in a string.
-		 * 
+		 *
 		 * @return query info
 		 * @throws IOException I/O exception
 		 */
@@ -700,7 +714,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 		/**
 		 * Closes the query.
-		 * 
+		 *
 		 * @throws IOException I/O exception
 		 */
 		@Override
@@ -710,7 +724,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 		/**
 		 * Executes the specified command.
-		 * 
+		 *
 		 * @param code command code
 		 * @param arg  argument
 		 * @return resulting string
@@ -720,24 +734,29 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 			out.write(code);
 			send(arg);
 			final String s = receive();
-			if (!ok())
+			if (!ok()) {
 				throw new IOException(receive());
+			}
 			return s;
 		}
 	}
 
+	@Override
 	public String getHost() {
 		return host;
 	}
 
+	@Override
 	public void setHost(String host) {
 		this.host = host;
 	}
 
+	@Override
 	public int getPort() {
 		return port;
 	}
 
+	@Override
 	public void setPort(int port) {
 		this.port = port;
 	}

@@ -26,7 +26,7 @@ import qualitypatternmodel.parameters.TypeOptionParam;
  * @generated
  */
 public interface Comparison extends BooleanOperator {
-	
+
 
 	/**
 	 * Returns the value of the '<em><b>Argument1</b></em>' reference.
@@ -112,7 +112,7 @@ public interface Comparison extends BooleanOperator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns a copy of <code>this</code>, which references the same <code>option</code>.
-	 * 
+	 *
 	 * @return a copy of <code>this</code>, which references the same <code>option</code>
 	 * <!-- end-user-doc -->
 	 * @model

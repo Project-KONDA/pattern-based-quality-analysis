@@ -3,6 +3,7 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -81,8 +82,8 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		return (Pattern)eInternalContainer();
 	}
 
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -311,16 +312,13 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 */
 	@Override
 	public boolean isInRdfFilter() {
-		if(getFormula1() != null && getFormula1().getOperator() != LogicalOperator.AND) {
-			return true;
-		}
-		if(getFormula2() != null && getFormula2().getOperator() != LogicalOperator.AND) {
+		if((getFormula1() != null && getFormula1().getOperator() != LogicalOperator.AND) || (getFormula2() != null && getFormula2().getOperator() != LogicalOperator.AND)) {
 			return true;
 		}
 		if (getNotCondition() != null) {
 			if (getNotCondition().getNotCondition() != null) {
 				return getNotCondition().getNotCondition().isInRdfFilter();
-			} 
+			}
 			return true;
 		}
 		return false;
@@ -520,7 +518,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		}
 		return super.eInvoke(operationID, arguments);
 	}
-	
+
 	//BEGIN - Neo4J/Cypher
 	protected final void setNeo4JBeginnings(Graph graph) throws InvalidityException {
 		EList<EList<NeoElementNode>> neoGraphs = getAllNeoElementNodes(graph);
@@ -528,7 +526,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 //		getAllNeoElementNodesFlatten(graph);
 //		setBeginningInSubGraphForNeoPropertyNodes(getAllNeoPropertyNodesFlatten(graph));
 	}
-	
+
 	/**
 	* @author Lukas Sebastian Hofmann
 	* @param EList<EList<NeoElementNode>>
@@ -587,20 +585,20 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 //			for (Relation r : node.getIncoming()) {
 //				neoPropertyEdge = (NeoPropertyEdge) r;
 //				if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() != null) {
-////					neoNode = (NeoElementNode) 
+////					neoNode = (NeoElementNode)
 //					r.getSource();
-//				} 
-//			}		
+//				}
+//			}
 //		}
 //	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param graph
 	 * @return EList<EList<NeoElementNode>>
 	 * @throws InvalidityException
 	 * This method returns all NeoElementNodes in its regarding subgraph.
-	 * Each list inside the container list represents a subgraph. 
+	 * Each list inside the container list represents a subgraph.
 	 * The container list represents the total graphstructure.
 	 */
 	protected final EList<EList<NeoElementNode>> getAllNeoElementNodes(final Graph graph) throws InvalidityException {
@@ -621,7 +619,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		}
 		return neoGraphs;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param graph
@@ -639,7 +637,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		}
 		return neoElementNodes;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param graph
@@ -649,43 +647,43 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 */
 	protected final EList<NeoPropertyNode> getAllNeoPropertyNodesFlatten(Graph graph) throws InvalidityException {
 		final EList<EList<Node>> neoGraphs = graph.getAllSubGraphs();
-		final EList<NeoPropertyNode> neoPropertyNodes = new BasicEList<NeoPropertyNode>();
+		final EList<NeoPropertyNode> neoPropertyNodes = new BasicEList<>();
 		for (EList<Node> list : neoGraphs) {
 			for (Node node : list) {
 				if (node instanceof NeoPropertyNode) {
-					neoPropertyNodes.add((NeoPropertyNode) node);					
+					neoPropertyNodes.add((NeoPropertyNode) node);
 				}
 			}
 		}
 		return neoPropertyNodes;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param condition
 	 * @throws UnsupportedOperationException
 	 * Nested Structures of the COUNT is in Neo4J/Cypher not possible v4.4 and lower.
-	 * For further Neo4J/Cypher maybe not anymore needed. 
+	 * For further Neo4J/Cypher maybe not anymore needed.
 	 */
 	protected final void checkNextConditon(Condition condition) throws UnsupportedOperationException {
 		if (condition instanceof CountCondition) {
 			throw new UnsupportedOperationException(ConstantsNeo.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY);
 		}
-	}	
-	
+	}
+
 //	/**
 //	 * @author Lukas Sebastian Hofmann
 //	 * This Method adds extra formatting to the Conditions. Until now it supports:
 //	 * 	- EXISTS-MATCH
-//	 * 
+//	 *
 //	 * Further Formatting are possible
 //	 */
 //	static final String afterCreationConditionFormatting(final String originalCypher) {
 //		final StringBuilder cypher = new StringBuilder(originalCypher);
-//		
+//
 //		return cypher.toString();
 //	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
@@ -702,7 +700,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 			if (currentIndex == -1) {
 				lineBreak = false;
 			} else {
-				cypher.insert(currentIndex + 1, whiteSpaces); 
+				cypher.insert(currentIndex + 1, whiteSpaces);
 				fromIndex = currentIndex + whiteSpaces.length();
 			}
 		}

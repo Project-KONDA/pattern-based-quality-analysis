@@ -15,7 +15,7 @@ public class MockitoAnnotationTest {
 	public void whenNotUseMockAnnotation_thenCorrect() {
 	    @SuppressWarnings("unchecked")
 		List<String> mockList = Mockito.mock(ArrayList.class);
-	    
+
 	    mockList.add("one");
 	    Mockito.verify(mockList).add("one");
 	    assertEquals(0, mockList.size());

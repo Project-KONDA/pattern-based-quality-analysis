@@ -6,14 +6,19 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import qualitypatternmodel.exceptions.OperatorCycleException;
-
-import qualitypatternmodel.operators.*;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.Contains;
+import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.NullCheck;
+import qualitypatternmodel.operators.OperatorList;
+import qualitypatternmodel.operators.OperatorsFactory;
+import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.operators.StringLength;
 
 /**
  * <!-- begin-user-doc -->

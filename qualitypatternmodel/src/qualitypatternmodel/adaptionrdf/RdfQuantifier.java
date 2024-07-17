@@ -245,5 +245,5 @@ public enum RdfQuantifier implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 } //RdfQuantifier

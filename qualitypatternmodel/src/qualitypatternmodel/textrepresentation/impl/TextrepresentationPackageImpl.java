@@ -9,26 +9,20 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-
 import qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl;
-
 import qualitypatternmodel.execution.ExecutionPackage;
-
 import qualitypatternmodel.execution.impl.ExecutionPackageImpl;
-
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
-
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
@@ -36,16 +30,11 @@ import qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl;
 import qualitypatternmodel.operators.OperatorsPackage;
-
 import qualitypatternmodel.operators.impl.OperatorsPackageImpl;
 import qualitypatternmodel.parameters.ParametersPackage;
-
 import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
-
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-
 import qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl;
-
 import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
@@ -796,7 +785,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
-	public EOperation getValueMap__GenerateVariantJSONObject() {
+	public EOperation getValueMap__GenerateJSONObject() {
 		return valueMapEClass.getEOperations().get(5);
 	}
 
@@ -808,6 +797,36 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	@Override
 	public EOperation getValueMap__Clear() {
 		return valueMapEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getValueMap__IsEmpty() {
+		return valueMapEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getValueMap__AsMap() {
+		return valueMapEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getValueMap__SetValuesFromJSONObject__JSONObject() {
+		return valueMapEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -930,8 +949,11 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEOperation(valueMapEClass, VALUE_MAP___GET__STRING);
 		createEOperation(valueMapEClass, VALUE_MAP___GET_KEY__STRING);
 		createEOperation(valueMapEClass, VALUE_MAP___ADD_ALL__MAP);
-		createEOperation(valueMapEClass, VALUE_MAP___GENERATE_VARIANT_JSON_OBJECT);
+		createEOperation(valueMapEClass, VALUE_MAP___GENERATE_JSON_OBJECT);
 		createEOperation(valueMapEClass, VALUE_MAP___CLEAR);
+		createEOperation(valueMapEClass, VALUE_MAP___IS_EMPTY);
+		createEOperation(valueMapEClass, VALUE_MAP___AS_MAP);
+		createEOperation(valueMapEClass, VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__JSONOBJECT);
 
 		// Create data types
 		objectWrapperEDataType = createEDataType(OBJECT_WRAPPER);
@@ -1097,9 +1119,22 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "collection", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getValueMap__GenerateVariantJSONObject(), this.getJSONObjectWrapper(), "generateVariantJSONObject", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getValueMap__GenerateJSONObject(), this.getJSONObjectWrapper(), "generateJSONObject", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getValueMap__Clear(), null, "clear", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getValueMap__IsEmpty(), ecorePackage.getEBoolean(), "isEmpty", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getValueMap__AsMap(), null, "asMap", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = initEOperation(getValueMap__SetValuesFromJSONObject__JSONObject(), null, "setValuesFromJSONObject", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getJSONObjectWrapper(), "object", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(objectWrapperEDataType, Object.class, "ObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

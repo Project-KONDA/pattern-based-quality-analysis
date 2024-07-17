@@ -8,10 +8,8 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.json.JSONArray;
@@ -27,6 +25,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsRdf;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,35 +61,39 @@ public class RdfSequenceImpl extends RdfPathComponentImpl implements RdfSequence
 		getItems().add(new RdfSinglePredicateImpl());
 		getItems().add(new RdfSinglePredicateImpl());
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
-		if (getItems().size() < 2)
+		if (getItems().size() < 2) {
 			return null;
+		}
 		String query = (invert ? "^" : "" ) + "(";
 		for (int i = 0; i < getItems().size(); i++) {
-			if(i > 0)
+			if(i > 0) {
 				query += "/";
-			String itemQuery = getItems().get(i).generateSparql(); 
-			if (itemQuery == null)
+			}
+			String itemQuery = getItems().get(i).generateSparql();
+			if (itemQuery == null) {
 				return null;
+			}
 			query += itemQuery;
 		}
-		
-		
+
+
 		query += ")" + getQuantifier().getLiteral();
-		
+
 		return query;
 	}
 
 	@Override
 	public String getValueAsString() {
 		JSONArray jarr = new JSONArray();
-		for (RdfPathComponent component: getItems())
+		for (RdfPathComponent component: getItems()) {
 			jarr.put(component.getValueAsString());
+		}
 		JSONObject jobj = new JSONObject();
 		try {
-			jobj.put(Constants.JSON_RDF_PATH_SEQUENCE, jarr);
+			jobj.put(ConstantsRdf.JSON_RDF_PATH_SEQUENCE, jarr);
 		} catch (JSONException e) {
 		}
 		return jobj.toString();
@@ -100,15 +103,17 @@ public class RdfSequenceImpl extends RdfPathComponentImpl implements RdfSequence
 	public void setValueFromString(String value) throws InvalidityException {
 		try {
 			JSONObject jobj = new JSONObject(value);
-			if (!jobj.has(Constants.JSON_RDF_PATH_SEQUENCE))
+			if (!jobj.has(ConstantsRdf.JSON_RDF_PATH_SEQUENCE)) {
 				throw new InvalidityException(Constants.INVALID_VALUE);
-			JSONArray arr = jobj.getJSONArray(Constants.JSON_RDF_PATH_SEQUENCE);
-			if (arr.length() < 2)
+			}
+			JSONArray arr = jobj.getJSONArray(ConstantsRdf.JSON_RDF_PATH_SEQUENCE);
+			if (arr.length() < 2) {
 				throw new InvalidityException("Not enough arguments for Rdf Sequence: '" + value + "'");
+			}
 			ArrayList<RdfPathComponent> newItems = new ArrayList<RdfPathComponent>();
-	        for (int i = 0; i < arr.length(); i++)
-	        	newItems.add(RdfPathComponent.createNewRdfPathComponent(arr.get(i).toString()));
-	        	
+	        for (int i = 0; i < arr.length(); i++) {
+				newItems.add(RdfPathComponent.createNewRdfPathComponent(arr.get(i).toString()));
+			}
 			getItems().clear();
 			getItems().addAll(newItems);
 		} catch (Exception e) {
@@ -212,7 +217,7 @@ public class RdfSequenceImpl extends RdfPathComponentImpl implements RdfSequence
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	@Override
 	public EList<RdfSinglePredicate> getRdfSinglePredicates() {
 		EList<RdfSinglePredicate> list = new BasicEList<RdfSinglePredicate>();
@@ -225,15 +230,18 @@ public class RdfSequenceImpl extends RdfPathComponentImpl implements RdfSequence
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (getItems().size() < 2)
+		if (getItems().size() < 2) {
 			throw new InvalidityException("RdfSequence " + getId() + " contains not enough items");
+		}
 	}
 
 	@Override
 	public String myToString() {
 		String result = "RdfSequence [" + getId() + "] (";
 		for (int i = 0; i < getItems().size(); i++){
-			if (i > 0) result += ", ";
+			if (i > 0) {
+				result += ", ";
+			}
 			result += getItems().get(i).myToString();
 		}
 		result += ")";

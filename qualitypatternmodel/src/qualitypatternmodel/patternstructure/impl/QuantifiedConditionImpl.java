@@ -2,12 +2,12 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIEDEND;
 //import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIED;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIEDSTART;
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIEDEND;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIER;
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIERSTART;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIEREND;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIERSTART;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
@@ -41,16 +42,16 @@ import qualitypatternmodel.javaquery.impl.ListFilterPartImpl;
 import qualitypatternmodel.javaquery.impl.QuantifierFilterPartImpl;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
-import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Morphism;
+import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
@@ -79,7 +80,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	private static final String NO_MATCH_IS_GIVEN = "No Match is given";
 	private static final String QUANTIFIED_COND_GRAPH_IS_EMPTY = "Graph is Empty";
 	private static final String INVALID_QUANTIFIER = "invalid quantifier";
-	
+
 	/**
 	 * The cached value of the '{@link #getMorphism() <em>Morphism</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -143,24 +144,25 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		setCondition(new TrueElementImpl());
 	}
 
-	
+
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		if (containsJavaOperator()) {
 			EList<BooleanFilterPart> subfilter = new BasicEList<BooleanFilterPart>();
 			Boolean graph = getGraph().containsJavaOperator();
 			Boolean condition = getCondition().containsJavaOperator();
-			
+
 			if (graph) {
 				List<BooleanFilterPart> graphFilter = ((GraphImpl) getGraph()).generateQueryFilterParts();
-				for (BooleanFilterPart filter: graphFilter)
+				for (BooleanFilterPart filter: graphFilter) {
 					subfilter.add(new ListFilterPartImpl(getQuantifier(), filter));
+				}
 			}
 
 			if (condition) {
 				BooleanFilterPart conditionFilter = (BooleanFilterPart) getCondition().generateQueryFilterPart();
 				subfilter.add(new ListFilterPartImpl(getQuantifier(), conditionFilter));
-				
+
 			}
 //			if (graph && condition) {
 //				subfilter = new FormulaFilterPartImpl(
@@ -174,10 +176,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //					formula.addQuantifiersToArguments(getQuantifier());
 //					return formula;
 //				}
-//			} else 
+//			} else
 //				subfilter = (BooleanFilterPart) getCondition().generateQueryFilterPart();
 //			return new ListFilterPartImpl(getQuantifier(), subfilter);
-			
+
 
 			return new QuantifierFilterPartImpl(subfilter);
 		}
@@ -195,7 +197,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		result += "(" + condition.generateXQuery() + ")";
 		return result;
 	}
-	
+
 	@Override
 	public String generateXQueryJava() throws InvalidityException {
 		String result;
@@ -207,19 +209,21 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		result += "(" + condition.generateXQueryJava() + ")";
 		return result;
 	}
-	
+
+	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		Boolean graphJava = getGraph().containsJavaOperator();
 		Boolean conditionJava = getCondition().containsJavaOperator();
-		if (!graphJava && !conditionJava)
+		if (!graphJava && !conditionJava) {
 			// should not occur
 			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(generateXQuery()), QUANTIFIER, false, false, false);
+		}
 
 //		String graphString = graphJava? getGraph().generateXQueryJavaReturn(): "";
 		String graphString = getGraph().generateXQueryJavaReturn();
 		String conditionPath = conditionJava? ((GraphImpl) getGraph()).generateXQueryJavaReturnCondition(): "";
 		String conditionString = conditionJava? QUANTIFIEDSTART + ",\n  " + getCondition().generateXQueryJavaReturn() + ",\n  " + QUANTIFIEDEND : "";
-		
+
 		String result = "";
 //		if (graphJava) {
 		result += graphString;
@@ -228,16 +232,17 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 //		if (graphJava && conditionJava)
 //			result += ",\n";
-		if (conditionJava)
+		if (conditionJava) {
 			result += Constants.addMissingBrackets(conditionPath + conditionString);
+		}
 
 //		System.out.println("CONDITIONSTRING:::\n" + conditionString + "\n:::: CONDITIONSTRINGEND");
-		
+
 		result = QUANTIFIERSTART + ",\n  " + result + ",\n  " + QUANTIFIEREND;
 
 		return result;
 	}
-		
+
 //		else if (!graphJava)
 //			result = JavaQueryTranslationUtility.getXQueryReturnList(List.of(conditionString), QUANTIFIED);
 //		else if (!conditionJava)
@@ -252,14 +257,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //		}
 //		return result;
 //	}
-	
+
 	// OLD:
 //	public String generateXQueryJavaReturn() throws InvalidityException {
 //		Boolean graphJava = getGraph().containsJavaOperator();
 //		Boolean conditionJava = getCondition().containsJavaOperator();
 //		String graphString = getGraph().generateXQueryJavaReturn();
 //		String conditionString = QUANTIFIEDSTART + ",\n  " + getCondition().generateXQueryJavaReturn() + ",\n  " + QUANTIFIEDEND;
-//		
+//
 //		String result = "";
 //		if (!graphJava && !conditionJava)
 //			result = JavaQueryTranslationUtility.getXQueryReturnList(List.of(generateXQuery()), QUANTIFIER, false, false, false);
@@ -277,7 +282,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //		}
 //		return result;
 //	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		String query = "\n";
@@ -323,12 +328,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 		return query;
 	}
-	
+
 	//BEGIN -- Neo4J
 	//Logically it makes no sense to have no other logical operator
 	//Otherwise use the Formula-Condition
 	private static final String LOGICAL_OPERATOR_AND = LogicalOperator.AND.toString().toUpperCase();
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
@@ -337,9 +342,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
-		super.checkNextConditon(getCondition());						
+		super.checkNextConditon(getCondition());
 		if (getGraph().getNodes().size() != 0) {
-			String exists = new String();	
+			String exists = new String();
 			final EList<NeoElementNode> neoNodes = getAllNeoElementNodesFlatten(graph);
 			boolean hasBeginning = false;
 			for (NeoElementNode neoNode : neoNodes) {
@@ -347,7 +352,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 					hasBeginning = true;
 				}
 			}
-			
+
 			//In the case EXISTS-MATCH for substructures has to be build.
 			if (hasBeginning) {
 				exists = generateExistsMatch();
@@ -357,10 +362,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			return exists;
 		} else {
 			throw new InvalidityException(QUANTIFIED_COND_GRAPH_IS_EMPTY);
-		}		
+		}
 	}
 	//END - Neo4J/Cypher
-	
+
 	@Override
 	public void initializeTranslation() {
 		if(getGraph() != null) {
@@ -377,50 +382,57 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		super.isValid(abstractionLevel);
 		graph.isValid(abstractionLevel);
 		morphism.isValid(abstractionLevel);
-		
+
 		if(condition != null) {
 			condition.isValid(abstractionLevel);
 		}
 	}
 
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (quantifier == null)
+		if (quantifier == null) {
 			throw new InvalidityException("quantifier null (" + getInternalId() + ")");
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && condition == null)
+		}
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && condition == null) {
 			throw new InvalidityException("condition null (" + getInternalId() + ")");
-		if (graph == null)
+		}
+		if (graph == null) {
 			throw new InvalidityException("graph null (" + getInternalId() + ")");
-		if (morphism == null)
+		}
+		if (morphism == null) {
 			throw new InvalidityException("morphism null (" + getInternalId() + ")");
+		}
 		if (quantifier != Quantifier.EXISTS && quantifier != Quantifier.FORALL)
+		 {
 			throw new InvalidityException("quantifier invalid (" + getInternalId() + ")");
 //		if (quantifier == Quantifier.FORALL)
 //			if (getCondition() instanceof True)
 //				throw new InvalidityException("successor condition of quantified condition forall is true (" + getShortPatternInternalId() + ")");
-		
+		}
+
 		checkMorphismOfNextGraph();
 
 	}
-	
+
 	@Override
 	public boolean relationsXmlAdapted() {
 		return getGraph().relationsXmlAdapted() && getCondition().relationsXmlAdapted();
 	}
-	
+
 	@Override
-	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
-		getGraph().createXmlAdaption();		
+	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		getGraph().createXmlAdaption();
 		getCondition().createXmlAdaption();
 		return this;
 	}
-	
+
 	@Override
-	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
-		getGraph().createRdfAdaption();		
+	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		getGraph().createRdfAdaption();
 		getCondition().createRdfAdaption();
 		return this;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException, OperatorCycleException, MissingPatternContainerException
@@ -430,17 +442,17 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * 	- Sets the Beginning for the Graph
 	 */
 	@Override
-	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
-		getGraph().createNeo4jAdaption();		
+	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		getGraph().createNeo4jAdaption();
 		getCondition().createNeo4jAdaption();
 		super.setNeo4JBeginnings(getGraph());
 		return this;
 	}
-	
+
 	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
-		result.add(this);		
+		result.add(this);
 		return result;
 	}
 
@@ -449,7 +461,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		graph.prepareTranslation();
 		condition.prepareTranslation();
 	}
-	
+
 	@Override
 	public void recordValues(XmlDataDatabase database) {
 		getGraph().recordValues(database);
@@ -479,15 +491,15 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			NotificationChain msgs) {
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-		
+
 		triggerParameterUpdates(newQuantifiedcondition);
-		
+
 		NotificationChain msg = super.basicSetQuantifiedCondition(newQuantifiedcondition, msgs);
-		
+
 		if(newQuantifiedcondition == null) {
 			getMorphism().setSource(null);
 		}
-		
+
 		if (newQuantifiedcondition != null) {
 			try {
 				copyPreviousGraph();
@@ -499,28 +511,28 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 		return msg;
 	}
-	
+
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		patternElements.add(getGraph());
-		patternElements.add(getCondition());		
+		patternElements.add(getCondition());
 		return patternElements;
 	}
-	
+
 	@Override
 	public NotificationChain basicSetNotCondition(NotCondition newNot, NotificationChain msgs) {
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-		
+
 		triggerParameterUpdates(newNot);
-		
+
 		NotificationChain msg = super.basicSetNotCondition(newNot, msgs);
-		
+
 		if(newNot == null) {
 			getMorphism().setSource(null);
 		}
-		
+
 		if (newNot != null) {
 			try {
 				copyPreviousGraph();
@@ -537,15 +549,15 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public NotificationChain basicSetFormula1(Formula newFormula1, NotificationChain msgs) {
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-		
+
 		triggerParameterUpdates(newFormula1);
-		
+
 		NotificationChain msg = super.basicSetFormula1(newFormula1, msgs);
-		
+
 		if(newFormula1 == null) {
 			getMorphism().setSource(null);
 		}
-		
+
 		if (newFormula1 != null) {
 			try {
 				copyPreviousGraph();
@@ -562,15 +574,15 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public NotificationChain basicSetFormula2(Formula newFormula2, NotificationChain msgs) {
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-		
+
 		triggerParameterUpdates(newFormula2);
-		
+
 		NotificationChain msg = super.basicSetFormula1(newFormula2, msgs);
-		
+
 		if(newFormula2 == null) {
 			getMorphism().setSource(null);
 		}
-		
+
 		if (newFormula2 != null) {
 			try {
 				copyPreviousGraph();
@@ -587,15 +599,15 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-		
+
 		triggerParameterUpdates(newPattern);
-		
+
 		NotificationChain msg = super.basicSetPattern(newPattern, msgs);
-		
+
 		if(newPattern == null) {
 			getMorphism().setSource(null);
 		}
-		
+
 		if (newPattern != null) {
 			try {
 				copyPreviousGraph();
@@ -693,9 +705,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
-	 * 
+	 *
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
 		if (getGraph() != null) {
@@ -707,35 +719,40 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, oldGraph, newGraph);
-			if (msgs == null)
+			if (msgs == null) {
 				msgs = notification;
-			else
+			} else {
 				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
 	public void setGraph(Graph newGraph) {
 		if (newGraph != graph && newGraph != null) {
 			NotificationChain msgs = null;
-			if (graph != null)
+			if (graph != null) {
 				msgs = ((InternalEObject) graph).eInverseRemove(this, GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION,
 						Graph.class, msgs);
-			if (newGraph != null)
+			}
+			if (newGraph != null) {
 				msgs = ((InternalEObject) newGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION,
 						Graph.class, msgs);
+			}
 			msgs = basicSetGraph(newGraph, msgs);
-			if (msgs != null)
+			if (msgs != null) {
 				msgs.dispatch();
-		} else if (eNotificationRequired())
+			}
+		} else if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH,
 					newGraph, newGraph));
+		}
 	}
 
 	/**
@@ -749,27 +766,28 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
 		newMorphism.setTarget(getGraph());
-		
+
 		if (getMorphism() != null) {
 			getMorphism().setSource(null);
 			getMorphism().setTarget(null);
 		}
-		
+
 		Morphism oldMorphism = morphism;
 		morphism = newMorphism;
 
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, oldMorphism, newMorphism);
-			if (msgs == null)
+			if (msgs == null) {
 				msgs = notification;
-			else
+			} else {
 				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -795,7 +813,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @throws MissingPatternContainerException
 	 * @generated NOT
 	 */
@@ -823,7 +841,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -837,7 +855,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				if(!next.getGraph().equals(next.getMorphism().getTarget())) {
 					throw new InvalidityException("wrong mapping to");
 				}
-			}				
+			}
 		}
 	}
 
@@ -1064,7 +1082,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		return res;
 	}
 
-	
+
 	//BEGIN - Helper-Methods for Neo4J/Cypher
 	//BEGIN - Methods to build Quantification
 	/**
@@ -1085,16 +1103,16 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		String exists = ConstantsNeo.PREDICATE_FUNCTION_EXISTS_MATCH;
 		//INCLUDE THE GRAPH-PATTERN - Is needed for both cases
 		buildMatchClauseForExistsMatch(cypher);
-		
+
 		final StringBuilder cypherWhere = new StringBuilder();
 		if (quantifier == Quantifier.EXISTS) {
-			//INCLUDE the WHERE + EXISTS()			
-			buildExistsMatchWhere(cypher, cypherWhere);			
+			//INCLUDE the WHERE + EXISTS()
+			buildExistsMatchWhere(cypher, cypherWhere);
 			if (!(getCondition() instanceof TrueElementImpl)) {
 				StringBuilder conditionWhere = new StringBuilder(condition.generateCypher());
 				addWhiteSpacesForPreviewsCondition(conditionWhere, ConstantsNeo.THREE_WHITESPACES);
 				if (!cypherWhere.isEmpty()) {
-					conditionWhere.insert(0, ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);					
+					conditionWhere.insert(0, ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
 				} else {
 					conditionWhere.insert(0, String.format(ConstantsNeo.CLAUSE_WHERE_INLUCE_W, ConstantsNeo.THREE_WHITESPACES) + ConstantsNeo.ONE_WHITESPACE);
 				}
@@ -1107,12 +1125,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		} else if (quantifier == Quantifier.FORALL){
 			final String tempCond = getCondition().generateCypher();
 			if (tempCond.isBlank()) {
-				//Here it looks as if information is lost, but only superfluous information is trimmed away in the evaluation. 
+				//Here it looks as if information is lost, but only superfluous information is trimmed away in the evaluation.
 				//A condition "all x for which: true" ( forall(x).true)) will always be true. Therefore, it be can safely omitted.
 				exists = new String();
 			} else {
 				exists = ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + exists;
-				
+
 				buildExistsMatchWhere(cypher, cypherWhere);
 				//Since Cypher interprets the where-clause first outside-in the inside-out. All EXISTS have to be seperated.
 				final Set<NeoPropertyNode> uniqueNeoPropertyNodes = new TreeSet<NeoPropertyNode>((NeoPropertyNode node1, NeoPropertyNode node2) -> (node1.getInternalId() - node2.getInternalId()));
@@ -1120,8 +1138,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				for (NeoPropertyNode node : uniqueNeoPropertyNodes) {
 					addNeoPropertyToNotExists(cypher, node);
 				}
-				
-				//INCLUDE INNER EXPRESSION FOR FORALL	
+
+				//INCLUDE INNER EXPRESSION FOR FORALL
 				StringBuilder localCypher = new StringBuilder();
 				localCypher.append(ConstantsNeo.BOOLEAN_OPERATOR_NOT);
 				localCypher.append(ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET);
@@ -1136,7 +1154,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 					appendCypherWherePrefix(localCypher);
 					checkAndAppendCypherPart(cypher, localCypher);
 				}
-				
+
 				exists = String.format(exists, cypher.toString());
 				exists = exists + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
 			}
@@ -1159,7 +1177,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		appendCypherWherePrefix(cypherWhere);
 		checkAndAppendCypherPart(cypher, cypherWhere);
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
@@ -1173,7 +1191,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		final EList<NeoPropertyEdge> neoVarPropertyEdges = new BasicEList<NeoPropertyEdge>();
 		final Set<NeoPropertyNode> uniqueNeoPropertyNodes = new TreeSet<NeoPropertyNode>((NeoPropertyNode node1, NeoPropertyNode node2) -> (node1.getInternalId() - node2.getInternalId()));
 		getAllNeoPropertiesToAddress(neoPropertyEdges, neoVarPropertyEdges, uniqueNeoPropertyNodes);
-		
+
 		String result = new String();
 		final boolean isAPreviewsConditionNot = isAPreviewsConditionNot(null);
 		final StringBuilder cond = new StringBuilder(getCondition().generateCypher());
@@ -1199,7 +1217,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			cypher.append(result);
 			result = new String();
 			//This method appends Where
-			addGraphWhereToExistsProperty(cypher, result);	
+			addGraphWhereToExistsProperty(cypher, result);
 			if (!cond.toString().isBlank()) {
 				if (cypher.length() > 0) {
 					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE + cond);
@@ -1215,7 +1233,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		return result;
 	}
 	//END - Methods to build Quantification
-	
+
 	//BEGIN - General needed methods for Neo4JCypher tranlation
 	/**
 	 * @author Lukas Sebastian Hofmann
@@ -1224,7 +1242,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * This method build the Match-Clause for the Exists-Match.
 	 * In Neo4J/Cypher 4.4 multiple Match-Clauses are not allowed.
 	 * Thus we considered the trade-off and build multiple independend graph patterns inside of one Match-Clause.
-	 * However, this produces a cross-product by every node. Which increases the runtime. 
+	 * However, this produces a cross-product by every node. Which increases the runtime.
 	 */
 	private void buildMatchClauseForExistsMatch(final StringBuilder cypher) throws InvalidityException {
 		String cypherPart = graph.generateCypher();
@@ -1232,20 +1250,20 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			throw new InvalidityException(NO_MATCH_IS_GIVEN);
 		} else {
 			cypherPart = ConstantsNeo.CLAUSE_MATCH + cypherPart;
-			final String[] temp = Arrays.stream(cypherPart.split(ConstantsNeo.CLAUSE_MATCH)).filter(x -> !x.isBlank()).toArray(String[]::new); 
+			final String[] temp = Arrays.stream(cypherPart.split(ConstantsNeo.CLAUSE_MATCH)).filter(x -> !x.isBlank()).toArray(String[]::new);
 			cypherPart = null;
 			//No multiple MATCHE-CLAUSES in EXISTS-MATCH can be build. Reduce it to one MATCH-CLAUSE.
 			for (int i = 0; i < temp.length; i++) {
 				if (i == 0) {
-					cypherPart = String.format(ConstantsNeo.CLAUSE_MATCH_INLUCE_W, ConstantsNeo.THREE_WHITESPACES) + ConstantsNeo.ONE_WHITESPACE + temp[i].trim();					
+					cypherPart = String.format(ConstantsNeo.CLAUSE_MATCH_INLUCE_W, ConstantsNeo.THREE_WHITESPACES) + ConstantsNeo.ONE_WHITESPACE + temp[i].trim();
 				} else {
-					cypherPart = ConstantsNeo.CYPHER_SEPERATOR + ConstantsNeo.ONE_WHITESPACE + temp[i].trim();					
+					cypherPart = ConstantsNeo.CYPHER_SEPERATOR + ConstantsNeo.ONE_WHITESPACE + temp[i].trim();
 				}
 				cypher.append(cypherPart);
 			}
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param neoPropertyEdges
@@ -1254,9 +1272,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * This method adds to the passed List all Properties of the fitting category. All Neo-Properties which shall be addressed directly.
 	 * Node + Property, e.g. node1.originalPlace
 	 * Since the lists contains the actual node different possible possible methods, depending on the type of the Node, can be accessed
-	 * It has the advantage that the method works with references instead of creating new Objects or simple returning a String-Value. 
+	 * It has the advantage that the method works with references instead of creating new Objects or simple returning a String-Value.
 	 * <b>Attention<\b> <i> No node will be return which has been handled in a previews Condition <\i>.
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 */
 	private final void getAllNeoPropertiesToAddress(final EList<NeoPropertyEdge> neoPropertyEdges,
 			final EList<NeoPropertyEdge> neoVarPropertyEdges, final Set<NeoPropertyNode> uniqueNeoPropertyNodes) throws InvalidityException {
@@ -1267,14 +1285,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				if (neoPropertyEdge.getNeoPropertyPathParam().getNeoPathPart() == null) {
 					if (!isImplicitlyExitsChecked(neoPropertyEdge)) {
 						neoPropertyEdges.add(neoPropertyEdge);
-						uniqueNeoPropertyNodes.add((NeoPropertyNode) neoPropertyEdge.getTarget());							
+						uniqueNeoPropertyNodes.add((NeoPropertyNode) neoPropertyEdge.getTarget());
 					}
 				}
-			} 
+			}
 		}
 	}
 	//END - General needed methods for Neo4JCypher tranlation
-	
+
 	//BEGIN - Methods for just Exists-Properties
 	/**
 	 * @author Lukas Sebastian Hofmann
@@ -1286,13 +1304,13 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		final StringBuilder cypherTemp = new StringBuilder();
 		createTheExistsPropertyForExistsMatch(cypherTemp);
 		String cypherPropertyExists = cypherTemp.toString();
-		
+
 		if (!cypherPropertyExists.isEmpty()) {
 			cypher.append(ConstantsNeo.THREE_WHITESPACES + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
 			cypher.append(cypherPropertyExists);
 		}
-	} 	
-	
+	}
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
@@ -1319,20 +1337,20 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 	}
 	//END - Methods for just Exists-Properties
-	
+
 	//BEGIN - Methods for Where-Clause
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param originalCypher
 	 * @param newCypherPart
-	 * This method appends a new Cypher-Part. 
+	 * This method appends a new Cypher-Part.
 	 */
 	private final void checkAndAppendCypherPart(final StringBuilder originalCypher, final StringBuilder newCypherPart) {
 		if (newCypherPart.length() != 0) {
 			originalCypher.append(newCypherPart.toString());
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypherWhere
@@ -1342,12 +1360,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (cypherWhere.length() != 0) {
 			String where = String.format(ConstantsNeo.CLAUSE_WHERE_INLUCE_W, ConstantsNeo.THREE_WHITESPACES);
 			where += ConstantsNeo.ONE_WHITESPACE + cypherWhere.toString();
-			
+
 			cypherWhere.setLength(0);
 			cypherWhere.append(where);
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
@@ -1376,11 +1394,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * @author Lukas Sebastian Hofmann
 	 * @param query
 	 * @throws InvalidityException
-	 * This method 
+	 * This method
 	 */
 	private final void appendCypherWhere(final StringBuilder query) throws InvalidityException {
 		String tempCypher = graph.generateCypherWhere();
-		
+
 		tempCypher = tempCypher.replaceAll("\n", "\n" + ConstantsNeo.THREE_WHITESPACES); //That it has a deeper level as the previews OPERATORS. --> adds three whitespaces
 		if (tempCypher != null && !tempCypher.isEmpty()) {
 			if (query.length() != 0) {
@@ -1389,10 +1407,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			}
 			query.append(tempCypher);
 		}
-		
+
 		final StringBuilder cypher = new StringBuilder();
 		if (!isAPreviewsConditionNot(null)) {
-			appendExistsProperties(cypher);				
+			appendExistsProperties(cypher);
 		} else {
 			//Since Cypher interprets the where-clause first outside-in the inside-out
 			final Set<NeoPropertyNode> uniqueNeoPropertyNodes = new TreeSet<NeoPropertyNode>((NeoPropertyNode node1, NeoPropertyNode node2) -> (node1.getInternalId() - node2.getInternalId()));
@@ -1402,24 +1420,24 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			}
 		}
 		if(!cypher.isEmpty()) {
-			query.insert(0, query.isEmpty() ? cypher.toString() : cypher.toString() + "\n" + ConstantsNeo.SIX_WHITESPACES + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE); 			
+			query.insert(0, query.isEmpty() ? cypher.toString() : cypher.toString() + "\n" + ConstantsNeo.SIX_WHITESPACES + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
 		}
 	}
-	
+
 	/**
-	 * @author Lukas Sebastian Hofmann 
+	 * @author Lukas Sebastian Hofmann
 	 * @param originalNeoPropertyEdge
 	 * @return boolean.class
 	 * This method checks if an implicit exists check is already happening.
 	 * An implicit exists happens if an operator is specified or more then one edge goes into a NeoPropertyNode.
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 */
 	private final boolean isImplicitlyExitsChecked(final NeoPropertyEdge originalNeoPropertyEdge) throws InvalidityException {
 		return originalNeoPropertyEdge.getTarget().getIncoming().size() != 1 || originalNeoPropertyEdge.getTarget().getAllOperators().size() != 0;
 	}
 	//END - Methods for Where-Clause
-	
-	
+
+
 	//BEGIN - Methods to handle EXISTS() function
 	/**
 	 * @author Lukas Sebastian Hofmann
@@ -1436,7 +1454,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		property = edge.generateCypherPropertyAddressing();
 		cypher.append(property);
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
@@ -1460,12 +1478,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 		if (localCypher.length() != 0 && cypher.length() != 0) {
 			cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
-		} 
+		}
 		cypher.append(localCypher.toString());
 	}
 	//END - Methods to handle EXISTS() function
-	
-	
+
+
 	//BEGIN - Checking Prestructure for various conditions
 	/**
 	 * @author Lukas Sebastian Hofmann
@@ -1477,7 +1495,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		return ((Formula) condition).getOperator() == LogicalOperator.IMPLIES || ((Formula) condition).getOperator() == LogicalOperator.EQUAL
 				|| ((Formula) condition).getOperator() == LogicalOperator.XOR;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param optionalStartCondition
@@ -1492,7 +1510,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		} else {
 			if (getFormula1() != null) {
 				condition = getFormula1();
-			} 
+			}
 			if (getFormula2() != null) {
 				condition = getFormula2();
 				isAPreviewsConditionNot = isAPreviewsConditionNot(getFormula2());
@@ -1504,14 +1522,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				condition = null;
 			}
 		}
-		
+
 		if (condition != null && !isAPreviewsConditionNot) {
 			while (condition != null && !isAPreviewsConditionNot) {
 				if (condition instanceof NotCondition) {
 					isAPreviewsConditionNot = true;
 					condition = null;
 				} else if (condition instanceof Formula) {
-					//FROMULA can also build a NOT with the Implices or 
+					//FROMULA can also build a NOT with the Implices or
 					if (condition.getFormula1() != null) {
 						condition = condition.getFormula1();
 						if (checkForNotInFormula(condition)) {
@@ -1538,7 +1556,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 						isAPreviewsConditionNot = true;
 						condition = null;
 					} else {
-						condition = condition.getQuantifiedCondition();						
+						condition = condition.getQuantifiedCondition();
 					}
 				} else if (condition.getNotCondition() != null) {
 					condition = null;

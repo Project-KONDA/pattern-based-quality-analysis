@@ -4,12 +4,16 @@ package qualitypatternmodel.textrepresentation.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import qualitypatternmodel.textrepresentation.*;
+import qualitypatternmodel.textrepresentation.Fragment;
+import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.textrepresentation.ParameterPredefinition;
+import qualitypatternmodel.textrepresentation.ParameterReference;
+import qualitypatternmodel.textrepresentation.PatternText;
+import qualitypatternmodel.textrepresentation.TextFragment;
+import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.textrepresentation.ValueMap;
 
 /**
  * <!-- begin-user-doc -->

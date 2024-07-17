@@ -2,8 +2,9 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.VALUE;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.BOOLEAN;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.VALUE;
+
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -38,37 +39,40 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 	public XmlPropertyNavigationImpl() {
 		super();
 	}
-	
+
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
-		if (getXmlPathParam() == null) 
+		if (getXmlPathParam() == null)
+		 {
 			throw new InvalidityException("XmlPropertyNavigation [" + getInternalId() + "] has no pathParam");
 		// TODO
 		// if (getIncomingMapping() == null && option == null)
 		//	throw new InvalidityException("axis missing");
 		//if (getIncomingMapping() != null && option != null)
 		//	throw new InvalidityException("axis redundant");
-	}	
+		}
+	}
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		if (!getXmlPathParam().getXmlAxisParts().isEmpty()) 
+		if (!getXmlPathParam().getXmlAxisParts().isEmpty()) {
 			return super.generateXQuery();
-		
+		}
+
 		XmlProperty target = (XmlProperty) getTarget();
-		
+
 		String path = getXmlPathParam().generateXQuery();
-		
+
 		XmlElement source = (XmlElement) getSource();
 		String variable = source.getVariables().get(0) + path;
-		target.getVariables().add(variable);		
+		target.getVariables().add(variable);
 		String result = "." + path;
 		target.setTranslated(true);
-		
+
 		result += target.translatePredicates();
 		result += target.translateMultipleIncoming();
-		
+
 		return "[" + result + "]";
 	}
 
@@ -82,24 +86,26 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 			String query = generateXQuery2() + "(true())\n";
 			query = query.indent(2);
 			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(query), BOOLEAN, false, false, true);
-		}	
-			
+		}
+
 		String variable = generateNextXQueryVariable();
-		
-		if (!getTarget().containsJavaOperator())
+
+		if (!getTarget().containsJavaOperator()) {
 			new InvalidityException("This query should not get translated here: " + variable);
-		
+		}
+
 		// Basic Translation via xmlPathParam
 		String path = "";
-		if (xmlPathParam == null)
+		if (xmlPathParam == null) {
 			throw new InvalidityException("option null");
-			
+		}
+
 		String sourcevariable = ((XmlNode) source).getVariables().size()>0? ((XmlNode) source).getVariables().get(0) : "X";
 //		String sourcevariable = getSourceVariable();
 		if (!(getSource() instanceof XmlRoot) && sourcevariable == "") {
 			throw new InvalidityException("SourceVariable in Relation [" + getInternalId() + "] from Element [" + getSource().getInternalId() + "] is empty");
 		}
-			
+
 		path = sourcevariable + xmlPathParam.generateXQuery();
 
 		// Predicate
@@ -111,22 +117,22 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		} else {
 			throw new InvalidityException("target of relation not XmlNode");
 		}
-		
+
 		String query1 = ConstantsXml.FOR + variable + ConstantsXml.IN + path + predicates;
 		String query2 = ConstantsXml.RETURN + variable;
 		String query = query1 + query2;
 		query = query.indent(2);
 		query = JavaQueryTranslationUtility.getXQueryReturnList(List.of(query), VALUE, false, false, true);
 //		query = "\n  " + VALUESTART +",\n  (" + query + "  ),\n  "+ VALUEEND; // + "\n  ";
-		return query; 
+		return query;
 	}
-	
-	
+
+
 	@Override
 	public XmlPropertyNavigation adaptAsXmlPropertyNavigation() {
 		return this;
 	}
-	
+
 	@Override
 	public XmlElementNavigation adaptAsXmlElementNavigation() throws InvalidityException {
 		if(target.isTypeModifiable()) {
@@ -136,7 +142,7 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 			throw new InvalidityException("XmlPropertyNavigation with a non-modifiable target cannot be adapted as an XmlNavigation.");
 		}
 	}
-	
+
 	@Override
 	public XmlReference adaptAsXmlReference() throws InvalidityException {
 		if(target.isTypeModifiable()) {
@@ -155,16 +161,17 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 			}
 		}
 		return name;
-	}	
-	
+	}
+
 	@Override
 	public void setTarget(Node newTarget) {
-		if (newTarget != null)
+		if (newTarget != null) {
 			try {
 				newTarget.checkPrimitive();
 			} catch (InvalidityException e) {
 				throw new ClassCastException();
 			}
+		}
 //			assertDoesNotThrow(() -> {newTarget.checkPrimitive();});
 		int a = 1;
 		a += 1;

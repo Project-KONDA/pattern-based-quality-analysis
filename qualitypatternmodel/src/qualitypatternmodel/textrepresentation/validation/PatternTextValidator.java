@@ -7,7 +7,6 @@ package qualitypatternmodel.textrepresentation.validation;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
-
 import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 

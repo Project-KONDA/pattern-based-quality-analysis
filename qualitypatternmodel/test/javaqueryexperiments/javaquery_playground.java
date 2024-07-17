@@ -8,14 +8,14 @@ import javaqueryexperiments.testclasses.JavaQueryInterimContainer;
 
 public class javaquery_playground {
 
-	static String QUERY = 
+	static String QUERY =
 			"for $var in /*[name() = \"demo:data\"]/*\r\n"
-			+ "let $source := $var/*[name() = \"demo:source\"]/data()\r\n" 
-			+ "return (" 
+			+ "let $source := $var/*[name() = \"demo:source\"]/data()\r\n"
+			+ "return ("
 			+ "\"<result>\", "
 			+ "\"<record>\","
 			+ " $var,"
-			+ " \"</record>\"" 
+			+ " \"</record>\""
 			+ ", \"<arg1>\","
 			+ " $source,"
 			+ " \"</arg1>\","

@@ -26,10 +26,11 @@ public class XPathParameterTests {
 		ServletContext context = mock(ServletContext.class);
         doAnswer(invocation -> {
             String argument = invocation.getArgument(0);
-            if (argument.startsWith("/"))
-            	return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp" + argument;
-            else 
-            	return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp/" + argument;
+            if (argument.startsWith("/")) {
+				return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp" + argument;
+			} else {
+				return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp/" + argument;
+			}
         }).when(context).getRealPath(anyString());
 		InitialisationServlet.initialisation(context);
 
@@ -41,18 +42,18 @@ public class XPathParameterTests {
         		"/a[name()=\"abc\"]",
         		"/a [ name() = \"abc\"]",
         		"/a");
-        
+
         List<String> xPathAttributes = List.of(
         		"/text()",
         		"/data()",
         		"/name()",
         		"/@val",
         		"/@a315");
-		
+
     	for (String att: xPathAttributes) {
     		testAtt(att);
     	}
-    	
+
         for (String part: xPaths) {
         	test(part);
         	String path = "/x" + part + "/x";
@@ -63,56 +64,58 @@ public class XPathParameterTests {
         	}
         }
 	}
-	
+
 	private static void test(String arg) throws JSONException, InvalidServletCallException, FailedServletCallException, IOException {
 		JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut("/xml/Match_xml/default", new HashMap<String, String[]>()));
 		String id = (String) json.get("patternID");
-		
+
 		try {
 			HashMap<String, String[]> param = new HashMap<String, String[]>();
 			String[] val = {arg};
 			param.put("xmlpath_rootToReturn", val);
-			if (ConstraintServlet.applyPost("/xml/" + id, param).toString().startsWith("{\"success\":[],"))
+			if (ConstraintServlet.applyPost("/xml/" + id, param).toString().startsWith("{\"success\":[],")) {
 				System.out.println(arg);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		ConstraintServlet.applyDelete("/xml/" + id, new HashMap<String, String[]>());
 	}
-	
-	
+
+
 	private static void testAtt(String arg) throws JSONException, InvalidServletCallException, FailedServletCallException, IOException {
 		JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut("/xml/Match_xml/default", null));
 		String id = "/xml/" + (String) json.get("patternID");
-		
+
 		try {
 			HashMap<String, String[]> param = new HashMap<String, String[]>();
 			String[] val = {arg};
 			param.put("xmlpath_returnToCondition", val);
-			String output = ConstraintServlet.applyPost(id, param).toString(); 
-			if (output.startsWith("{\"success\":[],"))
+			String output = ConstraintServlet.applyPost(id, param).toString();
+			if (output.startsWith("{\"success\":[],")) {
 				System.out.println("failed: " + arg);
+			}
 			checkParameterValue(id, "xmlpath_returnToCondition", arg);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		ConstraintServlet.applyDelete(id, new HashMap<String, String[]>());
 	}
-	
+
 	private static void checkParameterValue(String id, String parameter_id, String expected) throws InvalidServletCallException, FailedServletCallException, JSONException {
 		String get = ConstraintServlet.applyGet(id, null).toString();
 		String value = getParameterValue(get, parameter_id);
 		expected = replaceExpected(expected);
-		if (value == null)
+		if (value == null) {
 			System.out.println("value null on :" + expected);
-		else if (!value.equals(expected)) {
+		} else if (!value.equals(expected)) {
 			System.out.println("result value: '" + value + "'");
 			System.out.println("   unequal to '" + expected + "'");
 		}
-			
+
 	}
-	
+
 
     private static String getParameterValue(String jsonString, String parameter_id) throws JSONException {
         JSONObject jsonObject = new JSONObject(jsonString);
@@ -133,7 +136,7 @@ public class XPathParameterTests {
         }
         return null;
     }
-    
+
     private static String replaceExpected(String expected) {
     	expected = expected.replaceAll(" ", "");
     	expected = expected.replaceAll("/x", "/child::*[name()=\"x\"]");

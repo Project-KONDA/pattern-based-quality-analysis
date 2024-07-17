@@ -3,8 +3,10 @@
 package qualitypatternmodel.operators;
 
 import java.util.Map;
+
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -40,6 +42,7 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 	 * @model opposite="operators" required="true" transient="false"
 	 * @generated
 	 */
+	@Override
 	OperatorList getOperatorList();
 
 	/**
@@ -55,12 +58,13 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns true if <code>this</code> is valid.
-	 * 
+	 *
 	 * @return true if <code>this</code> is valid
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
+	@Override
 	boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 	/**
@@ -68,7 +72,7 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 	 * In case <code>this</code> is included in nesting(s) of <code>Operators</code>
 	 * returns a list of <code>BooleanOperators</code> that are the roots of
 	 * these nestings, else returns a list containing only <code>this</code>
-	 * 
+	 *
 	 * @return
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
@@ -80,7 +84,7 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 	 * <!-- begin-user-doc -->
 	 * Recursively checks if <code>this</code> or descendants of <code>this</code> in the hierarchy of nested <code>Operators</code>
 	 * are contained in <code>visitedOperators</code>.
-	 * 
+	 *
 	 * @throws OperatorCycleException if <code>this</code> or descendants of <code>this</code> in the hierarchy of nested <code>Operators</code>
 	 * are contained in <code>visitedOperators</code>
 	 * <!-- end-user-doc -->
@@ -93,7 +97,7 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 	 * <!-- begin-user-doc -->
 	 * Checks if descendants of <code>this</code> in the hierarchy of nested <code>Operators</code>
 	 * directly or indirectly have themselves as arguments.
-	 * 
+	 *
 	 * @throws OperatorCycleException if descendants of <code>this</code> in the hierarchy of nested <code>Operators</code>
 	 * directly or indirectly have themselves as arguments
 	 * <!-- end-user-doc -->
@@ -105,7 +109,7 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 	/**
 	 * <!-- begin-user-doc -->
 	 * A list of arguments of <code>this</code>.
-	 * 
+	 *
 	 * @return a list of arguments of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"

@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 

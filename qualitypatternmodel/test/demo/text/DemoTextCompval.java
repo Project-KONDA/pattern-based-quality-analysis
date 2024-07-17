@@ -19,7 +19,7 @@ import qualitypatternmodel.textrepresentation.impl.TextFragmentImpl;
 import qualitypatternmodel.xmlevaluation.XmlEvalCompval;
 
 public class DemoTextCompval {
-	
+
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getCompWithText();
 	}
@@ -35,17 +35,17 @@ public class DemoTextCompval {
 		addComplexText(completePattern);
 		return completePattern;
 	}
-	
+
 //	Is there a element reached by <path1> that has a property reached by <path2> that is <comp> <value>
 	private static void addComplexText(CompletePattern completePattern) {
 		List<Parameter> params = completePattern.getParameterList().getParameters();
-		
+
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
 		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
 //		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
 		XmlPathParam p3 = ((XmlPathParam) params.get(3));
 		XmlPathParam p4 = ((XmlPathParam) params.get(4));
-		
+
 		PatternText patternText = TextrepresentationFactory.eINSTANCE.createPatternText();
 		patternText.setName(DemoPatternTexts.CARD_NAME);
 		completePattern.getText().add(patternText);
@@ -53,15 +53,15 @@ public class DemoTextCompval {
 		ParameterFragment path1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path1.getParameter().add(p3);
 		path1.setId("path1");
-		
+
 		ParameterFragment path2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path2.getParameter().add(p4);
 		path2.setId("path2");
-		
+
 		ParameterFragment comp = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		comp.getParameter().add(p1);
 		comp.setId("comp");
-		
+
 		ParameterFragment value = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		value.getParameter().add(p0);
 		value.setId("value");
@@ -75,7 +75,7 @@ public class DemoTextCompval {
 		patternText.addFragment(comp);
 		patternText.addFragment(value);
 		patternText.addFragment(new TextFragmentImpl("?"));
-		
+
 		try {
 			patternText.isValid(null);
 		} catch (InvalidityException e) {
@@ -83,5 +83,5 @@ public class DemoTextCompval {
 			e.printStackTrace();
 		}
 	}
-	
+
 }

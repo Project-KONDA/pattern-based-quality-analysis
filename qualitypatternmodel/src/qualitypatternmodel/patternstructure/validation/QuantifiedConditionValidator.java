@@ -5,7 +5,6 @@
 package qualitypatternmodel.patternstructure.validation;
 
 import qualitypatternmodel.graphstructure.Graph;
-
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Quantifier;

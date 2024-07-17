@@ -44,5 +44,5 @@ public interface LocalXmlSchemaDatabase extends XmlSchemaDatabase {
 	 */
 	void setSchemaPath(String value);
 
-	
+
 } // LocalXmlSchema

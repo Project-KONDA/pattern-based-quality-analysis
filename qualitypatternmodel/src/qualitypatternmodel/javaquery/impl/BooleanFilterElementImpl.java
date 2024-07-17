@@ -9,7 +9,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -60,12 +59,12 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 		container.getContained().add(new ValueInterimImpl());
 		setArgument(container);
 	}
-	
+
 	public BooleanFilterElementImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
 			JSONObject jsono = new JSONObject(json);
-			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument")); 
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument"));
 			setArgument(argument);
 		}
 		catch (Exception e) {
@@ -75,16 +74,18 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 
 	@Override
 	public Boolean apply(InterimResult parameter) throws InvalidityException{
-		if (!(parameter instanceof ContainerResult))
+		if (!(parameter instanceof ContainerResult)) {
 			throw new InvalidityException();
+		}
 		ContainerResult container = (ContainerResult) parameter;
-		if (container.getSubresult() == null || container.getSubresult().isEmpty())
+		if (container.getSubresult() == null || container.getSubresult().isEmpty()) {
 			return false;
-		else if (!(container.getSubresult().get(0) instanceof ValueResult))
+		} else if (!(container.getSubresult().get(0) instanceof ValueResult)) {
 			throw new InvalidityException();
+		}
 		String value = ((ValueResult) container.getSubresult().get(0)).getValue();
 		return value.contains("true");
-	};
+	}
 
 	@Override
 	public EList<InterimResultPart> getArguments() {
@@ -92,7 +93,7 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 		result.add(getArgument());
 		return result;
 	}
-	
+
 	@Override
 	public JSONObject toJson() {
 		JSONObject result = new JSONObject();
@@ -103,16 +104,16 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 		}
 		return result;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "(bool " + getJavaFilterPartId() + "<" + getArgument().getInterimPartId() + ">)";
 	}
 
-	
-	
-	
-	
+
+
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

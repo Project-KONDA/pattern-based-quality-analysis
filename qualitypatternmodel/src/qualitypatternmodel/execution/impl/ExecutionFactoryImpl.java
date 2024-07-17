@@ -4,6 +4,7 @@ package qualitypatternmodel.execution.impl;
 
 import java.io.IOException;
 import java.util.Map;
+
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
@@ -11,12 +12,19 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import qualitypatternmodel.execution.*;
+import qualitypatternmodel.execution.BaseXClient;
+import qualitypatternmodel.execution.Databases;
+import qualitypatternmodel.execution.ExecutionFactory;
+import qualitypatternmodel.execution.ExecutionPackage;
+import qualitypatternmodel.execution.LocalXmlDataDatabase;
+import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
+import qualitypatternmodel.execution.ServerXmlDataDatabase;
+import qualitypatternmodel.execution.ServerXmlSchemaDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.execution.XmlResult;
+import qualitypatternmodel.execution.XmlSchemaDatabase;
 import qualitypatternmodel.execution.impl.BaseXClientImpl.Query;
 
 /**

@@ -3,15 +3,14 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -65,55 +64,56 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 		super();
 		createParameters();
 	}
-	
+
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
-		return new NumberValueFilterElementImpl(getNumberParam().getValue()); 
+		return new NumberValueFilterElementImpl(getNumberParam().getValue());
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		return getNumberParam().generateXQuery();
 	}
-	
+
 	@Override
 	public String generateXQueryJava() throws InvalidityException {
 		return generateXQuery();
 	}
-	
+
 	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		return generateXQuery();
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		return getNumberParam().generateSparql();
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
-	 * Generates the NumberElement for the Conditions. 
+	 * Generates the NumberElement for the Conditions.
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
 		return getNumberParam().generateCypher();
 	}
-	
+
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
-		getNumberParam().isValid(abstractionLevel);		
+		getNumberParam().isValid(abstractionLevel);
 	}
 
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if(getNumberParam() == null) {
 			throw new InvalidityException("number param missing" + " (" + getInternalId() + ")");
 		}
 	}
-	
+
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
@@ -121,11 +121,11 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 		setNumberParam(null);
 		return patternElements;
 	}
-	
+
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
-		EList<Parameter> res = new BasicEList<Parameter>();		
-		res.add(getNumberParam());		
+		EList<Parameter> res = new BasicEList<Parameter>();
+		res.add(getNumberParam());
 		return res;
 	}
 
@@ -156,16 +156,16 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetCountCondition2(CountCondition newCountCondition2, NotificationChain msgs) {
-		
+
 		triggerParameterUpdates(newCountCondition2);
-		
+
 		msgs = eBasicSetContainer((InternalEObject)newCountCondition2, PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION2, msgs);
-		
+
 		createParameters();
-		
+
 		return msgs;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,7 +178,7 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 			if(getNumberParam() == null) {
 				NumberParam newNumberParam = new NumberParamImpl();
 				setNumberParam(newNumberParam);
-			} else {			
+			} else {
 				parameterList.add(getNumberParam());
 			}
 		}
@@ -240,18 +240,22 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	 */
 	public NotificationChain basicSetNumberParam(NumberParam newNumberParam, NotificationChain msgs) {
 		NumberParam oldNumberParam = numberParam;
-			
+
 		ParameterList varlist = getParameterList();
 		if(varlist != null) {
-			varlist.remove(oldNumberParam);			
+			varlist.remove(oldNumberParam);
 			varlist.add(newNumberParam);
 		}
-		
-		numberParam = newNumberParam;		
-		
+
+		numberParam = newNumberParam;
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.NUMBER_ELEMENT__NUMBER_PARAM, oldNumberParam, newNumberParam);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -276,7 +280,7 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.NUMBER_ELEMENT__NUMBER_PARAM, newNumberParam, newNumberParam));
 	}
 
-	
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -396,7 +400,7 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -415,10 +419,11 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	@Override
 	public String myToString() {
 //		return "NumberElement " + getInternalId() + " (" + getNumberParam().getInternalId() + ")";
-		if (getNumberParam() == null)
-			return "NumberElement ()"; 
-		else 
+		if (getNumberParam() == null) {
+			return "NumberElement ()";
+		} else {
 			return "NumberElement (" + getNumberParam().getInternalId() + ")";
+		}
 	}
 
 } //NumberElementImpl

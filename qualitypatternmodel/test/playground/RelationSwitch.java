@@ -3,8 +3,15 @@ package playground;
 import java.util.ArrayList;
 import java.util.List;
 
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 //import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
 //import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
@@ -12,79 +19,73 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersPackage;
 //import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
-import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltranslationtests.Test03Quantor;
 
 public class RelationSwitch {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		ArrayList<CompletePattern> completePatterns = new ArrayList<>();
 		completePatterns.add(getRefintAbstractRunningExample());
 		completePatterns.add(getRefintRunningExample());
-		XmlPatternUtility.getQueries(completePatterns);
+		PatternUtility.getQueries(completePatterns, Language.XML);
 //		Test00.test(completePatterns);
 	}
-	
+
 
 	public static CompletePattern getRefintAbstractRunningExample() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
 		GraphstructurePackage.eINSTANCE.eClass();
-//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;		
-				
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		TrueElement t = (TrueElement) ((QuantifiedCondition) completePattern.getCondition()).getCondition();
-		QuantifiedCondition qc1 = (QuantifiedCondition) completePattern.getCondition(); 
+		QuantifiedCondition qc1 = (QuantifiedCondition) completePattern.getCondition();
 		NotCondition n = factory.createNotCondition();
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
-				
+
 		qc1.setCondition(n);
 		n.setCondition(qc2);
 		qc2.setCondition(t);
-		
+
 		Node e1g0 = completePattern.getGraph().getNodes().get(0);
 		e1g0.addOutgoing().getTarget().addPrimitiveComparison();
-		
-//		Node e1g1 = qc1.getGraph().getNodes().get(0);	
-		
-		Node e2g1 = qc1.getGraph().getNodes().get(1);	
+
+//		Node e1g1 = qc1.getGraph().getNodes().get(0);
+
+		Node e2g1 = qc1.getGraph().getNodes().get(1);
 		e2g1.addOutgoing().getTarget().addPrimitiveComparison();
-		
+
 		Node e2g2 = qc2.getGraph().getNodes().get(1);
-		Relation referenceg2 = e2g2.addOutgoing(); 
+		Relation referenceg2 = e2g2.addOutgoing();
 		Node e3g2 = referenceg2.getTarget().makeComplex();
-		e3g2.addOutgoing().getTarget().addPrimitiveComparison();		
-		
+		e3g2.addOutgoing().getTarget().addPrimitiveComparison();
+
 		completePattern.createXmlAdaption();
 
 		((XmlPathParamImpl) completePattern.getParameterList().getParameters().get(13)).basicGetXmlNavigation().adaptAsXmlReference();
-		
-		return completePattern; 
+
+		return completePattern;
 	}
-	
+
 	public static CompletePattern getRefintRunningExample() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 //		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
+
 		CompletePattern completePattern = getRefintAbstractRunningExample();
-				
-		
+
+
 		List<Parameter> params = completePattern.getParameterList().getParameters();
-		
+
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
 //		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
 //		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
@@ -106,7 +107,7 @@ public class RelationSwitch {
 		p0.setValue("building");
 		p3.setValue("creator");
 		p6.setValue("artist");
-		
+
 		p9.getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
 		p10.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD});
 		p11.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD});
@@ -117,7 +118,7 @@ public class RelationSwitch {
 		p15.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
 		p15.getXmlPropertyOptionParam().getAttributeName().setValue("id");
 		p16.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD});
-		
-		return completePattern;		
+
+		return completePattern;
 	}
 }

@@ -48,7 +48,7 @@ public interface NumberElement extends CountConditionArgument {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * If this is directly or indirectly contained in <code>CompletePattern</code>, creates a <code>NumberParam</code> if non existent, 
+	 * If this is directly or indirectly contained in <code>CompletePattern</code>, creates a <code>NumberParam</code> if non existent,
 	 * assigns it to the attribute <code>numberParam</code> and adds <code>numberParam</code> to the <code>ParameterList</code> of the enclosing <code>CompletePattern</code>.
 	 * <!-- end-user-doc -->
 	 * @model

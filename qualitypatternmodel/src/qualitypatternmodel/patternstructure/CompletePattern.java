@@ -2,10 +2,12 @@
  */
 package qualitypatternmodel.patternstructure;
 
-import de.gwdg.metadataqa.api.schema.BaseSchema;
 import java.io.IOException;
 import java.util.Date;
+
 import org.eclipse.emf.common.util.EList;
+
+import de.gwdg.metadataqa.api.schema.BaseSchema;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -14,6 +16,7 @@ import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.textrepresentation.PatternText;
+import qualitypatternmodel.textrepresentation.ValueMap;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,6 +45,7 @@ import qualitypatternmodel.textrepresentation.PatternText;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getRelationCounter <em>Relation Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getOperatorCounter <em>Operator Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getLastSaved <em>Last Saved</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getNamespaces <em>Namespaces</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern()
@@ -62,6 +66,7 @@ public interface CompletePattern extends Pattern {
 	 * @model opposite="pattern" containment="true" required="true"
 	 * @generated
 	 */
+	@Override
 	ParameterList getParameterList();
 
 	/**
@@ -338,6 +343,28 @@ public interface CompletePattern extends Pattern {
 	void setLastSaved(Date value);
 
 	/**
+	 * Returns the value of the '<em><b>Namespaces</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Namespaces</em>' containment reference.
+	 * @see #setNamespaces(ValueMap)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_Namespaces()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ValueMap getNamespaces();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getNamespaces <em>Namespaces</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Namespaces</em>' containment reference.
+	 * @see #getNamespaces()
+	 * @generated
+	 */
+	void setNamespaces(ValueMap value);
+
+	/**
 	 * Returns the value of the '<em><b>Counter</b></em>' attribute.
 	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
@@ -420,10 +447,10 @@ public interface CompletePattern extends Pattern {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Increases the internal id counter for the <code>class</code> of the given <code>type</code> 
+	 * Increases the internal id counter for the <code>class</code> of the given <code>type</code>
 	 * (i.e. {@link #getElementCounter elementCounter}, {@link #getRelationCounter relationCounter}, {@link #getPropertyCounter propertyCounter}, {@link #getParameterCounter parameterCounter},
 	 * {@link #getOperatorCounter operatorCounter} or {@link #getCounter counter}) by one and returns it.
-	 * 
+	 *
 	 * @param type the class for which the corresponding internal id counter is increased and returned
 	 * @return the new value of the internal id counter for the <code>class</code> of the given <code>type</code>
 	 * <!-- end-user-doc -->
@@ -435,7 +462,7 @@ public interface CompletePattern extends Pattern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Records all values of <code>Parameters</code> contained in the valid concrete pattern in the <code>database</code>.
-	 * 
+	 *
 	 * @throws InvalidityException if <code>this</code> is not a valid concrete pattern
 	 * @throws OperatorCycleException if <code>this</code> contains an operator that references itself as an argument
 	 * @throws MissingPatternContainerException if <code>this</code> directly or indirectly references <code>PatternElements</code>
@@ -449,7 +476,7 @@ public interface CompletePattern extends Pattern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns the most narrow <code>AbstractionLevel</code> of <code>this</code>.
-	 * 
+	 *
 	 * @return the most narrow <code>AbstractionLevel</code> of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
@@ -521,5 +548,21 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void updateLastSaved();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String generateXQueryNamespaces() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void printParameters();
 
 } // Pattern

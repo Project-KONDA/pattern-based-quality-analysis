@@ -10,8 +10,8 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
@@ -19,13 +19,10 @@ import qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.impl.ExecutionPackageImpl;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
-
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
@@ -46,11 +43,8 @@ import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.operators.util.OperatorsValidator;
 import qualitypatternmodel.parameters.ParametersPackage;
-
 import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
-
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-
 import qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl;

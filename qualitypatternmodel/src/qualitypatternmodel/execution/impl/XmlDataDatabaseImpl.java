@@ -19,7 +19,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -29,6 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -90,7 +90,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	/**
 	 * The cached value of the '{@link #getRecordedAttributeValues() <em>Recorded Attribute Values</em>}' map.
 	 * <!-- begin-user-doc -->
-	 * A map of all XML attribute values that have been entered into patterns as parameter values and the number of times the attribute value has been used. 
+	 * A map of all XML attribute values that have been entered into patterns as parameter values and the number of times the attribute value has been used.
 	 * <!-- end-user-doc -->
 	 * @see #getRecordedAttributeValues()
 	 * @generated
@@ -155,7 +155,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		super();
 		DatabasesImpl.getInstance().getXmlDatabases().add(this);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -253,14 +253,14 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	public NotificationChain basicSetXmlSchema(XmlSchemaDatabase newXmlSchema, NotificationChain msgs) {
 		XmlSchemaDatabase oldXmlSchema = xmlSchema;
 		xmlSchema = newXmlSchema;
-		
+
 		if(oldXmlSchema != null) {
 			getElementNames().clear();
 			getAttributeNames().clear();
-//			removeUnusedElementNames();			
-//			removeUnusedAttributeNames();			
+//			removeUnusedElementNames();
+//			removeUnusedAttributeNames();
 		}
-		
+
 		if(newXmlSchema != null) {
 			try {
 				xmlSchema.init();
@@ -268,24 +268,28 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			setNamespace(xmlSchema.getNamespace());
-			
+
 			addElementNames(newXmlSchema.getElementNames());
 			addAttributeNames(newXmlSchema.getAttributeNames());
 		}
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATA_DATABASE__XML_SCHEMA, oldXmlSchema, newXmlSchema);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
 
 	@SuppressWarnings("unused")
 	private void removeUnusedAttributeNames() {
-		EMap<String,Integer> attributeNamesCopy = new BasicEMap<String, Integer>();
-		attributeNamesCopy.addAll(getAttributeNames());			
+		EMap<String,Integer> attributeNamesCopy = new BasicEMap<String,Integer>();
+		attributeNamesCopy.addAll(getAttributeNames());
 		for(String key : attributeNamesCopy.keySet()) {
 			if(attributeNamesCopy.get(key) == 0) {
 				getAttributeNames().removeKey(key);
@@ -295,8 +299,8 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 
 	@SuppressWarnings("unused")
 	private void removeUnusedElementNames() {
-		EMap<String,Integer> elementNamesCopy = new BasicEMap<String, Integer>();
-		elementNamesCopy.addAll(getElementNames());			
+		EMap<String,Integer> elementNamesCopy = new BasicEMap<String,Integer>();
+		elementNamesCopy.addAll(getElementNames());
 		for(String key : elementNamesCopy.keySet()) {
 			if(elementNamesCopy.get(key) == 0) {
 				getElementNames().removeKey(key);
@@ -353,8 +357,8 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws QueryException 
-	 * @throws IOException 
+	 * @throws QueryException
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
@@ -362,27 +366,27 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 //		if(getXmlSchema() != null) {
 //			getXmlSchema().analyse();
 //		} else {
-			open();				
+			open();
 			executeAnalysis("distinct-values(//*/name())", getElementNames());
 			executeAnalysis("distinct-values(//*/@*/name()))", getAttributeNames());
 			close();
-//		}		
+//		}
 	}
-	
+
 	private void executeAnalysis(String query, EMap<String,Integer> valueStorage) throws QueryException, IOException {
 		List<String> result = execute(query);
-		for(int i = 0; i < result.size(); i++) {
-			valueStorage.put(getNamespace() + result.get(i),0);
+		for (String element : result) {
+			valueStorage.put(getNamespace() + element,0);
 		}
-	}	
-	
+	}
+
 	@Override
 	public void delete() {
 		setXmlSchema(null);
 		getPatterns().clear();
 		DatabasesImpl.getInstance().getXmlDatabases().remove(this);
 	}
-	
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -401,14 +405,14 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			map.put(value, 1);
 		}
 	}
-	
+
 	private void increaseCount(String value, EMap<String,Integer> map) {
 		if(map.containsKey(value)) {
 			map.put(value, map.get(value)+1);
 		}
 		// TODO: else throw exception?
 	}
-	
+
 	private void decreaseCountOrRemove(String value, EMap<String,Integer> map) {
 		if(map.containsKey(value)) {
 			if(map.get(value) > 1) {
@@ -416,15 +420,15 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			} else {
 				map.removeKey(value);
 			}
-		} 
+		}
 	}
-	
+
 	private void decreaseCount(String value, EMap<String,Integer> map) {
 		if(map.containsKey(value)) {
 			if(map.get(value) > 0) {
 				map.put(value, map.get(value)-1);
 			}
-		} 
+		}
 	}
 
 	/**
@@ -496,7 +500,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	public void removeAttributeName(String name) {
 		decreaseCount(name, getAttributeNames());
 	}
-		
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -505,8 +509,8 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	 */
 	@Override
 	public void addAttributeNames(EList<String> attributeNames) {
-		for(int i = 0; i < attributeNames.size(); i++) {
-			getAttributeNames().put(attributeNames.get(i),0);
+		for (String attributeName : attributeNames) {
+			getAttributeNames().put(attributeName,0);
 		}
 	}
 
@@ -516,27 +520,27 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	 * @generated NOT
 	 */
 	@Override
-	public void addElementNames(EList<String> elementNames) {		
-		for(int i = 0; i < elementNames.size(); i++) {
-			getElementNames().put(elementNames.get(i),0);
-		}		
+	public void addElementNames(EList<String> elementNames) {
+		for (String elementName : elementNames) {
+			getElementNames().put(elementName,0);
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * @throws QueryException 
-	 * @throws IOException 
+	 * @throws InvalidityException
+	 * @throws QueryException
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
 	public LocalXmlSchemaDatabase createSchemaDatabaseFromReferencedSchema() throws IOException, QueryException, InvalidityException {
-		String url = findXSDURL();		
-		
+		String url = findXSDURL();
+
 		HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
 		connection.setRequestMethod("GET");
-		
+
 		int responseCode = connection.getResponseCode();
 		if(responseCode < 200 || responseCode >= 300) {
 			throw new InvalidityException("Fetching XSD failed");
@@ -547,27 +551,27 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 
 		String path = this.getClass().getClassLoader().getResource("").getPath();
 	    String fullPath = URLDecoder.decode(path, "UTF-8");
-	    String pathArr[] = fullPath.split("/WEB-INF/classes/");	    
+	    String pathArr[] = fullPath.split("/WEB-INF/classes/");
 	    fullPath = pathArr[0];
-		
+
 	    String schemaPath = fullPath + "/schemata/" + fileName + ".xml";
 	    System.out.println(schemaPath);
-		
+
 		java.io.FileWriter fw = new java.io.FileWriter(schemaPath);
 	    fw.write(result);
 	    fw.close();
-		
-		LocalXmlSchemaDatabase db = new LocalXmlSchemaDatabaseImpl(fileName, schemaPath);		
+
+		LocalXmlSchemaDatabase db = new LocalXmlSchemaDatabaseImpl(fileName, schemaPath);
 		setXmlSchema(db);
 		return db;
-		
+
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws QueryException 
-	 * @throws InvalidityException 
+	 * @throws QueryException
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -596,10 +600,10 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
-	 * @throws QueryException 
-	 * @throws QueryIOException 
-	 * @throws BaseXException 
+	 * @throws IOException
+	 * @throws QueryException
+	 * @throws QueryIOException
+	 * @throws BaseXException
 	 * @generated NOT
 	 */
 	@Override
@@ -610,7 +614,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		case CHILD:
 			return getXmlSchema().getChildrenInSchema(previousTag);
 		case DESCENDANT:
-			return getXmlSchema().getDescendantsInSchema(previousTag);			
+			return getXmlSchema().getDescendantsInSchema(previousTag);
 		case PARENT:
 			return getXmlSchema().getParentsInSchema(previousTag);
 		case ANCESTOR:
@@ -636,16 +640,16 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			return suggestions;
 		default:
 			return suggestions;
-		}							
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
-	 * @throws QueryException 
-	 * @throws QueryIOException 
-	 * @throws BaseXException 
+	 * @throws IOException
+	 * @throws QueryException
+	 * @throws QueryIOException
+	 * @throws BaseXException
 	 * @generated NOT
 	 */
 	@Override
@@ -656,7 +660,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		case CHILD:
 			return getXmlSchema().getParentsInSchema(nextTag);
 		case DESCENDANT:
-			return getXmlSchema().getAncestorsInSchema(nextTag);			
+			return getXmlSchema().getAncestorsInSchema(nextTag);
 		case PARENT:
 			return getXmlSchema().getChildrenInSchema(nextTag);
 		case ANCESTOR:
@@ -664,7 +668,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		case FOLLOWING_SIBLING:
 			return getXmlSchema().getPrecedingSiblingsInSchema(nextTag);
 		case FOLLOWING:
-			// TODO	
+			// TODO
 			return suggestions;
 		case PRECEDING:
 			// TODO
@@ -684,22 +688,22 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			return suggestions;
 		default:
 			return suggestions;
-		}					
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
-	 * @throws QueryException 
-	 * @throws QueryIOException 
-	 * @throws BaseXException 
+	 * @throws IOException
+	 * @throws QueryException
+	 * @throws QueryIOException
+	 * @throws BaseXException
 	 * @generated NOT
 	 */
 	@Override
 	public EList<String> getSuggestionsFromAxisPreviousRoot(XmlAxisKind xmlAxisKind) throws BaseXException, QueryIOException, QueryException, IOException {
 		EList<String> suggestions = new BasicEList<String>();
-		
+
 		for(String rootElementName : getXmlSchema().getRootElementNames()) {
 			switch (xmlAxisKind) {
 			case CHILD:
@@ -730,7 +734,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			suggestions.add(XmlAxisKind.DESCENDANT);
 			suggestions.add(XmlAxisKind.DESCENDANT_OR_SELF);
 		}
-		
+
 		if(getXmlSchema().checkParentInSchema(sourceTag, targetTag)) {
 			suggestions.add(XmlAxisKind.PARENT);
 			suggestions.add(XmlAxisKind.ANCESTOR);
@@ -739,14 +743,14 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			suggestions.add(XmlAxisKind.ANCESTOR);
 			suggestions.add(XmlAxisKind.ANCESTOR_OR_SELF);
 		}
-		
+
 		if(getXmlSchema().checkFollowingSiblingInSchema(sourceTag, targetTag)) {
 			suggestions.add(XmlAxisKind.FOLLOWING_SIBLING);
 			suggestions.add(XmlAxisKind.FOLLOWING);
 		} else if(getXmlSchema().checkFollowingInSchema(sourceTag, targetTag)) {
 			suggestions.add(XmlAxisKind.FOLLOWING);
 		}
-		
+
 		// TODO:
 //			if(xmlDatabase.getXmlSchema().checkPrecedingSiblingInSchema(sourceTag, targetTag)) {
 //				suggestions.add(RelationKind.PRECEDING_SIBLING);
@@ -754,13 +758,13 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 //			} else if(xmlDatabase.getXmlSchema().checkPrecedingInSchema(sourceTag, targetTag)) {
 //				suggestions.add(RelationKind.PRECEDING);
 //			}
-		
+
 		if(sourceTag.equals(targetTag)) {
 			suggestions.add(XmlAxisKind.SELF);
 			suggestions.add(XmlAxisKind.DESCENDANT_OR_SELF);
 			suggestions.add(XmlAxisKind.ANCESTOR_OR_SELF);
 		}
-		
+
 		return suggestions;
 	}
 
@@ -1089,11 +1093,11 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 
 	@Override
 	public Result execute(CompletePattern pattern, String name, String person) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, QueryException, IOException {
-		
-		pattern.isValid(AbstractionLevel.CONCRETE);	
-		
+
+		pattern.isValid(AbstractionLevel.CONCRETE);
+
 //		open();
-		
+
 		String query;
 		if(pattern.getXmlQuery() == null) {
 			query = pattern.generateXQuery();
@@ -1101,11 +1105,11 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			query = pattern.getXmlQuery();
 		}
 //		XQuery xquery = new XQuery(query);
-		
+
 		Date startDate = new Date();
-		
+
 		List<String> queryResult = execute(query);
-		
+
 ////		String queryResult = xquery.execute(context);
 //		List<String> queryResult = new ArrayList<String>();
 //		// Create a query processor
@@ -1116,12 +1120,12 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 //	    	  queryResult.add(item.serialize().toString());
 //	        }
 //	    }
-		
+
 		Date endDate = new Date();
 		long runtime = endDate.getTime() - startDate.getTime();
-		
+
 		int matchNo = countMatches(pattern);
-		
+
 		Result result = new XmlResultImpl();
 		result.setDatabase(this);
 		result.setName(name);
@@ -1134,26 +1138,26 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		result.setMatchNumber(matchNo);
 		result.getSplitResult().addAll(queryResult);
 		result.setProblemNumber(queryResult.size());
-		
+
 		results.add(result);
-				
-		return result;		
+
+		return result;
 	}
-	
+
 	@Override
 	public int countMatches(CompletePattern pattern) throws QueryException, InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
-		pattern.isValid(AbstractionLevel.CONCRETE);	
-		
+		pattern.isValid(AbstractionLevel.CONCRETE);
+
 //		open();
-		
+
 		String query;
 		if(pattern.getPartialXmlQuery() == null) {
 			pattern.generateXQuery();
 		}
 		query = pattern.getPartialXmlQuery();
-		
+
 		List<String> queryResult = execute(query);
-		
+
 //		List<String> queryResult = new ArrayList<String>();
 //	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
 //	      Iter iter = proc.iter();
@@ -1161,9 +1165,9 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 //	    	  queryResult.add(item.serialize().toString());
 //	        }
 //	    }
-	    
+
 	    return queryResult.size();
 	}
-	
+
 
 } //XmlDatabaseImpl

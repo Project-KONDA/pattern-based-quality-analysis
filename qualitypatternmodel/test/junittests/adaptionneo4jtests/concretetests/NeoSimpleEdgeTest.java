@@ -31,10 +31,9 @@ import qualitypatternmodel.adaptionneo4j.NeoDirection;
 import qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
-import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
-import qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl;
+import qualitypatternmodel.adaptionneo4j.impl.NeoPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -58,16 +57,16 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	private static final String VAR_ELEMENT_EDGE_1 = "-[varEEdge-1]-";
 	private static final String VAR_ELEMENT_EDGE_RIGHT = VAR_ELEMENT_EDGE__RIGHT;
 	private static final String VAR_ELEMENT_EDGE1 = "varEEdge1";
-	private static final String VAR_PROPERTY_EDGE1 = "varPEdge1";	
+	private static final String VAR_PROPERTY_EDGE1 = "varPEdge1";
 	private static Method generateInternalCypherMethod = null;
 	private static Field isLastEdgeField = null;
 	private static Field edgeNumberField = null;
 	NeoSimpleEdge neoSimpleEdge;
-	
+
 	@BeforeAll
     static void initAll() throws NoSuchMethodException, SecurityException, NoSuchFieldException {
 		Class<NeoSimpleEdgeImpl> neoSimpleEdgeClass = NeoSimpleEdgeImpl.class;
-		
+
 		Class<?>[] paramsStringBuilderBoolean = {StringBuilder.class, Boolean.class};
 		generateInternalCypherMethod = neoSimpleEdgeClass.getDeclaredMethod("generateInternalCypher", paramsStringBuilderBoolean);
 		generateInternalCypherMethod.setAccessible(true);
@@ -76,19 +75,20 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 		edgeNumberField = neoSimpleEdgeClass.getDeclaredField("edgeNumber");
 		edgeNumberField.setAccessible(true);
     }
-	
+
 	@BeforeEach
 	public void setUp() {
 		super.setUp(FACTORY.createNeoSimpleEdge());
 		neoSimpleEdge = (NeoSimpleEdge) super.neoPathPart;
 	}
-	
+
+	@Override
 	@AfterEach
 	public void tearDown() {
 		super.tearDown();
 		neoSimpleEdge = null;
 	}
-	
+
 	@AfterAll
 	static void tearDownAll() {
 		generateInternalCypherMethod.setAccessible(false);
@@ -96,19 +96,19 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 		isLastEdgeField.setAccessible(false);
 		isLastEdgeField = null;
     }
-	
+
 	@Test
 	public void setNeoDirection() {
 		try {
 			//IMPLICIT
 			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
 			assertEquals(NeoDirection.IMPLICIT,neoSimpleEdge.getNeoDirection());
-			
+
 			//LEFT
 			neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
 			assertEquals(NeoDirection.LEFT,neoSimpleEdge.getNeoDirection());
 			neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
-			
+
 			//RIGHT
 			assertEquals(NeoDirection.RIGHT, neoSimpleEdge.getNeoDirection());
 		} catch (Exception e) {
@@ -116,12 +116,12 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
 	public void setNeoDirectionException() {
 		assertThrows(InvalidityException.class, ()-> neoSimpleEdge.setNeoDirection(null));
 	}
-	
+
 	@ParameterizedTest
 	@ValueSource(strings = {"Regesta", "Index_Place", "Index_Entry1" })
 	public void addTargetNodeLabel(String label) {
@@ -131,7 +131,7 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 		assumeTrue(labelList.size() == 1);
 		assertTrue(labelList.get(0).compareTo(label) == 0);
 	}
-	
+
 	@ParameterizedTest
 	@ValueSource(strings = {"Regesta", "Index_Place", "Index_Entry1" })
 	public void addLabel(String label) {
@@ -141,14 +141,14 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 		Mockito.when(mockTextListParam.getValues()).thenReturn(labelList);
 		assertDoesNotThrow(() -> neoSimpleEdge.addNeoTargetNodeLabel(label));
 		labelList.clear();
-		
+
 		labelList = neoSimpleEdge.getNeoTargetNodeLabels().getValues();
 		assumeNotNull(labelList);
-		
+
 		assertTrue(labelList.size() == 1);
 		assertEquals(label, labelList.get(0));
 	}
-	
+
 	@ParameterizedTest
 	@ValueSource(strings = {"Regesta,IndexPlace", "Regesta,IndexPlace", "Regesta,IndexPlace,IndexEntry"})
 	public void multiLabel(String labelsParam) {
@@ -158,13 +158,13 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 		}
 		EList<String> labelList = neoSimpleEdge.getNeoTargetNodeLabels().getValues();
 		assumeNotNull(labelList);
-		
+
 		assertTrue(labels.length == labelList.size());
 		for (int i = 0; i < labels.length; i++) {
 			assertEquals(labels[i], labelList.get(i));
 		}
 	}
-	
+
 	@ParameterizedTest
 	@ValueSource(strings = {"Regesta,Regesta","Regesta,IndexThing,Regesta,IndexThing"})
 	public void setSameLabels(String labelsParam) {
@@ -174,41 +174,41 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 		}
 		EList<String> labelList = neoSimpleEdge.getNeoTargetNodeLabels().getValues();
 		assumeNotNull(labelList);
-		
+
 		assertTrue(labels.length / 2 == labelList.size());
 		for (int i = labels.length / 2 - 1; i > -1; i--) {
-			assertEquals(labels[i], labelList.get(i));			
+			assertEquals(labels[i], labelList.get(i));
 		}
 	}
-	
+
 	@Test
 	public void setNeoTargetNodeLabels() {
 		assertDoesNotThrow(()  -> neoSimpleEdge.setNeoTargetNodeLabels((NeoNodeLabelsParam) null));
 		NeoNodeLabelsParam targetNodeLabels = FACTORY.createNeoNodeLabelsParam();
-		assertDoesNotThrow(()  -> targetNodeLabels.addStringValue("Regesta"));		
+		assertDoesNotThrow(()  -> targetNodeLabels.addStringValue("Regesta"));
 		assertDoesNotThrow(()  -> targetNodeLabels.addStringValue("IndexPlace"));
 		assertDoesNotThrow(()  -> neoSimpleEdge.setNeoTargetNodeLabels(targetNodeLabels));
 		assertEquals(targetNodeLabels, neoSimpleEdge.getNeoTargetNodeLabels());
 	}
-	
+
 	@Test
 	public void addWrongNeoTargetNodeLabels() {
 		assertThrows(InvalidityException.class, ()  -> neoSimpleEdge.addNeoTargetNodeLabel("Re gesta"));
 	}
-	
-	
+
+
 	@Test
 	public void addNeoEdgeLabel() {
 		//ADD NULL
 		assertDoesNotThrow(() -> neoSimpleEdge.addNeoEdgeLabel(null));
-		
-		//ADD LABEL 
+
+		//ADD LABEL
 		assertDoesNotThrow(() -> neoSimpleEdge.addNeoEdgeLabel("Regesta"));
-		
+
 		//Already set
 		assertThrows(InvalidityException.class, () -> neoSimpleEdge.addNeoEdgeLabel("Regesta"));
 	}
-	
+
 	@ParameterizedTest
 	@ValueSource(strings = {"Regesta", "IndexPlace", "Index_Place"})
 	public void setNeoEdgeLabel(String label) {
@@ -225,14 +225,14 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
 	public void setNeoEdgeLabelNullObject() {
 		try {
 			assertDoesNotThrow(() -> neoSimpleEdge.setNeoEdgeLabel(null));
 			assertNull(neoSimpleEdge.getNeoEdgeLabel());
 			NeoEdgeLabelParam edgeNodeLabel = FACTORY.createNeoEdgeLabelParam();
-			edgeNodeLabel.setValue((String) null); 
+			edgeNodeLabel.setValue((String) null);
 			assertDoesNotThrow(() -> neoSimpleEdge.setNeoEdgeLabel(edgeNodeLabel));
 			assertEquals(null, neoSimpleEdge.getNeoEdgeLabel().getValue());
 		} catch (Exception e) {
@@ -240,7 +240,7 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	@ParameterizedTest
 	@ValueSource(strings = {"Rege sta"," "})
 	public void addWrongNeoEdgeLabel(String label) {
@@ -254,17 +254,17 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 		assumeTrue(neoSimpleEdge.getNeoPathPartEdgeLeafs().size() == 1);
 		assertEquals(neoSimpleEdge, neoSimpleEdge.getNeoPathPartEdgeLeafs().get(0));
 	}
-	
+
 	@Test
 	@Override
 	public void getCypherVariable() {
 		try {
 			String temp = null;
-			
+
 			neoSimpleEdge = createMockingForNeoPathParam(neoSimpleEdge);
 			temp = neoSimpleEdge.getCypherVariable();
 			assertEquals(VAR_ELEMENT_EDGE1, temp);
-			
+
 			neoSimpleEdge = createMockingForNeoPropertyPathParam(neoSimpleEdge);
 			temp = neoSimpleEdge.getCypherVariable();
 			assertEquals(VAR_PROPERTY_EDGE1, temp);
@@ -273,7 +273,7 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
 	public void getCypherVariableWithSubNumber() {
 		try {
@@ -285,7 +285,7 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
 	public void getCypherVariableWithSubNumberPropertyPathParam() {
 		try {
@@ -302,16 +302,16 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	@Override
 	public void getNeoLastEdge() {
 		try {
-			assertEquals(neoPathPart, neoPathPart.getNeoLastEdge());	
+			assertEquals(neoPathPart, neoPathPart.getNeoLastEdge());
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
 	public void isNotNeoLastEdge() throws InvalidityException {
-		try {			
+		try {
 			isLastEdgeField.set(neoPathPart, false);
 			assertEquals(null, neoPathPart.getNeoLastEdge());
 		} catch (Exception e) {
@@ -333,35 +333,35 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 			//LEFT
 			neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
 			assertTrue(neoSimpleEdge.generateCypher().compareTo(VAR_ELEMENT_EDGE__RIGHT) == 0);
-			
+
 			//RIGHT
 			neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
 			assertTrue(neoSimpleEdge.generateCypher().compareTo(VAR_ELEMENT_EDGE_12_LEFT) == 0);
-			
+
 			//IMPLICIT - WITH LABEL
 			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
 			neoSimpleEdge.addNeoEdgeLabel(TEST_LABEL);
 			assertTrue(neoSimpleEdge.generateCypher().compareTo(VAR_ELEMENT_EDGE_1_TEST_LABEL) == 0);
-			
+
 			//LEFT - WITH LABEL
 			neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
 			assertTrue(neoSimpleEdge.generateCypher().compareTo(VAR_ELEMENT_EDGE_1_TEST_LABEL_RIGHT) == 0);
-			
+
 			//RIGHT - WITH LABEL
 			neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
 			assertTrue(neoSimpleEdge.generateCypher().compareTo(VAR_ELEMENT_EDGE_1_TEST_LABEL_LEFT) == 0);
-			
+
 			neoSimpleEdge.setNeoEdgeLabel(null);
-			
+
 			//WITH TARGET-Label
 			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
 			neoSimpleEdge.addNeoTargetNodeLabel(TEST_LABEL);
 			assertTrue(neoSimpleEdge.generateCypher().compareTo(VAR_ELEMENT_EDGE_1_INT_EG_NODE_1_TEST_LABEL) == 0);
-			
+
 			//WITH AN EMPTY STRING_LABEL
 			neoSimpleEdge.addNeoTargetNodeLabel(new String());
 			assertTrue(neoSimpleEdge.generateCypher().compareTo(VAR_ELEMENT_EDGE_1_INT_EG_NODE_1_TEST_LABEL) == 0);
-			
+
 			//WITH TARGET-Label AND EDGE-Label
 			neoSimpleEdge.addNeoEdgeLabel(TEST_LABEL);
 			assertTrue(neoSimpleEdge.generateCypher().compareTo(VAR_ELEMENT_EDGE_1_TEST_LABEL_INT_EG_NODE_1_TEST_LABEL) == 0);
@@ -375,25 +375,25 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	public void generateInternalCypher() {
 		try {
 			String temp = null;
-			
+
 			StringBuilder localStringBuilder = new StringBuilder();
 			Object[] params = {localStringBuilder, false};
 			neoSimpleEdge.setNeoPathParam(FACTORY.createNeoElementPathParam());
-			
+
 			//IMPLICIT
 			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
 			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
 			temp = localStringBuilder.toString();
 			localStringBuilder.setLength(0);
 			assertTrue(temp.compareTo(VAR_ELEMENT_EDGE_1) == 0);
-			
+
 			//LEFT
 			neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
 			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
 			temp = localStringBuilder.toString();
 			localStringBuilder.setLength(0);
 			assertTrue(temp.compareTo(VAR_ELEMENT_EDGE_RIGHT) == 0);
-			
+
 			//IMPLICIT - WITH LABEL BUT NOT PRINTED
 			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
 			neoSimpleEdge.addNeoEdgeLabel(TEST_LABEL);
@@ -401,24 +401,24 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 			temp = localStringBuilder.toString();
 			localStringBuilder.setLength(0);
 			assertTrue(temp.compareTo(VAR_ELEMENT_EDGE_1) == 0);
-			
+
 			//LEFT - WITH LABEL
 			neoSimpleEdge.setNeoDirection(NeoDirection.RIGHT);
 			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
 			temp = localStringBuilder.toString();
 			localStringBuilder.setLength(0);
 			assertTrue(temp.compareTo(VAR_ELEMENT_EDGE_RIGHT) == 0);
-			
+
 			//RIGHT - WITH LABEL
 			neoSimpleEdge.setNeoDirection(NeoDirection.LEFT);
 			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
 			temp = localStringBuilder.toString();
 			localStringBuilder.setLength(0);
 			assertTrue(temp.compareTo(VAR_ELEMENT_EDGE_LEFT) == 0);
-			
+
 			//Reset
 			neoSimpleEdge.setNeoEdgeLabel(null);
-			
+
 			//WITH TARGET-Label
 			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
 			neoSimpleEdge.addNeoTargetNodeLabel(TEST_LABEL);
@@ -426,27 +426,27 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 			temp = localStringBuilder.toString();
 			localStringBuilder.setLength(0);
 			assertTrue(temp.compareTo(VAR_ELEMENT_EDGE_1_INT_EG_NODE_1) == 0);
-			
+
 			//WITH AN EMPTY STRING_LABEL
 			neoSimpleEdge.addNeoTargetNodeLabel(new String());
 			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
 			temp = localStringBuilder.toString();
 			localStringBuilder.setLength(0);
 			assertTrue(temp.compareTo(VAR_ELEMENT_EDGE_1_INT_EG_NODE_1) == 0);
-			
+
 			//WITH TARGET-Label AND EDGE-Label
 			neoSimpleEdge.addNeoEdgeLabel(TEST_LABEL);
 			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
 			temp = localStringBuilder.toString();
 			localStringBuilder.setLength(0);
 			assertTrue(temp.compareTo(VAR_ELEMENT_EDGE_1_INT_EG_NODE_1) == 0);
-			
+
 		} catch (Exception e) {
 			assertFalse(true);
 			e.printStackTrace();
-		}		
+		}
 	}
-	
+
 	@Override
 	@ParameterizedTest
 	@ValueSource(booleans =  {true, false})
@@ -455,45 +455,45 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 		try {
 			//No TargetNodeLabels
 			assertEquals(null, neoSimpleEdge.getCypherInnerEdgeNodes(isReturn));
-			
+
 			//is not isLastEdge
 			neoSimpleEdge.addNeoTargetNodeLabel(TEST_LABEL);
-			assertTrue(neoSimpleEdge.getCypherInnerEdgeNodes(isReturn).compareTo("varEgNode-1") == 0);						
+			assertTrue(neoSimpleEdge.getCypherInnerEdgeNodes(isReturn).compareTo("varEgNode-1") == 0);
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
 	@Override
-	public void getNeoPathParam() {	
+	public void getNeoPathParam() {
 		try {
 			//ElementParam
 			NeoPathParamImpl neoAbstractPathParamImpl = (NeoPathParamImpl) FACTORY.createNeoElementPathParam();
-			neoPathPart.setNeoPathParam((NeoElementPathParam) neoAbstractPathParamImpl);
+			neoPathPart.setNeoPathParam(neoAbstractPathParamImpl);
 			assertEquals(neoAbstractPathParamImpl, neoPathPart.getNeoPathParam());
 			neoPathPart.setNeoPathParam(null);
-			
+
 			//PropertyParam
 			neoAbstractPathParamImpl = (NeoPathParamImpl) FACTORY.createNeoPropertyPathParam();
-			neoPathPart.setNeoPathParam((NeoPropertyPathParam) neoAbstractPathParamImpl);
+			neoPathPart.setNeoPathParam(neoAbstractPathParamImpl);
 			assertEquals(neoAbstractPathParamImpl, neoPathPart.getNeoPathParam());
-			neoPathPart.setNeoPathParam(null);			
+			neoPathPart.setNeoPathParam(null);
 		} catch (Exception e) {
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
 	@Override
 	public void getNeoPathParamException() {
 		assertThrows(InvalidityException.class, () -> neoSimpleEdge.getNeoPathParam());
 	}
-	
+
 	@Test
 	public void getNeoAbstractPathParamFromNeoComplex() {
-		try {			
+		try {
 			NeoComplexEdge neoComplexEdge = FACTORY.createNeoComplexEdge();
 			NeoElementPathParam neoPathParam = FACTORY.createNeoElementPathParam();
 			neoComplexEdge.setNeoPathParam(neoPathParam);
@@ -512,10 +512,10 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 		final String prefix = "NeoSimpleEdge [";
 		assertTrue(neoSimpleEdge.myToString().startsWith(prefix));
 		assertTrue(neoSimpleEdge.myToString().endsWith("]"));
-		
+
 		//myToString with Label
 		assertDoesNotThrow(() -> neoSimpleEdge.addNeoEdgeLabel(TEST_LABEL));
-		
+
 		//Add one label which will not be added and one extra one
 		assertDoesNotThrow(() -> neoSimpleEdge.addNeoTargetNodeLabel(TEST_LABEL));
 		assertDoesNotThrow(() -> neoSimpleEdge.addNeoTargetNodeLabel(TEST_LABEL+1));
@@ -523,36 +523,36 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 		final String suffix = "] (Edge-Labels:[testLabel] Edge-Target-Node-Labels[testLabel, testLabel1])";
 		assertTrue(neoSimpleEdge.myToString().endsWith(suffix));
 	}
-	
+
 	@Test
 	@Override
 	public void toStringT() {
-		final String suffix = ", internalId: -1)" 
+		final String suffix = ", internalId: -1)"
 				+ " (neoDirection: IMPLICIT, edgeNumber: <unset>)";
 		assertTrue(neoPathPart.toString().endsWith(suffix));
 		final String prefix = "qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl@";
 		assertTrue(neoPathPart.toString().startsWith(prefix));
 	}
-	
+
 	//METHOD FACTORIES
 	private static NeoSimpleEdge createMockingForNeoPathParam(NeoSimpleEdge neoSimpleEdge) {
-		MyClassMockNeoElementPathParamImpl mockNeoElementPathParam = 
+		MyClassMockNeoElementPathParamImpl mockNeoElementPathParam =
 				Mockito.mock(MyClassMockNeoElementPathParamImpl.class);
-		Mockito.when(mockNeoElementPathParam.getRelationNumber()).thenReturn(1); 
-		Mockito.when(mockNeoElementPathParam.getEdgeNaming()).thenReturn(ConstantsNeo.VARIABLE_ELEMENT_EGDE); 
+		Mockito.when(mockNeoElementPathParam.getRelationNumber()).thenReturn(1);
+		Mockito.when(mockNeoElementPathParam.getEdgeNaming()).thenReturn(ConstantsNeo.VARIABLE_ELEMENT_EGDE);
 		neoSimpleEdge.setNeoPathParam(mockNeoElementPathParam);
 		return neoSimpleEdge;
 	}
-	
+
 	private static NeoSimpleEdge createMockingForNeoPropertyPathParam(NeoSimpleEdge neoSimpleEdge) {
-		MyClassMockNeoPropertyPathParamImpl mockNeoPropertyPathParam = 
+		MyClassMockNeoPropertyPathParamImpl mockNeoPropertyPathParam =
 				Mockito.mock(MyClassMockNeoPropertyPathParamImpl.class);
-		Mockito.when(mockNeoPropertyPathParam.getRelationNumber()).thenReturn(1); 
+		Mockito.when(mockNeoPropertyPathParam.getRelationNumber()).thenReturn(1);
 		Mockito.when(mockNeoPropertyPathParam.getEdgeNaming()).thenReturn(ConstantsNeo.VARIABLE_PROPERTY_EGDE);
 		neoSimpleEdge.setNeoPathParam(mockNeoPropertyPathParam);
 		return neoSimpleEdge;
 	}
-	
+
 	//FACTORIES and HELPERS
 	protected class MyClassMockNeoElementPathParamImpl extends NeoElementPathParamImpl {
 		@Override
@@ -564,13 +564,13 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 			return ConstantsNeo.VARIABLE_ELEMENT_EGDE;
 		}
 	}
-	
+
 	protected class MyClassMockNeoPropertyPathParamImpl extends NeoPropertyPathParamImpl {
 		@Override
 		protected int getRelationNumber() {
 			return 1;
 		}
-		
+
 		@Override
 		protected String getEdgeNaming() {
 			return ConstantsNeo.VARIABLE_PROPERTY_EGDE;

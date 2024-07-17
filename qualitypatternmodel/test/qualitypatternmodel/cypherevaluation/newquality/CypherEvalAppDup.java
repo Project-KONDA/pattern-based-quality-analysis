@@ -16,32 +16,29 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class CypherEvalAppDup {
-	
+
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-
 		completePatterns.add(getAppdup3Concrete());
-
 //		Test00.test(completePatterns);
 		Test00.getQueries(completePatterns);
 	}
-		
+
 	public static CompletePattern getAppdup2Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalAppDup.getAppDup2Generic();
 		completePattern.createNeo4jAdaption();
 		return completePattern;
 	}
-	
+
 	public static CompletePattern getAppdup3Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalAppDup.getAppDup3Generic();
 		completePattern.createNeo4jAdaption();
 		return completePattern;
 	}
-	
+
 	static CompletePattern getAppdup3Concrete() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getAppdup3Abstract();
-		
+
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 
 		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
@@ -66,4 +63,5 @@ public class CypherEvalAppDup {
 		p9.setValueFromString("path3");
 		return completePattern;
 	}
+
 }

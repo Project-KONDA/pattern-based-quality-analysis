@@ -10,7 +10,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -125,10 +124,10 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 		try {
 			JSONObject jsono = new JSONObject(json);
 			setOperator(ComparisonOperator.get(jsono.getString("operator")));
-			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument")); 
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument"));
 			setArgument(argument);
 			setSubfilter1((NumberFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter1"), map));
-			setSubfilter2((NumberFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter2"), map));	
+			setSubfilter2((NumberFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter2"), map));
 		}
 		catch (Exception e) {
 			throw new InvalidityException();
@@ -157,17 +156,19 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 		result.add(getArgument());
 		return result;
 	}
-	
+
 	protected void updateArgument() {
 		FixedContainerInterim arg = getArgument();
 		EList<InterimResultPart> contained = arg.getContained();
 		contained.clear();
-		if (getSubfilter1() != null && getSubfilter1().getArguments() != null)
+		if (getSubfilter1() != null && getSubfilter1().getArguments() != null) {
 			contained.addAll(getSubfilter1().getArguments());
-		if (getSubfilter2() != null && getSubfilter2().getArguments() != null)
+		}
+		if (getSubfilter2() != null && getSubfilter2().getArguments() != null) {
 			contained.addAll(getSubfilter2().getArguments());
+		}
 	}
-	
+
 	@Override
 	public JSONObject toJson() {
 		JSONObject result = new JSONObject();
@@ -175,34 +176,31 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 			result.put("class", getClass().getSimpleName());
 			result.put("operator", getOperator().getLiteral());
 			result.put("argument", getArgument().getInterimPartId());
-			
+
 			result.put("subfilter1", getSubfilter1().toJson());
 			result.put("subfilter2", getSubfilter2().toJson());
-				
+
 		} catch (JSONException e) {
 		}
 		return result;
 	}
-	
+
 	@Override
 	public String toString() {
 		String res = "[count ";
 		res += getJavaFilterPartId();
 		res += " <" + getArgument().getInterimPartId() + "> ";
-		res += " " + getSubfilter1().toString() + " "; 
+		res += " " + getSubfilter1().toString() + " ";
 		res += getOperator().toString() + " ";
-		if (getSubfilter2() == null)
+		if (getSubfilter2() == null) {
 			res += "no second Subfilter in CountFilterPart";
-		else 
+		} else {
 			res += getSubfilter2().toString();
+		}
 		res += "]";
 		return res;
 	}
-	
-	
-	
-	
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -232,10 +230,14 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 		NumberFilterPart oldSubfilter1 = subfilter1;
 		subfilter1 = newSubfilter1;
 		updateArgument();
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER1, oldSubfilter1, newSubfilter1);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -279,10 +281,14 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 		NumberFilterPart oldSubfilter2 = subfilter2;
 		subfilter2 = newSubfilter2;
 		updateArgument();
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.COUNT_FILTER_PART__SUBFILTER2, oldSubfilter2, newSubfilter2);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}

@@ -17,7 +17,7 @@ import qualitypatternmodel.textrepresentation.impl.TextFragmentImpl;
 import qualitypatternmodel.xmlevaluation.XmlEvalFunc;
 
 public class DemoTextFunc {
-	
+
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getFuncWithText();
 	}
@@ -33,11 +33,11 @@ public class DemoTextFunc {
 		addComplexText(completePattern);
 		return completePattern;
 	}
-	
+
 //	Are there two elements reached by <path1> that have equal values at property reached by <path2> but differ at the property reached by <path3>?
 	private static void addComplexText(CompletePattern completePattern) {
 		List<Parameter> params = completePattern.getParameterList().getParameters();
-		
+
 //		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
 //		TypeOptionParam p1 = ((TypeOptionParam) params.get(1));
 //		ComparisonOptionParam p2 = ((ComparisonOptionParam) params.get(2));
@@ -48,7 +48,7 @@ public class DemoTextFunc {
 		XmlPathParam p7 = ((XmlPathParam) params.get(7));
 		XmlPathParam p8 = ((XmlPathParam) params.get(8));
 		XmlPathParam p9 = ((XmlPathParam) params.get(9));
-		
+
 		PatternText patternText = TextrepresentationFactory.eINSTANCE.createPatternText();
 		patternText.setName(DemoPatternTexts.FUNC_NAME);
 		completePattern.getText().add(patternText);
@@ -57,17 +57,17 @@ public class DemoTextFunc {
 		path1.getParameter().add(p4);
 		path1.getParameter().add(p9);
 		path1.setId("path1");
-		
+
 		ParameterFragment path2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path2.getParameter().add(p5);
 		path2.getParameter().add(p7);
 		path2.setId("path2");
-		
+
 		ParameterFragment path3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path3.getParameter().add(p6);
 		path3.getParameter().add(p8);
 		path3.setId("path3");
-		
+
 //		Are there two elements reached by <path1> that have equal values at property reached by <path2> but differ at the property reached by <path3>?
 		patternText.addFragment(new TextFragmentImpl("Are there two elements reached by "));
 		patternText.addFragment(path1);
@@ -76,7 +76,7 @@ public class DemoTextFunc {
 		patternText.addFragment(new TextFragmentImpl(" but differ at the property reached by "));
 		patternText.addFragment(path3);
 		patternText.addFragment(new TextFragmentImpl("?"));
-		
+
 		try {
 			patternText.isValid(null);
 		} catch (InvalidityException e) {
@@ -84,5 +84,5 @@ public class DemoTextFunc {
 			e.printStackTrace();
 		}
 	}
-	
+
 }

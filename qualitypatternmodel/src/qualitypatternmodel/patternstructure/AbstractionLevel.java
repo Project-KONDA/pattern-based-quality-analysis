@@ -292,5 +292,5 @@ public enum AbstractionLevel implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 } //AbstractionLevel

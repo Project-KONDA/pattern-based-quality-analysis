@@ -67,7 +67,7 @@ public interface ParameterList extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Adds <code>parameter</code> if it is not contained yet and is not null.
-	 * 
+	 *
 	 * @param parameter the <code>Parameter</code> to be added
 	 * <!-- end-user-doc -->
 	 * @model
@@ -78,7 +78,7 @@ public interface ParameterList extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Removes <code>parameter</code> if it is contained and not referenced by components of the <code>CompletePattern</code>.
-	 * 
+	 *
 	 * @param parameter the <code>Parameter</code> to be removed
 	 * <!-- end-user-doc -->
 	 * @model

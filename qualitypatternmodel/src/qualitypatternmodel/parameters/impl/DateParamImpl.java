@@ -2,11 +2,13 @@
  */
 package qualitypatternmodel.parameters.impl;
 
-import static qualitypatternmodel.utility.Constants.*;
+import static qualitypatternmodel.utility.Constants.REGEX_DATE;
+import static qualitypatternmodel.utility.Constants.REGEX_POSITIVE_NEGATIVE;
+import static qualitypatternmodel.utility.Constants.REGEX_TIME_HOURS_MINUTES;
 
 import java.lang.reflect.InvocationTargetException;
-import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -61,12 +63,12 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	public DateParamImpl() {
 		super();
 	}
-	
+
 	@Override
 	public String getValueAsString() {
 		return getValue();
 	}
-	
+
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		setValueIfValid(value);
@@ -76,7 +78,7 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	public void clear() {
 		setValue(null);
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		if(getValue() != null) {
@@ -85,7 +87,7 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 			throw new InvalidityException("invalid number");
 		}
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(getValue() != null) {
@@ -94,29 +96,29 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 			return super.generateSparql();
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @throws InvalidityException
 	 * Generates the sub-query for DateParam.
 	 */
-	@Override 
+	@Override
 	public String generateCypher() throws InvalidityException {
 		if (getValue() != null) {
 			return String.format(DateParamImpl.DATE_CYPHER, getValue());
 		}
 		return super.generateCypher();
 	}
-	
+
 	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.DATE;
 	}
-	
+
 	@Override
-	public boolean inputIsValid() {				
-		String regex =  REGEX_DATE + "(" + REGEX_POSITIVE_NEGATIVE + REGEX_TIME_HOURS_MINUTES + "|Z)?";		
+	public boolean inputIsValid() {
+		String regex =  REGEX_DATE + "(" + REGEX_POSITIVE_NEGATIVE + REGEX_TIME_HOURS_MINUTES + "|Z)?";
 		return getValue() != null && getValue().matches(regex);
 	}
 
@@ -129,7 +131,7 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	protected EClass eStaticClass() {
 		return ParametersPackage.Literals.DATE_PARAM;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,7 +161,7 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	 * @generated NOT
 	 */
 	@Override
-	public void setValueIfValid(String newValue) throws InvalidityException {		
+	public void setValueIfValid(String newValue) throws InvalidityException {
 		String oldValue = getValue();
 		if(newValue.equals(VALUE_EDEFAULT) || isFormatValid(newValue)) {
 			setValue(newValue);
@@ -171,19 +173,19 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 		} catch (Exception e) {
 			setValue(oldValue);
 			throw e;
-		}		
+		}
 	}
-	
+
 	@Override
 	public void validateExampleValue(String val) throws InvalidityException {
-		if(!val.equals(VALUE_EDEFAULT) && !isFormatValid(val)) {			
+		if(!val.equals(VALUE_EDEFAULT) && !isFormatValid(val)) {
 			throw new InvalidityException("Date format invalid");
 		}
 	}
 
 	private static boolean isLeapYear(String year) {
 		int yearInt = Integer.parseInt(year);
-		
+
 		if(yearInt % 4 != 0) {
 			return false;
 		} else if(yearInt % 100 != 0) {
@@ -192,33 +194,29 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 			return false;
 		} else {
 			return true;
-		}		
+		}
 	}
-	
+
 	private static boolean isFormatValid(String newValue) {
 		// [-]CCYY-MM-DD[Z|(+|-)hh:mm]
-		
+
 		if(newValue.equals("")){
 			return true;
 		}
-		
+
 		int offset = 0;
 		if(newValue.substring(0, 1).equals("-")) {
 			offset = 1;
 		}
-		
-		if(newValue.length() < offset + 10 || newValue.length() > offset + 16) {
-			return false;
-		}		
-		
-		if(!validateDate(newValue, offset)) {
+
+		if(newValue.length() < offset + 10 || newValue.length() > offset + 16 || !validateDate(newValue, offset)) {
 			return false;
 		}
-		
+
 		if(newValue.length() > offset + 10) {
-			return validateTimeZone(newValue, offset + 10);    		
+			return validateTimeZone(newValue, offset + 10);
 		}
-		
+
 		return true;
 	}
 
@@ -228,32 +226,22 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 		String month = newValue.substring(offset + 5, offset + 7);
 		String secondSeparator = newValue.substring(offset + 7, offset + 8);
 		String day = newValue.substring(offset + 8, offset + 10);
-				
-		if(!firstSeparator.equals("-")) {		
-			return false;
-		}
-		if(!secondSeparator.equals("-")) {
-			return false;
-		}
-		
-		if(!year.matches("^[0-9][0-9][0-9][0-9]$")) {
-			return false;
-		}
-		if(!month.matches("^(0[1-9])|(1[0-2])$")) {
+
+		if(!firstSeparator.equals("-") || !secondSeparator.equals("-") || !year.matches("^[0-9][0-9][0-9][0-9]$") || !month.matches("^(0[1-9])|(1[0-2])$")) {
 			return false;
 		}
 		if(!day.matches("^(0[1-9])|(1[0-9])|(2[0-9])|(3[0-1])$")) {
 			return false;
 		}
-		
+
 		if(month.matches("^0[469]|11$") && day.matches("^31$")) {
 			return false;
 		}
-		
+
 		if(month.matches("^02$") && !isLeapYear(year) && day.matches("29|30|31")) {
 			return false;
 		}
-		
+
 		if(month.matches("^02$") && isLeapYear(year) && day.matches("30|31")) {
 			return false;
 		}
@@ -262,7 +250,7 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 
 	static boolean validateTimeZone(String newValue, int start) {
 		// Z|(+|-)hh:mm
-		
+
 		String zPlusMinus = newValue.substring(start + 0, start + 1);
 		if(zPlusMinus.equals("Z")) {
 			if(newValue.length() > start + 1) {
@@ -272,17 +260,11 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 			String hours = newValue.substring(start + 1, start + 3);
 			String colon = newValue.substring(start + 3, start + 4);
 			String minutes = newValue.substring(start + 4, start + 6);
-			
-			if(!colon.equals(":")) {
-				return false;
-			}    			
-			if(!hours.matches("0[0-9]|1[0-9]|2[0-4]")) {
+
+			if(!colon.equals(":") || !hours.matches("0[0-9]|1[0-9]|2[0-4]") || !minutes.matches("[0-5][0-9]|60")) {
 				return false;
 			}
-			if(!minutes.matches("[0-5][0-9]|60")) {
-				return false;
-			}
-			
+
 		} else {
 			return false;
 		}
@@ -382,12 +364,12 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 		result.append(')');
 		return result.toString();
 	}
-	
-	@Override 
+
+	@Override
 	public String myToString() {
 		return "date [" + getInternalId() + "] " + getValue();
 	}
-	
+
 	@Override
 	public String generateDescription() {
 		String res = "Eingabe des Datums";
@@ -396,6 +378,6 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 //		setDescription(res);
 	}
 
-	
+
 
 } //DateImpl

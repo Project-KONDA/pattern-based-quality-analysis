@@ -5,7 +5,6 @@ package qualitypatternmodel.adaptionneo4j;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -32,12 +31,12 @@ public interface NeoPathPart extends PatternElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Param</em>' container reference.
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @see #setNeoPathParam(NeoPathParam)
 	 * @see qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage#getNeoPathPart_NeoParam()
 	 * @see qualitypatternmodel.adaptionneo4j.NeoPathParam#getNeoPathPart
 	 * @model opposite="neoPathPart" transient="false"
-	 * @generated NOT 
+	 * @generated NOT
 	 */
 	NeoPathParam getNeoPathParam() throws InvalidityException;
 

@@ -1,4 +1,4 @@
- package qualitypatternmodel.constrainttranslation;
+ package qualitypatternmodel.mqaftranslation;
 
 import org.basex.util.Pair;
 import org.eclipse.emf.common.util.BasicEList;
@@ -23,13 +23,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.TrueElement;
 
-public class UniquenessConditionCheck {
+public class MqafUniquenessConditionCheck {
 
 	public static Pair<Node, Boolean> uniquenessConditionField(CompletePattern pattern) throws InvalidityException {
-		ComplexNode recordNode = FieldNodeIdentification.identifyRecordNode(pattern);
+		ComplexNode recordNode = MqafFieldNodeIdentification.identifyRecordNode(pattern);
 		return uniquenessConditionField(pattern.getCondition(), recordNode);
 	}
-	
+
 	public static Pair<Node, Boolean> uniquenessConditionField (PatternElement element, ComplexNode recordNode) {
 		Pair<Node, Boolean> n = null;
 		if (element instanceof QuantifiedCondition || element instanceof NotCondition) {
@@ -41,24 +41,27 @@ public class UniquenessConditionCheck {
 		return n;
 	}
 
-	
+
 	static Pair<Node, Boolean> isUniquenessExistsCondition (Condition element, ComplexNode recordNode) {
 		if (element instanceof NotCondition) {
 			NotCondition not = (NotCondition) element;
 			Pair<Node, Boolean> result = isUniquenessExistsCondition(not.getCondition(), recordNode);
-			if (result == null)
+			if (result == null) {
 				return null;
-			else 
+			} else {
 				return new Pair<Node, Boolean> (result.name(), !result.value());
+			}
 		}
 		else if (element instanceof QuantifiedCondition) {
 			QuantifiedCondition condition = (QuantifiedCondition) element;
-			if (condition.getQuantifier() != Quantifier.EXISTS)
+			if (condition.getQuantifier() != Quantifier.EXISTS) {
 				return null;
+			}
 
 			Condition next = condition.getCondition();
-			if (next instanceof QuantifiedCondition)
-				return isUniquenessExists2Condition((QuantifiedCondition) element, recordNode);
+			if (next instanceof QuantifiedCondition) {
+				return isUniquenessExists2Condition(element, recordNode);
+			}
 			if (next != null && !(next instanceof TrueElement)) {
 				return null;
 			}
@@ -82,31 +85,30 @@ public class UniquenessConditionCheck {
 			if (!(comparisonarguments.get(0)).equals(recordNode)) {
 				return null;
 			}
-			
+
 			EList<Node> othernodes = new BasicEList<Node>();
-			for (Node n:condition.getGraph().getNodes())
-				if (!(FieldNodeIdentification.areEqualNodes(n, recordNode)))
+			for (Node n:condition.getGraph().getNodes()) {
+				if (!(MqafFieldNodeIdentification.areEqualNodes(n, recordNode))) {
 					othernodes.add(n);
+				}
+			}
 
 			if (othernodes.size() == 1) {
 				Node field = othernodes.get(0);
-				if (field.getIncoming().size() != 2) {
-					return null;
-				}
-				if (recordNode.getRelationsTo(field).size() != 1 || recordCopy.getRelationsTo(field).size() != 1) {
+				if ((field.getIncoming().size() != 2) || recordNode.getRelationsTo(field).size() != 1 || recordCopy.getRelationsTo(field).size() != 1) {
 					return null;
 				}
 				return new Pair<Node, Boolean> (field, false);
 			}
-			
+
 			if (othernodes.size() == 2) {
 				Node field1 = (recordNode.getRelationsTo(othernodes.get(0)).size() == 1)? othernodes.get(0) : (recordNode.getRelationsTo(othernodes.get(1)).size() == 1)? othernodes.get(1) : null;
 				Node field2 = (recordCopy.getRelationsTo(othernodes.get(0)).size() == 1)? othernodes.get(0) : (recordCopy.getRelationsTo(othernodes.get(1)).size() == 1)? othernodes.get(1) : null;
-				
+
 				if (field1 == null || field2 == null || field1 == field2) {
 					return null;
 				}
-				
+
 				EList<BooleanOperator> ops2 = field1.getPredicates();
 				if (ops2.size() != 1 || !(ops2.get(0) instanceof Comparison)) {
 					return null;
@@ -120,35 +122,37 @@ public class UniquenessConditionCheck {
 				if (!(comparison2arguments.get(0) == field2)) {
 					return null;
 				}
-				
+
 				return new Pair<Node, Boolean> (field1, false);
 			}
-		} 
+		}
 		return null;
 	}
 
 	static Pair<Node, Boolean> isUniquenessExists2Condition (PatternElement condition, ComplexNode recordNode) {
 		QuantifiedCondition next;
 		Graph conditiongraph;
-		
+
 		if (condition instanceof QuantifiedCondition) {
 			next = (QuantifiedCondition) ((QuantifiedCondition) condition).getCondition();
 			conditiongraph = ((QuantifiedCondition) condition).getGraph();
 		} else if (condition instanceof CountPattern) {
 			Condition nextCondition = ((CountPattern) condition).getCondition();
-			if (!(nextCondition instanceof QuantifiedCondition))
+			if (!(nextCondition instanceof QuantifiedCondition)) {
 				return null;
+			}
 			next = (QuantifiedCondition) nextCondition;
 			conditiongraph = ((CountPattern) condition).getGraph();
-		} else 
+		} else {
 			return null;
+		}
 
 		// validate record node copy
 		ComplexNode recordCopy = identifyRecordCopy(conditiongraph.getNodes(), recordNode);
 		if (recordCopy == null) {
 			return null;
 		}
-		
+
 		if (condition instanceof QuantifiedCondition) {
 			EList<BooleanOperator> ops = recordCopy.getPredicates();
 			if (ops.size() != 1 || !(ops.get(0) instanceof Comparison)) {
@@ -163,30 +167,29 @@ public class UniquenessConditionCheck {
 			if (!(comparisonarguments.get(0)).equals(recordNode)) {
 				return null;
 			}
-			
-		}
-		
-		for (Node n: conditiongraph.getNodes())
-			if (!(FieldNodeIdentification.areEqualNodes(n, recordNode)))
-				return null;
 
-		EList<Node> nextnodes = next.getGraph().getNodes();
-		
-		if (nextnodes.size() == 1) {
-			Node field = nextnodes.get(0);
-			if (field.getIncoming().size() != 2) {
+		}
+
+		for (Node n: conditiongraph.getNodes()) {
+			if (!(MqafFieldNodeIdentification.areEqualNodes(n, recordNode))) {
 				return null;
 			}
-			if (recordNode.getRelationsTo(field).size() != 1 || recordCopy.getRelationsTo(field).size() != 1) {
+		}
+
+		EList<Node> nextnodes = next.getGraph().getNodes();
+
+		if (nextnodes.size() == 1) {
+			Node field = nextnodes.get(0);
+			if ((field.getIncoming().size() != 2) || recordNode.getRelationsTo(field).size() != 1 || recordCopy.getRelationsTo(field).size() != 1) {
 				return null;
 			}
 			return new Pair<Node, Boolean> (field, false);
 		}
-		
+
 		if (nextnodes.size() == 2) {
 			Node field1 = (recordNode.getRelationsTo(nextnodes.get(0)).size() == 1)? nextnodes.get(0) : (recordNode.getRelationsTo(nextnodes.get(1)).size() == 1)? nextnodes.get(1) : null;
 			Node field2 = (recordCopy.getRelationsTo(nextnodes.get(0)).size() == 1)? nextnodes.get(0) : (recordCopy.getRelationsTo(nextnodes.get(1)).size() == 1)? nextnodes.get(1) : null;
-			
+
 			if (field1 == null || field2 == null) {
 				return null;
 			}
@@ -204,105 +207,113 @@ public class UniquenessConditionCheck {
 			if (!(comparison2arguments.get(0)).equals(field2)) {
 				return null;
 			}
-			
+
 			return new Pair<Node, Boolean> (field1, false);
 		}
 		return null;
 	}
 
 	static Pair<Node, Boolean> isUniquenessCountCondition (CountCondition countcond, ComplexNode recordNode) {
-		// not exists other record, that have the same value in a specific field 
-		//record |exists| record2 |exists| => field 
+		// not exists other record, that have the same value in a specific field
+		//record |exists| record2 |exists| => field
 
 		CountPattern countpattern = countcond.getCountPattern();
-		
+
 		countcond.getOption().getValue();
-		
-		if (!(countcond.getArgument2() instanceof NumberElement))
+
+		if (!(countcond.getArgument2() instanceof NumberElement)) {
 			return null;
-		
+		}
+
 		Double number = ((NumberElement) countcond.getArgument2()).getNumberParam().getValue();
 		ComparisonOperator operator = countcond.getOption().getValue();
-		
-		Boolean negate = false;
+
+		boolean negate = false;
 		if (number == 1.) {
-			if (operator == ComparisonOperator.NOTEQUAL || operator == ComparisonOperator.GREATER)
+			if (operator == ComparisonOperator.NOTEQUAL || operator == ComparisonOperator.GREATER) {
 				negate = false;
-			else if (operator == ComparisonOperator.EQUAL)
+			} else if (operator == ComparisonOperator.EQUAL) {
 				negate = true;
+			}
 		} else if (number == 2.) {
-			if (operator == ComparisonOperator.GREATEROREQUAL)
+			if (operator == ComparisonOperator.GREATEROREQUAL) {
 				negate = false;
-			else if (operator == ComparisonOperator.LESS)
+			} else if (operator == ComparisonOperator.LESS) {
 				negate = true;
-		} else 
+			}
+		} else {
 			return null;
-		
+		}
+
 		Pair<Node, Boolean> resultpair = isUniquenessExists2Condition(countpattern, recordNode);
-		
-		if (resultpair == null) 
+
+		if (resultpair == null) {
 			return null;
-		if (negate)
+		}
+		if (negate) {
 			return new Pair<Node, Boolean> (resultpair.name(), !resultpair.value());
-		else 
+		} else {
 			return resultpair;
-		
+		}
+
 	}
-	
+
 
 	static ComplexNode identifyRecordCopy (EList<Node> nodes, ComplexNode recordNode) {
 		EList<Node> records = new BasicEList<Node>();
-		
+
 		for (Node n: nodes) {
-			if (FieldNodeIdentification.areEqualNodes(n, recordNode))
+			if (MqafFieldNodeIdentification.areEqualNodes(n, recordNode)) {
 				records.add(n);
+			}
 		}
-		
-		if (records.size() == 1 && records.get(0) instanceof ComplexNode)
+
+		if (records.size() == 1 && records.get(0) instanceof ComplexNode) {
 			return (ComplexNode) records.get(0);
-		
+		}
+
 		return null;
 	}
 
-	
-	
+
+
 //	Node isUniquenessExists2Condition (QuantifiedCondition element, ComplexNode recordNode) {
-//		// not exists other record, that have the same value in a specific field 
-//		//record |exists| record2 |exists| => field 
-//		
+//		// not exists other record, that have the same value in a specific field
+//		//record |exists| record2 |exists| => field
+//
 //		if (!(element instanceof QuantifiedCondition))
 //			return null;
-//		
+//
 //		Graph g = element.getGraph();
 //		EList<Node> n = g.getNodes();
-//		if (n.size() != 1 || !FieldNodeIdentification.areEqualNodes(n.get(0), recordNode))
+//		if (n.size() != 1 || !MqafFieldNodeIdentification.areEqualNodes(n.get(0), recordNode))
 //			return null;
 //
 //		QuantifiedCondition quantified2 = (QuantifiedCondition) element.getCondition();
 //		return isSubUniquenessQuantifiedCondition(quantified2, recordNode);
 //	}
-//	
+//
 //	Node isUniquenessCountCondition (CountCondition countcondition, ComplexNode recordNode) {
 //		// count records, that have the same value in a specific field
-//		
+//
 //		CountPattern countpattern = countcondition.getCountPattern();
 //		Graph g = countpattern.getGraph();
-//		
+//
 //		NumberElement number;
 //		if (countcondition.getArgument2() instanceof NumberElement) {
 //			number = (NumberElement) countcondition.getArgument2();
 //			Double num = number.getNumberParam().getValue();
 //			ComparisonOperator cp = countcondition.getOption().getValue();
-//			
-//			
+//
+//
 //		} else return null;
-//		
-//		FieldNodeIdentification.areEqualNodes(recordNode, recordNode);
-//		
+//
+//		MqafFieldNodeIdentification.areEqualNodes(recordNode, recordNode);
+//
 //		return null;
 //	}
-//	
-//	
+//
+//
 //	Node isSubUniquenessQuantifiedCondition(QuantifiedCondition condition, ComplexNode recordNode) {
 //		if (condition.getCondition() == null || condition.getCondition() instanceof TrueElement)
 //			return null;
@@ -315,21 +326,21 @@ public class UniquenessConditionCheck {
 //			return null;
 //		if (!eachFieldHasXmlNavigationFrom(recordnodes,fieldnodes))
 //			return null;
-//		if (fieldnodes.size() == 2 && !FieldNodeIdentification.areEqualNodes(fieldnodes.get(0), fieldnodes.get(1)))
+//		if (fieldnodes.size() == 2 && !MqafFieldNodeIdentification.areEqualNodes(fieldnodes.get(0), fieldnodes.get(1)))
 //			return null;
-//		
+//
 //		for (Node field: fieldnodes)
 //			if (!recordNode.getRelationsTo(field).isEmpty())
 //				return field;
-//		
+//
 //		return null;
-//		
+//
 //	}
 //
 //	Boolean eachFieldHasXmlNavigationFrom(EList<Node> sources, EList<Node> targets) {
 //		for (Node target: targets) {
 //			Boolean hasNav = false;
-//			
+//
 //			for (Node source: sources)
 //				hasNav = hasNav || !source.getRelationsTo(target).isEmpty();
 //			if (!hasNav)
@@ -337,11 +348,11 @@ public class UniquenessConditionCheck {
 //		}
 //		return true;
 //	}
-//	
+//
 //	Boolean areAllEqual(EList<Node> nodes) {
 //		for (Node n: nodes)
 //			for (Node n2: nodes)
-//				if (!(FieldNodeIdentification.areEqualNodes(n, n2)))
+//				if (!(MqafFieldNodeIdentification.areEqualNodes(n, n2)))
 //					return false;
 //		return true;
 //	}

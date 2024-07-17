@@ -3,8 +3,10 @@
 package qualitypatternmodel.graphstructure;
 
 import java.util.Map;
+
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -58,7 +60,7 @@ public interface Comparable extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns the type of <code>this</code> comparison argument.
-	 * 
+	 *
 	 * @return the <code>ReturnType</code> of <code>this</code> comparison argument
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
@@ -69,7 +71,7 @@ public interface Comparable extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns <code>true</code> if <code>this</code> comparison argument can be translated to XQuery.
-	 * 
+	 *
 	 * @return <code>true</code> if <code>this</code> comparison argument can be translated to XQuery
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
@@ -83,6 +85,7 @@ public interface Comparable extends PatternElement {
 	 * @model
 	 * @generated
 	 */
+	@Override
 	boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 	/**
@@ -96,7 +99,7 @@ public interface Comparable extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns a list of all <code>Elements</code> that directly or indirectly (via a <code>Property</code>) represent <code>this</code> comparison argument.
-	 * 
+	 *
 	 * @return a list of all <code>Elements</code> that directly or indirectly (via a <code>Property</code>) represent <code>this</code> comparison argument
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"

@@ -3,6 +3,7 @@
 package qualitypatternmodel.parameters;
 
 import java.util.Map;
+
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 
 /**

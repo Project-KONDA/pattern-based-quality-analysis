@@ -26,7 +26,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 
 	// GET .. /constraint/query    /<technology>/<constraintId>
 	// GET .. /constraint/query    /<technology>    {"constraints":<constraint-ids>}
-	
+
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
@@ -35,12 +35,13 @@ public class ConstraintQueryServlet extends HttpServlet {
 		try {
 			int i = path.split("/").length;
 			JSONObject result = null; // = applyGet(path, params);
-			if (i == 2)
+			if (i == 2) {
 				result = applyGet2(path, params);
-			else if (i == 3)
+			} else if (i == 3) {
 				result = applyGet3(path, params);
-			else 
+			} else {
 				throw new InvalidServletCallException("Wrong url for requesting the mqaf constraint: '.. /template/getdatabase/<technology>/<name>' or '.. /template/getdatabase/<technology>' + {parameter = [..]} (not " + path + ")");
+			}
 
 			ServletUtilities.logOutput(result);
 			ServletUtilities.putResponse(response, result);
@@ -52,14 +53,16 @@ public class ConstraintQueryServlet extends HttpServlet {
 
 	public static JSONObject applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 3 || !pathparts[0].equals(""))
+		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
+		}
 
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
-		
-		if (!ServletUtilities.TECHS.contains(technology))
+
+		if (!ServletUtilities.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		}
 
 		String[] constraintIds = new String[] {constraintId};
 		return applyGet(technology, constraintIds);
@@ -71,7 +74,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 //		} catch (IOException e) {
 //			throw new FailedServletCallException("constraint not found");
 //		}
-//		
+//
 //		try {
 //			pattern.isValid(AbstractionLevel.CONCRETE);
 //		} catch (Exception e) {
@@ -83,7 +86,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 //		try {
 //			if (pattern.containsJavaOperator())
 //				json = generateQueryJsonJava(pattern, technology);
-//			else 
+//			else
 //				json = generateQueryJson(pattern, technology);
 //		} catch (JSONException e) {
 //			e.printStackTrace();
@@ -96,25 +99,28 @@ public class ConstraintQueryServlet extends HttpServlet {
 
 	public static JSONObject applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 2 || !pathparts[0].equals(""))
+		if (pathparts.length != 2 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong api call for requesting the database of a constraint: '.. /template/query/<technology>' + {\"constraints\" = [..]} (not " + path + ")");
+		}
 
 		String technology = pathparts[1];
-		if (!ServletUtilities.TECHS.contains(technology))
+		if (!ServletUtilities.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		}
 
 		String[] constraintIds = parameterMap.get("constraints");
-		
+
 		Set<String> constraintIdSet;
-		if (constraintIds == null)
-			constraintIdSet = new LinkedHashSet<>();
-		else
-			constraintIdSet = new LinkedHashSet<>(Arrays.asList(constraintIds));
+		if (constraintIds == null) {
+			constraintIdSet = new LinkedHashSet<String>();
+		} else {
+			constraintIdSet = new LinkedHashSet<String>(Arrays.asList(constraintIds));
+		}
 		constraintIds = constraintIdSet.toArray(new String[0]);
 
 //		JSONObject result = new JSONObject();
 //		JSONArray failed = new JSONArray();
-//		
+//
 //		for (String constraintId: constraintIds) {
 //			// 1 load constraint
 //			CompletePattern pattern;
@@ -136,15 +142,15 @@ public class ConstraintQueryServlet extends HttpServlet {
 //		} catch (JSONException e) {
 //		}
 //		return result.toString();
-		
+
 		return applyGet(technology, constraintIds);
 	}
-	
+
 	public static JSONObject applyGet(String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
-		
+
 		JSONObject result = new JSONObject();
 		JSONArray failed = new JSONArray();
-		
+
 		for (String constraintId: constraintIds) {
 			// 1 load constraint
 			CompletePattern pattern;
@@ -176,12 +182,12 @@ public class ConstraintQueryServlet extends HttpServlet {
 
 		json.put(Constants.JSON_NAME, pattern.getName());
 		json.put(Constants.JSON_PATTERNID, pattern.getPatternId());
-		
+
 		// 1 technology
 		json.put(Constants.JSON_TECHNOLOGY, pattern.getLanguage().getLiteral());
 //		json.put(Constants.JSON_TECHNOLOGY, technology);
 //		pattern.getLanguage().getLiteral();
-		
+
 		// 2 query
 		try {
 			if (technology.equals(ServletUtilities.XML)) {
@@ -194,18 +200,20 @@ public class ConstraintQueryServlet extends HttpServlet {
 				String xquery = pattern.generateXQuery();
 				json.put(Constants.JSON_QUERY, xquery);
 				json.put(Constants.JSON_QUERY_LINE, makeQueryOneLine(xquery));
-				
+
 			} else if (technology.equals(ServletUtilities.RDF)) {
-				if (pattern.containsJavaOperator())
+				if (pattern.containsJavaOperator()) {
 					throw new InvalidServletCallException("Not implemented for RDF.");
+				}
 				json.put(Constants.JSON_LANGUAGE, "Sparql");
 				String sparql = pattern.generateSparql();
 				json.put(Constants.JSON_QUERY, sparql);
 				json.put(Constants.JSON_QUERY_LINE, makeQueryOneLine(sparql));
-				
+
 			} else if (technology.equals(ServletUtilities.NEO4J)) {
-				if (pattern.containsJavaOperator())
+				if (pattern.containsJavaOperator()) {
 					throw new InvalidServletCallException("Not implemented for Neo4j.");
+				}
 				json.put(Constants.JSON_LANGUAGE, "Cypher");
 				String cypher = pattern.generateCypher();
 				json.put(Constants.JSON_QUERY, cypher);
@@ -214,15 +222,15 @@ public class ConstraintQueryServlet extends HttpServlet {
 			} else {
 				throw new InvalidServletCallException();
 			}
-		
+
 		} catch (InvalidityException e) {
 			throw new FailedServletCallException();
 		}
-		
+
 		// 3 return json
 		return json;
 	}
-	
+
 	private static String makeQueryOneLine(String query) {
 		String shortQuery = query.replace("\r\n", " ");
 		shortQuery = shortQuery.replace("\n", " ");

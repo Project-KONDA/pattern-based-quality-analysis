@@ -5,6 +5,7 @@ package qualitypatternmodel.parameters.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -17,26 +18,34 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoLabel;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.XmlDataDatabase;
-import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.DateParam;
+import qualitypatternmodel.parameters.DateTimeParam;
+import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterValue;
+import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -45,14 +54,6 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.utility.Constants;
-import qualitypatternmodel.parameters.BooleanParam;
-import qualitypatternmodel.parameters.DateParam;
-import qualitypatternmodel.parameters.DateTimeParam;
-import qualitypatternmodel.parameters.NumberParam;
-import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParameterValue;
-import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.graphstructure.Comparable;
 
 /**
  * <!-- begin-user-doc -->
@@ -123,7 +124,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	protected ParameterValueImpl() {
 		super();
 	}
-	
+
 	@Override
 	public EList<Parameter> validateAgainstSchema() {
 		EList<Parameter> invalidParams = new BasicEList<Parameter>();
@@ -147,7 +148,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		}
 		return invalidParams;
 	}
-	
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,7 +159,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	protected EClass eStaticClass() {
 		return ParametersPackage.Literals.PARAMETER_VALUE;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -223,10 +224,10 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		EList<Comparison> comparisons = new BasicEList<Comparison>();
 		comparisons.addAll(getComparison1());
 		comparisons.addAll(getComparison2());
-		
+
 		for(Comparison comparison : comparisons) {
 			if(comparison.isPrimitive()) {
-				
+
 				if(comparison.getArgument1() instanceof XmlProperty && comparison.getArgument2() == this) {
 					XmlProperty property = (XmlProperty) comparison.getArgument1();
 					for(Relation r : property.getIncoming()) {
@@ -244,7 +245,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 						}
 					}
 				}
-				
+
 				if(comparison.getArgument1() == this && comparison.getArgument2() instanceof XmlProperty) {
 					XmlProperty property = (XmlProperty) comparison.getArgument2();
 					for(Relation r : property.getIncoming()) {
@@ -262,7 +263,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 						}
 					}
 				}
-				
+
 			}
 		}
 		// TextLiteralParam overrides: if in XmlAxisParam it adds TAG
@@ -308,7 +309,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	public boolean isTranslatable() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isUsed() {
 		return !getComparison1().isEmpty() || !getComparison2().isEmpty();
@@ -557,7 +558,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		return super.eInvoke(operationID, arguments);
 	}
 
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -586,7 +587,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 * @generated NOT
 	 */
 	@Override
-	public EMap<String, Integer> getElementTags() {		
+	public EMap<String, Integer> getElementTags() {
 		Database db;
 		try {
 			db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
@@ -596,8 +597,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			}
 		} catch (MissingPatternContainerException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();			
-		}	
+			e.printStackTrace();
+		}
 		return new BasicEMap<String, Integer>();
 	}
 
@@ -617,8 +618,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			}
 		} catch (MissingPatternContainerException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();			
-		}	
+			e.printStackTrace();
+		}
 		return new BasicEMap<String, Integer>();
 	}
 
@@ -638,8 +639,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			}
 		} catch (MissingPatternContainerException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();			
-		}	
+			e.printStackTrace();
+		}
 		return new BasicEMap<String, Integer>();
 	}
 
@@ -659,8 +660,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			}
 		} catch (MissingPatternContainerException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();			
-		}	
+			e.printStackTrace();
+		}
 		return new BasicEMap<String, Integer>();
 	}
 
@@ -674,13 +675,13 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		EList<String> suggestions = new BasicEList<String>();
 		if(isInTagComparison()) {
 			suggestions.addAll(Constants.sortByValue(getElementTags()).keySet());
-		}	
+		}
 		if(isInAttributeComparison()) {
 			suggestions.addAll(Constants.sortByValue(getAttributeValues()).keySet());
-		}		
+		}
 		if(isInDataComparison()) {
 			suggestions.addAll(Constants.sortByValue(getDataValues()).keySet());
-		}		
+		}
 		return suggestions;
 	}
 
@@ -694,14 +695,15 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		if (isNeoParam(concreteValue)) {
 			throw new InvalidityException(A_UNTYPED_PARAMTER_CAN_NOT_REPLACED_BY_A_NEO_PARAMETER);
 		}
-		if(isTypeModifiable()) {		
-			
+		if(isTypeModifiable()) {
+
 			int index = getParameterList().getParameters().indexOf(this);
-			if (concreteValue.getParameterList() != getParameterList())
+			if (concreteValue.getParameterList() != getParameterList()) {
 				getParameterList().getParameters().set(index, concreteValue);
-			else
+			} else {
 				getParameterList().getParameters().remove(index);
-			
+			}
+
 			EList<Comparison> comparison1Copy = new BasicEList<Comparison>();
 			comparison1Copy.addAll(getComparison1());
 			for(Comparison comparison : comparison1Copy) {
@@ -710,16 +712,16 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			EList<Comparison> comparison2Copy = new BasicEList<Comparison>();
 			comparison2Copy.addAll(getComparison2());
 			for(Comparison comparison : comparison2Copy) {
-				comparison.setArgument2(concreteValue);	
+				comparison.setArgument2(concreteValue);
 			}
-			
+
 			EList<ParameterReference> fragmentCopy = new BasicEList<ParameterReference>();
 			fragmentCopy.addAll(getParameterReferences());
 			for(ParameterReference fragment : fragmentCopy) {
 				fragment.getParameter().remove(this);
 				fragment.getParameter().add(concreteValue);
 			}
-			
+
 			concreteValue.setTypeModifiable(true);
 		}
 	}
@@ -727,7 +729,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param concreteValue
-	 * @return boolean 
+	 * @return boolean
 	 * This method checks if a NeoParam shall be replacing a UntypedParamter
 	 */
 	private boolean isNeoParam(ParameterValue concreteValue) {
@@ -744,7 +746,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		if(type.equals(Constants.PARAMETER_TYPE_TEXT_LIST)) {
 			TextListParam textList = ParametersFactory.eINSTANCE.createTextListParam();
 			textList.getValues().clear();
-			textList.getValues().addAll(Arrays.asList(values));			
+			textList.getValues().addAll(Arrays.asList(values));
 			replace(textList);
 		} else if(values.length == 1) {
 			switch (type) {
@@ -752,7 +754,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				TextLiteralParam text = ParametersFactory.eINSTANCE.createTextLiteralParam();
 				text.setValueFromString(values[0]);
 				replace(text);
-				break;			
+				break;
 			case Constants.PARAMETER_TYPE_NUMBER:
 				NumberParam number = ParametersFactory.eINSTANCE.createNumberParam();
 				number.setValueFromString(values[0]);
@@ -785,7 +787,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		} else {
 			throw new InvalidityException("Too many values passed.");
 		}
-		
+
 	}
 
 	/**
@@ -820,26 +822,31 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 
 		EList<Comparable> comps = new BasicEList<Comparable>();
 
-		for(Comparison c: getComparison1())
-			if (c.getOption().getValue() == ComparisonOperator.EQUAL)
+		for(Comparison c: getComparison1()) {
+			if (c.getOption().getValue() == ComparisonOperator.EQUAL) {
 				comps.add(c.getArgument2());
-		
+			}
+		}
 
-		for(Comparison c: getComparison2())
-			if (c.getOption().getValue() == ComparisonOperator.EQUAL)
+
+		for(Comparison c: getComparison2()) {
+			if (c.getOption().getValue() == ComparisonOperator.EQUAL) {
 				comps.add(c.getArgument1());
-		
+			}
+		}
+
 		for (Comparable comp: comps) {
-			if (comp instanceof XmlProperty)
+			if (comp instanceof XmlProperty) {
 				suggestions.addAll(inferSuggestions2(((XmlProperty) comp)));
-		}	
+			}
+		}
 		return suggestions;
 	}
-	
+
 	private EList<String> inferSuggestions2(XmlProperty tagNode) {
 		EList<String> suggestions = new BasicEList<String>();
 		for (Relation r : tagNode.getIncoming()) {
-			XmlPathParam xmlPathParam = null;					
+			XmlPathParam xmlPathParam = null;
 			if(r instanceof XmlElementNavigation) {
 				XmlElementNavigation nav = (XmlElementNavigation) r;
 				xmlPathParam = nav.getXmlPathParam();
@@ -861,7 +868,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 							}
 						}
 					}
-					
+
 				} else {
 					XmlAxisPart part = xmlPathParam.getXmlAxisParts().get(xmlPathParam.getXmlAxisParts().size()-1);
 					TextLiteralParam text = part.getXmlAxisPartConditions().get(0).getTextLiteralParam();
@@ -875,7 +882,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 						}
 					}
 				}
-				
+
 			}
 		}
 		return suggestions;

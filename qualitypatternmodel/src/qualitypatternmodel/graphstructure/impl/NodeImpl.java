@@ -4,6 +4,7 @@ package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -14,11 +15,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
+
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
-import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyNodeImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementNodeImpl;
+import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyNodeImpl;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
 import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
 import qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl;
@@ -33,9 +35,9 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.ComplexNode;
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
@@ -244,13 +246,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public NodeImpl() {
 		super();
-	}	
-		
+	}
+
 	@Override
 	public void initializeTranslation() {
 		setTranslated(false);
@@ -259,21 +261,25 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (getClass().equals(NodeImpl.class) && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE)
+		if (getClass().equals(NodeImpl.class) && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE) {
 			throw new InvalidityException("generic class in non-generic pattern");
-		
+		}
+
 		super.isValid(abstractionLevel);
 
-		for (BooleanOperator predicate : getPredicates())
+		for (BooleanOperator predicate : getPredicates()) {
 			predicate.isValid(abstractionLevel);
-		
+		}
+
 	}
 
 	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {	
-		for (BooleanOperator predicate : getPredicates())
-			if (predicate == null)
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		for (BooleanOperator predicate : getPredicates()) {
+			if (predicate == null) {
 				throw new InvalidityException("predicate null (" + predicate + ")");
+			}
+		}
 	}
 
 	private boolean nodeInJavaReturnRequiredCheck = false;
@@ -284,11 +290,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public Boolean inJavaReturnRequired() {
-		if (nodeInJavaReturnRequiredCheck) 
+		if (nodeInJavaReturnRequiredCheck) {
 			return false;
+		}
 		try {
-			if (containsJavaOperator())
+			if (containsJavaOperator()) {
 				return true;
+			}
 		} catch (InvalidityException e) {
 		}
 		nodeInJavaReturnRequiredCheck = true;
@@ -307,11 +315,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	@Override
 	public Boolean inJavaGraphReturnRequired() {
-		if (nodeInJavaReturnRequiredCheck) 
+		if (nodeInJavaReturnRequiredCheck) {
 			return false;
+		}
 		try {
-			if (containsJavaOperator())
+			if (containsJavaOperator()) {
 				return true;
+			}
 		} catch (InvalidityException e) {
 		}
 		nodeInJavaReturnRequiredCheck = true;
@@ -335,17 +345,19 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public Boolean inJavaWhere() {
-		if (getIncoming().isEmpty())
+		if (getIncoming().isEmpty()) {
 			return false;
-		
+		}
+
 		EList<Boolean> res = new BasicEList<Boolean>();
 		for (Relation rel : getIncoming()) {
 			Node source = rel.getSource();
-			
-			if (source.isReturnNode())
+
+			if (source.isReturnNode()) {
 				res.add(!inJavaReturnRequired());
-			else
+			} else {
 				res.add(source.inJavaWhere());
+			}
 		}
 		return !res.isEmpty() && !res.contains(false);
 	}
@@ -354,7 +366,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return adaptAsXmlElement();
 	}
-	
+
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return adaptAsRdfIriNode();
@@ -370,12 +382,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return adaptAsNeoElementNode();
 	}
-	
+
 	@Override
 	public void recordValues(XmlDataDatabase database) {
 		return;
 	}
-	
+
 	@Override
 	public boolean isTranslatable() {
 		return false;
@@ -451,11 +463,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return;
 			}
 		}
-		
+
 		String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.NODE__NAME, oldName, name));
+		}
 	}
 
 	/**
@@ -591,26 +604,26 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-		
+
 		triggerParameterUpdates(newGraph);
-		
+
 		if (newGraph == null || getGraph() != null && !newGraph.equals(getGraph())) {
 			setReturnNode(false);
 			getPredicates().clear();
 		}
-		
+
 //		deleteRelations(newGraph);
 		this.createParameters();
-		
+
 		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.NODE__GRAPH, msgs);
 		return msgs;
 	}
-	
-	public NotificationChain basicSetGraphSimple(Graph newGraph, NotificationChain msgs) {		
+
+	public NotificationChain basicSetGraphSimple(Graph newGraph, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.NODE__GRAPH, msgs);
 		return msgs;
 	}
-	
+
 //	private void deleteRelations(Graph newGraph) {
 //		EList<Relation> relations = new BasicEList<Relation>();
 //		relations.addAll(getIncoming());
@@ -619,7 +632,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 //		}
 //		for (Relation rel : relations) {
 //			if(rel.getGraph() != null && !rel.getGraph().equals(newGraph)) {
-//				rel.setGraph(null);			
+//				rel.setGraph(null);
 //			}
 //		}
 //	}
@@ -645,7 +658,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.NODE__GRAPH, newGraph, newGraph));
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -654,18 +667,24 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public void setGraphSimple(Graph newGraph) {
 		if (newGraph != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.NODE__GRAPH && newGraph != null)) {
-			if (EcoreUtil.isAncestor(this, newGraph))
+			if (EcoreUtil.isAncestor(this, newGraph)) {
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			}
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
+			if (eInternalContainer() != null) {
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newGraph != null)
+			}
+			if (newGraph != null) {
 				msgs = ((InternalEObject)newGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__NODES, Graph.class, msgs);
+			}
 			msgs = basicSetGraphSimple(newGraph, msgs);
-			if (msgs != null) msgs.dispatch();
+			if (msgs != null) {
+				msgs.dispatch();
+			}
 		}
-		else if (eNotificationRequired())
+		else if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.NODE__GRAPH, newGraph, newGraph));
+		}
 	}
 
 	/**
@@ -674,14 +693,14 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public void checkComparisonConsistency(Comparison comp) throws InvalidityException {		
+	public void checkComparisonConsistency(Comparison comp) throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -690,37 +709,37 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		if (this instanceof PrimitiveNode) {
 			return (PrimitiveNode) this;
 		}
-		
+
 		PrimitiveNodeImpl newPrimitive = new PrimitiveNodeImpl();
 		newPrimitive.typeModifiable = false;
-		
-		newPrimitive.setGraphSimple(getGraph());						
+
+		newPrimitive.setGraphSimple(getGraph());
 		newPrimitive.setReturnNode(isReturnNode());
-		
+
 		newPrimitive.getPredicates().addAll(getPredicates());
 		getPredicates().clear();
-		
+
 		if(getName().matches("Element [0-9]+")) {
 			newPrimitive.setName(getName().replace("Element", "PrimitiveNode"));
 		} else {
 			newPrimitive.setName(getName());
 		}
-		
+
 		setReturnNode(false);
-		
+
 		EList<Relation> incomingCopy = new BasicEList<Relation>();
 		incomingCopy.addAll(getIncoming());
 		for(Relation relation : incomingCopy) {
 			relation.setTarget(newPrimitive);
 		}
-		
+
 		newPrimitive.getComparison1().addAll(getComparison1());
 		getComparison1().clear();
 		newPrimitive.getComparison2().addAll(getComparison2());
-		getComparison2().clear();	
-		
+		getComparison2().clear();
+
 		setGraph(null);
-		
+
 		return newPrimitive;
 	}
 
@@ -735,13 +754,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			checkGeneric();
 			throw new InvalidityException("ComplexNode with outgoing relations can not be turned into PrimitiveNode ("+ getInternalId() + ")");
 		}
-			
+
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -749,16 +768,16 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		if(getClass().equals(NodeImpl.class)) {
 			return this;
 		}
-		
+
 		Node newNode = new NodeImpl();
 
-		newNode.setGraphSimple(getGraph());				
-		
+		newNode.setGraphSimple(getGraph());
+
 		newNode.setReturnNode(isReturnNode());
-		
+
 		newNode.getPredicates().addAll(getPredicates());
-		getPredicates().clear();		
-		
+		getPredicates().clear();
+
 		if(getName().matches("ComplexNode [0-9]+")) {
 			newNode.setName(getName().replace("ComplexNode", "Node"));
 		} if(getName().matches("PrimitiveNode [0-9]+")) {
@@ -766,20 +785,20 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		} else {
 			newNode.setName(getName());
 		}
-		
+
 		setReturnNode(false);
-		
+
 		EList<Relation> incomingCopy = new BasicEList<Relation>();
 		incomingCopy.addAll(getIncoming());
 		for(Relation relation : incomingCopy) {
 			relation.setTarget(newNode);
 		}
-		
+
 		newNode.getComparison1().addAll(getComparison1());
 		getComparison1().clear();
 		newNode.getComparison2().addAll(getComparison2());
-		getComparison2().clear();	
-		
+		getComparison2().clear();
+
 		setGraph(null);
 		return newNode;
 	}
@@ -791,35 +810,31 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public void checkGeneric() throws InvalidityException {
-				
+
 		if(this instanceof ComplexNode && !((ComplexNode) this).getOutgoing().isEmpty()) {
 			throw new InvalidityException("ComplexNode with outgoing relations can not be turned into generic Node");
 		}
-		
+
 		if(this instanceof PrimitiveNode && !((PrimitiveNode) this).getMatch().isEmpty()) {
 			throw new InvalidityException("PrimitiveNode with match can not be turned into generic Node");
-		}		
-		
-		if(this instanceof PrimitiveNode && !((PrimitiveNode) this).getContains().isEmpty()) {
+		}
+
+		if((this instanceof PrimitiveNode && !((PrimitiveNode) this).getContains().isEmpty()) || (this instanceof PrimitiveNode && !((PrimitiveNode) this).getStringLength().isEmpty())) {
 			throw new InvalidityException("PrimitiveNode with contains can not be turned into generic Node");
-		}		
-		
-		if(this instanceof PrimitiveNode && !((PrimitiveNode) this).getStringLength().isEmpty()) {
-			throw new InvalidityException("PrimitiveNode with contains can not be turned into generic Node");
-		}		
-		
+		}
+
 		if(this instanceof PrimitiveNode && !(((PrimitiveNode) this).getNullCheck() == null)) {
 			throw new InvalidityException("PrimitiveNode with contains can not be turned into generic Node");
-		}		
-		
+		}
+
 		for(Comparison comp : getComparison1()) {
 			if(comp.getArgument2() instanceof ParameterValue) {
-				throw new InvalidityException("Node with primitive comparison can not be turned into generic Node");	
+				throw new InvalidityException("Node with primitive comparison can not be turned into generic Node");
 			}
 		}
 		for(Comparison comp : getComparison2()) {
 			if(comp.getArgument1() instanceof ParameterValue) {
-				throw new InvalidityException("Node with primitive comparison can not be turned into generic Node");	
+				throw new InvalidityException("Node with primitive comparison can not be turned into generic Node");
 			}
 		}
 	}
@@ -828,53 +843,54 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
-	public ComplexNode makeComplex() throws InvalidityException {		
+	public ComplexNode makeComplex() throws InvalidityException {
 		if (this instanceof ComplexNode) {
 			return (ComplexNode) this;
 		}
-	
+
 		ComplexNode newComplex = new ComplexNodeImpl();
 
-		newComplex.setGraphSimple(getGraph());				
-		
+		newComplex.setGraphSimple(getGraph());
+
 		newComplex.setReturnNode(isReturnNode());
-		
+
 		newComplex.getPredicates().addAll(getPredicates());
 		getPredicates().clear();
-		
+
 		if(getName().matches("Element [0-9]+")) {
 			newComplex.setName(getName().replace("Element", "ComplexNode"));
 		} else {
 			newComplex.setName(getName());
 		}
-		
+
 		setReturnNode(false);
-		
+
 		EList<Relation> outgoingCopy = new BasicEList<Relation>();
-		if (this instanceof ComplexNode)
+		if (this instanceof ComplexNode) {
 			outgoingCopy.addAll(((ComplexNode) this).getOutgoing());
+		}
 		for(Relation relation : outgoingCopy) {
 			relation.setSource(newComplex);
 		}
-		
+
 		EList<Relation> incomingCopy = new BasicEList<Relation>();
 		incomingCopy.addAll(getIncoming());
 		for(Relation relation : incomingCopy) {
 			relation.setTarget(newComplex);
 		}
-		
+
 		newComplex.getComparison1().addAll(getComparison1());
 		getComparison1().clear();
 		newComplex.getComparison2().addAll(getComparison2());
-		getComparison2().clear();	
-		
+		getComparison2().clear();
+
 		setGraph(null);
 		return newComplex;
-		
+
 	}
 
 	/**
@@ -883,9 +899,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public void checkComplex() throws InvalidityException {		
-		if (this instanceof PrimitiveNode)
+	public void checkComplex() throws InvalidityException {
+		if (this instanceof PrimitiveNode) {
 			throw new InvalidityException("PrimitiveNode cannot be turned into ComplexNode");
+		}
 		for(Comparison comp: getComparison1()) {
 			if(comp.getArgument2() instanceof ParameterValue) {
 				throw new InvalidityException("Node with primitive comparison cannot be turned into ComplexNode");
@@ -895,82 +912,83 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			if(comp.getArgument1() instanceof ParameterValue) {
 				throw new InvalidityException("Node with primitive comparison cannot be turned into ComplexNode");
 			}
-		}		
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return 
+	 * @return
 	 * @generated NOT
 	 */
 	@Override
 	public Relation addIncomming(ComplexNode node) {
-		Graph myGraph = this.getGraph(); 
+		Graph myGraph = this.getGraph();
 		assert myGraph == node.getGraph();
 		return myGraph.addRelation(node, this);
 	}
 
-	
+
 	// XML ADAPTATION
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
 	public XmlElement adaptAsXmlElement() throws InvalidityException {
-		if (!(this instanceof XmlElement)) {	
+		if (!(this instanceof XmlElement)) {
 			XmlElementImpl xmlElement = new XmlElementImpl();
 			xmlElement.typeModifiable = true;
-			xmlElement.setGraphSimple(getGraph());				
-					
+			xmlElement.setGraphSimple(getGraph());
+
 			xmlElement.setReturnNode(isReturnNode());
-			
+
 			xmlElement.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
-						
+
 			xmlElement.setName(getName());
-			
+
 			setReturnNode(false);
-			
+
 			EList<Relation> outgoingCopy = new BasicEList<Relation>();
-			if (this instanceof ComplexNode)
+			if (this instanceof ComplexNode) {
 				outgoingCopy.addAll(((ComplexNode) this).getOutgoing());
+			}
 			for(Relation relation : outgoingCopy) {
 				relation.setSource(xmlElement);
 			}
-			
+
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
 			incomingCopy.addAll(getIncoming());
 			for(Relation relation : incomingCopy) {
 				relation.setTarget(xmlElement);
 			}
-			
+
 			xmlElement.getComparison1().addAll(getComparison1());
 			getComparison1().clear();
 			xmlElement.getComparison2().addAll(getComparison2());
-			getComparison2().clear();	
-			
-			
+			getComparison2().clear();
+
+
 			setGraph(null);
-			
+
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(xmlElement.getIncoming());
 			for(Relation relation : incomingCopy2) {
 				relation.adaptAsXmlElementNavigation();
 			}
-			
+
 			xmlElement.validateCycles(true);
-			return xmlElement;			
+			return xmlElement;
 		} else {
 			return (XmlElement) this;
 		}
 	}
 
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -979,25 +997,25 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public XmlProperty adaptAsXmlProperty() throws InvalidityException {
 		if (!(this instanceof XmlProperty)) {
-			XmlPropertyImpl xmlProperty = new XmlPropertyImpl();	
+			XmlPropertyImpl xmlProperty = new XmlPropertyImpl();
 			xmlProperty.typeModifiable = true;
-			xmlProperty.setGraphSimple(getGraph());			
-			
+			xmlProperty.setGraphSimple(getGraph());
+
 			xmlProperty.setReturnNode(isReturnNode());
-			
+
 			xmlProperty.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
-						
+
 			xmlProperty.setName(getName());
 			xmlProperty.createParameters();
-			
+
 			setReturnNode(false);
 
 			if(this instanceof PrimitiveNode) {
 				xmlProperty.getMatch().addAll(((PrimitiveNode) this).getMatch());
-				((PrimitiveNode) this).getMatch().clear();		
+				((PrimitiveNode) this).getMatch().clear();
 				xmlProperty.getContains().addAll(((PrimitiveNode) this).getContains());
-				((PrimitiveNode) this).getContains().clear();	
+				((PrimitiveNode) this).getContains().clear();
 				xmlProperty.getStringLength().addAll(((PrimitiveNode) this).getStringLength());
 				((PrimitiveNode) this).getStringLength().clear();
 				xmlProperty.setNullCheck(((PrimitiveNode) this).getNullCheck());
@@ -1009,35 +1027,35 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				xmlProperty.getTwoArgJavaOperator2().addAll(((PrimitiveNode) this).getTwoArgJavaOperator2());
 				((PrimitiveNode) this).getTwoArgJavaOperator2().clear();
 			}
-			
+
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
 			incomingCopy.addAll(getIncoming());
 			for(Relation relation : incomingCopy) {
 				relation.setTarget(xmlProperty);
 			}
-			
+
 			xmlProperty.getComparison1().addAll(getComparison1());
 			getComparison1().clear();
 			xmlProperty.getComparison2().addAll(getComparison2());
 			getComparison2().clear();
-	
+
 			setGraph(null);
-			
+
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(xmlProperty.getIncoming());
 			for(Relation relation : incomingCopy2) {
 				relation.adaptAsXmlPropertyNavigation();
 			}
-			
+
 			return xmlProperty;
 		} else {
 			return (XmlProperty) this;
 		}
 	}
-	
-	
+
+
 	// RDF ADAPTATION
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1045,52 +1063,53 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public RdfIriNode adaptAsRdfIriNode() throws InvalidityException {
-		if (!(this instanceof RdfIriNode)) {	
+		if (!(this instanceof RdfIriNode)) {
 			RdfIriNodeImpl rdfIriNode = new RdfIriNodeImpl();
 			rdfIriNode.typeModifiable = true;
-			rdfIriNode.setGraphSimple(getGraph());				
-					
+			rdfIriNode.setGraphSimple(getGraph());
+
 			rdfIriNode.setReturnNode(isReturnNode());
-			
+
 			rdfIriNode.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
-						
+
 			rdfIriNode.setName(getName());
 			setReturnNode(false);
-			
+
 			EList<Relation> outgoingCopy = new BasicEList<Relation>();
-			if (this instanceof ComplexNode)
+			if (this instanceof ComplexNode) {
 				outgoingCopy.addAll(((ComplexNode) this).getOutgoing());
+			}
 			for(Relation relation : outgoingCopy) {
 				relation.setSource(rdfIriNode);
 			}
-			
+
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
 			incomingCopy.addAll(getIncoming());
 			for(Relation relation : incomingCopy) {
 				relation.setTarget(rdfIriNode);
 			}
-			
+
 			rdfIriNode.getComparison1().addAll(getComparison1());
 			getComparison1().clear();
 			rdfIriNode.getComparison2().addAll(getComparison2());
-			getComparison2().clear();	
-			
+			getComparison2().clear();
+
 			setGraph(null);
-			
+
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(rdfIriNode.getIncoming());
 			for(Relation relation : incomingCopy2) {
 				relation.adaptAsRdfPredicate();
 			}
 			rdfIriNode.createParameters();
-			
-			return rdfIriNode;			
+
+			return rdfIriNode;
 		} else {
 			return (RdfIriNode) this;
 		}
 	}
-	
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1101,25 +1120,25 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public RdfLiteralNode adaptAsRdfLiteralNode() throws InvalidityException {
 
 		if (!(this instanceof RdfLiteralNode)) {
-			RdfLiteralNodeImpl rdfLiteral = new RdfLiteralNodeImpl();	
+			RdfLiteralNodeImpl rdfLiteral = new RdfLiteralNodeImpl();
 			rdfLiteral.typeModifiable = true;
-			rdfLiteral.setGraphSimple(getGraph());			
-			
+			rdfLiteral.setGraphSimple(getGraph());
+
 			rdfLiteral.setReturnNode(isReturnNode());
-			
+
 			rdfLiteral.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
-			
-			rdfLiteral.setName(getName());			
+
+			rdfLiteral.setName(getName());
 			rdfLiteral.createParameters();
-			
+
 			setReturnNode(false);
-			
+
 			if(this instanceof PrimitiveNode) {
 				rdfLiteral.getMatch().addAll(((PrimitiveNode) this).getMatch());
-				((PrimitiveNode) this).getMatch().clear();		
+				((PrimitiveNode) this).getMatch().clear();
 				rdfLiteral.getContains().addAll(((PrimitiveNode) this).getContains());
-				((PrimitiveNode) this).getContains().clear();	
+				((PrimitiveNode) this).getContains().clear();
 				rdfLiteral.getStringLength().addAll(((PrimitiveNode) this).getStringLength());
 				((PrimitiveNode) this).getStringLength().clear();
 				rdfLiteral.setNullCheck(((PrimitiveNode) this).getNullCheck());
@@ -1131,18 +1150,18 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				rdfLiteral.getTwoArgJavaOperator2().addAll(((PrimitiveNode) this).getTwoArgJavaOperator2());
 				((PrimitiveNode) this).getTwoArgJavaOperator2().clear();
 			}
-			
+
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
 			incomingCopy.addAll(getIncoming());
 			for(Relation relation : incomingCopy) {
 				relation.setTarget(rdfLiteral);
 			}
-			
+
 			rdfLiteral.getComparison1().addAll(getComparison1());
 			getComparison1().clear();
 			rdfLiteral.getComparison2().addAll(getComparison2());
 			getComparison2().clear();
-	
+
 			setGraph(null);
 
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
@@ -1150,14 +1169,14 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			for(Relation relation : incomingCopy2) {
 				relation.adaptAsRdfPredicate();
 			}
-			
+
 			return rdfLiteral;
 		} else {
 			return (RdfLiteralNode) this;
 		}
 	}
-	
-	
+
+
 	//BEGIN - Adapt for Neo4J/Cypher
 	/**
 	 * @author Lukas Sebastian Hofmann
@@ -1168,41 +1187,42 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public NeoElementNode adaptAsNeoElementNode() throws InvalidityException {
-		if (!(this instanceof NeoElementNode)) {	
+		if (!(this instanceof NeoElementNode)) {
 			NeoElementNodeImpl neoNode = (NeoElementNodeImpl) Adaptionneo4jFactoryImpl.init().createNeoElementNode();
 			neoNode.typeModifiable = true;
 			neoNode.setGraphSimple(getGraph());
-					
+
 			neoNode.setReturnNode(isReturnNode());
-			
+
 			neoNode.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
-			
+
 			neoNode.setName(getName());
 			setReturnNode(this.isReturnNode());
-			
+
 			EList<Relation> outgoingCopy = new BasicEList<Relation>();
-			if (this instanceof ComplexNode)
+			if (this instanceof ComplexNode) {
 				outgoingCopy.addAll(((ComplexNode) this).getOutgoing());
+			}
 			for(Relation relation : outgoingCopy) {
 				relation.setSource(neoNode);
 			}
-			
+
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
 			incomingCopy.addAll(getIncoming());
 			for(Relation relation : incomingCopy) {
 				relation.setTarget(neoNode);
 			}
-			
+
 			neoNode.getComparison1().addAll(getComparison1());
 			getComparison1().clear();
 			neoNode.getComparison2().addAll(getComparison2());
-			getComparison2().clear();	
-			
+			getComparison2().clear();
+
 			setGraph(null);
 			neoNode.createParameters();
-	
-			return neoNode;			
+
+			return neoNode;
 		} else {
 			return (NeoElementNode) this;
 		}
@@ -1218,25 +1238,25 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public NeoPropertyNode adaptAsNeoPropertyNode() throws InvalidityException {
 		if (!(this instanceof NeoPropertyNode)) {
-			NeoPropertyNodeImpl neoPropertyNode = (NeoPropertyNodeImpl) Adaptionneo4jFactoryImpl.init().createNeoPropertyNode();	
+			NeoPropertyNodeImpl neoPropertyNode = (NeoPropertyNodeImpl) Adaptionneo4jFactoryImpl.init().createNeoPropertyNode();
 			neoPropertyNode.typeModifiable = true;
 			neoPropertyNode.setGraph(getGraph());
-			
+
 			neoPropertyNode.setReturnNode(isReturnNode());
-			
+
 			neoPropertyNode.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
-			
-			neoPropertyNode.setName(getName());			
+
+			neoPropertyNode.setName(getName());
 			neoPropertyNode.createParameters();
-			
+
 			setReturnNode(this.isReturnNode());
-			
+
 			if(this instanceof PrimitiveNode) {
 				neoPropertyNode.getMatch().addAll(((PrimitiveNode) this).getMatch());
-				((PrimitiveNode) this).getMatch().clear();		
+				((PrimitiveNode) this).getMatch().clear();
 				neoPropertyNode.getContains().addAll(((PrimitiveNode) this).getContains());
-				((PrimitiveNode) this).getContains().clear();	
+				((PrimitiveNode) this).getContains().clear();
 				neoPropertyNode.getStringLength().addAll(((PrimitiveNode) this).getStringLength());
 				((PrimitiveNode) this).getStringLength().clear();
 				neoPropertyNode.setNullCheck(((PrimitiveNode) this).getNullCheck());
@@ -1248,24 +1268,24 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				neoPropertyNode.getTwoArgJavaOperator2().addAll(((PrimitiveNode) this).getTwoArgJavaOperator2());
 				((PrimitiveNode) this).getTwoArgJavaOperator2().clear();
 			}
-			
+
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
 			incomingCopy.addAll(getIncoming());
 			for(Relation relation : incomingCopy) {
 				relation.setTarget(neoPropertyNode);
 			}
-			
+
 			neoPropertyNode.getComparison1().addAll(getComparison1());
 			getComparison1().clear();
-			
+
 			neoPropertyNode.getComparison2().addAll(getComparison2());
 			getComparison2().clear();
-	
+
 			setGraph(null);
-			
+
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(neoPropertyNode.getIncoming());
-			
+
 			neoPropertyNode.createParameters();
 			return neoPropertyNode;
 		} else {
@@ -1274,7 +1294,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 	//END - Adapt for Neo4J/Cypher
 
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1287,22 +1307,22 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				Comparison comparison = new ComparisonImpl();
 				Graph graph = getGraph().isBefore(node.getGraph())? node.getGraph(): getGraph();
 				OperatorList oplist = graph.getOperatorList();
-					
+
 				comparison.createParameters();
 				comparison.setArgument1(this);
 				comparison.setArgument2(node);
-				oplist.add(comparison);	
-				
+				oplist.add(comparison);
+
 				return comparison;
-				
-			} catch (Exception e) {	
+
+			} catch (Exception e) {
 				throw new RuntimeException("Adding Condition Failed: " + e.getMessage());
-			}	
+			}
 		}
 		throw new RuntimeException("Adding Condition Failed: Nodes not of same type " + this.getClass().getSimpleName() + " " + node.getClass().getSimpleName());
 	}
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1315,7 +1335,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		}
 		for(Comparison comp : getComparison2()) {
 			checkComparisonConsistency(comp);
-		}			
+		}
 	}
 
 	/**
@@ -1327,13 +1347,16 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public EList<Relation> getRelationsTo(Node node) {
 		BasicEList<Relation> relations = new BasicEList<Relation>();
 		for (Relation incomming: getIncoming()) {
-			if (incomming.getSource().equals(node))
+			if (incomming.getSource().equals(node)) {
 				relations.add(incomming);
+			}
 		}
 		if (this instanceof ComplexNode) {
-			for (Relation outgoing: ((ComplexNode) this).getOutgoing())
-				if (outgoing.getTarget().equals(node))
+			for (Relation outgoing: ((ComplexNode) this).getOutgoing()) {
+				if (outgoing.getTarget().equals(node)) {
 					relations.add(outgoing);
+				}
+			}
 		}
 		return relations;
 	}
@@ -1341,8 +1364,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return 
-	 * @throws InvalidityException 
+	 * @return
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -1354,19 +1377,22 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return 
-	 * @throws InvalidityException 
+	 * @return
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
 	public Relation addOutgoing(Graph graph) throws InvalidityException {
-		if (getGraph() == null)
+		if (getGraph() == null) {
 			throw new InvalidityException("Graph is null for " + myToString());
-		if (graph == null)
+		}
+		if (graph == null) {
 			return addOutgoing();
-		
-		if(!getGraph().isBefore(graph))
+		}
+
+		if(!getGraph().isBefore(graph)) {
 			throw new InvalidityException("" + getGraph().myToString() + "is not before " + graph.myToString());
+		}
 		Node newNode = new NodeImpl();
 		newNode.setGraph(graph);
 		return getGraph().addRelation(makeComplex(), newNode);
@@ -1375,8 +1401,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return 
-	 * @throws InvalidityException 
+	 * @return
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -1391,15 +1417,16 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		else if (myGraph != null && nodeGraph == null) {
 			node.setGraph(myGraph);
 			return myGraph.addRelation(makeComplex(), node);
-			
+
 		}
 		else if (myGraph.isBefore(nodeGraph)) {
 			return nodeGraph.addRelation(makeComplex(), node);
 		}
 		else if (nodeGraph.isBefore(myGraph)) {
 			return myGraph.addRelation(makeComplex(), node);
+		} else {
+			throw new InvalidityException("A Relation between " + myToString() +" and " + node.myToString() + "could not be added");
 		}
-		else throw new InvalidityException("A Relation between " + myToString() +" and " + node.myToString() + "could not be added");
 	}
 
 	/**
@@ -1875,10 +1902,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public String myToString() {
 		String res = "";
-		if (isReturnNode())
+		if (isReturnNode()) {
 			res += "Return-";
+		}
 		res += this.getClass().getSimpleName();
-		if (getName() != null) res +=  " " + getName();
+		if (getName() != null) {
+			res +=  " " + getName();
+		}
 		res += " [" + getInternalId() + "]";
 		return res;
 	}
@@ -1886,8 +1916,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 */
+	@Override
 	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> res = new BasicEList<Operator>();
 		for (Operator op : getPredicates()) {
@@ -1897,9 +1928,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> 
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		for (Operator op : getPredicates()) {
@@ -1907,7 +1939,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		}
 		return res;
 	}
-	
+
 	@Override
 	public void prepareTranslation() {
 		translated = false;
@@ -1915,8 +1947,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return 
-	 * 
+	 * @return
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -1927,11 +1959,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			ParameterList varlist = completePattern.getParameterList();
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
-				
+
 			UntypedParameterValue untypedParameterValue = new UntypedParameterValueImpl();
 			varlist.add(untypedParameterValue);
-	
-			oplist.add(comparison);	
+
+			oplist.add(comparison);
 			comparison.createParameters();
 			PrimitiveNode p = null;
 			if(this instanceof PrimitiveNode) {
@@ -1940,12 +1972,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				p = makePrimitive();
 			}
 			comparison.setArgument1(p);
-			comparison.setArgument2(untypedParameterValue);						
-			
+			comparison.setArgument2(untypedParameterValue);
+
 			return untypedParameterValue;
-			
-		} catch (Exception e) {			
-			System.out.println("Adding Condition Failed: " + e.getMessage());		
+
+		} catch (Exception e) {
+			System.out.println("Adding Condition Failed: " + e.getMessage());
 			e.printStackTrace();
 		}
 		return null;
@@ -1954,17 +1986,17 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return 
+	 * @return
 	 * @generated NOT
 	 */
 	@Override
 	public TextLiteralParam addPrimitiveComparison(String value) {
-//		Comparison comparison = new ComparisonImpl();		
+//		Comparison comparison = new ComparisonImpl();
 		try {
 			TextLiteralParam textlit = new TextLiteralParamImpl(value);
 			addPrimitiveComparison(textlit);
 			return textlit;
-						
+
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());
 			e.printStackTrace();
@@ -1975,7 +2007,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return 
+	 * @return
 	 * @generated NOT
 	 */
 	@Override
@@ -1983,24 +2015,24 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		addPrimitiveComparison().replace(parameter);
 		return parameter;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return 
+	 * @return
 	 * @generated NOT
 	 */
 	@Override
 	public ParameterValue addPrimitiveComparison(ComparisonOperator operator, ParameterValue parameter) {
 		Comparison comparison = new ComparisonImpl();
-		try {		
+		try {
 			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 			varlist.add(parameter);
-	
-			oplist.add(comparison);	
+
+			oplist.add(comparison);
 			comparison.createParameters();
 			comparison.getOption().setValue(operator);
 			PrimitiveNode p = null;
@@ -2036,11 +2068,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public NullCheck addPrimitiveNullCheck(Boolean isNull) {
 		NullCheck nullCheck = new OperatorsFactoryImpl().createNullCheck();
-		try {			
+		try {
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 
-			oplist.add(nullCheck);	
+			oplist.add(nullCheck);
 			nullCheck.createParameters();
 			PrimitiveNode p = null;
 			BooleanParam booleanParam = new BooleanParamImpl();
@@ -2052,7 +2084,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				p = makePrimitive();
 			}
 			nullCheck.setPrimitiveNode(p);
-			
+
 			return nullCheck;
 		} catch (Exception e) {
 			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
@@ -2069,11 +2101,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public ValidateLinkOperator addPrimitiveValidateLink() {
 		ValidateLinkOperator linkvalidation = new ValidateLinkOperatorImpl();
-		try {			
+		try {
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 
-			oplist.add(linkvalidation);	
+			oplist.add(linkvalidation);
 			linkvalidation.createParameters();
 			PrimitiveNode p = null;
 			if(this instanceof PrimitiveNode) {
@@ -2108,11 +2140,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public StringLength addPrimitiveStringLength(ComparisonOperator option, Double number) throws InvalidityException {
 		StringLength strLen = new StringLengthImpl();
-		try {			
+		try {
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 
-			oplist.add(strLen);	
+			oplist.add(strLen);
 			strLen.createParameters();
 			PrimitiveNode p = null;
 			if(this instanceof PrimitiveNode) {
@@ -2121,10 +2153,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				p = makePrimitive();
 			}
 			strLen.setPrimitiveNode(p);
-			
+
 			if(option != null) {
 				strLen.getOption().setValue(option);
-			}			
+			}
 			if(number != null) {
 				strLen.getNumber().setValue(number);
 			}
@@ -2139,7 +2171,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return 
+	 * @return
 	 * @generated NOT
 	 */
 	@Override
@@ -2149,18 +2181,18 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return 
-	 * 
+	 * @return
+	 *
 	 * @generated NOT
 	 */
 	@Override
 	public TextLiteralParam addPrimitiveMatch(String regex) {
 		Match match = new MatchImpl();
-		try {			
+		try {
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 
-			oplist.add(match);	
+			oplist.add(match);
 			match.createParameters();
 			PrimitiveNode p = null;
 			if(this instanceof PrimitiveNode) {
@@ -2169,7 +2201,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				p = makePrimitive();
 			}
 			match.setPrimitiveNode(p);
-								
+
 			if(regex != null) {
 				match.getRegularExpression().setValue(regex);
 			}
@@ -2181,7 +2213,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		}
 	}
 
-	
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2201,11 +2233,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public TextLiteralParam addPrimitiveContains(String content) {
 		Contains contains = new ContainsImpl();
-		try {			
+		try {
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 
-			oplist.add(contains);	
+			oplist.add(contains);
 			contains.createParameters();
 			PrimitiveNode p = null;
 			if(this instanceof PrimitiveNode) {
@@ -2214,7 +2246,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				p = makePrimitive();
 			}
 			contains.setPrimitiveNode(p);
-								
+
 			if(content != null) {
 				contains.getContent().setValue(content);
 			}
@@ -2248,12 +2280,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		result.append(')');
 		return result.toString();
 	}
-	
+
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
-		if (this instanceof PrimitiveNode)
-			patternElements.add(this);			
+		if (this instanceof PrimitiveNode) {
+			patternElements.add(this);
+		}
 		return patternElements;
 	}
 

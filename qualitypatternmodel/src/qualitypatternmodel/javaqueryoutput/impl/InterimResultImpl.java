@@ -8,7 +8,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -104,7 +103,7 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -205,7 +204,8 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 			return new ContainerResultImpl((List<Object>) input);
 		} else if (input instanceof String) {
 			return new ValueResultImpl((String) input);
-		} else 
+		} else {
 			throw new InvalidityException();
+		}
 	}
 } //InterimResultImpl

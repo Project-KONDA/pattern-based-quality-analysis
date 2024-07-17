@@ -15,7 +15,8 @@ public class CombinationsTest<T> {
 
 		CombinationCreator<Integer> combinations = new CombinationCreator<>(integerLists);
 
-		while (!combinations.isFinished())
+		while (!combinations.isFinished()) {
 			System.out.println(combinations.getNext());
+		}
 	}
 }

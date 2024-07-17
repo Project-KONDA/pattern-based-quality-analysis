@@ -1,4 +1,4 @@
-package patterntoconstrainttranslation;
+package mqaftranslationtest;
 
 import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_DATABASE_NAME;
 import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_DATA_PATH;
@@ -42,7 +42,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
-public class ConstraintApplicationTest {
+public class MqafApplicationTest {
 
 	private static String RECORD_PATH = "/*[name() = \"demo:data\"]/*";
 	private static String SOURCEFIELD_PATH = "/*[name() = \"demo:source\"]/data()";
@@ -52,26 +52,26 @@ public class ConstraintApplicationTest {
 	static Integer NA = 0;
 	static Integer FAILIURE = -1;
 	static boolean NARating = true;
-	
+
 	public static void main(String[] args) throws Exception {
 		evaluatePatternConstraintTranslation(cardinalityPattern(ComparisonOperator.LESS, 2.), "ruleCatalog:FieldNode:minCount:1");
 		evaluatePatternConstraintTranslation(cardinalityPattern(ComparisonOperator.LESSOREQUAL, 2.), "ruleCatalog:FieldNode:minCount:1");
 		evaluatePatternConstraintTranslation(cardinalityPattern(ComparisonOperator.GREATER, 1.), "ruleCatalog:FieldNode:maxCount:1");
 		evaluatePatternConstraintTranslation(getPatternSourceContainsWikipedia(), "ruleCatalog:PrimitiveNode_2:pattern:1");
-	}	
-		
-	
+	}
+
+
 	public static void evaluatePatternConstraintTranslation(CompletePattern pattern, String feature) throws InvalidityException {
 		List<String> records = getRecords();
-		
+
 		List<Boolean> patternResultIndices = calculatePatternBooleanResults(pattern);
-		
+
 		BaseSchema schema = pattern.generateXmlConstraintSchema();
 		setSchemaScores(schema);
-		
+
 		List<Map<String, Object>> constraintResults = calculateConstraintResults(schema, records);
 		List<Boolean> constraintResultIndices = getConstraintResultIndices(constraintResults, feature);
-		
+
 		List<Boolean> comparisonResults =  compareResults(patternResultIndices, constraintResultIndices);
 		if (!comparisonResults.contains(false)) {
 			System.out.println("TEST SUCCESS");
@@ -79,16 +79,17 @@ public class ConstraintApplicationTest {
 		else {
 			System.out.println("TEST FAILED");
 			System.out.println("Fail/Ptt/Cst/Map");
-			for (int i = 0; i < comparisonResults.size(); i++)
+			for (int i = 0; i < comparisonResults.size(); i++) {
 				System.out.println(
 					"  " + (comparisonResults.get(i)? " ": "X") + "   "
 					+ (patternResultIndices.get(i)? "1": "0") + "   "
 					+ (constraintResultIndices.get(i)? "1": "0") + "  "
 					+ constraintResults.get(i));
+			}
 		}
 	}
-	
-	
+
+
 	private static void setSchemaScores(BaseSchema schema) {
 		for (DataElement de: schema.getPaths()) {
 			for (Rule rule: de.getRules()) {
@@ -102,22 +103,24 @@ public class ConstraintApplicationTest {
 
 		MeasurementConfiguration config = new MeasurementConfiguration().enableRuleCatalogMeasurement();
 
-		Map<String, String> namespaces = new HashMap<String,String>();
+		Map<String, String> namespaces = new HashMap<String, String>();
 		schema.setNamespaces(namespaces);
 
 		CalculatorFacade calculator = new CalculatorFacade(config); // use configuration
 		calculator.setSchema(schema);
-		if (namespaceWorkaround)
+		if (namespaceWorkaround) {
 			XPathWrapper.setXpathEngine(schema.getNamespaces());
+		}
 		calculator.configure();
-		
+
 		List<Map<String, Object>> csvresults = new ArrayList<Map<String, Object>>();
-		for (String record: records)
+		for (String record: records) {
 			csvresults.add(calculator.measureAsMap(record));
-		
+		}
+
 		return csvresults;
 	}
-	
+
 	private static List<Boolean> getConstraintResultIndices(List<Map<String, Object>> csvresultmap, String feature){
 		List<Boolean> result = new ArrayList<Boolean>();
 		for (Map<String, Object> map: csvresultmap) {
@@ -131,29 +134,31 @@ public class ConstraintApplicationTest {
 		}
 		return result;
 	}
-	
+
 	private static List<String> getRecords() {
 		return queryXmlDB(DEMO_DATABASE_NAME, DEMO_DATA_PATH, DEMO_XQUERY_RECORD_PATH);
 	}
-	
+
 	private static List<Boolean> calculatePatternBooleanResults(CompletePattern pattern) throws InvalidityException{
 		List<Boolean> booleans = new ArrayList<Boolean>();
 		List<String> records = getRecords();
 		List<String> patternresults = queryXmlDB(DEMO_DATABASE_NAME, DEMO_DATA_PATH, pattern.generateXQuery());
-		
+
 		for (int i = 0; i< records.size(); i++)
+		 {
 			booleans.add(!patternresults.contains(records.get(i)));
 		// only records in the result list are flawed
-		
+		}
+
 		return booleans;
 	}
-	
+
 	private static List<String> queryXmlDB(String databasename, String datapath, String query){
 		List<String> results = new ArrayList<String>();
 		Context context = new Context();
 		try {
 			new CreateDB(databasename, datapath).execute(context);
-	
+
 			try (QueryProcessor proc = new QueryProcessor(query, context)) {
 				Iter iter = proc.iter();
 				for (Item item; ((item = iter.next()) != null);) {
@@ -170,44 +175,45 @@ public class ConstraintApplicationTest {
 
 	static List<Boolean> compareResults(List<Boolean> patternBooleanResults, List<Boolean> constraintBooleanResults){
 		List<Boolean> result = new ArrayList<Boolean>();
-		for (int i = 0; i < patternBooleanResults.size() && i < constraintBooleanResults.size() ; i++)
+		for (int i = 0; i < patternBooleanResults.size() && i < constraintBooleanResults.size() ; i++) {
 			result.add(patternBooleanResults.get(i) == constraintBooleanResults.get(i));
+		}
 		return result;
 	}
-	
-	
-	
-	
+
+
+
+
 	// Real Patterns
-	
+
 	private static CompletePattern getPatternSourceContainsWikipedia() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Source-Contains-Wikipedia-Comparison:");
 		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(cond);
 		Graph g = cond.getGraph();
-		
+
 		Node ret = completePattern.getGraph().getNodes().get(0);
 		Node n2 = ret.addOutgoing(g).getTarget().makePrimitive();
-		
+
 		n2.addPrimitiveContains();
-		
+
 		completePattern.createXmlAdaption();
-		
+
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 		BooleanParamImpl p0 = (BooleanParamImpl) params.get(0);
 		TextLiteralParamImpl p1 = (TextLiteralParamImpl) params.get(1);
 		XmlPathParamImpl p2 = (XmlPathParamImpl) params.get(2);
 		XmlPathParamImpl p3 = (XmlPathParamImpl) params.get(3);
-		
+
 		p0.setValue(false);
 		p1.setValue("wikipedia");
 		p2.setValueFromString(DEMO_XQUERY_RECORD_PATH); // path to record
 		p3.setValueFromString(DEMO_XQUERY_RECORD_SOURCE_PATH); // path record to field
-		
+
 		return completePattern;
 	}
-	
+
 	private static CompletePattern cardinalityPattern(ComparisonOperator co, double d) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setDescription("Count lessthan 1");
@@ -215,37 +221,37 @@ public class ConstraintApplicationTest {
 		completePattern.setCondition(ccond);
 		CountPattern cp = ccond.getCountPattern();
 		ccond.setArgument2(new NumberElementImpl());
-				
+
 		Graph g1 = completePattern.getGraph();
 		Graph g2 = cp.getGraph();
-		
+
 		Node ret = g1.getNodes().get(0).makeComplex();
 		ret.setName("RecordNode");
-		
+
 		Node recCopy = g2.addPrimitiveNode();
 		ret.addOutgoing(recCopy);
 		recCopy.setName("FieldNode");
 		recCopy.setReturnNode(true);
-		
+
 		completePattern.createXmlAdaption();
-		
+
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 //		for (Parameter p: params)
 //			System.out.println(p.getClass().getSimpleName() + " p" + params.indexOf(p) + " = (" + p.getClass().getSimpleName()+ ") params.get(" + params.indexOf(p) + ");" );
-		
+
 		ComparisonOptionParamImpl p0 = (ComparisonOptionParamImpl) params.get(0);
 		NumberParamImpl p1 = (NumberParamImpl) params.get(1);
 		XmlPathParamImpl p2 = (XmlPathParamImpl) params.get(2);
 		XmlPathParamImpl p3 = (XmlPathParamImpl) params.get(3);
-		
-		
+
+
 		p0.setValue(co);
 		p1.setValue(2.);
 		p2.setValueFromString(RECORD_PATH);
 		p3.setValueFromString(SOURCEFIELD_PATH);
-		
+
 //		System.out.println(completePattern.myToString());
-		
+
 		return completePattern;
 	}
 

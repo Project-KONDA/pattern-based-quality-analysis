@@ -12,13 +12,13 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class GeneralPattern {
-	
+
 	//For the first example - Generic MATCH1
 	public static CompletePattern match1() throws InvalidityException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		
+
 		CompletePattern completePattern = factory.createCompletePattern();
 		completePattern.getGraph().getReturnNodes().get(0).makeComplex();
 		completePattern.getGraph().getReturnNodes().get(0).setName("Root");
@@ -29,16 +29,16 @@ public class GeneralPattern {
 		ComplexNode complexNode = completePattern.getGraph().addComplexNode();
 		completePattern.getGraph().addRelation((ComplexNode) completePattern.getGraph().getNodes().get(0), complexNode);
 		complexNode.setReturnNode(true);
-		
+
 		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
 		completePattern.setCondition(qc1);
 		PrimitiveNode innerPrimitiveNode = qc1.getGraph().addPrimitiveNode();
 		innerPrimitiveNode.addPrimitiveMatch();
 		qc1.getGraph().getReturnNodes().get(0).addOutgoing(innerPrimitiveNode);
-		
+
 		return completePattern;
 	}
-	
+
 	//For the first example - Neo4J-Abstrakt MATCH1
 	public static CompletePattern neo4JAbstraktMatch1(CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return (CompletePattern) completePattern.createNeo4jAdaption();

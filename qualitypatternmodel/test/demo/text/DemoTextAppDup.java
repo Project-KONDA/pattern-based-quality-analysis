@@ -17,7 +17,7 @@ import qualitypatternmodel.textrepresentation.impl.TextFragmentImpl;
 import qualitypatternmodel.xmlevaluation.XmlEvalAppDup;
 
 public class DemoTextAppDup {
-	
+
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getAppDupWithText();
 	}
@@ -33,7 +33,7 @@ public class DemoTextAppDup {
 		addComplexText(completePattern);
 		return completePattern;
 	}
-	
+
 //	Are there two distinct elements, each reached by <path1> that have equal values in the properties that are reached by <path2>, <path3> and <path4>?
 	private static void addComplexText(CompletePattern completePattern) {
 		List<Parameter> params = completePattern.getParameterList().getParameters();
@@ -47,7 +47,7 @@ public class DemoTextAppDup {
 		XmlPathParam p7 = ((XmlPathParam) params.get(7));
 		XmlPathParam p8 = ((XmlPathParam) params.get(8));
 		XmlPathParam p9 = ((XmlPathParam) params.get(9));
-		
+
 		PatternText patternText = TextrepresentationFactory.eINSTANCE.createPatternText();
 		patternText.setName(DemoPatternTexts.APPDUP_NAME);
 		completePattern.getText().add(patternText);
@@ -56,22 +56,22 @@ public class DemoTextAppDup {
 		path1.getParameter().add(p2);
 		path1.getParameter().add(p3);
 		path1.setId("path1");
-		
+
 		ParameterFragment path2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path2.getParameter().add(p4);
 		path2.getParameter().add(p5);
 		path2.setId("path2");
-		
+
 		ParameterFragment path3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path3.getParameter().add(p6);
 		path3.getParameter().add(p7);
 		path3.setId("path3");
-		
+
 		ParameterFragment path4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		path4.getParameter().add(p8);
 		path4.getParameter().add(p9);
 		path4.setId("path4");
-		
+
 		patternText.addFragment(new TextFragmentImpl("Are there two distinct elements, each reached by "));
 		patternText.addFragment(path1);
 		patternText.addFragment(new TextFragmentImpl(" that have equal values in the properties that are reached by "));
@@ -81,7 +81,7 @@ public class DemoTextAppDup {
 		patternText.addFragment(new TextFragmentImpl(" and "));
 		patternText.addFragment(path4);
 		patternText.addFragment(new TextFragmentImpl("?"));
-		
+
 		try {
 			patternText.isValid(null);
 		} catch (InvalidityException e) {
@@ -89,5 +89,5 @@ public class DemoTextAppDup {
 			e.printStackTrace();
 		}
 	}
-	
+
 }

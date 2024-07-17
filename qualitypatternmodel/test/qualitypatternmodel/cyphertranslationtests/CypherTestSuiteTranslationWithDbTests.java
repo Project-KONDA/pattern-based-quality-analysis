@@ -25,10 +25,10 @@ public class CypherTestSuiteTranslationWithDbTests extends  CypherTestSuiteTrans
 	}
 
 	@Override
-	public ConditionEvaluationResult evaluateExecutionCondition(ExtensionContext context) {		
+	public ConditionEvaluationResult evaluateExecutionCondition(ExtensionContext context) {
 		if (utilis.Java2Neo4JConnector.verifyConnectivity()) {
 			return ConditionEvaluationResult.enabled(TEST_ENABLED_ON_QA_ENVIRONMENT);
-		} 
+		}
 		return ConditionEvaluationResult.disabled(TEST_DISABLED_ON_QA_ENVIRONMENT);
 	}
 
@@ -37,7 +37,7 @@ public class CypherTestSuiteTranslationWithDbTests extends  CypherTestSuiteTrans
 		for (CompletePattern comp : completePatterns) {
 			try (Java2Neo4JConnector connector = new Java2Neo4JConnector()) {
 				connector.queryTesterForToComplexQueries(comp.generateCypher(), comp.generateCypher().hashCode() + "", true);
-			}			
+			}
 		}
 	}
 }

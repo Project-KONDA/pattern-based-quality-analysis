@@ -5,15 +5,14 @@ package qualitypatternmodel.patternstructure.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -56,18 +55,18 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String ID_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. 
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!--* begin-user-doc -->
 	 * A generated UUID.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getId()
 	 * @ordered
 	 */
@@ -85,11 +84,11 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * The cached value of the '{@link #getInternalId() <em>Ref No</em>}' attribute.
 	 * <!--* begin-user-doc -->
-	 * A simple numerical identifier. 
-	 * It is automatically set when a <code>PatternElement</code> is inserted into a <code>CompletePattern</code>. 
+	 * A simple numerical identifier.
+	 * It is automatically set when a <code>PatternElement</code> is inserted into a <code>CompletePattern</code>.
 	 * It is unique at least within all instances of the same class.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getInternalId()
 	 * @generated
 	 * @ordered
@@ -107,6 +106,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
+	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		return new BasicEList<Parameter>();
 	}
@@ -114,14 +114,15 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
+	@Override
 	public EList<Operator> getAllOperators() throws InvalidityException {
 		return new BasicEList<Operator>();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @throws OperatorCycleException 
-	 * @throws MissingPatternContainerException 
+	 * @throws OperatorCycleException
+	 * @throws MissingPatternContainerException
 	 */
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -130,16 +131,18 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @throws OperatorCycleException 
-	 * @throws MissingPatternContainerException 
+	 * @throws OperatorCycleException
+	 * @throws MissingPatternContainerException
 	 */
+	@Override
 	abstract public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public boolean validate(DiagnosticChain chain, Map<Object, Object> context) {
 		try {
 			isValidLocal(AbstractionLevel.GENERIC);
@@ -186,7 +189,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		} catch (MissingPatternContainerException e) {
 			// do nothing
 //			e.printStackTrace();
-		}	
+		}
 		return newParameterList;
 	}
 
@@ -202,15 +205,15 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			newOperatorList = ((Graph) getAncestor(GraphImpl.class)).getOperatorList();
 		} catch (MissingPatternContainerException e) {
 			// do nothing
-		}	
+		}
 		return newOperatorList;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws MissingPatternContainerException 
-	 * @throws OperatorCycleException 
+	 * @throws MissingPatternContainerException
+	 * @throws OperatorCycleException
 	 * @generated NOT
 	 */
 	@Override
@@ -246,9 +249,11 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Boolean containsJavaOperator() throws InvalidityException {
 		List<Operator> ops = getAllOperators();
-		for (Operator o: ops)
-			if (o instanceof JavaOperator)
+		for (Operator o: ops) {
+			if (o instanceof JavaOperator) {
 				return true;
+			}
+		}
 		return false;
 	}
 
@@ -303,13 +308,13 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public void triggerParameterUpdates(PatternElement newContainer) {
-//		ParameterList oldParameterList = getParameterList();		
-		
+//		ParameterList oldParameterList = getParameterList();
+
 		ParameterList newParameterList = null;
 		if(newContainer != null) {
 			newParameterList = newContainer.getParameterList();
-		}		
-		
+		}
+
 //		if(oldParameterList == null) {
 //			// TODO
 //		} else if(newParameterList == null) {
@@ -317,7 +322,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 //		} else if(oldParameterList.equals(newParameterList)) {
 //			// TODO
 //		}
-		
+
 		updateParameters(newParameterList);
 	}
 
@@ -329,11 +334,11 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void updateParameters(ParameterList newParameterList) {
 		EList<PatternElement> patternElements = prepareParameterUpdates();
-		
+
 		for(PatternElement patternElement : patternElements) {
-			if(patternElement != null) {						
-				patternElement.updateParameters(newParameterList);			
-			}	
+			if(patternElement != null) {
+				patternElement.updateParameters(newParameterList);
+			}
 		}
 	}
 
@@ -349,31 +354,32 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @throws MissingPatternContainerException 
-	 * @throws Exception 
-	 * 
+	 * @throws MissingPatternContainerException
+	 * @throws Exception
+	 *
 	 * @generated NOT
 	 */
 	@Override
 	public PatternElement getContainer() throws MissingPatternContainerException {
 		if (eInternalContainer() instanceof PatternElement) {
-			return (PatternElement)eInternalContainer(); 
+			return (PatternElement)eInternalContainer();
 		}
 		throw new MissingPatternContainerException("container object invalid");
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * 
+	 * @throws InvalidityException
+	 *
 	 * @generated NOT
 	 */
 	@Override
 	public PatternElement getAncestor(Class<?> cls) throws MissingPatternContainerException {
-		if (cls.isInstance(this))
+		if (cls.isInstance(this)) {
 			return this;
-		else
+		} else {
 			return getContainer().getAncestor(cls);
+		}
 	}
 
 	/**
@@ -437,7 +443,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -458,15 +464,18 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@Override
 	public String generateXQuery() throws InvalidityException {
 		throw new UnsupportedOperationException(this.getClass().getSimpleName());
 	}
-	
+
+	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
-		if (containsJavaOperator())
+		if (containsJavaOperator()) {
 			throw new UnsupportedOperationException(getClass().getSimpleName());
-		else 
+		} else {
 			return generateXQuery();
+		}
 	}
 
 	/**
@@ -725,7 +734,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy()) {
+			return super.toString();
+		}
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (id: ");

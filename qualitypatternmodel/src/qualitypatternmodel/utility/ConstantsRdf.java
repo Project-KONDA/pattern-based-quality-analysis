@@ -19,6 +19,10 @@ public class ConstantsRdf {
 	public static final String PREDICATE = "rdf:type";
 	public static final String PREDICATE_WIKIDATA = "wdt:P31";
 	
-
-
+	// JSON
+	public static final String JSON_RDF_PART = "rdfpart";
+	public static final String JSON_RDF_PATH_XOR = "xor";
+	public static final String JSON_RDF_PATH_SEQUENCE = "sequence";
+	public static final String JSON_RDF_PATH = "rdfpath";
+	public static final String JSON_RDF_NODE_TYPE = "nodetypes";
 }

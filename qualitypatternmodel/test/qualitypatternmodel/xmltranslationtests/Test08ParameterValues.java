@@ -22,47 +22,47 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test08ParameterValues {
-	
+
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		for (XmlPropertyKind pl : XmlPropertyKind.VALUES) {
-				for (ParameterValue parameter : getTestParameters()) {					
+				for (ParameterValue parameter : getTestParameters()) {
 					CompletePattern completePattern = getConcreteComparisonPattern(pl, parameter);
-					completePatterns.add(completePattern);		
+					completePatterns.add(completePattern);
 			}
 		}
 		return completePatterns;
 	}
-	
+
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		XmlPatternUtility.getQueries(getPatterns());
+		PatternUtility.testPatterns(getPatterns());
 	}
-	
+
 	public static CompletePattern getConcreteComparisonPattern(XmlPropertyKind xmlPropertyKind, ParameterValue parameterValue) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
-		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
+
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison(ComparisonOperator.EQUAL, parameterValue);
 //		completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.NOTEQUAL, parameter);
-		
+
 		completePattern.createXmlAdaption();
-		
+
 		XmlProperty property = (XmlProperty) completePattern.getGraph().getNodes().get(1);
 		XmlNavigation relation = (XmlNavigation) property.getIncoming().get(0);
 		relation.getXmlPathParam().getXmlPropertyOptionParam().getOptions().add(xmlPropertyKind);
 		relation.getXmlPathParam().getXmlPropertyOptionParam().setValue(xmlPropertyKind);
-		
+
 		TextLiteralParam text = parametersFactory.createTextLiteralParam();
 		text.setValue("*");
 		relation.getXmlPathParam().getXmlPropertyOptionParam().setAttributeName(text );
-		
+
 //		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
-		
+
 		return completePattern;
 	}
 
@@ -106,17 +106,17 @@ public class Test08ParameterValues {
 //		CompletePattern completePattern = Test00.getBasePattern();
 //		Element ret = completePattern.getGraph().getElements().get(0);
 //		ret.addPrimitiveComparison(parameter);
-//		
+//
 //		completePattern.createXMLAdaption();
 //		completePattern.finalizeXMLAdaption();
-//		
+//
 //		return completePattern;
 //	}
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<ParameterValue> parameter = getTestParameters();
 
-		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();	
+		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
 		testPairs.add(new PatternTestPair("DataTextLiteral", getConcreteComparisonPattern(XmlPropertyKind.DATA, parameter.get(0)), "//*[data()='USA']"));
 		testPairs.add(new PatternTestPair("DataTextList", getConcreteComparisonPattern(XmlPropertyKind.DATA, parameter.get(1)), "//*[data()='USA' or data()='unknown']"));
@@ -125,9 +125,9 @@ public class Test08ParameterValues {
 		testPairs.add(new PatternTestPair("DataDate", getConcreteComparisonPattern(XmlPropertyKind.ATTRIBUTE, parameter.get(4)), "//*[@*[try {xs:date(data()) = xs:date(\"2020-10-03\")} catch err:FORG0001 {false()}]]"));
 		testPairs.add(new PatternTestPair("DataTime", getConcreteComparisonPattern(XmlPropertyKind.ATTRIBUTE, parameter.get(5)), "//*[@*[try {xs:time(data()) = xs:time(\"09:00:00\")} catch err:FORG0001 {false()}]]"));
 		testPairs.add(new PatternTestPair("DataDateTime", getConcreteComparisonPattern(XmlPropertyKind.ATTRIBUTE, parameter.get(6)), "//*[@*[try {xs:dateTime(data()) = xs:dateTime(\"2020-10-03T09:00:00\")} catch err:FORG0001 {false()}]]"));
-		
+
 		// TODO: complete
-		
+
 		return testPairs;
 	}
 

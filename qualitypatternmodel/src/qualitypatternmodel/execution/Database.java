@@ -3,6 +3,7 @@
 package qualitypatternmodel.execution;
 
 import java.io.IOException;
+
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
@@ -65,7 +66,7 @@ public interface Database extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns the <code>Result</code> of the application of <code>pattern</code> to <code>this</code> <code>Database</code>.
-	 * 
+	 *
 	 * @param pattern the <code>CompletePattern</code> to be executed
 	 * @param name the name of the pattern application
 	 * @param person the name of the person launching the pattern execution
@@ -85,7 +86,7 @@ public interface Database extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns the number of matches of <code>pattern</code> in <code>this</code> <code>Database</code>.
-	 * 
+	 *
 	 * @param pattern the pattern whose number of matches in <code>this</code> <code>Database</code> is returned
 	 * @throws InvalidityException if the <code>pattern</code> is invalid
 	 * @throws OperatorCycleException if the <code>pattern</code> contains <code>Operators</code> that have themselves as direct or indirect arguments

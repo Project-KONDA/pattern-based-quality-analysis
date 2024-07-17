@@ -4,12 +4,12 @@ package qualitypatternmodel.operators.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -17,12 +17,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.graphstructure.Node;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +38,7 @@ import qualitypatternmodel.graphstructure.Node;
  * @generated
  */
 public abstract class BooleanOperatorImpl extends OperatorImpl implements BooleanOperator {
-	
+
 	/**
 	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -59,6 +59,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	protected BooleanOperatorImpl() {
 		super();
 	}
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
 
 		if (getComparison1().isEmpty() && getComparison2().isEmpty()) {
@@ -77,7 +78,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 			}
 		}
 	}
-	
+
 	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.BOOLEAN;
@@ -129,13 +130,13 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 */
 	@Override
 	public void removeElement(Node node) {
-		if(getElementCount().containsKey(node)) {			
+		if(getElementCount().containsKey(node)) {
 			if(getElementCount().get(node) == 1) {
 				getNodes().remove(node);
 				getElementCount().removeKey(node);
 			} else {
 				getElementCount().put(node, getElementCount().get(node)-1);
-			}			
+			}
 		}
 	}
 
@@ -148,17 +149,17 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 */
 	@Override
 	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
-		if(getOperatorList() != null && !getOperatorList().equals(newOperatorList)) {			
+		if(getOperatorList() != null && !getOperatorList().equals(newOperatorList)) {
 			getNodes().clear();
 		}
-		msgs = super.basicSetOperatorList(newOperatorList, msgs);		
-		createParameters();		
+		msgs = super.basicSetOperatorList(newOperatorList, msgs);
+		createParameters();
 		return msgs;
-	}	
-	
+	}
+
 	@Override
-	abstract public void createParameters();	
-	
+	abstract public void createParameters();
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

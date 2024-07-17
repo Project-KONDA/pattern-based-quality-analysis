@@ -2786,13 +2786,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__LAST_SAVED = PATTERN_FEATURE_COUNT + 16;
 
 	/**
+	 * The feature id for the '<em><b>Namespaces</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__NAMESPACES = PATTERN_FEATURE_COUNT + 17;
+
+	/**
 	 * The number of structural features of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 17;
+	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3155,13 +3164,31 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___UPDATE_LAST_SAVED = PATTERN_OPERATION_COUNT + 10;
 
 	/**
+	 * The operation id for the '<em>Generate XQuery Namespaces</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_XQUERY_NAMESPACES = PATTERN_OPERATION_COUNT + 11;
+
+	/**
+	 * The operation id for the '<em>Print Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___PRINT_PARAMETERS = PATTERN_OPERATION_COUNT + 12;
+
+	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 11;
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 13;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -5772,6 +5799,17 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getCompletePattern_LastSaved();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CompletePattern#getNamespaces <em>Namespaces</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Namespaces</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getNamespaces()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EReference getCompletePattern_Namespaces();
+
+	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getCounter <em>Counter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5924,6 +5962,26 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getCompletePattern__UpdateLastSaved();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#generateXQueryNamespaces() <em>Generate XQuery Namespaces</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate XQuery Namespaces</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#generateXQueryNamespaces()
+	 * @generated
+	 */
+	EOperation getCompletePattern__GenerateXQueryNamespaces();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#printParameters() <em>Print Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Print Parameters</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#printParameters()
+	 * @generated
+	 */
+	EOperation getCompletePattern__PrintParameters();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
@@ -6925,6 +6983,14 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute COMPLETE_PATTERN__LAST_SAVED = eINSTANCE.getCompletePattern_LastSaved();
 
 		/**
+		 * The meta object literal for the '<em><b>Namespaces</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPLETE_PATTERN__NAMESPACES = eINSTANCE.getCompletePattern_Namespaces();
+
+		/**
 		 * The meta object literal for the '<em><b>Counter</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7043,6 +7109,22 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPLETE_PATTERN___UPDATE_LAST_SAVED = eINSTANCE.getCompletePattern__UpdateLastSaved();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate XQuery Namespaces</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPLETE_PATTERN___GENERATE_XQUERY_NAMESPACES = eINSTANCE.getCompletePattern__GenerateXQueryNamespaces();
+
+		/**
+		 * The meta object literal for the '<em><b>Print Parameters</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPLETE_PATTERN___PRINT_PARAMETERS = eINSTANCE.getCompletePattern__PrintParameters();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.

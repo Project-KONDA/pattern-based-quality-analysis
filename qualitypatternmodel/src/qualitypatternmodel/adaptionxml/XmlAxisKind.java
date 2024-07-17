@@ -413,5 +413,5 @@ public enum XmlAxisKind implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 } //Axis

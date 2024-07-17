@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jFactory;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoEdgeLabelParam;
@@ -35,7 +36,7 @@ import qualitypatternmodel.utility.EMFModelSave;
 public class Neo4jExperiments {
 	static String PATH = "D:/neotest.patternstructure";
 	static boolean log = false;
-	
+
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		boolean res1 = testSaveLoad(true);
 		System.out.println("### 1 " + res1 + " ###\n");
@@ -56,7 +57,7 @@ public class Neo4jExperiments {
 
 	public static boolean testSaveLoad(boolean set) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCard(), Language.NEO4J, "Card_neo4j", Map.of(), new String[] {}, new String[] {});
-		
+
 		EList<Parameter> params = pattern.getParameterList().getParameters();
 		ComparisonOptionParam comp = (ComparisonOptionParam) params.get(0);
 		NumberParam numb = (NumberParam) params.get(1);
@@ -68,7 +69,7 @@ public class Neo4jExperiments {
 			numb.setValue(1.);
 			lab1.getValues().add("ABC");
 			lab2.getValues().add("DEF");
-			
+
 			NeoComplexEdge edge = Adaptionneo4jFactory.eINSTANCE.createNeoComplexEdge();
 			NeoSimpleEdge simple1 = Adaptionneo4jFactory.eINSTANCE.createNeoSimpleEdge();
 			NeoSimpleEdge simple2 = Adaptionneo4jFactory.eINSTANCE.createNeoSimpleEdge();
@@ -78,7 +79,7 @@ public class Neo4jExperiments {
 			label2.setValue("Label2");
 			simple1.setNeoEdgeLabel(label1);
 			simple2.setNeoEdgeLabel(label2);
-			
+
 			edge.addNeoPathPart(simple1);
 			edge.addNeoPathPart(simple2);
 			path.setNeoPathPart(edge);
@@ -89,12 +90,12 @@ public class Neo4jExperiments {
 			lab2.clear();
 			path.clear();
 		}
-		
+
 		return testSaveAndLoad(pattern);
 	}
-	
+
 	private static boolean testVariantSaveLoad() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		String neodefault = 
+//		String neodefault =
 //				"{\"template\":\"Card_neo4j\","
 //				+ "\"language\":\"neo4j\","
 //				+ "\"name\":\"default-antipattern\","
@@ -119,11 +120,11 @@ public class Neo4jExperiments {
 
 		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCard(), Language.NEO4J, "Card_neo4j", Map.of(), new String[] {}, new String[] {});
 //		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericContains(), Language.NEO4J, Map.of(), new String[] {}, new String[] {});
-		
+
 //		EList<Parameter> params = pattern.getParameterList().getParameters();
 //		for (Parameter p: params)
 //			System.out.println(p.getClass().getSimpleName());
-		
+
 		PatternText text = TextrepresentationFactory.eINSTANCE.createPatternText();
 		TextFragment textfrag = TextrepresentationFactory.eINSTANCE.createTextFragment();
 		textfrag.setText("hallo");
@@ -147,12 +148,12 @@ public class Neo4jExperiments {
 
 		return testSaveAndLoad(pattern);
 	}
-	
+
 	private static boolean testXmlList() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCompSet(), Language.XML, "Comp_xml", Map.of(), new String[] {}, new String[] {});
 		return testSaveAndLoad(pattern);
 	}
-	
+
 
 	private static boolean testRdfVariants() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<CompletePattern> list = RdfPatterns.getAllRdfPattern();
@@ -162,7 +163,7 @@ public class Neo4jExperiments {
 		List<CompletePattern> list = Neo4jPatterns.getAllNeoPattern();
 		return testSaveAndLoadList(list);
 	}
-	
+
 	private static boolean testXmlVariants() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<CompletePattern> list = XmlPatterns.getAllXmlPattern();
 		return testSaveAndLoadList(list);
@@ -171,51 +172,55 @@ public class Neo4jExperiments {
 	private static boolean testSaveAndLoadList(List<CompletePattern> list) {
 		int total = 0;
 		int success = 0;
-		Boolean all = true;
+		boolean all = true;
 		for (CompletePattern p: list) {
 			boolean res = false;
 			try {
 				res = testSaveAndLoad(p);
 			} catch (Exception e) {
-				if (log) 
+				if (log) {
 					e.printStackTrace();
+				}
 			}
 			all &= res;
 			System.out.println(p.getName() + " " + res);
-			if (res)
+			if (res) {
 				success += 1;
+			}
 			total += 1;
 		}
 		System.out.println(success + " / " + total);
 		return all;
 	}
-	
+
 	private static boolean testSaveAndLoad(CompletePattern pattern) {
 		String saved = pattern.myToString();
-		
+
 		String loaded = null;
 		try {
 			EMFModelSave.exportToFile2(pattern, "D:", "neotest", "patternstructure");
 			CompletePattern pattern2 = EMFModelLoad.loadCompletePattern(PATH);
 			loaded = pattern2.myToString();
 		} catch (Exception e) {
-			if (log) 
+			if (log) {
 				e.printStackTrace();
+			}
 		}
-		
+
 		try {
 	        File file = new File(PATH);
 	        file.delete();
 		} catch (Exception e) {
-			if (log)
+			if (log) {
 				e.printStackTrace();
+			}
 		}
-		
+
 		if (log && !saved.equals(loaded)) {
 			System.out.println(saved);
 			System.out.println(loaded);
 		}
-		
+
 		return saved.equals(loaded);
 	}
 }

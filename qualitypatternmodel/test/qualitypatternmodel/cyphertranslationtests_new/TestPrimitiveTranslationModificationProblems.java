@@ -25,51 +25,51 @@ public class TestPrimitiveTranslationModificationProblems {
 
 		completePatterns.add(getPrimitiveTranslationTestPattern());
 		completePatterns.add(getReferenceTranslationTestPattern());
-				
+
 		Test00.test(completePatterns);
 	}
 
-	public static CompletePattern getPrimitiveTranslationTestPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
+	public static CompletePattern getPrimitiveTranslationTestPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
 //		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		
+
 		CompletePattern completePattern = factory.createCompletePattern();
-		
+
 		QuantifiedCondition q = factory.createQuantifiedCondition();
 		completePattern.setCondition(q);
-		
+
 		Graph g = q.getGraph();
-		
+
 		Node nodeA = g.getReturnNodes().get(0);
 		nodeA.addOutgoing().getTarget().addPrimitiveComparison();
-		
+
 		completePattern.createXmlAdaption();
-		
+
 		return completePattern;
 	}
-	
-	public static CompletePattern getReferenceTranslationTestPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
+
+	public static CompletePattern getReferenceTranslationTestPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		
+
 		CompletePattern completePattern = factory.createCompletePattern();
 		Graph g = completePattern.getGraph();
-		
+
 		Node nodeA = g.getReturnNodes().get(0);
 		nodeA.setGraph(g);
 		Node nodeB = graphFactory.createNode();
 		nodeB.setGraph(g);
-//		Relation r = 
+//		Relation r =
 		nodeA.addOutgoing(nodeB);
-		
+
 		completePattern.createXmlAdaption();
-		
+
 		((ComplexNode) g.getReturnNodes().get(0)).getOutgoing().get(0).adaptAsXmlReference();
-		
+
 		return completePattern;
 	}
 

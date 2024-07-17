@@ -24,7 +24,7 @@ public abstract class NeoEdgeTest implements INeoEdgeTest {
 	protected static final String INTERNAL_EDGE_NODE_1 = ConstantsNeo.INTERNAL_EDGE_NODE + 1;
 	protected NeoEdge neoAbstractEdge;
 	protected Field internalId;
-	
+
 	public void setUp(NeoEdge neoAbstractEdge) {
 		try {
 			this.neoAbstractEdge = neoAbstractEdge;
@@ -41,7 +41,7 @@ public abstract class NeoEdgeTest implements INeoEdgeTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	public void tearDown() {
 		neoAbstractEdge = null;
 	}
@@ -53,7 +53,7 @@ public abstract class NeoEdgeTest implements INeoEdgeTest {
 			EMap<Integer, String> variableMap = edge.getCypherReturn();
 			assumeTrue(variableMap.keySet().stream().count() == 1);
 			assumeTrue(variableMap.containsKey(0));
-//			String variable = 
+//			String variable =
 			variableMap.get(0).getValue();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -66,7 +66,7 @@ public abstract class NeoEdgeTest implements INeoEdgeTest {
 		this.internalId.set(edge, id);
 		assumeTrue( ((RelationImpl)edge).getInternalId() == id);
 	}
-	
+
 	protected NeoSimpleEdgeImpl prepaireMockObjNeoSimpleEdge(int number) throws InvalidityException {
 		NeoSimpleEdgeImpl mockNeoEdgeImpl = Mockito.mock(NeoSimpleEdgeImpl.class);
 		Mockito.when(mockNeoEdgeImpl.getCypherVariable()).thenReturn(String.format(VAR_ELEMENT_EDGE_X, number));

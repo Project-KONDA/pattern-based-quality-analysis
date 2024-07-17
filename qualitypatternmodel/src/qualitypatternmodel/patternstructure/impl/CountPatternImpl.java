@@ -12,14 +12,13 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import qualitypatternmodel.adaptionneo4j.NeoEdge;
+import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
-import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -31,21 +30,21 @@ import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.FormulaFilterPart;
 import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.impl.CountFilterElementImpl;
 import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
 import qualitypatternmodel.javaquery.impl.NumberFilterElementImpl;
-import qualitypatternmodel.javaquery.impl.CountFilterElementImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.utility.ConstantsNeo;
-import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.utility.ConstantsNeo;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,7 +65,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 //	private static final String NO_COUNT_ELEMENTS_CAN_BE_SET = "No count elements can be set";
 
 	private static final String SOMETHING_WENT_WRONG_IN_ACCESSING_THE_CYPHER_VARIABLE = "Something went wrong in accessing the Cypher Variable";
-	
+
 	/**
 	 * The cached value of the '{@link #getMorphism() <em>Morphism</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -92,37 +91,38 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
-				
+
 		Boolean graph = getGraph().containsJavaOperator();
 		Boolean condition = getCondition().containsJavaOperator();
-		
-		if (!graph && !condition)
+
+		if (!graph && !condition) {
 			return new NumberFilterElementImpl();
-		else {
+		} else {
 			BooleanFilterPart subfilter = null;
 			if (graph && condition) {
 				FormulaFilterPart container = new FormulaFilterPartImpl(
-					LogicalOperator.AND, 
+					LogicalOperator.AND,
 					(BooleanFilterPart) getGraph().generateQueryFilterPart(),
 					(BooleanFilterPart) getCondition().generateQueryFilterPart());
 				subfilter = container;
 			}
-			else if (graph)
+			else if (graph) {
 				subfilter = (BooleanFilterPart) getGraph().generateQueryFilterPart();
-			else if (condition)
+			} else if (condition) {
 				subfilter = (BooleanFilterPart) getCondition().generateQueryFilterPart();
+			}
 			return new CountFilterElementImpl(subfilter);
 		}
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		if (graph.getNodes().size() != 1) {
+		if (graph.getReturnNodes().size() != 1) {
 			throw new InvalidityException("too much nodes in " + getClass().getSimpleName() + " [" + getInternalId() + "]");
 		}
 		return "\ncount (" + super.generateXQuery().replace("\n", "\n  ") + "\n)";
 	}
-	
+
 	@Override
 	public String generateXQueryJava() throws InvalidityException {
 		if (graph.getNodes().size() != 1) {
@@ -130,37 +130,39 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		}
 		return "\ncount (" + super.generateXQueryJava().replace("\n", "\n  ") + "\n)";
 	}
-	
+
+	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		Boolean graphJava = getGraph().containsJavaOperator();
 		Boolean conditionJava = getCondition().containsJavaOperator();
 		String graphString = getGraph().generateXQueryJavaReturn();
 		String conditionString = getCondition().generateXQueryJavaReturn();
-		if (!graphJava && !conditionJava)
+		if (!graphJava && !conditionJava) {
 			return generateXQuery();
-		else if (!graphJava)
+		} else if (!graphJava) {
 			return conditionString;
-		else if (!conditionJava)
+		} else if (!conditionJava) {
 			return graphString;
-		else 
+		} else {
 			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString, conditionString), "condition", false, true, false);
+		}
 	}
-	
-	
+
+
 	//BEGIN - CYPHER (Simples Count)
 	//Count is marked as Unsuported for the other CONDITIONS, because Cypher v4.4 and lower does not allow nesting.
 	//Nodes --> no PATH/Edges implemented
-	private EList<Node> countNodes = new BasicEList<Node>(); 
+	private EList<Node> countNodes = new BasicEList<Node>();
 
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return PatternElement
 	 * @throws InvalidityException, OperatorCycleException, MissingPatternContainerException
-	 * This method creates the Neo4J adaption. 
-	 * It is needed to collect initialise the counter list. 
+	 * This method creates the Neo4J adaption.
+	 * It is needed to collect initialise the counter list.
 	 * The counter list is needed since we can not count over a substructure with MATCH-/RETURN-Clause like in other implemented languages.
 	 */
-	@Override 
+	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternElement patternElement = super.createNeo4jAdaption();
 		final EList<Node> lNodes = getGraph().getReturnNodes();
@@ -172,14 +174,14 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			//Since we assume that the user just wants to count the elements which are marked in a new graph as return node(-s).
 //			for(Node n : lNodes) {
 //				if (n.getOriginalNode() != n) {
-//					n.setReturnNode(false);				
+//					n.setReturnNode(false);
 //				}
-//			}							
+//			}
 		}
 		initCountSet();
 		return patternElement;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * This method selects all count elements and put them into the List.
@@ -187,10 +189,10 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	private void initCountSet() {
 		final EList<Node> lNodes = getGraph().getReturnNodes();
 		for (Node n : lNodes) {
-			this.addNeoCountNode(n);							
+			this.addNeoCountNode(n);
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * This method refreshes the counter list if in the concretization the user has specified the concrete pattern differently to the generic pattern;
@@ -205,12 +207,12 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 					countNodes.remove(neoNode);
 				}
 			} else if (neoNode.isReturnNode()) {
-				tempSet.add((Node) neoNode);
+				tempSet.add(neoNode);
 			}
 		}
 		countNodes.addAll(tempSet);
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param countElements
@@ -221,23 +223,23 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			this.countNodes.add(countElements);
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
 	 * @return String
 	 * This method builds the MATCH-/WHERE-Clause for the stored Graph in the CountPattern.
 	 */
-	@Override 
+	@Override
 	public String generateCypher() throws InvalidityException {
-		final Graph g = getGraph();	
+		final Graph g = getGraph();
 		final StringBuilder cypher = new StringBuilder();
 		final String temp = g.generateCypher();
 		if (!temp.isBlank()) {
 			cypher.append(ConstantsNeo.CLAUSE_MATCH + ConstantsNeo.ONE_WHITESPACE);
 			cypher.append(temp);
 		}
-		//Just works with a SimpleCount 
+		//Just works with a SimpleCount
 		//If CompPattern has a Where has to be handled differently as if it has no Where
 		//In the case when the CountPattern does not has any Match-Clause
 		final String tempWhere = g.generateCypherWhere();
@@ -245,7 +247,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		final boolean cpWhere = cpHasWhere();
 		if (!tempWhere.isBlank()) {
 			if (!cypher.isEmpty() || !cpWhere) {
-				cypher.append(ConstantsNeo.CLAUSE_WHERE + ConstantsNeo.ONE_WHITESPACE);				
+				cypher.append(ConstantsNeo.CLAUSE_WHERE + ConstantsNeo.ONE_WHITESPACE);
 			} else {
 				cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX);
 				cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
@@ -261,18 +263,18 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 						cypher.append("\n" + ConstantsNeo.THREE_WHITESPACES);
 						cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE);
 						cypher.append(tempConString);
-					} 
+					}
 				} else {
 					cypher.append(ConstantsNeo.CLAUSE_WHERE + ConstantsNeo.ONE_WHITESPACE);
 					cypher.append(tempConString);
 				}
-			}			
+			}
 		} else {
 			throw new InvalidityException(ConstantsNeo.THE_CURRENT_VERSION_DOES_NOT_SUPPORT_THIS_FUNCTIONALITY + " (Nested Counting)");
 		}
-		return cypher.toString();		
+		return cypher.toString();
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return boolean.class
@@ -307,7 +309,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	}
 
 	/**
-	 * @author Lukas Sebastian Hofmann 
+	 * @author Lukas Sebastian Hofmann
 	 * @return EList<String>
 	 * @throws InvalidityException
 	 * This method generates the Counters for the CountCondition.
@@ -349,20 +351,20 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		}
 		return t;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param countElement
 	 * @param countCounter
 	 * @return String
 	 * @throws InvalidityException
-	 * This method creates internally the myCounters with a matching numbering. 
+	 * This method creates internally the myCounters with a matching numbering.
 	 */
 	private String createMyCounterString(NeoNode countElement, int countCounter) throws InvalidityException {
 		String cypherVariable = null;
 		if (checkForProperty(countElement)) {
 				NeoPropertyNode neoPropertyNode = (NeoPropertyNode) countElement;
-				cypherVariable = (String) neoPropertyNode.generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
+				cypherVariable = neoPropertyNode.generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
 		} else {
 			cypherVariable = countElement.getCypherVariable();
 		}
@@ -380,14 +382,14 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 					}
 					localSb.append(String.format(temp, element));
 				}
-				temp = localSb.toString();  
+				temp = localSb.toString();
 			}
 			temp += ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.CYPHER_ALIAS_CALL + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.CYPHER_AGGREGATION_FUNCTION_COUNT_NAMING + countCounter;
 			return temp;
 		}
 		throw new InvalidityException(SOMETHING_WENT_WRONG_IN_ACCESSING_THE_CYPHER_VARIABLE);
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
@@ -395,12 +397,12 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	 * This method generates the With-Clause for the CountCondition.
 	 */
 	protected String generateCypherWith() throws InvalidityException {
-		final EList<Node> lReturnNodes = new BasicEList<>();
+		final EList<Node> lReturnNodes = new BasicEList<Node>();
 		final Graph g = getGraph();
 		//Adds just the Nodes from the previews Graph
 		//The model driven approach just requires the previews Nodes
 		String cypher = addNodesToWithFromPreviewsGraph(g, lReturnNodes);
-			
+
 		final EList<Relation> lReturnRelations = lReturnRelations();
 		if (lReturnRelations.size() > 0) {
 //			Relation temp = null;
@@ -421,7 +423,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 
 		return cypher;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param g
@@ -453,7 +455,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 //		}
 		return cypher;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return EList<Relation>
@@ -471,13 +473,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 //			} else if (neoAbstractEdge.getOriginalRelation() != r) {
 //				neoAbstractEdge = (NeoEdge) neoAbstractEdge.getOriginalRelation();
 //				if (neoAbstractEdge.isReturnElement() && !lReturnRelations.contains(neoAbstractEdge)) {
-//					lReturnRelations.add(neoAbstractEdge);				
+//					lReturnRelations.add(neoAbstractEdge);
 //				}
 			}
 		}
 		return lReturnRelations;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
@@ -491,7 +493,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		//Building the generic Relations for Return
 		final Map<Integer, String> cypherReturn = buildCypherReturnSortedMap(false);
 		final StringBuilder cypherSb = new StringBuilder();
-		cypher = joiningReturnValues(cypher, cypherReturn, cypherSb);			
+		cypher = joiningReturnValues(cypher, cypherReturn, cypherSb);
 		cypher = generateCypherSpecialInnerEdgeNodesString(cypher);
 		return cypher;
 	}
@@ -506,7 +508,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
  	 * Relation return is in prototyping and shall be further implemented in FUTURE WORK.
 	 */
 	private String joiningReturnValues(String cypher, final Map<Integer, String> cypherReturn, final StringBuilder cypherSb) {
-		for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {	  
+		for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {
 			if (cypherSb.length() != 0) {
 				cypherSb.append(ConstantsNeo.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 			}
@@ -521,34 +523,34 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		return cypher;
 	}
 	//END - CYPHER COUNTING
-	
+
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
-		getMorphism().isValid(abstractionLevel);		
+		getMorphism().isValid(abstractionLevel);
 	}
-	
+
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if(getMorphism() == null) {
 			throw new InvalidityException("morphism null" + " (" + getInternalId() + ")");
 		}
 	}
-	
-	
-	@Override	
+
+
+	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		patternElements.add(getGraph());
 		patternElements.add(getCondition());
 		return patternElements;
 	}
-	
+
 	@Override
 	public void copyPreviousGraph() throws MissingPatternContainerException {
 		Graph previousGraph;
-		
+
 		try {
 			MorphismContainer previousMorphismContainer = (MorphismContainer) getContainer()
 					.getAncestor(MorphismContainer.class);
@@ -563,10 +565,10 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 				return;
 			}
 		}
-		getMorphism().setSource(previousGraph);		
+		getMorphism().setSource(previousGraph);
 //		previousGraph.copyGraph(getGraph());
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -576,7 +578,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	protected EClass eStaticClass() {
 		return PatternstructurePackage.Literals.COUNT_PATTERN;
 	}
-	
+
 	@Override
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
 //		getMorphism().setSource(null);
@@ -602,17 +604,21 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	 */
 	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
 		newMorphism.setTarget(getGraph());
-		
+
 		if (getMorphism() != null) {
 			getMorphism().setSource(null);
 			getMorphism().setTarget(null);
 		}
-		
+
 		Morphism oldMorphism = morphism;
 		morphism = newMorphism;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_PATTERN__MORPHISM, oldMorphism, newMorphism);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -647,12 +653,12 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		getMorphism().setTarget(getGraph());
 
 		msgs = eBasicSetContainer((InternalEObject)newCountCondition1, PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION, msgs);
-		
+
 		if(newCountCondition1 == null) {
 			getMorphism().setSource(null);
 		}
-		
-		if (newCountCondition1 != null) {			
+
+		if (newCountCondition1 != null) {
 			try {
 				copyPreviousGraph();
 			} catch (MissingPatternContainerException e) {
@@ -683,9 +689,9 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	public NotificationChain basicSetCountCondition2(CountCondition newCountCondition2, NotificationChain msgs) {
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-		
+
 		msgs = eBasicSetContainer((InternalEObject)newCountCondition2, PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2, msgs);
-				
+
 		if (newCountCondition2 != null) {
 			try {
 				copyPreviousGraph();
@@ -695,7 +701,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		} else {
 			// TODO
 		}
-		
+
 		return msgs;
 	}
 
@@ -978,21 +984,23 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy()) {
+			return super.toString();
+		}
 
-		StringBuilder result = new StringBuilder(super.toString());		
+		StringBuilder result = new StringBuilder(super.toString());
 		return result.toString();
 	}
 
 	@Override
 	public String myToString() {
-		String res = "Count Subpattern [" + getInternalId() + "] ("; 
-//		String res = "Count Subpattern ("; 
+		String res = "Count Subpattern [" + getInternalId() + "] (";
+//		String res = "Count Subpattern (";
 		res += "\n  " + getGraph().myToString().replace("\n", "\n  ");
-		res += "\n  : " + getMorphism().myToString().replace("\n", "\n  | ");		
+		res += "\n  : " + getMorphism().myToString().replace("\n", "\n  | ");
 		res += "\n  " + getCondition().myToString().replace("\n", "\n  ");
 		res += "\n)";
 		return res;
 	}
-	
+
 } //SubpatternImpl

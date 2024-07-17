@@ -3,15 +3,15 @@
 package qualitypatternmodel.javaoperators.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -19,7 +19,6 @@ import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.TwoArgJavaOperator;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -68,7 +67,7 @@ public abstract class TwoArgJavaOperatorImpl extends JavaOperatorImpl implements
 	protected TwoArgJavaOperatorImpl() {
 		super();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -79,20 +78,22 @@ public abstract class TwoArgJavaOperatorImpl extends JavaOperatorImpl implements
 
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		super.isValid(abstractionLevel);		
+		super.isValid(abstractionLevel);
 	}
 
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
 		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
-			if (argument1 == null)
+			if (argument1 == null) {
 				throw new InvalidityException("argument1 null");
-			if (argument2 == null)
-				throw new InvalidityException("argument2 null"); 
+			}
+			if (argument2 == null) {
+				throw new InvalidityException("argument2 null");
+			}
 		}
 		super.isValidLocal(abstractionLevel);
 	}
-	
+
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
@@ -101,19 +102,19 @@ public abstract class TwoArgJavaOperatorImpl extends JavaOperatorImpl implements
 
 	@Override
 	public EList<Comparable> getArguments(){
-		EList<Comparable> list = new BasicEList<Comparable>();		
-		list.add(getArgument1());		
+		EList<Comparable> list = new BasicEList<Comparable>();
+		list.add(getArgument1());
 		list.add(getArgument2());
 		return list;
 	}
 
 	@Override
 	public void createParameters() {
-//		ParameterList parameterList = getParameterList();	
+//		ParameterList parameterList = getParameterList();
 //		if(parameterList != null) {
 //		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,7 +160,7 @@ public abstract class TwoArgJavaOperatorImpl extends JavaOperatorImpl implements
 	public NotificationChain basicSetArgument1(PrimitiveNode newArgument1, NotificationChain msgs) {
 		PrimitiveNode oldPrimitiveNode = argument1;
 		argument1 = newArgument1;
-		
+
 		if(oldPrimitiveNode instanceof PrimitiveNode && newArgument1 == null) {
 			try {
 				((Node) oldPrimitiveNode).makeGeneric();
@@ -167,15 +168,19 @@ public abstract class TwoArgJavaOperatorImpl extends JavaOperatorImpl implements
 				// there is another reason why this node needs to be PrimitiveNode
 			}
 		}
-		
+
 		if(oldPrimitiveNode != null) {
 			oldPrimitiveNode.getPredicates().remove(this);
 		}
 		newArgument1.getPredicates().add(this);
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PRIMITIVE_NODE, oldPrimitiveNode, newArgument1);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -235,7 +240,7 @@ public abstract class TwoArgJavaOperatorImpl extends JavaOperatorImpl implements
 	public NotificationChain basicSetArgument2(PrimitiveNode newArgument2, NotificationChain msgs) {
 		PrimitiveNode oldPrimitiveNode = argument2;
 		argument2 = newArgument2;
-		
+
 		if(oldPrimitiveNode instanceof PrimitiveNode && newArgument2 == null) {
 			try {
 				((Node) oldPrimitiveNode).makeGeneric();
@@ -243,15 +248,19 @@ public abstract class TwoArgJavaOperatorImpl extends JavaOperatorImpl implements
 				// there is another reason why this node needs to be PrimitiveNode
 			}
 		}
-		
+
 		if(oldPrimitiveNode != null) {
 			oldPrimitiveNode.getPredicates().remove(this);
 		}
 		newArgument2.getPredicates().add(this);
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PRIMITIVE_NODE, oldPrimitiveNode, newArgument2);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -285,7 +294,7 @@ public abstract class TwoArgJavaOperatorImpl extends JavaOperatorImpl implements
 	public Node getElement() {
 		return getArgument1();
 	}
-	
+
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
@@ -411,7 +420,7 @@ public abstract class TwoArgJavaOperatorImpl extends JavaOperatorImpl implements
 		}
 		return super.eInvoke(operationID, arguments);
 	}
-	
+
 	@Override
 	abstract public String myToString();
 

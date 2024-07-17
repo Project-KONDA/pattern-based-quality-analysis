@@ -5,6 +5,7 @@
 package qualitypatternmodel.parameters.validation;
 
 import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.operators.Match;
 
 

@@ -10,7 +10,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test13Cycle {
@@ -19,9 +19,9 @@ public class Test13Cycle {
 		completePatterns.add(getPatternCycle());
 		return completePatterns;
 	}
-	
+
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		XmlPatternUtility.testPatterns(getPatterns());
+		PatternUtility.testPatterns(getPatterns());
 	}
 
 	private static CompletePattern getPatternCycle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -29,14 +29,14 @@ public class Test13Cycle {
 		QuantifiedCondition cond = (QuantifiedCondition) completePattern.getCondition();
 		Graph graph1 = completePattern.getGraph();
 		Graph graph2 = cond.getGraph();
-		
+
 		Node ret = graph1.getNodes().get(0);
 		Node n1 = graph2.getNodes().get(0);
-		
+
 		n1.addOutgoing(ret);
-		
+
 		completePattern.createXmlAdaption();
-		
+
 		return completePattern;
 	}
 

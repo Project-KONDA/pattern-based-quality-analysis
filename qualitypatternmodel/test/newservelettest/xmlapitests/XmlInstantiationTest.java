@@ -3,6 +3,7 @@ package newservelettest.xmlapitests;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,11 +16,11 @@ import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.newservlets.ConstraintMqafServlet;
+import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 import qualitypatternmodel.newservlets.ConstraintServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
-import qualitypatternmodel.newservlets.ConstraintMqafServlet;
-import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 
 public class XmlInstantiationTest {
 
@@ -27,14 +28,15 @@ public class XmlInstantiationTest {
 		ServletContext context = mock(ServletContext.class);
         doAnswer(invocation -> {
             String argument = invocation.getArgument(0);
-            if (argument.startsWith("/"))
-            	return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp" + argument;
-            else 
-            	return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp/" + argument;
+            if (argument.startsWith("/")) {
+				return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp" + argument;
+			} else {
+				return new java.io.File(".").getCanonicalPath().replace('\\', '/') + "/temp/" + argument;
+			}
         }).when(context).getRealPath(anyString());
-        
+
 		HashMap<String, String[]> parameterMap = new HashMap<String, String[]>();
-        
+
         List<String> listInstantiate = List.of(
         		"/xml/Card_xml/default",
         		"/xml/Card_xml/default_constraint",
@@ -70,21 +72,21 @@ public class XmlInstantiationTest {
 				e.printStackTrace();
 			}
 		}
-		
+
 		System.out.println();
 		System.out.println("GET");
 		for (String get: patternIDs){
 			System.out.println(ConstraintServlet.applyGet(get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
-		
+
 		System.out.println();
 		System.out.println("QUERY");
 		for (String get: patternIDs){
 			System.out.println(ConstraintQueryServlet.applyGet3(get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
-		
+
 		System.out.println();
 		System.out.println("MQAF");
 		for (String get: patternIDs){
@@ -92,7 +94,7 @@ public class XmlInstantiationTest {
 			System.out.println("  " + ConstraintMqafServlet.applyGet3(get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
-		
+
 		System.out.println();
 		System.out.println("DELETE");
 		List<String> delete = new ArrayList<String>(patternIDs);
@@ -100,7 +102,7 @@ public class XmlInstantiationTest {
 			ConstraintServlet.applyDelete(del, parameterMap);
 			patternIDs.remove(del);
 		}
-		
+
 	}
 
 }

@@ -48,7 +48,7 @@ public class NeoEdgeLabelParamImpl extends TextLiteralParamImpl implements NeoEd
 			throw new InvalidityException(e.getMessage());
 		}
 	}
-	
+
 	@Override
 	public void setValue(String newValue) {
 		if (newValue == null) {
@@ -62,34 +62,35 @@ public class NeoEdgeLabelParamImpl extends TextLiteralParamImpl implements NeoEd
 			checkLabel(newValue);
 		} catch (InvalidityException e) {
 			throw new RuntimeException(e.getMessage());
-		}		
+		}
 		String oldValue = value;
 		value = newValue;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.TEXT_LITERAL_PARAM__VALUE, oldValue, value));
+		}
 	}
 
 	@Override
 	public String generateCypher() {
 		String cypher = new String();
 		if (getValue() != null) {
-			cypher = ConstantsNeo.CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING + getValue();				
+			cypher = ConstantsNeo.CYPHER_COMPARISON_OPERATOR_EQUAL_IN_GRAPH_MATCHING + getValue();
 		}
 		return cypher;
 	}
-	
+
 	@Override
 	public String myToString() {
 		final String result = super.myToString().replace("text", "label");
-		return result;		
+		return result;
 	}
-	
+
 	@Override
 	public String toString() {
 		final String result = super.toString().replace("value", "label");
 		return result;
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		throw new UnsupportedOperationException();

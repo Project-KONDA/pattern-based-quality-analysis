@@ -4,16 +4,16 @@ package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -91,16 +91,17 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	public NumberParamImpl() {
 		super();
 	}
-	
+
 	@Override
 	public void setValueFromString(String value) throws NumberFormatException, InvalidityException {
 		setValueIfValid(Double.parseDouble(value));
 	}
-	
+
 	@Override
 	public String getValueAsString() {
-		if (getValue() == null) 
+		if (getValue() == null) {
 			return null;
+		}
 		return Double.toString(getValue());
 	}
 
@@ -108,7 +109,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	public void clear() {
 		setValue(null);
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		if(getValue() != null) {
@@ -117,7 +118,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 			throw new InvalidityException("invalid number");
 		}
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(getValue() != null) {
@@ -126,34 +127,34 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 			return super.generateSparql();
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @throws InvalidityException
-	 * Generates the sub-query for NumberParam. 
+	 * Generates the sub-query for NumberParam.
 	 * In Cypher there is no difference between comparing int == int, double == double and int == double.
 	 */
-	@Override 
+	@Override
 	public String generateCypher() throws InvalidityException {
 		if (getValue() != null) {
 			return Double.toString(getValue());
 		}
-		return super.generateCypher();		
+		return super.generateCypher();
 	}
-	
+
 	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.NUMBER;
 	}
-	
+
 	@Override
 	public boolean inputIsValid() {
 		return getValue() != null;
 	}
-	
+
 	@Override
-	public boolean isUsed() {		
+	public boolean isUsed() {
 		return super.isUsed() || getNumberArgument() != null;
 	}
 
@@ -273,7 +274,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	@Override
 	public void setValueIfValid(Double newValue) throws InvalidityException {
 		Double oldValue = getValue();
-		setValue(newValue);		
+		setValue(newValue);
 		try {
 			checkComparisonConsistency();
 		} catch (Exception e) {
@@ -281,10 +282,10 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 			throw e;
 		}
 	}
-	
+
 	@Override
 	public void validateExampleValue(String val) throws InvalidityException {
-		Double.parseDouble(val);	
+		Double.parseDouble(val);
 	}
 
 	/**
@@ -438,12 +439,12 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 		result.append(')');
 		return result.toString();
 	}
-	
-	@Override 
+
+	@Override
 	public String myToString() {
 		return "numb [" + getInternalId() + "] " + getValue();
 	}
-	
+
 	@Override
 	public String generateDescription() {
 		String res = "Eingabe der Nummer";

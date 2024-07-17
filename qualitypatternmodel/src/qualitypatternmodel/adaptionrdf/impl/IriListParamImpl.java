@@ -7,12 +7,9 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -72,7 +69,7 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 	protected IriListParamImpl() {
 		super();
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(getIriParams().isEmpty()) {
@@ -87,13 +84,14 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 			query += p.generateSparql();
 			i++;
 		}
-		return query;		
+		return query;
 	}
 
 	@Override
 	public String getValueAsString() {
-		if (iriParams == null)
+		if (iriParams == null) {
 			return null;
+		}
 		if (getIriParams().size() == 0) {
 			return new JSONArray().toString();
 		}
@@ -117,19 +115,19 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 	        for (int i = 0; i < jarr.length(); i++) {
 	            IriParam iri = new IriParamImpl();
 	            iri.setValueFromString(jarr.getString(i));
-	            x.add(iri);   
+	            x.add(iri);
 	        }
 		} catch (JSONException e) {
 			try {
 	            IriParam iri = new IriParamImpl();
 	            iri.setValueFromString(value);
-	            x.add(iri);   
+	            x.add(iri);
 			}
 			catch (InvalidityException f) {
 				throw new InvalidityException("", e);
 			}
 		}
-        
+
         getIriParams().clear();
         getIriParams().addAll(x);
 	}

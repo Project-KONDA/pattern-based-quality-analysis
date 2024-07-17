@@ -205,5 +205,5 @@ public enum Quantifier implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 } //Quantifier

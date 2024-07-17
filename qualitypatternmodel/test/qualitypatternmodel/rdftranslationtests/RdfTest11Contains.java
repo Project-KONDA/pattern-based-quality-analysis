@@ -1,14 +1,17 @@
 package qualitypatternmodel.rdftranslationtests;
 
 import java.util.ArrayList;
-import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.operators.*;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.operators.Contains;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 public class RdfTest11Contains {
-	
+
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternContains(true, "?"));
@@ -22,11 +25,11 @@ public class RdfTest11Contains {
 		RdfTest00.test(getPatterns());
 	}
 
-	
+
 	public static CompletePattern getPatternContains(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		
+
 		CompletePattern pattern = factory.createCompletePattern();
 		pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveContains(str);
 		Contains contains = ((Contains) pattern.getGraph().getOperatorList().getOperators().get(0));

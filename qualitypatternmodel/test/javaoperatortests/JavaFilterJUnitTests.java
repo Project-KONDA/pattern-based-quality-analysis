@@ -1,6 +1,7 @@
 package javaoperatortests;
 
 import org.junit.jupiter.api.Test;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 
 class JavaFilterJUnitTests {

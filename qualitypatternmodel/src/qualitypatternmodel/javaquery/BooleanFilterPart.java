@@ -3,6 +3,7 @@
 package qualitypatternmodel.javaquery;
 
 import java.util.List;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
@@ -28,11 +29,11 @@ public interface BooleanFilterPart extends JavaFilterPart {
 	Boolean apply(InterimResult parameter) throws InvalidityException;
 
 	static BooleanFilterPart combine(List<BooleanFilterPart> filterparts) {
-		if (filterparts == null || filterparts.isEmpty())
+		if (filterparts == null || filterparts.isEmpty()) {
 			return null;
-		else if (filterparts.size() == 1)
-			return (BooleanFilterPart) filterparts.get(0);
-		else {
+		} else if (filterparts.size() == 1) {
+			return filterparts.get(0);
+		} else {
 			int middleIndex = filterparts.size() / 2;
 			List<BooleanFilterPart> firstHalf = filterparts.subList(0, middleIndex);
 			List<BooleanFilterPart> secondHalf = filterparts.subList(middleIndex, filterparts.size());

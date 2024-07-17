@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionneo4j.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -14,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -22,7 +24,6 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
-import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,25 +64,25 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	protected NeoComplexEdgeImpl() {
 		super();
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @exception InvalidityException
 	 * Checks and builds the internal Cypher Edge.
 	 * Then it returns the internal Cypher Edge between two Nodes.
-	 * 
+	 *
 	 */
-	@Override 
+	@Override
 	public String generateCypher() throws InvalidityException {
 		validateComplexEdge();
-		String cypher = generateInternalCypher();			
+		String cypher = generateInternalCypher();
 		return cypher;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
-	 * @return String 
+	 * @return String
 	 * @throws InvalidityException
 	 * It builds internally the Cypher edge contained in the NeoComplexEdge.
 	 */
@@ -92,7 +93,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}
 		return cypher.toString();
 	}
-	//GETS ALL INNER EDGES ALIASES 
+	//GETS ALL INNER EDGES ALIASES
 
 	/**
 	 * @author Lukas Sebastian Hofmann
@@ -104,27 +105,29 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	@Override
 	public String getCypherVariable() throws InvalidityException {
 		validateComplexEdge();
-		
+
 		final StringBuilder variables = new StringBuilder();
 		final EList<NeoPathPart> neoPath = this.getNeoPathPartEdgeLeafs();
 		for(NeoPathPart path : neoPath) {
-			if (variables.length() != 0) variables.append(ConstantsNeo.CYPHER_SEPERATOR + ConstantsNeo.ONE_WHITESPACE); 
+			if (variables.length() != 0) {
+				variables.append(ConstantsNeo.CYPHER_SEPERATOR + ConstantsNeo.ONE_WHITESPACE);
+			}
 			variables.append(path.getCypherVariable());
 		}
 		return variables.toString();
 	}
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns the inner edge Nodes. In contary to the getCypherVariable this Method is used to return the Variables for the Return format. 
+	 * Returns the inner edge Nodes. In contary to the getCypherVariable this Method is used to return the Variables for the Return format.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
 	public String getCypherInnerEdgeNodes(boolean isReturn) throws InvalidityException {
 		validateComplexEdge();
-		
+
 		StringBuilder cypher = new StringBuilder();
 		String innerEdgeNode;
 		for (NeoPathPart part : getNeoPathPartEdgeLeafs()) {
@@ -150,8 +153,9 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		try {
 			validateComplexEdge();
-			if (getNeoPathParts() == null)
+			if (getNeoPathParts() == null) {
 				throw new RuntimeException();
+			}
 		} catch (Exception e) {
 			throw new InvalidityException(String.format(NEO_COMPLEX_PATH_CONTAINS_NOT_ENOUGH_NEO_PATH_PARTS, getId()));
 		}
@@ -166,9 +170,10 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		} catch (JSONException e) {
 			throw new InvalidityException(Constants.INVALID_VALUE + " [" + value + "]", e);
 		}
-		if (array == null || array.length() < 2)
+		if (array == null || array.length() < 2) {
 			throw new InvalidityException(Constants.INVALID_VALUE + ": Not enough items");
-		
+		}
+
 		for (int i = 0; i < array.length(); i++) {
 			try {
 				newPathParts.add(NeoPathPartImpl.createNewNeoPathPart(array.get(i).toString()));
@@ -182,13 +187,16 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 
 	@Override
 	public String getValueAsString() {
-		if (getNeoPathParts() == null)
+		if (getNeoPathParts() == null) {
 			return null;
+		}
 		JSONArray array = new JSONArray();
-		for (NeoPathPart part: getNeoPathParts())
+		for (NeoPathPart part: getNeoPathParts()) {
 			array.put(part.getValueAsString());
-		if (array.length() < 1)
+		}
+		if (array.length() < 1) {
 			return null;
+		}
 		return array.toString();
 	}
 
@@ -209,22 +217,22 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	}
 
 	//The container just checks if enough elements are given to build a ComplexEdge
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
 	 * The container checks if enough elements are given to build a ComplexEdge.
-	 * Thus it will be checked if the NeoComplexEdge has the correct amount of NeoSimpleEdges. 
+	 * Thus it will be checked if the NeoComplexEdge has the correct amount of NeoSimpleEdges.
 	 */
 	protected void validateComplexEdge() throws InvalidityException {
 		if (!(countOfEdges() >= 2) && (getNeoComplexEdge() == null) && getNeoComplexEdge() != this) {
 			throw new InvalidityException(TO_LESS_PRIMITIVE_EDGES_AT_LEAST_2);
-		}		
+		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
-	 * Reorganises the flag of the last edge since it will be handled automatically. 
+	 * Reorganises the flag of the last edge since it will be handled automatically.
 	 */
 	private void reorganiseLastEdgeFlagging() {
 		final NeoComplexEdge neoComplexEdge = getHighestComplexEdge();
@@ -234,7 +242,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			lastEge.setIsLastEdge(true);
 		}
 	}
-		
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param neoPathPart
@@ -260,16 +268,16 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			}
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
-	 * A NeoComplexeEdge can not be a last edge. 
+	 * A NeoComplexeEdge can not be a last edge.
 	 */
 	@Override
 	protected boolean isLastEdge() {
 		return false;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return int.class
@@ -309,7 +317,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 //			}
 		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -323,11 +331,11 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			reogranizeCounting();
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * This method reorganizes the counting starting by the highest Container.
-	 * For all subcontainers it changes the setting as well. 
+	 * For all subcontainers it changes the setting as well.
 	 */
 	private void reogranizeCounting() {
 		NeoComplexEdgeImpl highest = getHighestComplexEdge();
@@ -341,7 +349,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @exception InvalidityException
-	 * Retrieves the last Edge in the container structure. 
+	 * Retrieves the last Edge in the container structure.
 	 * The last edge can not be an instance of a container structure.
 	 * It validates the container structure before it returns the last edge.
 	 */
@@ -351,9 +359,9 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		final EList<NeoPathPart> parts = getNeoPathPartEdgeLeafs();
 		return parts.size() != 0 ? parts.get(parts.size() - 1) : null;
 	}
-	
+
 	/**
-	 * @author Lukas Sebastian Hofmann 
+	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * Builds the myString for the NeoComplexEdge. Used for printing the reporting.
 	 */
@@ -372,7 +380,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		result.append(ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
 		return result.toString();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -502,7 +510,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return
@@ -516,10 +524,10 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}
 		return (NeoComplexEdgeImpl) neoComplexEdge;
 	}
-	
+
 	//For resetting the counting if a ComplexEdge has been created at the same time as an other Complex Edge but is in his container --> handlet by EMF
 	//Improve that the setNeoComplexEdge does not allow to set a NeoComplexEdge below or the same! --> handlet by EMF
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * This method sets the regarding NeoComplexEdge of a higher level.
@@ -532,10 +540,10 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			((NeoPathPartImpl) part).setCount(getCount());
 		}
 	}
-	
+
 	//BEGIN - For counting the inner Edges
 	protected InternalCounter count = null;
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return InternalCount
@@ -547,15 +555,16 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		}
 		return count;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * Sets the counter for the Counting of the Edges.
 	 */
+	@Override
 	protected void setCount(InternalCounter count) {
 		this.count = count;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * Sets the counter for every element in a NeoComplexEdge for the Counting of the Edges.
@@ -570,7 +579,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			}
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * Unsets the Counter for innerEdge counting.
@@ -578,7 +587,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	protected void unsetCount() {
 		count = null;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return InternalCount
@@ -587,25 +596,26 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	private InternalCounter createInternalCounter() {
 		return new InternalCounter();
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
-	 *	This inner class provides the functionalities for the innerEdge counting. 
+	 *	This inner class provides the functionalities for the innerEdge counting.
 	 */
 	protected final class InternalCounter {
-		int counter = -1; 
+		int counter = -1;
 		private InternalCounter() {
 			super();
 		}
-		
+
 		/**
 		 * @author Lukas Sebastian Hofmann
 		 * @return int.class
 		 * Returns the count for the class InternalCount
 		 */
 		protected int getCount() {
-			if (Integer.MAX_VALUE == counter)
+			if (Integer.MAX_VALUE == counter) {
 				throw new IndexOutOfBoundsException("ComplexEdge" + getId() + "is to long");
+			}
 			counter = counter + 1;
 			return counter;
 		}

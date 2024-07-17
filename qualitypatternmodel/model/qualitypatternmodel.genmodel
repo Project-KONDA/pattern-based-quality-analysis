@@ -521,6 +521,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/relationCounter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/operatorCounter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/lastSaved"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CompletePattern/namespaces"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/validateAgainstSchema"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/getAbstractionLevel"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/getNewRefNo">
@@ -536,6 +537,8 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/generateQueryFilter"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/updateLastSaved"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/generateXQueryNamespaces"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/printParameters"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/PatternElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/PatternElement/id"/>
@@ -1063,8 +1066,13 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/addAll">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/ValueMap/addAll/collection"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/generateVariantJSONObject"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/generateJSONObject"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/clear"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/isEmpty"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/asMap"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ValueMap/setValuesFromJSONObject">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/ValueMap/setValuesFromJSONObject/object"/>
+        </genOperations>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Adaptionrdf" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//adaptionrdf">

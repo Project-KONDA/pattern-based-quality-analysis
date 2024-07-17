@@ -185,9 +185,9 @@ public interface Relation extends PatternElement, Adaptable {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Replaces <code>this</code> and corresponding <code>Relations</code> in the previous and 
+	 * Replaces <code>this</code> and corresponding <code>Relations</code> in the previous and
 	 * following <code>Graphs</code> by <code>XmlNavigations</code>.
-	 * 
+	 *
 	 * @return the <code>XmlNavigation</code> that replaces <code>this</code> in the pattern
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
@@ -197,9 +197,9 @@ public interface Relation extends PatternElement, Adaptable {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Replaces <code>this</code> and corresponding <code>Relations</code> in the previous and 
+	 * Replaces <code>this</code> and corresponding <code>Relations</code> in the previous and
 	 * following <code>Graphs</code> by <code>XmlReferences</code>.
-	 * 
+	 *
 	 * @return the <code>XmlReference</code> that replaces <code>this</code> in the pattern
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
@@ -222,7 +222,7 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @generated
 	 */
 	NeoElementEdge adaptAsNeoElementEdge() throws InvalidityException;
-	
+
 	//ADD to the .ecore-Model
 	NeoPropertyEdge adaptAsPropertyEdge() throws InvalidityException;
 
@@ -236,10 +236,10 @@ public interface Relation extends PatternElement, Adaptable {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Sets <code>graph</code> of <code>this</code> to <code>newGraph</code> 
+	 * Sets <code>graph</code> of <code>this</code> to <code>newGraph</code>
 	 * without updating corresponding <code>Relations</code> in previous and following <code>Graphs</code>,
 	 * updating referenced <code>Parameters</code> and resetting <code>source</code> and <code>target</code>.
-	 * 
+	 *
 	 * @param newGraph the new container of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model

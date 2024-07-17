@@ -32,7 +32,6 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.adaptionneo4j.impl.NeoPropertyEdgeImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.utility.ConstantsNeo;
@@ -41,29 +40,30 @@ import qualitypatternmodel.utility.ConstantsNeo;
 public class NeoPropertyNodeTest extends NeoNodeTest {
 	NeoPropertyNode neoPropertyNode = null;
 
-	
+
 	@BeforeAll
     static void initAll() throws NoSuchMethodException, SecurityException {
 
 	}
-	
+
 	@BeforeEach
 	public void setUp() {
 		super.setUp(FACTORY.createNeoPropertyNode());
 		neoPropertyNode = (NeoPropertyNode) super.neoAbstractNode;
 	}
-	
+
+	@Override
 	@AfterEach
 	public void tearDown() {
 		super.tearDown();
 		neoPropertyNode = null;
 	}
-	
+
 	@AfterAll
 	static void tearDownAll() {
 
     }
-	
+
 	@Test
 	public void generateCypherPropertyAddressing() {
 		try {
@@ -83,9 +83,9 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
-		} 
+		}
 	}
-	
+
 	@Test
 	public void generateCypherPropertyAddressingEmptyReturn() {
 		try {
@@ -96,9 +96,9 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
-		} 
+		}
 	}
-	
+
 	@Test
 	public void generateCypherNodeVariable() {
 		int id = GENERIC_NODE_ID;
@@ -113,7 +113,7 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 			Mockito.when(mockParam.getNeoPathPart()).thenReturn(Mockito.mock(NeoPathPart.class));
 			relations.add(mockNeoPropertyEdge);
 			field.set(neoPropertyNode, relations);
-			
+
 			String[] variable = neoPropertyNode.getCypherVariable().split(ConstantsNeo.SEPERATOR);
 		    assertTrue(variable[0].compareTo(ConstantsNeo.VARIABLE_PROPERTY_NODE + id) == 0);
 		} catch (Exception e) {
@@ -137,10 +137,10 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 			EList<Relation> rList = new BasicEList<Relation>();
 			rList.add(neoPropertyEdge);
 			field.set(neoPropertyNode, rList);
-			
+
 			String[] variable = neoPropertyNode.getCypherVariable().split(ConstantsNeo.SEPERATOR);
 		    assertTrue(variable[0].compareTo(ConstantsNeo.VARIABLE_PROPERTY_NODE + id + "_1") == 0);
-		    
+
 		    //With multiple incomings
 		    neoPropertyNode = FACTORY.createNeoPropertyNode();
 		    neoPropertyEdge = prepaireValidPropertyEdgeStructure(id);
@@ -148,11 +148,11 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 		    initGetCypherVariableTest(neoPropertyNode, id);
 		    initGetCypherVariableTest(neoPropertyEdge2, id+1);
 		    field = getIncomingField();
-		    rList.clear();;
+		    rList.clear();
 		    rList.add(neoPropertyEdge);
 		    rList.add(neoPropertyEdge2);
 		    field.set(neoPropertyNode, rList);
-		    
+
 		    variable = neoPropertyNode.getCypherVariable().split(ConstantsNeo.SEPERATOR);
 		    assertTrue(variable[0].compareTo(ConstantsNeo.VARIABLE_PROPERTY_NODE + id + "_1") == 0);
 		    int suffix = (id + 1);
@@ -172,7 +172,7 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	@Override
 	@ParameterizedTest
 	@ValueSource(ints = {1,10,100,1000})
@@ -190,7 +190,7 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
 	@Override
 	public void generateCypher() {
@@ -214,7 +214,7 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 		final String suffix = ", internalId: 1) (name: null, returnNode: false, typeModifiable: true, translated: false, predicatesAreBeingTranslated: false)";
 		assertTrue(neoPropertyNode.toString().endsWith(suffix));
 	}
-	
+
 	//FACTORIES- and HELPER-methods
 	private void initGetCypherReturnVariableTest(NeoNode node, int number) {
 		int id = number;
@@ -232,7 +232,7 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	//FACTORIES- and HELPER methods
 	private NeoPropertyEdge prepaireValidPropertyEdgeStructure(int id) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, InvalidityException {
 		NeoPropertyEdge neoPropertyEdge = FACTORY.createNeoPropertyEdge();
@@ -242,12 +242,12 @@ public class NeoPropertyNodeTest extends NeoNodeTest {
 		neoSimpleEdge.addNeoTargetNodeLabel("Regesta");
 		neoPropertyEdge.setNeoPropertyPathParam(neoPropertyPathParam);
 		neoPropertyPathParam.setNeoPathPart(neoSimpleEdge);
-		neoPropertyEdge.setTarget((Node)neoPropertyNode);
+		neoPropertyEdge.setTarget(neoPropertyNode);
 		return neoPropertyEdge;
 	}
-	
+
 	private Field getIncomingField() throws NoSuchFieldException {
-		Class<NodeImpl> obj = NodeImpl.class;			
+		Class<NodeImpl> obj = NodeImpl.class;
 		Field field = obj.getDeclaredField("incoming");
 		field.setAccessible(true);
 		return field;

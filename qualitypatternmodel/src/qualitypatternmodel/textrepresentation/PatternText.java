@@ -3,10 +3,9 @@
 package qualitypatternmodel.textrepresentation;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.json.JSONObject;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -122,7 +121,7 @@ public interface PatternText extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns a JSON representation of <code>this</code> <code>PatternText</code> and its contents.
-	 * 
+	 *
 	 * @return a JSON representation of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model
@@ -148,7 +147,7 @@ public interface PatternText extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Generates a SPARQL template that can be automatically transformed into a gap text by the Query Helper of the Wikidata Query Service 
+	 * Generates a SPARQL template that can be automatically transformed into a gap text by the Query Helper of the Wikidata Query Service
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated

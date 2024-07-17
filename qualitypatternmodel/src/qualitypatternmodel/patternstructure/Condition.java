@@ -3,6 +3,7 @@
 package qualitypatternmodel.patternstructure;
 
 import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
@@ -151,7 +152,7 @@ public interface Condition extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns a list of all next <code>MorphismContainers</code> in the hierarchy of <code>Conditions</code>.
-	 * 
+	 *
 	 * @return a list of all next <code>MorphismContainers</code> in the hierarchy of <code>Conditions</code>
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"

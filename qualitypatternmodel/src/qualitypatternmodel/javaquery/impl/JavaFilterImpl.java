@@ -178,7 +178,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 */
 	public JavaFilterImpl() {
 		super();
-		setStructure(new InterimResultStructureImpl()); 
+		setStructure(new InterimResultStructureImpl());
 	}
 
 	/**
@@ -195,7 +195,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				if (object instanceof List) {
 					@SuppressWarnings("unchecked")
 					List<Object> lst = (List<Object>) object;
-					
+
 					Object retu = lst.get(0);
 					Object parameter = lst.get(1);
 					try {
@@ -210,26 +210,29 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 			}
 //		}
 	}
-		
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
 	public List<String> executeXQueryJava(String databasename, String datapath) throws InvalidityException {
 		return executeXQueryJava(getQuery(), databasename, datapath);
 	}
-	
+
 	public static List<String> executeXQueryJava(String query, String databasename, String datapath) throws InvalidityException {
-		if (query == null || query == "")
+		if (query == null || query == "") {
 			throw new InvalidityException("Empty Query");
-		if (databasename == null || databasename == "")
+		}
+		if (databasename == null || databasename == "") {
 			throw new InvalidityException("Invalid database name");
-		if (!new File(datapath).exists())
+		}
+		if (!new File(datapath).exists()) {
 			throw new InvalidityException("File not found");
+		}
 		List<String> outcome = new ArrayList<String>();
 		Context context = new Context();
 		try {
@@ -239,11 +242,11 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				for (Item item; (item = iter.next()) != null;) {
 					outcome.add(item.serialize().toString());
 				}
-			} 
+			}
 		} catch(Exception e) {}
 		context.closeDB();
 		context.close();
-		
+
 		return outcome;
 	}
 
@@ -260,10 +263,12 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		// import Query Results
 		createInterimResultContainerXQuery(list);
 
-		for (InterimResultContainer interim: getInterimResults())
-			if (!interim.isValidToStructure())
+		for (InterimResultContainer interim: getInterimResults()) {
+			if (!interim.isValidToStructure()) {
 				throw new InvalidityException("InterimResult is invalid to structure:\n" + interim + "\n" + getStructure());
-		
+			}
+		}
+
 		List<String> result = filterQueryResults();
 		return result;
 	}
@@ -275,65 +280,65 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 */
 	@Override
 	public JSONObject toJson() {
-		
+
 		JSONObject result = new JSONObject();
 		try {
 			result.append("patternId", getPatternId());
 			result.append("patternName", getPatternName());
 			result.append("query", getQuery());
 			result.append("language", getLanguage());
-			
+
 			try {
 				result.append("filter", getFilter().toJson());
 				result.append("structure", getStructure().toJson());
 			} catch(Exception e) {
-				
+
 			}
-			
+
 		} catch (Exception e) {
-			
+
 		}
 		return result;
 //        try {
 //            // Create ObjectMapper instance
 //            ObjectMapper mapper = new ObjectMapper();
-//            
+//
 //            // Serialize EMF object to JSON string
 //            String json = mapper.writeValueAsString(this);
-//            
+//
 //            return json;
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //            return null;
 //        }
     }
-	
-	
+
+
 	public static JavaFilter fromJson(String json) throws InvalidityException, JSONException {
 		JSONObject jsonObject = new JSONObject(json);
-		
+
 		JavaFilter filter = new JavaFilterImpl();
 		filter.setPatternId((String) jsonObject.get("patternId"));
 		filter.setPatternId((String) jsonObject.get("patternName"));
 		filter.setQuery((String) jsonObject.get("query"));
 		filter.setLanguage(Language.valueOf((String) jsonObject.get("language")));
-		
+
 		InterimResultStructureImpl structure = InterimResultStructureImpl.fromJson((String) jsonObject.get("structure"));
 		filter.setStructure(structure);
-		
+
 		Map<Integer, InterimResultPart> map = structure.getInterimResultParts();
 		BooleanFilterPart subfilter = (BooleanFilterPart) JavaFilterPartImpl.fromJson((String) jsonObject.get("filter"), map);
 		filter.setFilter(subfilter);
-		
+
 		return filter;
-		
+
 //        try {
 //            // Create ObjectMapper instance
 //            ObjectMapper mapper = new ObjectMapper();
-//            
+//
 //            // Deserialize JSON string to EMF object
 //            JavaFilter filter = mapper.readValue(json, JavaFilter.class);
-//            
+//
 //            return filter;
 //        } catch (Exception e) {
 //            e.printStackTrace();
@@ -351,25 +356,28 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		int depth = 0;
 		int depthbefore = 0;
 		InterimResultContainer current = null;
-		
+
 		for (String value: objectList) {
 			depthbefore = depth;
-			if (JavaQueryTranslationUtility.isStartTag(value))
+			if (JavaQueryTranslationUtility.isStartTag(value)) {
 				depth +=1;
-			else if (JavaQueryTranslationUtility.isEndTag(value))
+			} else if (JavaQueryTranslationUtility.isEndTag(value)) {
 				depth -=1;
-			
+			}
+
 			if (depthbefore == 0 && depth == 1) {
-				if (!value.equals("<interim>"))
+				if (!value.equals("<interim>")) {
 					throw new InvalidityException();
+				}
 				current = new InterimResultContainerImpl(getStructure());
 			}
 			else if (depthbefore == 1 && depth == 0) {
 				assert(value.equals("</interim>"));
 				getInterimResults().add(current);
 				current = null;
+			} else {
+				current.stream(value);
 			}
-			else current.stream(value);
 		}
 	}
 
@@ -401,19 +409,24 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	public NotificationChain basicSetFilter(BooleanFilterPart newFilter, NotificationChain msgs) {
 		BooleanFilterPart oldFilter = filter;
 		filter = newFilter;
-		
+
 		EList<InterimResultPart> interims = filter.getArguments();
-		
+
 		if (interims != null) {
-			if (interims.size() == 1)
+			if (interims.size() == 1) {
 				getStructure().setSubstructure(interims.get(0));
-			else 
+			} else {
 				getStructure().setSubstructure(new FixedContainerInterimImpl(interims));
+			}
 		}
-		
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaqueryPackage.JAVA_FILTER__FILTER, oldFilter, newFilter);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null) {
+				msgs = notification;
+			} else {
+				msgs.add(notification);
+			}
 		}
 		return msgs;
 	}
@@ -591,7 +604,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -602,11 +615,12 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 			try {
 				if (getFilter().apply(ir.getParameter())) {
 					InterimResult ret = ir.getReturn();
-					if (ret instanceof ValueResult)
+					if (ret instanceof ValueResult) {
 						results.add(((ValueResult) ret).getValue());
-					else 
+					} else {
 						results.add(ret.toString());
-				}	
+					}
+				}
 			} catch (InvalidityException e) {
 				throw new InvalidityException(ir.toString() + "\n*\n" + ir.getParameter(), e);
 			}
@@ -749,7 +763,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		}
 		return super.eIsSet(featureID);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -797,17 +811,19 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	@Override
 	public String toString() {
 		String res = getQuery();
-		
-		if (getFilter() != null)
+
+		if (getFilter() != null) {
 			res += "\n\n" + getFilter().toString();
-		else 
+		} else {
 			res += "\n\nNo Filter Found";
-		
-		if (getStructure() != null)
+		}
+
+		if (getStructure() != null) {
 			res += "\n\n" + getStructure().toString();
-		else 
+		} else {
 			res += "\n\nNo Structure Found";
-		
+		}
+
 		return res;
 	}
 

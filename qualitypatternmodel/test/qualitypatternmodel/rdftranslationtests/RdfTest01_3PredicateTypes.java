@@ -24,24 +24,24 @@ public class RdfTest01_3PredicateTypes {
 		completePatterns.add(getXUriPatternWithTypes(5));
 		return completePatterns;
 	}
-	
+
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		RdfTest00.test(getPatterns());
 	}
-	
+
 	public static CompletePattern getBasePatternPredicates() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = RdfTest00.getBasePattern();
 		completePattern.createRdfAdaption();
 		return completePattern;
 	}
 
-	
+
 	public static CompletePattern getXUriPattern(int i) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternPredicates();
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		RdfPathParam param = relation.getRdfPathParam();
 		param.getRdfPathParts().clear();
-		
+
 		for (int j = 0; j < i; j++) {
 			RdfPathPart part = AdaptionrdfFactory.eINSTANCE.createRdfPathPart();
 			RdfSinglePredicate pred = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
@@ -51,17 +51,17 @@ public class RdfTest01_3PredicateTypes {
 			part.setRdfPath(pred);
 			param.getRdfPathParts().add(part);
 		}
-		
+
 		return completePattern;
 	}
 
-	
+
 	public static CompletePattern getXUriPatternWithTypes(int i) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternPredicates();
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		RdfPathParam param = relation.getRdfPathParam();
 		param.getRdfPathParts().clear();
-		
+
 		for (int j = 0; j < i; j++) {
 			RdfPathPart part = AdaptionrdfFactory.eINSTANCE.createRdfPathPart();
 			RdfSinglePredicate pred = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
@@ -70,15 +70,15 @@ public class RdfTest01_3PredicateTypes {
 			pred.setIriParam(iriParam);
 			part.setRdfPath(pred);
 			param.getRdfPathParts().add(part);
-			
+
 			for (int k = 0; k < 2-j%3; k++) {
 				IriParam iriParamType = AdaptionrdfFactory.eINSTANCE.createIriParam();
 				iriParamType.setUri("typeUri" + j + "_" + k);
 				part.getTargetNodeTypes().getIriParams().add(iriParamType);
 			}
 		}
-		
+
 		return completePattern;
 	}
-	
+
 }

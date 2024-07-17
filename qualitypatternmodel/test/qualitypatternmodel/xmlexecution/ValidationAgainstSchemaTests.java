@@ -24,16 +24,16 @@ public class ValidationAgainstSchemaTests {
 
 	ServerXmlDataDatabase db;
 	LocalXmlSchemaDatabase schemaDb;
-	
-	
+
+
 	@Before
 	public void before() throws IOException, QueryException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		db = new ServerXmlDataDatabaseImpl("test_db_3", "localhost", 1984, "ddb_20190606", "admin", "admin");
-		schemaDb = db.createSchemaDatabaseFromReferencedSchema();		
-		assertFalse(schemaDb.getElementNames().isEmpty());	
-		assertFalse(db.getElementNames().isEmpty());	
+		schemaDb = db.createSchemaDatabaseFromReferencedSchema();
+		assertFalse(schemaDb.getElementNames().isEmpty());
+		assertFalse(db.getElementNames().isEmpty());
 	}
-	
+
 //	@Test
 //	public void validateAgainstSchemaValidTest() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		CompletePattern pattern = XmlEvalMatch.getMatchLidoMeasurementUnit();
@@ -41,13 +41,13 @@ public class ValidationAgainstSchemaTests {
 //		EList<Parameter> invalidParams = pattern.validateAgainstSchema();
 //		assertTrue(invalidParams.isEmpty());
 //	}
-	
+
 //	@Test
-//	public void validateAgainstSchemaInvalidTest() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
+//	public void validateAgainstSchemaInvalidTest() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		CompletePattern pattern = XmlEvalMatch.getMatchMidas5064();
 //		pattern.setDatabase(db);
 //		EList<Parameter> invalidParams = pattern.validateAgainstSchema();
 //		assertFalse(invalidParams.isEmpty());
 //	}
-	
+
 }

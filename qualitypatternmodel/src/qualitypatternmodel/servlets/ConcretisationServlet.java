@@ -8,7 +8,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
@@ -22,7 +21,7 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
 public class ConcretisationServlet extends HttpServlet {
-	
+
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -32,44 +31,44 @@ public class ConcretisationServlet extends HttpServlet {
 		String name = patternNameAndParamIDSplit[0];
 		String parameterID = patternNameAndParamIDSplit[1];
 		int parameterIDInt = Integer.parseInt(parameterID);
-		
+
 		String[] values = request.getParameterValues("value");
 		String type = request.getParameter("type"); // only needed in case of UntypedParameterValue
 
-		
-		String filePath = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";	
+
+		String filePath = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";
 		URL folderURL = getClass().getClassLoader().getResource(Util.CONCRETE_PATTERNS_PATH);
-		URL fileURL = getClass().getClassLoader().getResource(filePath);		
-		
+		URL fileURL = getClass().getClassLoader().getResource(filePath);
+
 		if(fileURL != null && folderURL != null) {
-			CompletePattern pattern = EMFModelLoad.loadCompletePattern(fileURL.toString());			
-			
+			CompletePattern pattern = EMFModelLoad.loadCompletePattern(fileURL.toString());
+
 			if(parameterIDInt < pattern.getParameterList().getParameters().size()) {
 				Parameter parameter = pattern.getParameterList().getParameters().get(parameterIDInt);
-				
+
 				if(parameter instanceof UntypedParameterValueImpl && type==null) {
 					response.sendError(400);
 					response.getOutputStream().println("{ \"error\": \"Type missing\"}");
-				} else if(parameter instanceof ParameterValueImpl && ((ParameterValue) parameter).isTypeModifiable() && type!=null){					
+				} else if(parameter instanceof ParameterValueImpl && ((ParameterValue) parameter).isTypeModifiable() && type!=null){
 					try {
-						((ParameterValue) parameter).replaceViaValue(values, type);						
+						((ParameterValue) parameter).replaceViaValue(values, type);
 						EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");
 						response.getOutputStream().println("Successfully set parameter '" + parameterID + "' of concrete pattern with name '" + name + "' to value '" + values[0] + "' and type '" + type + "'.");
 
 					} catch (InvalidityException e) {
 						response.sendError(400);
 						response.getOutputStream().println("{ \"error\": \"Untyped parameter value invalid\"}");
-					}					
-				} else if(parameter instanceof TextListParamImpl){									
+					}
+				} else if(parameter instanceof TextListParamImpl){
 					TextListParam textListParam = (TextListParam) parameter;
 					textListParam.getValues().clear();
-					textListParam.getValues().addAll(Arrays.asList(values));						
+					textListParam.getValues().addAll(Arrays.asList(values));
 					EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");
 					response.getOutputStream().println("Successfully set parameter '" + parameterID + "' of concrete pattern with name '" + name + "' to value '" + values[0] + "' .");
 				} else if(values.length == 1) {
 					try {
 						parameter.setValueFromString(values[0]);
-						EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");											
+						EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");
 						response.getOutputStream().println("Successfully set parameter '" + parameterID + "' of concrete pattern with name '" + name + "' to value '" + values[0] + "' .");
 					} catch (InvalidityException e) {
 						response.sendError(400);
@@ -86,13 +85,13 @@ public class ConcretisationServlet extends HttpServlet {
 				response.sendError(404);
 				response.getOutputStream().println("{ \"error\": \"Parameter not found\"}");
 			}
-														
+
 		} else {
 			response.sendError(404);
 			response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
-		}		
-	}	
-	
+		}
+	}
+
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String requestUrl = request.getRequestURI();
@@ -102,14 +101,14 @@ public class ConcretisationServlet extends HttpServlet {
 		String parameterID = patternNameAndParamIDSplit[1];
 		int parameterIDInt = Integer.parseInt(parameterID);
 
-		
-		String path = "../../concrete-patterns/" + name + ".patternstructure";		
-		URL url = getClass().getClassLoader().getResource(path);		
-		
+
+		String path = "../../concrete-patterns/" + name + ".patternstructure";
+		URL url = getClass().getClassLoader().getResource(path);
+
 		if(url != null) {
 			CompletePattern pattern = EMFModelLoad.loadCompletePattern(url.toString());
 			if(parameterIDInt < pattern.getParameterList().getParameters().size()) {
-				Parameter parameter = pattern.getParameterList().getParameters().get(Integer.parseInt(parameterID));				
+				Parameter parameter = pattern.getParameterList().getParameters().get(Integer.parseInt(parameterID));
 				response.getOutputStream().println(parameter.getValueAsString());
 			} else {
 				response.sendError(404);

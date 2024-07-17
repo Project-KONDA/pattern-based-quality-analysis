@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
-import de.gwdg.metadataqa.api.schema.BaseSchema;
-
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
@@ -11,26 +9,26 @@ import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import qualitypatternmodel.adaptionneo4j.NeoNode;
+import de.gwdg.metadataqa.api.schema.BaseSchema;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPathComponent;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl;
-import qualitypatternmodel.constrainttranslation.ConstraintTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -41,16 +39,17 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
+import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
-import qualitypatternmodel.javaquery.JavaFilter;
-import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.FormulaFilterPart;
-import qualitypatternmodel.javaquery.impl.JavaFilterImpl;
-import qualitypatternmodel.operators.impl.OperatorImpl;
+import qualitypatternmodel.javaquery.JavaFilter;
+import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
+import qualitypatternmodel.javaquery.impl.JavaFilterImpl;
+import qualitypatternmodel.mqaftranslation.MqafTranslation;
+import qualitypatternmodel.operators.impl.OperatorImpl;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
@@ -63,6 +62,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.ConstantsRdf;
 
@@ -90,6 +90,7 @@ import qualitypatternmodel.utility.ConstantsRdf;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getRelationCounter <em>Relation Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getOperatorCounter <em>Operator Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getLastSaved <em>Last Saved</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getNamespaces <em>Namespaces</em>}</li>
  * </ul>
  *
  * @generated
@@ -151,7 +152,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated NOT
 	 * @ordered
@@ -163,7 +164,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * begin-user-doc -->
 	 * The user defined name of this pattern. It should describe roughly the pattern's purpose.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -406,6 +407,16 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	protected Date lastSaved = LAST_SAVED_EDEFAULT;
 
+	/**
+	 * The cached value of the '{@link #getNamespaces() <em>Namespaces</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNamespaces()
+	 * @generated
+	 * @ordered
+	 */
+	protected ValueMap namespaces;
+
 	//	protected int[] elementCounter = {1,1,1,1,1,1};
 
 	protected CompletePatternImpl() {
@@ -413,14 +424,14 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		setParameterList(new ParameterListImpl(this));
 		setGraph(new GraphImpl());
 		setCondition(new TrueElementImpl());
-		
+
 		NodeImpl element = new NodeImpl();
 		element.setGraph(getGraph());
 		element.setReturnNode(true);
-				
+
 		getInternalId();
-	}	
-	
+	}
+
 
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
@@ -431,7 +442,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if(abstractionLevel == AbstractionLevel.CONCRETE && getText().size() > 1) {
 			throw new InvalidityException("concrete pattern has too many fragments");
 		}
-		
+
 //		Boolean db = getDatabaseName() == null || getDatabaseName().equals("");
 //		Boolean dm = getDataModelName() == null || getDataModelName().equals("");
 //		if(abstractionLevel == AbstractionLevel.CONCRETE && dm) {
@@ -445,12 +456,14 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		}
 	}
 
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
-		if (parameterList == null)
+		if (parameterList == null) {
 			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
+		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -458,8 +471,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public JavaFilter generateQueryFilter() throws InvalidityException {
-		if (getLanguage() != Language.XML)
+		if (getLanguage() != Language.XML) {
 			throw new InvalidityException("Query Filter not implemented for Language " + getLanguage().getName());
+		}
 		JavaFilter filter = new JavaFilterImpl();
 		filter.setPatternId(getId());
 		filter.setPatternName(getName());
@@ -469,7 +483,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		filter.setFilter((BooleanFilterPart) filterpart);
 		return filter;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -481,57 +495,106 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String generateXQueryNamespaces() throws InvalidityException {
+		ValueMap namespaces = getNamespaces();
+		if (namespaces == null || namespaces.isEmpty()) {
+			return null;
+		}
+
+		String result = "";
+		for (String prefix: namespaces.getKeys()) {
+			String uri = namespaces.get(prefix);
+			result += "declare namespace " + prefix + "=\"" + uri + "\";\n";
+		}
+		result += "\n";
+		return result;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void printParameters() {
+		int i=0;
+		for (Parameter p: getParameterList().getParameters()){
+			String out = p.getClass().getSimpleName().replace("Impl", "");
+			out += " p" + i + " = ((" + p.getClass().getSimpleName().replace("Impl", "");
+			out += ") params.get(" + i + "));";
+			System.out.println(out);
+			i++;
+		}
+	}
+
+
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		Boolean graph = getGraph().containsJavaOperator();
 		Boolean condition = getCondition().containsJavaOperator();
-		
+
 		if (graph && condition) {
 			BooleanFilterPart sub1 = (BooleanFilterPart) getGraph().generateQueryFilterPart();
 			BooleanFilterPart sub2 = (BooleanFilterPart) getCondition().generateQueryFilterPart();
 			FormulaFilterPart container = new FormulaFilterPartImpl(LogicalOperator.AND, sub1, sub2);
 			return container;
 		}
-		else if (graph)
+		else if (graph) {
 			return getGraph().generateQueryFilterPart();
-		else if (condition)
+		} else if (condition) {
 			return getCondition().generateQueryFilterPart();
-		else 
+		} else {
 			return null;
+		}
 	}
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		if (containsJavaOperator()) 
+		if (containsJavaOperator()) {
 			throw new InvalidityException("This pattern cannot be executed via default XQuery. A custom Java Filter build is required.");
+		}
+		String res = "";
 		initializeTranslation();
-		String res = getParameterList().generateXQuery();
+		if (getNamespaces() != null && !getNamespaces().isEmpty()) {
+			res += generateXQueryNamespaces();
+		}
+		res += getParameterList().generateXQuery();
 		res += super.generateXQuery();
 		return res;
 	}
 
 	@Override
 	public String generateXQueryJava() throws InvalidityException {
-		if (!containsJavaOperator())
+		if (!containsJavaOperator()) {
 			return generateXQuery();
+		}
 		initializeTranslation();
 		String res = getParameterList().generateXQuery();
 		res += super.generateXQueryJava();
-		if (res.startsWith("\n"))
+		if (res.startsWith("\n")) {
 			res = res.substring(1);
+		}
 		return res;
 	}
 
 	@Override
 	public String generateSparql() throws InvalidityException {
-		if (containsJavaOperator()) 
+		if (containsJavaOperator()) {
 			throw new InvalidityException("This pattern cannot be executed via default Sparql query. A custom Java Filter build is required. However this is not implemented for RDF yet.");
+		}
 		initializeTranslation();
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException("return elements missing");
 		}
-		
-		EList<String> prefixes = new BasicEList<String>();		
+
+		EList<String> prefixes = new BasicEList<String>();
 		for(Parameter p : getParameterList().getParameters()) {
 			if(p instanceof RdfPathComponent) {
 				RdfPathComponent rdfPathComponent = (RdfPathComponent) p;
@@ -558,7 +621,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				}
 			}
 		}
-		
+
 		EList<Node> selects = graph.getReturnNodes();
 
 		String query = "";
@@ -572,12 +635,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		query += ConstantsRdf.WHERE +"{";
 		query += super.generateSparql().replace("\n", "\n  ");
 		query += "\n}";
-		
+
 		return query;
 	}
-	
+
 	//BEGIN - NEO4J/CYPHER
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
@@ -586,28 +649,29 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
-		if (containsJavaOperator()) 
+		if (containsJavaOperator()) {
 			throw new InvalidityException("This pattern cannot be executed via default Cypher query. A custom Java Filter build is required. However this is not implemented for Neo4j yet.");
+		}
 
 		initializeTranslation();
-		
+
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException(ConstantsRdf.RETURN_ELEMENT_S_MISSING);
 		}
-		
-		String completeCyString = super.generateCypher(); 
-		 
+
+		String completeCyString = super.generateCypher();
+
 		String returnClause = this.generateCypherReturn();
 		returnClause = ConstantsNeo.CLAUSE_RETURN + returnClause;
 		completeCyString += returnClause;
-		
+
 		return completeCyString;
 	}
 	//PROTOTYP: in future versions a SET/REMOVE for COUNT-Pattern must be ingegrated. This is not intended in the current version
-	
+
 	/**
 	 * <!-- begin-user-doc -->
-	 * Generates for the Nodes and the Edges the Return values. 
+	 * Generates for the Nodes and the Edges the Return values.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -618,13 +682,14 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		cypher = generateCypherReturnEdges(cypher);
 		return cypher;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
 	 * @return String
 	 * This method generates the substring for all Nodes and Properties which shall be returned.
 	 */
+	@Override
 	protected final String generateCypherReturnNodes(String cypher) throws InvalidityException {
 		if (graph.getNodes().size() != 0) {
 			//Building the generic Nodes for Return
@@ -641,24 +706,26 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @return string
 	 * This method generates the substring for all Edges which shall be returned.
 	 */
+	@Override
 	protected final String generateCypherReturnEdges(String cypher) throws InvalidityException {
 		if (graph.getRelations().size() != 0) {
 			//Building the generic Relations for Return
 			final Map<Integer, String> cypherReturn = buildCypherReturnSortedMap(false);
 			cypher = formattingCypherReturnTypes(cypher, cypherReturn);
-			
+
 			//Adding the Inner Edges to the Return
 			cypher = generateCypherSpecialInnerEdgeNodesString(cypher);
 		}
 		return cypher;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
 	 * @return String
 	 * This methods generates the substring for all special return types which can not be handled in {@generateCypherReturnEdges} or {generateCypherReturnNodes}.
 	 */
+	@Override
 	protected final String generateCypherSpecialInnerEdgeNodesString(String cypher) throws InvalidityException {
 		final StringBuilder cypherInnerEdgeNodes = new StringBuilder(super.generateCypherSpecialInnerEdgeNodesString(""));
 		if (cypherInnerEdgeNodes.length() != 0) {
@@ -670,17 +737,17 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		}
 		return cypher;
 	}
-		
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
 	 * @param cypherReturn
 	 * @return String
 	 * This method formats the Return-Clause String.
-	 * It does not add the <i>KEY-WORD</i> "<p>RETURN</p>". 
+	 * It does not add the <i>KEY-WORD</i> "<p>RETURN</p>".
 	 */
 	private final String formattingCypherReturnTypes(String cypher, final Map<Integer, String> cypherReturn) {
-		for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {	  
+		for (Map.Entry<Integer, String> mapElement : cypherReturn.entrySet()) {
 		    if (cypher.length() != 0) {
 		    	cypher += ConstantsNeo.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE + "\n";
 		    	cypher += ConstantsNeo.THREE_WHITESPACES;
@@ -691,19 +758,19 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		}
 		return cypher;
 	}
-	
+
 	//BEGIN - AUTOMATIC SETTING OF THE BEGINNING
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param patternElement
 	 * @throws InvalidityException
 	 * This methods sets the beginning in each subgraph. It determines where later on the generating of the match clause shall start.
-	 * Furthermore, it reduces the time of cypher-query-generation. 
+	 * Furthermore, it reduces the time of cypher-query-generation.
 	 * We used this flagging automation for reducing the traversels during the abstraction and the concretization.
-	 * Hence no new Node instance can be added. 
+	 * Hence no new Node instance can be added.
 	 */
 	private final void setNeo4jBeginnings(PatternElement patternElement) throws InvalidityException {
-		final EList<EList<Node>> genericGraphs = this.getGraph().getAllSubGraphs(); 
+		final EList<EList<Node>> genericGraphs = this.getGraph().getAllSubGraphs();
 		final EList<EList<NeoNode>> graphs = new BasicEList<EList<NeoNode>>();
 		EList<NeoNode> graphList = null;
 		for (EList<Node> graph : genericGraphs) {
@@ -713,15 +780,15 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			}
 			graphs.add(graphList);
 		}
-		setNeo4jBeginningsInSubGraph(graphs);		
+		setNeo4jBeginningsInSubGraph(graphs);
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param graphs
 	 * Sets for subgraphs the BEGINNING.
 	 * If a subgraph is not cyclic the node which has no incoming relation is the starting point.
-	 * If a subgraph is cyclic the first NeoElementNode will be flagged as beginning. 
+	 * If a subgraph is cyclic the first NeoElementNode will be flagged as beginning.
 	 */
 	private final void setNeo4jBeginningsInSubGraph(final EList<EList<NeoNode>> graphs) {
 		boolean hasBeginning = false;
@@ -752,41 +819,45 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 	//END - AUTOMATIC SETTING OF THE BEGINNING
 	//END - NEO4J/CYPHER
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
 	public int getNewRefNo(Class<?> type) {
 		getElementCounter();
-		if (NodeImpl.class.isAssignableFrom(type)) 
+		if (NodeImpl.class.isAssignableFrom(type)) {
 			return elementCounter++;
-		if (RelationImpl.class.isAssignableFrom(type))
+		}
+		if (RelationImpl.class.isAssignableFrom(type)) {
 			return relationCounter++;
-		if (ParameterImpl.class.isAssignableFrom(type))
+		}
+		if (ParameterImpl.class.isAssignableFrom(type)) {
 			return parameterCounter++;
-		if (OperatorImpl.class.isAssignableFrom(type))
+		}
+		if (OperatorImpl.class.isAssignableFrom(type)) {
 			return operatorCounter++;
-			
-		return counter++;		
+		}
+
+		return counter++;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws MissingPatternContainerException 
-	 * @throws OperatorCycleException 
-	 * @throws InvalidityException 
+	 * @throws MissingPatternContainerException
+	 * @throws OperatorCycleException
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
 	public void recordValues() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-	
+
 		isValid(AbstractionLevel.CONCRETE);
-		
-		if(getDatabase() instanceof XmlDataDatabase) {			
+
+		if(getDatabase() instanceof XmlDataDatabase) {
 			recordValues((XmlDataDatabase) getDatabase());
 		}
 		// TODO: else throw exception
@@ -800,10 +871,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public AbstractionLevel getAbstractionLevel() {
-		
+
 		try {
 			isValid(AbstractionLevel.SEMI_CONCRETE);
-			
+
 			try {
 				isValid(AbstractionLevel.CONCRETE);
 				return AbstractionLevel.CONCRETE;
@@ -815,7 +886,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 					return AbstractionLevel.SEMI_CONCRETE;
 				}
 			}
-			
+
 		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e3) {
 			try {
 				isValid(AbstractionLevel.SEMI_ABSTRACT);
@@ -836,7 +907,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			}
 		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -844,11 +915,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public EList<Parameter> validateAgainstSchema() throws InvalidityException {
-		if (this.getDatabase() == null)
+		if (this.getDatabase() == null) {
 			throw new InvalidityException("Pattern has no Database assigned!");
+		}
 		return getParameterList().validateAgainstSchema();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -859,11 +931,11 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		setXmlQuery(null);
 		setPartialXmlQuery(null);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -879,31 +951,31 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT 
+	 * @generated NOT
 	 */
 	@Override
 	public BaseSchema generateXmlConstraintSchema() throws InvalidityException {
-		return ConstraintTranslation.translateToConstraintSchema(this);
+		return MqafTranslation.translateToConstraintSchema(this);
 	}
 
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws IOException 
+	 * @throws IOException
 	 * @generated NOT
 	 */
 	@Override
 	public void generateXmlConstraintYAMLFile(String path) throws InvalidityException, IOException {
-		String content = ConstraintTranslation.translateToConstraintString(this);
+		String content = MqafTranslation.translateToConstraintString(this);
 		Files.write( Paths.get(path), content.getBytes());
 	}
 
 	@Override
 	public String generateXmlConstraintYAMLFileContent() throws InvalidityException {
-		return ConstraintTranslation.translateToConstraintString(this);
+		return MqafTranslation.translateToConstraintString(this);
 	}
-	
+
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -959,22 +1031,29 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST, newParameterList, newParameterList));
 	}
 
+	@Override
 	public Graph getGraph() {
 		return graph;
 	}
 
+	@Override
 	public void setGraph(Graph newGraph) {
 		if (newGraph != graph) {
 			NotificationChain msgs = null;
-			if (graph != null)
+			if (graph != null) {
 				msgs = ((InternalEObject)graph).eInverseRemove(this, GraphstructurePackage.GRAPH__PATTERN, Graph.class, msgs);
-			if (newGraph != null)
+			}
+			if (newGraph != null) {
 				msgs = ((InternalEObject)newGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__PATTERN, Graph.class, msgs);
+			}
 			msgs = basicSetGraph(newGraph, msgs);
-			if (msgs != null) msgs.dispatch();
+			if (msgs != null) {
+				msgs.dispatch();
+			}
 		}
-		else if (eNotificationRequired())
+		else if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__GRAPH, newGraph, newGraph));
+		}
 	}
 
 	/**
@@ -983,8 +1062,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public String getName() {
-		if (name == null)
+		if (name == null) {
 			return patternId;
+		}
 		return name;
 	}
 
@@ -994,13 +1074,14 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public void setName(String newName) {
-		if(newName == null || newName.equals("")) {			
-			newName = NAME_EDEFAULT;			
+		if(newName == null || newName.equals("")) {
+			newName = NAME_EDEFAULT;
 		}
 		String oldName = name;
 		name = newName;
-		if (eNotificationRequired())
+		if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__NAME, oldName, name));
+		}
 	}
 
 	/**
@@ -1097,7 +1178,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValid(AbstractionLevel.GENERIC);
-		PatternElement result = super.createXmlAdaption(); 
+		PatternElement result = super.createXmlAdaption();
 		setLanguage(Language.XML);
 		isValid(AbstractionLevel.ABSTRACT);
 		return result;
@@ -1106,7 +1187,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValid(AbstractionLevel.GENERIC);
-		PatternElement result = super.createRdfAdaption(); 
+		PatternElement result = super.createRdfAdaption();
 		setLanguage(Language.RDF);
 		isValid(AbstractionLevel.ABSTRACT);
 		return result;
@@ -1117,16 +1198,16 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @throws InvalidityException, OperatorCycleException, MissingPatternContainerException
 	 * @return {@link PatternElement}
 	 * This method adapts the Patternstructure to Neo4J/Cypher.
-	 * Furthermore, it sets the Beginnings for the graph traversal. 
+	 * Furthermore, it sets the Beginnings for the graph traversal.
 	 */
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValid(AbstractionLevel.GENERIC);
-		
+
 		PatternElement patternElement = super.createNeo4jAdaption();
 		setLanguage(Language.NEO4J);
 		setNeo4jBeginnings(patternElement);
-		
+
 		return patternElement;
 	}
 
@@ -1164,7 +1245,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return relationCounter;
 	}
 
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1349,6 +1430,54 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 */
 	@Override
+	public ValueMap getNamespaces() {
+		return namespaces;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNamespaces(ValueMap newNamespaces, NotificationChain msgs) {
+		ValueMap oldNamespaces = namespaces;
+		namespaces = newNamespaces;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES, oldNamespaces, newNamespaces);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNamespaces(ValueMap newNamespaces) {
+		if (newNamespaces != namespaces) {
+			NotificationChain msgs = null;
+			if (namespaces != null)
+				msgs = ((InternalEObject)namespaces).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES, null, msgs);
+			if (newNamespaces != null)
+				msgs = ((InternalEObject)newNamespaces).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES, null, msgs);
+			msgs = basicSetNamespaces(newNamespaces, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES, newNamespaces, newNamespaces));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Integer getCounter() {
 		return counter;
 	}
@@ -1467,6 +1596,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return basicSetDatabase(null, msgs);
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				return ((InternalEList<?>)getText()).basicRemove(otherEnd, msgs);
+			case PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES:
+				return basicSetNamespaces(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1513,6 +1644,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return getOperatorCounter();
 			case PatternstructurePackage.COMPLETE_PATTERN__LAST_SAVED:
 				return getLastSaved();
+			case PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES:
+				return getNamespaces();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1578,6 +1711,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__LAST_SAVED:
 				setLastSaved((Date)newValue);
 				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES:
+				setNamespaces((ValueMap)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1640,6 +1776,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__LAST_SAVED:
 				setLastSaved(LAST_SAVED_EDEFAULT);
 				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES:
+				setNamespaces((ValueMap)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1685,6 +1824,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return OPERATOR_COUNTER_EDEFAULT == null ? operatorCounter != null : !OPERATOR_COUNTER_EDEFAULT.equals(operatorCounter);
 			case PatternstructurePackage.COMPLETE_PATTERN__LAST_SAVED:
 				return LAST_SAVED_EDEFAULT == null ? lastSaved != null : !LAST_SAVED_EDEFAULT.equals(lastSaved);
+			case PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES:
+				return namespaces != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1758,6 +1899,16 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN___UPDATE_LAST_SAVED:
 				updateLastSaved();
 				return null;
+			case PatternstructurePackage.COMPLETE_PATTERN___GENERATE_XQUERY_NAMESPACES:
+				try {
+					return generateXQueryNamespaces();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.COMPLETE_PATTERN___PRINT_PARAMETERS:
+				printParameters();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -1805,8 +1956,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	@Override
 	public String myToString() {
-//		String res = "Pattern [" + getInternalId() + "] " + name; 
-		String res = "Pattern " + name; 
+//		String res = "Pattern [" + getInternalId() + "] " + name;
+		String res = "Pattern " + name;
 		res += "\n  " + getGraph().myToString().replace("\n", "\n  ");
 		res += "\n  " + getCondition().myToString().replace("\n", "\n  ");
 		res += getParameterList().myToString().replace("\n", "\n  ");

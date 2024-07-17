@@ -11,19 +11,17 @@ import qualitypatternmodel.exceptions.InvalidityException;
 public class RdfValueFromStringTest {
 
 	public static void main(String[] args) throws JSONException, InvalidityException {
-		
 //		privateTest();
 		successTests();
 //		failTests();
 	}
 
-	
 	public static void privateTest() throws JSONException, InvalidityException {
 
 		JSONArray ja2 = new JSONArray();
 		ja2.put("wdt:iri");
 		ja2.put("wdt:iri2");
-		
+
 		JSONObject xor = new JSONObject();
 		xor.put("xor", ja2);
 
@@ -31,24 +29,24 @@ public class RdfValueFromStringTest {
 		ja.put("wdt:iri");
 		ja.put("wdt:iri2");
 		ja.put(xor);
-		
+
 		JSONObject seq = new JSONObject();
 		seq.put("sequence", ja);
-		
+
 		String res = seq.toString();
 		System.out.println(res);
-		
+
 		JSONObject obj = new JSONObject(res);
 		System.out.println(obj.toString());
-		
+
 		JSONArray arr = obj.getJSONArray("sequence");
 		System.out.println(arr.toString());
-		
+
 		RdfPathParam param = AdaptionrdfFactory.eINSTANCE.createRdfPathParam();
 		param.setValueFromString(res);
 
 	}
-	
+
 	public static void successTests() {
 		String[] teststrings = {
 			// empty
@@ -73,11 +71,11 @@ public class RdfValueFromStringTest {
 			"{\"sequence\":[\"wdt:iri\",\"wdt:iri2\",{\"xor\":[\"wdt:iri\",\"wdt:iri2\"]}]}",
 			"{\"xor\":[\"wdt:iri\",\"wdt:iri2\",{\"sequence\":[\"wdt:iri\",\"wdt:iri2\"]}]}",
 			"{\"xor\":[\"wdt:iri\",{\"sequence\":[\"wdt:iri\",\"wdt:iri2\"]},\"wdt:iri2\"]}",
-			
+
 //			// PARTS
 			"{\"part\":[\"<iri>\", \"<iri>\"]}",
 		};
-		
+
 		for (String test: teststrings) {
 			System.out.println("\"" + test + "\"");
 			RdfPathParam param = AdaptionrdfFactory.eINSTANCE.createRdfPathParam();
@@ -91,7 +89,7 @@ public class RdfValueFromStringTest {
 			System.out.println();
 		}
 	}
-	
+
 	public static void failTests() {
 
 		String[] failstrings = {
@@ -106,9 +104,9 @@ public class RdfValueFromStringTest {
 			"{\"xor\":[\"<iri>\"]}",
 			// NESTING
 			// PARTS
-				
+
 		};
-		
+
 		for (String fail: failstrings) {
 			try {
 				System.out.println("\"" + fail + "\"");

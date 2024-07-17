@@ -2,7 +2,7 @@ package qualitypatternmodel.newservlets.initialisation;
 
 public class XmlPatternVariants {
 
-	static String CARD_XML_DEFAULT_CONSTRAINT = 
+	static String CARD_XML_DEFAULT_CONSTRAINT =
 			"{\"template\":\"Card_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-constraint\","
@@ -14,8 +14,8 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":\"1\"},"
 				+ "{\"name\":\"child elements\",\"params\":[3],\"exampleValue\":\"Birthdates\",\"description\":\"counted elements\", \"plural\": \"true\"},"
 				+ "{\"text\":\".\"}]}";
-	
-	static String CARD_XML_DEFAULT_ANTIPATTERN = 
+
+	static String CARD_XML_DEFAULT_ANTIPATTERN =
 			"{\"template\":\"Card_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-antipattern\","
@@ -29,7 +29,7 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":1},"
 				+ "{\"text\":\".\"}]}";
 
-	static String CARD_XML_DEFAULT_OLD = 
+	static String CARD_XML_DEFAULT_OLD =
 			"{\"template\":\"Card_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default_old\","
@@ -42,7 +42,7 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"child elements\",\"params\":[3],\"exampleValue\":\"Birthdates\",\"description\":\"counted elements\", \"plural\": \"true\"},"
 				+ "{\"text\":\".\"}]}";
 
-	static String CARD_XML_QUESTION_SIMPLE = 
+	static String CARD_XML_QUESTION_SIMPLE =
 			"{\"template\":\"Card_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"question_simple\","
@@ -56,7 +56,7 @@ public class XmlPatternVariants {
 				+ "{\"text\":\".\"}"
 				+ "]}";
 
-	static String CARD_XML_QUESTION = 
+	static String CARD_XML_QUESTION =
 			"{\"template\":\"Card_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"question\","
@@ -69,11 +69,11 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"child elements\",\"params\":[3],\"exampleValue\":\"Birthdates\",\"description\":\"counted elements\", \"plural\": \"true\"},"
 				+ "{\"text\":\".\"}"
 				+ "]}";
-	
+
 	public static String[] CARD_XML_VARIANTS = {CARD_XML_DEFAULT_CONSTRAINT, CARD_XML_DEFAULT_ANTIPATTERN};
 	public static String[] CARD_XML_VARIANTS_OLD = {CARD_XML_DEFAULT_OLD, CARD_XML_QUESTION_SIMPLE, CARD_XML_QUESTION};
-	
-	static String MATCH_XML_DEFAULT_CONSTRAINT = 
+
+	static String MATCH_XML_DEFAULT_CONSTRAINT =
 			"{\"template\":\"Match_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-constraint\","
@@ -86,8 +86,8 @@ public class XmlPatternVariants {
 				+ "{\"text\":\"match\"},"
 				+ "{\"name\":\"a specific pattern (RegEx)\",\"params\":[1],\"exampleValue\":\"[A-Z][a-z][a-z]+\"},"
 				+ "{\"text\":\".\"}]}";
-	
-	static String MATCH_XML_DEFAULT_ANTIPATTERN = 
+
+	static String MATCH_XML_DEFAULT_ANTIPATTERN =
 			"{\"template\":\"Match_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-antipattern\","
@@ -100,11 +100,11 @@ public class XmlPatternVariants {
 				+ "{\"text\":\"match\"},"
 				+ "{\"name\":\"a specific pattern (RegEx)\",\"params\":[1],\"exampleValue\":\"[A-Z][a-z][a-z]+\"},"
 				+ "{\"text\":\".\"}]}";
-	
+
 	static String[] MATCH_XML_VARIANTS = {MATCH_XML_DEFAULT_CONSTRAINT, MATCH_XML_DEFAULT_ANTIPATTERN};
 	static String[] MATCH_XML_VARIANTS_OLD = {};
-	
-	static String CONTAINS_XML_DEFAULT_CONSTRAINT = 
+
+	static String CONTAINS_XML_DEFAULT_CONSTRAINT =
 			"{\"template\":\"Contains_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-constraint\","
@@ -117,8 +117,8 @@ public class XmlPatternVariants {
 				+ "{\"text\":\"contain\"},"
 				+ "{\"name\":\"a specific term\",\"params\":[1],\"exampleValue\":\"Master of\"},"
 				+ "{\"text\":\".\"}]}";
-	
-	static String CONTAINS_XML_DEFAULT_ANTIPATTERN = 
+
+	static String CONTAINS_XML_DEFAULT_ANTIPATTERN =
 			"{\"template\":\"Contains_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-antipattern\","
@@ -131,11 +131,11 @@ public class XmlPatternVariants {
 				+ "{\"text\":\"contain\"},"
 				+ "{\"name\":\"a specific term\",\"params\":[1],\"exampleValue\":\"Master of\"},"
 				+ "{\"text\":\".\"}]}";
-	
+
 	static String[] CONTAINS_XML_VARIANTS = {CONTAINS_XML_DEFAULT_CONSTRAINT, CONTAINS_XML_DEFAULT_ANTIPATTERN};
 	static String[] CONTAINS_XML_VARIANTS_OLD = {};
-	
-	static String STRINGLENGTH_XML_DEFAULT_CONSTRAINT = 
+
+	static String STRINGLENGTH_XML_DEFAULT_CONSTRAINT =
 			"{\"template\":\"StringLength_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-constraint\","
@@ -148,8 +148,8 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"compared to\",\"params\":[0],\"exampleValue\":\"less than\",\"defaultMap\":\"comparison_negated\"},"
 				+ "{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":\"10\"},"
 				+ "{\"text\":\"characters in length.\"}]}";
-	
-	static String STRINGLENGTH_XML_DEFAULT_ANTIPATTERN = 
+
+	static String STRINGLENGTH_XML_DEFAULT_ANTIPATTERN =
 			"{\"template\":\"StringLength_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-antipattern\","
@@ -162,8 +162,8 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"compared to\",\"params\":[0],\"exampleValue\":\"less than\",\"defaultMap\":\"comparison\"},"
 				+ "{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":\"10\"},"
 				+ "{\"text\":\"characters in length.\"}]}";
-	
-	static String STRINGLENGTH_XML_DEFAULT_OLD = 
+
+	static String STRINGLENGTH_XML_DEFAULT_OLD =
 			"{\"template\":\"StringLength_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default_old\","
@@ -176,11 +176,11 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"compared to\",\"params\":[0],\"exampleValue\":\"less than\",\"defaultMap\":\"comparison\"},"
 				+ "{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":\"10\"},"
 				+ "{\"text\":\".\"}]}";
-	
+
 	static String[] STRINGLENGTH_XML_VARIANTS = {STRINGLENGTH_XML_DEFAULT_CONSTRAINT, STRINGLENGTH_XML_DEFAULT_ANTIPATTERN};
 	static String[] STRINGLENGTH_XML_VARIANTS_OLD = {STRINGLENGTH_XML_DEFAULT_OLD};
-	
-	static String COMPSET_XML_DEFAULT_CONSTRAINT = 
+
+	static String COMPSET_XML_DEFAULT_CONSTRAINT =
 			"{\"template\":\"CompSet_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-constraint\","
@@ -194,7 +194,7 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"terms\",\"params\":[0],\"exampleValue\": \"Mueller, Meier\"},"
 				+ "{\"text\":\".\"}]}";
 
-	static String COMPSET_XML_DEFAULT_ANTIPATTERN = 
+	static String COMPSET_XML_DEFAULT_ANTIPATTERN =
 			"{\"template\":\"CompSet_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-antipattern\","
@@ -207,8 +207,8 @@ public class XmlPatternVariants {
 				+ "{\"text\":\"in the list of\"},"
 				+ "{\"name\":\"terms\",\"params\":[0],\"exampleValue\": \"Mueller, Meier\"},"
 				+ "{\"text\":\".\"}]}";
-	
-	static String COMPSET_XML_DEFAULT_OLD = 
+
+	static String COMPSET_XML_DEFAULT_OLD =
 			"{\"template\":\"CompSet_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default_old\","
@@ -223,8 +223,8 @@ public class XmlPatternVariants {
 
 	static String[] COMPSET_XML_VARIANTS = {COMPSET_XML_DEFAULT_CONSTRAINT, COMPSET_XML_DEFAULT_ANTIPATTERN};
 	static String[] COMPSET_XML_VARIANTS_OLD = {COMPSET_XML_DEFAULT_OLD};
-	
-	static String UNIQUE_XML_DEFAULT_CONSTRAINT = 
+
+	static String UNIQUE_XML_DEFAULT_CONSTRAINT =
 			"{\"template\":\"Unique_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-constraint\","
@@ -234,8 +234,8 @@ public class XmlPatternVariants {
 				+ "{\"text\":\", the\"},"
 				+ "{\"name\":\"property\",\"params\":[3,4],\"exampleValue\":\"Identifier (Value)\",\"description\":\"value that gets analysed\"},"
 				+ "{\"text\":\"is unique.\"}]}";
-	
-	static String UNIQUE_XML_DEFAULT_ANTIPATTERN = 
+
+	static String UNIQUE_XML_DEFAULT_ANTIPATTERN =
 			"{\"template\":\"Unique_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-antipattern\","
@@ -245,8 +245,8 @@ public class XmlPatternVariants {
 				+ "{\"text\":\"where a\"},"
 				+ "{\"name\":\"property\",\"params\":[3,4],\"exampleValue\":\"Identifier (Value)\",\"description\":\"value that gets analysed\"},"
 				+ "{\"text\":\"is not unique within the data set.\"}]}";
-	
-	static String UNIQUE_XML_DEFAULT_OLD = 
+
+	static String UNIQUE_XML_DEFAULT_OLD =
 			"{\"template\":\"Unique_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-antipattern\","
@@ -259,8 +259,8 @@ public class XmlPatternVariants {
 
 	static String[] UNIQUE_XML_VARIANTS = {UNIQUE_XML_DEFAULT_CONSTRAINT, UNIQUE_XML_DEFAULT_ANTIPATTERN};
 	static String[] UNIQUE_XML_VARIANTS_OLD = {UNIQUE_XML_DEFAULT_OLD};
-	
-	static String MANDATT_XML_DEFAULT_CONSTRAINT = 
+
+	static String MANDATT_XML_DEFAULT_CONSTRAINT =
 			"{\"template\":\"MandAtt_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-constraint\","
@@ -270,8 +270,8 @@ public class XmlPatternVariants {
 				+ "{\"text\":\"has at least one \"},"
 				+ "{\"name\":\"child element\",\"params\":[1],\"exampleValue\":\"Birthdate\",\"description\":\"value that gets analysed\"},"
 				+ "{\"text\":\".\"}]}";
-	
-	static String MANDATT_XML_DEFAULT_ANTIPATTERN = 
+
+	static String MANDATT_XML_DEFAULT_ANTIPATTERN =
 			"{\"template\":\"MandAtt_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-antipattern\","
@@ -284,8 +284,8 @@ public class XmlPatternVariants {
 
 	static String[] MANDATT_XML_VARIANTS = {MANDATT_XML_DEFAULT_CONSTRAINT, MANDATT_XML_DEFAULT_ANTIPATTERN};
 	static String[] MANDATT_XML_VARIANTS_OLD = {};
-	
-	static String INVALIDLINK_XML_DEFAULT_CONSTRAINT = 
+
+	static String INVALIDLINK_XML_DEFAULT_CONSTRAINT =
 			"{\"template\":\"InvalidLink_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-constraint\","
@@ -296,8 +296,8 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"property\",\"params\":[2],\"exampleValue\":\"Birth Certificate Source\",\"description\":\"property of interest,that should contain a valid link.\"},"
 				+ "{\"name\":\"is/is not\",\"params\":[0],\"defaultMap\":\"is\",\"exampleValue\":\"is\"},"
 				+ "{\"text\":\"a valid link.\"}]}";
-	
-	static String INVALIDLINK_XML_DEFAULT_ANTIPATTERN = 
+
+	static String INVALIDLINK_XML_DEFAULT_ANTIPATTERN =
 			"{\"template\":\"InvalidLink_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-antipattern\","
@@ -309,7 +309,7 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"does / does not\",\"params\":[0],\"defaultMap\":\"does\",\"exampleValue\":\"does\",\"description\":\"Do you search for elements that contain a valid link (‘does’) or invalid links (‘does not’)?\"},"
 				+ "{\"text\":\"contain a valid link.\"}]}";
 
-	static String INVALIDLINK_XML_QUESTION = 
+	static String INVALIDLINK_XML_QUESTION =
 			"{\"template\":\"InvalidLink_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"question\","
@@ -320,7 +320,7 @@ public class XmlPatternVariants {
 				+ "{\"name\":\"property\",\"params\":[2],\"exampleValue\":\"Birth Certificate Source\",\"description\":\"property of interest,that should contain a valid link.\"},"
 				+ "{\"name\":\"is / is not\",\"params\":[0],\"defaultMap\":\"is\",\"exampleValue\":\"is\",\"description\":\"Do you search for elements that contain a valid link (‘is’) or invalid links (‘is not’)?\"},"
 				+ "{\"text\":\"valid?\"}]}";
-	
+
 	static String[] INVALIDLINK_XML_VARIANTS = {INVALIDLINK_XML_DEFAULT_CONSTRAINT, INVALIDLINK_XML_DEFAULT_ANTIPATTERN};
 	static String[] INVALIDLINK_XML_VARIANTS_OLD = {INVALIDLINK_XML_QUESTION};
 }

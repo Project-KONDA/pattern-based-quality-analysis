@@ -10,7 +10,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,9 +39,9 @@ import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
  * @generated
  */
 public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implements OneArgFunctionFilterPart {
-	
+
 	String functionclassname;
-	
+
 	/**
 	 * The cached value of the '{@link #getArgument() <em>Argument</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -81,20 +80,20 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 		super();
 		setArgument(new ValueInterimImpl());
 	}
-	
+
 //	public OneArgFunctionFilterPartImpl(Function f) {
 //		super();
 //		function = f;
 //		setArgument(new ValueInterimImpl());
 //	}
-	
+
 	public OneArgFunctionFilterPartImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
 			JSONObject jsono = new JSONObject(json);
 			setNegate(jsono.getBoolean("negate"));
 			functionclassname = jsono.getString("functionclass");
-			ValueInterim argument = (ValueInterim) map.get(jsono.getInt("argument")); 
+			ValueInterim argument = (ValueInterim) map.get(jsono.getInt("argument"));
 			setArgument(argument);
 		}
 		catch (Exception e) {
@@ -112,7 +111,7 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 		String value = ((ValueResult) parameter).getValue();
 		OneArgJavaOperatorImpl functionClass = OneArgJavaOperatorImpl.getOneInstanceOf(functionclassname);
 		return functionClass.apply(value);
-	};
+	}
 
 	@Override
 	public EList<InterimResultPart> getArguments() {
@@ -120,7 +119,7 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 		result.add(getArgument());
 		return result;
 	}
-	
+
 	@Override
 	public JSONObject toJson() {
 		JSONObject result = new JSONObject();
@@ -133,13 +132,13 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 		}
 		return result;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "(oneArg " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + ">)";
 	}
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

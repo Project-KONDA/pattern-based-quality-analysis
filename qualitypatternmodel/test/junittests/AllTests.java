@@ -10,5 +10,5 @@ import org.junit.platform.suite.api.Suite;
 	Neo4jJUnitTests.class
 })
 public class AllTests {
-	
+
 }

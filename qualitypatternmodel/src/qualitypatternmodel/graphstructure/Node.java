@@ -3,6 +3,7 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
@@ -215,7 +216,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * Creates a <code>Property</code> and
 	 * a <code>Match</code>
 	 * that references the new <code>Property</code> and has <code>regex</code> as its regular expression.
-	 * 
+	 *
 	 * @param regex the regular expression for the new <code>Match</code> operator
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
@@ -244,7 +245,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * Creates a <code>Property</code> and
 	 * a <code>Comparison</code> that compares the new <code>Property</code>
 	 * with a newly created <code>TextLiteralParam</code> based on <code>value</code>.
-	 * 
+	 *
 	 * @param the value that the newly created <code>Property</code> is compared with by the newly created <code>Comparison</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
@@ -267,7 +268,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * Creates a <code>Property</code> and
 	 * a <code>Comparison</code> that compares the new <code>Property</code>
 	 * with a newly created <code>UntypedParameterValue</code>.
-	 * 
+	 *
 	 * @return the <code>UntypedParameterValue</code> that the newly
 	 * created <code>Property</code> is compared with by the newly created <code>Comparison</code>
 	 * <!-- end-user-doc -->
@@ -281,7 +282,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * Creates a <code>Property</code> and
 	 * a <code>Comparison</code> based on <code>operator</code> that compares the new <code>Property</code>
 	 * with <code>input</code>.
-	 * 
+	 *
 	 * @param operator the <code>ComparisonOperator</code> underlying the newly created <code>Comparison</code>
 	 * @param input the <code>ParameterValue</code> that is compared to the new <code>Property</code> by the new <code>Comparison</code>
 	 * <!-- end-user-doc -->
@@ -294,7 +295,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * <!-- begin-user-doc -->
 	 * Creates a <code>Property</code> and
 	 * a <code>Comparison</code> that compares the new <code>Property</code>
-	 * with <code>input</code>.	
+	 * with <code>input</code>.
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -303,11 +304,11 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Sets <code>graph</code> of <code>this</code> to <code>newGraph</code> 
+	 * Sets <code>graph</code> of <code>this</code> to <code>newGraph</code>
 	 * without updating corresponding <code>Elements</code> in previous and following <code>Graphs</code>,
 	 * updating referenced <code>Parameters</code>,
 	 * clearing <code>predicates</code> and deleting <code>Relations</code>.
-	 * 
+	 *
 	 * @param newGraph the new container of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model
@@ -318,7 +319,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * Checks the given comparison concerning contradictions with other comparisons, e.g. equal and unequal at the same time.
-	 * 
+	 *
 	 * @param comp the <code>Comparison</code> to be checked
 	 * @throws InvalidityException if contradicting comparisons are found
 	 * <!-- end-user-doc -->
@@ -531,7 +532,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * Checks related comparisons concerning contradictions, e.g. equal and unequal at the same time.
-	 * 
+	 *
 	 * @throws InvalidityException if contradicting comparisons are found
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"

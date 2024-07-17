@@ -3,25 +3,23 @@
 package qualitypatternmodel.adaptionneo4j.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
+import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
-import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.Constants;
@@ -79,13 +77,16 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	public String getValueAsString() {
 		JSONObject jobj = new JSONObject();
 		try {
-			if (getNeoPathPart() != null)
-				jobj.put(Constants.JSON_NEO_PATH_PART, getNeoPathPart().getValueAsString());
-			if (getNeoPropertyName() != null)
-				jobj.put(Constants.JSON_NEO_PROPERTY_NAME, getNeoPropertyName().getValueAsString());
+			if (getNeoPathPart() != null) {
+				jobj.put(ConstantsNeo.JSON_NEO_PATH_PART, getNeoPathPart().getValueAsString());
+			}
+			if (getNeoPropertyName() != null) {
+				jobj.put(ConstantsNeo.JSON_NEO_PROPERTY_NAME, getNeoPropertyName().getValueAsString());
+			}
 		} catch (JSONException e) {}
-		if (jobj.length() < 1)
+		if (jobj.length() < 1) {
 			return null;
+		}
 		return jobj.toString();
 	}
 
@@ -93,13 +94,13 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	public void setValueFromString(String value) throws InvalidityException {
 		try {
 			JSONObject jobj = new JSONObject(value);
-			String partstring = jobj.get(Constants.JSON_NEO_PATH_PART).toString();
+			String partstring = jobj.get(ConstantsNeo.JSON_NEO_PATH_PART).toString();
 			NeoPathPart part = NeoPathPartImpl.createNewNeoPathPart(partstring);
 
-			String propertystring = jobj.get(Constants.JSON_NEO_PROPERTY_NAME).toString();
+			String propertystring = jobj.get(ConstantsNeo.JSON_NEO_PROPERTY_NAME).toString();
 			NeoPropertyNameParam property = new NeoPropertyNameParamImpl();
 			property.setValueFromString(propertystring);
-			
+
 			setNeoPathPart(part);
 			setNeoPropertyName(property);
 			return;
@@ -123,7 +124,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		setNeoPropertyName((NeoPropertyNameParam) null);
 		setNeoPathPart(null);
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
@@ -134,7 +135,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	 * 	If correct then the NeoPathPart will be build.
 	 * 	Else an Exception is thrown.
 	 */
-	@Override 
+	@Override
 	public String generateCypher() throws InvalidityException {
 		String cypher = new String();
 		if (getNeoPathPart() != null) {
@@ -148,7 +149,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @throws InvalidityException
-	 * Check if the check for ComplexEdge. 
+	 * Check if the check for ComplexEdge.
 	 * At least a NeoSimpleEdge is set.
 	 */
 	private void validateNeoPropertyEdge() throws InvalidityException {
@@ -163,7 +164,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 			targetNodesCanNotBeNull();
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param EList<NeoPathPart>
@@ -187,7 +188,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		}
 		return innerEdgesHaveTargets;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
@@ -196,7 +197,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	private void targetNodesCanNotBeNull() throws InvalidityException {
 		throw new InvalidityException(NEO_PROPERTY_EDGE_TARGET_NODES_CAN_NOT_BE_NULL);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * Sets a NeoSimpleEdge
@@ -208,7 +209,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		setNeoPathPart(new NeoSimpleEdgeImpl());
 		setNeoPropertyName(new NeoPropertyNameParamImpl());
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -274,7 +275,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT 
+	 * @generated NOT
 	 */
 	@Override
 	public NeoPropertyNameParam getNeoPropertyName() {
@@ -282,8 +283,9 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 			InternalEObject oldNeoPropertyName = (InternalEObject)neoPropertyName;
 			neoPropertyName = (NeoPropertyNameParam)eResolveProxy(oldNeoPropertyName);
 			if (neoPropertyName != oldNeoPropertyName) {
-				if (eNotificationRequired())
+				if (eNotificationRequired()) {
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Adaptionneo4jPackage.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_NAME, oldNeoPropertyName, neoPropertyName));
+				}
 			}
 		}
 		return neoPropertyName != null ? neoPropertyName : null;
@@ -327,7 +329,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -476,7 +478,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 		}
 	}
 
-	
+
 	@Override
 	protected int getRelationNumber() {
 		if (getNeoPropertyEdge() == null) {
@@ -489,13 +491,13 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 	protected String getEdgeNaming() {
 		return ConstantsNeo.VARIABLE_PROPERTY_EGDE;
 	}
-	
+
 	@Override
 	public String generateDescription() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	@Override
 	public boolean isUsed() {
 		return getNeoPropertyEdge() != null;
@@ -516,7 +518,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 			} else if (neoPropertyName != null) {
 				result += ConstantsNeo.ONE_WHITESPACE + getNeoPropertyEdge().generateCypherPropertyAddressing();
 			}
-		} catch (InvalidityException e) {} 
+		} catch (InvalidityException e) {}
 		return result;
 	}
 } //NeoAttributePathParamImpl

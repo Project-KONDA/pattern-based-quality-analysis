@@ -94,6 +94,7 @@ public interface XmlNavigation extends Relation {
 	 */
 	void setVariableCounter(int value);
 
+	@Override
 	String generateXQuery() throws InvalidityException;
 
 } // XmlNavigation

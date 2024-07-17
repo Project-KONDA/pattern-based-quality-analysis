@@ -17,7 +17,7 @@ import qualitypatternmodel.utility.ConstantsNeo;
 
 public abstract class NeoPathParamTest implements INeoPathParamTest {
 	//Improve the Klammern this are not EDGE Klammern
-	
+
 	private static final int INTERNAL_ID_ONE = 1;
 	protected static final String VARIABLE_EDGE_ONE = ConstantsNeo.VARIABLE_ELEMENT_EGDE + 1;
 	protected static final String VARIABLE_EDGE_TWO = ConstantsNeo.VARIABLE_ELEMENT_EGDE + 2;
@@ -27,7 +27,7 @@ public abstract class NeoPathParamTest implements INeoPathParamTest {
 	protected NeoPathParam neoAbstractPathParam;
 	protected NeoSimpleEdgeImpl mockSimpleEdge;
 	protected Field internalId;
-	
+
 	public void setUp(NeoPathParam neoAbstractPathParam) {
 		try {
 			this.neoAbstractPathParam = neoAbstractPathParam;
@@ -44,11 +44,11 @@ public abstract class NeoPathParamTest implements INeoPathParamTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	public void tearDown() {
 		neoAbstractPathParam = null;
 	}
-	
+
 	public void buildMockSimpleEdge() {
 		try {
 			mockSimpleEdge = Mockito.mock(NeoSimpleEdgeImpl.class);
@@ -77,6 +77,6 @@ public abstract class NeoPathParamTest implements INeoPathParamTest {
 		f.setAccessible(true);
 		return f;
 	}
-	
+
 
 }

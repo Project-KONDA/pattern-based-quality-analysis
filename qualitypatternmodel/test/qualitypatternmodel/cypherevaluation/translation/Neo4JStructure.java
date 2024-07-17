@@ -15,27 +15,27 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 public class Neo4JStructure {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		neo4JConcreteDuplicatedTree();
-		
+
 		System.out.println();
 		System.out.println("---");
 		System.out.println();
-		
+
 		neo4JConcreteDistinctGraphs();
 }
 
 	private static void neo4JConcreteDuplicatedTree() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern neo4JConcreteDuplicatedValue = null;
-		
-		
+
+
 		neo4JConcreteDuplicatedValue = EvalGraphstructure.abstractDuplicatedTree();
-				
+
 		//Abstract --> Concrete
-				
+
 		ParameterList paramters = neo4JConcreteDuplicatedValue.getParameterList();
-		
+
 		NeoNodeLabelsParam neoNodeLabelsParam0 = (NeoNodeLabelsParam) paramters.getParameters().get(0);
 		neoNodeLabelsParam0.addStringValue("Regesta");
-	
+
 		NeoPropertyPathParam neoPropertyPathParam1 = (NeoPropertyPathParam) paramters.getParameters().get(1);
 		neoPropertyPathParam1.createParameters();
 		((NeoSimpleEdge) neoPropertyPathParam1.getNeoPathPart()).addNeoEdgeLabel("PLACE_OF_ISSUE");
@@ -45,20 +45,20 @@ public class Neo4JStructure {
 		neoPropertyPathParam2.setNeoPropertyName("placeOfIssue");
 		NeoPropertyPathParam neoPropertyPathParam3 = (NeoPropertyPathParam) paramters.getParameters().get(3);
 		neoPropertyPathParam3.setNeoPropertyName("origPlaceOfIssue");
-		
+
 		System.out.println(neo4JConcreteDuplicatedValue.generateCypher());
 	}
-	
+
 	private static void neo4JConcreteDistinctGraphs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern neo4JConcreteDistinctGraphs = null;
-		
-		
+
+
 		neo4JConcreteDistinctGraphs = EvalGraphstructure.abstractDistinctGraphs();
-				
+
 		//Abstract --> Concrete
-				
+
 		ParameterList paramters = neo4JConcreteDistinctGraphs.getParameterList();
-		
+
 		NeoNodeLabelsParam neoNodeLabelsParam0 = (NeoNodeLabelsParam) paramters.getParameters().get(0);
 		neoNodeLabelsParam0.addStringValue("Regesta");
 		NeoNodeLabelsParam neoNodeLabelsParam1 = (NeoNodeLabelsParam) paramters.getParameters().get(1);
@@ -69,7 +69,7 @@ public class Neo4JStructure {
 		neoNodeLabelsParam3.addStringValue("Literature");
 		NeoNodeLabelsParam neoNodeLabelsParam4 = (NeoNodeLabelsParam) paramters.getParameters().get(4);
 		neoNodeLabelsParam4.addStringValue("Reference");
-		
+
 		NeoElementPathParam neoElementPathParam1 = (NeoElementPathParam) paramters.getParameters().get(5);
 		((NeoSimpleEdge) neoElementPathParam1.getNeoPathPart()).addNeoEdgeLabel("PLACE_OF_ISSUE");
 		((NeoSimpleEdge) neoElementPathParam1.getNeoPathPart()).setNeoDirection(NeoDirection.RIGHT);
@@ -79,7 +79,7 @@ public class Neo4JStructure {
 		NeoElementPathParam neoElementPathParam3 =(NeoElementPathParam) paramters.getParameters().get(7);
 		((NeoSimpleEdge) neoElementPathParam3.getNeoPathPart()).addNeoEdgeLabel("LITERATURE");
 		((NeoSimpleEdge) neoElementPathParam3.getNeoPathPart()).setNeoDirection(NeoDirection.LEFT);
-		
+
 		System.out.println(neo4JConcreteDistinctGraphs.generateCypher());
 	}
 }

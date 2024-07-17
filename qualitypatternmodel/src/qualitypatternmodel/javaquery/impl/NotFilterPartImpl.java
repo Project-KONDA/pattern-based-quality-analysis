@@ -9,7 +9,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,7 +52,7 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 	public NotFilterPartImpl() {
 		super();
 	}
-	
+
 	public NotFilterPartImpl(BooleanFilterPart subfilter) {
 		super();
 		setSubfilter(subfilter);
@@ -73,13 +72,13 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 	@Override
 	public Boolean apply(InterimResult parameter) throws InvalidityException {
 		return !getSubfilter().apply(parameter);
-	};
+	}
 
 	@Override
 	public EList<InterimResultPart> getArguments() {
 		return getSubfilter().getArguments();
 	}
-	
+
 	@Override
 	public JSONObject toJson() {
 		JSONObject result = new JSONObject();
@@ -90,16 +89,13 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 		}
 		return result;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "[not " + getJavaFilterPartId() + " " + getSubfilter().toString() + "]";
 	}
-	
-	
-	
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

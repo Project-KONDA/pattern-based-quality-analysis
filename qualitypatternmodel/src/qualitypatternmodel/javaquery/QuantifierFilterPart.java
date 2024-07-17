@@ -3,8 +3,8 @@
 package qualitypatternmodel.javaquery;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 
+import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.patternstructure.Quantifier;
 
 /**

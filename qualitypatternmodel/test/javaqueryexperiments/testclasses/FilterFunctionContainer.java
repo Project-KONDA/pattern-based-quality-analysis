@@ -60,33 +60,34 @@ public class FilterFunctionContainer {
 		Boolean res;
 		if (params.isEmpty()) {
 			res = apply(new ArrayList<String>());
-			if (quantifier == EverySomeNoneQuantifier.NONE)
+			if (quantifier == EverySomeNoneQuantifier.NONE) {
 				return !res;
-			else
+			} else {
 				return res;
+			}
 		}
 		CombinationCreator<String> combinations = new CombinationCreator<String>(params);
-		
+
 		while (!combinations.isFinished()) {
 			List<String> next = combinations.getNext();
 			Boolean combRes = apply(next);
 
-			if ((!combRes) && quantifier == EverySomeNoneQuantifier.EVERY)
+			if (((!combRes) && quantifier == EverySomeNoneQuantifier.EVERY) || ((combRes) && quantifier == EverySomeNoneQuantifier.NONE)) {
 				return false;
+			}
 
-			if ((combRes) && quantifier == EverySomeNoneQuantifier.NONE)
-				return false;
-
-			if ((combRes) && quantifier == EverySomeNoneQuantifier.SOME)
+			if ((combRes) && quantifier == EverySomeNoneQuantifier.SOME) {
 				return true;
+			}
 		}
 		return quantifier != EverySomeNoneQuantifier.SOME;
 	}
 
 	public boolean apply(List<String> params) throws InvalidityException {
-		if (params.size() != functionargnum)
+		if (params.size() != functionargnum) {
 			throw new InvalidityException(
 					"number of parameters does not match function: " + params.size() + " != " + functionargnum);
+		}
 
 		switch (functionargnum) {
 		case (0):

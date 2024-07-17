@@ -228,5 +228,5 @@ public enum NeoDirection implements Enumerator {
 	public String toString() {
 		return literal;
 	}
-	
+
 } //NeoDirection

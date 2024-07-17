@@ -7,14 +7,11 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -81,17 +78,18 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	protected ContainerResultImpl() {
 		super();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public ContainerResultImpl(List<Object> input) throws InvalidityException {
 		super();
 		for (Object inputobject: input) {
-			if (inputobject instanceof List)
+			if (inputobject instanceof List) {
 				getSubresult().add(new ContainerResultImpl((List<Object>) inputobject));
-			else if (inputobject instanceof String)
+			} else if (inputobject instanceof String) {
 				getSubresult().add(new ValueResultImpl((String) inputobject));
-			else 
+			} else {
 				throw new InvalidityException(inputobject.toString() + " cannot be transformed to an InterimResultObject.");
+			}
 		}
 	}
 
@@ -102,22 +100,25 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 			if (size == -1) {
 				VariableContainerInterim container = (VariableContainerInterim) corresponding;
 				setCorrespondsTo(container);
-				for(InterimResult a: getSubresult())
-					a.setCorresponding(((VariableContainerInterim)container).getContained());
-			}	
+				for(InterimResult a: getSubresult()) {
+					a.setCorresponding(container.getContained());
+				}
+			}
 			else if (size == getSubresult().size() || getSubresult().size() == 0){
 				FixedContainerInterim container = (FixedContainerInterim) corresponding;
 				setCorrespondsTo(container);
-				if (size == getSubresult().size())
+				if (size == getSubresult().size()) {
 					for(int i= 0; i<size;i++) {
 						getSubresult().get(i).setCorresponding(container.getContained().get(i));
 					}
-			} 
+				}
+			}
 			return;
+		} else {
+			throw new InvalidityException(corresponding + " " + corresponding.getClass().toString() + " is not of type ContainerInterim! (" + this + ")");
 		}
-		else throw new InvalidityException(corresponding + " " + corresponding.getClass().toString() + " is not of type ContainerInterim! (" + this + ")");
 	}
-	
+
 	@Override
 	public Boolean isValidToCorresponding() {
 		if (getCorrespondsTo() == null || !(getCorrespondsTo() instanceof ContainerInterim )) {
@@ -125,12 +126,13 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 		}
 		ContainerInterim container = (ContainerInterim) getCorrespondsTo();
 		Integer size = container.getSize();
-		
+
 		if (size == -1) {
 			return getSubresult().stream().allMatch(x-> x.isValidToCorresponding());
 		} else {
-			if (size != getSubresult().size())
+			if (size != getSubresult().size()) {
 				return false;
+			}
 
 			FixedContainerInterim fixed = ((FixedContainerInterim) container);
 			for (int i = 0; i < size; i++) {
@@ -141,17 +143,18 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 					e.printStackTrace();
 					return false;
 				}
-				if (!interim.isValidToCorresponding())
+				if (!interim.isValidToCorresponding()) {
 					return false;
+				}
 			}
 			return true;
 		}
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -206,35 +209,39 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
 	public Boolean stream(String value) throws InvalidityException {
-		if (done)
+		if (done) {
 			return false;
-	
+		}
+
 		depth0 = depth;
-		if (JavaQueryTranslationUtility.isStartTag(value))
+		if (JavaQueryTranslationUtility.isStartTag(value)) {
 			depth +=1;
-		else if (JavaQueryTranslationUtility.isEndTag(value))
+		} else if (JavaQueryTranslationUtility.isEndTag(value)) {
 			depth-=1;
-		
-		if (depth0 <= 0 && depth <= 0)
+		}
+
+		if (depth0 <= 0 && depth <= 0) {
 			throw new InvalidityException();
-		else if (depth0 == 1 && depth == 0)
+		} else if (depth0 == 1 && depth == 0) {
 			done = true;
-		else if (depth0 == 0 && depth == 1) {
-			if (getTagname() != null)
+		} else if (depth0 == 0 && depth == 1) {
+			if (getTagname() != null) {
 				throw new InvalidityException("Tagname already set: '" + getTagname() + "' and shell be: " + value);
+			}
 			setTagname(value);
 		}
 		else if (depth0 == 1 && depth == 1) {
 			getSubresult().add(new ValueResultImpl(value));
 		}
 		else if (depth0 == 1 && depth == 2) {
-			if (currentCreationResult != null)
+			if (currentCreationResult != null) {
 				throw new InvalidityException();
+			}
 			currentCreationResult = new ContainerResultImpl();
 			currentCreationResult.stream(value);
 		}
@@ -244,15 +251,16 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 			currentCreationResult = null;
 		}
 		else if (depth0 >= 2 && depth >= 2) {
-			if (!(currentCreationResult instanceof ContainerResult))
+			if (!(currentCreationResult instanceof ContainerResult)) {
 				throw new InvalidityException("ContainerResult expected, recieved: " + currentCreationResult);
-			((ContainerResult) currentCreationResult).stream(value);
+			}
+			currentCreationResult.stream(value);
 		}
-			
-		
-			
-			
-		
+
+
+
+
+
 //		if(depth == 0) {
 //			hasEnded = true;
 //		} else if (depth0 == 0 && depth == 1) {

@@ -7,7 +7,7 @@ import qualitypatternmodel.graphstructure.Graph;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Morphism</b></em>'.
- * A map from the <code>source</code> to the <code>target</code> <code>Graph</code>, which is specified through the contained <code>mappings</code>. 
+ * A map from the <code>source</code> to the <code>target</code> <code>Graph</code>, which is specified through the contained <code>mappings</code>.
  * <!-- end-user-doc -->
  *
  * <p>

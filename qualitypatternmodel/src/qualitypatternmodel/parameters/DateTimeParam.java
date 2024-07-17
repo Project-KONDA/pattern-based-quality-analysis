@@ -49,7 +49,7 @@ public interface DateTimeParam extends ParameterValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Sets <code>value</code> to <code>newValue</code> if its format is valid.
-	 * 
+	 *
 	 * @param newValue the value to be set
 	 * @throws InvalidityException if the format of <code>newValue</code> is invalid
 	 * <!-- end-user-doc -->

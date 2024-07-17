@@ -4,6 +4,7 @@ package qualitypatternmodel.textrepresentation;
 
 import org.eclipse.emf.ecore.EObject;
 import org.json.JSONObject;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
@@ -52,7 +53,7 @@ public interface Fragment extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns a JSON representation of <code>this</code> <code>PatternText</code> and its contents.
-	 * 
+	 *
 	 * @return a JSON representation of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model

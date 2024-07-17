@@ -40,7 +40,7 @@ public class NeoPropertyNameParamImpl extends TextLiteralParamImpl implements Ne
 	protected EClass eStaticClass() {
 		return Adaptionneo4jPackage.Literals.NEO_PROPERTY_NAME_PARAM;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,12 +56,12 @@ public class NeoPropertyNameParamImpl extends TextLiteralParamImpl implements Ne
 		checkPropertyName(newValue);
 		setValue(newValue);
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param value
 	 * @throws InvalidityException
-	 *  Checks for if a Property Name is valid. 
+	 *  Checks for if a Property Name is valid.
 	 *  Null is not handled.
 	 */
 	private void checkPropertyName(String value) throws InvalidityException {
@@ -71,40 +71,40 @@ public class NeoPropertyNameParamImpl extends TextLiteralParamImpl implements Ne
 		value = value.trim();
 		if (!value.matches(REGEX)) {
 			throw new InvalidityException(ConstantsNeo.ONLY_ALPHANUMERICAL_VALUES_AND_UNDERSCORE);
-		}			
+		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @throws InvalidityException
 	 * Generates the property name.
 	 */
-	@Override 
+	@Override
 	public String generateCypher() throws InvalidityException {
 		if (getValue() == null) {
 			throw new InvalidityException(NULL_IS_NOT_A_VALID_PROPERTY_NAME);
 		}
 		return getValue();
 	}
-	
+
 	@Override
 	public String myToString() {
 		final String result = super.myToString().replace("text", "property name");
-		return result;		
+		return result;
 	}
-	
+
 	@Override
 	public String toString() {
 		final String result = super.toString().replace("value", "property name");
 		return result;
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		throw new UnsupportedOperationException();

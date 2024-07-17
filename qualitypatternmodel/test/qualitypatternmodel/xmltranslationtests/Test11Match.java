@@ -9,11 +9,11 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test11Match {
-	
+
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternMatch(true, "know"));
@@ -24,30 +24,30 @@ public class Test11Match {
 		completePatterns.add(getPatternMatch(false, "^unknown$"));
 		return completePatterns;
 	}
-	
+
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		XmlPatternUtility.testPatterns(getPatterns());
+		PatternUtility.testPatterns(getPatterns());
 	}
-	
+
 	public static CompletePattern getPatternMatch(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveMatch(str);
 		Match match = ((Match) pattern.getGraph().getOperatorList().getOperators().get(0));
 		match.getOption().setValue(invert);
 		pattern.createXmlAdaption();
-		return pattern;		
+		return pattern;
 	}
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		
+		List<PatternTestPair> testPairs = new ArrayList<>();
+
 		testPairs.add(new PatternTestPair("MATCH_IN", getPatternMatch(true, "know"), "//*[./text()[matches(., 'know')]]"));
 		testPairs.add(new PatternTestPair("MATCH_NOT", getPatternMatch(false, "u"), "//*[./text()[not(matches(., 'u'))]]"));
-		testPairs.add(new PatternTestPair("MATCH_START", getPatternMatch(true, "^unk"), "//*[./text()[matches(., '^unk')]]"));		
+		testPairs.add(new PatternTestPair("MATCH_START", getPatternMatch(true, "^unk"), "//*[./text()[matches(., '^unk')]]"));
 		testPairs.add(new PatternTestPair("MATCH_END", getPatternMatch(true, "own$"), "//*[./text()[matches(., 'own$')]]"));
-		testPairs.add(new PatternTestPair("MATCH_EXACT", getPatternMatch(true, "^unknown$"), "//*[./text()[matches(., '^unknown$')]]"));		
+		testPairs.add(new PatternTestPair("MATCH_EXACT", getPatternMatch(true, "^unknown$"), "//*[./text()[matches(., '^unknown$')]]"));
 		testPairs.add(new PatternTestPair("MATCH_NOTEXACT", getPatternMatch(false, "^unknown$"), "//*[./text()[not(matches(., '^unknown$'))]]"));
-		
+
 		return testPairs;
 	}
 

@@ -9,7 +9,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -29,9 +28,9 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
- * <!-- begin-user-doc --> 
- * An implementation of the model object '<em><b>Operator List</b></em>'. 
- * Container to all Operators in a Graph. * 
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Operator List</b></em>'.
+ * Container to all Operators in a Graph. *
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -69,11 +68,14 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 		setGraph(graphImpl);
 	}
 
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (getGraph() == null)
+		if (getGraph() == null) {
 			throw new InvalidityException("OperatorList not in Graph (" + getInternalId() + ")");
-		if (getGraph().getAllOperators() == null)
+		}
+		if (getGraph().getAllOperators() == null) {
 			throw new InvalidityException("invalid Operators of Graph" + "(" + getInternalId() + ")");
+		}
 
 		if(abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
 			EList<Operator> graphOps = getGraph().getAllOperators();
@@ -83,21 +85,23 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 				msg += opList;
 				msg += "\n";
 				for (Operator op : graphOps) {
-					if (!opList.contains(op))
+					if (!opList.contains(op)) {
 						msg += "Missing in Operator List: ";
+					}
 					msg += op.myToString();
 				}
 				msg += "\n";
 				for (Operator op : opList) {
-					if (!graphOps.contains(op))
+					if (!graphOps.contains(op)) {
 						msg += "Missing in getAllOperators: ";
+					}
 					msg += op.myToString();
 				}
 				throw new InvalidityException(msg);
 			}
 		}
 	}
-	
+
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
@@ -135,8 +139,9 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	 */
 	@Override
 	public void add(Operator operator) {
-		if (!getOperators().contains(operator))
+		if (!getOperators().contains(operator)) {
 			getOperators().add(operator);
+		}
 	}
 
 	/**
@@ -163,7 +168,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 //				((Match) op).reset();
 //			}
 //			if(op instanceof Comparison) {
-//				((Comparison) op).reset();		
+//				((Comparison) op).reset();
 //			}
 //		}
 		msgs = eBasicSetContainer((InternalEObject)newGraph, OperatorsPackage.OPERATOR_LIST__GRAPH, msgs);

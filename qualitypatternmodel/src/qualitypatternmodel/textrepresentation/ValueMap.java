@@ -3,10 +3,9 @@
 package qualitypatternmodel.textrepresentation;
 
 import java.util.Map;
+
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -98,7 +97,7 @@ public interface ValueMap extends EObject {
 	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	JSONObject generateVariantJSONObject();
+	JSONObject generateJSONObject();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,5 +106,29 @@ public interface ValueMap extends EObject {
 	 * @generated
 	 */
 	void clear();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isEmpty();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Map<String, String> asMap();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model objectDataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
+	 * @generated
+	 */
+	void setValuesFromJSONObject(JSONObject object);
 
 } // ValueMap

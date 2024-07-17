@@ -5,8 +5,8 @@
 package qualitypatternmodel.graphstructure.validation;
 
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.Node;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.graphstructure.Relation}.

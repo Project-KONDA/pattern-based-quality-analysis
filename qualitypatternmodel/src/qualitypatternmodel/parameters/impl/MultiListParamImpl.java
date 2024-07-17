@@ -4,6 +4,7 @@ package qualitypatternmodel.parameters.impl;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -43,7 +44,7 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	protected EClass eStaticClass() {
 		return ParametersPackage.Literals.MULTI_LIST_PARAM;
 	}
-	
+
 	@Override
 	public void setValueFromString(String value) {
 		throw new UnsupportedOperationException();
@@ -64,23 +65,23 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 	public String generateXQuery() throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @throws InvalidityException
 	 * Generates the sub-query for MultiListParam.
 	 */
-	@Override 
+	@Override
 	public String generateCypher() throws InvalidityException {
 		if(!super.inputIsValid()) {
 			return super.generateCypher();
-		} 
+		}
 		// I do not use an else Statement since either the if is correct and the methods end or the methods goes on
 		//Do to this if or without the else the semantics stays the same --> Compare it to .generateSparql()
 		StringBuilder cypher = new StringBuilder();
@@ -91,34 +92,34 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 				cypher.append(ConstantsNeo.CYPHER_SEPERATOR_WITH_ONE_WITHESPACE);
 			}
 			if (isValueInt(s)) {
-				cypher.append(s); 	
+				cypher.append(s);
 			} else if (isValueFloat(s)) {
-				cypher.append(s); 
+				cypher.append(s);
 			} else if (isValueTime(s)) {
-				cypher.append("time(\'" + s + "\')"); 
+				cypher.append("time(\'" + s + "\')");
 			} else if (isValueDateTime(s)) {
-				cypher.append("datetime(\'" + s + "\')"); 
+				cypher.append("datetime(\'" + s + "\')");
 			} else if (isValueDate(s)) {
-				cypher.append("date(\'" + s + "\')"); 
+				cypher.append("date(\'" + s + "\')");
 			} else {
-				cypher.append("\"" + s +"\""); 
+				cypher.append("\"" + s +"\"");
 			}
 			i++;
 		}
-	
+
 		cypher.append("]");
 		return cypher.toString();
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param value
 	 * @param regex
 	 * @return boolean.class
-	 * Handles the matching of the Regex. 
+	 * Handles the matching of the Regex.
 	 */
 	private boolean matching(final String value, final String regex) {
-		boolean isValuesInts = true; 
+		boolean isValuesInts = true;
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(value);
 		if (!(m.find() && m.group().equals(value))) {
@@ -126,7 +127,7 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 		}
 		return isValuesInts;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param value
@@ -165,7 +166,7 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 		isValuesTime = matching(value, regex);
 		return isValuesTime;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param value
@@ -178,7 +179,7 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 		isValuesInt = matching(value, regex);
 		return isValuesInt;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param value
@@ -197,17 +198,19 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 		String res = "Input of a String List which will be converted to the fitting datatyp";
 		return res;
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * Creates the myString for the MultiListParam.
 	 */
-	@Override 
+	@Override
 	public String myToString() {
 		String res = "MulitListParam: list [" + getInternalId() + "] (";
 		for (int i = 0; i < getValues().size(); i++) {
-			if (i>0) res += ", ";
+			if (i>0) {
+				res += ", ";
+			}
 			res += "'" + getValues().get(i) + "'";
 		}
 		return res + ")";

@@ -3,13 +3,14 @@
 package qualitypatternmodel.javaquery.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
@@ -31,10 +32,10 @@ import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
  *
  * @generated
  */
-public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implements TwoArgFunctionFilterPart {	
-	
+public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl implements TwoArgFunctionFilterPart {
+
 	protected Function function;
-	
+
 	@Override
 	public void setFunction(Function f) {
 		function = f;
@@ -58,7 +59,7 @@ public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl
 	 * @ordered
 	 */
 	protected ValueInterim argument2;
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,14 +70,14 @@ public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl
 		setArgument1(new ValueInterimImpl());
 		setArgument2(new ValueInterimImpl());
 	}
-	
+
 	protected TwoArgFunctionFilterPartImpl(Function f) {
 		super();
 		setFunction(f);
 		setArgument1(new ValueInterimImpl());
 		setArgument2(new ValueInterimImpl());
 	}
-	
+
 	@Override
 	abstract public Boolean apply(InterimResult parameter);
 
@@ -87,16 +88,13 @@ public abstract class TwoArgFunctionFilterPartImpl extends BooleanFilterPartImpl
 		result.add(getArgument2());
 		return result;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "(oneArg " + getJavaFilterPartId() + " <" + getArgument1().getInterimPartId() + "x" + getArgument2().getInterimPartId() + ">)";
 	}
-	
-	
-	
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

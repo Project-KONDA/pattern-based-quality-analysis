@@ -9,7 +9,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.EMFModelLoad;
@@ -19,10 +18,10 @@ public class AbstractPatternListServlet extends HttpServlet {
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		
+
 		try {
-			List<String> fileNames = Util.getListOfFileNamesInFolder(Util.ABSTRACT_PATTERNS_PATH, getClass());			
-			
+			List<String> fileNames = Util.getListOfFileNamesInFolder(Util.ABSTRACT_PATTERNS_PATH, getClass());
+
 			if(fileNames == null) {
 				response.sendError(404, "{ \"error\": \"Loading abstract pattern folder failed.\"}");
 			} else if(fileNames.isEmpty()) {
@@ -33,11 +32,11 @@ public class AbstractPatternListServlet extends HttpServlet {
 					result += "{\"name\":";
 					result += "\"" + name + "\", ";
 					result += "\"description\":";
-					
-					String filePath = Util.ABSTRACT_PATTERNS_PATH + name + ".patternstructure";	
+
+					String filePath = Util.ABSTRACT_PATTERNS_PATH + name + ".patternstructure";
 					URL folderURL = getClass().getClassLoader().getResource(Util.ABSTRACT_PATTERNS_PATH);
-					URL fileURL = getClass().getClassLoader().getResource(filePath);		
-					
+					URL fileURL = getClass().getClassLoader().getResource(filePath);
+
 					if(fileURL != null && folderURL != null) {
 						CompletePattern pattern = EMFModelLoad.loadCompletePattern(fileURL.toString());
 						if(pattern.getDescription() != null) {
@@ -46,7 +45,7 @@ public class AbstractPatternListServlet extends HttpServlet {
 							result += "\"\", ";
 						}
 						if(pattern.getText().size() > 0) {
-							result += "\"exampleText\":";							
+							result += "\"exampleText\":";
 							PatternText text = pattern.getText().get(0);
 							String json = text.generateJSON();
 							result += json;
@@ -64,6 +63,6 @@ public class AbstractPatternListServlet extends HttpServlet {
 		} catch (URISyntaxException e) {
 			response.sendError(404);
 			response.getOutputStream().println("{ \"error\": \"Loading abstract pattern folder failed.\"}");
-		}			
+		}
 	}
 }

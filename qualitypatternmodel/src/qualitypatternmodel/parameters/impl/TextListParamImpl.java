@@ -29,20 +29,21 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	public TextListParamImpl() {
 		super();
 	}
-	
+
 	@Override
 	public String getValueAsString() {
-		if (values == null)
+		if (values == null) {
 			return null;
+		}
 		JSONArray jarray = new JSONArray(getValues());
 		return jarray.toString();
 	}
-	
+
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		try {
 			JSONArray jarray = new JSONArray(value);
-	        getValues().clear();   
+	        getValues().clear();
 	        for (int i = 0; i<jarray.length();i++) {
 	        	String v = jarray.getString(i);
 	        	getValues().add(v);
@@ -64,12 +65,12 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	public void clear() {
 		values = null;
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		return getListVar();
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(getValues().isEmpty()) {
@@ -87,18 +88,18 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 			return regex;
 		}
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
 	 * @throws InvalidityException
 	 * Generates the sub-query for TextListParam.
 	 */
-	@Override 
+	@Override
 	public String generateCypher() throws InvalidityException {
 		if(!super.inputIsValid()) {
 			return super.generateCypher();
-		} 
+		}
 		final StringBuilder cypher = new StringBuilder();
 		int i = 0;
 		cypher.append("[");
@@ -109,7 +110,7 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 			cypher.append("\"" + s + "\"");
 			i++;
 		}
-	
+
 		cypher.append("]");
 		return cypher.toString();
 	}
@@ -130,16 +131,18 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 		return ParametersPackage.Literals.TEXT_LIST_PARAM;
 	}
 
-	@Override 
+	@Override
 	public String myToString() {
 		String res = "TextListParam [" + getInternalId() + "] (";
 		for (int i = 0; i < getValues().size(); i++) {
-			if (i>0) res += ", ";
+			if (i>0) {
+				res += ", ";
+			}
 			res += "'" + getValues().get(i) + "'";
 		}
 		return res + ")";
 	}
-	
+
 	@Override
 	public String generateDescription() {
 		String res = "Eingabe einer Liste von Strings";

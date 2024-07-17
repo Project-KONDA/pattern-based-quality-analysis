@@ -2,16 +2,14 @@
  */
 package qualitypatternmodel.parameters.impl;
 
-import java.lang.Boolean;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
@@ -21,9 +19,9 @@ import org.json.JSONArray;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaFilterPart;
-import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
@@ -104,20 +102,23 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (getParameterList() == null)
+		if (getParameterList() == null) {
 			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
+		}
 		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
+		 {
 			throw new InvalidityException("input missing or invalid " + myToString()); // " (" + getInternalId() + ")");
+		}
 		if(isPredefined() && !inputIsValid()) {
 			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + ")");
 		}
 	}
-	
+
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if (!getParameterReferences().isEmpty()) {
@@ -134,9 +135,9 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				}
 			}
 		}
-		throw new InvalidityException("invalid parameter value in [" + getInternalId() + "]");
+		throw new InvalidityException("invalid parameter value in " + getClass().getSimpleName() + " [" + getInternalId() + "]");
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
@@ -152,14 +153,14 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		return getValueAsString();
 //		throw new InvalidityException("invalid parameter value in [" + getInternalId() + "]");
 	}
-	
+
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		res.add(this);
 		return res;
 	}
-	
+
 	@Override
 	public void updateParameters(ParameterList newParameterList) {
 //		setParameterList(newParameterList);
@@ -167,7 +168,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			getParameterList().remove(this);
 		}
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -223,8 +224,9 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 */
 	@Override
 	public String getDescription() {
-		if (description == DESCRIPTION_EDEFAULT) 
+		if (description == DESCRIPTION_EDEFAULT) {
 			return generateDescription();
+		}
 		return description;
 	}
 
@@ -277,13 +279,14 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 */
+	@Override
 	public abstract boolean inputIsValid();
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	@Override
@@ -338,7 +341,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 */
 	@Override
 	public EList<Parameter> validateAgainstSchema() {
-		EList<Parameter> invalidParams = new BasicEList<Parameter>();		
+		EList<Parameter> invalidParams = new BasicEList<Parameter>();
 		return invalidParams;
 	}
 

@@ -1,6 +1,7 @@
 package playground;
 
-import static qualitypatternmodel.utility.XmlTestDatabaseConstants.*;
+import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_DATABASE_NAME;
+import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_DATA_PATH;
 
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
@@ -12,12 +13,12 @@ import org.basex.query.iter.Iter;
 import org.basex.query.value.item.Item;
 
 public class BaseXExecutionIterator {
-	public static void main(String[] args) throws QueryIOException {
 
+	public static void main(String[] args) throws QueryIOException {
 		try {
-			Context context = new Context();					
+			Context context = new Context();
 			new CreateDB(DEMO_DATABASE_NAME, DEMO_DATA_PATH).execute(context);
-			
+
 			try(QueryProcessor proc = new QueryProcessor("//*", context)) {
 		      Iter iter = proc.iter();
 		      int i = 0;
@@ -31,13 +32,12 @@ public class BaseXExecutionIterator {
 		    } catch (QueryException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}			
-		} 
+			}
+		}
 		catch (BaseXException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
-	
+
 }

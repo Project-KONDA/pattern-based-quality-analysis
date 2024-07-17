@@ -6,9 +6,9 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 //import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.evaluationquality.EvalAppDup;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -18,10 +18,11 @@ import qualitypatternmodel.parameters.Parameter;
 //import qualitypatternmodel.parameters.TextLiteralParam;
 //import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.utility.XmlPatternUtility;
+import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.utility.PatternUtility;
 
 public class XmlEvalAppDup {
-	
+
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 
@@ -29,25 +30,25 @@ public class XmlEvalAppDup {
 		completePatterns.add(getAppdup3MidasAPS());
 
 //		Test00.test(completePatterns);
-		XmlPatternUtility.getQueries(completePatterns);
+		PatternUtility.getQueries(completePatterns, Language.XML);
 	}
-		
+
 	public static CompletePattern getAppdup2Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalAppDup.getAppDup2Generic();
 		completePattern.createXmlAdaption();
 		return completePattern;
 	}
-	
+
 	public static CompletePattern getAppdup3Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalAppDup.getAppDup3Generic();
 		completePattern.createXmlAdaption();
 		return completePattern;
 	}
-	
+
 	static CompletePattern getAppdup3Midas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getAppdup3Abstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
-		
+
 //		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
 //		TypeOptionParam p1 = ((TypeOptionParam) params.get(1));
 		XmlPathParam p2 = ((XmlPathParam) params.get(2));
@@ -67,10 +68,10 @@ public class XmlEvalAppDup {
 		p7.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Value", "3580");
 		p8.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Value", "3680");
 		p9.specifyAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Value", "3680");
-		
+
 		return completePattern;
 	}
-	
+
 	static CompletePattern getAppdup3MidasAPS() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getAppdup3Abstract();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
@@ -93,7 +94,7 @@ public class XmlEvalAppDup {
 		p7.setXmlAxis(XmlAxisKind.CHILD, "3580");
 		p8.setXmlAxis(XmlAxisKind.CHILD, "3680");
 		p9.setXmlAxis(XmlAxisKind.CHILD, "3680");
-		
+
 		return completePattern;
 	}
 }

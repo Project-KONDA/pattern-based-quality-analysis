@@ -8,10 +8,11 @@ import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
-import qualitypatternmodel.adaptionneo4j.NeoNode;
-import qualitypatternmodel.adaptionneo4j.NeoElement;
-import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
+
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionneo4j.NeoElement;
+import qualitypatternmodel.adaptionneo4j.NeoNode;
+import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
@@ -40,18 +41,18 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	protected NeoPropertyNodeImpl() {
 		super();
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
-	 * @throws 
+	 * @throws
 	 * This method should not be called for the Pattern Matching of the MATCH-Clause.
 	 * The query part is generated via the NeoPropertyEdge.
 	 */
-	@Override 
+	@Override
 	public String generateCypher() {
 		throw new UnsupportedOperationException();
-	}	
-	
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * Generates a EList of all properties which can be addressed. Gets the first Property Address from morphed graph NeoPropertyEdge.
@@ -74,7 +75,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 * <!-- begin-user-doc -->
 	 * Returns the correct Cypher-Node-Variable. The Cypher-Node-Variable are seperated by CypherSpecificConstants.SEPERATOR.
 	 * It has to be distinguished between the addressing which connects the Cypher-Node-Variable + Property-Name and just the Cypher-Node-Variable.
-	 * We choose to take the Cypher-Node-Variable(-s) as a return value fur further extensions to the adaption that not only the Property can be accessed vai the NeoPropertyNode. 
+	 * We choose to take the Cypher-Node-Variable(-s) as a return value fur further extensions to the adaption that not only the Property can be accessed vai the NeoPropertyNode.
 	 * Moreover the Node shall be accessable, if it is needed in a Subquery statement and the Variable is not in the Scope of the Subquery.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -92,7 +93,7 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		}
 		return cypher.toString();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * This method returns the Property-Addressing of all NeoPropertyNode-Names.
@@ -124,34 +125,34 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	public NeoPropertyNode adaptAsNeoPropertyNode() throws InvalidityException {
 		return this;
 	}
-	
+
 	@Override
 	public Node makeGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-		
+
 	@Override
 	public void checkGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
+
 	@Override
 	public PrimitiveNode makePrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
+
 	@Override
 	public void checkPrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
-	
+
 	@Override
 	public void createParameters() {
 //		ParameterList pList = getParameterList();
 //		if (pList != null) {
 //		}
 	}
-	
+
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = super.getAllParameters();

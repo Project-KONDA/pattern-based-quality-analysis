@@ -71,7 +71,7 @@ public interface NeoPropertyPathParam extends NeoPathParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @model
 	 * @generated NOT
 	 */

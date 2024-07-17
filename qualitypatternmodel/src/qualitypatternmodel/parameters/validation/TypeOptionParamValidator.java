@@ -7,7 +7,6 @@ package qualitypatternmodel.parameters.validation;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.graphstructure.ReturnType;
-
 import qualitypatternmodel.operators.Comparison;
 
 /**

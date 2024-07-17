@@ -21,40 +21,41 @@ import qualitypatternmodel.exceptions.InvalidityException;
 public class NeoPropertyNameParamTest implements INeoPropertyNameParamTest {
 
 	NeoPropertyNameParam propertyName = null;
-	
+
 	@BeforeEach
 	public void setUp() {
 		propertyName = FACTORY.createNeoPropertyNameParam();
 	}
-	
+
 	@AfterEach
 	public void tearDown() {
 		propertyName = null;
 	}
-	
+
+	@Override
 	@ParameterizedTest
 	@ValueSource(strings = {"title", "titl_e", "title", "title123", "null"})
 	public void setValueIfValid(String property) {
 		if (property.compareTo("null") == 0) {
-			assertDoesNotThrow(() -> propertyName.setValueIfValid(null));	
+			assertDoesNotThrow(() -> propertyName.setValueIfValid(null));
 			assertEquals(null, propertyName.getValue());
 		} else {
-			assertDoesNotThrow(() -> propertyName.setValueIfValid(property));	
-			assertEquals(property, propertyName.getValue());			
+			assertDoesNotThrow(() -> propertyName.setValueIfValid(property));
+			assertEquals(property, propertyName.getValue());
 		}
 	}
-	
+
 	@Override
 	@ParameterizedTest
 	@ValueSource(strings = {"","title@", "tit le", "title<>title", "title||title",  "title$"})
 	public void setValueIfValidException(String property) {
-		assertThrows(InvalidityException.class, () -> propertyName.setValueIfValid(property));		
+		assertThrows(InvalidityException.class, () -> propertyName.setValueIfValid(property));
 		assertEquals(null, propertyName.getValue());
 	}
 
 	@Test
 	@Override
-	public void generateCypher() {		
+	public void generateCypher() {
 		assertDoesNotThrow(() -> propertyName.setValueIfValid("title"));
 		try {
 			assertTrue(propertyName.generateCypher().toString().compareTo("title") == 0);
@@ -62,12 +63,12 @@ public class NeoPropertyNameParamTest implements INeoPropertyNameParamTest {
 			assertFalse(true);
 		}
 	}
-	
+
 	@Test
 	public void generateCypherException() {
 		assertThrows(InvalidityException.class, () -> propertyName.generateCypher());
 	}
-	
+
 	@Test
 	@Override
 	public void myToString() {

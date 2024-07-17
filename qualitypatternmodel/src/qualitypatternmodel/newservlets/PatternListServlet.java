@@ -16,9 +16,9 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
 public class PatternListServlet extends HttpServlet {
-	
+
 	// GET .. /pattern/list    /<technology>/<level>
-	
+
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
@@ -33,34 +33,39 @@ public class PatternListServlet extends HttpServlet {
 			ServletUtilities.putResponseError(response, e);
 		}
 	}
-	
+
 	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length < 3  || pathparts.length > 4  || !pathparts[0].equals(""))
+		if (pathparts.length < 3  || pathparts.length > 4  || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getlist/<technology>/<level>' (not " + path + ")");
+		}
 
 		String technology = pathparts[1];
 		String level = pathparts[2];
-		
-		
-		if (!ServletUtilities.TECHS.contains(technology))
+
+
+		if (!ServletUtilities.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
-		if (!ServletUtilities.LEVELS.contains(level))
+		}
+		if (!ServletUtilities.LEVELS.contains(level)) {
 			throw new InvalidServletCallException("'" + level + "' is an invalid abstraction level. The levels are: " + ServletUtilities.LEVELS);
-		
+		}
+
 		List<CompletePattern> patterns = getPatterns(technology, level);
-		
+
 		if (pathparts.length == 4) {
 			String datamodel = pathparts[3];
 			List<CompletePattern> clone = new ArrayList<CompletePattern>(patterns);
 			for (CompletePattern pattern: clone) {
-				if (pattern.getDataModelName() == null || !pattern.getDataModelName().equals(datamodel))
-					patterns.remove(pattern);	
+				if (pattern.getDataModelName() == null || !pattern.getDataModelName().equals(datamodel)) {
+					patterns.remove(pattern);
+				}
 			}
 		}
-		if (patterns == null)
+		if (patterns == null) {
 			throw new FailedServletCallException("No " + ((level == ServletUtilities.LVLTEMPLATE)? "template":"constraint") + " found for the technology " + technology + " on level " + level + ".");
-		
+		}
+
 		return ServletUtilities.getPatternListJSON(patterns);
 	}
 

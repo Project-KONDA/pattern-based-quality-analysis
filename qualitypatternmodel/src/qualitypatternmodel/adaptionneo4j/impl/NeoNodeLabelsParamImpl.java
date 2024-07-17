@@ -24,7 +24,7 @@ import qualitypatternmodel.utility.ConstantsNeo;
  */
 public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNodeLabelsParam {
 //	private static final String OF_LABEL = " of Label";
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,15 +58,15 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 		catch (JSONException e){
 			throw new InvalidityException(Constants.INVALID_VALUE, e);
 		}
-		setValueIfValid(newVals);	
+		setValueIfValid(newVals);
 	}
-	
+
 	@Override
 	public String generateCypher() {
 		if (getValues() != null) {
 			final StringBuilder cypher = new StringBuilder();
 			for (String label : getValues()) {
-				if (!label.isEmpty()) { 
+				if (!label.isEmpty()) {
 					cypher.append(ConstantsNeo.CYPHER_EQUAL_IN_GRAPH_MATCHING_LABELING);
 					cypher.append(label);
 				}
@@ -79,16 +79,17 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
 	public void addStringValue(String value) throws InvalidityException {
-		if (value != null)
+		if (value != null) {
 			checkLabel(value);
+		}
 		super.addStringValue(value);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,22 +97,23 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	 */
 	@Override
 	public void setValueIfValid(EList<String> newValue) throws InvalidityException {
-		for (String value: newValue)
+		for (String value: newValue) {
 			checkLabel(value);
+		}
 		super.setValueIfValid(newValue);
 	}
-	
+
 	@Override
 	public String myToString() {
 		final String result = super.myToString().replace("TextListParam", "NeoNodeLabels");
-		return result;		
+		return result;
 	}
-	
+
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@Override
 	public String generateSparql() throws InvalidityException {
 		throw new UnsupportedOperationException();

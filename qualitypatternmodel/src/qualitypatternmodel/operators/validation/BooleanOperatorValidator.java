@@ -5,6 +5,7 @@
 package qualitypatternmodel.operators.validation;
 
 import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.graphstructure.Node;
 
 

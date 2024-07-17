@@ -4,16 +4,14 @@ package qualitypatternmodel.adaptionxml.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.json.JSONArray;
@@ -23,12 +21,12 @@ import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.parameters.impl.ParameterImpl;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
@@ -60,7 +58,7 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getValue()
 	 * @generated NOT
 	 * @ordered
@@ -72,7 +70,7 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	 * begin-user-doc -->
 	 * The chosen <code>RelationKind</code> (i.e. XPath axis).
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -83,29 +81,29 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	 * <!-- begin-user-doc -->
 	 * Constructor.
 	 * <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
 	public XmlAxisOptionParamImpl() {
 		super();
 		getOptions().addAll(XmlAxisKind.VALUES);
 	}
-	
+
 	@Override
 	public EList<Parameter> validateAgainstSchema() {
 		EList<Parameter> invalidParams = new BasicEList<Parameter>();
-		EList<XmlAxisKind> suggestions = inferSuggestions();		
+		EList<XmlAxisKind> suggestions = inferSuggestions();
 		if(!suggestions.contains(getValue()) && !suggestions.isEmpty()) {
 			invalidParams.add(this);
 		}
 		return invalidParams;
 	}
-	
+
 	@Override
 	public String getValueAsString() {
 		return getValue().getName();
 	}
-	
+
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		XmlAxisKind result = null;
@@ -122,30 +120,35 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	public void clear() {
 		setValue(null);
 	}
-	
+
 	@Override
 	public JSONArray getOptionsAsJsonArray() {
 		JSONArray jarray = new JSONArray();
-		for (XmlAxisKind axis: getOptions())
+		for (XmlAxisKind axis: getOptions()) {
 			jarray.put(axis);
+		}
 		return jarray;
 	}
 
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE) {
 			throw new InvalidityException("non-generic class in generic pattern");
-		
-		if (getOptions() == null)
+		}
+
+		if (getOptions() == null) {
 			throw new InvalidityException("options null");
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getOptions().isEmpty())
+		}
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getOptions().isEmpty()) {
 			throw new InvalidityException("not enough options");
-		
+		}
+
 		if(getParameterList() != null) {
 			throw new InvalidityException("AxisOptionParam contained in ParameterList instead of AxisPart");
 		}
-		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
+		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid())) {
 			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")");
+		}
 		if(isPredefined() && !inputIsValid()) {
 			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + ")");
 		}
@@ -160,16 +163,17 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	public boolean inputIsValid() {
 		return getValue() != null && options.contains(getValue());
 	}
-	
+
 	@Override
 	public boolean isUsed() {
-		
-		if (getXmlAxisPart() == null)
+
+		if (getXmlAxisPart() == null) {
 			return false;
-		else if (getXmlAxisPart().getXmlPathParam() == null) 
+		} else if (getXmlAxisPart().getXmlPathParam() == null) {
 			return false;
-		else 
+		} else {
 			return getXmlAxisPart().getXmlPathParam().getXmlNavigation() != null;
+		}
 	}
 
 	/**
@@ -183,9 +187,10 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 *
 	 * @generated NOT
 	 */
+	@Override
 	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
 		throw new UnsupportedOperationException();
 	}
@@ -203,7 +208,7 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 			EList<XmlAxisKind> options2 = new EDataTypeUniqueEList<XmlAxisKind>(XmlAxisKind.class, this, AdaptionxmlPackage.XML_AXIS_OPTION_PARAM__OPTIONS);
 			for (XmlAxisKind cop: options) {
 				if (!options2.contains(cop)) {
-					options2.add(cop);				
+					options2.add(cop);
 				}
 			}
 			options = options2;
@@ -295,7 +300,7 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	public void setValueIfValid(XmlAxisKind newValue) throws InvalidityException {
 		if(newValue == XmlAxisKind.SELF) {
 			XmlAxisKind oldValue = getValue();
-			setValue(newValue);		
+			setValue(newValue);
 			try {
 				checkComparisonConsistency();
 			} catch (Exception e) {
@@ -306,14 +311,14 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 			setValue(newValue);
 		}
 	}
-	
+
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
 		Relation relation = getXmlAxisPart().getXmlPathParam().getXmlNavigation();
 		if (relation != null) {
 			Node target = relation.getTarget();
 			if(target instanceof PrimitiveNode){
-				((PrimitiveNode) target).checkComparisonConsistency();	
+				((PrimitiveNode) target).checkComparisonConsistency();
 			}
 		}
 	}
@@ -484,11 +489,11 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	@Override
 	public String generateDescription() {
 		String res = "Beziehung: XPath-Achse";
-		try {			
+		try {
 			Relation relation = getXmlAxisPart().getXmlPathParam().getXmlNavigation();
 			Node to = relation.getTarget();
 			Node from = relation.getSource();
-			res += " zur Navigation von " + from.getName() + " zu " + to.getName();		
+			res += " zur Navigation von " + from.getName() + " zu " + to.getName();
 		} catch (Exception e) {}
 		return res;
 //		setDescription(res);

@@ -3,6 +3,7 @@
 package qualitypatternmodel.operators;
 
 import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.graphstructure.Node;
 
 
@@ -42,7 +43,7 @@ public interface BooleanOperator extends Operator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Adds <code>element</code> to <code>elements</code> if not already contained.
-	 * 
+	 *
 	 * @param node the <code>Element</code> to add to <code>elements</code>
 	 * <!-- end-user-doc -->
 	 * @model
@@ -54,7 +55,7 @@ public interface BooleanOperator extends Operator {
 	 * <!-- begin-user-doc -->
 	 * Removes <code>element</code> from <code>elements</code> if <code>this</code> has not more than
 	 * one direct or indirect argument that is related to <code>element</code>.
-	 * 
+	 *
 	 * @param node the <code>Element</code> to remove from <code>elements</code>
 	 * <!-- end-user-doc -->
 	 * @model

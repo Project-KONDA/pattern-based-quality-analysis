@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,7 +31,6 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.KeyValueParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
@@ -60,7 +58,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	private static final String NEO_DIRECTION_CAN_NOT_BE_NULL = "NeoDirection can not be null";
 	private static final String SOMETHING_WENT_WRONG_IN_THE_SIMPLE_NEO_EDGE_DIRECTION_HAS_NOT_BEEN_SET_CORRECTLY = "Something went wrong in the SimpleNeoEdge - direction has not been set correctly";
 	private static final String NEO_SIMPLE_EDGE = "NeoSimpleEdge [%s] ";
-	
+
 	/**
 	 * The default value of the '{@link #getNeoDirection() <em>Neo Direction</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -147,28 +145,28 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	public NeoSimpleEdgeImpl() {
 		super();
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @throws InvalidityException
 	 * @returns String
 	 * This generateCypher generates the NeoSimpleEdge.
-	 * If a NeoTargetNode is specified it will also be generated here. 
+	 * If a NeoTargetNode is specified it will also be generated here.
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
-		StringBuilder cypher = new StringBuilder();		
+		StringBuilder cypher = new StringBuilder();
 		generateInternalCypher(cypher, true);
 		return cypher.toString();
 	}
-	
-		
+
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param cypher
 	 * @param withLabels
 	 * @throws InvalidityException
-	 * Build the Edge depending one the direction. 
+	 * Build the Edge depending one the direction.
 	 * OPT: WITH Labels has been introduced if in future versions multiprinting should become a thing --> Further relation dev --> However can not be called from the outside
 	 */
 	private void generateInternalCypher(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
@@ -191,7 +189,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		default:
 			throw new InvalidityException(SOMETHING_WENT_WRONG_IN_THE_SIMPLE_NEO_EDGE_DIRECTION_HAS_NOT_BEEN_SET_CORRECTLY);
 		}
-		
+
 		generateTargetNode(cypher, withLabels);
 	}
 
@@ -214,7 +212,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			cypher.append(ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
 		}
 	}
-	
+
 
 	/**
 	 * @author Lukas Sebastian Hofmann
@@ -228,14 +226,14 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	private void generateInternalCypherLabelGenerator(StringBuilder cypher, Boolean withLabels) throws InvalidityException {
 		cypher.append(ConstantsNeo.EDGE_OPENING_BRACKET);
 		cypher.append(getCypherVariable());
-				
+
 		if (getNeoEdgeLabel() != null && withLabels) {
 			cypher.append(getNeoEdgeLabel().generateCypher());
 		}
-		
+
 		cypher.append(ConstantsNeo.EDGE_CLOSING_BRACKET);
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @return String
@@ -246,14 +244,14 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	@Override
 	public String getCypherVariable() throws InvalidityException {
 		String cypher = null;
-		cypher = super.getCypherVariable() + ((NeoPathParamImpl) (NeoPathParamImpl) getNeoPathParam()).getRelationNumber();
+		cypher = super.getCypherVariable() + ((NeoPathParamImpl) getNeoPathParam()).getRelationNumber();
 		if (edgeNumber != 0) {
 			cypher += ConstantsNeo.LOCAL_ID_SEPERATOR + getEdgeNumber();
 		}
 		return cypher;
 	}
-	
-	
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -303,7 +301,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * @throws InvalidityException
 	 * @generated NOT
 	 */
 	@Override
@@ -336,27 +334,28 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	public void setValueFromString(String value) throws InvalidityException {
 		try {
 			JSONObject object = new JSONObject(value);
-			
+
 			@SuppressWarnings("unchecked")
 			Iterator<String> keys = object.keys();
-			List<String> allowedKeys = Arrays.asList(Constants.JSON_NEO_EDGE, Constants.JSON_NEO_TARGETS, Constants.JSON_NEO_KEYVALUE);
+			List<String> allowedKeys = Arrays.asList(ConstantsNeo.JSON_NEO_EDGE, ConstantsNeo.JSON_NEO_TARGETS, ConstantsNeo.JSON_NEO_KEYVALUE);
 			while (keys.hasNext()) {
 				String next = keys.next();
-				if (!allowedKeys.contains(next))
+				if (!allowedKeys.contains(next)) {
 					throw new InvalidityException(next + " is not an allowed key");
+				}
 			}
-			
-			if (object.has(Constants.JSON_NEO_EDGE)) {
+
+			if (object.has(ConstantsNeo.JSON_NEO_EDGE)) {
 				NeoEdgeLabelParam edgelabel = new NeoEdgeLabelParamImpl();
-				edgelabel.setValueFromString(object.get(Constants.JSON_NEO_EDGE).toString());
+				edgelabel.setValueFromString(object.get(ConstantsNeo.JSON_NEO_EDGE).toString());
 				setNeoEdgeLabel(edgelabel);
 			}
-			if (object.has(Constants.JSON_NEO_TARGETS)) {
+			if (object.has(ConstantsNeo.JSON_NEO_TARGETS)) {
 				NeoNodeLabelsParam targets = new NeoNodeLabelsParamImpl();
-				targets.setValueFromString(object.get(Constants.JSON_NEO_TARGETS).toString());
+				targets.setValueFromString(object.get(ConstantsNeo.JSON_NEO_TARGETS).toString());
 				setNeoTargetNodeLabels(targets);
 			}
-			if (object.has(Constants.JSON_NEO_KEYVALUE)) {
+			if (object.has(ConstantsNeo.JSON_NEO_KEYVALUE)) {
 				throw new InvalidityException("KeyValueParams are not supported");
 //				KeyValueParam keyvalue = new KeyValueParamImpl();
 //				keyvalue.setValueFromString(object.get(Constants.JSON_NEO_KEYVALUE).toString());
@@ -371,15 +370,19 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	public String getValueAsString() {
 		JSONObject object = new JSONObject();
 		try {
-			if (getNeoEdgeLabel() != null && getNeoEdgeLabel().getValueAsString() != null)
-				object.put(Constants.JSON_NEO_EDGE, getNeoEdgeLabel().getValueAsString().toString());
-			if (getNeoTargetNodeLabels() != null && getNeoTargetNodeLabels().getValueAsString() != null)
-				object.put(Constants.JSON_NEO_TARGETS, getNeoTargetNodeLabels().getValueAsString().toString());
-			if (getKeyValueParam() != null && getKeyValueParam().getValueAsString() != null)
-				object.put(Constants.JSON_NEO_KEYVALUE, getKeyValueParam().getValueAsString().toString());
+			if (getNeoEdgeLabel() != null && getNeoEdgeLabel().getValueAsString() != null) {
+				object.put(ConstantsNeo.JSON_NEO_EDGE, getNeoEdgeLabel().getValueAsString().toString());
+			}
+			if (getNeoTargetNodeLabels() != null && getNeoTargetNodeLabels().getValueAsString() != null) {
+				object.put(ConstantsNeo.JSON_NEO_TARGETS, getNeoTargetNodeLabels().getValueAsString().toString());
+			}
+			if (getKeyValueParam() != null && getKeyValueParam().getValueAsString() != null) {
+				object.put(ConstantsNeo.JSON_NEO_KEYVALUE, getKeyValueParam().getValueAsString().toString());
+			}
 		} catch (JSONException e) {}
-		if (object.length() < 1)
+		if (object.length() < 1) {
 			return null;
+		}
 		return object.toString();
 	}
 
@@ -507,7 +510,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		}
 		return lastEdge;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -648,7 +651,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	public boolean isSetEdgeNumber() {
 		return edgeNumberESet;
 	}
-	
+
 	protected void setIsLastEdge(boolean newIsLastEdge) {
 		isLastEdge = newIsLastEdge;
 	}
@@ -672,7 +675,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	public NeoNodeLabelsParam getNeoTargetNodeLabels() {
 		return neoTargetNodeLabels;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -736,7 +739,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		if (this.neoTargetNodeLabels == null) {
 			this.neoTargetNodeLabels = new NeoNodeLabelsParamImpl();
 		}
-		
+
 		if (!this.neoTargetNodeLabels.getValues().contains(label)) {
 			this.neoTargetNodeLabels.addStringValue(label);
 		}
@@ -747,7 +750,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @return EList<NeoPathPart>
 	 * Returns this instance.
 	 */
-	@Override 
+	@Override
 	public EList<NeoPathPart> getNeoPathPartEdgeLeafs() {
 		EList<NeoPathPart> l = new BasicEList<NeoPathPart>();
 		l.add(this);
@@ -821,7 +824,7 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			if (!neoEdgeLabel.getValueAsString().isEmpty()) {
 				cypher.append(EDGE_LABELS + ConstantsNeo.EDGE_OPENING_BRACKET + neoEdgeLabel.getValueAsString() + ConstantsNeo.EDGE_CLOSING_BRACKET);
 				cypher.append(ConstantsNeo.ONE_WHITESPACE);
-			}			
+			}
 		}
 		if (getNeoTargetNodeLabels() != null) {
 			boolean isFirst = true;
@@ -836,10 +839,10 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			}
 			if (cypher.toString().contains(EDGE_TARGET_NODE_LABELS)) {
 				cypher.append(ConstantsNeo.EDGE_CLOSING_BRACKET);
-			}			
+			}
 		}
 		cypher.append(ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
-		
+
 		final String emptyBrackets = "()";
 		if(cypher.toString().endsWith(emptyBrackets)) {
 			cypher.replace(cypher.length() - 3 , cypher.length(), new String());
@@ -847,12 +850,12 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		return cypher.toString();
 	}
 
-	@Override 
-	public void isValidLocal(AbstractionLevel abstractionLevel) 
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		// TODO Auto-generated method stub
 	}
-	
+
 	/**
 	 * @author Lukas Sebastian Hofmann
 	 * @param InternalCounter
@@ -860,6 +863,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 */
 	@Override
 	protected void setCount(InternalCounter count) {
-		setEdgeNumber(count.getCount());		
+		setEdgeNumber(count.getCount());
 	}
 } //SimpleEdgeImpl

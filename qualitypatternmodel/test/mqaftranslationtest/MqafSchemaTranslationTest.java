@@ -1,14 +1,14 @@
-package patterntoconstrainttranslation;
+package mqaftranslationtest;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.constrainttranslation.ConstraintTranslation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.mqaftranslation.MqafTranslation;
+import qualitypatternmodel.patternstructure.CompletePattern;
 
-public class ConstraintToSchemaTranslationTest {
+public class MqafSchemaTranslationTest {
 
 	static Boolean SHOW_QUERY = false;
 	static Boolean SHOW_STRING = false;
@@ -17,26 +17,26 @@ public class ConstraintToSchemaTranslationTest {
 	public static void main(String[] args)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
-		EList<CompletePattern> patterns = ConstraintToStringTranslationTest.getTestPatternCollection();
+		EList<CompletePattern> patterns = MqafStringTranslationTest.getTestPatternCollection();
 
 		int valid = 0;
 		int invalid = 0;
 
 		for (CompletePattern c : patterns) {
 			try {
-				
+
 				System.out.println("____ " + c.getDescription() + " _____");
-				
+
 				if (SHOW_QUERY) {
 					System.out.println(c.generateXQuery());
 					System.out.println();
 				}
 				if (SHOW_STRING) {
-					System.out.println(ConstraintTranslation.translateToConstraintString(c));
+					System.out.println(MqafTranslation.translateToConstraintString(c));
 					System.out.println();
 				}
 				if (SHOW_SCHEMA) {
-					System.out.println(ConstraintTranslation.translateToConstraintSchema(c));
+					System.out.println(MqafTranslation.translateToConstraintSchema(c));
 					System.out.println();
 				}
 				valid += 1;
@@ -48,8 +48,5 @@ public class ConstraintToSchemaTranslationTest {
 
 		System.out.println("out of " + (valid + invalid) + " testpatterns " + valid + " were valid and " + invalid
 				+ " were invalid");
-
-		// TODO Auto-generated method stub
-
 	}
 }

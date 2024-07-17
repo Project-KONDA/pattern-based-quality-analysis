@@ -14,9 +14,9 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 @SuppressWarnings("serial")
 public class ConstraintCopyServlet extends HttpServlet {
-	
+
 	// PUT .. /constraint/copy    /<technology>/<constraintID>
-	
+
 	@Override
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
@@ -27,29 +27,32 @@ public class ConstraintCopyServlet extends HttpServlet {
 			ServletUtilities.putResponse(response, result);
 		}
 		catch (FailedServletCallException e) {
-	        if (e.getMessage().startsWith("404"))
+	        if (e.getMessage().startsWith("404")) {
 				ServletUtilities.putResponseError(response, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
-	        else if (e.getMessage().startsWith("409"))
+			} else if (e.getMessage().startsWith("409")) {
 				ServletUtilities.putResponseError(response, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_CONFLICT);
-	        else
+			} else {
 				ServletUtilities.putResponseError(response, e, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			}
 		}
 		catch (Exception e) {
 			ServletUtilities.putResponseError(response, e);
-		}	
+		}
 	}
-	
+
 	public static JSONObject applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 3 || !pathparts[0].equals(""))
+		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/copy/<technology>/<concretetemplate>' (not " + path + ")");
+		}
 
 		String technology = pathparts[1];
 		String oldID = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology))
+		if (!ServletUtilities.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
-		
+		}
+
 		// 1 load constraint with old name
 		CompletePattern pattern;
 		try {
@@ -74,19 +77,20 @@ public class ConstraintCopyServlet extends HttpServlet {
 				pattern.setDatabaseName(database[0]);
 			}
 		}
-		
+
 		// 2 create new patternID
-		String newID = ServletUtilities.generateNewId(technology, pattern.getAbstractId(), pattern.getText().get(0).getName()); 
-		
+		String newID = ServletUtilities.generateNewId(technology, pattern.getAbstractId(), pattern.getText().get(0).getName());
+
 		// 3 change constraint name
 		pattern.setPatternId(newID);
-		
+
 		// 4 save constraint
 		ServletUtilities.saveConstraint(technology, newID, pattern);
-		
-		if (ServletUtilities.loadConstraint(technology, newID) == null)
+
+		if (ServletUtilities.loadConstraint(technology, newID) == null) {
 			throw new FailedServletCallException("saving new constraint failed");
-		
-		return ServletUtilities.getPatternJSON(pattern); 
+		}
+
+		return ServletUtilities.getPatternJSON(pattern);
 	}
 }

@@ -22,7 +22,7 @@ import qualitypatternmodel.xmltranslationtests.Test12Count;
 import qualitypatternmodel.xmltranslationtests.Test13Cycle;
 
 public class XmlJUnitTests {
-	
+
 	@Test
 	public void test01() {
 		try {
@@ -33,7 +33,7 @@ public class XmlJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test01R() {
 		try {
@@ -44,7 +44,7 @@ public class XmlJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test02() {
 		try {
@@ -55,7 +55,7 @@ public class XmlJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test03() {
 		try {
@@ -66,7 +66,7 @@ public class XmlJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test04() {
 		try {
@@ -76,7 +76,7 @@ public class XmlJUnitTests {
 			assert(false);
 		}
 	}
-	
+
 	@Test
 	public void test05() {
 		try {
@@ -86,7 +86,7 @@ public class XmlJUnitTests {
 			assert(false);
 		}
 	}
-	
+
 	@Test
 	public void test06() {
 		try {
@@ -96,7 +96,7 @@ public class XmlJUnitTests {
 			assert(false);
 		}
 	}
-	
+
 	@Test
 	public void test07() {
 		try {
@@ -107,7 +107,7 @@ public class XmlJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test08() {
 		try {
@@ -118,7 +118,7 @@ public class XmlJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test09() {
 		try {
@@ -129,7 +129,7 @@ public class XmlJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test10() {
 		try {
@@ -140,7 +140,7 @@ public class XmlJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test11() {
 		try {
@@ -151,7 +151,7 @@ public class XmlJUnitTests {
 		}
 		assert(true);
 	}
-	
+
 	@Test
 	public void test11m() {
 		try {

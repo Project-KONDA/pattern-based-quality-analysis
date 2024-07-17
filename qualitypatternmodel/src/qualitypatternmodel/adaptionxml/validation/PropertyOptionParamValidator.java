@@ -6,8 +6,8 @@ package qualitypatternmodel.adaptionxml.validation;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 
 /**

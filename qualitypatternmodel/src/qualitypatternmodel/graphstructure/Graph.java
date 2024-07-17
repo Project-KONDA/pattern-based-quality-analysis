@@ -3,6 +3,7 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.patternstructure.Morphism;
@@ -112,6 +113,7 @@ public interface Graph extends PatternElement {
 	 * @model opposite="graph" containment="true" required="true"
 	 * @generated
 	 */
+	@Override
 	OperatorList getOperatorList();
 
 	/**

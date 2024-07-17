@@ -16,15 +16,15 @@ import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
 
 public class SaveModelTest2 {
-	
+
 	public static void main(String[] args) throws IOException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		String path = "serverpatterns/xml/abstract-patterns";
-		
+
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		Graph g = pattern.getGraph();
 		g.getNodes().get(0).addOutgoing();
 		pattern.createRdfAdaption();
-		
+
 		String should = pattern.myToString();
 		try {
 			System.out.println("should: " + should);

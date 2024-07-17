@@ -16,9 +16,9 @@ import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class ConstraintTagServlet extends HttpServlet {
-	
+
 	// POST .. /template/tag    /<technology>/<name>    {"tag": <value>}
-	
+
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
@@ -33,9 +33,9 @@ public class ConstraintTagServlet extends HttpServlet {
 			ServletUtilities.putResponseError(response, e);
 		}
 	}
-	
+
 	// DELETE .. /template/tag    /<technology>/<name>    {"tag": <value>}
-	
+
 	@Override
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
@@ -50,20 +50,22 @@ public class ConstraintTagServlet extends HttpServlet {
 			ServletUtilities.putResponseError(response, e);
 		}
 	}
-	
+
 	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 3 || !pathparts[0].equals(""))
+		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong url for posting tags in a constraint: '.. /constraint/tag/<technology>/<name>/' (not " + path + ")");
+		}
 
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology))
+		if (!ServletUtilities.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
-		
+		}
+
 		String[] newTags = parameterMap.get("tag");
-		
+
 		// 1. load constraint
 		CompletePattern pattern;
 		try {
@@ -71,20 +73,21 @@ public class ConstraintTagServlet extends HttpServlet {
 		} catch (IOException e) {
 			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
 		}
-		
+
 		// 2. add tags to constraint
 		JSONObject json = new JSONObject();
 		try {
 			for (String tag: newTags) {
-				if (pattern.getKeywords().add(tag))
+				if (pattern.getKeywords().add(tag)) {
 					json.append("success", tag);
-				else 
+				} else {
 					json.append("failed", tag);
-			
+				}
+
 			}
 		} catch (JSONException e) {
 		}
-		
+
 		// 3. save constraint
 		String timestamp = null;
 		try {
@@ -95,23 +98,25 @@ public class ConstraintTagServlet extends HttpServlet {
 		try {
 			json.put(Constants.JSON_LASTSAVED, timestamp);
 		} catch (JSONException e) {}
-		
+
 		return json;
 	}
-	
+
 	public static JSONObject applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 3 || !pathparts[0].equals(""))
+		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong url for deleting tags in a constraint: '.. /constraint/tag/<technology>/<name>/' (not " + path + ")");
+		}
 
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology))
+		if (!ServletUtilities.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		}
 
 		String[] deleteTags = parameterMap.get("tag");
-		
+
 		// 1. load constraint
 		CompletePattern pattern;
 		try {
@@ -119,7 +124,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		} catch (IOException e) {
 			throw new FailedServletCallException("404 Requested pattern '" + constraintId + "' does not exist");
 		}
-				
+
 		// 2. remove tags from constraint
 		JSONObject json = new JSONObject();
 		for (String tag: deleteTags) {
@@ -128,7 +133,7 @@ public class ConstraintTagServlet extends HttpServlet {
 				json.append(success? "success": "failed", tag);
 			} catch (JSONException e) {}
 		}
-		
+
 		// 3. save constraint
 		String timestamp = null;
 		try {
@@ -139,7 +144,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		try {
 			json.put(Constants.JSON_LASTSAVED, timestamp);
 		} catch (JSONException e) {}
-		
+
 		return json;
 	}
 }

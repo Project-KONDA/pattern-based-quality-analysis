@@ -5,7 +5,6 @@ package qualitypatternmodel.adaptionneo4j;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 
 /**

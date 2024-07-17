@@ -3,6 +3,7 @@
 package qualitypatternmodel.parameters;
 
 import java.util.Map;
+
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.json.JSONArray;
@@ -45,6 +46,7 @@ public interface Parameter extends PatternElement {
 	 * @model opposite="parameters" transient="false"
 	 * @generated
 	 */
+	@Override
 	ParameterList getParameterList();
 
 	/**
@@ -118,7 +120,7 @@ public interface Parameter extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns true if the parameter value is valid.
-	 * 
+	 *
 	 * @return true if the parameter value is valid
 	 * <!-- end-user-doc -->
 	 * @model required="true"
@@ -129,18 +131,19 @@ public interface Parameter extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns true if <code>this</code> is valid.
-	 * 
+	 *
 	 * @return true if <code>this</code> is valid
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
+	@Override
 	boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns true if <code>this</code> is referenced somewhere within the pattern.
-	 * 
+	 *
 	 * @return true if <code>this</code> is referenced somewhere within the pattern
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
@@ -199,7 +202,7 @@ public interface Parameter extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns a simple textual description for <code>this</code>.
-	 * 
+	 *
 	 * @return a simple textual description for <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model
