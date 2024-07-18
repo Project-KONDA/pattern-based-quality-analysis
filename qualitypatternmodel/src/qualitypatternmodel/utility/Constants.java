@@ -131,8 +131,13 @@ public class Constants {
 	public static final String ERROR_INVALID_VALUE = "invalid value";
 	public static final String ERROR_INVALID_OPERATOR = "invalid operator";
 	public static final String ERROR_OPERATOR_NULL = "operator null";
+
 	public static final String ERROR_PARAMETER_NOT_FOUND = "parameter not found";
 	public static final String ERROR_VARIANT_NOT_FOUND = "variant not found";
+	public static final String ERROR_DUPLICATE_TAG = "tag already added";
+	public static final String ERROR_INVALID_TAG = "tag not allowed";
+	public static final String ERROR_TAG_NOT_FOUND = "tag not found";
+	public static final String ERROR_TAG_DELETION_FAILED = "tag could not be deleted";
 
 	/**
 	 * Appends as many closing brackets to <code>str</code> as it contains opening brackets that are not yet closed.

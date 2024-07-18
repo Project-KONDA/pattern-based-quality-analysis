@@ -78,15 +78,20 @@ public class ConstraintTagServlet extends HttpServlet {
 		JSONObject json = new JSONObject();
 		try {
 			for (String tag: newTags) {
-				if (pattern.getKeywords().add(tag)) {
-					json.append("success", tag);
+				JSONObject object = new JSONObject();
+				if(pattern.getKeywords().contains(tag)) {
+					object.put(tag, Constants.ERROR_DUPLICATE_TAG);
+					json.append("failed", object);
 				} else {
-					json.append("failed", tag);
+					if (pattern.getKeywords().add(tag)) {
+						json.append("success", tag);
+					} else {
+						object.put(tag, Constants.ERROR_INVALID_TAG);
+						json.append("failed", object);
+					}
 				}
-
 			}
-		} catch (JSONException e) {
-		}
+		} catch (JSONException e) {}
 
 		// 3. save constraint
 		String timestamp = null;
@@ -128,9 +133,19 @@ public class ConstraintTagServlet extends HttpServlet {
 		// 2. remove tags from constraint
 		JSONObject json = new JSONObject();
 		for (String tag: deleteTags) {
-			boolean success = pattern.getKeywords().remove(tag);
+			JSONObject object = new JSONObject();
 			try {
-				json.append(success? "success": "failed", tag);
+				if (!pattern.getKeywords().contains(tag)) {
+					object.put(tag, Constants.ERROR_TAG_NOT_FOUND);
+					json.append("failed", object);
+				} else {
+					if (pattern.getKeywords().remove(tag)) {
+						json.append("success", tag);
+					} else {
+						object.put(tag, Constants.ERROR_TAG_DELETION_FAILED);
+						json.append("failed", object);
+					}
+				}
 			} catch (JSONException e) {}
 		}
 

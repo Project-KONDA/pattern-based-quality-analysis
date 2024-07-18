@@ -1239,7 +1239,10 @@ components:
         failed:
           type: array
           items:
-            type: string
+            type: object
+            properties:
+              <parameter>: 
+                type: string
           description: successful modified tags
         lastSaved:
           type: string
