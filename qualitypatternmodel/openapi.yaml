@@ -1191,8 +1191,11 @@ components:
         failed:
           type: array
           items:
-            type: string
-          description: parameter that failed to be modified
+            type: object
+            properties:
+              <parameter>: 
+                type: string
+          description: parameter that failed to be modified and a reason
         lastSaved:
           type: string
           description: timestamp of the applied change
@@ -1480,6 +1483,7 @@ components:
 
     NeoComplexEdge:
       type: array
+      description: label of a neo element
       items:
         oneOf:
           - $ref: '#/components/schemas/NeoComplexEdge'
@@ -1488,3 +1492,4 @@ components:
     NeoLabel:
       type: string
       pattern: '[A-Za-z_0-9]+'
+      description: label of a neo element

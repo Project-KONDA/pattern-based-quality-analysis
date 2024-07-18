@@ -263,7 +263,8 @@ public class ConstraintServlet extends HttpServlet {
 
 		JSONArray success = new JSONArray();
 		JSONArray failed = new JSONArray();
-		JSONArray notfound = new JSONArray();
+		boolean notfound = false;
+
 		// change parameters
 		for (String key: keys) {
 			boolean found = false;
@@ -271,35 +272,37 @@ public class ConstraintServlet extends HttpServlet {
 				if (!found && frag.getId().equals(key)) {
 					found = true;
 					try {
-						if (changeParameterFragment(frag, parameterMap.get(key))) {
-							success.put(key);
-						} else {
-							failed.put(key);
-						}
+						changeParameterFragment(frag, parameterMap.get(key));
+						success.put(key);
 					} catch (InvalidityException e) {
-						ServletUtilities.logError(e);
-						failed.put(key);
+						JSONObject object = new JSONObject();
+						try {
+							object.put(key, e.getMessage());
+						} catch (JSONException f) {}
+						failed.put(object);
 					}
 				}
 			}
 			if (!found) {
-				notfound.put(key);
+				JSONObject object = new JSONObject();
+				try {
+					object.put(key, Constants.ERROR_PARAMETER_NOT_FOUND);
+				} catch (JSONException f) {}
+				failed.put(object);
+				notfound = true;
 			}
 		}
 
 		// output
 		JSONObject json = new JSONObject();
 		try {
-			if(success.length() > 0 || keys.size() == 0) {
+			if (success.length() > 0 || keys.size() == 0) {
 				json.put("success", success);
 			}
-			if(failed.length() > 0) {
+			if (failed.length() > 0) {
 				json.put("failed", failed);
 			}
-			if(notfound.length() > 0) {
-				json.put("notfound", notfound);
-			}
-			if(failed.length() > 0 || notfound.length() > 0) {
+			if (failed.length() > 0 || notfound) {
 				JSONArray available = new JSONArray();
 				for (ParameterFragment frag: paramfragments) {
 					available.put(frag.getId());
@@ -311,7 +314,7 @@ public class ConstraintServlet extends HttpServlet {
 		return json;
 	}
 
-	private static boolean changeParameterFragment(ParameterFragment frag, String[] call_values) throws InvalidityException {
+	private static void changeParameterFragment(ParameterFragment frag, String[] call_values) throws InvalidityException {
 		if (call_values.length != 1) {
 			throw new InvalidityException("multiple values for a single parameter");
 		}
@@ -330,16 +333,8 @@ public class ConstraintServlet extends HttpServlet {
 		} catch (JSONException e) {}
 
 		// case: value is not a json object
-		if (ob == null) {
-			try {
-				frag.setValue(input);
-				return true;
-			} catch (InvalidityException e) {
-				frag.setValue(oldValue);
-				e.printStackTrace();
-				return false;
-			}
-		}
+		if (ob == null)
+			frag.setValue(input);
 
 		// case: value is a json object
 
@@ -360,11 +355,9 @@ public class ConstraintServlet extends HttpServlet {
 				}
 			} catch (InvalidityException e) {
 				frag.setValue(oldValue);
-				e.printStackTrace();
-				return false;
+				throw e;
 			}
 		}
-		return true;
 	}
 
     public static HashMap<String, String> convertJSONObjectToHashMap(JSONObject jsonObject) {
