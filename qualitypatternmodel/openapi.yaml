@@ -1346,7 +1346,11 @@ components:
           type: array
           description: constraints that failed to be translated
           items:
-            type: string
+            type: object
+            properties:
+              <parameter>: 
+                type: string
+          description: all constraint that failed to be translated
 
     AnalysisResult: # 16
       type: object

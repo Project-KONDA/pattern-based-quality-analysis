@@ -66,35 +66,6 @@ public class ConstraintQueryServlet extends HttpServlet {
 
 		String[] constraintIds = new String[] {constraintId};
 		return applyGet(technology, constraintIds);
-
-//		// 1 load constraint
-//		CompletePattern pattern;
-//		try {
-//			pattern = ServletUtilities.loadConstraint(technology, constraintId);
-//		} catch (IOException e) {
-//			throw new FailedServletCallException("constraint not found");
-//		}
-//
-//		try {
-//			pattern.isValid(AbstractionLevel.CONCRETE);
-//		} catch (Exception e) {
-//			throw new FailedServletCallException(e.getClass().getName() + ": " + e.getMessage());
-//		}
-//
-//		// 2 generate query
-//		JSONObject json = null;
-//		try {
-//			if (pattern.containsJavaOperator())
-//				json = generateQueryJsonJava(pattern, technology);
-//			else
-//				json = generateQueryJson(pattern, technology);
-//		} catch (JSONException e) {
-//			e.printStackTrace();
-//		} catch (InvalidityException e) {
-//			e.printStackTrace();
-//		}
-//		// 3 return result
-//		return json.toString();
 	}
 
 	public static JSONObject applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
@@ -108,7 +79,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 		}
 
-		String[] constraintIds = parameterMap.get("constraints");
+		String[] constraintIds = parameterMap.get(Constants.JSON_CONSTRAINTS);
 
 		Set<String> constraintIdSet;
 		if (constraintIds == null) {
@@ -117,32 +88,6 @@ public class ConstraintQueryServlet extends HttpServlet {
 			constraintIdSet = new LinkedHashSet<String>(Arrays.asList(constraintIds));
 		}
 		constraintIds = constraintIdSet.toArray(new String[0]);
-
-//		JSONObject result = new JSONObject();
-//		JSONArray failed = new JSONArray();
-//
-//		for (String constraintId: constraintIds) {
-//			// 1 load constraint
-//			CompletePattern pattern;
-//			try {
-//				pattern = ServletUtilities.loadConstraint(technology, constraintId);
-//				pattern.isValid(AbstractionLevel.CONCRETE);
-//			// 2 generate query
-//				JSONObject queryJson = generateQueryJson(pattern, technology);
-//				result.put(constraintId, queryJson);
-//			} catch (Exception e) {
-//				try {
-//					result.put(constraintId, "failed");
-//				} catch (JSONException e1) {}
-//				failed.put(constraintId);
-//			}
-//		}
-//		try {
-//			result.put("failed", failed);
-//		} catch (JSONException e) {
-//		}
-//		return result.toString();
-
 		return applyGet(technology, constraintIds);
 	}
 
@@ -161,18 +106,16 @@ public class ConstraintQueryServlet extends HttpServlet {
 				JSONObject queryJson = generateQueryJson(pattern, technology);
 				result.append(Constants.JSON_CONSTRAINTS, queryJson);
 			} catch (Exception e) {
-				System.err.println(constraintId);
-//				e.printStackTrace();
-//				try {
-//					result.put(constraintId, Arrays.toString(e.getStackTrace()));
-//				} catch (JSONException e1) {}
-				failed.put(constraintId);
+				JSONObject object = new JSONObject();
+				try {
+					object.put(constraintId, e.getMessage());
+				} catch (JSONException f) {}
+				failed.put(object);
 			}
 		}
 		try {
 			result.put(Constants.JSON_FAILED, failed);
-		} catch (JSONException e) {
-		}
+		} catch (JSONException e) {}
 		return result;
 	}
 
@@ -185,8 +128,6 @@ public class ConstraintQueryServlet extends HttpServlet {
 
 		// 1 technology
 		json.put(Constants.JSON_TECHNOLOGY, pattern.getLanguage().getLiteral());
-//		json.put(Constants.JSON_TECHNOLOGY, technology);
-//		pattern.getLanguage().getLiteral();
 
 		// 2 query
 		try {
