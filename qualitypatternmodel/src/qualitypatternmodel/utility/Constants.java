@@ -126,11 +126,11 @@ public class Constants {
 	public static final String JSON_CONSTRAINT = "constraint";
 
 	//Global Exception Messages -- Introduced by Lukas Sebastian Hofmann. Existing code of the framework has not been touched.
-	public static final String INVALID_OPTION = "invalid option";
-	public static final String INVALID_ARGUMENTS = "invalid arguments";
-	public static final String INVALID_VALUE = "invalid value";
-	public static final String INVALID_OPERATOR = "invalid operator";
-	public static final String OPERATOR_NULL = "operator null";
+	public static final String ERROR_INVALID_OPTION = "invalid option";
+	public static final String ERROR_INVALID_ARGUMENTS = "invalid arguments";
+	public static final String ERROR_INVALID_VALUE = "invalid value";
+	public static final String ERROR_INVALID_OPERATOR = "invalid operator";
+	public static final String ERROR_OPERATOR_NULL = "operator null";
 
 	/**
 	 * Appends as many closing brackets to <code>str</code> as it contains opening brackets that are not yet closed.

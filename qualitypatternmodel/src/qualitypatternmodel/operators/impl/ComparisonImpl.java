@@ -317,7 +317,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			matchCypherOperators(cypher, argument1Translation, argument2Translation);
 			return cypher.toString();
 		}
-		throw new InvalidityException(Constants.INVALID_OPTION);
+		throw new InvalidityException(Constants.ERROR_INVALID_OPTION);
 	}
 
 	//BEGIN - Neo4J/Cypher

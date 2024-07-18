@@ -113,7 +113,7 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 			String res = "size (" + tempCypherPropertyAddressing + ") " + option.generateCypher() + " " + number.generateCypher();
 			return res;
 		}
-		throw new InvalidityException(Constants.INVALID_OPTION);
+		throw new InvalidityException(Constants.ERROR_INVALID_OPTION);
 	}
 
 	@Override

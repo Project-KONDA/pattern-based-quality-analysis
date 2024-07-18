@@ -183,7 +183,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 			setNeoPathPart(part);
 			return;
 		} catch (JSONException e) {
-			throw new InvalidityException(Constants.INVALID_VALUE + ": '" + value + "'", e);
+			throw new InvalidityException(Constants.ERROR_INVALID_VALUE + ": '" + value + "'", e);
 		}
 	}
 

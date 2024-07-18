@@ -168,17 +168,17 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		try {
 			array = new JSONArray(value);
 		} catch (JSONException e) {
-			throw new InvalidityException(Constants.INVALID_VALUE + " [" + value + "]", e);
+			throw new InvalidityException(Constants.ERROR_INVALID_VALUE + " [" + value + "]", e);
 		}
 		if (array == null || array.length() < 2) {
-			throw new InvalidityException(Constants.INVALID_VALUE + ": Not enough items");
+			throw new InvalidityException(Constants.ERROR_INVALID_VALUE + ": Not enough items");
 		}
 
 		for (int i = 0; i < array.length(); i++) {
 			try {
 				newPathParts.add(NeoPathPartImpl.createNewNeoPathPart(array.get(i).toString()));
 			} catch (JSONException e) {
-				throw new InvalidityException(Constants.INVALID_VALUE + " [" + value + "]", e);
+				throw new InvalidityException(Constants.ERROR_INVALID_VALUE + " [" + value + "]", e);
 			}
 		}
 		getNeoPathParts().clear();

@@ -101,7 +101,7 @@ public class RdfXorImpl extends RdfPathComponentImpl implements RdfXor {
 		try {
 			JSONObject jobj = new JSONObject(value);
 			if (!jobj.has(ConstantsRdf.JSON_RDF_PATH_XOR)) {
-				throw new InvalidityException(Constants.INVALID_VALUE);
+				throw new InvalidityException(Constants.ERROR_INVALID_VALUE);
 			}
 			JSONArray arr = jobj.getJSONArray(ConstantsRdf.JSON_RDF_PATH_XOR);
 			if (arr.length() < 2) {
@@ -114,7 +114,7 @@ public class RdfXorImpl extends RdfPathComponentImpl implements RdfXor {
 			getItems().clear();
 			getItems().addAll(newItems);
 		} catch (Exception e) {
-			throw new InvalidityException(Constants.INVALID_VALUE, e);
+			throw new InvalidityException(Constants.ERROR_INVALID_VALUE, e);
 		}
 	}
 

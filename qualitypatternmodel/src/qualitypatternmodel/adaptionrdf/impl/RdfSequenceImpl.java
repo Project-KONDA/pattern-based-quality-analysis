@@ -104,7 +104,7 @@ public class RdfSequenceImpl extends RdfPathComponentImpl implements RdfSequence
 		try {
 			JSONObject jobj = new JSONObject(value);
 			if (!jobj.has(ConstantsRdf.JSON_RDF_PATH_SEQUENCE)) {
-				throw new InvalidityException(Constants.INVALID_VALUE);
+				throw new InvalidityException(Constants.ERROR_INVALID_VALUE);
 			}
 			JSONArray arr = jobj.getJSONArray(ConstantsRdf.JSON_RDF_PATH_SEQUENCE);
 			if (arr.length() < 2) {
@@ -117,7 +117,7 @@ public class RdfSequenceImpl extends RdfPathComponentImpl implements RdfSequence
 			getItems().clear();
 			getItems().addAll(newItems);
 		} catch (Exception e) {
-			throw new InvalidityException(Constants.INVALID_VALUE + ": " + value, e);
+			throw new InvalidityException(Constants.ERROR_INVALID_VALUE + ": " + value, e);
 		}
 	}
 

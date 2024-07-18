@@ -150,7 +150,7 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 			}
 			throw new InvalidityException(ConstantsNeo.NO_VALID_PROPERTY_IS_ACCESSABLE);
 		}
-		throw new InvalidityException(Constants.INVALID_OPTION);
+		throw new InvalidityException(Constants.ERROR_INVALID_OPTION);
 	}
 
 	@Override

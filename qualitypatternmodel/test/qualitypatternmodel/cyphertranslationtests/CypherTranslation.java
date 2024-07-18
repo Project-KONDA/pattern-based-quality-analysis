@@ -198,7 +198,6 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 		}
 	}
 
-	@SuppressWarnings("static-access")
 	public void complexTester()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> complexQueries = new ArrayList<CompletePattern>();

@@ -56,7 +56,7 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	        }
 		}
 		catch (JSONException e){
-			throw new InvalidityException(Constants.INVALID_VALUE, e);
+			throw new InvalidityException(Constants.ERROR_INVALID_VALUE, e);
 		}
 		setValueIfValid(newVals);
 	}

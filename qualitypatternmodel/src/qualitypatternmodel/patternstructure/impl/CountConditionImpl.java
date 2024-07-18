@@ -223,7 +223,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 
 			return cypher.toString();
 		}
-		throw new InvalidityException(Constants.INVALID_OPTION);
+		throw new InvalidityException(Constants.ERROR_INVALID_OPTION);
 	}
 
 	/**
