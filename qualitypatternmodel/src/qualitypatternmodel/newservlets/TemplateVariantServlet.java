@@ -277,7 +277,11 @@ public class TemplateVariantServlet extends HttpServlet {
 				}
 			}
 			if (!done) {
-				failed.put(variantName);
+				JSONObject object = new JSONObject();
+				try {
+					object.put(variantName, Constants.ERROR_VARIANT_NOT_FOUND);
+				} catch (JSONException e) {}
+				failed.put(object);
 			}
 		}
 
