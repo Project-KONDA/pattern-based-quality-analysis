@@ -64,9 +64,8 @@ public class ConstraintExecuteServlet extends HttpServlet {
 
 		// setup
 		ArrayList<JSONObject> constraints = new ArrayList<JSONObject>();
-		ArrayList<String> failedconstraints = new ArrayList<String>();
 		ArrayList<File> files = new ArrayList<File>();
-		ArrayList<String> filesnotfound = new ArrayList<String>();
+		ArrayList<JSONObject> failed = new ArrayList<JSONObject>();
 		JSONArray results = new JSONArray();
 
 		// compile constraintIDs
@@ -80,9 +79,11 @@ public class ConstraintExecuteServlet extends HttpServlet {
 					JSONObject queryJson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
 					constraints.add(queryJson);
 				} catch (Exception e) {
-					failedconstraints.add(constraintId);
-					System.err.println(constraintId);
-					e.printStackTrace();
+					JSONObject jobject = new JSONObject();
+					try {
+						jobject.put(constraintId, e.getMessage());
+					} catch (JSONException f) {}
+					failed.add(jobject);
 				}
 			}
 		}
@@ -92,13 +93,29 @@ public class ConstraintExecuteServlet extends HttpServlet {
 			for (String constraint: constraintsCompiled) {
 				try {
 					JSONObject object = new JSONObject(constraint);
-					if (!object.has(Constants.JSON_QUERY) || !object.has(Constants.JSON_TECHNOLOGY) || !object.has(Constants.JSON_LANGUAGE) || !object.get(Constants.JSON_LANGUAGE).equals(Constants.XQUERY) || !object.get(Constants.JSON_TECHNOLOGY).equals(Constants.XML)) {
-						failedconstraints.add(constraint);
+					if (!object.has(Constants.JSON_QUERY)) {
+						JSONObject jobject = new JSONObject();
+						jobject.put(constraint, Constants.ERROR_NO_QUERY);
+						failed.add(jobject);
+					}
+					else if (!object.has(Constants.JSON_TECHNOLOGY) || !object.get(Constants.JSON_TECHNOLOGY).equals(Constants.XML)) {
+						JSONObject jobject = new JSONObject();
+						jobject.put(constraint, Constants.ERROR_INVALID_TECHNOLOGY);
+						failed.add(jobject);
+					}
+					else if (!object.has(Constants.JSON_LANGUAGE) || !object.get(Constants.JSON_LANGUAGE).equals(Constants.XQUERY)) {
+						JSONObject jobject = new JSONObject();
+						jobject.put(constraint, Constants.ERROR_INVALID_LANGUAGE);
+						failed.add(jobject);
 					} else {
 						constraints.add(object);
 					}
 				} catch (JSONException e) {
-					failedconstraints.add(constraint);
+					JSONObject jobject = new JSONObject();
+					try {
+						jobject.put(constraint, e.getMessage());
+					} catch (JSONException f) {}
+					failed.add(jobject);
 				}
 			}
 		}
@@ -116,8 +133,11 @@ public class ConstraintExecuteServlet extends HttpServlet {
 					ServletUtilities.log(ServletUtilities.FILEFOLDER + "/" + filepath + " found");
 				}
 				else {
-					filesnotfound.add(filepath);
-					ServletUtilities.log(ServletUtilities.FILEFOLDER + "/" + filepath + " not found");
+					JSONObject jobject = new JSONObject();
+					try {
+						jobject.put(filepath, Constants.ERROR_FILEPATH_NOT_FOUND);
+					} catch (JSONException f) {}
+					failed.add(jobject);
 				}
 			}
 		}
@@ -146,11 +166,8 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		JSONObject object = new JSONObject();
 		try {
 			object.put(Constants.JSON_RESULT, results);
-			if (!failedconstraints.isEmpty()) {
-				object.put(Constants.JSON_FAILEDCONSTRAINTS, failedconstraints);
-			}
-			if (!filesnotfound.isEmpty()) {
-				object.put(Constants.JSON_FAILEDFILES, filesnotfound);
+			if (!failed.isEmpty()) {
+				object.put(Constants.JSON_FAILED, failed);
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();

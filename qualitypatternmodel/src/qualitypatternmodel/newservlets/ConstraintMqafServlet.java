@@ -62,42 +62,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 		}
 
-		JSONObject result = getJsonStringSchemaFromConstraintIds(new String[] { constraintId }, technology);
-		if (result == null) {
-			result = new JSONObject();
-			try {
-				result.put(Constants.JSON_FAILED, constraintId);
-			} catch (JSONException e) {}
-		}
-		return result;
-
-//		// 1 load constraint
-//		CompletePattern pattern;
-//		try {
-//			pattern = ServletUtilities.loadConstraint(technology, constraintId);
-//		} catch (IOException e) {
-//			throw new FailedServletCallException("specified constraint not found", e);
-//		}
-//
-//		try {
-//			pattern.isValid(AbstractionLevel.CONCRETE);
-//		} catch (Exception e) {
-//			System.out.println(pattern.myToString());
-//			throw new FailedServletCallException(e.getClass().getName(), e);
-//		}
-//
-//		// 2 generate mqaf constraint
-//		String constraint;
-//		try {
-//			BaseSchema schema = pattern.generateXmlConstraintSchema();
-//
-//			constraint = ConfigurationReader.toJson(schema);
-//		} catch (InvalidityException e) {
-//			throw new FailedServletCallException(e.getClass().getName() + ": " + e.getMessage(), e);
-//		}
-//
-//		//			return new JSONObject().put("constraint", constraint).toString();
-//		return constraint;
+		return getJsonStringSchemaFromConstraintIds(new String[] { constraintId }, technology);
 	}
 
 
@@ -112,52 +77,9 @@ public class ConstraintMqafServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
 		}
 
-		String[] constraintIds = parameterMap.get("constraints");
-
+		String[] constraintIds = parameterMap.get(Constants.JSON_CONSTRAINTS);
 
 		return getJsonStringSchemaFromConstraintIds(constraintIds, technology);
-
-//		ArrayList<BaseSchema> schemas = new ArrayList<BaseSchema>();
-
-//		for (String constraintId: constraintIds) {
-//			// 1 load constraint
-//			CompletePattern pattern;
-//			try {
-//				pattern = ServletUtilities.loadConstraint(technology, constraintId);
-//			} catch (IOException e) {
-//				throw new FailedServletCallException("specified constraint not found", e);
-//			}
-//
-//			try {
-//				pattern.isValid(AbstractionLevel.CONCRETE);
-//			} catch (Exception e) {
-//				System.out.println(pattern.myToString());
-//				throw new FailedServletCallException(e.getClass().getName(), e);
-//			}
-//
-//			// 2 generate mqaf constraint
-//			try {
-//				BaseSchema schema = MqafTranslation.translateToConstraintSchema(pattern);
-//				schemas.add(schema);
-//			} catch (InvalidityException e) {
-//				throw new FailedServletCallException(e.getClass().getName() + ": " + e.getMessage(), e);
-//			}
-//
-//		}
-//
-//		// 3  merge schemas
-//		if (schemas.isEmpty())
-//			return null;
-//
-//		BaseSchema mergedSchema = schemas.get(0);
-//		for (int i = 1; i< schemas.size(); i++) {
-//			mergedSchema.merge(schemas.get(i), false);
-//		}
-//
-//		// 4 return merged schema
-//		return ConfigurationReader.toJson(mergedSchema);
-//		return null;
-//		return ConfigurationReader.toJson(schema);
 	}
 
 	private static JSONObject getJsonStringSchemaFromConstraintIds(String[] constraintIds, String technology) throws FailedServletCallException {
@@ -175,54 +97,32 @@ public class ConstraintMqafServlet extends HttpServlet {
 				BaseSchema schema = MqafTranslation.translateToConstraintSchema(pattern);
 				schemas.add(schema);
 			} catch (Exception e) {
-				failed.put(constraintId);
+				JSONObject object = new JSONObject();
+				try {
+					object.put(constraintId, e.getMessage());
+				} catch (JSONException f) {}
+				failed.put(object);
 			}
 		}
 
 		// 3  merge schemas
-		if (schemas.isEmpty()) {
-			return null;
-		}
-
-		BaseSchema mergedSchema = schemas.get(0);
-		for (int i = 1; i< schemas.size(); i++) {
-			mergedSchema.merge(schemas.get(i), false);
+		BaseSchema mergedSchema = null;
+		if (!schemas.isEmpty()) {
+			mergedSchema = schemas.get(0);
+			for (int i = 1; i < schemas.size(); i++) {
+				mergedSchema.merge(schemas.get(i), false);
+			}
 		}
 
 		// 4 return merged schema as JSON
 		JSONObject jobj = new JSONObject();
 		try {
 			jobj.put(Constants.JSON_FAILED, failed);
-			JSONObject constraint = new JSONObject(ConfigurationReader.toJson(mergedSchema));
-			jobj.put(Constants.JSON_CONSTRAINT, constraint);
+			if (mergedSchema != null) {
+				JSONObject constraint = new JSONObject(ConfigurationReader.toJson(mergedSchema));
+				jobj.put(Constants.JSON_CONSTRAINT, constraint);
+			}	
 		} catch (JSONException e) {}
 		return jobj;
 	}
-
-//    public static JSONObject convertYamlToJson(String yamlString) throws IOException, JSONException {
-//    	System.err.println(yamlString);
-//    	// Create ObjectMapper for YAML
-//        ObjectMapper yamlMapper = new ObjectMapper(new YAMLFactory());
-//
-//        // Read YAML string and convert to JSON object
-//        Object yamlObject = yamlMapper.readValue(yamlString, Object.class);
-//
-//        // Create ObjectMapper for JSON
-//        ObjectMapper jsonMapper = new ObjectMapper();
-//
-//        // Convert YAML object to JSON string
-//        String jsonString =  jsonMapper.writeValueAsString(yamlObject);
-//        return new JSONObject(jsonString);
-////    	// Parse YAML string
-////    	System.out.println(yamlString);
-////        Yaml yaml = new Yaml();
-////        Object yamlObject = yaml.load(yamlString);
-////        System.err.println("[" + yamlObject.toString() + "]");
-////
-////        // Convert YAML object to JSON
-////        JSONObject jsonObject = new JSONObject(yamlObject);
-////        System.err.println("[" + jsonObject.toString() + "]");
-////        return jsonObject;
-//
-//    }
 }
