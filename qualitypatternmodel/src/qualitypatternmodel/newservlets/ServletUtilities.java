@@ -6,12 +6,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -40,13 +43,24 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 public abstract class ServletUtilities {
 
+	// CONFIG
+	static boolean OVERRIDE = true;
+	public static boolean VALUES = true;
+	public static Boolean DEFAULT_VARIANTS = true;
+	public static Boolean OLD_VARIANTS = false;
+
+	public static String ENV_SAVEFILE = "SAVE_FILENAME";
+	public static String ENV_LOGFILE = "LOG_FILENAME";
+	public static String LOG_FILENAME_DEFAULT = "logfile.log";
+	public static String SAVE_FILENAME_DEFAULT = "savefile.txt";
+	
+	// FILES
 	public static String PATTERNFOLDER =  "/templates";
 	public static String FILEFOLDER =  "/files";
-	public static String SAVE_FILENAME = ((System.getenv("SAVE_FILENAME") != null)? System.getenv("SAVE_FILENAME"): "savefile.txt");
-	public static String LOG_FILENAME = ((System.getenv("LOG_FILENAME") != null)? System.getenv("LOG_FILENAME"): "logfile.log");
-//	public static String SAVE_FILEPATH = PATTERNFOLDER + "/" + SAVE_FILENAME;
-//	public static String LOG_FILEPATH = PATTERNFOLDER + "/" + LOG_FILENAME;
+	public static String SAVE_FILENAME = ((System.getenv(ENV_SAVEFILE) != null)? System.getenv(ENV_SAVEFILE): SAVE_FILENAME_DEFAULT);
+	public static String LOG_FILENAME = ((System.getenv(ENV_LOGFILE) != null)? System.getenv(ENV_LOGFILE): LOG_FILENAME_DEFAULT);
 
+	// Constants
 	public static final String CONSTRAINTFOLDER = "concrete-patterns";
 	public static final String TEMPLATEFOLDER = "abstract-patterns";
 	public static final String EXTENSION = "patternstructure";
@@ -60,8 +74,13 @@ public abstract class ServletUtilities {
 	public static final String LVLREADY = "ready";
 	public static final List<String> LEVELS = List.of(LVLALL, LVLTEMPLATE, LVLCONSTRAINT, LVLREADY);
 
-	// Pattern request
 
+	// for efficiency when requested once, the templates do not need to be reloaded that often
+	private static List<CompletePattern> abstractPatternXml = null;
+	private static List<CompletePattern> abstractPatternRdf = null;
+	private static List<CompletePattern> abstractPatternNeo = null;
+
+	// Pattern request
 	public static List<CompletePattern> getAllPattern(String technology) {
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		List<CompletePattern> astr = getTemplates(technology);
@@ -74,11 +93,6 @@ public abstract class ServletUtilities {
 		}
 		return patterns;
 	}
-
-	// for efficiency when requested once, the templates do not need to be reloaded that often
-	private static List<CompletePattern> abstractPatternXml = null;
-	private static List<CompletePattern> abstractPatternRdf = null;
-	private static List<CompletePattern> abstractPatternNeo = null;
 
 	public static List<CompletePattern> getTemplates(String technology) {
 		String path = PATTERNFOLDER + "/" + technology + "/" + TEMPLATEFOLDER;
@@ -152,12 +166,6 @@ public abstract class ServletUtilities {
 			json.put(Constants.JSON_IDS, ids);
 		} catch (JSONException e) {}
 		return json;
-
-//		String result = "{\"Templates\": [ ";
-//		for (CompletePattern pattern: patterns) {
-//			result += getPatternJSON(pattern);
-//		}
-//		return result += "]}"; // templatelist end
 	}
 
 	public static JSONObject getPatternJSON(CompletePattern pattern) {
@@ -227,9 +235,9 @@ public abstract class ServletUtilities {
 	public static JSONObject getPatternJSONHead(CompletePattern pattern) {
 		JSONObject json = new JSONObject();
 		try {
-			json.put("patternID", pattern.getPatternId());
-			json.put("name", pattern.getName());
-			json.put("description", pattern.getDescription());
+			json.put(Constants.JSON_PATTERNID, pattern.getPatternId());
+			json.put(Constants.JSON_NAME, pattern.getName());
+			json.put(Constants.JSON_DESCRIPTION, pattern.getDescription());
 		} catch (JSONException e) {}
 		return json;
 	}
@@ -435,5 +443,48 @@ public abstract class ServletUtilities {
 			} catch (JSONException e) {}
 		}
 		return job.toString();
+	}
+
+
+	// Depricated Methods
+
+	public static String getFileNamesInFolder(String path, Class<?> clas) throws URISyntaxException {
+		URL url = clas.getClassLoader().getResource(path);
+		if(url != null) {
+			File[] files = Paths.get(url.toURI()).toFile().listFiles();
+			if(files.length == 0) {
+				return "";
+			}
+//			String json = "{\"Patterns\": [";
+			String json = "[";
+			for(File f : files) {
+				json += "\"" + f.getName().split("\\.")[0] + "\", ";
+			}
+			json = json.substring(0, json.length()-2);
+//			json += "]}";
+			json += "]";
+			return json;
+
+		} else {
+			return null;
+		}
+	}
+
+	public static ArrayList<String> getListOfFileNamesInFolder(String path, Class<?> clas) throws URISyntaxException {
+		URL url = clas.getClassLoader().getResource(path);
+		ArrayList<String> fileNames = new ArrayList<String>();
+		if(url != null) {
+			File[] files = Paths.get(url.toURI()).toFile().listFiles();
+			if(files.length == 0) {
+				return null;
+			}
+			for(File f : files) {
+				fileNames.add(f.getName().split("\\.")[0]);
+			}
+			return fileNames;
+
+		} else {
+			return null;
+		}
 	}
 }

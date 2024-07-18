@@ -24,8 +24,6 @@ import qualitypatternmodel.utility.EMFModelSave;
 @SuppressWarnings("serial")
 public class InitialisationServlet extends HttpServlet {
 
-	private static boolean OVERRIDE = true;
-
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
@@ -68,7 +66,7 @@ public class InitialisationServlet extends HttpServlet {
 			String genericfolder = ServletUtilities.PATTERNFOLDER + "/generic-patterns";
 			for (CompletePattern pattern: GenericPatterns.getAllGenericPattern()) {
 				String id = pattern.getPatternId();
-				if (OVERRIDE || !fileExists(genericfolder, id)) {
+				if (qualitypatternmodel.newservlets.ServletUtilities.OVERRIDE || !fileExists(genericfolder, id)) {
 					pattern.isValid(AbstractionLevel.GENERIC);
 					EMFModelSave.exportToFile2(pattern, genericfolder, id, ServletUtilities.EXTENSION);
 				}
