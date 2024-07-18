@@ -116,10 +116,8 @@ public class Constants {
 	public static final String JSON_CONSTRAINTS = "constraints";
 	public static final String JSON_CONSTRAINT_NAME = "constraintName";
 	public static final Object JSON_CONSTRAINT_IDS = "constraintIDs";
-	public static final String JSON_FAILEDCONSTRAINTS = "failedConstraints";
 	public static final String JSON_FILE = "file";
 	public static final Object JSON_FILES = "files";
-	public static final String JSON_FAILEDFILES = "failedFiles";
 	public static final String JSON_RESULT = "result";
 
 	// MQAF
@@ -138,6 +136,10 @@ public class Constants {
 	public static final String ERROR_INVALID_TAG = "tag not allowed";
 	public static final String ERROR_TAG_NOT_FOUND = "tag not found";
 	public static final String ERROR_TAG_DELETION_FAILED = "tag could not be deleted";
+	public static final String ERROR_INVALID_TECHNOLOGY = "technology invalid";
+	public static final String ERROR_INVALID_LANGUAGE = "language invalid";
+	public static final String ERROR_NO_QUERY = "query is missing";
+	public static final String ERROR_FILEPATH_NOT_FOUND = "filepath not found";
 
 	/**
 	 * Appends as many closing brackets to <code>str</code> as it contains opening brackets that are not yet closed.

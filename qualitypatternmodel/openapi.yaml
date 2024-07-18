@@ -1344,7 +1344,6 @@ components:
               description: technology-specific query without linebreaks
         failed:
           type: array
-          description: constraints that failed to be translated
           items:
             type: object
             properties:
@@ -1355,16 +1354,14 @@ components:
     AnalysisResult: # 16
       type: object
       properties:
-        failedFiles:
+        failed:
           type: array
-          description: file paths that were not found
           items:
-            type: string
-        failedConstraints:
-          type: array
-          description: constraint IDs that could not be executed
-          items:
-            type: string
+            type: object
+            properties:
+              <parameter>: 
+                type: string
+          description: file paths that were not found and constraint IDs that could not be executed
         result:
           type: array
           description: result of the executed constraints
