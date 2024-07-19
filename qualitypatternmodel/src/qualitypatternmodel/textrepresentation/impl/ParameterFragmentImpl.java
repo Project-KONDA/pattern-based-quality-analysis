@@ -885,23 +885,23 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		JSONObject object = new JSONObject();
 		try {
 			object.put(ConstantsJSON.NAME, getName());
-			object.put(ConstantsJSON.PARAMETER, getName());
-			object.put(ConstantsJSON.EXAMPLEVALUE, getName());
+			JSONArray ids = new JSONArray();
+			for (Parameter param: getParameter()) {
+				ids.put(getPatternText().getPattern().getParameterList().getParameters().indexOf(param));
+			}
+			object.put(ConstantsJSON.PARAMETER, ids);
+			object.put(ConstantsJSON.EXAMPLEVALUE, getExampleValue());
 			object.put(ConstantsJSON.NEWID, getId());
-
 			if (getDescription() != null && !getDescription().equals("")) {
 				object.put(ConstantsJSON.DESCRIPTION, getDescription());
 			}
-
 			if (getValueMap() != null) {
 				object.put(ConstantsJSON.MAP, getValueMap().generateJSONObject());
 			}
-
 			if (isPlural()) {
 				object.put(ConstantsJSON.PLURAL, true);
 			}
-
-		}catch (Exception e) {}
+		} catch (Exception e) {}
 		return object;
 	}
 

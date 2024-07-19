@@ -97,11 +97,13 @@ public interface PatternText extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Parameter Predefinitions</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.textrepresentation.ParameterPredefinition}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.textrepresentation.ParameterPredefinition#getPatterntext <em>Patterntext</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameter Predefinitions</em>' containment reference list.
 	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText_ParameterPredefinitions()
-	 * @model containment="true"
+	 * @see qualitypatternmodel.textrepresentation.ParameterPredefinition#getPatterntext
+	 * @model opposite="patterntext" containment="true"
 	 * @generated
 	 */
 	EList<ParameterPredefinition> getParameterPredefinitions();

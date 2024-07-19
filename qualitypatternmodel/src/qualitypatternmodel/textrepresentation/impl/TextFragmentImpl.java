@@ -187,9 +187,7 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 		JSONObject object = new JSONObject();
 		try {
 			object.put(ConstantsJSON.TEXT, getText());
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
+		} catch (JSONException e) {}
 		return object;
 	}
 

@@ -1040,6 +1040,7 @@
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/ParameterPredefinition">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterPredefinition/value"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/ParameterPredefinition/patterntext"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//textrepresentation/ParameterReference">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

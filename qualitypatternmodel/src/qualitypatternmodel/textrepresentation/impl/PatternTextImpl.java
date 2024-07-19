@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -272,7 +271,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	@Override
 	public EList<ParameterPredefinition> getParameterPredefinitions() {
 		if (parameterPredefinitions == null) {
-			parameterPredefinitions = new EObjectContainmentEList<ParameterPredefinition>(ParameterPredefinition.class, this, TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS);
+			parameterPredefinitions = new EObjectContainmentWithInverseEList<ParameterPredefinition>(ParameterPredefinition.class, this, TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS, TextrepresentationPackage.PARAMETER_PREDEFINITION__PATTERNTEXT);
 		}
 		return parameterPredefinitions;
 	}
@@ -350,12 +349,11 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	public JSONObject generateVariantJSONObject() {
 		JSONObject result = new JSONObject();
 		try {
-			result.put(ConstantsJSON.TEMPLATE, getPattern().getAbstractId());
-			result.put(ConstantsJSON.LANGUAGE, getPattern().getLanguage());
+			result.put(ConstantsJSON.TEMPLATE, getPattern().getPatternId());
 			result.put(ConstantsJSON.NAME, getName());
+			result.put(ConstantsJSON.LANGUAGE, getPattern().getLanguage());
 
 			JSONArray fragments = new JSONArray();
-
 			for (Fragment fragment: getFragmentsOrdered()) {
 				fragments.put(fragment.generateVariantJSONObject());
 			}
@@ -363,7 +361,10 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			for (ParameterPredefinition predefinition: getParameterPredefinitions()) {
 				fragments.put(predefinition.generateVariantJSONObject());
 			}
-		} catch (JSONException e) {}
+			result.put(ConstantsJSON.FRAGMENTS, fragments);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 		return result;
 	}
 
@@ -687,6 +688,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return basicSetPattern((CompletePattern)otherEnd, msgs);
 			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFragments()).basicAdd(otherEnd, msgs);
+			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameterPredefinitions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
