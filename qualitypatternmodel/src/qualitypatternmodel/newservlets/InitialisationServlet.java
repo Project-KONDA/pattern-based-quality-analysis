@@ -15,6 +15,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.newservlets.initialisation.GenericPatterns;
 import qualitypatternmodel.newservlets.initialisation.Neo4jPatterns;
+import qualitypatternmodel.newservlets.initialisation.PatternBundle;
 import qualitypatternmodel.newservlets.initialisation.RdfPatterns;
 import qualitypatternmodel.newservlets.initialisation.XmlPatterns;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -64,45 +65,17 @@ public class InitialisationServlet extends HttpServlet {
 		System.out.println("Files can be found at " + ServletConstants.PATTERNFOLDER);
 		ServletUtilities.log("Initializing ...");
 		try {
-			String genericfolder = ServletConstants.PATTERNFOLDER + "/" + ServletConstants.GENERICFOLDER;
-			for (CompletePattern pattern: GenericPatterns.getAllGenericPattern()) {
-				String id = pattern.getPatternId();
-				if (qualitypatternmodel.newservlets.ServletConstants.OVERRIDE || !fileExists(genericfolder, id)) {
-					pattern.isValid(AbstractionLevel.GENERIC);
-					EMFModelSave.exportToFile2(pattern, genericfolder, id, Constants.EXTENSION);
+			if (ServletConstants.GENERATE_GENERIC) {
+				String genericfolder = ServletConstants.PATTERNFOLDER + "/" + ServletConstants.GENERICFOLDER;
+				for (CompletePattern pattern: GenericPatterns.getAllGenericPattern()) {
+					String id = pattern.getPatternId();
+					if (ServletConstants.OVERRIDE || !fileExists(genericfolder, id)) {
+						pattern.isValid(AbstractionLevel.GENERIC);
+						EMFModelSave.exportToFile2(pattern, genericfolder, id, Constants.EXTENSION);
+					}
 				}
+				ServletUtilities.log("generic Patterns created: " + genericfolder);
 			}
-			ServletUtilities.log("generic Patterns created: " + genericfolder);
-
-			String xmlfolder = ServletConstants.PATTERNFOLDER + "/" + Constants.XML + "/" + ServletConstants.TEMPLATEFOLDER;
-			for (CompletePattern pattern: XmlPatterns.getAllXmlPattern()) {
-				String id = pattern.getPatternId();
-				if (!fileExists(xmlfolder, id)) {
-					pattern.isValid(AbstractionLevel.ABSTRACT);
-					EMFModelSave.exportToFile2(pattern, xmlfolder, id, Constants.EXTENSION);
-				}
-			}
-			ServletUtilities.log("XML Patterns created:     " + xmlfolder);
-
-			String rdffolder = ServletConstants.PATTERNFOLDER + "/" + Constants.RDF + "/" + ServletConstants.TEMPLATEFOLDER;
-			for (CompletePattern pattern: RdfPatterns.getAllRdfPattern()) {
-				String id = pattern.getPatternId();
-				if (!fileExists(rdffolder, id)) {
-					pattern.isValid(AbstractionLevel.ABSTRACT);
-					EMFModelSave.exportToFile2(pattern, rdffolder, id, Constants.EXTENSION);
-				}
-			}
-			ServletUtilities.log("RDF Patterns created:     " + rdffolder);
-
-			String neofolder = ServletConstants.PATTERNFOLDER + "/" + Constants.NEO4J + "/" + ServletConstants.TEMPLATEFOLDER;
-			for (CompletePattern pattern: Neo4jPatterns.getAllNeoPattern()) {
-				String id = pattern.getPatternId();
-				if (!fileExists(neofolder, id)) {
-					pattern.isValid(AbstractionLevel.ABSTRACT);
-					EMFModelSave.exportToFile2(pattern, neofolder, id, Constants.EXTENSION);
-				}
-			}
-			ServletUtilities.log("NEO4J Patterns created:   " + neofolder);
 		} catch (IOException e) {
 			ServletUtilities.logError(e);
 			new ServletException("Unable to save files.");
@@ -119,6 +92,24 @@ public class InitialisationServlet extends HttpServlet {
 			ServletUtilities.logError(e);
 			throw new ServletException("Unexpected Error: " + e.getMessage(), e);
 		}
+
+		String xmlfolder = ServletConstants.PATTERNFOLDER + "/" + Constants.XML + "/" + ServletConstants.TEMPLATEFOLDER;
+		for (PatternBundle patternbundle: XmlPatterns.getAllXmlPatternBundles()) {
+			patternbundle.export(xmlfolder, ServletConstants.OVERRIDE);
+		}
+		ServletUtilities.log("XML Patterns created:     " + xmlfolder);
+
+		String rdffolder = ServletConstants.PATTERNFOLDER + "/" + Constants.RDF + "/" + ServletConstants.TEMPLATEFOLDER;
+		for (PatternBundle patternbundle: RdfPatterns.getAllRdfPatternBundles()) {
+			patternbundle.export(rdffolder, ServletConstants.OVERRIDE);
+		}
+		ServletUtilities.log("RDF Patterns created:     " + rdffolder);
+
+		String neofolder = ServletConstants.PATTERNFOLDER + "/" + Constants.NEO4J + "/" + ServletConstants.TEMPLATEFOLDER;
+		for (PatternBundle patternbundle: Neo4jPatterns.getAllNeoPatternBundles()) {
+			patternbundle.export(neofolder, ServletConstants.OVERRIDE);
+		}
+		ServletUtilities.log("NEO4J Patterns created:   " + neofolder);
 	}
 
 	private static boolean fileExists(String folder, String id) {

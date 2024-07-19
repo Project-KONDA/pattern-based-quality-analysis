@@ -252,9 +252,9 @@ public class TemplateVariantServlet extends HttpServlet {
 		}
 
 		// 2 load variant list
-		String[] variants = parameterMap.get("variants");
+		String[] variants = parameterMap.get(ConstantsJSON.VARIANTS);
 		if (variants == null) {
-			throw new FailedServletCallException("Parameter 'variants' missing");
+			throw new FailedServletCallException(ConstantsError.NOT_FOUND_VARIANT);
 		}
 
 		// 3 load template
@@ -269,7 +269,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		JSONArray failed = new JSONArray();
 
 		for (String variantName: variants) {
-			boolean done = true;
+			boolean done = false;
 			for (PatternText text: pattern.getText()) {
 				if (variantName.equals(text.getName())) {
 					text.delete();

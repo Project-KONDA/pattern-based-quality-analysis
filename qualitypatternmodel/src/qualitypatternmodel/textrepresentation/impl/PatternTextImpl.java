@@ -40,6 +40,7 @@ import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 /**
@@ -135,12 +136,17 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			throw new InvalidityException("The language of the selected Pattern '" + pattern.getName() + "' is '" + pattern.getLanguage().getLiteral() + "', which does not match '" + language + "'.");
 		}
 
-		// pattern
-		pattern.getText().add(this);
-
 		// name
 		String name = json.getString("name");
 		this.setName(name);
+		for (PatternText text: pattern.getText()) {
+			if (text.getName().equals(name)) {
+				throw new InvalidityException(ConstantsError.DUPLICATE_VARIANT_NAMES);
+			}
+		}
+
+		// pattern
+		pattern.getText().add(this);
 
 		// fragments
 		JSONArray fragments = json.getJSONArray("fragments");
