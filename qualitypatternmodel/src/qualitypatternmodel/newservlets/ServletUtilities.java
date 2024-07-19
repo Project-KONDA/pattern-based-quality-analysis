@@ -37,6 +37,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
@@ -288,7 +289,7 @@ public abstract class ServletUtilities {
 		if (constraint instanceof CompletePattern) {
 			Files.delete(Paths.get(patternpath));
 		} else {
-			throw new IOException(Constants.ERROR_INVALID_FILEFORMAT);
+			throw new IOException(ConstantsError.INVALID_FILEFORMAT);
 		}
 	}
 

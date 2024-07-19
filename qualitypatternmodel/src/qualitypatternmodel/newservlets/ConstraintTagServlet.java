@@ -13,6 +13,7 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
@@ -81,13 +82,13 @@ public class ConstraintTagServlet extends HttpServlet {
 			for (String tag: newTags) {
 				JSONObject object = new JSONObject();
 				if(pattern.getKeywords().contains(tag)) {
-					object.put(tag, Constants.ERROR_DUPLICATE_TAG);
+					object.put(tag, ConstantsError.DUPLICATE_TAG);
 					json.append(ConstantsJSON.FAILED, object);
 				} else {
 					if (pattern.getKeywords().add(tag)) {
 						json.append(ConstantsJSON.SUCCESS, tag);
 					} else {
-						object.put(tag, Constants.ERROR_INVALID_TAG);
+						object.put(tag, ConstantsError.INVALID_TAG);
 						json.append(ConstantsJSON.FAILED, object);
 					}
 				}
@@ -99,7 +100,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		try {
 			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
+			throw new FailedServletCallException(ConstantsError.SAVING_FAILED);
 		}
 		try {
 			json.put(ConstantsJSON.LASTSAVED, timestamp);
@@ -137,13 +138,13 @@ public class ConstraintTagServlet extends HttpServlet {
 			JSONObject object = new JSONObject();
 			try {
 				if (!pattern.getKeywords().contains(tag)) {
-					object.put(tag, Constants.ERROR_NOT_FOUND_TAG);
+					object.put(tag, ConstantsError.NOT_FOUND_TAG);
 					json.append("failed", object);
 				} else {
 					if (pattern.getKeywords().remove(tag)) {
 						json.append("success", tag);
 					} else {
-						object.put(tag, Constants.ERROR_TAG_DELETION_FAILED);
+						object.put(tag, ConstantsError.TAG_DELETION_FAILED);
 						json.append("failed", object);
 					}
 				}
@@ -155,7 +156,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		try {
 			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
+			throw new FailedServletCallException(ConstantsError.SAVING_FAILED);
 		}
 		try {
 			json.put(ConstantsJSON.LASTSAVED, timestamp);

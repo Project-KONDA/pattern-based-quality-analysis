@@ -21,6 +21,7 @@ import qualitypatternmodel.javaquery.impl.JavaFilterImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
@@ -96,17 +97,17 @@ public class ConstraintExecuteServlet extends HttpServlet {
 					JSONObject object = new JSONObject(constraint);
 					if (!object.has(ConstantsJSON.QUERY)) {
 						JSONObject jobject = new JSONObject();
-						jobject.put(constraint, Constants.ERROR_NO_QUERY);
+						jobject.put(constraint, ConstantsError.NO_QUERY);
 						failed.add(jobject);
 					}
 					else if (!object.has(ConstantsJSON.TECHNOLOGY) || !object.get(ConstantsJSON.TECHNOLOGY).equals(Constants.XML)) {
 						JSONObject jobject = new JSONObject();
-						jobject.put(constraint, Constants.ERROR_INVALID_TECHNOLOGY);
+						jobject.put(constraint, ConstantsError.INVALID_TECHNOLOGY);
 						failed.add(jobject);
 					}
 					else if (!object.has(ConstantsJSON.LANGUAGE) || !object.get(ConstantsJSON.LANGUAGE).equals(Constants.XQUERY)) {
 						JSONObject jobject = new JSONObject();
-						jobject.put(constraint, Constants.ERROR_INVALID_LANGUAGE);
+						jobject.put(constraint, ConstantsError.INVALID_LANGUAGE);
 						failed.add(jobject);
 					} else {
 						constraints.add(object);
@@ -122,7 +123,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		}
 
 		if (constraints.isEmpty()) {
-			throw new InvalidServletCallException(Constants.ERROR_INVALID_CONSTRAINTS);
+			throw new InvalidServletCallException(ConstantsError.INVALID_CONSTRAINTS);
 		}
 
 		// verify file existence
@@ -136,7 +137,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 				else {
 					JSONObject jobject = new JSONObject();
 					try {
-						jobject.put(filepath, Constants.ERROR_NOT_FOUND_FILEPATH);
+						jobject.put(filepath, ConstantsError.NOT_FOUND_FILEPATH);
 					} catch (JSONException f) {}
 					failed.add(jobject);
 				}
@@ -144,7 +145,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		}
 
 		if (files.isEmpty()) {
-			throw new InvalidServletCallException(Constants.ERROR_INVALID_FILES);
+			throw new InvalidServletCallException(ConstantsError.INVALID_FILES);
 		}
 
 		ServletUtilities.log("files found: " + files.size());
@@ -196,7 +197,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 			rawResults = executeXQuery(file, query);
 		} catch (InvalidityException e) {
 			e.printStackTrace();
-			throw new FailedServletCallException(Constants.ERROR_QUERY_FAILED, e);
+			throw new FailedServletCallException(ConstantsError.QUERY_FAILED, e);
 		}
 		List<String> result = null;
 

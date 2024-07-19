@@ -32,7 +32,7 @@ import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.ConstantsRdf;
 import qualitypatternmodel.utility.ConstantsXml;
@@ -331,10 +331,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE + condition2Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
 					break;
 				default:
-					throw new InvalidityException(Constants.ERROR_INVALID_OPERATOR);
+					throw new InvalidityException(ConstantsError.INVALID_OPERATOR);
 				}
 			} else {
-				throw new InvalidityException(Constants.ERROR_INVALID_ARGUMENTS);
+				throw new InvalidityException(ConstantsError.INVALID_ARGUMENTS);
 			}
 			if (this.clamped) {
 				cypher.insert(0, ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET);
@@ -342,7 +342,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 			}
 			return cypher.toString();
 		}
-		throw new InvalidityException(Constants.ERROR_OPERATOR_NULL);
+		throw new InvalidityException(ConstantsError.OPERATOR_NULL);
 	}
 	//END - Neo4J
 

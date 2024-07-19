@@ -60,42 +60,6 @@ public class Constants {
 	public static final String PARAMETER_TYPE_NEO_ELEMENT_PATH = "NeoElementPath";
 	public static final String PARAMETER_TYPE_NEO_PROPERTY_PATH = "NeoPropertyPath";
 
-	// Errors
-	public static final String ERROR_OPERATOR_NULL = "operator null";
-	public static final String ERROR_DUPLICATE_TAG = "tag already added";
-	public static final String ERROR_NO_QUERY = "query is missing";
-	public static final String ERROR_TAG_DELETION_FAILED = "tag could not be deleted";
-	public static final String ERROR_SAVING_FAILED = "saving constraint failed";
-	public static final String ERROR_QUERY_FAILED = "querying failed";
-	public static final String ERROR_TOO_MUCH_VALUES = "multiple values for a single parameter";
-	public static final String ERROR_VARIANT_INITIALIZATION_FAILED = "could not initialize Variant";
-	public static final String ERROR_DUPLICATE_VARIANT_NAMES = "there are variants with the same name";
-	public static final String ERROR_NOT_IMPLEMENTED_RDF = "not implemented for RDF";
-	public static final String ERROR_NOT_IMPLEMENTED_NEO = "not implemented for Neo4j";
-
-	// Errors - not found
-	public static final String ERROR_NOT_FOUND_TEMPLATE =  "template not found";
-	public static final String ERROR_NOT_FOUND_CONSTRAINT = "constraint not found";
-	public static final String ERROR_NOT_FOUND_FILEPATH = "filepath not found";
-	public static final String ERROR_NOT_FOUND_PARAMETER = "parameter not found";
-	public static final String ERROR_NOT_FOUND_VARIANT = "variant(s) not found";
-	public static final String ERROR_NOT_FOUND_TAG = "tag not found";
-
-	// Errors - invalid
-	public static final String ERROR_INVALID_CONSTRAINT = "invalid constraint";
-	public static final String ERROR_INVALID_OPTION = "invalid option";
-	public static final String ERROR_INVALID_ARGUMENTS = "invalid arguments";
-	public static final String ERROR_INVALID_VALUE = "invalid value";
-	public static final String ERROR_INVALID_OPERATOR = "invalid operator";
-	public static final String ERROR_INVALID_TAG = "invalid tag";
-	public static final String ERROR_INVALID_TECHNOLOGY = "invalid technology";
-	public static final String ERROR_INVALID_LANGUAGE = "invalid language";
-	public static final String ERROR_INVALID_JSON = "invalid JSON format";
-	public static final String ERROR_INVALID_VARIANT = "invalid variant(s)";
-	public static final String ERROR_INVALID_CONSTRAINTS = "invalid constraints";
-	public static final String ERROR_INVALID_FILES = "invalid files";
-	public static final String ERROR_INVALID_FILEFORMAT = "invalid file format";
-
 	/**
 	 * Appends as many closing brackets to <code>str</code> as it contains opening brackets that are not yet closed.
 	 *

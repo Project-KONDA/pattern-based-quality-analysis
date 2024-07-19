@@ -20,6 +20,7 @@ import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
@@ -145,7 +146,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 
 			} else if (technology.equals(Constants.RDF)) {
 				if (pattern.containsJavaOperator()) {
-					throw new InvalidServletCallException(Constants.ERROR_NOT_IMPLEMENTED_RDF);
+					throw new InvalidServletCallException(ConstantsError.NOT_IMPLEMENTED_RDF);
 				}
 				json.put(ConstantsJSON.LANGUAGE, Constants.SPARQL);
 				String sparql = pattern.generateSparql();
@@ -154,7 +155,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 
 			} else if (technology.equals(Constants.NEO4J)) {
 				if (pattern.containsJavaOperator()) {
-					throw new InvalidServletCallException(Constants.ERROR_NOT_IMPLEMENTED_NEO);
+					throw new InvalidServletCallException(ConstantsError.NOT_IMPLEMENTED_NEO);
 				}
 				json.put(ConstantsJSON.LANGUAGE, Constants.CYPHER);
 				String cypher = pattern.generateCypher();

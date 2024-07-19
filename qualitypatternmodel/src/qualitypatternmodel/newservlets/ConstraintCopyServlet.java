@@ -12,6 +12,7 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
@@ -90,7 +91,7 @@ public class ConstraintCopyServlet extends HttpServlet {
 		ServletUtilities.saveConstraint(technology, newID, pattern);
 
 		if (ServletUtilities.loadConstraint(technology, newID) == null) {
-			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
+			throw new FailedServletCallException(ConstantsError.SAVING_FAILED);
 		}
 
 		return ServletUtilities.getPatternJSON(pattern);

@@ -18,7 +18,7 @@ import qualitypatternmodel.adaptionneo4j.NeoPathPart;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
@@ -183,7 +183,7 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 			setNeoPathPart(part);
 			return;
 		} catch (JSONException e) {
-			throw new InvalidityException(Constants.ERROR_INVALID_VALUE + ": '" + value + "'", e);
+			throw new InvalidityException(ConstantsError.INVALID_VALUE + ": '" + value + "'", e);
 		}
 	}
 

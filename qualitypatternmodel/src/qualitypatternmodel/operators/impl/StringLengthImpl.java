@@ -30,7 +30,7 @@ import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.NumberParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
@@ -113,7 +113,7 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 			String res = "size (" + tempCypherPropertyAddressing + ") " + option.generateCypher() + " " + number.generateCypher();
 			return res;
 		}
-		throw new InvalidityException(Constants.ERROR_INVALID_OPTION);
+		throw new InvalidityException(ConstantsError.INVALID_OPTION);
 	}
 
 	@Override

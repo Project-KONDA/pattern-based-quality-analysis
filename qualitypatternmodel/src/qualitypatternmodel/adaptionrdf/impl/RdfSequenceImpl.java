@@ -24,7 +24,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsRdf;
 
 /**
@@ -104,7 +104,7 @@ public class RdfSequenceImpl extends RdfPathComponentImpl implements RdfSequence
 		try {
 			JSONObject jobj = new JSONObject(value);
 			if (!jobj.has(ConstantsRdf.JSON_RDF_PATH_SEQUENCE)) {
-				throw new InvalidityException(Constants.ERROR_INVALID_VALUE);
+				throw new InvalidityException(ConstantsError.INVALID_VALUE);
 			}
 			JSONArray arr = jobj.getJSONArray(ConstantsRdf.JSON_RDF_PATH_SEQUENCE);
 			if (arr.length() < 2) {
@@ -117,7 +117,7 @@ public class RdfSequenceImpl extends RdfPathComponentImpl implements RdfSequence
 			getItems().clear();
 			getItems().addAll(newItems);
 		} catch (Exception e) {
-			throw new InvalidityException(Constants.ERROR_INVALID_VALUE + ": " + value, e);
+			throw new InvalidityException(ConstantsError.INVALID_VALUE + ": " + value, e);
 		}
 	}
 

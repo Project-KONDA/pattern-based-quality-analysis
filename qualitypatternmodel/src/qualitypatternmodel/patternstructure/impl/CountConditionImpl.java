@@ -42,7 +42,7 @@ import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.ConstantsRdf;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
@@ -223,7 +223,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 
 			return cypher.toString();
 		}
-		throw new InvalidityException(Constants.ERROR_INVALID_OPTION);
+		throw new InvalidityException(ConstantsError.INVALID_OPTION);
 	}
 
 	/**

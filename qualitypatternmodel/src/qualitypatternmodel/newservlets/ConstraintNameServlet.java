@@ -13,6 +13,7 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
@@ -49,7 +50,7 @@ public class ConstraintNameServlet extends HttpServlet {
 
 		String[] newNameArray = parameterMap.get(ConstantsJSON.NAME);
 		if (newNameArray == null || newNameArray.length != 1 || newNameArray[0].equals("")) {
-			throw new InvalidServletCallException(Constants.ERROR_INVALID_VALUE);
+			throw new InvalidServletCallException(ConstantsError.INVALID_VALUE);
 		}
 		String newName = newNameArray[0];
 
@@ -70,7 +71,7 @@ public class ConstraintNameServlet extends HttpServlet {
 		try {
 			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
+			throw new FailedServletCallException(ConstantsError.SAVING_FAILED);
 		}
 
 		JSONObject result = new JSONObject();

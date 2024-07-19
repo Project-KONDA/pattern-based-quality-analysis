@@ -27,6 +27,7 @@ import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.textrepresentation.impl.ValueMapImpl;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
@@ -113,7 +114,7 @@ public class ConstraintServlet extends HttpServlet {
 			throw new FailedServletCallException("constraint '" + constraintId + "' not found", e);
 		}
 		catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-			throw new FailedServletCallException(Constants.ERROR_INVALID_CONSTRAINT, e);
+			throw new FailedServletCallException(ConstantsError.INVALID_CONSTRAINT, e);
 		}
 
 		// 2 return json
@@ -241,7 +242,7 @@ public class ConstraintServlet extends HttpServlet {
 		try {
 			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
+			throw new FailedServletCallException(ConstantsError.SAVING_FAILED);
 		}
 		try {
 			output.put(ConstantsJSON.LASTSAVED, timestamp);
@@ -287,7 +288,7 @@ public class ConstraintServlet extends HttpServlet {
 			if (!found) {
 				JSONObject object = new JSONObject();
 				try {
-					object.put(key, Constants.ERROR_NOT_FOUND_PARAMETER);
+					object.put(key, ConstantsError.NOT_FOUND_PARAMETER);
 				} catch (JSONException f) {}
 				failed.put(object);
 				notfound = true;
@@ -317,7 +318,7 @@ public class ConstraintServlet extends HttpServlet {
 
 	private static void changeParameterFragment(ParameterFragment frag, String[] call_values) throws InvalidityException {
 		if (call_values.length != 1) {
-			throw new InvalidityException(Constants.ERROR_TOO_MUCH_VALUES);
+			throw new InvalidityException(ConstantsError.TOO_MUCH_VALUES);
 		}
 
 		// Old Values

@@ -28,7 +28,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
@@ -224,7 +224,7 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 			}
 			throw new InvalidityException(ConstantsNeo.NO_VALID_PROPERTY_IS_ACCESSABLE);
 		}
-		throw new InvalidityException(Constants.ERROR_INVALID_OPTION);
+		throw new InvalidityException(ConstantsError.INVALID_OPTION);
 	}
 
 	@Override

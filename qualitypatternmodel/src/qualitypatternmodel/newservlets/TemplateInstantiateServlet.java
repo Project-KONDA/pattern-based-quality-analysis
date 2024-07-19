@@ -15,6 +15,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
@@ -84,7 +85,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 					break;
 				} catch (InvalidityException e) {
 					ServletUtilities.logError(e);
-					throw new FailedServletCallException(Constants.ERROR_VARIANT_INITIALIZATION_FAILED + textid, e);
+					throw new FailedServletCallException(ConstantsError.VARIANT_INITIALIZATION_FAILED + textid, e);
 				}
 			}
 		}
@@ -105,7 +106,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		try {
 			ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
+			throw new FailedServletCallException(ConstantsError.SAVING_FAILED);
 		}
 
 		return ServletUtilities.getPatternJSON(pattern);

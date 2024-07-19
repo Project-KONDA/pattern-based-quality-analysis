@@ -13,6 +13,7 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
@@ -68,7 +69,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		try {
 			pattern = ServletUtilities.loadConstraint(technology, constraintId);
 		} catch (IOException e) {
-			throw new FailedServletCallException(Constants.ERROR_NOT_FOUND_CONSTRAINT);
+			throw new FailedServletCallException(ConstantsError.NOT_FOUND_CONSTRAINT);
 		}
 
 		// 2 return database name
@@ -94,7 +95,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 
 		String[] databaseNameArray = parameterMap.get(ConstantsJSON.DATABASE);
 		if (databaseNameArray == null || databaseNameArray.length != 1 || databaseNameArray[0].equals("")) {
-			throw new InvalidServletCallException(Constants.ERROR_INVALID_VALUE);
+			throw new InvalidServletCallException(ConstantsError.INVALID_VALUE);
 		}
 		String newDatabaseName = databaseNameArray[0];
 
@@ -115,7 +116,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		try {
 			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
+			throw new FailedServletCallException(ConstantsError.SAVING_FAILED);
 		}
 
 		JSONObject result = new JSONObject();
