@@ -14,6 +14,7 @@ import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.PatternText;
+import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class TemplateInstantiateServlet extends HttpServlet {
@@ -46,8 +47,8 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		String templateId = pathparts[2];
 		String textid = pathparts[3];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		// 2 load constraint with old name
@@ -58,15 +59,15 @@ public class TemplateInstantiateServlet extends HttpServlet {
 
 		// Optional: set name
 		if (parameterMap != null) {
-			String[] names = parameterMap.get("name");
+			String[] names = parameterMap.get(Constants.JSON_NAME);
 			if (names != null && names[0] != null) {
 				pattern.setName(names[0]);
 			}
-			String[] datamodel = parameterMap.get("datamodel");
+			String[] datamodel = parameterMap.get(Constants.JSON_DATAMODEL);
 			if (datamodel != null && datamodel[0] != null) {
 				pattern.setDataModelName(datamodel[0]);
 			}
-			String[] database = parameterMap.get("database");
+			String[] database = parameterMap.get(Constants.JSON_DATABASE);
 			if (database != null && database[0] != null) {
 				pattern.setDatabaseName(database[0]);
 			}
@@ -82,7 +83,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 					break;
 				} catch (InvalidityException e) {
 					ServletUtilities.logError(e);
-					throw new FailedServletCallException("Could not initialize Variant " + textid, e);
+					throw new FailedServletCallException(Constants.ERROR_VARIANT_INITIALIZATION_FAILED + textid, e);
 				}
 			}
 		}
@@ -103,11 +104,9 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		try {
 			ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException("Failed to create new constraint.");
+			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
 		}
 
-
 		return ServletUtilities.getPatternJSON(pattern);
-//		return "Template '" + templateId + "' instantiated successfully to '" + constraintId + "'.";
 	}
 }

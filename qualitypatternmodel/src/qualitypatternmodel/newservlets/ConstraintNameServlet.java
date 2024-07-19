@@ -42,13 +42,13 @@ public class ConstraintNameServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		String[] newNameArray = parameterMap.get(Constants.JSON_NAME);
 		if (newNameArray == null || newNameArray.length != 1 || newNameArray[0].equals("")) {
-			throw new InvalidServletCallException("Invalid parameter for setting name.");
+			throw new InvalidServletCallException(Constants.ERROR_INVALID_VALUE);
 		}
 		String newName = newNameArray[0];
 
@@ -69,7 +69,7 @@ public class ConstraintNameServlet extends HttpServlet {
 		try {
 			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException("Failed to save new constraint");
+			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
 		}
 
 		JSONObject result = new JSONObject();

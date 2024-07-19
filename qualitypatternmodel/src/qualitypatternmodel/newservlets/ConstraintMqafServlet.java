@@ -58,8 +58,8 @@ public class ConstraintMqafServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		return getJsonStringSchemaFromConstraintIds(new String[] { constraintId }, technology);
@@ -73,8 +73,8 @@ public class ConstraintMqafServlet extends HttpServlet {
 		}
 
 		String technology = pathparts[1];
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		String[] constraintIds = parameterMap.get(Constants.JSON_CONSTRAINTS);

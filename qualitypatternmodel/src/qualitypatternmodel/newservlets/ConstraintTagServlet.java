@@ -60,11 +60,11 @@ public class ConstraintTagServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] newTags = parameterMap.get("tag");
+		String[] newTags = parameterMap.get(Constants.JSON_TAG);
 
 		// 1. load constraint
 		CompletePattern pattern;
@@ -81,13 +81,13 @@ public class ConstraintTagServlet extends HttpServlet {
 				JSONObject object = new JSONObject();
 				if(pattern.getKeywords().contains(tag)) {
 					object.put(tag, Constants.ERROR_DUPLICATE_TAG);
-					json.append("failed", object);
+					json.append(Constants.JSON_FAILED, object);
 				} else {
 					if (pattern.getKeywords().add(tag)) {
-						json.append("success", tag);
+						json.append(Constants.JSON_SUCCESS, tag);
 					} else {
 						object.put(tag, Constants.ERROR_INVALID_TAG);
-						json.append("failed", object);
+						json.append(Constants.JSON_FAILED, object);
 					}
 				}
 			}
@@ -98,7 +98,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		try {
 			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException("Failed to save updated constraint");
+			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
 		}
 		try {
 			json.put(Constants.JSON_LASTSAVED, timestamp);
@@ -116,11 +116,11 @@ public class ConstraintTagServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] deleteTags = parameterMap.get("tag");
+		String[] deleteTags = parameterMap.get(Constants.JSON_TAG);
 
 		// 1. load constraint
 		CompletePattern pattern;
@@ -136,7 +136,7 @@ public class ConstraintTagServlet extends HttpServlet {
 			JSONObject object = new JSONObject();
 			try {
 				if (!pattern.getKeywords().contains(tag)) {
-					object.put(tag, Constants.ERROR_TAG_NOT_FOUND);
+					object.put(tag, Constants.ERROR_NOT_FOUND_TAG);
 					json.append("failed", object);
 				} else {
 					if (pattern.getKeywords().remove(tag)) {
@@ -154,7 +154,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		try {
 			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException("Failed to save updated constraint");
+			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
 		}
 		try {
 			json.put(Constants.JSON_LASTSAVED, timestamp);

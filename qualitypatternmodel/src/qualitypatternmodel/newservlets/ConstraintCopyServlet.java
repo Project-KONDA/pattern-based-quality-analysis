@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.Constants;
 
 @SuppressWarnings("serial")
 public class ConstraintCopyServlet extends HttpServlet {
@@ -49,8 +50,8 @@ public class ConstraintCopyServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String oldID = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		// 1 load constraint with old name
@@ -64,15 +65,15 @@ public class ConstraintCopyServlet extends HttpServlet {
 
 		// Optional: set name
 		if (parameterMap != null) {
-			String[] names = parameterMap.get("name");
+			String[] names = parameterMap.get(Constants.JSON_NAME);
 			if (names != null && names[0] != null) {
 				pattern.setName(names[0]);
 			}
-			String[] datamodel = parameterMap.get("datamodel");
+			String[] datamodel = parameterMap.get(Constants.JSON_DATAMODEL);
 			if (datamodel != null && datamodel[0] != null) {
 				pattern.setDataModelName(datamodel[0]);
 			}
-			String[] database = parameterMap.get("database");
+			String[] database = parameterMap.get(Constants.JSON_DATABASE);
 			if (database != null && database[0] != null) {
 				pattern.setDatabaseName(database[0]);
 			}
@@ -88,7 +89,7 @@ public class ConstraintCopyServlet extends HttpServlet {
 		ServletUtilities.saveConstraint(technology, newID, pattern);
 
 		if (ServletUtilities.loadConstraint(technology, newID) == null) {
-			throw new FailedServletCallException("saving new constraint failed");
+			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
 		}
 
 		return ServletUtilities.getPatternJSON(pattern);

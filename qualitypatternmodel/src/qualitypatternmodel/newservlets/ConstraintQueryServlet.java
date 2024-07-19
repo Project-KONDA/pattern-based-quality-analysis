@@ -60,8 +60,8 @@ public class ConstraintQueryServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		String[] constraintIds = new String[] {constraintId};
@@ -75,8 +75,8 @@ public class ConstraintQueryServlet extends HttpServlet {
 		}
 
 		String technology = pathparts[1];
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		String[] constraintIds = parameterMap.get(Constants.JSON_CONSTRAINTS);
@@ -131,31 +131,31 @@ public class ConstraintQueryServlet extends HttpServlet {
 
 		// 2 query
 		try {
-			if (technology.equals(ServletUtilities.XML)) {
+			if (technology.equals(Constants.XML)) {
 				if (pattern.containsJavaOperator()) {
 					JavaFilter filter = pattern.generateQueryFilter();
 					String serializedFilter = filter.toJson().toString();
 					json.put(Constants.JSON_FILTER, serializedFilter);
 				}
-				json.put(Constants.JSON_LANGUAGE, "XQuery");
+				json.put(Constants.JSON_LANGUAGE, Constants.XQUERY);
 				String xquery = pattern.generateXQuery();
 				json.put(Constants.JSON_QUERY, xquery);
 				json.put(Constants.JSON_QUERY_LINE, makeQueryOneLine(xquery));
 
-			} else if (technology.equals(ServletUtilities.RDF)) {
+			} else if (technology.equals(Constants.RDF)) {
 				if (pattern.containsJavaOperator()) {
-					throw new InvalidServletCallException("Not implemented for RDF.");
+					throw new InvalidServletCallException(Constants.ERROR_NOT_IMPLEMENTED_RDF);
 				}
-				json.put(Constants.JSON_LANGUAGE, "Sparql");
+				json.put(Constants.JSON_LANGUAGE, Constants.SPARQL);
 				String sparql = pattern.generateSparql();
 				json.put(Constants.JSON_QUERY, sparql);
 				json.put(Constants.JSON_QUERY_LINE, makeQueryOneLine(sparql));
 
-			} else if (technology.equals(ServletUtilities.NEO4J)) {
+			} else if (technology.equals(Constants.NEO4J)) {
 				if (pattern.containsJavaOperator()) {
-					throw new InvalidServletCallException("Not implemented for Neo4j.");
+					throw new InvalidServletCallException(Constants.ERROR_NOT_IMPLEMENTED_NEO);
 				}
-				json.put(Constants.JSON_LANGUAGE, "Cypher");
+				json.put(Constants.JSON_LANGUAGE, Constants.CYPHER);
 				String cypher = pattern.generateCypher();
 				json.put(Constants.JSON_QUERY, cypher);
 				json.put(Constants.JSON_QUERY_LINE, makeQueryOneLine(cypher));

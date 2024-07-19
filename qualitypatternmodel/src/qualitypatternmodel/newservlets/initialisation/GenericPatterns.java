@@ -17,7 +17,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.newservlets.ServletUtilities;
+import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.StringLength;
@@ -94,13 +94,13 @@ public class GenericPatterns {
 		pattern.setPatternId(new_id);
 		List<Parameter> params = pattern.getParameterList().getParameters();
 
-		if (ServletUtilities.VALUES && values != null) {
+		if (ServletConstants.VALUES && values != null) {
 			for (Integer index: values.keySet()) {
 				params.get(index).setValueFromString(values.get(index));
 			}
 		}
 
-		if (ServletUtilities.DEFAULT_VARIANTS && variants != null) {
+		if (ServletConstants.DEFAULT_VARIANTS && variants != null) {
 			for (String json: variants) {
 				try {
 					new PatternTextImpl(pattern, new JSONObject(json));
@@ -110,7 +110,7 @@ public class GenericPatterns {
 			}
 		}
 
-		if (ServletUtilities.OLD_VARIANTS && oldvariants != null) {
+		if (ServletConstants.OLD_VARIANTS && oldvariants != null) {
 			for (String json: oldvariants) {
 				try {
 					new PatternTextImpl(pattern, new JSONObject(json));
@@ -144,7 +144,7 @@ public class GenericPatterns {
 		NumberElementImpl ne = new NumberElementImpl();
 		countCondition.setArgument2(ne);
 		ne.createParameters();
-		if (ServletUtilities.VALUES) {
+		if (ServletConstants.VALUES) {
 			ne.getNumberParam().setValue(1.);
 			countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		}
@@ -201,7 +201,7 @@ public class GenericPatterns {
 
 		TextListParamImpl tlp = new TextListParamImpl();
 		element1.addPrimitiveComparison(tlp);
-		if (ServletUtilities.VALUES) {
+		if (ServletConstants.VALUES) {
 			tlp.addStringValue("abc");
 			tlp.addStringValue("def");
 			tlp.addStringValue("ghi");
@@ -296,7 +296,7 @@ public class GenericPatterns {
 		Node element1 = ret.addOutgoing(quantifiedCondition.getGraph()).getTarget().makePrimitive();
 
 		TextLiteralParam tlp = element1.addPrimitiveMatch();
-		if (ServletUtilities.VALUES) {
+		if (ServletConstants.VALUES) {
 			tlp.setValue("[a-zA-Z]*");
 		}
 
@@ -323,7 +323,7 @@ public class GenericPatterns {
 
 		Node element1 = ret.addOutgoing(g2).getTarget().makePrimitive();
 		TextLiteralParam tlp = element1.addPrimitiveContains();
-		if (ServletUtilities.VALUES) {
+		if (ServletConstants.VALUES) {
 			tlp.setValue("abc");
 		}
 
@@ -410,7 +410,7 @@ public class GenericPatterns {
 		countCondition.setArgument2(ne);
 		ne.createParameters();
 
-		if (ServletUtilities.VALUES) {
+		if (ServletConstants.VALUES) {
 			ne.getNumberParam().setValue(1.);
 			countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		}
@@ -489,7 +489,7 @@ public class GenericPatterns {
 
 		StringLength sl = field.addPrimitiveStringLength();
 
-		if (ServletUtilities.VALUES) {
+		if (ServletConstants.VALUES) {
 			sl.getNumber().setValue(1.);
 		}
 

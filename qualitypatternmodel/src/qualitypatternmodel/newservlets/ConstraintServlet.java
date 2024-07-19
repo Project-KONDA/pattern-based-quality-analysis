@@ -98,8 +98,8 @@ public class ConstraintServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		// 1 load constraint
@@ -109,10 +109,10 @@ public class ConstraintServlet extends HttpServlet {
 //			System.out.println(pattern.myToString());
 			pattern.isValid(AbstractionLevel.ABSTRACT);
 		} catch (IOException e) {
-			throw new FailedServletCallException("constraint '" + constraintId + "'not found", e);
+			throw new FailedServletCallException("constraint '" + constraintId + "' not found", e);
 		}
 		catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-			throw new FailedServletCallException("constraint faulty", e);
+			throw new FailedServletCallException(Constants.ERROR_INVALID_CONSTRAINT, e);
 		}
 
 		// 2 return json
@@ -128,8 +128,8 @@ public class ConstraintServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String patternname = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		// 1 check if constraint exists
@@ -161,8 +161,8 @@ public class ConstraintServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		// 1. load Pattern
@@ -221,16 +221,16 @@ public class ConstraintServlet extends HttpServlet {
 		JSONObject output = changeParameters(pattern, parameterMap);
 		try {
 			if (name) {
-				output.getJSONArray("success").put(Constants.JSON_NAME);
+				output.getJSONArray(Constants.JSON_SUCCESS).put(Constants.JSON_NAME);
 			}
 			if (database) {
-				output.getJSONArray("success").put(Constants.JSON_DATABASE);
+				output.getJSONArray(Constants.JSON_SUCCESS).put(Constants.JSON_DATABASE);
 			}
 			if (datamodel) {
-				output.getJSONArray("success").put(Constants.JSON_DATAMODEL);
+				output.getJSONArray(Constants.JSON_SUCCESS).put(Constants.JSON_DATAMODEL);
 			}
 			if (namespaces) {
-				output.getJSONArray("success").put(Constants.JSON_NAMESPACES);
+				output.getJSONArray(Constants.JSON_SUCCESS).put(Constants.JSON_NAMESPACES);
 			}
 		} catch (JSONException e) {
 		}
@@ -240,7 +240,7 @@ public class ConstraintServlet extends HttpServlet {
 		try {
 			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException("Failed to save new constraint");
+			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
 		}
 		try {
 			output.put(Constants.JSON_LASTSAVED, timestamp);
@@ -286,7 +286,7 @@ public class ConstraintServlet extends HttpServlet {
 			if (!found) {
 				JSONObject object = new JSONObject();
 				try {
-					object.put(key, Constants.ERROR_PARAMETER_NOT_FOUND);
+					object.put(key, Constants.ERROR_NOT_FOUND_PARAMETER);
 				} catch (JSONException f) {}
 				failed.put(object);
 				notfound = true;
@@ -316,7 +316,7 @@ public class ConstraintServlet extends HttpServlet {
 
 	private static void changeParameterFragment(ParameterFragment frag, String[] call_values) throws InvalidityException {
 		if (call_values.length != 1) {
-			throw new InvalidityException("multiple values for a single parameter");
+			throw new InvalidityException(Constants.ERROR_TOO_MUCH_VALUES);
 		}
 
 		// Old Values

@@ -58,8 +58,8 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		// 1 load constraint
@@ -67,7 +67,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		try {
 			pattern = ServletUtilities.loadConstraint(technology, constraintId);
 		} catch (IOException e) {
-			throw new FailedServletCallException("constraint not found");
+			throw new FailedServletCallException(Constants.ERROR_NOT_FOUND_CONSTRAINT);
 		}
 
 		// 2 return database name
@@ -87,13 +87,13 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] databaseNameArray = parameterMap.get("database");
+		String[] databaseNameArray = parameterMap.get(Constants.JSON_DATABASE);
 		if (databaseNameArray == null || databaseNameArray.length != 1 || databaseNameArray[0].equals("")) {
-			throw new InvalidServletCallException("Invalid parameter for setting name.");
+			throw new InvalidServletCallException(Constants.ERROR_INVALID_VALUE);
 		}
 		String newDatabaseName = databaseNameArray[0];
 
@@ -114,7 +114,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		try {
 			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException("Failed to save new constraint");
+			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
 		}
 
 		JSONObject result = new JSONObject();

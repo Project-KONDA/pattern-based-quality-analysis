@@ -121,21 +121,21 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		}
 
 		if (constraints.isEmpty()) {
-			throw new InvalidServletCallException("no valid constraints specified");
+			throw new InvalidServletCallException(Constants.ERROR_INVALID_CONSTRAINTS);
 		}
 
 		// verify file existence
 		if (filepaths != null) {
 			for (String filepath: filepaths) {
-				File file = new File(ServletUtilities.FILEFOLDER + "/" + filepath);
+				File file = new File(ServletConstants.FILEFOLDER + "/" + filepath);
 				if (file.exists()) {
 					files.add(file);
-					ServletUtilities.log(ServletUtilities.FILEFOLDER + "/" + filepath + " found");
+					ServletUtilities.log(ServletConstants.FILEFOLDER + "/" + filepath + " found");
 				}
 				else {
 					JSONObject jobject = new JSONObject();
 					try {
-						jobject.put(filepath, Constants.ERROR_FILEPATH_NOT_FOUND);
+						jobject.put(filepath, Constants.ERROR_NOT_FOUND_FILEPATH);
 					} catch (JSONException f) {}
 					failed.add(jobject);
 				}
@@ -143,7 +143,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		}
 
 		if (files.isEmpty()) {
-			throw new InvalidServletCallException("no valid files specified");
+			throw new InvalidServletCallException(Constants.ERROR_INVALID_FILES);
 		}
 
 		ServletUtilities.log("files found: " + files.size());
@@ -195,7 +195,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 			rawResults = executeXQuery(file, query);
 		} catch (InvalidityException e) {
 			e.printStackTrace();
-			throw new FailedServletCallException("Querying failed", e);
+			throw new FailedServletCallException(Constants.ERROR_QUERY_FAILED, e);
 		}
 		List<String> result = null;
 

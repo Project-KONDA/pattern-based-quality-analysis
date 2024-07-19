@@ -19,6 +19,7 @@ import qualitypatternmodel.newservlets.initialisation.RdfPatterns;
 import qualitypatternmodel.newservlets.initialisation.XmlPatterns;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
@@ -55,50 +56,50 @@ public class InitialisationServlet extends HttpServlet {
 	}
 
 	public static void initialisation(ServletContext scon) throws ServletException {
-		String templates = System.getenv().get("TEMPLATE_VOLUME");
-		String files = System.getenv().get("SHARED_VOLUME");
-		ServletUtilities.PATTERNFOLDER = templates == null? scon.getRealPath("/templates") : templates;
-		ServletUtilities.FILEFOLDER = files == null? scon.getRealPath("/files") : files;
+		String templates = System.getenv().get(ServletConstants.ENV_TEMPLATE_VOLUME);
+		String files = System.getenv().get(ServletConstants.ENV_SHARED_VOLUME);
+		ServletConstants.PATTERNFOLDER = templates == null? scon.getRealPath(ServletConstants.PATTERNFOLDER) : templates;
+		ServletConstants.FILEFOLDER = files == null? scon.getRealPath(ServletConstants.FILEFOLDER) : files;
 
-		System.out.println("Files can be found at " + ServletUtilities.PATTERNFOLDER);
+		System.out.println("Files can be found at " + ServletConstants.PATTERNFOLDER);
 		ServletUtilities.log("Initializing ...");
 		try {
-			String genericfolder = ServletUtilities.PATTERNFOLDER + "/generic-patterns";
+			String genericfolder = ServletConstants.PATTERNFOLDER + "/" + ServletConstants.GENERICFOLDER;
 			for (CompletePattern pattern: GenericPatterns.getAllGenericPattern()) {
 				String id = pattern.getPatternId();
-				if (qualitypatternmodel.newservlets.ServletUtilities.OVERRIDE || !fileExists(genericfolder, id)) {
+				if (qualitypatternmodel.newservlets.ServletConstants.OVERRIDE || !fileExists(genericfolder, id)) {
 					pattern.isValid(AbstractionLevel.GENERIC);
-					EMFModelSave.exportToFile2(pattern, genericfolder, id, ServletUtilities.EXTENSION);
+					EMFModelSave.exportToFile2(pattern, genericfolder, id, Constants.EXTENSION);
 				}
 			}
 			ServletUtilities.log("generic Patterns created: " + genericfolder);
 
-			String xmlfolder = ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.XML + "/" + ServletUtilities.TEMPLATEFOLDER;
+			String xmlfolder = ServletConstants.PATTERNFOLDER + "/" + Constants.XML + "/" + ServletConstants.TEMPLATEFOLDER;
 			for (CompletePattern pattern: XmlPatterns.getAllXmlPattern()) {
 				String id = pattern.getPatternId();
 				if (!fileExists(xmlfolder, id)) {
 					pattern.isValid(AbstractionLevel.ABSTRACT);
-					EMFModelSave.exportToFile2(pattern, xmlfolder, id, ServletUtilities.EXTENSION);
+					EMFModelSave.exportToFile2(pattern, xmlfolder, id, Constants.EXTENSION);
 				}
 			}
 			ServletUtilities.log("XML Patterns created:     " + xmlfolder);
 
-			String rdffolder = ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.RDF + "/" + ServletUtilities.TEMPLATEFOLDER;
+			String rdffolder = ServletConstants.PATTERNFOLDER + "/" + Constants.RDF + "/" + ServletConstants.TEMPLATEFOLDER;
 			for (CompletePattern pattern: RdfPatterns.getAllRdfPattern()) {
 				String id = pattern.getPatternId();
 				if (!fileExists(rdffolder, id)) {
 					pattern.isValid(AbstractionLevel.ABSTRACT);
-					EMFModelSave.exportToFile2(pattern, rdffolder, id, ServletUtilities.EXTENSION);
+					EMFModelSave.exportToFile2(pattern, rdffolder, id, Constants.EXTENSION);
 				}
 			}
 			ServletUtilities.log("RDF Patterns created:     " + rdffolder);
 
-			String neofolder = ServletUtilities.PATTERNFOLDER + "/" + ServletUtilities.NEO4J + "/" + ServletUtilities.TEMPLATEFOLDER;
+			String neofolder = ServletConstants.PATTERNFOLDER + "/" + Constants.NEO4J + "/" + ServletConstants.TEMPLATEFOLDER;
 			for (CompletePattern pattern: Neo4jPatterns.getAllNeoPattern()) {
 				String id = pattern.getPatternId();
 				if (!fileExists(neofolder, id)) {
 					pattern.isValid(AbstractionLevel.ABSTRACT);
-					EMFModelSave.exportToFile2(pattern, neofolder, id, ServletUtilities.EXTENSION);
+					EMFModelSave.exportToFile2(pattern, neofolder, id, Constants.EXTENSION);
 				}
 			}
 			ServletUtilities.log("NEO4J Patterns created:   " + neofolder);
@@ -121,7 +122,7 @@ public class InitialisationServlet extends HttpServlet {
 	}
 
 	private static boolean fileExists(String folder, String id) {
-		String filepath = folder + "/" + id + "." + ServletUtilities.EXTENSION;
+		String filepath = folder + "/" + id + "." + Constants.EXTENSION;
 		File file = new File(filepath);
 	    return file.exists();
 	}

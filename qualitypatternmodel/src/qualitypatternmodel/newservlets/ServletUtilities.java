@@ -43,38 +43,6 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 public abstract class ServletUtilities {
 
-	// CONFIG
-	static boolean OVERRIDE = true;
-	public static boolean VALUES = true;
-	public static Boolean DEFAULT_VARIANTS = true;
-	public static Boolean OLD_VARIANTS = false;
-
-	public static String ENV_SAVEFILE = "SAVE_FILENAME";
-	public static String ENV_LOGFILE = "LOG_FILENAME";
-	public static String LOG_FILENAME_DEFAULT = "logfile.log";
-	public static String SAVE_FILENAME_DEFAULT = "savefile.txt";
-	
-	// FILES
-	public static String PATTERNFOLDER =  "/templates";
-	public static String FILEFOLDER =  "/files";
-	public static String SAVE_FILENAME = ((System.getenv(ENV_SAVEFILE) != null)? System.getenv(ENV_SAVEFILE): SAVE_FILENAME_DEFAULT);
-	public static String LOG_FILENAME = ((System.getenv(ENV_LOGFILE) != null)? System.getenv(ENV_LOGFILE): LOG_FILENAME_DEFAULT);
-
-	// Constants
-	public static final String CONSTRAINTFOLDER = "concrete-patterns";
-	public static final String TEMPLATEFOLDER = "abstract-patterns";
-	public static final String EXTENSION = "patternstructure";
-	public static final String XML = Language.XML.getLiteral();
-	public static final String RDF = Language.RDF.getLiteral();
-	public static final String NEO4J = Language.NEO4J.getLiteral();
-	public static final List<String> TECHS = List.of(XML, RDF, NEO4J);
-	public static final String LVLALL = "all";
-	public static final String LVLTEMPLATE = "template";
-	public static final String LVLCONSTRAINT = "concrete";
-	public static final String LVLREADY = "ready";
-	public static final List<String> LEVELS = List.of(LVLALL, LVLTEMPLATE, LVLCONSTRAINT, LVLREADY);
-
-
 	// for efficiency when requested once, the templates do not need to be reloaded that often
 	private static List<CompletePattern> abstractPatternXml = null;
 	private static List<CompletePattern> abstractPatternRdf = null;
@@ -95,23 +63,23 @@ public abstract class ServletUtilities {
 	}
 
 	public static List<CompletePattern> getTemplates(String technology) {
-		String path = PATTERNFOLDER + "/" + technology + "/" + TEMPLATEFOLDER;
+		String path = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
 		try {
-			abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
-			if (technology.equals(XML)) {
+			abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(path, Constants.EXTENSION);
+			if (technology.equals(Constants.XML)) {
 				if (abstractPatternXml == null) {
-					abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
+					abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(path, Constants.EXTENSION);
 				}
 				return abstractPatternXml;
-			} else if (technology.equals(RDF)) {
+			} else if (technology.equals(Constants.RDF)) {
 				if (abstractPatternRdf == null) {
-					abstractPatternRdf = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
+					abstractPatternRdf = EMFModelLoad.loadCompletePatternFromFolder(path, Constants.EXTENSION);
 				}
 				return abstractPatternRdf;
 
-			} else if (technology.equals(NEO4J)) {
+			} else if (technology.equals(Constants.NEO4J)) {
 				if (abstractPatternNeo == null) {
-					abstractPatternNeo = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
+					abstractPatternNeo = EMFModelLoad.loadCompletePatternFromFolder(path, Constants.EXTENSION);
 				}
 				return abstractPatternNeo;
 			} else {
@@ -126,9 +94,9 @@ public abstract class ServletUtilities {
 
 	public static List<CompletePattern> getConstraints(String technology) {
 
-		if (TECHS.contains(technology)) {
+		if (Constants.TECHS.contains(technology)) {
 			try {
-				return EMFModelLoad.loadCompletePatternFromFolder(PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER, EXTENSION);
+				return EMFModelLoad.loadCompletePatternFromFolder(ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER, Constants.EXTENSION);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -245,30 +213,30 @@ public abstract class ServletUtilities {
 	// LOAD SAVE DELETE
 
 	protected static CompletePattern loadConstraint(String technology, String name) throws IOException {
-		String patternpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER + "/" + name + "." + EXTENSION;
+		String patternpath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + name + "." + Constants.EXTENSION;
 		return EMFModelLoad.loadCompletePattern(patternpath);
 	}
 
 	protected static CompletePattern loadTemplate(String technology, String templateId) throws IOException {
-		String folderPath = PATTERNFOLDER + "/" + technology + "/" + TEMPLATEFOLDER;
-		return EMFModelLoad.loadCompletePattern(folderPath, templateId, EXTENSION);
+		String folderPath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
+		return EMFModelLoad.loadCompletePattern(folderPath, templateId, Constants.EXTENSION);
 	}
 
 	public static void saveTemplate(String technology, String templateId, CompletePattern pattern) throws IOException {
-		String folderpath = PATTERNFOLDER + "/" + technology + "/" + TEMPLATEFOLDER;
-		EMFModelSave.exportToFile2(pattern, folderpath, templateId, EXTENSION);
+		String folderpath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
+		EMFModelSave.exportToFile2(pattern, folderpath, templateId, Constants.EXTENSION);
 	}
 
 	public static String saveConstraint(String technology, String constraintId, CompletePattern pattern) throws IOException {
 		pattern.updateLastSaved();
-		String folderpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER;
-		EMFModelSave.exportToFile2(pattern, folderpath, constraintId, EXTENSION);
+		String folderpath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER;
+		EMFModelSave.exportToFile2(pattern, folderpath, constraintId, Constants.EXTENSION);
 		return new Timestamp(pattern.getLastSaved().getTime()).toString();
 	}
 
 	public static String generateNewId(String technology, String templateId, String variantname) throws IOException {
 		String name = technology + "_" + templateId + "_" + variantname;
-		String filepath = PATTERNFOLDER + "/" + SAVE_FILENAME;
+		String filepath = ServletConstants.PATTERNFOLDER + "/" + ServletConstants.SAVE_FILENAME;
 		Integer number;
 		try {
 			number = getNextNumber(filepath, name);
@@ -312,14 +280,14 @@ public abstract class ServletUtilities {
 	}
 
 	public static void deleteConstraint(String technology, String constraintId) throws IOException {
-		String patternpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER + "/" + constraintId + "." + EXTENSION;
+		String patternpath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + constraintId + "." + Constants.EXTENSION;
 //		patternpath = servletContext.getRealPath(patternpath);
 
 		CompletePattern constraint = EMFModelLoad.loadCompletePattern(patternpath);
 		if (constraint instanceof CompletePattern) {
 			Files.delete(Paths.get(patternpath));
 		} else {
-			throw new IOException("Wrong file format");
+			throw new IOException(Constants.ERROR_INVALID_FILEFORMAT);
 		}
 	}
 
@@ -380,7 +348,7 @@ public abstract class ServletUtilities {
 
 	public static void log(String text) {
 		try {
-			String filepath = PATTERNFOLDER + "/" + LOG_FILENAME;
+			String filepath = ServletConstants.PATTERNFOLDER + "/" + ServletConstants.LOG_FILENAME;
 			File file = new File(filepath);
 		    file.getParentFile().mkdirs();
 	        if (!file.exists()) {
