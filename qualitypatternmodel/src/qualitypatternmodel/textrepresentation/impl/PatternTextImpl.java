@@ -40,7 +40,7 @@ import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 /**
  * <!-- begin-user-doc -->
@@ -148,10 +148,10 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		for (int i = 0; i < fragments.length(); i++) {
             JSONObject fragmentObject = fragments.getJSONObject(i);
 
-            boolean hasText = fragmentObject.has(Constants.JSON_TEXT);
-            boolean hasParams = fragmentObject.has(Constants.JSON_PARAMETER);
-            boolean hasName = fragmentObject.has(Constants.JSON_NAME);
-            boolean hasValue = fragmentObject.has(Constants.JSON_VALUE);
+            boolean hasText = fragmentObject.has(ConstantsJSON.TEXT);
+            boolean hasParams = fragmentObject.has(ConstantsJSON.PARAMETER);
+            boolean hasName = fragmentObject.has(ConstantsJSON.NAME);
+            boolean hasValue = fragmentObject.has(ConstantsJSON.VALUE);
 
             if (hasParams && hasName) {
             	addFragment(new ParameterFragmentImpl(pattern, fragmentObject, id_counter));
@@ -160,7 +160,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
             else if (hasParams && hasValue) {
 				getParameterPredefinitions().add(new ParameterPredefinitionImpl(pattern, fragmentObject));
 			} else if (hasText) {
-            	String text = fragmentObject.getString(Constants.JSON_TEXT);
+            	String text = fragmentObject.getString(ConstantsJSON.TEXT);
             	addFragment(new TextFragmentImpl(text));
             } else {
 				throw new InvalidityException("Fragment needs text or params and value or name!");
@@ -322,12 +322,12 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	public JSONObject generateJSONObject() {
 		JSONObject json = new JSONObject();
 		try {
-			json.put(Constants.JSON_NAME, getName());
+			json.put(ConstantsJSON.NAME, getName());
 			JSONArray fragments = new JSONArray();
 			for (Fragment fragment: getFragmentsOrdered()) {
 				fragments.put(fragment.generateJSONObject());
 			}
-			json.put(Constants.JSON_FRAGMENTS, fragments);
+			json.put(ConstantsJSON.FRAGMENTS, fragments);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -344,9 +344,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	public JSONObject generateVariantJSONObject() {
 		JSONObject result = new JSONObject();
 		try {
-			result.put(Constants.JSON_TEMPLATE, getPattern().getAbstractId());
-			result.put(Constants.JSON_LANGUAGE, getPattern().getLanguage());
-			result.put(Constants.JSON_NAME, getName());
+			result.put(ConstantsJSON.TEMPLATE, getPattern().getAbstractId());
+			result.put(ConstantsJSON.LANGUAGE, getPattern().getLanguage());
+			result.put(ConstantsJSON.NAME, getName());
 
 			JSONArray fragments = new JSONArray();
 

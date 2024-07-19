@@ -13,6 +13,7 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class ConstraintDataModelServlet extends HttpServlet {
@@ -73,7 +74,7 @@ public class ConstraintDataModelServlet extends HttpServlet {
 		// 2 return datamodel name
 		JSONObject result = new JSONObject();
 		try {
-			result.put(Constants.JSON_DATAMODEL, pattern.getDataModelName());
+			result.put(ConstantsJSON.DATAMODEL, pattern.getDataModelName());
 		} catch (JSONException e) {}
 		return result;
 	}
@@ -119,10 +120,10 @@ public class ConstraintDataModelServlet extends HttpServlet {
 
 		JSONObject result = new JSONObject();
 		try {
-			result.put(Constants.JSON_CONSTRAINT_ID, pattern.getPatternId());
-			result.put(Constants.JSON_OLD_DATAMODEL, oldDataModelName);
-			result.put(Constants.JSON_DATAMODEL, newDataModelName);
-			result.put(Constants.JSON_LASTSAVED, timestamp);
+			result.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
+			result.put(ConstantsJSON.OLD_DATAMODEL, oldDataModelName);
+			result.put(ConstantsJSON.DATAMODEL, newDataModelName);
+			result.put(ConstantsJSON.LASTSAVED, timestamp);
 		} catch (JSONException e) {}
 
 		return result;

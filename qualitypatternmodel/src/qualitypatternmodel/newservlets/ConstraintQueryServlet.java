@@ -20,6 +20,7 @@ import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class ConstraintQueryServlet extends HttpServlet {
@@ -79,7 +80,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] constraintIds = parameterMap.get(Constants.JSON_CONSTRAINTS);
+		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINTS);
 
 		Set<String> constraintIdSet;
 		if (constraintIds == null) {
@@ -104,7 +105,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 				pattern.isValid(AbstractionLevel.CONCRETE);
 			// 2 generate query
 				JSONObject queryJson = generateQueryJson(pattern, technology);
-				result.append(Constants.JSON_CONSTRAINTS, queryJson);
+				result.append(ConstantsJSON.CONSTRAINTS, queryJson);
 			} catch (Exception e) {
 				JSONObject object = new JSONObject();
 				try {
@@ -114,7 +115,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 			}
 		}
 		try {
-			result.put(Constants.JSON_FAILED, failed);
+			result.put(ConstantsJSON.FAILED, failed);
 		} catch (JSONException e) {}
 		return result;
 	}
@@ -123,11 +124,11 @@ public class ConstraintQueryServlet extends HttpServlet {
 	static JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
 		JSONObject json = new JSONObject();
 
-		json.put(Constants.JSON_NAME, pattern.getName());
-		json.put(Constants.JSON_PATTERNID, pattern.getPatternId());
+		json.put(ConstantsJSON.NAME, pattern.getName());
+		json.put(ConstantsJSON.PATTERNID, pattern.getPatternId());
 
 		// 1 technology
-		json.put(Constants.JSON_TECHNOLOGY, pattern.getLanguage().getLiteral());
+		json.put(ConstantsJSON.TECHNOLOGY, pattern.getLanguage().getLiteral());
 
 		// 2 query
 		try {
@@ -135,30 +136,30 @@ public class ConstraintQueryServlet extends HttpServlet {
 				if (pattern.containsJavaOperator()) {
 					JavaFilter filter = pattern.generateQueryFilter();
 					String serializedFilter = filter.toJson().toString();
-					json.put(Constants.JSON_FILTER, serializedFilter);
+					json.put(ConstantsJSON.FILTER, serializedFilter);
 				}
-				json.put(Constants.JSON_LANGUAGE, Constants.XQUERY);
+				json.put(ConstantsJSON.LANGUAGE, Constants.XQUERY);
 				String xquery = pattern.generateXQuery();
-				json.put(Constants.JSON_QUERY, xquery);
-				json.put(Constants.JSON_QUERY_LINE, makeQueryOneLine(xquery));
+				json.put(ConstantsJSON.QUERY, xquery);
+				json.put(ConstantsJSON.QUERY_LINE, makeQueryOneLine(xquery));
 
 			} else if (technology.equals(Constants.RDF)) {
 				if (pattern.containsJavaOperator()) {
 					throw new InvalidServletCallException(Constants.ERROR_NOT_IMPLEMENTED_RDF);
 				}
-				json.put(Constants.JSON_LANGUAGE, Constants.SPARQL);
+				json.put(ConstantsJSON.LANGUAGE, Constants.SPARQL);
 				String sparql = pattern.generateSparql();
-				json.put(Constants.JSON_QUERY, sparql);
-				json.put(Constants.JSON_QUERY_LINE, makeQueryOneLine(sparql));
+				json.put(ConstantsJSON.QUERY, sparql);
+				json.put(ConstantsJSON.QUERY_LINE, makeQueryOneLine(sparql));
 
 			} else if (technology.equals(Constants.NEO4J)) {
 				if (pattern.containsJavaOperator()) {
 					throw new InvalidServletCallException(Constants.ERROR_NOT_IMPLEMENTED_NEO);
 				}
-				json.put(Constants.JSON_LANGUAGE, Constants.CYPHER);
+				json.put(ConstantsJSON.LANGUAGE, Constants.CYPHER);
 				String cypher = pattern.generateCypher();
-				json.put(Constants.JSON_QUERY, cypher);
-				json.put(Constants.JSON_QUERY_LINE, makeQueryOneLine(cypher));
+				json.put(ConstantsJSON.QUERY, cypher);
+				json.put(ConstantsJSON.QUERY_LINE, makeQueryOneLine(cypher));
 
 			} else {
 				throw new InvalidServletCallException();

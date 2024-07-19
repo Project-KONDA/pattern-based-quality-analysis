@@ -13,6 +13,7 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class ConstraintDatabaseServlet extends HttpServlet {
@@ -73,7 +74,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		// 2 return database name
 		JSONObject result = new JSONObject();
 		try {
-			result.put(Constants.JSON_DATABASE, pattern.getDatabaseName());
+			result.put(ConstantsJSON.DATABASE, pattern.getDatabaseName());
 		} catch (JSONException e) {}
 		return result;
 	}
@@ -91,7 +92,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] databaseNameArray = parameterMap.get(Constants.JSON_DATABASE);
+		String[] databaseNameArray = parameterMap.get(ConstantsJSON.DATABASE);
 		if (databaseNameArray == null || databaseNameArray.length != 1 || databaseNameArray[0].equals("")) {
 			throw new InvalidServletCallException(Constants.ERROR_INVALID_VALUE);
 		}
@@ -119,10 +120,10 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 
 		JSONObject result = new JSONObject();
 		try {
-			result.put(Constants.JSON_CONSTRAINT_ID, pattern.getPatternId());
-			result.put(Constants.JSON_OLD_DATABASE, oldDatabaseName);
-			result.put(Constants.JSON_DATABASE, newDatabaseName);
-			result.put(Constants.JSON_LASTSAVED, timestamp);
+			result.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
+			result.put(ConstantsJSON.OLD_DATABASE, oldDatabaseName);
+			result.put(ConstantsJSON.DATABASE, newDatabaseName);
+			result.put(ConstantsJSON.LASTSAVED, timestamp);
 		} catch (JSONException e) {}
 
 		return result;

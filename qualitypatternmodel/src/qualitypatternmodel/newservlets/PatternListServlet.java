@@ -14,6 +14,7 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class PatternListServlet extends HttpServlet {
@@ -64,7 +65,7 @@ public class PatternListServlet extends HttpServlet {
 			}
 		}
 		if (patterns == null) {
-			throw new FailedServletCallException("No " + ((level == Constants.LVLTEMPLATE)? Constants.JSON_TEMPLATE: Constants.JSON_CONSTRAINT) + " found for the technology " + technology + " on level " + level + ".");
+			throw new FailedServletCallException("No " + ((level == Constants.LVLTEMPLATE)? ConstantsJSON.TEMPLATE: ConstantsJSON.CONSTRAINT) + " found for the technology " + technology + " on level " + level + ".");
 		}
 
 		return ServletUtilities.getPatternListJSON(patterns);

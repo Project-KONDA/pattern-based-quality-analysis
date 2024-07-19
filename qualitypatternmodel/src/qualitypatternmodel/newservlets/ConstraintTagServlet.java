@@ -13,6 +13,7 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class ConstraintTagServlet extends HttpServlet {
@@ -64,7 +65,7 @@ public class ConstraintTagServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] newTags = parameterMap.get(Constants.JSON_TAG);
+		String[] newTags = parameterMap.get(ConstantsJSON.TAG);
 
 		// 1. load constraint
 		CompletePattern pattern;
@@ -81,13 +82,13 @@ public class ConstraintTagServlet extends HttpServlet {
 				JSONObject object = new JSONObject();
 				if(pattern.getKeywords().contains(tag)) {
 					object.put(tag, Constants.ERROR_DUPLICATE_TAG);
-					json.append(Constants.JSON_FAILED, object);
+					json.append(ConstantsJSON.FAILED, object);
 				} else {
 					if (pattern.getKeywords().add(tag)) {
-						json.append(Constants.JSON_SUCCESS, tag);
+						json.append(ConstantsJSON.SUCCESS, tag);
 					} else {
 						object.put(tag, Constants.ERROR_INVALID_TAG);
-						json.append(Constants.JSON_FAILED, object);
+						json.append(ConstantsJSON.FAILED, object);
 					}
 				}
 			}
@@ -101,7 +102,7 @@ public class ConstraintTagServlet extends HttpServlet {
 			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
 		}
 		try {
-			json.put(Constants.JSON_LASTSAVED, timestamp);
+			json.put(ConstantsJSON.LASTSAVED, timestamp);
 		} catch (JSONException e) {}
 
 		return json;
@@ -120,7 +121,7 @@ public class ConstraintTagServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] deleteTags = parameterMap.get(Constants.JSON_TAG);
+		String[] deleteTags = parameterMap.get(ConstantsJSON.TAG);
 
 		// 1. load constraint
 		CompletePattern pattern;
@@ -157,7 +158,7 @@ public class ConstraintTagServlet extends HttpServlet {
 			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
 		}
 		try {
-			json.put(Constants.JSON_LASTSAVED, timestamp);
+			json.put(ConstantsJSON.LASTSAVED, timestamp);
 		} catch (JSONException e) {}
 
 		return json;

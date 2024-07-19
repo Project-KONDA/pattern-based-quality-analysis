@@ -19,6 +19,7 @@ import qualitypatternmodel.mqaftranslation.MqafTranslation;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class ConstraintMqafServlet extends HttpServlet {
@@ -77,7 +78,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] constraintIds = parameterMap.get(Constants.JSON_CONSTRAINTS);
+		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINTS);
 
 		return getJsonStringSchemaFromConstraintIds(constraintIds, technology);
 	}
@@ -117,10 +118,10 @@ public class ConstraintMqafServlet extends HttpServlet {
 		// 4 return merged schema as JSON
 		JSONObject jobj = new JSONObject();
 		try {
-			jobj.put(Constants.JSON_FAILED, failed);
+			jobj.put(ConstantsJSON.FAILED, failed);
 			if (mergedSchema != null) {
 				JSONObject constraint = new JSONObject(ConfigurationReader.toJson(mergedSchema));
-				jobj.put(Constants.JSON_CONSTRAINT, constraint);
+				jobj.put(ConstantsJSON.CONSTRAINT, constraint);
 			}	
 		} catch (JSONException e) {}
 		return jobj;

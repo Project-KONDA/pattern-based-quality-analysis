@@ -21,6 +21,7 @@ import qualitypatternmodel.javaquery.impl.JavaFilterImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class ConstraintExecuteServlet extends HttpServlet {
@@ -58,9 +59,9 @@ public class ConstraintExecuteServlet extends HttpServlet {
 
 	public static JSONArray applyGetXml(String path, String technology, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		// get parameters
-		String[] filepaths = parameterMap.get(Constants.JSON_FILES);
-		String[] constraintsCompiled = parameterMap.get(Constants.JSON_CONSTRAINTS);
-		String[] constraintIDs = parameterMap.get(Constants.JSON_CONSTRAINT_IDS);
+		String[] filepaths = parameterMap.get(ConstantsJSON.FILES);
+		String[] constraintsCompiled = parameterMap.get(ConstantsJSON.CONSTRAINTS);
+		String[] constraintIDs = parameterMap.get(ConstantsJSON.CONSTRAINT_IDS);
 
 		// setup
 		ArrayList<JSONObject> constraints = new ArrayList<JSONObject>();
@@ -93,17 +94,17 @@ public class ConstraintExecuteServlet extends HttpServlet {
 			for (String constraint: constraintsCompiled) {
 				try {
 					JSONObject object = new JSONObject(constraint);
-					if (!object.has(Constants.JSON_QUERY)) {
+					if (!object.has(ConstantsJSON.QUERY)) {
 						JSONObject jobject = new JSONObject();
 						jobject.put(constraint, Constants.ERROR_NO_QUERY);
 						failed.add(jobject);
 					}
-					else if (!object.has(Constants.JSON_TECHNOLOGY) || !object.get(Constants.JSON_TECHNOLOGY).equals(Constants.XML)) {
+					else if (!object.has(ConstantsJSON.TECHNOLOGY) || !object.get(ConstantsJSON.TECHNOLOGY).equals(Constants.XML)) {
 						JSONObject jobject = new JSONObject();
 						jobject.put(constraint, Constants.ERROR_INVALID_TECHNOLOGY);
 						failed.add(jobject);
 					}
-					else if (!object.has(Constants.JSON_LANGUAGE) || !object.get(Constants.JSON_LANGUAGE).equals(Constants.XQUERY)) {
+					else if (!object.has(ConstantsJSON.LANGUAGE) || !object.get(ConstantsJSON.LANGUAGE).equals(Constants.XQUERY)) {
 						JSONObject jobject = new JSONObject();
 						jobject.put(constraint, Constants.ERROR_INVALID_LANGUAGE);
 						failed.add(jobject);
@@ -165,9 +166,9 @@ public class ConstraintExecuteServlet extends HttpServlet {
 
 		JSONObject object = new JSONObject();
 		try {
-			object.put(Constants.JSON_RESULT, results);
+			object.put(ConstantsJSON.RESULT, results);
 			if (!failed.isEmpty()) {
-				object.put(Constants.JSON_FAILED, failed);
+				object.put(ConstantsJSON.FAILED, failed);
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -179,16 +180,16 @@ public class ConstraintExecuteServlet extends HttpServlet {
 	private static JSONObject queryFileToJSONObject (File file, JSONObject constraint) throws JSONException, FailedServletCallException {
 		ServletUtilities.log( "query file [" + file.getAbsolutePath()  + "] with constraint [" + constraint + "]");
 		JSONObject object = new JSONObject();
-		String query = constraint.getString(Constants.JSON_QUERY);
-		String language = constraint.getString(Constants.JSON_LANGUAGE);
-		String technology = constraint.getString(Constants.JSON_TECHNOLOGY);
+		String query = constraint.getString(ConstantsJSON.QUERY);
+		String language = constraint.getString(ConstantsJSON.LANGUAGE);
+		String technology = constraint.getString(ConstantsJSON.TECHNOLOGY);
 
-		object.put(Constants.JSON_FILE, file.getName());
-		object.put(Constants.JSON_CONSTRAINT_ID, constraint.getString(Constants.JSON_ID));
-		object.put(Constants.JSON_CONSTRAINT_NAME, constraint.getString(Constants.JSON_NAME));
-		object.put(Constants.JSON_QUERY, query);
-		object.put(Constants.JSON_LANGUAGE, language);
-		object.put(Constants.JSON_TECHNOLOGY, technology);
+		object.put(ConstantsJSON.FILE, file.getName());
+		object.put(ConstantsJSON.CONSTRAINT_ID, constraint.getString(ConstantsJSON.ID));
+		object.put(ConstantsJSON.CONSTRAINT_NAME, constraint.getString(ConstantsJSON.NAME));
+		object.put(ConstantsJSON.QUERY, query);
+		object.put(ConstantsJSON.LANGUAGE, language);
+		object.put(ConstantsJSON.TECHNOLOGY, technology);
 
 		List<String> rawResults;
 		try {
@@ -199,17 +200,17 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		}
 		List<String> result = null;
 
-		if (constraint.has(Constants.JSON_FILTER)) {
-			String filterstring = constraint.getString(Constants.JSON_FILTER);
-			object.put(Constants.JSON_FILTER, filterstring);
+		if (constraint.has(ConstantsJSON.FILTER)) {
+			String filterstring = constraint.getString(ConstantsJSON.FILTER);
+			object.put(ConstantsJSON.FILTER, filterstring);
 			JavaFilter filter;
 			try {
 				filter = JavaFilterImpl.fromJson(filterstring);
 				filter.createInterimResultContainerXQuery(rawResults);
 				result = filter.filterQueryResults();
 			} catch (InvalidityException e) {
-				if (constraint.has(Constants.JSON_ID)) {
-					throw new FailedServletCallException("Invalid filter in " + constraint.getString(Constants.JSON_ID));
+				if (constraint.has(ConstantsJSON.ID)) {
+					throw new FailedServletCallException("Invalid filter in " + constraint.getString(ConstantsJSON.ID));
 				} else {
 					throw new FailedServletCallException("Invalid filter in " + constraint.toString());
 				}
@@ -226,8 +227,8 @@ public class ConstraintExecuteServlet extends HttpServlet {
 			throw new FailedServletCallException();
 		}
 
-		object.put(Constants.JSON_RESULT, result);
-		object.put(Constants.JSON_SIZE, result.size());
+		object.put(ConstantsJSON.RESULT, result);
+		object.put(ConstantsJSON.SIZE, result.size());
 		return object;
 	}
 

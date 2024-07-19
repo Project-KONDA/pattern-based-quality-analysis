@@ -37,6 +37,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
 //import qualitypatternmodel.utility.EMFModelSave;
@@ -129,9 +130,9 @@ public abstract class ServletUtilities {
 				ids.put(pattern.getPatternId());
 				templates.put(getPatternJSON(pattern));
 			}
-			json.put(Constants.JSON_TEMPLATES, templates);
-			json.put(Constants.JSON_SIZE, patterns.size());
-			json.put(Constants.JSON_IDS, ids);
+			json.put(ConstantsJSON.TEMPLATES, templates);
+			json.put(ConstantsJSON.SIZE, patterns.size());
+			json.put(ConstantsJSON.IDS, ids);
 		} catch (JSONException e) {}
 		return json;
 	}
@@ -139,25 +140,25 @@ public abstract class ServletUtilities {
 	public static JSONObject getPatternJSON(CompletePattern pattern) {
 		JSONObject json = new JSONObject();
 		try {
-			json.put(Constants.JSON_PATTERNID, pattern.getPatternId());
-			json.put(Constants.JSON_NAME, pattern.getName());
-			json.put(Constants.JSON_DESCRIPTION, pattern.getDescription());
-			json.put(Constants.JSON_LANGUAGE, pattern.getLanguage());
+			json.put(ConstantsJSON.PATTERNID, pattern.getPatternId());
+			json.put(ConstantsJSON.NAME, pattern.getName());
+			json.put(ConstantsJSON.DESCRIPTION, pattern.getDescription());
+			json.put(ConstantsJSON.LANGUAGE, pattern.getLanguage());
 			if (pattern.getLastSaved() != null) {
-				json.put(Constants.JSON_LASTSAVED, new Timestamp(pattern.getLastSaved().getTime()).toString());
+				json.put(ConstantsJSON.LASTSAVED, new Timestamp(pattern.getLastSaved().getTime()).toString());
 			}
 			if (pattern.getNamespaces() != null) {
-				json.put(Constants.JSON_NAMESPACES, pattern.getNamespaces().generateJSONObject());
+				json.put(ConstantsJSON.NAMESPACES, pattern.getNamespaces().generateJSONObject());
 			}
 			if (pattern.getDatabaseName() != null) {
-				json.put(Constants.JSON_DATABASE, pattern.getDatabaseName());
+				json.put(ConstantsJSON.DATABASE, pattern.getDatabaseName());
 			}
 			if (pattern.getDataModelName() != null) {
-				json.put(Constants.JSON_DATAMODEL, pattern.getDataModelName());
+				json.put(ConstantsJSON.DATAMODEL, pattern.getDataModelName());
 			}
 			if (pattern.getKeywords() != null && !pattern.getKeywords().isEmpty()) {
 				JSONArray tags = new JSONArray(pattern.getKeywords());
-				json.put(Constants.JSON_TAG, tags);
+				json.put(ConstantsJSON.TAG, tags);
 			}
 
 			Boolean mqaf = false;
@@ -177,17 +178,17 @@ public abstract class ServletUtilities {
 			}
 			catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {}
 
-			json.put(Constants.JSON_EXECUTABLE , mqaf || query || filter);
-			json.put(Constants.JSON_EXECUTABLE_MQAF, mqaf);
-			json.put(Constants.JSON_EXECUTABLE_QUERY, query);
-			json.put(Constants.JSON_EXECUTABLE_FILTER, filter);
+			json.put(ConstantsJSON.EXECUTABLE , mqaf || query || filter);
+			json.put(ConstantsJSON.EXECUTABLE_MQAF, mqaf);
+			json.put(ConstantsJSON.EXECUTABLE_QUERY, query);
+			json.put(ConstantsJSON.EXECUTABLE_FILTER, filter);
 
 
 			JSONArray variants = new JSONArray();
 			for (PatternText text: pattern.getText()) {
 				variants.put(text.generateJSONObject());
 			}
-			json.put(Constants.JSON_VARIANTS, variants);
+			json.put(ConstantsJSON.VARIANTS, variants);
 		} catch (JSONException e) {}
 		return json;
 	}
@@ -203,9 +204,9 @@ public abstract class ServletUtilities {
 	public static JSONObject getPatternJSONHead(CompletePattern pattern) {
 		JSONObject json = new JSONObject();
 		try {
-			json.put(Constants.JSON_PATTERNID, pattern.getPatternId());
-			json.put(Constants.JSON_NAME, pattern.getName());
-			json.put(Constants.JSON_DESCRIPTION, pattern.getDescription());
+			json.put(ConstantsJSON.PATTERNID, pattern.getPatternId());
+			json.put(ConstantsJSON.NAME, pattern.getName());
+			json.put(ConstantsJSON.DESCRIPTION, pattern.getDescription());
 		} catch (JSONException e) {}
 		return json;
 	}

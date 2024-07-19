@@ -11,7 +11,7 @@ import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.textrepresentation.TextFragment;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 /**
  * <!-- begin-user-doc -->
@@ -186,7 +186,7 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 	public JSONObject generateVariantJSONObject() {
 		JSONObject object = new JSONObject();
 		try {
-			object.put(Constants.JSON_TEXT, getText());
+			object.put(ConstantsJSON.TEXT, getText());
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

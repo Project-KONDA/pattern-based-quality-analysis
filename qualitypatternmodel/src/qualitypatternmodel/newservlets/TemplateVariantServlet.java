@@ -24,6 +24,7 @@ import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class TemplateVariantServlet extends HttpServlet {
@@ -130,8 +131,8 @@ public class TemplateVariantServlet extends HttpServlet {
 
 		JSONObject result = new JSONObject();
 		try {
-			result.put(Constants.JSON_VARIANTS, variants);
-			result.put(Constants.JSON_PARAMETER, parameter);
+			result.put(ConstantsJSON.VARIANTS, variants);
+			result.put(ConstantsJSON.PARAMETER, parameter);
 		} catch (JSONException e) {}
 
 		return result;
@@ -152,7 +153,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		}
 
 		// 2 load json
-		String[] variants = parameterMap.get(Constants.JSON_VARIANTS);
+		String[] variants = parameterMap.get(ConstantsJSON.VARIANTS);
 		if (variants == null) {
 			throw new FailedServletCallException(Constants.ERROR_NOT_FOUND_VARIANT);
 		}
@@ -172,7 +173,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		for (String variant: variants) {
 			try {
 				JSONObject json = new JSONObject(variant);
-				variantNames.add(json.getString(Constants.JSON_NAME));
+				variantNames.add(json.getString(ConstantsJSON.NAME));
 			} catch (Exception e) {
 				throw new FailedServletCallException(Constants.ERROR_INVALID_JSON, e);
 			}
@@ -296,8 +297,8 @@ public class TemplateVariantServlet extends HttpServlet {
 		// 6 return results
 		JSONObject object = new JSONObject();
 		try {
-			object.put(Constants.JSON_SUCCESS, success);
-			object.put(Constants.JSON_FAILED, failed);
+			object.put(ConstantsJSON.SUCCESS, success);
+			object.put(ConstantsJSON.FAILED, failed);
 		} catch (Exception e) {}
 		return object;
 	}

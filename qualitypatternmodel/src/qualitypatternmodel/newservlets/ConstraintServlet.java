@@ -27,6 +27,7 @@ import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.textrepresentation.impl.ValueMapImpl;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class ConstraintServlet extends HttpServlet {
@@ -177,31 +178,31 @@ public class ConstraintServlet extends HttpServlet {
 		Boolean name = false, database = false, datamodel = false, namespaces = false;
 
 		// name?
-		String[] nameArray = parameterMap.get(Constants.JSON_NAME);
+		String[] nameArray = parameterMap.get(ConstantsJSON.NAME);
 		if (nameArray != null && nameArray.length == 1 && !nameArray[0].equals("")) {
 			String newName = nameArray[0];
 			pattern.setName(newName);
 			name = true;
-			parameterMap.remove(Constants.JSON_NAME);
+			parameterMap.remove(ConstantsJSON.NAME);
 		}
 		// database?
-		String[] databaseArray = parameterMap.get(Constants.JSON_DATABASE);
+		String[] databaseArray = parameterMap.get(ConstantsJSON.DATABASE);
 		if (databaseArray != null && databaseArray.length == 1 && !databaseArray[0].equals("")) {
 			String newDatabase = databaseArray[0];
 			pattern.setDatabaseName(newDatabase);
 			database = true;
-			parameterMap.remove(Constants.JSON_DATABASE);
+			parameterMap.remove(ConstantsJSON.DATABASE);
 		}
 		// datamodel?
-		String[] datamodelArray = parameterMap.get(Constants.JSON_DATAMODEL);
+		String[] datamodelArray = parameterMap.get(ConstantsJSON.DATAMODEL);
 		if (datamodelArray != null && datamodelArray.length == 1 && !datamodelArray[0].equals("")) {
 			String newDatamodel = datamodelArray[0];
 			pattern.setDataModelName(newDatamodel);
 			datamodel = true;
-			parameterMap.remove(Constants.JSON_DATAMODEL);
+			parameterMap.remove(ConstantsJSON.DATAMODEL);
 		}
 		// namespaces?
-		String[] namespacesArray = parameterMap.get(Constants.JSON_NAMESPACES);
+		String[] namespacesArray = parameterMap.get(ConstantsJSON.NAMESPACES);
 		if (namespacesArray != null && namespacesArray.length == 1 && !namespacesArray[0].equals("")) {
 			try {
 				JSONObject object = new JSONObject(namespacesArray[0]);
@@ -213,7 +214,7 @@ public class ConstraintServlet extends HttpServlet {
 				vm.clear();
 				vm.setValuesFromJSONObject(object);
 		        namespaces = true;
-				parameterMap.remove(Constants.JSON_NAMESPACES);
+				parameterMap.remove(ConstantsJSON.NAMESPACES);
 			} catch (JSONException e) {
 			}
 		}
@@ -221,16 +222,16 @@ public class ConstraintServlet extends HttpServlet {
 		JSONObject output = changeParameters(pattern, parameterMap);
 		try {
 			if (name) {
-				output.getJSONArray(Constants.JSON_SUCCESS).put(Constants.JSON_NAME);
+				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.NAME);
 			}
 			if (database) {
-				output.getJSONArray(Constants.JSON_SUCCESS).put(Constants.JSON_DATABASE);
+				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.DATABASE);
 			}
 			if (datamodel) {
-				output.getJSONArray(Constants.JSON_SUCCESS).put(Constants.JSON_DATAMODEL);
+				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.DATAMODEL);
 			}
 			if (namespaces) {
-				output.getJSONArray(Constants.JSON_SUCCESS).put(Constants.JSON_NAMESPACES);
+				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.NAMESPACES);
 			}
 		} catch (JSONException e) {
 		}
@@ -243,7 +244,7 @@ public class ConstraintServlet extends HttpServlet {
 			throw new FailedServletCallException(Constants.ERROR_SAVING_FAILED);
 		}
 		try {
-			output.put(Constants.JSON_LASTSAVED, timestamp);
+			output.put(ConstantsJSON.LASTSAVED, timestamp);
 		} catch (JSONException e) {}
 
 		return output;
@@ -322,7 +323,7 @@ public class ConstraintServlet extends HttpServlet {
 		// Old Values
 		String oldValue = null;
 		try {
-			oldValue = frag.getAttributeValue(Constants.JSON_VALUE);
+			oldValue = frag.getAttributeValue(ConstantsJSON.VALUE);
 		} catch (InvalidityException e) {}
 
 		// input
@@ -340,18 +341,18 @@ public class ConstraintServlet extends HttpServlet {
 
 		HashMap<String, String> jsonMap = convertJSONObjectToHashMap(ob);
 		for (String key: jsonMap.keySet()) {
-			if (key != Constants.JSON_VALUE && key != Constants.JSON_USERVALUE) {
+			if (key != ConstantsJSON.VALUE && key != ConstantsJSON.USERVALUE) {
 				frag.setAttributeValue(key, jsonMap.get(key));
 			}
 		}
 
-		if(jsonMap.containsKey(Constants.JSON_CLEAR)) {
+		if(jsonMap.containsKey(ConstantsJSON.CLEAR)) {
 			frag.clearValue();
-		} else if(jsonMap.containsKey(Constants.JSON_VALUE)) {
+		} else if(jsonMap.containsKey(ConstantsJSON.VALUE)) {
 			try {
-				frag.setValue(jsonMap.get(Constants.JSON_VALUE));
-				if (jsonMap.containsKey(Constants.JSON_USERVALUE)) {
-					frag.setUserValue(jsonMap.get(Constants.JSON_USERVALUE));
+				frag.setValue(jsonMap.get(ConstantsJSON.VALUE));
+				if (jsonMap.containsKey(ConstantsJSON.USERVALUE)) {
+					frag.setUserValue(jsonMap.get(ConstantsJSON.USERVALUE));
 				}
 			} catch (InvalidityException e) {
 				frag.setValue(oldValue);

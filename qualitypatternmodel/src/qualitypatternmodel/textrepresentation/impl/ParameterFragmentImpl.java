@@ -60,6 +60,7 @@ import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 
 /**
@@ -247,15 +248,15 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 
 	protected ParameterFragmentImpl(CompletePattern pattern, JSONObject json, int nid) throws JSONException, InvalidityException {
 		super();
-		if (!json.has(Constants.JSON_NAME) || !json.has(Constants.JSON_PARAMETER)) {
+		if (!json.has(ConstantsJSON.NAME) || !json.has(ConstantsJSON.PARAMETER)) {
 			throw new InvalidityException("Not valid JSON to a create ParameterFragment");
 		}
 
-		String na = json.getString(Constants.JSON_NAME);
+		String na = json.getString(ConstantsJSON.NAME);
 		setName(na);
 
 
-		JSONArray params = json.getJSONArray(Constants.JSON_PARAMETER);
+		JSONArray params = json.getJSONArray(ConstantsJSON.PARAMETER);
         for (int i = 0; i < params.length(); i++) {
             int paramID = params.getInt(i);
             try {
@@ -266,37 +267,37 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
             }
         }
 		// exampleValue
-        if(json.has(Constants.JSON_EXAMPLEVALUE)) {
-        	String example = json.get(Constants.JSON_EXAMPLEVALUE).toString();
+        if(json.has(ConstantsJSON.EXAMPLEVALUE)) {
+        	String example = json.get(ConstantsJSON.EXAMPLEVALUE).toString();
         	setExampleValue(example);
         }
 
 		// description
-        if(json.has(Constants.JSON_DESCRIPTION)) {
-        	String desc = json.get(Constants.JSON_DESCRIPTION).toString();
+        if(json.has(ConstantsJSON.DESCRIPTION)) {
+        	String desc = json.get(ConstantsJSON.DESCRIPTION).toString();
         	setDescription(desc);
         }
 
         // newId
-		if(json.has(Constants.JSON_NEWID)) {
-        	String newid = json.get(Constants.JSON_NEWID).toString();
+		if(json.has(ConstantsJSON.NEWID)) {
+        	String newid = json.get(ConstantsJSON.NEWID).toString();
         	setId(newid + "_" + nid);
         } else {
 			setId(getRole() + "_" + nid);
 		}
 
 		// map
-		if (json.has(Constants.JSON_MAP)) {
-			setValueMap(new ValueMapImpl(json.getJSONObject(Constants.JSON_MAP)));
+		if (json.has(ConstantsJSON.MAP)) {
+			setValueMap(new ValueMapImpl(json.getJSONObject(ConstantsJSON.MAP)));
 		}
 
 		// comparisonMap
-		if(json.has(Constants.JSON_DEFAULTMAP)) {
-			setDefaultValueMap(json.getString(Constants.JSON_DEFAULTMAP));
+		if(json.has(ConstantsJSON.DEFAULTMAP)) {
+			setDefaultValueMap(json.getString(ConstantsJSON.DEFAULTMAP));
 		}
 
 		// plural
-		if(json.has(Constants.JSON_PLURAL) && json.getBoolean(Constants.JSON_PLURAL)) {
+		if(json.has(ConstantsJSON.PLURAL) && json.getBoolean(ConstantsJSON.PLURAL)) {
 			setPlural(true);
 		}
 	}
@@ -643,17 +644,17 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	@Override
 	public boolean setAttributeValue(String attName, String attValue) {
 		switch(attName) {
-		case Constants.JSON_VALUE:
+		case ConstantsJSON.VALUE:
 			try {
 				setValue(attValue);
 				return true;
 			} catch (InvalidityException e) {
 				return false;
 			}
-		case Constants.JSON_USERVALUE:
+		case ConstantsJSON.USERVALUE:
 			setUserValue(attValue);
 			return true;
-		case Constants.JSON_CLEAR:
+		case ConstantsJSON.CLEAR:
 			clearValue();
 			return true;
 //		case "absolutePath":
@@ -685,9 +686,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	@Override
 	public String getAttributeValue(String attName) throws InvalidityException {
 		switch(attName) {
-		case Constants.JSON_VALUE:
+		case ConstantsJSON.VALUE:
 			return getValue();
-		case Constants.JSON_USERVALUE:
+		case ConstantsJSON.USERVALUE:
 			return getUserValue();
 //		case "absolutePath":
 //			Parameter p = getParameter().get(0);
@@ -799,28 +800,28 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 //		String urlsJSON = generateJSONList(urls);
 		JSONObject json = new JSONObject();
 		try {
-			json.put(Constants.JSON_ID, getId());
-			json.put(Constants.JSON_NAME, getName());
-			json.put(Constants.JSON_TYPE, getType());
-			json.put(Constants.JSON_ROLE, getRole());
+			json.put(ConstantsJSON.ID, getId());
+			json.put(ConstantsJSON.NAME, getName());
+			json.put(ConstantsJSON.TYPE, getType());
+			json.put(ConstantsJSON.ROLE, getRole());
 			if (getValue() != null) {
-				json.put(Constants.JSON_VALUE, getValue());
+				json.put(ConstantsJSON.VALUE, getValue());
 			}
 			if (getUserValue() != null) {
-				json.put(Constants.JSON_USERVALUE, getUserValue());
+				json.put(ConstantsJSON.USERVALUE, getUserValue());
 			}
 			if (getDescription() != null) {
-				json.put(Constants.JSON_DESCRIPTION, getDescription());
+				json.put(ConstantsJSON.DESCRIPTION, getDescription());
 			}
 			if (getExampleValue() != null) {
-				json.put(Constants.JSON_EXAMPLEVALUE, getExampleValue());
+				json.put(ConstantsJSON.EXAMPLEVALUE, getExampleValue());
 			}
 			if (isPlural()) {
-				json.put(Constants.JSON_PLURAL, plural);
+				json.put(ConstantsJSON.PLURAL, plural);
 			}
 
 			if (getType().equals(Constants.PARAMETER_TYPE_ENUMERATION)) {
-				json.put(Constants.JSON_OPTIONS, getOptionValues());
+				json.put(ConstantsJSON.OPTIONS, getOptionValues());
 			}
 			for (String key: getAttributeMap().getKeys()) {
 				json.put(key, getAttributeMap().get(key));
@@ -829,13 +830,13 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			if (parameter instanceof ParameterValue) {
 				ParameterValue parameterValue = (ParameterValue) parameter;
 				if(parameterValue.isTypeModifiable()) {
-					json.put(Constants.JSON_TYPEMODIFIABLE, true);
+					json.put(ConstantsJSON.TYPEMODIFIABLE, true);
 				}
 			}
 			else if (parameter instanceof TextLiteralParamImpl) {
 				TextLiteralParamImpl textLiteral = (TextLiteralParamImpl) parameter;
 				if(textLiteral.getXmlPropertyOptionParam() != null && textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
-					json.put(Constants.JSON_DEPENDANT, true);
+					json.put(ConstantsJSON.DEPENDANT, true);
 				}
 			}
 //			else if (parameter instanceof XmlPropertyOptionParamImpl) {
@@ -857,7 +858,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			else if (parameter instanceof XmlPathParam) {
 				HashSet<String> sourceParamIds = getSourceParamIDs(getParameter());
 				if (!sourceParamIds.isEmpty()) {
-					json.put(Constants.JSON_STARTPOINT, new JSONArray(sourceParamIds));
+					json.put(ConstantsJSON.STARTPOINT, new JSONArray(sourceParamIds));
 				}
 			}
 		} catch (JSONException e) {}
@@ -883,21 +884,21 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	public JSONObject generateVariantJSONObject() {
 		JSONObject object = new JSONObject();
 		try {
-			object.put(Constants.JSON_NAME, getName());
-			object.put(Constants.JSON_PARAMETER, getName());
-			object.put(Constants.JSON_EXAMPLEVALUE, getName());
-			object.put(Constants.JSON_NEWID, getId());
+			object.put(ConstantsJSON.NAME, getName());
+			object.put(ConstantsJSON.PARAMETER, getName());
+			object.put(ConstantsJSON.EXAMPLEVALUE, getName());
+			object.put(ConstantsJSON.NEWID, getId());
 
 			if (getDescription() != null && !getDescription().equals("")) {
-				object.put(Constants.JSON_DESCRIPTION, getDescription());
+				object.put(ConstantsJSON.DESCRIPTION, getDescription());
 			}
 
 			if (getValueMap() != null) {
-				object.put(Constants.JSON_MAP, getValueMap().generateJSONObject());
+				object.put(ConstantsJSON.MAP, getValueMap().generateJSONObject());
 			}
 
 			if (isPlural()) {
-				object.put(Constants.JSON_PLURAL, true);
+				object.put(ConstantsJSON.PLURAL, true);
 			}
 
 		}catch (Exception e) {}

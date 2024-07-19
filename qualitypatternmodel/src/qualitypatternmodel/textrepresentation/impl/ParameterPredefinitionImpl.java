@@ -25,7 +25,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,12 +83,12 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 
 	protected ParameterPredefinitionImpl(CompletePattern pattern, JSONObject json) throws JSONException, InvalidityException {
 		super();
-		if (!json.has(Constants.JSON_VALUE) || !json.has(Constants.JSON_PARAMETER)) {
+		if (!json.has(ConstantsJSON.VALUE) || !json.has(ConstantsJSON.PARAMETER)) {
 			throw new InvalidityException("Not valid JSON to a create ParameterPredefinition");
 		}
 
-		String value = json.getString(Constants.JSON_VALUE);
-        JSONArray params = json.getJSONArray(Constants.JSON_PARAMETER);
+		String value = json.getString(ConstantsJSON.VALUE);
+        JSONArray params = json.getJSONArray(ConstantsJSON.PARAMETER);
         for (int i = 0; i < params.length(); i++) {
             int paramID = params.getInt(i);
             try {
@@ -199,8 +199,8 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 
 		JSONObject result = new JSONObject();
 		try {
-			result.put(Constants.JSON_PARAMETER, params);
-			result.put(Constants.JSON_VALUE, getValue());
+			result.put(ConstantsJSON.PARAMETER, params);
+			result.put(ConstantsJSON.VALUE, getValue());
 		} catch (Exception e) {}
 		return result;
 	}

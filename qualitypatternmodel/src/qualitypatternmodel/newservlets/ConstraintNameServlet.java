@@ -13,6 +13,7 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class ConstraintNameServlet extends HttpServlet {
@@ -46,7 +47,7 @@ public class ConstraintNameServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] newNameArray = parameterMap.get(Constants.JSON_NAME);
+		String[] newNameArray = parameterMap.get(ConstantsJSON.NAME);
 		if (newNameArray == null || newNameArray.length != 1 || newNameArray[0].equals("")) {
 			throw new InvalidServletCallException(Constants.ERROR_INVALID_VALUE);
 		}
@@ -74,10 +75,10 @@ public class ConstraintNameServlet extends HttpServlet {
 
 		JSONObject result = new JSONObject();
 		try {
-			result.put(Constants.JSON_CONSTRAINT_ID, pattern.getPatternId());
-			result.put(Constants.JSON_OLD_NAME, oldName);
-			result.put(Constants.JSON_NAME, newName);
-			result.put(Constants.JSON_LASTSAVED, timestamp);
+			result.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
+			result.put(ConstantsJSON.OLD_NAME, oldName);
+			result.put(ConstantsJSON.NAME, newName);
+			result.put(ConstantsJSON.LASTSAVED, timestamp);
 		} catch (JSONException e) {}
 
 		return result;

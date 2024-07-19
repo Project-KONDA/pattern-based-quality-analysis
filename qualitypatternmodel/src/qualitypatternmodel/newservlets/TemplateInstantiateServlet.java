@@ -15,6 +15,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class TemplateInstantiateServlet extends HttpServlet {
@@ -59,15 +60,15 @@ public class TemplateInstantiateServlet extends HttpServlet {
 
 		// Optional: set name
 		if (parameterMap != null) {
-			String[] names = parameterMap.get(Constants.JSON_NAME);
+			String[] names = parameterMap.get(ConstantsJSON.NAME);
 			if (names != null && names[0] != null) {
 				pattern.setName(names[0]);
 			}
-			String[] datamodel = parameterMap.get(Constants.JSON_DATAMODEL);
+			String[] datamodel = parameterMap.get(ConstantsJSON.DATAMODEL);
 			if (datamodel != null && datamodel[0] != null) {
 				pattern.setDataModelName(datamodel[0]);
 			}
-			String[] database = parameterMap.get(Constants.JSON_DATABASE);
+			String[] database = parameterMap.get(ConstantsJSON.DATABASE);
 			if (database != null && database[0] != null) {
 				pattern.setDatabaseName(database[0]);
 			}
