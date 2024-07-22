@@ -1107,20 +1107,21 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		if (!isValue() && !isProperty()) {
 			throw new InvalidityException("Invalid Dangling XmlPathParam");
 		}
-		
+
 		try {
 			JSONArray array = new JSONArray(value);
 			value = array.getString(0);
 			if (array.length() > 1)
-				getAlternatives();
+				getAlternatives().clear();
 	        for (int i = 1; i < array.length(); i++) {
 	            String val = array.getString(i);
 	            XmlPathParam alt = new XmlPathParamImpl();
 	            getAlternatives().add(alt);
 	            alt.setValueFromString(val);				
 			}
-		} catch (JSONException e) {}
-		
+		} catch (JSONException e) {
+			getAlternatives().clear();
+		}
 
 		if(isValue() && value != null && !value.equals("") && !value.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT)) {
 			throw new InvalidityException("Invalid XPath value '" + value + "'. It should specify an XML element.");
