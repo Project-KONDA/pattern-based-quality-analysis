@@ -880,6 +880,10 @@
           eType="#//adaptionxml/XmlAxisPart" containment="true" eOpposite="#//adaptionxml/XmlAxisPart/xmlPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlNavigation" eType="#//adaptionxml/XmlNavigation"
           eOpposite="#//adaptionxml/XmlNavigation/xmlPathParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="alternative" upperBound="-1"
+          eType="#//adaptionxml/XmlPathParam" containment="true" eOpposite="#//adaptionxml/XmlPathParam/primary"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="primary" eType="#//adaptionxml/XmlPathParam"
+          eOpposite="#//adaptionxml/XmlPathParam/alternative"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlAxisPart" eSuperTypes="#//graphstructure/Adaptable #//parameters/Parameter">
       <eOperations name="getNextXmlAxisPairs" upperBound="-1" eType="#//adaptionxml/XmlAxisPart"/>
