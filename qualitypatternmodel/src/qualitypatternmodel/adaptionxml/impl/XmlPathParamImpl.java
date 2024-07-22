@@ -161,7 +161,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		String query = "";
+		String query = sourceVariable() + " ";
 		if (getXmlAxisParts() != null) {
 			for (XmlAxisPart xmlAxisPart : getXmlAxisParts()) {
 				query += xmlAxisPart.generateXQuery();
@@ -1097,6 +1097,13 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		}
 		return false;
 	}
+	
+	private String sourceVariable() throws InvalidityException {
+		if (getPrimary() != null)
+			return getPrimary().getXmlNavigation().getSourceVariable();
+		else 
+			return getXmlNavigation().getSourceVariable();
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1221,9 +1228,8 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			res += ".";
 		}
 		if (getAlternatives() != null && !getAlternatives().isEmpty()) {
-			res += "\nalternatives:";
 			for (XmlPathParam alternative: getAlternatives()) {
-				res +=  "\n  " + alternative.myToString().replace("\n", "\n  ");
+				res +=  " | " + alternative.myToString();
 			}
 		}
 		return res;
