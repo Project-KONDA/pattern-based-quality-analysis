@@ -155,7 +155,7 @@ public class PatternUtility {
 			// XML
 			if (param instanceof XmlPathParam) {
 				XmlPathParam xmlPathParam = (XmlPathParam) param;
-				if (xmlPathParam.getXmlAxisParts().isEmpty()) {
+				if (xmlPathParam.getXmlAxisParts().isEmpty() && xmlPathParam.isValue()) {
 					xmlPathParam.getXmlAxisParts().add(new XmlAxisPartImpl());
 				}
 				for (XmlAxisPart pair : xmlPathParam.getXmlAxisParts()) {
