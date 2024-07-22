@@ -5573,13 +5573,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM__XML_NAVIGATION = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Alternative</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM__ALTERNATIVE = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
+	int XML_PATH_PARAM__ALTERNATIVES = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Primary</b></em>' container reference.
@@ -7423,15 +7423,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlPathParam_XmlNavigation();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionxml.XmlPathParam#getAlternative <em>Alternative</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionxml.XmlPathParam#getAlternatives <em>Alternatives</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Alternative</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#getAlternative()
+	 * @return the meta object for the containment reference list '<em>Alternatives</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#getAlternatives()
 	 * @see #getXmlPathParam()
 	 * @generated
 	 */
-	EReference getXmlPathParam_Alternative();
+	EReference getXmlPathParam_Alternatives();
 
 	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionxml.XmlPathParam#getPrimary <em>Primary</em>}'.
@@ -8084,12 +8084,12 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference XML_PATH_PARAM__XML_NAVIGATION = eINSTANCE.getXmlPathParam_XmlNavigation();
 
 		/**
-		 * The meta object literal for the '<em><b>Alternative</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Alternatives</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference XML_PATH_PARAM__ALTERNATIVE = eINSTANCE.getXmlPathParam_Alternative();
+		EReference XML_PATH_PARAM__ALTERNATIVES = eINSTANCE.getXmlPathParam_Alternatives();
 
 		/**
 		 * The meta object literal for the '<em><b>Primary</b></em>' container reference feature.

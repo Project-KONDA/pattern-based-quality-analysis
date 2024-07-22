@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1721634667024">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1721637949985">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -17857,9 +17857,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_C8gqBEf9Ee-U8r1cLPLV2g" sourceNode="_yBBqEMrQEeysRuROHE0Ryg" targetNode="_yBBqEMrQEeysRuROHE0Ryg" beginLabel="[0..1] primary" endLabel="[0..*] alternative">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/alternative"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/alternative"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_C8gqBEf9Ee-U8r1cLPLV2g" sourceNode="_yBBqEMrQEeysRuROHE0Ryg" targetNode="_yBBqEMrQEeysRuROHE0Ryg" beginLabel="[0..1] primary" endLabel="[0..*] alternatives">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/alternatives"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/alternatives"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/primary"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_C8hQ8Ef9Ee-U8r1cLPLV2g" description="_06IuYICiEequqNnOyMT3Pg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_C8hQ8Uf9Ee-U8r1cLPLV2g" showIcon="false"/>

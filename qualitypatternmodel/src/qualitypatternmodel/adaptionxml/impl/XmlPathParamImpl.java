@@ -56,7 +56,7 @@ import qualitypatternmodel.utility.ConstantsXml;
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getXmlPropertyOptionParam <em>Xml Property Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getXmlAxisParts <em>Xml Axis Parts</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getXmlNavigation <em>Xml Navigation</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getAlternative <em>Alternative</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getAlternatives <em>Alternatives</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getPrimary <em>Primary</em>}</li>
  * </ul>
  *
@@ -140,14 +140,14 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	protected XmlNavigation xmlNavigation;
 
 	/**
-	 * The cached value of the '{@link #getAlternative() <em>Alternative</em>}' containment reference list.
+	 * The cached value of the '{@link #getAlternatives() <em>Alternatives</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAlternative()
+	 * @see #getAlternatives()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<XmlPathParam> alternative;
+	protected EList<XmlPathParam> alternatives;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -459,11 +459,11 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	 * @generated
 	 */
 	@Override
-	public EList<XmlPathParam> getAlternative() {
-		if (alternative == null) {
-			alternative = new EObjectContainmentWithInverseEList<XmlPathParam>(XmlPathParam.class, this, AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVE, AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY);
+	public EList<XmlPathParam> getAlternatives() {
+		if (alternatives == null) {
+			alternatives = new EObjectContainmentWithInverseEList<XmlPathParam>(XmlPathParam.class, this, AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES, AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY);
 		}
-		return alternative;
+		return alternatives;
 	}
 
 	/**
@@ -501,7 +501,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newPrimary != null)
-				msgs = ((InternalEObject)newPrimary).eInverseAdd(this, AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVE, XmlPathParam.class, msgs);
+				msgs = ((InternalEObject)newPrimary).eInverseAdd(this, AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES, XmlPathParam.class, msgs);
 			msgs = basicSetPrimary(newPrimary, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -648,8 +648,8 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 				if (xmlNavigation != null)
 					msgs = ((InternalEObject)xmlNavigation).eInverseRemove(this, AdaptionxmlPackage.XML_NAVIGATION__XML_PATH_PARAM, XmlNavigation.class, msgs);
 				return basicSetXmlNavigation((XmlNavigation)otherEnd, msgs);
-			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAlternative()).basicAdd(otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAlternatives()).basicAdd(otherEnd, msgs);
 			case AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -675,8 +675,8 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 				return ((InternalEList<?>)getXmlAxisParts()).basicRemove(otherEnd, msgs);
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				return basicSetXmlNavigation(null, msgs);
-			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVE:
-				return ((InternalEList<?>)getAlternative()).basicRemove(otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES:
+				return ((InternalEList<?>)getAlternatives()).basicRemove(otherEnd, msgs);
 			case AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY:
 				return basicSetPrimary(null, msgs);
 		}
@@ -693,7 +693,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
 				return eInternalContainer().eInverseRemove(this, ParametersPackage.PARAMETER_LIST__PARAMETERS, ParameterList.class, msgs);
 			case AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY:
-				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVE, XmlPathParam.class, msgs);
+				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES, XmlPathParam.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -720,8 +720,8 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				if (resolve) return getXmlNavigation();
 				return basicGetXmlNavigation();
-			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVE:
-				return getAlternative();
+			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES:
+				return getAlternatives();
 			case AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY:
 				return getPrimary();
 		}
@@ -759,9 +759,9 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				setXmlNavigation((XmlNavigation)newValue);
 				return;
-			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVE:
-				getAlternative().clear();
-				getAlternative().addAll((Collection<? extends XmlPathParam>)newValue);
+			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES:
+				getAlternatives().clear();
+				getAlternatives().addAll((Collection<? extends XmlPathParam>)newValue);
 				return;
 			case AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY:
 				setPrimary((XmlPathParam)newValue);
@@ -798,8 +798,8 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				setXmlNavigation((XmlNavigation)null);
 				return;
-			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVE:
-				getAlternative().clear();
+			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES:
+				getAlternatives().clear();
 				return;
 			case AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY:
 				setPrimary((XmlPathParam)null);
@@ -829,8 +829,8 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 				return xmlAxisParts != null && !xmlAxisParts.isEmpty();
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				return xmlNavigation != null;
-			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVE:
-				return alternative != null && !alternative.isEmpty();
+			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES:
+				return alternatives != null && !alternatives.isEmpty();
 			case AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY:
 				return getPrimary() != null;
 		}
