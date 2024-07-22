@@ -161,7 +161,10 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		String query = sourceVariable() + " ";
+		
+		String query = sourceVariable();
+		if (query.length() != 0)
+			query += " ";
 		if (getXmlAxisParts() != null) {
 			for (XmlAxisPart xmlAxisPart : getXmlAxisParts()) {
 				query += xmlAxisPart.generateXQuery();
