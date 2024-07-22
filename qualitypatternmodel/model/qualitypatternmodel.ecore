@@ -874,6 +874,8 @@
         <eParameters name="attributeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
+      <eOperations name="isValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eOperations name="isProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPropertyOptionParam"
           eType="#//adaptionxml/XmlPropertyOptionParam" containment="true" eOpposite="#//adaptionxml/XmlPropertyOptionParam/xmlPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisParts" upperBound="-1"

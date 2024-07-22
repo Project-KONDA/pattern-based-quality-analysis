@@ -169,4 +169,20 @@ public interface XmlPathParam extends Adaptable, Parameter {
 	 */
 	void specifyAxis(XmlAxisKind[] axes, XmlPropertyKind propertyKind, String attributeName, String name) throws InvalidityException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Boolean isValue();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Boolean isProperty();
+
 } // PathParam

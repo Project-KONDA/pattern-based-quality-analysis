@@ -6005,13 +6005,31 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM___SPECIFY_AXIS__XMLAXISKIND_XMLPROPERTYKIND_STRING_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 15;
 
 	/**
+	 * The operation id for the '<em>Is Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___IS_VALUE = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 16;
+
+	/**
+	 * The operation id for the '<em>Is Property</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___IS_PROPERTY = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 17;
+
+	/**
 	 * The number of operations of the '<em>Xml Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 16;
+	int XML_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 18;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl <em>Xml Axis Part</em>}' class.
@@ -7495,6 +7513,26 @@ public interface AdaptionxmlPackage extends EPackage {
 	EOperation getXmlPathParam__SpecifyAxis__XmlAxisKind_XmlPropertyKind_String_String();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#isValue() <em>Is Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Value</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#isValue()
+	 * @generated
+	 */
+	EOperation getXmlPathParam__IsValue();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#isProperty() <em>Is Property</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Property</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#isProperty()
+	 * @generated
+	 */
+	EOperation getXmlPathParam__IsProperty();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlAxisPart <em>Xml Axis Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8138,6 +8176,22 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_PATH_PARAM___SPECIFY_AXIS__XMLAXISKIND_XMLPROPERTYKIND_STRING_STRING = eINSTANCE.getXmlPathParam__SpecifyAxis__XmlAxisKind_XmlPropertyKind_String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_PATH_PARAM___IS_VALUE = eINSTANCE.getXmlPathParam__IsValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Property</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_PATH_PARAM___IS_PROPERTY = eINSTANCE.getXmlPathParam__IsProperty();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl <em>Xml Axis Part</em>}' class.

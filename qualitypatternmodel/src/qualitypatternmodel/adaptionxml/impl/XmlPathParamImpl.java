@@ -940,6 +940,10 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case AdaptionxmlPackage.XML_PATH_PARAM___IS_VALUE:
+				return isValue();
+			case AdaptionxmlPackage.XML_PATH_PARAM___IS_PROPERTY:
+				return isProperty();
 			case AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_AGAINST_SCHEMA:
 				return validateAgainstSchema();
 			case AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING:
@@ -1002,12 +1006,6 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		result.append(predefined);
 		result.append(", description: ");
 		result.append(description);
-		if (getAlternatives() != null && !getAlternatives().isEmpty()) {
-			result.append(", alternatives: [");
-			result.append(getAlternatives().get(0));
-			for (int i = 1; i < getAlternatives().size(); i++)
-				result.append(", " + getAlternatives().get(i).toString());
-		}
 		result.append(')');
 		return result.toString();
 	}
@@ -1081,7 +1079,8 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		throw new UnsupportedOperationException();
 	}
 	
-	private Boolean isValue() {
+	@Override
+	public Boolean isValue() {
 		if (getPrimary() == null && getXmlNavigation() != null) {
 			return getXmlNavigation() instanceof XmlElementNavigation;
 		}
@@ -1091,7 +1090,8 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		return false;
 	}
 	
-	private Boolean isProperty() {
+	@Override
+	public Boolean isProperty() {
 		if (getPrimary() == null && getXmlNavigation() != null) {
 			return getXmlNavigation() instanceof XmlPropertyNavigation;
 		}

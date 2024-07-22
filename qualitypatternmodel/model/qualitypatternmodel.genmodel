@@ -714,6 +714,8 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/specifyAxis/attributeName"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/specifyAxis/name"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/isValue"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/isProperty"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart/xmlAxisOptionParam"/>
