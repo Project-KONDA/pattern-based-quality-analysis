@@ -6023,13 +6023,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM___IS_PROPERTY = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 17;
 
 	/**
+	 * The operation id for the '<em>Source Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___SOURCE_VARIABLE = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 18;
+
+	/**
 	 * The number of operations of the '<em>Xml Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 18;
+	int XML_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 19;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl <em>Xml Axis Part</em>}' class.
@@ -7533,6 +7542,16 @@ public interface AdaptionxmlPackage extends EPackage {
 	EOperation getXmlPathParam__IsProperty();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#sourceVariable() <em>Source Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Source Variable</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#sourceVariable()
+	 * @generated
+	 */
+	EOperation getXmlPathParam__SourceVariable();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlAxisPart <em>Xml Axis Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8192,6 +8211,14 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_PATH_PARAM___IS_PROPERTY = eINSTANCE.getXmlPathParam__IsProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_PATH_PARAM___SOURCE_VARIABLE = eINSTANCE.getXmlPathParam__SourceVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl <em>Xml Axis Part</em>}' class.

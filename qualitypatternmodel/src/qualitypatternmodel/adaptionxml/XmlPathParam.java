@@ -185,4 +185,12 @@ public interface XmlPathParam extends Adaptable, Parameter {
 	 */
 	Boolean isProperty();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String sourceVariable() throws InvalidityException;
+
 } // PathParam

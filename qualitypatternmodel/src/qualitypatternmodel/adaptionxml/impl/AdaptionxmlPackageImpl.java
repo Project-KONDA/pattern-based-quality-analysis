@@ -683,6 +683,16 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlPathParam__SourceVariable() {
+		return xmlPathParamEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getXmlAxisPart() {
 		return xmlAxisPartEClass;
 	}
@@ -1044,6 +1054,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___SPECIFY_AXIS__XMLAXISKIND_XMLPROPERTYKIND_STRING_STRING);
 		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___IS_VALUE);
 		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___IS_PROPERTY);
+		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___SOURCE_VARIABLE);
 
 		xmlAxisPartEClass = createEClass(XML_AXIS_PART);
 		createEReference(xmlAxisPartEClass, XML_AXIS_PART__XML_AXIS_OPTION_PARAM);
@@ -1214,6 +1225,9 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		initEOperation(getXmlPathParam__IsValue(), ecorePackage.getEBooleanObject(), "isValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getXmlPathParam__IsProperty(), ecorePackage.getEBooleanObject(), "isProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getXmlPathParam__SourceVariable(), ecorePackage.getEString(), "sourceVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(xmlAxisPartEClass, XmlAxisPart.class, "XmlAxisPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXmlAxisPart_XmlAxisOptionParam(), this.getXmlAxisOptionParam(), this.getXmlAxisOptionParam_XmlAxisPart(), "xmlAxisOptionParam", null, 1, 1, XmlAxisPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

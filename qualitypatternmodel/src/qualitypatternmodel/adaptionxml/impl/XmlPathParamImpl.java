@@ -944,6 +944,13 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 				return isValue();
 			case AdaptionxmlPackage.XML_PATH_PARAM___IS_PROPERTY:
 				return isProperty();
+			case AdaptionxmlPackage.XML_PATH_PARAM___SOURCE_VARIABLE:
+				try {
+					return sourceVariable();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_AGAINST_SCHEMA:
 				return validateAgainstSchema();
 			case AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING:
@@ -1078,7 +1085,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@Override
 	public Boolean isValue() {
 		if (getPrimary() == null && getXmlNavigation() != null) {
@@ -1089,7 +1096,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		}
 		return false;
 	}
-	
+
 	@Override
 	public Boolean isProperty() {
 		if (getPrimary() == null && getXmlNavigation() != null) {
@@ -1100,8 +1107,9 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		}
 		return false;
 	}
-	
-	private String sourceVariable() throws InvalidityException {
+
+	@Override
+	public String sourceVariable() throws InvalidityException {
 		if (getPrimary() != null)
 			return getPrimary().getXmlNavigation().getSourceVariable();
 		else 
