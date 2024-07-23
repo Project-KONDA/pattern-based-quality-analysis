@@ -50,7 +50,7 @@ public class Test01Axis {
 		XmlPathParam axisOption = relation.getXmlPathParam();
 //		EList<AxisKind> axisOptions = axisOption.getOptions();
 //		if(!axisOptions.contains(axisKind)) axisOptions.add(axisKind);
-		axisOption.setXmlAxis(xmlAxisKind, "");
+		axisOption.setXmlAxis(xmlAxisKind, null);
 		return completePattern;
 	}
 
@@ -70,7 +70,7 @@ public class Test01Axis {
 		XmlElementNavigation navigation = (XmlElementNavigation) graph.getRelations().get(0);
 
 		XmlPathParam axisOption = navigation.getXmlPathParam();
-		axisOption.setXmlAxis(xmlAxisKind, "");
+		axisOption.setXmlAxis(xmlAxisKind, null);
 		return completePattern;
 	}
 
@@ -104,7 +104,7 @@ public class Test01Axis {
 
 		for (XmlAxisKind ax : XmlAxisKind.VALUES) {
 			testPairs.add(new PatternTestPair(ax.getName()+"_ROOT", getBasePatternAxisRoot(ax), ax.getLiteral()));
-			testPairs.add(new PatternTestPair(ax.getName(), getBasePatternAxisNotRoot(ax), "for $x in /* for $y in $x" + ax.getLiteral() + " return $x"));
+			testPairs.add(new PatternTestPair(ax.getName(), getBasePatternAxisNotRoot(ax), "/* " + ax.getLiteral()));
 		}
 
 

@@ -8,6 +8,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -64,6 +65,10 @@ public class Test03Quantor {
 		e0g2.addOutgoing(e1g2);
 
 		completePattern.createXmlAdaption();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("/demo:data");
+		params.get(1).setValueFromString("/demo:building/demo:source");
+		params.get(2).setValueFromString("/demo:painting/demo:source");
 
 		return completePattern;
 	}
@@ -110,36 +115,25 @@ public class Test03Quantor {
 	}
 
 	public static CompletePattern getPatternExistsWithRelationFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
 		CompletePattern completePattern = getPatternExistsWithRelation();
-		QuantifiedCondition cond = (QuantifiedCondition) completePattern.getCondition();
-
 		completePattern.createXmlAdaption();
-		cond.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
-
+//		((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 		return completePattern;
 	}
 
 	public static CompletePattern getPatternExistsCondFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
 		CompletePattern completePattern = getPatternExistsCond();
-
 		completePattern.createXmlAdaption();
-
-//		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-//		XmlNavigation nav = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
-
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(4).setValueFromString("/*/*/*");
 		return completePattern;
 	}
 
 	public static CompletePattern getPatternExistsCond() throws InvalidityException {
-
 		CompletePattern completePattern = getPatternExists();
 		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Node last = graph2.getNodes().get(0);
-
 		last.addOutgoing().getTarget().addPrimitiveComparison("New York City");
-
 		return completePattern;
 	}
 
@@ -163,7 +157,7 @@ public class Test03Quantor {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		testPairs.add(new PatternTestPair("EXISTSREL", getPatternExistsWithRelationFinal(), "/*[./*]"));
 		testPairs.add(new PatternTestPair("EXISTS", getPatternExistsFinal(), "/*[/*]"));
-//		testPairs.add(new PatternTestPair("EXISTSNAV", getPatternExistsNavigation(), ""));
+		testPairs.add(new PatternTestPair("EXISTSNAV", getPatternExistsNavigation(), "declare namespace demo = \"demo\"; /demo:data[./demo:building/demo:source = ./demo:painting/demo:source]"));
 		testPairs.add(new PatternTestPair("EXISTSCOND", getPatternExistsCondFinal(), "/*[/*/*/*[data()=\"New York City\"]]"));
 		testPairs.add(new PatternTestPair("FORALL", getPatternForall(), "for $x1 in /* where every $x2 in /* satisfies true() return $x1"));
 		testPairs.add(new PatternTestPair("FORALLCOND", getPatternForallCond(), "for $x1 in /* where every $x2 in /*[data()=\"myvalue\"] satisfies true() return $x1"));

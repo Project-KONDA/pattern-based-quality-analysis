@@ -132,9 +132,6 @@ public class Test04QuantorCombinations {
 		testPairs.add(new PatternTestPair("EXFA", 	getPatternForallInExists(), "/*[./*]"));
 		testPairs.add(new PatternTestPair("FAEX", 	getPatternExistsInForall(), "for $x in /* where every $y in $x/child::*[./name()=\"demo:artist\"] satisfies ($y[exists(./@*[name()=\"demo:id\"])] and /descendant::*[exists(./data())][$y/@*[name()=\"demo:id\"]=./data()]) return $x"));
 		testPairs.add(new PatternTestPair("FAFA", 	getPatternForallInForall(), "for $var4 in /* where every $var7 in $var4/* satisfies ($var7[exists(./@*[name()=\"demo:id\"])]) return ($var4)"));
-
-		// TODO: complete test cases
-
 		return testPairs;
 	}
 

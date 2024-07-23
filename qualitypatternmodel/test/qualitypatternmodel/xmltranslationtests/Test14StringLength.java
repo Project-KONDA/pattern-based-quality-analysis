@@ -7,6 +7,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.utility.PatternUtility;
@@ -29,12 +30,17 @@ public class Test14StringLength {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveStringLength(op, num);
 		pattern.createXmlAdaption();
+		pattern.printParameters();
+		List<Parameter> params = pattern.getParameterList().getParameters();
+		params.get(2).setValueFromString("/text()");
+		params.get(3).setValueFromString("//*");
 		return pattern;
 	}
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+		testPairs.add(new PatternTestPair("EQUAL", getPatternLength(ComparisonOperator.EQUAL, 5.), "//*[./text()[string-length(.) = 5.0]]"));
+		testPairs.add(new PatternTestPair("LESSOREQUAL", getPatternLength(ComparisonOperator.LESSOREQUAL, 10.), "//*[./text()[string-length(.) <= 10.0]]"));
 		return testPairs;
 	}
-
 }

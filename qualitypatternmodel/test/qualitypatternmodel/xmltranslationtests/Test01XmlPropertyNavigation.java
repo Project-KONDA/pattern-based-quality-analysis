@@ -1,6 +1,7 @@
 package qualitypatternmodel.xmltranslationtests;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -11,6 +12,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.utility.PatternUtility;
+import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test01XmlPropertyNavigation {
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
@@ -121,5 +123,18 @@ public class Test01XmlPropertyNavigation {
 		retnext.addComparison(n2next);
 		completePattern.createXmlAdaption();
 		return completePattern;
+	}
+
+	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+		testPairs.add(new PatternTestPair("Property", getProperty(), null));
+		testPairs.add(new PatternTestPair("Value", getValue(), null));
+		testPairs.add(new PatternTestPair("PropertyNext", getPropertyNextGraph(), null));
+		testPairs.add(new PatternTestPair("MultipleProperties", getMultipleProperties(), null));
+		testPairs.add(new PatternTestPair("ValueNextGraph", getValueNextGraph(), null));
+		testPairs.add(new PatternTestPair("Comparison", getComparison(), null));
+		testPairs.add(new PatternTestPair("ComparisonCrossGraph", getComparisonCrossGraph(), null));
+		testPairs.add(new PatternTestPair("ComparisonNextGraph", getComparisonNextGraph(), null));
+		return testPairs;
 	}
 }

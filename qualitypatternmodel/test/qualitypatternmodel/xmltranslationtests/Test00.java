@@ -62,6 +62,8 @@ public class Test00 {
 		Node se = completePattern.getGraph().getReturnNodes().get(0);
 		se.addOutgoing().getTarget().addPrimitiveMatch(regex);
 		completePattern.createXmlAdaption();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(3).setValueFromString("//*");
 		return completePattern;
 	}
 

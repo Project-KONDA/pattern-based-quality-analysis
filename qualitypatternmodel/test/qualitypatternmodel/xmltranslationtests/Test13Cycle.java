@@ -40,8 +40,9 @@ public class Test13Cycle {
 		return completePattern;
 	}
 
-	public static List<PatternTestPair> getTestPairs() {
+	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+		testPairs.add(new PatternTestPair("PatternCycle", getPatternCycle(), ""));
 		return testPairs;
 	}
 }
