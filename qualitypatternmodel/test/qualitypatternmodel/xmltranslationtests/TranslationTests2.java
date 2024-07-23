@@ -55,7 +55,9 @@ public class TranslationTests2 {
     		pairs.addAll(Test12Count.getTestPairs());
     		pairs.addAll(Test13Cycle.getTestPairs());
     		pairs.addAll(Test14StringLength.getTestPairs());
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return pairs;
     }
 
@@ -70,9 +72,12 @@ public class TranslationTests2 {
 
 		String query = testPair.getPattern().generateXQuery();
 		assertNotNull("\n" + testPair.getName() + ":\ngenerated query is null", query);
+		System.out.println(query);
 		String result = applyQuery(query);
 		assertNotNull("\n" + testPair.getName() + ":\nresult is null", result);
-		if (testPair.getManualQuery() != null && ! testPair.getManualQuery().equals("")) {
+		if (testPair.getManualQuery() == null || testPair.getManualQuery().equals("")) { 
+			throw new BaseXException("Empty Query");
+		} else {
 			String expectedResult = applyQuery(testPair.getManualQuery());
 			assertNotNull("\n" + testPair.getName() + ":\nexpected result is null", expectedResult);
 			assertEquals("\n" + testPair.getName() + ":\ndifferent results for queries:\n" + testPair.getManualQuery() + query + "\n", expectedResult, result);
