@@ -95,12 +95,14 @@ public class TranslationTests {
 	private static void runQueryResultComparison(PatternTestPair testPair) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {
 		testPair.getPattern().isValid(AbstractionLevel.CONCRETE);
 
-		String result = applyQuery(testPair.getPattern().generateXQuery());
-		assertNotNull(result);
+		String query = testPair.getPattern().generateXQuery();
+		assertNotNull("\n" + testPair.getName() + ":\ngenerated query is null", query);
+		String result = applyQuery(query);
+		assertNotNull("\n" + testPair.getName() + ":\nresult is null", result);
 		if (testPair.getManualQuery() != null && ! testPair.getManualQuery().equals("")) {
 			String expectedResult = applyQuery(testPair.getManualQuery());
-			assertNotNull(expectedResult);
-			assertEquals(expectedResult, result);
+			assertNotNull("\n" + testPair.getName() + ":\nexpected result is null", expectedResult);
+			assertEquals("\n" + testPair.getName() + ":\ndifferent results for queries:\n" + testPair.getManualQuery() + query + "\n", expectedResult, result);
 		}
 	}
 

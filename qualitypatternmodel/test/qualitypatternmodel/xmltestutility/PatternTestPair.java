@@ -15,22 +15,33 @@ public class PatternTestPair {
 		PatternUtility.fillParameter(this.completePattern);
 		this.manualQuery = manualQuery;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public CompletePattern getPattern() {
 		return completePattern;
 	}
+
 	public void setPattern(CompletePattern completePattern) {
 		this.completePattern = completePattern;
 	}
+
 	public String getManualQuery() {
 		return manualQuery;
 	}
+
 	public void setManualQuery(String manualQuery) {
 		this.manualQuery = manualQuery;
+	}
+
+	@Override
+	public String toString() {
+		return "PatternTestPair " + getName();
 	}
 }

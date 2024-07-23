@@ -35,7 +35,6 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
@@ -171,11 +170,11 @@ public class PatternUtility {
 						if (cond.getXmlPropertyOption().getValue() == null) {
 							cond.getXmlPropertyOption().setValue(XmlPropertyKind.DATA);
 						}
-						if(cond.getTextLiteralParam() == null) {
-							cond.setTextLiteralParam(new TextLiteralParamImpl());
-						}
-						if(cond.getTextLiteralParam().getValue() == null) {
-							cond.getTextLiteralParam().setValue("");
+//						if(cond.getTextLiteralParam() == null) {
+//							cond.setTextLiteralParam(new TextLiteralParamImpl());
+//						}
+						if(cond.getTextLiteralParam() != null && cond.getTextLiteralParam().getValue() == null) {
+							cond.setTextLiteralParam(null);
 						}
 					}
 				}
