@@ -179,8 +179,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 
 		String forClauses = graph.generateXQuery();
 
-		String whereClause = "\n";
+		String whereClause = "";
 		if (!(condition instanceof TrueElement)) {
+			whereClause = "\n";
 			String condQuery = condition.generateXQuery().replace("\n", "\n  ");
 			whereClause = ConstantsXml.WHERE + condQuery;
 		}

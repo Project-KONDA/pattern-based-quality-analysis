@@ -63,6 +63,7 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		XmlProperty target = (XmlProperty) getTarget();
 
 		String path = getXmlPathParam().generateXQuery();
+		path = path.substring(getXmlPathParam().sourceVariable().length()+1);
 
 		XmlElement source = (XmlElement) getSource();
 		String variable = source.getVariables().get(0) + path;

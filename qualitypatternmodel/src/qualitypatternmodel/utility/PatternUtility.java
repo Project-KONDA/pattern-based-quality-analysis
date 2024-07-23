@@ -21,7 +21,6 @@ import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.impl.XmlAxisOptionParamImpl;
-import qualitypatternmodel.adaptionxml.impl.XmlAxisPartConditionImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -155,13 +154,10 @@ public class PatternUtility {
 			// XML
 			if (param instanceof XmlPathParam) {
 				XmlPathParam xmlPathParam = (XmlPathParam) param;
-				if (xmlPathParam.getXmlAxisParts().isEmpty()) {
+				if (xmlPathParam.getXmlAxisParts().isEmpty() && xmlPathParam.isValue()) {
 					xmlPathParam.getXmlAxisParts().add(new XmlAxisPartImpl());
 				}
 				for (XmlAxisPart pair : xmlPathParam.getXmlAxisParts()) {
-					if (pair.getXmlAxisPartConditions().isEmpty()) {
-						pair.getXmlAxisPartConditions().add(new XmlAxisPartConditionImpl());
-					}
 					if (pair.getXmlAxisOptionParam() == null) {
 						pair.setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
 					}

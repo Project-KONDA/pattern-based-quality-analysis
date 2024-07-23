@@ -113,12 +113,12 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		// Basic Translation via xmlPathParam
 		String xPathExpression = "";
 		if (xmlPathParam != null) {
-			String sourcevariable = getSourceVariable();
-			if (!(getSource() instanceof XmlRoot) && sourcevariable == "") {
+			if (!(getSource() instanceof XmlRoot) && getSourceVariable().equals("")) {
 				throw new InvalidityException("SourceVariable in Relation [" + getInternalId() + "] from Element [" + getSource().getInternalId() + "] is empty");
 			}
 
-			xPathExpression = sourcevariable + xmlPathParam.generateXQuery();
+//			xPathExpression = sourcevariable + xmlPathParam.generateXQuery();
+			xPathExpression = xmlPathParam.generateXQuery();
 		} else {
 			throw new InvalidityException("option null");
 		}

@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.json.JSONArray;
+import org.json.JSONException;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
@@ -56,6 +57,8 @@ import qualitypatternmodel.utility.ConstantsXml;
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getXmlPropertyOptionParam <em>Xml Property Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getXmlAxisParts <em>Xml Axis Parts</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getXmlNavigation <em>Xml Navigation</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getAlternatives <em>Alternatives</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getPrimary <em>Primary</em>}</li>
  * </ul>
  *
  * @generated
@@ -138,6 +141,16 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	protected XmlNavigation xmlNavigation;
 
 	/**
+	 * The cached value of the '{@link #getAlternatives() <em>Alternatives</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlternatives()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<XmlPathParam> alternatives;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
@@ -148,7 +161,10 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		String query = "";
+		
+		String query = sourceVariable();
+		if (query.length() != 0)
+			query += " ";
 		if (getXmlAxisParts() != null) {
 			for (XmlAxisPart xmlAxisPart : getXmlAxisParts()) {
 				query += xmlAxisPart.generateXQuery();
@@ -156,6 +172,12 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		}
 		if (getXmlPropertyOptionParam() != null) {
 			query += getXmlPropertyOptionParam().generateXQuery();
+		}
+		if (getAlternatives() != null && !getAlternatives().isEmpty()) {
+			for (XmlPathParam alternative: getAlternatives()) {
+				query += ConstantsXml.XPATH_UNION + alternative.generateXQuery();
+				return "(" + query + ")";
+			}
 		}
 		return query;
 	}
@@ -183,20 +205,25 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		if (xmlPropertyOptionParam != null) {
 			xmlPropertyOptionParam.isValid(abstractionLevel);
 		}
+		if (getAlternatives() != null && !getAlternatives().isEmpty()) {
+			for (XmlPathParam alternative: getAlternatives()) {
+				alternative.isValid(abstractionLevel);
+			}
+		}
 	}
 
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 //		super.isValidLocal(abstractionLevel);
-		if (getXmlNavigation() == null) {
+		if (!isValue() && !isProperty()) {
 			throw new InvalidityException("PathParam is not assigned to a Relation");
 		}
-		if (getXmlNavigation() instanceof XmlPropertyNavigation) {
+		if (isProperty()) {
 			if (xmlPropertyOptionParam == null) {
 				throw new InvalidityException("propertyOptionParam is null for XmlPropertyNavigation");
 			}
 		}
-		if (getXmlNavigation() instanceof XmlElementNavigation) {
+		if (isValue()) {
 			if (xmlPropertyOptionParam != null) {
 				throw new InvalidityException("propertyOptionParam is existent for XmlNavigation" + xmlPropertyOptionParam.generateXQuery());
 			}
@@ -214,7 +241,8 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
-		res.add(this);
+		if (getPrimary() == null)
+			res.add(this);
 		return res;
 	}
 
@@ -442,6 +470,62 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<XmlPathParam> getAlternatives() {
+		if (alternatives == null) {
+			alternatives = new EObjectContainmentWithInverseEList<XmlPathParam>(XmlPathParam.class, this, AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES, AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY);
+		}
+		return alternatives;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public XmlPathParam getPrimary() {
+		if (eContainerFeatureID() != AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY) return null;
+		return (XmlPathParam)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPrimary(XmlPathParam newPrimary, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newPrimary, AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPrimary(XmlPathParam newPrimary) {
+		if (newPrimary != eInternalContainer() || (eContainerFeatureID() != AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY && newPrimary != null)) {
+			if (EcoreUtil.isAncestor(this, newPrimary))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newPrimary != null)
+				msgs = ((InternalEObject)newPrimary).eInverseAdd(this, AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES, XmlPathParam.class, msgs);
+			msgs = basicSetPrimary(newPrimary, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY, newPrimary, newPrimary));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 *
 	 * @generated NOT
@@ -506,7 +590,6 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 				cond.getXmlPropertyOption().getAttributeName().setValue(attributeName);
 			}
 		}
-
 	}
 
 	/**
@@ -580,6 +663,12 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 				if (xmlNavigation != null)
 					msgs = ((InternalEObject)xmlNavigation).eInverseRemove(this, AdaptionxmlPackage.XML_NAVIGATION__XML_PATH_PARAM, XmlNavigation.class, msgs);
 				return basicSetXmlNavigation((XmlNavigation)otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAlternatives()).basicAdd(otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetPrimary((XmlPathParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -601,6 +690,10 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 				return ((InternalEList<?>)getXmlAxisParts()).basicRemove(otherEnd, msgs);
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				return basicSetXmlNavigation(null, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES:
+				return ((InternalEList<?>)getAlternatives()).basicRemove(otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY:
+				return basicSetPrimary(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -614,6 +707,8 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		switch (eContainerFeatureID()) {
 			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
 				return eInternalContainer().eInverseRemove(this, ParametersPackage.PARAMETER_LIST__PARAMETERS, ParameterList.class, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY:
+				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES, XmlPathParam.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -640,6 +735,10 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				if (resolve) return getXmlNavigation();
 				return basicGetXmlNavigation();
+			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES:
+				return getAlternatives();
+			case AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY:
+				return getPrimary();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -675,6 +774,13 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				setXmlNavigation((XmlNavigation)newValue);
 				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES:
+				getAlternatives().clear();
+				getAlternatives().addAll((Collection<? extends XmlPathParam>)newValue);
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY:
+				setPrimary((XmlPathParam)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -707,6 +813,12 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				setXmlNavigation((XmlNavigation)null);
 				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES:
+				getAlternatives().clear();
+				return;
+			case AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY:
+				setPrimary((XmlPathParam)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -732,6 +844,10 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 				return xmlAxisParts != null && !xmlAxisParts.isEmpty();
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				return xmlNavigation != null;
+			case AdaptionxmlPackage.XML_PATH_PARAM__ALTERNATIVES:
+				return alternatives != null && !alternatives.isEmpty();
+			case AdaptionxmlPackage.XML_PATH_PARAM__PRIMARY:
+				return getPrimary() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -824,6 +940,17 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case AdaptionxmlPackage.XML_PATH_PARAM___IS_VALUE:
+				return isValue();
+			case AdaptionxmlPackage.XML_PATH_PARAM___IS_PROPERTY:
+				return isProperty();
+			case AdaptionxmlPackage.XML_PATH_PARAM___SOURCE_VARIABLE:
+				try {
+					return sourceVariable();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_AGAINST_SCHEMA:
 				return validateAgainstSchema();
 			case AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING:
@@ -909,6 +1036,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		if (getXmlPropertyOptionParam() != null) {
 			getXmlPropertyOptionParam().clear();
 		}
+		getAlternatives().clear();
 	}
 
 	@Override
@@ -958,23 +1086,65 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public Boolean isValue() {
+		if (getPrimary() == null && getXmlNavigation() != null) {
+			return getXmlNavigation() instanceof XmlElementNavigation;
+		}
+		if (getPrimary() != null && getPrimary().getXmlNavigation() != null) {
+			return getPrimary().getXmlNavigation() instanceof XmlElementNavigation;
+		}
+		return false;
+	}
+
+	@Override
+	public Boolean isProperty() {
+		if (getPrimary() == null && getXmlNavigation() != null) {
+			return getXmlNavigation() instanceof XmlPropertyNavigation;
+		}
+		if (getPrimary() != null && getPrimary().getXmlNavigation() != null) {
+			return getPrimary().getXmlNavigation() instanceof XmlPropertyNavigation;
+		}
+		return false;
+	}
+
+	@Override
+	public String sourceVariable() throws InvalidityException {
+		if (getPrimary() != null)
+			return getPrimary().getXmlNavigation().getSourceVariable();
+		else 
+			return getXmlNavigation().getSourceVariable();
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		Boolean isValue = getXmlNavigation() instanceof XmlElementNavigation;
-		Boolean isProperty = getXmlNavigation() instanceof XmlPropertyNavigation;
-
-		if (!(isValue || isProperty)) {
+		if (!isValue() && !isProperty()) {
 			throw new InvalidityException("Invalid Dangling XmlPathParam");
 		}
 
-		if(isValue && value != null && !value.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT)) {
+		try {
+			JSONArray array = new JSONArray(value);
+			value = array.getString(0);
+			if (array.length() > 1)
+				getAlternatives().clear();
+	        for (int i = 1; i < array.length(); i++) {
+	            String val = array.getString(i);
+	            XmlPathParam alt = new XmlPathParamImpl();
+	            getAlternatives().add(alt);
+	            alt.setValueFromString(val);				
+			}
+		} catch (JSONException e) {
+			getAlternatives().clear();
+		}
+
+		if(isValue() && value != null && !value.equals("") && !value.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT)) {
 			throw new InvalidityException("Invalid XPath value '" + value + "'. It should specify an XML element.");
 		}
-		if(isProperty && value != null && !value.matches(ConstantsXml.REGEX_XMLPATH_VALUE)) {
+		if(isProperty() && value != null && !value.equals("") && !value.matches(ConstantsXml.REGEX_XMLPATH_VALUE)) {
 			throw new InvalidityException("Invalid XPath value '" + value + "'. It should specify an XML property.");
 		}
 
@@ -1013,11 +1183,11 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			part.setValueFromString(v);
 		}
 
-		if (isValue) {
+		if (isValue()) {
 			if (!current.trim().equals("")) {
 				throw new InvalidityException("invalid rest value for XmlElementNavigation: '" + current + "' but should be ''");
 			}
-		} else if (isProperty) {
+		} else if (isProperty()) {
 			if (!current.matches(ConstantsXml.REGEX_PROPERTY_PART)) {
 				throw new InvalidityException("invalid rest value for XmlElementNavigation: '" + current + "' does not specify a value");
 			}
@@ -1067,6 +1237,11 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			res += " " + getXmlPropertyOptionParam().myToString();
 		} else {
 			res += ".";
+		}
+		if (getAlternatives() != null && !getAlternatives().isEmpty()) {
+			for (XmlPathParam alternative: getAlternatives()) {
+				res +=  " | " + alternative.myToString();
+			}
 		}
 		return res;
 	}

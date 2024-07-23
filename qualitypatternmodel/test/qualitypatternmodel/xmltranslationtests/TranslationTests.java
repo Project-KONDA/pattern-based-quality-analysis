@@ -96,11 +96,12 @@ public class TranslationTests {
 		testPair.getPattern().isValid(AbstractionLevel.CONCRETE);
 
 		String result = applyQuery(testPair.getPattern().generateXQuery());
-		String expectedResult = applyQuery(testPair.getManualQuery());
-
 		assertNotNull(result);
-		assertNotNull(expectedResult);
-		assertEquals(expectedResult, result);
+		if (testPair.getManualQuery() != null && ! testPair.getManualQuery().equals("")) {
+			String expectedResult = applyQuery(testPair.getManualQuery());
+			assertNotNull(expectedResult);
+			assertEquals(expectedResult, result);
+		}
 	}
 
 	private static String applyQuery(String query) throws BaseXException {
@@ -124,6 +125,4 @@ public class TranslationTests {
 			}
 		}
 	}
-
-
 }

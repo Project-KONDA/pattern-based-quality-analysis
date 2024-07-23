@@ -16,6 +16,7 @@ public class ConstantsXml {
 	public static final String WHERE = "\nwhere ";
 	public static final String RETURN = "\nreturn ";
 	public static final String IN = " in ";
+	public static final String XPATH_UNION = " | ";
 
 	public static final String REGEX_AXIS_NAMES = "(child|descendant|parent|ancestor|following|following-sibling|preceding|preceding-sibling|ancestor-or-self|descendant-or-self|self)";
 	public static final String REGEX_AXIS = "(\\s*((/)|(//)|(/" + REGEX_AXIS_NAMES + "::)))";
