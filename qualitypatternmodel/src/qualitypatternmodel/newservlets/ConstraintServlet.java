@@ -363,6 +363,8 @@ public class ConstraintServlet extends HttpServlet {
 	}
 
     public static HashMap<String, String> convertJSONObjectToHashMap(JSONObject jsonObject) {
+    	if (jsonObject == null)
+    	  return null;
         HashMap<String, String> hashMap = new HashMap<>();
         @SuppressWarnings("unchecked")
 		Iterator<String> keys = jsonObject.keys();
