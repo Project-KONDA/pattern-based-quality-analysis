@@ -1,8 +1,6 @@
 package qualitypatternmodel.cyphertranslationtests_new;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -27,7 +25,6 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test12Count {
 

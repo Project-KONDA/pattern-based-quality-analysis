@@ -18,13 +18,16 @@ public class ConstantsXml {
 	public static final String IN = " in ";
 	public static final String XPATH_UNION = " | ";
 
+	public static final String REGEX_NAMESPACE = "([a-zA-Z]+:)?";
 	public static final String REGEX_AXIS_NAMES = "(child|descendant|parent|ancestor|following|following-sibling|preceding|preceding-sibling|ancestor-or-self|descendant-or-self|self)";
 	public static final String REGEX_AXIS = "(\\s*((/)|(//)|(/" + REGEX_AXIS_NAMES + "::)))";
-	public static final String REGEX_PROPERTY_SPEC = "(((data|text|name)\\(\\))|(@[A-Za-z0-9]+))";
+	public static final String REGEX_ATTRIBUTE_NAME = REGEX_NAMESPACE + "[A-Za-z0-9]+";
+	public static final String REGEX_ATTRIBUTE = "(@" + REGEX_ATTRIBUTE_NAME + ")";
+	public static final String REGEX_PROPERTY_SPEC = "(((data|text|name)\\(\\))|" + REGEX_ATTRIBUTE + ")";
 	public static final String REGEX_PROPERTY = "(/" + REGEX_PROPERTY_SPEC + ")";
 	public static final String REGEX_PROPERTY_PART = "((/)?" + REGEX_PROPERTY_SPEC + ")";
 //	public static final String REGEX_NODENAME = "([a-zA-Z]+(:[a-zA-Z]+)?\\s*)";
-	public static final String REGEX_NODENAME = "(([a-zA-Z]+:)?[a-zA-Z0-9]+\\s*)";
+	public static final String REGEX_NODENAME = "(" + REGEX_NAMESPACE + "[a-zA-Z0-9]+\\s*)";
 	public static final String REGEX_CONDITION = "(\\s*\\[\\s*(" + REGEX_PROPERTY_SPEC + "(\\s*=\\s*\".*\")?)?\\s*\\]\\s*)";
 	public static final String REGEX_NODE = "((\\*|" + REGEX_NODENAME + ")" + "(" + REGEX_CONDITION + ")*)";
 	public static final String REGEX_NAVIGATION = "(" + REGEX_AXIS + REGEX_NODE + ")";
