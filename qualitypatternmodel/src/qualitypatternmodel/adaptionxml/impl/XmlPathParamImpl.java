@@ -38,6 +38,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
@@ -1072,6 +1073,11 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		return new BasicEList<PatternElement>();
 	}
 
 	/**

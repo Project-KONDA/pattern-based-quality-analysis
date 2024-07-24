@@ -63,6 +63,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
+import qualitypatternmodel.textrepresentation.impl.ValueMapImpl;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.ConstantsRdf;
 
@@ -1427,10 +1428,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public ValueMap getNamespaces() {
+		if (namespaces == null)
+			namespaces = new ValueMapImpl();
 		return namespaces;
 	}
 
