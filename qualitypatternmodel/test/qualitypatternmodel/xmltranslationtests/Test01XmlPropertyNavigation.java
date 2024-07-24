@@ -127,14 +127,14 @@ public class Test01XmlPropertyNavigation {
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("Property", getProperty(), null));
-		testPairs.add(new PatternTestPair("Value", getValue(), null));
-		testPairs.add(new PatternTestPair("PropertyNext", getPropertyNextGraph(), null));
-		testPairs.add(new PatternTestPair("MultipleProperties", getMultipleProperties(), null));
-		testPairs.add(new PatternTestPair("ValueNextGraph", getValueNextGraph(), null));
-		testPairs.add(new PatternTestPair("Comparison", getComparison(), null));
-		testPairs.add(new PatternTestPair("ComparisonCrossGraph", getComparisonCrossGraph(), null));
-		testPairs.add(new PatternTestPair("ComparisonNextGraph", getComparisonNextGraph(), null));
+		testPairs.add(new PatternTestPair("01p", "Property", getProperty(), null));
+		testPairs.add(new PatternTestPair("01p", "Value", getValue(), null));
+		testPairs.add(new PatternTestPair("01p", "PropertyNext", getPropertyNextGraph(), null));
+		testPairs.add(new PatternTestPair("01p", "MultipleProperties", getMultipleProperties(), null));
+		testPairs.add(new PatternTestPair("01p", "ValueNextGraph", getValueNextGraph(), null));
+		testPairs.add(new PatternTestPair("01p", "Comparison", getComparison(), null));
+		testPairs.add(new PatternTestPair("01p", "ComparisonCrossGraph", getComparisonCrossGraph(), null));
+		testPairs.add(new PatternTestPair("01p", "ComparisonNextGraph", getComparisonNextGraph(), null));
 		return testPairs;
 	}
 }

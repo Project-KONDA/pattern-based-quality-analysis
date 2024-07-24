@@ -39,8 +39,8 @@ public class Test14StringLength {
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("EQUAL", getPatternLength(ComparisonOperator.EQUAL, 5.), "//*[./text()[string-length(.) = 5.0]]"));
-		testPairs.add(new PatternTestPair("LESSOREQUAL", getPatternLength(ComparisonOperator.LESSOREQUAL, 10.), "//*[./text()[string-length(.) <= 10.0]]"));
+		testPairs.add(new PatternTestPair("14", "EQUAL", getPatternLength(ComparisonOperator.EQUAL, 5.), "//*[./text()[string-length(.) = 5.0]]"));
+		testPairs.add(new PatternTestPair("14", "LESSOREQUAL", getPatternLength(ComparisonOperator.LESSOREQUAL, 10.), "//*[./text()[string-length(.) <= 10.0]]"));
 		return testPairs;
 	}
 }

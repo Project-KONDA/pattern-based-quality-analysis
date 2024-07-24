@@ -1,8 +1,6 @@
 package qualitypatternmodel.cyphertranslationtests_new;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -14,7 +12,6 @@ import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test07Formula {
 
@@ -72,19 +69,4 @@ public class Test07Formula {
 
 		return pattern;
 	}
-
-
-
-	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
-		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-
-		testPairs.add(new PatternTestPair("AND", getFormulaPatternConcrete(LogicalOperator.AND), "/*/*[ ./* and ./@*[name()=\"demo:id\"]=/*/*/*/data()]"));
-		testPairs.add(new PatternTestPair("OR", getFormulaPatternConcrete(LogicalOperator.OR), "/*/*[ ./* or ./@*[name()=\"demo:id\"]=/*/*/*/data()]"));
-		testPairs.add(new PatternTestPair("IMPLIES", getFormulaPatternConcrete(LogicalOperator.IMPLIES), "/*/*[ not(./*) or ./@*[name()=\"demo:id\"]=/*/*/*/data()]"));
-		testPairs.add(new PatternTestPair("XOR", getFormulaPatternConcrete(LogicalOperator.XOR), "/*/* [ not(./*) = (./@*[name()=\"demo:id\"]=/*/*/*/data())]"));
-		testPairs.add(new PatternTestPair("EQUAL", getFormulaPatternConcrete(LogicalOperator.EQUAL), "/*/* [ exists(./*) = (./@*[name()=\"demo:id\"]=/*/*/*/data())]"));
-
-		return testPairs;
-	}
-
 }

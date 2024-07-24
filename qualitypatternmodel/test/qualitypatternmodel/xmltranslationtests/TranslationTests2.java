@@ -52,6 +52,7 @@ public class TranslationTests2 {
     		pairs.addAll(Test09ComplexComparison.getTestPairs());
     		pairs.addAll(Test10Reference.getTestPairs());
     		pairs.addAll(Test11Contains.getTestPairs());
+    		pairs.addAll(Test11Match.getTestPairs());
     		pairs.addAll(Test12Count.getTestPairs());
     		pairs.addAll(Test13Cycle.getTestPairs());
     		pairs.addAll(Test14StringLength.getTestPairs());

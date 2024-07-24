@@ -59,9 +59,9 @@ public class Test01Reference {
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("name", getBaseReference(), null));
-		testPairs.add(new PatternTestPair("name", getBaseReferenceAbstract(), null));
-		testPairs.add(new PatternTestPair("name", getBaseReferenceExistsAbstract(), null));
+		testPairs.add(new PatternTestPair("01r", "base-reference", getBaseReference(), null));
+		testPairs.add(new PatternTestPair("01r", "base-reference_abstract", getBaseReferenceAbstract(), null));
+		testPairs.add(new PatternTestPair("01r", "base-reference_exist", getBaseReferenceExistsAbstract(), null));
 		return testPairs;
 	}
 

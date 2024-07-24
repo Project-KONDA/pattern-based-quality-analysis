@@ -48,9 +48,9 @@ public class Test01AxisAlternative {
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("Alternative 1", getAlternativeSimple(), "declare namespace demo = \"demo\"; /demo:data/demo:building | /demo:data/demo:painting"));
+		testPairs.add(new PatternTestPair("01aa", "A1", getAlternativeSimple(), "declare namespace demo = \"demo\"; /demo:data/demo:building | /demo:data/demo:painting"));
 		String a1 = "declare namespace demo = \"demo\"; (/demo:data/demo:building|/demo:data/demo:painting)[./demo:name|./demo:title]";
-		testPairs.add(new PatternTestPair("Alternative 2", getAlternativeCondition(), a1));
+		testPairs.add(new PatternTestPair("01aa", "A2", getAlternativeCondition(), a1));
 		return testPairs;
 	}
 

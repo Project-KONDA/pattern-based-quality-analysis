@@ -104,10 +104,10 @@ public class Test05QuantorCombinationsCond {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
-		testPairs.add(new PatternTestPair("EXEXCON", 	getPatternExistsInExistsCond(), "/*/*[./@*[name()=\"demo:id\"]=\"101\" and ./name()=\"demo:building\" and ./name()!=\"abc\"and ./*[./data()=\"USA\"]/data()= /*/*/*[./name()=\"demo:country\"]/data()]"));
-		testPairs.add(new PatternTestPair("EXFACON", 	getPatternForallInExistsCond(), "/*/*[./@*[name()=\"demo:id\"]=\"101\"and ./name()=\"demo:building\" and ./name()!=\"abc\" and ./child::*[data()=\"USA\"]]"));
-		testPairs.add(new PatternTestPair("FAEXCON", 	getPatternExistsInForallCond(), "for $v in /*/* [./@*[name()=\"demo:id\"]=\"101\"] where  not( $v [name()=\"demo:building\" and name()!=\"abc\"]) or ( not( $v/child::*[./data()=\"USA\"]) or (exists(/*/*/* [name()=\"demo:country\" and data()=\"USA\"]))) return $v"));
-		testPairs.add(new PatternTestPair("FAFACON", 	getPatternForallInForallCond(), "/*/*[./@*[name()=\"demo:id\"]=\"101\"]"));
+		testPairs.add(new PatternTestPair("05", "ExistsInExists", 	getPatternExistsInExistsCond(), "/*/*[./@*[name()=\"demo:id\"]=\"101\" and ./name()=\"demo:building\" and ./name()!=\"abc\"and ./*[./data()=\"USA\"]/data()= /*/*/*[./name()=\"demo:country\"]/data()]"));
+		testPairs.add(new PatternTestPair("05", "ForallInExists", 	getPatternForallInExistsCond(), "/*/*[./@*[name()=\"demo:id\"]=\"101\"and ./name()=\"demo:building\" and ./name()!=\"abc\" and ./child::*[data()=\"USA\"]]"));
+		testPairs.add(new PatternTestPair("05", "ExistsInForall", 	getPatternExistsInForallCond(), "for $v in /*/* [./@*[name()=\"demo:id\"]=\"101\"] where  not( $v [name()=\"demo:building\" and name()!=\"abc\"]) or ( not( $v/child::*[./data()=\"USA\"]) or (exists(/*/*/* [name()=\"demo:country\" and data()=\"USA\"]))) return $v"));
+		testPairs.add(new PatternTestPair("05", "ForallInForall", 	getPatternForallInForallCond(), "/*/*[./@*[name()=\"demo:id\"]=\"101\"]"));
 
 		return testPairs;
 	}

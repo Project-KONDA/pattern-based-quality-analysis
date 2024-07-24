@@ -42,7 +42,7 @@ public class Test13Cycle {
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("PatternCycle", getPatternCycle(), ""));
+		testPairs.add(new PatternTestPair("13", "PatternCycle", getPatternCycle(), ""));
 		return testPairs;
 	}
 }

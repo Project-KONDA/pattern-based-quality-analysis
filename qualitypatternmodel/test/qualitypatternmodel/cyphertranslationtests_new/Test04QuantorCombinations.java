@@ -1,7 +1,5 @@
 package qualitypatternmodel.cyphertranslationtests_new;
 import java.util.ArrayList;
-import java.util.List;
-
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
@@ -22,7 +20,6 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test04QuantorCombinations {
 
@@ -113,22 +110,10 @@ public class Test04QuantorCombinations {
 
 		return completePattern;
 	}
+
 	public static CompletePattern getPatternForallInForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternForallInExists();
 		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		return completePattern;
 	}
-	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
-		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-
-		testPairs.add(new PatternTestPair("EXEX", 	getPatternExistsInExistsFinal(), "/*[./*[@*[name()=\"demo:id\"] = //*/data()]]"));
-		testPairs.add(new PatternTestPair("EXFA", 	getPatternForallInExists(), "/*[./*]"));
-		testPairs.add(new PatternTestPair("FAEX", 	getPatternExistsInForall(), "for $x in /* where every $y in $x/child::*[./name()=\"demo:artist\"] satisfies ($y[exists(./@*[name()=\"demo:id\"])] and /descendant::*[exists(./data())][$y/@*[name()=\"demo:id\"]=./data()]) return $x"));
-		testPairs.add(new PatternTestPair("FAFA", 	getPatternForallInForall(), "for $var4 in /* where every $var7 in $var4/* satisfies ($var7[exists(./@*[name()=\"demo:id\"])]) return ($var4)"));
-
-		// TODO: complete test cases
-
-		return testPairs;
-	}
-
 }

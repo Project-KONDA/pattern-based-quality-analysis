@@ -140,7 +140,7 @@ public class Test06NotElement {
 		completePattern.createXmlAdaption();
 
 		completePattern.printParameters();
-		List<Parameter> params = completePattern.getParameterList().getParameters();
+//		List<Parameter> params = completePattern.getParameterList().getParameters();
 //		params.get(0).setValueFromString("/ancestor::*");
 //		params.get(1).setValueFromString("/parent::*");
 //		params.get(2).setValueFromString("/self::*");
@@ -176,12 +176,12 @@ public class Test06NotElement {
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("NOT", 	    getPatternNotTrue(),			"()"));
-		testPairs.add(new PatternTestPair("NOTNOT", 	getPatternNotNotTrue(),			"/*"));
-		testPairs.add(new PatternTestPair("NOTEX", 		getPatternNotExists(),			"//*[not(./*)]"));
-		testPairs.add(new PatternTestPair("NOTFA", 		getPatternNotForall(),			"()"));
-		testPairs.add(new PatternTestPair("EXNOTEX",	getPatternExistsNotExists(),	"if ( not( exists (/ancestor::*)) and  exists (/*)) then (/*/*)"));
-		testPairs.add(new PatternTestPair("FANOTFA", 	getPatternForallNotForall(),	"if ( not( exists (/parent::*))) then (/*/*)"));
+		testPairs.add(new PatternTestPair("06", "NOT",getPatternNotTrue(), "()"));
+		testPairs.add(new PatternTestPair("06", "NOTNOT", getPatternNotNotTrue(), "/*"));
+		testPairs.add(new PatternTestPair("06", "NOTEX", getPatternNotExists(), "//*[not(./*)]"));
+		testPairs.add(new PatternTestPair("06", "NOTFA", getPatternNotForall(), "()"));
+		testPairs.add(new PatternTestPair("06", "EXNOTEX", getPatternExistsNotExists(), "if ( not( exists (/ancestor::*)) and  exists (/*)) then (/*/*)"));
+		testPairs.add(new PatternTestPair("06", "FANOTFA", getPatternForallNotForall(), "if ( not( exists (/parent::*))) then (/*/*)"));
 		return testPairs;
 	}
 

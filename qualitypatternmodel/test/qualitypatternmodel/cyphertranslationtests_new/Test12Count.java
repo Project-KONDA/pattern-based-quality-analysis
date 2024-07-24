@@ -497,19 +497,4 @@ public class Test12Count {
 //		quantifiedCondition.setQuantifier(Quantifier.FORALL);
 //		return completePattern;
 //	}
-
-	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-
-		testPairs.add(new PatternTestPair("COUNTPAT", getPatternCountInPatternFinal(), "/*[name()='demo:data' and count(./*[name()='demo:x']) = 0.0]"));
-		testPairs.add(new PatternTestPair("COUNTEX", getPatternCountInExists(), "/*[name()='demo:data' and count(./*[name()='demo:building']) = 3.0]"));
-		testPairs.add(new PatternTestPair("COUNTFOR", getPatternCountInForall(), "/*[name()='demo:data' and (every $x in /* satisfies $x[name()='demo:data' and count(./*[name()='demo:building']) = 3.0])]"));
-		testPairs.add(new PatternTestPair("COUNTNEX", getPatternCountNextToExists(), "/*[name()='demo:data' and count(for $x in ./*[name()='demo:building'] for $y in $x/*[name()='demo:name'] return $x) = 3.0 and ./*[name()='demo:painting']]"));
-		testPairs.add(new PatternTestPair("COUNTNFOR", getPatternCountNextToForall(), "/*[name()='demo:data' and count(for $x in ./*[name()='demo:building'] for $y in $x/*[name()='demo:name'] return $x) = 3.0]"));
-		testPairs.add(new PatternTestPair("COUNTNOT", getPatternCountInNot(), "/*[not(count(./*[name()='demo:building']) = 0.0)]"));
-		testPairs.add(new PatternTestPair("COUNTNEXNEST", getPatternCountNextToExistsNested(), "/*[name()='demo:data' and ./*[name()='demo:building' and count(for $x in ./*[name()='demo:address'] for $y in $x/*[name()='demo:city'] return $x) =1.0 and ./*[name()='demo:name']]]"));
-		testPairs.add(new PatternTestPair("COUNTNFORNEST", getPatternCountNextToForallNested(), "/*[name()='demo:data' and ./*[name()='demo:building' and count(for $x in ./*[name()='demo:address'] for $y in $x/*[name()='demo:city'] return $x) =1.0]]"));
-
-		return testPairs;
-	}
 }

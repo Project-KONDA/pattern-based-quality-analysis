@@ -155,13 +155,12 @@ public class Test03Quantor {
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("EXISTSREL", getPatternExistsWithRelationFinal(), "/*[./*]"));
-		testPairs.add(new PatternTestPair("EXISTS", getPatternExistsFinal(), "/*[/*]"));
-		testPairs.add(new PatternTestPair("EXISTSNAV", getPatternExistsNavigation(), "declare namespace demo = \"demo\"; /demo:data[./demo:building/demo:source = ./demo:painting/demo:source]"));
-		testPairs.add(new PatternTestPair("EXISTSCOND", getPatternExistsCondFinal(), "/*[/*/*/*[data()=\"New York City\"]]"));
-		testPairs.add(new PatternTestPair("FORALL", getPatternForall(), "for $x1 in /* where every $x2 in /* satisfies true() return $x1"));
-		testPairs.add(new PatternTestPair("FORALLCOND", getPatternForallCond(), "for $x1 in /* where every $x2 in /*[data()=\"myvalue\"] satisfies true() return $x1"));
-		// TODO: complete test cases
+		testPairs.add(new PatternTestPair("03", "ExistsRelation", getPatternExistsWithRelationFinal(), "/*[./*]"));
+		testPairs.add(new PatternTestPair("03", "Exists", getPatternExistsFinal(), "/*[/*]"));
+		testPairs.add(new PatternTestPair("03", "ExistsNavigation", getPatternExistsNavigation(), "declare namespace demo = \"demo\"; /demo:data[./demo:building/demo:source = ./demo:painting/demo:source]"));
+		testPairs.add(new PatternTestPair("03", "ExistsCond", getPatternExistsCondFinal(), "/*[/*/*/*[data()=\"New York City\"]]"));
+		testPairs.add(new PatternTestPair("03", "Forall", getPatternForall(), "for $x1 in /* where every $x2 in /* satisfies true() return $x1"));
+		testPairs.add(new PatternTestPair("03", "ForallCond", getPatternForallCond(), "for $x1 in /* where every $x2 in /*[data()=\"myvalue\"] satisfies true() return $x1"));
 		return testPairs;
 	}
 }

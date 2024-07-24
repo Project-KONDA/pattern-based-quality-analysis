@@ -194,10 +194,10 @@ public class Test10Reference {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<>();
 
-		testPairs.add(new PatternTestPair("REF", getPatternReferenceSimple(), "//*[./text()]"));
-		testPairs.add(new PatternTestPair("REFREF", getPatternReferenceTwoReference(), "//*[./text()]"));
-		testPairs.add(new PatternTestPair("REFNAV", getPatternReferenceParallelNavigation(), "/*/*[./@*[name()='demo:id'] = ./*/data()]"));
-		testPairs.add(new PatternTestPair("REFPROP", getPatternReferencePropertyLocationsParallel(), "/*/*/*[exists(./@*[name()=\"demo:lang\"])]"));
+		testPairs.add(new PatternTestPair("10", "Ref", getPatternReferenceSimple(), "//*[./text()]"));
+		testPairs.add(new PatternTestPair("10", "RefRef", getPatternReferenceTwoReference(), "//*[./text()]"));
+		testPairs.add(new PatternTestPair("10", "RefNav", getPatternReferenceParallelNavigation(), "/*/*[./@*[name()='demo:id'] = ./*/data()]"));
+		testPairs.add(new PatternTestPair("10", "RefProp", getPatternReferencePropertyLocationsParallel(), "/*/*/*[exists(./@*[name()=\"demo:lang\"])]"));
 
 		return testPairs;
 	}
