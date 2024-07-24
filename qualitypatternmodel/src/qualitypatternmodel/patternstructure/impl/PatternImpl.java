@@ -178,6 +178,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 
 		String forClauses = graph.generateXQuery();
+		// remove very first newline
+		forClauses = forClauses.substring(1); 
 
 		String whereClause = "";
 		if (!(condition instanceof TrueElement)) {

@@ -513,7 +513,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			String uri = namespaces.get(prefix);
 			result += "declare namespace " + prefix + "=\"" + uri + "\";\n";
 		}
-		result += "\n";
 		return result;
 	}
 
