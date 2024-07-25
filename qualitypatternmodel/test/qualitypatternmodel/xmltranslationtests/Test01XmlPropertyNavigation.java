@@ -8,6 +8,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -38,12 +39,28 @@ public class Test01XmlPropertyNavigation {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.getGraph().getNodes().get(0).addOutgoing().getTarget().makePrimitive();
 		completePattern.createXmlAdaption();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("/text()");
+		params.get(1).setValueFromString("//*");
+		return completePattern;
+	}
+
+	public static CompletePattern getPropertyReturn() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		completePattern.getGraph().getNodes().get(0).makePrimitive();
+		completePattern.createXmlAdaption();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("//*/text()");
 		return completePattern;
 	}
 
 	public static CompletePattern getValue() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getProperty();
 		completePattern.getGraph().getNodes().get(1).addPrimitiveComparison();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(1).setValueFromString("//*");
+		params.get(0).setValueFromString("/text()");
+		params.get(2).setValueFromString("unknown");
 		return completePattern;
 	}
 
@@ -54,6 +71,9 @@ public class Test01XmlPropertyNavigation {
 		Graph g = cond.getGraph();
 		completePattern.getGraph().getNodes().get(0).addOutgoing(g).getTarget().makePrimitive();
 		completePattern.createXmlAdaption();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("//*");
+		params.get(1).setValueFromString("/text()");
 		return completePattern;
 	}
 
@@ -65,12 +85,20 @@ public class Test01XmlPropertyNavigation {
 		completePattern.getGraph().getNodes().get(0).addOutgoing().getTarget().makePrimitive();
 		completePattern.getGraph().getNodes().get(0).addOutgoing(g).getTarget().makePrimitive();
 		completePattern.createXmlAdaption();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("/demo:startwork/text()");
+		params.get(1).setValueFromString("//*");
+		params.get(2).setValueFromString("/demo:endwork/text()");
 		return completePattern;
 	}
 
 	public static CompletePattern getValueNextGraph() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPropertyNextGraph();
 		((QuantifiedCondition)completePattern.getCondition()).getGraph().getNodes().get(0).addPrimitiveComparison();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("//*");
+		params.get(1).setValueFromString("/text()");
+		params.get(2).setValueFromString("unknown");
 		return completePattern;
 	}
 
@@ -127,11 +155,12 @@ public class Test01XmlPropertyNavigation {
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("01p", "Property", getProperty(), null));
-		testPairs.add(new PatternTestPair("01p", "Value", getValue(), null));
-		testPairs.add(new PatternTestPair("01p", "PropertyNext", getPropertyNextGraph(), null));
-		testPairs.add(new PatternTestPair("01p", "MultipleProperties", getMultipleProperties(), null));
-		testPairs.add(new PatternTestPair("01p", "ValueNextGraph", getValueNextGraph(), null));
+		testPairs.add(new PatternTestPair("01p", "PropertyReturn", getPropertyReturn(), "//*/text()"));
+		testPairs.add(new PatternTestPair("01p", "Property", getProperty(), "//*[text()]"));
+		testPairs.add(new PatternTestPair("01p", "Value", getValue(), "//*[text()=\"unknown\"]"));
+		testPairs.add(new PatternTestPair("01p", "PropertyNext", getPropertyNextGraph(), "//*[text()]"));
+		testPairs.add(new PatternTestPair("01p", "MultipleProperties", getMultipleProperties(), "declare namespace demo = \"demo\"; //*[./demo:startwork/text()][./demo:endwork/text()]"));
+		testPairs.add(new PatternTestPair("01p", "ValueNextGraph", getValueNextGraph(), "//*[text()=\"unknown\"]"));
 		testPairs.add(new PatternTestPair("01p", "Comparison", getComparison(), null));
 		testPairs.add(new PatternTestPair("01p", "ComparisonCrossGraph", getComparisonCrossGraph(), null));
 		testPairs.add(new PatternTestPair("01p", "ComparisonNextGraph", getComparisonNextGraph(), null));
