@@ -2,21 +2,12 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.adaptionxml.XmlProperty;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
-import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -40,67 +31,41 @@ public class Test04QuantorCombinations {
 		PatternUtility.testPatterns(getPatterns());
 	}
 
-	public static CompletePattern getPatternExistsInExistsFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-
-		CompletePattern completePattern = getPatternExistsInExists();
-
-		completePattern.createXmlAdaption();
-
-		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		QuantifiedCondition quantifiedCondition2 = (QuantifiedCondition) quantifiedCondition.getCondition();
-
-//		Graph g1 = completePattern.getGraph();
-//		Graph g2 = quantifiedCondition.getGraph();
-		Graph g3 = quantifiedCondition2.getGraph();
-
-
-		XmlReference ref = g3.getRelations().get(0).adaptAsXmlReference();
-		ref.setType(ReturnType.STRING);
-
-		XmlProperty prop0 = (XmlProperty) g3.getNodes().get(1);
-		Relation rel = prop0.getIncoming().get(0);
-		if(rel instanceof XmlPropertyNavigation) {
-			XmlPropertyNavigation nav = (XmlPropertyNavigation) rel;
-			nav.getXmlPathParam().getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
-			TextLiteralParam text = parametersFactory.createTextLiteralParam();
-			text.setValue("demo:id");
-			nav.getXmlPathParam().getXmlPropertyOptionParam().setAttributeName(text);
-		}
-
-		return completePattern;
-	}
-
 	public static CompletePattern getPatternExistsInExists() throws InvalidityException {
 
-		// PatternStructure
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		CompletePattern completePattern = Test03Quantor.getPatternExists();
-		QuantifiedCondition qcond = (QuantifiedCondition) completePattern.getCondition();
+		CompletePattern completePattern = factory.createCompletePattern();
+		QuantifiedCondition qcond = factory.createQuantifiedCondition();
 		QuantifiedCondition qcond2 =  factory.createQuantifiedCondition();
+		completePattern.setCondition(qcond);
 		qcond.setCondition(qcond2);
-
-		// EXISTS 2 additional graph structure
-		GraphstructurePackage.eINSTANCE.eClass();
-//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 
 		Graph g1 = completePattern.getGraph();
 		Graph g2 = qcond.getGraph();
 		Graph g3 = qcond2.getGraph();
 
-		Node e1q1 = g1.getNodes().get(0);
-		Node e2q1 = e1q1.addOutgoing(g2).getTarget();
+		Node g1a = g1.getNodes().get(0).makeComplex();
+		
+		g1a.addOutgoing(g2).getTarget();
+		Node g2b = g1a.addOutgoing().getTarget().makePrimitive();
+		Node g3a = g3.addComplexNode();
+		Node g3b = g3a.addOutgoing().getTarget().makePrimitive();
+		g3b.addComparison(g2b);
 
-//		Node se3 =
-		e2q1.addOutgoing(g3).getTarget();
+		return completePattern;
+	}
 
-//		completePattern.createXMLAdaption();
-//		relation2.adaptAsXMLNavigation();
-//		XMLReference ref = relation.adaptAsXMLReference();
-//		ref.setType(ReturnType.STRING);
-//		completePattern.finalizeXMLAdaption();
+	public static CompletePattern getPatternExistsInExistsFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getPatternExistsInExists();
+		completePattern.createXmlAdaption();
+
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(2).setValueFromString("/demo:creator/text()"); // Property
+		params.get(3).setValueFromString("/demo:data/demo:painting");
+		params.get(4).setValueFromString("/demo:startwork");
+		params.get(5).setValueFromString("/@demo:id");
+		params.get(6).setValueFromString("/demo:data/demo:artist");
 
 		return completePattern;
 	}
@@ -128,10 +93,14 @@ public class Test04QuantorCombinations {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
-		testPairs.add(new PatternTestPair("04", "ExistsInExists", getPatternExistsInExistsFinal(), "/*[./*[@*[name()=\"demo:id\"] = //*/data()]]"));
-		testPairs.add(new PatternTestPair("04", "ForallInExists", getPatternForallInExists(), "/*[./*]"));
-		testPairs.add(new PatternTestPair("04", "ExistsInForall", getPatternExistsInForall(), "for $x in /* where every $y in $x/child::*[./name()=\"demo:artist\"] satisfies ($y[exists(./@*[name()=\"demo:id\"])] and /descendant::*[exists(./data())][$y/@*[name()=\"demo:id\"]=./data()]) return $x"));
-		testPairs.add(new PatternTestPair("04", "ForallInForall", getPatternForallInForall(), "for $var4 in /* where every $var7 in $var4/* satisfies ($var7[exists(./@*[name()=\"demo:id\"])]) return ($var4)"));
+		String query1 = "declare namespace demo = \"demo\"; /demo:data/demo:painting[./demo:startwork][./demo:creator[./text() = /demo:data/demo:artist/@demo:id]]";
+		String query3 = "declare namespace demo = \"demo\"; /demo:data/demo:painting";
+		String query2 = "declare namespace demo = \"demo\"; /demo:data/demo:painting[not(./demo:startwork)]";
+
+		testPairs.add(new PatternTestPair("04", "ExistsInExists", getPatternExistsInExistsFinal(), query1));
+		testPairs.add(new PatternTestPair("04", "ForallInExists", getPatternForallInExists(), query1));
+		testPairs.add(new PatternTestPair("04", "ExistsInForall", getPatternExistsInForall(), query2));
+		testPairs.add(new PatternTestPair("04", "ForallInForall", getPatternForallInForall(), query3));
 		return testPairs;
 	}
 
