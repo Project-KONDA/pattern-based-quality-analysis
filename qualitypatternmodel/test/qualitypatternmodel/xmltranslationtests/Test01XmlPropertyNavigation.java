@@ -113,6 +113,11 @@ public class Test01XmlPropertyNavigation {
 		Node n2next = n2.addOutgoing().getTarget().makePrimitive();
 		retnext.addComparison(n2next);
 		completePattern.createXmlAdaption();
+		List<Parameter> params = completePattern.getParameterList().getParameters();                                                                                                                                      
+		params.get(2).setValueFromString("/demo:creator/text()");
+		params.get(3).setValueFromString("/@demo:id");
+		params.get(4).setValueFromString("/demo:data/demo:painting");
+		params.get(5).setValueFromString("/demo:data/demo:artist");
 		return completePattern;
 	}
 
@@ -131,6 +136,11 @@ public class Test01XmlPropertyNavigation {
 		Node n2next = n2.addOutgoing().getTarget().makePrimitive();
 		retnext.addComparison(n2next);
 		completePattern.createXmlAdaption();
+		List<Parameter> params = completePattern.getParameterList().getParameters();   
+		params.get(2).setValueFromString("/demo:creator/text()"); // Property
+		params.get(3).setValueFromString("/demo:data/demo:painting");
+		params.get(4).setValueFromString("/@demo:id"); // Property
+		params.get(5).setValueFromString("/demo:data/demo:artist");
 		return completePattern;
 	}
 
@@ -150,6 +160,11 @@ public class Test01XmlPropertyNavigation {
 		Node n2next = n2.addOutgoing().getTarget().makePrimitive();
 		retnext.addComparison(n2next);
 		completePattern.createXmlAdaption();
+		List<Parameter> params = completePattern.getParameterList().getParameters();   
+		params.get(2).setValueFromString("/demo:data/demo:painting");
+		params.get(3).setValueFromString("/demo:creator/text()"); // Property
+		params.get(4).setValueFromString("/@demo:id"); // Property
+		params.get(5).setValueFromString("/demo:data/demo:artist");
 		return completePattern;
 	}
 
@@ -161,9 +176,10 @@ public class Test01XmlPropertyNavigation {
 		testPairs.add(new PatternTestPair("01p", "PropertyNext", getPropertyNextGraph(), "//*[text()]"));
 		testPairs.add(new PatternTestPair("01p", "MultipleProperties", getMultipleProperties(), "declare namespace demo = \"demo\"; //*[./demo:startwork/text()][./demo:endwork/text()]"));
 		testPairs.add(new PatternTestPair("01p", "ValueNextGraph", getValueNextGraph(), "//*[text()=\"unknown\"]"));
-		testPairs.add(new PatternTestPair("01p", "Comparison", getComparison(), null));
-		testPairs.add(new PatternTestPair("01p", "ComparisonCrossGraph", getComparisonCrossGraph(), null));
-		testPairs.add(new PatternTestPair("01p", "ComparisonNextGraph", getComparisonNextGraph(), null));
+		String x = "declare namespace demo = \"demo\"; /demo:data/demo:painting [./demo:creator/text() = /demo:data/demo:artist/@demo:id]";
+		testPairs.add(new PatternTestPair("01p", "Comparison", getComparison(), x));
+		testPairs.add(new PatternTestPair("01p", "ComparisonCrossGraph", getComparisonCrossGraph(), x));
+		testPairs.add(new PatternTestPair("01p", "ComparisonNextGraph", getComparisonNextGraph(), x));
 		return testPairs;
 	}
 }

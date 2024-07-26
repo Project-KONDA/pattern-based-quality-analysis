@@ -29,6 +29,7 @@ import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPathComponent;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -529,6 +530,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			String out = p.getClass().getSimpleName().replace("Impl", "");
 			out += " p" + i + " = ((" + p.getClass().getSimpleName().replace("Impl", "");
 			out += ") params.get(" + i + "));";
+			if (p instanceof XmlPathParam && ((XmlPathParam) p).isProperty())
+				out += " // Property";
 			System.out.println(out);
 			i++;
 		}
