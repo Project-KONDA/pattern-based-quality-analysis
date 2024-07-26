@@ -2,11 +2,6 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
-import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -14,8 +9,7 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.utility.PatternUtility;
@@ -46,6 +40,10 @@ public class Test02Return {
 		element2.setReturnNode(true);
 
 		completePattern.createXmlAdaption();
+		
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("/demo:creator");
+		params.get(1).setValueFromString("/demo:data/demo:painting");
 
 		return completePattern;
 	}
@@ -62,43 +60,23 @@ public class Test02Return {
 		element2.setReturnNode(true);
 
 		completePattern.createXmlAdaption();
+		((ComplexNode) completePattern.getGraph().getNodes().get(1)).getOutgoing().get(0).adaptAsXmlReference();
 
-		XmlReference reference = ((ComplexNode) completePattern.getGraph().getNodes().get(1)).getOutgoing().get(0).adaptAsXmlReference();
-		reference.setType(ReturnType.STRING);
-//		completePattern.finalizeXMLAdaption();
-
-//		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		XmlElementNavigation nav2 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
-		nav2.getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
-
-//		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-//		XmlElementNavigation nav3 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(4);
-//		nav3.getPathParam().setAxis(AxisKind.DESCENDANT, "");
-//		((XmlElementNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
-
-//		reference.getSourceProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
-		XmlPropertyOptionParam pop = reference.getSourcePropertyPath().getXmlPropertyOptionParam();
-		pop.setValue(XmlPropertyKind.ATTRIBUTE);
-
-//		System.out.println(completePattern.myToString() + "\n\n");
-		TextLiteralParam an2 = pop.getAttributeName();
-//		System.out.println(an2 == null);
-		an2.setValue("demo:id");
-
-//		reference.getTargetProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
-		XmlPropertyOptionParam pop2 = reference.getSourcePropertyPath().getXmlPropertyOptionParam();
-		pop2.setValue(XmlPropertyKind.ATTRIBUTE);
-		TextLiteralParam an = pop2.getAttributeName();
-//		System.out.println(an);
-		an.setValue("demo:id");
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("/demo:data/demo:painting");
+		params.get(1).setValueFromString("/demo:creator/text()"); // Property
+		params.get(2).setValueFromString("/@demo:id"); // Property
+		params.get(3).setValueFromString("/demo:data/demo:artist");
 
 		return completePattern;
 	}
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("02", "MultipleReturnNavigation", getPatternMultipleReturnNavigation(), "for $x1 in /* for $x2 in $x1/* return ($x1, $x2)"));
-		testPairs.add(new PatternTestPair("02", "MultipleReturnReference", getPatternMultipleReturnReference(), "for $x1 in //* for $x2 in //*[@*[name()='demo:id']=$x1/@*[name()='demo:id']] return ($x1, $x2)"));
+		testPairs.add(new PatternTestPair("02", "MultipleReturnNavigation", getPatternMultipleReturnNavigation(), 
+				"declare namespace demo = \"demo\"; for $x1 in /demo:data/demo:painting for $x2 in $x1/demo:creator return ($x2, $x1)"));
+		testPairs.add(new PatternTestPair("02", "MultipleReturnReference", getPatternMultipleReturnReference(), 
+				"declare namespace demo = \"demo\"; for $x1 in /demo:data/demo:painting for $x2 in /demo:data/demo:artist[./@demo:id = $x1/demo:creator/text()] return ($x2, $x1)"));
 		return testPairs;
 	}
 

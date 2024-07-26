@@ -526,6 +526,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public void printParameters() {
 		int i=0;
+		System.out.println("List<Parameter> params = completePattern.getParameterList().getParameters();");
 		for (Parameter p: getParameterList().getParameters()){
 			String out = p.getClass().getSimpleName().replace("Impl", "");
 			out += " p" + i + " = ((" + p.getClass().getSimpleName().replace("Impl", "");
