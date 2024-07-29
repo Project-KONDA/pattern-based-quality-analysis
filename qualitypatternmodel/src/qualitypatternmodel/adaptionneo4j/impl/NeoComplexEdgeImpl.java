@@ -22,7 +22,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
@@ -168,17 +168,17 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		try {
 			array = new JSONArray(value);
 		} catch (JSONException e) {
-			throw new InvalidityException(Constants.INVALID_VALUE + " [" + value + "]", e);
+			throw new InvalidityException(ConstantsError.INVALID_VALUE + " [" + value + "]", e);
 		}
 		if (array == null || array.length() < 2) {
-			throw new InvalidityException(Constants.INVALID_VALUE + ": Not enough items");
+			throw new InvalidityException(ConstantsError.INVALID_VALUE + ": Not enough items");
 		}
 
 		for (int i = 0; i < array.length(); i++) {
 			try {
 				newPathParts.add(NeoPathPartImpl.createNewNeoPathPart(array.get(i).toString()));
 			} catch (JSONException e) {
-				throw new InvalidityException(Constants.INVALID_VALUE + " [" + value + "]", e);
+				throw new InvalidityException(ConstantsError.INVALID_VALUE + " [" + value + "]", e);
 			}
 		}
 		getNeoPathParts().clear();

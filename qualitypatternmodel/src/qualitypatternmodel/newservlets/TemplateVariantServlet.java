@@ -24,6 +24,8 @@ import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class TemplateVariantServlet extends HttpServlet {
@@ -98,14 +100,14 @@ public class TemplateVariantServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String templateId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		// 2 load template
 		CompletePattern pattern = ServletUtilities.loadTemplate(technology, templateId);
 		if (pattern == null) {
-			throw new FailedServletCallException("Requested template '" + templateId + "' does not exist");
+			throw new FailedServletCallException(ConstantsError.NOT_FOUND_TEMPLATE + ": '" + templateId + "'");
 		}
 
 		JSONObject parameter = new JSONObject();
@@ -130,8 +132,8 @@ public class TemplateVariantServlet extends HttpServlet {
 
 		JSONObject result = new JSONObject();
 		try {
-			result.put(Constants.JSON_VARIANTS, variants);
-			result.put(Constants.JSON_PARAMETER, parameter);
+			result.put(ConstantsJSON.VARIANTS, variants);
+			result.put(ConstantsJSON.PARAMETER, parameter);
 		} catch (JSONException e) {}
 
 		return result;
@@ -147,14 +149,14 @@ public class TemplateVariantServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String templateId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		// 2 load json
-		String[] variants = parameterMap.get("variants");
+		String[] variants = parameterMap.get(ConstantsJSON.VARIANTS);
 		if (variants == null) {
-			throw new FailedServletCallException("Parameter 'variants' missing");
+			throw new FailedServletCallException(ConstantsError.NOT_FOUND_VARIANT);
 		}
 
 		// 3 load template
@@ -172,9 +174,9 @@ public class TemplateVariantServlet extends HttpServlet {
 		for (String variant: variants) {
 			try {
 				JSONObject json = new JSONObject(variant);
-				variantNames.add(json.getString("name"));
+				variantNames.add(json.getString(ConstantsJSON.NAME));
 			} catch (Exception e) {
-				throw new FailedServletCallException("Invalid JSON format.", e);
+				throw new FailedServletCallException(ConstantsError.INVALID_JSON, e);
 			}
 		}
 
@@ -188,7 +190,7 @@ public class TemplateVariantServlet extends HttpServlet {
 			}
 		}
 		if (new HashSet<String>(variantNames).size() != variantNames.size()) {
-			throw new FailedServletCallException("The call contains variants with the same name.");
+			throw new FailedServletCallException(ConstantsError.DUPLICATE_VARIANT_NAMES);
 		}
 
 		// 5 add variant
@@ -198,10 +200,10 @@ public class TemplateVariantServlet extends HttpServlet {
 				new PatternTextImpl(pattern, json);
 			} catch (JSONException e) {
 				e.printStackTrace();
-				throw new FailedServletCallException("Invalid JSON format.", e);
+				throw new FailedServletCallException(ConstantsError.INVALID_JSON, e);
 			} catch (InvalidityException e) {
 				e.printStackTrace();
-				throw new FailedServletCallException("Invalid JSON: " + e.getMessage(), e);
+				throw new FailedServletCallException(ConstantsError.INVALID_JSON + ": " + e.getMessage(), e);
 			} catch (Exception e) {
 				e.printStackTrace();
 				throw new FailedServletCallException("error: " + e.getMessage(), e);
@@ -210,7 +212,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		try {
 			pattern.isValid(AbstractionLevel.ABSTRACT);
 		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-			throw new FailedServletCallException("Invalid variant(s).", e);
+			throw new FailedServletCallException(ConstantsError.INVALID_VARIANT, e);
 		}
 
 		// 6 save template
@@ -245,14 +247,14 @@ public class TemplateVariantServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String templateId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		// 2 load variant list
-		String[] variants = parameterMap.get("variants");
+		String[] variants = parameterMap.get(ConstantsJSON.VARIANTS);
 		if (variants == null) {
-			throw new FailedServletCallException("Parameter 'variants' missing");
+			throw new FailedServletCallException(ConstantsError.NOT_FOUND_VARIANT);
 		}
 
 		// 3 load template
@@ -267,7 +269,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		JSONArray failed = new JSONArray();
 
 		for (String variantName: variants) {
-			boolean done = true;
+			boolean done = false;
 			for (PatternText text: pattern.getText()) {
 				if (variantName.equals(text.getName())) {
 					text.delete();
@@ -277,7 +279,11 @@ public class TemplateVariantServlet extends HttpServlet {
 				}
 			}
 			if (!done) {
-				failed.put(variantName);
+				JSONObject object = new JSONObject();
+				try {
+					object.put(variantName, ConstantsError.NOT_FOUND_VARIANT);
+				} catch (JSONException e) {}
+				failed.put(object);
 			}
 		}
 
@@ -292,8 +298,8 @@ public class TemplateVariantServlet extends HttpServlet {
 		// 6 return results
 		JSONObject object = new JSONObject();
 		try {
-			object.put(Constants.JSON_SUCCESS, success);
-			object.put(Constants.JSON_FAILED, failed);
+			object.put(ConstantsJSON.SUCCESS, success);
+			object.put(ConstantsJSON.FAILED, failed);
 		} catch (Exception e) {}
 		return object;
 	}

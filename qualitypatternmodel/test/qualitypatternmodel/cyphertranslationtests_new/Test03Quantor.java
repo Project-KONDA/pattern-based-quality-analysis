@@ -1,7 +1,5 @@
 package qualitypatternmodel.cyphertranslationtests_new;
 import java.util.ArrayList;
-import java.util.List;
-
 //import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -15,7 +13,6 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test03Quantor {
 
@@ -152,17 +149,5 @@ public class Test03Quantor {
 		cond1.setQuantifier(Quantifier.FORALL);
 		completePattern.createNeo4jAdaption();
 		return completePattern;
-	}
-
-	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
-		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("EXISTSREL", getPatternExistsWithRelationFinal(), "/*[./*]"));
-		testPairs.add(new PatternTestPair("EXISTS", getPatternExistsFinal(), "/*[/*]"));
-//		testPairs.add(new PatternTestPair("EXISTSNAV", getPatternExistsNavigation(), ""));
-		testPairs.add(new PatternTestPair("EXISTSCOND", getPatternExistsCondFinal(), "/*[/*/*/*[data()=\"New York City\"]]"));
-		testPairs.add(new PatternTestPair("FORALL", getPatternForall(), "for $x1 in /* where every $x2 in /* satisfies true() return $x1"));
-		testPairs.add(new PatternTestPair("FORALLCOND", getPatternForallCond(), "for $x1 in /* where every $x2 in /*[data()=\"myvalue\"] satisfies true() return $x1"));
-		// TODO: complete test cases
-		return testPairs;
 	}
 }

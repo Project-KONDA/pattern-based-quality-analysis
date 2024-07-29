@@ -190,10 +190,10 @@ public class Test09ComplexComparison {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<>();
 
-		testPairs.add(new PatternTestPair("COMPSELFPROPS", getPatternSelfTwoProperties(), "//*[./text()]"));
-		testPairs.add(new PatternTestPair("COMPPROPPROP", getPatternTwoProperties(), "for $c in //*/* for $copy in $c/parent::*/*[(./text() = $c/text())] return $c/parent::*"));
-		testPairs.add(new PatternTestPair("COMPELEL", getPatternTwoElements(), "for $c in /*/* for $copy in $c/parent::*/*[fn:deep-equal(.,$c)] return $c/parent::*"));
-		testPairs.add(new PatternTestPair("COMPOPOP", getPatternTwoOperators(), "/*[name()!='building']"));
+		testPairs.add(new PatternTestPair("09", "COMPSELFPROPS", getPatternSelfTwoProperties(), "//*[./text()]"));
+		testPairs.add(new PatternTestPair("09", "COMPPROPPROP", getPatternTwoProperties(), "for $c in //*/* for $copy in $c/parent::*/*[(./text() = $c/text())] return $c/parent::*"));
+		testPairs.add(new PatternTestPair("09", "COMPELEL", getPatternTwoElements(), "for $c in /*/* for $copy in $c/parent::*/*[fn:deep-equal(.,$c)] return $c/parent::*"));
+		testPairs.add(new PatternTestPair("09", "COMPOPOP", getPatternTwoOperators(), "/*[name()!='building']"));
 
 		return testPairs;
 	}

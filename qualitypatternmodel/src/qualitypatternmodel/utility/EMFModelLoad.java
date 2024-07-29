@@ -22,7 +22,6 @@ import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.impl.DatabasesImpl;
-import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -91,7 +90,7 @@ public class EMFModelLoad {
 
 		PatternstructurePackage.eINSTANCE.eClass();
 		String path = patternPath;
-		String fileEnding = ServletUtilities.EXTENSION;
+		String fileEnding = Constants.EXTENSION;
 		// Register the XMI resource factory for the .patternstructure extension
         Resource.Factory.Registry reg2 = Resource.Factory.Registry.INSTANCE;
         Map<String, Object> m2 = reg2.getExtensionToFactoryMap();
@@ -145,7 +144,7 @@ public class EMFModelLoad {
 
 		PatternstructurePackage.eINSTANCE.eClass();
 		path = patternPath;
-		fileEnding = ServletUtilities.EXTENSION;
+		fileEnding = Constants.EXTENSION;
 		// Register the XMI resource factory for the .patternstructure extension
         Resource.Factory.Registry reg2 = Resource.Factory.Registry.INSTANCE;
         Map<String, Object> m2 = reg2.getExtensionToFactoryMap();
@@ -178,7 +177,7 @@ public class EMFModelLoad {
         ResourceSetImpl resourceSet = new ResourceSetImpl();
 
         // Register the factory for Patternstructure
-        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(ServletUtilities.EXTENSION, PatternstructureFactory.eINSTANCE);
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Constants.EXTENSION, PatternstructureFactory.eINSTANCE);
 
         // Load the resource
         Resource resource = resourceSet.getResource(URI.createFileURI(path), true);

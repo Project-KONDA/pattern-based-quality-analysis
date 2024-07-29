@@ -13,6 +13,8 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class ConstraintNameServlet extends HttpServlet {
@@ -42,13 +44,13 @@ public class ConstraintNameServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] newNameArray = parameterMap.get(Constants.JSON_NAME);
+		String[] newNameArray = parameterMap.get(ConstantsJSON.NAME);
 		if (newNameArray == null || newNameArray.length != 1 || newNameArray[0].equals("")) {
-			throw new InvalidServletCallException("Invalid parameter for setting name.");
+			throw new InvalidServletCallException(ConstantsError.INVALID_VALUE);
 		}
 		String newName = newNameArray[0];
 
@@ -69,15 +71,15 @@ public class ConstraintNameServlet extends HttpServlet {
 		try {
 			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException("Failed to save new constraint");
+			throw new FailedServletCallException(ConstantsError.SAVING_FAILED);
 		}
 
 		JSONObject result = new JSONObject();
 		try {
-			result.put(Constants.JSON_CONSTRAINT_ID, pattern.getPatternId());
-			result.put(Constants.JSON_OLD_NAME, oldName);
-			result.put(Constants.JSON_NAME, newName);
-			result.put(Constants.JSON_LASTSAVED, timestamp);
+			result.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
+			result.put(ConstantsJSON.OLD_NAME, oldName);
+			result.put(ConstantsJSON.NAME, newName);
+			result.put(ConstantsJSON.LASTSAVED, timestamp);
 		} catch (JSONException e) {}
 
 		return result;

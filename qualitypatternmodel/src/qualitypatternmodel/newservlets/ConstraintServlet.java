@@ -27,6 +27,8 @@ import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.textrepresentation.impl.ValueMapImpl;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class ConstraintServlet extends HttpServlet {
@@ -98,8 +100,8 @@ public class ConstraintServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		// 1 load constraint
@@ -109,10 +111,10 @@ public class ConstraintServlet extends HttpServlet {
 //			System.out.println(pattern.myToString());
 			pattern.isValid(AbstractionLevel.ABSTRACT);
 		} catch (IOException e) {
-			throw new FailedServletCallException("constraint '" + constraintId + "'not found", e);
+			throw new FailedServletCallException("constraint '" + constraintId + "' not found", e);
 		}
 		catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-			throw new FailedServletCallException("constraint faulty", e);
+			throw new FailedServletCallException(ConstantsError.INVALID_CONSTRAINT, e);
 		}
 
 		// 2 return json
@@ -128,8 +130,8 @@ public class ConstraintServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String patternname = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		// 1 check if constraint exists
@@ -161,8 +163,8 @@ public class ConstraintServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		// 1. load Pattern
@@ -177,31 +179,31 @@ public class ConstraintServlet extends HttpServlet {
 		Boolean name = false, database = false, datamodel = false, namespaces = false;
 
 		// name?
-		String[] nameArray = parameterMap.get(Constants.JSON_NAME);
+		String[] nameArray = parameterMap.get(ConstantsJSON.NAME);
 		if (nameArray != null && nameArray.length == 1 && !nameArray[0].equals("")) {
 			String newName = nameArray[0];
 			pattern.setName(newName);
 			name = true;
-			parameterMap.remove(Constants.JSON_NAME);
+			parameterMap.remove(ConstantsJSON.NAME);
 		}
 		// database?
-		String[] databaseArray = parameterMap.get(Constants.JSON_DATABASE);
+		String[] databaseArray = parameterMap.get(ConstantsJSON.DATABASE);
 		if (databaseArray != null && databaseArray.length == 1 && !databaseArray[0].equals("")) {
 			String newDatabase = databaseArray[0];
 			pattern.setDatabaseName(newDatabase);
 			database = true;
-			parameterMap.remove(Constants.JSON_DATABASE);
+			parameterMap.remove(ConstantsJSON.DATABASE);
 		}
 		// datamodel?
-		String[] datamodelArray = parameterMap.get(Constants.JSON_DATAMODEL);
+		String[] datamodelArray = parameterMap.get(ConstantsJSON.DATAMODEL);
 		if (datamodelArray != null && datamodelArray.length == 1 && !datamodelArray[0].equals("")) {
 			String newDatamodel = datamodelArray[0];
 			pattern.setDataModelName(newDatamodel);
 			datamodel = true;
-			parameterMap.remove(Constants.JSON_DATAMODEL);
+			parameterMap.remove(ConstantsJSON.DATAMODEL);
 		}
 		// namespaces?
-		String[] namespacesArray = parameterMap.get(Constants.JSON_NAMESPACES);
+		String[] namespacesArray = parameterMap.get(ConstantsJSON.NAMESPACES);
 		if (namespacesArray != null && namespacesArray.length == 1 && !namespacesArray[0].equals("")) {
 			try {
 				JSONObject object = new JSONObject(namespacesArray[0]);
@@ -213,7 +215,7 @@ public class ConstraintServlet extends HttpServlet {
 				vm.clear();
 				vm.setValuesFromJSONObject(object);
 		        namespaces = true;
-				parameterMap.remove(Constants.JSON_NAMESPACES);
+				parameterMap.remove(ConstantsJSON.NAMESPACES);
 			} catch (JSONException e) {
 			}
 		}
@@ -221,16 +223,16 @@ public class ConstraintServlet extends HttpServlet {
 		JSONObject output = changeParameters(pattern, parameterMap);
 		try {
 			if (name) {
-				output.getJSONArray("success").put(Constants.JSON_NAME);
+				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.NAME);
 			}
 			if (database) {
-				output.getJSONArray("success").put(Constants.JSON_DATABASE);
+				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.DATABASE);
 			}
 			if (datamodel) {
-				output.getJSONArray("success").put(Constants.JSON_DATAMODEL);
+				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.DATAMODEL);
 			}
 			if (namespaces) {
-				output.getJSONArray("success").put(Constants.JSON_NAMESPACES);
+				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.NAMESPACES);
 			}
 		} catch (JSONException e) {
 		}
@@ -240,10 +242,10 @@ public class ConstraintServlet extends HttpServlet {
 		try {
 			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException("Failed to save new constraint");
+			throw new FailedServletCallException(ConstantsError.SAVING_FAILED);
 		}
 		try {
-			output.put(Constants.JSON_LASTSAVED, timestamp);
+			output.put(ConstantsJSON.LASTSAVED, timestamp);
 		} catch (JSONException e) {}
 
 		return output;
@@ -263,7 +265,8 @@ public class ConstraintServlet extends HttpServlet {
 
 		JSONArray success = new JSONArray();
 		JSONArray failed = new JSONArray();
-		JSONArray notfound = new JSONArray();
+		boolean notfound = false;
+
 		// change parameters
 		for (String key: keys) {
 			boolean found = false;
@@ -271,35 +274,37 @@ public class ConstraintServlet extends HttpServlet {
 				if (!found && frag.getId().equals(key)) {
 					found = true;
 					try {
-						if (changeParameterFragment(frag, parameterMap.get(key))) {
-							success.put(key);
-						} else {
-							failed.put(key);
-						}
+						changeParameterFragment(frag, parameterMap.get(key));
+						success.put(key);
 					} catch (InvalidityException e) {
-						ServletUtilities.logError(e);
-						failed.put(key);
+						JSONObject object = new JSONObject();
+						try {
+							object.put(key, e.getMessage());
+						} catch (JSONException f) {}
+						failed.put(object);
 					}
 				}
 			}
 			if (!found) {
-				notfound.put(key);
+				JSONObject object = new JSONObject();
+				try {
+					object.put(key, ConstantsError.NOT_FOUND_PARAMETER);
+				} catch (JSONException f) {}
+				failed.put(object);
+				notfound = true;
 			}
 		}
 
 		// output
 		JSONObject json = new JSONObject();
 		try {
-			if(success.length() > 0 || keys.size() == 0) {
+			if (success.length() > 0 || keys.size() == 0) {
 				json.put("success", success);
 			}
-			if(failed.length() > 0) {
+			if (failed.length() > 0) {
 				json.put("failed", failed);
 			}
-			if(notfound.length() > 0) {
-				json.put("notfound", notfound);
-			}
-			if(failed.length() > 0 || notfound.length() > 0) {
+			if (failed.length() > 0 || notfound) {
 				JSONArray available = new JSONArray();
 				for (ParameterFragment frag: paramfragments) {
 					available.put(frag.getId());
@@ -311,15 +316,15 @@ public class ConstraintServlet extends HttpServlet {
 		return json;
 	}
 
-	private static boolean changeParameterFragment(ParameterFragment frag, String[] call_values) throws InvalidityException {
+	private static void changeParameterFragment(ParameterFragment frag, String[] call_values) throws InvalidityException {
 		if (call_values.length != 1) {
-			throw new InvalidityException("multiple values for a single parameter");
+			throw new InvalidityException(ConstantsError.TOO_MUCH_VALUES);
 		}
 
 		// Old Values
 		String oldValue = null;
 		try {
-			oldValue = frag.getAttributeValue(Constants.JSON_VALUE);
+			oldValue = frag.getAttributeValue(ConstantsJSON.VALUE);
 		} catch (InvalidityException e) {}
 
 		// input
@@ -330,44 +335,36 @@ public class ConstraintServlet extends HttpServlet {
 		} catch (JSONException e) {}
 
 		// case: value is not a json object
-		if (ob == null) {
-			try {
-				frag.setValue(input);
-				return true;
-			} catch (InvalidityException e) {
-				frag.setValue(oldValue);
-				e.printStackTrace();
-				return false;
-			}
-		}
+		if (ob == null)
+			frag.setValue(input);
 
 		// case: value is a json object
 
 		HashMap<String, String> jsonMap = convertJSONObjectToHashMap(ob);
 		for (String key: jsonMap.keySet()) {
-			if (key != Constants.JSON_VALUE && key != Constants.JSON_USERVALUE) {
+			if (key != ConstantsJSON.VALUE && key != ConstantsJSON.USERVALUE) {
 				frag.setAttributeValue(key, jsonMap.get(key));
 			}
 		}
 
-		if(jsonMap.containsKey(Constants.JSON_CLEAR)) {
+		if(jsonMap.containsKey(ConstantsJSON.CLEAR)) {
 			frag.clearValue();
-		} else if(jsonMap.containsKey(Constants.JSON_VALUE)) {
+		} else if(jsonMap.containsKey(ConstantsJSON.VALUE)) {
 			try {
-				frag.setValue(jsonMap.get(Constants.JSON_VALUE));
-				if (jsonMap.containsKey(Constants.JSON_USERVALUE)) {
-					frag.setUserValue(jsonMap.get(Constants.JSON_USERVALUE));
+				frag.setValue(jsonMap.get(ConstantsJSON.VALUE));
+				if (jsonMap.containsKey(ConstantsJSON.USERVALUE)) {
+					frag.setUserValue(jsonMap.get(ConstantsJSON.USERVALUE));
 				}
 			} catch (InvalidityException e) {
 				frag.setValue(oldValue);
-				e.printStackTrace();
-				return false;
+				throw e;
 			}
 		}
-		return true;
 	}
 
     public static HashMap<String, String> convertJSONObjectToHashMap(JSONObject jsonObject) {
+    	if (jsonObject == null)
+    	  return null;
         HashMap<String, String> hashMap = new HashMap<>();
         @SuppressWarnings("unchecked")
 		Iterator<String> keys = jsonObject.keys();

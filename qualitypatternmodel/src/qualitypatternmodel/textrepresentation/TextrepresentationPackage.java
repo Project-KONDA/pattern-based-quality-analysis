@@ -714,13 +714,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_PREDEFINITION__VALUE = PARAMETER_REFERENCE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Patterntext</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_PREDEFINITION__PATTERNTEXT = PARAMETER_REFERENCE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Parameter Predefinition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_PREDEFINITION_FEATURE_COUNT = PARAMETER_REFERENCE_FEATURE_COUNT + 1;
+	int PARAMETER_PREDEFINITION_FEATURE_COUNT = PARAMETER_REFERENCE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1365,6 +1374,17 @@ public interface TextrepresentationPackage extends EPackage {
 	EAttribute getParameterPredefinition_Value();
 
 	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.textrepresentation.ParameterPredefinition#getPatterntext <em>Patterntext</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Patterntext</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ParameterPredefinition#getPatterntext()
+	 * @see #getParameterPredefinition()
+	 * @generated
+	 */
+	EReference getParameterPredefinition_Patterntext();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.ParameterReference <em>Parameter Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1946,6 +1966,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PARAMETER_PREDEFINITION__VALUE = eINSTANCE.getParameterPredefinition_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Patterntext</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_PREDEFINITION__PATTERNTEXT = eINSTANCE.getParameterPredefinition_Patterntext();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.ParameterReference <em>Parameter Reference</em>}' class.

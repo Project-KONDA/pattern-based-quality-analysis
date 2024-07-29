@@ -13,6 +13,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class PatternListServlet extends HttpServlet {
@@ -44,11 +46,11 @@ public class PatternListServlet extends HttpServlet {
 		String level = pathparts[2];
 
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
-		if (!ServletUtilities.LEVELS.contains(level)) {
-			throw new InvalidServletCallException("'" + level + "' is an invalid abstraction level. The levels are: " + ServletUtilities.LEVELS);
+		if (!Constants.LEVELS.contains(level)) {
+			throw new InvalidServletCallException("'" + level + "' is an invalid abstraction level. The levels are: " + Constants.LEVELS);
 		}
 
 		List<CompletePattern> patterns = getPatterns(technology, level);
@@ -63,7 +65,7 @@ public class PatternListServlet extends HttpServlet {
 			}
 		}
 		if (patterns == null) {
-			throw new FailedServletCallException("No " + ((level == ServletUtilities.LVLTEMPLATE)? "template":"constraint") + " found for the technology " + technology + " on level " + level + ".");
+			throw new FailedServletCallException("No " + ((level == Constants.LVLTEMPLATE)? ConstantsJSON.TEMPLATE: ConstantsJSON.CONSTRAINT) + " found for the technology " + technology + " on level " + level + ".");
 		}
 
 		return ServletUtilities.getPatternListJSON(patterns);
@@ -73,16 +75,16 @@ public class PatternListServlet extends HttpServlet {
 			throws InvalidServletCallException {
 		List<CompletePattern> patterns = null;
 		switch (level) {
-		case ServletUtilities.LVLALL:
+		case Constants.LVLALL:
 			patterns = ServletUtilities.getAllPattern(technology);
 			break;
-		case ServletUtilities.LVLTEMPLATE:
+		case Constants.LVLTEMPLATE:
 			patterns = ServletUtilities.getTemplates(technology);
 			break;
-		case ServletUtilities.LVLCONSTRAINT:
+		case Constants.LVLCONSTRAINT:
 			patterns = ServletUtilities.getConstraints(technology);
 			break;
-		case ServletUtilities.LVLREADY:
+		case Constants.LVLREADY:
 			patterns = ServletUtilities.getReadyConstraints(technology);
 			break;
 		}

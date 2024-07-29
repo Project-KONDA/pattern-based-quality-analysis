@@ -13,6 +13,8 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class ConstraintTagServlet extends HttpServlet {
@@ -60,11 +62,11 @@ public class ConstraintTagServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] newTags = parameterMap.get("tag");
+		String[] newTags = parameterMap.get(ConstantsJSON.TAG);
 
 		// 1. load constraint
 		CompletePattern pattern;
@@ -78,25 +80,30 @@ public class ConstraintTagServlet extends HttpServlet {
 		JSONObject json = new JSONObject();
 		try {
 			for (String tag: newTags) {
-				if (pattern.getKeywords().add(tag)) {
-					json.append("success", tag);
+				JSONObject object = new JSONObject();
+				if(pattern.getKeywords().contains(tag)) {
+					object.put(tag, ConstantsError.DUPLICATE_TAG);
+					json.append(ConstantsJSON.FAILED, object);
 				} else {
-					json.append("failed", tag);
+					if (pattern.getKeywords().add(tag)) {
+						json.append(ConstantsJSON.SUCCESS, tag);
+					} else {
+						object.put(tag, ConstantsError.INVALID_TAG);
+						json.append(ConstantsJSON.FAILED, object);
+					}
 				}
-
 			}
-		} catch (JSONException e) {
-		}
+		} catch (JSONException e) {}
 
 		// 3. save constraint
 		String timestamp = null;
 		try {
 			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException("Failed to save updated constraint");
+			throw new FailedServletCallException(ConstantsError.SAVING_FAILED);
 		}
 		try {
-			json.put(Constants.JSON_LASTSAVED, timestamp);
+			json.put(ConstantsJSON.LASTSAVED, timestamp);
 		} catch (JSONException e) {}
 
 		return json;
@@ -111,11 +118,11 @@ public class ConstraintTagServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] deleteTags = parameterMap.get("tag");
+		String[] deleteTags = parameterMap.get(ConstantsJSON.TAG);
 
 		// 1. load constraint
 		CompletePattern pattern;
@@ -128,9 +135,19 @@ public class ConstraintTagServlet extends HttpServlet {
 		// 2. remove tags from constraint
 		JSONObject json = new JSONObject();
 		for (String tag: deleteTags) {
-			boolean success = pattern.getKeywords().remove(tag);
+			JSONObject object = new JSONObject();
 			try {
-				json.append(success? "success": "failed", tag);
+				if (!pattern.getKeywords().contains(tag)) {
+					object.put(tag, ConstantsError.NOT_FOUND_TAG);
+					json.append("failed", object);
+				} else {
+					if (pattern.getKeywords().remove(tag)) {
+						json.append("success", tag);
+					} else {
+						object.put(tag, ConstantsError.TAG_DELETION_FAILED);
+						json.append("failed", object);
+					}
+				}
 			} catch (JSONException e) {}
 		}
 
@@ -139,10 +156,10 @@ public class ConstraintTagServlet extends HttpServlet {
 		try {
 			timestamp = ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException("Failed to save updated constraint");
+			throw new FailedServletCallException(ConstantsError.SAVING_FAILED);
 		}
 		try {
-			json.put(Constants.JSON_LASTSAVED, timestamp);
+			json.put(ConstantsJSON.LASTSAVED, timestamp);
 		} catch (JSONException e) {}
 
 		return json;

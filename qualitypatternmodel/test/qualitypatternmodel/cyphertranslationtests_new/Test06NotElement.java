@@ -1,8 +1,6 @@
 package qualitypatternmodel.cyphertranslationtests_new;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -18,17 +16,16 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.TrueElement;
-import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test06NotElement {
 
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-//		completePatterns.add(getPatternNotNotTrue());
-//		completePatterns.add(getPatternNotExists());
-//		completePatterns.add(getPatternNotForall());
+		completePatterns.add(getPatternNotNotTrue());
+		completePatterns.add(getPatternNotExists());
+		completePatterns.add(getPatternNotForall());
 		completePatterns.add(getPatternExistsNotExists());
-//		completePatterns.add(getPatternForallNotForall());
+		completePatterns.add(getPatternForallNotForall());
 		return completePatterns;
 	}
 
@@ -63,6 +60,7 @@ public class Test06NotElement {
 
 		return completePattern;
 	}
+
 	public static CompletePattern getPatternNotExistsAbstract() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
@@ -81,6 +79,7 @@ public class Test06NotElement {
 
 		return completePattern;
 	}
+
 	public static CompletePattern getPatternNotExists() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		CompletePattern completePattern = getPatternNotExistsAbstract();
@@ -92,6 +91,7 @@ public class Test06NotElement {
 
 		return completePattern;
 	}
+
 	public static CompletePattern getPatternNotForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternNotExists();
 		QuantifiedCondition qc = ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition());
@@ -106,7 +106,6 @@ public class Test06NotElement {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 
-
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		TrueElement t = (TrueElement) ((QuantifiedCondition) completePattern.getCondition()).getCondition();
 		QuantifiedCondition qc1 = (QuantifiedCondition) completePattern.getCondition();
@@ -120,9 +119,7 @@ public class Test06NotElement {
 		Node e2 = graphFactory.createNode();
 		e2.setGraph(qc2.getGraph());
 		return completePattern;
-
 	}
-
 
 	public static CompletePattern getPatternExistsNotExists() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternExistsNotExistsAbstract();
@@ -137,6 +134,7 @@ public class Test06NotElement {
 //		((XmlElementNavigation) q2.getGraph().getRelations().get(2)).getXmlPathParam().setXmlAxis(XmlAxisKind.ANCESTOR, "");
 		return completePattern;
 	}
+
 	public static CompletePattern getPatternForallNotForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternExistsNotExists();
 
@@ -151,17 +149,4 @@ public class Test06NotElement {
 
 		return completePattern;
 	}
-
-	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
-		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-
-		testPairs.add(new PatternTestPair("NOTNOT", 	getPatternNotNotTrue(), 		"/*"));
-		testPairs.add(new PatternTestPair("NOTEX", 		getPatternNotExists(), 		"/*/*/*[not(./*)]"));
-		testPairs.add(new PatternTestPair("NOTFA", 		getPatternNotForall(), 		"()"));
-		testPairs.add(new PatternTestPair("EXNOTEX",	getPatternExistsNotExists(),"if ( not( exists (/ancestor::*)) and  exists (/*)) then (/*/*)"));
-		testPairs.add(new PatternTestPair("FANOTFA", 	getPatternForallNotForall(),"if ( not( exists (/parent::*))) then (/*/*)"));
-
-		return testPairs;
-	}
-
 }

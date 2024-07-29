@@ -81,7 +81,7 @@ public class XmlPatternVariants {
 				+ "{\"text\":\"For each\"},"
 				+ "{\"name\":\"element\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\"},"
 				+ "{\"text\":\"all\"},"
-				+ "{\"name\":\"child elements\",\"params\":[3],\"exampleValue\":\"Surname\",\"description\":\"value that gets analysed\", \"plural\": \"true\"},"
+				+ "{\"name\":\"properties\",\"params\":[3],\"exampleValue\":\"Surname\",\"description\":\"value that gets analysed\", \"plural\": \"true\"},"
 				+ "{\"name\":\"do / do not\",\"params\":[0],\"defaultMap\":\"do not\",\"exampleValue\":\"do\"},"
 				+ "{\"text\":\"match\"},"
 				+ "{\"name\":\"a specific pattern (RegEx)\",\"params\":[1],\"exampleValue\":\"[A-Z][a-z][a-z]+\"},"

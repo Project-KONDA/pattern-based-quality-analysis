@@ -874,12 +874,20 @@
         <eParameters name="attributeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
+      <eOperations name="isValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eOperations name="isProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eOperations name="sourceVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPropertyOptionParam"
           eType="#//adaptionxml/XmlPropertyOptionParam" containment="true" eOpposite="#//adaptionxml/XmlPropertyOptionParam/xmlPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisParts" upperBound="-1"
           eType="#//adaptionxml/XmlAxisPart" containment="true" eOpposite="#//adaptionxml/XmlAxisPart/xmlPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlNavigation" eType="#//adaptionxml/XmlNavigation"
           eOpposite="#//adaptionxml/XmlNavigation/xmlPathParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="alternatives" upperBound="-1"
+          eType="#//adaptionxml/XmlPathParam" containment="true" eOpposite="#//adaptionxml/XmlPathParam/primary"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="primary" eType="#//adaptionxml/XmlPathParam"
+          eOpposite="#//adaptionxml/XmlPathParam/alternatives"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlAxisPart" eSuperTypes="#//graphstructure/Adaptable #//parameters/Parameter">
       <eOperations name="getNextXmlAxisPairs" upperBound="-1" eType="#//adaptionxml/XmlAxisPart"/>
@@ -1214,7 +1222,8 @@
           eOpposite="#//textrepresentation/Fragment/patternText"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterPredefinitions"
-          upperBound="-1" eType="#//textrepresentation/ParameterPredefinition" containment="true"/>
+          upperBound="-1" eType="#//textrepresentation/ParameterPredefinition" containment="true"
+          eOpposite="#//textrepresentation/ParameterPredefinition/patterntext"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fragmentsOrdered" unique="false"
           lowerBound="1" upperBound="-1" eType="#//textrepresentation/Fragment"/>
     </eClassifiers>
@@ -1264,6 +1273,8 @@
     <eClassifiers xsi:type="ecore:EDataType" name="ObjectWrapper" instanceClassName="java.lang.Object"/>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterPredefinition" eSuperTypes="#//textrepresentation/ParameterReference">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="patterntext" lowerBound="1"
+          eType="#//textrepresentation/PatternText" eOpposite="#//textrepresentation/PatternText/parameterPredefinitions"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterReference" abstract="true"
         interface="true">

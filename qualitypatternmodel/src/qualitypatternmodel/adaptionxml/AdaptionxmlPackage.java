@@ -5573,13 +5573,31 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM__XML_NAVIGATION = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Alternatives</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM__ALTERNATIVES = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Primary</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM__PRIMARY = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Xml Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
+	int XML_PATH_PARAM_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -5987,13 +6005,40 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM___SPECIFY_AXIS__XMLAXISKIND_XMLPROPERTYKIND_STRING_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 15;
 
 	/**
+	 * The operation id for the '<em>Is Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___IS_VALUE = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 16;
+
+	/**
+	 * The operation id for the '<em>Is Property</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___IS_PROPERTY = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 17;
+
+	/**
+	 * The operation id for the '<em>Source Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___SOURCE_VARIABLE = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 18;
+
+	/**
 	 * The number of operations of the '<em>Xml Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 16;
+	int XML_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 19;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl <em>Xml Axis Part</em>}' class.
@@ -7405,6 +7450,28 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlPathParam_XmlNavigation();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionxml.XmlPathParam#getAlternatives <em>Alternatives</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Alternatives</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#getAlternatives()
+	 * @see #getXmlPathParam()
+	 * @generated
+	 */
+	EReference getXmlPathParam_Alternatives();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionxml.XmlPathParam#getPrimary <em>Primary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Primary</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#getPrimary()
+	 * @see #getXmlPathParam()
+	 * @generated
+	 */
+	EReference getXmlPathParam_Primary();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#setXmlAxis(qualitypatternmodel.adaptionxml.XmlAxisKind, java.lang.String) <em>Set Xml Axis</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7453,6 +7520,36 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getXmlPathParam__SpecifyAxis__XmlAxisKind_XmlPropertyKind_String_String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#isValue() <em>Is Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Value</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#isValue()
+	 * @generated
+	 */
+	EOperation getXmlPathParam__IsValue();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#isProperty() <em>Is Property</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Property</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#isProperty()
+	 * @generated
+	 */
+	EOperation getXmlPathParam__IsProperty();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#sourceVariable() <em>Source Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Source Variable</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#sourceVariable()
+	 * @generated
+	 */
+	EOperation getXmlPathParam__SourceVariable();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlAxisPart <em>Xml Axis Part</em>}'.
@@ -8044,6 +8141,22 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference XML_PATH_PARAM__XML_NAVIGATION = eINSTANCE.getXmlPathParam_XmlNavigation();
 
 		/**
+		 * The meta object literal for the '<em><b>Alternatives</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XML_PATH_PARAM__ALTERNATIVES = eINSTANCE.getXmlPathParam_Alternatives();
+
+		/**
+		 * The meta object literal for the '<em><b>Primary</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XML_PATH_PARAM__PRIMARY = eINSTANCE.getXmlPathParam_Primary();
+
+		/**
 		 * The meta object literal for the '<em><b>Set Xml Axis</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8082,6 +8195,30 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_PATH_PARAM___SPECIFY_AXIS__XMLAXISKIND_XMLPROPERTYKIND_STRING_STRING = eINSTANCE.getXmlPathParam__SpecifyAxis__XmlAxisKind_XmlPropertyKind_String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_PATH_PARAM___IS_VALUE = eINSTANCE.getXmlPathParam__IsValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Property</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_PATH_PARAM___IS_PROPERTY = eINSTANCE.getXmlPathParam__IsProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_PATH_PARAM___SOURCE_VARIABLE = eINSTANCE.getXmlPathParam__SourceVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlAxisPartImpl <em>Xml Axis Part</em>}' class.

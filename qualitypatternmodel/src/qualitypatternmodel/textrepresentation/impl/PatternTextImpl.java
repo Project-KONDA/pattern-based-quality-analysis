@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -40,7 +39,8 @@ import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 /**
  * <!-- begin-user-doc -->
@@ -135,12 +135,17 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			throw new InvalidityException("The language of the selected Pattern '" + pattern.getName() + "' is '" + pattern.getLanguage().getLiteral() + "', which does not match '" + language + "'.");
 		}
 
-		// pattern
-		pattern.getText().add(this);
-
 		// name
 		String name = json.getString("name");
 		this.setName(name);
+		for (PatternText text: pattern.getText()) {
+			if (text.getName().equals(name)) {
+				throw new InvalidityException(ConstantsError.DUPLICATE_VARIANT_NAMES);
+			}
+		}
+
+		// pattern
+		pattern.getText().add(this);
 
 		// fragments
 		JSONArray fragments = json.getJSONArray("fragments");
@@ -148,10 +153,10 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		for (int i = 0; i < fragments.length(); i++) {
             JSONObject fragmentObject = fragments.getJSONObject(i);
 
-            boolean hasText = fragmentObject.has(Constants.JSON_TEXT);
-            boolean hasParams = fragmentObject.has(Constants.JSON_PARAMETER);
-            boolean hasName = fragmentObject.has(Constants.JSON_NAME);
-            boolean hasValue = fragmentObject.has(Constants.JSON_VALUE);
+            boolean hasText = fragmentObject.has(ConstantsJSON.TEXT);
+            boolean hasParams = fragmentObject.has(ConstantsJSON.PARAMETER);
+            boolean hasName = fragmentObject.has(ConstantsJSON.NAME);
+            boolean hasValue = fragmentObject.has(ConstantsJSON.VALUE);
 
             if (hasParams && hasName) {
             	addFragment(new ParameterFragmentImpl(pattern, fragmentObject, id_counter));
@@ -160,7 +165,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
             else if (hasParams && hasValue) {
 				getParameterPredefinitions().add(new ParameterPredefinitionImpl(pattern, fragmentObject));
 			} else if (hasText) {
-            	String text = fragmentObject.getString(Constants.JSON_TEXT);
+            	String text = fragmentObject.getString(ConstantsJSON.TEXT);
             	addFragment(new TextFragmentImpl(text));
             } else {
 				throw new InvalidityException("Fragment needs text or params and value or name!");
@@ -266,7 +271,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	@Override
 	public EList<ParameterPredefinition> getParameterPredefinitions() {
 		if (parameterPredefinitions == null) {
-			parameterPredefinitions = new EObjectContainmentEList<ParameterPredefinition>(ParameterPredefinition.class, this, TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS);
+			parameterPredefinitions = new EObjectContainmentWithInverseEList<ParameterPredefinition>(ParameterPredefinition.class, this, TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS, TextrepresentationPackage.PARAMETER_PREDEFINITION__PATTERNTEXT);
 		}
 		return parameterPredefinitions;
 	}
@@ -322,12 +327,12 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	public JSONObject generateJSONObject() {
 		JSONObject json = new JSONObject();
 		try {
-			json.put(Constants.JSON_NAME, getName());
+			json.put(ConstantsJSON.NAME, getName());
 			JSONArray fragments = new JSONArray();
 			for (Fragment fragment: getFragmentsOrdered()) {
 				fragments.put(fragment.generateJSONObject());
 			}
-			json.put(Constants.JSON_FRAGMENTS, fragments);
+			json.put(ConstantsJSON.FRAGMENTS, fragments);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -344,12 +349,11 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	public JSONObject generateVariantJSONObject() {
 		JSONObject result = new JSONObject();
 		try {
-			result.put(Constants.JSON_TEMPLATE, getPattern().getAbstractId());
-			result.put(Constants.JSON_LANGUAGE, getPattern().getLanguage());
-			result.put(Constants.JSON_NAME, getName());
+			result.put(ConstantsJSON.TEMPLATE, getPattern().getPatternId());
+			result.put(ConstantsJSON.NAME, getName());
+			result.put(ConstantsJSON.LANGUAGE, getPattern().getLanguage());
 
 			JSONArray fragments = new JSONArray();
-
 			for (Fragment fragment: getFragmentsOrdered()) {
 				fragments.put(fragment.generateVariantJSONObject());
 			}
@@ -357,7 +361,10 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			for (ParameterPredefinition predefinition: getParameterPredefinitions()) {
 				fragments.put(predefinition.generateVariantJSONObject());
 			}
-		} catch (JSONException e) {}
+			result.put(ConstantsJSON.FRAGMENTS, fragments);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 		return result;
 	}
 
@@ -681,6 +688,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return basicSetPattern((CompletePattern)otherEnd, msgs);
 			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFragments()).basicAdd(otherEnd, msgs);
+			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameterPredefinitions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}

@@ -1,8 +1,6 @@
 package qualitypatternmodel.cyphertranslationtests_new;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -22,7 +20,6 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test09ComplexComparison {
 
@@ -186,16 +183,4 @@ public class Test09ComplexComparison {
 
 		return completePattern;
 	}
-
-	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-
-		testPairs.add(new PatternTestPair("COMPSELFPROPS", getPatternSelfTwoProperties(), "//*[./text()]"));
-		testPairs.add(new PatternTestPair("COMPPROPPROP", getPatternTwoProperties(), "for $c in //*/* for $copy in $c/parent::*/*[(./text() = $c/text())] return $c/parent::*"));
-		testPairs.add(new PatternTestPair("COMPELEL", getPatternTwoElements(), "for $c in /*/* for $copy in $c/parent::*/*[fn:deep-equal(.,$c)] return $c/parent::*"));
-		testPairs.add(new PatternTestPair("COMPOPOP", getPatternTwoOperators(), "/*[name()!='building']"));
-
-		return testPairs;
-	}
-
 }

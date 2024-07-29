@@ -34,6 +34,8 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.ConstantsXml;
 
 /**
  * <!-- begin-user-doc -->
@@ -134,7 +136,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 				} else {
 					attName = value.substring(1);
 				}
-				if (!attName.matches("[a-zA-Z0-9]+")) {
+				if (!attName.matches(ConstantsXml.REGEX_ATTRIBUTE_NAME)) {
 					throw new InvalidityException("new property kind value invalid in " + myToString() + ": " + value);
 				}
 				result = XmlPropertyKind.ATTRIBUTE;
@@ -193,7 +195,12 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 				throw new InvalidityException("attributeName invalid");
 			} else {
 				if (attributeName.getValue().contains(":")) {
-					return "/@*[name()=\"" + attributeName.getValue() + "\"]";
+					String ns = attributeName.getValue().split(":")[0];
+					try {
+						CompletePattern p = (CompletePattern) getAncestor(CompletePattern.class);
+						if (!p.getNamespaces().getKeys().contains(ns))
+							return "/@*[name()=\"" + attributeName.getValue() + "\"]";
+					} catch (MissingPatternContainerException e) {}
 				}
 				return "/@" + attributeName.getValue() + "";
 			}

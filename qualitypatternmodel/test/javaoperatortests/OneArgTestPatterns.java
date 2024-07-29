@@ -3,7 +3,6 @@ package javaoperatortests;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.cyphertranslationtests_new.Test00;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -20,6 +19,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
+import qualitypatternmodel.utility.PatternUtility;
 
 
 public class OneArgTestPatterns {
@@ -48,7 +48,7 @@ public class OneArgTestPatterns {
 		for (CompletePattern pattern: patterns) {
 			try {
 				pattern.createXmlAdaption();
-				pattern = Test00.replace(pattern);
+				pattern = PatternUtility.fillParameter(pattern);
 				result.add(pattern);
 			} catch (Exception e) {
 				e.printStackTrace();

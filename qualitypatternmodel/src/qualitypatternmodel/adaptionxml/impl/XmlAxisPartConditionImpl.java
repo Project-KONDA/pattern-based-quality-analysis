@@ -71,6 +71,8 @@ public class XmlAxisPartConditionImpl extends ParameterImpl implements XmlAxisPa
 		if (getTextLiteralParam() != null) {
 			query += "=" + getTextLiteralParam().generateXQuery();
 		}
+		if (query.equals("name()"))
+			return "";
 		return "[" + query + "]";
 	}
 

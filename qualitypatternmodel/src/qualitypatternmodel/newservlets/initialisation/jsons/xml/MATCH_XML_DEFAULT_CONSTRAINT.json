@@ -12,7 +12,7 @@
         },
         {"text":"all"},
         {
-            "name":"child elements",
+            "name":"properties",
             "params":[3],
             "exampleValue":"Surname",
             "description":"value that gets analysed",

@@ -30,7 +30,7 @@ import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
@@ -138,7 +138,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			}
 			throw new InvalidityException(ConstantsNeo.NO_VALID_PROPERTY_IS_ACCESSABLE);
 		}
-		throw new InvalidityException(Constants.INVALID_OPTION);
+		throw new InvalidityException(ConstantsError.INVALID_OPTION);
 	}
 
 	@Override

@@ -29,6 +29,7 @@ import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPathComponent;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -63,6 +64,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
+import qualitypatternmodel.textrepresentation.impl.ValueMapImpl;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.ConstantsRdf;
 
@@ -512,7 +514,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			String uri = namespaces.get(prefix);
 			result += "declare namespace " + prefix + "=\"" + uri + "\";\n";
 		}
-		result += "\n";
 		return result;
 	}
 
@@ -525,10 +526,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public void printParameters() {
 		int i=0;
+		System.out.println("List<Parameter> params = completePattern.getParameterList().getParameters();");
 		for (Parameter p: getParameterList().getParameters()){
 			String out = p.getClass().getSimpleName().replace("Impl", "");
 			out += " p" + i + " = ((" + p.getClass().getSimpleName().replace("Impl", "");
 			out += ") params.get(" + i + "));";
+			if (p instanceof XmlPathParam && ((XmlPathParam) p).isProperty())
+				out += " // Property";
 			System.out.println(out);
 			i++;
 		}
@@ -1427,10 +1431,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public ValueMap getNamespaces() {
+		if (namespaces == null)
+			namespaces = new ValueMapImpl();
 		return namespaces;
 	}
 

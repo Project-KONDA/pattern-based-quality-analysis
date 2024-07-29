@@ -20,6 +20,8 @@ import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class ConstraintQueryServlet extends HttpServlet {
@@ -60,41 +62,12 @@ public class ConstraintQueryServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String constraintId = pathparts[2];
 
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
 		String[] constraintIds = new String[] {constraintId};
 		return applyGet(technology, constraintIds);
-
-//		// 1 load constraint
-//		CompletePattern pattern;
-//		try {
-//			pattern = ServletUtilities.loadConstraint(technology, constraintId);
-//		} catch (IOException e) {
-//			throw new FailedServletCallException("constraint not found");
-//		}
-//
-//		try {
-//			pattern.isValid(AbstractionLevel.CONCRETE);
-//		} catch (Exception e) {
-//			throw new FailedServletCallException(e.getClass().getName() + ": " + e.getMessage());
-//		}
-//
-//		// 2 generate query
-//		JSONObject json = null;
-//		try {
-//			if (pattern.containsJavaOperator())
-//				json = generateQueryJsonJava(pattern, technology);
-//			else
-//				json = generateQueryJson(pattern, technology);
-//		} catch (JSONException e) {
-//			e.printStackTrace();
-//		} catch (InvalidityException e) {
-//			e.printStackTrace();
-//		}
-//		// 3 return result
-//		return json.toString();
 	}
 
 	public static JSONObject applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
@@ -104,11 +77,11 @@ public class ConstraintQueryServlet extends HttpServlet {
 		}
 
 		String technology = pathparts[1];
-		if (!ServletUtilities.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + ServletUtilities.TECHS);
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] constraintIds = parameterMap.get("constraints");
+		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINTS);
 
 		Set<String> constraintIdSet;
 		if (constraintIds == null) {
@@ -117,32 +90,6 @@ public class ConstraintQueryServlet extends HttpServlet {
 			constraintIdSet = new LinkedHashSet<String>(Arrays.asList(constraintIds));
 		}
 		constraintIds = constraintIdSet.toArray(new String[0]);
-
-//		JSONObject result = new JSONObject();
-//		JSONArray failed = new JSONArray();
-//
-//		for (String constraintId: constraintIds) {
-//			// 1 load constraint
-//			CompletePattern pattern;
-//			try {
-//				pattern = ServletUtilities.loadConstraint(technology, constraintId);
-//				pattern.isValid(AbstractionLevel.CONCRETE);
-//			// 2 generate query
-//				JSONObject queryJson = generateQueryJson(pattern, technology);
-//				result.put(constraintId, queryJson);
-//			} catch (Exception e) {
-//				try {
-//					result.put(constraintId, "failed");
-//				} catch (JSONException e1) {}
-//				failed.put(constraintId);
-//			}
-//		}
-//		try {
-//			result.put("failed", failed);
-//		} catch (JSONException e) {
-//		}
-//		return result.toString();
-
 		return applyGet(technology, constraintIds);
 	}
 
@@ -159,20 +106,18 @@ public class ConstraintQueryServlet extends HttpServlet {
 				pattern.isValid(AbstractionLevel.CONCRETE);
 			// 2 generate query
 				JSONObject queryJson = generateQueryJson(pattern, technology);
-				result.append(Constants.JSON_CONSTRAINTS, queryJson);
+				result.append(ConstantsJSON.CONSTRAINTS, queryJson);
 			} catch (Exception e) {
-				System.err.println(constraintId);
-//				e.printStackTrace();
-//				try {
-//					result.put(constraintId, Arrays.toString(e.getStackTrace()));
-//				} catch (JSONException e1) {}
-				failed.put(constraintId);
+				JSONObject object = new JSONObject();
+				try {
+					object.put(constraintId, e.getMessage());
+				} catch (JSONException f) {}
+				failed.put(object);
 			}
 		}
 		try {
-			result.put(Constants.JSON_FAILED, failed);
-		} catch (JSONException e) {
-		}
+			result.put(ConstantsJSON.FAILED, failed);
+		} catch (JSONException e) {}
 		return result;
 	}
 
@@ -180,44 +125,42 @@ public class ConstraintQueryServlet extends HttpServlet {
 	static JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
 		JSONObject json = new JSONObject();
 
-		json.put(Constants.JSON_NAME, pattern.getName());
-		json.put(Constants.JSON_PATTERNID, pattern.getPatternId());
+		json.put(ConstantsJSON.NAME, pattern.getName());
+		json.put(ConstantsJSON.PATTERNID, pattern.getPatternId());
 
 		// 1 technology
-		json.put(Constants.JSON_TECHNOLOGY, pattern.getLanguage().getLiteral());
-//		json.put(Constants.JSON_TECHNOLOGY, technology);
-//		pattern.getLanguage().getLiteral();
+		json.put(ConstantsJSON.TECHNOLOGY, pattern.getLanguage().getLiteral());
 
 		// 2 query
 		try {
-			if (technology.equals(ServletUtilities.XML)) {
+			if (technology.equals(Constants.XML)) {
 				if (pattern.containsJavaOperator()) {
 					JavaFilter filter = pattern.generateQueryFilter();
 					String serializedFilter = filter.toJson().toString();
-					json.put(Constants.JSON_FILTER, serializedFilter);
+					json.put(ConstantsJSON.FILTER, serializedFilter);
 				}
-				json.put(Constants.JSON_LANGUAGE, "XQuery");
+				json.put(ConstantsJSON.LANGUAGE, Constants.XQUERY);
 				String xquery = pattern.generateXQuery();
-				json.put(Constants.JSON_QUERY, xquery);
-				json.put(Constants.JSON_QUERY_LINE, makeQueryOneLine(xquery));
+				json.put(ConstantsJSON.QUERY, xquery);
+				json.put(ConstantsJSON.QUERY_LINE, makeQueryOneLine(xquery));
 
-			} else if (technology.equals(ServletUtilities.RDF)) {
+			} else if (technology.equals(Constants.RDF)) {
 				if (pattern.containsJavaOperator()) {
-					throw new InvalidServletCallException("Not implemented for RDF.");
+					throw new InvalidServletCallException(ConstantsError.NOT_IMPLEMENTED_RDF);
 				}
-				json.put(Constants.JSON_LANGUAGE, "Sparql");
+				json.put(ConstantsJSON.LANGUAGE, Constants.SPARQL);
 				String sparql = pattern.generateSparql();
-				json.put(Constants.JSON_QUERY, sparql);
-				json.put(Constants.JSON_QUERY_LINE, makeQueryOneLine(sparql));
+				json.put(ConstantsJSON.QUERY, sparql);
+				json.put(ConstantsJSON.QUERY_LINE, makeQueryOneLine(sparql));
 
-			} else if (technology.equals(ServletUtilities.NEO4J)) {
+			} else if (technology.equals(Constants.NEO4J)) {
 				if (pattern.containsJavaOperator()) {
-					throw new InvalidServletCallException("Not implemented for Neo4j.");
+					throw new InvalidServletCallException(ConstantsError.NOT_IMPLEMENTED_NEO);
 				}
-				json.put(Constants.JSON_LANGUAGE, "Cypher");
+				json.put(ConstantsJSON.LANGUAGE, Constants.CYPHER);
 				String cypher = pattern.generateCypher();
-				json.put(Constants.JSON_QUERY, cypher);
-				json.put(Constants.JSON_QUERY_LINE, makeQueryOneLine(cypher));
+				json.put(ConstantsJSON.QUERY, cypher);
+				json.put(ConstantsJSON.QUERY_LINE, makeQueryOneLine(cypher));
 
 			} else {
 				throw new InvalidServletCallException();

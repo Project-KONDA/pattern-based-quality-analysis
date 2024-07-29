@@ -17,6 +17,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.StringLength;
@@ -34,10 +35,6 @@ import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 
 public class GenericPatterns {
-	
-	private static boolean VALUES = false;
-	static Boolean DEFAULT_VARIANTS = true;
-	static Boolean OLD_VARIANTS = false;
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		int i = 0;
@@ -97,13 +94,13 @@ public class GenericPatterns {
 		pattern.setPatternId(new_id);
 		List<Parameter> params = pattern.getParameterList().getParameters();
 
-		if (VALUES && values != null) {
+		if (ServletConstants.VALUES && values != null) {
 			for (Integer index: values.keySet()) {
 				params.get(index).setValueFromString(values.get(index));
 			}
 		}
 
-		if (DEFAULT_VARIANTS && variants != null) {
+		if (ServletConstants.DEFAULT_VARIANTS && variants != null) {
 			for (String json: variants) {
 				try {
 					new PatternTextImpl(pattern, new JSONObject(json));
@@ -113,7 +110,7 @@ public class GenericPatterns {
 			}
 		}
 
-		if (OLD_VARIANTS && oldvariants != null) {
+		if (ServletConstants.OLD_VARIANTS && oldvariants != null) {
 			for (String json: oldvariants) {
 				try {
 					new PatternTextImpl(pattern, new JSONObject(json));
@@ -147,7 +144,7 @@ public class GenericPatterns {
 		NumberElementImpl ne = new NumberElementImpl();
 		countCondition.setArgument2(ne);
 		ne.createParameters();
-		if (VALUES) {
+		if (ServletConstants.VALUES) {
 			ne.getNumberParam().setValue(1.);
 			countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		}
@@ -204,7 +201,7 @@ public class GenericPatterns {
 
 		TextListParamImpl tlp = new TextListParamImpl();
 		element1.addPrimitiveComparison(tlp);
-		if (VALUES) {
+		if (ServletConstants.VALUES) {
 			tlp.addStringValue("abc");
 			tlp.addStringValue("def");
 			tlp.addStringValue("ghi");
@@ -299,7 +296,7 @@ public class GenericPatterns {
 		Node element1 = ret.addOutgoing(quantifiedCondition.getGraph()).getTarget().makePrimitive();
 
 		TextLiteralParam tlp = element1.addPrimitiveMatch();
-		if (VALUES) {
+		if (ServletConstants.VALUES) {
 			tlp.setValue("[a-zA-Z]*");
 		}
 
@@ -326,7 +323,7 @@ public class GenericPatterns {
 
 		Node element1 = ret.addOutgoing(g2).getTarget().makePrimitive();
 		TextLiteralParam tlp = element1.addPrimitiveContains();
-		if (VALUES) {
+		if (ServletConstants.VALUES) {
 			tlp.setValue("abc");
 		}
 
@@ -413,7 +410,7 @@ public class GenericPatterns {
 		countCondition.setArgument2(ne);
 		ne.createParameters();
 
-		if (VALUES) {
+		if (ServletConstants.VALUES) {
 			ne.getNumberParam().setValue(1.);
 			countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		}
@@ -492,7 +489,7 @@ public class GenericPatterns {
 
 		StringLength sl = field.addPrimitiveStringLength();
 
-		if (VALUES) {
+		if (ServletConstants.VALUES) {
 			sl.getNumber().setValue(1.);
 		}
 

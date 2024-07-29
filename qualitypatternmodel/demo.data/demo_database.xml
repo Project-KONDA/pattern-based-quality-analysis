@@ -42,7 +42,7 @@
 			<demo:city>unknown</demo:city>
 			<demo:country>unknown</demo:country>
 		</demo:address>
-		<demo:source>thisisnotevenalink/</demo:source>
+		<demo:source>thisisnotevenalink</demo:source>
 	</demo:building>
 	
 	<!--  PAINTINGS -->
@@ -64,7 +64,7 @@
 		<demo:creator>402</demo:creator>
 		<demo:startwork>1492</demo:startwork>
 		<demo:endwork>1498</demo:endwork>
-		<demo:source>thisisnotevenalink</demo:source>
+		<demo:source>thisisnotevenalink/</demo:source>
 		<demo:source>thisisnotevenalink</demo:source>
 	</demo:painting>
 	

@@ -118,13 +118,13 @@ public class Test08ParameterValues {
 
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
-		testPairs.add(new PatternTestPair("DataTextLiteral", getConcreteComparisonPattern(XmlPropertyKind.DATA, parameter.get(0)), "//*[data()='USA']"));
-		testPairs.add(new PatternTestPair("DataTextList", getConcreteComparisonPattern(XmlPropertyKind.DATA, parameter.get(1)), "//*[data()='USA' or data()='unknown']"));
-		testPairs.add(new PatternTestPair("DataNumber", getConcreteComparisonPattern(XmlPropertyKind.DATA, parameter.get(2)), "//*[if(string(number(data())) != 'NaN') then xs:double(data())=1452.0]"));
-		testPairs.add(new PatternTestPair("DataBoolean", getConcreteComparisonPattern(XmlPropertyKind.ATTRIBUTE, parameter.get(3)), "//*[@*[try {xs:boolean(data()) = true()} catch err:FORG0001 {false()}]]"));
-		testPairs.add(new PatternTestPair("DataDate", getConcreteComparisonPattern(XmlPropertyKind.ATTRIBUTE, parameter.get(4)), "//*[@*[try {xs:date(data()) = xs:date(\"2020-10-03\")} catch err:FORG0001 {false()}]]"));
-		testPairs.add(new PatternTestPair("DataTime", getConcreteComparisonPattern(XmlPropertyKind.ATTRIBUTE, parameter.get(5)), "//*[@*[try {xs:time(data()) = xs:time(\"09:00:00\")} catch err:FORG0001 {false()}]]"));
-		testPairs.add(new PatternTestPair("DataDateTime", getConcreteComparisonPattern(XmlPropertyKind.ATTRIBUTE, parameter.get(6)), "//*[@*[try {xs:dateTime(data()) = xs:dateTime(\"2020-10-03T09:00:00\")} catch err:FORG0001 {false()}]]"));
+		testPairs.add(new PatternTestPair("08", "DataTextLiteral", getConcreteComparisonPattern(XmlPropertyKind.DATA, parameter.get(0)), "//*[data()='USA']"));
+		testPairs.add(new PatternTestPair("08", "DataTextList", getConcreteComparisonPattern(XmlPropertyKind.DATA, parameter.get(1)), "//*[data()='USA' or data()='unknown']"));
+		testPairs.add(new PatternTestPair("08", "DataNumber", getConcreteComparisonPattern(XmlPropertyKind.DATA, parameter.get(2)), "//*[if(string(number(data())) != 'NaN') then xs:double(data())=1452.0]"));
+		testPairs.add(new PatternTestPair("08", "DataBoolean", getConcreteComparisonPattern(XmlPropertyKind.ATTRIBUTE, parameter.get(3)), "//*[@*[try {xs:boolean(data()) = true()} catch err:FORG0001 {false()}]]"));
+		testPairs.add(new PatternTestPair("08", "DataDate", getConcreteComparisonPattern(XmlPropertyKind.ATTRIBUTE, parameter.get(4)), "//*[@*[try {xs:date(data()) = xs:date(\"2020-10-03\")} catch err:FORG0001 {false()}]]"));
+		testPairs.add(new PatternTestPair("08", "DataTime", getConcreteComparisonPattern(XmlPropertyKind.ATTRIBUTE, parameter.get(5)), "//*[@*[try {xs:time(data()) = xs:time(\"09:00:00\")} catch err:FORG0001 {false()}]]"));
+		testPairs.add(new PatternTestPair("08", "DataDateTime", getConcreteComparisonPattern(XmlPropertyKind.ATTRIBUTE, parameter.get(6)), "//*[@*[try {xs:dateTime(data()) = xs:dateTime(\"2020-10-03T09:00:00\")} catch err:FORG0001 {false()}]]"));
 
 		// TODO: complete
 

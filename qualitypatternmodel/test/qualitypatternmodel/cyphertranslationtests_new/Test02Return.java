@@ -1,7 +1,5 @@
 package qualitypatternmodel.cyphertranslationtests_new;
 import java.util.ArrayList;
-import java.util.List;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -9,7 +7,6 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class Test02Return {
 
@@ -84,12 +81,4 @@ public class Test02Return {
 
 		return completePattern;
 	}
-
-	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
-		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("MUL_RET_NAV", getPatternMultipleReturnNavigation(), "for $x1 in /* for $x2 in $x1/* return ($x1, $x2)"));
-		testPairs.add(new PatternTestPair("MUL_RET_REF", getPatternMultipleReturnReference(), "for $x1 in //* for $x2 in //*[@*[name()='demo:id']=$x1/@*[name()='demo:id']] return ($x1, $x2)"));
-		return testPairs;
-	}
-
 }

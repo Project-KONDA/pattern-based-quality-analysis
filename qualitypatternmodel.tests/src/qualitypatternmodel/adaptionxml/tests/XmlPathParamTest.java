@@ -21,6 +21,9 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlPathParam#setXmlAxis(qualitypatternmodel.adaptionxml.XmlAxisKind[]) <em>Set Xml Axis</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlPathParam#setXmlAxis(qualitypatternmodel.adaptionxml.XmlAxisKind[], java.lang.String) <em>Set Xml Axis</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlPathParam#specifyAxis(qualitypatternmodel.adaptionxml.XmlAxisKind[], qualitypatternmodel.adaptionxml.XmlPropertyKind, java.lang.String, java.lang.String) <em>Specify Axis</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlPathParam#isValue() <em>Is Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlPathParam#isProperty() <em>Is Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlPathParam#sourceVariable() <em>Source Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#validateAgainstSchema() <em>Validate Against Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#validateExampleValue(java.lang.String) <em>Validate Example Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#inputIsValid() <em>Input Is Valid</em>}</li>
@@ -151,6 +154,45 @@ public class XmlPathParamTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testSpecifyAxis__XmlAxisKind_XmlPropertyKind_String_String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#isValue() <em>Is Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#isValue()
+	 * @generated
+	 */
+	public void testIsValue() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#isProperty() <em>Is Property</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#isProperty()
+	 * @generated
+	 */
+	public void testIsProperty() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#sourceVariable() <em>Source Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#sourceVariable()
+	 * @generated
+	 */
+	public void testSourceVariable() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

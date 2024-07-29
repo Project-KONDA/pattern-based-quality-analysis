@@ -154,7 +154,6 @@ public class Neo4jExperiments {
 		return testSaveAndLoad(pattern);
 	}
 
-
 	private static boolean testRdfVariants() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<CompletePattern> list = RdfPatterns.getAllRdfPattern();
 		return testSaveAndLoadList(list);

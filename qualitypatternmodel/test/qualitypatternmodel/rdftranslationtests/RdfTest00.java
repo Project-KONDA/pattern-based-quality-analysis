@@ -2,17 +2,11 @@ package qualitypatternmodel.rdftranslationtests;
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
-import qualitypatternmodel.adaptionrdf.IriParam;
-import qualitypatternmodel.adaptionrdf.RdfPathPart;
-import qualitypatternmodel.adaptionrdf.RdfPredicate;
-import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -71,6 +65,7 @@ public class RdfTest00 {
 	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		completePattern.createRdfAdaption();
+		PatternUtility.fillParameter(completePattern);
 		return completePattern;
 	}
 
@@ -98,15 +93,17 @@ public class RdfTest00 {
 
 	public static CompletePattern getBasePatternCondConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternCond(comp);
-		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
-		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		RdfSinglePredicate rdfSingle = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
-		rdfSingle.setIriParam(iriParam);
-		RdfPathPart rdfPathPart = AdaptionrdfFactory.eINSTANCE.createRdfPathPart();
-		relation.getRdfPathParam().getRdfPathParts().add(rdfPathPart);
-//		((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathParts().get(0).getRdfPath()).setIriParam(iriParam);
-		iriParam.setPrefix("wdt");
-		iriParam.setSuffix("P569");
+		PatternUtility.fillParameter(completePattern);
+//		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
+//		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
+//		RdfSinglePredicate rdfSingle = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
+//		rdfSingle.setIriParam(iriParam);
+//		RdfPathPart rdfPathPart = AdaptionrdfFactory.eINSTANCE.createRdfPathPart();
+//		rdfPathPart.setRdfPath(rdfSingle);
+//		relation.getRdfPathParam().getRdfPathParts().add(rdfPathPart);
+////		IriParam iriParam = ((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathParts().get(0).getRdfPath()).getIriParam();
+//		iriParam.setPrefix("wdt");
+//		iriParam.setSuffix("P569");
 		return completePattern;
 	}
 
@@ -120,28 +117,32 @@ public class RdfTest00 {
 
 	public static CompletePattern getBasePatternMatchConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternMatch(comp);
-		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
-		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		RdfSinglePredicate rdfSingle = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
-		rdfSingle.setIriParam(iriParam);
-		RdfPathPart rdfPathPart = AdaptionrdfFactory.eINSTANCE.createRdfPathPart();
-		relation.getRdfPathParam().getRdfPathParts().add(rdfPathPart);
-		iriParam.setPrefix("wdt");
-		iriParam.setSuffix("P569");
+		PatternUtility.fillParameter(completePattern);
+//		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
+//		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
+//		RdfSinglePredicate rdfSingle = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
+//		rdfSingle.setIriParam(iriParam);
+//		RdfPathPart rdfPathPart = AdaptionrdfFactory.eINSTANCE.createRdfPathPart();
+//		rdfPathPart.setRdfPath(rdfSingle);
+//		relation.getRdfPathParam().getRdfPathParts().add(rdfPathPart);
+//		iriParam.setPrefix("wdt");
+//		iriParam.setSuffix("P569");
 		return completePattern;
 	}
 
 	public static CompletePattern getBasePatternMatchNotConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternMatch(comp);
-		((Match) completePattern.getGraph().getOperatorList().getOperators().get(0)).getOption().setValue(false);
-		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
-		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		RdfSinglePredicate rdfSingle = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
-		rdfSingle.setIriParam(iriParam);
-		RdfPathPart rdfPathPart = AdaptionrdfFactory.eINSTANCE.createRdfPathPart();
-		relation.getRdfPathParam().getRdfPathParts().add(rdfPathPart);
-		iriParam.setPrefix("wdt");
-		iriParam.setSuffix("P569");
+		PatternUtility.fillParameter(completePattern);
+//		((Match) completePattern.getGraph().getOperatorList().getOperators().get(0)).getOption().setValue(false);
+//		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
+//		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
+//		RdfSinglePredicate rdfSingle = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
+//		rdfSingle.setIriParam(iriParam);
+//		RdfPathPart rdfPathPart = AdaptionrdfFactory.eINSTANCE.createRdfPathPart();
+//		rdfPathPart.setRdfPath(rdfSingle);
+//		relation.getRdfPathParam().getRdfPathParts().add(rdfPathPart);
+//		iriParam.setPrefix("wdt");
+//		iriParam.setSuffix("P569");
 		return completePattern;
 	}
 

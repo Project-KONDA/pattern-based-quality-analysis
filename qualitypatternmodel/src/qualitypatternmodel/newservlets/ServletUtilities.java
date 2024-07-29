@@ -6,12 +6,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -34,34 +37,20 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
+import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
 //import qualitypatternmodel.utility.EMFModelSave;
 
 public abstract class ServletUtilities {
 
-	public static String PATTERNFOLDER =  "/templates";
-	public static String FILEFOLDER =  "/files";
-	public static String SAVE_FILENAME = ((System.getenv("SAVE_FILENAME") != null)? System.getenv("SAVE_FILENAME"): "savefile.txt");
-	public static String LOG_FILENAME = ((System.getenv("LOG_FILENAME") != null)? System.getenv("LOG_FILENAME"): "logfile.log");
-//	public static String SAVE_FILEPATH = PATTERNFOLDER + "/" + SAVE_FILENAME;
-//	public static String LOG_FILEPATH = PATTERNFOLDER + "/" + LOG_FILENAME;
-
-	public static final String CONSTRAINTFOLDER = "concrete-patterns";
-	public static final String TEMPLATEFOLDER = "abstract-patterns";
-	public static final String EXTENSION = "patternstructure";
-	public static final String XML = Language.XML.getLiteral();
-	public static final String RDF = Language.RDF.getLiteral();
-	public static final String NEO4J = Language.NEO4J.getLiteral();
-	public static final List<String> TECHS = List.of(XML, RDF, NEO4J);
-	public static final String LVLALL = "all";
-	public static final String LVLTEMPLATE = "template";
-	public static final String LVLCONSTRAINT = "concrete";
-	public static final String LVLREADY = "ready";
-	public static final List<String> LEVELS = List.of(LVLALL, LVLTEMPLATE, LVLCONSTRAINT, LVLREADY);
+	// for efficiency when requested once, the templates do not need to be reloaded that often
+	private static List<CompletePattern> abstractPatternXml = null;
+	private static List<CompletePattern> abstractPatternRdf = null;
+	private static List<CompletePattern> abstractPatternNeo = null;
 
 	// Pattern request
-
 	public static List<CompletePattern> getAllPattern(String technology) {
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		List<CompletePattern> astr = getTemplates(technology);
@@ -75,29 +64,24 @@ public abstract class ServletUtilities {
 		return patterns;
 	}
 
-	// for efficiency when requested once, the templates do not need to be reloaded that often
-	private static List<CompletePattern> abstractPatternXml = null;
-	private static List<CompletePattern> abstractPatternRdf = null;
-	private static List<CompletePattern> abstractPatternNeo = null;
-
 	public static List<CompletePattern> getTemplates(String technology) {
-		String path = PATTERNFOLDER + "/" + technology + "/" + TEMPLATEFOLDER;
+		String path = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
 		try {
-			abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
-			if (technology.equals(XML)) {
+			abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(path, Constants.EXTENSION);
+			if (technology.equals(Constants.XML)) {
 				if (abstractPatternXml == null) {
-					abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
+					abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(path, Constants.EXTENSION);
 				}
 				return abstractPatternXml;
-			} else if (technology.equals(RDF)) {
+			} else if (technology.equals(Constants.RDF)) {
 				if (abstractPatternRdf == null) {
-					abstractPatternRdf = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
+					abstractPatternRdf = EMFModelLoad.loadCompletePatternFromFolder(path, Constants.EXTENSION);
 				}
 				return abstractPatternRdf;
 
-			} else if (technology.equals(NEO4J)) {
+			} else if (technology.equals(Constants.NEO4J)) {
 				if (abstractPatternNeo == null) {
-					abstractPatternNeo = EMFModelLoad.loadCompletePatternFromFolder(path, EXTENSION);
+					abstractPatternNeo = EMFModelLoad.loadCompletePatternFromFolder(path, Constants.EXTENSION);
 				}
 				return abstractPatternNeo;
 			} else {
@@ -112,9 +96,9 @@ public abstract class ServletUtilities {
 
 	public static List<CompletePattern> getConstraints(String technology) {
 
-		if (TECHS.contains(technology)) {
+		if (Constants.TECHS.contains(technology)) {
 			try {
-				return EMFModelLoad.loadCompletePatternFromFolder(PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER, EXTENSION);
+				return EMFModelLoad.loadCompletePatternFromFolder(ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER, Constants.EXTENSION);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -147,41 +131,35 @@ public abstract class ServletUtilities {
 				ids.put(pattern.getPatternId());
 				templates.put(getPatternJSON(pattern));
 			}
-			json.put(Constants.JSON_TEMPLATES, templates);
-			json.put(Constants.JSON_SIZE, patterns.size());
-			json.put(Constants.JSON_IDS, ids);
+			json.put(ConstantsJSON.TEMPLATES, templates);
+			json.put(ConstantsJSON.SIZE, patterns.size());
+			json.put(ConstantsJSON.IDS, ids);
 		} catch (JSONException e) {}
 		return json;
-
-//		String result = "{\"Templates\": [ ";
-//		for (CompletePattern pattern: patterns) {
-//			result += getPatternJSON(pattern);
-//		}
-//		return result += "]}"; // templatelist end
 	}
 
 	public static JSONObject getPatternJSON(CompletePattern pattern) {
 		JSONObject json = new JSONObject();
 		try {
-			json.put(Constants.JSON_PATTERNID, pattern.getPatternId());
-			json.put(Constants.JSON_NAME, pattern.getName());
-			json.put(Constants.JSON_DESCRIPTION, pattern.getDescription());
-			json.put(Constants.JSON_LANGUAGE, pattern.getLanguage());
+			json.put(ConstantsJSON.PATTERNID, pattern.getPatternId());
+			json.put(ConstantsJSON.NAME, pattern.getName());
+			json.put(ConstantsJSON.DESCRIPTION, pattern.getDescription());
+			json.put(ConstantsJSON.LANGUAGE, pattern.getLanguage());
 			if (pattern.getLastSaved() != null) {
-				json.put(Constants.JSON_LASTSAVED, new Timestamp(pattern.getLastSaved().getTime()).toString());
+				json.put(ConstantsJSON.LASTSAVED, new Timestamp(pattern.getLastSaved().getTime()).toString());
 			}
 			if (pattern.getNamespaces() != null) {
-				json.put(Constants.JSON_NAMESPACES, pattern.getNamespaces().generateJSONObject());
+				json.put(ConstantsJSON.NAMESPACES, pattern.getNamespaces().generateJSONObject());
 			}
 			if (pattern.getDatabaseName() != null) {
-				json.put(Constants.JSON_DATABASE, pattern.getDatabaseName());
+				json.put(ConstantsJSON.DATABASE, pattern.getDatabaseName());
 			}
 			if (pattern.getDataModelName() != null) {
-				json.put(Constants.JSON_DATAMODEL, pattern.getDataModelName());
+				json.put(ConstantsJSON.DATAMODEL, pattern.getDataModelName());
 			}
 			if (pattern.getKeywords() != null && !pattern.getKeywords().isEmpty()) {
 				JSONArray tags = new JSONArray(pattern.getKeywords());
-				json.put(Constants.JSON_TAG, tags);
+				json.put(ConstantsJSON.TAG, tags);
 			}
 
 			Boolean mqaf = false;
@@ -201,17 +179,17 @@ public abstract class ServletUtilities {
 			}
 			catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {}
 
-			json.put(Constants.JSON_EXECUTABLE , mqaf || query || filter);
-			json.put(Constants.JSON_EXECUTABLE_MQAF, mqaf);
-			json.put(Constants.JSON_EXECUTABLE_QUERY, query);
-			json.put(Constants.JSON_EXECUTABLE_FILTER, filter);
+			json.put(ConstantsJSON.EXECUTABLE , mqaf || query || filter);
+			json.put(ConstantsJSON.EXECUTABLE_MQAF, mqaf);
+			json.put(ConstantsJSON.EXECUTABLE_QUERY, query);
+			json.put(ConstantsJSON.EXECUTABLE_FILTER, filter);
 
 
 			JSONArray variants = new JSONArray();
 			for (PatternText text: pattern.getText()) {
 				variants.put(text.generateJSONObject());
 			}
-			json.put(Constants.JSON_VARIANTS, variants);
+			json.put(ConstantsJSON.VARIANTS, variants);
 		} catch (JSONException e) {}
 		return json;
 	}
@@ -227,9 +205,9 @@ public abstract class ServletUtilities {
 	public static JSONObject getPatternJSONHead(CompletePattern pattern) {
 		JSONObject json = new JSONObject();
 		try {
-			json.put("patternID", pattern.getPatternId());
-			json.put("name", pattern.getName());
-			json.put("description", pattern.getDescription());
+			json.put(ConstantsJSON.PATTERNID, pattern.getPatternId());
+			json.put(ConstantsJSON.NAME, pattern.getName());
+			json.put(ConstantsJSON.DESCRIPTION, pattern.getDescription());
 		} catch (JSONException e) {}
 		return json;
 	}
@@ -237,30 +215,30 @@ public abstract class ServletUtilities {
 	// LOAD SAVE DELETE
 
 	protected static CompletePattern loadConstraint(String technology, String name) throws IOException {
-		String patternpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER + "/" + name + "." + EXTENSION;
+		String patternpath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + name + "." + Constants.EXTENSION;
 		return EMFModelLoad.loadCompletePattern(patternpath);
 	}
 
 	protected static CompletePattern loadTemplate(String technology, String templateId) throws IOException {
-		String folderPath = PATTERNFOLDER + "/" + technology + "/" + TEMPLATEFOLDER;
-		return EMFModelLoad.loadCompletePattern(folderPath, templateId, EXTENSION);
+		String folderPath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
+		return EMFModelLoad.loadCompletePattern(folderPath, templateId, Constants.EXTENSION);
 	}
 
 	public static void saveTemplate(String technology, String templateId, CompletePattern pattern) throws IOException {
-		String folderpath = PATTERNFOLDER + "/" + technology + "/" + TEMPLATEFOLDER;
-		EMFModelSave.exportToFile2(pattern, folderpath, templateId, EXTENSION);
+		String folderpath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
+		EMFModelSave.exportToFile2(pattern, folderpath, templateId, Constants.EXTENSION);
 	}
 
 	public static String saveConstraint(String technology, String constraintId, CompletePattern pattern) throws IOException {
 		pattern.updateLastSaved();
-		String folderpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER;
-		EMFModelSave.exportToFile2(pattern, folderpath, constraintId, EXTENSION);
+		String folderpath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER;
+		EMFModelSave.exportToFile2(pattern, folderpath, constraintId, Constants.EXTENSION);
 		return new Timestamp(pattern.getLastSaved().getTime()).toString();
 	}
 
 	public static String generateNewId(String technology, String templateId, String variantname) throws IOException {
 		String name = technology + "_" + templateId + "_" + variantname;
-		String filepath = PATTERNFOLDER + "/" + SAVE_FILENAME;
+		String filepath = ServletConstants.PATTERNFOLDER + "/" + ServletConstants.SAVE_FILENAME;
 		Integer number;
 		try {
 			number = getNextNumber(filepath, name);
@@ -304,14 +282,14 @@ public abstract class ServletUtilities {
 	}
 
 	public static void deleteConstraint(String technology, String constraintId) throws IOException {
-		String patternpath = PATTERNFOLDER + "/" + technology + "/" + CONSTRAINTFOLDER + "/" + constraintId + "." + EXTENSION;
+		String patternpath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + constraintId + "." + Constants.EXTENSION;
 //		patternpath = servletContext.getRealPath(patternpath);
 
 		CompletePattern constraint = EMFModelLoad.loadCompletePattern(patternpath);
 		if (constraint instanceof CompletePattern) {
 			Files.delete(Paths.get(patternpath));
 		} else {
-			throw new IOException("Wrong file format");
+			throw new IOException(ConstantsError.INVALID_FILEFORMAT);
 		}
 	}
 
@@ -372,7 +350,7 @@ public abstract class ServletUtilities {
 
 	public static void log(String text) {
 		try {
-			String filepath = PATTERNFOLDER + "/" + LOG_FILENAME;
+			String filepath = ServletConstants.PATTERNFOLDER + "/" + ServletConstants.LOG_FILENAME;
 			File file = new File(filepath);
 		    file.getParentFile().mkdirs();
 	        if (!file.exists()) {
@@ -435,5 +413,48 @@ public abstract class ServletUtilities {
 			} catch (JSONException e) {}
 		}
 		return job.toString();
+	}
+
+
+	// Depricated Methods
+
+	public static String getFileNamesInFolder(String path, Class<?> clas) throws URISyntaxException {
+		URL url = clas.getClassLoader().getResource(path);
+		if(url != null) {
+			File[] files = Paths.get(url.toURI()).toFile().listFiles();
+			if(files.length == 0) {
+				return "";
+			}
+//			String json = "{\"Patterns\": [";
+			String json = "[";
+			for(File f : files) {
+				json += "\"" + f.getName().split("\\.")[0] + "\", ";
+			}
+			json = json.substring(0, json.length()-2);
+//			json += "]}";
+			json += "]";
+			return json;
+
+		} else {
+			return null;
+		}
+	}
+
+	public static ArrayList<String> getListOfFileNamesInFolder(String path, Class<?> clas) throws URISyntaxException {
+		URL url = clas.getClassLoader().getResource(path);
+		ArrayList<String> fileNames = new ArrayList<String>();
+		if(url != null) {
+			File[] files = Paths.get(url.toURI()).toFile().listFiles();
+			if(files.length == 0) {
+				return null;
+			}
+			for(File f : files) {
+				fileNames.add(f.getName().split("\\.")[0]);
+			}
+			return fileNames;
+
+		} else {
+			return null;
+		}
 	}
 }

@@ -178,9 +178,12 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 
 		String forClauses = graph.generateXQuery();
+		// remove very first newline
+		forClauses = forClauses.substring(1); 
 
-		String whereClause = "\n";
+		String whereClause = "";
 		if (!(condition instanceof TrueElement)) {
+			whereClause = "\n";
 			String condQuery = condition.generateXQuery().replace("\n", "\n  ");
 			whereClause = ConstantsXml.WHERE + condQuery;
 		}

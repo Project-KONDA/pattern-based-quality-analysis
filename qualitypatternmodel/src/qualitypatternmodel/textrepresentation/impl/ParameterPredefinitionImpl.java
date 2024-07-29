@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,8 +25,9 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
+import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +39,7 @@ import qualitypatternmodel.utility.Constants;
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterPredefinitionImpl#getParameter <em>Parameter</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterPredefinitionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterPredefinitionImpl#getPatterntext <em>Patterntext</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,12 +86,12 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 
 	protected ParameterPredefinitionImpl(CompletePattern pattern, JSONObject json) throws JSONException, InvalidityException {
 		super();
-		if (!json.has(Constants.JSON_VALUE) || !json.has(Constants.JSON_PARAMETER)) {
+		if (!json.has(ConstantsJSON.VALUE) || !json.has(ConstantsJSON.PARAMETER)) {
 			throw new InvalidityException("Not valid JSON to a create ParameterPredefinition");
 		}
 
-		String value = json.getString(Constants.JSON_VALUE);
-        JSONArray params = json.getJSONArray(Constants.JSON_PARAMETER);
+		String value = json.getString(ConstantsJSON.VALUE);
+        JSONArray params = json.getJSONArray(ConstantsJSON.PARAMETER);
         for (int i = 0; i < params.length(); i++) {
             int paramID = params.getInt(i);
             try {
@@ -150,6 +153,49 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PatternText getPatterntext() {
+		if (eContainerFeatureID() != TextrepresentationPackage.PARAMETER_PREDEFINITION__PATTERNTEXT) return null;
+		return (PatternText)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPatterntext(PatternText newPatterntext, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newPatterntext, TextrepresentationPackage.PARAMETER_PREDEFINITION__PATTERNTEXT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPatterntext(PatternText newPatterntext) {
+		if (newPatterntext != eInternalContainer() || (eContainerFeatureID() != TextrepresentationPackage.PARAMETER_PREDEFINITION__PATTERNTEXT && newPatterntext != null)) {
+			if (EcoreUtil.isAncestor(this, newPatterntext))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newPatterntext != null)
+				msgs = ((InternalEObject)newPatterntext).eInverseAdd(this, TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS, PatternText.class, msgs);
+			msgs = basicSetPatterntext(newPatterntext, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_PREDEFINITION__PATTERNTEXT, newPatterntext, newPatterntext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -189,6 +235,7 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 		JSONArray params = new JSONArray();
 		try {
 			EList<Parameter> allParams = getParameter().get(0).getAllParameters();
+//			EList<Parameter> allParams = getPatternText().getPattern().getParameterList().getParameters();
 			for (Parameter pa: getParameter()) {
 				int index = allParams.indexOf(pa);
 				if (index != -1) {
@@ -199,8 +246,8 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 
 		JSONObject result = new JSONObject();
 		try {
-			result.put(Constants.JSON_PARAMETER, params);
-			result.put(Constants.JSON_VALUE, getValue());
+			result.put(ConstantsJSON.PARAMETER, params);
+			result.put(ConstantsJSON.VALUE, getValue());
 		} catch (Exception e) {}
 		return result;
 	}
@@ -216,6 +263,10 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PARAMETER:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameter()).basicAdd(otherEnd, msgs);
+			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PATTERNTEXT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetPatterntext((PatternText)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -230,8 +281,24 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PARAMETER:
 				return ((InternalEList<?>)getParameter()).basicRemove(otherEnd, msgs);
+			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PATTERNTEXT:
+				return basicSetPatterntext(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PATTERNTEXT:
+				return eInternalContainer().eInverseRemove(this, TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS, PatternText.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -246,6 +313,8 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 				return getParameter();
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__VALUE:
 				return getValue();
+			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PATTERNTEXT:
+				return getPatterntext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -266,6 +335,9 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__VALUE:
 				setValue((String)newValue);
 				return;
+			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PATTERNTEXT:
+				setPatterntext((PatternText)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -284,6 +356,9 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
+			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PATTERNTEXT:
+				setPatterntext((PatternText)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -300,6 +375,8 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 				return parameter != null && !parameter.isEmpty();
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PATTERNTEXT:
+				return getPatterntext() != null;
 		}
 		return super.eIsSet(featureID);
 	}

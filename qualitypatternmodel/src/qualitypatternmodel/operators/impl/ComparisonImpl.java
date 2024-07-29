@@ -51,7 +51,7 @@ import qualitypatternmodel.parameters.impl.ParameterValueImpl;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
@@ -317,7 +317,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			matchCypherOperators(cypher, argument1Translation, argument2Translation);
 			return cypher.toString();
 		}
-		throw new InvalidityException(Constants.INVALID_OPTION);
+		throw new InvalidityException(ConstantsError.INVALID_OPTION);
 	}
 
 	//BEGIN - Neo4J/Cypher

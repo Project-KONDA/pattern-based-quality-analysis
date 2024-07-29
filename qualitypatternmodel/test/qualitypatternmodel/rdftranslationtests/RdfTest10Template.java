@@ -12,6 +12,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorsFactory;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
@@ -39,6 +40,7 @@ public class RdfTest10Template {
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
 		comp.setArgument1(graph.getNodes().get(2));
 		comp.setArgument2(iriParam);
+		comp.getOption().setValue(ComparisonOperator.EQUAL);;
 
 		completePattern.createRdfAdaption();
 
