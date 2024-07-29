@@ -8,6 +8,7 @@ public class ServletConstants {
 	public static Boolean DEFAULT_VARIANTS = true;
 	public static Boolean OLD_VARIANTS = false;
 	public static final boolean GENERATE_GENERIC = false;
+	public static final boolean VALUE_JSON = true;
 
 	public static String ENV_SAVEFILE = "SAVE_FILENAME";
 	public static String ENV_LOGFILE = "LOG_FILENAME";

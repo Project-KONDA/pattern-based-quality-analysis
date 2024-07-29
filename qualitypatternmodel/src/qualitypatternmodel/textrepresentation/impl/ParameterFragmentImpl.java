@@ -37,6 +37,7 @@ import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.Parameter;
@@ -805,7 +806,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			json.put(ConstantsJSON.TYPE, getType());
 			json.put(ConstantsJSON.ROLE, getRole());
 			if (getValue() != null) {
-				json.put(ConstantsJSON.VALUE, getValue());
+				if (ServletConstants.VALUE_JSON) {
+					json.put(ConstantsJSON.VALUE, jsonify(getValue()));
+				} else {
+					json.put(ConstantsJSON.VALUE, getValue());
+				}
 			}
 			if (getUserValue() != null) {
 				json.put(ConstantsJSON.USERVALUE, getUserValue());
@@ -863,6 +868,18 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}
 		} catch (JSONException e) {}
 		return json;
+	}
+
+	private Object jsonify(String value) {
+		try {
+			JSONObject object = new JSONObject(value);
+			return object;
+		} catch (JSONException e) {}
+		try {
+			JSONArray array = new JSONArray(value);
+			return array;
+		} catch (JSONException e) {}
+		return value;
 	}
 
 	private JSONArray getOptionValues() {
