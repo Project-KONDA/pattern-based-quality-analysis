@@ -4,7 +4,7 @@ public class ServletConstants {
 
 	// CONFIG
 	static boolean OVERRIDE = true;
-	public static boolean VALUES = true;
+	public static boolean VALUES = false;
 	public static Boolean DEFAULT_VARIANTS = true;
 	public static Boolean OLD_VARIANTS = false;
 	public static final boolean GENERATE_GENERIC = false;
