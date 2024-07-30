@@ -17,24 +17,24 @@ public class ServletConstants {
 	public static final boolean VALUE_JSON = true;
 
 	// ENVIRONMENTAL VARIABLES
-	// name of savefile
+	// name of savefile from environmental variable
 	public static String ENV_SAVEFILE = "SAVE_FILENAME";
-	// name of logfile
+	// name of logfile from environmental variable
 	public static String ENV_LOGFILE = "LOG_FILENAME";
-	// name of template volume
+	// name of template volume from environmental variable
 	public static String ENV_TEMPLATE_VOLUME = "TEMPLATE_VOLUME";
-	// name of shared volume
+	// name of shared volume from environmental variable
 	public static String ENV_SHARED_VOLUME = "SHARED_VOLUME";
 
 	// FILE NAMES
-	// name of folder if ENV_TEMPLATE_VOLUME not found 
+	// name of folder 
 	public static String PATTERNFOLDER =  "/templates";
-	// name of folder if ENV_SHARED_VOLUME not found
+	// name of folder
 	public static String FILEFOLDER =  "/files";
-	// name of logfile if ENV_LOGFILE not found
-	public static String LOG_FILENAME_DEFAULT = "logfile.log";
-	// name of savefile if ENV_SAVEFILE not found
-	public static String SAVE_FILENAME_DEFAULT = "savefile.txt";
+	// name of logfile
+	public static String LOG_FILENAME = "logfile.log";
+	// name of savefile
+	public static String SAVE_FILENAME = "savefile.txt";
 	// name of folder for generic templates
 	public static final String GENERICFOLDER = "generic-patterns";
 	// name of folder for templates

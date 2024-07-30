@@ -59,8 +59,12 @@ public class InitialisationServlet extends HttpServlet {
 	public static void initialisation(ServletContext scon) throws ServletException {
 		String templates = System.getenv().get(ServletConstants.ENV_TEMPLATE_VOLUME);
 		String files = System.getenv().get(ServletConstants.ENV_SHARED_VOLUME);
+		String logfile = System.getenv().get(ServletConstants.ENV_LOGFILE);
+		String savefile = System.getenv().get(ServletConstants.ENV_SAVEFILE);
 		ServletConstants.PATTERNFOLDER = templates == null? scon.getRealPath(ServletConstants.PATTERNFOLDER) : templates;
 		ServletConstants.FILEFOLDER = files == null? scon.getRealPath(ServletConstants.FILEFOLDER) : files;
+		ServletConstants.LOG_FILENAME = logfile == null? ServletConstants.LOG_FILENAME : logfile;
+		ServletConstants.SAVE_FILENAME = savefile == null? ServletConstants.SAVE_FILENAME : savefile;
 
 		System.out.println("Files can be found at " + ServletConstants.PATTERNFOLDER);
 		ServletUtilities.log("Initializing ...");
