@@ -335,8 +335,10 @@ public class ConstraintServlet extends HttpServlet {
 		} catch (JSONException e) {}
 
 		// case: value is not a json object
-		if (ob == null)
+		if (ob == null) {
 			frag.setValue(input);
+			return;
+		}
 
 		// case: value is a json object
 
