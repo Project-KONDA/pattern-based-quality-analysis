@@ -1132,7 +1132,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		if (getValueMap() != null) {
 			myValue = getValueMap().getKey(value);
 			if (myValue.equals(value)) {
-				throw new InvalidityException("value " + value + " not found in ValueMap");
+				String allowed = getValueMap().getValuesAsJsonArray().toString().replace("\"", "'");
+				throw new InvalidityException("invalid value '" + value + "'. expected one of " + allowed);
 			}
 		}
 		for (Parameter p: getParameter()) {

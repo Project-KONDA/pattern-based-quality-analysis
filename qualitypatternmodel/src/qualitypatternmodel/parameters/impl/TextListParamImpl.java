@@ -41,6 +41,10 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		if (value == null) {
+			this.clear();
+			return;
+		}
 		try {
 			JSONArray jarray = new JSONArray(value);
 	        getValues().clear();
@@ -49,15 +53,18 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	        	getValues().add(v);
 	        }
 		}
-		catch (JSONException e){
-			value = value.trim();
-			String trimmed = value.substring(1, value.length() - 1);
-	        String[] values = trimmed.split(",");
+		catch (JSONException e) {
 	        getValues().clear();
-	        for (String val: values) {
-	        	String v = val.trim().replaceAll("\"",  "").trim();
-	        	getValues().add(v);
-	        }
+	        getValues().add(value);
+//			value = value.trim();
+//			if (value.startsWith("[") && value.endsWith("]"))
+//				value = value.substring(1, value.length() - 1);
+//	        String[] values = value.split(",");
+//	        getValues().clear();
+//	        for (String val: values) {
+//	        	String v = val.trim().replaceAll("\"",  "").trim();
+//	        	getValues().add(v);
+//	        }
 		}
 	}
 
