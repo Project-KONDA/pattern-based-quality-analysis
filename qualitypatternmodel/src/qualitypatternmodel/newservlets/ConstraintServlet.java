@@ -335,12 +335,15 @@ public class ConstraintServlet extends HttpServlet {
 		} catch (JSONException e) {}
 
 		// case: value is not a json object
-		if (ob == null)
+		if (ob == null) {
 			frag.setValue(input);
+			return;
+		}
 
 		// case: value is a json object
-
 		HashMap<String, String> jsonMap = convertJSONObjectToHashMap(ob);
+		if (jsonMap == null)
+			throw new InvalidityException("Converting JSONObject to HashMap failed: " + ob);
 		for (String key: jsonMap.keySet()) {
 			if (key != ConstantsJSON.VALUE && key != ConstantsJSON.USERVALUE) {
 				frag.setAttributeValue(key, jsonMap.get(key));
