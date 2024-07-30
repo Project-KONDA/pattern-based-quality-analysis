@@ -422,7 +422,7 @@ public abstract class ServletUtilities {
 	public static void logError(Throwable th) {
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
-        printWriter.println(th.getMessage());
+        printWriter.println(th.getClass().getSimpleName() + ": " + th.getMessage());
 		for (StackTraceElement element : th.getStackTrace()) {
             printWriter.println("    " + element.toString());
         }
