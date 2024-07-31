@@ -138,6 +138,9 @@ public class MqafTranslationHelper {
 			throw new InvalidityException("no valid relation");
 		}
 		XmlNavigation relation = (XmlNavigation) node.getIncoming().get(0);
+		EList<XmlPathParam> alts = relation.getXmlPathParam().getAlternatives();
+		if ( alts != null && !alts.isEmpty())
+			throw new InvalidityException("multiple XPaths are not supported by MQAF");
 		String path = "";
 		XmlPathParam pathparam = relation.getXmlPathParam();
 		XmlPropertyOptionParam param = pathparam.getXmlPropertyOptionParam();
