@@ -24,7 +24,7 @@ public class ConstantsXml {
 	public static final String REGEX_ATTRIBUTE_NAME = REGEX_NAMESPACE + "[A-Za-z0-9]+";
 	public static final String REGEX_ATTRIBUTE = "(@" + REGEX_ATTRIBUTE_NAME + ")";
 	public static final String REGEX_PROPERTY_SPEC = "(((data|text|name)\\(\\))|" + REGEX_ATTRIBUTE + ")";
-	public static final String REGEX_PROPERTY = "(/" + REGEX_PROPERTY_SPEC + ")";
+	public static final String REGEX_PROPERTY = "(" + REGEX_AXIS + REGEX_PROPERTY_SPEC + ")";
 	public static final String REGEX_PROPERTY_PART = "((/)?" + REGEX_PROPERTY_SPEC + ")";
 //	public static final String REGEX_NODENAME = "([a-zA-Z]+(:[a-zA-Z]+)?\\s*)";
 	public static final String REGEX_NODENAME = "(" + REGEX_NAMESPACE + "[a-zA-Z0-9]+\\s*)";

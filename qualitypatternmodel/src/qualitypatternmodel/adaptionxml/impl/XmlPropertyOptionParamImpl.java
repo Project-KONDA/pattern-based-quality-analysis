@@ -219,6 +219,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 		if(getValue() == null) {
 			throw new InvalidityException("propertyOption invalid");
 		}
+		String axis = getAxis().equals(XmlAxisKind.CHILD) ? "/" : getAxis().getLiteral();
 
 		switch (getValue()) {
 		case ATTRIBUTE:
@@ -230,15 +231,15 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 					try {
 						CompletePattern p = (CompletePattern) getAncestor(CompletePattern.class);
 						if (!p.getNamespaces().getKeys().contains(ns))
-							return "/@*[name()=\"" + attributeName.getValue() + "\"]";
+							return axis + "@*[name()=\"" + attributeName.getValue() + "\"]";
 					} catch (MissingPatternContainerException e) {}
 				}
-				return "/@" + attributeName.getValue() + "";
+				return axis + "@" + attributeName.getValue() + "";
 			}
 		case DATA:
-			return "/text()";
+			return axis + "text()";
 		case TAG:
-			return "/name()";
+			return axis + "name()";
 		default:
 			throw new InvalidityException("error in location specification");
 		}
