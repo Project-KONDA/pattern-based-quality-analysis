@@ -103,12 +103,23 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	}
 
 	@Override
-	public void setValueFromString(String value) {
-		for(ReturnType kind : ReturnType.values()) {
-			if(kind.getName().equals(value)) {
-				setValue(kind);
+	public void setValueFromString(String value) throws InvalidityException {
+		if (value == null) {
+			clear();
+			return;
+		}
+		for(ReturnType operator : getOptions()) {
+			if(operator.getName().equals(value)) {
+				setValue(operator);
+				return;
 			}
 		}
+		for(ReturnType operator : ReturnType.values()) {
+			if(operator.getName().equals(value)) {
+				throw new InvalidityException("value '" + value + "' is not allowed");
+			}
+		}
+		throw new InvalidityException("value '" + value + "' is not valid");
 	}
 
 	@Override

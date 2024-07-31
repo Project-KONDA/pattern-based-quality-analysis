@@ -683,6 +683,10 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 */
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		if (value == null) {
+			clear();
+			return;
+		}
 		value = value.trim();
 		if (value.startsWith("//")) {
 			value = "/descendant::" + value.substring(2);
@@ -692,26 +696,27 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 			setXmlAxisOptionParam(new XmlAxisOptionParamImpl());
 		}
 
-		boolean axisdone = false;
+		XmlAxisKind a = null;
 		for (XmlAxisKind axis: XmlAxisKind.VALUES) {
 			String literal = axis.getLiteral();
 			literal = literal.substring(0, literal.length()-1);
 			if (value.startsWith(literal)) {
-				this.getXmlAxisOptionParam().setValue(axis);
 				value = value.replace(literal, "");
-				axisdone = true;
+				a = axis;
 				break;
 			}
 		}
-		if (!axisdone) {
+		if (a == null) {
 			if (value.startsWith("/")) {
 				value = value.substring(1);
-				this.getXmlAxisOptionParam().setValue(XmlAxisKind.CHILD);
-				axisdone = true;
+				a = XmlAxisKind.CHILD;
 			} else {
 				throw new InvalidityException("Invalid axis");
 			}
 		}
+
+		this.getXmlAxisOptionParam().setValue(a);
+
 		value = value.trim();
 
 		String[] split = value.split("(?=\\[)");

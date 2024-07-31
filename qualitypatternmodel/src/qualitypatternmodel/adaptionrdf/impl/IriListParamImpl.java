@@ -108,26 +108,20 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		if (value == null) {
+			clear();
+			return;
+		}
 		ArrayList<IriParam> x = new ArrayList<IriParam>();
 		JSONArray jarr;
 		try {
 			jarr = new JSONArray(value);
 	        for (int i = 0; i < jarr.length(); i++) {
-	            IriParam iri = new IriParamImpl();
-	            iri.setValueFromString(jarr.getString(i));
-	            x.add(iri);
+	            x.add(new IriParamImpl(jarr.getString(i)));
 	        }
 		} catch (JSONException e) {
-			try {
-	            IriParam iri = new IriParamImpl();
-	            iri.setValueFromString(value);
-	            x.add(iri);
-			}
-			catch (InvalidityException f) {
-				throw new InvalidityException("", e);
-			}
+            x.add(new IriParamImpl(value));
 		}
-
         getIriParams().clear();
         getIriParams().addAll(x);
 	}

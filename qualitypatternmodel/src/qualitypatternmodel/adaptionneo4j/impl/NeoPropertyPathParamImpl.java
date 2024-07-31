@@ -92,6 +92,10 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		if (value == null) {
+			clear();
+			return;
+		}
 		try {
 			JSONObject jobj = new JSONObject(value);
 			String partstring = jobj.get(ConstantsNeo.JSON_NEO_PATH_PART).toString();
@@ -105,7 +109,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 			setNeoPropertyName(property);
 			return;
 		} catch (JSONException e) {
-			throw new InvalidityException(ConstantsError.INVALID_VALUE, e);
+			throw new InvalidityException(ConstantsError.INVALID_VALUE + " '" + value + "'", e);
 		}
 	}
 

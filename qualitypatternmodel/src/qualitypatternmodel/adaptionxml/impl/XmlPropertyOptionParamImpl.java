@@ -3,7 +3,9 @@
 package qualitypatternmodel.adaptionxml.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -117,6 +119,10 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		if (value == null) {
+			clear();
+			return;
+		}
 		XmlPropertyKind result = null;
 		String attName = "";
 		for(XmlPropertyKind kind : XmlPropertyKind.values()) {
@@ -126,9 +132,12 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			}
 		}
 		if (result == null) {
-			if (value.equals("/data()") || value.equals("data()") || value.equals("/text()") || value.equals("text()")) {
+			List<String> datalist = Arrays.asList("/data()", "data()", "/text()", "text()");
+			List<String> taglist = Arrays.asList("/name()", "name()");
+			
+			if (datalist.contains(value)) {
 				result = XmlPropertyKind.DATA;
-			} else if (value.equals("/name()") || value.equals("name()")) {
+			} else if (taglist.contains(value)) {
 				result = XmlPropertyKind.TAG;
 			} else if (value.startsWith("/@") || value.startsWith("@")) {
 				if(value.startsWith("/@")) {
@@ -137,11 +146,11 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 					attName = value.substring(1);
 				}
 				if (!attName.matches(ConstantsXml.REGEX_ATTRIBUTE_NAME)) {
-					throw new InvalidityException("new property kind value invalid in " + myToString() + ": " + value);
+					throw new InvalidityException("new property kind value '" + value + "' invalid in " + myToString());
 				}
 				result = XmlPropertyKind.ATTRIBUTE;
 			} else {
-				throw new InvalidityException("new property kind value invalid in " + myToString() + ": " + value);
+				throw new InvalidityException("new property kind value '" + value + "'invalid in " + myToString());
 			}
 		}
 

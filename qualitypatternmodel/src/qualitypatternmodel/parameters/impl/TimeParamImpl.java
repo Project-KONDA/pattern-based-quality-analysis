@@ -71,6 +71,10 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		if (value == null) {
+			clear();
+			return;
+		}
 		setValueIfValid(value);
 	}
 
@@ -154,7 +158,11 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	@Override
 	public void setValueIfValid(String newValue) throws InvalidityException {
 		String oldValue = getValue();
-		if(newValue.equals(VALUE_EDEFAULT) || isFormatValid(newValue)) {
+		if (value == null) {
+			clear();
+			return;
+		}
+		if (isFormatValid(newValue)) {
 			setValue(newValue);
 		} else {
 			throw new InvalidityException("Time format invalid");
@@ -163,7 +171,7 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 			checkComparisonConsistency();
 		} catch (Exception e) {
 			setValue(oldValue);
-			throw e;
+			throw new InvalidityException("", e);
 		}
 	}
 

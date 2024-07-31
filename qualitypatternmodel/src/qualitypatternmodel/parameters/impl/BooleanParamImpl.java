@@ -127,7 +127,17 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		setValueIfValid(Boolean.parseBoolean(value));
+//		setValueIfValid(Boolean.parseBoolean(value));
+		if (value == null) {
+			clear();
+			return;
+		}
+		if (value.equals("true") | value.equals("true()"))
+			setValue(true);
+		else if (value.equals("false") | value.equals("false()"))
+			setValue(false);
+		else 
+			throw new InvalidityException(value + " is not a valid boolean value");
 	}
 
 	@Override
@@ -141,14 +151,14 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 		if(getValue() != null) {
 			return getValue() + "()";
 		} else {
-			throw new InvalidityException("invalid value");
+			throw new InvalidityException("invalid value in BooleanParam " + getInternalId());
 		}
 	}
 
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(getValue() != null) {
-			return ""+getValue();
+			return "" + getValue();
 		} else {
 			return super.generateSparql();
 		}

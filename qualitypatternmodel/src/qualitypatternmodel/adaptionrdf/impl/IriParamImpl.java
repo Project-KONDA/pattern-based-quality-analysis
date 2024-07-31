@@ -121,13 +121,9 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 		super();
 	}
 
-	public IriParamImpl(String value) {
+	public IriParamImpl(String value) throws InvalidityException {
 		super();
-		try {
-			setValueFromString(value);
-		} catch (InvalidityException e) {
-			e.printStackTrace();
-		}
+		setValueFromString(value);
 	}
 
 	@Override
@@ -157,6 +153,10 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		if (value == null) {
+			clear();
+			return;
+		}
 		if (value.matches("[a-z]+:[a-zA-Z0-9]+")) {
 			String[] parts = value.split(":");
 			if (parts.length == 2) {

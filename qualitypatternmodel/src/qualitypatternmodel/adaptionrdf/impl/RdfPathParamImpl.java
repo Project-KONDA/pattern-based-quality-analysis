@@ -216,7 +216,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		if (value == null || value.equals("")) {
+		if (value == null) {
 			clear();
 			return;
 		}
@@ -233,7 +233,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	        	part.setValueFromString(jarr.getString(i));
 	        	parts.add(part);
 	        }
-		} catch (JSONException | InvalidityException e) {
+		} catch (JSONException e) {
         	RdfPathPart part = new RdfPathPartImpl();
         	part.setValueFromString(value);
         	parts.clear();

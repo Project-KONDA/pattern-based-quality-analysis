@@ -12,7 +12,6 @@ import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
-import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsNeo;
 
 /**
@@ -46,6 +45,10 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		if (value == null) {
+			clear();
+			return;
+		}
 		EList<String> newVals = new BasicEList<String>();
 		try {
 			JSONArray jarray = new JSONArray(value);
@@ -55,8 +58,9 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 	        	newVals.add(v);
 	        }
 		}
-		catch (JSONException e){
-			throw new InvalidityException(ConstantsError.INVALID_VALUE, e);
+		catch (JSONException e) {
+			checkLabel(value);
+        	newVals.add(value);
 		}
 		setValueIfValid(newVals);
 	}
