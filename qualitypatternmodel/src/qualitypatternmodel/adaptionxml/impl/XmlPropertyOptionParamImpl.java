@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.json.JSONArray;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
@@ -52,6 +53,7 @@ import qualitypatternmodel.utility.ConstantsXml;
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl#getXmlPathParam <em>Xml Path Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl#getAttributeName <em>Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl#getXmlAxisPartCondition <em>Xml Axis Part Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl#getAxis <em>Axis</em>}</li>
  * </ul>
  *
  * @generated
@@ -98,6 +100,26 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	 * @ordered
 	 */
 	protected TextLiteralParam attributeName;
+
+	/**
+	 * The default value of the '{@link #getAxis() <em>Axis</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAxis()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final XmlAxisKind AXIS_EDEFAULT = XmlAxisKind.CHILD;
+
+	/**
+	 * The cached value of the '{@link #getAxis() <em>Axis</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAxis()
+	 * @generated
+	 * @ordered
+	 */
+	protected XmlAxisKind axis = AXIS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -498,6 +520,29 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public XmlAxisKind getAxis() {
+		return axis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAxis(XmlAxisKind newAxis) {
+		XmlAxisKind oldAxis = axis;
+		axis = newAxis == null ? AXIS_EDEFAULT : newAxis;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__AXIS, oldAxis, axis));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -600,6 +645,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 				return getAttributeName();
 			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION:
 				return getXmlAxisPartCondition();
+			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__AXIS:
+				return getAxis();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -629,6 +676,9 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION:
 				setXmlAxisPartCondition((XmlAxisPartCondition)newValue);
 				return;
+			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__AXIS:
+				setAxis((XmlAxisKind)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -656,6 +706,9 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION:
 				setXmlAxisPartCondition((XmlAxisPartCondition)null);
 				return;
+			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__AXIS:
+				setAxis(AXIS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -678,6 +731,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 				return attributeName != null;
 			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION:
 				return getXmlAxisPartCondition() != null;
+			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__AXIS:
+				return axis != AXIS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -739,6 +794,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 		result.append(options);
 		result.append(", value: ");
 		result.append(value);
+		result.append(", axis: ");
+		result.append(axis);
 		result.append(')');
 		return result.toString();
 	}

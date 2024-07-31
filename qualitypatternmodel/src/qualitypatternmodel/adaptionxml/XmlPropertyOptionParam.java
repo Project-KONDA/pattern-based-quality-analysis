@@ -24,6 +24,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlPathParam <em>Xml Path Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getAttributeName <em>Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getXmlAxisPartCondition <em>Xml Axis Part Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getAxis <em>Axis</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlPropertyOptionParam()
@@ -142,6 +143,31 @@ public interface XmlPropertyOptionParam extends Parameter, Adaptable {
 	 * @generated
 	 */
 	void setXmlAxisPartCondition(XmlAxisPartCondition value);
+
+	/**
+	 * Returns the value of the '<em><b>Axis</b></em>' attribute.
+	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionxml.XmlAxisKind}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Axis</em>' attribute.
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisKind
+	 * @see #setAxis(XmlAxisKind)
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlPropertyOptionParam_Axis()
+	 * @model required="true"
+	 * @generated
+	 */
+	XmlAxisKind getAxis();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getAxis <em>Axis</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Axis</em>' attribute.
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisKind
+	 * @see #getAxis()
+	 * @generated
+	 */
+	void setAxis(XmlAxisKind value);
 
 	/**
 	 * <!-- begin-user-doc -->

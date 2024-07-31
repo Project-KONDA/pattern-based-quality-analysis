@@ -5105,13 +5105,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION = ParametersPackage.PARAMETER_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Axis</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_OPTION_PARAM__AXIS = ParametersPackage.PARAMETER_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Xml Property Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPTION_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 5;
+	int XML_PROPERTY_OPTION_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -7397,6 +7406,17 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlPropertyOptionParam_XmlAxisPartCondition();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getAxis <em>Axis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Axis</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getAxis()
+	 * @see #getXmlPropertyOptionParam()
+	 * @generated
+	 */
+	EAttribute getXmlPropertyOptionParam_Axis();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.XmlPropertyKind) <em>Set Value If Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8097,6 +8117,14 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION = eINSTANCE.getXmlPropertyOptionParam_XmlAxisPartCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Axis</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_PROPERTY_OPTION_PARAM__AXIS = eINSTANCE.getXmlPropertyOptionParam_Axis();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.

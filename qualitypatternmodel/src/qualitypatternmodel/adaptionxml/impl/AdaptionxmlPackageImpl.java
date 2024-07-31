@@ -543,6 +543,16 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EAttribute getXmlPropertyOptionParam_Axis() {
+		return (EAttribute)xmlPropertyOptionParamEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getXmlPropertyOptionParam__SetValueIfValid__XmlPropertyKind() {
 		return xmlPropertyOptionParamEClass.getEOperations().get(0);
 	}
@@ -1039,6 +1049,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEReference(xmlPropertyOptionParamEClass, XML_PROPERTY_OPTION_PARAM__XML_PATH_PARAM);
 		createEReference(xmlPropertyOptionParamEClass, XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME);
 		createEReference(xmlPropertyOptionParamEClass, XML_PROPERTY_OPTION_PARAM__XML_AXIS_PART_CONDITION);
+		createEAttribute(xmlPropertyOptionParamEClass, XML_PROPERTY_OPTION_PARAM__AXIS);
 		createEOperation(xmlPropertyOptionParamEClass, XML_PROPERTY_OPTION_PARAM___SET_VALUE_IF_VALID__XMLPROPERTYKIND);
 
 		xmlPathParamEClass = createEClass(XML_PATH_PARAM);
@@ -1188,6 +1199,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		initEReference(getXmlPropertyOptionParam_XmlPathParam(), this.getXmlPathParam(), this.getXmlPathParam_XmlPropertyOptionParam(), "xmlPathParam", null, 0, 1, XmlPropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXmlPropertyOptionParam_AttributeName(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_XmlPropertyOptionParam(), "attributeName", null, 0, 1, XmlPropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXmlPropertyOptionParam_XmlAxisPartCondition(), this.getXmlAxisPartCondition(), this.getXmlAxisPartCondition_XmlPropertyOption(), "xmlAxisPartCondition", null, 0, 1, XmlPropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXmlPropertyOptionParam_Axis(), this.getXmlAxisKind(), "axis", null, 1, 1, XmlPropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getXmlPropertyOptionParam__SetValueIfValid__XmlPropertyKind(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getXmlPropertyKind(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);

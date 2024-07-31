@@ -851,6 +851,8 @@
           containment="true" eOpposite="#//parameters/TextLiteralParam/xmlPropertyOptionParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisPartCondition"
           eType="#//adaptionxml/XmlAxisPartCondition" eOpposite="#//adaptionxml/XmlAxisPartCondition/xmlPropertyOption"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" lowerBound="1"
+          eType="#//adaptionxml/XmlAxisKind"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlPathParam" eSuperTypes="#//graphstructure/Adaptable #//parameters/Parameter">
       <eOperations name="setXmlAxis">
