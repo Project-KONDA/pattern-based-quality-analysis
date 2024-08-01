@@ -27,7 +27,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CHILD(0, "CHILD", "/child::*"),
+	CHILD(0, "CHILD", "/child::"),
 
 	/**
 	 * The '<em><b>DESCENDANT</b></em>' literal object.
@@ -37,7 +37,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DESCENDANT(1, "DESCENDANT", "/descendant::*"),
+	DESCENDANT(1, "DESCENDANT", "/descendant::"),
 
 	/**
 	 * The '<em><b>PARENT</b></em>' literal object.
@@ -47,7 +47,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PARENT(2, "PARENT", "/parent::*"),
+	PARENT(2, "PARENT", "/parent::"),
 
 	/**
 	 * The '<em><b>ANCESTOR</b></em>' literal object.
@@ -57,7 +57,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ANCESTOR(3, "ANCESTOR", "/ancestor::*"),
+	ANCESTOR(3, "ANCESTOR", "/ancestor::"),
 
 	/**
 	 * The '<em><b>FOLLOWING</b></em>' literal object.
@@ -67,7 +67,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FOLLOWING(4, "FOLLOWING", "/following::*"),
+	FOLLOWING(4, "FOLLOWING", "/following::"),
 
 	/**
 	 * The '<em><b>FOLLOWING SIBLING</b></em>' literal object.
@@ -77,7 +77,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FOLLOWING_SIBLING(5, "FOLLOWING_SIBLING", "/following-sibling::*"),
+	FOLLOWING_SIBLING(5, "FOLLOWING_SIBLING", "/following-sibling::"),
 
 	/**
 	 * The '<em><b>PRECEDING</b></em>' literal object.
@@ -87,7 +87,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PRECEDING(6, "PRECEDING", "/preceding::*"),
+	PRECEDING(6, "PRECEDING", "/preceding::"),
 
 	/**
 	 * The '<em><b>PRECEDING SIBLING</b></em>' literal object.
@@ -97,7 +97,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PRECEDING_SIBLING(7, "PRECEDING_SIBLING", "/preceding-sibling::*"),
+	PRECEDING_SIBLING(7, "PRECEDING_SIBLING", "/preceding-sibling::"),
 
 	/**
 	 * The '<em><b>ANCESTOR OR SELF</b></em>' literal object.
@@ -107,7 +107,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ANCESTOR_OR_SELF(8, "ANCESTOR_OR_SELF", "/ancestor-or-self::*"),
+	ANCESTOR_OR_SELF(8, "ANCESTOR_OR_SELF", "/ancestor-or-self::"),
 
 	/**
 	 * The '<em><b>DESCENDANT OR SELF</b></em>' literal object.
@@ -117,7 +117,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DESCENDANT_OR_SELF(9, "DESCENDANT_OR_SELF", "/descendant-or-self::*"),
+	DESCENDANT_OR_SELF(9, "DESCENDANT_OR_SELF", "/descendant-or-self::"),
 
 	/**
 	 * The '<em><b>SELF</b></em>' literal object.
@@ -127,14 +127,14 @@ public enum XmlAxisKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SELF(10, "SELF", "/self::*");
+	SELF(10, "SELF", "/self::");
 
 	/**
 	 * The '<em><b>CHILD</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #CHILD
-	 * @model literal="/child::*"
+	 * @model literal="/child::"
 	 * @generated
 	 * @ordered
 	 */
@@ -145,7 +145,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #DESCENDANT
-	 * @model literal="/descendant::*"
+	 * @model literal="/descendant::"
 	 * @generated
 	 * @ordered
 	 */
@@ -156,7 +156,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #PARENT
-	 * @model literal="/parent::*"
+	 * @model literal="/parent::"
 	 * @generated
 	 * @ordered
 	 */
@@ -167,7 +167,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #ANCESTOR
-	 * @model literal="/ancestor::*"
+	 * @model literal="/ancestor::"
 	 * @generated
 	 * @ordered
 	 */
@@ -178,7 +178,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #FOLLOWING
-	 * @model literal="/following::*"
+	 * @model literal="/following::"
 	 * @generated
 	 * @ordered
 	 */
@@ -189,7 +189,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #FOLLOWING_SIBLING
-	 * @model literal="/following-sibling::*"
+	 * @model literal="/following-sibling::"
 	 * @generated
 	 * @ordered
 	 */
@@ -200,7 +200,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #PRECEDING
-	 * @model literal="/preceding::*"
+	 * @model literal="/preceding::"
 	 * @generated
 	 * @ordered
 	 */
@@ -211,7 +211,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #PRECEDING_SIBLING
-	 * @model literal="/preceding-sibling::*"
+	 * @model literal="/preceding-sibling::"
 	 * @generated
 	 * @ordered
 	 */
@@ -222,7 +222,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #ANCESTOR_OR_SELF
-	 * @model literal="/ancestor-or-self::*"
+	 * @model literal="/ancestor-or-self::"
 	 * @generated
 	 * @ordered
 	 */
@@ -233,7 +233,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #DESCENDANT_OR_SELF
-	 * @model literal="/descendant-or-self::*"
+	 * @model literal="/descendant-or-self::"
 	 * @generated
 	 * @ordered
 	 */
@@ -244,7 +244,7 @@ public enum XmlAxisKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #SELF
-	 * @model literal="/self::*"
+	 * @model literal="/self::"
 	 * @generated
 	 * @ordered
 	 */
