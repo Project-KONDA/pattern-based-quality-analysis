@@ -59,6 +59,7 @@ public class XmlPropertyOptionParamItemProvider extends ParameterItemProvider {
 			addOptionsPropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
 			addXmlAxisPartConditionPropertyDescriptor(object);
+			addAxisPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -125,6 +126,28 @@ public class XmlPropertyOptionParamItemProvider extends ParameterItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Axis feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAxisPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlPropertyOptionParam_axis_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlPropertyOptionParam_axis_feature", "_UI_XmlPropertyOptionParam_type"),
+				 AdaptionxmlPackage.Literals.XML_PROPERTY_OPTION_PARAM__AXIS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -199,6 +222,7 @@ public class XmlPropertyOptionParamItemProvider extends ParameterItemProvider {
 		switch (notification.getFeatureID(XmlPropertyOptionParam.class)) {
 			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__OPTIONS:
 			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__VALUE:
+			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__AXIS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
