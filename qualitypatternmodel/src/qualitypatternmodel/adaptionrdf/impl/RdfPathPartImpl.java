@@ -73,6 +73,11 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 		setRdfPath(new RdfSinglePredicateImpl());
 	}
 
+	public RdfPathPartImpl(String value) throws InvalidityException {
+		super();
+		setValueFromString(value);
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

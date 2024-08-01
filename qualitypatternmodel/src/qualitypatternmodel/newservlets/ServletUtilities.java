@@ -17,6 +17,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Semaphore;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -49,6 +50,7 @@ public abstract class ServletUtilities {
 	private static List<CompletePattern> abstractPatternXml = null;
 	private static List<CompletePattern> abstractPatternRdf = null;
 	private static List<CompletePattern> abstractPatternNeo = null;
+	private static Semaphore saveSemaphore = new Semaphore(1);
 
 	// Pattern request
 	public static List<CompletePattern> getAllPattern(String technology) {
@@ -119,6 +121,7 @@ public abstract class ServletUtilities {
 		}
 		return concrete;
 	}
+
 
 	// JSON
 
@@ -212,6 +215,7 @@ public abstract class ServletUtilities {
 		return json;
 	}
 
+
 	// LOAD SAVE DELETE
 
 	protected static CompletePattern loadConstraint(String technology, String name) throws IOException {
@@ -225,14 +229,30 @@ public abstract class ServletUtilities {
 	}
 
 	public static void saveTemplate(String technology, String templateId, CompletePattern pattern) throws IOException {
-		String folderpath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
-		EMFModelSave.exportToFile2(pattern, folderpath, templateId, Constants.EXTENSION);
+		try {
+			saveSemaphore.acquire();
+			String folderpath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
+			EMFModelSave.exportToFile2(pattern, folderpath, templateId, Constants.EXTENSION);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.err.println("Thread was interrupted");
+        } finally {
+        	saveSemaphore.release();
+        }
 	}
 
 	public static String saveConstraint(String technology, String constraintId, CompletePattern pattern) throws IOException {
-		pattern.updateLastSaved();
 		String folderpath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER;
-		EMFModelSave.exportToFile2(pattern, folderpath, constraintId, Constants.EXTENSION);
+		pattern.updateLastSaved();
+		try {
+			saveSemaphore.acquire();
+			EMFModelSave.exportToFile2(pattern, folderpath, constraintId, Constants.EXTENSION);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.err.println("Thread was interrupted");
+        } finally {
+        	saveSemaphore.release();
+        }
 		return new Timestamp(pattern.getLastSaved().getTime()).toString();
 	}
 
@@ -249,34 +269,42 @@ public abstract class ServletUtilities {
 	}
 
 	public static Integer getNextNumber(String filepath, String variableName) throws JSONException, IOException {
-        File file = new File(filepath);
-        if (!file.exists()) {
-            // If the file doesn't exist, create it and initialize with an empty JSON object
-            JSONObject jsonObject = new JSONObject();
-//            jsonObject.put(variableName, 0);
-            Files.write(Paths.get(filepath), jsonObject.toString().getBytes(), StandardOpenOption.CREATE);
-            System.out.println("File created successfully: " + filepath);
-//            return 0; // Return 0 as the initial value
+        int currentValue = 0;
+		try {
+			saveSemaphore.acquire();
+
+	        File file = new File(filepath);
+	        if (!file.exists()) {
+	            // If the file doesn't exist, create it and initialize with an empty JSON object
+	            JSONObject jsonObject = new JSONObject();
+//	            jsonObject.put(variableName, 0);
+	            Files.write(Paths.get(filepath), jsonObject.toString().getBytes(), StandardOpenOption.CREATE);
+	            System.out.println("File created successfully: " + filepath);
+//	            return 0; // Return 0 as the initial value
+	        }
+
+	        // Read JSON file
+	        String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
+	        JSONObject jsonObject = new JSONObject(jsonString);
+
+	        // Retrieve the value associated with the provided variable name
+	        if (!jsonObject.has(variableName) || !(jsonObject.get(variableName) instanceof Integer)) {
+	            jsonObject.put(variableName, currentValue);
+	            Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
+	        } else {
+	            currentValue = jsonObject.getInt(variableName);
+	        }
+
+	        // Update the JSON with the new value
+	        jsonObject.put(variableName, currentValue + 1);
+	        Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
+			
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.err.println("Thread was interrupted");
+        } finally {
+        	saveSemaphore.release();
         }
-
-        // Read JSON file
-        String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
-        JSONObject jsonObject = new JSONObject(jsonString);
-
-        // Retrieve the value associated with the provided variable name
-        int currentValue;
-        if (!jsonObject.has(variableName) || !(jsonObject.get(variableName) instanceof Integer)) {
-            // If variable doesn't exist or is not an integer, initialize it with a default value
-            currentValue = 0;
-            jsonObject.put(variableName, currentValue);
-            Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
-        } else {
-            currentValue = jsonObject.getInt(variableName);
-        }
-
-        // Update the JSON with the new value
-        jsonObject.put(variableName, currentValue + 1);
-        Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
 
         return currentValue;
 	}
@@ -292,6 +320,7 @@ public abstract class ServletUtilities {
 			throw new IOException(ConstantsError.INVALID_FILEFORMAT);
 		}
 	}
+
 
 	// RESPONSE HANDLING
 
@@ -346,10 +375,12 @@ public abstract class ServletUtilities {
         putResponse(response, text, HttpServletResponse.SC_OK);
 	}
 
+
 	// LOGGING
 
 	public static void log(String text) {
 		try {
+			saveSemaphore.acquire();
 			String filepath = ServletConstants.PATTERNFOLDER + "/" + ServletConstants.LOG_FILENAME;
 			File file = new File(filepath);
 		    file.getParentFile().mkdirs();
@@ -371,6 +402,12 @@ public abstract class ServletUtilities {
 			}
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.err.println("Thread was interrupted");
+        } finally {
+            // Release the semaphore
+        	saveSemaphore.release();
         }
 	}
 
@@ -379,12 +416,13 @@ public abstract class ServletUtilities {
 	}
 
 	public static void logOutput(String text) {
+		log("OUTPUT: " + text);
 	}
 
 	public static void logError(Throwable th) {
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
-        printWriter.println(th.getMessage());
+        printWriter.println(th.getClass().getSimpleName() + ": " + th.getMessage());
 		for (StackTraceElement element : th.getStackTrace()) {
             printWriter.println("    " + element.toString());
         }
@@ -416,7 +454,7 @@ public abstract class ServletUtilities {
 	}
 
 
-	// Depricated Methods
+	// DEPRECATED METHODS
 
 	public static String getFileNamesInFolder(String path, Class<?> clas) throws URISyntaxException {
 		URL url = clas.getClassLoader().getResource(path);
@@ -431,8 +469,8 @@ public abstract class ServletUtilities {
 				json += "\"" + f.getName().split("\\.")[0] + "\", ";
 			}
 			json = json.substring(0, json.length()-2);
-//			json += "]}";
 			json += "]";
+//			json += "]}";
 			return json;
 
 		} else {

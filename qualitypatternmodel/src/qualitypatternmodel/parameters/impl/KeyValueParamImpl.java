@@ -162,6 +162,10 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		if (value == null) {
+			clear();
+			return;
+		}
 		HashMap<String, String> map = new HashMap<String, String>();
 		try {
 			JSONObject object = new JSONObject(value);
@@ -170,10 +174,10 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 			Iterator<String> keys = object.keys();
 			while (keys.hasNext()) {
 				String next = keys.next();
-				map.put(next, object.get(next).toString());
+				map.put(next, object.getString(next));
 			}
 		} catch (JSONException e) {
-			throw new InvalidityException("Invalid value", e);
+			throw new InvalidityException(value + " is not valid ", e);
 		}
 		getKeyValuePair().clear();
 		getKeyValuePair().putAll(map);

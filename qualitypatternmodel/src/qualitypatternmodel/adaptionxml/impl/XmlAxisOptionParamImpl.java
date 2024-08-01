@@ -106,6 +106,10 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		if (value == null) {
+			clear();
+			return;
+		}
 		XmlAxisKind result = null;
 		for(XmlAxisKind kind : XmlAxisKind.values()) {
 			if(kind.getName().equals(value) || kind.getLiteral().equals(value) || kind.getLiteral().equals("/" + value + "::*")) {
@@ -113,6 +117,8 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 				break;
 			}
 		}
+		if (result == null)
+			throw new InvalidityException("Value '" + value + "' can not be mapped to an XmlAxis");
 		setValueIfValid(result);
 	}
 

@@ -33,7 +33,10 @@ import qualitypatternmodel.parameters.ParametersPackage;
  * @generated
  */
 public class DateParamImpl extends ParameterValueImpl implements DateParam {
+
+	private static final String DATE_REGEX = REGEX_DATE + "(" + REGEX_POSITIVE_NEGATIVE + REGEX_TIME_HOURS_MINUTES + "|Z)?";
 	private static final String DATE_CYPHER = "date(\'%s\')";
+
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -71,6 +74,10 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		if (value == null) {
+			clear();
+			return;
+		}
 		setValueIfValid(value);
 	}
 
@@ -118,8 +125,7 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 
 	@Override
 	public boolean inputIsValid() {
-		String regex =  REGEX_DATE + "(" + REGEX_POSITIVE_NEGATIVE + REGEX_TIME_HOURS_MINUTES + "|Z)?";
-		return getValue() != null && getValue().matches(regex);
+		return getValue() != null && getValue().matches(DATE_REGEX);
 	}
 
 	/**
@@ -188,9 +194,9 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 
 		if(yearInt % 4 != 0) {
 			return false;
-		} else if(yearInt % 100 != 0) {
+		} else if (yearInt % 100 != 0) {
 			return true;
-		} else if(yearInt % 400 != 0) {
+		} else if (yearInt % 400 != 0) {
 			return false;
 		} else {
 			return true;

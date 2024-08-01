@@ -129,6 +129,10 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		if (value == null) {
+			clear();
+			return;
+		}
 		setValueIfValid(value);
 	}
 

@@ -134,11 +134,22 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		for(ComparisonOperator operator : ComparisonOperator.values()) {
+		if (value == null) {
+			clear();
+			return;
+		}
+		for(ComparisonOperator operator : getOptions()) {
 			if(operator.getName().equals(value)) {
 				setValueIfValid(operator);
+				return;
 			}
 		}
+		for(ComparisonOperator operator : ComparisonOperator.values()) {
+			if(operator.getName().equals(value)) {
+				throw new InvalidityException("value '" + value + "' is not allowed");
+			}
+		}
+		throw new InvalidityException("value '" + value + "' is not valid");
 	}
 
 	@Override

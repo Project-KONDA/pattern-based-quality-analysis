@@ -1,3 +1,4 @@
+
 /**
  */
 package qualitypatternmodel.parameters.impl;
@@ -93,8 +94,18 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	}
 
 	@Override
-	public void setValueFromString(String value) throws NumberFormatException, InvalidityException {
-		setValueIfValid(Double.parseDouble(value));
+	public void setValueFromString(String value) throws InvalidityException {
+		if (value == null) {
+			clear();
+			return;
+		}
+		Double d = 0.;
+		try {
+			d = Double.parseDouble(value);
+		} catch (NumberFormatException e) {
+			throw new InvalidityException("'" + value + "' is not a vaild numerical value.");
+		}
+		setValueIfValid(d);
 	}
 
 	@Override

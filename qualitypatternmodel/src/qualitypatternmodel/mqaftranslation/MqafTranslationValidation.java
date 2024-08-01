@@ -1,11 +1,17 @@
 package qualitypatternmodel.mqaftranslation;
 
-import org.basex.util.Pair;
+import java.util.ArrayList;
 
+import org.basex.util.Pair;
+import org.eclipse.emf.common.util.EList;
+
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
@@ -36,8 +42,13 @@ public class MqafTranslationValidation {
 		if (xmlvalid) {
 			nodesValid = validateNodeConfiguration(completePattern);
 		}
+		
+		Boolean edgesValid = false;
+		if (xmlvalid && nodesValid) {
+			edgesValid = validateEdgeConfiguration(completePattern);
+		}
 
-		return nodesValid;
+		return edgesValid;
 	}
 
 
@@ -126,6 +137,27 @@ public class MqafTranslationValidation {
 			throw new InvalidityException(condition.getClass().getName());
 		}
 		return false;
+	}
+
+
+	static Boolean validateEdgeConfiguration(CompletePattern completePattern) {
+		ArrayList<Relation> relations = new ArrayList<Relation>();
+		try {
+			Graph g1 = completePattern.getGraph();
+			relations.addAll(g1.getRelations());
+			Graph g2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
+			relations.addAll(g2.getRelations());
+		} catch (Exception e) {
+			return false;
+		}
+		for (Relation r : relations) {
+			if (!(r instanceof XmlNavigation))
+				return false;
+			EList<XmlPathParam> alts = ((XmlNavigation) r).getXmlPathParam().getAlternatives();
+			if (alts != null && !alts.isEmpty())
+				return false;
+		}
+		return true;
 	}
 
 

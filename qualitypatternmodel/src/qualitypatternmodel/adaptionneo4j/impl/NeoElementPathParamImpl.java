@@ -170,6 +170,10 @@ public class NeoElementPathParamImpl extends NeoPathParamImpl implements NeoElem
 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
+		if (value == null) {
+			clear();
+			return;
+		}
 		try {
 			NeoPathPart part = NeoPathPartImpl.createNewNeoPathPart(value);
 			setNeoPathPart(part);
