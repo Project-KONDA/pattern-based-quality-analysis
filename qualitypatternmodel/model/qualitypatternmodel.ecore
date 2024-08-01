@@ -811,17 +811,17 @@
       <eLiterals name="ATTRIBUTE" value="2" literal="ATTRIBUTE"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="XmlAxisKind">
-      <eLiterals name="CHILD" literal="/child::*"/>
-      <eLiterals name="DESCENDANT" value="1" literal="/descendant::*"/>
-      <eLiterals name="PARENT" value="2" literal="/parent::*"/>
-      <eLiterals name="ANCESTOR" value="3" literal="/ancestor::*"/>
-      <eLiterals name="FOLLOWING" value="4" literal="/following::*"/>
-      <eLiterals name="FOLLOWING_SIBLING" value="5" literal="/following-sibling::*"/>
-      <eLiterals name="PRECEDING" value="6" literal="/preceding::*"/>
-      <eLiterals name="PRECEDING_SIBLING" value="7" literal="/preceding-sibling::*"/>
-      <eLiterals name="ANCESTOR_OR_SELF" value="8" literal="/ancestor-or-self::*"/>
-      <eLiterals name="DESCENDANT_OR_SELF" value="9" literal="/descendant-or-self::*"/>
-      <eLiterals name="SELF" value="10" literal="/self::*"/>
+      <eLiterals name="CHILD" literal="/child::"/>
+      <eLiterals name="DESCENDANT" value="1" literal="/descendant::"/>
+      <eLiterals name="PARENT" value="2" literal="/parent::"/>
+      <eLiterals name="ANCESTOR" value="3" literal="/ancestor::"/>
+      <eLiterals name="FOLLOWING" value="4" literal="/following::"/>
+      <eLiterals name="FOLLOWING_SIBLING" value="5" literal="/following-sibling::"/>
+      <eLiterals name="PRECEDING" value="6" literal="/preceding::"/>
+      <eLiterals name="PRECEDING_SIBLING" value="7" literal="/preceding-sibling::"/>
+      <eLiterals name="ANCESTOR_OR_SELF" value="8" literal="/ancestor-or-self::"/>
+      <eLiterals name="DESCENDANT_OR_SELF" value="9" literal="/descendant-or-self::"/>
+      <eLiterals name="SELF" value="10" literal="/self::"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlRoot" eSuperTypes="#//graphstructure/ComplexNode"/>
     <eClassifiers xsi:type="ecore:EClass" name="XmlPropertyNavigation" eSuperTypes="#//adaptionxml/XmlNavigation"/>

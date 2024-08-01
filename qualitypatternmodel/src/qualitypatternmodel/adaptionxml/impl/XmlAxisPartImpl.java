@@ -699,7 +699,6 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 		XmlAxisKind a = null;
 		for (XmlAxisKind axis: XmlAxisKind.VALUES) {
 			String literal = axis.getLiteral();
-			literal = literal.substring(0, literal.length()-1);
 			if (value.startsWith(literal)) {
 				value = value.replace(literal, "");
 				a = axis;

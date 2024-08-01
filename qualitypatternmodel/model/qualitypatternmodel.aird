@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1722437558839">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1722504024978">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -11944,7 +11944,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_fZVq4GjyEeqrp_Bk8ukhmg" name="value : XmlAxisKind = /child::*" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_fZVq4GjyEeqrp_Bk8ukhmg" name="value : XmlAxisKind = /child::" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisOptionParam/value"/>
           <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisOptionParam/value"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_N51QwX_gEeqK6bOb5aXASA" labelAlignment="LEFT" description="_mijhuzkNEeqrd9dk7QHmAg">
@@ -11996,7 +11996,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_foxW0k9MEe-ZZ9nSLi5raA" name="axis : XmlAxisKind = /child::*" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_foxW0k9MEe-ZZ9nSLi5raA" name="axis : XmlAxisKind = /child::" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/axis"/>
           <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam/axis"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_fox94E9MEe-ZZ9nSLi5raA" labelAlignment="LEFT" description="_mijhuzkNEeqrd9dk7QHmAg">
