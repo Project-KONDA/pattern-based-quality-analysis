@@ -3,10 +3,7 @@
 package qualitypatternmodel.adaptionxml.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -131,6 +128,11 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 		super();
 	}
 
+	public XmlPropertyOptionParamImpl(String value) throws InvalidityException {
+		super();
+		setValueFromString(value);
+	}
+
 	@Override
 	public String getValueAsString() {
 		if (getValue() == null) {
@@ -145,42 +147,54 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			clear();
 			return;
 		}
-		XmlPropertyKind result = null;
+
+		if (!value.matches(ConstantsXml.REGEX_PROPERTY))
+			throw new InvalidityException("new property kind value '" + value + "'invalid in " + myToString());
+
+		XmlAxisKind ax = null;
+		XmlPropertyKind pro = null;
 		String attName = "";
-		for(XmlPropertyKind kind : XmlPropertyKind.values()) {
-			if(kind.getName().equals(value)) {
-				result = kind;
+
+		// identify axis & remove from value
+		for (XmlAxisKind axiskind: XmlAxisKind.VALUES) {
+			String literal = axiskind.getLiteral();
+			if (value.startsWith(literal)) {
+				value = value.replace(literal, "");
+				ax = axiskind;
 				break;
 			}
 		}
-		if (result == null) {
-			List<String> datalist = Arrays.asList("/data()", "data()", "/text()", "text()");
-			List<String> taglist = Arrays.asList("/name()", "name()");
-			
-			if (datalist.contains(value)) {
-				result = XmlPropertyKind.DATA;
-			} else if (taglist.contains(value)) {
-				result = XmlPropertyKind.TAG;
-			} else if (value.startsWith("/@") || value.startsWith("@")) {
-				if(value.startsWith("/@")) {
-					attName = value.substring(2);
-				} else {
-					attName = value.substring(1);
-				}
-				if (!attName.matches(ConstantsXml.REGEX_ATTRIBUTE_NAME)) {
-					throw new InvalidityException("new property kind value '" + value + "' invalid in " + myToString());
-				}
-				result = XmlPropertyKind.ATTRIBUTE;
-			} else {
-				throw new InvalidityException("new property kind value '" + value + "'invalid in " + myToString());
-			}
+		if (ax == null) {
+			if (value.startsWith("//")) {
+				value = value.substring(2);
+				ax = XmlAxisKind.DESCENDANT;
+			} else if (value.startsWith("/")) {
+				value = value.substring(1);
+				ax = XmlAxisKind.CHILD;
+			} else 
+				throw new InvalidityException("Invalid configuration: no valid axis");
 		}
 
-		if (result != null) {
-			setValueIfValid(result);
-			if (result == XmlPropertyKind.ATTRIBUTE) {
-				getAttributeName().setValue(attName);
-			}
+		// identify property kind
+		if (value.equals("text()") || value.equals("data()"))
+			pro = XmlPropertyKind.DATA;
+		else if (value.equals("name()"))
+			pro = XmlPropertyKind.TAG;
+		else if (value.startsWith("@")) {
+			pro = XmlPropertyKind.ATTRIBUTE;
+			attName = value.substring(1);
+			if (attName == null || !attName.matches(ConstantsXml.REGEX_ATTRIBUTE_NAME))
+				throw new InvalidityException("Invalid configuration: invalid attribute name");	
+		} else 
+			throw new InvalidityException("Invalid configuration: no valid property");
+
+		if (pro == null)
+			throw new InvalidityException("Invalid configuration: no valid property kind");
+		setAxis(ax);
+		setValue(pro);
+		if (pro == XmlPropertyKind.ATTRIBUTE) {
+			// attName cannot be invalid at this point
+			getAttributeName().setValue(attName);	
 		}
 	}
 
@@ -219,7 +233,11 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 		if(getValue() == null) {
 			throw new InvalidityException("propertyOption invalid");
 		}
-		String axis = getAxis().equals(XmlAxisKind.CHILD) ? "/" : getAxis().getLiteral();
+		String axis = getAxis().getLiteral();
+		if (getAxis().equals(XmlAxisKind.CHILD))
+			axis = "/";
+		if (getAxis().equals(XmlAxisKind.DESCENDANT))
+			axis = "//"; 
 
 		switch (getValue()) {
 		case ATTRIBUTE:
@@ -277,7 +295,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 
 	@Override
 	public boolean inputIsValid() {
-		return getValue() != null && getOptions().contains(getValue());
+		return getAxis() != null && getValue() != null && getOptions().contains(getValue());
 	}
 
 	@Override
@@ -804,11 +822,14 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	@Override
 	public String myToString() {
 		String result = "{";
+		result += getAxis().getName();
+		result += ", ";
 		result += getValueAsString();
-		if (getAttributeName() != null) {
+		if (getAttributeName() != null && getAttributeName().getValue() != null) {
 			result += ", " + getAttributeName().myToString();
 		}
-		return result += "}";
+		result += "}";
+		return result;
 	}
 
 	@Override
