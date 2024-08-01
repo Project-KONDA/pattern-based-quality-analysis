@@ -1145,7 +1145,10 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			throw new InvalidityException("Invalid Dangling XmlPathParam");
 		}
 
-		EList<XmlPathParam> newAlts = new BasicEList<XmlPathParam>();
+		EList<XmlPathParam> oldAlts = new BasicEList<XmlPathParam>();
+		for (XmlPathParam a: getAlternatives())
+			oldAlts.add(a);
+		getAlternatives().clear();
 		try {
 			JSONArray array = new JSONArray(value);
 			value = array.getString(0);
@@ -1154,17 +1157,20 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	        for (int i = 1; i < array.length(); i++) {
 	            String val = array.getString(i);
 	            XmlPathParam alt = new XmlPathParamImpl();
-	            newAlts.add(alt);
+	            getAlternatives().add(alt);
 	            alt.setValueFromString(val);				
 			}
 		} catch (JSONException e) {
-			newAlts = null;
 		}
 
 		if(isValue() && value != null && !value.equals("") && !value.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT)) {
+			getAlternatives().clear();
+			getAlternatives().addAll(oldAlts);
 			throw new InvalidityException("Invalid XPath value '" + value + "'. It should specify an XML element.");
 		}
 		if(isProperty() && value != null && !value.equals("") && !value.matches(ConstantsXml.REGEX_XMLPATH_VALUE)) {
+			getAlternatives().clear();
+			getAlternatives().addAll(oldAlts);
 			throw new InvalidityException("Invalid XPath value '" + value + "'. It should specify an XML property.");
 		}
 
@@ -1184,6 +1190,8 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		current = current.trim();
 
 		if (!current.equals("") && !current.matches(ConstantsXml.REGEX_PROPERTY_PART)) {
+			getAlternatives().clear();
+			getAlternatives().addAll(oldAlts);
 			throw new InvalidityException("value invalid property specification: '" + current + "' - match :" +  current.matches(ConstantsXml.REGEX_PROPERTY_PART));
 		}
 
@@ -1199,21 +1207,23 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 
 		if (isValue()) {
 			if (!current.trim().equals("")) {
+				getAlternatives().clear();
+				getAlternatives().addAll(oldAlts);
 				throw new InvalidityException("invalid rest value for XmlElementNavigation: '" + current + "' but should be ''");
 			}
-			getAlternatives().clear();
-			getAlternatives().addAll(newAlts);
 		} else if (isProperty()) {
 			if (!current.matches(ConstantsXml.REGEX_PROPERTY_PART)) {
+				getAlternatives().clear();
+				getAlternatives().addAll(oldAlts);
 				throw new InvalidityException("invalid rest value for XmlElementNavigation: '" + current + "' does not specify a value");
 			}
 			if (getXmlPropertyOptionParam() == null) {
 				setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
 			}
 			getXmlPropertyOptionParam().setValueFromString(current);
-			getAlternatives().clear();
-			getAlternatives().addAll(newAlts);
 		} else {
+			getAlternatives().clear();
+			getAlternatives().addAll(oldAlts);
 			throw new InvalidityException("invalid type " + getXmlNavigation().getClass().getSimpleName());
 		}
 	}
