@@ -103,8 +103,8 @@ public class Test01Axis {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
 		for (XmlAxisKind ax : XmlAxisKind.VALUES) {
-			testPairs.add(new PatternTestPair("01a", ax.getName()+"_ROOT", getBasePatternAxisRoot(ax), ax.getLiteral()));
-			testPairs.add(new PatternTestPair("01a", ax.getName(), getBasePatternAxisNotRoot(ax), "/* " + ax.getLiteral()));
+			testPairs.add(new PatternTestPair("01a", ax.getName()+"_ROOT", getBasePatternAxisRoot(ax), ax.getLiteral() + "*"));
+			testPairs.add(new PatternTestPair("01a", ax.getName(), getBasePatternAxisNotRoot(ax), "/* " + ax.getLiteral() + "*"));
 		}
 		return testPairs;
 	}
