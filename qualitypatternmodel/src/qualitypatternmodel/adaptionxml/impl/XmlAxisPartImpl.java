@@ -160,10 +160,10 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 		String query = getXmlAxisOptionParam().generateXQuery();
 		XmlAxisPartCondition nameTagCondition = identifyNameTagCondition();
 		if (nameTagCondition != null) {
-//			query = query.substring(0,  query.length()-1);
 			query += nameTagCondition.getTextLiteralParam().getValue();
-		} else
+		} else {
 			query += "*";
+		}
 		for (XmlAxisPartCondition cond: getXmlAxisPartConditions()) {
 			if (!cond.equals(nameTagCondition)) {
 				query = query + cond.generateXQuery();
@@ -191,7 +191,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 			if (name == null) {
 				break;
 			}
-			if (!name.contains(":")) {
+			if (!name.equals("") && !name.contains(":")) {
 				return cond;
 			}
 			if (keys.contains(name.split(":")[0])) {

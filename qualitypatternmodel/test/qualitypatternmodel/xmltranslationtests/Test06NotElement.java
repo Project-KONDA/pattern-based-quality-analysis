@@ -89,7 +89,6 @@ public class Test06NotElement {
 	public static CompletePattern getPatternNotExists() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternNotExistsAbstract();
 		completePattern.createXmlAdaption();
-		completePattern.printParameters();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		params.get(0).setValueFromString("//*");
 //		params.get(1).setValueFromString("/parent::*");
@@ -139,7 +138,6 @@ public class Test06NotElement {
 
 		completePattern.createXmlAdaption();
 
-		completePattern.printParameters();
 //		List<Parameter> params = completePattern.getParameterList().getParameters();
 //		params.get(0).setValueFromString("/ancestor::*");
 //		params.get(1).setValueFromString("/parent::*");
@@ -160,7 +158,6 @@ public class Test06NotElement {
 		qc1.setQuantifier(Quantifier.FORALL);
 		qc2.setQuantifier(Quantifier.FORALL);
 
-		completePattern.printParameters();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		params.get(0).setValueFromString("/ancestor::*");
 		params.get(1).setValueFromString("/parent::*");

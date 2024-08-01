@@ -19,7 +19,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-//import qualitypatternmodel.xmltestutility.EMFValidationPreparation;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
 public class TranslationTests2 {
