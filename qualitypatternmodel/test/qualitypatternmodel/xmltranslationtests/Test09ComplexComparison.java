@@ -2,9 +2,9 @@ package qualitypatternmodel.xmltranslationtests;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -21,12 +21,14 @@ import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsFactory;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
@@ -46,48 +48,38 @@ public class Test09ComplexComparison {
 	}
 
 	public static CompletePattern getPatternSelfTwoProperties() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		OperatorsPackage.eINSTANCE.eClass();
-		OperatorsFactory operatorFactory = OperatorsFactory.eINSTANCE;
-
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		Node ret = completePattern.getGraph().getNodes().get(0).makeComplex();
+		
+		QuantifiedCondition cond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		completePattern.setCondition(cond);
 
-		PrimitiveNode p1 = graphFactory.createPrimitiveNode();
-		PrimitiveNode p2 = graphFactory.createPrimitiveNode();
+		PrimitiveNode p1 = ret.addOutgoing(cond.getGraph()).getTarget().makePrimitive();
+		PrimitiveNode p2 = ret.addOutgoing(cond.getGraph()).getTarget().makePrimitive();
 
-		Comparison comp = operatorFactory.createComparison();
-
-		completePattern.getGraph().getOperatorList().add(comp);
-		comp.createParameters();
-		ret.addOutgoing(p1);
-		ret.addOutgoing(p2);
-
-		comp.setArgument1(p1);
-		comp.setArgument2(p2);
-		comp.getTypeOption().setValue(ReturnType.STRING);
+		p1.addComparison(p2);
 
 		completePattern.createXmlAdaption();
 
-//		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
+		completePattern.getNamespaces().put("demo", "demo");
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+//		((ComparisonOptionParam) params.get(0)).setValueFromString(null);
+//		((TypeOptionParam) params.get(1)).setValueFromString(null);
+		((XmlPathParam) params.get(2)).setValueFromString("//*");
+		((XmlPathParam) params.get(3)).setValueFromString("/demo:creator/text()"); // Property
+		((XmlPathParam) params.get(4)).setValueFromString("/parent::*/demo:artist/@demo:id"); // Property
 
 		return completePattern;
 	}
 
 	public static CompletePattern getPatternTwoProperties() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		OperatorsPackage.eINSTANCE.eClass();
-		OperatorsFactory operatorsFactory = OperatorsFactory.eINSTANCE;
-
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		Node ret = completePattern.getGraph().getNodes().get(0);
+		Node ret = completePattern.getGraph().getNodes().get(0).makeComplex();
 
 		Relation r1 = ret.addOutgoing();
-		ret = r1.getSource();
 		Relation r2 = ret.addOutgoing();
 
-		Comparison comp = operatorsFactory.createComparison();
+		Comparison comp = OperatorsFactory.eINSTANCE.createComparison();
 
 		completePattern.getGraph().getOperatorList().add(comp);
 		comp.createParameters();
