@@ -3,8 +3,7 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.adaptionxml.XmlNavigation;
-import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -14,6 +13,7 @@ import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -48,20 +48,15 @@ public class Test08ParameterValues {
 
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison(ComparisonOperator.EQUAL, parameterValue);
-//		completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.NOTEQUAL, parameter);
 
 		completePattern.createXmlAdaption();
 
-		XmlProperty property = (XmlProperty) completePattern.getGraph().getNodes().get(1);
-		XmlNavigation relation = (XmlNavigation) property.getIncoming().get(0);
-		relation.getXmlPathParam().getXmlPropertyOptionParam().getOptions().add(xmlPropertyKind);
-		relation.getXmlPathParam().getXmlPropertyOptionParam().setValue(xmlPropertyKind);
-
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		((XmlPathParam) params.get(3)).getXmlPropertyOptionParam().setValue(xmlPropertyKind); // Property
 		TextLiteralParam text = parametersFactory.createTextLiteralParam();
 		text.setValue("*");
-		relation.getXmlPathParam().getXmlPropertyOptionParam().setAttributeName(text );
-
-//		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
+		((XmlPathParam) params.get(3)).getXmlPropertyOptionParam().setAttributeName(text); // Property
+		((XmlPathParam) params.get(4)).setValueFromString("//*");
 
 		return completePattern;
 	}
@@ -99,20 +94,6 @@ public class Test08ParameterValues {
 		return parameters;
 	}
 
-//	public static CompletePattern getPrimCondPattern(PropertyLocation pl, LogicalOperator op, ParameterValue parameter) {
-//		PatternstructurePackage.eINSTANCE.eClass();
-//		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-//
-//		CompletePattern completePattern = Test00.getBasePattern();
-//		Element ret = completePattern.getGraph().getElements().get(0);
-//		ret.addPrimitiveComparison(parameter);
-//
-//		completePattern.createXMLAdaption();
-//		completePattern.finalizeXMLAdaption();
-//
-//		return completePattern;
-//	}
-
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<ParameterValue> parameter = getTestParameters();
 
@@ -126,9 +107,6 @@ public class Test08ParameterValues {
 		testPairs.add(new PatternTestPair("08", "DataTime", getConcreteComparisonPattern(XmlPropertyKind.ATTRIBUTE, parameter.get(5)), "//*[@*[try {xs:time(data()) = xs:time(\"09:00:00\")} catch err:FORG0001 {false()}]]"));
 		testPairs.add(new PatternTestPair("08", "DataDateTime", getConcreteComparisonPattern(XmlPropertyKind.ATTRIBUTE, parameter.get(6)), "//*[@*[try {xs:dateTime(data()) = xs:dateTime(\"2020-10-03T09:00:00\")} catch err:FORG0001 {false()}]]"));
 
-		// TODO: complete
-
 		return testPairs;
 	}
-
 }

@@ -116,6 +116,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 		for (Parameter parameter : getParameters()) {
 			if (parameter instanceof TextListParamImpl) {
 				res += ((TextListParamImpl) parameter).getListDeclaration();
+				res += "\n";
 			}
 		}
 		return res;
