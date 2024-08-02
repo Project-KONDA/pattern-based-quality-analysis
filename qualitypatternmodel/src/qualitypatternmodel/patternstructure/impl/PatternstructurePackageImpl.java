@@ -884,7 +884,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getCompletePattern__PrintParameters() {
+	public EOperation getCompletePattern__PrintParameters__boolean() {
 		return completePatternEClass.getEOperations().get(12);
 	}
 
@@ -1626,7 +1626,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_QUERY_FILTER);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___UPDATE_LAST_SAVED);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_XQUERY_NAMESPACES);
-		createEOperation(completePatternEClass, COMPLETE_PATTERN___PRINT_PARAMETERS);
+		createEOperation(completePatternEClass, COMPLETE_PATTERN___PRINT_PARAMETERS__BOOLEAN);
 
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
@@ -1850,7 +1850,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		op = initEOperation(getCompletePattern__GenerateXQueryNamespaces(), ecorePackage.getEString(), "generateXQueryNamespaces", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
-		initEOperation(getCompletePattern__PrintParameters(), null, "printParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getCompletePattern__PrintParameters__boolean(), null, "printParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "vals", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(patternElementEClass, PatternElement.class, "PatternElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPatternElement_Id(), ecorePackage.getEString(), "id", null, 1, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

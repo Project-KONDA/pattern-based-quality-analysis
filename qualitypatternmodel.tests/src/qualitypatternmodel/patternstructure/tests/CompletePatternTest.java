@@ -26,7 +26,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateQueryFilter() <em>Generate Query Filter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#updateLastSaved() <em>Update Last Saved</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateXQueryNamespaces() <em>Generate XQuery Namespaces</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#printParameters() <em>Print Parameters</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#printParameters(boolean) <em>Print Parameters</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -242,13 +242,13 @@ public class CompletePatternTest extends PatternTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#printParameters() <em>Print Parameters</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#printParameters(boolean) <em>Print Parameters</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#printParameters()
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#printParameters(boolean)
 	 * @generated
 	 */
-	public void testPrintParameters() {
+	public void testPrintParameters__boolean() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

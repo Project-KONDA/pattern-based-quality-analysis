@@ -137,7 +137,6 @@ public class Test06NotElement {
 
 		completePattern.createXmlAdaption();
 
-		completePattern.printParameters();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		((UntypedParameterValue) params.get(0)).setValueFromString("unknown");
 //		((ComparisonOptionParam) params.get(1)).setValue(ComparisonOperator.EQUAL);

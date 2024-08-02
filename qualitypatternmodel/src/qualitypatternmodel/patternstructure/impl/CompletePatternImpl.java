@@ -524,13 +524,17 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated NOT
 	 */
 	@Override
-	public void printParameters() {
+	public void printParameters(boolean vars) {
 		int i=0;
 		System.out.println("List<Parameter> params = completePattern.getParameterList().getParameters();");
 		for (Parameter p: getParameterList().getParameters()){
 			String out = p.getClass().getSimpleName().replace("Impl", "");
-			out += " p" + i + " = ((" + p.getClass().getSimpleName().replace("Impl", "");
-			out += ") params.get(" + i + "));";
+			if (vars)
+				out += " p" + i + " = ";
+			out += "((" + p.getClass().getSimpleName().replace("Impl", "");
+			out += ") params.get(" + i + "))";
+			if (!vars)
+				out += ".setValueAsString(null);";
 			if (p instanceof XmlPathParam && ((XmlPathParam) p).isProperty())
 				out += " // Property";
 			System.out.println(out);
@@ -1912,8 +1916,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.COMPLETE_PATTERN___PRINT_PARAMETERS:
-				printParameters();
+			case PatternstructurePackage.COMPLETE_PATTERN___PRINT_PARAMETERS__BOOLEAN:
+				printParameters((Boolean)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

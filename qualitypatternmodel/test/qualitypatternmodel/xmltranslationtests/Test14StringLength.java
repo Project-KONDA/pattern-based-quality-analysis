@@ -30,7 +30,6 @@ public class Test14StringLength {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveStringLength(op, num);
 		pattern.createXmlAdaption();
-		pattern.printParameters();
 		List<Parameter> params = pattern.getParameterList().getParameters();
 		params.get(2).setValueFromString("/text()");
 		params.get(3).setValueFromString("//*");

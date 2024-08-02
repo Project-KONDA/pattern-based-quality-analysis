@@ -615,7 +615,9 @@
       <eOperations name="updateLastSaved"/>
       <eOperations name="generateXQueryNamespaces" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="printParameters"/>
+      <eOperations name="printParameters">
+        <eParameters name="vals" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" lowerBound="1"
           eType="#//parameters/ParameterList" containment="true" eOpposite="#//parameters/ParameterList/pattern"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="database" eType="#//execution/Database"
