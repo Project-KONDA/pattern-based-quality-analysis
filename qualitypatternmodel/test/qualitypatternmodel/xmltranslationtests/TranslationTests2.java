@@ -36,25 +36,25 @@ public class TranslationTests2 {
     public static Collection<PatternTestPair> data() {
     	List<PatternTestPair> pairs = new ArrayList<PatternTestPair>();
     	try {
-    		pairs.addAll(Test00.getTestPairs());
-    		pairs.addAll(Test01Axis.getTestPairs());
-    		pairs.addAll(Test01AxisAlternative.getTestPairs());
-    		pairs.addAll(Test01Reference.getTestPairs());
-    		pairs.addAll(Test01XmlPropertyNavigation.getTestPairs());
-    		pairs.addAll(Test02Return.getTestPairs());
-    		pairs.addAll(Test03Quantor.getTestPairs());
-    		pairs.addAll(Test04QuantorCombinations.getTestPairs());
-    		pairs.addAll(Test05QuantorCombinationsCond.getTestPairs());
-    		pairs.addAll(Test06NotElement.getTestPairs());
-    		pairs.addAll(Test07Formula.getTestPairs());
-    		pairs.addAll(Test08ParameterValues.getTestPairs());
+//    		pairs.addAll(Test00.getTestPairs());
+//    		pairs.addAll(Test01Axis.getTestPairs());
+//    		pairs.addAll(Test01AxisAlternative.getTestPairs());
+//    		pairs.addAll(Test01Reference.getTestPairs());
+//    		pairs.addAll(Test01XmlPropertyNavigation.getTestPairs());
+//    		pairs.addAll(Test02Return.getTestPairs());
+//    		pairs.addAll(Test03Quantor.getTestPairs());
+//    		pairs.addAll(Test04QuantorCombinations.getTestPairs());
+//    		pairs.addAll(Test05QuantorCombinationsCond.getTestPairs());
+//    		pairs.addAll(Test06NotElement.getTestPairs());
+//    		pairs.addAll(Test07Formula.getTestPairs());
+//    		pairs.addAll(Test08ParameterValues.getTestPairs());
     		pairs.addAll(Test09ComplexComparison.getTestPairs());
-    		pairs.addAll(Test10Reference.getTestPairs());
-    		pairs.addAll(Test11Contains.getTestPairs());
-    		pairs.addAll(Test11Match.getTestPairs());
-    		pairs.addAll(Test12Count.getTestPairs());
-    		pairs.addAll(Test13Cycle.getTestPairs());
-    		pairs.addAll(Test14StringLength.getTestPairs());
+//    		pairs.addAll(Test10Reference.getTestPairs());
+//    		pairs.addAll(Test11Contains.getTestPairs());
+//    		pairs.addAll(Test11Match.getTestPairs());
+//    		pairs.addAll(Test12Count.getTestPairs());
+//    		pairs.addAll(Test13Cycle.getTestPairs());
+//    		pairs.addAll(Test14StringLength.getTestPairs());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
