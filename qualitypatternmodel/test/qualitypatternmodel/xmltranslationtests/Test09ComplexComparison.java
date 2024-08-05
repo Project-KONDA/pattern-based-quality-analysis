@@ -2,7 +2,6 @@ package qualitypatternmodel.xmltranslationtests;
 
 import java.util.ArrayList;
 import java.util.List;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -10,14 +9,11 @@ import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.ComplexNode;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsFactory;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -73,58 +69,52 @@ public class Test09ComplexComparison {
 	}
 
 	public static CompletePattern getPatternTwoProperties() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		Node ret = completePattern.getGraph().getNodes().get(0).makeComplex();
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		ComplexNode ret = pattern.getGraph().getNodes().get(0).makeComplex();
+		
+		QuantifiedCondition qcon = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		pattern.setCondition(qcon);
+		Graph qcongraph = qcon.getGraph();
+		
+		ComplexNode node = qcongraph.addComplexNode();
 
-		Relation r1 = ret.addOutgoing();
-		Relation r2 = ret.addOutgoing();
+		PrimitiveNode n1 = ret.addOutgoing(qcongraph).getTarget().makePrimitive();
+		PrimitiveNode n2 = node.addOutgoing(qcongraph).getTarget().makePrimitive();
+		
+		n1.addComparison(n2);
 
-		Comparison comp = OperatorsFactory.eINSTANCE.createComparison();
+		pattern.createXmlAdaption();
 
-		completePattern.getGraph().getOperatorList().add(comp);
-		comp.createParameters();
-
-		Relation r11 = r1.getTarget().addOutgoing();
-		PrimitiveNode p1 = r11.getTarget().makePrimitive();
-
-		Relation r21 = r2.getTarget().addOutgoing();
-		PrimitiveNode p2 = r21.getTarget().makePrimitive();
-
-		comp.setArgument1(p1);
-		comp.setArgument2(p2);
-		comp.getTypeOption().setValue(ReturnType.STRING);
-
-		completePattern.createXmlAdaption();
-		completePattern.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
-		completePattern.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
-
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
-
-		return completePattern;
+		List<Parameter> params = pattern.getParameterList().getParameters();
+		((XmlPathParam) params.get(2)).setValueFromString("/*/*");
+		((XmlPathParam) params.get(3)).setValueFromString("/demo:creator/text()"); // Property
+		((XmlPathParam) params.get(4)).setValueFromString("/@demo:id"); // Property
+		((XmlPathParam) params.get(5)).setValueFromString("/*/demo:artist");
+		return pattern;
 	}
 
 	public static CompletePattern getPatternTwoElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		GraphstructurePackage.eINSTANCE.eClass();
-//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		OperatorsPackage.eINSTANCE.eClass();
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		Node ret = pattern.getGraph().getNodes().get(0).makeComplex();
 
-		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		Node ret = completePattern.getGraph().getNodes().get(0).makeComplex();
+		QuantifiedCondition qcon = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		pattern.setCondition(qcon);
+		Graph qcongraph = qcon.getGraph();
+		ComplexNode n = qcongraph.addComplexNode();
 
-		Relation r1 = ret.addOutgoing();
-		ret = r1.getSource();
-		Node se1 = r1.getTarget().makeComplex();
-		Node se2 = ret.addOutgoing().getTarget().makeComplex();
+		ComplexNode r1 = ret.addOutgoing(qcongraph).getTarget().makeComplex();
+		ComplexNode r2 = n.addOutgoing(qcongraph).getTarget().makeComplex();
+		r1.addComparison(r2);
 
-		Comparison co = se1.addComparison(se2);
-		co.getOption().setValue(ComparisonOperator.EQUAL);
+		pattern.createXmlAdaption();
 
-		completePattern.createXmlAdaption();
-//		completePattern.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
-		completePattern.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
+		List<Parameter> params = pattern.getParameterList().getParameters();
+		((XmlPathParam) params.get(2)).setValueFromString("/demo:data/demo:building");
+		((XmlPathParam) params.get(3)).setValueFromString("/demo:source");
+		((XmlPathParam) params.get(4)).setValueFromString("/demo:source");
+		((XmlPathParam) params.get(5)).setValueFromString("/demo:data/demo:painting");
 
-		return completePattern;
+		return pattern;
 	}
 
 	public static CompletePattern getPatternTwoOperators() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -132,8 +122,6 @@ public class Test09ComplexComparison {
 		OperatorsFactory functionFactory = OperatorsFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory inputsFactory = ParametersFactory.eINSTANCE;
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		ParameterList varlist = completePattern.getParameterList();
@@ -141,7 +129,7 @@ public class Test09ComplexComparison {
 		Node se = completePattern.getGraph().getNodes().get(0);
 
 		TextLiteralParam tl2 = inputsFactory.createTextLiteralParam();
-		tl2.setValue("building");
+		tl2.setValue("demo:building");
 		TextLiteralParam tl3 = inputsFactory.createTextLiteralParam();
 		tl3.setValue("A");
 		TextLiteralParam tl4 = inputsFactory.createTextLiteralParam();
@@ -165,14 +153,20 @@ public class Test09ComplexComparison {
 		comp0.setArgument1(comp1);
 		comp0.setArgument2(comp2);
 
-		PrimitiveNode p = graphFactory.createPrimitiveNode();
-		se.addOutgoing(p);
+		PrimitiveNode p = se.addOutgoing().getTarget().makePrimitive();
 		comp1.setArgument1(p);
 		comp1.setArgument2(tl2);
 		comp2.setArgument1(tl3);
 		comp2.setArgument2(tl4);
 
 		completePattern.createXmlAdaption();
+		
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		((TextLiteralParam) params.get(0)).setValueFromString("demo:building");
+		((TextLiteralParam) params.get(1)).setValueFromString("A");
+		((TextLiteralParam) params.get(2)).setValueFromString("B");
+		((XmlPathParam) params.get(9)).setValueFromString("/name()"); // Property
+		((XmlPathParam) params.get(10)).setValueFromString("/*/*");
 
 		((XmlNavigation) ((XmlProperty) comp1.getArgument1()).getIncoming().get(0)).getXmlPathParam().getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
 
@@ -182,10 +176,11 @@ public class Test09ComplexComparison {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<>();
 
-		testPairs.add(new PatternTestPair("09", "COMPSELFPROPS", getPatternSelfTwoProperties(), "//*[./text()]"));
-		testPairs.add(new PatternTestPair("09", "COMPPROPPROP", getPatternTwoProperties(), "for $c in //*/* for $copy in $c/parent::*/*[(./text() = $c/text())] return $c/parent::*"));
-		testPairs.add(new PatternTestPair("09", "COMPELEL", getPatternTwoElements(), "for $c in /*/* for $copy in $c/parent::*/*[fn:deep-equal(.,$c)] return $c/parent::*"));
-		testPairs.add(new PatternTestPair("09", "COMPOPOP", getPatternTwoOperators(), "/*[name()!='building']"));
+		String query = "declare namespace demo = \"demo\"; //*[./demo:creator/text() = ./parent::*/demo:artist/@demo:id]";
+		testPairs.add(new PatternTestPair("09", "COMPSELFPROPS", getPatternSelfTwoProperties(), query));
+		testPairs.add(new PatternTestPair("09", "COMPPROPPROP", getPatternTwoProperties(), query));
+		testPairs.add(new PatternTestPair("09", "COMPELEL", getPatternTwoElements(), "declare namespace demo = \"demo\"; /demo:data/demo:building[./demo:source/text() = \"thisisnotevenalink\"]"));
+		testPairs.add(new PatternTestPair("09", "COMPOPOP", getPatternTwoOperators(), "/*/*[name()!='demo:building']"));
 
 		return testPairs;
 	}
