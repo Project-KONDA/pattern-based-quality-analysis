@@ -32,23 +32,28 @@ public class MqafTranslationValidation {
 
 	public static Boolean checkPatternTranslatable (CompletePattern completePattern) throws InvalidityException {
 		// check is valid and is XML
-		Boolean xmlvalid = validatePatternXmlAdapted(completePattern);
+		if (!validatePatternXmlAdapted(completePattern)) {
+			System.err.println("Pattern not xml concrete");
+			return false;
+		}
+			
 		// check for JavaOperators
 		if (!validateOperatorConfiguration(completePattern)) {
+			System.err.println("Operator Configuration invalid");
 			return false;
 		}
 		// check has valid Node configuration
-		Boolean nodesValid = false;
-		if (xmlvalid) {
-			nodesValid = validateNodeConfiguration(completePattern);
+		if (!validateNodeConfiguration(completePattern)) {
+			System.err.println("Node Configuration invalid");
+			return false;
 		}
+		// check has valid Edge configuration
+		if (!validateEdgeConfiguration(completePattern)) {
+			System.err.println("Edge Configuration invalid");
+			return false;
+		}
+		return true;
 		
-		Boolean edgesValid = false;
-		if (xmlvalid && nodesValid) {
-			edgesValid = validateEdgeConfiguration(completePattern);
-		}
-
-		return edgesValid;
 	}
 
 
@@ -141,22 +146,32 @@ public class MqafTranslationValidation {
 
 
 	static Boolean validateEdgeConfiguration(CompletePattern completePattern) {
-		ArrayList<Relation> relations = new ArrayList<Relation>();
-		try {
-			Graph g1 = completePattern.getGraph();
-			relations.addAll(g1.getRelations());
-			Graph g2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
-			relations.addAll(g2.getRelations());
-		} catch (Exception e) {
-			return false;
-		}
-		for (Relation r : relations) {
-			if (!(r instanceof XmlNavigation))
-				return false;
-			EList<XmlPathParam> alts = ((XmlNavigation) r).getXmlPathParam().getAlternatives();
-			if (alts != null && !alts.isEmpty())
-				return false;
-		}
+//		ArrayList<Relation> relations = new ArrayList<Relation>();
+//		try {
+//			Graph g1 = completePattern.getGraph();
+//			relations.addAll(g1.getRelations());
+//		} catch (Exception e) {
+//			System.err.println("Graph 1 not accessible");
+//			return false;
+//		}
+//		try {
+//			Graph g2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
+//			relations.addAll(g2.getRelations());
+//		} catch (Exception e) {
+//			System.err.println("Graph 2 not accessible");
+//			return false;
+//		}
+//		for (Relation r : relations) {
+//			if (!(r instanceof XmlNavigation)) {
+//				System.err.println("Relation is not XmlNavigation");
+//				return false;
+//			}	
+//			EList<XmlPathParam> alts = ((XmlNavigation) r).getXmlPathParam().getAlternatives();
+//			if (alts != null && !alts.isEmpty()) {
+//				System.err.println("Xml Navigation has Alternatives");
+//				return false;
+//			}
+//		}
 		return true;
 	}
 
