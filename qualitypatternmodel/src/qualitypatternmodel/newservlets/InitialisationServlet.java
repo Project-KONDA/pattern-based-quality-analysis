@@ -57,14 +57,36 @@ public class InitialisationServlet extends HttpServlet {
 	}
 
 	public static void initialisation(ServletContext scon) throws ServletException {
+		String override = System.getenv().get(ServletConstants.ENV_OVERRIDE);
+		if (override != null)
+			ServletConstants.OVERRIDE = override.equals("true");
+		String values = System.getenv().get(ServletConstants.ENV_VALUES);
+		if (values != null)
+			ServletConstants.VALUES = values.equals("true");
+		String default_variants = System.getenv().get(ServletConstants.ENV_DEFAULT_VARIANTS);
+		if (default_variants != null)
+			ServletConstants.DEFAULT_VARIANTS = default_variants.equals("true");
+		String old_variants = System.getenv().get(ServletConstants.ENV_OLD_VARIANTS);
+		if (old_variants != null)
+			ServletConstants.OLD_VARIANTS = old_variants.equals("true");
+		String generate_generic = System.getenv().get(ServletConstants.ENV_GENERATE_GENERIC);
+		if (generate_generic != null)
+			ServletConstants.GENERATE_GENERIC = generate_generic.equals("true");
+		String value_as_json = System.getenv().get(ServletConstants.ENV_VALUE_AS_JSON);
+		if (value_as_json != null)
+			ServletConstants.VALUE_AS_JSON = value_as_json.equals("true");
 		String templates = System.getenv().get(ServletConstants.ENV_TEMPLATE_VOLUME);
+		if (templates != null)
+			ServletConstants.PATTERNFOLDER = templates;
 		String files = System.getenv().get(ServletConstants.ENV_SHARED_VOLUME);
+		if (files != null)
+			ServletConstants.FILEFOLDER = files;
 		String logfile = System.getenv().get(ServletConstants.ENV_LOGFILE);
+		if (logfile != null)
+			ServletConstants.LOG_FILENAME = logfile;
 		String savefile = System.getenv().get(ServletConstants.ENV_SAVEFILE);
-		ServletConstants.PATTERNFOLDER = templates == null? scon.getRealPath(ServletConstants.PATTERNFOLDER) : templates;
-		ServletConstants.FILEFOLDER = files == null? scon.getRealPath(ServletConstants.FILEFOLDER) : files;
-		ServletConstants.LOG_FILENAME = logfile == null? ServletConstants.LOG_FILENAME : logfile;
-		ServletConstants.SAVE_FILENAME = savefile == null? ServletConstants.SAVE_FILENAME : savefile;
+		if (savefile != null)
+			ServletConstants.SAVE_FILENAME = savefile;
 
 		System.out.println("Files can be found at " + ServletConstants.PATTERNFOLDER);
 		ServletUtilities.log("Initializing ...");
