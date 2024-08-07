@@ -57,45 +57,63 @@ public class InitialisationServlet extends HttpServlet {
 	}
 
 	public static void initialisation(ServletContext scon) throws ServletException {
-		String override = System.getenv().get(ServletConstants.ENV_OVERRIDE);
-		if (override != null)
-			ServletConstants.OVERRIDE = override.equals("true");
-		String values = System.getenv().get(ServletConstants.ENV_VALUES);
+//	      SHARED_VOLUME: /shared
+		String files = System.getenv().get(ServletConstants.ENV_FILE_VOLUME);
+		if (files != null)
+			ServletConstants.FILE_VOLUME = files;
+//	      UPLOAD_FOLDER: /shared/uploads
+		String upload = System.getenv().get(ServletConstants.ENV_UPLOAD_FOLDER);
+		if (upload != null)
+			ServletConstants.UPLOAD_FOLDER = upload;
+//	      TEMPLATE_VOLUME: /templates
+		String templates = System.getenv().get(ServletConstants.ENV_PATTERN_VOLUME);
+		if (templates != null)
+			ServletConstants.PATTERN_VOLUME = templates;
+//	      LOGFILE: qpm-logfile.log
+		String logfile = System.getenv().get(ServletConstants.ENV_LOGFILE);
+		if (logfile != null)
+			ServletConstants.LOGFILE = logfile;
+//	      SAVEFILE: savefile.txt
+		String savefile = System.getenv().get(ServletConstants.ENV_SAVEFILE);
+		if (savefile != null)
+			ServletConstants.SAVEFILE = savefile;
+//	      SAVE_LOG_IN_SHARED: true
+		String log_in_files = System.getenv().get(ServletConstants.ENV_LOG_IN_FILE_VOLUME);
+		if (log_in_files != null)
+			ServletConstants.LOG_IN_FILE_VOLUME = log_in_files.equals("true");
+//	      FILL_VALUES: false
+		String values = System.getenv().get(ServletConstants.ENV_FILL_VALUES);
 		if (values != null)
-			ServletConstants.VALUES = values.equals("true");
+			ServletConstants.FILL_VALUES = values.equals("true");
+//	      DEFAULT_VARIANTS: true
 		String default_variants = System.getenv().get(ServletConstants.ENV_DEFAULT_VARIANTS);
 		if (default_variants != null)
 			ServletConstants.DEFAULT_VARIANTS = default_variants.equals("true");
+//	      OLD_VARIANTS: false
 		String old_variants = System.getenv().get(ServletConstants.ENV_OLD_VARIANTS);
 		if (old_variants != null)
 			ServletConstants.OLD_VARIANTS = old_variants.equals("true");
+//	      OVERRIDE_VARIANTS: true
+		String override = System.getenv().get(ServletConstants.ENV_OVERRIDE_VARIANTS);
+		if (override != null)
+			ServletConstants.OVERRIDE_VARIANTS = override.equals("true");
+//	      GENERATE_GENERIC: false
 		String generate_generic = System.getenv().get(ServletConstants.ENV_GENERATE_GENERIC);
 		if (generate_generic != null)
 			ServletConstants.GENERATE_GENERIC = generate_generic.equals("true");
+//	      VALUE_AS_JSON: true
 		String value_as_json = System.getenv().get(ServletConstants.ENV_VALUE_AS_JSON);
 		if (value_as_json != null)
 			ServletConstants.VALUE_AS_JSON = value_as_json.equals("true");
-		String templates = System.getenv().get(ServletConstants.ENV_TEMPLATE_VOLUME);
-		if (templates != null)
-			ServletConstants.PATTERNFOLDER = templates;
-		String files = System.getenv().get(ServletConstants.ENV_SHARED_VOLUME);
-		if (files != null)
-			ServletConstants.FILEFOLDER = files;
-		String logfile = System.getenv().get(ServletConstants.ENV_LOGFILE);
-		if (logfile != null)
-			ServletConstants.LOG_FILENAME = logfile;
-		String savefile = System.getenv().get(ServletConstants.ENV_SAVEFILE);
-		if (savefile != null)
-			ServletConstants.SAVE_FILENAME = savefile;
 
-		System.out.println("Files can be found at " + ServletConstants.PATTERNFOLDER);
+		System.out.println("Files can be found at " + ServletConstants.PATTERN_VOLUME);
 		ServletUtilities.log("Initializing ...");
 		try {
 			if (ServletConstants.GENERATE_GENERIC) {
-				String genericfolder = ServletConstants.PATTERNFOLDER + "/" + ServletConstants.GENERICFOLDER;
+				String genericfolder = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.GENERICFOLDER;
 				for (CompletePattern pattern: GenericPatterns.getAllGenericPattern()) {
 					String id = pattern.getPatternId();
-					if (ServletConstants.OVERRIDE || !fileExists(genericfolder, id)) {
+					if (ServletConstants.OVERRIDE_VARIANTS || !fileExists(genericfolder, id)) {
 						pattern.isValid(AbstractionLevel.GENERIC);
 						EMFModelSave.exportToFile2(pattern, genericfolder, id, Constants.EXTENSION);
 					}
@@ -119,21 +137,21 @@ public class InitialisationServlet extends HttpServlet {
 			throw new ServletException("Unexpected Error: " + e.getMessage(), e);
 		}
 
-		String xmlfolder = ServletConstants.PATTERNFOLDER + "/" + Constants.XML + "/" + ServletConstants.TEMPLATEFOLDER;
+		String xmlfolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.XML + "/" + ServletConstants.TEMPLATEFOLDER;
 		for (PatternBundle patternbundle: XmlPatterns.getAllXmlPatternBundles()) {
-			patternbundle.export(xmlfolder, ServletConstants.OVERRIDE);
+			patternbundle.export(xmlfolder, ServletConstants.OVERRIDE_VARIANTS);
 		}
 		ServletUtilities.log("XML Patterns created:     " + xmlfolder);
 
-		String rdffolder = ServletConstants.PATTERNFOLDER + "/" + Constants.RDF + "/" + ServletConstants.TEMPLATEFOLDER;
+		String rdffolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.RDF + "/" + ServletConstants.TEMPLATEFOLDER;
 		for (PatternBundle patternbundle: RdfPatterns.getAllRdfPatternBundles()) {
-			patternbundle.export(rdffolder, ServletConstants.OVERRIDE);
+			patternbundle.export(rdffolder, ServletConstants.OVERRIDE_VARIANTS);
 		}
 		ServletUtilities.log("RDF Patterns created:     " + rdffolder);
 
-		String neofolder = ServletConstants.PATTERNFOLDER + "/" + Constants.NEO4J + "/" + ServletConstants.TEMPLATEFOLDER;
+		String neofolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.NEO4J + "/" + ServletConstants.TEMPLATEFOLDER;
 		for (PatternBundle patternbundle: Neo4jPatterns.getAllNeoPatternBundles()) {
-			patternbundle.export(neofolder, ServletConstants.OVERRIDE);
+			patternbundle.export(neofolder, ServletConstants.OVERRIDE_VARIANTS);
 		}
 		ServletUtilities.log("NEO4J Patterns created:   " + neofolder);
 	}
