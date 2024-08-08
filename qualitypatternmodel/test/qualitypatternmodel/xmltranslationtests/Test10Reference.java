@@ -6,16 +6,20 @@ import java.util.List;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
@@ -37,33 +41,28 @@ public class Test10Reference {
 	}
 
 	public static CompletePattern getPatternReferenceSimple() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		GraphstructurePackage.eINSTANCE.eClass();
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		QuantifiedCondition qcon = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		pattern.setCondition(qcon);
+		Graph g0 = pattern.getGraph();
+		Graph g1 = qcon.getGraph();
+		ComplexNode n1 = g0.getNodes().get(0).makeComplex();
+		n1.addOutgoing(g1).getTarget().makeComplex();
+		
+		pattern.createXmlAdaption();
+		g1.getRelations().get(0).adaptAsXmlReference();
 
-		CompletePattern completePattern = Test03Quantor.getPatternExists();
-		Graph graph = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
+//		reference.setType(ReturnType.STRING);
+		List<Parameter> params = pattern.getParameterList().getParameters();
+		((XmlPathParam) params.get(0)).setValueFromString("//*");
+		((XmlPathParam) params.get(1)).setValueFromString("//*/text()"); // Property
+		((XmlPathParam) params.get(2)).setValueFromString("//*/text()"); // Property
+		((XmlPathParam) params.get(3)).setValueFromString("//*");
 
-		Node element0 = completePattern.getGraph().getNodes().get(0);
-		Node element1 = graph.getNodes().get(0);
-
-		element0.addOutgoing(element1);
-
-		completePattern.createXmlAdaption();
-		XmlReference reference = graph.getRelations().get(0).adaptAsXmlReference();
-		reference.setType(ReturnType.STRING);
-
-//		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
-
-//		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(2)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(3)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
-
-		return completePattern;
+		return pattern;
 	}
 
 	public static CompletePattern getPatternReferenceTwoReference() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		GraphstructurePackage.eINSTANCE.eClass();
-//		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
-
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		Graph graph = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
