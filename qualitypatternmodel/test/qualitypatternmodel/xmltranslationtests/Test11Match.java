@@ -3,10 +3,13 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.utility.PatternUtility;
@@ -31,10 +34,13 @@ public class Test11Match {
 
 	public static CompletePattern getPatternMatch(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveMatch(str);
-		Match match = ((Match) pattern.getGraph().getOperatorList().getOperators().get(0));
-		match.getOption().setValue(invert);
+		pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveMatch();
 		pattern.createXmlAdaption();
+		List<Parameter> params = pattern.getParameterList().getParameters();
+		((BooleanParam) params.get(0)).setValue(invert);
+		((TextLiteralParam) params.get(1)).setValueFromString(str);
+		((XmlPathParam) params.get(2)).setValueFromString("/text()"); // Property
+		((XmlPathParam) params.get(3)).setValueFromString("//*");
 		return pattern;
 	}
 

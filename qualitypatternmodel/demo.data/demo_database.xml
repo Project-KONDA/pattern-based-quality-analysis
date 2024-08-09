@@ -94,13 +94,15 @@
 		<demo:birthyear>1883</demo:birthyear>
 		<demo:birthyear>1884</demo:birthyear>
 		<demo:birthyear>2883</demo:birthyear>
-		<demo:deathyear>1952</demo:deathyear>		
+		<demo:deathyear>1952</demo:deathyear>
+		<demo:famousworkref>101</demo:famousworkref>
 	</demo:architect>
 	
 	<demo:architect demo:id="302">
 		<demo:name>William Van Alen</demo:name>
 		<demo:birthyear>1882</demo:birthyear>
-		<demo:deathyear>1954</demo:deathyear>		
+		<demo:deathyear>1954</demo:deathyear>
+		<demo:famousworkref>102</demo:famousworkref>
 	</demo:architect>	
 	
 	<!--  ARTISTS -->
