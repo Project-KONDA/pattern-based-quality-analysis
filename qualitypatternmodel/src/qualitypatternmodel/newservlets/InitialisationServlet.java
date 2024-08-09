@@ -61,14 +61,20 @@ public class InitialisationServlet extends HttpServlet {
 		String files = System.getenv().get(ServletConstants.ENV_FILE_VOLUME);
 		if (files != null)
 			ServletConstants.FILE_VOLUME = files;
+		else 
+			ServletConstants.FILE_VOLUME = scon.getRealPath(ServletConstants.FILE_VOLUME);
 //	      UPLOAD_FOLDER: /shared/uploads
 		String upload = System.getenv().get(ServletConstants.ENV_UPLOAD_FOLDER);
 		if (upload != null)
 			ServletConstants.UPLOAD_FOLDER = upload;
+		else 
+			ServletConstants.UPLOAD_FOLDER = scon.getRealPath(ServletConstants.UPLOAD_FOLDER);
 //	      TEMPLATE_VOLUME: /templates
 		String templates = System.getenv().get(ServletConstants.ENV_PATTERN_VOLUME);
 		if (templates != null)
 			ServletConstants.PATTERN_VOLUME = templates;
+		else 
+			ServletConstants.PATTERN_VOLUME = scon.getRealPath(ServletConstants.PATTERN_VOLUME);
 //	      LOGFILE: qpm-logfile.log
 		String logfile = System.getenv().get(ServletConstants.ENV_LOGFILE);
 		if (logfile != null)
@@ -108,6 +114,19 @@ public class InitialisationServlet extends HttpServlet {
 
 		System.out.println("Files can be found at " + ServletConstants.PATTERN_VOLUME);
 		ServletUtilities.log("Initializing ...");
+		ServletUtilities.log("Environmental Variable FILE_VOLUME:        " + (files != null));
+		ServletUtilities.log("Environmental Variable UPLOAD_FOLDER:      " + (upload != null));
+		ServletUtilities.log("Environmental Variable PATTERN_VOLUME:     " + (templates != null));
+		ServletUtilities.log("Environmental Variable LOGFILE:            " + (logfile != null));
+		ServletUtilities.log("Environmental Variable SAVEFILE:           " + (savefile != null));
+		ServletUtilities.log("Environmental Variable LOG_IN_FILE_VOLUME: " + (log_in_files != null));
+		ServletUtilities.log("Environmental Variable FILL_VALUES:        " + (values != null));
+		ServletUtilities.log("Environmental Variable DEFAULT_VARIANTS:   " + (default_variants != null));
+		ServletUtilities.log("Environmental Variable OLD_VARIANTS:       " + (old_variants != null));
+		ServletUtilities.log("Environmental Variable OVERRIDE_VARIANTS:  " + (override != null));
+		ServletUtilities.log("Environmental Variable GENERATE_GENERIC:   " + (generate_generic != null));
+		ServletUtilities.log("Environmental Variable VALUE_AS_JSON:      " + (value_as_json != null));
+
 		try {
 			if (ServletConstants.GENERATE_GENERIC) {
 				String genericfolder = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.GENERICFOLDER;
