@@ -67,7 +67,7 @@ public abstract class ServletUtilities {
 	}
 
 	public static List<CompletePattern> getTemplates(String technology) {
-		String path = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
+		String path = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
 		try {
 			abstractPatternXml = EMFModelLoad.loadCompletePatternFromFolder(path, Constants.EXTENSION);
 			if (technology.equals(Constants.XML)) {
@@ -100,7 +100,7 @@ public abstract class ServletUtilities {
 
 		if (Constants.TECHS.contains(technology)) {
 			try {
-				return EMFModelLoad.loadCompletePatternFromFolder(ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER, Constants.EXTENSION);
+				return EMFModelLoad.loadCompletePatternFromFolder(ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER, Constants.EXTENSION);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -219,19 +219,19 @@ public abstract class ServletUtilities {
 	// LOAD SAVE DELETE
 
 	protected static CompletePattern loadConstraint(String technology, String name) throws IOException {
-		String patternpath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + name + "." + Constants.EXTENSION;
+		String patternpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + name + "." + Constants.EXTENSION;
 		return EMFModelLoad.loadCompletePattern(patternpath);
 	}
 
 	protected static CompletePattern loadTemplate(String technology, String templateId) throws IOException {
-		String folderPath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
+		String folderPath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
 		return EMFModelLoad.loadCompletePattern(folderPath, templateId, Constants.EXTENSION);
 	}
 
 	public static void saveTemplate(String technology, String templateId, CompletePattern pattern) throws IOException {
 		try {
 			saveSemaphore.acquire();
-			String folderpath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
+			String folderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
 			EMFModelSave.exportToFile2(pattern, folderpath, templateId, Constants.EXTENSION);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
@@ -242,7 +242,7 @@ public abstract class ServletUtilities {
 	}
 
 	public static String saveConstraint(String technology, String constraintId, CompletePattern pattern) throws IOException {
-		String folderpath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER;
+		String folderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER;
 		pattern.updateLastSaved();
 		try {
 			saveSemaphore.acquire();
@@ -258,7 +258,7 @@ public abstract class ServletUtilities {
 
 	public static String generateNewId(String technology, String templateId, String variantname) throws IOException {
 		String name = technology + "_" + templateId + "_" + variantname;
-		String filepath = ServletConstants.PATTERNFOLDER + "/" + ServletConstants.SAVE_FILENAME;
+		String filepath = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.SAVEFILE;
 		Integer number;
 		try {
 			number = getNextNumber(filepath, name);
@@ -310,7 +310,7 @@ public abstract class ServletUtilities {
 	}
 
 	public static void deleteConstraint(String technology, String constraintId) throws IOException {
-		String patternpath = ServletConstants.PATTERNFOLDER + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + constraintId + "." + Constants.EXTENSION;
+		String patternpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + constraintId + "." + Constants.EXTENSION;
 //		patternpath = servletContext.getRealPath(patternpath);
 
 		CompletePattern constraint = EMFModelLoad.loadCompletePattern(patternpath);
@@ -381,7 +381,12 @@ public abstract class ServletUtilities {
 	public static void log(String text) {
 		try {
 			saveSemaphore.acquire();
-			String filepath = ServletConstants.PATTERNFOLDER + "/" + ServletConstants.LOG_FILENAME;
+			String filepath = "/" + ServletConstants.LOGFILE;
+			if (ServletConstants.LOG_IN_FILE_VOLUME) {
+				filepath = ServletConstants.PATTERN_VOLUME + filepath;
+			} else {
+				filepath = ServletConstants.FILE_VOLUME + filepath;
+			}
 			File file = new File(filepath);
 		    file.getParentFile().mkdirs();
 	        if (!file.exists()) {

@@ -41,10 +41,10 @@ public class MandAttMqafTest {
 		InitialisationServlet.initialisation(context);
 
 		// instantiate
-		String path = "/xml/MandAtt_xml/default";
+		String path = "/xml/MandAtt_xml/default-constraint";
 		JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut(path, new HashMap<String, String[]>()));
-		String patternID = json.getString("patternID");
 		System.out.println(json);
+		String patternID = json.getString("patternID");
 
 		// setParameter
 		HashMap<String, String[]> setParams = new HashMap<>();

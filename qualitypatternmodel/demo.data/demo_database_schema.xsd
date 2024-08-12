@@ -71,6 +71,7 @@
 			<xs:element name="birthyear" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="deathyear" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="source" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
+			<xs:element name="famousworkref" type="xs:string" minOccurs="0" maxOccurs="unbounded"></xs:element>
 		</xs:sequence>
 		<xs:attribute name="id" type="xs:string" use="required"/>
 	</xs:complexType>

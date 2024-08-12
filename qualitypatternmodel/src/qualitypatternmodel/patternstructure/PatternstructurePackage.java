@@ -3179,7 +3179,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___PRINT_PARAMETERS = PATTERN_OPERATION_COUNT + 12;
+	int COMPLETE_PATTERN___PRINT_PARAMETERS__BOOLEAN = PATTERN_OPERATION_COUNT + 12;
 
 	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
@@ -5974,14 +5974,14 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getCompletePattern__GenerateXQueryNamespaces();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#printParameters() <em>Print Parameters</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#printParameters(boolean) <em>Print Parameters</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Print Parameters</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#printParameters()
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#printParameters(boolean)
 	 * @generated
 	 */
-	EOperation getCompletePattern__PrintParameters();
+	EOperation getCompletePattern__PrintParameters__boolean();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
@@ -7124,7 +7124,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation COMPLETE_PATTERN___PRINT_PARAMETERS = eINSTANCE.getCompletePattern__PrintParameters();
+		EOperation COMPLETE_PATTERN___PRINT_PARAMETERS__BOOLEAN = eINSTANCE.getCompletePattern__PrintParameters__boolean();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.

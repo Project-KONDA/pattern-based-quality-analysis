@@ -3,11 +3,13 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.utility.PatternUtility;
@@ -37,12 +39,17 @@ public class Test13Cycle {
 
 		completePattern.createXmlAdaption();
 
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		((XmlPathParam) params.get(1)).setValueFromString("//*");
+		((XmlPathParam) params.get(2)).setValueFromString("/demo:address/demo:city");
+		((XmlPathParam) params.get(0)).setValueFromString("/ancestor::*");
+		
 		return completePattern;
 	}
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("13", "PatternCycle", getPatternCycle(), ""));
+		testPairs.add(new PatternTestPair("13", "PatternCycle", getPatternCycle(), "declare namespace demo = \"demo\"; //*[./demo:address/demo:city]"));
 		return testPairs;
 	}
 }

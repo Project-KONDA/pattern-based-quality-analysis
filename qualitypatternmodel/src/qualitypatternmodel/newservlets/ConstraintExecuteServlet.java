@@ -129,10 +129,10 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		// verify file existence
 		if (filepaths != null) {
 			for (String filepath: filepaths) {
-				File file = new File(ServletConstants.FILEFOLDER + "/" + filepath);
+				File file = new File(ServletConstants.FILE_VOLUME + "/" + filepath);
 				if (file.exists()) {
 					files.add(file);
-					ServletUtilities.log(ServletConstants.FILEFOLDER + "/" + filepath + " found");
+					ServletUtilities.log(ServletConstants.FILE_VOLUME + "/" + filepath + " found");
 				}
 				else {
 					JSONObject jobject = new JSONObject();

@@ -538,7 +538,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/generateQueryFilter"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/updateLastSaved"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/generateXQueryNamespaces"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/printParameters"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/printParameters">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/CompletePattern/printParameters/vals"/>
+        </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/PatternElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/PatternElement/id"/>

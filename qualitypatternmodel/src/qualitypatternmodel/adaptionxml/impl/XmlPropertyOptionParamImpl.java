@@ -148,7 +148,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			return;
 		}
 
-		if (!value.matches(ConstantsXml.REGEX_PROPERTY))
+		if (!value.matches(ConstantsXml.REGEX_PROPERTY_AXIS_OPTIONAL))
 			throw new InvalidityException("new property kind value '" + value + "'invalid in " + myToString());
 
 		XmlAxisKind ax = null;
@@ -172,7 +172,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 				value = value.substring(1);
 				ax = XmlAxisKind.CHILD;
 			} else 
-				throw new InvalidityException("Invalid configuration: no valid axis");
+				ax = XmlAxisKind.CHILD;
+//				throw new InvalidityException("Invalid configuration: no valid axis");
 		}
 
 		// identify property kind

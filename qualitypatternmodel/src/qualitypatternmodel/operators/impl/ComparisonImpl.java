@@ -577,7 +577,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			throw new InvalidityException("input value type unspecified" + " (" + getInternalId() + ")");
 		}
 
-		if (argument1 instanceof ComplexNode && argument2 instanceof ComplexNode) {
+		if (abstractionLevel == AbstractionLevel.CONCRETE && argument1 instanceof ComplexNode && argument2 instanceof ComplexNode) {
 			if (option.getValue() != ComparisonOperator.EQUAL && option.getValue() != ComparisonOperator.NOTEQUAL) {
 				throw new InvalidityException(
 						"'" + option.getValue() + "' is an invalid comparison operator for arguments of type Element" + " (" + getInternalId() + ")");

@@ -563,6 +563,6 @@ public interface CompletePattern extends Pattern {
 	 * @model
 	 * @generated
 	 */
-	void printParameters();
+	void printParameters(boolean vals);
 
 } // Pattern

@@ -33,9 +33,9 @@ import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 public class MqafStringTranslationTest {
 
-	static String RECORD_PATH = "/descendant::*";
-	static String FIELD_PATH = "/descendant::*";
-	static String OTHERFIELD_PATH = "/descendant::*";
+	static String RECORD_PATH = "//*";
+	static String FIELD_PATH = "//*/text()";
+	static String OTHERFIELD_PATH = "//*/text()";
 
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -740,8 +740,8 @@ public class MqafStringTranslationTest {
 
 		p2.setValueFromString(RECORD_PATH);
 		p3.setValueFromString(RECORD_PATH);
-		p4.setValueFromString(FIELD_PATH);
-		p5.setValueFromString(FIELD_PATH);
+		p4.setValueFromString(RECORD_PATH);
+		p5.setValueFromString(RECORD_PATH);
 
 		return completePattern;
 	}
@@ -792,9 +792,9 @@ public class MqafStringTranslationTest {
 		p2.setValue(ComparisonOperator.EQUAL);
 		p3.setValue(ReturnType.STRING);
 		p4.setValueFromString(RECORD_PATH);
-		p5.setValueFromString(RECORD_PATH);
+		p5.setValueFromString(FIELD_PATH);
 		p6.setValueFromString(FIELD_PATH);
-		p7.setValueFromString(FIELD_PATH);
+		p7.setValueFromString(RECORD_PATH);
 
 		return completePattern;
 	}

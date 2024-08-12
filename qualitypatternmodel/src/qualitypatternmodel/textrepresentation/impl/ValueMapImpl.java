@@ -227,8 +227,9 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	 */
 	@Override
 	public Map<String, String> asMap() {
+		if (keys == null)
+			return null;
 		Map<String, String> map = new HashMap<String, String>();
-
 		for (String key: keys) {
 			map.put(key, get(key));
 		}

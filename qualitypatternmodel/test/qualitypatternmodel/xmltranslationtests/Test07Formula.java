@@ -3,18 +3,13 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
-import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
-import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
@@ -29,7 +24,7 @@ public class Test07Formula {
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		for (LogicalOperator lo: LogicalOperator.VALUES) {
-			completePatterns.add(getFormulaPatternConcrete(lo));
+			completePatterns.add(getFormulaPattern(lo));
 		}
 		return completePatterns;
 	}
@@ -61,22 +56,12 @@ public class Test07Formula {
 
 		completePattern.createXmlAdaption();
 
-		XmlReference ref = qc2.getGraph().getRelations().get(0).adaptAsXmlReference();
-		ref.setType(ReturnType.STRING);
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		((XmlPathParam) params.get(0)).setValueFromString("//*");
+		((XmlPathParam) params.get(1)).setValueFromString("/*");
+		((XmlPathParam) params.get(2)).setValueFromString("/parent::*");
 
 		return completePattern;
-	}
-
-	public static CompletePattern getFormulaPatternConcrete(LogicalOperator op) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = getFormulaPattern(op);
-
-		((XmlElementNavigation) pattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
-		QuantifiedCondition q1 = ((QuantifiedCondition)((Formula) pattern.getCondition()).getCondition2());
-		XmlPropertyOptionParam property = ((XmlPropertyNavigation) q1.getGraph().getRelations().get(2)).getXmlPathParam().getXmlPropertyOptionParam();
-		property.setValue(XmlPropertyKind.ATTRIBUTE);
-		property.getAttributeName().setValue("demo:id");
-
-		return pattern;
 	}
 
 
@@ -84,11 +69,11 @@ public class Test07Formula {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<>();
 
-		testPairs.add(new PatternTestPair("07", "AND", getFormulaPatternConcrete(LogicalOperator.AND), "/*/*[ ./* and ./@*[name()=\"demo:id\"]=/*/*/*/data()]"));
-		testPairs.add(new PatternTestPair("07", "OR", getFormulaPatternConcrete(LogicalOperator.OR), "/*/*[ ./* or ./@*[name()=\"demo:id\"]=/*/*/*/data()]"));
-		testPairs.add(new PatternTestPair("07", "IMPLIES", getFormulaPatternConcrete(LogicalOperator.IMPLIES), "/*/*[ not(./*) or ./@*[name()=\"demo:id\"]=/*/*/*/data()]"));
-		testPairs.add(new PatternTestPair("07", "XOR", getFormulaPatternConcrete(LogicalOperator.XOR), "/*/* [ not(./*) = (./@*[name()=\"demo:id\"]=/*/*/*/data())]"));
-		testPairs.add(new PatternTestPair("07", "EQUAL", getFormulaPatternConcrete(LogicalOperator.EQUAL), "/*/* [ exists(./*) = (./@*[name()=\"demo:id\"]=/*/*/*/data())]"));
+		testPairs.add(new PatternTestPair("07", "AND", getFormulaPattern(LogicalOperator.AND), "/*//*[./*]"));
+		testPairs.add(new PatternTestPair("07", "OR", getFormulaPattern(LogicalOperator.OR), "//*"));
+		testPairs.add(new PatternTestPair("07", "IMPLIES", getFormulaPattern(LogicalOperator.IMPLIES), "/*//*"));
+		testPairs.add(new PatternTestPair("07", "XOR", getFormulaPattern(LogicalOperator.XOR), "/* | //*[not(./*)]"));
+		testPairs.add(new PatternTestPair("07", "EQUAL", getFormulaPattern(LogicalOperator.EQUAL), "/*//*[./*]"));
 
 		return testPairs;
 	}

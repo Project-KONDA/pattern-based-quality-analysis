@@ -5,13 +5,13 @@ import java.util.List;
 
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -89,7 +89,6 @@ public class Test06NotElement {
 	public static CompletePattern getPatternNotExists() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternNotExistsAbstract();
 		completePattern.createXmlAdaption();
-		completePattern.printParameters();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		params.get(0).setValueFromString("//*");
 //		params.get(1).setValueFromString("/parent::*");
@@ -111,9 +110,6 @@ public class Test06NotElement {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		TrueElement t = (TrueElement) ((QuantifiedCondition) completePattern.getCondition()).getCondition();
 		QuantifiedCondition qc1 = (QuantifiedCondition) completePattern.getCondition();
@@ -124,8 +120,9 @@ public class Test06NotElement {
 		n.setCondition(qc2);
 		qc2.setCondition(t);
 
-		Node e2 = graphFactory.createNode();
-		e2.setGraph(qc2.getGraph());
+		Node e1 = qc1.getGraph().getNodes().get(0);
+
+		e1.addOutgoing(qc2.getGraph());
 		return completePattern;
 
 	}
@@ -136,19 +133,18 @@ public class Test06NotElement {
 
 		QuantifiedCondition q1 = ((QuantifiedCondition) completePattern.getCondition());
 		QuantifiedCondition q2 = ((QuantifiedCondition) ((NotCondition) q1.getCondition()).getCondition());
+		q2.getGraph().getNodes().get(0).addPrimitiveComparison();
 
 		completePattern.createXmlAdaption();
 
-		completePattern.printParameters();
-//		List<Parameter> params = completePattern.getParameterList().getParameters();
-//		params.get(0).setValueFromString("/ancestor::*");
-//		params.get(1).setValueFromString("/parent::*");
-//		params.get(2).setValueFromString("/self::*");
-		
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		((UntypedParameterValue) params.get(0)).setValueFromString("unknown");
+//		((ComparisonOptionParam) params.get(1)).setValue(ComparisonOperator.EQUAL);
+//		((TypeOptionParam) params.get(2));
+		((XmlPathParam) params.get(3)).setValueFromString("//demo:building");
+		((XmlPathParam) params.get(4)).setValueFromString("/demo:address");
+		((XmlPathParam) params.get(5)).setValueFromString("/demo:city/text()");; // Property
 
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
-		((XmlElementNavigation) q1.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");
-		((XmlElementNavigation) q2.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.ANCESTOR, "");
 		return completePattern;
 	}
 	public static CompletePattern getPatternForallNotForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -160,17 +156,6 @@ public class Test06NotElement {
 		qc1.setQuantifier(Quantifier.FORALL);
 		qc2.setQuantifier(Quantifier.FORALL);
 
-		completePattern.printParameters();
-		List<Parameter> params = completePattern.getParameterList().getParameters();
-		params.get(0).setValueFromString("/ancestor::*");
-		params.get(1).setValueFromString("/parent::*");
-		params.get(2).setValueFromString("/self::*");
-		
-//		((XmlElementNavigation)qc1.getGraph().getRelations().get(1)).getXmlPathParam().setXmlAxis(XmlAxisKind.PARENT, "");
-//		((XmlElementNavigation)qc2.getGraph().getRelations().get(2)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");
-		
-		
-
 		return completePattern;
 	}
 
@@ -180,8 +165,8 @@ public class Test06NotElement {
 		testPairs.add(new PatternTestPair("06", "NOTNOT", getPatternNotNotTrue(), "/*"));
 		testPairs.add(new PatternTestPair("06", "NOTEX", getPatternNotExists(), "//*[not(./*)]"));
 		testPairs.add(new PatternTestPair("06", "NOTFA", getPatternNotForall(), "()"));
-		testPairs.add(new PatternTestPair("06", "EXNOTEX", getPatternExistsNotExists(), "if ( not( exists (/ancestor::*)) and  exists (/*)) then (/*/*)"));
-		testPairs.add(new PatternTestPair("06", "FANOTFA", getPatternForallNotForall(), "if ( not( exists (/parent::*))) then (/*/*)"));
+		testPairs.add(new PatternTestPair("06", "EXNOTEX", getPatternExistsNotExists(), "declare namespace demo = \"demo\"; //demo:building[./demo:address/demo:city[./text() = \"New York City\"]]"));
+		testPairs.add(new PatternTestPair("06", "FANOTFA", getPatternForallNotForall(), "()"));
 		return testPairs;
 	}
 

@@ -2,44 +2,58 @@ package qualitypatternmodel.newservlets;
 
 public class ServletConstants {
 
-	// CONFIG
-	// shall existing templates be overwritten
-	static boolean OVERRIDE = true;
-	// shall there be values in the templates
-	public static boolean VALUES = false;
-	// use the default variants for templates
-	public static Boolean DEFAULT_VARIANTS = true;
-	// add old variants to templates
-	public static Boolean OLD_VARIANTS = false;
-	// also generate generic templates
-	public static final boolean GENERATE_GENERIC = false;
-	// return values as JSONObject or JSONArray instead of Strings
-	public static final boolean VALUE_JSON = true;
-
-	// ENVIRONMENTAL VARIABLES
-	// name of savefile from environmental variable
-	public static String ENV_SAVEFILE = "SAVE_FILENAME";
-	// name of logfile from environmental variable
-	public static String ENV_LOGFILE = "LOG_FILENAME";
-	// name of template volume from environmental variable
-	public static String ENV_TEMPLATE_VOLUME = "TEMPLATE_VOLUME";
-	// name of shared volume from environmental variable
-	public static String ENV_SHARED_VOLUME = "SHARED_VOLUME";
-
-	// FILE NAMES
-	// name of folder 
-	public static String PATTERNFOLDER =  "/templates";
 	// name of folder
-	public static String FILEFOLDER =  "/files";
+	public static String FILE_VOLUME =  "/files";
+	public static String ENV_FILE_VOLUME = "SHARED_VOLUME";
+	
+	// name of upload folder
+	public static String UPLOAD_FOLDER =  "/files/uploads";
+	public static String ENV_UPLOAD_FOLDER = "UPLOAD_FOLDER";
+
+	// name of folder 
+	public static String PATTERN_VOLUME =  "/templates";
+	public static String ENV_PATTERN_VOLUME = "TEMPLATE_VOLUME";
+
 	// name of logfile
-	public static String LOG_FILENAME = "logfile.log";
+	public static String LOGFILE = "logfile.log";
+	public static String ENV_LOGFILE = "LOGFILE";
+
 	// name of savefile
-	public static String SAVE_FILENAME = "savefile.txt";
-	// name of folder for generic templates
+	public static String SAVEFILE = "savefile.txt";
+	public static String ENV_SAVEFILE = "SAVEFILE";
+
+	// save log in shared
+	public static boolean LOG_IN_FILE_VOLUME = false;
+	public static String ENV_LOG_IN_FILE_VOLUME = "SAVE_LOG_IN_SHARED";
+
+	// shall there be values in the templates
+	public static boolean FILL_VALUES = true;
+	public static String ENV_FILL_VALUES = "FILL_VALUES";
+
+	// use the default variants for templates
+	public static boolean DEFAULT_VARIANTS = true;
+	public static String ENV_DEFAULT_VARIANTS = "DEFAULT_VARIANTS";
+
+	// add old variants to templates
+	public static boolean OLD_VARIANTS = false;
+	public static String ENV_OLD_VARIANTS = "OLD_VARIANTS";
+
+	// shall existing templates be overwritten
+	static boolean OVERRIDE_VARIANTS = true;
+	public static String ENV_OVERRIDE_VARIANTS = "OVERRIDE_VARIANTS";
+
+	// also generate generic templates
+	public static boolean GENERATE_GENERIC = false;
+	public static String ENV_GENERATE_GENERIC = "GENERATE_GENERIC";
+
+	// return values as JSONObject or JSONArray instead of Strings
+	public static boolean VALUE_AS_JSON = true;
+	public static String ENV_VALUE_AS_JSON = "VALUE_AS_JSON";
+
+	// name of folder for generic templates (only required if GENERATE_GENERIC)
 	public static final String GENERICFOLDER = "generic-patterns";
 	// name of folder for templates
 	public static final String TEMPLATEFOLDER = "abstract-patterns";
 	// name of folder for constraints
 	public static final String CONSTRAINTFOLDER = "concrete-patterns";
-
 }

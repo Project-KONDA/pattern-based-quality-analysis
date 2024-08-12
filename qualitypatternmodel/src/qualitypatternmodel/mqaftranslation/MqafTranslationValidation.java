@@ -1,7 +1,5 @@
 package qualitypatternmodel.mqaftranslation;
 
-import java.util.ArrayList;
-
 import org.basex.util.Pair;
 import org.eclipse.emf.common.util.EList;
 
@@ -20,6 +18,9 @@ import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.NotCondition;
+import qualitypatternmodel.patternstructure.NumberElement;
+import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.TrueElement;
@@ -32,23 +33,28 @@ public class MqafTranslationValidation {
 
 	public static Boolean checkPatternTranslatable (CompletePattern completePattern) throws InvalidityException {
 		// check is valid and is XML
-		Boolean xmlvalid = validatePatternXmlAdapted(completePattern);
+		if (!validatePatternXmlAdapted(completePattern)) {
+			System.err.println("Pattern not xml concrete");
+			return false;
+		}
+			
 		// check for JavaOperators
 		if (!validateOperatorConfiguration(completePattern)) {
+			System.err.println("Operator Configuration invalid");
 			return false;
 		}
 		// check has valid Node configuration
-		Boolean nodesValid = false;
-		if (xmlvalid) {
-			nodesValid = validateNodeConfiguration(completePattern);
+		if (!validateNodeConfiguration(completePattern)) {
+			System.err.println("Node Configuration invalid");
+			return false;
 		}
+		// check has valid Edge configuration
+		if (!validateEdgeConfiguration(completePattern)) {
+			System.err.println("Edge Configuration invalid");
+			return false;
+		}
+		return true;
 		
-		Boolean edgesValid = false;
-		if (xmlvalid && nodesValid) {
-			edgesValid = validateEdgeConfiguration(completePattern);
-		}
-
-		return edgesValid;
 	}
 
 
@@ -140,24 +146,41 @@ public class MqafTranslationValidation {
 	}
 
 
-	static Boolean validateEdgeConfiguration(CompletePattern completePattern) {
-		ArrayList<Relation> relations = new ArrayList<Relation>();
-		try {
-			Graph g1 = completePattern.getGraph();
-			relations.addAll(g1.getRelations());
-			Graph g2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
-			relations.addAll(g2.getRelations());
-		} catch (Exception e) {
+	static Boolean validateEdgeConfiguration(PatternElement element) {
+		if (element instanceof Pattern) {
+			Pattern pattern = (Pattern) element;
+			return validateEdgeConfiguration(pattern.getGraph()) && validateEdgeConfiguration(pattern.getCondition());
+		} else if (element instanceof QuantifiedCondition) {
+			QuantifiedCondition quantified = (QuantifiedCondition) element;
+			return validateEdgeConfiguration(quantified.getCondition()) && validateEdgeConfiguration(quantified.getGraph());
+		} else if (element instanceof Formula) {
+			Formula formula = (Formula) element;
+			return validateEdgeConfiguration(formula.getCondition1()) && validateEdgeConfiguration(formula.getCondition2());
+		} else if (element instanceof NotCondition) {
+			NotCondition not = (NotCondition) element;
+			return validateEdgeConfiguration(not.getCondition());
+		} else if (element instanceof CountCondition) {
+			CountCondition count = (CountCondition) element;
+			return validateEdgeConfiguration(count.getCountPattern()) && validateEdgeConfiguration(count.getArgument2());
+		} else if (element instanceof TrueElement || element instanceof NumberElement) {
+			return true;
+		} else if (element instanceof Graph) {
+			Graph graph = (Graph) element;
+			EList<Relation> relations = graph.getRelations();
+			for (Relation r : relations) {
+				if (!(r instanceof XmlNavigation)) {
+					System.err.println("Relation is not XmlNavigation");
+					return false;
+				}	
+				EList<XmlPathParam> alts = ((XmlNavigation) r).getXmlPathParam().getAlternatives();
+				if (alts != null && !alts.isEmpty()) {
+					System.err.println("Xml Navigation has Alternatives");
+					return false;
+				}
+			}
+			return true;
+		} else
 			return false;
-		}
-		for (Relation r : relations) {
-			if (!(r instanceof XmlNavigation))
-				return false;
-			EList<XmlPathParam> alts = ((XmlNavigation) r).getXmlPathParam().getAlternatives();
-			if (alts != null && !alts.isEmpty())
-				return false;
-		}
-		return true;
 	}
 
 

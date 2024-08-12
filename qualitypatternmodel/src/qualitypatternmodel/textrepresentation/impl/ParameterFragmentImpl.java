@@ -806,7 +806,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			json.put(ConstantsJSON.TYPE, getType());
 			json.put(ConstantsJSON.ROLE, getRole());
 			if (getValue() != null) {
-				if (ServletConstants.VALUE_JSON) {
+				if (ServletConstants.VALUE_AS_JSON) {
 					json.put(ConstantsJSON.VALUE, jsonify(getValue()));
 				} else {
 					json.put(ConstantsJSON.VALUE, getValue());

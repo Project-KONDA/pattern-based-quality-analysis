@@ -217,6 +217,7 @@ public class ConstraintServlet extends HttpServlet {
 		        namespaces = true;
 				parameterMap.remove(ConstantsJSON.NAMESPACES);
 			} catch (JSONException e) {
+				e.printStackTrace();
 			}
 		}
 
@@ -306,6 +307,10 @@ public class ConstraintServlet extends HttpServlet {
 			}
 			if (failed.length() > 0 || notfound) {
 				JSONArray available = new JSONArray();
+				available.put("name");
+				available.put("database");
+				available.put("datamodel");
+				available.put("namespace");
 				for (ParameterFragment frag: paramfragments) {
 					available.put(frag.getId());
 				}

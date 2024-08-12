@@ -44,8 +44,8 @@ import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 public class MqafApplicationTest {
 
-	private static String RECORD_PATH = "/*[name() = \"demo:data\"]/*";
-	private static String SOURCEFIELD_PATH = "/*[name() = \"demo:source\"]/data()";
+	private static String RECORD_PATH = "/demo:data/*";
+	private static String SOURCEFIELD_PATH = "/demo:source/data()";
 	private static Boolean namespaceWorkaround = true;
 
 	static Integer SUCCESS = 1;

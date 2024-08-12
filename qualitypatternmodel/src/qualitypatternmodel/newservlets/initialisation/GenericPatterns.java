@@ -94,7 +94,7 @@ public class GenericPatterns {
 		pattern.setPatternId(new_id);
 		List<Parameter> params = pattern.getParameterList().getParameters();
 
-		if (ServletConstants.VALUES && values != null) {
+		if (ServletConstants.FILL_VALUES && values != null) {
 			for (Integer index: values.keySet()) {
 				params.get(index).setValueFromString(values.get(index));
 			}
@@ -144,7 +144,7 @@ public class GenericPatterns {
 		NumberElementImpl ne = new NumberElementImpl();
 		countCondition.setArgument2(ne);
 		ne.createParameters();
-		if (ServletConstants.VALUES) {
+		if (ServletConstants.FILL_VALUES) {
 			ne.getNumberParam().setValue(1.);
 			countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		}
@@ -201,7 +201,7 @@ public class GenericPatterns {
 
 		TextListParamImpl tlp = new TextListParamImpl();
 		element1.addPrimitiveComparison(tlp);
-		if (ServletConstants.VALUES) {
+		if (ServletConstants.FILL_VALUES) {
 			tlp.addStringValue("abc");
 			tlp.addStringValue("def");
 			tlp.addStringValue("ghi");
@@ -296,7 +296,7 @@ public class GenericPatterns {
 		Node element1 = ret.addOutgoing(quantifiedCondition.getGraph()).getTarget().makePrimitive();
 
 		TextLiteralParam tlp = element1.addPrimitiveMatch();
-		if (ServletConstants.VALUES) {
+		if (ServletConstants.FILL_VALUES) {
 			tlp.setValue("[a-zA-Z]*");
 		}
 
@@ -323,7 +323,7 @@ public class GenericPatterns {
 
 		Node element1 = ret.addOutgoing(g2).getTarget().makePrimitive();
 		TextLiteralParam tlp = element1.addPrimitiveContains();
-		if (ServletConstants.VALUES) {
+		if (ServletConstants.FILL_VALUES) {
 			tlp.setValue("abc");
 		}
 
@@ -410,7 +410,7 @@ public class GenericPatterns {
 		countCondition.setArgument2(ne);
 		ne.createParameters();
 
-		if (ServletConstants.VALUES) {
+		if (ServletConstants.FILL_VALUES) {
 			ne.getNumberParam().setValue(1.);
 			countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		}
@@ -489,7 +489,7 @@ public class GenericPatterns {
 
 		StringLength sl = field.addPrimitiveStringLength();
 
-		if (ServletConstants.VALUES) {
+		if (ServletConstants.FILL_VALUES) {
 			sl.getNumber().setValue(1.);
 		}
 
