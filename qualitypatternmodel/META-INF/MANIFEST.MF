@@ -8,7 +8,6 @@ Bundle-ClassPath: .,
  lib/BaseX931.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: qualitypatternmodel.adaptionneo4j,
  qualitypatternmodel.adaptionneo4j.impl,
  qualitypatternmodel.adaptionneo4j.util,
@@ -48,10 +47,6 @@ Export-Package: qualitypatternmodel.adaptionneo4j,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,
- org.eclipse.ocl.pivot;bundle-version="1.8.0",
- org.eclipse.ocl.pivot.ui;bundle-version="1.8.0",
- org.eclipse.ocl.pivot.uml;bundle-version="1.8.0",
- org.eclipse.ocl.xtext.oclinecore;bundle-version="1.8.0",
  org.junit,
  org.eclipse.swt,
  qualitypatternmodel,
