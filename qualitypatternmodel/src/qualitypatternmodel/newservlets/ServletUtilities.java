@@ -383,9 +383,9 @@ public abstract class ServletUtilities {
 			saveSemaphore.acquire();
 			String filepath = "/" + ServletConstants.LOGFILE;
 			if (ServletConstants.LOG_IN_FILE_VOLUME) {
-				filepath = ServletConstants.PATTERN_VOLUME + filepath;
-			} else {
 				filepath = ServletConstants.FILE_VOLUME + filepath;
+			} else {
+				filepath = ServletConstants.PATTERN_VOLUME + filepath;
 			}
 			File file = new File(filepath);
 		    file.getParentFile().mkdirs();
