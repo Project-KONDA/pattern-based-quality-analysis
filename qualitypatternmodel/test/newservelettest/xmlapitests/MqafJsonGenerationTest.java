@@ -10,15 +10,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.newservlets.ConstraintMqafServlet;
 import qualitypatternmodel.newservlets.ConstraintServlet;
+import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
 
 public class MqafJsonGenerationTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ServletException {
 
 		ServletContext context = mock(ServletContext.class);
 	    doAnswer(invocation -> {
@@ -30,6 +32,8 @@ public class MqafJsonGenerationTest {
 			}
 	    }).when(context).getRealPath(anyString());
 
+	    InitialisationServlet.initialisation(context);
+	    
         String cardid = createCardConstraint();
         String lengthid = createLengthConstraint();
         String uniqueid = createUniqueConstraint();
