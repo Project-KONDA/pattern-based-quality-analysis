@@ -51,10 +51,17 @@ The graphical user interface is implemented in the gui branch in the project cal
 
 ## Installation
 
-1. Download Eclipse installer for Eclipse 2022-09 R from [https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
-2. Install "Eclipse Modelling Tools" from the installer
-3. Install Eclipse OCL from the Eclipse Marketplace
-4. Import the qualitypatternmodel framework from this repository into the Eclipse Workspace
+1. Install Eclipse
+   a) Download: [https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
+   b) Select installation option "Eclipse Modelling Tools"
+2. Install Plugins 
+   a) Eclipse Enterprise Java and Web Developer Tools
+   b) Eclipse m2e
+   c) OCL Build Support
+3. Import Repository
+   a) Pull this repository to your local drive
+   b) Initialize submodule: "git submodule update --init"
+   c) Import the framework into the Eclipse Workspace via "Import.. > Existing Projects into Workspace"
 
 ## Tests
 
@@ -159,8 +166,10 @@ As the graph shows, the pattern detects ```demo:building``` elements that contai
 * Lukas Hofmann - [lukas.hofmann@uni-marburg.de](mailto:lukas.hofmann@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
 * Gabriele Taentzer - [taentzer@uni-marburg.de](mailto:taentzer@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
 
-This work emerged from the research project "[KONDA](https://zenodo.org/communities/konda-project)". 
+This work emerged from the research project "[KONDA](https://zenodo.org/communities/konda-project)" 
+and was continued in the the research project "[AQinDa]()".
 ![KONDA](readme_images/konda_logo.jpg)
+![AQinDa](readme_images/aqinda_logo.jpg)
 
 
 
