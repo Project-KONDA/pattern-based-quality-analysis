@@ -53,6 +53,7 @@ import qualitypatternmodel.operators.impl.OperatorListImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -1321,11 +1322,23 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public Relation addRelation(ComplexNode from, Node to) {
-		Relation r = new RelationImpl();
-		r.setGraph(this);
-		r.setSource(from);
-		r.setTarget(to);
-		return r;
+		Relation rel = new RelationImpl();
+		rel.setGraph(this);
+		rel.setSource(from);
+		rel.setTarget(to);
+		try {
+			Language lan = ((CompletePattern) getAncestor(CompletePattern.class)).getLanguage();
+			if (lan == Language.XML) {
+				rel = rel.adaptAsXmlElementNavigation();
+			} else if (lan == Language.RDF) {
+				rel = rel.adaptAsRdfPredicate();
+			} else if (lan == Language.NEO4J) {
+				rel = rel.adaptAsXmlElementNavigation();
+			}
+		} 
+		catch (MissingPatternContainerException e) {} 
+		catch (InvalidityException e) {}
+		return rel;
 	}
 
 	/**

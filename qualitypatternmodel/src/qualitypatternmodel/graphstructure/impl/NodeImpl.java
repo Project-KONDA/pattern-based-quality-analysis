@@ -983,7 +983,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public Relation addIncomming(ComplexNode node) {
 		Graph myGraph = this.getGraph();
-		assert myGraph == node.getGraph();
+		if (node.getGraph().isBefore(getGraph()))
+			throw new RuntimeException();
 		return myGraph.addRelation(node, this);
 	}
 
@@ -1400,6 +1401,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public Relation addOutgoing() throws InvalidityException {
+		if (getGraph() == null) {
+			throw new InvalidityException("Graph is null for " + myToString());
+		}
 		Node newNode = getGraph().addNode();
 		return getGraph().addRelation(makeComplex(), newNode);
 	}
@@ -1419,12 +1423,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		if (graph == null) {
 			return addOutgoing();
 		}
-
 		if(!getGraph().isBefore(graph)) {
 			throw new InvalidityException("" + getGraph().myToString() + "is not before " + graph.myToString());
 		}
-		Node newNode = new NodeImpl();
-		newNode.setGraph(graph);
+		ComplexNode newNode = graph.addComplexNode();
 		return getGraph().addRelation(makeComplex(), newNode);
 	}
 
@@ -1437,26 +1439,17 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public Relation addOutgoing(Node node) throws InvalidityException {
-		Graph myGraph = getGraph();
-		Graph nodeGraph = node.getGraph();
-
-		if (myGraph == null && nodeGraph != null) {
-			setGraph(nodeGraph);
-			return nodeGraph.addRelation(makeComplex(), node);
-		}
-		else if (myGraph != null && nodeGraph == null) {
-			node.setGraph(myGraph);
-			return myGraph.addRelation(makeComplex(), node);
-
-		}
-		else if (myGraph.isBefore(nodeGraph)) {
-			return nodeGraph.addRelation(makeComplex(), node);
-		}
-		else if (nodeGraph.isBefore(myGraph)) {
-			return myGraph.addRelation(makeComplex(), node);
-		} else {
-			throw new InvalidityException("A Relation between " + myToString() +" and " + node.myToString() + "could not be added");
-		}
+		ComplexNode thisComplex = this.makeComplex();
+		if (getGraph() == null && node.getGraph() == null)
+			throw new InvalidityException("A Relation between " + myToString() +" and " + node.myToString() + "could not be added: Both dont belong into a Graph");
+		if (getGraph() == null)
+			setGraph(node.getGraph());
+		if (node.getGraph() == null)
+			node.setGraph(getGraph());
+		if (getGraph().isBefore(node.getGraph()))
+			return node.getGraph().addRelation(thisComplex, node);
+		else
+			return getGraph().addRelation(thisComplex, node);
 	}
 
 	/**

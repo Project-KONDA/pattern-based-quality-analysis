@@ -52,7 +52,7 @@ public class PatternUtility {
 				String result = completePattern.myToString();
 				System.out.println("\n\n___PATTERN_(VALID)___");
 				System.out.println(result);
-				System.out.print("\n___TRANSLATION___");
+				System.out.println("\n___TRANSLATION___");
 				System.out.println(completePattern.generateXQuery());
 				valid++;
 			} catch (Exception e) {
