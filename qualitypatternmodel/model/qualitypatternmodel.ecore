@@ -384,9 +384,6 @@
       <eOperations name="addIncomming" eType="#//graphstructure/Relation">
         <eParameters name="node" eType="#//graphstructure/ComplexNode"/>
       </eOperations>
-      <eOperations name="addComparison" eType="#//operators/Comparison">
-        <eParameters name="node" eType="#//graphstructure/Node"/>
-      </eOperations>
       <eOperations name="addPrimitiveComparison" eType="#//parameters/UntypedParameterValue"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="addPrimitiveComparison" eType="#//parameters/TextLiteralParam"
@@ -513,6 +510,9 @@
       <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="getAllArgumentElements" upperBound="-1" eType="#//graphstructure/Node"/>
       <eOperations name="isOperatorArgument" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="addComparison" eType="#//operators/Comparison">
+        <eParameters name="node" eType="#//graphstructure/Comparable"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comparison1" upperBound="-1"
           eType="#//operators/Comparison" eOpposite="#//operators/Comparison/argument1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comparison2" upperBound="-1"

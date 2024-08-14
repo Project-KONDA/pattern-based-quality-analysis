@@ -31,14 +31,19 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Comparable;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.Operator;
+import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.operators.impl.ComparisonImpl;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.DateTimeParam;
@@ -341,6 +346,55 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public Comparison addComparison(qualitypatternmodel.graphstructure.Comparable comparable) {
+		if (comparable instanceof NodeImpl)
+			try {
+				comparable = ((NodeImpl) comparable).makePrimitive();
+			} catch (InvalidityException e) {
+				throw new RuntimeException("Adding Condition Failed: comparable is a generic Node");
+			}
+		if (comparable == null) {
+			throw new RuntimeException("Adding Condition Failed: comparable is null");
+		}
+		Graph comparableGraph = null;
+		if (comparable instanceof Node)
+			comparableGraph = ((Node) comparable).getGraph();
+		else if (comparable instanceof Operator)
+			comparableGraph = ((Operator) comparable).getOperatorList().getGraph();
+		else if (comparable instanceof ParameterValue) {
+			comparableGraph = null;
+		}
+		else {
+			throw new RuntimeException("Class not expected: " + comparable.getClass());
+		}
+		if (comparableGraph == null)
+			throw new RuntimeException("Adding Condition Failed: arguments have no Graph specified");
+		if (ReturnType.isCompatible(this, comparable)) {
+			try {
+				Comparison comparison = new ComparisonImpl();
+				
+				Graph graph = comparableGraph;
+				OperatorList oplist = graph.getOperatorList();
+
+				comparison.createParameters();
+				comparison.setArgument1(this);
+				comparison.setArgument2(comparable);
+				oplist.add(comparison);
+
+				return comparison;
+			} catch (Exception e) {
+				throw new RuntimeException("Adding Condition Failed: " + e.getMessage());
+			}
+		} else
+			throw new RuntimeException("Adding Condition Failed: Incompatible comparables");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -498,6 +552,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				case GraphstructurePackage.COMPARABLE___IS_TRANSLATABLE: return ParametersPackage.PARAMETER_VALUE___IS_TRANSLATABLE;
 				case GraphstructurePackage.COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS: return ParametersPackage.PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 				case GraphstructurePackage.COMPARABLE___IS_OPERATOR_ARGUMENT: return ParametersPackage.PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
+				case GraphstructurePackage.COMPARABLE___ADD_COMPARISON__COMPARABLE: return ParametersPackage.PARAMETER_VALUE___ADD_COMPARISON__COMPARABLE;
 				default: return -1;
 			}
 		}
@@ -554,6 +609,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				return getAllArgumentElements();
 			case ParametersPackage.PARAMETER_VALUE___IS_OPERATOR_ARGUMENT:
 				return isOperatorArgument();
+			case ParametersPackage.PARAMETER_VALUE___ADD_COMPARISON__COMPARABLE:
+				return addComparison((qualitypatternmodel.graphstructure.Comparable)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

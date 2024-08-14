@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1722596436341">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1723629527217">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -586,7 +586,7 @@
                 <styles xmi:type="notation:FilteringStyle" xmi:id="__04wjSMzEeq7GbtfgEc6MA"/>
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="__04wiCMzEeq7GbtfgEc6MA" fontName="Segoe UI" fontHeight="8" italic="true"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="__04wiSMzEeq7GbtfgEc6MA" x="291" y="249" width="137" height="124"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="__04wiSMzEeq7GbtfgEc6MA" x="291" y="249" width="154" height="124"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="__05XkCMzEeq7GbtfgEc6MA" type="3009" element="_7csmUB2jEeqrGqxc7qjo8A">
               <children xmi:type="notation:Node" xmi:id="__05XkyMzEeq7GbtfgEc6MA" type="5004"/>
@@ -805,10 +805,6 @@
                 <children xmi:type="notation:Node" xmi:id="_8BLxID3MEe6DmNnJ2tgjgQ" type="3010" element="_8Ai4Ej3MEe6DmNnJ2tgjgQ">
                   <styles xmi:type="notation:FontStyle" xmi:id="_8BLxIT3MEe6DmNnJ2tgjgQ" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_8BLxIj3MEe6DmNnJ2tgjgQ"/>
-                </children>
-                <children xmi:type="notation:Node" xmi:id="_8QBeYD3MEe6DmNnJ2tgjgQ" type="3010" element="_8PcPpT3MEe6DmNnJ2tgjgQ">
-                  <styles xmi:type="notation:FontStyle" xmi:id="_8QBeYT3MEe6DmNnJ2tgjgQ" fontName="Segoe UI" fontHeight="8"/>
-                  <layoutConstraint xmi:type="notation:Location" xmi:id="_8QBeYj3MEe6DmNnJ2tgjgQ"/>
                 </children>
                 <children xmi:type="notation:Node" xmi:id="_8mD_0D3MEe6DmNnJ2tgjgQ" type="3010" element="_8lgmUT3MEe6DmNnJ2tgjgQ">
                   <styles xmi:type="notation:FontStyle" xmi:id="_8mD_0T3MEe6DmNnJ2tgjgQ" fontName="Segoe UI" fontHeight="8"/>
@@ -1031,6 +1027,10 @@
                 <children xmi:type="notation:Node" xmi:id="_ZluwkNacEeyHYNVFL3uY8Q" type="3010" element="_ZlaAn9acEeyHYNVFL3uY8Q">
                   <styles xmi:type="notation:FontStyle" xmi:id="_ZluwkdacEeyHYNVFL3uY8Q" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_ZluwktacEeyHYNVFL3uY8Q"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_zHLeUFojEe-naK_h0CpH2w" type="3010" element="_y_-DEVojEe-naK_h0CpH2w">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_zHLeUVojEe-naK_h0CpH2w" fontName="Segoe UI" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_zHLeUlojEe-naK_h0CpH2w"/>
                 </children>
                 <styles xmi:type="notation:SortingStyle" xmi:id="_xO7-UiM0Eeq7GbtfgEc6MA"/>
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_xO7-UyM0Eeq7GbtfgEc6MA"/>
@@ -4556,7 +4556,7 @@
           <styles xmi:type="notation:ConnectorStyle" xmi:id="__09B9SMzEeq7GbtfgEc6MA" routing="Tree"/>
           <styles xmi:type="notation:FontStyle" xmi:id="__09B9iMzEeq7GbtfgEc6MA" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__09B9yMzEeq7GbtfgEc6MA" points="[0, 0, -163, 86]$[0, -19, -163, 67]$[108, -19, -55, 67]$[221, -37, 58, 49]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__09B_iMzEeq7GbtfgEc6MA" id="(0.7703703703703704,0.0)"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__09B_iMzEeq7GbtfgEc6MA" id="(0.6842105263157895,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__09B_yMzEeq7GbtfgEc6MA" id="(0.33213122001088996,0.743104594932831)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_bmtioGHzEeqRJMTe2Wle0g" type="4001" element="_blzjvGHzEeqRJMTe2Wle0g" source="__05XkCMzEeq7GbtfgEc6MA" target="_JsyCtCM0Eeq7GbtfgEc6MA">
@@ -7969,9 +7969,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_qvj_0B2REeqrGqxc7qjo8A" sourceNode="_jdPBsB2REeqrGqxc7qjo8A" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_002_71bsEeqq28gUaBHbCA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Qt-EDCGwEe-BtrvXoLziBQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -7985,9 +7982,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_rFi24x2REeqrGqxc7qjo8A" sourceNode="_lnc2gB2REeqrGqxc7qjo8A" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/NumberParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/NumberParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_3HMO4FbsEeqq28gUaBHbCA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_OqXoknMwEe6HKLLQiCF52w" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -8001,9 +7995,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_rW5Flh2REeqrGqxc7qjo8A" sourceNode="_l6Ih8B2REeqrGqxc7qjo8A" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/BooleanParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/BooleanParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_0QXyxlbsEeqq28gUaBHbCA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_OqXoiXMwEe6HKLLQiCF52w" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -8017,9 +8008,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_tC6igB2REeqrGqxc7qjo8A" sourceNode="_deUzQB2REeqrGqxc7qjo8A" targetNode="_dMCwcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/BooleanOperator"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/BooleanOperator"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="__0zQ_yMzEeq7GbtfgEc6MA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_LiRJlWziEeqFoZB-JbQqGQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -8033,9 +8021,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_tuWsNh2REeqrGqxc7qjo8A" sourceNode="_LSGTYB2REeqrGqxc7qjo8A" targetNode="_LGvX8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_dPxhOiM0Eeq7GbtfgEc6MA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_OFfp-WqNEeqwze_WIZAgBA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -8049,9 +8034,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_uQ9C_B2REeqrGqxc7qjo8A" sourceNode="_Lq-GYB2REeqrGqxc7qjo8A" targetNode="_LGvX8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/TrueElement"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/TrueElement"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_dPxhUiM0Eeq7GbtfgEc6MA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_uQ9qAB2REeqrGqxc7qjo8A" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -8065,9 +8047,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_5OU6Bh2SEeqrGqxc7qjo8A" sourceNode="_UQET8B2REeqrGqxc7qjo8A" targetNode="_v4VQcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Node"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Node"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_JssjIyM0Eeq7GbtfgEc6MA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_6Orb4LUkEe6JMsrLx4T9Ag" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -8081,9 +8060,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_6KNTiB2SEeqrGqxc7qjo8A" sourceNode="_dMCwcB2REeqrGqxc7qjo8A" targetNode="_v4VQcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/Operator"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/Operator"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="__0zRAyMzEeq7GbtfgEc6MA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_4Rrhg1brEeqq28gUaBHbCA" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -8097,9 +8073,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_PwoZnB2kEeqrGqxc7qjo8A" sourceNode="_6DW00B2jEeqrGqxc7qjo8A" targetNode="_deUzQB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/Comparison"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/Comparison"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="__0z4DyMzEeq7GbtfgEc6MA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Qx6NOT5oEe27GrijlnCtqg" targetArrow="InputClosedArrow" routingStyle="manhattan" strokeColor="166,193,152">
         <customFeatures>routingStyle</customFeatures>
         <customFeatures>strokeColor</customFeatures>
@@ -8114,9 +8087,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_QJsZ1h2kEeqrGqxc7qjo8A" sourceNode="_7csmUB2jEeqrGqxc7qjo8A" targetNode="_deUzQB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/Match"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/Match"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="__0z4CyMzEeq7GbtfgEc6MA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_PVtpOTIeEeqhs9bV26uoUA" targetArrow="InputClosedArrow" routingStyle="manhattan" strokeColor="166,193,152">
         <customFeatures>routingStyle</customFeatures>
         <customFeatures>strokeColor</customFeatures>
@@ -8131,9 +8101,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_pXdQgB2pEeqrGqxc7qjo8A" sourceNode="_gXRpcB2pEeqrGqxc7qjo8A" targetNode="_dMCwcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/NumberOperator"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/NumberOperator"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="__0z4ByMzEeq7GbtfgEc6MA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_pXd3kB2pEeqrGqxc7qjo8A" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -8147,9 +8114,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_lzc4kCFqEeqOzty0NN8IPg" sourceNode="_v4VQcB2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Comparable"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Comparable"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_Ukeo4GjsEeqrp_Bk8ukhmg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_OqhZtnMwEe6HKLLQiCF52w" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -8163,9 +8127,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_mqpmUCFqEeqOzty0NN8IPg" sourceNode="_SmK98B2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Graph"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Graph"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_xO4UCCM0Eeq7GbtfgEc6MA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_OqhZs3MwEe6HKLLQiCF52w" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -8179,9 +8140,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_p0nn-SFqEeqOzty0NN8IPg" sourceNode="_LGvX8B2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Condition"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Condition"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_dPxhPiM0Eeq7GbtfgEc6MA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_rQV2MkM3Eeq0cZxoDyHtYQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -8195,9 +8153,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_rL4V7iFqEeqOzty0NN8IPg" sourceNode="_xvb8AB2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Morphism"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Morphism"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_dPxhQiM0Eeq7GbtfgEc6MA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Pwr684SREeqTD6KCr96VPQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -8211,9 +8166,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_EdrxSSFrEeqOzty0NN8IPg" sourceNode="_LdaykB2REeqrGqxc7qjo8A" targetNode="_LGvX8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Formula"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Formula"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_dPxhTiM0Eeq7GbtfgEc6MA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_rUP2rCkjEe2mRNd6h242SQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -8227,9 +8179,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_mS768iMgEeq7GbtfgEc6MA" sourceNode="_Z81NAB2SEeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Relation"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Relation"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_Jsr8JSM0Eeq7GbtfgEc6MA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_0vrfxddoEeyKyeJBsq0fAg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -9405,15 +9354,6 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_8PcPpT3MEe6DmNnJ2tgjgQ" name="addComparison(node Node) : Comparison" tooltipText="addComparison(node) : Comparison">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Node/addComparison"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Node/addComparison"/>
-          <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//graphstructure/Node/addComparison/node"/>
-          <ownedStyle xmi:type="diagram:BundledImage" uid="_8PcPpj3MEe6DmNnJ2tgjgQ" labelAlignment="LEFT">
-            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
-        </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_8lgmUT3MEe6DmNnJ2tgjgQ" name="addPrimitiveComparison() : UntypedParameterValue" tooltipText="addPrimitiveComparison() : UntypedParameterValue">
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison"/>
@@ -9856,6 +9796,15 @@
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Comparable/isOperatorArgument"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Comparable/isOperatorArgument"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_ZlaAoNacEeyHYNVFL3uY8Q" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_y_-DEVojEe-naK_h0CpH2w" name="addComparison(node Comparable) : Comparison" tooltipText="addComparison(node) : Comparison">
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Comparable/addComparison"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Comparable/addComparison"/>
+          <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//graphstructure/Comparable/addComparison/node"/>
+          <ownedStyle xmi:type="diagram:BundledImage" uid="_y_-DElojEe-naK_h0CpH2w" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
@@ -11036,9 +10985,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_-5eiRTLLEeqwCLdoVLu3rg" sourceNode="_0rpOcB2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/ParameterList"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/ParameterList"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_-5fJQTLLEeqwCLdoVLu3rg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_9Jm1CdCVEeqwH4pM8Ulp4A" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11052,9 +10998,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_cISwXzLNEeqwCLdoVLu3rg" sourceNode="_eCd8EDIfEeqhs9bV26uoUA" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/OperatorList"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/OperatorList"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_cISwZjLNEeqwCLdoVLu3rg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_cISwYDLNEeqwCLdoVLu3rg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11068,9 +11011,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_igl1cDh7EeqWT8u6R6QK9w" sourceNode="_if88QDh7EeqWT8u6R6QK9w" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_igmchjh7EeqWT8u6R6QK9w">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_OqXog3MwEe6HKLLQiCF52w" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11084,9 +11024,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_8dv7Dzh7EeqWT8u6R6QK9w" sourceNode="_8daj0Dh7EeqWT8u6R6QK9w" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_8dwiFjh7EeqWT8u6R6QK9w">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_h-X8SU9MEe-ZZ9nSLi5raA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11249,9 +11186,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="__2uAQFbrEeqq28gUaBHbCA" sourceNode="_jLRH8B2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/Parameter"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/Parameter"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="__2vOYFbrEeqq28gUaBHbCA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_fByHUzigEeyedLS-tS_puQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11265,9 +11199,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="__2vOYVbrEeqq28gUaBHbCA" sourceNode="_dMCwcB2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/Operator"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/Operator"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="__2wcgFbrEeqq28gUaBHbCA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="__2v1cFbrEeqq28gUaBHbCA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11281,9 +11212,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="__2xDlFbrEeqq28gUaBHbCA" sourceNode="_UQET8B2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Node"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Node"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="__2xqplbrEeqq28gUaBHbCA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_6Orb47UkEe6JMsrLx4T9Ag" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11297,9 +11225,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_AGJt9lbtEeqq28gUaBHbCA" sourceNode="_9LabIFbsEeqq28gUaBHbCA" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/ParameterValue"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/ParameterValue"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_AGKVA1btEeqq28gUaBHbCA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ocIT6Q2hEe2hroCNle-luA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11313,9 +11238,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_A-qDW1btEeqq28gUaBHbCA" sourceNode="_9LabIFbsEeqq28gUaBHbCA" targetNode="_v4VQcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/ParameterValue"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/ParameterValue"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_A-qDYlbtEeqq28gUaBHbCA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ocIT7A2hEe2hroCNle-luA" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -11329,9 +11251,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Y9VC5lbtEeqq28gUaBHbCA" sourceNode="_DUxmEFbtEeqq28gUaBHbCA" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/DateParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/DateParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_Y9Vp8FbtEeqq28gUaBHbCA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_xDYCyfNiEeqY8dIRolbTJQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11345,9 +11264,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ZggBZlbtEeqq28gUaBHbCA" sourceNode="_ERDoIFbtEeqq28gUaBHbCA" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/TimeParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/TimeParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_ZggBbVbtEeqq28gUaBHbCA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ZggBZ1btEeqq28gUaBHbCA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11361,9 +11277,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_VBOc41bxEeqq28gUaBHbCA" sourceNode="_RqPS8FbxEeqq28gUaBHbCA" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/UntypedParameterValue"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/UntypedParameterValue"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_VBPD9lbxEeqq28gUaBHbCA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_S_oOk7lgEeu5vc-IKJgy1Q" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11377,9 +11290,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_B1wjM1cVEeqLx62jXSDiJg" sourceNode="__uDP0FcUEeqLx62jXSDiJg" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/DateTimeParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/DateTimeParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_B1yYYFcVEeqLx62jXSDiJg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_B1xxUFcVEeqLx62jXSDiJg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11407,9 +11317,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_QUiXs2HbEeqyJIs2lFr5Xg" sourceNode="_QT4QYGHbEeqyJIs2lFr5Xg" targetNode="_LGvX8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/NotCondition"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/NotCondition"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_Q1l2XGHbEeqyJIs2lFr5Xg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_QUiXtGHbEeqyJIs2lFr5Xg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11487,9 +11394,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_kUHi2WjyEeqrp_Bk8ukhmg" sourceNode="_6jNQoGjxEeqrp_Bk8ukhmg" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisOptionParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisOptionParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_kUIJ42jyEeqrp_Bk8ukhmg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Prpzs3_gEeqK6bOb5aXASA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11503,9 +11407,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Wi80EGqMEeqwze_WIZAgBA" sourceNode="_EpllcGqMEeqwze_WIZAgBA" targetNode="_LGvX8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CountCondition"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CountCondition"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_Wi80F2qMEeqwze_WIZAgBA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1YgxZnAYEeqskNBUyJ2zaA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11519,9 +11420,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ZdxM6mqREeqwze_WIZAgBA" sourceNode="_4L79QHACEeqskNBUyJ2zaA" targetNode="_XXNI4GqREeqwze_WIZAgBA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CountPattern"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CountPattern"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_Zd0QFmqREeqwze_WIZAgBA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Zd0QEGqREeqwze_WIZAgBA" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -11535,9 +11433,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_oCv5I2qREeqwze_WIZAgBA" sourceNode="_XXNI4GqREeqwze_WIZAgBA" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CountConditionArgument"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CountConditionArgument"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_oCv5KmqREeqwze_WIZAgBA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_yTSF03AYEeqskNBUyJ2zaA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11551,9 +11446,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_tTtBDXAIEeqskNBUyJ2zaA" sourceNode="_KwGZkB2REeqrGqxc7qjo8A" targetNode="_ooICYHAIEeqskNBUyJ2zaA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CompletePattern"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CompletePattern"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_tTtBFHAIEeqskNBUyJ2zaA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_azaMQFC-Ee-b3qtPrnbTcg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11567,9 +11459,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_t05pQ3AIEeqskNBUyJ2zaA" sourceNode="_4L79QHACEeqskNBUyJ2zaA" targetNode="_ooICYHAIEeqskNBUyJ2zaA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CountPattern"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CountPattern"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_t05pSnAIEeqskNBUyJ2zaA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_t05pRHAIEeqskNBUyJ2zaA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11583,9 +11472,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_vhlNoXAIEeqskNBUyJ2zaA" sourceNode="_ooICYHAIEeqskNBUyJ2zaA" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Pattern"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Pattern"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_vhlNqHAIEeqskNBUyJ2zaA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_yJZBmLYKEeqMwsh8KfYQSg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -11599,9 +11485,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Ii-_AHAVEeqskNBUyJ2zaA" sourceNode="_lswgoHAMEeqskNBUyJ2zaA" targetNode="_XXNI4GqREeqwze_WIZAgBA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/NumberElement"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/NumberElement"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_Ii_mEHAVEeqskNBUyJ2zaA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_A0b3tHAYEeqskNBUyJ2zaA" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -12295,9 +12178,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_zOPp0H_dEeqK6bOb5aXASA" sourceNode="_mJqZMH_dEeqK6bOb5aXASA" targetNode="_izvkMM0YEeyyQ-H48EElYg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlElementNavigation"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlElementNavigation"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_zOPp13_dEeqK6bOb5aXASA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ijAkIs0ZEeyyQ-H48EElYg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -12311,9 +12191,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_0VjQJn_dEeqK6bOb5aXASA" sourceNode="_nMu_wH_dEeqK6bOb5aXASA" targetNode="_Z81NAB2SEeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlReference"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlReference"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_0VjQLX_dEeqK6bOb5aXASA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_0VjQJ3_dEeqK6bOb5aXASA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -12327,9 +12204,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_2Yaf0n_dEeqK6bOb5aXASA" sourceNode="_pfpdkH_dEeqK6bOb5aXASA" targetNode="_c7kEcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlProperty"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlProperty"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_2YbG03_dEeqK6bOb5aXASA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_wLyRuceZEeyhMMC36WAuXA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -12343,9 +12217,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Iw7ITX_eEeqK6bOb5aXASA" sourceNode="_UQET8B2REeqrGqxc7qjo8A" targetNode="_HLrBkH_eEeqK6bOb5aXASA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Node"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Node"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_Iw7vNn_eEeqK6bOb5aXASA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_6Orb5rUkEe6JMsrLx4T9Ag" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -12359,9 +12230,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_KBk3yH_eEeqK6bOb5aXASA" sourceNode="_Z81NAB2SEeqrGqxc7qjo8A" targetNode="_HLrBkH_eEeqK6bOb5aXASA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Relation"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Relation"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_KBlexn_eEeqK6bOb5aXASA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_0vrfyNdoEeyKyeJBsq0fAg" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -12375,9 +12243,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_05f1MICiEequqNnOyMT3Pg" sourceNode="_4L79QHACEeqskNBUyJ2zaA" targetNode="_qIMpEGqZEeqwze_WIZAgBA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CountPattern"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CountPattern"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_05gcRoCiEequqNnOyMT3Pg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_05gcQICiEequqNnOyMT3Pg" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -12391,9 +12256,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_05hDUICiEequqNnOyMT3Pg" sourceNode="_LSGTYB2REeqrGqxc7qjo8A" targetNode="_qIMpEGqZEeqwze_WIZAgBA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_05hqY4CiEequqNnOyMT3Pg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_05hDUYCiEequqNnOyMT3Pg" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -12450,9 +12312,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_8PqQpoVnEeqw0d5j59p2tA" sourceNode="_qIMpEGqZEeqwze_WIZAgBA" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_8PqQrYVnEeqw0d5j59p2tA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_8PqQp4VnEeqw0d5j59p2tA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -12466,9 +12325,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_qUCqMo7fEeqqZ7rjxCL8-g" sourceNode="_HLrBkH_eEeqK6bOb5aXASA" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Adaptable"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Adaptable"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_qUDRM47fEeqqZ7rjxCL8-g">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_qUCqM47fEeqqZ7rjxCL8-g" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -13400,9 +13256,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_7NUd-bX7EeqMwsh8KfYQSg" sourceNode="_xW2vILX7EeqMwsh8KfYQSg" targetNode="_xF_ooLX7EeqMwsh8KfYQSg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/LocalXmlDataDatabase"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/LocalXmlDataDatabase"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_7NUeALX7EeqMwsh8KfYQSg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_uK-1eL-FEeqCd-gSXa7okQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -13416,9 +13269,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_7nKhWbX7EeqMwsh8KfYQSg" sourceNode="_xnqyULX7EeqMwsh8KfYQSg" targetNode="_xF_ooLX7EeqMwsh8KfYQSg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/ServerXmlDataDatabase"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/ServerXmlDataDatabase"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_7nKhYLX7EeqMwsh8KfYQSg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_z1C5BTMQEeyokIkpb-SLLQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -13432,9 +13282,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_8AK3NrX7EeqMwsh8KfYQSg" sourceNode="_w1P24LX7EeqMwsh8KfYQSg" targetNode="_wpLJwLX7EeqMwsh8KfYQSg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/XmlResult"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/XmlResult"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_8AK3PbX7EeqMwsh8KfYQSg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_8AK3N7X7EeqMwsh8KfYQSg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -13530,9 +13377,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_W0xIAOa7Eeqew8otqiTt_g" sourceNode="_iFhVEOa5Eeqew8otqiTt_g" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/TypeOptionParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/TypeOptionParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_W0xIB-a7Eeqew8otqiTt_g">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_OqXop3MwEe6HKLLQiCF52w" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -13596,9 +13440,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_lJl8UP8eEeqsjJAZEqDacQ" sourceNode="_jKqKcP8eEeqsjJAZEqDacQ" targetNode="_-g_ZgP8KEeqtX59cF2u3YA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/LocalXmlSchemaDatabase"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/LocalXmlSchemaDatabase"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_lJmjY_8eEeqsjJAZEqDacQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_lJl8Uf8eEeqsjJAZEqDacQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -13612,9 +13453,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_45oYWf8eEeqsjJAZEqDacQ" sourceNode="_1UzmsP8eEeqsjJAZEqDacQ" targetNode="_-g_ZgP8KEeqtX59cF2u3YA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/ServerXmlSchemaDatabase"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/ServerXmlSchemaDatabase"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_45oYYP8eEeqsjJAZEqDacQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_45oYWv8eEeqsjJAZEqDacQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -13628,9 +13466,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_hgCevwFuEeuzNt0uZDZoaw" sourceNode="_xF_ooLX7EeqMwsh8KfYQSg" targetNode="_MXzgsAFuEeuzNt0uZDZoaw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/XmlDataDatabase"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/XmlDataDatabase"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_hgDs0wFuEeuzNt0uZDZoaw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_QuCVcyGwEe-BtrvXoLziBQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -13644,9 +13479,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_jRqNUwFuEeuzNt0uZDZoaw" sourceNode="_-g_ZgP8KEeqtX59cF2u3YA" targetNode="_MXzgsAFuEeuzNt0uZDZoaw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_jRqNWgFuEeuzNt0uZDZoaw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_sW8SFjIzEeywtuBPrOf5rQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -13660,9 +13492,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_eWUCwAFwEeuzNt0uZDZoaw" sourceNode="_xF_ooLX7EeqMwsh8KfYQSg" targetNode="_SayE4AFwEeuzNt0uZDZoaw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/XmlDataDatabase"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/XmlDataDatabase"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_eWUCxwFwEeuzNt0uZDZoaw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_QuCVdiGwEe-BtrvXoLziBQ" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -13676,9 +13505,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_iST-YQFwEeuzNt0uZDZoaw" sourceNode="_-g_ZgP8KEeqtX59cF2u3YA" targetNode="_g7Iv8AFwEeuzNt0uZDZoaw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_iSUlVgFwEeuzNt0uZDZoaw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_sW85IDIzEeywtuBPrOf5rQ" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -14239,9 +14065,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_X-sAMrfMEeu2DrSQInLVxA" sourceNode="_3j5QILfIEeu2DrSQInLVxA" targetNode="_Q_YEoLfMEeu2DrSQInLVxA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_X-snNrfMEeu2DrSQInLVxA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ToMsAyisEe-t3pcfAX894w" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -14255,9 +14078,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_YVnSh7fMEeu2DrSQInLVxA" sourceNode="_WWIt8LfMEeu2DrSQInLVxA" targetNode="_Q_YEoLfMEeu2DrSQInLVxA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//textrepresentation/TextFragment"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//textrepresentation/TextFragment"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_YVn5drfMEeu2DrSQInLVxA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_jbKqgLfMEeu2DrSQInLVxA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -14296,9 +14116,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_8ssv477BEeu5eubaHnOIng" sourceNode="_3j5QILfIEeu2DrSQInLVxA" targetNode="_5G0OUL7BEeu5eubaHnOIng">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_8stW9r7BEeu5eubaHnOIng">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ToNTECisEe-t3pcfAX894w" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -14312,9 +14129,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_9zAQsr7BEeu5eubaHnOIng" sourceNode="_vYhkEL7BEeu5eubaHnOIng" targetNode="_5G0OUL7BEeu5eubaHnOIng">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//textrepresentation/ParameterPredefinition"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//textrepresentation/ParameterPredefinition"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_9zAQub7BEeu5eubaHnOIng">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_FXnRkL7CEeu5eubaHnOIng" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -14350,9 +14164,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_OB9KTMSCEey-B4jvV1RysQ" sourceNode="_c7kEcB2REeqrGqxc7qjo8A" targetNode="_UQET8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_OB9xJsSCEey-B4jvV1RysQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_96hrQXSwEe6JB5Oq4jatGA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -14366,9 +14177,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_bSIGMMSKEey-B4jvV1RysQ" sourceNode="_W86ZQMSKEey-B4jvV1RysQ" targetNode="_UQET8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/ComplexNode"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/ComplexNode"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_bSIGN8SKEey-B4jvV1RysQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_bSIGMcSKEey-B4jvV1RysQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -14382,9 +14190,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_XRsHnMYYEeynyvqqNaAvIg" sourceNode="_izvkMM0YEeyyQ-H48EElYg" targetNode="_Z81NAB2SEeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_XRsuo8YYEeynyvqqNaAvIg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ME_P8M9rEeyhqawK3-lFJA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -14398,9 +14203,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1Jyx2crQEeysRuROHE0Ryg" sourceNode="_yBBqEMrQEeysRuROHE0Ryg" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_1Jyx4MrQEeysRuROHE0Ryg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1DiT0Eg8Ee-WmO9CNbO8OA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -14458,9 +14260,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_MJSZLMrhEeywH7VND0eGqA" sourceNode="_yBBqEMrQEeysRuROHE0Ryg" targetNode="_HLrBkH_eEeqK6bOb5aXASA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_MJTAM8rhEeywH7VND0eGqA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1DhszEg8Ee-WmO9CNbO8OA" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -14474,9 +14273,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_SDKWpcrhEeywH7VND0eGqA" sourceNode="_8daj0Dh7EeqWT8u6R6QK9w" targetNode="_HLrBkH_eEeqK6bOb5aXASA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyOptionParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_SDK9o8rhEeywH7VND0eGqA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_h-X8TE9MEe-ZZ9nSLi5raA" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -14490,9 +14286,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_f3nvlcriEeywH7VND0eGqA" sourceNode="_4CDYYMrQEeysRuROHE0Ryg" targetNode="_HLrBkH_eEeqK6bOb5aXASA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_f3nvnMriEeywH7VND0eGqA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_TwKonwhoEe-9d9wjHwPR-A" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -14506,9 +14299,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_n7C1PM0YEeyyQ-H48EElYg" sourceNode="_RC3DQMYXEeynyvqqNaAvIg" targetNode="_izvkMM0YEeyyQ-H48EElYg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyNavigation"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyNavigation"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_n7DcQ80YEeyyQ-H48EElYg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_n7C1Pc0YEeyyQ-H48EElYg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -14533,9 +14323,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_vnlGEM9oEeyhqawK3-lFJA" sourceNode="_pfpdkH_dEeqK6bOb5aXASA" targetNode="_rXIE4M9lEeyhqawK3-lFJA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlProperty"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlProperty"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_vnltIM9oEeyhqawK3-lFJA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_vnlGEc9oEeyhqawK3-lFJA" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -14549,9 +14336,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_nXAnw9afEeyHYNVFL3uY8Q" sourceNode="_k6LuUH_dEeqK6bOb5aXASA" targetNode="_W86ZQMSKEey-B4jvV1RysQ">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlElement"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlElement"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_nXDEANafEeyHYNVFL3uY8Q">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_nXB14NafEeyHYNVFL3uY8Q" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -14565,9 +14349,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_oPfIHNafEeyHYNVFL3uY8Q" sourceNode="_ok_PUH_hEeqK6bOb5aXASA" targetNode="_W86ZQMSKEey-B4jvV1RysQ">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlRoot"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlRoot"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_oPfu9tafEeyHYNVFL3uY8Q">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_oPfu8NafEeyHYNVFL3uY8Q" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -14581,9 +14362,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_oV6OTNahEeyHYNVFL3uY8Q" sourceNode="_k6LuUH_dEeqK6bOb5aXASA" targetNode="_rXIE4M9lEeyhqawK3-lFJA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlElement"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlElement"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_oV61JtahEeyHYNVFL3uY8Q">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_oV61INahEeyHYNVFL3uY8Q" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -14910,9 +14688,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_kXRRfNalEeyHYNVFL3uY8Q" sourceNode="_05misNaiEeyHYNVFL3uY8Q" targetNode="_Z81NAB2SEeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfPredicate"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfPredicate"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_kXRRg9alEeyHYNVFL3uY8Q">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_kXRRfdalEeyHYNVFL3uY8Q" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -14926,9 +14701,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_rFKtCdalEeyHYNVFL3uY8Q" sourceNode="_7DFpcNaiEeyHYNVFL3uY8Q" targetNode="_W86ZQMSKEey-B4jvV1RysQ">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfIriNode"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfIriNode"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_rFLT5talEeyHYNVFL3uY8Q">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_rFLT4NalEeyHYNVFL3uY8Q" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -14942,9 +14714,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_2WyLIdalEeyHYNVFL3uY8Q" sourceNode="_A7OzsP0SEeyGifjrmuaupg" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_2WyLKNalEeyHYNVFL3uY8Q">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_fWaG3O9AEe22VKfpeYNTVQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -14958,9 +14727,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_V6iFoNamEeyHYNVFL3uY8Q" sourceNode="_V6MHYNamEeyHYNVFL3uY8Q" targetNode="_c7kEcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfLiteralNode"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfLiteralNode"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_oCaOyddbEeyKyeJBsq0fAg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_V6iFodamEeyHYNVFL3uY8Q" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -14985,9 +14751,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_zgJdYNdbEeyKyeJBsq0fAg" sourceNode="_V6MHYNamEeyHYNVFL3uY8Q" targetNode="_ip88UNdbEeyKyeJBsq0fAg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfLiteralNode"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfLiteralNode"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_zgKEc9dbEeyKyeJBsq0fAg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_zgJdYddbEeyKyeJBsq0fAg" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -15001,9 +14764,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_z1WRd9dbEeyKyeJBsq0fAg" sourceNode="_7DFpcNaiEeyHYNVFL3uY8Q" targetNode="_ip88UNdbEeyKyeJBsq0fAg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfIriNode"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfIriNode"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_z1W4ZtdbEeyKyeJBsq0fAg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_z1W4YNdbEeyKyeJBsq0fAg" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -15027,9 +14787,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_cqeuz-cpEey5K8Z4h8O7Zw" sourceNode="_X4FMIOcoEey5K8Z4h8O7Zw" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/IriParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/IriParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_cqfVxucpEey5K8Z4h8O7Zw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_37L4uzE1Ee6-L8-zqkY_ng" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15043,9 +14800,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_TpLMuOcxEey5K8Z4h8O7Zw" sourceNode="_A7OzsP0SEeyGifjrmuaupg" targetNode="_HLrBkH_eEeqK6bOb5aXASA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_TpLztucxEey5K8Z4h8O7Zw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_fWat4O9AEe22VKfpeYNTVQ" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -15059,9 +14813,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_s-Tiqfa4Eeyie7tmdtJEWQ" sourceNode="_Z9wVYNakEeyHYNVFL3uY8Q" targetNode="_GHcuwNajEeyHYNVFL3uY8Q">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfSinglePredicate"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfSinglePredicate"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_s-UwwPa4Eeyie7tmdtJEWQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Xd6G0Pa5Eeyie7tmdtJEWQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15075,9 +14826,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_t7sX8Pa4Eeyie7tmdtJEWQ" sourceNode="_LqO54Pa4Eeyie7tmdtJEWQ" targetNode="_GHcuwNajEeyHYNVFL3uY8Q">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfSequence"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfSequence"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_t7sX9_a4Eeyie7tmdtJEWQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_t7sX8fa4Eeyie7tmdtJEWQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15091,9 +14839,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_uXaqvva4Eeyie7tmdtJEWQ" sourceNode="_LLnrQPa4Eeyie7tmdtJEWQ" targetNode="_GHcuwNajEeyHYNVFL3uY8Q">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfXor"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfXor"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_uXbRtva4Eeyie7tmdtJEWQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_uXbRsPa4Eeyie7tmdtJEWQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15139,9 +14884,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_uiAlnvbCEeyie7tmdtJEWQ" sourceNode="_fzpToPbCEeyie7tmdtJEWQ" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/IriListParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/IriListParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_uiBMlvbCEeyie7tmdtJEWQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_uiBMkPbCEeyie7tmdtJEWQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15155,9 +14897,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xxB2Nv0YEeyi9tYziELOrQ" sourceNode="_GHcuwNajEeyHYNVFL3uY8Q" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfPathComponent"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfPathComponent"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_xxDEUP0YEeyi9tYziELOrQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_fm_1wCMXEe23B9jt7anp1g" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15664,9 +15403,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_v6Ya2fh8EeyEAYheLQgtPA" sourceNode="_sYj54Ph8EeyEAYheLQgtPA" targetNode="_iaxbEPh8EeyEAYheLQgtPA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoElementNode"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoElementNode"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_v6ZB4Ph8EeyEAYheLQgtPA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_y34vjES0Ee2kztuV4T7hhA" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -15683,9 +15419,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_wb7MPPh9EeyEAYheLQgtPA" sourceNode="_sYj54Ph8EeyEAYheLQgtPA" targetNode="_W86ZQMSKEey-B4jvV1RysQ">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoElementNode"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoElementNode"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_wb7MQ_h9EeyEAYheLQgtPA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_lKE3wykcEe2tHKzGTjieeg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15710,9 +15443,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_iQYr9PiDEeyEAYheLQgtPA" sourceNode="_vQuu8Ph-EeyEAYheLQgtPA" targetNode="_JXCJcPh_EeyEAYheLQgtPA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoSimpleEdge"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_iQZS5viDEeyEAYheLQgtPA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1VFVlSk7Ee29LYepBtVBoQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15726,9 +15456,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_mDvqJ_iDEeyEAYheLQgtPA" sourceNode="_gZl7kPh-EeyEAYheLQgtPA" targetNode="_JXCJcPh_EeyEAYheLQgtPA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoComplexEdge"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoComplexEdge"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_mDvqLviDEeyEAYheLQgtPA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_QsttyVYaEe2IPrVp5_aQVg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15742,9 +15469,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_V_o-tPkVEeyqispHCUGqQA" sourceNode="_FPUcAPkVEeyqispHCUGqQA" targetNode="_c7kEcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_V_plpvkVEeyqispHCUGqQA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_c9d5TG56Ee2vGKfzzA4kvA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15758,9 +15482,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_wjQo8ANiEe206Z6-dx1KpQ" sourceNode="_FPUcAPkVEeyqispHCUGqQA" targetNode="_iaxbEPh8EeyEAYheLQgtPA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNode"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_wjRQAwNiEe206Z6-dx1KpQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_c9egUG56Ee2vGKfzzA4kvA" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -15774,9 +15495,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_PYi5AAj6Ee2xVZ8c2kum9g" sourceNode="_JXCJcPh_EeyEAYheLQgtPA" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathPart"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_PYi5Bwj6Ee2xVZ8c2kum9g">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_eeSNCy_MEe-V6uPfIOoFuA" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15790,9 +15508,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_G6GlQBNgEe2fIPzwT4i30Q" sourceNode="_Sb5tIAmfEe2hhapbB3QZOQ" targetNode="_deUzQB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/Contains"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/Contains"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_G6JokBNgEe2fIPzwT4i30Q">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_G6IacBNgEe2fIPzwT4i30Q" targetArrow="InputClosedArrow" routingStyle="manhattan" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <customFeatures>routingStyle</customFeatures>
@@ -15892,9 +15607,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_VGa8QR-kEe2-_fv40TsrYQ" sourceNode="_02GQwB41Ee28StARcPnhGA" targetNode="_vCN7oB77Ee20H_6KewSmww">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyEdge"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyEdge"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_VGcxYx-kEe2-_fv40TsrYQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_VGbjQB-kEe2-_fv40TsrYQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15908,9 +15620,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_cfSnPx-kEe2-_fv40TsrYQ" sourceNode="_8t2GQPh8EeyEAYheLQgtPA" targetNode="_vCN7oB77Ee20H_6KewSmww">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoElementEdge"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoElementEdge"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_cfTORh-kEe2-_fv40TsrYQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_cfTOQB-kEe2-_fv40TsrYQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15924,9 +15633,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_G6wTMCLPEe23B9jt7anp1g" sourceNode="_vCN7oB77Ee20H_6KewSmww" targetNode="_Z81NAB2SEeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoEdge"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoEdge"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_G6w6RiLPEe23B9jt7anp1g">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_beXa30ATEe20BLrY6Ta8OQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15940,9 +15646,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_G6xhUCLPEe23B9jt7anp1g" sourceNode="_bcdxIB8IEe20H_6KewSmww" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_G6yIZiLPEe23B9jt7anp1g">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_viyk0DwVEe2jVraSA4-AWw" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15956,9 +15659,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_hteWMCkOEe2tHKzGTjieeg" sourceNode="_fqDJwB41Ee28StARcPnhGA" targetNode="_bcdxIB8IEe20H_6KewSmww">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyPathParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyPathParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_htgLYykOEe2tHKzGTjieeg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_hte9QCkOEe2tHKzGTjieeg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -15972,9 +15672,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_zkHnrCkOEe2tHKzGTjieeg" sourceNode="_bcdxIB8IEe20H_6KewSmww" targetNode="_HLrBkH_eEeqK6bOb5aXASA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPathParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_zkIOtikOEe2tHKzGTjieeg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_viyk1jwVEe2jVraSA4-AWw" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -15988,9 +15685,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_235slikOEe2tHKzGTjieeg" sourceNode="_yMLEUANeEe206Z6-dx1KpQ" targetNode="_bcdxIB8IEe20H_6KewSmww">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoElementPathParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoElementPathParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_236TpikOEe2tHKzGTjieeg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_84MKYikqEe2Wp4Cnfy4wfg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16007,9 +15701,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_QEwSiikWEe2tHKzGTjieeg" sourceNode="_cWeqABPeEe2iRvdfpvWkRA" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/KeyValueParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/KeyValueParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_QEw5dikWEe2tHKzGTjieeg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_QEw5cCkWEe2tHKzGTjieeg" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16033,9 +15724,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_o2lENT6JEe2uF8g73p0yhQ" sourceNode="_dZumUD6JEe2uF8g73p0yhQ" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/ListParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/ListParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_o2m5UD6JEe2uF8g73p0yhQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_o2mSQD6JEe2uF8g73p0yhQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16052,9 +15740,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_sYV6yD6JEe2uF8g73p0yhQ" sourceNode="_VkNBcEKVEeqVq_rPQGyS5A" targetNode="_dZumUD6JEe2uF8g73p0yhQ">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/TextListParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/TextListParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_sYWhwz6JEe2uF8g73p0yhQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_sYV6yT6JEe2uF8g73p0yhQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16068,9 +15753,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_vyDolT6JEe2uF8g73p0yhQ" sourceNode="_s8WmsD6JEe2uF8g73p0yhQ" targetNode="_dZumUD6JEe2uF8g73p0yhQ">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/MultiListParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//parameters/MultiListParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_vyEPkz6JEe2uF8g73p0yhQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_vyDolj6JEe2uF8g73p0yhQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16084,9 +15766,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_UxwOgj6KEe2uF8g73p0yhQ" sourceNode="_NiM3gD6KEe2uF8g73p0yhQ" targetNode="_deUzQB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/NullCheck"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/NullCheck"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_Uxw1hj6KEe2uF8g73p0yhQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_vwSUoD6OEe2uF8g73p0yhQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16136,9 +15815,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_QGEhCES1Ee2kztuV4T7hhA" sourceNode="_vCN7oB77Ee20H_6KewSmww" targetNode="_oM1iEES0Ee2kztuV4T7hhA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoEdge"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoEdge"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_QGFvEES1Ee2kztuV4T7hhA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_QGFIAES1Ee2kztuV4T7hhA" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -16152,9 +15828,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_S03Dz0S1Ee2kztuV4T7hhA" sourceNode="_iaxbEPh8EeyEAYheLQgtPA" targetNode="_oM1iEES0Ee2kztuV4T7hhA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoNode"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoNode"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_S03D1kS1Ee2kztuV4T7hhA">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_S03D0ES1Ee2kztuV4T7hhA" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -16168,9 +15841,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_bDUbSJylEe2ibZnWAsK9tw" sourceNode="_Sz_pUJylEe2ibZnWAsK9tw" targetNode="_jdPBsB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoEdgeLabelParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoEdgeLabelParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_bDVCRpylEe2ibZnWAsK9tw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_bDVCQJylEe2ibZnWAsK9tw" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16184,9 +15854,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_cfKHHJylEe2ibZnWAsK9tw" sourceNode="_SbIdYJylEe2ibZnWAsK9tw" targetNode="_VkNBcEKVEeqVq_rPQGyS5A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoNodeLabelsParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoNodeLabelsParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_cfKHI5ylEe2ibZnWAsK9tw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_cfKHHZylEe2ibZnWAsK9tw" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16200,9 +15867,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_8eecA5yoEe2ibZnWAsK9tw" sourceNode="_SbIdYJylEe2ibZnWAsK9tw" targetNode="_AzRugJyoEe2ibZnWAsK9tw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoNodeLabelsParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoNodeLabelsParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_8eecCpyoEe2ibZnWAsK9tw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_8eecBJyoEe2ibZnWAsK9tw" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -16216,9 +15880,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_-AN7sZyoEe2ibZnWAsK9tw" sourceNode="_Sz_pUJylEe2ibZnWAsK9tw" targetNode="_AzRugJyoEe2ibZnWAsK9tw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoEdgeLabelParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoEdgeLabelParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_-AOippyoEe2ibZnWAsK9tw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_-AOioJyoEe2ibZnWAsK9tw" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
@@ -16232,9 +15893,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_BDMIOZ24Ee29fM9zB5ke1g" sourceNode="_1ts2oJ23Ee29fM9zB5ke1g" targetNode="_jdPBsB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNameParam"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionneo4j/NeoPropertyNameParam"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_BDNWU524Ee29fM9zB5ke1g">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_BDMvQJ24Ee29fM9zB5ke1g" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="77,137,20">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16248,9 +15906,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_43vYk-8rEe2nQ96RambbsQ" sourceNode="_4CDYYMrQEeysRuROHE0Ryg" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPart"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_43v_pu8rEe2nQ96RambbsQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_TwLPoAhoEe-9d9wjHwPR-A" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16288,9 +15943,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_bKODF-8vEe2nQ96RambbsQ" sourceNode="_9qvtMO8uEe2nQ96RambbsQ" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionrdf/RdfPathPart"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_bKOqBu8vEe2nQ96RambbsQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_U81oz-8xEe2nQ96RambbsQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16333,9 +15985,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_tpCbeTdsEe6nvKHlx_5IkQ" sourceNode="_s7NFEDdsEe6nvKHlx_5IkQ" targetNode="_deUzQB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/StringLength"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//operators/StringLength"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_tpDChjdsEe6nvKHlx_5IkQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_tpDCgDdsEe6nvKHlx_5IkQ" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16459,9 +16108,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_0p9TRnMyEe6HKLLQiCF52w" sourceNode="_0oyOkHMyEe6HKLLQiCF52w" targetNode="_deUzQB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaoperators/JavaOperator"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaoperators/JavaOperator"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_0p9TTXMyEe6HKLLQiCF52w">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_0p9TR3MyEe6HKLLQiCF52w" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16475,9 +16121,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_5gK0WHMyEe6HKLLQiCF52w" sourceNode="_5fYKEHMyEe6HKLLQiCF52w" targetNode="_0oyOkHMyEe6HKLLQiCF52w">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaoperators/OneArgJavaOperator"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaoperators/OneArgJavaOperator"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_5gK0X3MyEe6HKLLQiCF52w">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_CBHsPHM0Ee6HKLLQiCF52w" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16491,9 +16134,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_7_G773MyEe6HKLLQiCF52w" sourceNode="_7-XVAHMyEe6HKLLQiCF52w" targetNode="_0oyOkHMyEe6HKLLQiCF52w">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaoperators/TwoArgJavaOperator"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaoperators/TwoArgJavaOperator"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_7_G79nMyEe6HKLLQiCF52w">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_C8avcHM3Ee6HKLLQiCF52w" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16507,9 +16147,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ETBS-nMzEe6HKLLQiCF52w" sourceNode="_ESXykHMzEe6HKLLQiCF52w" targetNode="_5fYKEHMyEe6HKLLQiCF52w">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaoperators/ValidateLinkOperator"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaoperators/ValidateLinkOperator"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_ETB55nMzEe6HKLLQiCF52w">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ETB54HMzEe6HKLLQiCF52w" targetArrow="InputClosedArrow" routingStyle="tree" strokeColor="166,193,152">
         <customFeatures>strokeColor</customFeatures>
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
@@ -16968,9 +16605,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_FizbIHfSEe6IzMwvfq3DVw" sourceNode="_-KhbcHfQEe6IzMwvfq3DVw" targetNode="_P6ujIHfQEe6IzMwvfq3DVw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/FormulaFilterPart"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/FormulaFilterPart"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_Fi0CMHfSEe6IzMwvfq3DVw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_7zRppni0Ee6gUedoXbiQbg" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_7zRpp3i0Ee6gUedoXbiQbg" showIcon="false">
@@ -16983,9 +16617,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_F5hSM3fSEe6IzMwvfq3DVw" sourceNode="__kA98HfQEe6IzMwvfq3DVw" targetNode="_P6ujIHfQEe6IzMwvfq3DVw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/BooleanFilterElement"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/BooleanFilterElement"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_F5h5FnfSEe6IzMwvfq3DVw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_F5h5EHfSEe6IzMwvfq3DVw" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_F5h5EXfSEe6IzMwvfq3DVw" showIcon="false">
@@ -16998,9 +16629,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_GPydCHfSEe6IzMwvfq3DVw" sourceNode="_F-9oIHfREe6IzMwvfq3DVw" targetNode="_P6ujIHfQEe6IzMwvfq3DVw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/ListFilterPart"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/ListFilterPart"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_GPydD3fSEe6IzMwvfq3DVw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_t63ddni2Ee6gUedoXbiQbg" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_t63dd3i2Ee6gUedoXbiQbg" showIcon="false">
@@ -17013,9 +16641,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_GqQyhXfSEe6IzMwvfq3DVw" sourceNode="_DTZZwHfREe6IzMwvfq3DVw" targetNode="_P6ujIHfQEe6IzMwvfq3DVw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/OneArgFunctionFilterPart"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/OneArgFunctionFilterPart"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_GqQyjHfSEe6IzMwvfq3DVw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_0MsTrH8TEe6tJ4IQ7D8eBg" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_0MsTrX8TEe6tJ4IQ7D8eBg" showIcon="false">
@@ -17028,9 +16653,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_G_pMkHfSEe6IzMwvfq3DVw" sourceNode="_IA5qsHfREe6IzMwvfq3DVw" targetNode="_P6ujIHfQEe6IzMwvfq3DVw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/TwoArgFunctionFilterPart"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/TwoArgFunctionFilterPart"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_G_pMl3fSEe6IzMwvfq3DVw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_zT9XRHi4Ee6gUedoXbiQbg" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_zT9XRXi4Ee6gUedoXbiQbg" showIcon="false">
@@ -17309,9 +16931,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_DdYqCHfWEe6IzMwvfq3DVw" sourceNode="_6PPfYHfVEe6IzMwvfq3DVw" targetNode="_Qk3TAHfVEe6IzMwvfq3DVw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaqueryoutput/ContainerInterim"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaqueryoutput/ContainerInterim"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_DdYqD3fWEe6IzMwvfq3DVw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_DdYqCXfWEe6IzMwvfq3DVw" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_DdYqCnfWEe6IzMwvfq3DVw" showIcon="false">
@@ -17324,9 +16943,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_KDk69HfWEe6IzMwvfq3DVw" sourceNode="_HAK0MHfWEe6IzMwvfq3DVw" targetNode="_Qk3TAHfVEe6IzMwvfq3DVw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaqueryoutput/ValueInterim"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaqueryoutput/ValueInterim"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_KDk6-3fWEe6IzMwvfq3DVw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_KDk69XfWEe6IzMwvfq3DVw" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_KDk69nfWEe6IzMwvfq3DVw" showIcon="false">
@@ -17439,9 +17055,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_JnNltHfvEe6IzMwvfq3DVw" sourceNode="_JmdXoHfvEe6IzMwvfq3DVw" targetNode="_P6ujIHfQEe6IzMwvfq3DVw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/NotFilterPart"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/NotFilterPart"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_JnNlu3fvEe6IzMwvfq3DVw">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_JnNltXfvEe6IzMwvfq3DVw" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_JnNltnfvEe6IzMwvfq3DVw" showIcon="false">
@@ -17476,9 +17089,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_hWP_L3i5Ee6gUedoXbiQbg" sourceNode="_hVdUwHi5Ee6gUedoXbiQbg" targetNode="_P6ujIHfQEe6IzMwvfq3DVw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/CountFilterPart"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/CountFilterPart"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_hWQmBni5Ee6gUedoXbiQbg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_N0hvIHi9Ee6gUedoXbiQbg" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_N0hvIXi9Ee6gUedoXbiQbg" showIcon="false">
@@ -17530,9 +17140,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_l4k-Bni9Ee6gUedoXbiQbg" sourceNode="_Rc2ggHi9Ee6gUedoXbiQbg" targetNode="__MMzoHi8Ee6gUedoXbiQbg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/CountFilterElement"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/CountFilterElement"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_l4k-DXi9Ee6gUedoXbiQbg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_l4k-B3i9Ee6gUedoXbiQbg" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_l4k-CHi9Ee6gUedoXbiQbg" showIcon="false">
@@ -17545,9 +17152,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_qOvs1ni9Ee6gUedoXbiQbg" sourceNode="_pg5IUHi9Ee6gUedoXbiQbg" targetNode="__MMzoHi8Ee6gUedoXbiQbg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/NumberFilterElement"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/NumberFilterElement"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_qOvs3Xi9Ee6gUedoXbiQbg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_dIY8iHovEe6C78z1uN0_Rg" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_dIY8iXovEe6C78z1uN0_Rg" showIcon="false">
@@ -17560,9 +17164,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ik97VHjBEe6gUedoXbiQbg" sourceNode="__MMzoHi8Ee6gUedoXbiQbg" targetNode="_gLydUHjBEe6gUedoXbiQbg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/NumberFilterPart"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/NumberFilterPart"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_ik97W3jBEe6gUedoXbiQbg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_c_5cJXytEe6MoLGoXBYWyQ" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_c_5cJnytEe6MoLGoXBYWyQ" showIcon="false">
@@ -17575,9 +17176,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_jB35oHjBEe6gUedoXbiQbg" sourceNode="_P6ujIHfQEe6IzMwvfq3DVw" targetNode="_gLydUHjBEe6gUedoXbiQbg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/BooleanFilterPart"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/BooleanFilterPart"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_jB35p3jBEe6gUedoXbiQbg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_7XBn1nysEe6MoLGoXBYWyQ" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_7XBn13ysEe6MoLGoXBYWyQ" showIcon="false">
@@ -17618,9 +17216,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_rCrU53opEe6C78z1uN0_Rg" sourceNode="_rBY7UHopEe6C78z1uN0_Rg" targetNode="__MMzoHi8Ee6gUedoXbiQbg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/NumberValueFilterElement"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/NumberValueFilterElement"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_r0l6FnopEe6C78z1uN0_Rg">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_rCr70HopEe6C78z1uN0_Rg" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_rCr70XopEe6C78z1uN0_Rg" showIcon="false">
@@ -17647,9 +17242,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_bC9ZoHyjEe6MoLGoXBYWyQ" sourceNode="_bCHsIHyjEe6MoLGoXBYWyQ" targetNode="_6PPfYHfVEe6IzMwvfq3DVw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaqueryoutput/VariableContainerInterim"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaqueryoutput/VariableContainerInterim"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_bC9Zp3yjEe6MoLGoXBYWyQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_cZH7cXyjEe6MoLGoXBYWyQ" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_cZH7cnyjEe6MoLGoXBYWyQ" showIcon="false">
@@ -17662,9 +17254,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_c7H1YnyjEe6MoLGoXBYWyQ" sourceNode="_c6ZcYHyjEe6MoLGoXBYWyQ" targetNode="_6PPfYHfVEe6IzMwvfq3DVw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaqueryoutput/FixedContainerInterim"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaqueryoutput/FixedContainerInterim"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_c7IcMHyjEe6MoLGoXBYWyQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_n-j1fLE9Ee6Ey_ZI5ZBoNQ" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_n-j1fbE9Ee6Ey_ZI5ZBoNQ" showIcon="false">
@@ -17677,9 +17266,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xtpBJHyuEe6MoLGoXBYWyQ" sourceNode="_ZnYygHyuEe6MoLGoXBYWyQ" targetNode="_XDTsMHyuEe6MoLGoXBYWyQ">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_xtpn5nyuEe6MoLGoXBYWyQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_JF3eip6DEe6hQKPyCoL6ow" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_JF3ei56DEe6hQKPyCoL6ow" showIcon="false">
@@ -17692,9 +17278,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_yER_b3yuEe6MoLGoXBYWyQ" sourceNode="_yDhKMHyuEe6MoLGoXBYWyQ" targetNode="_XDTsMHyuEe6MoLGoXBYWyQ">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaqueryoutput/ValueResult"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaqueryoutput/ValueResult"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_yER_dnyuEe6MoLGoXBYWyQ">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_KLXbbH40Ee6SD9vPmhLbrQ" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_KLXbbX40Ee6SD9vPmhLbrQ" showIcon="false">
@@ -17822,9 +17405,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_VYd3kLCOEe67H6hrd1eY6Q" sourceNode="_VWFR8LCOEe67H6hrd1eY6Q" targetNode="_P6ujIHfQEe6IzMwvfq3DVw">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/QuantifierFilterPart"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//javaquery/QuantifierFilterPart"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_VYd3l7COEe67H6hrd1eY6Q">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_VYd3kbCOEe67H6hrd1eY6Q" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_VYd3krCOEe67H6hrd1eY6Q" showIcon="false">
@@ -17856,9 +17436,6 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_W7FMzAhlEe-9d9wjHwPR-A" sourceNode="_ID8rUAhjEe-9d9wjHwPR-A" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPartCondition"/>
       <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPartCondition"/>
-      <decorations xmi:type="viewpoint:Decoration" uid="_W7Ga5ghlEe-9d9wjHwPR-A">
-        <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
-      </decorations>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_boTlQAukEe-0w4ETeAQQyA" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_boTlQQukEe-0w4ETeAQQyA" showIcon="false">

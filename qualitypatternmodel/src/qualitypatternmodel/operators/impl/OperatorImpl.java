@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Comparable;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.BooleanOperator;
@@ -27,6 +28,7 @@ import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -192,6 +194,52 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	@Override
 	public boolean isOperatorArgument() {
 		return !getComparison1().isEmpty() || !getComparison2().isEmpty();
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Comparison addComparison(qualitypatternmodel.graphstructure.Comparable comparable) {
+		if (comparable == null) {
+			throw new RuntimeException("Adding Condition Failed: comparable is null");
+		}
+		Graph thisGraph = null;
+		if (getOperatorList() == null || getOperatorList().getGraph() == null)
+			throw new RuntimeException("Operator is not in Graph: " + this.myToString());
+		thisGraph = getOperatorList().getGraph();
+		if (ReturnType.isCompatible(this, comparable)) {
+			try {
+				Comparison comparison = new ComparisonImpl();
+				Graph comparableGraph = null;
+				if (comparable instanceof Node)
+					comparableGraph = ((Node) comparable).getGraph();
+				else if (comparable instanceof Operator && ((Operator) comparable).getOperatorList() != null)
+					comparableGraph = ((Operator) comparable).getOperatorList().getGraph();
+				else if (comparable instanceof ParameterValue) {
+					((ParameterValue) comparable).setParameterList(thisGraph.getParameterList());
+					comparableGraph = null;
+				}
+				else {
+					throw new RuntimeException("Class not expected: " + comparable.getClass());
+				}
+				
+				Graph graph = thisGraph.isBefore(comparableGraph)? comparableGraph: thisGraph;
+				OperatorList oplist = graph.getOperatorList();
+
+				comparison.createParameters();
+				comparison.setArgument1(this);
+				comparison.setArgument2(comparable);
+				oplist.add(comparison);
+
+				return comparison;
+			} catch (Exception e) {
+				throw new RuntimeException("Adding Condition Failed: " + e.getMessage());
+			}
+		} else
+			throw new RuntimeException("Adding Condition Failed: Incompatible comparables");
 	}
 
 /**
@@ -454,6 +502,8 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 				return getAllArgumentElements();
 			case OperatorsPackage.OPERATOR___IS_OPERATOR_ARGUMENT:
 				return isOperatorArgument();
+			case OperatorsPackage.OPERATOR___ADD_COMPARISON__COMPARABLE:
+				return addComparison((qualitypatternmodel.graphstructure.Comparable)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

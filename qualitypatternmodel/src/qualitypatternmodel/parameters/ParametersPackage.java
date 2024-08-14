@@ -1784,13 +1784,22 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___IS_OPERATOR_ARGUMENT = PARAMETER_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___ADD_COMPARISON__COMPARABLE = PARAMETER_OPERATION_COUNT + 5;
+
+	/**
 	 * The operation id for the '<em>Replace</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___REPLACE__PARAMETERVALUE = PARAMETER_OPERATION_COUNT + 5;
+	int PARAMETER_VALUE___REPLACE__PARAMETERVALUE = PARAMETER_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Replace Via Value</em>' operation.
@@ -1799,7 +1808,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_OPERATION_COUNT + 6;
+	int PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get Element Tags</em>' operation.
@@ -1808,7 +1817,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___GET_ELEMENT_TAGS = PARAMETER_OPERATION_COUNT + 7;
+	int PARAMETER_VALUE___GET_ELEMENT_TAGS = PARAMETER_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Get Data Values</em>' operation.
@@ -1817,7 +1826,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___GET_DATA_VALUES = PARAMETER_OPERATION_COUNT + 8;
+	int PARAMETER_VALUE___GET_DATA_VALUES = PARAMETER_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
@@ -1826,7 +1835,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___IS_IN_DATA_COMPARISON = PARAMETER_OPERATION_COUNT + 9;
+	int PARAMETER_VALUE___IS_IN_DATA_COMPARISON = PARAMETER_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Is In Tag Comparison</em>' operation.
@@ -1835,7 +1844,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___IS_IN_TAG_COMPARISON = PARAMETER_OPERATION_COUNT + 10;
+	int PARAMETER_VALUE___IS_IN_TAG_COMPARISON = PARAMETER_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Get Attribute Names</em>' operation.
@@ -1844,7 +1853,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___GET_ATTRIBUTE_NAMES = PARAMETER_OPERATION_COUNT + 11;
+	int PARAMETER_VALUE___GET_ATTRIBUTE_NAMES = PARAMETER_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Get Attribute Values</em>' operation.
@@ -1853,7 +1862,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___GET_ATTRIBUTE_VALUES = PARAMETER_OPERATION_COUNT + 12;
+	int PARAMETER_VALUE___GET_ATTRIBUTE_VALUES = PARAMETER_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
@@ -1862,7 +1871,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_OPERATION_COUNT + 13;
+	int PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Get Suggestions</em>' operation.
@@ -1871,7 +1880,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___GET_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 14;
+	int PARAMETER_VALUE___GET_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Infer Suggestions</em>' operation.
@@ -1880,7 +1889,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___INFER_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 15;
+	int PARAMETER_VALUE___INFER_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 16;
 
 	/**
 	 * The number of operations of the '<em>Parameter Value</em>' class.
@@ -1889,7 +1898,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 16;
+	int PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 17;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.BooleanParamImpl <em>Boolean Param</em>}' class.
@@ -2413,6 +2422,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_PARAM___IS_OPERATOR_ARGUMENT = PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___ADD_COMPARISON__COMPARABLE = PARAMETER_VALUE___ADD_COMPARISON__COMPARABLE;
 
 	/**
 	 * The operation id for the '<em>Replace</em>' operation.
@@ -3017,6 +3035,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST_PARAM___IS_OPERATOR_ARGUMENT = PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_PARAM___ADD_COMPARISON__COMPARABLE = PARAMETER_VALUE___ADD_COMPARISON__COMPARABLE;
 
 	/**
 	 * The operation id for the '<em>Replace</em>' operation.
@@ -3648,6 +3675,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___IS_OPERATOR_ARGUMENT = LIST_PARAM___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___ADD_COMPARISON__COMPARABLE = LIST_PARAM___ADD_COMPARISON__COMPARABLE;
 
 	/**
 	 * The operation id for the '<em>Replace</em>' operation.
@@ -4317,6 +4353,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___IS_OPERATOR_ARGUMENT = PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___ADD_COMPARISON__COMPARABLE = PARAMETER_VALUE___ADD_COMPARISON__COMPARABLE;
+
+	/**
 	 * The operation id for the '<em>Replace</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4939,6 +4984,15 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___IS_OPERATOR_ARGUMENT = PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___ADD_COMPARISON__COMPARABLE = PARAMETER_VALUE___ADD_COMPARISON__COMPARABLE;
+
+	/**
 	 * The operation id for the '<em>Replace</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5541,6 +5595,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM___IS_OPERATOR_ARGUMENT = PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___ADD_COMPARISON__COMPARABLE = PARAMETER_VALUE___ADD_COMPARISON__COMPARABLE;
 
 	/**
 	 * The operation id for the '<em>Replace</em>' operation.
@@ -6147,6 +6210,15 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___IS_OPERATOR_ARGUMENT = PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___ADD_COMPARISON__COMPARABLE = PARAMETER_VALUE___ADD_COMPARISON__COMPARABLE;
+
+	/**
 	 * The operation id for the '<em>Replace</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6740,6 +6812,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNTYPED_PARAMETER_VALUE___IS_OPERATOR_ARGUMENT = PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___ADD_COMPARISON__COMPARABLE = PARAMETER_VALUE___ADD_COMPARISON__COMPARABLE;
 
 	/**
 	 * The operation id for the '<em>Replace</em>' operation.
@@ -7344,6 +7425,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_TIME_PARAM___IS_OPERATOR_ARGUMENT = PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___ADD_COMPARISON__COMPARABLE = PARAMETER_VALUE___ADD_COMPARISON__COMPARABLE;
 
 	/**
 	 * The operation id for the '<em>Replace</em>' operation.
@@ -8859,6 +8949,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTI_LIST_PARAM___IS_OPERATOR_ARGUMENT = LIST_PARAM___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_LIST_PARAM___ADD_COMPARISON__COMPARABLE = LIST_PARAM___ADD_COMPARISON__COMPARABLE;
 
 	/**
 	 * The operation id for the '<em>Replace</em>' operation.

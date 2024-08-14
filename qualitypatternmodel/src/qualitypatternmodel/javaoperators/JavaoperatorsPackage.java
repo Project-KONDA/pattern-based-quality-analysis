@@ -411,6 +411,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	int JAVA_OPERATOR___IS_OPERATOR_ARGUMENT = OperatorsPackage.BOOLEAN_OPERATOR___IS_OPERATOR_ARGUMENT;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_OPERATOR___ADD_COMPARISON__COMPARABLE = OperatorsPackage.BOOLEAN_OPERATOR___ADD_COMPARISON__COMPARABLE;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -869,6 +878,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ONE_ARG_JAVA_OPERATOR___IS_OPERATOR_ARGUMENT = JAVA_OPERATOR___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_OPERATOR___ADD_COMPARISON__COMPARABLE = JAVA_OPERATOR___ADD_COMPARISON__COMPARABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1340,6 +1358,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	int TWO_ARG_JAVA_OPERATOR___IS_OPERATOR_ARGUMENT = JAVA_OPERATOR___IS_OPERATOR_ARGUMENT;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_JAVA_OPERATOR___ADD_COMPARISON__COMPARABLE = JAVA_OPERATOR___ADD_COMPARISON__COMPARABLE;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1807,6 +1834,15 @@ public interface JavaoperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALIDATE_LINK_OPERATOR___IS_OPERATOR_ARGUMENT = ONE_ARG_JAVA_OPERATOR___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_LINK_OPERATOR___ADD_COMPARISON__COMPARABLE = ONE_ARG_JAVA_OPERATOR___ADD_COMPARISON__COMPARABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.

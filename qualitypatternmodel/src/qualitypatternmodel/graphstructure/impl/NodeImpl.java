@@ -414,6 +414,65 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public boolean isOperatorArgument() {
 		return !getComparison1().isEmpty() || !getComparison2().isEmpty();
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Comparison addComparison(qualitypatternmodel.graphstructure.Comparable comparable) {
+		if (this.getClass() == NodeImpl.class)
+			throw new RuntimeException("Adding Condition Failed: argument is a generic node");
+		if (comparable == null) {
+			throw new RuntimeException("Adding Condition Failed: comparable is null");
+		}
+		Graph thisGraph = getGraph();
+		if (thisGraph == null)
+			throw new RuntimeException("Node is not in Graph: " + this.myToString());
+		if (ReturnType.isCompatible(this, comparable)) {
+			try {
+				Comparison comparison = new ComparisonImpl();
+				Graph comparableGraph = null;
+				if (comparable instanceof Node) {
+					comparableGraph = ((Node) comparable).getGraph();
+					if (comparable.getClass() == NodeImpl.class) {
+						try {
+							if (this instanceof PrimitiveNode)
+								((Node) comparable).makePrimitive();
+							else if (this instanceof ComplexNode)
+								((Node) comparable).makeComplex();
+						} catch (InvalidityException e) {
+							throw new RuntimeException("Adding Condition failed: " + e.getMessage());
+						}
+					}
+				}	
+				else if (comparable instanceof Operator)
+					comparableGraph = ((Operator) comparable).getOperatorList().getGraph();
+				else if (comparable instanceof ParameterValue) {
+					((ParameterValue) comparable).setParameterList(thisGraph.getParameterList());
+					comparableGraph = null;
+				}
+				else {
+					throw new RuntimeException("Class not expected: " + comparable.getClass());
+				}
+				
+				Graph graph = thisGraph.isBefore(comparableGraph)? comparableGraph: thisGraph;
+				OperatorList oplist = graph.getOperatorList();
+
+				comparison.createParameters();
+				comparison.setArgument1(this);
+				comparison.setArgument2(comparable);
+				oplist.add(comparison);
+
+				return comparison;
+			} catch (Exception e) {
+				throw new RuntimeException("Adding Condition Failed: " + e.getMessage());
+			}
+		} else
+			throw new RuntimeException("Adding Condition Failed: Incompatible comparables");
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -1294,35 +1353,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 	//END - Adapt for Neo4J/Cypher
 
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public Comparison addComparison(Node node) {
-		if (this.getClass() == node.getClass() && this.getClass() != NodeImpl.class) {
-			try {
-				Comparison comparison = new ComparisonImpl();
-				Graph graph = getGraph().isBefore(node.getGraph())? node.getGraph(): getGraph();
-				OperatorList oplist = graph.getOperatorList();
-
-				comparison.createParameters();
-				comparison.setArgument1(this);
-				comparison.setArgument2(node);
-				oplist.add(comparison);
-
-				return comparison;
-
-			} catch (Exception e) {
-				throw new RuntimeException("Adding Condition Failed: " + e.getMessage());
-			}
-		}
-		throw new RuntimeException("Adding Condition Failed: Nodes not of same type " + this.getClass().getSimpleName() + " " + node.getClass().getSimpleName());
-	}
-
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1704,8 +1734,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				}
 			case GraphstructurePackage.NODE___ADD_INCOMMING__COMPLEXNODE:
 				return addIncomming((ComplexNode)arguments.get(0));
-			case GraphstructurePackage.NODE___ADD_COMPARISON__NODE:
-				return addComparison((Node)arguments.get(0));
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON:
 				try {
 					return addPrimitiveComparison();
@@ -1895,6 +1923,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return getAllArgumentElements();
 			case GraphstructurePackage.NODE___IS_OPERATOR_ARGUMENT:
 				return isOperatorArgument();
+			case GraphstructurePackage.NODE___ADD_COMPARISON__COMPARABLE:
+				return addComparison((qualitypatternmodel.graphstructure.Comparable)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
