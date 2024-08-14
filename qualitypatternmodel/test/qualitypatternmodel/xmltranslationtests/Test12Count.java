@@ -85,7 +85,6 @@ public class Test12Count {
 		CompletePattern pattern = getPatternCountInExists();
 		((QuantifiedCondition) pattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		List<Parameter> params = pattern.getParameterList().getParameters();
-		System.out.println(params.get(0).getClass().getSimpleName()); 
 		((ComparisonOptionParam) params.get(0)).setValueFromString("GREATER");
 		((NumberParam) params.get(1)).setValue(2.);
 		((XmlPathParam) params.get(2)).setValueFromString("//*");
