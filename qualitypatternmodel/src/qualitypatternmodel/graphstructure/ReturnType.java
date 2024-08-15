@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.Enumerator;
 
+import qualitypatternmodel.graphstructure.impl.NodeImpl;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the literals of the enumeration '<em><b>Return Type</b></em>',
@@ -444,6 +446,20 @@ public enum ReturnType implements Enumerator {
 
 	public String getCatchCastingError() {
 		return catchCastingError;
+	}
+
+	public static Boolean isCompatible(Comparable c1, Comparable c2) {
+		if (c1.getClass() == Node.class || c2.getClass() == NodeImpl.class)
+			return false;
+		
+		ReturnType rt = c1.getReturnType();
+		ReturnType rt2 = c2.getReturnType();
+		
+		if (rt == null || rt2 == null)
+			return false;
+		if (rt == UNSPECIFIED || rt2 == UNSPECIFIED)
+			return true;
+		return rt == rt2;
 	}
 
 } //ReturnType

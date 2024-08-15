@@ -339,9 +339,6 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addIncomming">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addIncomming/node"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addComparison">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addComparison/node"/>
-        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison.1">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison.1/value"/>
@@ -431,6 +428,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Comparable/isTranslatable"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Comparable/getAllArgumentElements"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Comparable/isOperatorArgument"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Comparable/addComparison">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Comparable/addComparison/node"/>
+        </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//graphstructure/Adaptable">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Adaptable/createParameters"/>

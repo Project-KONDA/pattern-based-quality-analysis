@@ -21,7 +21,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
-public class TranslationTests2 {
+public class XmlTranslationJUnitTests {
 	private static final String TEST_DATABASE_NAME = "DemoDatabase";
 	private static final String TEST_DATA_PATH = "demo.data/demo_database.xml";
 	private static Context context;

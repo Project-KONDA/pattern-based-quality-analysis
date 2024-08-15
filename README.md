@@ -52,16 +52,16 @@ The graphical user interface is implemented in the gui branch in the project cal
 ## Installation
 
 1. Install Eclipse
-   a) Download: [https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
-   b) Select installation option "Eclipse Modelling Tools"
+	1. Download: [https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
+	2. Select installation option "Eclipse Modelling Tools"
 2. Install Plugins 
-   a) Eclipse Enterprise Java and Web Developer Tools
-   b) Eclipse m2e
-   c) OCL Build Support
+	1. Eclipse Enterprise Java and Web Developer Tools
+	2. Eclipse m2e
+	3. OCL Build Support
 3. Import Repository
-   a) Pull this repository to your local drive
-   b) Initialize submodule: "git submodule update --init"
-   c) Import the framework into the Eclipse Workspace via "Import.. > Existing Projects into Workspace"
+	1. Pull this repository to your local drive
+	2. Initialize submodule: "git submodule update --init"
+	3. Import the framework into the Eclipse Workspace via "Import.. > Existing Projects into Workspace"
 
 ## Tests
 

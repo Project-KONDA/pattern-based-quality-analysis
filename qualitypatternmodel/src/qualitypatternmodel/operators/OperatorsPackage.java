@@ -405,6 +405,15 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR___IS_OPERATOR_ARGUMENT = GraphstructurePackage.COMPARABLE___IS_OPERATOR_ARGUMENT;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___ADD_COMPARISON__COMPARABLE = GraphstructurePackage.COMPARABLE___ADD_COMPARISON__COMPARABLE;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -809,6 +818,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___IS_OPERATOR_ARGUMENT = OPERATOR___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___ADD_COMPARISON__COMPARABLE = OPERATOR___ADD_COMPARISON__COMPARABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1244,6 +1262,15 @@ public interface OperatorsPackage extends EPackage {
 	int NUMBER_OPERATOR___IS_OPERATOR_ARGUMENT = OPERATOR___IS_OPERATOR_ARGUMENT;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___ADD_COMPARISON__COMPARABLE = OPERATOR___ADD_COMPARISON__COMPARABLE;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1675,6 +1702,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___IS_OPERATOR_ARGUMENT = BOOLEAN_OPERATOR___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___ADD_COMPARISON__COMPARABLE = BOOLEAN_OPERATOR___ADD_COMPARISON__COMPARABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2153,6 +2189,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON___IS_OPERATOR_ARGUMENT = BOOLEAN_OPERATOR___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___ADD_COMPARISON__COMPARABLE = BOOLEAN_OPERATOR___ADD_COMPARISON__COMPARABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2967,6 +3012,15 @@ public interface OperatorsPackage extends EPackage {
 	int CONTAINS___IS_OPERATOR_ARGUMENT = BOOLEAN_OPERATOR___IS_OPERATOR_ARGUMENT;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___ADD_COMPARISON__COMPARABLE = BOOLEAN_OPERATOR___ADD_COMPARISON__COMPARABLE;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3425,6 +3479,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NULL_CHECK___IS_OPERATOR_ARGUMENT = BOOLEAN_OPERATOR___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_CHECK___ADD_COMPARISON__COMPARABLE = BOOLEAN_OPERATOR___ADD_COMPARISON__COMPARABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3894,6 +3957,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRING_LENGTH___IS_OPERATOR_ARGUMENT = BOOLEAN_OPERATOR___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___ADD_COMPARISON__COMPARABLE = BOOLEAN_OPERATOR___ADD_COMPARISON__COMPARABLE;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.

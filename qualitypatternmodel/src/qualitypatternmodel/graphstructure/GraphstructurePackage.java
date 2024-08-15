@@ -855,13 +855,22 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPARABLE___IS_OPERATOR_ARGUMENT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE___ADD_COMPARISON__COMPARABLE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Comparable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARABLE_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+	int COMPARABLE_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.NodeImpl <em>Node</em>}' class.
@@ -1279,6 +1288,15 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___IS_OPERATOR_ARGUMENT = COMPARABLE___IS_OPERATOR_ARGUMENT;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___ADD_COMPARISON__COMPARABLE = COMPARABLE___ADD_COMPARISON__COMPARABLE;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1351,13 +1369,13 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___ADD_INCOMMING__COMPLEXNODE = COMPARABLE_OPERATION_COUNT + 7;
 
 	/**
-	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_COMPARISON__NODE = COMPARABLE_OPERATION_COUNT + 8;
+	int NODE___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1366,7 +1384,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 9;
+	int NODE___ADD_PRIMITIVE_COMPARISON__STRING = COMPARABLE_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1375,7 +1393,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_COMPARISON__STRING = COMPARABLE_OPERATION_COUNT + 10;
+	int NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1384,16 +1402,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 11;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 12;
+	int NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1402,7 +1411,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 13;
+	int NODE___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1411,7 +1420,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_MATCH__STRING = COMPARABLE_OPERATION_COUNT + 14;
+	int NODE___ADD_PRIMITIVE_MATCH__STRING = COMPARABLE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
@@ -1420,7 +1429,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_CONTAINS = COMPARABLE_OPERATION_COUNT + 15;
+	int NODE___ADD_PRIMITIVE_CONTAINS = COMPARABLE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
@@ -1429,7 +1438,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_CONTAINS__STRING = COMPARABLE_OPERATION_COUNT + 16;
+	int NODE___ADD_PRIMITIVE_CONTAINS__STRING = COMPARABLE_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
@@ -1438,7 +1447,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_STRING_LENGTH = COMPARABLE_OPERATION_COUNT + 17;
+	int NODE___ADD_PRIMITIVE_STRING_LENGTH = COMPARABLE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Add Primitive String Length</em>' operation.
@@ -1447,7 +1456,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE = COMPARABLE_OPERATION_COUNT + 18;
+	int NODE___ADD_PRIMITIVE_STRING_LENGTH__COMPARISONOPERATOR_DOUBLE = COMPARABLE_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
@@ -1456,7 +1465,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_NULL_CHECK = COMPARABLE_OPERATION_COUNT + 19;
+	int NODE___ADD_PRIMITIVE_NULL_CHECK = COMPARABLE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Null Check</em>' operation.
@@ -1465,7 +1474,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = COMPARABLE_OPERATION_COUNT + 20;
+	int NODE___ADD_PRIMITIVE_NULL_CHECK__BOOLEAN = COMPARABLE_OPERATION_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Validate Link</em>' operation.
@@ -1474,7 +1483,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_PRIMITIVE_VALIDATE_LINK = COMPARABLE_OPERATION_COUNT + 21;
+	int NODE___ADD_PRIMITIVE_VALIDATE_LINK = COMPARABLE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -1483,7 +1492,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___CHECK_COMPARISON_CONSISTENCY = COMPARABLE_OPERATION_COUNT + 22;
+	int NODE___CHECK_COMPARISON_CONSISTENCY = COMPARABLE_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -1492,7 +1501,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON = COMPARABLE_OPERATION_COUNT + 23;
+	int NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON = COMPARABLE_OPERATION_COUNT + 22;
 
 	/**
 	 * The operation id for the '<em>Check Generic</em>' operation.
@@ -1501,7 +1510,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___CHECK_GENERIC = COMPARABLE_OPERATION_COUNT + 24;
+	int NODE___CHECK_GENERIC = COMPARABLE_OPERATION_COUNT + 23;
 
 	/**
 	 * The operation id for the '<em>Make Generic</em>' operation.
@@ -1510,7 +1519,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___MAKE_GENERIC = COMPARABLE_OPERATION_COUNT + 25;
+	int NODE___MAKE_GENERIC = COMPARABLE_OPERATION_COUNT + 24;
 
 	/**
 	 * The operation id for the '<em>Check Complex</em>' operation.
@@ -1519,7 +1528,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___CHECK_COMPLEX = COMPARABLE_OPERATION_COUNT + 26;
+	int NODE___CHECK_COMPLEX = COMPARABLE_OPERATION_COUNT + 25;
 
 	/**
 	 * The operation id for the '<em>Make Complex</em>' operation.
@@ -1528,7 +1537,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___MAKE_COMPLEX = COMPARABLE_OPERATION_COUNT + 27;
+	int NODE___MAKE_COMPLEX = COMPARABLE_OPERATION_COUNT + 26;
 
 	/**
 	 * The operation id for the '<em>Check Primitive</em>' operation.
@@ -1537,7 +1546,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___CHECK_PRIMITIVE = COMPARABLE_OPERATION_COUNT + 28;
+	int NODE___CHECK_PRIMITIVE = COMPARABLE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Make Primitive</em>' operation.
@@ -1546,7 +1555,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___MAKE_PRIMITIVE = COMPARABLE_OPERATION_COUNT + 29;
+	int NODE___MAKE_PRIMITIVE = COMPARABLE_OPERATION_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
@@ -1555,7 +1564,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADAPT_AS_XML_ELEMENT = COMPARABLE_OPERATION_COUNT + 30;
+	int NODE___ADAPT_AS_XML_ELEMENT = COMPARABLE_OPERATION_COUNT + 29;
 
 	/**
 	 * The operation id for the '<em>Adapt As Xml Property</em>' operation.
@@ -1564,7 +1573,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADAPT_AS_XML_PROPERTY = COMPARABLE_OPERATION_COUNT + 31;
+	int NODE___ADAPT_AS_XML_PROPERTY = COMPARABLE_OPERATION_COUNT + 30;
 
 	/**
 	 * The operation id for the '<em>Adapt As Rdf Iri Node</em>' operation.
@@ -1573,7 +1582,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADAPT_AS_RDF_IRI_NODE = COMPARABLE_OPERATION_COUNT + 32;
+	int NODE___ADAPT_AS_RDF_IRI_NODE = COMPARABLE_OPERATION_COUNT + 31;
 
 	/**
 	 * The operation id for the '<em>Adapt As Rdf Literal Node</em>' operation.
@@ -1582,7 +1591,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADAPT_AS_RDF_LITERAL_NODE = COMPARABLE_OPERATION_COUNT + 33;
+	int NODE___ADAPT_AS_RDF_LITERAL_NODE = COMPARABLE_OPERATION_COUNT + 32;
 
 	/**
 	 * The operation id for the '<em>Adapt As Neo Element Node</em>' operation.
@@ -1591,7 +1600,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADAPT_AS_NEO_ELEMENT_NODE = COMPARABLE_OPERATION_COUNT + 34;
+	int NODE___ADAPT_AS_NEO_ELEMENT_NODE = COMPARABLE_OPERATION_COUNT + 33;
 
 	/**
 	 * The operation id for the '<em>Adapt As Neo Property Node</em>' operation.
@@ -1600,7 +1609,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADAPT_AS_NEO_PROPERTY_NODE = COMPARABLE_OPERATION_COUNT + 35;
+	int NODE___ADAPT_AS_NEO_PROPERTY_NODE = COMPARABLE_OPERATION_COUNT + 34;
 
 	/**
 	 * The operation id for the '<em>In Java Return Required</em>' operation.
@@ -1609,7 +1618,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___IN_JAVA_RETURN_REQUIRED = COMPARABLE_OPERATION_COUNT + 36;
+	int NODE___IN_JAVA_RETURN_REQUIRED = COMPARABLE_OPERATION_COUNT + 35;
 
 	/**
 	 * The operation id for the '<em>In Java Graph Return Required</em>' operation.
@@ -1618,7 +1627,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = COMPARABLE_OPERATION_COUNT + 37;
+	int NODE___IN_JAVA_GRAPH_RETURN_REQUIRED = COMPARABLE_OPERATION_COUNT + 36;
 
 	/**
 	 * The operation id for the '<em>In Java Where</em>' operation.
@@ -1627,7 +1636,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___IN_JAVA_WHERE = COMPARABLE_OPERATION_COUNT + 38;
+	int NODE___IN_JAVA_WHERE = COMPARABLE_OPERATION_COUNT + 37;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -1636,7 +1645,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 39;
+	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 38;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
@@ -2117,6 +2126,15 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___IS_OPERATOR_ARGUMENT = NODE___IS_OPERATOR_ARGUMENT;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___ADD_COMPARISON__COMPARABLE = NODE___ADD_COMPARISON__COMPARABLE;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2187,15 +2205,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_NODE___ADD_INCOMMING__COMPLEXNODE = NODE___ADD_INCOMMING__COMPLEXNODE;
-
-	/**
-	 * The operation id for the '<em>Add Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_NODE___ADD_COMPARISON__NODE = NODE___ADD_COMPARISON__NODE;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -3686,6 +3695,15 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___IS_OPERATOR_ARGUMENT = NODE___IS_OPERATOR_ARGUMENT;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADD_COMPARISON__COMPARABLE = NODE___ADD_COMPARISON__COMPARABLE;
+
+	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3756,15 +3774,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPLEX_NODE___ADD_INCOMMING__COMPLEXNODE = NODE___ADD_INCOMMING__COMPLEXNODE;
-
-	/**
-	 * The operation id for the '<em>Add Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_NODE___ADD_COMPARISON__NODE = NODE___ADD_COMPARISON__NODE;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -4668,16 +4677,6 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getNode__AdaptAsNeoElementNode();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addComparison(qualitypatternmodel.graphstructure.Node) <em>Add Comparison</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Comparison</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Node#addComparison(qualitypatternmodel.graphstructure.Node)
-	 * @generated
-	 */
-	EOperation getNode__AddComparison__Node();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoPropertyNode() <em>Adapt As Neo Property Node</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5065,6 +5064,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getComparable__IsOperatorArgument();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Comparable#addComparison(qualitypatternmodel.graphstructure.Comparable) <em>Add Comparison</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Comparison</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Comparable#addComparison(qualitypatternmodel.graphstructure.Comparable)
+	 * @generated
+	 */
+	EOperation getComparable__AddComparison__Comparable();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Adaptable <em>Adaptable</em>}'.
@@ -5629,14 +5638,6 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation NODE___ADAPT_AS_NEO_ELEMENT_NODE = eINSTANCE.getNode__AdaptAsNeoElementNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Comparison</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NODE___ADD_COMPARISON__NODE = eINSTANCE.getNode__AddComparison__Node();
-
-		/**
 		 * The meta object literal for the '<em><b>Adapt As Neo Property Node</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5943,6 +5944,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPARABLE___IS_OPERATOR_ARGUMENT = eINSTANCE.getComparable__IsOperatorArgument();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Comparison</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARABLE___ADD_COMPARISON__COMPARABLE = eINSTANCE.getComparable__AddComparison__Comparable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.Adaptable <em>Adaptable</em>}' class.
