@@ -442,7 +442,7 @@ public abstract class ServletUtilities {
 		log("CALL: " + clazz + "(" + path + ")" + mapToString(params));
 	}
 
-	private static String mapToString(Map<String, String[]> map) {
+	static String mapToString(Map<String, String[]> map) {
 		JSONObject job = new JSONObject();
 		for (String key: map.keySet()) {
 			try {
