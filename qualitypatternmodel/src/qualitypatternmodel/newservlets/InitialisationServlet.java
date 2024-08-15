@@ -37,7 +37,9 @@ public class InitialisationServlet extends HttpServlet {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
-		response.getOutputStream().println(getWebsite());
+		
+		String call = getCall(path, params);
+		response.getOutputStream().println(getWebsite(call));
 		response.setStatus(HttpServletResponse.SC_OK);
 	}
 
@@ -181,8 +183,17 @@ public class InitialisationServlet extends HttpServlet {
 	    return file.exists();
 	}
 
-	private String getWebsite() {
-		return "<!doctype html>\r\n"
+	private String getCall(String path, Map<String, String[]> params) {
+		Boolean pathnull = path == null || "/".equals(path);
+		Boolean paramsnull = params == null || params.isEmpty();
+		
+		if (pathnull && paramsnull)
+			return null;
+		return (pathnull? "/" : path) + (paramsnull? "" : " " + ServletUtilities.mapToString(params));
+	}
+
+	private String getWebsite(String call) {
+		String result = "<!doctype html>\r\n"
 				+ "<html lang=\"en\">\r\n"
 				+ "<head>\r\n"
 				+ "    <title>QualityPatternModel API</title>\r\n"
@@ -220,8 +231,11 @@ public class InitialisationServlet extends HttpServlet {
 				+ "    </style>"
 				+ "</head>\r\n"
 				+ "<body>\r\n"
-				+ "    <h1>QualityPatternModel API</h1>\r\n"
-				+ "</body>\r\n"
+				+ "    <h1>QualityPatternModel API</h1>\r\n";
+		if (call != null)
+			result += "    <h2>404 Page not found : qualitypatternmodel" + call + "</h2>\r\n";
+		result += "</body>\r\n"
 				+ "</html>";
+		return result;
 	}
 }
