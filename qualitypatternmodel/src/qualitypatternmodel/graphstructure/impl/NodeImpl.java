@@ -811,9 +811,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public void checkPrimitive() throws InvalidityException {
 		if (this instanceof ComplexNode) {
 			checkGeneric();
-			throw new InvalidityException("ComplexNode with outgoing relations can not be turned into PrimitiveNode ("+ getInternalId() + ")");
+//			throw new InvalidityException("ComplexNode with outgoing relations can not be turned into PrimitiveNode ("+ getInternalId() + ")");
 		}
-
 	}
 
 	/**
@@ -1426,7 +1425,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		if(!getGraph().isBefore(graph)) {
 			throw new InvalidityException("" + getGraph().myToString() + "is not before " + graph.myToString());
 		}
-		ComplexNode newNode = graph.addComplexNode();
+		Node newNode = graph.addNode();
 		return getGraph().addRelation(makeComplex(), newNode);
 	}
 
