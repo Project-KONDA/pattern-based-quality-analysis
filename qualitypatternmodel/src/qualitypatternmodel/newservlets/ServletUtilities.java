@@ -144,7 +144,7 @@ public abstract class ServletUtilities {
 	public static JSONObject getPatternJSON(CompletePattern pattern) {
 		JSONObject json = new JSONObject();
 		try {
-			json.put(ConstantsJSON.PATTERNID, pattern.getPatternId());
+			json.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
 			json.put(ConstantsJSON.NAME, pattern.getName());
 			json.put(ConstantsJSON.DESCRIPTION, pattern.getDescription());
 			json.put(ConstantsJSON.LANGUAGE, pattern.getLanguage());
@@ -208,7 +208,7 @@ public abstract class ServletUtilities {
 	public static JSONObject getPatternJSONHead(CompletePattern pattern) {
 		JSONObject json = new JSONObject();
 		try {
-			json.put(ConstantsJSON.PATTERNID, pattern.getPatternId());
+			json.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
 			json.put(ConstantsJSON.NAME, pattern.getName());
 			json.put(ConstantsJSON.DESCRIPTION, pattern.getDescription());
 		} catch (JSONException e) {}
