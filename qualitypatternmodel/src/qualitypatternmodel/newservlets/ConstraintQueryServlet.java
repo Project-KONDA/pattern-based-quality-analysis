@@ -126,7 +126,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 		JSONObject json = new JSONObject();
 
 		json.put(ConstantsJSON.NAME, pattern.getName());
-		json.put(ConstantsJSON.PATTERNID, pattern.getPatternId());
+		json.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
 
 		// 1 technology
 		json.put(ConstantsJSON.TECHNOLOGY, pattern.getLanguage().getLiteral());

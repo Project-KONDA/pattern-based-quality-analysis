@@ -135,6 +135,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 					ServletUtilities.log(ServletConstants.FILE_VOLUME + "/" + filepath + " found");
 				}
 				else {
+					ServletUtilities.log(ServletConstants.FILE_VOLUME + "/" + filepath + " not found");
 					JSONObject jobject = new JSONObject();
 					try {
 						jobject.put(filepath, ConstantsError.NOT_FOUND_FILEPATH);
@@ -160,7 +161,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 					results.put(res);
 					ServletUtilities.log("querying successfull: " + res.length());
 				} catch (JSONException e) {
-					throw new FailedServletCallException();
+					throw new FailedServletCallException("JSON Error: " + e.getMessage(), e);
 				}
 			}
 		}
@@ -186,7 +187,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		String technology = constraint.getString(ConstantsJSON.TECHNOLOGY);
 
 		object.put(ConstantsJSON.FILE, file.getName());
-		object.put(ConstantsJSON.CONSTRAINT_ID, constraint.getString(ConstantsJSON.ID));
+		object.put(ConstantsJSON.CONSTRAINT_ID, constraint.getString(ConstantsJSON.CONSTRAINT_ID));
 		object.put(ConstantsJSON.CONSTRAINT_NAME, constraint.getString(ConstantsJSON.NAME));
 		object.put(ConstantsJSON.QUERY, query);
 		object.put(ConstantsJSON.LANGUAGE, language);

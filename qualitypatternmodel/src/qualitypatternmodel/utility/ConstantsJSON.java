@@ -9,7 +9,6 @@ public class ConstantsJSON {
 	public static final String DATABASE = "database";
 	public static final String DATAMODEL = "datamodel";
 	public static final String ID = "id";
-	public static final String PATTERNID = "patternID";
 	public static final String FRAGMENTS = "fragments";
 	public static final String TEXT = "text";
 	public static final String TYPE = "type";
