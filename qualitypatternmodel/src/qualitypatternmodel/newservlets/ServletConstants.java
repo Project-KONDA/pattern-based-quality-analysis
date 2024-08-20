@@ -27,7 +27,7 @@ public class ServletConstants {
 	public static String ENV_LOG_IN_FILE_VOLUME = "SAVE_LOG_IN_SHARED";
 
 	// shall there be values in the templates
-	public static boolean FILL_VALUES = true;
+	public static boolean FILL_VALUES = false;
 	public static String ENV_FILL_VALUES = "FILL_VALUES";
 
 	// use the default variants for templates
