@@ -40,7 +40,9 @@ public class ConstraintMqafServlet extends HttpServlet {
 			} else if (i == 3) {
 				result = applyGet3(path, params);
 			} else {
-				throw new InvalidServletCallException("Wrong url for requesting the mqaf constraint: '.. /template/getdatabase/<technology>/<name>' or '.. /template/getdatabase/<technology>' + {parameter = [..]} (not " + path + ")");
+				throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint:"
+						+ " GET '/constraint/mqaf/{technology}' OR '/constraint/mqaf/{technology}/{constraintID}} "
+						+ "(not /constraint/mqaf/" + path + ")");
 			}
 			ServletUtilities.logOutput(result);
 			ServletUtilities.putResponse(response, result);
@@ -53,7 +55,9 @@ public class ConstraintMqafServlet extends HttpServlet {
 	public static JSONObject applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong url for requesting the mqaf constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint for multiple constraints:"
+					+ " GET '/constraint/mqaf/{technology}' "
+					+ "(not /constraint/mqaf/" + path + ")");
 		}
 
 		String technology = pathparts[1];

@@ -46,7 +46,9 @@ public class ConstraintCopyServlet extends HttpServlet {
 	public static JSONObject applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/copy/<technology>/<concretetemplate>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong URL for copying a constraint: "
+					+ "PUT /constraint/copy/{technology}/{constraintID} "
+					+ "(not /constraint/copy/" + path + ")");
 		}
 
 		String technology = pathparts[1];

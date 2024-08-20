@@ -116,18 +116,18 @@ public class InitialisationServlet extends HttpServlet {
 
 		System.out.println("Files can be found at " + ServletConstants.PATTERN_VOLUME);
 		ServletUtilities.log("Initializing ...");
-		ServletUtilities.log("Environmental Variable FILE_VOLUME:        " + (files != null));
-		ServletUtilities.log("Environmental Variable UPLOAD_FOLDER:      " + (upload != null));
-		ServletUtilities.log("Environmental Variable PATTERN_VOLUME:     " + (templates != null));
-		ServletUtilities.log("Environmental Variable LOGFILE:            " + (logfile != null));
-		ServletUtilities.log("Environmental Variable SAVEFILE:           " + (savefile != null));
-		ServletUtilities.log("Environmental Variable LOG_IN_FILE_VOLUME: " + (log_in_files != null));
-		ServletUtilities.log("Environmental Variable FILL_VALUES:        " + (values != null));
-		ServletUtilities.log("Environmental Variable DEFAULT_VARIANTS:   " + (default_variants != null));
-		ServletUtilities.log("Environmental Variable OLD_VARIANTS:       " + (old_variants != null));
-		ServletUtilities.log("Environmental Variable OVERRIDE_VARIANTS:  " + (override != null));
-		ServletUtilities.log("Environmental Variable GENERATE_GENERIC:   " + (generate_generic != null));
-		ServletUtilities.log("Environmental Variable VALUE_AS_JSON:      " + (value_as_json != null));
+		ServletUtilities.log("Environmental Variable FILE_VOLUME:        " + files);
+		ServletUtilities.log("Environmental Variable UPLOAD_FOLDER:      " + upload);
+		ServletUtilities.log("Environmental Variable PATTERN_VOLUME:     " + templates);
+		ServletUtilities.log("Environmental Variable LOGFILE:            " + logfile);
+		ServletUtilities.log("Environmental Variable SAVEFILE:           " + savefile);
+		ServletUtilities.log("Environmental Variable LOG_IN_FILE_VOLUME: " + log_in_files);
+		ServletUtilities.log("Environmental Variable FILL_VALUES:        " + values);
+		ServletUtilities.log("Environmental Variable DEFAULT_VARIANTS:   " + default_variants);
+		ServletUtilities.log("Environmental Variable OLD_VARIANTS:       " + old_variants);
+		ServletUtilities.log("Environmental Variable OVERRIDE_VARIANTS:  " + override);
+		ServletUtilities.log("Environmental Variable GENERATE_GENERIC:   " + generate_generic);
+		ServletUtilities.log("Environmental Variable VALUE_AS_JSON:      " + value_as_json);
 
 		try {
 			if (ServletConstants.GENERATE_GENERIC) {

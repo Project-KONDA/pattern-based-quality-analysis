@@ -46,7 +46,9 @@ public class ConstraintExecuteServlet extends HttpServlet {
 	public static JSONArray applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length < 2  || pathparts.length > 2  || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getlist/<technology>/<level>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong URL for executing constraints: "
+					+ "GET '/constraint/execute/{technology}' "
+					+ "(not /constraint/execute/{" + path + ")");
 		}
 
 		String technology = pathparts[1];

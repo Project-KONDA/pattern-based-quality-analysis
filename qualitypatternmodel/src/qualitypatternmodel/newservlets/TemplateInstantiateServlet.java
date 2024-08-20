@@ -41,7 +41,9 @@ public class TemplateInstantiateServlet extends HttpServlet {
 	public static JSONObject applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 4 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong url for instantiate in a constraint: '.. /template/instantiate/<technology>/<constraintId>/<variantId>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong URL for instantiate in a constraint: "
+					+ "PUT '/template/instantiate/{technology}/{templateID}/{variantID}' "
+					+ "(not /template/instantiate/" + path + ")");
 		}
 
 		// 1 get parameters
