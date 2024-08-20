@@ -9,6 +9,7 @@ public class ConstantsJSON {
 	public static final String DATABASE = "database";
 	public static final String DATAMODEL = "datamodel";
 	public static final String ID = "id";
+	public static final String CONSTRAINT_ID = "constraintID";
 	public static final String FRAGMENTS = "fragments";
 	public static final String TEXT = "text";
 	public static final String TYPE = "type";
@@ -47,7 +48,6 @@ public class ConstantsJSON {
 	public static final String CLEAR = "clear";
 	public static final String SUCCESS = "success";
 	public static final String FAILED = "failed";
-	public static final String CONSTRAINT_ID = "constraintID";
 
 //	// Untyped Parameter
 //	public static final String ENABLE = "enable";
