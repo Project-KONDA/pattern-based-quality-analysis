@@ -257,7 +257,8 @@ public abstract class ServletUtilities {
 	}
 
 	public static String generateNewId(String technology, String templateId, String variantname) throws IOException {
-		String name = technology + "_" + templateId + "_" + variantname;
+//		String name = technology + "_" + templateId + "_" + variantname;
+		String name = templateId + "_" + variantname;
 		String filepath = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.SAVEFILE;
 		Integer number;
 		try {

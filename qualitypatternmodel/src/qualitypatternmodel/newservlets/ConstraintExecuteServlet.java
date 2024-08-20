@@ -213,8 +213,8 @@ public class ConstraintExecuteServlet extends HttpServlet {
 				filter.createInterimResultContainerXQuery(rawResults);
 				result = filter.filterQueryResults();
 			} catch (InvalidityException e) {
-				if (constraint.has(ConstantsJSON.ID)) {
-					throw new FailedServletCallException("Invalid filter in " + constraint.getString(ConstantsJSON.ID));
+				if (constraint.has(ConstantsJSON.CONSTRAINT_ID)) {
+					throw new FailedServletCallException("Invalid filter in " + constraint.getString(ConstantsJSON.CONSTRAINT_ID));
 				} else {
 					throw new FailedServletCallException("Invalid filter in " + constraint.toString());
 				}

@@ -999,7 +999,7 @@ components:
         name:
           type: string
           description: custom user-defined name
-        patternID:
+        constraintID:
           type: string
           description: identifier
         variants:
@@ -1174,7 +1174,7 @@ components:
           description: amount of returned patterns
         ids:
           type: array
-          description: list of the patternIDs of the returned patterns
+          description: list of the constraintIDs of the returned patterns
           items:
             type: string
         templates: # description: complete pattern json
@@ -1319,7 +1319,7 @@ components:
             name:
               type: string
               description: constraintname
-            id: 
+            constraintID: 
               type: string
               description: identifier of the constraint
             technology:
