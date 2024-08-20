@@ -38,7 +38,9 @@ public class ConstraintNameServlet extends HttpServlet {
 	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/setparameter/<technology>/<name>/' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong URL for setting a name in a constraint: "
+					+ "POST '/constraint/name/{technology}/{constraintID}' "
+					+ "(not /constraint/name/" + path + ")");
 		}
 
 		String technology = pathparts[1];

@@ -39,7 +39,10 @@ public class PatternListServlet extends HttpServlet {
 	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length < 3  || pathparts.length > 4  || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getlist/<technology>/<level>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong URL for requesting a list of a constraints or templates: "
+					+ "GET '/pattern/list/{technology}/{abstraction}' "
+					+ "OR '/pattern/list/{technology}/{abstraction}/{datamodel}'"
+					+ "(not /pattern/list/" + path + ")");
 		}
 
 		String technology = pathparts[1];

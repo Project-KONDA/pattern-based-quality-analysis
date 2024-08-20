@@ -93,7 +93,9 @@ public class TemplateVariantServlet extends HttpServlet {
 	public static JSONObject applyGet (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong url for instantiate in a constraint: '.. /template/variant/<technology>/<constraintId>/<variantId>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong URL for requesting a variant of a constraint: "
+					+ "GET '/template/variant/{technology}/{templateID}' "
+					+ "(not /template/variant/" + path + ")");
 		}
 
 		// 1 get parameters
@@ -142,7 +144,9 @@ public class TemplateVariantServlet extends HttpServlet {
 	public static String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong url for instantiate in a constraint: '.. /template/variant/<technology>/<constraintId>/<variantId>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong URL for requesting a variant of a constraint: "
+					+ "PUT '/template/variant/{technology}/{templateID}' "
+					+ "(not /template/variant/" + path + ")");
 		}
 
 		// 1 get parameters
@@ -240,7 +244,9 @@ public class TemplateVariantServlet extends HttpServlet {
 	public static JSONObject applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong url for instantiate in a constraint: '.. /template/variant/<technology>/<constraintId>/<variantId>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong URL for deleting a variant of a constraint: "
+					+ "DELETE '/template/variant/{technology}/{templateID}' "
+					+ "(not /template/variant/" + path + ")");
 		}
 
 		// 1 get parameters

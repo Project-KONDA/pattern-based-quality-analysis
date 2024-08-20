@@ -94,7 +94,9 @@ public class ConstraintServlet extends HttpServlet {
 	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong URL for requesting a constraint: "
+					+ "GET '/constraint/{technology}/{constraintID}' "
+					+ "(not /constraint/" + path + ")");
 		}
 
 		String technology = pathparts[1];
@@ -124,7 +126,9 @@ public class ConstraintServlet extends HttpServlet {
 	public static String applyDelete(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong url for deleting a constraint: '.. /template/delete/<technology>/<name>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong URL for deleting a constraint: "
+					+ "DELETE '/constraint/{technology}/{constraintID}' "
+					+ "(not /constraint/" + path + ")");
 		}
 
 		String technology = pathparts[1];
@@ -157,7 +161,9 @@ public class ConstraintServlet extends HttpServlet {
 		Map<String, String[]> parameterMap = new HashMap<String, String[]>(parameter);
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/setparameter/<technology>/<name>/' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong URL for setting parameters in a constraint: "
+					+ "POST '/constraint/{technology}/{constraintID}' "
+					+ "(not " + path + ")");
 		}
 
 		String technology = pathparts[1];

@@ -54,7 +54,9 @@ public class ConstraintDataModelServlet extends HttpServlet {
 	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong url for requesting the database of a constraint: '.. /template/getdatabase/<technology>/<name>' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong URL for requesting the data model of a constraint: "
+					+ "SET '/qpm/constraint/datamodel/{technology}/{constraintID}' "
+					+ "(not /constraint/datamodel/" + path + ")");
 		}
 
 		String technology = pathparts[1];
@@ -83,7 +85,9 @@ public class ConstraintDataModelServlet extends HttpServlet {
 	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: '.. /template/setparameter/<technology>/<name>/' (not " + path + ")");
+			throw new InvalidServletCallException("Wrong URL for setting a data model in a constraint: "
+					+ "PUT '/constraint/datamodel/{technology}/{constraintID}' "
+					+ "(not /constraint/datamodel/" + path + ")");
 		}
 
 		String technology = pathparts[1];
