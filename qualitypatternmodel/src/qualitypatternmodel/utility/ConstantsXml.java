@@ -18,7 +18,8 @@ public class ConstantsXml {
 	public static final String IN = " in ";
 	public static final String XPATH_UNION = " | ";
 
-	public static final String REGEX_NAMESPACE = "([a-zA-Z]+:)?";
+	public static final String REGEX_PREFIX = "[a-zA-Z]+";
+	public static final String REGEX_NAMESPACE = "(" + REGEX_PREFIX + ":)?";
 	public static final String REGEX_AXIS_NAMES = "(child|descendant|parent|ancestor|following|following-sibling|preceding|preceding-sibling|ancestor-or-self|descendant-or-self|self)";
 	public static final String REGEX_AXIS = "(\\s*((/)|(//)|(/" + REGEX_AXIS_NAMES + "::)))";
 	public static final String REGEX_ATTRIBUTE_NAME = REGEX_NAMESPACE + "[A-Za-z0-9]+";

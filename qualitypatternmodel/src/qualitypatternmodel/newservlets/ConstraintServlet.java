@@ -29,6 +29,7 @@ import qualitypatternmodel.textrepresentation.impl.ValueMapImpl;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.ConstantsXml;
 
 @SuppressWarnings("serial")
 public class ConstraintServlet extends HttpServlet {
@@ -182,7 +183,7 @@ public class ConstraintServlet extends HttpServlet {
 		}
 
 		// 2. change patterns
-		Boolean name = false, database = false, datamodel = false, namespaces = false;
+		Boolean name = false, database = false, datamodel = false, namespaces = false, namespacevalid = true;
 
 		// name?
 		String[] nameArray = parameterMap.get(ConstantsJSON.NAME);
@@ -219,8 +220,20 @@ public class ConstraintServlet extends HttpServlet {
 				}
 				ValueMap vm = pattern.getNamespaces();
 				vm.clear();
-				vm.setValuesFromJSONObject(object);
-		        namespaces = true;
+				
+				@SuppressWarnings("unchecked")
+				Iterator<String> keys = object.keys();
+				while (keys.hasNext()) {
+					String key = keys.next().toString();
+					if (!key.equals("") && !key.matches(ConstantsXml.REGEX_PREFIX)) {
+						namespacevalid = false;
+						break;
+					}
+				}
+				if (namespacevalid) {
+					vm.setValuesFromJSONObject(object);
+			        namespaces = true;
+				}
 				parameterMap.remove(ConstantsJSON.NAMESPACES);
 			} catch (JSONException e) {
 				e.printStackTrace();
@@ -240,6 +253,15 @@ public class ConstraintServlet extends HttpServlet {
 			}
 			if (namespaces) {
 				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.NAMESPACES);
+			}
+			if (!namespacevalid) {
+				if (output.has(ConstantsJSON.FAILED))
+					output.getJSONObject(ConstantsJSON.FAILED).put(ConstantsJSON.NAMESPACES, ConstantsError.INVALID_NAMESPACE_PREFIX);
+				else {
+					JSONObject failed = new JSONObject();
+					failed.put(ConstantsJSON.NAMESPACES, ConstantsError.INVALID_NAMESPACE_PREFIX);
+					output.put(ConstantsJSON.FAILED, failed);
+				}
 			}
 		} catch (JSONException e) {
 		}

@@ -67,6 +67,7 @@ import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.textrepresentation.impl.ValueMapImpl;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.ConstantsRdf;
+import qualitypatternmodel.utility.ConstantsXml;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -512,7 +513,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		String result = "";
 		for (String prefix: namespaces.getKeys()) {
 			String uri = namespaces.get(prefix);
-			result += "declare namespace " + prefix + "=\"" + uri + "\";\n";
+			if (prefix.equals("")) {
+				result += "declare namespace " + prefix + "=\"" + uri + "\";\n";
+			} else if (prefix.matches(ConstantsXml.REGEX_PREFIX)) {
+				result += "declare default element namespace \"" + uri + "\";\n";
+			} else 
+				throw new InvalidityException("Invalid Namespace : \"" + prefix + "\" : \"" + uri + "\"");
 		}
 		return result;
 	}
