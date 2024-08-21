@@ -65,9 +65,7 @@ public class MqafObject {
 
 	public MqafObject (CompletePattern completePattern) throws InvalidityException {
 
-		if (!MqafTranslationValidation.checkPatternTranslatable (completePattern)) {
-			throw new InvalidityException();
-		}
+		MqafTranslationValidation.checkPatternTranslatable (completePattern);
 
 		pattern = completePattern;
 		namespaces = pattern.getNamespaces().asMap();

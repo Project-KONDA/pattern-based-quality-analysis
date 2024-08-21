@@ -31,30 +31,23 @@ import qualitypatternmodel.patternstructure.TrueElement;
 
 public class MqafTranslationValidation {
 
-	public static Boolean checkPatternTranslatable (CompletePattern completePattern) throws InvalidityException {
+	public static void checkPatternTranslatable (CompletePattern completePattern) throws InvalidityException {
 		// check is valid and is XML
 		if (!validatePatternXmlAdapted(completePattern)) {
-			System.err.println("Pattern not xml concrete");
-			return false;
+			throw new InvalidityException ("Pattern not MQAF compatible: not xml concrete");
 		}
-			
 		// check for JavaOperators
 		if (!validateOperatorConfiguration(completePattern)) {
-			System.err.println("Operator Configuration invalid");
-			return false;
+			throw new InvalidityException ("Pattern not MQAF compatible: Operator Configuration invalid");
 		}
 		// check has valid Node configuration
 		if (!validateNodeConfiguration(completePattern)) {
-			System.err.println("Node Configuration invalid");
-			return false;
+			throw new InvalidityException ("Pattern not MQAF compatible: Node Configuration invalid");
 		}
 		// check has valid Edge configuration
 		if (!validateEdgeConfiguration(completePattern)) {
-			System.err.println("Edge Configuration invalid");
-			return false;
+			throw new InvalidityException ("Pattern not MQAF compatible: Edge Configuration invalid");
 		}
-		return true;
-		
 	}
 
 
