@@ -172,7 +172,8 @@ public abstract class ServletUtilities {
 				pattern.isValid(AbstractionLevel.CONCRETE);
 				filter = pattern.getLanguage().equals(Language.XML);
 				try {
-					mqaf = MqafTranslationValidation.checkPatternTranslatable(pattern);
+					MqafTranslationValidation.checkPatternTranslatable(pattern);
+					mqaf = true;
 				}
 				catch (InvalidityException e) {}
 				try {
