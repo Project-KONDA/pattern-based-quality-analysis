@@ -331,7 +331,7 @@ public class FullAPITest {
 	@Test
 	private static void testPatternListServletGet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		// template
+
 		JSONObject listTemplate = PatternListServlet.applyGet("/" + TECH + "/template", getEmptyParams());
 		int templateNo = new File(FOLDER + "/templates/" + TECH + "/abstract-patterns").listFiles().length;
 		assert (templateNo > 0);

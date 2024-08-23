@@ -198,6 +198,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		List<String> rawResults;
 		try {
 			rawResults = executeXQuery(file, query);
+			ServletUtilities.log("raw Results : " + rawResults.size());
 		} catch (InvalidityException e) {
 			e.printStackTrace();
 			throw new FailedServletCallException(ConstantsError.QUERY_FAILED, e);
