@@ -48,25 +48,31 @@ public class FullAPITest {
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 
 		initialize();
+		try {
 
-		testBasics();
-		testConstraintCopyServlet();
-		testConstraintDatabaseServlet();
-		testConstraintDataModelServlet();
-		testConstraintTagServlet();
-		testConstraintNameServletPost();
+			testBasics();
+			testConstraintCopyServlet();
+			testConstraintDatabaseServlet();
+			testConstraintDataModelServlet();
+			testConstraintTagServlet();
+			testConstraintNameServletPost();
 
-		testConstraintServletPost();
-		testPatternListServletGet();
+			testConstraintServletPost();
+			testPatternListServletGet();
 
-//		testConstraintMqafServlet();
-//		testConstraintMqafServletPost();
-//		testConstraintQueryServlet();
-//		testConstraintExecuteServletGet();
+//			testConstraintMqafServlet();
+//			testConstraintMqafServletPost();
+//			testConstraintQueryServlet();
 
-//		testTemplateVariantServletGet();
-//		testTemplateVariantServletDelete();
-//		testTemplateVariantServletPut();
+//			testTemplateVariantServletGet();
+//			testTemplateVariantServletDelete();
+//			testTemplateVariantServletPut();
+
+			testConstraintExecuteServletGet();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		close();
 	}
 
@@ -390,7 +396,28 @@ public class FullAPITest {
 	@Test
 	private static void testConstraintExecuteServletGet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		ConstraintExecuteServlet.applyGet(null, getEmptyParams());
+		String constraintID = newConstraint("Card_xml", "default-constraint");
+		Map<String, String[]> params = getEmptyParams();
+		params.put("XmlPath_Element_0", new String[] {"//lido:lido"});
+		params.put("ComparisonOption_1", new String[] {"exactly"});
+		params.put("Number_2", new String[] {"42"});
+		params.put("XmlPath_Element_3", new String[] {"/*/*/*/*/*/*"});
+		ConstraintServlet.applyPost("/" + TECH + "/" + constraintID, params);
+
+		File original = new File("lido.xml");
+		File copy = new File(FOLDER + "/files/lido.xml");
+		try {
+		    FileUtils.copyFile(original, copy);
+		} catch (IOException e) {
+		    e.printStackTrace();
+		}
+		
+		Map<String, String[]> params2 = getEmptyParams();
+		params2.put("constraintIDs", new String[] {constraintID});
+		params2.put("files", new String[] {"lido.xml"});
+		JSONArray result = ConstraintExecuteServlet.applyGet("/" + TECH, params2);
+		System.out.println(result);
+		deleteConstraint(constraintID);
 	}
 
 	@Test

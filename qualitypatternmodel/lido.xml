@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lido:lido xmlns:lido="http://www.lido-schema.org" xmlns:gml="http://www.opengis.net/gml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.lido-schema.org http://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd">
+   <lido:lidoRecID lido:type="http://terminology.lido-schema.org/identifier_type/local_identifier">record_kuniweb_1316611</lido:lidoRecID>
+   <lido:objectPublishedID lido:type="http://terminology.lido-schema.org/identifier_type/uri">https://sammlungen.uni-goettingen.de/objekt/record_kuniweb_1316611</lido:objectPublishedID>
+   <lido:objectPublishedID lido:type="http://terminology.lido-schema.org/identifier_type/uri">https://hdl.handle.net/21.11107/5736763b-714b-4422-8ba7-e75797b0717b</lido:objectPublishedID>
+   <lido:category>
+      <lido:conceptID lido:type="http://terminology.lido-schema.org/identifier_type/uri">http://www.cidoc-crm.org/crm-concepts/#E22</lido:conceptID>
+      <lido:term xml:lang="en">Man-Made Object</lido:term>
+   </lido:category>
+   <lido:descriptiveMetadata xml:lang="de">
+      <lido:objectClassificationWrap>
+         <lido:objectWorkTypeWrap>
+            <lido:objectWorkType>
+               <lido:conceptID lido:type="http://terminology.lido-schema.org/identifier_type/uri">http://portal.wissenschaftliche-sammlungen.de/ObjectGenre/245</lido:conceptID>
+               <lido:term>Kunsthandwerk und -gewerbe</lido:term>
+            </lido:objectWorkType>
+         </lido:objectWorkTypeWrap>
+         <lido:classificationWrap>
+            <lido:classification lido:type="Kuniweb - Stil / Epoche">
+               <lido:term>Kunst des 19. Jhdt./Frühe Moderne</lido:term>
+            </lido:classification>
+         </lido:classificationWrap>
+      </lido:objectClassificationWrap>
+      <lido:objectIdentificationWrap>
+         <lido:titleWrap>
+            <lido:titleSet lido:sortorder="1">
+               <lido:appellationValue>Abbild einer Kirche </lido:appellationValue>
+            </lido:titleSet>
+         </lido:titleWrap>
+         <lido:inscriptionsWrap>
+            <lido:inscriptions lido:type="inscription">
+               <lido:inscriptionTranscription>ARGET [...]</lido:inscriptionTranscription>
+            </lido:inscriptions>
+         </lido:inscriptionsWrap>
+         <lido:repositoryWrap>
+            <lido:repositorySet lido:type="http://terminology.lido-schema.org/repositorySet_type/current_repository_or_location">
+               <lido:repositoryName>
+                  <lido:legalBodyID lido:type="http://terminology.lido-schema.org/identifier_type/uri">http://ld.zdb-services.de/resource/organisations/DE-MUS-056013</lido:legalBodyID>
+                  <lido:legalBodyName>
+                     <lido:appellationValue>Georg-August-Universität Göttingen / Kunstgesch. Seminar und Kunstsammlung der Universität</lido:appellationValue>
+                  </lido:legalBodyName>
+                  <lido:legalBodyWeblink>https://www.uni-goettingen.de/de/kunstsammlung/304930.html</lido:legalBodyWeblink>
+               </lido:repositoryName>
+               <lido:workID>SK 090a</lido:workID>
+               <lido:repositoryLocation>
+                  <lido:namePlaceSet>
+                     <lido:appellationValue>Kunstsammlung der Universität</lido:appellationValue>
+                  </lido:namePlaceSet>
+                  <lido:gml>
+                     <gml:Point>
+                        <gml:pos>51.53899 9.93734</gml:pos>
+                     </gml:Point>
+                  </lido:gml>
+                  <lido:partOfPlace>
+                     <lido:placeID lido:type="http://terminology.lido-schema.org/identifier_type/uri">http://sws.geonames.org/2918632/</lido:placeID>
+                     <lido:namePlaceSet>
+                        <lido:appellationValue>Göttingen</lido:appellationValue>
+                     </lido:namePlaceSet>
+                     <lido:gml>
+                        <gml:Point>
+                           <gml:pos>51.53443 9.93228</gml:pos>
+                        </gml:Point>
+                     </lido:gml>
+                  </lido:partOfPlace>
+               </lido:repositoryLocation>
+            </lido:repositorySet>
+         </lido:repositoryWrap>
+         <lido:objectMeasurementsWrap>
+            <lido:objectMeasurementsSet>
+               <lido:displayObjectMeasurements>Durchmesser: 6,2 cm</lido:displayObjectMeasurements>
+               <lido:objectMeasurements>
+                  <lido:measurementsSet>
+                     <lido:measurementType xml:lang="en">diameter</lido:measurementType>
+                     <lido:measurementType>Durchmesser</lido:measurementType>
+                     <lido:measurementUnit xml:lang="en">cm</lido:measurementUnit>
+                     <lido:measurementUnit>cm</lido:measurementUnit>
+                     <lido:measurementValue>6.2</lido:measurementValue>
+                  </lido:measurementsSet>
+               </lido:objectMeasurements>
+            </lido:objectMeasurementsSet>
+         </lido:objectMeasurementsWrap>
+      </lido:objectIdentificationWrap>
+      <lido:eventWrap>
+         <lido:eventSet>
+            <lido:event>
+               <lido:eventType>
+                  <lido:conceptID lido:type="http://terminology.lido-schema.org/identifier_type/uri">http://terminology.lido-schema.org/eventType/beginning_of_existence</lido:conceptID>
+                  <lido:term xml:lang="en">Beginning of Existence</lido:term>
+                  <lido:term>Daseinsbeginn</lido:term>
+               </lido:eventType>
+               <lido:eventDate>
+                  <lido:displayDate>1800? - 1899?</lido:displayDate>
+                  <lido:date>
+                     <lido:earliestDate lido:type="estimated">1800</lido:earliestDate>
+                     <lido:latestDate lido:type="estimated">1899</lido:latestDate>
+                  </lido:date>
+               </lido:eventDate>
+            </lido:event>
+         </lido:eventSet>
+         <lido:eventSet>
+            <lido:event>
+               <lido:eventType>
+                  <lido:conceptID lido:type="http://terminology.lido-schema.org/identifier_type/uri">http://terminology.lido-schema.org/eventType/production</lido:conceptID>
+                  <lido:term xml:lang="en">Production</lido:term>
+                  <lido:term>Herstellung</lido:term>
+               </lido:eventType>
+               <lido:eventMaterialsTech>
+                  <lido:displayMaterialsTech>Mineral &gt; Gips</lido:displayMaterialsTech>
+                  <lido:materialsTech>
+                     <lido:termMaterialsTech lido:type="http://terminology.lido-schema.org/termMaterialsTech_type/material">
+                        <lido:conceptID lido:type="http://terminology.lido-schema.org/identifier_type/uri">http://vocab.getty.edu/aat/300011099</lido:conceptID>
+                        <lido:conceptID lido:type="http://terminology.lido-schema.org/identifier_type/uri">http://d-nb.info/gnd/4132860-7</lido:conceptID>
+                        <lido:term>Gips</lido:term>
+                        <lido:term lido:addedSearchTerm="yes">Mineral</lido:term>
+                     </lido:termMaterialsTech>
+                  </lido:materialsTech>
+               </lido:eventMaterialsTech>
+               <lido:eventMaterialsTech>
+                  <lido:displayMaterialsTech>Abguss</lido:displayMaterialsTech>
+                  <lido:materialsTech>
+                     <lido:termMaterialsTech lido:type="http://terminology.lido-schema.org/termMaterialsTech_type/technique">
+                        <lido:conceptID lido:type="http://terminology.lido-schema.org/identifier_type/uri">http://vocab.getty.edu/aat/300047806</lido:conceptID>
+                        <lido:conceptID lido:type="http://terminology.lido-schema.org/identifier_type/uri">http://d-nb.info/gnd/4131657-5</lido:conceptID>
+                        <lido:term>Abguss</lido:term>
+                     </lido:termMaterialsTech>
+                  </lido:materialsTech>
+               </lido:eventMaterialsTech>
+               <lido:eventMaterialsTech>
+                  <lido:displayMaterialsTech>Weiß</lido:displayMaterialsTech>
+                  <lido:materialsTech>
+                     <lido:termMaterialsTech lido:type="http://terminology.lido-schema.org/lido00479">
+                        <lido:term>Weiß</lido:term>
+                        <lido:term xml:lang="en">White</lido:term>
+                     </lido:termMaterialsTech>
+                  </lido:materialsTech>
+               </lido:eventMaterialsTech>
+            </lido:event>
+         </lido:eventSet>
+      </lido:eventWrap>
+      <lido:objectRelationWrap>
+         <lido:subjectWrap>
+            <lido:subjectSet>
+               <lido:displaySubject>Darstellung des Außenbaus einer Architektur (Architekturzeichnung oder -modell)</lido:displaySubject>
+               <lido:subject>
+                  <lido:subjectConcept>
+                     <lido:conceptID lido:type="http://terminology.lido-schema.org/identifier_type/uri">http://iconclass.org/48C1425</lido:conceptID>
+                     <lido:term>Darstellung des Außenbaus einer Architektur (Architekturzeichnung oder -modell)</lido:term>
+                  </lido:subjectConcept>
+               </lido:subject>
+            </lido:subjectSet>
+         </lido:subjectWrap>
+         <lido:relatedWorksWrap>
+            <lido:relatedWorkSet>
+               <lido:relatedWork>
+                  <lido:displayObject>Abbild einer Kirche  [SK 090b]</lido:displayObject>
+                  <lido:object>
+                     <lido:objectID lido:type="http://terminology.lido-schema.org/identifier_type/local_identifier" lido:source="kuniweb">1316612</lido:objectID>
+                     <lido:objectNote lido:type="title">Abbild einer Kirche </lido:objectNote>
+                     <lido:objectNote lido:type="workid">SK 090b</lido:objectNote>
+                  </lido:object>
+               </lido:relatedWork>
+               <lido:relatedWorkRelType>
+                  <lido:term>hat Kopie</lido:term>
+               </lido:relatedWorkRelType>
+            </lido:relatedWorkSet>
+            <lido:relatedWorkSet>
+               <lido:relatedWork>
+                  <lido:displayObject>Skulpturensammlung</lido:displayObject>
+                  <lido:object>
+                     <lido:objectID lido:type="http://terminology.lido-schema.org/identifier_type/local_identifier" lido:source="Digitale Sammlung - Kulturerbe Niedersachsen">slg_1027</lido:objectID>
+                     <lido:objectNote lido:type="title">Skulpturensammlung</lido:objectNote>
+                  </lido:object>
+               </lido:relatedWork>
+               <lido:relatedWorkRelType>
+                  <lido:term xml:lang="en">collection</lido:term>
+                  <lido:term>Sammlung</lido:term>
+               </lido:relatedWorkRelType>
+            </lido:relatedWorkSet>
+         </lido:relatedWorksWrap>
+      </lido:objectRelationWrap>
+   </lido:descriptiveMetadata>
+   <lido:administrativeMetadata xml:lang="de">
+      <lido:recordWrap>
+         <lido:recordID lido:source="kuniweb" lido:type="http://terminology.lido-schema.org/identifier_type/local_identifier">1316611</lido:recordID>
+         <lido:recordType>
+            <lido:conceptID lido:type="http://terminology.lido-schema.org/identifier_type/uri">http://terminology.lido-schema.org/recordType/item-level_record</lido:conceptID>
+            <lido:term>Einzelobjekt</lido:term>
+            <lido:term xml:lang="en">item</lido:term>
+         </lido:recordType>
+         <lido:recordSource>
+            <lido:legalBodyName>
+               <lido:appellationValue>kuniweb</lido:appellationValue>
+            </lido:legalBodyName>
+            <lido:legalBodyWeblink>https://kuniweb.gbv.de</lido:legalBodyWeblink>
+         </lido:recordSource>
+         <lido:recordRights>
+            <lido:rightsType>
+               <lido:term>Verwertungsrecht</lido:term>
+            </lido:rightsType>
+            <lido:rightsHolder>
+               <lido:legalBodyID lido:type="http://terminology.lido-schema.org/identifier_type/uri">http://ld.zdb-services.de/resource/organisations/DE-MUS-056013</lido:legalBodyID>
+               <lido:legalBodyName>
+                  <lido:appellationValue>Georg-August-Universität Göttingen, Kunstgesch. Seminar und Kunstsammlung der Universität</lido:appellationValue>
+               </lido:legalBodyName>
+               <lido:legalBodyWeblink>http://www.uni-goettingen.de/de/kunstsammlung/304930.html</lido:legalBodyWeblink>
+            </lido:rightsHolder>
+         </lido:recordRights>
+         <lido:recordRights>
+            <lido:rightsType>
+               <lido:conceptID lido:type="http://terminology.lido-schema.org/identifier_type/uri">https://creativecommons.org/publicdomain/zero/1.0/deed.de</lido:conceptID>
+               <lido:term>kein Copyright / Public domain (CC0 1.0)</lido:term>
+               <lido:term xml:lang="en">CC0 1.0 Universal (CC0 1.0)</lido:term>
+            </lido:rightsType>
+         </lido:recordRights>
+         <lido:recordInfoSet lido:type="http://terminology.lido-schema.org/lido00471">
+            <lido:recordMetadataDate lido:type="http://terminology.lido-schema.org/recordMetadataDate_type/created">2019-01-13T15:09:16+01</lido:recordMetadataDate>
+            <lido:recordMetadataDate lido:type="http://terminology.lido-schema.org/recordMetadataDate_type/modified">2022-11-12T08:42:22+01</lido:recordMetadataDate>
+         </lido:recordInfoSet>
+         <lido:recordInfoSet lido:type="http://terminology.lido-schema.org/lido00470">
+            <lido:recordMetadataDate lido:type="http://terminology.lido-schema.org/recordMetadataDate_type/created">2023-01-17T10:06:20163</lido:recordMetadataDate>
+         </lido:recordInfoSet>
+      </lido:recordWrap>
+      <lido:resourceWrap>
+         <lido:resourceSet lido:sortorder="1">
+            <lido:resourceID lido:type="http://terminology.lido-schema.org/identifier_type/local_identifier" lido:source="kuniweb">record_kuniweb_1316611_media/record_kuniweb_1316611_598686.jpg</lido:resourceID>
+            <lido:resourceRepresentation lido:type="http://terminology.lido-schema.org/resourceRepresentation_type/provided_representation">
+               <lido:linkResource lido:formatResource="image/jpeg">https://sammlungen.uni-goettingen.de/rest/image/record_kuniweb_1316611/record_kuniweb_1316611_598686.jpg/full/full/0/default.jpg</lido:linkResource>
+               <lido:resourceMeasurementsSet>
+                  <lido:measurementType xml:lang="en">width</lido:measurementType>
+                  <lido:measurementUnit xml:lang="en">pixel</lido:measurementUnit>
+                  <lido:measurementValue>3840</lido:measurementValue>
+               </lido:resourceMeasurementsSet>
+               <lido:resourceMeasurementsSet>
+                  <lido:measurementType xml:lang="en">height</lido:measurementType>
+                  <lido:measurementUnit xml:lang="en">pixel</lido:measurementUnit>
+                  <lido:measurementValue>5760</lido:measurementValue>
+               </lido:resourceMeasurementsSet>
+            </lido:resourceRepresentation>
+            <lido:resourceRepresentation lido:type="http://terminology.lido-schema.org/resourceRepresentation_type/preview_representation">
+               <lido:linkResource lido:formatResource="image/jpeg">https://sammlungen.uni-goettingen.de/rest/image/record_kuniweb_1316611/record_kuniweb_1316611_598686.jpg/full/300,/0/default.jpg</lido:linkResource>
+               <lido:resourceMeasurementsSet>
+                  <lido:measurementType xml:lang="en">width</lido:measurementType>
+                  <lido:measurementUnit xml:lang="en">pixel</lido:measurementUnit>
+                  <lido:measurementValue>300</lido:measurementValue>
+               </lido:resourceMeasurementsSet>
+               <lido:resourceMeasurementsSet>
+                  <lido:measurementType xml:lang="en">height</lido:measurementType>
+                  <lido:measurementUnit xml:lang="en">pixel</lido:measurementUnit>
+                  <lido:measurementValue>450</lido:measurementValue>
+               </lido:resourceMeasurementsSet>
+            </lido:resourceRepresentation>
+            <lido:resourceDateTaken>
+               <lido:displayDate>11. Januar 2019</lido:displayDate>
+               <lido:date>
+                  <lido:earliestDate>2019-01-11</lido:earliestDate>
+                  <lido:latestDate>2019-01-11</lido:latestDate>
+               </lido:date>
+            </lido:resourceDateTaken>
+            <lido:rightsResource>
+               <lido:rightsType>
+                  <lido:term>Urheberrecht</lido:term>
+               </lido:rightsType>
+               <lido:rightsHolder>
+                  <lido:legalBodyName>
+                     <lido:appellationValue>Katharina Anna Haase</lido:appellationValue>
+                  </lido:legalBodyName>
+               </lido:rightsHolder>
+            </lido:rightsResource>
+            <lido:rightsResource>
+               <lido:rightsType>
+                  <lido:term>Verwertungsrecht</lido:term>
+               </lido:rightsType>
+               <lido:rightsHolder>
+                  <lido:legalBodyID lido:type="http://terminology.lido-schema.org/identifier_type/uri">http://ld.zdb-services.de/resource/organisations/DE-MUS-056013</lido:legalBodyID>
+                  <lido:legalBodyName>
+                     <lido:appellationValue>Georg-August-Universität Göttingen, Kunstgesch. Seminar und Kunstsammlung der Universität</lido:appellationValue>
+                  </lido:legalBodyName>
+                  <lido:legalBodyWeblink>http://www.uni-goettingen.de/de/kunstsammlung/304930.html</lido:legalBodyWeblink>
+               </lido:rightsHolder>
+            </lido:rightsResource>
+            <lido:rightsResource>
+               <lido:rightsType>
+                  <lido:conceptID lido:type="http://terminology.lido-schema.org/identifier_type/uri">https://creativecommons.org/licenses/by-sa/4.0/deed.de</lido:conceptID>
+                  <lido:term>Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International (CC BY-SA 4.0)</lido:term>
+                  <lido:term xml:lang="en">Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</lido:term>
+               </lido:rightsType>
+            </lido:rightsResource>
+         </lido:resourceSet>
+         <lido:resourceSet>
+            <lido:resourceID lido:type="http://terminology.lido-schema.org/identifier_type/local_identifier" lido:source="kuniweb">record_kuniweb_1316611_media/record_kuniweb_1316611_598714.jpg</lido:resourceID>
+            <lido:resourceRepresentation lido:type="http://terminology.lido-schema.org/resourceRepresentation_type/provided_representation">
+               <lido:linkResource lido:formatResource="image/jpeg">https://sammlungen.uni-goettingen.de/rest/image/record_kuniweb_1316611/record_kuniweb_1316611_598714.jpg/full/full/0/default.jpg</lido:linkResource>
+               <lido:resourceMeasurementsSet>
+                  <lido:measurementType xml:lang="en">width</lido:measurementType>
+                  <lido:measurementUnit xml:lang="en">pixel</lido:measurementUnit>
+                  <lido:measurementValue>3840</lido:measurementValue>
+               </lido:resourceMeasurementsSet>
+               <lido:resourceMeasurementsSet>
+                  <lido:measurementType xml:lang="en">height</lido:measurementType>
+                  <lido:measurementUnit xml:lang="en">pixel</lido:measurementUnit>
+                  <lido:measurementValue>5760</lido:measurementValue>
+               </lido:resourceMeasurementsSet>
+            </lido:resourceRepresentation>
+            <lido:resourceRepresentation lido:type="http://terminology.lido-schema.org/resourceRepresentation_type/preview_representation">
+               <lido:linkResource lido:formatResource="image/jpeg">https://sammlungen.uni-goettingen.de/rest/image/record_kuniweb_1316611/record_kuniweb_1316611_598714.jpg/full/300,/0/default.jpg</lido:linkResource>
+               <lido:resourceMeasurementsSet>
+                  <lido:measurementType xml:lang="en">width</lido:measurementType>
+                  <lido:measurementUnit xml:lang="en">pixel</lido:measurementUnit>
+                  <lido:measurementValue>300</lido:measurementValue>
+               </lido:resourceMeasurementsSet>
+               <lido:resourceMeasurementsSet>
+                  <lido:measurementType xml:lang="en">height</lido:measurementType>
+                  <lido:measurementUnit xml:lang="en">pixel</lido:measurementUnit>
+                  <lido:measurementValue>450</lido:measurementValue>
+               </lido:resourceMeasurementsSet>
+            </lido:resourceRepresentation>
+            <lido:resourceDateTaken>
+               <lido:displayDate>11. Januar 2019</lido:displayDate>
+               <lido:date>
+                  <lido:earliestDate>2019-01-11</lido:earliestDate>
+                  <lido:latestDate>2019-01-11</lido:latestDate>
+               </lido:date>
+            </lido:resourceDateTaken>
+            <lido:rightsResource>
+               <lido:rightsType>
+                  <lido:term>Urheberrecht</lido:term>
+               </lido:rightsType>
+               <lido:rightsHolder>
+                  <lido:legalBodyName>
+                     <lido:appellationValue>Katharina Anna Haase</lido:appellationValue>
+                  </lido:legalBodyName>
+               </lido:rightsHolder>
+            </lido:rightsResource>
+            <lido:rightsResource>
+               <lido:rightsType>
+                  <lido:term>Verwertungsrecht</lido:term>
+               </lido:rightsType>
+               <lido:rightsHolder>
+                  <lido:legalBodyID lido:type="http://terminology.lido-schema.org/identifier_type/uri">http://ld.zdb-services.de/resource/organisations/DE-MUS-056013</lido:legalBodyID>
+                  <lido:legalBodyName>
+                     <lido:appellationValue>Georg-August-Universität Göttingen, Kunstgesch. Seminar und Kunstsammlung der Universität</lido:appellationValue>
+                  </lido:legalBodyName>
+                  <lido:legalBodyWeblink>http://www.uni-goettingen.de/de/kunstsammlung/304930.html</lido:legalBodyWeblink>
+               </lido:rightsHolder>
+            </lido:rightsResource>
+            <lido:rightsResource>
+               <lido:rightsType>
+                  <lido:conceptID lido:type="http://terminology.lido-schema.org/identifier_type/uri">https://creativecommons.org/licenses/by-sa/4.0/deed.de</lido:conceptID>
+                  <lido:term>Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International (CC BY-SA 4.0)</lido:term>
+                  <lido:term xml:lang="en">Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</lido:term>
+               </lido:rightsType>
+            </lido:rightsResource>
+         </lido:resourceSet>
+      </lido:resourceWrap>
+   </lido:administrativeMetadata>
+</lido:lido>
