@@ -11,7 +11,7 @@ info:
   version: 1.0.0
 paths:
 
-  /qpm/pattern/list/{technology}/{abstraction}:
+  /qualitypatternmodel/pattern/list/{technology}/{abstraction}:
     parameters:
       - name: technology
         in: path
@@ -57,7 +57,7 @@ paths:
           description: Internal server error
 
 
-  /qpm/pattern/list/{technology}/{abstraction}/{datamodel}:
+  /qualitypatternmodel/pattern/list/{technology}/{abstraction}/{datamodel}:
     parameters:
       - name: technology
         in: path
@@ -110,7 +110,7 @@ paths:
           description: Internal server error
 
 
-  /qpm/constraint/{technology}/{constraintID}:
+  /qualitypatternmodel/constraint/{technology}/{constraintID}:
     parameters:
       - name: technology
         in: path
@@ -228,7 +228,7 @@ paths:
           description: Internal server error
 
 
-  /qpm/template/instantiate/{technology}/{templateID}/{variantID}:
+  /qualitypatternmodel/template/instantiate/{technology}/{templateID}/{variantID}:
     parameters:
       - name: technology
         in: path
@@ -302,7 +302,7 @@ paths:
           description: Internal server error
 
 
-  /qpm/constraint/copy/{technology}/{constraintID}:
+  /qualitypatternmodel/constraint/copy/{technology}/{constraintID}:
     parameters:
       - name: technology
         in: path
@@ -364,7 +364,7 @@ paths:
           description: Internal server error
 
 
-  /qpm/constraint/database/{technology}/{constraintID}:
+  /qualitypatternmodel/constraint/database/{technology}/{constraintID}:
     parameters:
       - name: technology
         in: path
@@ -437,7 +437,7 @@ paths:
           description: Internal server error
 
 
-  /qpm/constraint/datamodel/{technology}/{constraintID}:
+  /qualitypatternmodel/constraint/datamodel/{technology}/{constraintID}:
     parameters:
       - name: technology
         in: path
@@ -510,7 +510,7 @@ paths:
           description: Internal server error
 
 
-  /qpm/constraint/name/{technology}/{constraintID}:
+  /qualitypatternmodel/constraint/name/{technology}/{constraintID}:
     parameters:
       - name: technology
         in: path
@@ -559,7 +559,7 @@ paths:
           description: Internal server error
 
 
-  /qpm/constraint/tag/{technology}/{constraintID}:
+  /qualitypatternmodel/constraint/tag/{technology}/{constraintID}:
     parameters:
       - name: technology
         in: path
@@ -643,7 +643,7 @@ paths:
           description: Internal server error
 
 
-  /qpm/constraint/mqaf/{technology}/{constraintID}:
+  /qualitypatternmodel/constraint/mqaf/{technology}/{constraintID}:
     parameters:
       - name: technology
         in: path
@@ -685,7 +685,7 @@ paths:
           description: Internal server error
 
 
-  /qpm/constraint/mqaf/{technology}:
+  /qualitypatternmodel/constraint/mqaf/{technology}:
     parameters:
       - name: technology
         in: path
@@ -730,7 +730,7 @@ paths:
           description: Internal server error
 
 
-  /qpm/constraint/query/{technology}/{constraintID}:
+  /qualitypatternmodel/constraint/query/{technology}/{constraintID}:
     parameters:
       - name: technology
         in: path
@@ -772,7 +772,7 @@ paths:
           description: Internal server error
 
 
-  /qpm/constraint/query/{technology}:
+  /qualitypatternmodel/constraint/query/{technology}:
     parameters:
       - name: technology
         in: path
@@ -817,7 +817,7 @@ paths:
           description: Internal server error
 
 
-  /qpm/constraint/execute/{technology}:
+  /qualitypatternmodel/constraint/execute/{technology}:
     parameters:
       - name: technology
         in: path
@@ -879,7 +879,7 @@ paths:
           description: Internal server error
 
 
-  /qpm/template/variant/{technology}/{templateID}:
+  /qualitypatternmodel/template/variant/{technology}/{templateID}:
     parameters:
       - name: technology
         in: path
@@ -1031,7 +1031,7 @@ components:
           description: is this pattern executable via a technology-specific query
         filterExecutable:
           type: boolean
-          description: is this pattern executable via a java filter in the qpm framework
+          description: is this pattern executable via a java filter in the qualitypatternmodel framework
         database:
           type: string
           description: string for a database
