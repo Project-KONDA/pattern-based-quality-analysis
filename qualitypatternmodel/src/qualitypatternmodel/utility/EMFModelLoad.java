@@ -37,7 +37,14 @@ public class EMFModelLoad {
 		// Initialize the model
         PatternstructurePackage.eINSTANCE.eClass();
 
-		EObject object = loadFromFile(fullPath);
+        EObject object;
+        try {
+        	object = loadFromFile(fullPath);
+		} catch (IOException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new IOException(e);
+		}
 		if (object == null) {
 			throw new IOException("Wrong file : resource in " + fullPath + " is not a valid CompletePattern");
 		}
@@ -206,13 +213,11 @@ public class EMFModelLoad {
         Resource resource = null;
         try {
         	resource = resourceSet.getResource(fileURI, true);
-        } catch (Exception e) {
-        	e.printStackTrace();
-        }
+        } catch (Exception e) {}
 
         // Check if the resource was loaded successfully
         if (resource == null) {
-            System.err.println("Error loading EMF resource. Resource is null.");
+//            System.err.println("Error loading EMF resource. Resource is null.");
             return null;
         }
 

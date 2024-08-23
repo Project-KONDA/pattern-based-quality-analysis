@@ -344,7 +344,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Comparison addComparison(qualitypatternmodel.graphstructure.Comparable comparable) {

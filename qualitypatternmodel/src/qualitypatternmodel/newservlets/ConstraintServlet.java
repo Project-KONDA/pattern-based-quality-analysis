@@ -221,7 +221,6 @@ public class ConstraintServlet extends HttpServlet {
 				ValueMap vm = pattern.getNamespaces();
 				vm.clear();
 				
-				@SuppressWarnings("unchecked")
 				Iterator<String> keys = object.keys();
 				while (keys.hasNext()) {
 					String key = keys.next().toString();
@@ -402,7 +401,6 @@ public class ConstraintServlet extends HttpServlet {
     	if (jsonObject == null)
     	  return null;
         HashMap<String, String> hashMap = new HashMap<>();
-        @SuppressWarnings("unchecked")
 		Iterator<String> keys = jsonObject.keys();
 
         try {

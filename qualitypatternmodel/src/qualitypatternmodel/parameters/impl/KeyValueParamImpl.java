@@ -170,7 +170,6 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 		try {
 			JSONObject object = new JSONObject(value);
 
-			@SuppressWarnings("unchecked")
 			Iterator<String> keys = object.keys();
 			while (keys.hasNext()) {
 				String next = keys.next();

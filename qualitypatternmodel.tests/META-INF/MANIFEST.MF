@@ -7,7 +7,6 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-22
 Export-Package: qualitypatternmodel.adaptionneo4j.tests,
  qualitypatternmodel.adaptionrdf.tests,
  qualitypatternmodel.adaptionxml.tests,
