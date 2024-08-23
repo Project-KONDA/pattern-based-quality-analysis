@@ -335,7 +335,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		try {
 			JSONObject object = new JSONObject(value);
 
-			@SuppressWarnings("unchecked")
 			Iterator<String> keys = object.keys();
 			List<String> allowedKeys = Arrays.asList(ConstantsNeo.JSON_NEO_EDGE, ConstantsNeo.JSON_NEO_TARGETS, ConstantsNeo.JSON_NEO_KEYVALUE);
 			while (keys.hasNext()) {

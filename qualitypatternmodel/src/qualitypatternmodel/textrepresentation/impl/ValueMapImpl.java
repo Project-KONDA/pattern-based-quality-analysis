@@ -65,7 +65,6 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 
 	public ValueMapImpl(JSONObject json) throws JSONException {
 		super();
-		@SuppressWarnings("unchecked")
 		Iterator<String> keys = json.keys();
 
         while (keys.hasNext()) {
@@ -244,7 +243,6 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	@Override
 	public void setValuesFromJSONObject(JSONObject object) {
 		clear();
-        @SuppressWarnings("unchecked")
 		Iterator<String> keys = object.keys();
         while(keys.hasNext()) {
             String key = keys.next();
