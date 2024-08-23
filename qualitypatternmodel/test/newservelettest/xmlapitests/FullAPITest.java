@@ -8,6 +8,7 @@ import static org.mockito.Mockito.mock;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,6 +46,7 @@ public class FullAPITest {
 
 	public static void main(String[] args)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+
 		initialize();
 
 		testBasics();
@@ -102,16 +104,7 @@ public class FullAPITest {
 		assertNotNull(constriantID);
 
 		JSONObject constraint = getConstraint(constriantID);
-		assert (constraint.has("name"));
-		assert (constraint.has("constriantID"));
-		assert (constraint.has("variants"));
-		assert (constraint.has("description"));
-		assert (constraint.has("language") && constraint.getString("language").equals(TECH));
-		assert (constraint.has("executable"));
-		assert (constraint.has("mqafExecutable"));
-		assert (constraint.has("queryExecutable"));
-		assert (constraint.has("filterExecutable"));
-		assert (constraint.has("lastSaved"));
+		assertPatternJSONObject(constraint);
 		deleteConstraint(constriantID);
 		assertThrows(FailedServletCallException.class, () -> {
 			getConstraint(constriantID);
@@ -148,6 +141,25 @@ public class FullAPITest {
 	private static void deleteConstraint(String id)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		ConstraintServlet.applyDelete("/" + TECH + "/" + id, getEmptyParams());
+	}
+
+
+	private static void assertPatternJSONObjectArray (JSONArray object) {
+        for (int i = 0; i < object.length(); i++)
+        	assertPatternJSONObject(object.getJSONObject(i));
+	}
+	
+	private static void assertPatternJSONObject (JSONObject object) {
+		assert (object.has("name"));
+		assert (object.has("constriantID"));
+		assert (object.has("variants"));
+		assert (object.has("description"));
+		assert (object.has("language") && object.getString("language").equals(TECH));
+		assert (object.has("executable"));
+		assert (object.has("mqafExecutable"));
+		assert (object.has("queryExecutable"));
+		assert (object.has("filterExecutable"));
+		assert (object.has("lastSaved"));
 	}
 
 	@Test
@@ -320,19 +332,39 @@ public class FullAPITest {
 	private static void testPatternListServletGet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		// template
-		JSONObject list1 = PatternListServlet.applyGet("/" + TECH + "/template", getEmptyParams());
+		JSONObject listTemplate = PatternListServlet.applyGet("/" + TECH + "/template", getEmptyParams());
 		int templateNo = new File(FOLDER + "/templates/" + TECH + "/abstract-patterns").listFiles().length;
-		assert(templateNo > 0);
-		System.out.println(list1.toString());
-		
-		// concrete
-		JSONObject list2 = PatternListServlet.applyGet("/" + TECH + "/concrete", getEmptyParams());
-		System.out.println(list2.toString());
+		assert (templateNo > 0);
+		assert (listTemplate.has("size") && listTemplate.getInt("size") == templateNo);
+		assert (listTemplate.has("ids") && listTemplate.getJSONArray("ids").length() == templateNo);
+		assert (listTemplate.has("templates") && listTemplate.getJSONArray("templates").length() == templateNo);
+		if (listTemplate.has("templates"))
+			assertPatternJSONObjectArray(listTemplate.getJSONArray("templates"));
 
+		JSONObject listConcreteEmpty = PatternListServlet.applyGet("/" + TECH + "/concrete", getEmptyParams());
+		assert(listConcreteEmpty.getInt("size") == 0);
+		assert (listConcreteEmpty.has("ids") && listConcreteEmpty.getJSONArray("ids").isEmpty());
+		assert (listConcreteEmpty.has("templates") && listConcreteEmpty.getJSONArray("templates").isEmpty());
+
+		JSONObject listReadyEmpty = PatternListServlet.applyGet("/" + TECH + "/ready", getEmptyParams());
+		assert(listReadyEmpty.getInt("size") == 0);
+		assert (listReadyEmpty.has("ids") && listReadyEmpty.getJSONArray("ids").isEmpty());
+		assert (listReadyEmpty.has("templates") && listReadyEmpty.getJSONArray("templates").isEmpty());
+
+		ArrayList<String> ids = new ArrayList<String>();
+		int n = 10;
+		for ( int i = 0; i< n; i++)
+			ids.add(newConstraint());
+
+		JSONObject listReady = PatternListServlet.applyGet("/" + TECH + "/ready", getEmptyParams());
+		assert(listReady.getInt("size") == n);
+		assert (listReady.has("ids") && listReady.getJSONArray("ids").length() == n);
+		assert (listReady.has("templates") && listReady.getJSONArray("templates").length() == n);
+		if (listReady.has("templates"))
+			assertPatternJSONObjectArray(listReady.getJSONArray("templates"));
 		
-		// specific
-		JSONObject list3 = PatternListServlet.applyGet("/" + TECH + "/ready", getEmptyParams());
-		System.out.println(list3.toString());
+		for (String str: ids)
+			deleteConstraint(str);
 	}
 
 	@Test
