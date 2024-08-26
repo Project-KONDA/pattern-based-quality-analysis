@@ -41,7 +41,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 				result = applyGet3(path, params);
 			} else {
 				throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint:"
-						+ " GET '/constraint/mqaf/{technology}' OR '/constraint/mqaf/{technology}/{constraintID}} "
+						+ " GET '/constraint/mqaf/{technology}' OR '/constraint/mqaf/{technology}/{constraintID}' "
 						+ "(not /constraint/mqaf/" + path + ")");
 			}
 			ServletUtilities.logOutput(result);
@@ -55,8 +55,8 @@ public class ConstraintMqafServlet extends HttpServlet {
 	public static JSONObject applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint for multiple constraints:"
-					+ " GET '/constraint/mqaf/{technology}' "
+			throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint for a constraint:"
+					+ " GET '/constraint/mqaf/{technology}/{constraintID}' "
 					+ "(not /constraint/mqaf/" + path + ")");
 		}
 
@@ -74,7 +74,9 @@ public class ConstraintMqafServlet extends HttpServlet {
 	public static JSONObject applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 2 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong api call for requesting the database of a constraint: '.. /template/getdatabase/<technology>' + {\"constraints\" = [..]} (not " + path + ")");
+			throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint for multiple constraints:"
+					+ " GET '/constraint/mqaf/{technology}' "
+					+ "(not /constraint/mqaf/" + path + ")");
 		}
 
 		String technology = pathparts[1];
@@ -82,7 +84,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINTS);
+		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINT_IDS);
 
 		return getJsonStringSchemaFromConstraintIds(constraintIds, technology);
 	}
