@@ -148,8 +148,11 @@ public class ConstraintQueryServlet extends HttpServlet {
 				}
 				json.put(ConstantsJSON.LANGUAGE, Constants.XQUERY);
 				String xquery = pattern.generateXQuery();
+				String xquerypartial = pattern.getPartialXmlQuery();
 				json.put(ConstantsJSON.QUERY, xquery);
 				json.put(ConstantsJSON.QUERY_LINE, makeQueryOneLine(xquery));
+				json.put(ConstantsJSON.QUERY_PARTIAL, xquerypartial);
+				json.put(ConstantsJSON.QUERY_PARTIAL_LINE, makeQueryOneLine(xquerypartial));
 
 			} else if (technology.equals(Constants.RDF)) {
 				if (pattern.containsJavaOperator()) {
@@ -182,6 +185,8 @@ public class ConstraintQueryServlet extends HttpServlet {
 	}
 
 	private static String makeQueryOneLine(String query) {
+		if (query == null)
+			return null;
 		String shortQuery = query.replace("\r\n", " ");
 		shortQuery = shortQuery.replace("\n", " ");
 		int len = shortQuery.length() + 1;
