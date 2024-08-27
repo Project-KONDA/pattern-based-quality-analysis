@@ -240,9 +240,9 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		}
 
 		object.put(ConstantsJSON.RESULT, result);
-		object.put(ConstantsJSON.FINDINGS_SIZE, total);
-		object.put(ConstantsJSON.INCIDENCES_SIZE, result.size());
-		object.put(ConstantsJSON.COMPLIANCES_SIZE, total - result.size());
+		object.put(ConstantsJSON.TOTAL_FINDINGS, total);
+		object.put(ConstantsJSON.TOTAL_INCIDENCES, result.size());
+		object.put(ConstantsJSON.TOTAL_COMPLIANCES, total - result.size());
 		return object;
 	}
 

@@ -1169,7 +1169,7 @@ components:
     PatternList: # 1, 1.1
       type: object
       properties:
-        size:
+        total:
           type: integer
           description: amount of returned patterns
         ids:
@@ -1339,7 +1339,13 @@ components:
             query:
               type: string
               description: technology-specific query
-            query_line:
+            queryLine:
+              type: string
+              description: technology-specific query without linebreaks
+            queryPartial:
+              type: string
+              description: technology-specific query
+            queryPartialLine:
               type: string
               description: technology-specific query without linebreaks
         failed:
@@ -1377,25 +1383,31 @@ components:
               constraintName:
                 type: string
                 description: user-defined name of the constraint
-              query:
-                type: string
-                description: generated query
-              language:
-                type: string
-                description: language of the constraint
-                enum: # XQuery, Sparql, Cypher
-                  - XQuery
-              technology:
-                type: string
-                description: technology of the constraint
-                enum: # xml, rdf, neo4j
-                  - xml
+#              query:
+#                type: string
+#                description: generated query
+#              language:
+#                type: string
+#                description: language of the constraint
+#                enum: # XQuery, Sparql, Cypher
+#                  - XQuery
+#              technology:
+#                type: string
+#                description: technology of the constraint
+#                enum: # xml, rdf, neo4j
+#                  - xml
               result:
                 type: array
                 description: found violations of the constraint in the file
                 items:
                   type: string
-              size:
+              totalFindings:
+                type: integer
+                description: amount of total analysed findings in the file
+              totalCompliances:
+                type: integer
+                description: amount of found violations of the constraint in the file
+              totalIncidents:
                 type: integer
                 description: amount of found violations of the constraint in the file
 

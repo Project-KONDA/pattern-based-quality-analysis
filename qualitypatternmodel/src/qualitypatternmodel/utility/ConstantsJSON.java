@@ -20,10 +20,10 @@ public class ConstantsJSON {
 
 	// Constraint Info
 	public static final String LASTSAVED = "lastSaved";
-	public static final String SIZE = "size";
-	public static final String FINDINGS_SIZE = "findingsSize";
-	public static final String COMPLIANCES_SIZE = "compliancesSize";
-	public static final String INCIDENCES_SIZE = "incidentsSize";
+	public static final String TOTAL = "total";
+	public static final String TOTAL_FINDINGS = "totalFindings";
+	public static final String TOTAL_COMPLIANCES = "totalCompliances";
+	public static final String TOTAL_INCIDENCES = "totalIncidents";
 	public static final String TEMPLATES = "templates";
 	public static final String IDS = "ids";
 
