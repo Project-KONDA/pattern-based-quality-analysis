@@ -1,5 +1,7 @@
 package junittests;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
@@ -23,142 +25,106 @@ public class RdfJUnitTests {
 
 	@Test
 	public void test01() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest01_1Predicates.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test01_2() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest01_2Types.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test01_3() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest01_3PredicateTypes.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test02() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest02Return.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test03() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest03Quantor.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test04() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest04NotElement.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test05() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest05Formula.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test06() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest06ParameterValues.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test07() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest07ComplexComparisons.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test08() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest08Count.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test09() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest09Cycle.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test11() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest11Contains.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test11m() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest11Match.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 }

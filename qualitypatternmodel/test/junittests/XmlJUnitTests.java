@@ -1,5 +1,7 @@
 package junittests;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
@@ -25,163 +27,121 @@ public class XmlJUnitTests {
 
 	@Test
 	public void test01() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test01Axis.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test01R() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test01Reference.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test02() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test02Return.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test03() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test03Quantor.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test04() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test04QuantorCombinations.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test05() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test05QuantorCombinationsCond.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test06() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test06NotElement.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test07() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test07Formula.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test08() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test08ParameterValues.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test09() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test09ComplexComparison.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test10() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test10Reference.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test11() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test11Contains.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test11m() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test11Match.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
 	@Test
 	public void test12() {
-		try {
+		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test12Count.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
-	}
-	@Test
-	public void test13() {
-		try {
-			ArrayList<CompletePattern> testpairs = Test13Cycle.getPatterns();
-			assert(!testpairs.isEmpty());
-		} catch (Exception e) {
-			assert(false);
-		}
-		assert(true);
+			assert (!testpairs.isEmpty());
+		});
 	}
 
+	@Test
+	public void test13() {
+		assertDoesNotThrow(() -> {
+			ArrayList<CompletePattern> testpairs = Test13Cycle.getPatterns();
+			assert (!testpairs.isEmpty());
+		});
+	}
 }
