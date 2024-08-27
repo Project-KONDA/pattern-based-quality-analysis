@@ -576,14 +576,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if (containsJavaOperator()) {
 			throw new InvalidityException("This pattern cannot be executed via default XQuery. A custom Java Filter build is required.");
 		}
-		String res = "";
-		initializeTranslation();
-		if (getNamespaces() != null && !getNamespaces().isEmpty()) {
-			res += generateXQueryNamespaces();
-		}
-		res += getParameterList().generateXQuery();
-		res += super.generateXQuery();
-		return res;
+		return super.generateXQuery();
 	}
 
 	@Override
