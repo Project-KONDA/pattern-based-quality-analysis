@@ -173,10 +173,6 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 				throw new ClassCastException();
 			}
 		}
-//			assertDoesNotThrow(() -> {newTarget.checkPrimitive();});
-		int a = 1;
-		a += 1;
-		a = a+1;
 		super.setTarget(newTarget);
 	}
 
