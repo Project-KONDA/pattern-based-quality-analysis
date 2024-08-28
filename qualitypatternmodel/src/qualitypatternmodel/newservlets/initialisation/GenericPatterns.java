@@ -29,6 +29,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
@@ -460,9 +461,12 @@ public class GenericPatterns {
 
 		ComplexNode main = pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
+		
+		NotCondition not = PatternstructureFactory.eINSTANCE.createNotCondition();
+		pattern.setCondition(not);
 
 		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		pattern.setCondition(qc);
+		not.setCondition(qc);
 
 		ComplexNode field = main.addOutgoing(qc.getGraph()).getTarget().makeComplex();
 		field.setName("field");
