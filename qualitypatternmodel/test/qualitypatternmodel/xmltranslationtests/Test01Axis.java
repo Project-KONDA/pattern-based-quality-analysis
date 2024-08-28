@@ -4,22 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlAxisPart;
-import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.impl.XmlAxisPartConditionImpl;
-import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.utility.PatternUtility;
@@ -35,6 +31,9 @@ public class Test01Axis {
 		for (XmlPropertyKind kind : XmlPropertyKind.VALUES) {
 			completePatterns.add(getBasePatternAxisPart(kind, null));
 			completePatterns.add(getBasePatternAxisPart(kind, "test"));
+		}
+		for (CompletePattern test: completePatterns) {
+			test.isValid(AbstractionLevel.CONCRETE);
 		}
 		return completePatterns;
 	}
@@ -56,21 +55,20 @@ public class Test01Axis {
 
 	public static CompletePattern getBasePatternAxisNotRoot(XmlAxisKind xmlAxisKind) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 
 		Graph graph = completePattern.getGraph();
 		Node element1 = completePattern.getGraph().getReturnNodes().get(0);
-		Node element2 = graphFactory.createNode();
-		element2.setGraph(graph);
-		element2.addOutgoing(element1);
+		element1.addOutgoing(graph);
 
 		completePattern.createXmlAdaption();
 		XmlElementNavigation navigation = (XmlElementNavigation) graph.getRelations().get(0);
 
 		XmlPathParam axisOption = navigation.getXmlPathParam();
 		axisOption.setXmlAxis(xmlAxisKind, null);
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		((XmlPathParam) params.get(0)).setValueFromString("/*");
+		((XmlPathParam) params.get(1)).setValueFromString(xmlAxisKind + "*");
 		return completePattern;
 	}
 
@@ -78,24 +76,20 @@ public class Test01Axis {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 
 		completePattern.createXmlAdaption();
-		XmlPathParam relation = ((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam();
-		XmlAxisPart part = relation.getXmlAxisParts().get(0);
-		XmlAxisPartCondition cond = new XmlAxisPartConditionImpl();
-		part.getXmlAxisPartConditions().clear();
-		part.getXmlAxisPartConditions().add(cond);
-		if (cond.getXmlPropertyOption() == null) {
-			cond.setXmlPropertyOption(new XmlPropertyOptionParamImpl());
-		}
-		cond.getXmlPropertyOption().setValue(type);
-		if (type.equals(XmlPropertyKind.ATTRIBUTE)) {
-			cond.getXmlPropertyOption().getAttributeName().setValue("attribute");
-		}
-		if (value != null) {
-			if (cond.getTextLiteralParam() == null) {
-				cond.setTextLiteralParam(new TextLiteralParamImpl());
-			}
-			cond.getTextLiteralParam().setValue(value);
-		}
+		
+		String axisvalue = "/*[";
+		if (type == XmlPropertyKind.ATTRIBUTE)
+			axisvalue += "@attribute";
+		else if (type == XmlPropertyKind.TAG)
+			axisvalue += "name()";
+		else if (type == XmlPropertyKind.DATA)
+			axisvalue += "data()";
+		if (value != null)
+			axisvalue += "=\"" + value + "\"";
+		axisvalue += "]";
+		
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		((XmlPathParam) params.get(0)).setValueFromString(axisvalue);
 		return completePattern;
 	}
 

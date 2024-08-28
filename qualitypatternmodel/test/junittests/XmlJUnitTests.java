@@ -75,6 +75,9 @@ public class XmlJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test04QuantorCombinations.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -83,6 +86,9 @@ public class XmlJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test05QuantorCombinationsCond.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -91,6 +97,9 @@ public class XmlJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test06NotElement.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -110,6 +119,9 @@ public class XmlJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test08ParameterValues.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -118,6 +130,9 @@ public class XmlJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test09ComplexComparison.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -126,6 +141,9 @@ public class XmlJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test10Reference.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
