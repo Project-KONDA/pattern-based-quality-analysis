@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.xmltranslationtests.Test01Axis;
 import qualitypatternmodel.xmltranslationtests.Test01Reference;
@@ -30,6 +31,9 @@ public class XmlJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test01Axis.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -38,6 +42,9 @@ public class XmlJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test01Reference.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -46,6 +53,9 @@ public class XmlJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test02Return.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -54,6 +64,9 @@ public class XmlJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test03Quantor.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -86,6 +99,9 @@ public class XmlJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test07Formula.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -118,6 +134,9 @@ public class XmlJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test11Contains.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -126,6 +145,9 @@ public class XmlJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test11Match.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -134,6 +156,9 @@ public class XmlJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test12Count.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -142,6 +167,9 @@ public class XmlJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = Test13Cycle.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 }

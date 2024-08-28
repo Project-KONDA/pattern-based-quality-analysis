@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.rdftranslationtests.RdfTest01_1Predicates;
 import qualitypatternmodel.rdftranslationtests.RdfTest01_2Types;
@@ -28,6 +29,9 @@ public class RdfJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest01_1Predicates.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -36,6 +40,9 @@ public class RdfJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest01_2Types.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -44,6 +51,9 @@ public class RdfJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest01_3PredicateTypes.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -52,6 +62,9 @@ public class RdfJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest02Return.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -60,6 +73,9 @@ public class RdfJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest03Quantor.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -68,6 +84,9 @@ public class RdfJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest04NotElement.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -76,6 +95,9 @@ public class RdfJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest05Formula.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -84,6 +106,9 @@ public class RdfJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest06ParameterValues.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -92,6 +117,9 @@ public class RdfJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest07ComplexComparisons.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -108,6 +136,9 @@ public class RdfJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest09Cycle.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -116,6 +147,9 @@ public class RdfJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest11Contains.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
@@ -124,6 +158,9 @@ public class RdfJUnitTests {
 		assertDoesNotThrow(() -> {
 			ArrayList<CompletePattern> testpairs = RdfTest11Match.getPatterns();
 			assert (!testpairs.isEmpty());
+			for (CompletePattern test: testpairs) {
+				test.isValid(AbstractionLevel.CONCRETE);
+			}
 		});
 	}
 
