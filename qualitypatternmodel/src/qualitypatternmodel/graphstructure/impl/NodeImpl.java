@@ -1439,16 +1439,16 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public Relation addOutgoing(Node node) throws InvalidityException {
 		ComplexNode thisComplex = this.makeComplex();
-		if (getGraph() == null && node.getGraph() == null)
-			throw new InvalidityException("A Relation between " + myToString() +" and " + node.myToString() + "could not be added: Both dont belong into a Graph");
-		if (getGraph() == null)
-			setGraph(node.getGraph());
+		if (thisComplex.getGraph() == null && node.getGraph() == null)
+			throw new InvalidityException("A Relation between " + thisComplex.myToString() + " and " + node.myToString() + "could not be added: Both dont belong into a Graph");
+		if (thisComplex.getGraph() == null)
+			thisComplex.setGraph(node.getGraph());
 		if (node.getGraph() == null)
-			node.setGraph(getGraph());
-		if (getGraph().isBefore(node.getGraph()))
+			node.setGraph(thisComplex.getGraph());
+		if (thisComplex.getGraph().isBefore(node.getGraph()))
 			return node.getGraph().addRelation(thisComplex, node);
 		else
-			return getGraph().addRelation(thisComplex, node);
+			return thisComplex.getGraph().addRelation(thisComplex, node);
 	}
 
 	/**

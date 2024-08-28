@@ -757,6 +757,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public XmlReference adaptAsXmlReference() throws InvalidityException {
 		if(!(this instanceof XmlReference)) {
 			XmlReference reference = new XmlReferenceImpl();
+			getTarget().adaptAsXmlElement();
 			reference.setGraphSimple(getGraph());
 
 //			ComplexNode sourceNode = getSource().makeComplex();
@@ -767,7 +768,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			} else {
 				targetNode = getTarget().makeComplex();
 			}
-
 
 			if(getName().matches("Relation [0-9]+")) {
 				reference.setName(getName().replace("Relation", "XmlReference"));
@@ -789,13 +789,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 			reference.setProperty(property);
 
+
+			setGraph(null);
+			this.removeParametersFromParameterList();
 			setSource(null);
 			setTarget(null);
 
-			setGraph(null);
-
-			reference.getTarget().adaptAsXmlElement();
-			this.removeParametersFromParameterList();
 			return reference;
 		}
 		return (XmlReference) this;

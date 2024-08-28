@@ -538,13 +538,19 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			if (vars) {
 				out += p.getClass().getSimpleName().replace("Impl", "");
 				out += " p" + i + " = ";
+				out += "((" + p.getClass().getSimpleName().replace("Impl", "");
+				out += ") ";
 			}
-			out += "((" + p.getClass().getSimpleName().replace("Impl", "");
-			out += ") params.get(" + i + "))";
+			out += "params.get(" + i + ")";
+			if (vars)
+				out += ")";
 			if (!vars)
-				out += ".setValueFromString(null);";
-			if (p instanceof XmlPathParam && ((XmlPathParam) p).isProperty())
-				out += " // Property";
+				out += ".setValueFromString(null); // " + p.getClass().getSimpleName().replace("Impl", "");;
+			if (p instanceof XmlPathParam && ((XmlPathParam) p).isProperty()) {
+				if (vars)
+					out += " //";
+				out += " Property";
+			}
 			System.out.println(out);
 			i++;
 		}
