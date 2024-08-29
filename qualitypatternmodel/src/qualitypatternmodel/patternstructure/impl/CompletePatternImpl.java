@@ -537,6 +537,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			String out = "";
 			if (vars) {
 				out += " p" + i + " = ";
+				out += "((" + p.getClass().getSimpleName().replace("Impl", "");
+				out += ") ";
 			}
 			out += "params.get(" + i + ")";
 			if (!vars) {

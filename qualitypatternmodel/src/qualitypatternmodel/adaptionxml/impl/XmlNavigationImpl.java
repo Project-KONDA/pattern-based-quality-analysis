@@ -293,8 +293,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		try {
 			reference.getGraph().createXmlAdaption();
 		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-			e.printStackTrace();
-			throw new InvalidityException(e.getMessage());
+			throw new InvalidityException(e.getMessage(), e);
 		}
 		return reference;
 	}
@@ -642,7 +641,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		if (getXmlPathParam() != null) {
 			return res + " (" + getXmlPathParam().myToString() + ")";
 		} else {
-			return res + " (prev.)";
+			return res + " (<missing XmlPath>)";
 		}
 	}
 } //XmlNavigationImpl
