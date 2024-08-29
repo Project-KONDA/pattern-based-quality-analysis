@@ -11,6 +11,7 @@ import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
+import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.utility.ConstantsXml;
@@ -107,6 +108,25 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 	@Override
 	public XmlElementNavigation adaptAsXmlElementNavigation() {
 		return this;
+	}
+	
+	@Override
+	public XmlReference adaptAsXmlReference() throws InvalidityException {
+		XmlReference reference = new XmlReferenceImpl();
+		reference.setGraph(getGraph());
+		reference.setSource(getSource());
+		reference.setTarget(getTarget());
+		XmlProperty prop = new XmlPropertyImpl();
+//		prop.setGraph(getGraph());
+		reference.setProperty(prop);
+//		XmlPropertyNavigation navTarget = (XmlPropertyNavigation) getTarget().addOutgoing(prop);
+//		XmlPropertyNavigation navSource = (XmlPropertyNavigation) getSource().addOutgoing(prop);
+		
+		System.out.println("PARAM " + getXmlPathParam().myToString());
+		this.removeParametersFromParameterList();
+		this.setGraph(null);
+		
+		return reference;
 	}
 
 	@Override

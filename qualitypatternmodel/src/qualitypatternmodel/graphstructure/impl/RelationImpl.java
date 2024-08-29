@@ -783,15 +783,16 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			XmlProperty property = new XmlPropertyImpl();
 			Graph graph = getGraph();
 			property.setGraph(getGraph());
-			graph.addRelation(sourceNode, property).adaptAsXmlPropertyNavigation();
-			graph.addRelation(targetNode, property).adaptAsXmlPropertyNavigation();
+			graph.addRelation(sourceNode, property);
+			graph.addRelation(targetNode, property);
 			property.createParameters();
 
 			reference.setProperty(property);
 
 
-			setGraph(null);
+			getGraph().getRelations().remove(this);
 			this.removeParametersFromParameterList();
+			setGraph(null);
 			setSource(null);
 			setTarget(null);
 

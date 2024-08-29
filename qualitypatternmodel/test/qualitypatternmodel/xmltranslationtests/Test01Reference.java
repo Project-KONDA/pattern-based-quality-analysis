@@ -7,7 +7,7 @@ import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.parameters.Parameter;
+//import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.exceptions.*;
 
 public class Test01Reference {
@@ -49,7 +49,7 @@ public class Test01Reference {
 	public static CompletePattern getBaseReference1() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		CompletePattern completePattern = getBaseReferenceAbstract();
 		completePattern.getNamespaces().put("demo", "demo");
-		List<Parameter> params = completePattern.getParameterList().getParameters();
+//		List<Parameter> params = completePattern.getParameterList().getParameters();
 //		params.get(0).setValueFromString("/demo:data/demo:painting");
 //		params.get(1).setValueFromString("/demo:creator/text()");
 //		params.get(2).setValueFromString("/@demo:id");
@@ -79,7 +79,7 @@ public class Test01Reference {
 		CompletePattern pattern = getBaseReferenceExistsAbstract();
 		pattern.getNamespaces().put("demo", "demo");
 		pattern.printParameters(false);
-		List<Parameter> params = pattern.getParameterList().getParameters();
+//		List<Parameter> params = pattern.getParameterList().getParameters();
 //		params.get(0).setValueFromString("/demo:data/demo:painting"); // XmlPathParam
 //		params.get(1).setValueFromString("/demo:creator/text()"); // XmlPathParam Property
 //		params.get(2).setValueFromString("/@demo:id"); // XmlPathParam
