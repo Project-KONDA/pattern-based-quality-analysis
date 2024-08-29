@@ -3,7 +3,6 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
-import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -59,11 +58,11 @@ public class Test09ComplexComparison {
 
 		completePattern.getNamespaces().put("demo", "demo");
 		List<Parameter> params = completePattern.getParameterList().getParameters();
-//		((ComparisonOptionParam) params.get(0)).setValueFromString(null);
-//		((TypeOptionParam) params.get(1)).setValueFromString(null);
-		((XmlPathParam) params.get(2)).setValueFromString("//*");
-		((XmlPathParam) params.get(3)).setValueFromString("/demo:creator/text()"); // Property
-		((XmlPathParam) params.get(4)).setValueFromString("/parent::*/demo:artist/@demo:id"); // Property
+		params.get(0).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(1).setValueFromString("STRING"); // TypeOptionParam
+		params.get(2).setValueFromString("//*"); // XmlPathParam
+		params.get(3).setValueFromString("/demo:creator/text()"); // XmlPathParam Property
+		params.get(4).setValueFromString("/parent::*/demo:artist/@demo:id"); // XmlPathParam Property
 
 		return completePattern;
 	}
@@ -86,10 +85,12 @@ public class Test09ComplexComparison {
 		pattern.createXmlAdaption();
 
 		List<Parameter> params = pattern.getParameterList().getParameters();
-		((XmlPathParam) params.get(2)).setValueFromString("/*/*");
-		((XmlPathParam) params.get(3)).setValueFromString("/demo:creator/text()"); // Property
-		((XmlPathParam) params.get(4)).setValueFromString("/@demo:id"); // Property
-		((XmlPathParam) params.get(5)).setValueFromString("/*/demo:artist");
+		params.get(0).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(1).setValueFromString("STRING"); // TypeOptionParam
+		params.get(2).setValueFromString("/*/*"); // XmlPathParam
+		params.get(3).setValueFromString("/demo:creator/text()"); // XmlPathParam Property
+		params.get(4).setValueFromString("/@demo:id"); // XmlPathParam Property
+		params.get(5).setValueFromString("/*/demo:artist"); // XmlPathParam
 		return pattern;
 	}
 
@@ -109,10 +110,12 @@ public class Test09ComplexComparison {
 		pattern.createXmlAdaption();
 
 		List<Parameter> params = pattern.getParameterList().getParameters();
-		((XmlPathParam) params.get(2)).setValueFromString("/demo:data/demo:building");
-		((XmlPathParam) params.get(3)).setValueFromString("/demo:source");
-		((XmlPathParam) params.get(4)).setValueFromString("/demo:source");
-		((XmlPathParam) params.get(5)).setValueFromString("/demo:data/demo:painting");
+		params.get(0).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(1).setValueFromString("ELEMENT"); // TypeOptionParam
+		params.get(2).setValueFromString("/demo:data/demo:building"); // XmlPathParam
+		params.get(3).setValueFromString("/demo:source"); // XmlPathParam
+		params.get(4).setValueFromString("/demo:source"); // XmlPathParam
+		params.get(5).setValueFromString("/demo:data/demo:painting"); // XmlPathParam
 
 		return pattern;
 	}
@@ -162,11 +165,17 @@ public class Test09ComplexComparison {
 		completePattern.createXmlAdaption();
 		
 		List<Parameter> params = completePattern.getParameterList().getParameters();
-		((TextLiteralParam) params.get(0)).setValueFromString("demo:building");
-		((TextLiteralParam) params.get(1)).setValueFromString("A");
-		((TextLiteralParam) params.get(2)).setValueFromString("B");
-		((XmlPathParam) params.get(9)).setValueFromString("/name()"); // Property
-		((XmlPathParam) params.get(10)).setValueFromString("/*/*");
+		params.get(0).setValueFromString("demo:building"); // TextLiteralParam
+		params.get(1).setValueFromString("A"); // TextLiteralParam
+		params.get(2).setValueFromString("B"); // TextLiteralParam
+		params.get(3).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(4).setValueFromString("BOOLEAN"); // TypeOptionParam
+		params.get(5).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(6).setValueFromString("STRING"); // TypeOptionParam
+		params.get(7).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(8).setValueFromString("STRING"); // TypeOptionParam
+		params.get(9).setValueFromString("/name()"); // XmlPathParam Property
+		params.get(10).setValueFromString("/*/*"); // XmlPathParam
 
 		((XmlNavigation) ((XmlProperty) comp1.getArgument1()).getIncoming().get(0)).getXmlPathParam().getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
 
