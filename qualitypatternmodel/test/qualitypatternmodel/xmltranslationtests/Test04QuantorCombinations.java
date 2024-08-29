@@ -61,6 +61,8 @@ public class Test04QuantorCombinations {
 		completePattern.createXmlAdaption();
 
 		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(1).setValueFromString("STRING"); // TypeOptionParam
 		params.get(2).setValueFromString("/demo:creator/text()"); // Property
 		params.get(3).setValueFromString("/demo:data/demo:painting");
 		params.get(4).setValueFromString("/demo:startwork");

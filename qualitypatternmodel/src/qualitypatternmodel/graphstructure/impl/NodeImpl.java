@@ -1995,6 +1995,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			}
 			comparison.setArgument1(p);
 			comparison.setArgument2(untypedParameterValue);
+			comparison.getOption().setValue(ComparisonOperator.EQUAL);
 
 			return untypedParameterValue;
 
