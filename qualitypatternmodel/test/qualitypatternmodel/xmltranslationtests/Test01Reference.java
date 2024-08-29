@@ -16,6 +16,8 @@ public class Test01Reference {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getBaseReferenceAbstract());
 		completePatterns.add(getBaseReferenceExistsAbstract());
+		completePatterns.add(getBaseReference1());
+		completePatterns.add(getBaseReferenceExists1());
 		return completePatterns;
 	}
 	
@@ -40,6 +42,7 @@ public class Test01Reference {
 		Graph graph = completePattern.getGraph();
 		completePattern.createXmlAdaption();
 		graph.getRelations().get(0).adaptAsXmlReference();
+		PatternUtility.fillParameter(completePattern);
 		return completePattern;
 	}
 
@@ -47,10 +50,11 @@ public class Test01Reference {
 		CompletePattern completePattern = getBaseReferenceAbstract();
 		completePattern.getNamespaces().put("demo", "demo");
 		List<Parameter> params = completePattern.getParameterList().getParameters();
-		params.get(0).setValueFromString("/demo:data/demo:painting");
-		params.get(1).setValueFromString("/demo:creator/text()");
-		params.get(2).setValueFromString("/@demo:id");
-		params.get(3).setValueFromString("/demo:data/demo:artist");
+//		params.get(0).setValueFromString("/demo:data/demo:painting");
+//		params.get(1).setValueFromString("/demo:creator/text()");
+//		params.get(2).setValueFromString("/@demo:id");
+//		params.get(3).setValueFromString("/demo:data/demo:artist");
+		PatternUtility.fillParameter(completePattern);
 		return completePattern;
 	}
 
@@ -74,11 +78,13 @@ public class Test01Reference {
 	public static CompletePattern getBaseReferenceExists1() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = getBaseReferenceExistsAbstract();
 		pattern.getNamespaces().put("demo", "demo");
+		pattern.printParameters(false);
 		List<Parameter> params = pattern.getParameterList().getParameters();
-		params.get(0).setValueFromString("/demo:data/demo:painting");
-		params.get(1).setValueFromString("/demo:creator/text()");
-		params.get(2).setValueFromString("/@demo:id");
-		params.get(3).setValueFromString("/demo:data/demo:artist");
+//		params.get(0).setValueFromString("/demo:data/demo:painting"); // XmlPathParam
+//		params.get(1).setValueFromString("/demo:creator/text()"); // XmlPathParam Property
+//		params.get(2).setValueFromString("/@demo:id"); // XmlPathParam
+//		params.get(3).setValueFromString("/demo:data/demo:artist"); // XmlPathParam
+		PatternUtility.fillParameter(pattern);
 		return pattern;
 	}
 
