@@ -3,15 +3,11 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -26,12 +22,12 @@ public class Test06NotElement {
 
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-//		completePatterns.add(getPatternNotTrue());
-//		completePatterns.add(getPatternNotNotTrue());
-//		completePatterns.add(getPatternNotExists());
+		completePatterns.add(getPatternNotTrue());
+		completePatterns.add(getPatternNotNotTrue());
+		completePatterns.add(getPatternNotExists());
 		completePatterns.add(getPatternNotForall());
-//		completePatterns.add(getPatternExistsNotExists());
-//		completePatterns.add(getPatternForallNotForall());
+		completePatterns.add(getPatternExistsNotExists());
+		completePatterns.add(getPatternForallNotForall());
 		return completePatterns;
 	}
 
@@ -46,8 +42,9 @@ public class Test06NotElement {
 
 		NotCondition n = factory.createNotCondition();
 		completePattern.setCondition(n);
-
 		completePattern.createXmlAdaption();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("/*"); // XmlPathParam
 
 		return completePattern;
 	}
@@ -63,6 +60,8 @@ public class Test06NotElement {
 		n.setCondition(n2);
 
 		completePattern.createXmlAdaption();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("/*"); // XmlPathParam
 
 		return completePattern;
 	}
@@ -90,13 +89,8 @@ public class Test06NotElement {
 		CompletePattern completePattern = getPatternNotExistsAbstract();
 		completePattern.createXmlAdaption();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
-		params.get(0).setValueFromString("//*");
-//		params.get(1).setValueFromString("/parent::*");
-//		params.get(2).setValueFromString("/self::*");
-//		((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
-
-		((XmlElementNavigation)(completePattern.getGraph().getRelations().get(0))).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
-
+		params.get(0).setValueFromString("//*"); // XmlPathParam
+		params.get(1).setValueFromString("/*"); // XmlPathParam
 		return completePattern;
 	}
 	public static CompletePattern getPatternNotForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -124,7 +118,6 @@ public class Test06NotElement {
 
 		e1.addOutgoing(qc2.getGraph());
 		return completePattern;
-
 	}
 
 
@@ -138,12 +131,12 @@ public class Test06NotElement {
 		completePattern.createXmlAdaption();
 
 		List<Parameter> params = completePattern.getParameterList().getParameters();
-		((UntypedParameterValue) params.get(0)).setValueFromString("unknown");
-//		((ComparisonOptionParam) params.get(1)).setValue(ComparisonOperator.EQUAL);
-//		((TypeOptionParam) params.get(2));
-		((XmlPathParam) params.get(3)).setValueFromString("//demo:building");
-		((XmlPathParam) params.get(4)).setValueFromString("/demo:address");
-		((XmlPathParam) params.get(5)).setValueFromString("/demo:city/text()");; // Property
+		params.get(0).setValueFromString("unknown"); // UntypedParameterValue
+		params.get(1).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(2).setValueFromString("STRING"); // TypeOptionParam
+		params.get(3).setValueFromString("//demo:building"); // XmlPathParam
+		params.get(4).setValueFromString("/demo:address"); // XmlPathParam
+		params.get(5).setValueFromString("/demo:city/text()"); // XmlPathParam Property
 
 		return completePattern;
 	}
