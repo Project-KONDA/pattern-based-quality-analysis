@@ -3,13 +3,10 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
@@ -50,11 +47,12 @@ public class Test12Count {
 		ccond.setArgument2(nel);
 		g.getNodes().get(0).addOutgoing(cograph).getTarget().makeComplex().setReturnNode(true);
 		pattern.createXmlAdaption();
-		
+
 		List<Parameter> params = pattern.getParameterList().getParameters();
-		((NumberParam) params.get(1)).setValue(2.);
-		((XmlPathParam) params.get(2)).setValueFromString("//*");
-		((XmlPathParam) params.get(3)).setValueFromString("/following-sibling::*");
+		params.get(0).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(1).setValueFromString("2."); // NumberParam
+		params.get(2).setValueFromString("//*"); // XmlPathParam
+		params.get(3).setValueFromString("/following-sibling::*"); // XmlPathParam
 		return pattern;
 	}
 
@@ -72,12 +70,13 @@ public class Test12Count {
 		ccond.setArgument2(nel);
 		g.getNodes().get(0).addOutgoing(g2).getTarget().addOutgoing(g3).getTarget().makeComplex().setReturnNode(true);
 		pattern.createXmlAdaption();
-		
+
 		List<Parameter> params = pattern.getParameterList().getParameters();
-		((NumberParam) params.get(1)).setValue(2.);
-		((XmlPathParam) params.get(2)).setValueFromString("//*");
-		((XmlPathParam) params.get(3)).setValueFromString("/*");
-		((XmlPathParam) params.get(4)).setValueFromString("/following-sibling::*");
+		params.get(0).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(1).setValueFromString("2."); // NumberParam
+		params.get(2).setValueFromString("//*"); // XmlPathParam
+		params.get(3).setValueFromString("/*"); // XmlPathParam
+		params.get(4).setValueFromString("/following-sibling::*"); // XmlPathParam
 		return pattern;
 	}
 
@@ -85,11 +84,11 @@ public class Test12Count {
 		CompletePattern pattern = getPatternCountInExists();
 		((QuantifiedCondition) pattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		List<Parameter> params = pattern.getParameterList().getParameters();
-		((ComparisonOptionParam) params.get(0)).setValueFromString("GREATER");
-		((NumberParam) params.get(1)).setValue(2.);
-		((XmlPathParam) params.get(2)).setValueFromString("//*");
-		((XmlPathParam) params.get(3)).setValueFromString("/demo:creator");
-		((XmlPathParam) params.get(4)).setValueFromString("/preceding-sibling::*");
+		params.get(0).setValueFromString("GREATER"); // ComparisonOptionParam
+		params.get(1).setValueFromString("2.0"); // NumberParam
+		params.get(2).setValueFromString("//*"); // XmlPathParam
+		params.get(3).setValueFromString("/demo:creator"); // XmlPathParam
+		params.get(4).setValueFromString("/following-sibling::*"); // XmlPathParam
 		return pattern;
 	}
 
@@ -106,11 +105,12 @@ public class Test12Count {
 		ccond.setArgument2(nel);
 		g.getNodes().get(0).addOutgoing(cograph).getTarget().makeComplex().setReturnNode(true);
 		pattern.createXmlAdaption();
-		
+
 		List<Parameter> params = pattern.getParameterList().getParameters();
-		((NumberParam) params.get(1)).setValue(2.);
-		((XmlPathParam) params.get(2)).setValueFromString("//*");
-		((XmlPathParam) params.get(3)).setValueFromString("/following-sibling::*");
+		params.get(0).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(1).setValueFromString("2."); // NumberParam
+		params.get(2).setValueFromString("//*"); // XmlPathParam
+		params.get(3).setValueFromString("/following-sibling::*"); // XmlPathParam
 		return pattern;
 	}
 
@@ -134,12 +134,13 @@ public class Test12Count {
 		ccond.setArgument2(nel);
 		g.getNodes().get(0).addOutgoing(cograph).getTarget().makeComplex().setReturnNode(true);
 		pattern.createXmlAdaption();
-		
+
 		List<Parameter> params = pattern.getParameterList().getParameters();
-		((NumberParam) params.get(1)).setValue(2.);
-		((XmlPathParam) params.get(2)).setValueFromString("//*");
-		((XmlPathParam) params.get(3)).setValueFromString("/following-sibling::*");
-		((XmlPathParam) params.get(4)).setValueFromString("/text()"); // Property
+		params.get(0).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(1).setValueFromString("2."); // NumberParam
+		params.get(2).setValueFromString("//*"); // XmlPathParam
+		params.get(3).setValueFromString("/following-sibling::*"); // XmlPathParam
+		params.get(4).setValueFromString("/text()"); // XmlPathParam Property
 		return pattern;
 	}
 
