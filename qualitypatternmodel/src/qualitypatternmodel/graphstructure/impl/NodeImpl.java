@@ -2018,6 +2018,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		try {
 			TextLiteralParam textlit = new TextLiteralParamImpl(value);
 			addPrimitiveComparison(textlit);
+			textlit.getComparison2().get(0).getTypeOption().setValue(ReturnType.STRING);
 			return textlit;
 
 		} catch (Exception e) {

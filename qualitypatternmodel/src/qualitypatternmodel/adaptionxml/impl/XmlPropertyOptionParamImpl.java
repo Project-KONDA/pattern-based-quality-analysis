@@ -183,9 +183,18 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			pro = XmlPropertyKind.TAG;
 		else if (value.startsWith("@")) {
 			pro = XmlPropertyKind.ATTRIBUTE;
-			attName = value.substring(1);
+			if (value.matches(ConstantsXml.REGEX_ATTRIBUTE)){
+				if (value.substring(1).matches(ConstantsXml.REGEX_ATTRIBUTE_NAME))
+					attName = value.substring(1);
+				else {
+					String[] parts = value.split("\"");
+					if (parts.length != 3)
+						throw new InvalidityException("Invalid configuration: invalid attribute specification.");
+					 attName = parts[1];
+				}	
+			}
 			if (attName == null || !attName.matches(ConstantsXml.REGEX_ATTRIBUTE_NAME))
-				throw new InvalidityException("Invalid configuration: invalid attribute name");	
+				throw new InvalidityException("Invalid configuration: invalid attribute name: " + attName);	
 		} else 
 			throw new InvalidityException("Invalid configuration: no valid property");
 
