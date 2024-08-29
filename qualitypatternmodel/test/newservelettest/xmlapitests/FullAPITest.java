@@ -68,14 +68,14 @@ public class FullAPITest {
 			testPatternListServletGet();
 
 			testConstraintMqafServlet();
-//			testConstraintMqafServletPost();
-//			testConstraintQueryServlet();
+			testConstraintMqafServletPost();
+			testConstraintQueryServlet();
 
 			testConstraintExecuteServletGet();
 
-//			testTemplateVariantServletGet();
-//			testTemplateVariantServletDelete();
-//			testTemplateVariantServletPut();
+			testTemplateVariantServletGet();
+			testTemplateVariantServletDelete();
+			testTemplateVariantServletPut();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -428,14 +428,14 @@ public class FullAPITest {
 	@Test
 	public void testConstraintMqafServletPost()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-//		ConstraintNameServlet.applyPost(null, getEmptyParams());
+		ConstraintNameServlet.applyPost(null, getEmptyParams());
 	}
 
 	@Test
 	public void testConstraintQueryServlet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-//		ConstraintQueryServlet.applyGet2(null, getEmptyParams());
-//		ConstraintQueryServlet.applyGet3(null, getEmptyParams());
+		ConstraintQueryServlet.applyGet2(null, getEmptyParams());
+		ConstraintQueryServlet.applyGet3(null, getEmptyParams());
 	}
 
 	@Test
@@ -481,18 +481,18 @@ public class FullAPITest {
 	@Test
 	public void testTemplateVariantServletGet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-//		TemplateVariantServlet.applyGet(null, getEmptyParams());
+		TemplateVariantServlet.applyGet(null, getEmptyParams());
 	}
 
 	@Test
 	public void testTemplateVariantServletDelete()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-//		TemplateVariantServlet.applyDelete(null, getEmptyParams());
+		TemplateVariantServlet.applyDelete(null, getEmptyParams());
 	}
 
 	@Test
 	public void testTemplateVariantServletPut()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-//		TemplateVariantServlet.applyPut(null, getEmptyParams());
+		TemplateVariantServlet.applyPut(null, getEmptyParams());
 	}
 }
