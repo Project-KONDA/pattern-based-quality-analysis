@@ -16,7 +16,6 @@ import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlProperty;
-import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -284,18 +283,6 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return this;
-	}
-
-	@Override
-	public XmlReference adaptAsXmlReference() throws InvalidityException {
-		removeParametersFromParameterList();
-		XmlReference reference = super.adaptAsXmlReference();
-		try {
-			reference.getGraph().createXmlAdaption();
-		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-			throw new InvalidityException(e.getMessage(), e);
-		}
-		return reference;
 	}
 
 	@Override

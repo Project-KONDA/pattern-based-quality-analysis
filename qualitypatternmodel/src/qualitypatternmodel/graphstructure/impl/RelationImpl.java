@@ -3,7 +3,6 @@
 package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -19,11 +18,11 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jFactoryImpl;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfPredicateImpl;
-import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyNavigationImpl;
@@ -39,6 +38,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
@@ -166,13 +166,16 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 
-		if(getSource() == null || getSource().getGraph() == null) {
-			throw new InvalidityException("source invalid of " + myToString());
-		}
+		if (getSource() == null) {
+			throw new InvalidityException("source null of " + myToString());
+		} else if (getSource().getGraph() == null)
+			throw new InvalidityException("source not in graph of " + myToString());
 
-		if(getTarget() == null || getTarget().getGraph() == null) {
-			throw new InvalidityException("target invalid of " + myToString());
-		}
+		if (getTarget() == null) {
+			throw new InvalidityException("target null of " + myToString());
+		} else if (getTarget().getGraph() == null)
+			throw new InvalidityException("target not in graph of " + myToString());
+			
 
 		if (getTarget().getGraph() != getGraph() && getSource().getGraph() != getGraph()) {
 			throw new InvalidityException( myToString() + " is not in Graph of Source Node "+ getSource().myToString() + " or Target Node ("+ getTarget().myToString() + ")");
@@ -290,6 +293,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		else if (eNotificationRequired()) {
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__GRAPH, newGraph, newGraph));
 		}
+		if (newGraph == null)
+			removeParametersFromParameterList();
 	}
 
 	/**
@@ -756,45 +761,62 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public XmlReference adaptAsXmlReference() throws InvalidityException {
 		if(!(this instanceof XmlReference)) {
-			XmlReference reference = new XmlReferenceImpl();
-			getTarget().adaptAsXmlElement();
-			reference.setGraphSimple(getGraph());
 
-//			ComplexNode sourceNode = getSource().makeComplex();
-			ComplexNode sourceNode = getSource();
-			ComplexNode targetNode;
-			if (getTarget() instanceof XmlElement) {
-				targetNode = (ComplexNode) getTarget();
-			} else {
-				targetNode = getTarget().makeComplex();
+			CompletePattern pattern = null;
+			try {
+				pattern = (CompletePattern) getAncestor(CompletePattern.class);
+			} catch (MissingPatternContainerException e) {
+				e.printStackTrace();
 			}
+			Graph graph = getGraph();
+			ComplexNode sourceNode = getSource();
+			Node targetPre = getTarget();
+			String name = getName();
 
-			if(getName().matches("Relation [0-9]+")) {
+			setSource(null);
+			setTarget(null);
+			setGraph(null);
+
+			ComplexNode targetNode = targetPre.makeComplex().adaptAsXmlElement();
+
+			Boolean hasIncomming = false;
+			for (Relation r: targetNode.getIncoming()) {
+				if (r instanceof XmlElementNavigation)
+					hasIncomming = true;
+			}
+			
+			if (!hasIncomming)
+				try {
+					XmlRoot root = null;
+					for (Node n: pattern.getGraph().getNodes()) {
+						if (n instanceof XmlRoot)
+							root = (XmlRoot) n;
+					}
+					root.addOutgoing(targetNode);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			
+			XmlReference reference = new XmlReferenceImpl();
+			reference.setGraph(getGraph());
+			reference.setSource(sourceNode);
+			reference.setTarget(targetNode);
+
+			if(name.matches("Relation [0-9]+")) {
 				reference.setName(getName().replace("Relation", "XmlReference"));
-			} else if(getName().matches("XmlNavigation [0-9]+")) {
+			} else if(name.matches("XmlNavigation [0-9]+")) {
 				reference.setName(getName().replace("XmlNavigation", "XmlReference"));
 			} else {
 				reference.setName(getName());
 			}
 
-			reference.setSource(sourceNode);
-			reference.setTarget(targetNode);
 
 			XmlProperty property = new XmlPropertyImpl();
-			Graph graph = getGraph();
-			property.setGraph(getGraph());
+			property.setGraph(graph);
 			graph.addRelation(sourceNode, property);
 			graph.addRelation(targetNode, property);
-			property.createParameters();
-
 			reference.setProperty(property);
-
-
-			getGraph().getRelations().remove(this);
-			this.removeParametersFromParameterList();
-			setGraph(null);
-			setSource(null);
-			setTarget(null);
+			property.createParameters();
 
 			return reference;
 		}

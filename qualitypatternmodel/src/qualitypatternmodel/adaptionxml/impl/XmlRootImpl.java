@@ -119,13 +119,12 @@ public class XmlRootImpl extends ComplexNodeImpl implements XmlRoot {
 
 	@Override
 
-	public ComplexNode makeComplex() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
+	public ComplexNode makeComplex() throws InvalidityException {
+		return this;
 	}
 
 	@Override
 	public void checkComplex() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
 	}
 
 	@Override
