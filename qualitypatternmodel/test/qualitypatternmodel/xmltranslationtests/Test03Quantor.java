@@ -44,7 +44,9 @@ public class Test03Quantor {
 		CompletePattern completePattern = getPatternExists();
 
 		completePattern.createXmlAdaption();
-
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("/*");
+		params.get(1).setValueFromString("/*");
 		return completePattern;
 	}
 
@@ -118,6 +120,9 @@ public class Test03Quantor {
 		CompletePattern completePattern = getPatternExistsWithRelation();
 		completePattern.createXmlAdaption();
 //		((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("/*");
+		params.get(1).setValueFromString("/*");
 		return completePattern;
 	}
 
@@ -125,7 +130,12 @@ public class Test03Quantor {
 		CompletePattern completePattern = getPatternExistsCond();
 		completePattern.createXmlAdaption();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("New York City"); // TextLiteralParam
+		params.get(1).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(2).setValueFromString("STRING"); // TypeOptionParam
+		params.get(3).setValueFromString("/*");
 		params.get(4).setValueFromString("/*/*/*");
+		params.get(5).setValueFromString("/text()");
 		return completePattern;
 	}
 
@@ -142,6 +152,9 @@ public class Test03Quantor {
 		QuantifiedCondition cond1 = (QuantifiedCondition) completePattern.getCondition();
 		cond1.setQuantifier(Quantifier.FORALL);
 		completePattern.createXmlAdaption();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("/*");
+		params.get(1).setValueFromString("/*");
 		return completePattern;
 	}
 
@@ -150,6 +163,13 @@ public class Test03Quantor {
 		QuantifiedCondition cond1 = (QuantifiedCondition) completePattern.getCondition();
 		cond1.setQuantifier(Quantifier.FORALL);
 		completePattern.createXmlAdaption();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("text");
+		params.get(1).setValueFromString("EQUAL");
+//		params.get(2).setValueFromString(null);
+		params.get(3).setValueFromString("/*");
+		params.get(4).setValueFromString("/*");
+		params.get(5).setValueFromString("/text()"); // Property
 		return completePattern;
 	}
 

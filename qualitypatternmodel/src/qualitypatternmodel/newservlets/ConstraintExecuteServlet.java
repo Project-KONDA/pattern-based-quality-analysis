@@ -183,21 +183,28 @@ public class ConstraintExecuteServlet extends HttpServlet {
 
 	private static JSONObject queryFileToJSONObject (File file, JSONObject constraint) throws JSONException, FailedServletCallException {
 		ServletUtilities.log( "query file [" + file.getAbsolutePath()  + "] with constraint [" + constraint + "]");
+		
 		JSONObject object = new JSONObject();
-		String query = constraint.getString(ConstantsJSON.QUERY);
-		String language = constraint.getString(ConstantsJSON.LANGUAGE);
-		String technology = constraint.getString(ConstantsJSON.TECHNOLOGY);
-
 		object.put(ConstantsJSON.FILE, file.getName());
 		object.put(ConstantsJSON.CONSTRAINT_ID, constraint.getString(ConstantsJSON.CONSTRAINT_ID));
 		object.put(ConstantsJSON.CONSTRAINT_NAME, constraint.getString(ConstantsJSON.NAME));
-		object.put(ConstantsJSON.QUERY, query);
-		object.put(ConstantsJSON.LANGUAGE, language);
-		object.put(ConstantsJSON.TECHNOLOGY, technology);
+
+		String query = constraint.getString(ConstantsJSON.QUERY);
+		String query_partial = constraint.getString(ConstantsJSON.QUERY_PARTIAL);
+//		String technology = constraint.getString(ConstantsJSON.TECHNOLOGY);
+//		String language = constraint.getString(ConstantsJSON.LANGUAGE);
+//		object.put(ConstantsJSON.QUERY, query);
+//		object.put(ConstantsJSON.QUERY_PARTIAL, query_partial);
+//		object.put(ConstantsJSON.LANGUAGE, language);
+//		object.put(ConstantsJSON.TECHNOLOGY, technology);
 
 		List<String> rawResults;
+		int total;
 		try {
+			List<String> totalResults;
 			rawResults = executeXQuery(file, query);
+			totalResults = executeXQuery(file, query_partial);
+			total = totalResults.size();
 			ServletUtilities.log("raw Results : " + rawResults.size());
 		} catch (InvalidityException e) {
 			e.printStackTrace();
@@ -233,7 +240,9 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		}
 
 		object.put(ConstantsJSON.RESULT, result);
-		object.put(ConstantsJSON.SIZE, result.size());
+		object.put(ConstantsJSON.TOTAL_FINDINGS, total);
+		object.put(ConstantsJSON.TOTAL_INCIDENCES, result.size());
+		object.put(ConstantsJSON.TOTAL_COMPLIANCES, total - result.size());
 		return object;
 	}
 

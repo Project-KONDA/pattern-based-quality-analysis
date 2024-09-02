@@ -166,17 +166,9 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 
 	@Override
 	public void setTarget(Node newTarget) {
-		if (newTarget != null) {
-			try {
-				newTarget.checkPrimitive();
-			} catch (InvalidityException e) {
-				throw new ClassCastException();
-			}
+		if (newTarget != null && !(newTarget instanceof XmlProperty)) {
+			throw new ClassCastException(newTarget.getClass().getSimpleName() + " is not an XmlProperty");
 		}
-//			assertDoesNotThrow(() -> {newTarget.checkPrimitive();});
-		int a = 1;
-		a += 1;
-		a = a+1;
 		super.setTarget(newTarget);
 	}
 

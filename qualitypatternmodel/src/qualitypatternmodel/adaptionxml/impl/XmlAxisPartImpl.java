@@ -157,6 +157,8 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
+		if (getXmlAxisOptionParam() == null)
+			throw new InvalidityException("XmlAxisOption is null");
 		String query = getXmlAxisOptionParam().generateXQuery();
 		XmlAxisPartCondition nameTagCondition = identifyNameTagCondition();
 		if (nameTagCondition != null) {

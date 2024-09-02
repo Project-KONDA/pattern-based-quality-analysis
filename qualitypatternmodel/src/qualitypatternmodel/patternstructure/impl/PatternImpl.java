@@ -176,10 +176,19 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException("return elements missing in " + getClass().getSimpleName() + " [" + getInternalId() + "]");
 		}
+		String preClauses = "";
+		if (this instanceof CompletePattern) {
+			initializeTranslation();
+			CompletePattern t = (CompletePattern) this;
+			if (t.getNamespaces() != null && !t.getNamespaces().isEmpty()) {
+				preClauses = t.generateXQueryNamespaces();
+			}
+			preClauses += getParameterList().generateXQuery();
+		}
 
 		String forClauses = graph.generateXQuery();
 		// remove very first newline
-		forClauses = forClauses.substring(1); 
+		forClauses = forClauses.substring(1);
 
 		String whereClause = "";
 		if (!(condition instanceof TrueElement)) {
@@ -190,9 +199,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 
 		String returnClause = generateXQueryReturnClause();
 
-		String query = forClauses + whereClause + returnClause;
+		String query = preClauses + forClauses + whereClause + returnClause;
 		setXmlQuery(query);
-		setPartialXmlQuery(forClauses + returnClause);
+		setPartialXmlQuery(preClauses + forClauses + returnClause);
 		return query;
 	}
 

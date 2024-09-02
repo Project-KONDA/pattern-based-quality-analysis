@@ -1329,11 +1329,17 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		try {
 			Language lan = ((CompletePattern) getAncestor(CompletePattern.class)).getLanguage();
 			if (lan == Language.XML) {
-				rel = rel.adaptAsXmlElementNavigation();
+				if (to instanceof PrimitiveNode)
+					rel = rel.adaptAsXmlPropertyNavigation();
+				else
+					rel = rel.adaptAsXmlElementNavigation();
 			} else if (lan == Language.RDF) {
 				rel = rel.adaptAsRdfPredicate();
 			} else if (lan == Language.NEO4J) {
-				rel = rel.adaptAsXmlElementNavigation();
+				if (to instanceof PrimitiveNode)
+					throw new InvalidityException("adaptAsNeoPropertyEdge missing");
+				else
+					rel = rel.adaptAsNeoElementEdge();
 			}
 		} 
 		catch (MissingPatternContainerException e) {} 

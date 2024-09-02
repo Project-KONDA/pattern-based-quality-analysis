@@ -7,6 +7,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
@@ -30,10 +31,27 @@ public class Test05QuantorCombinationsCond {
 
 	public static CompletePattern getPatternExistsInExistsCond() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// PatternStructure
-		CompletePattern completePattern = Test04QuantorCombinations.getPatternExistsInExistsFinal();
+		CompletePattern completePattern = Test04QuantorCombinations.getPatternExistsInExists();
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Node e1 = graph1.getNodes().get(0).makeComplex();
-		e1.addOutgoing().getTarget().adaptAsXmlProperty().addPrimitiveComparison("1492");
+		e1.addOutgoing().getTarget().makePrimitive().addPrimitiveComparison("1492");
+		completePattern.createXmlAdaption();
+		
+		completePattern.getNamespaces().put("demo", "demo");
+
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(1).setValueFromString("STRING"); // TypeOptionParam
+		params.get(2).setValueFromString("1492"); // TextLiteralParam
+		params.get(3).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(4).setValueFromString("STRING"); // TypeOptionParam
+		params.get(5).setValueFromString("/demo:creator/text()"); // XmlPathParam Property
+		params.get(6).setValueFromString("/demo:data/demo:painting"); // XmlPathParam
+		params.get(7).setValueFromString("/demo:startwork"); // XmlPathParam
+		params.get(8).setValueFromString("/text()"); // XmlPathParam Property
+		params.get(9).setValueFromString("/@demo:id"); // XmlPathParam Property
+		params.get(10).setValueFromString("/demo:data/demo:artist"); // XmlPathParam
+
 		return completePattern;
 	}
 

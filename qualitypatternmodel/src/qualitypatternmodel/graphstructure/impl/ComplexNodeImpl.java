@@ -138,6 +138,14 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 		}
 	}
 
+	@Override
+	public void checkPrimitive() throws InvalidityException {
+		if (!getOutgoing().isEmpty())
+			throw new InvalidityException("Node has outgoing relations and therefore can not be made primitive.");
+		if (!getComparison1().isEmpty() || !getComparison2().isEmpty())
+			throw new InvalidityException("Node has comparisons and therefore can not be made primitive.");
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

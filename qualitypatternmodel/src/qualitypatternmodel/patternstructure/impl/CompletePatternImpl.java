@@ -536,15 +536,21 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		for (Parameter p: getParameterList().getParameters()){
 			String out = "";
 			if (vars) {
-				out += p.getClass().getSimpleName().replace("Impl", "");
 				out += " p" + i + " = ";
+				out += "((" + p.getClass().getSimpleName().replace("Impl", "");
+				out += ") ";
 			}
-			out += "((" + p.getClass().getSimpleName().replace("Impl", "");
-			out += ") params.get(" + i + "))";
-			if (!vars)
-				out += ".setValueFromString(null);";
+			out += "params.get(" + i + ")";
+			if (!vars) {
+				String value = p.getValueAsString();
+				if (value != null)
+					value = "\"" + value.replace("\"", "\\\"") + "\"";
+				out += ".setValueFromString(" + value + ");";
+			}
+				
+			out += " // " + p.getClass().getSimpleName().replace("Impl", "");
 			if (p instanceof XmlPathParam && ((XmlPathParam) p).isProperty())
-				out += " // Property";
+				out += " Property";
 			System.out.println(out);
 			i++;
 		}
@@ -576,14 +582,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if (containsJavaOperator()) {
 			throw new InvalidityException("This pattern cannot be executed via default XQuery. A custom Java Filter build is required.");
 		}
-		String res = "";
-		initializeTranslation();
-		if (getNamespaces() != null && !getNamespaces().isEmpty()) {
-			res += generateXQueryNamespaces();
-		}
-		res += getParameterList().generateXQuery();
-		res += super.generateXQuery();
-		return res;
+		return super.generateXQuery();
 	}
 
 	@Override

@@ -16,7 +16,6 @@ import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlProperty;
-import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -287,19 +286,6 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	}
 
 	@Override
-	public XmlReference adaptAsXmlReference() throws InvalidityException {
-		removeParametersFromParameterList();
-		XmlReference reference = super.adaptAsXmlReference();
-		try {
-			reference.getGraph().createXmlAdaption();
-		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-			e.printStackTrace();
-			throw new InvalidityException(e.getMessage());
-		}
-		return reference;
-	}
-
-	@Override
 	public String getName() {
 		if(name == null || name.equals("")) {
 			if(getInternalId() > -1) {
@@ -325,10 +311,11 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	public void removeParametersFromParameterList() {
 		XmlPathParam option = getXmlPathParam();
 		ParameterList parameterList = getParameterList();
-		if(parameterList != null) {
+		if (parameterList != null) {
 			parameterList.remove(option);
 		}
-		option.setParameterList(null);
+		if (option != null)
+			option.setParameterList(null);
 		setXmlPathParam(null);
 	}
 
@@ -353,7 +340,6 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		patternElements.add(xmlPathParam);
-		setXmlPathParam(null);
 		return patternElements;
 	}
 
@@ -641,7 +627,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		if (getXmlPathParam() != null) {
 			return res + " (" + getXmlPathParam().myToString() + ")";
 		} else {
-			return res + " (prev.)";
+			return res + " (<missing XmlPath>)";
 		}
 	}
 } //XmlNavigationImpl

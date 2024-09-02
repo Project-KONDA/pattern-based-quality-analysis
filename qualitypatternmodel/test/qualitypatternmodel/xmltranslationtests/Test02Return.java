@@ -64,9 +64,9 @@ public class Test02Return {
 
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		params.get(0).setValueFromString("/demo:data/demo:painting");
-		params.get(1).setValueFromString("/demo:creator/text()"); // Property
-		params.get(2).setValueFromString("/@demo:id"); // Property
-		params.get(3).setValueFromString("/demo:data/demo:artist");
+		params.get(1).setValueFromString("/demo:data/demo:artist");
+		params.get(2).setValueFromString("/demo:creator/text()"); // Property
+		params.get(3).setValueFromString("/@demo:id"); // Property
 
 		return completePattern;
 	}

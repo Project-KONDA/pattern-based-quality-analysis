@@ -46,7 +46,7 @@ public class PatternUtility {
 		int total = 0;
 		for (CompletePattern completePattern : completePatterns) {
 			total++;
-			PatternUtility.fillParameter(completePattern);
+//			PatternUtility.fillParameter(completePattern);
 			try {
 				completePattern.isValid(AbstractionLevel.CONCRETE);
 				String result = completePattern.myToString();
