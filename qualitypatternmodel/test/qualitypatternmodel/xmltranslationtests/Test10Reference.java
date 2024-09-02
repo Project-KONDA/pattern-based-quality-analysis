@@ -47,9 +47,9 @@ public class Test10Reference {
 //		reference.setType(ReturnType.STRING);
 		List<Parameter> params = pattern.getParameterList().getParameters();
 		((XmlPathParam) params.get(0)).setValueFromString("/*/demo:artist");
-		((XmlPathParam) params.get(1)).setValueFromString("/@demo:id"); // Property
-		((XmlPathParam) params.get(2)).setValueFromString("/demo:creator/text()"); // Property
-		((XmlPathParam) params.get(3)).setValueFromString("/demo:data/demo:painting");
+		((XmlPathParam) params.get(1)).setValueFromString("/demo:data/demo:painting");
+		((XmlPathParam) params.get(2)).setValueFromString("/@demo:id"); // Property
+		((XmlPathParam) params.get(3)).setValueFromString("/demo:creator/text()"); // Property
 
 		return pattern;
 	}

@@ -30,15 +30,11 @@ public class Test01Reference2 {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 
 		Graph g = completePattern.getGraph();
-		
 		Node n1 = g.getNodes().get(0);
 		Node n2 = g.addComplexNode();
 		n1.addOutgoing(n2);
 		completePattern.createXmlAdaption();
-		System.out.println(completePattern.myToString());
-		System.out.println("FROM " + g.getRelations().get(0).myToString());
 		g.getRelations().get(0).adaptAsXmlReference();
-		System.out.println(completePattern.myToString());
 		PatternUtility.fillParameter(completePattern);
 		
 		return completePattern;
