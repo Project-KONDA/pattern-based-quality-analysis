@@ -340,7 +340,6 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		patternElements.add(xmlPathParam);
-		setXmlPathParam(null);
 		return patternElements;
 	}
 

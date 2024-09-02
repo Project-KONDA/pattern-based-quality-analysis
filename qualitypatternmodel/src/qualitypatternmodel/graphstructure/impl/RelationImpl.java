@@ -238,7 +238,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				setTarget(null);
 			}
 		}
-		this.createParameters();
+		if (newGraph == null) {
+			setSource(null);
+			setTarget(null);
+			removeParametersFromParameterList();
+		}	
+		else 
+			this.createParameters();
 
 		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.RELATION__GRAPH, msgs);
 
@@ -265,6 +271,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__GRAPH, newGraph, newGraph));
+		if (newGraph == null)
+			removeParametersFromParameterList();
 	}
 
 	/**
@@ -567,7 +575,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 		}
 		else {
-			System.out.println("RelImpl515 target set failed somehow");
 			if (eNotificationRequired()) {
 				eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__TARGET, newTarget, newTarget));
 			}
@@ -761,7 +768,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public XmlReference adaptAsXmlReference() throws InvalidityException {
 		if(!(this instanceof XmlReference)) {
-
 			CompletePattern pattern = null;
 			try {
 				pattern = (CompletePattern) getAncestor(CompletePattern.class);
@@ -772,9 +778,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			ComplexNode sourceNode = getSource();
 			Node targetPre = getTarget();
 			String name = getName();
+			if (sourceNode == null || targetPre == null || graph == null)
+				throw new InvalidityException("Relation not correctly inbound in Pattern");
 
-			setSource(null);
-			setTarget(null);
 			setGraph(null);
 
 			ComplexNode targetNode = targetPre.makeComplex().adaptAsXmlElement();
@@ -799,8 +805,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			
 			XmlReference reference = new XmlReferenceImpl();
 			reference.setGraph(getGraph());
-			reference.setSource(sourceNode);
 			reference.setTarget(targetNode);
+			reference.setSource(sourceNode);
 
 			if(name.matches("Relation [0-9]+")) {
 				reference.setName(getName().replace("Relation", "XmlReference"));
@@ -1225,7 +1231,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	@Override
 	public void removeParametersFromParameterList() {
-
 	}
 
 } // RelationImpl
