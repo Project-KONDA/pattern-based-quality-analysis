@@ -130,12 +130,12 @@ public class Test03Quantor {
 		CompletePattern completePattern = getPatternExistsCond();
 		completePattern.createXmlAdaption();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
-		params.get(0).setValueFromString("/*");
-		params.get(1).setValueFromString("EQUAL");
-//		params.get(2).setValueFromString(null);
+		params.get(0).setValueFromString("New York City"); // TextLiteralParam
+		params.get(1).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(2).setValueFromString("STRING"); // TypeOptionParam
 		params.get(3).setValueFromString("/*");
 		params.get(4).setValueFromString("/*/*/*");
-		params.get(5).setValueFromString("/*/text()");
+		params.get(5).setValueFromString("/text()");
 		return completePattern;
 	}
 

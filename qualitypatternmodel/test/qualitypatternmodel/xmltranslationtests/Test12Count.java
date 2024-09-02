@@ -83,12 +83,13 @@ public class Test12Count {
 	public static CompletePattern getPatternCountInForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = getPatternCountInExists();
 		((QuantifiedCondition) pattern.getCondition()).setQuantifier(Quantifier.FORALL);
+		pattern.getNamespaces().put("demo", "demo");
 		List<Parameter> params = pattern.getParameterList().getParameters();
 		params.get(0).setValueFromString("GREATER"); // ComparisonOptionParam
 		params.get(1).setValueFromString("2.0"); // NumberParam
 		params.get(2).setValueFromString("//*"); // XmlPathParam
 		params.get(3).setValueFromString("/demo:creator"); // XmlPathParam
-		params.get(4).setValueFromString("/following-sibling::*"); // XmlPathParam
+		params.get(4).setValueFromString("/preceding-sibling::*"); // XmlPathParam
 		return pattern;
 	}
 

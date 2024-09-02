@@ -36,6 +36,8 @@ public class Test05QuantorCombinationsCond {
 		Node e1 = graph1.getNodes().get(0).makeComplex();
 		e1.addOutgoing().getTarget().makePrimitive().addPrimitiveComparison("1492");
 		completePattern.createXmlAdaption();
+		
+		completePattern.getNamespaces().put("demo", "demo");
 
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		params.get(0).setValueFromString("EQUAL"); // ComparisonOptionParam
@@ -46,7 +48,7 @@ public class Test05QuantorCombinationsCond {
 		params.get(5).setValueFromString("/demo:creator/text()"); // XmlPathParam Property
 		params.get(6).setValueFromString("/demo:data/demo:painting"); // XmlPathParam
 		params.get(7).setValueFromString("/demo:startwork"); // XmlPathParam
-		params.get(8).setValueFromString("/@demo:id"); // XmlPathParam Property
+		params.get(8).setValueFromString("/text()"); // XmlPathParam Property
 		params.get(9).setValueFromString("/@demo:id"); // XmlPathParam Property
 		params.get(10).setValueFromString("/demo:data/demo:artist"); // XmlPathParam
 

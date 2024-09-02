@@ -59,7 +59,8 @@ public class Test01Axis {
 
 		Graph graph = completePattern.getGraph();
 		Node element1 = completePattern.getGraph().getReturnNodes().get(0);
-		element1.addOutgoing(graph);
+		element1.setReturnNode(false);
+		element1.addOutgoing(graph).getTarget().setReturnNode(true);
 
 		completePattern.createXmlAdaption();
 		XmlElementNavigation navigation = (XmlElementNavigation) graph.getRelations().get(0);
@@ -67,8 +68,8 @@ public class Test01Axis {
 		XmlPathParam axisOption = navigation.getXmlPathParam();
 		axisOption.setXmlAxis(xmlAxisKind, null);
 		List<Parameter> params = completePattern.getParameterList().getParameters();
-		((XmlPathParam) params.get(0)).setValueFromString("/*");
-		((XmlPathParam) params.get(1)).setValueFromString(xmlAxisKind + "*");
+		((XmlPathParam) params.get(0)).setValueFromString(xmlAxisKind + "*");
+		((XmlPathParam) params.get(1)).setValueFromString("/*");
 		return completePattern;
 	}
 
