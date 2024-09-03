@@ -370,19 +370,19 @@ public class FullAPITest {
 		JSONObject listTemplate = PatternListServlet.applyGet("/" + TECH + "/template", getEmptyParams());
 		int templateNo = new File(FOLDER + "/templates/" + TECH + "/abstract-patterns").listFiles().length;
 		assert (templateNo > 0);
-		assert (listTemplate.has("size") && listTemplate.getInt("size") == templateNo);
+		assert (listTemplate.has("total") && listTemplate.getInt("total") == templateNo);
 		assert (listTemplate.has("ids") && listTemplate.getJSONArray("ids").length() == templateNo);
 		assert (listTemplate.has("templates") && listTemplate.getJSONArray("templates").length() == templateNo);
 		if (listTemplate.has("templates"))
 			assertPatternJSONObjectArray(listTemplate.getJSONArray("templates"));
 
 		JSONObject listConcreteEmpty = PatternListServlet.applyGet("/" + TECH + "/concrete", getEmptyParams());
-		assert (listConcreteEmpty.getInt("size") == 0);
+		assert (listConcreteEmpty.getInt("total") == 0);
 		assert (listConcreteEmpty.has("ids") && listConcreteEmpty.getJSONArray("ids").isEmpty());
 		assert (listConcreteEmpty.has("templates") && listConcreteEmpty.getJSONArray("templates").isEmpty());
 
 		JSONObject listReadyEmpty = PatternListServlet.applyGet("/" + TECH + "/ready", getEmptyParams());
-		assert (listReadyEmpty.getInt("size") == 0);
+		assert (listReadyEmpty.getInt("total") == 0);
 		assert (listReadyEmpty.has("ids") && listReadyEmpty.getJSONArray("ids").isEmpty());
 		assert (listReadyEmpty.has("templates") && listReadyEmpty.getJSONArray("templates").isEmpty());
 
@@ -392,7 +392,7 @@ public class FullAPITest {
 			ids.add(newConstraint());
 
 		JSONObject listReady = PatternListServlet.applyGet("/" + TECH + "/concrete", getEmptyParams());
-		assert (listReady.getInt("size") == n);
+		assert (listReady.getInt("total") == n);
 		assert (listReady.has("ids") && listReady.getJSONArray("ids").length() == n);
 		assert (listReady.has("templates") && listReady.getJSONArray("templates").length() == n);
 		if (listReady.has("templates"))
