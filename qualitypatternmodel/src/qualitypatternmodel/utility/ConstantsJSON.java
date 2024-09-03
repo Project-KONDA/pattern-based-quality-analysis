@@ -21,6 +21,7 @@ public class ConstantsJSON {
 	// Constraint Info
 	public static final String LASTSAVED = "lastSaved";
 	public static final String TOTAL = "total";
+	public static final String INCIDENTS = "incidents";
 	public static final String TOTAL_FINDINGS = "totalFindings";
 	public static final String TOTAL_COMPLIANCES = "totalCompliances";
 	public static final String TOTAL_INCIDENCES = "totalIncidents";
@@ -51,6 +52,8 @@ public class ConstantsJSON {
 	public static final String CLEAR = "clear";
 	public static final String SUCCESS = "success";
 	public static final String FAILED = "failed";
+	public static final String FAILEDCONSTRAINTS = "failedConstraints";
+	public static final String FAILEDFILES = "failedfiles";
 
 //	// Untyped Parameter
 //	public static final String ENABLE = "enable";

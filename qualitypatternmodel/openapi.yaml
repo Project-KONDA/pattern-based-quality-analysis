@@ -1360,14 +1360,22 @@ components:
     AnalysisResult: # 16
       type: object
       properties:
-        failed:
+        failedFiles:
           type: array
           items:
             type: object
             properties:
               <parameter>: 
                 type: string
-          description: file paths that were not found and constraint IDs that could not be executed
+          description: file paths that were not found
+        failedConstraints:
+          type: array
+          items:
+            type: object
+            properties:
+              <parameter>: 
+                type: string
+          description: constraint IDs that could not be executed
         result:
           type: array
           description: result of the executed constraints
@@ -1383,6 +1391,20 @@ components:
               constraintName:
                 type: string
                 description: user-defined name of the constraint
+              incidents:
+                type: array
+                description: list of found incidents of the constraint in the file
+                items:
+                  type: string
+              totalFindings:
+                type: integer
+                description: amount of total analysed findings in the file
+              totalCompliances:
+                type: integer
+                description: amount of found compliances of the constraint in the file
+              totalIncidents:
+                type: integer
+                description: amount of found incidents of the constraint in the file
 #              query:
 #                type: string
 #                description: generated query
@@ -1396,20 +1418,6 @@ components:
 #                description: technology of the constraint
 #                enum: # xml, rdf, neo4j
 #                  - xml
-              result:
-                type: array
-                description: found violations of the constraint in the file
-                items:
-                  type: string
-              totalFindings:
-                type: integer
-                description: amount of total analysed findings in the file
-              totalCompliances:
-                type: integer
-                description: amount of found violations of the constraint in the file
-              totalIncidents:
-                type: integer
-                description: amount of found violations of the constraint in the file
 
     ParameterSetter: #6
       type: object
