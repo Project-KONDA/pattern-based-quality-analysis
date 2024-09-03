@@ -35,7 +35,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
-			JSONArray result = applyGet(path, params);
+			JSONObject result = applyGet(path, params);
 			ServletUtilities.putResponse(response, result);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONArray applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length < 2  || pathparts.length > 2  || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for executing constraints: "
@@ -60,7 +60,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONArray applyGetXml(String path, String technology, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONObject applyGetXml(String path, String technology, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		// get parameters
 		String[] filepaths = parameterMap.get(ConstantsJSON.FILES);
 		String[] constraintsCompiled = parameterMap.get(ConstantsJSON.CONSTRAINTS);
@@ -69,7 +69,8 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		// setup
 		ArrayList<JSONObject> constraints = new ArrayList<JSONObject>();
 		ArrayList<File> files = new ArrayList<File>();
-		ArrayList<JSONObject> failed = new ArrayList<JSONObject>();
+		JSONObject failedConstraints = new JSONObject();
+		JSONObject failedFiles = new JSONObject();
 		JSONArray results = new JSONArray();
 
 		// compile constraintIDs
@@ -83,11 +84,9 @@ public class ConstraintExecuteServlet extends HttpServlet {
 					JSONObject queryJson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
 					constraints.add(queryJson);
 				} catch (Exception e) {
-					JSONObject jobject = new JSONObject();
 					try {
-						jobject.put(constraintId, e.getMessage());
+						failedConstraints.put(constraintId, ConstantsError.INVALID_CONSTRAINT);
 					} catch (JSONException f) {}
-					failed.add(jobject);
 				}
 			}
 		}
@@ -98,28 +97,20 @@ public class ConstraintExecuteServlet extends HttpServlet {
 				try {
 					JSONObject object = new JSONObject(constraint);
 					if (!object.has(ConstantsJSON.QUERY)) {
-						JSONObject jobject = new JSONObject();
-						jobject.put(constraint, ConstantsError.NO_QUERY);
-						failed.add(jobject);
+						failedConstraints.put(constraint, ConstantsError.NO_QUERY);
 					}
 					else if (!object.has(ConstantsJSON.TECHNOLOGY) || !object.get(ConstantsJSON.TECHNOLOGY).equals(Constants.XML)) {
-						JSONObject jobject = new JSONObject();
-						jobject.put(constraint, ConstantsError.INVALID_TECHNOLOGY);
-						failed.add(jobject);
+						failedConstraints.put(constraint, ConstantsError.INVALID_TECHNOLOGY);
 					}
 					else if (!object.has(ConstantsJSON.LANGUAGE) || !object.get(ConstantsJSON.LANGUAGE).equals(Constants.XQUERY)) {
-						JSONObject jobject = new JSONObject();
-						jobject.put(constraint, ConstantsError.INVALID_LANGUAGE);
-						failed.add(jobject);
+						failedConstraints.put(constraint, ConstantsError.INVALID_LANGUAGE);
 					} else {
 						constraints.add(object);
 					}
 				} catch (JSONException e) {
-					JSONObject jobject = new JSONObject();
 					try {
-						jobject.put(constraint, e.getMessage());
+						failedConstraints.put(constraint, e.getMessage());
 					} catch (JSONException f) {}
-					failed.add(jobject);
 				}
 			}
 		}
@@ -138,11 +129,9 @@ public class ConstraintExecuteServlet extends HttpServlet {
 				}
 				else {
 					ServletUtilities.log(ServletConstants.FILE_VOLUME + "/" + filepath + " not found");
-					JSONObject jobject = new JSONObject();
 					try {
-						jobject.put(filepath, ConstantsError.NOT_FOUND_FILEPATH);
+						failedFiles.put(filepath, ConstantsError.NOT_FOUND_FILEPATH);
 					} catch (JSONException f) {}
-					failed.add(jobject);
 				}
 			}
 		}
@@ -171,14 +160,21 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		JSONObject object = new JSONObject();
 		try {
 			object.put(ConstantsJSON.RESULT, results);
-			if (!failed.isEmpty()) {
-				object.put(ConstantsJSON.FAILED, failed);
+			if (!failedFiles.isEmpty()) {
+				object.put(ConstantsJSON.FAILEDFILES, failedFiles);
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		try {
+			if (!failedConstraints.isEmpty()) {
+				object.put(ConstantsJSON.FAILEDCONSTRAINTS, failedConstraints);
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 
-		return results;
+		return object;
 	}
 
 	private static JSONObject queryFileToJSONObject (File file, JSONObject constraint) throws JSONException, FailedServletCallException {
@@ -239,7 +235,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 			throw new FailedServletCallException();
 		}
 
-		object.put(ConstantsJSON.RESULT, result);
+		object.put(ConstantsJSON.INCIDENTS, result);
 		object.put(ConstantsJSON.TOTAL_FINDINGS, total);
 		object.put(ConstantsJSON.TOTAL_INCIDENCES, result.size());
 		object.put(ConstantsJSON.TOTAL_COMPLIANCES, total - result.size());

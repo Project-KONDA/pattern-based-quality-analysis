@@ -99,6 +99,7 @@ public class MqafObject {
 
 		// Rules
 		result += "  rules:\n" + rule.getStringRepresentation();
+		result += "\n    id: " + pattern.getPatternId();
 
 		// Namespaces
 		if (namespaces != null && !namespaces.isEmpty()) {
@@ -127,6 +128,7 @@ public class MqafObject {
 		schema.setNamespaces(namespaces);
 
 		Rule constraintrule = new Rule().withSuccessScore(1);
+		constraintrule.setId(pattern.getPatternId());
 		rule.addConstraintRuleTo(constraintrule);
 		DataElement field1 = new DataElement(fieldNodes[0].getName().replace(" ", "_"), fieldPath).setExtractable();
 		field1.addRule(constraintrule);

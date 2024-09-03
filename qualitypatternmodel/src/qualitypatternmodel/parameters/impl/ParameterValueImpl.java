@@ -76,7 +76,7 @@ import qualitypatternmodel.utility.Constants;
  * @generated
  */
 public abstract class ParameterValueImpl extends ParameterImpl implements ParameterValue {
-	private static final String A_UNTYPED_PARAMTER_CAN_NOT_REPLACED_BY_A_NEO_PARAMETER = "A UntypedParamter can not replaced by a NeoParameter";
+	private static final String A_UNTYPED_PARAMETER_CAN_NOT_REPLACED_BY_A_NEO_PARAMETER = "A UntypedParamter can not replaced by a NeoParameter";
 	/**
 	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -750,9 +750,9 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	@Override
 	public void replace(ParameterValue concreteValue) throws InvalidityException {
 		if (isNeoParam(concreteValue)) {
-			throw new InvalidityException(A_UNTYPED_PARAMTER_CAN_NOT_REPLACED_BY_A_NEO_PARAMETER);
+			throw new InvalidityException(A_UNTYPED_PARAMETER_CAN_NOT_REPLACED_BY_A_NEO_PARAMETER);
 		}
-		if(isTypeModifiable()) {
+		if (isTypeModifiable()) {
 
 			int index = getParameterList().getParameters().indexOf(this);
 			if (concreteValue.getParameterList() != getParameterList()) {

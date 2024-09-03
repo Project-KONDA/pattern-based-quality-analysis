@@ -65,8 +65,7 @@ public class RdfTest06ParameterValues {
 	private static CompletePattern getConcreteComparisonPattern(ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = RdfTest00.getBasePattern();
 		Node se = completePattern.getGraph().getNodes().get(1);
-		UntypedParameterValue p = se.addPrimitiveComparison();
-		p.replace(parameter);
+		se.addPrimitiveComparison(parameter);
 		completePattern.createRdfAdaption();
 		return completePattern;
 	}
