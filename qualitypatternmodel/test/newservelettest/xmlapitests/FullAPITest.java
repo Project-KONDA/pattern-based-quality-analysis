@@ -34,13 +34,13 @@ import qualitypatternmodel.newservlets.ConstraintDatabaseServlet;
 import qualitypatternmodel.newservlets.ConstraintExecuteServlet;
 import qualitypatternmodel.newservlets.ConstraintMqafServlet;
 import qualitypatternmodel.newservlets.ConstraintNameServlet;
-import qualitypatternmodel.newservlets.ConstraintQueryServlet;
+//import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 import qualitypatternmodel.newservlets.ConstraintServlet;
 import qualitypatternmodel.newservlets.ConstraintTagServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.PatternListServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
-import qualitypatternmodel.newservlets.TemplateVariantServlet;
+//import qualitypatternmodel.newservlets.TemplateVariantServlet;
 
 public class FullAPITest {
 	private static String FOLDER;
