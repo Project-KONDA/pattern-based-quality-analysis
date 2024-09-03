@@ -84,7 +84,15 @@ public class ConstraintMqafServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINTS);
+		String[] constraintIDs1 = parameterMap.get(ConstantsJSON.CONSTRAINTS);
+		if (constraintIDs1 == null)
+			constraintIDs1 = new String[0];
+		String[] constraintIDs2 = parameterMap.get(ConstantsJSON.CONSTRAINT_IDS);
+		if (constraintIDs2 == null)
+			constraintIDs2 = new String[0];
+		String[] constraintIds = new String[constraintIDs1.length + constraintIDs2.length];
+		System.arraycopy(constraintIDs1, 0, constraintIds, 0, constraintIDs1.length);
+		System.arraycopy(constraintIDs2, 0, constraintIds, constraintIDs1.length, constraintIDs2.length);
 
 		return getJsonStringSchemaFromConstraintIds(constraintIds, technology);
 	}
