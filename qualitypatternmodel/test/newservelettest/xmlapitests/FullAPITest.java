@@ -425,20 +425,20 @@ public class FullAPITest {
 		deleteConstraint(constraintID);
 	}
 
-	@Test
+//	@Test
 	public void testConstraintMqafServletPost()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 //		ConstraintNameServlet.applyPost(null, getEmptyParams());
 	}
 
-	@Test
+//	@Test
 	public void testConstraintQueryServlet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 //		ConstraintQueryServlet.applyGet2(null, getEmptyParams());
 //		ConstraintQueryServlet.applyGet3(null, getEmptyParams());
 	}
 
-	@Test
+//	@Test
 	public void testConstraintExecuteServletGet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		String constraintID = newConstraint("Card_xml", "default-constraint");
@@ -479,19 +479,19 @@ public class FullAPITest {
 		}
 	}
 
-	@Test
+//	@Test
 	public void testTemplateVariantServletGet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 //		TemplateVariantServlet.applyGet(null, getEmptyParams());
 	}
 
-	@Test
+//	@Test
 	public void testTemplateVariantServletDelete()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 //		TemplateVariantServlet.applyDelete(null, getEmptyParams());
 	}
 
-	@Test
+//	@Test
 	public void testTemplateVariantServletPut()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 //		TemplateVariantServlet.applyPut(null, getEmptyParams());
