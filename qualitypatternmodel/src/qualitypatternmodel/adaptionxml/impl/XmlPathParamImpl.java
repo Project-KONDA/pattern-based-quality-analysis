@@ -166,8 +166,8 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		if (getAlternatives() != null && !getAlternatives().isEmpty()) {
 			for (XmlPathParam alternative: getAlternatives()) {
 				query += ConstantsXml.XPATH_UNION + alternative.generateXQuery();
-				return "(" + query + ")";
 			}
+			return "(" + query + ")";
 		}
 		return query;
 	}
@@ -1158,17 +1158,16 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	            String val = array.getString(i);
 	            XmlPathParam alt = new XmlPathParamImpl();
 	            getAlternatives().add(alt);
-	            alt.setValueFromString(val);				
+	            alt.setValueFromString(val);
 			}
-		} catch (JSONException e) {
-		}
+		} catch (JSONException e) {}
 
-		if(isValue() && value != null && !value.equals("") && !value.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT)) {
+		if (isValue() && value != null && !value.equals("") && !value.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT)) {
 			getAlternatives().clear();
 			getAlternatives().addAll(oldAlts);
 			throw new InvalidityException("Invalid XPath value '" + value + "'. It should specify an XML element.");
 		}
-		if(isProperty() && value != null && !value.equals("") && !value.matches(ConstantsXml.REGEX_XMLPATH_VALUE)) {
+		if (isProperty() && value != null && !value.equals("") && !value.matches(ConstantsXml.REGEX_XMLPATH_VALUE)) {
 			getAlternatives().clear();
 			getAlternatives().addAll(oldAlts);
 			throw new InvalidityException("Invalid XPath value '" + value + "'. It should specify an XML property.");
