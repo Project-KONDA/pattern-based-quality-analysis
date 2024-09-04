@@ -3,14 +3,17 @@ package qualitypatternmodel.newservlets;
 public class ServletConstants {
 
 	// name of folder
+	public static String FILE_VOLUME_DEFAULT =  "/files";
 	public static String FILE_VOLUME =  "/files";
 	public static String ENV_FILE_VOLUME = "SHARED_VOLUME";
 	
 	// name of upload folder
+	public static String UPLOAD_FOLDER_DEFAULT =  "/files/uploads";
 	public static String UPLOAD_FOLDER =  "/files/uploads";
 	public static String ENV_UPLOAD_FOLDER = "UPLOAD_FOLDER";
 
 	// name of folder 
+	public static String PATTERN_VOLUME_DEFAULT =  "/templates";
 	public static String PATTERN_VOLUME =  "/templates";
 	public static String ENV_PATTERN_VOLUME = "TEMPLATE_VOLUME";
 
