@@ -64,19 +64,19 @@ public class InitialisationServlet extends HttpServlet {
 		if (files != null)
 			ServletConstants.FILE_VOLUME = files;
 		else 
-			ServletConstants.FILE_VOLUME = scon.getRealPath(ServletConstants.FILE_VOLUME);
+			ServletConstants.FILE_VOLUME = scon.getRealPath(ServletConstants.FILE_VOLUME_DEFAULT);
 //	      UPLOAD_FOLDER: /shared/uploads
 		String upload = System.getenv().get(ServletConstants.ENV_UPLOAD_FOLDER);
 		if (upload != null)
 			ServletConstants.UPLOAD_FOLDER = upload;
 		else 
-			ServletConstants.UPLOAD_FOLDER = scon.getRealPath(ServletConstants.UPLOAD_FOLDER);
+			ServletConstants.UPLOAD_FOLDER = scon.getRealPath(ServletConstants.UPLOAD_FOLDER_DEFAULT);
 //	      TEMPLATE_VOLUME: /templates
 		String templates = System.getenv().get(ServletConstants.ENV_PATTERN_VOLUME);
 		if (templates != null)
 			ServletConstants.PATTERN_VOLUME = templates;
 		else 
-			ServletConstants.PATTERN_VOLUME = scon.getRealPath(ServletConstants.PATTERN_VOLUME);
+			ServletConstants.PATTERN_VOLUME = scon.getRealPath(ServletConstants.PATTERN_VOLUME_DEFAULT);
 //	      LOGFILE: qpm-logfile.log
 		String logfile = System.getenv().get(ServletConstants.ENV_LOGFILE);
 		if (logfile != null)

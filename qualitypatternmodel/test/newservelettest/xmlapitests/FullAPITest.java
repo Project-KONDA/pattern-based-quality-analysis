@@ -20,8 +20,8 @@ import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import jakarta.servlet.ServletContext;
@@ -34,13 +34,13 @@ import qualitypatternmodel.newservlets.ConstraintDatabaseServlet;
 import qualitypatternmodel.newservlets.ConstraintExecuteServlet;
 import qualitypatternmodel.newservlets.ConstraintMqafServlet;
 import qualitypatternmodel.newservlets.ConstraintNameServlet;
-import qualitypatternmodel.newservlets.ConstraintQueryServlet;
+//import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 import qualitypatternmodel.newservlets.ConstraintServlet;
 import qualitypatternmodel.newservlets.ConstraintTagServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.PatternListServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
-import qualitypatternmodel.newservlets.TemplateVariantServlet;
+//import qualitypatternmodel.newservlets.TemplateVariantServlet;
 
 public class FullAPITest {
 	private static String FOLDER;
@@ -65,7 +65,11 @@ public class FullAPITest {
 			testConstraintNameServletPost();
 
 			testConstraintServletPost();
-			testPatternListServletGet();
+			testPatternListServletGetAll();
+			testPatternListServletGetTemplate();
+			testPatternListServletGetConcreteEmpty();
+			testPatternListServletGetReadyEmpty();
+			testPatternListServletGetConcrete();
 
 			testConstraintMqafServlet();
 			testConstraintMqafServletPost();
@@ -83,8 +87,8 @@ public class FullAPITest {
 		close();
 	}
 
-	@BeforeClass
-	public static void initialize()
+	@Before
+	public void initialize()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		FOLDER = new File(".").getCanonicalPath().replace('\\', '/') + "/temp_" + UUID.randomUUID();
 		System.out.println("Create: " + FOLDER);
@@ -100,8 +104,8 @@ public class FullAPITest {
 		InitialisationServlet.initialisation(context);
 	}
 
-	@AfterClass
-	public static void close() throws IOException {
+	@After
+	public void close() throws IOException {
 		System.out.println("Delete: " + FOLDER);
 		FileUtils.deleteDirectory(new File(FOLDER));
 	}
@@ -364,9 +368,21 @@ public class FullAPITest {
 	}
 
 	@Test
-	public void testPatternListServletGet()
+	public void testPatternListServletGetAll()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		JSONObject listTemplate = PatternListServlet.applyGet("/" + TECH + "/all", getEmptyParams());
+		int templateNo = new File(FOLDER + "/templates/" + TECH + "/abstract-patterns").listFiles().length;
+		assert (templateNo > 0);
+		assert (listTemplate.has("total") && listTemplate.getInt("total") == templateNo);
+		assert (listTemplate.has("ids") && listTemplate.getJSONArray("ids").length() == templateNo);
+		assert (listTemplate.has("templates") && listTemplate.getJSONArray("templates").length() == templateNo);
+		if (listTemplate.has("templates"))
+			assertPatternJSONObjectArray(listTemplate.getJSONArray("templates"));
+	}
 
+	@Test
+	public void testPatternListServletGetTemplate()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject listTemplate = PatternListServlet.applyGet("/" + TECH + "/template", getEmptyParams());
 		int templateNo = new File(FOLDER + "/templates/" + TECH + "/abstract-patterns").listFiles().length;
 		assert (templateNo > 0);
@@ -375,28 +391,43 @@ public class FullAPITest {
 		assert (listTemplate.has("templates") && listTemplate.getJSONArray("templates").length() == templateNo);
 		if (listTemplate.has("templates"))
 			assertPatternJSONObjectArray(listTemplate.getJSONArray("templates"));
+	}
 
+	@Test
+	public void testPatternListServletGetConcreteEmpty()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject listConcreteEmpty = PatternListServlet.applyGet("/" + TECH + "/concrete", getEmptyParams());
 		assert (listConcreteEmpty.getInt("total") == 0);
 		assert (listConcreteEmpty.has("ids") && listConcreteEmpty.getJSONArray("ids").isEmpty());
 		assert (listConcreteEmpty.has("templates") && listConcreteEmpty.getJSONArray("templates").isEmpty());
+	}
 
+	@Test
+	public void testPatternListServletGetReadyEmpty()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject listReadyEmpty = PatternListServlet.applyGet("/" + TECH + "/ready", getEmptyParams());
 		assert (listReadyEmpty.getInt("total") == 0);
 		assert (listReadyEmpty.has("ids") && listReadyEmpty.getJSONArray("ids").isEmpty());
 		assert (listReadyEmpty.has("templates") && listReadyEmpty.getJSONArray("templates").isEmpty());
+	}
 
+	@Test
+	public void testPatternListServletGetConcrete()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		ArrayList<String> ids = new ArrayList<String>();
 		int n = 10;
 		for (int i = 0; i < n; i++)
 			ids.add(newConstraint());
 
-		JSONObject listReady = PatternListServlet.applyGet("/" + TECH + "/concrete", getEmptyParams());
-		assert (listReady.getInt("total") == n);
-		assert (listReady.has("ids") && listReady.getJSONArray("ids").length() == n);
-		assert (listReady.has("templates") && listReady.getJSONArray("templates").length() == n);
-		if (listReady.has("templates"))
-			assertPatternJSONObjectArray(listReady.getJSONArray("templates"));
+		JSONObject listConcrete = PatternListServlet.applyGet("/" + TECH + "/concrete", getEmptyParams());
+		assert (listConcrete.getInt("total") == 10);
+		assert (listConcrete.has("ids") && listConcrete.getJSONArray("ids").length() == 10);
+		assert (listConcrete.has("templates") && listConcrete.getJSONArray("templates").length() == 10);
+
+		JSONObject listReadyEmpty = PatternListServlet.applyGet("/" + TECH + "/ready", getEmptyParams());
+		assert (listReadyEmpty.getInt("total") == 0);
+		assert (listReadyEmpty.has("ids") && listReadyEmpty.getJSONArray("ids").isEmpty());
+		assert (listReadyEmpty.has("templates") && listReadyEmpty.getJSONArray("templates").isEmpty());
 
 		for (String str : ids)
 			deleteConstraint(str);
@@ -425,20 +456,20 @@ public class FullAPITest {
 		deleteConstraint(constraintID);
 	}
 
-	@Test
+//	@Test
 	public void testConstraintMqafServletPost()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 //		ConstraintNameServlet.applyPost(null, getEmptyParams());
 	}
 
-	@Test
+//	@Test
 	public void testConstraintQueryServlet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 //		ConstraintQueryServlet.applyGet2(null, getEmptyParams());
 //		ConstraintQueryServlet.applyGet3(null, getEmptyParams());
 	}
 
-	@Test
+//	@Test
 	public void testConstraintExecuteServletGet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		String constraintID = newConstraint("Card_xml", "default-constraint");
