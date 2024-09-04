@@ -23,6 +23,7 @@ import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
 import qualitypatternmodel.adaptionrdf.RdfPathPart;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.impl.ParameterValueImpl;
 
 /**
@@ -68,6 +69,11 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 	 */
 	protected IriListParamImpl() {
 		super();
+	}
+
+	@Override
+	public ReturnType getReturnType() {
+		return ReturnType.LIST;
 	}
 
 	@Override

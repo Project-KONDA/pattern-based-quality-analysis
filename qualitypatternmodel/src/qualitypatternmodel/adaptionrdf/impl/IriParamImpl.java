@@ -21,6 +21,7 @@ import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.impl.ParameterValueImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 
@@ -124,6 +125,11 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 	public IriParamImpl(String value) throws InvalidityException {
 		super();
 		setValueFromString(value);
+	}
+
+	@Override
+	public ReturnType getReturnType() {
+		return ReturnType.STRING;
 	}
 
 	@Override

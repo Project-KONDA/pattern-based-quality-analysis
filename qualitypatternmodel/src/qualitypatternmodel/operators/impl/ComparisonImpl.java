@@ -6,7 +6,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -14,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -34,7 +32,6 @@ import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.operators.NumberOperator;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
@@ -45,7 +42,6 @@ import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
-import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.ParameterValueImpl;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
@@ -844,53 +840,74 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	private void setTypeAccordingToArgument(qualitypatternmodel.graphstructure.Comparable newArgument,
 			qualitypatternmodel.graphstructure.Comparable otherArgument) {
-		if(getTypeOption() != null) {
-			if (newArgument == null) {
-				if (otherArgument == null || otherArgument instanceof PrimitiveNode || otherArgument instanceof UntypedParameterValue) {
-					getTypeOption().setValue(ReturnType.UNSPECIFIED);
-					if(!getTypeOption().getOptions().contains(ReturnType.UNSPECIFIED)) {
-						getTypeOption().getOptions().add(ReturnType.UNSPECIFIED);
-					}
-					getTypeOption().setPredefined(false);
-				}
-			} else {
-
-				if (newArgument instanceof ComplexNode || newArgument instanceof BooleanOperator || newArgument instanceof NumberOperator || newArgument instanceof ParameterValue) {
-					ReturnType returnType = null;
-
-					if (newArgument instanceof ComplexNode) {
-						returnType = ReturnType.ELEMENT;
-					}
-					if (newArgument instanceof BooleanOperator) {
-						returnType = ReturnType.BOOLEAN;
-					}
-					if (newArgument instanceof NumberOperator) {
-						returnType = ReturnType.NUMBER;
-
-					}
-					if (newArgument instanceof ParameterValue) {
-						ParameterValue xsType = (ParameterValue) newArgument;
-						returnType = xsType.getReturnType();
-					}
-
-					getTypeOption().setValue(returnType);
-					if(!getTypeOption().getOptions().contains(returnType)) {
-						getTypeOption().getOptions().add(returnType);
-					}
-					getTypeOption().setPredefined(true);
-				}
-
-
-				if (newArgument instanceof UntypedParameterValue) {
-					getTypeOption().setValue(ReturnType.UNSPECIFIED);
-					if(!getTypeOption().getOptions().contains(ReturnType.UNSPECIFIED)) {
-						getTypeOption().getOptions().add(ReturnType.UNSPECIFIED);
-					}
-					getTypeOption().setPredefined(false);
-				}
-			}
+		if (getTypeOption() == null) {
+			if (getParameterList() == null)
+				return;
+			else
+				createParameters();
 		}
 
+		if (newArgument == null && otherArgument == null) {
+			getTypeOption().setValue(ReturnType.UNSPECIFIED);
+			if (!getTypeOption().getOptions().contains(ReturnType.UNSPECIFIED)) {
+				getTypeOption().getOptions().add(ReturnType.UNSPECIFIED);
+			}
+			getTypeOption().setPredefined(false);
+			System.err.println("both arguments null");
+			return;
+		}
+		if (newArgument == null) {
+			getTypeOption().setValue(otherArgument.getReturnType());
+			System.err.println("new argument null");
+			return;
+		}
+		if (otherArgument == null) {
+			getTypeOption().setValue(newArgument.getReturnType());
+			System.err.println("old argument null");
+			return;
+		}
+
+		ReturnType value = null;
+		ReturnType next = newArgument.getReturnType();
+		ReturnType other = otherArgument.getReturnType();
+
+		if (next == null || other == null)
+			{
+			System.err.println("ReturnType of at least one argument null: " + newArgument.getClass().getSimpleName() + " " + otherArgument.getClass().getSimpleName());
+			}
+		else if (next == ReturnType.UNSPECIFIED && other == ReturnType.UNSPECIFIED)
+			{
+				System.err.println("ReturnType of at both arguments unspecified");
+			}
+		else if (next == other)
+			value = next;
+		else if (next == ReturnType.ELEMENT || other == ReturnType.ELEMENT) 
+			{
+			System.err.println("ReturnType of only one arguments is element");
+			}
+		else if (next == ReturnType.UNSPECIFIED)
+			value = other;
+		else if (other == ReturnType.UNSPECIFIED)
+			value = next;
+		else if (next == ReturnType.STRING)
+			value = other;
+		else if (other == ReturnType.STRING)
+			value = next;
+		else 
+			System.err.println("no case did fit");
+			
+		if (value == null)
+			value = ReturnType.UNSPECIFIED;
+
+		if(!getTypeOption().getOptions().contains(value)) {
+			getTypeOption().getOptions().add(value);
+		}
+		getTypeOption().setValue(value);
+		
+		if (getTypeOption().getValue() != ReturnType.UNSPECIFIED)
+			getTypeOption().setPredefined(true);
+		else 
+			getTypeOption().setPredefined(false);
 	}
 
 	private void adaptOperatorElementAssociation(qualitypatternmodel.graphstructure.Comparable newArgument, qualitypatternmodel.graphstructure.Comparable oldArgument) {

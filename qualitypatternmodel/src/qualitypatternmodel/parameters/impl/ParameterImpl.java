@@ -120,18 +120,18 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 
 	@Override
 	public String generateSparql() throws InvalidityException {
-		if (!getParameterReferences().isEmpty()) {
-			for(ParameterReference r : getParameterReferences()) {
-				if(r instanceof ParameterFragment) {
-					ParameterFragment p = (ParameterFragment) r;
-					return "?" + p.getId();
-				}
+		if (getParameterReferences().isEmpty())
+			throw new InvalidityException("missing parameter value in " + getClass().getSimpleName() + " [" + getInternalId() + "]");
+		for(ParameterReference r : getParameterReferences()) {
+			if (r instanceof ParameterFragment) {
+				ParameterFragment p = (ParameterFragment) r;
+				return "?" + p.getId();
 			}
-			for(ParameterReference r : getParameterReferences()) {
-				if(r instanceof ParameterPredefinition) {
-					ParameterPredefinition p = (ParameterPredefinition) r;
-					return p.getValue();
-				}
+		}
+		for(ParameterReference r : getParameterReferences()) {
+			if(r instanceof ParameterPredefinition) {
+				ParameterPredefinition p = (ParameterPredefinition) r;
+				return p.getValue();
 			}
 		}
 		throw new InvalidityException("invalid parameter value in " + getClass().getSimpleName() + " [" + getInternalId() + "]");
