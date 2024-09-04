@@ -225,9 +225,16 @@ public class EMFModelLoad {
         resource.load(null);
 //        System.out.println("EMF model loaded successfully from: " + filePath);
 
-        // Assuming your model has a single root element, return it
         EObject object = resource.getContents().get(0);
-//        resource.unload();
+        resource.getContents().remove(object);
+        resource.unload();
+        resource.setURI(null);
+        resourceSet.getResources().remove(resource);
+
+        resource = null;
+        resourceSet = null;
+        System.gc();
+
         return object;
     }
 
@@ -249,14 +256,11 @@ public class EMFModelLoad {
 
     public static List<String> getFilesInDirectory(String directory) {
         Path directoryPath = Paths.get(directory);
-        Stream<Path> pathstream;
-		try {
-			pathstream = Files.list(directoryPath).map(Path::getFileName);
-		} catch (IOException e) {
-			return new BasicEList<String>();
-		}
-        Stream <String> filestream = pathstream.map(Path::toString);
-        List<String> results = filestream.collect(Collectors.toList());
-        return results;
+        try (Stream<Path> pathStream = Files.list(directoryPath)) {
+            Stream<String> fileStream = pathStream.map(Path::getFileName).map(Path::toString);
+            return fileStream.collect(Collectors.toList());
+        } catch (IOException e) {
+            return new BasicEList<>();  // Return an empty list in case of an error
+        }
     }
 }
