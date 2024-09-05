@@ -19,9 +19,9 @@ public class RdfTest00 {
 		int total = 0;
 		for (CompletePattern completePattern : completePatterns) {
 			total++;
-			PatternUtility.fillParameter(completePattern);
+//			PatternUtility.fillParameter(completePattern);
 			try {
-//				completePattern.isValid(AbstractionLevel.CONCRETE); // TODO: allow technology-dependent validation
+				completePattern.isValid(AbstractionLevel.CONCRETE); // TODO: allow technology-dependent validation
 				System.out.println("\n\n___PATTERN_(VALID)___");
 				System.out.println(completePattern.myToString());
 				System.out.print("\n___TRANSLATION___");
