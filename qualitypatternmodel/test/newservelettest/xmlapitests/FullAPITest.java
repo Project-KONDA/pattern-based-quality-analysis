@@ -34,17 +34,17 @@ import qualitypatternmodel.newservlets.ConstraintDatabaseServlet;
 import qualitypatternmodel.newservlets.ConstraintExecuteServlet;
 import qualitypatternmodel.newservlets.ConstraintMqafServlet;
 import qualitypatternmodel.newservlets.ConstraintNameServlet;
+import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 //import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 import qualitypatternmodel.newservlets.ConstraintServlet;
 import qualitypatternmodel.newservlets.ConstraintTagServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.PatternListServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
-//import qualitypatternmodel.newservlets.TemplateVariantServlet;
+import qualitypatternmodel.newservlets.TemplateVariantServlet;
 
 public class FullAPITest {
 	private static String FOLDER;
-	private static String TECH = "xml";
 
 	public static void main(String[] args)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
@@ -87,6 +87,8 @@ public class FullAPITest {
 		close();
 	}
 
+	// __________ SETUP FUNCTIONS __________
+
 	@Before
 	public void initialize()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
@@ -102,6 +104,14 @@ public class FullAPITest {
 			}
 		}).when(context).getRealPath(anyString());
 		InitialisationServlet.initialisation(context);
+
+		File original = new File("lido.xml");
+		File copy = new File(FOLDER + "/files/lido.xml");
+		try {
+			FileUtils.copyFile(original, copy);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@After
@@ -110,28 +120,12 @@ public class FullAPITest {
 		FileUtils.deleteDirectory(new File(FOLDER));
 	}
 
+	// __________ BASE FUNCTIONS __________
+
 	private static Map<String, String[]> getEmptyParams() {
 		return new HashMap<String, String[]>();
 	}
 
-	@Test
-	public void testBasics()
-			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		String constriantID = newConstraint();
-		assertNotNull(constriantID);
-
-		JSONObject constraint = getConstraint(constriantID);
-		assertPatternJSONObject(constraint);
-		deleteConstraint(constriantID);
-		assertThrows(FailedServletCallException.class, () -> {
-			getConstraint(constriantID);
-		});
-		assertThrows(FailedServletCallException.class, () -> {
-			deleteConstraint(constriantID);
-		});
-	}
-
-//	TemplateInstantiateServlet Put
 	private static String newConstraint()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		return newConstraint("Match_xml", "default-antipattern");
@@ -139,7 +133,7 @@ public class FullAPITest {
 
 	private static String newConstraint(String pattern, String variant)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		JSONObject ob = TemplateInstantiateServlet.applyPut("/" + TECH + "/" + pattern + "/" + variant,
+		JSONObject ob = TemplateInstantiateServlet.applyPut("/xml/" + pattern + "/" + variant,
 				getEmptyParams());
 		try {
 			return ob.getString("constraintID");
@@ -148,17 +142,46 @@ public class FullAPITest {
 		}
 	}
 
-//	ConstraintServlet Get
-	private static JSONObject getConstraint(String id)
-			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		return ConstraintServlet.applyGet("/" + TECH + "/" + id, getEmptyParams());
+	private static JSONObject setConstraintParameter(String constraintId, String parameterId, String value) {
+		Map<String, String[]> params1 = getEmptyParams();
+		params1.put(parameterId, new String[] { value });
+		JSONObject result = null;
+		try {
+			result = ConstraintServlet.applyPost("/xml/" + constraintId, params1);
+		} catch (InvalidServletCallException | FailedServletCallException e) {
+			e.printStackTrace();
+		}
+		return result;	
 	}
 
-//	ConstraintServlet Delete
+	private static JSONObject getConstraint(String id)
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		return ConstraintServlet.applyGet("/xml/" + id, getEmptyParams());
+	}
+
 	private static void deleteConstraint(String id)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		ConstraintServlet.applyDelete("/" + TECH + "/" + id, getEmptyParams());
+		ConstraintServlet.applyDelete("/xml/" + id, getEmptyParams());
 	}
+
+	private void testConcretePattern(String constraintID)
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		Map<String, String[]> params1 = getEmptyParams();
+		params1.put("constraints", new String[] {constraintID});
+		JSONObject query1 = ConstraintQueryServlet.applyGet2("/xml", params1);
+		assertQueryObject(query1);
+		JSONObject query2 = ConstraintQueryServlet.applyGet3("/xml/" + constraintID, getEmptyParams());
+		assertQueryObject(query2);
+		assertSimilarJSONObjects(query1, query2);
+
+		Map<String, String[]> params2 = getEmptyParams();
+		params2.put("constraintIDs", new String[] {constraintID});
+		params2.put("files", new String[] { "lido.xml" });
+		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
+		assertExecuteResultObject(result);
+	}
+
+	// __________ ASSERTIONS __________
 
 	private static void assertPatternJSONObjectArray(JSONArray object) {
 		for (int i = 0; i < object.length(); i++)
@@ -170,32 +193,11 @@ public class FullAPITest {
 		assert (object.has("constraintID"));
 		assert (object.has("variants"));
 		assert (object.has("description"));
-		assert (object.has("language") && object.get("language").toString().equals(TECH));
+		assert (object.has("language") && object.get("language").toString().equals("xml"));
 		assert (object.has("executable"));
 		assert (object.has("mqafExecutable"));
 		assert (object.has("queryExecutable"));
 		assert (object.has("filterExecutable"));
-	}
-
-	@Test
-	public void testConstraintCopyServlet()
-			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		String constraintID = newConstraint();
-		JSONObject jsonDefault = getConstraint(constraintID);
-
-		JSONObject jsonCopy = ConstraintCopyServlet.applyPut("/" + TECH + "/" + constraintID, getEmptyParams());
-		String constraintIDCopy = null;
-		try {
-			constraintIDCopy = jsonCopy.getString("constraintID");
-			jsonDefault.remove("constraintID");
-			jsonDefault.put("constraintID", constraintIDCopy);
-			assertSimilarJSONObjects(jsonDefault, jsonCopy);
-
-			deleteConstraint(constraintID);
-			deleteConstraint(constraintIDCopy);
-		} catch (JSONException e) {
-			assert (false);
-		}
 	}
 
 	private void assertSimilarJSONObjects(JSONObject jsonDefault, JSONObject jsonCopy) {
@@ -215,6 +217,62 @@ public class FullAPITest {
 		}
 	}
 
+	private void assertQueryObject(JSONObject queryObject) {
+		assert(queryObject.has("constraints"));
+		assert(queryObject.has("failed"));
+	}
+
+	private void assertExecuteResultObject(JSONObject resultObject) {
+		assert(resultObject.has("result"));
+		JSONArray result = resultObject.getJSONArray("result");
+		assert(result.length() > 0);
+		for (int i = 0; i < result.length(); i++) {
+			JSONObject object = result.getJSONObject(i);
+			assert(object.has("constraintID"));
+			assert(object.has("constraintName"));
+			assert(object.has("file"));
+			assert(object.has("incidents"));
+			assert(object.has("totalFindings"));
+			assert(object.has("totalIncidents"));
+			assert(object.has("totalCompliances"));
+//			assert(object.has("technology"));
+//			assert(object.has("language"));
+			JSONArray incidents = object.getJSONArray("incidents");
+			assert(incidents.length() > 0);
+		}
+		assert(!resultObject.has("failedFiles"));
+		assert(!resultObject.has("failedConstraints"));
+	}
+
+	private void assertVariantObject(JSONObject variant) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void assertVariantObjectWithout(JSONObject variant, String variantname) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	// __________ API CALL TESTS __________
+
+	@Test
+	public void testBasics()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constriantID = newConstraint();
+		assertNotNull(constriantID);
+
+		JSONObject constraint = getConstraint(constriantID);
+		assertPatternJSONObject(constraint);
+		deleteConstraint(constriantID);
+		assertThrows(FailedServletCallException.class, () -> {
+			getConstraint(constriantID);
+		});
+		assertThrows(FailedServletCallException.class, () -> {
+			deleteConstraint(constriantID);
+		});
+	}
+
 	@Test
 	public void testConstraintDatabaseServlet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
@@ -222,29 +280,29 @@ public class FullAPITest {
 		String dbname1 = "db";
 		String dbname2 = "db2";
 
-		JSONObject nodb = ConstraintDatabaseServlet.applyGet("/" + TECH + "/" + constraintID, getEmptyParams());
+		JSONObject nodb = ConstraintDatabaseServlet.applyGet("/xml/" + constraintID, getEmptyParams());
 		assert (!nodb.has("database"));
 
 		Map<String, String[]> params1 = getEmptyParams();
 		params1.put("database", new String[] { dbname1 });
-		JSONObject db1 = ConstraintDatabaseServlet.applyPost("/" + TECH + "/" + constraintID, params1);
+		JSONObject db1 = ConstraintDatabaseServlet.applyPost("/xml/" + constraintID, params1);
 		assert (db1.has("constraintID") && db1.getString("constraintID").equals(constraintID));
 		assert (db1.has("database") && db1.getString("database").equals(dbname1));
 		assert (!db1.has("oldDatabase"));
 		assert (db1.has("lastSaved"));
 
-		JSONObject db1get = ConstraintDatabaseServlet.applyGet("/" + TECH + "/" + constraintID, getEmptyParams());
+		JSONObject db1get = ConstraintDatabaseServlet.applyGet("/xml/" + constraintID, getEmptyParams());
 		assert (db1get.has("database") && db1get.getString("database").equals(dbname1));
 
 		Map<String, String[]> params2 = getEmptyParams();
 		params2.put("database", new String[] { dbname2 });
-		JSONObject db2 = ConstraintDatabaseServlet.applyPost("/" + TECH + "/" + constraintID, params2);
+		JSONObject db2 = ConstraintDatabaseServlet.applyPost("/xml/" + constraintID, params2);
 		assert (db2.has("constraintID") && db2.getString("constraintID").equals(constraintID));
 		assert (db2.has("database") && db2.getString("database").equals(dbname2));
 		assert (db2.has("oldDatabase") && db2.getString("oldDatabase").equals(dbname1));
 		assert (db2.has("lastSaved"));
 
-		JSONObject db2get = ConstraintDatabaseServlet.applyGet("/" + TECH + "/" + constraintID, getEmptyParams());
+		JSONObject db2get = ConstraintDatabaseServlet.applyGet("/xml/" + constraintID, getEmptyParams());
 		assert (db2get.has("database") && db2get.getString("database").equals(dbname2));
 
 		deleteConstraint(constraintID);
@@ -257,29 +315,29 @@ public class FullAPITest {
 		String dmname1 = "dm";
 		String dmname2 = "dm2";
 
-		JSONObject nodm = ConstraintDatabaseServlet.applyGet("/" + TECH + "/" + constraintID, getEmptyParams());
+		JSONObject nodm = ConstraintDatabaseServlet.applyGet("/xml/" + constraintID, getEmptyParams());
 		assert (!nodm.has("datamodel"));
 
 		Map<String, String[]> params1 = getEmptyParams();
 		params1.put("datamodel", new String[] { dmname1 });
-		JSONObject dm1 = ConstraintDataModelServlet.applyPost("/" + TECH + "/" + constraintID, params1);
+		JSONObject dm1 = ConstraintDataModelServlet.applyPost("/xml/" + constraintID, params1);
 		assert (dm1.has("constraintID") && dm1.getString("constraintID").equals(constraintID));
 		assert (dm1.has("datamodel") && dm1.getString("datamodel").equals(dmname1));
 		assert (!dm1.has("oldDatamodel"));
 		assert (dm1.has("lastSaved"));
 
-		JSONObject dm1get = ConstraintDataModelServlet.applyGet("/" + TECH + "/" + constraintID, getEmptyParams());
+		JSONObject dm1get = ConstraintDataModelServlet.applyGet("/xml/" + constraintID, getEmptyParams());
 		assert (dm1get.has("datamodel") && dm1get.getString("datamodel").equals(dmname1));
 
 		Map<String, String[]> params2 = getEmptyParams();
 		params2.put("datamodel", new String[] { dmname2 });
-		JSONObject dm2 = ConstraintDataModelServlet.applyPost("/" + TECH + "/" + constraintID, params2);
+		JSONObject dm2 = ConstraintDataModelServlet.applyPost("/xml/" + constraintID, params2);
 		assert (dm2.has("constraintID") && dm2.getString("constraintID").equals(constraintID));
 		assert (dm2.has("datamodel") && dm2.getString("datamodel").equals(dmname2));
 		assert (dm2.has("oldDatamodel") && dm2.getString("oldDatamodel").equals(dmname1));
 		assert (dm2.has("lastSaved"));
 
-		JSONObject db2get = ConstraintDataModelServlet.applyGet("/" + TECH + "/" + constraintID, getEmptyParams());
+		JSONObject db2get = ConstraintDataModelServlet.applyGet("/xml/" + constraintID, getEmptyParams());
 		assert (db2get.has("datamodel") && db2get.getString("datamodel").equals(dmname2));
 
 		deleteConstraint(constraintID);
@@ -305,21 +363,21 @@ public class FullAPITest {
 		Map<String, String[]> params4 = getEmptyParams();
 		params4.put("tag", lst);
 
-		JSONObject tags1 = ConstraintTagServlet.applyPost("/" + TECH + "/" + constraintID, params1);
+		JSONObject tags1 = ConstraintTagServlet.applyPost("/xml/" + constraintID, params1);
 		assert (tags1.has("success") && tags1.getJSONArray("success").similar(new JSONArray(arr012)));
 		assert (!tags1.has("failed"));
 
-		JSONObject tags2 = ConstraintTagServlet.applyDelete("/" + TECH + "/" + constraintID, params2);
+		JSONObject tags2 = ConstraintTagServlet.applyDelete("/xml/" + constraintID, params2);
 		assert (tags2.has("success") && tags2.getJSONArray("success").similar(new JSONArray(arr12)));
 		assert (tags2.has("failed")
 				&& tags2.getJSONArray("failed").toString().contains("{\"" + lst[3] + "\":\"tag not found\"}"));
 
-		JSONObject tags3 = ConstraintTagServlet.applyPost("/" + TECH + "/" + constraintID, params3);
+		JSONObject tags3 = ConstraintTagServlet.applyPost("/xml/" + constraintID, params3);
 		assert (tags3.has("success") && tags3.getJSONArray("success").similar(new JSONArray(arr123)));
 		assert (tags3.has("failed")
 				&& tags3.getJSONArray("failed").toString().contains("\"" + lst[0] + "\":\"tag already added\""));
 
-		JSONObject tags4 = ConstraintTagServlet.applyDelete("/" + TECH + "/" + constraintID, params4);
+		JSONObject tags4 = ConstraintTagServlet.applyDelete("/xml/" + constraintID, params4);
 		assert (tags4.has("success") && tags4.getJSONArray("success").similar(new JSONArray(arr0123)));
 		assert (!tags4.has("failed"));
 
@@ -335,10 +393,31 @@ public class FullAPITest {
 		assert (json.has("name") && !json.getString("name").equals(newName));
 		Map<String, String[]> param = getEmptyParams();
 		param.put("name", new String[] { newName });
-		ConstraintNameServlet.applyPost("/" + TECH + "/" + constraintID, param);
+		ConstraintNameServlet.applyPost("/xml/" + constraintID, param);
 		JSONObject jsonNamed = getConstraint(constraintID);
 		assert (jsonNamed.has("name") && jsonNamed.getString("name").equals(newName));
 		deleteConstraint(constraintID);
+	}
+
+	@Test
+	public void testConstraintCopyServlet()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraintID = newConstraint();
+		JSONObject jsonDefault = getConstraint(constraintID);
+
+		JSONObject jsonCopy = ConstraintCopyServlet.applyPut("/xml/" + constraintID, getEmptyParams());
+		String constraintIDCopy = null;
+		try {
+			constraintIDCopy = jsonCopy.getString("constraintID");
+			jsonDefault.remove("constraintID");
+			jsonDefault.put("constraintID", constraintIDCopy);
+			assertSimilarJSONObjects(jsonDefault, jsonCopy);
+
+			deleteConstraint(constraintID);
+			deleteConstraint(constraintIDCopy);
+		} catch (JSONException e) {
+			assert (false);
+		}
 	}
 
 	@Test
@@ -352,7 +431,7 @@ public class FullAPITest {
 		params1.put("XmlPath_Element_0", new String[] { "//*" });
 		String uuidstring = UUID.randomUUID().toString();
 		params1.put(uuidstring, new String[] { "value" });
-		JSONObject get1 = ConstraintServlet.applyPost("/" + TECH + "/" + constraintId, params1);
+		JSONObject get1 = ConstraintServlet.applyPost("/xml/" + constraintId, params1);
 		assert (get1.has("success") && get1.getJSONArray("success")
 				.similar(new JSONArray(new String[] { "XmlPath_Element_0", "database", "datamodel" })));
 		assert (get1.has("failed") && get1.getJSONArray("failed").getJSONObject(0).has(uuidstring));
@@ -370,8 +449,8 @@ public class FullAPITest {
 	@Test
 	public void testPatternListServletGetAll()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		JSONObject listTemplate = PatternListServlet.applyGet("/" + TECH + "/all", getEmptyParams());
-		int templateNo = new File(FOLDER + "/templates/" + TECH + "/abstract-patterns").listFiles().length;
+		JSONObject listTemplate = PatternListServlet.applyGet("/xml" + "/all", getEmptyParams());
+		int templateNo = new File(FOLDER + "/templates/xml/abstract-patterns").listFiles().length;
 		assert (templateNo > 0);
 		assert (listTemplate.has("total") && listTemplate.getInt("total") == templateNo);
 		assert (listTemplate.has("ids") && listTemplate.getJSONArray("ids").length() == templateNo);
@@ -383,8 +462,8 @@ public class FullAPITest {
 	@Test
 	public void testPatternListServletGetTemplate()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		JSONObject listTemplate = PatternListServlet.applyGet("/" + TECH + "/template", getEmptyParams());
-		int templateNo = new File(FOLDER + "/templates/" + TECH + "/abstract-patterns").listFiles().length;
+		JSONObject listTemplate = PatternListServlet.applyGet("/xml" + "/template", getEmptyParams());
+		int templateNo = new File(FOLDER + "/templates/xml/abstract-patterns").listFiles().length;
 		assert (templateNo > 0);
 		assert (listTemplate.has("total") && listTemplate.getInt("total") == templateNo);
 		assert (listTemplate.has("ids") && listTemplate.getJSONArray("ids").length() == templateNo);
@@ -396,7 +475,7 @@ public class FullAPITest {
 	@Test
 	public void testPatternListServletGetConcreteEmpty()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		JSONObject listConcreteEmpty = PatternListServlet.applyGet("/" + TECH + "/concrete", getEmptyParams());
+		JSONObject listConcreteEmpty = PatternListServlet.applyGet("/xml" + "/concrete", getEmptyParams());
 		assert (listConcreteEmpty.getInt("total") == 0);
 		assert (listConcreteEmpty.has("ids") && listConcreteEmpty.getJSONArray("ids").isEmpty());
 		assert (listConcreteEmpty.has("templates") && listConcreteEmpty.getJSONArray("templates").isEmpty());
@@ -405,7 +484,7 @@ public class FullAPITest {
 	@Test
 	public void testPatternListServletGetReadyEmpty()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		JSONObject listReadyEmpty = PatternListServlet.applyGet("/" + TECH + "/ready", getEmptyParams());
+		JSONObject listReadyEmpty = PatternListServlet.applyGet("/xml" + "/ready", getEmptyParams());
 		assert (listReadyEmpty.getInt("total") == 0);
 		assert (listReadyEmpty.has("ids") && listReadyEmpty.getJSONArray("ids").isEmpty());
 		assert (listReadyEmpty.has("templates") && listReadyEmpty.getJSONArray("templates").isEmpty());
@@ -419,12 +498,12 @@ public class FullAPITest {
 		for (int i = 0; i < n; i++)
 			ids.add(newConstraint());
 
-		JSONObject listConcrete = PatternListServlet.applyGet("/" + TECH + "/concrete", getEmptyParams());
+		JSONObject listConcrete = PatternListServlet.applyGet("/xml" + "/concrete", getEmptyParams());
 		assert (listConcrete.getInt("total") == 10);
 		assert (listConcrete.has("ids") && listConcrete.getJSONArray("ids").length() == 10);
 		assert (listConcrete.has("templates") && listConcrete.getJSONArray("templates").length() == 10);
 
-		JSONObject listReadyEmpty = PatternListServlet.applyGet("/" + TECH + "/ready", getEmptyParams());
+		JSONObject listReadyEmpty = PatternListServlet.applyGet("/xml" + "/ready", getEmptyParams());
 		assert (listReadyEmpty.getInt("total") == 0);
 		assert (listReadyEmpty.has("ids") && listReadyEmpty.getJSONArray("ids").isEmpty());
 		assert (listReadyEmpty.has("templates") && listReadyEmpty.getJSONArray("templates").isEmpty());
@@ -442,13 +521,13 @@ public class FullAPITest {
 		params.put("ComparisonOption_1", new String[] { "exactly" });
 		params.put("Number_2", new String[] { "42" });
 		params.put("XmlPath_Element_3", new String[] { "/*/*/*/*/*/*" });
-		ConstraintServlet.applyPost("/" + TECH + "/" + constraintID, params);
+		ConstraintServlet.applyPost("/xml/" + constraintID, params);
 
-		JSONObject apply1 = ConstraintMqafServlet.applyGet3("/" + TECH + "/" + constraintID, getEmptyParams());
+		JSONObject apply1 = ConstraintMqafServlet.applyGet3("/xml/" + constraintID, getEmptyParams());
 
 		Map<String, String[]> params1 = getEmptyParams();
 		params1.put("constraintIDs", new String[] { constraintID });
-		JSONObject apply2 = ConstraintMqafServlet.applyGet2("/" + TECH, params1);
+		JSONObject apply2 = ConstraintMqafServlet.applyGet2("/xml", params1);
 
 		assertSimilarJSONObjects(apply1, apply2);
 		assert (apply1.has("constraint"));
@@ -478,53 +557,137 @@ public class FullAPITest {
 		params.put("ComparisonOption_1", new String[] { "exactly" });
 		params.put("Number_2", new String[] { "42" });
 		params.put("XmlPath_Element_3", new String[] { "/*/*/*/*/*/*" });
-		ConstraintServlet.applyPost("/" + TECH + "/" + constraintID, params);
-
-		File original = new File("lido.xml");
-		File copy = new File(FOLDER + "/files/lido.xml");
-		try {
-			FileUtils.copyFile(original, copy);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		ConstraintServlet.applyPost("/xml/" + constraintID, params);
 
 		Map<String, String[]> params2 = getEmptyParams();
 		params2.put("constraintIDs", new String[] { constraintID });
 		params2.put("files", new String[] { "lido.xml" });
-		JSONObject result = ConstraintExecuteServlet.applyGet("/" + TECH, params2);
-		assertJsonResult(result);
+		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
+		assertExecuteResultObject(result);
 		deleteConstraint(constraintID);
-	}
-
-	private static void assertJsonResult(JSONObject jobject) {
-		JSONArray result = jobject.getJSONArray("result");
-		for (int i = 0; i < result.length(); i++) {
-			JSONObject object = result.getJSONObject(i);
-			object.has("constraintID");
-			object.has("constraintName");
-			object.has("file");
-			object.has("incidents");
-			object.has("size");
-			object.has("technology");
-			object.has("language");
-		}
 	}
 
 	@Test
 	public void testTemplateVariantServletGet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-//		TemplateVariantServlet.applyGet(null, getEmptyParams());
+		String constraintID = newConstraint();
+		JSONObject variant = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
+		assertVariantObject(variant);
+		deleteConstraint(constraintID);
 	}
 
 	@Test
-	public void testTemplateVariantServletDelete()
+	public void testTemplateVariantServletPutDelete()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-//		TemplateVariantServlet.applyDelete(null, getEmptyParams());
-	}
-
-	@Test
-	public void testTemplateVariantServletPut()
-			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String variantname = "testvariant";
+		Map<String, String[]> params = getEmptyParams();
+		params.put("variants", new String[] {"default-antipattern"});
 //		TemplateVariantServlet.applyPut(null, getEmptyParams());
+		TemplateVariantServlet.applyDelete("/xml/Card_xml", getEmptyParams());
+		JSONObject variant = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
+		assertVariantObjectWithout(variant, variantname);
+		
+		
+	}
+
+	// __________ CONCRETE PATTERN TESTS __________
+
+	@Test
+	public void testTemplateCard()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraintID = newConstraint("Card_xml", "default-constraint");
+		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
+		setConstraintParameter(constraintID, "ComparisonOption_1", "exactly");
+		setConstraintParameter(constraintID, "Number_2", "2");
+		setConstraintParameter(constraintID, "XmlPath_Element_3", "/*");
+
+		testConcretePattern(constraintID);
+		deleteConstraint(constraintID);
+	}
+
+	@Test
+	public void testTemplateContains()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraintID = newConstraint("Contains_xml", "default-constraint");
+		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
+		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
+		setConstraintParameter(constraintID, "Boolean_2", "does");
+		setConstraintParameter(constraintID, "Text_3", "a");
+
+		testConcretePattern(constraintID);
+		deleteConstraint(constraintID);
+	}
+
+	@Test
+	public void testTemplateMatch()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraintID = newConstraint("Match_xml", "default-constraint");
+		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
+		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
+		setConstraintParameter(constraintID, "Boolean_2", "do not");
+		setConstraintParameter(constraintID, "Text_3", ".*a.*");
+
+		testConcretePattern(constraintID);
+		deleteConstraint(constraintID);
+	}
+
+	@Test
+	public void testTemplateCompSet()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraintID = newConstraint("CompSet_xml", "default-constraint");
+		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
+		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
+		setConstraintParameter(constraintID, "ComparisonOption_2", "is");
+		setConstraintParameter(constraintID, "TextList_3", "{\"a\"}");
+
+		testConcretePattern(constraintID);
+		deleteConstraint(constraintID);
+	}
+
+	@Test
+	public void testTemplateMandAtt()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraintID = newConstraint("MandAtt_xml", "default-constraint");
+		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
+		setConstraintParameter(constraintID, "XmlPath_Element_1", "/*");
+
+		testConcretePattern(constraintID);
+		deleteConstraint(constraintID);
+	}
+
+	@Test
+	public void testTemplateStringLength()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraintID = newConstraint("StringLength_xml", "default-constraint");
+		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
+		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
+		setConstraintParameter(constraintID, "ComparisonOption_2", "exactly");
+		setConstraintParameter(constraintID, "Number_3", "10");
+
+		testConcretePattern(constraintID);
+		deleteConstraint(constraintID);
+	}
+
+	@Test
+	public void testTemplateUniqueness()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraintID = newConstraint("Unique_xml", "default-constraint");
+		setConstraintParameter(constraintID, "XmlPath_Element_0" , "//*");
+		setConstraintParameter(constraintID, "XmlPath_Property_1" , "/text()");
+
+		testConcretePattern(constraintID);
+		deleteConstraint(constraintID);
+	}
+
+	@Test
+	public void testTemplateInvalidLink()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraintID = newConstraint("Unique_xml", "default-constraint");
+		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
+		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
+		setConstraintParameter(constraintID, "Boolean_2", "is");
+		
+		testConcretePattern(constraintID);
+		deleteConstraint(constraintID);
 	}
 }
