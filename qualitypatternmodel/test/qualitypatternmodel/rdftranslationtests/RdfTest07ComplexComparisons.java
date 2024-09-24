@@ -1,6 +1,7 @@
 package qualitypatternmodel.rdftranslationtests;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -10,6 +11,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class RdfTest07ComplexComparisons {
@@ -38,6 +40,10 @@ public class RdfTest07ComplexComparisons {
 		primitiveNode.addComparison(primitiveNode2);
 
 		completePattern.createRdfAdaption();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(1).setValueFromString("STRING"); // TypeOptionParam
+		params.get(2).setValueFromString("wdt:abc"); // IriListParam
 		return completePattern;
 	}
 

@@ -87,6 +87,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 					try {
 						failedConstraints.put(constraintId, ConstantsError.INVALID_CONSTRAINT);
 					} catch (JSONException f) {}
+					ServletUtilities.log("Constraint " + constraintId + " not valid: " + e.getMessage());
 				}
 			}
 		}
@@ -95,21 +96,34 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		if (constraintsCompiled != null) {
 			for (String constraint: constraintsCompiled) {
 				try {
+					String constraintID;
 					JSONObject object = new JSONObject(constraint);
+					if (!object.has(ConstantsJSON.CONSTRAINT_ID)) {
+						failedConstraints.put(constraint, ConstantsError.INVALID_FILEFORMAT);
+						ServletUtilities.log("Constraint not valid: " + ConstantsError.INVALID_FILEFORMAT);
+						break;
+					} else {
+						constraintID = object.getString(ConstantsJSON.CONSTRAINT_ID);
+					}
+
 					if (!object.has(ConstantsJSON.QUERY)) {
-						failedConstraints.put(constraint, ConstantsError.NO_QUERY);
+						failedConstraints.put(constraintID, ConstantsError.NO_QUERY);
+						ServletUtilities.log("Constraint " + constraintID + " not valid: " + ConstantsError.NO_QUERY);
 					}
 					else if (!object.has(ConstantsJSON.TECHNOLOGY) || !object.get(ConstantsJSON.TECHNOLOGY).equals(Constants.XML)) {
-						failedConstraints.put(constraint, ConstantsError.INVALID_TECHNOLOGY);
+						failedConstraints.put(constraintID, ConstantsError.INVALID_TECHNOLOGY);
+						ServletUtilities.log("Constraint " + constraintID + " not valid: " + ConstantsError.INVALID_TECHNOLOGY);
 					}
 					else if (!object.has(ConstantsJSON.LANGUAGE) || !object.get(ConstantsJSON.LANGUAGE).equals(Constants.XQUERY)) {
-						failedConstraints.put(constraint, ConstantsError.INVALID_LANGUAGE);
+						failedConstraints.put(constraintID, ConstantsError.INVALID_LANGUAGE);
+						ServletUtilities.log("Constraint " + constraintID + " not valid: " + ConstantsError.INVALID_LANGUAGE);
 					} else {
 						constraints.add(object);
 					}
 				} catch (JSONException e) {
 					try {
-						failedConstraints.put(constraint, e.getMessage());
+						failedConstraints.put("invalid", e.getMessage());
+						ServletUtilities.log("Constraint not valid: " + e.getMessage());
 					} catch (JSONException f) {}
 				}
 			}
