@@ -20,9 +20,9 @@ import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -72,7 +72,6 @@ public class FullAPITest {
 			testPatternListServletGetConcrete();
 
 			testConstraintMqafServlet();
-			testConstraintMqafServletPost();
 			testConstraintQueryServlet();
 
 			testConstraintExecuteServletGet();
@@ -88,8 +87,8 @@ public class FullAPITest {
 
 	// __________ SETUP FUNCTIONS __________
 
-	@Before
-	public void initialize()
+	@BeforeAll
+	public static void initialize()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		FOLDER = new File(".").getCanonicalPath().replace('\\', '/') + "/temp_" + UUID.randomUUID();
 		System.out.println("Create: " + FOLDER);
@@ -113,8 +112,8 @@ public class FullAPITest {
 		}
 	}
 
-	@After
-	public void close() throws IOException {
+	@AfterAll
+	public static void close() throws IOException {
 		System.out.println("Delete: " + FOLDER);
 		FileUtils.deleteDirectory(new File(FOLDER));
 	}
@@ -217,8 +216,24 @@ public class FullAPITest {
 	}
 
 	private void assertQueryObject(JSONObject queryObject) {
-		assert(queryObject.has("constraints"));
 		assert(queryObject.has("failed"));
+		assert(queryObject.getJSONArray("failed").isEmpty());
+		assert(queryObject.has("constraints"));
+		JSONArray constraints = queryObject.getJSONArray("constraints");
+		assert(constraints.length()>0);
+		for (int i = 0; i<constraints.length(); i++) {
+			JSONObject constraint = constraints.getJSONObject(i);
+			assert(constraint.has("name"));
+			assert(constraint.has("constraintID"));
+			assert(constraint.has("language"));
+			assert(constraint.has("technology"));
+			assert(constraint.has("query"));
+		}
+	}
+
+	private void assertMQAFObject(JSONObject mqaf) {
+		assert (mqaf.has("constraint"));
+		assert (mqaf.has("failed") && mqaf.getJSONArray("failed").isEmpty());
 	}
 
 	private void assertExecuteResultObject(JSONObject resultObject) {
@@ -244,7 +259,6 @@ public class FullAPITest {
 	}
 
 	private void assertVariantObject(JSONObject variant) {
-		System.out.println(variant);
 		assert(variant.has("params"));
 		JSONObject params = variant.getJSONObject("params");
 		for (int i = 0; i<params.length(); i++) {
@@ -577,22 +591,32 @@ public class FullAPITest {
 		JSONObject apply2 = ConstraintMqafServlet.applyGet2("/xml", params1);
 
 		assertSimilarJSONObjects(apply1, apply2);
-		assert (apply1.has("constraint"));
-		assert (apply1.has("failed") && apply1.getJSONArray("failed").isEmpty());
+		assertMQAFObject(apply1);
+		assertMQAFObject(apply2);
 		deleteConstraint(constraintID);
 	}
 
-//	@Test
-	public void testConstraintMqafServletPost()
-			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-//		ConstraintNameServlet.applyPost(null, getEmptyParams());
-	}
-
-//	@Test
+	@Test
 	public void testConstraintQueryServlet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-//		ConstraintQueryServlet.applyGet2(null, getEmptyParams());
-//		ConstraintQueryServlet.applyGet3(null, getEmptyParams());
+		String constraintID = newConstraint("Card_xml", "default-constraint");
+		Map<String, String[]> params = getEmptyParams();
+		params.put("XmlPath_Element_0", new String[] { "//lido:lido" });
+		params.put("ComparisonOption_1", new String[] { "exactly" });
+		params.put("Number_2", new String[] { "42" });
+		params.put("XmlPath_Element_3", new String[] { "/*/*/*/*/*/*" });
+		ConstraintServlet.applyPost("/xml/" + constraintID, params);
+
+		JSONObject apply1 = ConstraintQueryServlet.applyGet3("/xml/" + constraintID, getEmptyParams());
+
+		Map<String, String[]> params1 = getEmptyParams();
+		params1.put("constraints", new String[] { constraintID });
+		JSONObject apply2 = ConstraintQueryServlet.applyGet2("/xml", params1);
+
+		assertSimilarJSONObjects(apply1, apply2);
+		assertQueryObject(apply1);
+		assertQueryObject(apply2);
+		deleteConstraint(constraintID);
 	}
 
 //	@Test
