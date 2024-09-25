@@ -78,8 +78,7 @@ public class FullAPITest {
 			testConstraintExecuteServletGet();
 
 			testTemplateVariantServletGet();
-			testTemplateVariantServletDelete();
-			testTemplateVariantServletPut();
+			testTemplateVariantServletPutDelete();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -245,12 +244,60 @@ public class FullAPITest {
 	}
 
 	private void assertVariantObject(JSONObject variant) {
-		// TODO Auto-generated method stub
+		System.out.println(variant);
+		assert(variant.has("params"));
+		JSONObject params = variant.getJSONObject("params");
+		for (int i = 0; i<params.length(); i++) {
+			assert(params.has("" + i));
+		}
+
+		assert(variant.has("variants"));
+		JSONArray variants = variant.getJSONArray("variants");
 		
+		for (int i = 0; i<variants.length(); i++) {
+			JSONObject var = variants.getJSONObject(i);
+			assert(var.has("template"));
+			assert(var.has("name"));
+			assert(var.has("language"));
+			assert(var.has("fragments"));
+			JSONArray fragments = var.getJSONArray("fragments");
+			assert(fragments.length()>0);
+			for (int j = 0; j<fragments.length(); j++) {
+				JSONObject fragment = fragments.getJSONObject(i);
+				Boolean isText = fragment.has("text") && fragment.length() == 1;
+				Boolean isFragment =
+					fragment.has("name") &&
+					fragment.has("params") &&
+					fragment.has("exampleValue") &&
+					fragment.has("newId") &&
+					fragment.has("name");
+				Boolean isPredef = 
+					fragment.length() == 2 &&
+					fragment.has("params") &&
+					fragment.has("value");
+				assert(isText || isFragment || isPredef);
+			}
+		}
+	}
+
+	private void assertVariantObjectWith(JSONObject variant, String variantname) {
+		assertVariantObject(variant);
+		JSONArray variants = variant.getJSONArray("variants");
+		Boolean with = false;
+		for (int i = 0; i<variants.length(); i++) {
+			with = with || variants.getJSONObject(i).getString("name").equals(variantname);
+		}
+		assert(with);
 	}
 
 	private void assertVariantObjectWithout(JSONObject variant, String variantname) {
-		// TODO Auto-generated method stub
+		assertVariantObject(variant);
+		JSONArray variants = variant.getJSONArray("variants");
+		Boolean without = true;
+		for (int i = 0; i<variants.length(); i++) {
+			without &= !variants.getJSONObject(i).getString("name").equals(variantname);
+		}
+		assert(without);
 		
 	}
 
@@ -580,14 +627,23 @@ public class FullAPITest {
 	public void testTemplateVariantServletPutDelete()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		String variantname = "testvariant";
-		Map<String, String[]> params = getEmptyParams();
-		params.put("variants", new String[] {"default-antipattern"});
-//		TemplateVariantServlet.applyPut(null, getEmptyParams());
-		TemplateVariantServlet.applyDelete("/xml/Card_xml", getEmptyParams());
+		String variantjsonstring = "{\"template\":\"Card_xml\",\"language\":\"xml\",\"name\":\"" + variantname + "\",\"fragments\":[{\"text\":\"”Search for”\"},{\"name\":\"element\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\"},{\"text\":\"where the number of\"},{\"name\":\"child elements\",\"params\":[3],\"exampleValue\":\"Birthdates\",\"description\":\"counted elements\"},{\"text\":\"is\"},{\"name\":\"compared to\",\"params\":[0],\"exampleValue\":\"more than\",\"comparisonMap\":\"true\"},{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":1},{\"text\":\".\"}]}";
+
 		JSONObject variant = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
 		assertVariantObjectWithout(variant, variantname);
 		
+		Map<String, String[]> params = getEmptyParams();
+		params.put("variants", new String[] {variantjsonstring});
+		TemplateVariantServlet.applyPut("/xml/Card_xml", params);
+		variant = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
+		assertVariantObjectWith(variant, variantname);
+
 		
+		Map<String, String[]> params1 = getEmptyParams();
+		params1.put("variants", new String[] {variantname});
+		TemplateVariantServlet.applyDelete("/xml/Card_xml", params1);
+		variant = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
+		assertVariantObjectWithout(variant, variantname);
 	}
 
 	// __________ CONCRETE PATTERN TESTS __________
