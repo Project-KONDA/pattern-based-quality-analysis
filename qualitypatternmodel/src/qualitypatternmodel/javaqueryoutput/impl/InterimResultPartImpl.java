@@ -34,6 +34,11 @@ public abstract class InterimResultPartImpl extends MinimalEObjectImpl.Container
 
 	private static Integer idCounter = 1;
 	private Integer interimPartId = -1;
+
+	public static void resetIdCounter() {
+		InterimResultPartImpl.idCounter = 1;
+	}
+
 	@Override
 	public Integer getInterimPartId() {
 		if (interimPartId == -1) {

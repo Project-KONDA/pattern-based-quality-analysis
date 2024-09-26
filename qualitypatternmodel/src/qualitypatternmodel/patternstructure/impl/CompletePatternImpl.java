@@ -48,6 +48,7 @@ import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
 import qualitypatternmodel.javaquery.impl.JavaFilterImpl;
+import qualitypatternmodel.javaqueryoutput.impl.InterimResultPartImpl;
 import qualitypatternmodel.mqaftranslation.MqafTranslation;
 import qualitypatternmodel.operators.impl.OperatorImpl;
 import qualitypatternmodel.parameters.Parameter;
@@ -559,6 +560,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		InterimResultPartImpl.resetIdCounter();
 		Boolean graph = getGraph().containsJavaOperator();
 		Boolean condition = getCondition().containsJavaOperator();
 

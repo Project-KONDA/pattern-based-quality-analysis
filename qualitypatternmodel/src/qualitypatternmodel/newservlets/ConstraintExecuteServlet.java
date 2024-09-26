@@ -223,18 +223,18 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		List<String> result = null;
 
 		if (constraint.has(ConstantsJSON.FILTER)) {
-			String filterstring = constraint.getString(ConstantsJSON.FILTER);
-			object.put(ConstantsJSON.FILTER, filterstring);
+			JSONObject filterjson = constraint.getJSONObject(ConstantsJSON.FILTER);
+			object.put(ConstantsJSON.FILTER, filterjson);
 			JavaFilter filter;
 			try {
-				filter = JavaFilterImpl.fromJson(filterstring);
+				filter = JavaFilterImpl.fromJson(filterjson);
 				filter.createInterimResultContainerXQuery(rawResults);
 				result = filter.filterQueryResults();
 			} catch (InvalidityException e) {
 				if (constraint.has(ConstantsJSON.CONSTRAINT_ID)) {
-					throw new FailedServletCallException("Invalid filter in " + constraint.getString(ConstantsJSON.CONSTRAINT_ID));
+					throw new FailedServletCallException("Invalid filter in " + constraint.getString(ConstantsJSON.CONSTRAINT_ID) + ": " + e.getMessage());
 				} else {
-					throw new FailedServletCallException("Invalid filter in " + constraint.toString());
+					throw new FailedServletCallException("Invalid filter in " + constraint.toString() + ": " + e.getMessage());
 				}
 			}
 		}

@@ -126,7 +126,8 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 			result.put("class", getClass().getSimpleName());
 			result.put("negate", negate);
 			result.put("functionclass", functionclassname);
-			result.put("argument", getArgument().getInterimPartId());
+			if (getArgument() != null)
+				result.put("argument", getArgument().getInterimPartId());
 		} catch (JSONException e) {
 		}
 		return result;

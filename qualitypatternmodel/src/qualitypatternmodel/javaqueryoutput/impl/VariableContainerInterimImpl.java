@@ -75,7 +75,8 @@ public class VariableContainerInterimImpl extends ContainerInterimImpl implement
 		try {
 			result.put("class", getClass().getSimpleName());
 			result.put("id", getInterimPartId());
-			result.put("contained", getContained().toJson());
+			if (getContained() != null)
+				result.put("contained", getContained().toJson());
 		} catch (JSONException e) {
 		}
 		return result;

@@ -93,7 +93,9 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 
 	public Map<Integer, InterimResultPart> getInterimResultParts() {
 		Map<Integer, InterimResultPart> map = ((InterimResultPartImpl) getRecord()).getInterimResultParts();
-		map.putAll(((InterimResultPartImpl) getSubstructure()).getInterimResultParts());
+		InterimResultPartImpl substructure = (InterimResultPartImpl) getSubstructure();
+		if (substructure != null)
+			map.putAll(substructure.getInterimResultParts());
 		return map;
 	}
 
