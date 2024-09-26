@@ -107,23 +107,22 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 
 	}
 
-	public QuantifierFilterPartImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public QuantifierFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-
-			JSONObject jsono = new JSONObject(json);
-			setQuantifier(Quantifier.get(jsono.getString("quantifier")));
-			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument"));
+			setQuantifier(Quantifier.get(json.getString("quantifier")));
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(json.getInt("argument"));
 			setArgument(argument);
 
-			JSONArray subfilters = new JSONArray(jsono.getString("subfilters"));
+			JSONArray subfilters = json.getJSONArray("subfilters");
 			for (int i = 0; i < subfilters.length(); i++) {
-				BooleanFilterPart bfp = (BooleanFilterPart) JavaFilterPartImpl.fromJson(subfilters.get(i).toString(), map);
-				getSubfilter().add(bfp);
+				BooleanFilterPart bfp = (BooleanFilterPart) JavaFilterPartImpl.fromJson(subfilters.getJSONObject(i), map);
+				if (bfp != null)
+					getSubfilter().add(bfp);
 			}
 		}
 		catch (Exception e) {
-			throw new InvalidityException();
+			throw new InvalidityException("Creating QuantifierFilterPartImpl failed", e);
 		}
 	}
 
@@ -166,7 +165,7 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 		JSONObject result = new JSONObject();
 		try {
 			result.put("class", getClass().getSimpleName());
-			result.put("quantifier", getQuantifier());
+			result.put("quantifier", getQuantifier().getLiteral());
 			result.put("argument", getArgument().getInterimPartId());
 			JSONArray subfilters = new JSONArray();
 			for (BooleanFilterPart subfilter: getSubfilter()) {

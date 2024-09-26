@@ -79,18 +79,16 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 		return result;
 	}
 
-	public static InterimResultStructureImpl fromJson(String json) throws InvalidityException {
-		try {
-			JSONObject jsono = new JSONObject(json);
-			InterimResultStructureImpl structure = new InterimResultStructureImpl();
+	public static InterimResultStructureImpl fromJson(JSONObject json) throws InvalidityException {
+		JSONObject jsono = new JSONObject(json);
+		InterimResultStructureImpl structure = new InterimResultStructureImpl();
+		if (jsono.has("record")) {
 			structure.setRecord(InterimResultPartImpl.fromJson(jsono.get("record").toString()));
-			if(jsono.has("substructure")) {
-				structure.setSubstructure(InterimResultPartImpl.fromJson(jsono.get("substructure").toString()));
-			}
-			return structure;
-		} catch (JSONException e) {
-			return null;
 		}
+		if (jsono.has("substructure")) {
+			structure.setSubstructure(InterimResultPartImpl.fromJson(jsono.get("substructure").toString()));
+		}
+		return structure;
 	}
 
 	public Map<Integer, InterimResultPart> getInterimResultParts() {

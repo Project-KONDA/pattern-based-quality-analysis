@@ -87,13 +87,12 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 //		setArgument(new ValueInterimImpl());
 //	}
 
-	public OneArgFunctionFilterPartImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public OneArgFunctionFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			JSONObject jsono = new JSONObject(json);
-			setNegate(jsono.getBoolean("negate"));
-			functionclassname = jsono.getString("functionclass");
-			ValueInterim argument = (ValueInterim) map.get(jsono.getInt("argument"));
+			setNegate(json.getBoolean("negate"));
+			functionclassname = json.getString("functionclass");
+			ValueInterim argument = (ValueInterim) map.get(json.getInt("argument"));
 			setArgument(argument);
 		}
 		catch (Exception e) {

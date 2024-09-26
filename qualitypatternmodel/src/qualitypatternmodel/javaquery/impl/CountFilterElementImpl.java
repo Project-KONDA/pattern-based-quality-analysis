@@ -75,11 +75,10 @@ public class CountFilterElementImpl extends NumberFilterPartImpl implements Coun
 		setSubfilter(subfilter);
 	}
 
-	public CountFilterElementImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public CountFilterElementImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			JSONObject jsono = new JSONObject(json);
-			VariableContainerInterim argument = (VariableContainerInterim) map.get(jsono.getInt("argument"));
+			VariableContainerInterim argument = (VariableContainerInterim) map.get(json.getInt("argument"));
 			setArgument(argument);
 		}
 		catch (Exception e) {

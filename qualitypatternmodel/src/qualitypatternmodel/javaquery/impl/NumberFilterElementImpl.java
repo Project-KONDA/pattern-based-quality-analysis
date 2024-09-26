@@ -56,11 +56,10 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 		setArgument(new ValueInterimImpl());
 	}
 
-	public NumberFilterElementImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public NumberFilterElementImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			JSONObject jsono = new JSONObject(json);
-			ValueInterim argument = (ValueInterim) map.get(jsono.getInt("argument"));
+			ValueInterim argument = (ValueInterim) map.get(json.getInt("argument"));
 			setArgument(argument);
 		}
 		catch (Exception e) {

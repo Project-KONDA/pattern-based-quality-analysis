@@ -112,16 +112,14 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 		setSubfilter2(booleanFilterPart2);
 	}
 
-	public FormulaFilterPartImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public FormulaFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-
-			JSONObject jsono = new JSONObject(json);
-			setOperator(LogicalOperator.get(jsono.getString("operator")));
-			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument"));
+			setOperator(LogicalOperator.get(json.getString("operator")));
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(json.getInt("argument"));
 			setArgument(argument);
-			setSubfilter1((BooleanFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter1"), map));
-			setSubfilter2((BooleanFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter2"), map));
+			setSubfilter1((BooleanFilterPart) JavaFilterPartImpl.fromJson(json.getJSONObject("subfilter1"), map));
+			setSubfilter2((BooleanFilterPart) JavaFilterPartImpl.fromJson(json.getJSONObject("subfilter2"), map));
 		}
 		catch (Exception e) {
 			throw new InvalidityException();

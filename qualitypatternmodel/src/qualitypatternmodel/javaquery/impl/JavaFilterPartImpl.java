@@ -87,10 +87,9 @@ public abstract class JavaFilterPartImpl extends MinimalEObjectImpl.Container im
 		return super.eInvoke(operationID, arguments);
 	}
 
-	public static JavaFilterPartImpl fromJson(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public static JavaFilterPartImpl fromJson(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		try {
-			JSONObject jsono = new JSONObject(json);
-			String clazz = jsono.getString("class");
+			String clazz = json.getString("class");
 
 			//BooleanFilterParts
 			if (clazz.equals(FormulaFilterPartImpl.class.getSimpleName())) {
