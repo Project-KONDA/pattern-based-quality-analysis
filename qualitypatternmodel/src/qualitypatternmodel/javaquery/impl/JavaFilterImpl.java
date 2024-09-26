@@ -290,6 +290,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 			result.put("filter", getFilter().toJson());
 			result.put("structure", getStructure().toJson());
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return result;
 //        try {
@@ -307,6 +308,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
     }
 
 	public static JavaFilter fromJson(JSONObject jsonObject) throws InvalidityException, JSONException {
+		System.out.println(jsonObject);
 
 		JavaFilter filter = new JavaFilterImpl();
 		filter.setPatternId(jsonObject.getString("patternId"));
