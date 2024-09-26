@@ -19,10 +19,13 @@ import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.newservlets.ConstraintExecuteServlet;
 import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 import qualitypatternmodel.newservlets.ConstraintServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.EMFModelLoad;
 
 public class APITemplateTests {
 	private static String FOLDER;
@@ -116,6 +119,14 @@ public class APITemplateTests {
 		params2.put("files", new String[] { "lido.xml" });
 		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
 		APICallTests.assertExecuteResultObject(result);
+	}
+
+	private CompletePattern getConstraintPattern(String constraintID) {
+		try {
+			return EMFModelLoad.loadCompletePattern(FOLDER + "/templates/xml/concrete-patterns/" + constraintID + ".patternstructure");
+		} catch (IOException e) {
+			return null;
+		}
 	}
 
 	// __________ CONCRETE PATTERN TESTS __________
@@ -215,6 +226,27 @@ public class APITemplateTests {
 		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
 		setConstraintParameter(constraintID, "Boolean_2", "is");
 
+		testConcretePattern(constraintID);
+		APICallTests.deleteConstraint(constraintID);
+	}
+
+	@Test
+	public void testTemplateInvalidLink2()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraintID = APICallTests.newConstraint("InvalidLink_xml", "default-constraint");
+		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
+		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
+		setConstraintParameter(constraintID, "Boolean_2", "is not");
+
+		CompletePattern pattern = getConstraintPattern(constraintID);
+		System.out.println(pattern.myToString());
+		try {
+			System.out.println(pattern.generateQueryFilter().toString());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		testConcretePattern(constraintID);
 		APICallTests.deleteConstraint(constraintID);
 	}
