@@ -853,17 +853,17 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				getTypeOption().getOptions().add(ReturnType.UNSPECIFIED);
 			}
 			getTypeOption().setPredefined(false);
-			System.err.println("both arguments null");
+//			System.err.println("both arguments null");
 			return;
 		}
 		if (newArgument == null) {
 			getTypeOption().setValue(otherArgument.getReturnType());
-			System.err.println("new argument null");
+//			System.err.println("new argument null");
 			return;
 		}
 		if (otherArgument == null) {
 			getTypeOption().setValue(newArgument.getReturnType());
-			System.err.println("old argument null");
+//			System.err.println("old argument null");
 			return;
 		}
 
@@ -873,17 +873,17 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 		if (next == null || other == null)
 			{
-			System.err.println("ReturnType of at least one argument null: " + newArgument.getClass().getSimpleName() + " " + otherArgument.getClass().getSimpleName());
+//			System.err.println("ReturnType of at least one argument null: " + newArgument.getClass().getSimpleName() + " " + otherArgument.getClass().getSimpleName());
 			}
 		else if (next == ReturnType.UNSPECIFIED && other == ReturnType.UNSPECIFIED)
 			{
-				System.err.println("ReturnType of at both arguments unspecified");
+//				System.err.println("ReturnType of at both arguments unspecified");
 			}
 		else if (next == other)
 			value = next;
 		else if (next == ReturnType.ELEMENT || other == ReturnType.ELEMENT) 
 			{
-			System.err.println("ReturnType of only one arguments is element");
+//			System.err.println("ReturnType of only one arguments is element");
 			}
 		else if (next == ReturnType.UNSPECIFIED)
 			value = other;
@@ -893,8 +893,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			value = other;
 		else if (other == ReturnType.STRING)
 			value = next;
-		else 
-			System.err.println("no case did fit");
+		else {
+//			System.err.println("no case did fit");
+		}
 			
 		if (value == null)
 			value = ReturnType.UNSPECIFIED;
