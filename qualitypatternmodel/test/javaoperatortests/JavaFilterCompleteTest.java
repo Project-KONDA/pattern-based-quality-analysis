@@ -1,6 +1,5 @@
 package javaoperatortests;
 
-import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_DATABASE_NAME;
 import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_DATA_PATH;
 
 import java.util.ArrayList;
@@ -41,7 +40,7 @@ public class JavaFilterCompleteTest {
 			filters.add(filter);
 			try {
 				// Query Results
-				List<String> list = filter.executeXQueryJava(DEMO_DATABASE_NAME, DEMO_DATA_PATH);
+				List<String> list = filter.executeXQueryJava(DEMO_DATA_PATH);
 				if (queryResult) {
 					System.out.println("QUERY RESULTS");
 					System.out.println(list);
@@ -102,9 +101,9 @@ public class JavaFilterCompleteTest {
 		}
 	}
 
-	public List<String> executeJavaPattern(CompletePattern pattern, String database_name, String database_path) throws InvalidityException {
+	public List<String> executeJavaPattern(CompletePattern pattern, String database_path) throws InvalidityException {
 		JavaFilter filter = pattern.generateQueryFilter();
-		List<String> list = filter.executeXQueryJava(database_name, database_path);
+		List<String> list = filter.executeXQueryJava(database_path);
 		filter.createInterimResultContainerXQuery(list);
 		List<String> results = filter.filterQueryResults();
 		return results;

@@ -259,7 +259,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 
 	private static List<String> executeXQuery(File file, String query) throws InvalidityException {
 		ServletUtilities.log( "query file [" + file  + "] with query [" + query + "]");
-		List<String> results = JavaFilterImpl.executeXQueryJava(query, "tempdb", file.getAbsolutePath());
+		List<String> results = JavaFilterImpl.executeXQueryJava(query, file.getAbsolutePath());
 		return results;
 	}
 }
