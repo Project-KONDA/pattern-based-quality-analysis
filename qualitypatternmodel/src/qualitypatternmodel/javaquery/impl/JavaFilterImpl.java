@@ -8,9 +8,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.basex.core.Context;
 import org.basex.core.cmd.CreateDB;
+import org.basex.core.cmd.DropDB;
 import org.basex.query.QueryProcessor;
 import org.basex.query.iter.Iter;
 import org.basex.query.value.item.Item;
@@ -219,11 +221,12 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public List<String> executeXQueryJava(String databasename, String datapath) throws InvalidityException {
-		return executeXQueryJava(getQuery(), databasename, datapath);
+	public List<String> executeXQueryJava(String datapath) throws InvalidityException {
+		return executeXQueryJava(getQuery(), datapath);
 	}
 
-	public static List<String> executeXQueryJava(String query, String databasename, String datapath) throws InvalidityException {
+	public static List<String> executeXQueryJava(String query, String datapath) throws InvalidityException {
+		String databasename = "execution_" + UUID.randomUUID();
 		if (query == null || query == "") {
 			throw new InvalidityException("Empty Query");
 		}
@@ -243,6 +246,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 					outcome.add(item.serialize().toString());
 				}
 			}
+			new DropDB(databasename).execute(context);
 		} catch(Exception e) {}
 		context.closeDB();
 		context.close();
@@ -256,9 +260,9 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public List<String> execute(String databasename, String datapath) throws InvalidityException {
+	public List<String> execute(String datapath) throws InvalidityException {
 		// Query Results
-		List<String> list = executeXQueryJava(databasename, datapath);
+		List<String> list = executeXQueryJava(datapath);
 
 		// import Query Results
 		createInterimResultContainerXQuery(list);
@@ -781,16 +785,16 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case JavaqueryPackage.JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING_STRING:
+			case JavaqueryPackage.JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING:
 				try {
-					return executeXQueryJava((String)arguments.get(0), (String)arguments.get(1));
+					return executeXQueryJava((String)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case JavaqueryPackage.JAVA_FILTER___EXECUTE__STRING_STRING:
+			case JavaqueryPackage.JAVA_FILTER___EXECUTE__STRING:
 				try {
-					return execute((String)arguments.get(0), (String)arguments.get(1));
+					return execute((String)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

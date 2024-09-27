@@ -18,8 +18,8 @@ import qualitypatternmodel.javaquery.JavaqueryFactory;
  * <ul>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#filterQueryResults() <em>Filter Query Results</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(java.util.List) <em>Create Interim Result Container</em>}</li>
- *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String, java.lang.String) <em>Execute XQuery Java</em>}</li>
- *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#execute(java.lang.String, java.lang.String) <em>Execute</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String) <em>Execute XQuery Java</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#execute(java.lang.String) <em>Execute</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#toJson() <em>To Json</em>}</li>
  * </ul>
  * </p>
@@ -123,26 +123,26 @@ public class JavaFilterTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String, java.lang.String) <em>Execute XQuery Java</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String) <em>Execute XQuery Java</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String, java.lang.String)
+	 * @see qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String)
 	 * @generated
 	 */
-	public void testExecuteXQueryJava__String_String() {
+	public void testExecuteXQueryJava__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#execute(java.lang.String, java.lang.String) <em>Execute</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#execute(java.lang.String) <em>Execute</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaquery.JavaFilter#execute(java.lang.String, java.lang.String)
+	 * @see qualitypatternmodel.javaquery.JavaFilter#execute(java.lang.String)
 	 * @generated
 	 */
-	public void testExecute__String_String() {
+	public void testExecute__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
