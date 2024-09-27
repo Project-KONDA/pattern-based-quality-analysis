@@ -135,7 +135,10 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 
 	@Override
 	public String toString() {
-		return "(oneArg " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + ">)";
+		if (getArgument() != null)
+			return "(oneArg " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + ">)";
+		else
+			return "(oneArg " + getJavaFilterPartId() + " < / >)";
 	}
 
 

@@ -9,6 +9,8 @@ public class PatternFilterGenerationTest {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern cp = (CompletePattern) OneArgTestPatterns.getTestPattern11().createXmlAdaption();
+		cp.getParameterList().getParameters().get(3).setValueFromString("//*");
+		cp.getParameterList().getParameters().get(4).setValueFromString("//text()");
 
 		System.out.println("\n_Filter_");
 		System.out.println(cp.generateQueryFilter());
