@@ -571,9 +571,11 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			return container;
 		}
 		else if (graph) {
-			return getGraph().generateQueryFilterPart();
+			JavaFilterPart graphfilter = getGraph().generateQueryFilterPart();
+			return graphfilter;
 		} else if (condition) {
-			return getCondition().generateQueryFilterPart();
+			JavaFilterPart conditionfilter = getCondition().generateQueryFilterPart();
+			return conditionfilter;
 		} else {
 			return null;
 		}

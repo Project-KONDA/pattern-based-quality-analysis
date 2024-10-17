@@ -808,17 +808,19 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	@Override
 	public String toString() {
 		String res = getQuery();
+		if (res == null)
+			return "Empty JavaFilter";
 
 		if (getFilter() != null) {
-			res += "\n\n" + getFilter().toString();
+			res += "\n\nFilter " + getFilter().toString();
 		} else {
-			res += "\n\nNo Filter Found";
+			res += "\n\nFilter not Found";
 		}
 
 		if (getStructure() != null) {
-			res += "\n\n" + getStructure().toString();
+			res += "\n\nStructure: " + getStructure().toString();
 		} else {
-			res += "\n\nNo Structure Found";
+			res += "\n\nStructure not Found";
 		}
 
 		return res;
