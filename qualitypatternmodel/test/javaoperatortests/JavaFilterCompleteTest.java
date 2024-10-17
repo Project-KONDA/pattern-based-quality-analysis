@@ -32,6 +32,8 @@ public class JavaFilterCompleteTest {
 		int to = 15;
 		for (int i = from-1; i<patterns.size() && i < to; i++) {
 			System.out.println("Example " + (i+1) + ":\n");
+			
+			System.out.println(patterns.get(i).myToString());
 			// generate Filter and structure
 			JavaFilter filter = patterns.get(i).generateQueryFilter();
 			if (filterResult) {

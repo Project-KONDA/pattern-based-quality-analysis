@@ -179,8 +179,16 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 
 	@Override
 	public String toString() {
-		return "[quantifier " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> "
-				+ " " + getSubfilter().toString() + "]";
+		String result = "[quantifier " + getJavaFilterPartId();
+		if (getArgument() != null)
+			result += " <" + getArgument().getInterimPartId() + ">";
+		else
+			result += " <MISSING ARGUMENT>";
+		if (getSubfilter() != null)
+			result += getSubfilter().toString() + "]";
+		else
+			result += "<MISSING SUBFILTER>";
+		return result;
 	}
 
 

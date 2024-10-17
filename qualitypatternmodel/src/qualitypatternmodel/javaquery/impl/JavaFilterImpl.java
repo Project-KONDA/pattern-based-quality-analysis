@@ -619,7 +619,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 					}
 				}
 			} catch (InvalidityException e) {
-				throw new InvalidityException(ir.toString() + "\n*\n" + ir.getParameter(), e);
+				throw new InvalidityException(ir.toString() + "\n*\n" + ir.getParameter() + "\n" + e.getMessage(), e);
 			}
 		}
 		return results;
