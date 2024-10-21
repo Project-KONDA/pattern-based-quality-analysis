@@ -100,16 +100,20 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 		}
 	}
 
-	public OneArgFunctionFilterPartImpl(Class<? extends OneArgJavaOperatorImpl> clazz) {
+	public OneArgFunctionFilterPartImpl(Class<? extends OneArgJavaOperatorImpl> clazz, boolean negate) {
 		super();
+		setArgument(new ValueInterimImpl());
+		setNegate(negate);
+		functionclassname = clazz.getSimpleName();
 	}
 
 	@Override
 	public Boolean apply(InterimResult parameter) {
 		assert(parameter instanceof ValueResult);
 		String value = ((ValueResult) parameter).getValue();
-		OneArgJavaOperatorImpl functionClass = OneArgJavaOperatorImpl.getOneInstanceOf(functionclassname);
-		return functionClass.apply(value);
+		OneArgJavaOperatorImpl functionClass = OneArgJavaOperatorImpl.getOneInstanceOf(functionclassname, negate);
+		boolean result = functionClass.apply(value);
+		return result; 
 	}
 
 	@Override
