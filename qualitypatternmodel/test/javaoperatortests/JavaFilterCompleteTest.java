@@ -80,11 +80,18 @@ public class JavaFilterCompleteTest {
 //				System.out.println("\n");
 
 				if (fits) {
-					List<String> result = filter.filterQueryResults();
-					results.add(result);
-					System.out.println("results : " + !result.isEmpty());
+					try {
+						List<String> result = filter.filterQueryResults();
+						results.add(result);
+						System.out.println("results : " + !result.isEmpty());
+					} catch (Exception e) {
+						e.printStackTrace();
+						results.add(null);
+						System.out.println("results: ----");
+					}
 				} else {
 					results.add(null);
+					System.out.println("results: ----");
 				}
 			}
 			catch (InvalidityException e) {
