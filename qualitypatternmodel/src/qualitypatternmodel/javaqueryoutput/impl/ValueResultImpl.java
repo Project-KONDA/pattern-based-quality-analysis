@@ -65,7 +65,7 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 		} else {
 			throw new InvalidityException(
 					corresponding.getClass().getSimpleName()
-					+ " (" + ( getCorrespondsTo() == null? "x": getCorrespondsTo().getInterimPartId()) + ") "
+					+ " (" + ( getCorrespondsTo() == null? "null": getCorrespondsTo().getInterimPartId()) + ") "
 					+ "cannot be cast to ValueInterimImpl for ValueResultImpl (" + getValue() + ")");
 		}
 	}
