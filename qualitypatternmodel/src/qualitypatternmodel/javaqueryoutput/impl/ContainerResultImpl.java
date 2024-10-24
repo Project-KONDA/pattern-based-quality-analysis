@@ -130,12 +130,12 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 		if (size == -1) {
 			return getSubresult().stream().allMatch(x-> x.isValidToCorresponding());
 		} else {
-			if (size != getSubresult().size()) {
+			if (getSubresult().size() != 0  && size != getSubresult().size()) {
 				return false;
 			}
 
 			FixedContainerInterim fixed = ((FixedContainerInterim) container);
-			for (int i = 0; i < size; i++) {
+			for (int i = 0; i < getSubresult().size(); i++) {
 				InterimResult interim = getSubresult().get(i);
 				try {
 					interim.setCorresponding(fixed.getContained().get(i));

@@ -1331,7 +1331,7 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 //			if (getTextLiteralParam() != null && getTextLiteralParam().getValue() != null)
 //				result += ", " + getTextLiteralParam().myToString();
 			return result;
-		} catch(NullPointerException e) {
+		} catch (NullPointerException e) {
 			return "[invalid axis pair: no axis" + getInternalId() + "]";
 		}
 	}
