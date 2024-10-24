@@ -27,10 +27,12 @@ public class JavaFilterCompleteTest {
 		boolean queryResult = false;
 		boolean interimResults = false;
 		boolean partialResults = true;
-
-		int from = 14;
-		int to = 15;
-		for (int i = from-1; i<patterns.size() && i < to; i++) {
+ 
+//		int from = 1;
+//		int to = 15;
+//		for (int i = from-1; i<patterns.size() && i < to; i++) {
+		Integer[] ids = {6,7,13,14};
+		for (int i: ids) { // = from-1; i<patterns.size() && i < to; i++) {
 			System.out.println("Example " + (i+1) + ":\n");
 			
 			System.out.println(patterns.get(i).myToString());
@@ -55,7 +57,11 @@ public class JavaFilterCompleteTest {
 				}
 				// check validity of InterimResults
 				EList<Boolean> allfits = new BasicEList<Boolean>();
-				for (InterimResultContainer interim: filter.getInterimResults()) {
+				EList<InterimResultContainer> interims = filter.getInterimResults();
+				if (interims.size() > 0) {
+					System.err.println("Interim Results are empty");
+				}
+				for (InterimResultContainer interim: interims) {
 					allfits.add(interim.isValidToStructure());
 				}
 
