@@ -8,9 +8,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.basex.core.Context;
 import org.basex.core.cmd.CreateDB;
+import org.basex.core.cmd.DropDB;
 import org.basex.query.QueryProcessor;
 import org.basex.query.iter.Iter;
 import org.basex.query.value.item.Item;
@@ -219,11 +221,12 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public List<String> executeXQueryJava(String databasename, String datapath) throws InvalidityException {
-		return executeXQueryJava(getQuery(), databasename, datapath);
+	public List<String> executeXQueryJava(String datapath) throws InvalidityException {
+		return executeXQueryJava(getQuery(), datapath);
 	}
 
-	public static List<String> executeXQueryJava(String query, String databasename, String datapath) throws InvalidityException {
+	public static List<String> executeXQueryJava(String query, String datapath) throws InvalidityException {
+		String databasename = "execution_" + UUID.randomUUID();
 		if (query == null || query == "") {
 			throw new InvalidityException("Empty Query");
 		}
@@ -243,6 +246,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 					outcome.add(item.serialize().toString());
 				}
 			}
+			new DropDB(databasename).execute(context);
 		} catch(Exception e) {}
 		context.closeDB();
 		context.close();
@@ -256,9 +260,9 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public List<String> execute(String databasename, String datapath) throws InvalidityException {
+	public List<String> execute(String datapath) throws InvalidityException {
 		// Query Results
-		List<String> list = executeXQueryJava(databasename, datapath);
+		List<String> list = executeXQueryJava(datapath);
 
 		// import Query Results
 		createInterimResultContainerXQuery(list);
@@ -286,10 +290,11 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 			result.put("patternId", getPatternId());
 			result.put("patternName", getPatternName());
 			result.put("query", getQuery());
-			result.put("language", getLanguage().getLiteral());
+			result.put("language", getLanguage().getName());
 			result.put("filter", getFilter().toJson());
 			result.put("structure", getStructure().toJson());
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return result;
 //        try {
@@ -307,18 +312,20 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
     }
 
 	public static JavaFilter fromJson(JSONObject jsonObject) throws InvalidityException, JSONException {
-
 		JavaFilter filter = new JavaFilterImpl();
 		filter.setPatternId(jsonObject.getString("patternId"));
 		filter.setPatternId(jsonObject.getString("patternName"));
 		filter.setQuery(jsonObject.getString("query"));
 		filter.setLanguage(Language.valueOf(jsonObject.getString("language")));
 
-		InterimResultStructureImpl structure = InterimResultStructureImpl.fromJson(jsonObject.getJSONObject("structure"));
+		JSONObject structurejson = jsonObject.getJSONObject("structure");
+		JSONObject filterjson = jsonObject.getJSONObject("filter");
+		
+		InterimResultStructureImpl structure = InterimResultStructureImpl.fromJson(structurejson);
 		filter.setStructure(structure);
 
 		Map<Integer, InterimResultPart> map = structure.getInterimResultParts();
-		BooleanFilterPart subfilter = (BooleanFilterPart) JavaFilterPartImpl.fromJson(jsonObject.getJSONObject("filter"), map);
+		BooleanFilterPart subfilter = (BooleanFilterPart) JavaFilterPartImpl.fromJson(filterjson, map);
 		filter.setFilter(subfilter);
 
 		return filter;
@@ -347,6 +354,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		int depth = 0;
 		int depthbefore = 0;
 		InterimResultContainer current = null;
+		getInterimResults().clear();
 
 		for (String value: objectList) {
 			depthbefore = depth;
@@ -613,7 +621,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 					}
 				}
 			} catch (InvalidityException e) {
-				throw new InvalidityException(ir.toString() + "\n*\n" + ir.getParameter(), e);
+				throw new InvalidityException(ir.toString() + "\n*\n" + ir.getParameter() + "\n" + e.getMessage(), e);
 			}
 		}
 		return results;
@@ -779,16 +787,16 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case JavaqueryPackage.JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING_STRING:
+			case JavaqueryPackage.JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING:
 				try {
-					return executeXQueryJava((String)arguments.get(0), (String)arguments.get(1));
+					return executeXQueryJava((String)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case JavaqueryPackage.JAVA_FILTER___EXECUTE__STRING_STRING:
+			case JavaqueryPackage.JAVA_FILTER___EXECUTE__STRING:
 				try {
-					return execute((String)arguments.get(0), (String)arguments.get(1));
+					return execute((String)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -802,17 +810,19 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	@Override
 	public String toString() {
 		String res = getQuery();
+		if (res == null)
+			return "Empty JavaFilter";
 
 		if (getFilter() != null) {
-			res += "\n\n" + getFilter().toString();
+			res += "\n\nFilter " + getFilter().toString();
 		} else {
-			res += "\n\nNo Filter Found";
+			res += "\n\nFilter not Found";
 		}
 
 		if (getStructure() != null) {
-			res += "\n\n" + getStructure().toString();
+			res += "\n\nStructure: " + getStructure().toString();
 		} else {
-			res += "\n\nNo Structure Found";
+			res += "\n\nStructure not Found";
 		}
 
 		return res;

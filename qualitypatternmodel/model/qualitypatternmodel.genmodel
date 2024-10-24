@@ -1310,11 +1310,9 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/createInterimResultContainer/objectList"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/executeXQueryJava">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/executeXQueryJava/databasename"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/executeXQueryJava/datapath"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/execute">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/execute/databasename"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/execute/datapath"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/toJson"/>

@@ -1,6 +1,5 @@
 package javaoperatortests;
 
-import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_DATABASE_NAME;
 import static qualitypatternmodel.utility.XmlTestDatabaseConstants.DEMO_DATA_PATH;
 
 import java.util.ArrayList;
@@ -28,11 +27,15 @@ public class JavaFilterCompleteTest {
 		boolean queryResult = false;
 		boolean interimResults = false;
 		boolean partialResults = true;
-
-		int from = 14;
-		int to = 15;
-		for (int i = from-1; i<patterns.size() && i < to; i++) {
-			System.out.println("Example " + (i+1) + ":");
+ 
+//		int from = 1;
+//		int to = 15;
+//		for (int i = from-1; i<patterns.size() && i < to; i++) {
+		Integer[] ids = {6,7,13,14};
+		for (int i: ids) { // = from-1; i<patterns.size() && i < to; i++) {
+			System.out.println("Example " + (i+1) + ":\n");
+			
+			System.out.println(patterns.get(i).myToString());
 			// generate Filter and structure
 			JavaFilter filter = patterns.get(i).generateQueryFilter();
 			if (filterResult) {
@@ -41,7 +44,7 @@ public class JavaFilterCompleteTest {
 			filters.add(filter);
 			try {
 				// Query Results
-				List<String> list = filter.executeXQueryJava(DEMO_DATABASE_NAME, DEMO_DATA_PATH);
+				List<String> list = filter.executeXQueryJava(DEMO_DATA_PATH);
 				if (queryResult) {
 					System.out.println("QUERY RESULTS");
 					System.out.println(list);
@@ -54,7 +57,11 @@ public class JavaFilterCompleteTest {
 				}
 				// check validity of InterimResults
 				EList<Boolean> allfits = new BasicEList<Boolean>();
-				for (InterimResultContainer interim: filter.getInterimResults()) {
+				EList<InterimResultContainer> interims = filter.getInterimResults();
+				if (interims.size() > 0) {
+					System.err.println("Interim Results are empty");
+				}
+				for (InterimResultContainer interim: interims) {
 					allfits.add(interim.isValidToStructure());
 				}
 
@@ -79,11 +86,18 @@ public class JavaFilterCompleteTest {
 //				System.out.println("\n");
 
 				if (fits) {
-					List<String> result = filter.filterQueryResults();
-					results.add(result);
-					System.out.println("results : " + !result.isEmpty());
+					try {
+						List<String> result = filter.filterQueryResults();
+						results.add(result);
+						System.out.println("results : " + !result.isEmpty());
+					} catch (Exception e) {
+						e.printStackTrace();
+						results.add(null);
+						System.out.println("results: ----");
+					}
 				} else {
 					results.add(null);
+					System.out.println("results: ----");
 				}
 			}
 			catch (InvalidityException e) {
@@ -102,9 +116,9 @@ public class JavaFilterCompleteTest {
 		}
 	}
 
-	public List<String> executeJavaPattern(CompletePattern pattern, String database_name, String database_path) throws InvalidityException {
+	public List<String> executeJavaPattern(CompletePattern pattern, String database_path) throws InvalidityException {
 		JavaFilter filter = pattern.generateQueryFilter();
-		List<String> list = filter.executeXQueryJava(database_name, database_path);
+		List<String> list = filter.executeXQueryJava(database_path);
 		filter.createInterimResultContainerXQuery(list);
 		List<String> results = filter.filterQueryResults();
 		return results;

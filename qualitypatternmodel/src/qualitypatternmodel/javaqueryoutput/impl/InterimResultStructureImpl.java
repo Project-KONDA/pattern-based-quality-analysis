@@ -80,13 +80,14 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 	}
 
 	public static InterimResultStructureImpl fromJson(JSONObject json) throws InvalidityException {
-		JSONObject jsono = new JSONObject(json);
 		InterimResultStructureImpl structure = new InterimResultStructureImpl();
-		if (jsono.has("record")) {
-			structure.setRecord(InterimResultPartImpl.fromJson(jsono.get("record").toString()));
+		if (json.has("record")) {
+			JSONObject recordjson = json.getJSONObject("record");
+			structure.setRecord(InterimResultPartImpl.fromJson(recordjson));
 		}
-		if (jsono.has("substructure")) {
-			structure.setSubstructure(InterimResultPartImpl.fromJson(jsono.get("substructure").toString()));
+		if (json.has("substructure")) {
+			JSONObject substructurejson = json.getJSONObject("substructure");
+			structure.setSubstructure(InterimResultPartImpl.fromJson(substructurejson));
 		}
 		return structure;
 	}

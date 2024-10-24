@@ -165,7 +165,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING_STRING = 2;
+	int JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING = 2;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -174,7 +174,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER___EXECUTE__STRING_STRING = 3;
+	int JAVA_FILTER___EXECUTE__STRING = 3;
 
 	/**
 	 * The operation id for the '<em>To Json</em>' operation.
@@ -1321,24 +1321,24 @@ public interface JavaqueryPackage extends EPackage {
 	EOperation getJavaFilter__CreateInterimResultContainer__List();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String, java.lang.String) <em>Execute XQuery Java</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String) <em>Execute XQuery Java</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Execute XQuery Java</em>' operation.
-	 * @see qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String, java.lang.String)
+	 * @see qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String)
 	 * @generated
 	 */
-	EOperation getJavaFilter__ExecuteXQueryJava__String_String();
+	EOperation getJavaFilter__ExecuteXQueryJava__String();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#execute(java.lang.String, java.lang.String) <em>Execute</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#execute(java.lang.String) <em>Execute</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Execute</em>' operation.
-	 * @see qualitypatternmodel.javaquery.JavaFilter#execute(java.lang.String, java.lang.String)
+	 * @see qualitypatternmodel.javaquery.JavaFilter#execute(java.lang.String)
 	 * @generated
 	 */
-	EOperation getJavaFilter__Execute__String_String();
+	EOperation getJavaFilter__Execute__String();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#toJson() <em>To Json</em>}' operation.
@@ -1947,7 +1947,7 @@ public interface JavaqueryPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING_STRING = eINSTANCE.getJavaFilter__ExecuteXQueryJava__String_String();
+		EOperation JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING = eINSTANCE.getJavaFilter__ExecuteXQueryJava__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Execute</b></em>' operation.
@@ -1955,7 +1955,7 @@ public interface JavaqueryPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JAVA_FILTER___EXECUTE__STRING_STRING = eINSTANCE.getJavaFilter__Execute__String_String();
+		EOperation JAVA_FILTER___EXECUTE__STRING = eINSTANCE.getJavaFilter__Execute__String();
 
 		/**
 		 * The meta object literal for the '<em><b>To Json</b></em>' operation.

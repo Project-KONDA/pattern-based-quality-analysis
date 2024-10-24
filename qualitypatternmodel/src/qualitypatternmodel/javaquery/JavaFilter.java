@@ -205,7 +205,7 @@ public interface JavaFilter extends EObject {
 	 * @model dataType="qualitypatternmodel.javaquery.StringListWrapper" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated NOT
 	 */
-	List<String> executeXQueryJava(String databasename, String datapath) throws InvalidityException;
+	List<String> executeXQueryJava(String datapath) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -213,7 +213,7 @@ public interface JavaFilter extends EObject {
 	 * @model dataType="qualitypatternmodel.javaquery.StringListWrapper" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated NOT
 	 */
-	List<String> execute(String databasename, String datapath) throws InvalidityException;
+	List<String> execute(String datapath) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

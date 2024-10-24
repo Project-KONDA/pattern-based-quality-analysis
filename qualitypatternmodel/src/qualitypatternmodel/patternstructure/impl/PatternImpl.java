@@ -276,6 +276,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 
 		List<String> nodes = new ArrayList<String>();
 		for (Node node: returnElements) {
+			if (!(node instanceof XmlNode))
+				throw new RuntimeException("return node is not an XmlNode: " + node.getClass());
 			XmlNode xmlnode = ((XmlNode) node);
 			nodes.add(xmlnode.getVariables().get(0)); //  VARIABLE + ((Node) xmlnode).getInternalId() + "_0");
 		}

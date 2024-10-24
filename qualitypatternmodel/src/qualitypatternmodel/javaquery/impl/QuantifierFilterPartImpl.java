@@ -131,10 +131,12 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 		if (parameter == null) {
 			throw new InvalidityException("parameter null");
 		}
-		if(!(parameter instanceof ContainerResult)) {
+		if (!(parameter instanceof ContainerResult)) {
 			throw new InvalidityException("parameter not a container");
 		}
 		ContainerResult param = (ContainerResult) parameter;
+		if (param.getCorrespondsTo() == null)
+			return false;
 		if (!(param.getCorrespondsTo() instanceof FixedContainerInterim)) {
 			throw new InvalidityException((param.getCorrespondsTo() != null? "Class of param is " + param.getCorrespondsTo().getClass().getSimpleName() : "Param is null") + ", but a fixed container was expected. " + this.toString());
 		}
@@ -179,8 +181,16 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 
 	@Override
 	public String toString() {
-		return "[quantifier " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> "
-				+ " " + getSubfilter().toString() + "]";
+		String result = "[quantifier " + getJavaFilterPartId();
+		if (getArgument() != null)
+			result += " <" + getArgument().getInterimPartId() + ">";
+		else
+			result += " <MISSING ARGUMENT>";
+		if (getSubfilter() != null)
+			result += getSubfilter().toString() + "]";
+		else
+			result += "<MISSING SUBFILTER>";
+		return result;
 	}
 
 

@@ -88,7 +88,7 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
-		OneArgFunctionFilterPart filterPart = new OneArgFunctionFilterPartImpl(this.getClass());
+		OneArgFunctionFilterPart filterPart = new OneArgFunctionFilterPartImpl(this.getClass(), getOption().getValue());
 		return filterPart;
 	}
 
@@ -98,7 +98,7 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 		option.isValid(abstractionLevel);
 	}
 
-    public static OneArgJavaOperatorImpl getOneInstanceOf(String subclassname) {
+    public static OneArgJavaOperatorImpl getOneInstanceOf(String subclassname, boolean negate) {
         try {
             String packageName = OneArgJavaOperatorImpl.class.getPackage().getName() + ".";
             Class<?> subclass = Class.forName(packageName + subclassname);
@@ -106,6 +106,9 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
             constructor.setAccessible(true);
             OneArgJavaOperatorImpl instance = (OneArgJavaOperatorImpl) constructor.newInstance();
 
+            BooleanParamImpl bool = new BooleanParamImpl();
+            bool.setValue(negate);
+            instance.setOption(bool);
             return instance;
         } catch (Exception e) {
             e.printStackTrace(); // Handle exception appropriately

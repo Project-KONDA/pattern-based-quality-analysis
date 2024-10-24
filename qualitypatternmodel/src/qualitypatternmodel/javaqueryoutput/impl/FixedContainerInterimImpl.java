@@ -82,20 +82,19 @@ public class FixedContainerInterimImpl extends ContainerInterimImpl implements F
 		getContained().addAll(interims);
 	}
 
-	public FixedContainerInterimImpl(String json) throws InvalidityException {
+	public FixedContainerInterimImpl(JSONObject json) throws InvalidityException {
 		super();
 		try {
-			JSONObject jsono = new JSONObject(json);
-			if (!jsono.get("class").equals(getClass().getSimpleName())) {
+			if (!json.get("class").equals(getClass().getSimpleName())) {
 				throw new InvalidityException("Wrong class");
 			}
-			setInterimPartId(jsono.getInt("id"));
-			JSONArray containedarray = new JSONArray(jsono.getString("contained"));
+			setInterimPartId(json.getInt("id"));
+			JSONArray containedarray = json.getJSONArray("contained");
 			for (int i = 0; i < containedarray.length(); i++) {
-				getContained().add(InterimResultPartImpl.fromJson(containedarray.getString(i)));
+				getContained().add(InterimResultPartImpl.fromJson(containedarray.getJSONObject(i)));
 			}
 		} catch (JSONException e) {
-			throw new InvalidityException("Wrong class");
+			throw new InvalidityException("Wrong class", e);
 		}
 	}
 
