@@ -478,12 +478,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if (getLanguage() != Language.XML) {
 			throw new InvalidityException("Query Filter not implemented for Language " + getLanguage().getName());
 		}
+		String query = generateXQueryJava();
+		JavaFilterPart filterpart = generateQueryFilterPart();
 		JavaFilter filter = new JavaFilterImpl();
+		filter.setLanguage(getLanguage());
 		filter.setPatternId(getId());
 		filter.setPatternName(getName());
-		String query = generateXQueryJava();
 		filter.setQuery(query);
-		JavaFilterPart filterpart = generateQueryFilterPart();
 		filter.setFilter((BooleanFilterPart) filterpart);
 		return filter;
 	}

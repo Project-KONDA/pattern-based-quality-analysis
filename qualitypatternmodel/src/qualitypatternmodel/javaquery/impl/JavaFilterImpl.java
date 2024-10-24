@@ -290,7 +290,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 			result.put("patternId", getPatternId());
 			result.put("patternName", getPatternName());
 			result.put("query", getQuery());
-			result.put("language", getLanguage().getLiteral());
+			result.put("language", getLanguage().getName());
 			result.put("filter", getFilter().toJson());
 			result.put("structure", getStructure().toJson());
 		} catch (Exception e) {
@@ -312,19 +312,20 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
     }
 
 	public static JavaFilter fromJson(JSONObject jsonObject) throws InvalidityException, JSONException {
-		System.out.println(jsonObject);
-
 		JavaFilter filter = new JavaFilterImpl();
 		filter.setPatternId(jsonObject.getString("patternId"));
 		filter.setPatternId(jsonObject.getString("patternName"));
 		filter.setQuery(jsonObject.getString("query"));
 		filter.setLanguage(Language.valueOf(jsonObject.getString("language")));
 
-		InterimResultStructureImpl structure = InterimResultStructureImpl.fromJson(jsonObject.getJSONObject("structure"));
+		JSONObject structurejson = jsonObject.getJSONObject("structure");
+		JSONObject filterjson = jsonObject.getJSONObject("filter");
+		
+		InterimResultStructureImpl structure = InterimResultStructureImpl.fromJson(structurejson);
 		filter.setStructure(structure);
 
 		Map<Integer, InterimResultPart> map = structure.getInterimResultParts();
-		BooleanFilterPart subfilter = (BooleanFilterPart) JavaFilterPartImpl.fromJson(jsonObject.getJSONObject("filter"), map);
+		BooleanFilterPart subfilter = (BooleanFilterPart) JavaFilterPartImpl.fromJson(filterjson, map);
 		filter.setFilter(subfilter);
 
 		return filter;
@@ -353,6 +354,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		int depth = 0;
 		int depthbefore = 0;
 		InterimResultContainer current = null;
+		getInterimResults().clear();
 
 		for (String value: objectList) {
 			depthbefore = depth;

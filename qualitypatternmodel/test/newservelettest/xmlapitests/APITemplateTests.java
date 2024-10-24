@@ -230,7 +230,7 @@ public class APITemplateTests {
 	}
 
 	@Test
-	public void testTemplateInvalidLink2()
+	public void testTemplateInvalidLinkNegated()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		String constraintID = APICallTests.newConstraint("InvalidLink_xml", "default-constraint");
 		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
@@ -238,7 +238,6 @@ public class APITemplateTests {
 		setConstraintParameter(constraintID, "Boolean_2", "is not");
 
 		CompletePattern pattern = getConstraintPattern(constraintID);
-		System.out.println(pattern.myToString());
 		try {
 			System.out.println(pattern.generateQueryFilter().toString());
 		} catch (Exception e) {
