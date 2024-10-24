@@ -73,9 +73,12 @@ public class APITemplateTests {
 		InitialisationServlet.initialisation(context);
 
 		File original = new File("lido.xml");
+		File original2 = new File("demo.data/demo_database.xml");
 		File copy = new File(FOLDER + "/files/lido.xml");
+		File copy2 = new File(FOLDER + "/files/demo_database.xml");
 		try {
 			FileUtils.copyFile(original, copy);
+			FileUtils.copyFile(original2, copy2);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -115,7 +118,7 @@ public class APITemplateTests {
 
 		Map<String, String[]> params2 = APICallTests.getEmptyParams();
 		params2.put("constraintIDs", new String[] { constraintID });
-		params2.put("files", new String[] { "lido.xml" });
+		params2.put("files", new String[] { "lido.xml", "demo_database.xml"});
 		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
 		APICallTests.assertExecuteResultObject(result);
 	}
@@ -221,8 +224,8 @@ public class APITemplateTests {
 	public void testTemplateInvalidLink()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		String constraintID = APICallTests.newConstraint("InvalidLink_xml", "default-constraint");
-		setConstraintParameter(constraintID, "XmlPath_Element_0", "//lido:rightsResource");
-		setConstraintParameter(constraintID, "XmlPath_Property_1", "//lido:legalBodyID/text()");
+		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
+		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
 		setConstraintParameter(constraintID, "Boolean_2", "is");
 
 		testConcretePattern(constraintID);
@@ -233,8 +236,8 @@ public class APITemplateTests {
 	public void testTemplateInvalidLinkNegated()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		String constraintID = APICallTests.newConstraint("InvalidLink_xml", "default-constraint");
-		setConstraintParameter(constraintID, "XmlPath_Element_0", "//lido:rightsResource");
-		setConstraintParameter(constraintID, "XmlPath_Property_1", "//lido:legalBodyID/text()");
+		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
+		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
 		setConstraintParameter(constraintID, "Boolean_2", "is not");
 
 		CompletePattern pattern = getConstraintPattern(constraintID);

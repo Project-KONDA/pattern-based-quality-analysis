@@ -208,45 +208,36 @@ public class ConstraintExecuteServlet extends HttpServlet {
 //		object.put(ConstantsJSON.LANGUAGE, language);
 //		object.put(ConstantsJSON.TECHNOLOGY, technology);
 
-		List<String> rawResults;
 		int total;
 		try {
 			List<String> totalResults;
-			rawResults = executeXQuery(file, query);
+//			rawResults = executeXQuery(file, query);
 			totalResults = executeXQuery(file, query_partial);
 			total = totalResults.size();
-			ServletUtilities.log("raw Results : " + rawResults.size());
 		} catch (InvalidityException e) {
 			e.printStackTrace();
 			throw new FailedServletCallException(ConstantsError.QUERY_FAILED, e);
 		}
 		List<String> result = null;
 
-		if (constraint.has(ConstantsJSON.FILTER)) {
-			JSONObject filterjson = constraint.getJSONObject(ConstantsJSON.FILTER);
-			object.put(ConstantsJSON.FILTER, filterjson);
-			JavaFilter filter;
+		if (!constraint.has(ConstantsJSON.FILTER)) {
 			try {
-				filter = JavaFilterImpl.fromJson(filterjson);
-				filter.createInterimResultContainerXQuery(rawResults);
-				result = filter.filterQueryResults();
+				result = executeXQuery(file, query);
 			} catch (InvalidityException e) {
-				if (constraint.has(ConstantsJSON.CONSTRAINT_ID)) {
-					throw new FailedServletCallException("Invalid filter in " + constraint.getString(ConstantsJSON.CONSTRAINT_ID) + ": " + e.getMessage(), e);
-				} else {
-					throw new FailedServletCallException("Invalid filter in " + constraint.toString() + ": " + e.getMessage(), e);
-				}
+				throw new FailedServletCallException ("Failed to execute constraint", e);
 			}
-		}
-		else {
-			result = new ArrayList<String>();
-			for (String res: rawResults) {
-				result.add(res);
+		} else {
+			try {
+				JSONObject filterjson = constraint.getJSONObject(ConstantsJSON.FILTER);
+				JavaFilter filter = JavaFilterImpl.fromJson(filterjson);
+				result =  filter.execute(file.getCanonicalPath());
+			} catch (JSONException | InvalidityException | IOException e) {
+				throw new FailedServletCallException ("Failed to execute constraint", e);
 			}
 		}
 
 		if (result == null) {
-			throw new FailedServletCallException();
+			throw new FailedServletCallException("result is null");
 		}
 
 		object.put(ConstantsJSON.INCIDENTS, result);
