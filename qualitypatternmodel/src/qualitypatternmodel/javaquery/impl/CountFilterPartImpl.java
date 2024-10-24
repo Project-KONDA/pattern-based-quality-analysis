@@ -119,15 +119,14 @@ public class CountFilterPartImpl extends BooleanFilterPartImpl implements CountF
 		setSubfilter2(new NumberValueFilterElementImpl(number));
 	}
 
-	public CountFilterPartImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public CountFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			JSONObject jsono = new JSONObject(json);
-			setOperator(ComparisonOperator.get(jsono.getString("operator")));
-			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument"));
+			setOperator(ComparisonOperator.get(json.getString("operator")));
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(json.getInt("argument"));
 			setArgument(argument);
-			setSubfilter1((NumberFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter1"), map));
-			setSubfilter2((NumberFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter2"), map));
+			setSubfilter1((NumberFilterPart) JavaFilterPartImpl.fromJson(json.getJSONObject("subfilter1"), map));
+			setSubfilter2((NumberFilterPart) JavaFilterPartImpl.fromJson(json.getJSONObject("subfilter2"), map));
 		}
 		catch (Exception e) {
 			throw new InvalidityException();

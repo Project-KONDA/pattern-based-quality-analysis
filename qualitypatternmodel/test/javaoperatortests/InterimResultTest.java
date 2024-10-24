@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.javaquery.JavaFilter;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.Language;
 
 public class InterimResultTest {
 
@@ -31,8 +35,31 @@ public class InterimResultTest {
 		System.out.print("total: " + (!results.contains(false)));
 	}
 
-	static Boolean testTestPattern(CompletePattern testpattern, List<Object> rawResults, List<String> expected, Boolean output)
+	static Boolean testTestPattern (CompletePattern testpattern, List<Object> rawResults, List<String> expected, Boolean output)
 			throws InvalidityException {
+		
+		if (testpattern.getLanguage() == Language.GENERIC) {
+			try {
+				testpattern.createXmlAdaption();
+			} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+				e.printStackTrace();
+			}
+			List<Parameter> params = testpattern.getParameterList().getParameters();
+			for (Parameter p: params) {
+				if (p instanceof XmlPathParam) {
+					try {
+						p.setValueFromString("//*");
+					}
+					catch (Exception e) {
+						p.setValueFromString("/text()");
+					}
+				}
+				if (p instanceof TextLiteralParam) {
+					p.setValueFromString("a");
+				}
+			}
+		}
+		
 		if (rawResults == null) {
 			return false;
 		}

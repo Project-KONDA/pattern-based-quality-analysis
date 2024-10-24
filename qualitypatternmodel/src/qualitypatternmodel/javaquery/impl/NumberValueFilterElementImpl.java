@@ -66,11 +66,10 @@ public class NumberValueFilterElementImpl extends NumberFilterPartImpl implement
 		setNumber(num);
 	}
 
-	public NumberValueFilterElementImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public NumberValueFilterElementImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			JSONObject jsono = new JSONObject(json);
-			setNumber(Double.valueOf(jsono.getString("number")));
+			setNumber(Double.valueOf(json.getString("number")));
 		}
 		catch (Exception e) {
 			throw new InvalidityException();

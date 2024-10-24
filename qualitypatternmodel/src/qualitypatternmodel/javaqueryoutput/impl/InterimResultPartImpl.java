@@ -34,6 +34,11 @@ public abstract class InterimResultPartImpl extends MinimalEObjectImpl.Container
 
 	private static Integer idCounter = 1;
 	private Integer interimPartId = -1;
+
+	public static void resetIdCounter() {
+		InterimResultPartImpl.idCounter = 1;
+	}
+
 	@Override
 	public Integer getInterimPartId() {
 		if (interimPartId == -1) {
@@ -90,10 +95,9 @@ public abstract class InterimResultPartImpl extends MinimalEObjectImpl.Container
 		return super.eInvoke(operationID, arguments);
 	}
 
-	public static InterimResultPartImpl fromJson(String json) throws InvalidityException {
+	public static InterimResultPartImpl fromJson(JSONObject json) throws InvalidityException {
 		try {
-			JSONObject jsono = new JSONObject(json);
-			String clazz = jsono.getString("class");
+			String clazz = json.getString("class");
 			if (clazz.equals(ValueInterimImpl.class.getSimpleName())) {
 				return new ValueInterimImpl(json);
 			}

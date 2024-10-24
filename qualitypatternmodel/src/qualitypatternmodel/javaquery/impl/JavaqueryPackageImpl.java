@@ -390,7 +390,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getJavaFilter__ExecuteXQueryJava__String_String() {
+	public EOperation getJavaFilter__ExecuteXQueryJava__String() {
 		return javaFilterEClass.getEOperations().get(2);
 	}
 
@@ -400,7 +400,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getJavaFilter__Execute__String_String() {
+	public EOperation getJavaFilter__Execute__String() {
 		return javaFilterEClass.getEOperations().get(3);
 	}
 
@@ -913,8 +913,8 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		createEAttribute(javaFilterEClass, JAVA_FILTER__PATTERN_ID);
 		createEOperation(javaFilterEClass, JAVA_FILTER___FILTER_QUERY_RESULTS);
 		createEOperation(javaFilterEClass, JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__LIST);
-		createEOperation(javaFilterEClass, JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING_STRING);
-		createEOperation(javaFilterEClass, JAVA_FILTER___EXECUTE__STRING_STRING);
+		createEOperation(javaFilterEClass, JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING);
+		createEOperation(javaFilterEClass, JAVA_FILTER___EXECUTE__STRING);
 		createEOperation(javaFilterEClass, JAVA_FILTER___TO_JSON);
 
 		booleanFilterPartEClass = createEClass(BOOLEAN_FILTER_PART);
@@ -1045,13 +1045,11 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		addEParameter(op, this.getObjectListWrapper(), "objectList", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getJavaFilter__ExecuteXQueryJava__String_String(), this.getStringListWrapper(), "executeXQueryJava", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "databasename", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJavaFilter__ExecuteXQueryJava__String(), this.getStringListWrapper(), "executeXQueryJava", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "datapath", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getJavaFilter__Execute__String_String(), this.getStringListWrapper(), "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "databasename", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJavaFilter__Execute__String(), this.getStringListWrapper(), "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "datapath", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 

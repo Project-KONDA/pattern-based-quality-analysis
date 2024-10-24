@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -87,6 +89,19 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 	public ListFilterPartImpl() {
 		super();
 		setArgument(new VariableContainerInterimImpl());
+	}
+	
+	public ListFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		super();
+		try {
+			setQuantifier(Quantifier.get(json.getString("quantifier")));
+			VariableContainerInterimImpl argument = (VariableContainerInterimImpl) map.get(json.getInt("argument"));
+			setArgument(argument);
+			setSubfilter((BooleanFilterPart) JavaFilterPartImpl.fromJson(json.getJSONObject("subfilter"), map));
+		}
+		catch (Exception e) {
+			throw new InvalidityException();
+		}
 	}
 
 	public ListFilterPartImpl(Quantifier quantifier, BooleanFilterPart subfilter) {

@@ -179,8 +179,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //			} else
 //				subfilter = (BooleanFilterPart) getCondition().generateQueryFilterPart();
 //			return new ListFilterPartImpl(getQuantifier(), subfilter);
-
-
 			return new QuantifierFilterPartImpl(subfilter);
 		}
 		return new BooleanFilterElementImpl();

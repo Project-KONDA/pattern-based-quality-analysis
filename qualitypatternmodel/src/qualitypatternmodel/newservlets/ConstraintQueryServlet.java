@@ -2,6 +2,7 @@ package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
@@ -90,12 +91,9 @@ public class ConstraintQueryServlet extends HttpServlet {
 
 		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINTS);
 
-		Set<String> constraintIdSet;
-		if (constraintIds == null) {
-			constraintIdSet = new LinkedHashSet<String>();
-		} else {
-			constraintIdSet = new LinkedHashSet<String>(Arrays.asList(constraintIds));
-		}
+		Set<String> constraintIdSet = constraintIds == null
+		        ? Collections.emptySet() 
+		        : new LinkedHashSet<>(Arrays.asList(constraintIds));
 		constraintIds = constraintIdSet.toArray(new String[0]);
 		return applyGet(technology, constraintIds);
 	}
@@ -141,18 +139,21 @@ public class ConstraintQueryServlet extends HttpServlet {
 		// 2 query
 		try {
 			if (technology.equals(Constants.XML)) {
+				String xquery;
 				if (pattern.containsJavaOperator()) {
 					JavaFilter filter = pattern.generateQueryFilter();
-					String serializedFilter = filter.toJson().toString();
+					JSONObject serializedFilter = filter.toJson();
 					json.put(ConstantsJSON.FILTER, serializedFilter);
+					xquery = pattern.generateXQueryJava();
 				}
-				json.put(ConstantsJSON.LANGUAGE, Constants.XQUERY);
-				String xquery = pattern.generateXQuery();
-				String xquerypartial = pattern.getPartialXmlQuery();
+				else 
+					xquery = pattern.generateXQuery();
 				json.put(ConstantsJSON.QUERY, xquery);
 				json.put(ConstantsJSON.QUERY_LINE, makeQueryOneLine(xquery));
+				String xquerypartial = pattern.getPartialXmlQuery();
 				json.put(ConstantsJSON.QUERY_PARTIAL, xquerypartial);
 				json.put(ConstantsJSON.QUERY_PARTIAL_LINE, makeQueryOneLine(xquerypartial));
+				json.put(ConstantsJSON.LANGUAGE, Constants.XQUERY);
 
 			} else if (technology.equals(Constants.RDF)) {
 				if (pattern.containsJavaOperator()) {
@@ -177,7 +178,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 			}
 
 		} catch (InvalidityException e) {
-			throw new FailedServletCallException();
+			throw new FailedServletCallException("", e);
 		}
 
 		// 3 return json

@@ -47,7 +47,13 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 			if (!(getSource() instanceof XmlRoot) && sourcevariable == "") {
 				throw new InvalidityException("SourceVariable in Relation [" + getInternalId() + "] from Element [" + getSource().getInternalId() + "] is empty");
 			}
-			xPathExpression = sourcevariable + xmlPathParam.generateXQuery();
+			
+			xPathExpression = xmlPathParam.generateXQuery();
+			if (!xPathExpression.startsWith(sourcevariable)) {
+				System.err.println("xPathExpression '" + xPathExpression + "' does not start with variable '" + sourcevariable + "'");
+				xPathExpression = sourcevariable + xPathExpression;
+			}
+			
 		} else {
 			throw new InvalidityException("option null");
 		}

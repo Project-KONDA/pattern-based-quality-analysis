@@ -87,13 +87,12 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 //		setArgument(new ValueInterimImpl());
 //	}
 
-	public OneArgFunctionFilterPartImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public OneArgFunctionFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			JSONObject jsono = new JSONObject(json);
-			setNegate(jsono.getBoolean("negate"));
-			functionclassname = jsono.getString("functionclass");
-			ValueInterim argument = (ValueInterim) map.get(jsono.getInt("argument"));
+			setNegate(json.getBoolean("negate"));
+			functionclassname = json.getString("functionclass");
+			ValueInterim argument = (ValueInterim) map.get(json.getInt("argument"));
 			setArgument(argument);
 		}
 		catch (Exception e) {
@@ -101,16 +100,20 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 		}
 	}
 
-	public OneArgFunctionFilterPartImpl(Class<? extends OneArgJavaOperatorImpl> clazz) {
+	public OneArgFunctionFilterPartImpl(Class<? extends OneArgJavaOperatorImpl> clazz, boolean negate) {
 		super();
+		setArgument(new ValueInterimImpl());
+		setNegate(negate);
+		functionclassname = clazz.getSimpleName();
 	}
 
 	@Override
 	public Boolean apply(InterimResult parameter) {
 		assert(parameter instanceof ValueResult);
 		String value = ((ValueResult) parameter).getValue();
-		OneArgJavaOperatorImpl functionClass = OneArgJavaOperatorImpl.getOneInstanceOf(functionclassname);
-		return functionClass.apply(value);
+		OneArgJavaOperatorImpl functionClass = OneArgJavaOperatorImpl.getOneInstanceOf(functionclassname, negate);
+		boolean result = functionClass.apply(value);
+		return result; 
 	}
 
 	@Override
@@ -127,7 +130,8 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 			result.put("class", getClass().getSimpleName());
 			result.put("negate", negate);
 			result.put("functionclass", functionclassname);
-			result.put("argument", getArgument().getInterimPartId());
+			if (getArgument() != null)
+				result.put("argument", getArgument().getInterimPartId());
 		} catch (JSONException e) {
 		}
 		return result;
@@ -135,7 +139,10 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 
 	@Override
 	public String toString() {
-		return "(oneArg " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + ">)";
+		if (getArgument() != null)
+			return "(oneArg " + getJavaFilterPartId() + " <" + getArgument().getInterimPartId() + "> " + functionclassname + " )";
+		else
+			return "(oneArg " + getJavaFilterPartId() + " < / > " + functionclassname + " )";
 	}
 
 

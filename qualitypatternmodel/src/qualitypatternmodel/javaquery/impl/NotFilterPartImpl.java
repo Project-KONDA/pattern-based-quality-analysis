@@ -58,11 +58,10 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 		setSubfilter(subfilter);
 	}
 
-	public NotFilterPartImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public NotFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			JSONObject jsono = new JSONObject(json);
-			setSubfilter((BooleanFilterPart) JavaFilterPartImpl.fromJson(jsono.getString("subfilter"), map));
+			setSubfilter((BooleanFilterPart) JavaFilterPartImpl.fromJson(json.getJSONObject("subfilter"), map));
 		}
 		catch (Exception e) {
 			throw new InvalidityException();

@@ -60,11 +60,10 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 		setArgument(container);
 	}
 
-	public BooleanFilterElementImpl(String json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public BooleanFilterElementImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			JSONObject jsono = new JSONObject(json);
-			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(jsono.getInt("argument"));
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(json.getInt("argument"));
 			setArgument(argument);
 		}
 		catch (Exception e) {

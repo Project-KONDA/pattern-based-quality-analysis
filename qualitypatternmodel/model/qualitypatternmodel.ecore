@@ -1586,11 +1586,9 @@
       </eOperations>
       <eOperations name="executeXQueryJava" eType="#//javaquery/StringListWrapper"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="databasename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="datapath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eOperations name="execute" eType="#//javaquery/StringListWrapper" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="databasename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="datapath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eOperations name="toJson" eType="#//textrepresentation/JSONObjectWrapper"/>

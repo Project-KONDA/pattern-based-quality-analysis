@@ -79,23 +79,24 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 		return result;
 	}
 
-	public static InterimResultStructureImpl fromJson(String json) throws InvalidityException {
-		try {
-			JSONObject jsono = new JSONObject(json);
-			InterimResultStructureImpl structure = new InterimResultStructureImpl();
-			structure.setRecord(InterimResultPartImpl.fromJson(jsono.get("record").toString()));
-			if(jsono.has("substructure")) {
-				structure.setSubstructure(InterimResultPartImpl.fromJson(jsono.get("substructure").toString()));
-			}
-			return structure;
-		} catch (JSONException e) {
-			return null;
+	public static InterimResultStructureImpl fromJson(JSONObject json) throws InvalidityException {
+		InterimResultStructureImpl structure = new InterimResultStructureImpl();
+		if (json.has("record")) {
+			JSONObject recordjson = json.getJSONObject("record");
+			structure.setRecord(InterimResultPartImpl.fromJson(recordjson));
 		}
+		if (json.has("substructure")) {
+			JSONObject substructurejson = json.getJSONObject("substructure");
+			structure.setSubstructure(InterimResultPartImpl.fromJson(substructurejson));
+		}
+		return structure;
 	}
 
 	public Map<Integer, InterimResultPart> getInterimResultParts() {
 		Map<Integer, InterimResultPart> map = ((InterimResultPartImpl) getRecord()).getInterimResultParts();
-		map.putAll(((InterimResultPartImpl) getSubstructure()).getInterimResultParts());
+		InterimResultPartImpl substructure = (InterimResultPartImpl) getSubstructure();
+		if (substructure != null)
+			map.putAll(substructure.getInterimResultParts());
 		return map;
 	}
 

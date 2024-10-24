@@ -48,6 +48,7 @@ import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.impl.FormulaFilterPartImpl;
 import qualitypatternmodel.javaquery.impl.JavaFilterImpl;
+import qualitypatternmodel.javaqueryoutput.impl.InterimResultPartImpl;
 import qualitypatternmodel.mqaftranslation.MqafTranslation;
 import qualitypatternmodel.operators.impl.OperatorImpl;
 import qualitypatternmodel.parameters.Parameter;
@@ -477,12 +478,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if (getLanguage() != Language.XML) {
 			throw new InvalidityException("Query Filter not implemented for Language " + getLanguage().getName());
 		}
+		String query = generateXQueryJava();
+		JavaFilterPart filterpart = generateQueryFilterPart();
 		JavaFilter filter = new JavaFilterImpl();
+		filter.setLanguage(getLanguage());
 		filter.setPatternId(getId());
 		filter.setPatternName(getName());
-		String query = generateXQueryJava();
 		filter.setQuery(query);
-		JavaFilterPart filterpart = generateQueryFilterPart();
 		filter.setFilter((BooleanFilterPart) filterpart);
 		return filter;
 	}
@@ -559,6 +561,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+		InterimResultPartImpl.resetIdCounter();
 		Boolean graph = getGraph().containsJavaOperator();
 		Boolean condition = getCondition().containsJavaOperator();
 
@@ -569,9 +572,11 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			return container;
 		}
 		else if (graph) {
-			return getGraph().generateQueryFilterPart();
+			JavaFilterPart graphfilter = getGraph().generateQueryFilterPart();
+			return graphfilter;
 		} else if (condition) {
-			return getCondition().generateQueryFilterPart();
+			JavaFilterPart conditionfilter = getCondition().generateQueryFilterPart();
+			return conditionfilter;
 		} else {
 			return null;
 		}

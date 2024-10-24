@@ -96,7 +96,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		if(option!=null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
+		if (option != null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
 			if (option.getValue()){
 				return primitiveNode.generateXQuery() + "matches(., \"" + regularExpression.getValue() + "\")";
 			} else {

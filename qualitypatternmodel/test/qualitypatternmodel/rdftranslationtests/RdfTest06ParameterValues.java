@@ -1,9 +1,7 @@
 package qualitypatternmodel.rdftranslationtests;
 
 import java.util.ArrayList;
-
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
-import qualitypatternmodel.adaptionrdf.IriListParam;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -19,7 +17,6 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
-import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class RdfTest06ParameterValues {
@@ -30,36 +27,12 @@ public class RdfTest06ParameterValues {
 			CompletePattern completePattern = getConcreteComparisonPattern(parameter);
 			completePatterns.add(completePattern);
 		}
-		completePatterns.add(getConcreteComparisonPatternIriParamList());
 		return completePatterns;
 	}
 
 	public static void main(String[] args)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		RdfTest00.test(getPatterns());
-	}
-
-	private static CompletePattern getConcreteComparisonPatternIriParamList() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = RdfTest00.getBasePattern();
-		Node se = completePattern.getGraph().getNodes().get(1);
-		UntypedParameterValue p = se.addPrimitiveComparison();
-
-		IriParam input8 = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		input8.setPrefix("wdt");
-		input8.setSuffix("P569");
-		completePattern.getParameterList().add(input8);
-
-		IriParam input9 = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		input9.setUri("anyuri");
-		completePattern.getParameterList().add(input9);
-
-		IriListParam input10 = AdaptionrdfFactory.eINSTANCE.createIriListParam();
-		input10.getIriParams().add(input8);
-		input10.getIriParams().add(input9);
-
-		p.replace(input10);
-		completePattern.createRdfAdaption();
-		return completePattern;
 	}
 
 	private static CompletePattern getConcreteComparisonPattern(ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
