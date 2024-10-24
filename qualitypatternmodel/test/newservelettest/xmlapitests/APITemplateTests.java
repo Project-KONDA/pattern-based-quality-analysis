@@ -221,8 +221,8 @@ public class APITemplateTests {
 	public void testTemplateInvalidLink()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		String constraintID = APICallTests.newConstraint("InvalidLink_xml", "default-constraint");
-		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
+		setConstraintParameter(constraintID, "XmlPath_Element_0", "//lido:rightsResource");
+		setConstraintParameter(constraintID, "XmlPath_Property_1", "//lido:legalBodyID/text()");
 		setConstraintParameter(constraintID, "Boolean_2", "is");
 
 		testConcretePattern(constraintID);
@@ -233,8 +233,8 @@ public class APITemplateTests {
 	public void testTemplateInvalidLinkNegated()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		String constraintID = APICallTests.newConstraint("InvalidLink_xml", "default-constraint");
-		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
+		setConstraintParameter(constraintID, "XmlPath_Element_0", "//lido:rightsResource");
+		setConstraintParameter(constraintID, "XmlPath_Property_1", "//lido:legalBodyID/text()");
 		setConstraintParameter(constraintID, "Boolean_2", "is not");
 
 		CompletePattern pattern = getConstraintPattern(constraintID);

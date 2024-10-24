@@ -50,15 +50,14 @@ public class VariableContainerInterimImpl extends ContainerInterimImpl implement
 		super();
 	}
 
-	public VariableContainerInterimImpl(String json) throws InvalidityException {
+	public VariableContainerInterimImpl(JSONObject json) throws InvalidityException {
 		super();
 		try {
-			JSONObject jsono = new JSONObject(json);
-			if (!jsono.get("class").equals(getClass().getSimpleName())) {
+			if (!json.get("class").equals(getClass().getSimpleName())) {
 				throw new InvalidityException("Wrong class");
 			}
-			setInterimPartId(jsono.getInt("id"));
-			setContained(InterimResultPartImpl.fromJson(jsono.getString("contained")));
+			setInterimPartId(json.getInt("id"));
+			setContained(InterimResultPartImpl.fromJson(json.getJSONObject("contained")));
 		} catch (JSONException e) {
 			throw new InvalidityException("Wrong class");
 		}

@@ -31,14 +31,13 @@ public class ValueInterimImpl extends InterimResultPartImpl implements ValueInte
 		super();
 	}
 
-	public ValueInterimImpl(String json) throws InvalidityException {
+	public ValueInterimImpl(JSONObject json) throws InvalidityException {
 		super();
 		try {
-			JSONObject jsono = new JSONObject(json);
-			if (!jsono.get("class").equals(getClass().getSimpleName())) {
+			if (!json.get("class").equals(getClass().getSimpleName())) {
 				throw new InvalidityException("Wrong class");
 			}
-			setInterimPartId(jsono.getInt("id"));
+			setInterimPartId(json.getInt("id"));
 		} catch (JSONException e) {
 			throw new InvalidityException("Wrong class");
 		}

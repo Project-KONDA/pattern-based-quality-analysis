@@ -95,10 +95,9 @@ public abstract class InterimResultPartImpl extends MinimalEObjectImpl.Container
 		return super.eInvoke(operationID, arguments);
 	}
 
-	public static InterimResultPartImpl fromJson(String json) throws InvalidityException {
+	public static InterimResultPartImpl fromJson(JSONObject json) throws InvalidityException {
 		try {
-			JSONObject jsono = new JSONObject(json);
-			String clazz = jsono.getString("class");
+			String clazz = json.getString("class");
 			if (clazz.equals(ValueInterimImpl.class.getSimpleName())) {
 				return new ValueInterimImpl(json);
 			}
