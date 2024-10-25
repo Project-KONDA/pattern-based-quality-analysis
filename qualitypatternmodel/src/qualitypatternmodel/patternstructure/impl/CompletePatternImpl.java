@@ -612,6 +612,11 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			res = res.substring(1);
 		}
 		res = preClauses + res;
+
+		if (getPartialXmlQuery().startsWith("\n")) {
+			setPartialXmlQuery(getPartialXmlQuery().substring(1));
+		}
+		setPartialXmlQuery(preClauses + getPartialXmlQuery());
 		return res;
 	}
 
