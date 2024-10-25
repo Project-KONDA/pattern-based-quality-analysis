@@ -22,6 +22,9 @@ COPY ./WebContent /usr/src/app/src/main/webapp
 # change path to web.xml
 RUN sed -i 's#WebContent/WEB-INF#src/main/webapp/WEB-INF#g' /usr/src/app/pom.xml
 
+# append the attribute maxHttpHeaderSize="65536" in server.xml
+RUN sed -i 's/<Connector port="8080" protocol="HTTP\/1.1"/<Connector port="8080" protocol="HTTP\/1.1" maxHttpHeaderSize="65536"/' /usr/local/tomcat/conf/server.xml
+
 # compile maven to war file
 WORKDIR /usr/src/app
 RUN mvn clean compile install package -DskipTests

@@ -91,7 +91,7 @@ public abstract class ServletUtilities {
 			}
 		}
 		catch (Exception e) {
-			e.printStackTrace();
+			logError(e);
 			return null;
 		}
 	}
@@ -102,7 +102,7 @@ public abstract class ServletUtilities {
 			try {
 				return EMFModelLoad.loadCompletePatternFromFolder(ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER, Constants.EXTENSION);
 			} catch (IOException e) {
-				e.printStackTrace();
+				logError(e);
 			}
 		}
 		return new BasicEList<CompletePattern>();
@@ -116,7 +116,9 @@ public abstract class ServletUtilities {
 				try {
 					semi.isValid(AbstractionLevel.CONCRETE);
 					concrete.add(semi);
-				} catch (Exception e) {}
+				} catch (Exception e) {
+					logError(e);
+				}
 			}
 		}
 		return concrete;
@@ -137,7 +139,9 @@ public abstract class ServletUtilities {
 			json.put(ConstantsJSON.TEMPLATES, templates);
 			json.put(ConstantsJSON.TOTAL, patterns.size());
 			json.put(ConstantsJSON.IDS, ids);
-		} catch (JSONException e) {}
+		} catch (JSONException e) {
+			logError(e);
+		}
 		return json;
 	}
 
@@ -175,13 +179,19 @@ public abstract class ServletUtilities {
 					MqafTranslationValidation.checkPatternTranslatable(pattern);
 					mqaf = true;
 				}
-				catch (InvalidityException e) {}
+				catch (InvalidityException e) {
+					logError(e);
+				}
 				try {
 					query = !pattern.containsJavaOperator();
 				}
-				catch (InvalidityException e) {}
+				catch (InvalidityException e) {
+					logError(e);
+				}
 			}
-			catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {}
+			catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+				logError(e);
+			}
 
 			json.put(ConstantsJSON.EXECUTABLE , mqaf || query || filter);
 			json.put(ConstantsJSON.EXECUTABLE_MQAF, mqaf);
@@ -194,7 +204,9 @@ public abstract class ServletUtilities {
 				variants.put(text.generateJSONObject());
 			}
 			json.put(ConstantsJSON.VARIANTS, variants);
-		} catch (JSONException e) {}
+		} catch (JSONException e) {
+			logError(e);
+		}
 		return json;
 	}
 
@@ -212,7 +224,9 @@ public abstract class ServletUtilities {
 			json.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
 			json.put(ConstantsJSON.NAME, pattern.getName());
 			json.put(ConstantsJSON.DESCRIPTION, pattern.getDescription());
-		} catch (JSONException e) {}
+		} catch (JSONException e) {
+			logError(e);
+		}
 		return json;
 	}
 
@@ -236,7 +250,8 @@ public abstract class ServletUtilities {
 			EMFModelSave.exportToFile2(pattern, folderpath, templateId, Constants.EXTENSION);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            System.err.println("Thread was interrupted");
+            log("Thread was interrupted");
+			logError(e);
         } finally {
         	saveSemaphore.release();
         }
@@ -250,7 +265,8 @@ public abstract class ServletUtilities {
 			EMFModelSave.exportToFile2(pattern, folderpath, constraintId, Constants.EXTENSION);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            System.err.println("Thread was interrupted");
+            log("Thread was interrupted");
+			logError(e);
         } finally {
         	saveSemaphore.release();
         }
@@ -265,6 +281,7 @@ public abstract class ServletUtilities {
 		try {
 			number = getNextNumber(filepath, name);
 		} catch (JSONException | IOException e) {
+			logError(e);
 			number = 0;
 		}
 		return name + "_" + number;
@@ -303,7 +320,8 @@ public abstract class ServletUtilities {
 			
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            System.err.println("Thread was interrupted");
+            log("Thread was interrupted");
+			logError(e);
         } finally {
         	saveSemaphore.release();
         }
@@ -352,7 +370,9 @@ public abstract class ServletUtilities {
 		JSONObject object = new JSONObject();
 		try {
 			object.put("error", error.getMessage());
-		} catch (JSONException e) {}
+		} catch (JSONException e) {
+			logError(e);
+		}
 		putResponse(response, object, responseCode);
 	}
 
@@ -408,10 +428,11 @@ public abstract class ServletUtilities {
 				writer.write("[" + timestamp + "] " + text);
 			}
         } catch (IOException e) {
-            e.printStackTrace();
+            logError(e);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            System.err.println("Thread was interrupted");
+            log("Thread was interrupted");
+			logError(e);
         } finally {
             // Release the semaphore
         	saveSemaphore.release();
@@ -455,7 +476,9 @@ public abstract class ServletUtilities {
 					JSONArray jarr = new JSONArray(vals);
 					job.put(key, jarr);
 				}
-			} catch (JSONException e) {}
+			} catch (JSONException e) {
+				logError(e);
+			}
 		}
 		return job.toString();
 	}
