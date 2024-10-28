@@ -3,9 +3,7 @@ package newservelettest;
 import java.util.Map;
 
 import qualitypatternmodel.newservlets.initialisation.GenericPatterns;
-import qualitypatternmodel.newservlets.initialisation.Neo4jPatternVariants;
-import qualitypatternmodel.newservlets.initialisation.RdfPatternVariants;
-import qualitypatternmodel.newservlets.initialisation.XmlPatternVariants;
+import qualitypatternmodel.newservlets.patterns.CardPattern;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
@@ -16,18 +14,18 @@ public class VariantJsonTest {
 
 		// XML
 		try {
-			CompletePattern pattern = GenericPatterns.getGenericCard();
+			CompletePattern pattern = CardPattern.getGeneric();
 			pattern.createXmlAdaption();
 			System.out.println(pattern.myToString());
 			for (Parameter p : pattern.getParameterList().getParameters()) {
 				System.out.println(" - " + p.myToString());
 			}
 
-			pattern = GenericPatterns.getGenericCard();
+			pattern = CardPattern.getGeneric();
 			pattern = GenericPatterns.getConcrete(pattern, Language.XML, "Card_xml",
 					Map.of(),
-					XmlPatternVariants.CARD_XML_VARIANTS,
-					XmlPatternVariants.CARD_XML_VARIANTS_OLD);
+					CardPattern.CARD_XML_VARIANTS,
+					CardPattern.CARD_XML_VARIANTS_OLD);
 			System.out.println(pattern.myToString());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -35,19 +33,19 @@ public class VariantJsonTest {
 
 		// RDF
 		try {
-			CompletePattern pattern = GenericPatterns.getGenericCard();
+			CompletePattern pattern = CardPattern.getGeneric();
 			pattern.createRdfAdaption();
 			System.out.println(pattern.myToString());
 			for (Parameter p : pattern.getParameterList().getParameters()) {
 				System.out.println(" - " + p.myToString());
 			}
 
-			pattern = GenericPatterns.getGenericCard();
+			pattern = CardPattern.getGeneric();
 			pattern = GenericPatterns.getConcrete(pattern, Language.RDF,
 					"Card_rdf",
 					Map.of(),
-					RdfPatternVariants.CARD_RDF_VARIANTS,
-					RdfPatternVariants.CARD_RDF_VARIANTS_OLD);
+					CardPattern.CARD_RDF_VARIANTS,
+					CardPattern.CARD_RDF_VARIANTS_OLD);
 			System.out.println(pattern.myToString());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,19 +53,19 @@ public class VariantJsonTest {
 
 		// NEO4J
 		try {
-			CompletePattern pattern = GenericPatterns.getGenericCard();
+			CompletePattern pattern = CardPattern.getGeneric();
 			pattern.createNeo4jAdaption();
 			System.out.println(pattern.myToString());
 			for (Parameter p : pattern.getParameterList().getParameters()) {
 				System.out.println(" - " + p.myToString());
 			}
 
-			pattern = GenericPatterns.getGenericCard();
+			pattern = CardPattern.getGeneric();
 			pattern = GenericPatterns.getConcrete(pattern, Language.NEO4J,
 					"Card_neo4j",
 					Map.of(),
-					Neo4jPatternVariants.CARD_NEO_VARIANTS,
-					Neo4jPatternVariants.CARD_NEO_VARIANTS_OLD);
+					CardPattern.CARD_NEO_VARIANTS,
+					CardPattern.CARD_NEO_VARIANTS_OLD);
 			System.out.println(pattern.myToString());
 		} catch (Exception e) {
 			e.printStackTrace();
