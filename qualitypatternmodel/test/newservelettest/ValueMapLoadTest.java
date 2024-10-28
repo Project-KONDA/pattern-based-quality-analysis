@@ -12,7 +12,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.newservlets.initialisation.GenericPatterns;
-import qualitypatternmodel.newservlets.initialisation.XmlPatternVariants;
+import qualitypatternmodel.newservlets.patterns.CardPattern;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.utility.Constants;
@@ -23,10 +23,10 @@ import qualitypatternmodel.utility.EMFModelSave;
 public class ValueMapLoadTest {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException, JSONException {
-		CompletePattern pattern = GenericPatterns.getConcrete(GenericPatterns.getGenericCard(), Language.XML, "Card_xml",
+		CompletePattern pattern = GenericPatterns.getConcrete(CardPattern.getGeneric(), Language.XML, "Card_xml",
 				Map.of(2, "//*", 3, "/*"),
-				XmlPatternVariants.CARD_XML_VARIANTS,
-				XmlPatternVariants.CARD_XML_VARIANTS_OLD);
+				CardPattern.CARD_XML_VARIANTS,
+				CardPattern.CARD_XML_VARIANTS_OLD);
 
 		JSONObject before = ServletUtilities.getPatternJSON(pattern);
 		JSONArray fragments = before.getJSONArray(ConstantsJSON.VARIANTS).getJSONObject(0).getJSONArray(ConstantsJSON.FRAGMENTS);

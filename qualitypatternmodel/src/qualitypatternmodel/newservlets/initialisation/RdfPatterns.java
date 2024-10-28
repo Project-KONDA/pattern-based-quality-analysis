@@ -1,16 +1,19 @@
 package qualitypatternmodel.newservlets.initialisation;
 
 import java.util.List;
-import java.util.Map;
-
 import org.eclipse.emf.common.util.BasicEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.newservlets.ServletUtilities;
+import qualitypatternmodel.newservlets.patterns.CardPattern;
+import qualitypatternmodel.newservlets.patterns.CompSetPattern;
+import qualitypatternmodel.newservlets.patterns.ContainsPattern;
+import qualitypatternmodel.newservlets.patterns.MandAttPattern;
+import qualitypatternmodel.newservlets.patterns.MatchPattern;
+import qualitypatternmodel.newservlets.patterns.StringLengthPattern;
+import qualitypatternmodel.newservlets.patterns.UniquePattern;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Language;
 
 public class RdfPatterns {
 
@@ -36,73 +39,16 @@ public class RdfPatterns {
 		List<PatternBundle> patternbundles = new BasicEList<PatternBundle>();
 
 		try {
-			patternbundles.add(new PatternBundle(GenericPatterns.getGenericCard(), Language.RDF,
-					GenericPatternInformation.CARD_ID_RDF,
-					Map.of(),
-					RdfPatternVariants.CARD_RDF_VARIANTS,
-					RdfPatternVariants.CARD_RDF_VARIANTS_OLD));
-		} catch (Exception e) {
-			ServletUtilities.logError(e);
-		}
-
-		try {
-			patternbundles.add(new PatternBundle(GenericPatterns.getGenericMandAtt(), Language.RDF,
-					GenericPatternInformation.MANDATT_ID_RDF,
-					Map.of(),
-					RdfPatternVariants.MANDATT_RDF_VARIANTS,
-					RdfPatternVariants.MANDATT_RDF_VARIANTS_OLD));
-		} catch (Exception e) {
-			ServletUtilities.logError(e);
-		}
-
-		try {
-			patternbundles.add(new PatternBundle(GenericPatterns.getGenericMatch(), Language.RDF,
-					GenericPatternInformation.MATCH_ID_RDF,
-					Map.of(),
-					RdfPatternVariants.MATCH_RDF_VARIANTS,
-					RdfPatternVariants.MATCH_RDF_VARIANTS_OLD));
-		} catch (Exception e) {
-			ServletUtilities.logError(e);
-		}
-
-		try {
-			patternbundles.add(new PatternBundle(GenericPatterns.getGenericContains(), Language.RDF,
-					GenericPatternInformation.CONTAINS_ID_RDF,
-					Map.of(),
-					RdfPatternVariants.CONTAINS_RDF_VARIANTS,
-					RdfPatternVariants.CONTAINS_RDF_VARIANTS_OLD));
-		} catch (Exception e) {
-			ServletUtilities.logError(e);
-		}
-
-		try {
-			patternbundles.add(new PatternBundle(GenericPatterns.getGenericStringLength(), Language.RDF,
-					GenericPatternInformation.STRINGLENGTH_ID_RDF,
-					Map.of(),
-					RdfPatternVariants.STRINGLENGTH_RDF_VARIANTS,
-					RdfPatternVariants.STRINGLENGTH_RDF_VARIANTS_OLD));
-		} catch (Exception e) {
-			ServletUtilities.logError(e);
-		}
-
-		try {
-			patternbundles.add(new PatternBundle(GenericPatterns.getGenericCompSet(), Language.RDF,
-					GenericPatternInformation.COMPSET_ID_RDF,
-					Map.of(),
-					RdfPatternVariants.COMPSET_RDF_VARIANTS,
-					RdfPatternVariants.COMPSET_RDF_VARIANTS_OLD));
-		} catch (Exception e) {
-			ServletUtilities.logError(e);
-		}
-
-		try {
-			patternbundles.add(new PatternBundle(GenericPatterns.getGenericUnique(), Language.RDF,
-					GenericPatternInformation.UNIQUE_ID_RDF,
-					Map.of(),
-					RdfPatternVariants.UNIQUE_RDF_VARIANTS,
-					RdfPatternVariants.UNIQUE_RDF_VARIANTS_OLD));
-		} catch (Exception e) {
-			ServletUtilities.logError(e);
+			patternbundles.add(CardPattern.getRdfBundle());
+			patternbundles.add(MandAttPattern.getRdfBundle());
+			patternbundles.add(MatchPattern.getRdfBundle());
+			patternbundles.add(ContainsPattern.getRdfBundle());
+			patternbundles.add(StringLengthPattern.getRdfBundle());
+			patternbundles.add(CompSetPattern.getRdfBundle());
+			patternbundles.add(UniquePattern.getRdfBundle());
+			
+		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+			e.printStackTrace();
 		}
 		return patternbundles;
 	}

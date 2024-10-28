@@ -1,16 +1,19 @@
 package qualitypatternmodel.newservlets.initialisation;
 
 import java.util.List;
-import java.util.Map;
-
 import org.eclipse.emf.common.util.BasicEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.newservlets.ServletUtilities;
+import qualitypatternmodel.newservlets.patterns.CardPattern;
+import qualitypatternmodel.newservlets.patterns.CompSetPattern;
+import qualitypatternmodel.newservlets.patterns.ContainsPattern;
+import qualitypatternmodel.newservlets.patterns.MandAttPattern;
+import qualitypatternmodel.newservlets.patterns.MatchPattern;
+import qualitypatternmodel.newservlets.patterns.StringLengthPattern;
+import qualitypatternmodel.newservlets.patterns.UniquePattern;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Language;
 
 public class Neo4jPatterns {
 
@@ -34,75 +37,16 @@ public class Neo4jPatterns {
 
 	public static List<PatternBundle> getAllNeoPatternBundles() {
 		List<PatternBundle> patternbundles = new BasicEList<PatternBundle>();
-
 		try {
-			patternbundles.add(new PatternBundle(GenericPatterns.getGenericCard(), Language.NEO4J,
-					GenericPatternInformation.CARD_ID_NEO,
-					Map.of(),
-					Neo4jPatternVariants.CARD_NEO_VARIANTS,
-					Neo4jPatternVariants.CARD_NEO_VARIANTS_OLD));
-		} catch (Exception e) {
-			ServletUtilities.logError(e);
-		}
-
-		try {
-			patternbundles.add(new PatternBundle(GenericPatterns.getGenericMandAtt(), Language.NEO4J,
-					GenericPatternInformation.MANDATT_ID_NEO,
-					Map.of(),
-					Neo4jPatternVariants.MANDATT_NEO_VARIANTS,
-					Neo4jPatternVariants.MANDATT_NEO_VARIANTS_OLD));
-		} catch (Exception e) {
-			ServletUtilities.logError(e);
-		}
-
-		try {
-			patternbundles.add(new PatternBundle(GenericPatterns.getGenericMatch(), Language.NEO4J,
-					GenericPatternInformation.MATCH_ID_NEO,
-					Map.of(),
-					Neo4jPatternVariants.MATCH_NEO_VARIANTS,
-					Neo4jPatternVariants.MATCH_NEO_VARIANTS_OLD));
-		} catch (Exception e) {
-			ServletUtilities.logError(e);
-		}
-
-		try {
-			patternbundles.add(new PatternBundle(GenericPatterns.getGenericContains(), Language.NEO4J,
-					GenericPatternInformation.CONTAINS_ID_NEO,
-					Map.of(),
-					Neo4jPatternVariants.CONTAINS_NEO_VARIANTS,
-					Neo4jPatternVariants.CONTAINS_NEO_VARIANTS_OLD));
-		} catch (Exception e) {
-			ServletUtilities.logError(e);
-		}
-
-		try {
-			patternbundles.add(new PatternBundle(GenericPatterns.getGenericStringLength(), Language.NEO4J,
-					GenericPatternInformation.STRINGLENGTH_ID_NEO,
-					Map.of(),
-					Neo4jPatternVariants.STRINGLENGTH_NEO_VARIANTS,
-					Neo4jPatternVariants.STRINGLENGTH_NEO_VARIANTS_OLD));
-		} catch (Exception e) {
-			ServletUtilities.logError(e);
-		}
-
-		try {
-			patternbundles.add(new PatternBundle(GenericPatterns.getGenericCompSet(), Language.NEO4J,
-					GenericPatternInformation.COMPSET_ID_NEO,
-					Map.of(),
-					Neo4jPatternVariants.COMPSET_NEO_VARIANTS,
-					Neo4jPatternVariants.COMPSET_NEO_VARIANTS_OLD));
-		} catch (Exception e) {
-			ServletUtilities.logError(e);
-		}
-
-		try {
-			patternbundles.add(new PatternBundle(GenericPatterns.getGenericUnique(), Language.NEO4J,
-					GenericPatternInformation.UNIQUE_ID_NEO,
-					Map.of(),
-					Neo4jPatternVariants.UNIQUE_NEO_VARIANTS,
-					Neo4jPatternVariants.UNIQUE_NEO_VARIANTS_OLD));
-		} catch (Exception e) {
-			ServletUtilities.logError(e);
+			patternbundles.add(CardPattern.getNeoBundle());
+			patternbundles.add(MandAttPattern.getNeoBundle());
+			patternbundles.add(MatchPattern.getNeoBundle());
+			patternbundles.add(ContainsPattern.getNeoBundle());
+			patternbundles.add(StringLengthPattern.getNeoBundle());
+			patternbundles.add(CompSetPattern.getNeoBundle());
+			patternbundles.add(UniquePattern.getNeoBundle());
+		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+			e.printStackTrace();
 		}
 		return patternbundles;
 	}

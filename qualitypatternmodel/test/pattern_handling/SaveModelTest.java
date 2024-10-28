@@ -8,7 +8,18 @@ import java.util.ArrayList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.newservlets.initialisation.GenericPatterns;
+import qualitypatternmodel.newservlets.patterns.Appdup3Pattern;
+import qualitypatternmodel.newservlets.patterns.CardPattern;
+import qualitypatternmodel.newservlets.patterns.CompPattern;
+import qualitypatternmodel.newservlets.patterns.CompValPattern;
+import qualitypatternmodel.newservlets.patterns.ContainsPattern;
+import qualitypatternmodel.newservlets.patterns.DupvalPattern;
+import qualitypatternmodel.newservlets.patterns.FuncPattern;
+import qualitypatternmodel.newservlets.patterns.InvalidLinkPattern;
+import qualitypatternmodel.newservlets.patterns.MandAttPattern;
+import qualitypatternmodel.newservlets.patterns.MatchPattern;
+import qualitypatternmodel.newservlets.patterns.StringLengthPattern;
+import qualitypatternmodel.newservlets.patterns.UniquePattern;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
@@ -18,18 +29,18 @@ public class SaveModelTest {
 	public static void main(String[] args) throws IOException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> patterns = new ArrayList<CompletePattern>();
 
-		patterns.add(GenericPatterns.getGenericCard());
-		patterns.add(GenericPatterns.getGenericComp());
-		patterns.add(GenericPatterns.getGenericFunc());
-		patterns.add(GenericPatterns.getGenericUnique());
-		patterns.add(GenericPatterns.getGenericMatch());
-		patterns.add(GenericPatterns.getGenericContains());
-		patterns.add(GenericPatterns.getGenericAppdup3());
-		patterns.add(GenericPatterns.getGenericDupVal());
-		patterns.add(GenericPatterns.getGenericInvalidLink());
-		patterns.add(GenericPatterns.getGenericMandAtt());
-		patterns.add(GenericPatterns.getGenericStringLength());
-		patterns.add(GenericPatterns.getGenericCompVal());
+		patterns.add(CardPattern.getGeneric());
+		patterns.add(CompPattern.getGeneric());
+		patterns.add(FuncPattern.getGeneric());
+		patterns.add(UniquePattern.getGeneric());
+		patterns.add(MatchPattern.getGeneric());
+		patterns.add(ContainsPattern.getGeneric());
+		patterns.add(Appdup3Pattern.getGeneric());
+		patterns.add(DupvalPattern.getGeneric());
+		patterns.add(InvalidLinkPattern.getGeneric());
+		patterns.add(MandAttPattern.getGeneric());
+		patterns.add(StringLengthPattern.getGeneric());
+		patterns.add(CompValPattern.getGeneric());
 
 		String path = "serverpatterns/xml/abstract-patterns";
 

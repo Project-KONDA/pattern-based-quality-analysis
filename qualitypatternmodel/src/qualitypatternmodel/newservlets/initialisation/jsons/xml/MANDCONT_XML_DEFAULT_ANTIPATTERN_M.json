@@ -1,0 +1,15 @@
+{
+    "template":"MandCont_xml",
+    "language":"xml",
+    "name":"antipattern_m",
+    "fragments":[
+		{"text":"Search for"},
+		{"name":"element", "params":[0],"exampleValue":"measurement","description":"base element for analysis"},
+		{"params":[1],"value":"/self::*"},
+		{"text":"that does not contain either a"},
+		{"name":"property", "params":[2],"exampleValue":"text","description":"property condition"},
+		{"text":"or a"},
+		{"name":"element", "params":[3],"exampleValue":"element","description":"element condition"},
+		{"text":"."}
+    ]
+}

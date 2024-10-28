@@ -47,6 +47,7 @@ public class APITemplateTests {
 			testTemplateStringLength();
 			testTemplateUniqueness();
 			testTemplateInvalidLink();
+			testTemplateMandContent();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -248,6 +249,15 @@ public class APITemplateTests {
 			e.printStackTrace();
 		}
 		
+		testConcretePattern(constraintID);
+		APICallTests.deleteConstraint(constraintID);
+	}
+
+	@Test
+	public void testTemplateMandContent() throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraintID = APICallTests.newConstraint("MandCont_xml", "justnotempty");
+		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
+
 		testConcretePattern(constraintID);
 		APICallTests.deleteConstraint(constraintID);
 	}
