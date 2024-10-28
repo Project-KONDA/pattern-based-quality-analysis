@@ -20,6 +20,7 @@ import qualitypatternmodel.newservlets.patterns.DupvalPattern;
 import qualitypatternmodel.newservlets.patterns.FuncPattern;
 import qualitypatternmodel.newservlets.patterns.InvalidLinkPattern;
 import qualitypatternmodel.newservlets.patterns.MandAttPattern;
+import qualitypatternmodel.newservlets.patterns.MandContentPattern;
 import qualitypatternmodel.newservlets.patterns.MatchPattern;
 import qualitypatternmodel.newservlets.patterns.StringLengthPattern;
 import qualitypatternmodel.newservlets.patterns.UniquePattern;
@@ -56,6 +57,7 @@ public class GenericPatterns {
 		patterns.add(MandAttPattern.getGeneric());
 		patterns.add(StringLengthPattern.getGeneric());
 		patterns.add(CompValPattern.getGeneric());
+		patterns.add(MandContentPattern.getGeneric());
 		
 		// not implemented
 //		patterns.add(LocalUniquePattern.getGeneric());

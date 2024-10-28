@@ -1,0 +1,13 @@
+{
+    "template":"MandCont_xml",
+    "language":"xml",
+    "name":"justnotempty",
+    "fragments":[
+		{"text":"Each"},
+		{"name":"element", "params":[0],"exampleValue":"measurement","description":"base element for analysis"},
+		{"text":"must contain something."},
+		{"params":[1],"value":"/self::*"},
+		{"params":[2],"value":"/text()"},
+		{"params":[3],"value":"/*"}
+    ]
+}
