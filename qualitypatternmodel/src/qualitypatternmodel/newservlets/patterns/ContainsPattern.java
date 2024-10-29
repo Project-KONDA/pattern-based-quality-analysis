@@ -84,10 +84,11 @@ public class ContainsPattern {
 	}
 
 	public static String CONTAINS_XML_DEFAULT_CONSTRAINT =
-	"{\"template\":\"Contains_xml\","
-	+ "\"language\":\"xml\","
-	+ "\"name\":\"default-constraint\","
-	+ "\"fragments\":["
+		"{\"template\":\"Contains_xml\","
+		+ "\"language\":\"xml\","
+		+ "\"name\":\"default-constraint\","
+		+ "\"typeConstraint\":true,"
+		+ "\"fragments\":["
 		+ "{\"text\":\"For\"},"
 		+ "{\"name\":\"elements\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\", \"plural\": \"true\"},"
 		+ "{\"text\":\", each\"},"
@@ -97,10 +98,11 @@ public class ContainsPattern {
 		+ "{\"name\":\"a specific term\",\"params\":[1],\"exampleValue\":\"Master of\"},"
 		+ "{\"text\":\".\"}]}";
 	public static String CONTAINS_XML_DEFAULT_ANTIPATTERN =
-	"{\"template\":\"Contains_xml\","
-	+ "\"language\":\"xml\","
-	+ "\"name\":\"default-antipattern\","
-	+ "\"fragments\":["
+		"{\"template\":\"Contains_xml\","
+		+ "\"language\":\"xml\","
+		+ "\"name\":\"default-antipattern\","
+		+ "\"typeConstraint\":false,"
+		+ "\"fragments\":["
 		+ "{\"text\":\"Search for\"},"
 		+ "{\"name\":\"elements\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\", \"plural\": \"true\"},"
 		+ "{\"text\":\"where at least one\"},"
@@ -113,10 +115,11 @@ public class ContainsPattern {
 	public static String[] CONTAINS_XML_VARIANTS_OLD = {};
 
 	public static String CONTAINS_RDF_DEFAULT =
-	"{\"template\":\"Contains_rdf\","
-	+ "\"language\":\"rdf\","
-	+ "\"name\":\"default-antipattern\","
-	+ "\"fragments\":["
+		"{\"template\":\"Contains_rdf\","
+		+ "\"language\":\"rdf\","
+		+ "\"name\":\"default-antipattern\","
+		+ "\"typeConstraint\":false,"
+		+ "\"fragments\":["
 		+ "{\"text\":\"Search for\"},"
 		+ "{\"name\":\"elements\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\",\"plural\":\"true\"},"
 		+ "{\"text\":\"where at least one property reached by\"},"
@@ -128,10 +131,11 @@ public class ContainsPattern {
 	public static String[] CONTAINS_RDF_VARIANTS_OLD = {};
 
 	public static String CONTAINS_NEO_DEFAULT =
-	"{\"template\":\"Contains_neo4j\","
-	+ "\"language\":\"neo4j\","
-	+ "\"name\":\"default-antipattern\","
-	+ "\"fragments\":["
+		"{\"template\":\"Contains_neo4j\","
+		+ "\"language\":\"neo4j\","
+		+ "\"name\":\"default-antipattern\","
+		+ "\"typeConstraint\":false,"
+		+ "\"fragments\":["
 		+ "{\"text\":\"Search for\"},"
 		+ "{\"name\":\"elements\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\",\"plural\":\"true\"},"
 		+ "{\"text\":\"where a property reached by\"},"
@@ -140,19 +144,6 @@ public class ContainsPattern {
 		+ "{\"text\":\"contain\"},"
 		+ "{\"name\":\"a specific term\",\"params\":[1]},"
 		+ "{\"text\":\".\"}]}";
-	public static String STRINGLENGTH_NEO_DEFAULT =
-	"{\"template\":\"StringLength_neo4j\","
-	+ "\"language\":\"neo4j\","
-	+ "\"name\":\"default-antipattern\","
-	+ "\"fragments\":["
-		+ "{\"text\":\"Search for\"},"
-		+ "{\"name\":\"elements\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\",\"plural\":\"true\"},"
-		+ "{\"text\":\"where at least one property reached by\"},"
-		+ "{\"name\":\"an neo property path\",\"params\":[3],\"exampleValue\":\"has\"},"
-		+ "{\"text\":\"is\"},"
-		+ "{\"name\":\"compared to\",\"params\":[0], \"exampleValue\":\"exactly\", \"defaultMap\":\"comparison\"},"
-		+ "{\"name\":\"a specific number of\",\"params\":[1]},"
-		+ "{\"text\":\"characters in length.\"}]}";
 	public static String[] CONTAINS_NEO_VARIANTS = {CONTAINS_NEO_DEFAULT};
 	public static String[] CONTAINS_NEO_VARIANTS_OLD = {};
 

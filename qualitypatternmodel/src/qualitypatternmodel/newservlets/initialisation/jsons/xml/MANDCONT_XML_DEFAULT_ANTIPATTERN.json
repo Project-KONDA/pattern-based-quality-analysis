@@ -2,6 +2,7 @@
     "template":"MandCont_xml",
     "language":"xml",
     "name":"default-antipattern",
+	"typeConstraint":false,
     "fragments":[
    		{"text":"Search for"},
 		{"name":"element", "params":[0],"exampleValue":"measurement","description":"base element for analysis"},

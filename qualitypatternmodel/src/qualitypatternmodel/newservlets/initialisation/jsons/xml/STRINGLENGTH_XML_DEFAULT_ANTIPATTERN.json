@@ -2,6 +2,7 @@
     "template":"StringLength_xml",
     "language":"xml",
     "name":"default-antipattern",
+	"typeConstraint":false,
     "fragments":[
         {"text":"Search for"},
         {

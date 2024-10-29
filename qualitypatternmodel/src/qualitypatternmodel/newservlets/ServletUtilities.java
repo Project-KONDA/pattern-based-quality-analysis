@@ -180,17 +180,17 @@ public abstract class ServletUtilities {
 					mqaf = true;
 				}
 				catch (InvalidityException e) {
-					logError(e);
+					// not mqaf translateable
 				}
 				try {
 					query = !pattern.containsJavaOperator();
 				}
 				catch (InvalidityException e) {
-					logError(e);
+					// not query translateable
 				}
 			}
 			catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-				logError(e);
+				// not translateable
 			}
 
 			json.put(ConstantsJSON.EXECUTABLE , mqaf || query || filter);

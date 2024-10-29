@@ -2,6 +2,7 @@
 	"template":"CompSet_neo4j",
 	"language":"neo4j",
 	"name":"default-antipattern",
+	"typeConstraint":false,
 	"fragments":[
 		{"text":"Search for"},
 		{

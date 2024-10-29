@@ -28,10 +28,10 @@ public class MandContentPattern {
 
 	static String MANDCONT_ID_GENERIC = "MandCont_generic";
 	static String MANDCONT_ID_XML = "MandCont_xml";
-	static String MANDCONT_ID_RDF = "MandElement_rdf";
+	static String MANDCONT_ID_RDF = "MandCont_rdf";
 	static String MANDCONT_ID_NEO = "MandCont_neo4j";
-	static String MANDCONT_NAME = "Mandatory Attribute";
-	static String MANDCONT_DESCR = "Check whether a record has a mandatory field.";
+	static String MANDCONT_NAME = "Mandatory Content";
+	static String MANDCONT_DESCR = "Check whether an element has mandatory content.";
 
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -109,6 +109,7 @@ public class MandContentPattern {
 			"{\"template\":\"MandCont_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-constraint\","
+			+ "\"typeConstraint\":true,"
 			+ "\"fragments\":["
 			+ "{\"text\":\"Search for\"},"
 			+ "{\"name\":\"element\", \"params\":[0],\"exampleValue\":\"measurement\",\"description\":\"base element for analysis\"},"
@@ -124,6 +125,7 @@ public class MandContentPattern {
 			"{\"template\":\"MandCont_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"default-antipattern\","
+			+ "\"typeConstraint\":false,"
 			+ "\"fragments\":["
 			+ "{\"text\":\"Within each\"},"
 			+ "{\"name\":\"element\", \"params\":[0],\"exampleValue\":\"measurement\",\"description\":\"base element for analysis\"},"
@@ -139,7 +141,8 @@ public class MandContentPattern {
 	public static String MANDCONT_XML_DEFAULT_ANTIPATTERN_M =
 			"{\"template\":\"MandCont_xml\","
 			+ "\"language\":\"xml\","
-			+ "\"name\":\"constraint_m\","
+			+ "\"name\":\"antipattern_m\","
+			+ "\"typeConstraint\":false,"
 			+ "\"fragments\":["
 			+ "{\"text\":\"Search for\"},"
 			+ "{\"name\":\"element\", \"params\":[0],\"exampleValue\":\"measurement\",\"description\":\"base element for analysis\"},"
@@ -153,7 +156,8 @@ public class MandContentPattern {
 	public static String MANDCONT_XML_DEFAULT_CONSTRAINT_M =
 			"{\"template\":\"MandCont_xml\","
 			+ "\"language\":\"xml\","
-			+ "\"name\":\"antipattern_m\","
+			+ "\"name\":\"constraint_m\","
+			+ "\"typeConstraint\":true,"
 			+ "\"fragments\":["
 			+ "{\"text\":\"Every\"},"
 			+ "{\"name\":\"element\", \"params\":[0],\"exampleValue\":\"measurement\",\"description\":\"base element for analysis\"},"
@@ -168,6 +172,7 @@ public class MandContentPattern {
 			"{\"template\":\"MandCont_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"justnotempty\","
+			+ "\"typeConstraint\":true,"
 			+ "\"fragments\":["
 			+ "{\"text\":\"Each\"},\r\n"
 			+ "{\"name\":\"element\", \"params\":[0],\"exampleValue\":\"measurement\",\"description\":\"base element for analysis\"},"

@@ -993,6 +993,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/parameterPredefinitions"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/fragmentsOrdered"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/PatternText/typeConstraint"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/isValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/PatternText/isValid/abstractionLevel"/>
         </genOperations>

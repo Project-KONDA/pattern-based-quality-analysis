@@ -17,6 +17,7 @@ public class ConstantsJSON {
 	public static final String TAG = "tag";
 	public static final String NAMESPACES = "namespace";
 	public static final String VARIANTS = "variants";
+	public static final String TYPE_CONSTRAINT = "typeConstraint";
 
 	// Constraint Info
 	public static final String LASTSAVED = "lastSaved";

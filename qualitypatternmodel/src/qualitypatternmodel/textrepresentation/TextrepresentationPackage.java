@@ -114,13 +114,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT__FRAGMENTS_ORDERED = 4;
 
 	/**
+	 * The feature id for the '<em><b>Type Constraint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT__TYPE_CONSTRAINT = 5;
+
+	/**
 	 * The number of structural features of the '<em>Pattern Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT_FEATURE_COUNT = 5;
+	int PATTERN_TEXT_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -993,6 +1002,17 @@ public interface TextrepresentationPackage extends EPackage {
 	EReference getPatternText_FragmentsOrdered();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.textrepresentation.PatternText#isTypeConstraint <em>Type Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Constraint</em>'.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#isTypeConstraint()
+	 * @see #getPatternText()
+	 * @generated
+	 */
+	EAttribute getPatternText_TypeConstraint();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#generateJSON() <em>Generate JSON</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1662,6 +1682,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PATTERN_TEXT__FRAGMENTS_ORDERED = eINSTANCE.getPatternText_FragmentsOrdered();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Constraint</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PATTERN_TEXT__TYPE_CONSTRAINT = eINSTANCE.getPatternText_TypeConstraint();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate JSON</b></em>' operation.

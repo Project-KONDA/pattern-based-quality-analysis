@@ -19,18 +19,14 @@
             "description":"value that gets analysed",
             "plural":"true"
         },
+        {"text":"match the ISO 8601 format."},
         {
-            "name":"do / do not",
             "params":[0],
-            "defaultMap":"do not",
-            "exampleValue":"do"
+            "value": "true"
         },
-        {"text":"match"},
         {
-            "name":"a specific pattern (RegEx)",
             "params":[1],
-            "exampleValue":"[A-Z][a-z][a-z]+"
-        },
-        {"text":"."}
+    		"value":"^\\d{4}(-[01]\\d(-[0-3]\\d(T[01]\\d:[0-5]\\d(:[0-5]\\d(\\.\\d+)?)?(\\+[01]\\d:[03]0)?)?)?)?$"
+        }
     ]
 }
