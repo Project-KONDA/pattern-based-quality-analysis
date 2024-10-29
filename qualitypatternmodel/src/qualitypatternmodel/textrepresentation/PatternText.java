@@ -27,6 +27,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getParameterPredefinitions <em>Parameter Predefinitions</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getFragmentsOrdered <em>Fragments Ordered</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#isTypeConstraint <em>Type Constraint</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText()
@@ -119,6 +120,28 @@ public interface PatternText extends EObject {
 	 * @generated
 	 */
 	EList<Fragment> getFragmentsOrdered();
+
+	/**
+	 * Returns the value of the '<em><b>Type Constraint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type Constraint</em>' attribute.
+	 * @see #setTypeConstraint(boolean)
+	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText_TypeConstraint()
+	 * @model
+	 * @generated
+	 */
+	boolean isTypeConstraint();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.PatternText#isTypeConstraint <em>Type Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type Constraint</em>' attribute.
+	 * @see #isTypeConstraint()
+	 * @generated
+	 */
+	void setTypeConstraint(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

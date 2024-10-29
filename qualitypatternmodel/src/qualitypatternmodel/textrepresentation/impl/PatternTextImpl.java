@@ -55,6 +55,7 @@ import qualitypatternmodel.utility.ConstantsJSON;
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getParameterPredefinitions <em>Parameter Predefinitions</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getFragmentsOrdered <em>Fragments Ordered</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#isTypeConstraint <em>Type Constraint</em>}</li>
  * </ul>
  *
  * @generated
@@ -112,6 +113,26 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	protected EList<Fragment> fragmentsOrdered;
 
 	/**
+	 * The default value of the '{@link #isTypeConstraint() <em>Type Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTypeConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean TYPE_CONSTRAINT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isTypeConstraint() <em>Type Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTypeConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean typeConstraint = TYPE_CONSTRAINT_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -143,9 +164,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				throw new InvalidityException(ConstantsError.DUPLICATE_VARIANT_NAMES);
 			}
 		}
-		
-		Boolean type_constraint = json.getBoolean(ConstantsJSON.TYPE_CONSTRAINT);
-		this.setType_constraint(type_constraint);
+		Boolean typeConstraint = json.getBoolean(ConstantsJSON.TYPE_CONSTRAINT);
+		this.setTypeConstraint(typeConstraint);
 
 		// pattern
 		pattern.getText().add(this);
@@ -295,6 +315,31 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isTypeConstraint() {
+		return typeConstraint;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTypeConstraint(boolean newTypeConstraint) {
+		boolean oldTypeConstraint = typeConstraint;
+		typeConstraint = newTypeConstraint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PATTERN_TEXT__TYPE_CONSTRAINT, oldTypeConstraint, typeConstraint));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -314,7 +359,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 //		json += "\"PatternTextName\": \"" + getName() + "\",";
 
 		json += "\"name\": \"" + getName() + "\", ";
-		json += "\"typeConstraint\": \"" + getTypeConstraint() + "\", ";
+		json += "\"typeConstraint\": \"" + isTypeConstraint() + "\", ";
 		json += "\"fragments\" : [";
 		for(int i = 0; i< getFragmentsOrdered().size(); i++) {
 			if (i>0) {
@@ -332,7 +377,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		JSONObject json = new JSONObject();
 		try {
 			json.put(ConstantsJSON.NAME, getName());
-			json.put(ConstantsJSON.TYPE_CONSTRAINT, getTypeConstraint());
+			json.put(ConstantsJSON.TYPE_CONSTRAINT, isTypeConstraint());
 			JSONArray fragments = new JSONArray();
 			for (Fragment fragment: getFragmentsOrdered()) {
 				fragments.put(fragment.generateJSONObject());
@@ -749,6 +794,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return getParameterPredefinitions();
 			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS_ORDERED:
 				return getFragmentsOrdered();
+			case TextrepresentationPackage.PATTERN_TEXT__TYPE_CONSTRAINT:
+				return isTypeConstraint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -780,6 +827,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				getFragmentsOrdered().clear();
 				getFragmentsOrdered().addAll((Collection<? extends Fragment>)newValue);
 				return;
+			case TextrepresentationPackage.PATTERN_TEXT__TYPE_CONSTRAINT:
+				setTypeConstraint((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -807,6 +857,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS_ORDERED:
 				getFragmentsOrdered().clear();
 				return;
+			case TextrepresentationPackage.PATTERN_TEXT__TYPE_CONSTRAINT:
+				setTypeConstraint(TYPE_CONSTRAINT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -829,6 +882,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return parameterPredefinitions != null && !parameterPredefinitions.isEmpty();
 			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS_ORDERED:
 				return fragmentsOrdered != null && !fragmentsOrdered.isEmpty();
+			case TextrepresentationPackage.PATTERN_TEXT__TYPE_CONSTRAINT:
+				return typeConstraint != TYPE_CONSTRAINT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -894,6 +949,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", typeConstraint: ");
+		result.append(typeConstraint);
 		result.append(')');
 		return result.toString();
 	}

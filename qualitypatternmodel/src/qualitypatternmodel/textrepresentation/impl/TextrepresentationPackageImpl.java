@@ -295,6 +295,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPatternText_TypeConstraint() {
+		return (EAttribute)patternTextEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPatternText__GenerateJSON() {
 		return patternTextEClass.getEOperations().get(2);
 	}
@@ -904,6 +914,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEAttribute(patternTextEClass, PATTERN_TEXT__NAME);
 		createEReference(patternTextEClass, PATTERN_TEXT__PARAMETER_PREDEFINITIONS);
 		createEReference(patternTextEClass, PATTERN_TEXT__FRAGMENTS_ORDERED);
+		createEAttribute(patternTextEClass, PATTERN_TEXT__TYPE_CONSTRAINT);
 		createEOperation(patternTextEClass, PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL);
 		createEOperation(patternTextEClass, PATTERN_TEXT___ADD_FRAGMENT__FRAGMENT);
 		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_JSON);
@@ -1017,6 +1028,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		initEAttribute(getPatternText_Name(), ecorePackage.getEString(), "name", null, 0, 1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPatternText_ParameterPredefinitions(), this.getParameterPredefinition(), this.getParameterPredefinition_Patterntext(), "parameterPredefinitions", null, 0, -1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPatternText_FragmentsOrdered(), this.getFragment(), null, "fragmentsOrdered", null, 1, -1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPatternText_TypeConstraint(), ecorePackage.getEBoolean(), "typeConstraint", null, 0, 1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getPatternText__IsValid__AbstractionLevel(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, thePatternstructurePackage.getAbstractionLevel(), "abstractionLevel", 0, 1, IS_UNIQUE, IS_ORDERED);

@@ -1230,6 +1230,7 @@
           eOpposite="#//textrepresentation/ParameterPredefinition/patterntext"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fragmentsOrdered" unique="false"
           lowerBound="1" upperBound="-1" eType="#//textrepresentation/Fragment"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeConstraint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterFragment" eSuperTypes="#//textrepresentation/Fragment #//textrepresentation/ParameterReference">
       <eOperations name="getType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
