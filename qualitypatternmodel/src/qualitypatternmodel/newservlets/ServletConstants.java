@@ -33,9 +33,13 @@ public class ServletConstants {
 	public static boolean FILL_VALUES = false;
 	public static String ENV_FILL_VALUES = "FILL_VALUES";
 
-	// use the default variants for templates
-	public static boolean DEFAULT_VARIANTS = true;
-	public static String ENV_DEFAULT_VARIANTS = "DEFAULT_VARIANTS";
+	// use the constraint variants for templates
+	public static boolean VARIANTS_TYPE_CONSTRAINT = true;
+	public static String ENV_VARIANTS_TYPE_CONSTRAINT = "VARIANTS_TYPE_CONSTRAINT";
+
+	// use the antipattern variants for templates
+	public static boolean VARIANTS_TYPE_ANTIPATTERN = false;
+	public static String ENV_VARIANTS_TYPE_ANTIPATTERN = "VARIANTS_TYPE_ANTIPATTERN";
 
 	// add old variants to templates
 	public static boolean OLD_VARIANTS = false;

@@ -15,6 +15,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
 
@@ -43,10 +44,11 @@ public class PatternBundle {
 		if (fileExists(folder, id) && !override) {
 			try {
 				CompletePattern existing = EMFModelLoad.loadCompletePattern(folder);
-				if (ServletConstants.DEFAULT_VARIANTS) {
-					for (String variant: variants) {
-						new PatternTextImpl(existing, new JSONObject(variant));
-					}
+				for (String variant: variants) {
+					JSONObject var = new JSONObject(variant);
+					Boolean bool = var.getBoolean(ConstantsJSON.TYPE_CONSTRAINT);
+					if (bool && ServletConstants.VARIANTS_TYPE_CONSTRAINT || !bool && ServletConstants.VARIANTS_TYPE_ANTIPATTERN)
+						new PatternTextImpl(existing, var);
 				}
 				if (ServletConstants.OLD_VARIANTS) {
 					for (String variant: oldvariants) {

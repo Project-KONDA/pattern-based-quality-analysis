@@ -143,6 +143,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				throw new InvalidityException(ConstantsError.DUPLICATE_VARIANT_NAMES);
 			}
 		}
+		
+		Boolean type_constraint = json.getBoolean(ConstantsJSON.TYPE_CONSTRAINT);
+		this.setType_constraint(type_constraint);
 
 		// pattern
 		pattern.getText().add(this);
@@ -311,6 +314,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 //		json += "\"PatternTextName\": \"" + getName() + "\",";
 
 		json += "\"name\": \"" + getName() + "\", ";
+		json += "\"typeConstraint\": \"" + getTypeConstraint() + "\", ";
 		json += "\"fragments\" : [";
 		for(int i = 0; i< getFragmentsOrdered().size(); i++) {
 			if (i>0) {
@@ -328,6 +332,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		JSONObject json = new JSONObject();
 		try {
 			json.put(ConstantsJSON.NAME, getName());
+			json.put(ConstantsJSON.TYPE_CONSTRAINT, getTypeConstraint());
 			JSONArray fragments = new JSONArray();
 			for (Fragment fragment: getFragmentsOrdered()) {
 				fragments.put(fragment.generateJSONObject());

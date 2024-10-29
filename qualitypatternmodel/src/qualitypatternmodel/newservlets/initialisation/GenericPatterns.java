@@ -99,10 +99,14 @@ public class GenericPatterns {
 			}
 		}
 
-		if (ServletConstants.DEFAULT_VARIANTS && variants != null) {
+		if (variants != null) {
 			for (String json: variants) {
 				try {
-					new PatternTextImpl(pattern, new JSONObject(json));
+					JSONObject variant = new JSONObject(json);
+					Boolean bool = false;
+					if (bool && ServletConstants.VARIANTS_TYPE_CONSTRAINT
+							|| !bool && ServletConstants.VARIANTS_TYPE_ANTIPATTERN)
+						new PatternTextImpl(pattern, variant);
 				} catch(JSONException e) {
 					e.printStackTrace();
 				}
