@@ -29,6 +29,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 public class GenericPatterns {
 
@@ -102,11 +103,10 @@ public class GenericPatterns {
 		if (variants != null) {
 			for (String json: variants) {
 				try {
-					JSONObject variant = new JSONObject(json);
-					Boolean bool = false;
-					if (bool && ServletConstants.VARIANTS_TYPE_CONSTRAINT
-							|| !bool && ServletConstants.VARIANTS_TYPE_ANTIPATTERN)
-						new PatternTextImpl(pattern, variant);
+					JSONObject var = new JSONObject(json);
+					Boolean typeConstraint = var.getBoolean(ConstantsJSON.TYPE_CONSTRAINT);
+					if (typeConstraint && ServletConstants.VARIANTS_TYPE_CONSTRAINT || !typeConstraint && ServletConstants.VARIANTS_TYPE_ANTIPATTERN)
+						new PatternTextImpl(pattern, var);
 				} catch(JSONException e) {
 					e.printStackTrace();
 				}

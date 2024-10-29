@@ -46,8 +46,8 @@ public class PatternBundle {
 				CompletePattern existing = EMFModelLoad.loadCompletePattern(folder);
 				for (String variant: variants) {
 					JSONObject var = new JSONObject(variant);
-					Boolean bool = var.getBoolean(ConstantsJSON.TYPE_CONSTRAINT);
-					if (bool && ServletConstants.VARIANTS_TYPE_CONSTRAINT || !bool && ServletConstants.VARIANTS_TYPE_ANTIPATTERN)
+					Boolean typeConstraint = var.getBoolean(ConstantsJSON.TYPE_CONSTRAINT);
+					if (typeConstraint && ServletConstants.VARIANTS_TYPE_CONSTRAINT || !typeConstraint && ServletConstants.VARIANTS_TYPE_ANTIPATTERN)
 						new PatternTextImpl(existing, var);
 				}
 				if (ServletConstants.OLD_VARIANTS) {
@@ -57,7 +57,9 @@ public class PatternBundle {
 				}
 				EMFModelSave.exportToFile2(existing, folder, id, Constants.EXTENSION);
 				return;
-			} catch (Exception e) {}
+			} catch (Exception e) {
+				ServletUtilities.logError(e);
+			}
 		}
 		try {
 			CompletePattern pattern = getConcrete();

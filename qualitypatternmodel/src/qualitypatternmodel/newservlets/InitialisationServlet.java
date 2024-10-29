@@ -127,7 +127,7 @@ public class InitialisationServlet extends HttpServlet {
 		ServletUtilities.log("Environmental Variable SAVEFILE:                  " + savefile);
 		ServletUtilities.log("Environmental Variable LOG_IN_FILE_VOLUME:        " + log_in_files);
 		ServletUtilities.log("Environmental Variable FILL_VALUES:               " + values);
-		ServletUtilities.log("Environmental Variable VARIANTS_CONSTRAINT:       " + constraint_variants);
+		ServletUtilities.log("Environmental Variable VARIANTS_TYPE_CONSTRAINT:  " + constraint_variants);
 		ServletUtilities.log("Environmental Variable VARIANTS_TYPE_ANTIPATTERN: " + antipattern_variants);
 		ServletUtilities.log("Environmental Variable OLD_VARIANTS:              " + old_variants);
 		ServletUtilities.log("Environmental Variable OVERRIDE_VARIANTS:         " + override);

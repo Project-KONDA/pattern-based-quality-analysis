@@ -28,10 +28,10 @@ public class MandContentPattern {
 
 	static String MANDCONT_ID_GENERIC = "MandCont_generic";
 	static String MANDCONT_ID_XML = "MandCont_xml";
-	static String MANDCONT_ID_RDF = "MandElement_rdf";
+	static String MANDCONT_ID_RDF = "MandCont_rdf";
 	static String MANDCONT_ID_NEO = "MandCont_neo4j";
-	static String MANDCONT_NAME = "Mandatory Attribute";
-	static String MANDCONT_DESCR = "Check whether a record has a mandatory field.";
+	static String MANDCONT_NAME = "Mandatory Content";
+	static String MANDCONT_DESCR = "Check whether an element has mandatory content.";
 
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
