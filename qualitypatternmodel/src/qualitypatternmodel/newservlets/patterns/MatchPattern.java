@@ -107,7 +107,20 @@ public class MatchPattern {
 		+ "{\"text\":\"match\"},"
 		+ "{\"name\":\"a specific pattern (RegEx)\",\"params\":[1],\"exampleValue\":\"[A-Z][a-z][a-z]+\"},"
 		+ "{\"text\":\".\"}]}";
-	public static String[] MATCH_XML_VARIANTS = {MATCH_XML_DEFAULT_CONSTRAINT, MATCH_XML_DEFAULT_ANTIPATTERN};
+	public static String MATCH_XML_CONSTRAINT_DATE =
+		"{\"template\":\"Match_xml\","
+		+ "\"language\":\"xml\","
+		+ "\"name\":\"default-constraint\","
+		+ "	\"typeConstraint\":true,"
+		+ "\"fragments\":["
+		+ "{\"text\":\"For each\"},"
+		+ "{\"name\":\"element\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\"},"
+		+ "{\"text\":\"all\"},"
+		+ "{\"name\":\"properties\",\"params\":[3],\"exampleValue\":\"Surname\",\"description\":\"value that gets analysed\",\"plural\":\"true\"},"
+		+ "{\"text\":\"match the ISO 8601 format.\"},"
+		+ "{\"params\":[0],\"value\": \"true\"},"
+		+ "{\"params\":[1],\"value\":\"^\\\\d{4}(-[01]\\\\d(-[0-3]\\\\d(T[01]\\\\d:[0-5]\\\\d(:[0-5]\\\\d(\\\\.\\\\d+)?)?(\\\\+[01]\\\\d:[03]0)?)?)?)?$\"}]}";
+	public static String[] MATCH_XML_VARIANTS = {MATCH_XML_DEFAULT_CONSTRAINT, MATCH_XML_DEFAULT_ANTIPATTERN, MATCH_XML_CONSTRAINT_DATE};
 	public static String[] MATCH_XML_VARIANTS_OLD = {};
 
 	public static String MATCH_RDF_DEFAULT =
