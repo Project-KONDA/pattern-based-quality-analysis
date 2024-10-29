@@ -108,8 +108,8 @@ public class MandContentPattern {
 	public static String MANDCONT_XML_DEFAULT_ANTIPATTERN =
 			"{\"template\":\"MandCont_xml\","
 			+ "\"language\":\"xml\","
-			+ "\"name\":\"default-constraint\","
-			+ "\"typeConstraint\":true,"
+			+ "\"name\":\"default-antipattern\","
+			+ "\"typeConstraint\":false,"
 			+ "\"fragments\":["
 			+ "{\"text\":\"Search for\"},"
 			+ "{\"name\":\"element\", \"params\":[0],\"exampleValue\":\"measurement\",\"description\":\"base element for analysis\"},"
@@ -124,8 +124,8 @@ public class MandContentPattern {
 	public static String MANDCONT_XML_DEFAULT_CONSTRAINT =
 			"{\"template\":\"MandCont_xml\","
 			+ "\"language\":\"xml\","
-			+ "\"name\":\"default-antipattern\","
-			+ "\"typeConstraint\":false,"
+			+ "\"name\":\"default-constraint\","
+			+ "\"typeConstraint\":true,"
 			+ "\"fragments\":["
 			+ "{\"text\":\"Within each\"},"
 			+ "{\"name\":\"element\", \"params\":[0],\"exampleValue\":\"measurement\",\"description\":\"base element for analysis\"},"

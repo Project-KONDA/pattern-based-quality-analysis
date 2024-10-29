@@ -100,6 +100,7 @@ public class StringLengthPattern {
 	"{\"template\":\"StringLength_xml\","
 	+ "\"language\":\"xml\","
 	+ "\"name\":\"default-antipattern\","
+	+ "\"typeConstraint\":false,"
 	+ "\"fragments\":["
 		+ "{\"text\":\"Search for\"},"
 		+ "{\"name\":\"elements\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\", \"plural\": \"true\"},"
