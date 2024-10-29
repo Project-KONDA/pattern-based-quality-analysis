@@ -2,6 +2,7 @@
     "template":"Card_xml",
     "language":"xml",
     "name":"question_simple",
+	"typeConstraint":false,
     "fragments":[
         {"text":"Is there a"},
         {

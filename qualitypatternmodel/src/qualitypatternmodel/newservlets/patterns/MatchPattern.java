@@ -80,10 +80,11 @@ public class MatchPattern {
 	}
 
 	public static String MATCH_XML_DEFAULT_CONSTRAINT =
-	"{\"template\":\"Match_xml\","
-	+ "\"language\":\"xml\","
-	+ "\"name\":\"default-constraint\","
-	+ "\"fragments\":["
+		"{\"template\":\"Match_xml\","
+		+ "\"language\":\"xml\","
+		+ "\"name\":\"default-constraint\","
+		+ "\"typeConstraint\":true,"
+		+ "\"fragments\":["
 		+ "{\"text\":\"For each\"},"
 		+ "{\"name\":\"element\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\"},"
 		+ "{\"text\":\"all\"},"
@@ -93,10 +94,11 @@ public class MatchPattern {
 		+ "{\"name\":\"a specific pattern (RegEx)\",\"params\":[1],\"exampleValue\":\"[A-Z][a-z][a-z]+\"},"
 		+ "{\"text\":\".\"}]}";
 	public static String MATCH_XML_DEFAULT_ANTIPATTERN =
-	"{\"template\":\"Match_xml\","
-	+ "\"language\":\"xml\","
-	+ "\"name\":\"default-antipattern\","
-	+ "\"fragments\":["
+		"{\"template\":\"Match_xml\","
+		+ "\"language\":\"xml\","
+		+ "\"name\":\"default-antipattern\","
+		+ "\"typeConstraint\":false,"
+		+ "\"fragments\":["
 		+ "{\"text\":\"Search for\"},"
 		+ "{\"name\":\"elements\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\", \"plural\": \"true\"},"
 		+ "{\"text\":\"where a\"},"
@@ -109,10 +111,11 @@ public class MatchPattern {
 	public static String[] MATCH_XML_VARIANTS_OLD = {};
 
 	public static String MATCH_RDF_DEFAULT =
-	"{\"template\":\"Match_rdf\","
-	+ "\"language\":\"rdf\","
-	+ "\"name\":\"default-antipattern\","
-	+ "\"fragments\":["
+		"{\"template\":\"Match_rdf\","
+		+ "\"language\":\"rdf\","
+		+ "\"name\":\"default-antipattern\","
+		+ "\"typeConstraint\":false,"
+		+ "\"fragments\":["
 		+ "{\"text\":\"Search for\"},"
 		+ "{\"name\":\"elements\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\",\"plural\":\"true\"},"
 		+ "{\"text\":\"where a property reached by\"},"
@@ -126,10 +129,11 @@ public class MatchPattern {
 	public static String[] MATCH_RDF_VARIANTS_OLD = {};
 
 	public static String MATCH_NEO_DEFAULT =
-	"{\"template\":\"Match_neo4j\","
-	+ "\"language\":\"neo4j\","
-	+ "\"name\":\"default-antipattern\","
-	+ "\"fragments\":["
+		"{\"template\":\"Match_neo4j\","
+		+ "\"language\":\"neo4j\","
+		+ "\"name\":\"default-antipattern\","
+		+ "\"typeConstraint\":false,"
+		+ "\"fragments\":["
 		+ "{\"text\":\"Search for\"},"
 		+ "{\"name\":\"elements\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\",\"plural\":\"true\"},"
 		+ "{\"text\":\"where a property reached by\"},"

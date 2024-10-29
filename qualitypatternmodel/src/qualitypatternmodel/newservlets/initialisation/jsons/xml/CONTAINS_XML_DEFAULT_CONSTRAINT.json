@@ -2,6 +2,7 @@
     "template":"Contains_xml",
     "language":"xml",
     "name":"default-constraint",
+	"typeConstraint":true,
     "fragments":[
         {"text":"For"},
         {

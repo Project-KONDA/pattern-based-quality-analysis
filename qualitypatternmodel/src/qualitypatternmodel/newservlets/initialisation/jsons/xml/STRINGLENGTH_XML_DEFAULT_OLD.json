@@ -2,6 +2,7 @@
     "template":"StringLength_xml",
     "language":"xml",
     "name":"default_old",
+	"typeConstraint":false,
     "fragments":[
         {"text":"Search for"},
         {

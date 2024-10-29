@@ -2,6 +2,7 @@
     "template":"MandCont_xml",
     "language":"xml",
     "name":"default-constraint",
+	"typeConstraint":true,
     "fragments":[
 		{"text":"Within each"},
 		{"name":"element", "params":[0],"exampleValue":"measurement","description":"base element for analysis"},

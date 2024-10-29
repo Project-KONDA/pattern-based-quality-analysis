@@ -2,6 +2,7 @@
 	"template":"Card_rdf",
 	"language":"rdf",
 	"name":"default-antipattern",
+	"typeConstraint":false,
 	"fragments":[
 		{"text":"Search for"},
 		{
