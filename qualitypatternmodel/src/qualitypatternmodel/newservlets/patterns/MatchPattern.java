@@ -120,8 +120,8 @@ public class MatchPattern {
 		+ "{\"text\":\"all\"},"
 		+ "{\"name\":\"properties\",\"params\":[3],\"exampleValue\":\"Surname\",\"description\":\"value that gets analysed\",\"plural\":\"true\"},"
 		+ "{\"text\":\"match the ISO 8601 format.\"},"
-		+ "{\"params\":[0],\"value\": \"true\"},"
-		+ "{\"params\":[1],\"value\":" + DATE_REGEX_ESCAPED + "}]}";
+		+ "{\"params\":[0],\"value\": \"false\"},"
+		+ "{\"params\":[1],\"value\":\"" + DATE_REGEX_ESCAPED + "\"}]}";
 	public static String[] MATCH_XML_VARIANTS = {MATCH_XML_DEFAULT_CONSTRAINT, MATCH_XML_DEFAULT_ANTIPATTERN, MATCH_XML_CONSTRAINT_DATE};
 	public static String[] MATCH_XML_VARIANTS_OLD = {};
 

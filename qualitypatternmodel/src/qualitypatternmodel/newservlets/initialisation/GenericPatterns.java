@@ -11,6 +11,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.newservlets.ServletConstants;
+import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.newservlets.patterns.Appdup3Pattern;
 import qualitypatternmodel.newservlets.patterns.CardPattern;
 import qualitypatternmodel.newservlets.patterns.CompPattern;
@@ -108,7 +109,8 @@ public class GenericPatterns {
 					if (typeConstraint && ServletConstants.VARIANTS_TYPE_CONSTRAINT || !typeConstraint && ServletConstants.VARIANTS_TYPE_ANTIPATTERN)
 						new PatternTextImpl(pattern, var);
 				} catch(JSONException e) {
-					e.printStackTrace();
+					ServletUtilities.logError(e);
+					ServletUtilities.log(" within JSON: " + json);
 				}
 			}
 		}
@@ -118,7 +120,8 @@ public class GenericPatterns {
 				try {
 					new PatternTextImpl(pattern, new JSONObject(json));
 				} catch(JSONException e) {
-					e.printStackTrace();
+					ServletUtilities.logError(e);
+					ServletUtilities.log(" within JSON: " + json);
 				}
 			}
 		}
