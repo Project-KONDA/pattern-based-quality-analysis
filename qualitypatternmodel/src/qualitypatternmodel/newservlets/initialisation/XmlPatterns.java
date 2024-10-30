@@ -15,7 +15,7 @@ import qualitypatternmodel.newservlets.patterns.CompSetPattern;
 import qualitypatternmodel.newservlets.patterns.ContainsPattern;
 import qualitypatternmodel.newservlets.patterns.InvalidLinkPattern;
 import qualitypatternmodel.newservlets.patterns.MandAttPattern;
-import qualitypatternmodel.newservlets.patterns.MandContentPattern;
+import qualitypatternmodel.newservlets.patterns.MandContPattern;
 import qualitypatternmodel.newservlets.patterns.MatchPattern;
 import qualitypatternmodel.newservlets.patterns.StringLengthPattern;
 import qualitypatternmodel.newservlets.patterns.UniquePattern;
@@ -75,7 +75,7 @@ public class XmlPatterns {
 			patternbundles.add(CompSetPattern.getXmlBundle());
 			patternbundles.add(InvalidLinkPattern.getXmlBundle());
 			patternbundles.add(UniquePattern.getXmlBundle());
-			patternbundles.add(MandContentPattern.getXmlBundle());
+			patternbundles.add(MandContPattern.getXmlBundle());
 		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
 			e.printStackTrace();
 		}
