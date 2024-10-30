@@ -64,13 +64,13 @@ public class MandContPattern {
 		// an text
 		QuantifiedCondition qctext = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		or.setCondition1(qctext);
-		PrimitiveNode text = main.addOutgoing(qctext.getGraph()).getTarget().makePrimitive();
+		PrimitiveNode text = element.addOutgoing(qctext.getGraph()).getTarget().makePrimitive();
 		text.setName("text");
 
 		// or an element
 		QuantifiedCondition qcelement = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		or.setCondition2(qcelement);
-		ComplexNode contentelement = main.addOutgoing(qcelement.getGraph()).getTarget().makeComplex();
+		ComplexNode contentelement = element.addOutgoing(qcelement.getGraph()).getTarget().makeComplex();
 		contentelement.setName("content");
 
 		pattern.isValid(AbstractionLevel.GENERIC);
