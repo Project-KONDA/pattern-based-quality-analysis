@@ -12,11 +12,12 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class MandContentPattern {
+public class MandContPattern {
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = getGeneric();
@@ -57,6 +58,7 @@ public class MandContentPattern {
 		
 		// either
 		Formula or = PatternstructureFactory.eINSTANCE.createFormula();
+		or.setOperator(LogicalOperator.OR);
 		not.setCondition(or);
 		
 		// an text
@@ -138,7 +140,7 @@ public class MandContentPattern {
 			+ "{\"text\":\".\"}"
 			+ "]}";
 
-	public static String MANDCONT_XML_DEFAULT_ANTIPATTERN_M =
+	public static String MANDCONT_XML_ANTIPATTERN_M =
 			"{\"template\":\"MandCont_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"antipattern_m\","
@@ -153,7 +155,7 @@ public class MandContentPattern {
 			+ "{\"name\":\"element\", \"params\":[3],\"exampleValue\":\"element\",\"description\":\"element condition\"},"
 			+ "{\"text\":\".\"}"
 			+ "]}";
-	public static String MANDCONT_XML_DEFAULT_CONSTRAINT_M =
+	public static String MANDCONT_XML_CONSTRAINT_M =
 			"{\"template\":\"MandCont_xml\","
 			+ "\"language\":\"xml\","
 			+ "\"name\":\"constraint_m\","
@@ -165,6 +167,20 @@ public class MandContentPattern {
 			+ "{\"text\":\"must contain either a\"},"
 			+ "{\"name\":\"property\", \"params\":[2],\"exampleValue\":\"text\",\"description\":\"property condition\"},"
 			+ "{\"text\":\"or a\"},"
+			+ "{\"name\":\"element\", \"params\":[3],\"exampleValue\":\"element\",\"description\":\"element condition\"},"
+			+ "{\"text\":\".\"}"
+			+ "]}";
+	public static String MANDCONT_XML_CONSTRAINT_M2 =
+			"{\"template\":\"MandCont_xml\","
+			+ "\"language\":\"xml\","
+			+ "\"name\":\"constraint_m2\","
+			+ "\"typeConstraint\":true,"
+			+ "\"fragments\":["
+			+ "{\"text\":\"Every\"},"
+			+ "{\"name\":\"element\", \"params\":[0],\"exampleValue\":\"measurement\",\"description\":\"base element for analysis\"},"
+			+ "{\"params\":[1],\"value\":\"/self::*\"},"
+			+ "{\"text\":\"must contain either a text value or a \"},"
+			+ "{\"params\":[2],\"value\":\"/text()\"},"
 			+ "{\"name\":\"element\", \"params\":[3],\"exampleValue\":\"element\",\"description\":\"element condition\"},"
 			+ "{\"text\":\".\"}"
 			+ "]}";
@@ -181,7 +197,7 @@ public class MandContentPattern {
 			+ "{\"params\":[2],\"value\":\"/text()\"},"
 			+ "{\"params\":[3],\"value\":\"/*\"}"
 			+ "]}";
-	public static String[] MANDCONT_XML_VARIANTS = { MANDCONT_XML_DEFAULT_CONSTRAINT, MANDCONT_XML_DEFAULT_ANTIPATTERN, MANDCONT_XML_DEFAULT_CONSTRAINT_M, MANDCONT_XML_DEFAULT_ANTIPATTERN_M, MANDCONT_XML_JUSTNOTEMPTY };
+	public static String[] MANDCONT_XML_VARIANTS = { MANDCONT_XML_DEFAULT_CONSTRAINT, MANDCONT_XML_DEFAULT_ANTIPATTERN, MANDCONT_XML_CONSTRAINT_M, MANDCONT_XML_ANTIPATTERN_M, MANDCONT_XML_CONSTRAINT_M2, MANDCONT_XML_JUSTNOTEMPTY };
 	public static String[] MANDCONT_XML_VARIANTS_OLD = {};
 
 }
