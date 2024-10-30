@@ -139,19 +139,17 @@ public class MandContPattern {
 			+ "{\"name\":\"element\", \"params\":[3],\"exampleValue\":\"element\",\"description\":\"element condition\"},"
 			+ "{\"text\":\".\"}"
 			+ "]}";
-
-	public static String MANDCONT_XML_ANTIPATTERN_M =
+	public static String MANDCONT_XML_CONSTRAINT_2 =
 			"{\"template\":\"MandCont_xml\","
 			+ "\"language\":\"xml\","
-			+ "\"name\":\"antipattern_m\","
-			+ "\"typeConstraint\":false,"
+			+ "\"name\":\"constraint_2\","
+			+ "\"typeConstraint\":true,"
 			+ "\"fragments\":["
-			+ "{\"text\":\"Search for\"},"
+			+ "{\"text\":\"Every\"},"
 			+ "{\"name\":\"element\", \"params\":[0],\"exampleValue\":\"measurement\",\"description\":\"base element for analysis\"},"
 			+ "{\"params\":[1],\"value\":\"/self::*\"},"
-			+ "{\"text\":\"that does not contain either a\"},"
-			+ "{\"name\":\"property\", \"params\":[2],\"exampleValue\":\"text\",\"description\":\"property condition\"},"
-			+ "{\"text\":\"or a\"},"
+			+ "{\"text\":\"must contain either a text value or a \"},"
+			+ "{\"params\":[2],\"value\":\"/text()\"},"
 			+ "{\"name\":\"element\", \"params\":[3],\"exampleValue\":\"element\",\"description\":\"element condition\"},"
 			+ "{\"text\":\".\"}"
 			+ "]}";
@@ -170,17 +168,19 @@ public class MandContPattern {
 			+ "{\"name\":\"element\", \"params\":[3],\"exampleValue\":\"element\",\"description\":\"element condition\"},"
 			+ "{\"text\":\".\"}"
 			+ "]}";
-	public static String MANDCONT_XML_CONSTRAINT_M2 =
+
+	public static String MANDCONT_XML_ANTIPATTERN_M =
 			"{\"template\":\"MandCont_xml\","
 			+ "\"language\":\"xml\","
-			+ "\"name\":\"constraint_m2\","
-			+ "\"typeConstraint\":true,"
+			+ "\"name\":\"antipattern_m\","
+			+ "\"typeConstraint\":false,"
 			+ "\"fragments\":["
-			+ "{\"text\":\"Every\"},"
+			+ "{\"text\":\"Search for\"},"
 			+ "{\"name\":\"element\", \"params\":[0],\"exampleValue\":\"measurement\",\"description\":\"base element for analysis\"},"
 			+ "{\"params\":[1],\"value\":\"/self::*\"},"
-			+ "{\"text\":\"must contain either a text value or a \"},"
-			+ "{\"params\":[2],\"value\":\"/text()\"},"
+			+ "{\"text\":\"that does not contain either a\"},"
+			+ "{\"name\":\"property\", \"params\":[2],\"exampleValue\":\"text\",\"description\":\"property condition\"},"
+			+ "{\"text\":\"or a\"},"
 			+ "{\"name\":\"element\", \"params\":[3],\"exampleValue\":\"element\",\"description\":\"element condition\"},"
 			+ "{\"text\":\".\"}"
 			+ "]}";
@@ -197,7 +197,7 @@ public class MandContPattern {
 			+ "{\"params\":[2],\"value\":\"/text()\"},"
 			+ "{\"params\":[3],\"value\":\"/*\"}"
 			+ "]}";
-	public static String[] MANDCONT_XML_VARIANTS = { MANDCONT_XML_DEFAULT_CONSTRAINT, MANDCONT_XML_DEFAULT_ANTIPATTERN, MANDCONT_XML_CONSTRAINT_M, MANDCONT_XML_ANTIPATTERN_M, MANDCONT_XML_CONSTRAINT_M2, MANDCONT_XML_JUSTNOTEMPTY };
+	public static String[] MANDCONT_XML_VARIANTS = { MANDCONT_XML_DEFAULT_CONSTRAINT, MANDCONT_XML_DEFAULT_ANTIPATTERN, MANDCONT_XML_CONSTRAINT_2, MANDCONT_XML_CONSTRAINT_M, MANDCONT_XML_ANTIPATTERN_M, MANDCONT_XML_JUSTNOTEMPTY };
 	public static String[] MANDCONT_XML_VARIANTS_OLD = {};
 
 }
