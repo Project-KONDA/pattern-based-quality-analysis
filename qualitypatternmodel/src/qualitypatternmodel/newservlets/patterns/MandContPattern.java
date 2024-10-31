@@ -149,7 +149,7 @@ public class MandContPattern {
 			+ "{\"name\":\"element\", \"params\":[0],\"exampleValue\":\"measurement\",\"description\":\"base element for analysis\"},"
 			+ "{\"text\":\", every\"},"
 			+ "{\"name\":\"subelement\", \"params\":[1],\"exampleValue\":\"unit\",\"description\":\"element of analyis\"},"
-			+ "{\"text\":\"must contain either an\"},"
+			+ "{\"text\":\"must contain either a\"},"
 			+ "{\"params\":[2],\"value\":\"/text()\"},"
 			+ "{\"name\":\"element\", \"params\":[3],\"exampleValue\":\"element\",\"description\":\"element condition\"},"
 			+ "{\"text\":\"or a text.\"}"
