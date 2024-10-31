@@ -139,17 +139,17 @@ public class MandContPattern {
 			+ "{\"name\":\"element\", \"params\":[3],\"exampleValue\":\"element\",\"description\":\"element condition\"},"
 			+ "{\"text\":\".\"}"
 			+ "]}";
-	public static String MANDCONT_XML_DEFAULT_CONSTRAINT2 =
+	public static String MANDCONT_XML_CONSTRAINT_2 =
 			"{\"template\":\"MandCont_xml\","
 			+ "\"language\":\"xml\","
-			+ "\"name\":\"default-constraint2\","
+			+ "\"name\":\"constraint_2\","
 			+ "\"typeConstraint\":true,"
 			+ "\"fragments\":["
 			+ "{\"text\":\"Within each\"},"
 			+ "{\"name\":\"element\", \"params\":[0],\"exampleValue\":\"measurement\",\"description\":\"base element for analysis\"},"
 			+ "{\"text\":\", every\"},"
 			+ "{\"name\":\"subelement\", \"params\":[1],\"exampleValue\":\"unit\",\"description\":\"element of analyis\"},"
-			+ "{\"text\":\"must contain either an\"},"
+			+ "{\"text\":\"must contain either a\"},"
 			+ "{\"params\":[2],\"value\":\"/text()\"},"
 			+ "{\"name\":\"element\", \"params\":[3],\"exampleValue\":\"element\",\"description\":\"element condition\"},"
 			+ "{\"text\":\"or a text.\"}"
@@ -212,7 +212,7 @@ public class MandContPattern {
 			+ "{\"params\":[2],\"value\":\"/text()\"},"
 			+ "{\"params\":[3],\"value\":\"/*\"}"
 			+ "]}";
-	public static String[] MANDCONT_XML_VARIANTS = { MANDCONT_XML_DEFAULT_CONSTRAINT, MANDCONT_XML_DEFAULT_ANTIPATTERN, MANDCONT_XML_DEFAULT_CONSTRAINT2, MANDCONT_XML_CONSTRAINT_M, MANDCONT_XML_ANTIPATTERN_M, MANDCONT_XML_CONSTRAINT_M2, MANDCONT_XML_JUSTNOTEMPTY };
+	public static String[] MANDCONT_XML_VARIANTS = { MANDCONT_XML_DEFAULT_CONSTRAINT, MANDCONT_XML_DEFAULT_ANTIPATTERN, MANDCONT_XML_CONSTRAINT_2, MANDCONT_XML_CONSTRAINT_M, MANDCONT_XML_ANTIPATTERN_M, MANDCONT_XML_CONSTRAINT_M2, MANDCONT_XML_JUSTNOTEMPTY };
 	public static String[] MANDCONT_XML_VARIANTS_OLD = {};
 
 }
