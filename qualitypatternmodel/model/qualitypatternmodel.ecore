@@ -668,26 +668,37 @@
       <eOperations name="isValidLocal" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper">
         <eParameters name="abstractionLevel" lowerBound="1" eType="#//patternstructure/AbstractionLevel"/>
       </eOperations>
-      <eOperations name="myToString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="generateCypher" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="language" eType="#//patternstructure/Language"/>
+      </eOperations>
       <eOperations name="generateXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="generateSparql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getContainer" eType="#//patternstructure/PatternElement"
-          eExceptions="#//patternstructure/MissingPatternContainerException"/>
-      <eOperations name="getAncestor" eType="#//patternstructure/PatternElement" eExceptions="#//patternstructure/MissingPatternContainerException">
-        <eParameters name="cls" eType="#//patternstructure/ClassWrapper"/>
+      <eOperations name="generateCypher" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateXQueryJava" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateXQueryJavaReturn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateQueryFilterPart" eType="#//javaquery/JavaFilterPart"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="containsJavaOperator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="createAdaption" eType="#//patternstructure/PatternElement"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException">
+        <eParameters name="language" eType="#//patternstructure/Language"/>
       </eOperations>
-      <eOperations name="initializeTranslation"/>
+      <eOperations name="createXmlAdaption" eType="#//patternstructure/PatternElement"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
+      <eOperations name="createRdfAdaption" eType="#//patternstructure/PatternElement"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
+      <eOperations name="createNeo4jAdaption" eType="#//patternstructure/PatternElement"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
+      <eOperations name="relationsXmlAdapted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="prepareTranslation"/>
-      <eOperations name="getOperatorList" eType="#//operators/OperatorList"/>
-      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getParameterList" eType="#//parameters/ParameterList"/>
-      <eOperations name="getAllParameters" upperBound="-1" eType="#//parameters/Parameter"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="initializeTranslation"/>
       <eOperations name="prepareParameterUpdates" upperBound="-1" eType="#//patternstructure/PatternElement"/>
       <eOperations name="triggerParameterUpdates">
         <eParameters name="newContainer" eType="#//patternstructure/PatternElement"/>
@@ -702,21 +713,18 @@
       <eOperations name="recordValues">
         <eParameters name="database" eType="#//execution/XmlDataDatabase"/>
       </eOperations>
-      <eOperations name="relationsXmlAdapted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eOperations name="createXmlAdaption" eType="#//patternstructure/PatternElement"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
-      <eOperations name="createRdfAdaption" eType="#//patternstructure/PatternElement"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
-      <eOperations name="createNeo4jAdaption" eType="#//patternstructure/PatternElement"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
-      <eOperations name="containsJavaOperator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+      <eOperations name="getContainer" eType="#//patternstructure/PatternElement"
+          eExceptions="#//patternstructure/MissingPatternContainerException"/>
+      <eOperations name="getAncestor" eType="#//patternstructure/PatternElement" eExceptions="#//patternstructure/MissingPatternContainerException">
+        <eParameters name="cls" eType="#//patternstructure/ClassWrapper"/>
+      </eOperations>
+      <eOperations name="getOperatorList" eType="#//operators/OperatorList"/>
+      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="generateQueryFilterPart" eType="#//javaquery/JavaFilterPart"
+      <eOperations name="getParameterList" eType="#//parameters/ParameterList"/>
+      <eOperations name="getAllParameters" upperBound="-1" eType="#//parameters/Parameter"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="generateXQueryJava" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="generateXQueryJavaReturn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="myToString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" lowerBound="1"

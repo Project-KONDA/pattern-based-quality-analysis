@@ -315,22 +315,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.COMPLEX_NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___MY_TO_STRING = GraphstructurePackage.COMPLEX_NODE___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___GENERATE_CYPHER = GraphstructurePackage.COMPLEX_NODE___GENERATE_CYPHER;
+	int XML_ELEMENT___GENERATE_QUERY__LANGUAGE = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -351,31 +342,94 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___GENERATE_SPARQL = GraphstructurePackage.COMPLEX_NODE___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___GET_CONTAINER = GraphstructurePackage.COMPLEX_NODE___GET_CONTAINER;
+	int XML_ELEMENT___GENERATE_CYPHER = GraphstructurePackage.COMPLEX_NODE___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___GET_ANCESTOR__CLASS = GraphstructurePackage.COMPLEX_NODE___GET_ANCESTOR__CLASS;
+	int XML_ELEMENT___GENERATE_XQUERY_JAVA = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___INITIALIZE_TRANSLATION = GraphstructurePackage.COMPLEX_NODE___INITIALIZE_TRANSLATION;
+	int XML_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.COMPLEX_NODE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___CREATE_ADAPTION__LANGUAGE = GraphstructurePackage.COMPLEX_NODE___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___CREATE_XML_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___CREATE_RDF_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___CREATE_NEO4J_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___RELATIONS_XML_ADAPTED = GraphstructurePackage.COMPLEX_NODE___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -387,40 +441,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___PREPARE_TRANSLATION = GraphstructurePackage.COMPLEX_NODE___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___GET_OPERATOR_LIST = GraphstructurePackage.COMPLEX_NODE___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___GET_ALL_OPERATORS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___GET_PARAMETER_LIST = GraphstructurePackage.COMPLEX_NODE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___GET_ALL_PARAMETERS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_PARAMETERS;
+	int XML_ELEMENT___INITIALIZE_TRANSLATION = GraphstructurePackage.COMPLEX_NODE___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -468,76 +495,67 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.COMPLEX_NODE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___RELATIONS_XML_ADAPTED = GraphstructurePackage.COMPLEX_NODE___RELATIONS_XML_ADAPTED;
+	int XML_ELEMENT___GET_CONTAINER = GraphstructurePackage.COMPLEX_NODE___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___CREATE_XML_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_XML_ADAPTION;
+	int XML_ELEMENT___GET_ANCESTOR__CLASS = GraphstructurePackage.COMPLEX_NODE___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___CREATE_RDF_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_RDF_ADAPTION;
+	int XML_ELEMENT___GET_OPERATOR_LIST = GraphstructurePackage.COMPLEX_NODE___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___CREATE_NEO4J_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_NEO4J_ADAPTION;
+	int XML_ELEMENT___GET_ALL_OPERATORS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.COMPLEX_NODE___CONTAINS_JAVA_OPERATOR;
+	int XML_ELEMENT___GET_PARAMETER_LIST = GraphstructurePackage.COMPLEX_NODE___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY_FILTER_PART;
+	int XML_ELEMENT___GET_ALL_PARAMETERS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___GENERATE_XQUERY_JAVA = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA_RETURN;
+	int XML_ELEMENT___MY_TO_STRING = GraphstructurePackage.COMPLEX_NODE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1116,22 +1134,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.RELATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___MY_TO_STRING = GraphstructurePackage.RELATION___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION___GENERATE_CYPHER = GraphstructurePackage.RELATION___GENERATE_CYPHER;
+	int XML_NAVIGATION___GENERATE_QUERY__LANGUAGE = GraphstructurePackage.RELATION___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -1152,31 +1161,94 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___GENERATE_SPARQL = GraphstructurePackage.RELATION___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___GET_CONTAINER = GraphstructurePackage.RELATION___GET_CONTAINER;
+	int XML_NAVIGATION___GENERATE_CYPHER = GraphstructurePackage.RELATION___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___GET_ANCESTOR__CLASS = GraphstructurePackage.RELATION___GET_ANCESTOR__CLASS;
+	int XML_NAVIGATION___GENERATE_XQUERY_JAVA = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___INITIALIZE_TRANSLATION = GraphstructurePackage.RELATION___INITIALIZE_TRANSLATION;
+	int XML_NAVIGATION___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.RELATION___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.RELATION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___CREATE_ADAPTION__LANGUAGE = GraphstructurePackage.RELATION___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___CREATE_XML_ADAPTION = GraphstructurePackage.RELATION___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___CREATE_RDF_ADAPTION = GraphstructurePackage.RELATION___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___CREATE_NEO4J_ADAPTION = GraphstructurePackage.RELATION___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___RELATIONS_XML_ADAPTED = GraphstructurePackage.RELATION___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1188,40 +1260,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___PREPARE_TRANSLATION = GraphstructurePackage.RELATION___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___GET_OPERATOR_LIST = GraphstructurePackage.RELATION___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION___GET_ALL_OPERATORS = GraphstructurePackage.RELATION___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION___GET_PARAMETER_LIST = GraphstructurePackage.RELATION___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION___GET_ALL_PARAMETERS = GraphstructurePackage.RELATION___GET_ALL_PARAMETERS;
+	int XML_NAVIGATION___INITIALIZE_TRANSLATION = GraphstructurePackage.RELATION___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -1269,76 +1314,67 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___RELATIONS_XML_ADAPTED = GraphstructurePackage.RELATION___RELATIONS_XML_ADAPTED;
+	int XML_NAVIGATION___GET_CONTAINER = GraphstructurePackage.RELATION___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___CREATE_XML_ADAPTION = GraphstructurePackage.RELATION___CREATE_XML_ADAPTION;
+	int XML_NAVIGATION___GET_ANCESTOR__CLASS = GraphstructurePackage.RELATION___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___CREATE_RDF_ADAPTION = GraphstructurePackage.RELATION___CREATE_RDF_ADAPTION;
+	int XML_NAVIGATION___GET_OPERATOR_LIST = GraphstructurePackage.RELATION___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___CREATE_NEO4J_ADAPTION = GraphstructurePackage.RELATION___CREATE_NEO4J_ADAPTION;
+	int XML_NAVIGATION___GET_ALL_OPERATORS = GraphstructurePackage.RELATION___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.RELATION___CONTAINS_JAVA_OPERATOR;
+	int XML_NAVIGATION___GET_PARAMETER_LIST = GraphstructurePackage.RELATION___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.RELATION___GENERATE_QUERY_FILTER_PART;
+	int XML_NAVIGATION___GET_ALL_PARAMETERS = GraphstructurePackage.RELATION___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___GENERATE_XQUERY_JAVA = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA_RETURN;
+	int XML_NAVIGATION___MY_TO_STRING = GraphstructurePackage.RELATION___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -1584,22 +1620,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = XML_NAVIGATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___MY_TO_STRING = XML_NAVIGATION___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT_NAVIGATION___GENERATE_CYPHER = XML_NAVIGATION___GENERATE_CYPHER;
+	int XML_ELEMENT_NAVIGATION___GENERATE_QUERY__LANGUAGE = XML_NAVIGATION___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -1620,31 +1647,94 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION___GENERATE_SPARQL = XML_NAVIGATION___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___GET_CONTAINER = XML_NAVIGATION___GET_CONTAINER;
+	int XML_ELEMENT_NAVIGATION___GENERATE_CYPHER = XML_NAVIGATION___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___GET_ANCESTOR__CLASS = XML_NAVIGATION___GET_ANCESTOR__CLASS;
+	int XML_ELEMENT_NAVIGATION___GENERATE_XQUERY_JAVA = XML_NAVIGATION___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___INITIALIZE_TRANSLATION = XML_NAVIGATION___INITIALIZE_TRANSLATION;
+	int XML_ELEMENT_NAVIGATION___GENERATE_XQUERY_JAVA_RETURN = XML_NAVIGATION___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT_NAVIGATION___GENERATE_QUERY_FILTER_PART = XML_NAVIGATION___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT_NAVIGATION___CONTAINS_JAVA_OPERATOR = XML_NAVIGATION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT_NAVIGATION___CREATE_ADAPTION__LANGUAGE = XML_NAVIGATION___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT_NAVIGATION___CREATE_XML_ADAPTION = XML_NAVIGATION___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT_NAVIGATION___CREATE_RDF_ADAPTION = XML_NAVIGATION___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT_NAVIGATION___CREATE_NEO4J_ADAPTION = XML_NAVIGATION___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT_NAVIGATION___RELATIONS_XML_ADAPTED = XML_NAVIGATION___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1656,40 +1746,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION___PREPARE_TRANSLATION = XML_NAVIGATION___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___GET_OPERATOR_LIST = XML_NAVIGATION___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT_NAVIGATION___GET_ALL_OPERATORS = XML_NAVIGATION___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT_NAVIGATION___GET_PARAMETER_LIST = XML_NAVIGATION___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT_NAVIGATION___GET_ALL_PARAMETERS = XML_NAVIGATION___GET_ALL_PARAMETERS;
+	int XML_ELEMENT_NAVIGATION___INITIALIZE_TRANSLATION = XML_NAVIGATION___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -1737,76 +1800,67 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION___RECORD_VALUES__XMLDATADATABASE = XML_NAVIGATION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___RELATIONS_XML_ADAPTED = XML_NAVIGATION___RELATIONS_XML_ADAPTED;
+	int XML_ELEMENT_NAVIGATION___GET_CONTAINER = XML_NAVIGATION___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___CREATE_XML_ADAPTION = XML_NAVIGATION___CREATE_XML_ADAPTION;
+	int XML_ELEMENT_NAVIGATION___GET_ANCESTOR__CLASS = XML_NAVIGATION___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___CREATE_RDF_ADAPTION = XML_NAVIGATION___CREATE_RDF_ADAPTION;
+	int XML_ELEMENT_NAVIGATION___GET_OPERATOR_LIST = XML_NAVIGATION___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___CREATE_NEO4J_ADAPTION = XML_NAVIGATION___CREATE_NEO4J_ADAPTION;
+	int XML_ELEMENT_NAVIGATION___GET_ALL_OPERATORS = XML_NAVIGATION___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___CONTAINS_JAVA_OPERATOR = XML_NAVIGATION___CONTAINS_JAVA_OPERATOR;
+	int XML_ELEMENT_NAVIGATION___GET_PARAMETER_LIST = XML_NAVIGATION___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___GENERATE_QUERY_FILTER_PART = XML_NAVIGATION___GENERATE_QUERY_FILTER_PART;
+	int XML_ELEMENT_NAVIGATION___GET_ALL_PARAMETERS = XML_NAVIGATION___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___GENERATE_XQUERY_JAVA = XML_NAVIGATION___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT_NAVIGATION___GENERATE_XQUERY_JAVA_RETURN = XML_NAVIGATION___GENERATE_XQUERY_JAVA_RETURN;
+	int XML_ELEMENT_NAVIGATION___MY_TO_STRING = XML_NAVIGATION___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -2043,22 +2097,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.RELATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___MY_TO_STRING = GraphstructurePackage.RELATION___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_REFERENCE___GENERATE_CYPHER = GraphstructurePackage.RELATION___GENERATE_CYPHER;
+	int XML_REFERENCE___GENERATE_QUERY__LANGUAGE = GraphstructurePackage.RELATION___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -2079,31 +2124,94 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___GENERATE_SPARQL = GraphstructurePackage.RELATION___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___GET_CONTAINER = GraphstructurePackage.RELATION___GET_CONTAINER;
+	int XML_REFERENCE___GENERATE_CYPHER = GraphstructurePackage.RELATION___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___GET_ANCESTOR__CLASS = GraphstructurePackage.RELATION___GET_ANCESTOR__CLASS;
+	int XML_REFERENCE___GENERATE_XQUERY_JAVA = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___INITIALIZE_TRANSLATION = GraphstructurePackage.RELATION___INITIALIZE_TRANSLATION;
+	int XML_REFERENCE___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.RELATION___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.RELATION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___CREATE_ADAPTION__LANGUAGE = GraphstructurePackage.RELATION___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___CREATE_XML_ADAPTION = GraphstructurePackage.RELATION___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___CREATE_RDF_ADAPTION = GraphstructurePackage.RELATION___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___CREATE_NEO4J_ADAPTION = GraphstructurePackage.RELATION___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___RELATIONS_XML_ADAPTED = GraphstructurePackage.RELATION___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2115,40 +2223,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___PREPARE_TRANSLATION = GraphstructurePackage.RELATION___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___GET_OPERATOR_LIST = GraphstructurePackage.RELATION___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_REFERENCE___GET_ALL_OPERATORS = GraphstructurePackage.RELATION___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_REFERENCE___GET_PARAMETER_LIST = GraphstructurePackage.RELATION___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_REFERENCE___GET_ALL_PARAMETERS = GraphstructurePackage.RELATION___GET_ALL_PARAMETERS;
+	int XML_REFERENCE___INITIALIZE_TRANSLATION = GraphstructurePackage.RELATION___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -2196,76 +2277,67 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___RELATIONS_XML_ADAPTED = GraphstructurePackage.RELATION___RELATIONS_XML_ADAPTED;
+	int XML_REFERENCE___GET_CONTAINER = GraphstructurePackage.RELATION___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___CREATE_XML_ADAPTION = GraphstructurePackage.RELATION___CREATE_XML_ADAPTION;
+	int XML_REFERENCE___GET_ANCESTOR__CLASS = GraphstructurePackage.RELATION___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___CREATE_RDF_ADAPTION = GraphstructurePackage.RELATION___CREATE_RDF_ADAPTION;
+	int XML_REFERENCE___GET_OPERATOR_LIST = GraphstructurePackage.RELATION___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___CREATE_NEO4J_ADAPTION = GraphstructurePackage.RELATION___CREATE_NEO4J_ADAPTION;
+	int XML_REFERENCE___GET_ALL_OPERATORS = GraphstructurePackage.RELATION___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.RELATION___CONTAINS_JAVA_OPERATOR;
+	int XML_REFERENCE___GET_PARAMETER_LIST = GraphstructurePackage.RELATION___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.RELATION___GENERATE_QUERY_FILTER_PART;
+	int XML_REFERENCE___GET_ALL_PARAMETERS = GraphstructurePackage.RELATION___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___GENERATE_XQUERY_JAVA = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_REFERENCE___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA_RETURN;
+	int XML_REFERENCE___MY_TO_STRING = GraphstructurePackage.RELATION___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -2619,22 +2691,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.PRIMITIVE_NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___MY_TO_STRING = GraphstructurePackage.PRIMITIVE_NODE___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___GENERATE_CYPHER = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_CYPHER;
+	int XML_PROPERTY___GENERATE_QUERY__LANGUAGE = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -2655,31 +2718,94 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___GENERATE_SPARQL = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_CONTAINER = GraphstructurePackage.PRIMITIVE_NODE___GET_CONTAINER;
+	int XML_PROPERTY___GENERATE_CYPHER = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_ANCESTOR__CLASS = GraphstructurePackage.PRIMITIVE_NODE___GET_ANCESTOR__CLASS;
+	int XML_PROPERTY___GENERATE_XQUERY_JAVA = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___INITIALIZE_TRANSLATION = GraphstructurePackage.PRIMITIVE_NODE___INITIALIZE_TRANSLATION;
+	int XML_PROPERTY___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.PRIMITIVE_NODE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___CREATE_ADAPTION__LANGUAGE = GraphstructurePackage.PRIMITIVE_NODE___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___CREATE_XML_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___CREATE_RDF_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___CREATE_NEO4J_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___RELATIONS_XML_ADAPTED = GraphstructurePackage.PRIMITIVE_NODE___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2691,40 +2817,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___PREPARE_TRANSLATION = GraphstructurePackage.PRIMITIVE_NODE___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_OPERATOR_LIST = GraphstructurePackage.PRIMITIVE_NODE___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___GET_ALL_OPERATORS = GraphstructurePackage.PRIMITIVE_NODE___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___GET_PARAMETER_LIST = GraphstructurePackage.PRIMITIVE_NODE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___GET_ALL_PARAMETERS = GraphstructurePackage.PRIMITIVE_NODE___GET_ALL_PARAMETERS;
+	int XML_PROPERTY___INITIALIZE_TRANSLATION = GraphstructurePackage.PRIMITIVE_NODE___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -2772,76 +2871,67 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.PRIMITIVE_NODE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___RELATIONS_XML_ADAPTED = GraphstructurePackage.PRIMITIVE_NODE___RELATIONS_XML_ADAPTED;
+	int XML_PROPERTY___GET_CONTAINER = GraphstructurePackage.PRIMITIVE_NODE___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___CREATE_XML_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___CREATE_XML_ADAPTION;
+	int XML_PROPERTY___GET_ANCESTOR__CLASS = GraphstructurePackage.PRIMITIVE_NODE___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___CREATE_RDF_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___CREATE_RDF_ADAPTION;
+	int XML_PROPERTY___GET_OPERATOR_LIST = GraphstructurePackage.PRIMITIVE_NODE___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___CREATE_NEO4J_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___CREATE_NEO4J_ADAPTION;
+	int XML_PROPERTY___GET_ALL_OPERATORS = GraphstructurePackage.PRIMITIVE_NODE___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.PRIMITIVE_NODE___CONTAINS_JAVA_OPERATOR;
+	int XML_PROPERTY___GET_PARAMETER_LIST = GraphstructurePackage.PRIMITIVE_NODE___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_QUERY_FILTER_PART;
+	int XML_PROPERTY___GET_ALL_PARAMETERS = GraphstructurePackage.PRIMITIVE_NODE___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GENERATE_XQUERY_JAVA = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_XQUERY_JAVA_RETURN;
+	int XML_PROPERTY___MY_TO_STRING = GraphstructurePackage.PRIMITIVE_NODE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3429,22 +3519,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.COMPLEX_NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___MY_TO_STRING = GraphstructurePackage.COMPLEX_NODE___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___GENERATE_CYPHER = GraphstructurePackage.COMPLEX_NODE___GENERATE_CYPHER;
+	int XML_ROOT___GENERATE_QUERY__LANGUAGE = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -3465,31 +3546,94 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___GENERATE_SPARQL = GraphstructurePackage.COMPLEX_NODE___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___GET_CONTAINER = GraphstructurePackage.COMPLEX_NODE___GET_CONTAINER;
+	int XML_ROOT___GENERATE_CYPHER = GraphstructurePackage.COMPLEX_NODE___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___GET_ANCESTOR__CLASS = GraphstructurePackage.COMPLEX_NODE___GET_ANCESTOR__CLASS;
+	int XML_ROOT___GENERATE_XQUERY_JAVA = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___INITIALIZE_TRANSLATION = GraphstructurePackage.COMPLEX_NODE___INITIALIZE_TRANSLATION;
+	int XML_ROOT___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.COMPLEX_NODE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___CREATE_ADAPTION__LANGUAGE = GraphstructurePackage.COMPLEX_NODE___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___CREATE_XML_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___CREATE_RDF_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___CREATE_NEO4J_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___RELATIONS_XML_ADAPTED = GraphstructurePackage.COMPLEX_NODE___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3501,40 +3645,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___PREPARE_TRANSLATION = GraphstructurePackage.COMPLEX_NODE___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___GET_OPERATOR_LIST = GraphstructurePackage.COMPLEX_NODE___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___GET_ALL_OPERATORS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___GET_PARAMETER_LIST = GraphstructurePackage.COMPLEX_NODE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___GET_ALL_PARAMETERS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_PARAMETERS;
+	int XML_ROOT___INITIALIZE_TRANSLATION = GraphstructurePackage.COMPLEX_NODE___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -3582,76 +3699,67 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.COMPLEX_NODE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___RELATIONS_XML_ADAPTED = GraphstructurePackage.COMPLEX_NODE___RELATIONS_XML_ADAPTED;
+	int XML_ROOT___GET_CONTAINER = GraphstructurePackage.COMPLEX_NODE___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___CREATE_XML_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_XML_ADAPTION;
+	int XML_ROOT___GET_ANCESTOR__CLASS = GraphstructurePackage.COMPLEX_NODE___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___CREATE_RDF_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_RDF_ADAPTION;
+	int XML_ROOT___GET_OPERATOR_LIST = GraphstructurePackage.COMPLEX_NODE___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___CREATE_NEO4J_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_NEO4J_ADAPTION;
+	int XML_ROOT___GET_ALL_OPERATORS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.COMPLEX_NODE___CONTAINS_JAVA_OPERATOR;
+	int XML_ROOT___GET_PARAMETER_LIST = GraphstructurePackage.COMPLEX_NODE___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY_FILTER_PART;
+	int XML_ROOT___GET_ALL_PARAMETERS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___GENERATE_XQUERY_JAVA = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA_RETURN;
+	int XML_ROOT___MY_TO_STRING = GraphstructurePackage.COMPLEX_NODE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4194,22 +4302,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = XML_NAVIGATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___MY_TO_STRING = XML_NAVIGATION___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_NAVIGATION___GENERATE_CYPHER = XML_NAVIGATION___GENERATE_CYPHER;
+	int XML_PROPERTY_NAVIGATION___GENERATE_QUERY__LANGUAGE = XML_NAVIGATION___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -4230,31 +4329,94 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION___GENERATE_SPARQL = XML_NAVIGATION___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___GET_CONTAINER = XML_NAVIGATION___GET_CONTAINER;
+	int XML_PROPERTY_NAVIGATION___GENERATE_CYPHER = XML_NAVIGATION___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___GET_ANCESTOR__CLASS = XML_NAVIGATION___GET_ANCESTOR__CLASS;
+	int XML_PROPERTY_NAVIGATION___GENERATE_XQUERY_JAVA = XML_NAVIGATION___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___INITIALIZE_TRANSLATION = XML_NAVIGATION___INITIALIZE_TRANSLATION;
+	int XML_PROPERTY_NAVIGATION___GENERATE_XQUERY_JAVA_RETURN = XML_NAVIGATION___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION___GENERATE_QUERY_FILTER_PART = XML_NAVIGATION___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION___CONTAINS_JAVA_OPERATOR = XML_NAVIGATION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION___CREATE_ADAPTION__LANGUAGE = XML_NAVIGATION___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION___CREATE_XML_ADAPTION = XML_NAVIGATION___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION___CREATE_RDF_ADAPTION = XML_NAVIGATION___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION___CREATE_NEO4J_ADAPTION = XML_NAVIGATION___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION___RELATIONS_XML_ADAPTED = XML_NAVIGATION___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -4266,40 +4428,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION___PREPARE_TRANSLATION = XML_NAVIGATION___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___GET_OPERATOR_LIST = XML_NAVIGATION___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_NAVIGATION___GET_ALL_OPERATORS = XML_NAVIGATION___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_NAVIGATION___GET_PARAMETER_LIST = XML_NAVIGATION___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_NAVIGATION___GET_ALL_PARAMETERS = XML_NAVIGATION___GET_ALL_PARAMETERS;
+	int XML_PROPERTY_NAVIGATION___INITIALIZE_TRANSLATION = XML_NAVIGATION___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -4347,76 +4482,67 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION___RECORD_VALUES__XMLDATADATABASE = XML_NAVIGATION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___RELATIONS_XML_ADAPTED = XML_NAVIGATION___RELATIONS_XML_ADAPTED;
+	int XML_PROPERTY_NAVIGATION___GET_CONTAINER = XML_NAVIGATION___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___CREATE_XML_ADAPTION = XML_NAVIGATION___CREATE_XML_ADAPTION;
+	int XML_PROPERTY_NAVIGATION___GET_ANCESTOR__CLASS = XML_NAVIGATION___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___CREATE_RDF_ADAPTION = XML_NAVIGATION___CREATE_RDF_ADAPTION;
+	int XML_PROPERTY_NAVIGATION___GET_OPERATOR_LIST = XML_NAVIGATION___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___CREATE_NEO4J_ADAPTION = XML_NAVIGATION___CREATE_NEO4J_ADAPTION;
+	int XML_PROPERTY_NAVIGATION___GET_ALL_OPERATORS = XML_NAVIGATION___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___CONTAINS_JAVA_OPERATOR = XML_NAVIGATION___CONTAINS_JAVA_OPERATOR;
+	int XML_PROPERTY_NAVIGATION___GET_PARAMETER_LIST = XML_NAVIGATION___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___GENERATE_QUERY_FILTER_PART = XML_NAVIGATION___GENERATE_QUERY_FILTER_PART;
+	int XML_PROPERTY_NAVIGATION___GET_ALL_PARAMETERS = XML_NAVIGATION___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___GENERATE_XQUERY_JAVA = XML_NAVIGATION___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_NAVIGATION___GENERATE_XQUERY_JAVA_RETURN = XML_NAVIGATION___GENERATE_XQUERY_JAVA_RETURN;
+	int XML_PROPERTY_NAVIGATION___MY_TO_STRING = XML_NAVIGATION___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -4645,22 +4771,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_OPTION_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_OPTION_PARAM___MY_TO_STRING = ParametersPackage.PARAMETER___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_OPTION_PARAM___GENERATE_CYPHER = ParametersPackage.PARAMETER___GENERATE_CYPHER;
+	int XML_AXIS_OPTION_PARAM___GENERATE_QUERY__LANGUAGE = ParametersPackage.PARAMETER___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -4681,31 +4798,94 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_OPTION_PARAM___GENERATE_SPARQL = ParametersPackage.PARAMETER___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_OPTION_PARAM___GET_CONTAINER = ParametersPackage.PARAMETER___GET_CONTAINER;
+	int XML_AXIS_OPTION_PARAM___GENERATE_CYPHER = ParametersPackage.PARAMETER___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_OPTION_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER___GET_ANCESTOR__CLASS;
+	int XML_AXIS_OPTION_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_OPTION_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER___INITIALIZE_TRANSLATION;
+	int XML_AXIS_OPTION_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_OPTION_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_OPTION_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_OPTION_PARAM___CREATE_ADAPTION__LANGUAGE = ParametersPackage.PARAMETER___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_OPTION_PARAM___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_OPTION_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.PARAMETER___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_OPTION_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_OPTION_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -4717,40 +4897,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_OPTION_PARAM___PREPARE_TRANSLATION = ParametersPackage.PARAMETER___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_OPTION_PARAM___GET_OPERATOR_LIST = ParametersPackage.PARAMETER___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_OPTION_PARAM___GET_ALL_OPERATORS = ParametersPackage.PARAMETER___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_OPTION_PARAM___GET_PARAMETER_LIST = ParametersPackage.PARAMETER___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_OPTION_PARAM___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER___GET_ALL_PARAMETERS;
+	int XML_AXIS_OPTION_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -4798,76 +4951,67 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_OPTION_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_OPTION_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
+	int XML_AXIS_OPTION_PARAM___GET_CONTAINER = ParametersPackage.PARAMETER___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_OPTION_PARAM___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
+	int XML_AXIS_OPTION_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_OPTION_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.PARAMETER___CREATE_RDF_ADAPTION;
+	int XML_AXIS_OPTION_PARAM___GET_OPERATOR_LIST = ParametersPackage.PARAMETER___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_OPTION_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER___CREATE_NEO4J_ADAPTION;
+	int XML_AXIS_OPTION_PARAM___GET_ALL_OPERATORS = ParametersPackage.PARAMETER___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_OPTION_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER___CONTAINS_JAVA_OPERATOR;
+	int XML_AXIS_OPTION_PARAM___GET_PARAMETER_LIST = ParametersPackage.PARAMETER___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_OPTION_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER___GENERATE_QUERY_FILTER_PART;
+	int XML_AXIS_OPTION_PARAM___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_OPTION_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_OPTION_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
+	int XML_AXIS_OPTION_PARAM___MY_TO_STRING = ParametersPackage.PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5141,22 +5285,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_OPTION_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPTION_PARAM___MY_TO_STRING = ParametersPackage.PARAMETER___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_OPTION_PARAM___GENERATE_CYPHER = ParametersPackage.PARAMETER___GENERATE_CYPHER;
+	int XML_PROPERTY_OPTION_PARAM___GENERATE_QUERY__LANGUAGE = ParametersPackage.PARAMETER___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -5177,31 +5312,94 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_OPTION_PARAM___GENERATE_SPARQL = ParametersPackage.PARAMETER___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPTION_PARAM___GET_CONTAINER = ParametersPackage.PARAMETER___GET_CONTAINER;
+	int XML_PROPERTY_OPTION_PARAM___GENERATE_CYPHER = ParametersPackage.PARAMETER___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPTION_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER___GET_ANCESTOR__CLASS;
+	int XML_PROPERTY_OPTION_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPTION_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER___INITIALIZE_TRANSLATION;
+	int XML_PROPERTY_OPTION_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_OPTION_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_OPTION_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_OPTION_PARAM___CREATE_ADAPTION__LANGUAGE = ParametersPackage.PARAMETER___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_OPTION_PARAM___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_OPTION_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.PARAMETER___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_OPTION_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_OPTION_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -5213,40 +5411,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_OPTION_PARAM___PREPARE_TRANSLATION = ParametersPackage.PARAMETER___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPTION_PARAM___GET_OPERATOR_LIST = ParametersPackage.PARAMETER___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_OPTION_PARAM___GET_ALL_OPERATORS = ParametersPackage.PARAMETER___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_OPTION_PARAM___GET_PARAMETER_LIST = ParametersPackage.PARAMETER___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_OPTION_PARAM___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER___GET_ALL_PARAMETERS;
+	int XML_PROPERTY_OPTION_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -5294,76 +5465,67 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_OPTION_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPTION_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
+	int XML_PROPERTY_OPTION_PARAM___GET_CONTAINER = ParametersPackage.PARAMETER___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPTION_PARAM___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
+	int XML_PROPERTY_OPTION_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPTION_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.PARAMETER___CREATE_RDF_ADAPTION;
+	int XML_PROPERTY_OPTION_PARAM___GET_OPERATOR_LIST = ParametersPackage.PARAMETER___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPTION_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER___CREATE_NEO4J_ADAPTION;
+	int XML_PROPERTY_OPTION_PARAM___GET_ALL_OPERATORS = ParametersPackage.PARAMETER___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPTION_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER___CONTAINS_JAVA_OPERATOR;
+	int XML_PROPERTY_OPTION_PARAM___GET_PARAMETER_LIST = ParametersPackage.PARAMETER___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPTION_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER___GENERATE_QUERY_FILTER_PART;
+	int XML_PROPERTY_OPTION_PARAM___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPTION_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_OPTION_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
+	int XML_PROPERTY_OPTION_PARAM___MY_TO_STRING = ParametersPackage.PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5627,22 +5789,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.ADAPTABLE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___MY_TO_STRING = GraphstructurePackage.ADAPTABLE___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PATH_PARAM___GENERATE_CYPHER = GraphstructurePackage.ADAPTABLE___GENERATE_CYPHER;
+	int XML_PATH_PARAM___GENERATE_QUERY__LANGUAGE = GraphstructurePackage.ADAPTABLE___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -5663,31 +5816,94 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM___GENERATE_SPARQL = GraphstructurePackage.ADAPTABLE___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___GET_CONTAINER = GraphstructurePackage.ADAPTABLE___GET_CONTAINER;
+	int XML_PATH_PARAM___GENERATE_CYPHER = GraphstructurePackage.ADAPTABLE___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___GET_ANCESTOR__CLASS = GraphstructurePackage.ADAPTABLE___GET_ANCESTOR__CLASS;
+	int XML_PATH_PARAM___GENERATE_XQUERY_JAVA = GraphstructurePackage.ADAPTABLE___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___INITIALIZE_TRANSLATION = GraphstructurePackage.ADAPTABLE___INITIALIZE_TRANSLATION;
+	int XML_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.ADAPTABLE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.ADAPTABLE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.ADAPTABLE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___CREATE_ADAPTION__LANGUAGE = GraphstructurePackage.ADAPTABLE___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___CREATE_XML_ADAPTION = GraphstructurePackage.ADAPTABLE___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___CREATE_RDF_ADAPTION = GraphstructurePackage.ADAPTABLE___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___CREATE_NEO4J_ADAPTION = GraphstructurePackage.ADAPTABLE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PATH_PARAM___RELATIONS_XML_ADAPTED = GraphstructurePackage.ADAPTABLE___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -5699,40 +5915,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM___PREPARE_TRANSLATION = GraphstructurePackage.ADAPTABLE___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___GET_OPERATOR_LIST = GraphstructurePackage.ADAPTABLE___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PATH_PARAM___GET_ALL_OPERATORS = GraphstructurePackage.ADAPTABLE___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PATH_PARAM___GET_PARAMETER_LIST = GraphstructurePackage.ADAPTABLE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PATH_PARAM___GET_ALL_PARAMETERS = GraphstructurePackage.ADAPTABLE___GET_ALL_PARAMETERS;
+	int XML_PATH_PARAM___INITIALIZE_TRANSLATION = GraphstructurePackage.ADAPTABLE___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -5780,76 +5969,67 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.ADAPTABLE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___RELATIONS_XML_ADAPTED = GraphstructurePackage.ADAPTABLE___RELATIONS_XML_ADAPTED;
+	int XML_PATH_PARAM___GET_CONTAINER = GraphstructurePackage.ADAPTABLE___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___CREATE_XML_ADAPTION = GraphstructurePackage.ADAPTABLE___CREATE_XML_ADAPTION;
+	int XML_PATH_PARAM___GET_ANCESTOR__CLASS = GraphstructurePackage.ADAPTABLE___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___CREATE_RDF_ADAPTION = GraphstructurePackage.ADAPTABLE___CREATE_RDF_ADAPTION;
+	int XML_PATH_PARAM___GET_OPERATOR_LIST = GraphstructurePackage.ADAPTABLE___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___CREATE_NEO4J_ADAPTION = GraphstructurePackage.ADAPTABLE___CREATE_NEO4J_ADAPTION;
+	int XML_PATH_PARAM___GET_ALL_OPERATORS = GraphstructurePackage.ADAPTABLE___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.ADAPTABLE___CONTAINS_JAVA_OPERATOR;
+	int XML_PATH_PARAM___GET_PARAMETER_LIST = GraphstructurePackage.ADAPTABLE___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.ADAPTABLE___GENERATE_QUERY_FILTER_PART;
+	int XML_PATH_PARAM___GET_ALL_PARAMETERS = GraphstructurePackage.ADAPTABLE___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PATH_PARAM___GENERATE_XQUERY_JAVA = GraphstructurePackage.ADAPTABLE___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.ADAPTABLE___GENERATE_XQUERY_JAVA_RETURN;
+	int XML_PATH_PARAM___MY_TO_STRING = GraphstructurePackage.ADAPTABLE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -6168,22 +6348,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.ADAPTABLE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___MY_TO_STRING = GraphstructurePackage.ADAPTABLE___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART___GENERATE_CYPHER = GraphstructurePackage.ADAPTABLE___GENERATE_CYPHER;
+	int XML_AXIS_PART___GENERATE_QUERY__LANGUAGE = GraphstructurePackage.ADAPTABLE___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -6204,31 +6375,94 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART___GENERATE_SPARQL = GraphstructurePackage.ADAPTABLE___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___GET_CONTAINER = GraphstructurePackage.ADAPTABLE___GET_CONTAINER;
+	int XML_AXIS_PART___GENERATE_CYPHER = GraphstructurePackage.ADAPTABLE___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___GET_ANCESTOR__CLASS = GraphstructurePackage.ADAPTABLE___GET_ANCESTOR__CLASS;
+	int XML_AXIS_PART___GENERATE_XQUERY_JAVA = GraphstructurePackage.ADAPTABLE___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___INITIALIZE_TRANSLATION = GraphstructurePackage.ADAPTABLE___INITIALIZE_TRANSLATION;
+	int XML_AXIS_PART___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.ADAPTABLE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.ADAPTABLE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.ADAPTABLE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART___CREATE_ADAPTION__LANGUAGE = GraphstructurePackage.ADAPTABLE___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART___CREATE_XML_ADAPTION = GraphstructurePackage.ADAPTABLE___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART___CREATE_RDF_ADAPTION = GraphstructurePackage.ADAPTABLE___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART___CREATE_NEO4J_ADAPTION = GraphstructurePackage.ADAPTABLE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART___RELATIONS_XML_ADAPTED = GraphstructurePackage.ADAPTABLE___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -6240,40 +6474,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART___PREPARE_TRANSLATION = GraphstructurePackage.ADAPTABLE___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___GET_OPERATOR_LIST = GraphstructurePackage.ADAPTABLE___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART___GET_ALL_OPERATORS = GraphstructurePackage.ADAPTABLE___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART___GET_PARAMETER_LIST = GraphstructurePackage.ADAPTABLE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART___GET_ALL_PARAMETERS = GraphstructurePackage.ADAPTABLE___GET_ALL_PARAMETERS;
+	int XML_AXIS_PART___INITIALIZE_TRANSLATION = GraphstructurePackage.ADAPTABLE___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -6321,76 +6528,67 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.ADAPTABLE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___RELATIONS_XML_ADAPTED = GraphstructurePackage.ADAPTABLE___RELATIONS_XML_ADAPTED;
+	int XML_AXIS_PART___GET_CONTAINER = GraphstructurePackage.ADAPTABLE___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___CREATE_XML_ADAPTION = GraphstructurePackage.ADAPTABLE___CREATE_XML_ADAPTION;
+	int XML_AXIS_PART___GET_ANCESTOR__CLASS = GraphstructurePackage.ADAPTABLE___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___CREATE_RDF_ADAPTION = GraphstructurePackage.ADAPTABLE___CREATE_RDF_ADAPTION;
+	int XML_AXIS_PART___GET_OPERATOR_LIST = GraphstructurePackage.ADAPTABLE___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___CREATE_NEO4J_ADAPTION = GraphstructurePackage.ADAPTABLE___CREATE_NEO4J_ADAPTION;
+	int XML_AXIS_PART___GET_ALL_OPERATORS = GraphstructurePackage.ADAPTABLE___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.ADAPTABLE___CONTAINS_JAVA_OPERATOR;
+	int XML_AXIS_PART___GET_PARAMETER_LIST = GraphstructurePackage.ADAPTABLE___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.ADAPTABLE___GENERATE_QUERY_FILTER_PART;
+	int XML_AXIS_PART___GET_ALL_PARAMETERS = GraphstructurePackage.ADAPTABLE___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___GENERATE_XQUERY_JAVA = GraphstructurePackage.ADAPTABLE___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.ADAPTABLE___GENERATE_XQUERY_JAVA_RETURN;
+	int XML_AXIS_PART___MY_TO_STRING = GraphstructurePackage.ADAPTABLE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -6772,22 +6970,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART_CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_CONDITION___MY_TO_STRING = ParametersPackage.PARAMETER___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART_CONDITION___GENERATE_CYPHER = ParametersPackage.PARAMETER___GENERATE_CYPHER;
+	int XML_AXIS_PART_CONDITION___GENERATE_QUERY__LANGUAGE = ParametersPackage.PARAMETER___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -6808,31 +6997,94 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART_CONDITION___GENERATE_SPARQL = ParametersPackage.PARAMETER___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_CONDITION___GET_CONTAINER = ParametersPackage.PARAMETER___GET_CONTAINER;
+	int XML_AXIS_PART_CONDITION___GENERATE_CYPHER = ParametersPackage.PARAMETER___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_CONDITION___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER___GET_ANCESTOR__CLASS;
+	int XML_AXIS_PART_CONDITION___GENERATE_XQUERY_JAVA = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_CONDITION___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER___INITIALIZE_TRANSLATION;
+	int XML_AXIS_PART_CONDITION___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___CREATE_ADAPTION__LANGUAGE = ParametersPackage.PARAMETER___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___CREATE_RDF_ADAPTION = ParametersPackage.PARAMETER___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_AXIS_PART_CONDITION___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -6844,40 +7096,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART_CONDITION___PREPARE_TRANSLATION = ParametersPackage.PARAMETER___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_CONDITION___GET_OPERATOR_LIST = ParametersPackage.PARAMETER___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART_CONDITION___GET_ALL_OPERATORS = ParametersPackage.PARAMETER___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART_CONDITION___GET_PARAMETER_LIST = ParametersPackage.PARAMETER___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART_CONDITION___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER___GET_ALL_PARAMETERS;
+	int XML_AXIS_PART_CONDITION___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -6925,76 +7150,67 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART_CONDITION___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_CONDITION___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
+	int XML_AXIS_PART_CONDITION___GET_CONTAINER = ParametersPackage.PARAMETER___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_CONDITION___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
+	int XML_AXIS_PART_CONDITION___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_CONDITION___CREATE_RDF_ADAPTION = ParametersPackage.PARAMETER___CREATE_RDF_ADAPTION;
+	int XML_AXIS_PART_CONDITION___GET_OPERATOR_LIST = ParametersPackage.PARAMETER___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_CONDITION___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER___CREATE_NEO4J_ADAPTION;
+	int XML_AXIS_PART_CONDITION___GET_ALL_OPERATORS = ParametersPackage.PARAMETER___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_CONDITION___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER___CONTAINS_JAVA_OPERATOR;
+	int XML_AXIS_PART_CONDITION___GET_PARAMETER_LIST = ParametersPackage.PARAMETER___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_CONDITION___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER___GENERATE_QUERY_FILTER_PART;
+	int XML_AXIS_PART_CONDITION___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_CONDITION___GENERATE_XQUERY_JAVA = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART_CONDITION___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
+	int XML_AXIS_PART_CONDITION___MY_TO_STRING = ParametersPackage.PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.

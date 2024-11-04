@@ -327,22 +327,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.COMPLEX_NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_NODE___MY_TO_STRING = GraphstructurePackage.COMPLEX_NODE___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_NODE___GENERATE_CYPHER = GraphstructurePackage.COMPLEX_NODE___GENERATE_CYPHER;
+	int NEO_ELEMENT_NODE___GENERATE_QUERY__LANGUAGE = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -363,31 +354,94 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___GENERATE_SPARQL = GraphstructurePackage.COMPLEX_NODE___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_NODE___GET_CONTAINER = GraphstructurePackage.COMPLEX_NODE___GET_CONTAINER;
+	int NEO_ELEMENT_NODE___GENERATE_CYPHER = GraphstructurePackage.COMPLEX_NODE___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_NODE___GET_ANCESTOR__CLASS = GraphstructurePackage.COMPLEX_NODE___GET_ANCESTOR__CLASS;
+	int NEO_ELEMENT_NODE___GENERATE_XQUERY_JAVA = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_NODE___INITIALIZE_TRANSLATION = GraphstructurePackage.COMPLEX_NODE___INITIALIZE_TRANSLATION;
+	int NEO_ELEMENT_NODE___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.COMPLEX_NODE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___CREATE_ADAPTION__LANGUAGE = GraphstructurePackage.COMPLEX_NODE___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___CREATE_XML_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___CREATE_RDF_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___CREATE_NEO4J_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___RELATIONS_XML_ADAPTED = GraphstructurePackage.COMPLEX_NODE___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -399,40 +453,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___PREPARE_TRANSLATION = GraphstructurePackage.COMPLEX_NODE___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_NODE___GET_OPERATOR_LIST = GraphstructurePackage.COMPLEX_NODE___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_NODE___GET_ALL_OPERATORS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_NODE___GET_PARAMETER_LIST = GraphstructurePackage.COMPLEX_NODE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_NODE___GET_ALL_PARAMETERS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_PARAMETERS;
+	int NEO_ELEMENT_NODE___INITIALIZE_TRANSLATION = GraphstructurePackage.COMPLEX_NODE___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -480,76 +507,67 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.COMPLEX_NODE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_NODE___RELATIONS_XML_ADAPTED = GraphstructurePackage.COMPLEX_NODE___RELATIONS_XML_ADAPTED;
+	int NEO_ELEMENT_NODE___GET_CONTAINER = GraphstructurePackage.COMPLEX_NODE___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_NODE___CREATE_XML_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_XML_ADAPTION;
+	int NEO_ELEMENT_NODE___GET_ANCESTOR__CLASS = GraphstructurePackage.COMPLEX_NODE___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_NODE___CREATE_RDF_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_RDF_ADAPTION;
+	int NEO_ELEMENT_NODE___GET_OPERATOR_LIST = GraphstructurePackage.COMPLEX_NODE___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_NODE___CREATE_NEO4J_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_NEO4J_ADAPTION;
+	int NEO_ELEMENT_NODE___GET_ALL_OPERATORS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_NODE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.COMPLEX_NODE___CONTAINS_JAVA_OPERATOR;
+	int NEO_ELEMENT_NODE___GET_PARAMETER_LIST = GraphstructurePackage.COMPLEX_NODE___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_NODE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY_FILTER_PART;
+	int NEO_ELEMENT_NODE___GET_ALL_PARAMETERS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_NODE___GENERATE_XQUERY_JAVA = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_NODE___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY_JAVA_RETURN;
+	int NEO_ELEMENT_NODE___MY_TO_STRING = GraphstructurePackage.COMPLEX_NODE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1111,22 +1129,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.RELATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE___MY_TO_STRING = GraphstructurePackage.RELATION___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE___GENERATE_CYPHER = GraphstructurePackage.RELATION___GENERATE_CYPHER;
+	int NEO_EDGE___GENERATE_QUERY__LANGUAGE = GraphstructurePackage.RELATION___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -1147,31 +1156,94 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE___GENERATE_SPARQL = GraphstructurePackage.RELATION___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE___GET_CONTAINER = GraphstructurePackage.RELATION___GET_CONTAINER;
+	int NEO_EDGE___GENERATE_CYPHER = GraphstructurePackage.RELATION___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE___GET_ANCESTOR__CLASS = GraphstructurePackage.RELATION___GET_ANCESTOR__CLASS;
+	int NEO_EDGE___GENERATE_XQUERY_JAVA = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE___INITIALIZE_TRANSLATION = GraphstructurePackage.RELATION___INITIALIZE_TRANSLATION;
+	int NEO_EDGE___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.RELATION___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.RELATION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___CREATE_ADAPTION__LANGUAGE = GraphstructurePackage.RELATION___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___CREATE_XML_ADAPTION = GraphstructurePackage.RELATION___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___CREATE_RDF_ADAPTION = GraphstructurePackage.RELATION___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___CREATE_NEO4J_ADAPTION = GraphstructurePackage.RELATION___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE___RELATIONS_XML_ADAPTED = GraphstructurePackage.RELATION___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1183,40 +1255,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE___PREPARE_TRANSLATION = GraphstructurePackage.RELATION___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE___GET_OPERATOR_LIST = GraphstructurePackage.RELATION___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE___GET_ALL_OPERATORS = GraphstructurePackage.RELATION___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE___GET_PARAMETER_LIST = GraphstructurePackage.RELATION___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE___GET_ALL_PARAMETERS = GraphstructurePackage.RELATION___GET_ALL_PARAMETERS;
+	int NEO_EDGE___INITIALIZE_TRANSLATION = GraphstructurePackage.RELATION___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -1264,76 +1309,67 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE___RELATIONS_XML_ADAPTED = GraphstructurePackage.RELATION___RELATIONS_XML_ADAPTED;
+	int NEO_EDGE___GET_CONTAINER = GraphstructurePackage.RELATION___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE___CREATE_XML_ADAPTION = GraphstructurePackage.RELATION___CREATE_XML_ADAPTION;
+	int NEO_EDGE___GET_ANCESTOR__CLASS = GraphstructurePackage.RELATION___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE___CREATE_RDF_ADAPTION = GraphstructurePackage.RELATION___CREATE_RDF_ADAPTION;
+	int NEO_EDGE___GET_OPERATOR_LIST = GraphstructurePackage.RELATION___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE___CREATE_NEO4J_ADAPTION = GraphstructurePackage.RELATION___CREATE_NEO4J_ADAPTION;
+	int NEO_EDGE___GET_ALL_OPERATORS = GraphstructurePackage.RELATION___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.RELATION___CONTAINS_JAVA_OPERATOR;
+	int NEO_EDGE___GET_PARAMETER_LIST = GraphstructurePackage.RELATION___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.RELATION___GENERATE_QUERY_FILTER_PART;
+	int NEO_EDGE___GET_ALL_PARAMETERS = GraphstructurePackage.RELATION___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE___GENERATE_XQUERY_JAVA = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.RELATION___GENERATE_XQUERY_JAVA_RETURN;
+	int NEO_EDGE___MY_TO_STRING = GraphstructurePackage.RELATION___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -1607,22 +1643,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_EDGE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NEO_EDGE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_EDGE___MY_TO_STRING = NEO_EDGE___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_EDGE___GENERATE_CYPHER = NEO_EDGE___GENERATE_CYPHER;
+	int NEO_ELEMENT_EDGE___GENERATE_QUERY__LANGUAGE = NEO_EDGE___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -1643,31 +1670,94 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_EDGE___GENERATE_SPARQL = NEO_EDGE___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_EDGE___GET_CONTAINER = NEO_EDGE___GET_CONTAINER;
+	int NEO_ELEMENT_EDGE___GENERATE_CYPHER = NEO_EDGE___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_EDGE___GET_ANCESTOR__CLASS = NEO_EDGE___GET_ANCESTOR__CLASS;
+	int NEO_ELEMENT_EDGE___GENERATE_XQUERY_JAVA = NEO_EDGE___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_EDGE___INITIALIZE_TRANSLATION = NEO_EDGE___INITIALIZE_TRANSLATION;
+	int NEO_ELEMENT_EDGE___GENERATE_XQUERY_JAVA_RETURN = NEO_EDGE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_EDGE___GENERATE_QUERY_FILTER_PART = NEO_EDGE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_EDGE___CONTAINS_JAVA_OPERATOR = NEO_EDGE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_EDGE___CREATE_ADAPTION__LANGUAGE = NEO_EDGE___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_EDGE___CREATE_XML_ADAPTION = NEO_EDGE___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_EDGE___CREATE_RDF_ADAPTION = NEO_EDGE___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_EDGE___CREATE_NEO4J_ADAPTION = NEO_EDGE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_EDGE___RELATIONS_XML_ADAPTED = NEO_EDGE___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1679,40 +1769,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_EDGE___PREPARE_TRANSLATION = NEO_EDGE___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_EDGE___GET_OPERATOR_LIST = NEO_EDGE___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_EDGE___GET_ALL_OPERATORS = NEO_EDGE___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_EDGE___GET_PARAMETER_LIST = NEO_EDGE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_EDGE___GET_ALL_PARAMETERS = NEO_EDGE___GET_ALL_PARAMETERS;
+	int NEO_ELEMENT_EDGE___INITIALIZE_TRANSLATION = NEO_EDGE___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -1760,76 +1823,67 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_EDGE___RECORD_VALUES__XMLDATADATABASE = NEO_EDGE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_EDGE___RELATIONS_XML_ADAPTED = NEO_EDGE___RELATIONS_XML_ADAPTED;
+	int NEO_ELEMENT_EDGE___GET_CONTAINER = NEO_EDGE___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_EDGE___CREATE_XML_ADAPTION = NEO_EDGE___CREATE_XML_ADAPTION;
+	int NEO_ELEMENT_EDGE___GET_ANCESTOR__CLASS = NEO_EDGE___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_EDGE___CREATE_RDF_ADAPTION = NEO_EDGE___CREATE_RDF_ADAPTION;
+	int NEO_ELEMENT_EDGE___GET_OPERATOR_LIST = NEO_EDGE___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_EDGE___CREATE_NEO4J_ADAPTION = NEO_EDGE___CREATE_NEO4J_ADAPTION;
+	int NEO_ELEMENT_EDGE___GET_ALL_OPERATORS = NEO_EDGE___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_EDGE___CONTAINS_JAVA_OPERATOR = NEO_EDGE___CONTAINS_JAVA_OPERATOR;
+	int NEO_ELEMENT_EDGE___GET_PARAMETER_LIST = NEO_EDGE___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_EDGE___GENERATE_QUERY_FILTER_PART = NEO_EDGE___GENERATE_QUERY_FILTER_PART;
+	int NEO_ELEMENT_EDGE___GET_ALL_PARAMETERS = NEO_EDGE___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_EDGE___GENERATE_XQUERY_JAVA = NEO_EDGE___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_EDGE___GENERATE_XQUERY_JAVA_RETURN = NEO_EDGE___GENERATE_XQUERY_JAVA_RETURN;
+	int NEO_ELEMENT_EDGE___MY_TO_STRING = NEO_EDGE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -2049,22 +2103,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PART___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PART___GENERATE_CYPHER = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_CYPHER;
+	int NEO_PATH_PART___GENERATE_QUERY__LANGUAGE = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -2085,31 +2130,94 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PART___GENERATE_SPARQL = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___GET_CONTAINER = PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER;
+	int NEO_PATH_PART___GENERATE_CYPHER = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
+	int NEO_PATH_PART___GENERATE_XQUERY_JAVA = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___INITIALIZE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
+	int NEO_PATH_PART___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___CREATE_ADAPTION__LANGUAGE = PatternstructurePackage.PATTERN_ELEMENT___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___CREATE_XML_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___CREATE_RDF_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2121,40 +2229,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PART___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PART___GET_ALL_OPERATORS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PART___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PART___GET_ALL_PARAMETERS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_PARAMETERS;
+	int NEO_PATH_PART___INITIALIZE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -2202,76 +2283,67 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PART___RECORD_VALUES__XMLDATADATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+	int NEO_PATH_PART___GET_CONTAINER = PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___CREATE_XML_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+	int NEO_PATH_PART___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___CREATE_RDF_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+	int NEO_PATH_PART___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+	int NEO_PATH_PART___GET_ALL_OPERATORS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___CONTAINS_JAVA_OPERATOR = PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+	int NEO_PATH_PART___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___GENERATE_QUERY_FILTER_PART = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+	int NEO_PATH_PART___GET_ALL_PARAMETERS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART___GENERATE_XQUERY_JAVA = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PART___GENERATE_XQUERY_JAVA_RETURN = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
+	int NEO_PATH_PART___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
@@ -2428,22 +2500,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_COMPLEX_EDGE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NEO_PATH_PART___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___MY_TO_STRING = NEO_PATH_PART___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_COMPLEX_EDGE___GENERATE_CYPHER = NEO_PATH_PART___GENERATE_CYPHER;
+	int NEO_COMPLEX_EDGE___GENERATE_QUERY__LANGUAGE = NEO_PATH_PART___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -2464,31 +2527,94 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_COMPLEX_EDGE___GENERATE_SPARQL = NEO_PATH_PART___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___GET_CONTAINER = NEO_PATH_PART___GET_CONTAINER;
+	int NEO_COMPLEX_EDGE___GENERATE_CYPHER = NEO_PATH_PART___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___GET_ANCESTOR__CLASS = NEO_PATH_PART___GET_ANCESTOR__CLASS;
+	int NEO_COMPLEX_EDGE___GENERATE_XQUERY_JAVA = NEO_PATH_PART___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___INITIALIZE_TRANSLATION = NEO_PATH_PART___INITIALIZE_TRANSLATION;
+	int NEO_COMPLEX_EDGE___GENERATE_XQUERY_JAVA_RETURN = NEO_PATH_PART___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___GENERATE_QUERY_FILTER_PART = NEO_PATH_PART___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___CONTAINS_JAVA_OPERATOR = NEO_PATH_PART___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___CREATE_ADAPTION__LANGUAGE = NEO_PATH_PART___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___CREATE_XML_ADAPTION = NEO_PATH_PART___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___CREATE_RDF_ADAPTION = NEO_PATH_PART___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___CREATE_NEO4J_ADAPTION = NEO_PATH_PART___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___RELATIONS_XML_ADAPTED = NEO_PATH_PART___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2500,40 +2626,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_COMPLEX_EDGE___PREPARE_TRANSLATION = NEO_PATH_PART___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___GET_OPERATOR_LIST = NEO_PATH_PART___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_COMPLEX_EDGE___GET_ALL_OPERATORS = NEO_PATH_PART___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_COMPLEX_EDGE___GET_PARAMETER_LIST = NEO_PATH_PART___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_COMPLEX_EDGE___GET_ALL_PARAMETERS = NEO_PATH_PART___GET_ALL_PARAMETERS;
+	int NEO_COMPLEX_EDGE___INITIALIZE_TRANSLATION = NEO_PATH_PART___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -2581,76 +2680,67 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_COMPLEX_EDGE___RECORD_VALUES__XMLDATADATABASE = NEO_PATH_PART___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___RELATIONS_XML_ADAPTED = NEO_PATH_PART___RELATIONS_XML_ADAPTED;
+	int NEO_COMPLEX_EDGE___GET_CONTAINER = NEO_PATH_PART___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___CREATE_XML_ADAPTION = NEO_PATH_PART___CREATE_XML_ADAPTION;
+	int NEO_COMPLEX_EDGE___GET_ANCESTOR__CLASS = NEO_PATH_PART___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___CREATE_RDF_ADAPTION = NEO_PATH_PART___CREATE_RDF_ADAPTION;
+	int NEO_COMPLEX_EDGE___GET_OPERATOR_LIST = NEO_PATH_PART___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___CREATE_NEO4J_ADAPTION = NEO_PATH_PART___CREATE_NEO4J_ADAPTION;
+	int NEO_COMPLEX_EDGE___GET_ALL_OPERATORS = NEO_PATH_PART___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___CONTAINS_JAVA_OPERATOR = NEO_PATH_PART___CONTAINS_JAVA_OPERATOR;
+	int NEO_COMPLEX_EDGE___GET_PARAMETER_LIST = NEO_PATH_PART___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___GENERATE_QUERY_FILTER_PART = NEO_PATH_PART___GENERATE_QUERY_FILTER_PART;
+	int NEO_COMPLEX_EDGE___GET_ALL_PARAMETERS = NEO_PATH_PART___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_COMPLEX_EDGE___GENERATE_XQUERY_JAVA = NEO_PATH_PART___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_COMPLEX_EDGE___GENERATE_XQUERY_JAVA_RETURN = NEO_PATH_PART___GENERATE_XQUERY_JAVA_RETURN;
+	int NEO_COMPLEX_EDGE___MY_TO_STRING = NEO_PATH_PART___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
@@ -2861,22 +2951,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NEO_PATH_PART___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___MY_TO_STRING = NEO_PATH_PART___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_SIMPLE_EDGE___GENERATE_CYPHER = NEO_PATH_PART___GENERATE_CYPHER;
+	int NEO_SIMPLE_EDGE___GENERATE_QUERY__LANGUAGE = NEO_PATH_PART___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -2897,31 +2978,94 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___GENERATE_SPARQL = NEO_PATH_PART___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___GET_CONTAINER = NEO_PATH_PART___GET_CONTAINER;
+	int NEO_SIMPLE_EDGE___GENERATE_CYPHER = NEO_PATH_PART___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___GET_ANCESTOR__CLASS = NEO_PATH_PART___GET_ANCESTOR__CLASS;
+	int NEO_SIMPLE_EDGE___GENERATE_XQUERY_JAVA = NEO_PATH_PART___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___INITIALIZE_TRANSLATION = NEO_PATH_PART___INITIALIZE_TRANSLATION;
+	int NEO_SIMPLE_EDGE___GENERATE_XQUERY_JAVA_RETURN = NEO_PATH_PART___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___GENERATE_QUERY_FILTER_PART = NEO_PATH_PART___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___CONTAINS_JAVA_OPERATOR = NEO_PATH_PART___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___CREATE_ADAPTION__LANGUAGE = NEO_PATH_PART___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___CREATE_XML_ADAPTION = NEO_PATH_PART___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___CREATE_RDF_ADAPTION = NEO_PATH_PART___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___CREATE_NEO4J_ADAPTION = NEO_PATH_PART___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___RELATIONS_XML_ADAPTED = NEO_PATH_PART___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2933,40 +3077,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___PREPARE_TRANSLATION = NEO_PATH_PART___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___GET_OPERATOR_LIST = NEO_PATH_PART___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_SIMPLE_EDGE___GET_ALL_OPERATORS = NEO_PATH_PART___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_SIMPLE_EDGE___GET_PARAMETER_LIST = NEO_PATH_PART___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_SIMPLE_EDGE___GET_ALL_PARAMETERS = NEO_PATH_PART___GET_ALL_PARAMETERS;
+	int NEO_SIMPLE_EDGE___INITIALIZE_TRANSLATION = NEO_PATH_PART___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -3014,76 +3131,67 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___RECORD_VALUES__XMLDATADATABASE = NEO_PATH_PART___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___RELATIONS_XML_ADAPTED = NEO_PATH_PART___RELATIONS_XML_ADAPTED;
+	int NEO_SIMPLE_EDGE___GET_CONTAINER = NEO_PATH_PART___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___CREATE_XML_ADAPTION = NEO_PATH_PART___CREATE_XML_ADAPTION;
+	int NEO_SIMPLE_EDGE___GET_ANCESTOR__CLASS = NEO_PATH_PART___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___CREATE_RDF_ADAPTION = NEO_PATH_PART___CREATE_RDF_ADAPTION;
+	int NEO_SIMPLE_EDGE___GET_OPERATOR_LIST = NEO_PATH_PART___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___CREATE_NEO4J_ADAPTION = NEO_PATH_PART___CREATE_NEO4J_ADAPTION;
+	int NEO_SIMPLE_EDGE___GET_ALL_OPERATORS = NEO_PATH_PART___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___CONTAINS_JAVA_OPERATOR = NEO_PATH_PART___CONTAINS_JAVA_OPERATOR;
+	int NEO_SIMPLE_EDGE___GET_PARAMETER_LIST = NEO_PATH_PART___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___GENERATE_QUERY_FILTER_PART = NEO_PATH_PART___GENERATE_QUERY_FILTER_PART;
+	int NEO_SIMPLE_EDGE___GET_ALL_PARAMETERS = NEO_PATH_PART___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE___GENERATE_XQUERY_JAVA = NEO_PATH_PART___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_SIMPLE_EDGE___GENERATE_XQUERY_JAVA_RETURN = NEO_PATH_PART___GENERATE_XQUERY_JAVA_RETURN;
+	int NEO_SIMPLE_EDGE___MY_TO_STRING = NEO_PATH_PART___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Neo Path Part Edge Leafs</em>' operation.
@@ -3384,22 +3492,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.PRIMITIVE_NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___MY_TO_STRING = GraphstructurePackage.PRIMITIVE_NODE___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NODE___GENERATE_CYPHER = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_CYPHER;
+	int NEO_PROPERTY_NODE___GENERATE_QUERY__LANGUAGE = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -3420,31 +3519,94 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NODE___GENERATE_SPARQL = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___GET_CONTAINER = GraphstructurePackage.PRIMITIVE_NODE___GET_CONTAINER;
+	int NEO_PROPERTY_NODE___GENERATE_CYPHER = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___GET_ANCESTOR__CLASS = GraphstructurePackage.PRIMITIVE_NODE___GET_ANCESTOR__CLASS;
+	int NEO_PROPERTY_NODE___GENERATE_XQUERY_JAVA = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___INITIALIZE_TRANSLATION = GraphstructurePackage.PRIMITIVE_NODE___INITIALIZE_TRANSLATION;
+	int NEO_PROPERTY_NODE___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.PRIMITIVE_NODE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___CREATE_ADAPTION__LANGUAGE = GraphstructurePackage.PRIMITIVE_NODE___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___CREATE_XML_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___CREATE_RDF_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___CREATE_NEO4J_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___RELATIONS_XML_ADAPTED = GraphstructurePackage.PRIMITIVE_NODE___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3456,40 +3618,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NODE___PREPARE_TRANSLATION = GraphstructurePackage.PRIMITIVE_NODE___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___GET_OPERATOR_LIST = GraphstructurePackage.PRIMITIVE_NODE___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NODE___GET_ALL_OPERATORS = GraphstructurePackage.PRIMITIVE_NODE___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NODE___GET_PARAMETER_LIST = GraphstructurePackage.PRIMITIVE_NODE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NODE___GET_ALL_PARAMETERS = GraphstructurePackage.PRIMITIVE_NODE___GET_ALL_PARAMETERS;
+	int NEO_PROPERTY_NODE___INITIALIZE_TRANSLATION = GraphstructurePackage.PRIMITIVE_NODE___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -3537,76 +3672,67 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NODE___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.PRIMITIVE_NODE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___RELATIONS_XML_ADAPTED = GraphstructurePackage.PRIMITIVE_NODE___RELATIONS_XML_ADAPTED;
+	int NEO_PROPERTY_NODE___GET_CONTAINER = GraphstructurePackage.PRIMITIVE_NODE___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___CREATE_XML_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___CREATE_XML_ADAPTION;
+	int NEO_PROPERTY_NODE___GET_ANCESTOR__CLASS = GraphstructurePackage.PRIMITIVE_NODE___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___CREATE_RDF_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___CREATE_RDF_ADAPTION;
+	int NEO_PROPERTY_NODE___GET_OPERATOR_LIST = GraphstructurePackage.PRIMITIVE_NODE___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___CREATE_NEO4J_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___CREATE_NEO4J_ADAPTION;
+	int NEO_PROPERTY_NODE___GET_ALL_OPERATORS = GraphstructurePackage.PRIMITIVE_NODE___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___CONTAINS_JAVA_OPERATOR = GraphstructurePackage.PRIMITIVE_NODE___CONTAINS_JAVA_OPERATOR;
+	int NEO_PROPERTY_NODE___GET_PARAMETER_LIST = GraphstructurePackage.PRIMITIVE_NODE___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___GENERATE_QUERY_FILTER_PART = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_QUERY_FILTER_PART;
+	int NEO_PROPERTY_NODE___GET_ALL_PARAMETERS = GraphstructurePackage.PRIMITIVE_NODE___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NODE___GENERATE_XQUERY_JAVA = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NODE___GENERATE_XQUERY_JAVA_RETURN = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_XQUERY_JAVA_RETURN;
+	int NEO_PROPERTY_NODE___MY_TO_STRING = GraphstructurePackage.PRIMITIVE_NODE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4150,22 +4276,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM___MY_TO_STRING = ParametersPackage.PARAMETER___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PARAM___GENERATE_CYPHER = ParametersPackage.PARAMETER___GENERATE_CYPHER;
+	int NEO_PATH_PARAM___GENERATE_QUERY__LANGUAGE = ParametersPackage.PARAMETER___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -4186,31 +4303,94 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PARAM___GENERATE_SPARQL = ParametersPackage.PARAMETER___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM___GET_CONTAINER = ParametersPackage.PARAMETER___GET_CONTAINER;
+	int NEO_PATH_PARAM___GENERATE_CYPHER = ParametersPackage.PARAMETER___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER___GET_ANCESTOR__CLASS;
+	int NEO_PATH_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER___INITIALIZE_TRANSLATION;
+	int NEO_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PARAM___CREATE_ADAPTION__LANGUAGE = ParametersPackage.PARAMETER___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PARAM___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.PARAMETER___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -4222,40 +4402,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PARAM___PREPARE_TRANSLATION = ParametersPackage.PARAMETER___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM___GET_OPERATOR_LIST = ParametersPackage.PARAMETER___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PARAM___GET_ALL_OPERATORS = ParametersPackage.PARAMETER___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PARAM___GET_PARAMETER_LIST = ParametersPackage.PARAMETER___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PARAM___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER___GET_ALL_PARAMETERS;
+	int NEO_PATH_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -4303,76 +4456,67 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
+	int NEO_PATH_PARAM___GET_CONTAINER = ParametersPackage.PARAMETER___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
+	int NEO_PATH_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.PARAMETER___CREATE_RDF_ADAPTION;
+	int NEO_PATH_PARAM___GET_OPERATOR_LIST = ParametersPackage.PARAMETER___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER___CREATE_NEO4J_ADAPTION;
+	int NEO_PATH_PARAM___GET_ALL_OPERATORS = ParametersPackage.PARAMETER___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.PARAMETER___CONTAINS_JAVA_OPERATOR;
+	int NEO_PATH_PARAM___GET_PARAMETER_LIST = ParametersPackage.PARAMETER___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.PARAMETER___GENERATE_QUERY_FILTER_PART;
+	int NEO_PATH_PARAM___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.PARAMETER___GENERATE_XQUERY_JAVA_RETURN;
+	int NEO_PATH_PARAM___MY_TO_STRING = ParametersPackage.PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4628,22 +4772,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NEO_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___MY_TO_STRING = NEO_PATH_PARAM___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_PATH_PARAM___GENERATE_CYPHER = NEO_PATH_PARAM___GENERATE_CYPHER;
+	int NEO_ELEMENT_PATH_PARAM___GENERATE_QUERY__LANGUAGE = NEO_PATH_PARAM___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -4664,31 +4799,94 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_PATH_PARAM___GENERATE_SPARQL = NEO_PATH_PARAM___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_CONTAINER = NEO_PATH_PARAM___GET_CONTAINER;
+	int NEO_ELEMENT_PATH_PARAM___GENERATE_CYPHER = NEO_PATH_PARAM___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_ANCESTOR__CLASS = NEO_PATH_PARAM___GET_ANCESTOR__CLASS;
+	int NEO_ELEMENT_PATH_PARAM___GENERATE_XQUERY_JAVA = NEO_PATH_PARAM___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___INITIALIZE_TRANSLATION = NEO_PATH_PARAM___INITIALIZE_TRANSLATION;
+	int NEO_ELEMENT_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN = NEO_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_PATH_PARAM___GENERATE_QUERY_FILTER_PART = NEO_PATH_PARAM___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_PATH_PARAM___CONTAINS_JAVA_OPERATOR = NEO_PATH_PARAM___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_PATH_PARAM___CREATE_ADAPTION__LANGUAGE = NEO_PATH_PARAM___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_PATH_PARAM___CREATE_XML_ADAPTION = NEO_PATH_PARAM___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_PATH_PARAM___CREATE_RDF_ADAPTION = NEO_PATH_PARAM___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_PATH_PARAM___CREATE_NEO4J_ADAPTION = NEO_PATH_PARAM___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_PATH_PARAM___RELATIONS_XML_ADAPTED = NEO_PATH_PARAM___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -4700,40 +4898,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_PATH_PARAM___PREPARE_TRANSLATION = NEO_PATH_PARAM___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_OPERATOR_LIST = NEO_PATH_PARAM___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_ALL_OPERATORS = NEO_PATH_PARAM___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_PARAMETER_LIST = NEO_PATH_PARAM___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_PATH_PARAM___GET_ALL_PARAMETERS = NEO_PATH_PARAM___GET_ALL_PARAMETERS;
+	int NEO_ELEMENT_PATH_PARAM___INITIALIZE_TRANSLATION = NEO_PATH_PARAM___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -4781,76 +4952,67 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = NEO_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___RELATIONS_XML_ADAPTED = NEO_PATH_PARAM___RELATIONS_XML_ADAPTED;
+	int NEO_ELEMENT_PATH_PARAM___GET_CONTAINER = NEO_PATH_PARAM___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___CREATE_XML_ADAPTION = NEO_PATH_PARAM___CREATE_XML_ADAPTION;
+	int NEO_ELEMENT_PATH_PARAM___GET_ANCESTOR__CLASS = NEO_PATH_PARAM___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___CREATE_RDF_ADAPTION = NEO_PATH_PARAM___CREATE_RDF_ADAPTION;
+	int NEO_ELEMENT_PATH_PARAM___GET_OPERATOR_LIST = NEO_PATH_PARAM___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___CREATE_NEO4J_ADAPTION = NEO_PATH_PARAM___CREATE_NEO4J_ADAPTION;
+	int NEO_ELEMENT_PATH_PARAM___GET_ALL_OPERATORS = NEO_PATH_PARAM___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___CONTAINS_JAVA_OPERATOR = NEO_PATH_PARAM___CONTAINS_JAVA_OPERATOR;
+	int NEO_ELEMENT_PATH_PARAM___GET_PARAMETER_LIST = NEO_PATH_PARAM___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GENERATE_QUERY_FILTER_PART = NEO_PATH_PARAM___GENERATE_QUERY_FILTER_PART;
+	int NEO_ELEMENT_PATH_PARAM___GET_ALL_PARAMETERS = NEO_PATH_PARAM___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ELEMENT_PATH_PARAM___GENERATE_XQUERY_JAVA = NEO_PATH_PARAM___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN = NEO_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN;
+	int NEO_ELEMENT_PATH_PARAM___MY_TO_STRING = NEO_PATH_PARAM___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5115,22 +5277,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NEO_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___MY_TO_STRING = NEO_PATH_PARAM___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_PATH_PARAM___GENERATE_CYPHER = NEO_PATH_PARAM___GENERATE_CYPHER;
+	int NEO_PROPERTY_PATH_PARAM___GENERATE_QUERY__LANGUAGE = NEO_PATH_PARAM___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -5151,31 +5304,94 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_PATH_PARAM___GENERATE_SPARQL = NEO_PATH_PARAM___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_CONTAINER = NEO_PATH_PARAM___GET_CONTAINER;
+	int NEO_PROPERTY_PATH_PARAM___GENERATE_CYPHER = NEO_PATH_PARAM___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_ANCESTOR__CLASS = NEO_PATH_PARAM___GET_ANCESTOR__CLASS;
+	int NEO_PROPERTY_PATH_PARAM___GENERATE_XQUERY_JAVA = NEO_PATH_PARAM___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___INITIALIZE_TRANSLATION = NEO_PATH_PARAM___INITIALIZE_TRANSLATION;
+	int NEO_PROPERTY_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN = NEO_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM___GENERATE_QUERY_FILTER_PART = NEO_PATH_PARAM___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM___CONTAINS_JAVA_OPERATOR = NEO_PATH_PARAM___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM___CREATE_ADAPTION__LANGUAGE = NEO_PATH_PARAM___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM___CREATE_XML_ADAPTION = NEO_PATH_PARAM___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM___CREATE_RDF_ADAPTION = NEO_PATH_PARAM___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM___CREATE_NEO4J_ADAPTION = NEO_PATH_PARAM___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM___RELATIONS_XML_ADAPTED = NEO_PATH_PARAM___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -5187,40 +5403,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_PATH_PARAM___PREPARE_TRANSLATION = NEO_PATH_PARAM___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_OPERATOR_LIST = NEO_PATH_PARAM___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_ALL_OPERATORS = NEO_PATH_PARAM___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_PARAMETER_LIST = NEO_PATH_PARAM___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_PATH_PARAM___GET_ALL_PARAMETERS = NEO_PATH_PARAM___GET_ALL_PARAMETERS;
+	int NEO_PROPERTY_PATH_PARAM___INITIALIZE_TRANSLATION = NEO_PATH_PARAM___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -5268,76 +5457,67 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = NEO_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___RELATIONS_XML_ADAPTED = NEO_PATH_PARAM___RELATIONS_XML_ADAPTED;
+	int NEO_PROPERTY_PATH_PARAM___GET_CONTAINER = NEO_PATH_PARAM___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___CREATE_XML_ADAPTION = NEO_PATH_PARAM___CREATE_XML_ADAPTION;
+	int NEO_PROPERTY_PATH_PARAM___GET_ANCESTOR__CLASS = NEO_PATH_PARAM___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___CREATE_RDF_ADAPTION = NEO_PATH_PARAM___CREATE_RDF_ADAPTION;
+	int NEO_PROPERTY_PATH_PARAM___GET_OPERATOR_LIST = NEO_PATH_PARAM___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___CREATE_NEO4J_ADAPTION = NEO_PATH_PARAM___CREATE_NEO4J_ADAPTION;
+	int NEO_PROPERTY_PATH_PARAM___GET_ALL_OPERATORS = NEO_PATH_PARAM___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___CONTAINS_JAVA_OPERATOR = NEO_PATH_PARAM___CONTAINS_JAVA_OPERATOR;
+	int NEO_PROPERTY_PATH_PARAM___GET_PARAMETER_LIST = NEO_PATH_PARAM___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GENERATE_QUERY_FILTER_PART = NEO_PATH_PARAM___GENERATE_QUERY_FILTER_PART;
+	int NEO_PROPERTY_PATH_PARAM___GET_ALL_PARAMETERS = NEO_PATH_PARAM___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM___GENERATE_XQUERY_JAVA = NEO_PATH_PARAM___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN = NEO_PATH_PARAM___GENERATE_XQUERY_JAVA_RETURN;
+	int NEO_PROPERTY_PATH_PARAM___MY_TO_STRING = NEO_PATH_PARAM___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -5629,22 +5809,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NEO_EDGE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE___MY_TO_STRING = NEO_EDGE___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_EDGE___GENERATE_CYPHER = NEO_EDGE___GENERATE_CYPHER;
+	int NEO_PROPERTY_EDGE___GENERATE_QUERY__LANGUAGE = NEO_EDGE___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -5665,31 +5836,94 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___GENERATE_SPARQL = NEO_EDGE___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE___GET_CONTAINER = NEO_EDGE___GET_CONTAINER;
+	int NEO_PROPERTY_EDGE___GENERATE_CYPHER = NEO_EDGE___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE___GET_ANCESTOR__CLASS = NEO_EDGE___GET_ANCESTOR__CLASS;
+	int NEO_PROPERTY_EDGE___GENERATE_XQUERY_JAVA = NEO_EDGE___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE___INITIALIZE_TRANSLATION = NEO_EDGE___INITIALIZE_TRANSLATION;
+	int NEO_PROPERTY_EDGE___GENERATE_XQUERY_JAVA_RETURN = NEO_EDGE___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___GENERATE_QUERY_FILTER_PART = NEO_EDGE___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___CONTAINS_JAVA_OPERATOR = NEO_EDGE___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___CREATE_ADAPTION__LANGUAGE = NEO_EDGE___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___CREATE_XML_ADAPTION = NEO_EDGE___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___CREATE_RDF_ADAPTION = NEO_EDGE___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___CREATE_NEO4J_ADAPTION = NEO_EDGE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_EDGE___RELATIONS_XML_ADAPTED = NEO_EDGE___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -5701,40 +5935,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___PREPARE_TRANSLATION = NEO_EDGE___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE___GET_OPERATOR_LIST = NEO_EDGE___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_EDGE___GET_ALL_OPERATORS = NEO_EDGE___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_EDGE___GET_PARAMETER_LIST = NEO_EDGE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_EDGE___GET_ALL_PARAMETERS = NEO_EDGE___GET_ALL_PARAMETERS;
+	int NEO_PROPERTY_EDGE___INITIALIZE_TRANSLATION = NEO_EDGE___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -5782,76 +5989,67 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_EDGE___RECORD_VALUES__XMLDATADATABASE = NEO_EDGE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE___RELATIONS_XML_ADAPTED = NEO_EDGE___RELATIONS_XML_ADAPTED;
+	int NEO_PROPERTY_EDGE___GET_CONTAINER = NEO_EDGE___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE___CREATE_XML_ADAPTION = NEO_EDGE___CREATE_XML_ADAPTION;
+	int NEO_PROPERTY_EDGE___GET_ANCESTOR__CLASS = NEO_EDGE___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE___CREATE_RDF_ADAPTION = NEO_EDGE___CREATE_RDF_ADAPTION;
+	int NEO_PROPERTY_EDGE___GET_OPERATOR_LIST = NEO_EDGE___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE___CREATE_NEO4J_ADAPTION = NEO_EDGE___CREATE_NEO4J_ADAPTION;
+	int NEO_PROPERTY_EDGE___GET_ALL_OPERATORS = NEO_EDGE___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE___CONTAINS_JAVA_OPERATOR = NEO_EDGE___CONTAINS_JAVA_OPERATOR;
+	int NEO_PROPERTY_EDGE___GET_PARAMETER_LIST = NEO_EDGE___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE___GENERATE_QUERY_FILTER_PART = NEO_EDGE___GENERATE_QUERY_FILTER_PART;
+	int NEO_PROPERTY_EDGE___GET_ALL_PARAMETERS = NEO_EDGE___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE___GENERATE_XQUERY_JAVA = NEO_EDGE___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_EDGE___GENERATE_XQUERY_JAVA_RETURN = NEO_EDGE___GENERATE_XQUERY_JAVA_RETURN;
+	int NEO_PROPERTY_EDGE___MY_TO_STRING = NEO_EDGE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -6134,22 +6332,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_NODE_LABELS_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.TEXT_LIST_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_LABELS_PARAM___MY_TO_STRING = ParametersPackage.TEXT_LIST_PARAM___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE_LABELS_PARAM___GENERATE_CYPHER = ParametersPackage.TEXT_LIST_PARAM___GENERATE_CYPHER;
+	int NEO_NODE_LABELS_PARAM___GENERATE_QUERY__LANGUAGE = ParametersPackage.TEXT_LIST_PARAM___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -6170,31 +6359,94 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_NODE_LABELS_PARAM___GENERATE_SPARQL = ParametersPackage.TEXT_LIST_PARAM___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_LABELS_PARAM___GET_CONTAINER = ParametersPackage.TEXT_LIST_PARAM___GET_CONTAINER;
+	int NEO_NODE_LABELS_PARAM___GENERATE_CYPHER = ParametersPackage.TEXT_LIST_PARAM___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_LABELS_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.TEXT_LIST_PARAM___GET_ANCESTOR__CLASS;
+	int NEO_NODE_LABELS_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.TEXT_LIST_PARAM___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_LABELS_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.TEXT_LIST_PARAM___INITIALIZE_TRANSLATION;
+	int NEO_NODE_LABELS_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.TEXT_LIST_PARAM___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.TEXT_LIST_PARAM___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.TEXT_LIST_PARAM___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___CREATE_ADAPTION__LANGUAGE = ParametersPackage.TEXT_LIST_PARAM___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___CREATE_XML_ADAPTION = ParametersPackage.TEXT_LIST_PARAM___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.TEXT_LIST_PARAM___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.TEXT_LIST_PARAM___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.TEXT_LIST_PARAM___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -6206,40 +6458,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_NODE_LABELS_PARAM___PREPARE_TRANSLATION = ParametersPackage.TEXT_LIST_PARAM___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_LABELS_PARAM___GET_OPERATOR_LIST = ParametersPackage.TEXT_LIST_PARAM___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE_LABELS_PARAM___GET_ALL_OPERATORS = ParametersPackage.TEXT_LIST_PARAM___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE_LABELS_PARAM___GET_PARAMETER_LIST = ParametersPackage.TEXT_LIST_PARAM___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE_LABELS_PARAM___GET_ALL_PARAMETERS = ParametersPackage.TEXT_LIST_PARAM___GET_ALL_PARAMETERS;
+	int NEO_NODE_LABELS_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.TEXT_LIST_PARAM___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -6287,76 +6512,67 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_NODE_LABELS_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.TEXT_LIST_PARAM___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_LABELS_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.TEXT_LIST_PARAM___RELATIONS_XML_ADAPTED;
+	int NEO_NODE_LABELS_PARAM___GET_CONTAINER = ParametersPackage.TEXT_LIST_PARAM___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_LABELS_PARAM___CREATE_XML_ADAPTION = ParametersPackage.TEXT_LIST_PARAM___CREATE_XML_ADAPTION;
+	int NEO_NODE_LABELS_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.TEXT_LIST_PARAM___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_LABELS_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.TEXT_LIST_PARAM___CREATE_RDF_ADAPTION;
+	int NEO_NODE_LABELS_PARAM___GET_OPERATOR_LIST = ParametersPackage.TEXT_LIST_PARAM___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_LABELS_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.TEXT_LIST_PARAM___CREATE_NEO4J_ADAPTION;
+	int NEO_NODE_LABELS_PARAM___GET_ALL_OPERATORS = ParametersPackage.TEXT_LIST_PARAM___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_LABELS_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.TEXT_LIST_PARAM___CONTAINS_JAVA_OPERATOR;
+	int NEO_NODE_LABELS_PARAM___GET_PARAMETER_LIST = ParametersPackage.TEXT_LIST_PARAM___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_LABELS_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.TEXT_LIST_PARAM___GENERATE_QUERY_FILTER_PART;
+	int NEO_NODE_LABELS_PARAM___GET_ALL_PARAMETERS = ParametersPackage.TEXT_LIST_PARAM___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_LABELS_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.TEXT_LIST_PARAM___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE_LABELS_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.TEXT_LIST_PARAM___GENERATE_XQUERY_JAVA_RETURN;
+	int NEO_NODE_LABELS_PARAM___MY_TO_STRING = ParametersPackage.TEXT_LIST_PARAM___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -6810,22 +7026,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.TEXT_LITERAL_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM___MY_TO_STRING = ParametersPackage.TEXT_LITERAL_PARAM___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM___GENERATE_CYPHER = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_CYPHER;
+	int NEO_EDGE_LABEL_PARAM___GENERATE_QUERY__LANGUAGE = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -6846,31 +7053,94 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM___GENERATE_SPARQL = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM___GET_CONTAINER = ParametersPackage.TEXT_LITERAL_PARAM___GET_CONTAINER;
+	int NEO_EDGE_LABEL_PARAM___GENERATE_CYPHER = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ANCESTOR__CLASS;
+	int NEO_EDGE_LABEL_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.TEXT_LITERAL_PARAM___INITIALIZE_TRANSLATION;
+	int NEO_EDGE_LABEL_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.TEXT_LITERAL_PARAM___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___CREATE_ADAPTION__LANGUAGE = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___CREATE_XML_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.TEXT_LITERAL_PARAM___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -6882,40 +7152,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM___PREPARE_TRANSLATION = ParametersPackage.TEXT_LITERAL_PARAM___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM___GET_OPERATOR_LIST = ParametersPackage.TEXT_LITERAL_PARAM___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM___GET_ALL_OPERATORS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM___GET_PARAMETER_LIST = ParametersPackage.TEXT_LITERAL_PARAM___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM___GET_ALL_PARAMETERS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ALL_PARAMETERS;
+	int NEO_EDGE_LABEL_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.TEXT_LITERAL_PARAM___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -6963,76 +7206,67 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.TEXT_LITERAL_PARAM___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.TEXT_LITERAL_PARAM___RELATIONS_XML_ADAPTED;
+	int NEO_EDGE_LABEL_PARAM___GET_CONTAINER = ParametersPackage.TEXT_LITERAL_PARAM___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM___CREATE_XML_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_XML_ADAPTION;
+	int NEO_EDGE_LABEL_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_RDF_ADAPTION;
+	int NEO_EDGE_LABEL_PARAM___GET_OPERATOR_LIST = ParametersPackage.TEXT_LITERAL_PARAM___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_NEO4J_ADAPTION;
+	int NEO_EDGE_LABEL_PARAM___GET_ALL_OPERATORS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.TEXT_LITERAL_PARAM___CONTAINS_JAVA_OPERATOR;
+	int NEO_EDGE_LABEL_PARAM___GET_PARAMETER_LIST = ParametersPackage.TEXT_LITERAL_PARAM___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_QUERY_FILTER_PART;
+	int NEO_EDGE_LABEL_PARAM___GET_ALL_PARAMETERS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA_RETURN;
+	int NEO_EDGE_LABEL_PARAM___MY_TO_STRING = ParametersPackage.TEXT_LITERAL_PARAM___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -7487,22 +7721,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NAME_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.TEXT_LITERAL_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM___MY_TO_STRING = ParametersPackage.TEXT_LITERAL_PARAM___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM___GENERATE_CYPHER = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_CYPHER;
+	int NEO_PROPERTY_NAME_PARAM___GENERATE_QUERY__LANGUAGE = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -7523,31 +7748,94 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NAME_PARAM___GENERATE_SPARQL = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM___GET_CONTAINER = ParametersPackage.TEXT_LITERAL_PARAM___GET_CONTAINER;
+	int NEO_PROPERTY_NAME_PARAM___GENERATE_CYPHER = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ANCESTOR__CLASS;
+	int NEO_PROPERTY_NAME_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.TEXT_LITERAL_PARAM___INITIALIZE_TRANSLATION;
+	int NEO_PROPERTY_NAME_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NAME_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NAME_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.TEXT_LITERAL_PARAM___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NAME_PARAM___CREATE_ADAPTION__LANGUAGE = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NAME_PARAM___CREATE_XML_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NAME_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NAME_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NAME_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.TEXT_LITERAL_PARAM___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -7559,40 +7847,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NAME_PARAM___PREPARE_TRANSLATION = ParametersPackage.TEXT_LITERAL_PARAM___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM___GET_OPERATOR_LIST = ParametersPackage.TEXT_LITERAL_PARAM___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM___GET_ALL_OPERATORS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM___GET_PARAMETER_LIST = ParametersPackage.TEXT_LITERAL_PARAM___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM___GET_ALL_PARAMETERS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ALL_PARAMETERS;
+	int NEO_PROPERTY_NAME_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.TEXT_LITERAL_PARAM___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -7640,76 +7901,67 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NAME_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.TEXT_LITERAL_PARAM___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.TEXT_LITERAL_PARAM___RELATIONS_XML_ADAPTED;
+	int NEO_PROPERTY_NAME_PARAM___GET_CONTAINER = ParametersPackage.TEXT_LITERAL_PARAM___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM___CREATE_XML_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_XML_ADAPTION;
+	int NEO_PROPERTY_NAME_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_RDF_ADAPTION;
+	int NEO_PROPERTY_NAME_PARAM___GET_OPERATOR_LIST = ParametersPackage.TEXT_LITERAL_PARAM___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.TEXT_LITERAL_PARAM___CREATE_NEO4J_ADAPTION;
+	int NEO_PROPERTY_NAME_PARAM___GET_ALL_OPERATORS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM___CONTAINS_JAVA_OPERATOR = ParametersPackage.TEXT_LITERAL_PARAM___CONTAINS_JAVA_OPERATOR;
+	int NEO_PROPERTY_NAME_PARAM___GET_PARAMETER_LIST = ParametersPackage.TEXT_LITERAL_PARAM___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM___GENERATE_QUERY_FILTER_PART = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_QUERY_FILTER_PART;
+	int NEO_PROPERTY_NAME_PARAM___GET_ALL_PARAMETERS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM___GENERATE_XQUERY_JAVA = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM___GENERATE_XQUERY_JAVA_RETURN = ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_XQUERY_JAVA_RETURN;
+	int NEO_PROPERTY_NAME_PARAM___MY_TO_STRING = ParametersPackage.TEXT_LITERAL_PARAM___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.

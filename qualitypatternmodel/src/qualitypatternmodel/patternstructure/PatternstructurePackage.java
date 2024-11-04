@@ -124,22 +124,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL = 2;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___MY_TO_STRING = 3;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___GENERATE_CYPHER = 4;
+	int PATTERN_ELEMENT___GENERATE_QUERY__LANGUAGE = 3;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -148,7 +139,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GENERATE_XQUERY = 5;
+	int PATTERN_ELEMENT___GENERATE_XQUERY = 4;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -157,178 +148,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GENERATE_SPARQL = 6;
+	int PATTERN_ELEMENT___GENERATE_SPARQL = 5;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GET_CONTAINER = 7;
-
-	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___GET_ANCESTOR__CLASS = 8;
-
-	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___INITIALIZE_TRANSLATION = 9;
-
-	/**
-	 * The operation id for the '<em>Prepare Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___PREPARE_TRANSLATION = 10;
-
-	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___GET_OPERATOR_LIST = 11;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___GET_ALL_OPERATORS = 12;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___GET_PARAMETER_LIST = 13;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___GET_ALL_PARAMETERS = 14;
-
-	/**
-	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES = 15;
-
-	/**
-	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = 16;
-
-	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = 17;
-
-	/**
-	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = 18;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE = 19;
-
-	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___RELATIONS_XML_ADAPTED = 20;
-
-	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___CREATE_XML_ADAPTION = 21;
-
-	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___CREATE_RDF_ADAPTION = 22;
-
-	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION = 23;
-
-	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR = 24;
-
-	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART = 25;
+	int PATTERN_ELEMENT___GENERATE_CYPHER = 6;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
@@ -337,7 +166,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GENERATE_XQUERY_JAVA = 26;
+	int PATTERN_ELEMENT___GENERATE_XQUERY_JAVA = 7;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
@@ -346,7 +175,196 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = 27;
+	int PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = 8;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART = 9;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR = 10;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___CREATE_ADAPTION__LANGUAGE = 11;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___CREATE_XML_ADAPTION = 12;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___CREATE_RDF_ADAPTION = 13;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION = 14;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___RELATIONS_XML_ADAPTED = 15;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___PREPARE_TRANSLATION = 16;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___INITIALIZE_TRANSLATION = 17;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES = 18;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = 19;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = 20;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = 21;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE = 22;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GET_CONTAINER = 23;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GET_ANCESTOR__CLASS = 24;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GET_OPERATOR_LIST = 25;
+
+	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GET_ALL_OPERATORS = 26;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GET_PARAMETER_LIST = 27;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GET_ALL_PARAMETERS = 28;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___MY_TO_STRING = 29;
 
 	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
@@ -355,7 +373,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 28;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 30;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.ConditionImpl <em>Condition</em>}' class.
@@ -467,22 +485,13 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION___GENERATE_CYPHER = PATTERN_ELEMENT___GENERATE_CYPHER;
+	int CONDITION___GENERATE_QUERY__LANGUAGE = PATTERN_ELEMENT___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -503,31 +512,94 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION___GENERATE_SPARQL = PATTERN_ELEMENT___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
+	int CONDITION___GENERATE_CYPHER = PATTERN_ELEMENT___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
+	int CONDITION___GENERATE_XQUERY_JAVA = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
+	int CONDITION___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___CREATE_ADAPTION__LANGUAGE = PATTERN_ELEMENT___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -539,40 +611,13 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION___GET_ALL_OPERATORS = PATTERN_ELEMENT___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
+	int CONDITION___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -620,76 +665,67 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+	int CONDITION___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+	int CONDITION___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+	int CONDITION___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+	int CONDITION___GET_ALL_OPERATORS = PATTERN_ELEMENT___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+	int CONDITION___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+	int CONDITION___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___GENERATE_XQUERY_JAVA = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
+	int CONDITION___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -864,22 +900,13 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___MY_TO_STRING = CONDITION___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTIFIED_CONDITION___GENERATE_CYPHER = CONDITION___GENERATE_CYPHER;
+	int QUANTIFIED_CONDITION___GENERATE_QUERY__LANGUAGE = CONDITION___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -900,31 +927,94 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___GENERATE_SPARQL = CONDITION___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___GET_CONTAINER = CONDITION___GET_CONTAINER;
+	int QUANTIFIED_CONDITION___GENERATE_CYPHER = CONDITION___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
+	int QUANTIFIED_CONDITION___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
+	int QUANTIFIED_CONDITION___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___CREATE_ADAPTION__LANGUAGE = CONDITION___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -936,40 +1026,13 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTIFIED_CONDITION___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTIFIED_CONDITION___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTIFIED_CONDITION___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
+	int QUANTIFIED_CONDITION___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -1017,76 +1080,67 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___RECORD_VALUES__XMLDATADATABASE = CONDITION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
+	int QUANTIFIED_CONDITION___GET_CONTAINER = CONDITION___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
+	int QUANTIFIED_CONDITION___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
+	int QUANTIFIED_CONDITION___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+	int QUANTIFIED_CONDITION___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+	int QUANTIFIED_CONDITION___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+	int QUANTIFIED_CONDITION___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTIFIED_CONDITION___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
+	int QUANTIFIED_CONDITION___MY_TO_STRING = CONDITION___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -1234,22 +1288,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___GENERATE_CYPHER = PATTERN_ELEMENT___GENERATE_CYPHER;
+	int MORPHISM___GENERATE_QUERY__LANGUAGE = PATTERN_ELEMENT___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -1270,31 +1315,94 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___GENERATE_SPARQL = PATTERN_ELEMENT___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
+	int MORPHISM___GENERATE_CYPHER = PATTERN_ELEMENT___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
+	int MORPHISM___GENERATE_XQUERY_JAVA = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
+	int MORPHISM___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___CREATE_ADAPTION__LANGUAGE = PATTERN_ELEMENT___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1306,40 +1414,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___GET_ALL_OPERATORS = PATTERN_ELEMENT___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
+	int MORPHISM___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -1387,76 +1468,67 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+	int MORPHISM___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+	int MORPHISM___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+	int MORPHISM___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+	int MORPHISM___GET_ALL_OPERATORS = PATTERN_ELEMENT___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+	int MORPHISM___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+	int MORPHISM___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___GENERATE_XQUERY_JAVA = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
+	int MORPHISM___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
@@ -1613,22 +1685,13 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___IS_VALID_LOCAL__ABSTRACTIONLEVEL = CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___MY_TO_STRING = CONDITION___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA___GENERATE_CYPHER = CONDITION___GENERATE_CYPHER;
+	int FORMULA___GENERATE_QUERY__LANGUAGE = CONDITION___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -1649,31 +1712,94 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___GENERATE_SPARQL = CONDITION___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___GET_CONTAINER = CONDITION___GET_CONTAINER;
+	int FORMULA___GENERATE_CYPHER = CONDITION___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
+	int FORMULA___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
+	int FORMULA___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___CREATE_ADAPTION__LANGUAGE = CONDITION___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1685,40 +1811,13 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
+	int FORMULA___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -1766,76 +1865,67 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___RECORD_VALUES__XMLDATADATABASE = CONDITION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
+	int FORMULA___GET_CONTAINER = CONDITION___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
+	int FORMULA___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
+	int FORMULA___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+	int FORMULA___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+	int FORMULA___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+	int FORMULA___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
+	int FORMULA___MY_TO_STRING = CONDITION___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -1974,22 +2064,13 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL = CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___MY_TO_STRING = CONDITION___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GENERATE_CYPHER = CONDITION___GENERATE_CYPHER;
+	int TRUE_ELEMENT___GENERATE_QUERY__LANGUAGE = CONDITION___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -2010,31 +2091,94 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___GENERATE_SPARQL = CONDITION___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___GET_CONTAINER = CONDITION___GET_CONTAINER;
+	int TRUE_ELEMENT___GENERATE_CYPHER = CONDITION___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
+	int TRUE_ELEMENT___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
+	int TRUE_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___CREATE_ADAPTION__LANGUAGE = CONDITION___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2046,40 +2190,13 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
+	int TRUE_ELEMENT___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -2127,76 +2244,67 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___RECORD_VALUES__XMLDATADATABASE = CONDITION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
+	int TRUE_ELEMENT___GET_CONTAINER = CONDITION___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
+	int TRUE_ELEMENT___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
+	int TRUE_ELEMENT___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+	int TRUE_ELEMENT___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+	int TRUE_ELEMENT___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+	int TRUE_ELEMENT___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
+	int TRUE_ELEMENT___MY_TO_STRING = CONDITION___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -2326,22 +2434,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___GENERATE_CYPHER = PATTERN_ELEMENT___GENERATE_CYPHER;
+	int PATTERN___GENERATE_QUERY__LANGUAGE = PATTERN_ELEMENT___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -2362,31 +2461,94 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___GENERATE_SPARQL = PATTERN_ELEMENT___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
+	int PATTERN___GENERATE_CYPHER = PATTERN_ELEMENT___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
+	int PATTERN___GENERATE_XQUERY_JAVA = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
+	int PATTERN___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___CREATE_ADAPTION__LANGUAGE = PATTERN_ELEMENT___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2398,40 +2560,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___GET_ALL_OPERATORS = PATTERN_ELEMENT___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
+	int PATTERN___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -2479,76 +2614,67 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+	int PATTERN___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+	int PATTERN___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+	int PATTERN___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+	int PATTERN___GET_ALL_OPERATORS = PATTERN_ELEMENT___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+	int PATTERN___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+	int PATTERN___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___GENERATE_XQUERY_JAVA = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
+	int PATTERN___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
@@ -2831,22 +2957,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___MY_TO_STRING = PATTERN___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN___GENERATE_CYPHER = PATTERN___GENERATE_CYPHER;
+	int COMPLETE_PATTERN___GENERATE_QUERY__LANGUAGE = PATTERN___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -2867,31 +2984,94 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___GENERATE_SPARQL = PATTERN___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GET_CONTAINER = PATTERN___GET_CONTAINER;
+	int COMPLETE_PATTERN___GENERATE_CYPHER = PATTERN___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GET_ANCESTOR__CLASS = PATTERN___GET_ANCESTOR__CLASS;
+	int COMPLETE_PATTERN___GENERATE_XQUERY_JAVA = PATTERN___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___INITIALIZE_TRANSLATION = PATTERN___INITIALIZE_TRANSLATION;
+	int COMPLETE_PATTERN___GENERATE_XQUERY_JAVA_RETURN = PATTERN___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_QUERY_FILTER_PART = PATTERN___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___CONTAINS_JAVA_OPERATOR = PATTERN___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___CREATE_ADAPTION__LANGUAGE = PATTERN___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___CREATE_XML_ADAPTION = PATTERN___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___CREATE_RDF_ADAPTION = PATTERN___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___CREATE_NEO4J_ADAPTION = PATTERN___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___RELATIONS_XML_ADAPTED = PATTERN___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2903,40 +3083,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___PREPARE_TRANSLATION = PATTERN___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GET_OPERATOR_LIST = PATTERN___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN___GET_ALL_OPERATORS = PATTERN___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN___GET_PARAMETER_LIST = PATTERN___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN___GET_ALL_PARAMETERS = PATTERN___GET_ALL_PARAMETERS;
+	int COMPLETE_PATTERN___INITIALIZE_TRANSLATION = PATTERN___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -2984,76 +3137,67 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___RECORD_VALUES__XMLDATADATABASE = PATTERN___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___RELATIONS_XML_ADAPTED = PATTERN___RELATIONS_XML_ADAPTED;
+	int COMPLETE_PATTERN___GET_CONTAINER = PATTERN___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___CREATE_XML_ADAPTION = PATTERN___CREATE_XML_ADAPTION;
+	int COMPLETE_PATTERN___GET_ANCESTOR__CLASS = PATTERN___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___CREATE_RDF_ADAPTION = PATTERN___CREATE_RDF_ADAPTION;
+	int COMPLETE_PATTERN___GET_OPERATOR_LIST = PATTERN___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___CREATE_NEO4J_ADAPTION = PATTERN___CREATE_NEO4J_ADAPTION;
+	int COMPLETE_PATTERN___GET_ALL_OPERATORS = PATTERN___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___CONTAINS_JAVA_OPERATOR = PATTERN___CONTAINS_JAVA_OPERATOR;
+	int COMPLETE_PATTERN___GET_PARAMETER_LIST = PATTERN___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GENERATE_QUERY_FILTER_PART = PATTERN___GENERATE_QUERY_FILTER_PART;
+	int COMPLETE_PATTERN___GET_ALL_PARAMETERS = PATTERN___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GENERATE_XQUERY_JAVA = PATTERN___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN___GENERATE_XQUERY_JAVA_RETURN = PATTERN___GENERATE_XQUERY_JAVA_RETURN;
+	int COMPLETE_PATTERN___MY_TO_STRING = PATTERN___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
@@ -3309,22 +3453,13 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___MY_TO_STRING = CONDITION___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_CONDITION___GENERATE_CYPHER = CONDITION___GENERATE_CYPHER;
+	int NOT_CONDITION___GENERATE_QUERY__LANGUAGE = CONDITION___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -3345,31 +3480,94 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___GENERATE_SPARQL = CONDITION___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___GET_CONTAINER = CONDITION___GET_CONTAINER;
+	int NOT_CONDITION___GENERATE_CYPHER = CONDITION___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
+	int NOT_CONDITION___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
+	int NOT_CONDITION___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___CREATE_ADAPTION__LANGUAGE = CONDITION___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3381,40 +3579,13 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_CONDITION___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_CONDITION___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_CONDITION___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
+	int NOT_CONDITION___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -3462,76 +3633,67 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___RECORD_VALUES__XMLDATADATABASE = CONDITION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
+	int NOT_CONDITION___GET_CONTAINER = CONDITION___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
+	int NOT_CONDITION___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
+	int NOT_CONDITION___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+	int NOT_CONDITION___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+	int NOT_CONDITION___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+	int NOT_CONDITION___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_CONDITION___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
+	int NOT_CONDITION___MY_TO_STRING = CONDITION___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -3706,22 +3868,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___MY_TO_STRING = CONDITION___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION___GENERATE_CYPHER = CONDITION___GENERATE_CYPHER;
+	int COUNT_CONDITION___GENERATE_QUERY__LANGUAGE = CONDITION___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -3742,31 +3895,94 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___GENERATE_SPARQL = CONDITION___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___GET_CONTAINER = CONDITION___GET_CONTAINER;
+	int COUNT_CONDITION___GENERATE_CYPHER = CONDITION___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
+	int COUNT_CONDITION___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
+	int COUNT_CONDITION___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___CREATE_ADAPTION__LANGUAGE = CONDITION___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3778,40 +3994,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
+	int COUNT_CONDITION___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -3859,76 +4048,67 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___RECORD_VALUES__XMLDATADATABASE = CONDITION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
+	int COUNT_CONDITION___GET_CONTAINER = CONDITION___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
+	int COUNT_CONDITION___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
+	int COUNT_CONDITION___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+	int COUNT_CONDITION___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
+	int COUNT_CONDITION___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
+	int COUNT_CONDITION___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
+	int COUNT_CONDITION___MY_TO_STRING = CONDITION___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -4049,22 +4229,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION_ARGUMENT___GENERATE_CYPHER = PATTERN_ELEMENT___GENERATE_CYPHER;
+	int COUNT_CONDITION_ARGUMENT___GENERATE_QUERY__LANGUAGE = PATTERN_ELEMENT___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -4085,31 +4256,94 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT___GENERATE_SPARQL = PATTERN_ELEMENT___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
+	int COUNT_CONDITION_ARGUMENT___GENERATE_CYPHER = PATTERN_ELEMENT___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
+	int COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
+	int COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___CREATE_ADAPTION__LANGUAGE = PATTERN_ELEMENT___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -4121,40 +4355,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION_ARGUMENT___GET_ALL_OPERATORS = PATTERN_ELEMENT___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION_ARGUMENT___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION_ARGUMENT___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
+	int COUNT_CONDITION_ARGUMENT___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -4202,76 +4409,67 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+	int COUNT_CONDITION_ARGUMENT___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+	int COUNT_CONDITION_ARGUMENT___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+	int COUNT_CONDITION_ARGUMENT___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+	int COUNT_CONDITION_ARGUMENT___GET_ALL_OPERATORS = PATTERN_ELEMENT___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+	int COUNT_CONDITION_ARGUMENT___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+	int COUNT_CONDITION_ARGUMENT___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
+	int COUNT_CONDITION_ARGUMENT___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
 	 * The number of operations of the '<em>Count Condition Argument</em>' class.
@@ -4356,22 +4554,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_CONTAINER___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM_CONTAINER___GENERATE_CYPHER = PATTERN_ELEMENT___GENERATE_CYPHER;
+	int MORPHISM_CONTAINER___GENERATE_QUERY__LANGUAGE = PATTERN_ELEMENT___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -4392,31 +4581,94 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_CONTAINER___GENERATE_SPARQL = PATTERN_ELEMENT___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
+	int MORPHISM_CONTAINER___GENERATE_CYPHER = PATTERN_ELEMENT___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
+	int MORPHISM_CONTAINER___GENERATE_XQUERY_JAVA = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
+	int MORPHISM_CONTAINER___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___CREATE_ADAPTION__LANGUAGE = PATTERN_ELEMENT___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -4428,40 +4680,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_CONTAINER___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM_CONTAINER___GET_ALL_OPERATORS = PATTERN_ELEMENT___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM_CONTAINER___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM_CONTAINER___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
+	int MORPHISM_CONTAINER___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -4509,76 +4734,67 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_CONTAINER___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+	int MORPHISM_CONTAINER___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+	int MORPHISM_CONTAINER___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+	int MORPHISM_CONTAINER___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+	int MORPHISM_CONTAINER___GET_ALL_OPERATORS = PATTERN_ELEMENT___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___CONTAINS_JAVA_OPERATOR = PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR;
+	int MORPHISM_CONTAINER___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___GENERATE_QUERY_FILTER_PART = PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART;
+	int MORPHISM_CONTAINER___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___GENERATE_XQUERY_JAVA = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM_CONTAINER___GENERATE_XQUERY_JAVA_RETURN = PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN;
+	int MORPHISM_CONTAINER___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Graph</em>' operation.
@@ -4735,22 +4951,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___MY_TO_STRING = PATTERN___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_PATTERN___GENERATE_CYPHER = PATTERN___GENERATE_CYPHER;
+	int COUNT_PATTERN___GENERATE_QUERY__LANGUAGE = PATTERN___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -4771,31 +4978,94 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN___GENERATE_SPARQL = PATTERN___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___GET_CONTAINER = PATTERN___GET_CONTAINER;
+	int COUNT_PATTERN___GENERATE_CYPHER = PATTERN___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___GET_ANCESTOR__CLASS = PATTERN___GET_ANCESTOR__CLASS;
+	int COUNT_PATTERN___GENERATE_XQUERY_JAVA = PATTERN___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___INITIALIZE_TRANSLATION = PATTERN___INITIALIZE_TRANSLATION;
+	int COUNT_PATTERN___GENERATE_XQUERY_JAVA_RETURN = PATTERN___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___GENERATE_QUERY_FILTER_PART = PATTERN___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___CONTAINS_JAVA_OPERATOR = PATTERN___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___CREATE_ADAPTION__LANGUAGE = PATTERN___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___CREATE_XML_ADAPTION = PATTERN___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___CREATE_RDF_ADAPTION = PATTERN___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___CREATE_NEO4J_ADAPTION = PATTERN___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___RELATIONS_XML_ADAPTED = PATTERN___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -4807,40 +5077,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN___PREPARE_TRANSLATION = PATTERN___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___GET_OPERATOR_LIST = PATTERN___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_PATTERN___GET_ALL_OPERATORS = PATTERN___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_PATTERN___GET_PARAMETER_LIST = PATTERN___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_PATTERN___GET_ALL_PARAMETERS = PATTERN___GET_ALL_PARAMETERS;
+	int COUNT_PATTERN___INITIALIZE_TRANSLATION = PATTERN___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -4888,76 +5131,67 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN___RECORD_VALUES__XMLDATADATABASE = PATTERN___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___RELATIONS_XML_ADAPTED = PATTERN___RELATIONS_XML_ADAPTED;
+	int COUNT_PATTERN___GET_CONTAINER = PATTERN___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___CREATE_XML_ADAPTION = PATTERN___CREATE_XML_ADAPTION;
+	int COUNT_PATTERN___GET_ANCESTOR__CLASS = PATTERN___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___CREATE_RDF_ADAPTION = PATTERN___CREATE_RDF_ADAPTION;
+	int COUNT_PATTERN___GET_OPERATOR_LIST = PATTERN___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___CREATE_NEO4J_ADAPTION = PATTERN___CREATE_NEO4J_ADAPTION;
+	int COUNT_PATTERN___GET_ALL_OPERATORS = PATTERN___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___CONTAINS_JAVA_OPERATOR = PATTERN___CONTAINS_JAVA_OPERATOR;
+	int COUNT_PATTERN___GET_PARAMETER_LIST = PATTERN___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___GENERATE_QUERY_FILTER_PART = PATTERN___GENERATE_QUERY_FILTER_PART;
+	int COUNT_PATTERN___GET_ALL_PARAMETERS = PATTERN___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___GENERATE_XQUERY_JAVA = PATTERN___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_PATTERN___GENERATE_XQUERY_JAVA_RETURN = PATTERN___GENERATE_XQUERY_JAVA_RETURN;
+	int COUNT_PATTERN___MY_TO_STRING = PATTERN___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
@@ -5078,22 +5312,13 @@ public interface PatternstructurePackage extends EPackage {
 	int NUMBER_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL = COUNT_CONDITION_ARGUMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___MY_TO_STRING = COUNT_CONDITION_ARGUMENT___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ELEMENT___GENERATE_CYPHER = COUNT_CONDITION_ARGUMENT___GENERATE_CYPHER;
+	int NUMBER_ELEMENT___GENERATE_QUERY__LANGUAGE = COUNT_CONDITION_ARGUMENT___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -5114,31 +5339,94 @@ public interface PatternstructurePackage extends EPackage {
 	int NUMBER_ELEMENT___GENERATE_SPARQL = COUNT_CONDITION_ARGUMENT___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___GET_CONTAINER = COUNT_CONDITION_ARGUMENT___GET_CONTAINER;
+	int NUMBER_ELEMENT___GENERATE_CYPHER = COUNT_CONDITION_ARGUMENT___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___GET_ANCESTOR__CLASS = COUNT_CONDITION_ARGUMENT___GET_ANCESTOR__CLASS;
+	int NUMBER_ELEMENT___GENERATE_XQUERY_JAVA = COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___INITIALIZE_TRANSLATION = COUNT_CONDITION_ARGUMENT___INITIALIZE_TRANSLATION;
+	int NUMBER_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___GENERATE_QUERY_FILTER_PART = COUNT_CONDITION_ARGUMENT___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___CONTAINS_JAVA_OPERATOR = COUNT_CONDITION_ARGUMENT___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___CREATE_ADAPTION__LANGUAGE = COUNT_CONDITION_ARGUMENT___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___CREATE_XML_ADAPTION = COUNT_CONDITION_ARGUMENT___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___CREATE_RDF_ADAPTION = COUNT_CONDITION_ARGUMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___CREATE_NEO4J_ADAPTION = COUNT_CONDITION_ARGUMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___RELATIONS_XML_ADAPTED = COUNT_CONDITION_ARGUMENT___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -5150,40 +5438,13 @@ public interface PatternstructurePackage extends EPackage {
 	int NUMBER_ELEMENT___PREPARE_TRANSLATION = COUNT_CONDITION_ARGUMENT___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___GET_OPERATOR_LIST = COUNT_CONDITION_ARGUMENT___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ELEMENT___GET_ALL_OPERATORS = COUNT_CONDITION_ARGUMENT___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ELEMENT___GET_PARAMETER_LIST = COUNT_CONDITION_ARGUMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ELEMENT___GET_ALL_PARAMETERS = COUNT_CONDITION_ARGUMENT___GET_ALL_PARAMETERS;
+	int NUMBER_ELEMENT___INITIALIZE_TRANSLATION = COUNT_CONDITION_ARGUMENT___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -5231,76 +5492,67 @@ public interface PatternstructurePackage extends EPackage {
 	int NUMBER_ELEMENT___RECORD_VALUES__XMLDATADATABASE = COUNT_CONDITION_ARGUMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___RELATIONS_XML_ADAPTED = COUNT_CONDITION_ARGUMENT___RELATIONS_XML_ADAPTED;
+	int NUMBER_ELEMENT___GET_CONTAINER = COUNT_CONDITION_ARGUMENT___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___CREATE_XML_ADAPTION = COUNT_CONDITION_ARGUMENT___CREATE_XML_ADAPTION;
+	int NUMBER_ELEMENT___GET_ANCESTOR__CLASS = COUNT_CONDITION_ARGUMENT___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___CREATE_RDF_ADAPTION = COUNT_CONDITION_ARGUMENT___CREATE_RDF_ADAPTION;
+	int NUMBER_ELEMENT___GET_OPERATOR_LIST = COUNT_CONDITION_ARGUMENT___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___CREATE_NEO4J_ADAPTION = COUNT_CONDITION_ARGUMENT___CREATE_NEO4J_ADAPTION;
+	int NUMBER_ELEMENT___GET_ALL_OPERATORS = COUNT_CONDITION_ARGUMENT___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___CONTAINS_JAVA_OPERATOR = COUNT_CONDITION_ARGUMENT___CONTAINS_JAVA_OPERATOR;
+	int NUMBER_ELEMENT___GET_PARAMETER_LIST = COUNT_CONDITION_ARGUMENT___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___GENERATE_QUERY_FILTER_PART = COUNT_CONDITION_ARGUMENT___GENERATE_QUERY_FILTER_PART;
+	int NUMBER_ELEMENT___GET_ALL_PARAMETERS = COUNT_CONDITION_ARGUMENT___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___GENERATE_XQUERY_JAVA = COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY_JAVA_RETURN;
+	int NUMBER_ELEMENT___MY_TO_STRING = COUNT_CONDITION_ARGUMENT___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -6086,6 +6338,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__IsValidLocal__AbstractionLevel();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#generateQuery(qualitypatternmodel.patternstructure.Language) <em>Generate Query</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Query</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#generateQuery(qualitypatternmodel.patternstructure.Language)
+	 * @generated
+	 */
+	EOperation getPatternElement__GenerateQuery__Language();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6164,6 +6426,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__ContainsJavaOperator();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#createAdaption(qualitypatternmodel.patternstructure.Language) <em>Create Adaption</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Adaption</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#createAdaption(qualitypatternmodel.patternstructure.Language)
+	 * @generated
+	 */
+	EOperation getPatternElement__CreateAdaption__Language();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#generateQueryFilterPart() <em>Generate Query Filter Part</em>}' operation.
@@ -7209,6 +7481,14 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL = eINSTANCE.getPatternElement__IsValidLocal__AbstractionLevel();
 
 		/**
+		 * The meta object literal for the '<em><b>Generate Query</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___GENERATE_QUERY__LANGUAGE = eINSTANCE.getPatternElement__GenerateQuery__Language();
+
+		/**
 		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7279,6 +7559,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR = eINSTANCE.getPatternElement__ContainsJavaOperator();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Adaption</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___CREATE_ADAPTION__LANGUAGE = eINSTANCE.getPatternElement__CreateAdaption__Language();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate Query Filter Part</b></em>' operation.
