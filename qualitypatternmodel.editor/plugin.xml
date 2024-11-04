@@ -152,34 +152,6 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="qualitypatternmodel.execution.presentation.ExecutionModelWizardID"
-            name="%_UI_ExecutionModelWizard_label"
-            class="qualitypatternmodel.execution.presentation.ExecutionModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/ExecutionModelFile.gif">
-         <description>%_UI_ExecutionModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated qualitypatternmodel -->
-      <editor
-            id="qualitypatternmodel.execution.presentation.ExecutionEditorID"
-            name="%_UI_ExecutionEditor_label"
-            icon="icons/full/obj16/ExecutionModelFile.gif"
-            extensions="execution"
-            class="qualitypatternmodel.execution.presentation.ExecutionEditor"
-            contributorClass="qualitypatternmodel.execution.presentation.ExecutionActionBarContributor">
-      </editor>
-   </extension>
-
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated qualitypatternmodel -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
             id="qualitypatternmodel.textrepresentation.presentation.TextrepresentationModelWizardID"
             name="%_UI_TextrepresentationModelWizard_label"
             class="qualitypatternmodel.textrepresentation.presentation.TextrepresentationModelWizard"
@@ -240,7 +212,7 @@
             name="%_UI_Adaptionneo4jModelWizard_label"
             class="qualitypatternmodel.adaptionneo4j.presentation.Adaptionneo4jModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/Adaptionneo4JModelFile.gif">
+            icon="icons/full/obj16/Adaptionneo4jModelFile.gif">
          <description>%_UI_Adaptionneo4jModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
@@ -251,7 +223,7 @@
       <editor
             id="qualitypatternmodel.adaptionneo4j.presentation.Adaptionneo4jEditorID"
             name="%_UI_Adaptionneo4jEditor_label"
-            icon="icons/full/obj16/Adaptionneo4JModelFile.gif"
+            icon="icons/full/obj16/Adaptionneo4jModelFile.gif"
             extensions="adaptionneo4j"
             class="qualitypatternmodel.adaptionneo4j.presentation.Adaptionneo4jEditor"
             contributorClass="qualitypatternmodel.adaptionneo4j.presentation.Adaptionneo4jActionBarContributor">

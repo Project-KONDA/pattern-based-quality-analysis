@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.impl.NotFilterPartImpl;
@@ -230,11 +229,6 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	public void prepareTranslation() {
 		condition.prepareTranslation();
 
-	}
-
-	@Override
-	public void recordValues(XmlDataDatabase database) {
-		getCondition().recordValues(database);
 	}
 
 	@Override

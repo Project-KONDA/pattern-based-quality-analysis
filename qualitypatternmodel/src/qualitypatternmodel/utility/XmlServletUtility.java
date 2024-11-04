@@ -17,8 +17,6 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import qualitypatternmodel.servlets.Util;
-
 
 public class XmlServletUtility {
 	public static final String PATH_PREFIX = "http://localhost:8081";

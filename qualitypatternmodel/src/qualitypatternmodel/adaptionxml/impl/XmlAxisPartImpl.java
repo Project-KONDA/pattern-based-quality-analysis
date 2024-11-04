@@ -2,13 +2,10 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import org.basex.query.QueryException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -33,12 +30,9 @@ import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
-import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.Database;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -46,7 +40,6 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
@@ -514,76 +507,13 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
-	public EList<String> inferElementTagSuggestions() {
-		EList<String> suggestions = new BasicEList<String>();
-
-		EList<String> suggestionsFromIncoming = inferElementTagSuggestionsFromIncomingRelations();
-		if(suggestions.isEmpty() || suggestionsFromIncoming.isEmpty()) {
-			suggestions.addAll(suggestionsFromIncoming);
-		} else {
-			suggestions.retainAll(suggestionsFromIncoming);
-		}
-
-		EList<String> suggestionsFromOutgoing = inferElementTagSuggestionsFromOutgoingRelations();
-		if(suggestions.isEmpty() || suggestionsFromOutgoing.isEmpty()) {
-			suggestions.addAll(suggestionsFromOutgoing);
-		} else {
-			suggestions.retainAll(suggestionsFromOutgoing);
-		}
-
-		return suggestions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<String> inferElementTagSuggestionsFromOutgoingRelations() {
-		EList<String> suggestions = new BasicEList<String>();
-//		EList<XmlAxisPart> nextAxisPairs = getNextXmlAxisPairs();
-//		for(XmlAxisPart next : nextAxisPairs) {
-//			if(next != null && next.getXmlAxisOptionParam() != null && next.getXmlAxisOptionParam().getValue() != null
-//					&& next.getTextLiteralParam() != null && next.getTextLiteralParam().getValue() != null) {
-//
-//				XmlAxisKind axis = next.getXmlAxisOptionParam().getValue();
-//				String nextTag = null;
-//
-//				if(next.getTextLiteralParam().getValue().equals("") || next.getTextLiteralParam().getValue().equals("*")) {
-//					boolean nextIsLast = next.getXmlPathParam().getXmlAxisParts().get(next.getXmlPathParam().getXmlAxisParts().size()-1).equals(next);
-//					if(nextIsLast && getXmlPathParam().getXmlNavigation() != null && getXmlPathParam().getXmlNavigation().getTarget() instanceof XmlElement) {
-//						XmlElement xmlElement = (XmlElement) getXmlPathParam().getXmlNavigation().getTarget();
-//						nextTag = xmlElement.getTagFromComparisons();
-//					}
-//				} else {
-//					nextTag = next.getTextLiteralParam().getValue();
-//				}
-//				if(nextTag != null) {
-//					try {
-//						Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-//						if (db instanceof XmlDataDatabase) {
-//							XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
-//
-//							EList<String> nextSuggestions = xmlDataDatabase.getSuggestionsFromAxisNextTag(axis, nextTag);
-//
-//							if(suggestions.isEmpty() || nextSuggestions.isEmpty()) {
-//								suggestions.addAll(nextSuggestions);
-//							} else {
-//								suggestions.retainAll(nextSuggestions);
-//							}
-//						}
-//					} catch (MissingPatternContainerException | QueryException | IOException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//				}
-//			}
-//		}
-		return suggestions;
+	public EList<XmlAxisKind> inferAxisSuggestions() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -821,129 +751,6 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 		if (getXmlAxisPartConditions() != null) {
 			getXmlAxisPartConditions().clear();
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<String> inferElementTagSuggestionsFromIncomingRelations() {
-		if(getXmlAxisOptionParam() == null || getXmlAxisOptionParam().getValue() == null) {
-			return new BasicEList<>();
-		}
-		XmlAxisKind axis = getXmlAxisOptionParam().getValue();
-
-		int index = getXmlPathParam().getXmlAxisParts().indexOf(this);
-
-		if (index == 0 && getXmlPathParam().getXmlNavigation() != null && getXmlPathParam().getXmlNavigation().getSource() instanceof XmlRoot) {
-			try {
-				Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-				if (db instanceof XmlDataDatabase) {
-					XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
-					return xmlDataDatabase.getSuggestionsFromAxisPreviousRoot(axis);
-				}
-			} catch (MissingPatternContainerException | QueryException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		} else {
-			EList<String> suggestions = new BasicEList<>();
-//			EList<XmlAxisPart> previousAxisPairs = getPreviousXmlAxisPairs();
-//			for(XmlAxisPart previous : previousAxisPairs) {
-//
-//				if(previous != null && previous.getTextLiteralParam() != null && previous.getTextLiteralParam().getValue() != null) {
-//					String previousTag = null;
-//					if(previous.getTextLiteralParam().getValue().equals("") || previous.getTextLiteralParam().getValue().equals("*")) {
-//						boolean previousIsLast = previous.getXmlPathParam().getXmlAxisParts().get(previous.getXmlPathParam().getXmlAxisParts().size()-1).equals(previous);
-//						if(previousIsLast && previous.getXmlPathParam().getXmlNavigation() != null && previous.getXmlPathParam().getXmlNavigation().getTarget() instanceof XmlElement) {
-//							XmlElement xmlElement = (XmlElement) previous.getXmlPathParam().getXmlNavigation().getTarget();
-//							previousTag = xmlElement.getTagFromComparisons();
-//						}
-//					} else {
-//						previousTag = previous.getTextLiteralParam().getValue();
-//					}
-//
-//					if(previousTag != null) {
-//
-//						try {
-//							Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-//							if (db instanceof XmlDataDatabase) {
-//								XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
-//								EList<String> previousSuggestions = xmlDataDatabase.getSuggestionsFromAxisPreviousTag(axis, previousTag);
-//
-//								if(suggestions.isEmpty() || previousSuggestions.isEmpty()) {
-//									suggestions.addAll(previousSuggestions);
-//								} else {
-//									suggestions.retainAll(previousSuggestions);
-//								}
-//							}
-//						} catch (MissingPatternContainerException | QueryException | IOException e) {
-//							// TODO Auto-generated catch block
-//							e.printStackTrace();
-//						}
-//					}
-//				}
-//			}
-			return suggestions;
-		}
-
-		return new BasicEList<>();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<XmlAxisKind> inferAxisSuggestions() {
-		EList<XmlAxisKind> suggestions = new BasicEList<>();
-
-//		if(getTextLiteralParam() == null || getTextLiteralParam().getValue() == null
-//				|| getTextLiteralParam().getValue().equals("") || getTextLiteralParam().getValue().equals("*")) {
-//			return suggestions;
-//		}
-//
-//		String targetTag = getTextLiteralParam().getValue();
-//
-//
-//		EList<XmlAxisPart> previousAxisPairs = getPreviousXmlAxisPairs();
-//		for (XmlAxisPart previous : previousAxisPairs) {
-//			if(previous != null && previous.getTextLiteralParam() != null && previous.getTextLiteralParam().getValue() != null) {
-//				String sourceTag = null;
-//				if(previous.getTextLiteralParam().getValue().equals("") || previous.getTextLiteralParam().getValue().equals("*")) {
-//					boolean previousIsLast = previous.getXmlPathParam().getXmlAxisParts().get(previous.getXmlPathParam().getXmlAxisParts().size()-1).equals(previous);
-//					if(previousIsLast && previous.getXmlPathParam().getXmlNavigation() != null && previous.getXmlPathParam().getXmlNavigation().getTarget() instanceof XmlElement) {
-//						XmlElement xmlElement = (XmlElement) previous.getXmlPathParam().getXmlNavigation().getTarget();
-//						sourceTag = xmlElement.getTagFromComparisons();
-//					}
-//				} else {
-//					sourceTag = previous.getTextLiteralParam().getValue();
-//				}
-//				if(sourceTag != null && targetTag != null) {
-//					try {
-//						Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-//						if(db instanceof XmlDataDatabase) {
-//							XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
-//							EList<XmlAxisKind> newSuggestions = xmlDataDatabase.getSuggestionsFromSourceTargetTag(sourceTag, targetTag);
-//							if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
-//								suggestions.addAll(newSuggestions);
-//							} else {
-//								suggestions.retainAll(newSuggestions);
-//							}
-//						}
-//					} catch (MissingPatternContainerException | IOException | QueryException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//				}
-//			}
-//		}
-
-		return suggestions;
 	}
 
 	/**
@@ -1237,12 +1044,6 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				return getPreviousXmlAxisPairs();
 			case AdaptionxmlPackage.XML_AXIS_PART___INFER_AXIS_SUGGESTIONS:
 				return inferAxisSuggestions();
-			case AdaptionxmlPackage.XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS:
-				return inferElementTagSuggestions();
-			case AdaptionxmlPackage.XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS:
-				return inferElementTagSuggestionsFromIncomingRelations();
-			case AdaptionxmlPackage.XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS:
-				return inferElementTagSuggestionsFromOutgoingRelations();
 			case AdaptionxmlPackage.XML_AXIS_PART___SET_AXIS_OPTION__XMLAXISKIND:
 				return setAxisOption((XmlAxisKind)arguments.get(0));
 			case AdaptionxmlPackage.XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND:

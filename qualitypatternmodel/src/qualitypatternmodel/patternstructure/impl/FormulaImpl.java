@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.impl.BooleanFilterElementImpl;
@@ -418,12 +417,6 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		if(condition2 != null) {
 			condition2.prepareTranslation();
 		}
-	}
-
-	@Override
-	public void recordValues(XmlDataDatabase database) {
-		getCondition1().recordValues(database);
-		getCondition2().recordValues(database);
 	}
 
 	@Override

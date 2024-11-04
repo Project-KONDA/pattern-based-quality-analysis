@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.javaquery.JavaFilterPart;
@@ -352,12 +351,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			result.add((MorphismContainer) getArgument2());
 		}
 		return result;
-	}
-
-	@Override
-	public void recordValues(XmlDataDatabase database) {
-		getCountPattern().recordValues(database);
-		getArgument2().recordValues(database);
 	}
 
 	@Override

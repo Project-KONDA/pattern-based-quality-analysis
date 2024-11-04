@@ -486,15 +486,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.COMPLEX_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.COMPLEX_NODE___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1305,15 +1296,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.RELATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1791,15 +1773,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = XML_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT_NAVIGATION___RECORD_VALUES__XMLDATADATABASE = XML_NAVIGATION___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2266,15 +2239,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_REFERENCE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.RELATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_REFERENCE___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2860,15 +2824,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.PRIMITIVE_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.PRIMITIVE_NODE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3690,15 +3645,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.COMPLEX_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.COMPLEX_NODE___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4473,15 +4419,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = XML_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_NAVIGATION___RECORD_VALUES__XMLDATADATABASE = XML_NAVIGATION___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4940,15 +4877,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_AXIS_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_OPTION_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -5456,15 +5384,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_OPTION_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5958,15 +5877,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.ADAPTABLE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.ADAPTABLE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -6519,15 +6429,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.ADAPTABLE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.ADAPTABLE___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6735,40 +6636,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PART___INFER_AXIS_SUGGESTIONS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 13;
 
 	/**
-	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 14;
-
-	/**
-	 * The operation id for the '<em>Infer Element Tag Suggestions From Incoming Relations</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 15;
-
-	/**
-	 * The operation id for the '<em>Infer Element Tag Suggestions From Outgoing Relations</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 16;
-
-	/**
 	 * The operation id for the '<em>Set Axis Option</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___SET_AXIS_OPTION__XMLAXISKIND = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 17;
+	int XML_AXIS_PART___SET_AXIS_OPTION__XMLAXISKIND = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Add Axis Condition</em>' operation.
@@ -6777,7 +6651,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 18;
+	int XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Add Axis Condition</em>' operation.
@@ -6786,7 +6660,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 19;
+	int XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 16;
 
 	/**
 	 * The number of operations of the '<em>Xml Axis Part</em>' class.
@@ -6795,7 +6669,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_AXIS_PART_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 20;
+	int XML_AXIS_PART_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' attribute list.
@@ -7139,15 +7013,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_AXIS_PART_CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_AXIS_PART_CONDITION___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -7861,36 +7726,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	EOperation getXmlAxisPart__InferAxisSuggestions();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Infer Element Tag Suggestions</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestions()
-	 * @generated
-	 */
-	EOperation getXmlAxisPart__InferElementTagSuggestions();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromIncomingRelations() <em>Infer Element Tag Suggestions From Incoming Relations</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Infer Element Tag Suggestions From Incoming Relations</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromIncomingRelations()
-	 * @generated
-	 */
-	EOperation getXmlAxisPart__InferElementTagSuggestionsFromIncomingRelations();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromOutgoingRelations() <em>Infer Element Tag Suggestions From Outgoing Relations</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Infer Element Tag Suggestions From Outgoing Relations</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlAxisPart#inferElementTagSuggestionsFromOutgoingRelations()
-	 * @generated
-	 */
-	EOperation getXmlAxisPart__InferElementTagSuggestionsFromOutgoingRelations();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlAxisPart#setAxisOption(qualitypatternmodel.adaptionxml.XmlAxisKind) <em>Set Axis Option</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8521,30 +8356,6 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_AXIS_PART___INFER_AXIS_SUGGESTIONS = eINSTANCE.getXmlAxisPart__InferAxisSuggestions();
-
-		/**
-		 * The meta object literal for the '<em><b>Infer Element Tag Suggestions</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS = eINSTANCE.getXmlAxisPart__InferElementTagSuggestions();
-
-		/**
-		 * The meta object literal for the '<em><b>Infer Element Tag Suggestions From Incoming Relations</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS = eINSTANCE.getXmlAxisPart__InferElementTagSuggestionsFromIncomingRelations();
-
-		/**
-		 * The meta object literal for the '<em><b>Infer Element Tag Suggestions From Outgoing Relations</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS = eINSTANCE.getXmlAxisPart__InferElementTagSuggestionsFromOutgoingRelations();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Axis Option</b></em>' operation.

@@ -30,7 +30,6 @@ import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
@@ -559,12 +558,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	public void prepareTranslation() {
 		graph.prepareTranslation();
 		condition.prepareTranslation();
-	}
-
-	@Override
-	public void recordValues(XmlDataDatabase database) {
-		getGraph().recordValues(database);
-		getCondition().recordValues(database);
 	}
 
 	@Override

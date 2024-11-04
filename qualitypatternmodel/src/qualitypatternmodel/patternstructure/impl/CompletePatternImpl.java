@@ -33,9 +33,6 @@ import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.Database;
-import qualitypatternmodel.execution.ExecutionPackage;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
@@ -78,7 +75,6 @@ import qualitypatternmodel.utility.ConstantsXml;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getParameterList <em>Parameter List</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDatabase <em>Database</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getText <em>Text</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getPatternId <em>Pattern Id</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getName <em>Name</em>}</li>
@@ -111,17 +107,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @ordered
 	 */
 	protected ParameterList parameterList;
-
-	/**
-	 * The cached value of the '{@link #getDatabase() <em>Database</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * The <code>Database</code> <code>this</code> was concretised for. Only relevant for concrete patterns.
-	 * <!-- end-user-doc -->
-	 * @see #getDatabase()
-	 * @generated
-	 * @ordered
-	 */
-	protected Database database;
 
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference list.
@@ -880,23 +865,17 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return counter++;
 	}
 
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws MissingPatternContainerException
-	 * @throws OperatorCycleException
-	 * @throws InvalidityException
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public void recordValues() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
-		isValid(AbstractionLevel.CONCRETE);
-
-		if(getDatabase() instanceof XmlDataDatabase) {
-			recordValues((XmlDataDatabase) getDatabase());
-		}
-		// TODO: else throw exception
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 
@@ -942,19 +921,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				}
 			}
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<Parameter> validateAgainstSchema() throws InvalidityException {
-		if (this.getDatabase() == null) {
-			throw new InvalidityException("Pattern has no Database assigned!");
-		}
-		return getParameterList().validateAgainstSchema();
 	}
 
 	/**
@@ -1142,72 +1108,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		abstractId = newAbstractId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_ID, oldAbstractId, abstractId));
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Database getDatabase() {
-		if (database != null && database.eIsProxy()) {
-			InternalEObject oldDatabase = (InternalEObject)database;
-			database = (Database)eResolveProxy(oldDatabase);
-			if (database != oldDatabase) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.COMPLETE_PATTERN__DATABASE, oldDatabase, database));
-			}
-		}
-		return database;
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Database basicGetDatabase() {
-		return database;
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDatabase(Database newDatabase, NotificationChain msgs) {
-		Database oldDatabase = database;
-		database = newDatabase;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__DATABASE, oldDatabase, newDatabase);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDatabase(Database newDatabase) {
-		if (newDatabase != database) {
-			NotificationChain msgs = null;
-			if (database != null)
-				msgs = ((InternalEObject)database).eInverseRemove(this, ExecutionPackage.DATABASE__PATTERNS, Database.class, msgs);
-			if (newDatabase != null)
-				msgs = ((InternalEObject)newDatabase).eInverseAdd(this, ExecutionPackage.DATABASE__PATTERNS, Database.class, msgs);
-			msgs = basicSetDatabase(newDatabase, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__DATABASE, newDatabase, newDatabase));
 	}
 
 
@@ -1516,6 +1416,19 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 */
 	@Override
+	public EList<Parameter> validateAgainstSchema() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Integer getCounter() {
 		return counter;
 	}
@@ -1611,10 +1524,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				if (parameterList != null)
 					msgs = ((InternalEObject)parameterList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST, null, msgs);
 				return basicSetParameterList((ParameterList)otherEnd, msgs);
-			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
-				if (database != null)
-					msgs = ((InternalEObject)database).eInverseRemove(this, ExecutionPackage.DATABASE__PATTERNS, Database.class, msgs);
-				return basicSetDatabase((Database)otherEnd, msgs);
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getText()).basicAdd(otherEnd, msgs);
 		}
@@ -1630,8 +1539,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		switch (featureID) {
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:
 				return basicSetParameterList(null, msgs);
-			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
-				return basicSetDatabase(null, msgs);
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				return ((InternalEList<?>)getText()).basicRemove(otherEnd, msgs);
 			case PatternstructurePackage.COMPLETE_PATTERN__NAMESPACES:
@@ -1649,9 +1556,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		switch (featureID) {
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:
 				return getParameterList();
-			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
-				if (resolve) return getDatabase();
-				return basicGetDatabase();
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				return getText();
 			case PatternstructurePackage.COMPLETE_PATTERN__PATTERN_ID:
@@ -1698,9 +1602,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		switch (featureID) {
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:
 				setParameterList((ParameterList)newValue);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
-				setDatabase((Database)newValue);
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				getText().clear();
@@ -1766,9 +1667,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:
 				setParameterList((ParameterList)null);
 				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
-				setDatabase((Database)null);
-				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				getText().clear();
 				return;
@@ -1830,8 +1728,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		switch (featureID) {
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:
 				return parameterList != null;
-			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
-				return database != null;
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				return text != null && !text.isEmpty();
 			case PatternstructurePackage.COMPLETE_PATTERN__PATTERN_ID:

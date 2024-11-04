@@ -1,4 +1,4 @@
-package qualitypatternmodel.servlets;
+package qualitypatternmodel.utility;
 
 import java.io.File;
 import java.net.URISyntaxException;

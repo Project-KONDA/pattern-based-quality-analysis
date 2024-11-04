@@ -9,9 +9,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -20,17 +18,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionneo4j.NeoLabel;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNameParam;
-import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.execution.Database;
-import qualitypatternmodel.execution.XmlDataDatabase;
-import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
@@ -39,7 +31,6 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -48,15 +39,12 @@ import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.NumberParam;
-import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
-import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.utility.Constants;
 
@@ -128,30 +116,6 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 */
 	protected ParameterValueImpl() {
 		super();
-	}
-
-	@Override
-	public EList<Parameter> validateAgainstSchema() {
-		EList<Parameter> invalidParams = new BasicEList<Parameter>();
-		boolean invalid = true;
-		String valueWithoutPrefix = "";
-		String valueWithPrefix = getValueAsString();
-		String[] split = valueWithPrefix.split(":");
-		if(split.length > 1) {
-			valueWithoutPrefix = split[1];
-		} else {
-			valueWithoutPrefix = split[0];
-		}
-		for(String s : getSuggestions()) {
-			if(s.equals(valueWithoutPrefix)){
-				invalid = false;
-			}
-		}
-		invalid = invalid && getSuggestions().size() > 0;
-		if(invalid) {
-			invalidParams.add(this);
-		}
-		return invalidParams;
 	}
 
 
@@ -583,24 +547,12 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case ParametersPackage.PARAMETER_VALUE___GET_ELEMENT_TAGS:
-				return getElementTags();
-			case ParametersPackage.PARAMETER_VALUE___GET_DATA_VALUES:
-				return getDataValues();
 			case ParametersPackage.PARAMETER_VALUE___IS_IN_DATA_COMPARISON:
 				return isInDataComparison();
 			case ParametersPackage.PARAMETER_VALUE___IS_IN_TAG_COMPARISON:
 				return isInTagComparison();
-			case ParametersPackage.PARAMETER_VALUE___GET_ATTRIBUTE_NAMES:
-				return getAttributeNames();
-			case ParametersPackage.PARAMETER_VALUE___GET_ATTRIBUTE_VALUES:
-				return getAttributeValues();
 			case ParametersPackage.PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON:
 				return isInAttributeComparison();
-			case ParametersPackage.PARAMETER_VALUE___GET_SUGGESTIONS:
-				return getSuggestions();
-			case ParametersPackage.PARAMETER_VALUE___INFER_SUGGESTIONS:
-				return inferSuggestions();
 			case ParametersPackage.PARAMETER_VALUE___GET_RETURN_TYPE:
 				return getReturnType();
 			case ParametersPackage.PARAMETER_VALUE___IS_TRANSLATABLE:
@@ -634,112 +586,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 
 	@Override
 	public boolean inputIsValid() {
-		// TODO Auto-generated method stub
 		return false;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EMap<String, Integer> getElementTags() {
-		Database db;
-		try {
-			db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-			if(db instanceof XmlDataDatabase) {
-				XmlDataDatabase xmlDb = (XmlDataDatabase) db;
-				return xmlDb.getElementNames();
-			}
-		} catch (MissingPatternContainerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return new BasicEMap<String, Integer>();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EMap<String, Integer> getAttributeNames() {
-		Database db;
-		try {
-			db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-			if(db instanceof XmlDataDatabase) {
-				XmlDataDatabase xmlDb = (XmlDataDatabase) db;
-				return xmlDb.getAttributeNames();
-			}
-		} catch (MissingPatternContainerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return new BasicEMap<String, Integer>();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EMap<String, Integer> getDataValues() {
-		Database db;
-		try {
-			db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-			if(db instanceof XmlDataDatabase) {
-				XmlDataDatabase xmlDb = (XmlDataDatabase) db;
-				return xmlDb.getRecordedDataValues();
-			}
-		} catch (MissingPatternContainerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return new BasicEMap<String, Integer>();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EMap<String, Integer> getAttributeValues() {
-		Database db;
-		try {
-			db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-			if(db instanceof XmlDataDatabase) {
-				XmlDataDatabase xmlDb = (XmlDataDatabase) db;
-				return xmlDb.getRecordedAttributeValues();
-			}
-		} catch (MissingPatternContainerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return new BasicEMap<String, Integer>();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<String> getSuggestions() {
-		EList<String> suggestions = new BasicEList<String>();
-		if(isInTagComparison()) {
-			suggestions.addAll(Constants.sortByValue(getElementTags()).keySet());
-		}
-		if(isInAttributeComparison()) {
-			suggestions.addAll(Constants.sortByValue(getAttributeValues()).keySet());
-		}
-		if(isInDataComparison()) {
-			suggestions.addAll(Constants.sortByValue(getDataValues()).keySet());
-		}
-		return suggestions;
 	}
 
 	/**
@@ -868,81 +715,4 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		}
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<String> inferSuggestions() {
-		EList<String> suggestions = new BasicEList<String>();
-
-		EList<Comparable> comps = new BasicEList<Comparable>();
-
-		for(Comparison c: getComparison1()) {
-			if (c.getOption().getValue() == ComparisonOperator.EQUAL) {
-				comps.add(c.getArgument2());
-			}
-		}
-
-
-		for(Comparison c: getComparison2()) {
-			if (c.getOption().getValue() == ComparisonOperator.EQUAL) {
-				comps.add(c.getArgument1());
-			}
-		}
-
-		for (Comparable comp: comps) {
-			if (comp instanceof XmlProperty) {
-				suggestions.addAll(inferSuggestions2(((XmlProperty) comp)));
-			}
-		}
-		return suggestions;
-	}
-
-	private EList<String> inferSuggestions2(XmlProperty tagNode) {
-		EList<String> suggestions = new BasicEList<String>();
-		for (Relation r : tagNode.getIncoming()) {
-			XmlPathParam xmlPathParam = null;
-			if(r instanceof XmlElementNavigation) {
-				XmlElementNavigation nav = (XmlElementNavigation) r;
-				xmlPathParam = nav.getXmlPathParam();
-				if(xmlPathParam.getXmlAxisParts().isEmpty()) {
-					for (Relation previousRelation : nav.getSource().getIncoming()) {
-						if(previousRelation instanceof XmlElementNavigation) {
-							XmlElementNavigation previousNav = (XmlElementNavigation) previousRelation;
-							XmlPathParam previousPathParam = previousNav.getXmlPathParam();
-							XmlAxisPart part = previousPathParam.getXmlAxisParts().get(previousPathParam.getXmlAxisParts().size()-1);
-							TextLiteralParam text = part.getXmlAxisPartConditions().get(0).getTextLiteralParam();
-//							TextLiteralParam text = part.getTextLiteralParam();
-							if(text != null) {
-								EList<String> newSuggestions = text.inferSuggestions();
-								if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
-									suggestions.addAll(newSuggestions);
-								} else {
-									suggestions.retainAll(newSuggestions);
-								}
-							}
-						}
-					}
-
-				} else {
-					XmlAxisPart part = xmlPathParam.getXmlAxisParts().get(xmlPathParam.getXmlAxisParts().size()-1);
-					TextLiteralParam text = part.getXmlAxisPartConditions().get(0).getTextLiteralParam();
-//					TextLiteralParam text = part.getTextLiteralParam();
-					if(text != null) {
-						EList<String> newSuggestions = text.inferSuggestions();
-						if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
-							suggestions.addAll(newSuggestions);
-						} else {
-							suggestions.retainAll(newSuggestions);
-						}
-					}
-				}
-
-			}
-		}
-		return suggestions;
-	}
-
-} //XSTypeImpl
+}

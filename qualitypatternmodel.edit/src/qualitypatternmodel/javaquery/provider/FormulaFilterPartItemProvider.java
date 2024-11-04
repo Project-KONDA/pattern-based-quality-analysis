@@ -19,6 +19,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.javaquery.FormulaFilterPart;
 import qualitypatternmodel.javaquery.JavaqueryFactory;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
+
 import qualitypatternmodel.patternstructure.LogicalOperator;
 
 /**

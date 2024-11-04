@@ -21,7 +21,6 @@ import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
@@ -161,42 +160,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public XmlProperty adaptAsXmlProperty() throws InvalidityException {
 		return this;
-	}
-
-	@Override
-	public void recordValues(XmlDataDatabase database) {
-//		if(getOption() != null && getOption().getValue() != null) {
-//			EList<Comparison> comps = new BasicEList<Comparison>();
-//			comps.addAll(getComparison1());
-//			comps.addAll(getComparison2());
-//			for(Comparison comp : comps) {
-//				String value = null;
-//				if(comp.getArgument1() instanceof TextLiteralParam) {
-//					value = ((TextLiteralParam) comp.getArgument1()).getValue();
-//				} else if (comp.getArgument2() instanceof TextLiteralParam) {
-//					value = ((TextLiteralParam) comp.getArgument2()).getValue();
-//				}
-//				// TODO: support other parameter types as well
-//				if(value != null && comp.getOption() != null && comp.getOption().getValue() != null) {
-//					switch (getOption().getValue()) {
-//					case ATTRIBUTE:
-//						if(getAttributeName() != null && getAttributeName().getValue() != null) {
-//							database.recordAttributeName(getAttributeName().getValue());
-//						}
-//						database.recordAttributeValue(value);
-//						break;
-//					case TAG:
-//						database.recordElementName(value);
-//						break;
-//					case DATA:
-//						database.recordDataValue(value);
-//						break;
-//					default:
-//						break;
-//					}
-//				}
-//			}
-//		}
 	}
 
 	@Override

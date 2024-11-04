@@ -6,7 +6,6 @@ package qualitypatternmodel.patternstructure.validation;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Condition;
@@ -28,8 +27,6 @@ public interface CompletePatternValidator {
 	boolean validateElementCounter(int value);
 
 	boolean validateName(String value);
-
-	boolean validateDatabase(Database value);
 
 	boolean validateAdaptionStarted(boolean value);
 

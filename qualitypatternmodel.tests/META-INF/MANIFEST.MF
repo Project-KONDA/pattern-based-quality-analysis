@@ -10,7 +10,6 @@ Bundle-Localization: plugin
 Export-Package: qualitypatternmodel.adaptionneo4j.tests,
  qualitypatternmodel.adaptionrdf.tests,
  qualitypatternmodel.adaptionxml.tests,
- qualitypatternmodel.execution.tests,
  qualitypatternmodel.graphstructure.tests,
  qualitypatternmodel.javaoperators.tests,
  qualitypatternmodel.javaquery.tests,

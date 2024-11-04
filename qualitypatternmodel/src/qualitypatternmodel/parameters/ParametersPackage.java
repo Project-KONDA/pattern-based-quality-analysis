@@ -323,15 +323,6 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER___RECORD_VALUES__XMLDATADATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -810,15 +801,6 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON_OPTION_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1252,15 +1234,6 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_LIST___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_LIST___RECORD_VALUES__XMLDATADATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1649,15 +1622,6 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE = PARAMETER___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1883,31 +1847,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_OPERATION_COUNT + 7;
 
 	/**
-	 * The operation id for the '<em>Get Element Tags</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_VALUE___GET_ELEMENT_TAGS = PARAMETER_OPERATION_COUNT + 8;
-
-	/**
-	 * The operation id for the '<em>Get Data Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_VALUE___GET_DATA_VALUES = PARAMETER_OPERATION_COUNT + 9;
-
-	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___IS_IN_DATA_COMPARISON = PARAMETER_OPERATION_COUNT + 10;
+	int PARAMETER_VALUE___IS_IN_DATA_COMPARISON = PARAMETER_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Is In Tag Comparison</em>' operation.
@@ -1916,25 +1862,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___IS_IN_TAG_COMPARISON = PARAMETER_OPERATION_COUNT + 11;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Names</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_VALUE___GET_ATTRIBUTE_NAMES = PARAMETER_OPERATION_COUNT + 12;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_VALUE___GET_ATTRIBUTE_VALUES = PARAMETER_OPERATION_COUNT + 13;
+	int PARAMETER_VALUE___IS_IN_TAG_COMPARISON = PARAMETER_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
@@ -1943,25 +1871,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_OPERATION_COUNT + 14;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_VALUE___GET_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 15;
-
-	/**
-	 * The operation id for the '<em>Infer Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_VALUE___INFER_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 16;
+	int PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_OPERATION_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Parameter Value</em>' class.
@@ -1970,7 +1880,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 17;
+	int PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.BooleanParamImpl <em>Boolean Param</em>}' class.
@@ -2307,15 +2217,6 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2541,24 +2442,6 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Get Element Tags</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
-
-	/**
-	 * The operation id for the '<em>Get Data Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2577,24 +2460,6 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___IS_IN_TAG_COMPARISON = PARAMETER_VALUE___IS_IN_TAG_COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Attribute Names</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2602,24 +2467,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_PARAM___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
-
-	/**
-	 * The operation id for the '<em>Infer Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -2938,15 +2785,6 @@ public interface ParametersPackage extends EPackage {
 	int LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3172,24 +3010,6 @@ public interface ParametersPackage extends EPackage {
 	int LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Get Element Tags</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
-
-	/**
-	 * The operation id for the '<em>Get Data Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3208,24 +3028,6 @@ public interface ParametersPackage extends EPackage {
 	int LIST_PARAM___IS_IN_TAG_COMPARISON = PARAMETER_VALUE___IS_IN_TAG_COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Attribute Names</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3233,24 +3035,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
-
-	/**
-	 * The operation id for the '<em>Infer Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -3596,15 +3380,6 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LIST_PARAM___RECORD_VALUES__XMLDATADATABASE = LIST_PARAM___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3830,24 +3605,6 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING = LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Get Element Tags</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LIST_PARAM___GET_ELEMENT_TAGS = LIST_PARAM___GET_ELEMENT_TAGS;
-
-	/**
-	 * The operation id for the '<em>Get Data Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LIST_PARAM___GET_DATA_VALUES = LIST_PARAM___GET_DATA_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3866,24 +3623,6 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM___IS_IN_TAG_COMPARISON = LIST_PARAM___IS_IN_TAG_COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Attribute Names</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LIST_PARAM___GET_ATTRIBUTE_NAMES = LIST_PARAM___GET_ATTRIBUTE_NAMES;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LIST_PARAM___GET_ATTRIBUTE_VALUES = LIST_PARAM___GET_ATTRIBUTE_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3891,24 +3630,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON = LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LIST_PARAM___GET_SUGGESTIONS = LIST_PARAM___GET_SUGGESTIONS;
-
-	/**
-	 * The operation id for the '<em>Infer Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LIST_PARAM___INFER_SUGGESTIONS = LIST_PARAM___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -4290,15 +4011,6 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LITERAL_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4524,24 +4236,6 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Get Element Tags</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LITERAL_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
-
-	/**
-	 * The operation id for the '<em>Get Data Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LITERAL_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4560,24 +4254,6 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___IS_IN_TAG_COMPARISON = PARAMETER_VALUE___IS_IN_TAG_COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Attribute Names</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LITERAL_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LITERAL_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4585,24 +4261,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LITERAL_PARAM___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LITERAL_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
-
-	/**
-	 * The operation id for the '<em>Infer Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LITERAL_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -4939,15 +4597,6 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5173,24 +4822,6 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Get Element Tags</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
-
-	/**
-	 * The operation id for the '<em>Get Data Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5209,24 +4840,6 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___IS_IN_TAG_COMPARISON = PARAMETER_VALUE___IS_IN_TAG_COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Attribute Names</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5234,24 +4847,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_PARAM___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
-
-	/**
-	 * The operation id for the '<em>Infer Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -5570,15 +5165,6 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5804,24 +5390,6 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Get Element Tags</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
-
-	/**
-	 * The operation id for the '<em>Get Data Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5840,24 +5408,6 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___IS_IN_TAG_COMPARISON = PARAMETER_VALUE___IS_IN_TAG_COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Attribute Names</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5865,24 +5415,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
-
-	/**
-	 * The operation id for the '<em>Infer Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -6201,15 +5733,6 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6435,24 +5958,6 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Get Element Tags</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
-
-	/**
-	 * The operation id for the '<em>Get Data Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6471,24 +5976,6 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___IS_IN_TAG_COMPARISON = PARAMETER_VALUE___IS_IN_TAG_COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Attribute Names</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6496,24 +5983,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TIME_PARAM___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
-
-	/**
-	 * The operation id for the '<em>Infer Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -6823,15 +6292,6 @@ public interface ParametersPackage extends EPackage {
 	int UNTYPED_PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNTYPED_PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7057,24 +6517,6 @@ public interface ParametersPackage extends EPackage {
 	int UNTYPED_PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Get Element Tags</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNTYPED_PARAMETER_VALUE___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
-
-	/**
-	 * The operation id for the '<em>Get Data Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNTYPED_PARAMETER_VALUE___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7093,24 +6535,6 @@ public interface ParametersPackage extends EPackage {
 	int UNTYPED_PARAMETER_VALUE___IS_IN_TAG_COMPARISON = PARAMETER_VALUE___IS_IN_TAG_COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Attribute Names</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNTYPED_PARAMETER_VALUE___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNTYPED_PARAMETER_VALUE___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7118,24 +6542,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNTYPED_PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNTYPED_PARAMETER_VALUE___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
-
-	/**
-	 * The operation id for the '<em>Infer Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNTYPED_PARAMETER_VALUE___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value</em>' operation.
@@ -7454,15 +6860,6 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_TIME_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7688,24 +7085,6 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Get Element Tags</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_TIME_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
-
-	/**
-	 * The operation id for the '<em>Get Data Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_TIME_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7724,24 +7103,6 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___IS_IN_TAG_COMPARISON = PARAMETER_VALUE___IS_IN_TAG_COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Attribute Names</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_TIME_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_TIME_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7749,24 +7110,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_TIME_PARAM___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_TIME_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
-
-	/**
-	 * The operation id for the '<em>Infer Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_TIME_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -8074,15 +7417,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_OPTION_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -8534,15 +7868,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int KEY_VALUE_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -9032,15 +8357,6 @@ public interface ParametersPackage extends EPackage {
 	int MULTI_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTI_LIST_PARAM___RECORD_VALUES__XMLDATADATABASE = LIST_PARAM___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9266,24 +8582,6 @@ public interface ParametersPackage extends EPackage {
 	int MULTI_LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING = LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Get Element Tags</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTI_LIST_PARAM___GET_ELEMENT_TAGS = LIST_PARAM___GET_ELEMENT_TAGS;
-
-	/**
-	 * The operation id for the '<em>Get Data Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTI_LIST_PARAM___GET_DATA_VALUES = LIST_PARAM___GET_DATA_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9302,24 +8600,6 @@ public interface ParametersPackage extends EPackage {
 	int MULTI_LIST_PARAM___IS_IN_TAG_COMPARISON = LIST_PARAM___IS_IN_TAG_COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Attribute Names</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTI_LIST_PARAM___GET_ATTRIBUTE_NAMES = LIST_PARAM___GET_ATTRIBUTE_NAMES;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTI_LIST_PARAM___GET_ATTRIBUTE_VALUES = LIST_PARAM___GET_ATTRIBUTE_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9327,24 +8607,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTI_LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON = LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTI_LIST_PARAM___GET_SUGGESTIONS = LIST_PARAM___GET_SUGGESTIONS;
-
-	/**
-	 * The operation id for the '<em>Infer Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTI_LIST_PARAM___INFER_SUGGESTIONS = LIST_PARAM___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -9974,66 +9236,6 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameterValue__IsInDataComparison();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#getElementTags() <em>Get Element Tags</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Element Tags</em>' operation.
-	 * @see qualitypatternmodel.parameters.ParameterValue#getElementTags()
-	 * @generated
-	 */
-	EOperation getParameterValue__GetElementTags();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#getAttributeNames() <em>Get Attribute Names</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Attribute Names</em>' operation.
-	 * @see qualitypatternmodel.parameters.ParameterValue#getAttributeNames()
-	 * @generated
-	 */
-	EOperation getParameterValue__GetAttributeNames();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#getDataValues() <em>Get Data Values</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Data Values</em>' operation.
-	 * @see qualitypatternmodel.parameters.ParameterValue#getDataValues()
-	 * @generated
-	 */
-	EOperation getParameterValue__GetDataValues();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#getAttributeValues() <em>Get Attribute Values</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Attribute Values</em>' operation.
-	 * @see qualitypatternmodel.parameters.ParameterValue#getAttributeValues()
-	 * @generated
-	 */
-	EOperation getParameterValue__GetAttributeValues();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#getSuggestions() <em>Get Suggestions</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Suggestions</em>' operation.
-	 * @see qualitypatternmodel.parameters.ParameterValue#getSuggestions()
-	 * @generated
-	 */
-	EOperation getParameterValue__GetSuggestions();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#inferSuggestions() <em>Infer Suggestions</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Infer Suggestions</em>' operation.
-	 * @see qualitypatternmodel.parameters.ParameterValue#inferSuggestions()
-	 * @generated
-	 */
-	EOperation getParameterValue__InferSuggestions();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#replace(qualitypatternmodel.parameters.ParameterValue) <em>Replace</em>}' operation.
@@ -10825,54 +10027,6 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER_VALUE___IS_IN_DATA_COMPARISON = eINSTANCE.getParameterValue__IsInDataComparison();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Element Tags</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PARAMETER_VALUE___GET_ELEMENT_TAGS = eINSTANCE.getParameterValue__GetElementTags();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Attribute Names</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PARAMETER_VALUE___GET_ATTRIBUTE_NAMES = eINSTANCE.getParameterValue__GetAttributeNames();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Data Values</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PARAMETER_VALUE___GET_DATA_VALUES = eINSTANCE.getParameterValue__GetDataValues();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Attribute Values</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PARAMETER_VALUE___GET_ATTRIBUTE_VALUES = eINSTANCE.getParameterValue__GetAttributeValues();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Suggestions</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PARAMETER_VALUE___GET_SUGGESTIONS = eINSTANCE.getParameterValue__GetSuggestions();
-
-		/**
-		 * The meta object literal for the '<em><b>Infer Suggestions</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PARAMETER_VALUE___INFER_SUGGESTIONS = eINSTANCE.getParameterValue__InferSuggestions();
 
 		/**
 		 * The meta object literal for the '<em><b>Replace</b></em>' operation.

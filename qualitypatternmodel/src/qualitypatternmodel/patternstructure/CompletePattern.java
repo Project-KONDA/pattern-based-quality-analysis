@@ -11,7 +11,6 @@ import de.gwdg.metadataqa.api.schema.BaseSchema;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -29,7 +28,6 @@ import qualitypatternmodel.textrepresentation.ValueMap;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getParameterList <em>Parameter List</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabase <em>Database</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getText <em>Text</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getPatternId <em>Pattern Id</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getName <em>Name</em>}</li>
@@ -122,30 +120,6 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void setAbstractId(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Database</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.execution.Database#getPatterns <em>Patterns</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Database</em>' reference.
-	 * @see #setDatabase(Database)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_Database()
-	 * @see qualitypatternmodel.execution.Database#getPatterns
-	 * @model opposite="patterns"
-	 * @generated
-	 */
-	Database getDatabase();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabase <em>Database</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Database</em>' reference.
-	 * @see #getDatabase()
-	 * @generated
-	 */
-	void setDatabase(Database value);
 
 	/**
 	 * Returns the value of the '<em><b>Element Counter</b></em>' attribute.
@@ -365,6 +339,14 @@ public interface CompletePattern extends Pattern {
 	void setNamespaces(ValueMap value);
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	EList<Parameter> validateAgainstSchema() throws InvalidityException;
+
+	/**
 	 * Returns the value of the '<em><b>Counter</b></em>' attribute.
 	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
@@ -461,12 +443,6 @@ public interface CompletePattern extends Pattern {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Records all values of <code>Parameters</code> contained in the valid concrete pattern in the <code>database</code>.
-	 *
-	 * @throws InvalidityException if <code>this</code> is not a valid concrete pattern
-	 * @throws OperatorCycleException if <code>this</code> contains an operator that references itself as an argument
-	 * @throws MissingPatternContainerException if <code>this</code> directly or indirectly references <code>PatternElements</code>
-	 * that are not directly or indirectly contained in <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
@@ -483,14 +459,6 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	AbstractionLevel getAbstractionLevel();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	EList<Parameter> validateAgainstSchema() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -528,7 +496,7 @@ public interface CompletePattern extends Pattern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
 	void generateXmlConstraintYAMLFile(String path) throws InvalidityException, IOException;

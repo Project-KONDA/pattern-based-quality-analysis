@@ -30,7 +30,6 @@ import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
@@ -458,12 +457,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public void prepareTranslation() {
 		graph.prepareTranslation();
 		condition.prepareTranslation();
-	}
-
-	@Override
-	public void recordValues(XmlDataDatabase database) {
-		getGraph().recordValues(database);
-		getCondition().recordValues(database);
 	}
 
 	@Override

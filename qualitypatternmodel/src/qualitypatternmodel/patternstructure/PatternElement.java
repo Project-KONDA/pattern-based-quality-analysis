@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
@@ -253,17 +252,6 @@ public interface PatternElement extends EObject {
 	 * @generated
 	 */
 	String generateXQueryJava() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Recursively records all values of contained or referenced <code>Parameters</code> in the <code>XmlDatabase</code>.
-	 *
-	 * @param database the <code>XmlDatabase</code> in which the values of <code>Parameters</code> are recorded
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void recordValues(XmlDataDatabase database);
 
 	/**
 	 * <!-- begin-user-doc -->

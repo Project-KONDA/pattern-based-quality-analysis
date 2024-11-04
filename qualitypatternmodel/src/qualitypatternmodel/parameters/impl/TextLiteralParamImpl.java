@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XmlAxisPart;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
@@ -30,7 +29,6 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.utility.Constants;
 
 /**
  * <!-- begin-user-doc -->
@@ -191,30 +189,6 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override
 	public boolean isUsed() {
 		return super.isUsed() || !getMatches().isEmpty() || getXmlPropertyOptionParam() != null;
-	}
-
-	@Override
-	public EList<String> getSuggestions() {
-		EList<String> suggestions = super.getSuggestions();
-		if(getXmlPropertyOptionParam().getValue() == XmlPropertyKind.ATTRIBUTE) {
-			suggestions.addAll(Constants.sortByValue(getAttributeNames()).keySet());
-		}
-		return suggestions;
-	}
-
-	@Override
-	public EList<String> inferSuggestions() {
-		EList<String> suggestions = super.inferSuggestions();
-		XmlAxisPart part = getXmlAxisPartCondition().getXmlAxisPart();
-		EList<String> suggestionsFromPath = part.inferElementTagSuggestions();
-
-		if(suggestions.isEmpty() || suggestionsFromPath.isEmpty()) {
-			suggestions.addAll(suggestionsFromPath);
-		} else {
-			suggestions.retainAll(suggestionsFromPath);
-		}
-
-		return suggestions;
 	}
 
 	@Override

@@ -32,7 +32,6 @@ import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
@@ -381,11 +380,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return adaptAsNeoElementNode();
-	}
-
-	@Override
-	public void recordValues(XmlDataDatabase database) {
-		return;
 	}
 
 	@Override
