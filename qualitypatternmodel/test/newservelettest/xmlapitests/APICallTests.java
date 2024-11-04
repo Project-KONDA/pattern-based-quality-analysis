@@ -620,7 +620,7 @@ public class APICallTests {
 	public void testTemplateVariantServletPutDelete()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		String variantname = "testvariant";
-		String variantjsonstring = "{\"template\":\"Card_xml\",\"language\":\"xml\",\"name\":\"" + variantname + "\",\"fragments\":[{\"text\":\"”Search for”\"},{\"name\":\"element\",\"params\":[2],\"exampleValue\":\"Actors\",\"description\":\"anchor for analysis\"},{\"text\":\"where the number of\"},{\"name\":\"child elements\",\"params\":[3],\"exampleValue\":\"Birthdates\",\"description\":\"counted elements\"},{\"text\":\"is\"},{\"name\":\"compared to\",\"params\":[0],\"exampleValue\":\"more than\",\"comparisonMap\":\"true\"},{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":1},{\"text\":\".\"}]}";
+		String variantjsonstring = "{\"template\":\"Card_xml\", \"language\":\"xml\", \"name\":\"" + variantname + "\", \"typeConstraint\":true, \"fragments\":[ {\"text\":\"Each\"}, {\"name\":\"element\", \"params\":[2], \"exampleValue\":\"Actors\", \"description\":\"anchor for analysis\"}, {\"text\":\"has\"}, {\"name\":\"a comparison with\", \"params\":[0], \"exampleValue\":\"at most\", \"defaultMap\":\"comparison_negated\"}, {\"name\":\"a specific number\", \"params\":[1], \"exampleValue\":\"1\"}, {\"name\":\"child elements\", \"params\":[3], \"exampleValue\":\"Birthdates\", \"description\":\"counted elements\", \"plural\":\"true\"}, {\"text\":\".\"} ]}";
 
 		JSONObject variant = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
 		assertVariantObjectWithout(variant, variantname);
