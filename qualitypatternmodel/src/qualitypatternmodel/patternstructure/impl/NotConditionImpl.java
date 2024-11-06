@@ -44,7 +44,6 @@ import qualitypatternmodel.utility.ConstantsRdf;
  * @generated
  */
 public class NotConditionImpl extends ConditionImpl implements NotCondition {
-	private static final String INVALID_CONDITION = "Invalid condition";
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
