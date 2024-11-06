@@ -412,7 +412,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		super();
 		setParameterList(new ParameterListImpl(this));
 		setGraph(new GraphImpl());
-		setCondition(new TrueElementImpl());
+		setCondition(null);
 
 		NodeImpl element = new NodeImpl();
 		element.setGraph(getGraph());
@@ -548,7 +548,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		InterimResultPartImpl.resetIdCounter();
 		Boolean graph = getGraph().containsJavaOperator();
-		Boolean condition = getCondition().containsJavaOperator();
+		Boolean condition = false;
+		if (getCondition() != null)
+			condition = getCondition().containsJavaOperator();
 
 		if (graph && condition) {
 			BooleanFilterPart sub1 = (BooleanFilterPart) getGraph().generateQueryFilterPart();
@@ -1893,7 +1895,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 //		String res = "Pattern [" + getInternalId() + "] " + name;
 		String res = "Pattern " + name;
 		res += "\n  " + getGraph().myToString().replace("\n", "\n  ");
-		res += "\n  " + getCondition().myToString().replace("\n", "\n  ");
+		if (getCondition() != null)
+			res += "\n  " + getCondition().myToString().replace("\n", "\n  ");
+		else 
+			res += "\n  TRUE";
 		res += getParameterList().myToString().replace("\n", "\n  ");
 		return res;
 	}

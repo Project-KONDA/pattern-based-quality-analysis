@@ -26,7 +26,6 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.patternstructure.TrueElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -75,7 +74,6 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 			case PatternstructurePackage.QUANTIFIED_CONDITION: return createQuantifiedCondition();
 			case PatternstructurePackage.MORPHISM: return createMorphism();
 			case PatternstructurePackage.FORMULA: return createFormula();
-			case PatternstructurePackage.TRUE_ELEMENT: return createTrueElement();
 			case PatternstructurePackage.COMPLETE_PATTERN: return createCompletePattern();
 			case PatternstructurePackage.NOT_CONDITION: return createNotCondition();
 			case PatternstructurePackage.COUNT_CONDITION: return createCountCondition();
@@ -175,17 +173,6 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	public Formula createFormula() {
 		FormulaImpl formula = new FormulaImpl();
 		return formula;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public TrueElement createTrueElement() {
-		TrueElementImpl trueElement = new TrueElementImpl();
-		return trueElement;
 	}
 
 	/**

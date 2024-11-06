@@ -14,7 +14,6 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 
@@ -76,8 +75,7 @@ public class Test06NotElement {
 		completePattern.setCondition(n);
 		QuantifiedCondition qc = factory.createQuantifiedCondition();
 		n.setCondition(qc);
-		TrueElement t = factory.createTrueElement();
-		qc.setCondition(t);
+		qc.setCondition(null);
 
 		Node e0 = completePattern.getGraph().getNodes().get(0);
 		e0.addOutgoing(qc.getGraph());
@@ -105,14 +103,13 @@ public class Test06NotElement {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
-		TrueElement t = (TrueElement) ((QuantifiedCondition) completePattern.getCondition()).getCondition();
 		QuantifiedCondition qc1 = (QuantifiedCondition) completePattern.getCondition();
 		NotCondition n = factory.createNotCondition();
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
 
 		qc1.setCondition(n);
 		n.setCondition(qc2);
-		qc2.setCondition(t);
+		qc2.setCondition(null);
 
 		Node e1 = qc1.getGraph().getNodes().get(0);
 

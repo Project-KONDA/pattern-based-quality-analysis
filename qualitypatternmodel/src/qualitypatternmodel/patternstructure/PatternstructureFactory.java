@@ -50,15 +50,6 @@ public interface PatternstructureFactory extends EFactory {
 	Formula createFormula();
 
 	/**
-	 * Returns a new object of class '<em>True Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>True Element</em>'.
-	 * @generated
-	 */
-	TrueElement createTrueElement();
-
-	/**
 	 * Returns a new object of class '<em>Complete Pattern</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

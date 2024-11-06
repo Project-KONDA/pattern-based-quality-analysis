@@ -21,7 +21,6 @@ import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.patternstructure.TrueElement;
 
 public class MqafUniquenessConditionCheck {
 
@@ -62,7 +61,7 @@ public class MqafUniquenessConditionCheck {
 			if (next instanceof QuantifiedCondition) {
 				return isUniquenessExists2Condition(element, recordNode);
 			}
-			if (next != null && !(next instanceof TrueElement)) {
+			if (next != null) {
 				return null;
 			}
 

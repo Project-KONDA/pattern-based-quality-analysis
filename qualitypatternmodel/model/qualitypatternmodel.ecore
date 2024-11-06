@@ -555,7 +555,6 @@
           containment="true" eOpposite="#//patternstructure/Condition/formula2"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="clamped" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TrueElement" eSuperTypes="#//patternstructure/Condition"/>
     <eClassifiers xsi:type="ecore:EEnum" name="LogicalOperator">
       <eLiterals name="AND" value="1" literal="and"/>
       <eLiterals name="OR" value="2" literal="or"/>

@@ -53,7 +53,6 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl;
@@ -92,13 +91,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	private EClass formulaEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass trueElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -550,16 +542,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EAttribute getFormula_Clamped() {
 		return (EAttribute)formulaEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getTrueElement() {
-		return trueElementEClass;
 	}
 
 	/**
@@ -1587,8 +1569,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEReference(formulaEClass, FORMULA__CONDITION2);
 		createEAttribute(formulaEClass, FORMULA__CLAMPED);
 
-		trueElementEClass = createEClass(TRUE_ELEMENT);
-
 		completePatternEClass = createEClass(COMPLETE_PATTERN);
 		createEReference(completePatternEClass, COMPLETE_PATTERN__PARAMETER_LIST);
 		createEReference(completePatternEClass, COMPLETE_PATTERN__TEXT);
@@ -1740,7 +1720,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		conditionEClass.getESuperTypes().add(this.getPatternElement());
 		morphismEClass.getESuperTypes().add(this.getPatternElement());
 		formulaEClass.getESuperTypes().add(this.getCondition());
-		trueElementEClass.getESuperTypes().add(this.getCondition());
 		completePatternEClass.getESuperTypes().add(this.getPattern());
 		notConditionEClass.getESuperTypes().add(this.getCondition());
 		countConditionEClass.getESuperTypes().add(this.getCondition());
@@ -1783,8 +1762,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEReference(getFormula_Condition1(), this.getCondition(), this.getCondition_Formula1(), "condition1", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormula_Condition2(), this.getCondition(), this.getCondition_Formula2(), "condition2", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFormula_Clamped(), ecorePackage.getEBoolean(), "clamped", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(trueElementEClass, TrueElement.class, "TrueElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(completePatternEClass, CompletePattern.class, "CompletePattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompletePattern_ParameterList(), theParametersPackage.getParameterList(), theParametersPackage.getParameterList_Pattern(), "parameterList", null, 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

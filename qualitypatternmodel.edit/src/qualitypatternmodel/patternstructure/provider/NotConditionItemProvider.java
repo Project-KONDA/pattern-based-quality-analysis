@@ -149,11 +149,6 @@ public class NotConditionItemProvider extends ConditionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.NOT_CONDITION__CONDITION,
-				 PatternstructureFactory.eINSTANCE.createTrueElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PatternstructurePackage.Literals.NOT_CONDITION__CONDITION,
 				 PatternstructureFactory.eINSTANCE.createNotCondition()));
 
 		newChildDescriptors.add
