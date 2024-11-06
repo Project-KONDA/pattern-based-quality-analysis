@@ -2758,22 +2758,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH = PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH;
 
 	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA = PATTERN_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Get Abstraction Level</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL = PATTERN_OPERATION_COUNT + 1;
+	int COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL = PATTERN_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get New Ref No</em>' operation.
@@ -2782,16 +2773,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS = PATTERN_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN___RECORD_VALUES = PATTERN_OPERATION_COUNT + 3;
+	int COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS = PATTERN_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Reset Query</em>' operation.
@@ -2800,7 +2782,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___RESET_QUERY = PATTERN_OPERATION_COUNT + 4;
+	int COMPLETE_PATTERN___RESET_QUERY = PATTERN_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher Return</em>' operation.
@@ -2809,7 +2791,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GENERATE_CYPHER_RETURN = PATTERN_OPERATION_COUNT + 5;
+	int COMPLETE_PATTERN___GENERATE_CYPHER_RETURN = PATTERN_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Generate Wikidata Sparql</em>' operation.
@@ -2818,7 +2800,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GENERATE_WIKIDATA_SPARQL = PATTERN_OPERATION_COUNT + 6;
+	int COMPLETE_PATTERN___GENERATE_WIKIDATA_SPARQL = PATTERN_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate Xml Constraint Schema</em>' operation.
@@ -2827,7 +2809,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_SCHEMA = PATTERN_OPERATION_COUNT + 7;
+	int COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_SCHEMA = PATTERN_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Generate Xml Constraint YAML File</em>' operation.
@@ -2836,7 +2818,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_YAML_FILE__STRING = PATTERN_OPERATION_COUNT + 8;
+	int COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_YAML_FILE__STRING = PATTERN_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Generate Query Filter</em>' operation.
@@ -2845,7 +2827,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GENERATE_QUERY_FILTER = PATTERN_OPERATION_COUNT + 9;
+	int COMPLETE_PATTERN___GENERATE_QUERY_FILTER = PATTERN_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Update Last Saved</em>' operation.
@@ -2854,7 +2836,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___UPDATE_LAST_SAVED = PATTERN_OPERATION_COUNT + 10;
+	int COMPLETE_PATTERN___UPDATE_LAST_SAVED = PATTERN_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery Namespaces</em>' operation.
@@ -2863,7 +2845,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GENERATE_XQUERY_NAMESPACES = PATTERN_OPERATION_COUNT + 11;
+	int COMPLETE_PATTERN___GENERATE_XQUERY_NAMESPACES = PATTERN_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Print Parameters</em>' operation.
@@ -2872,7 +2854,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___PRINT_PARAMETERS__BOOLEAN = PATTERN_OPERATION_COUNT + 12;
+	int COMPLETE_PATTERN___PRINT_PARAMETERS__BOOLEAN = PATTERN_OPERATION_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
@@ -2881,7 +2863,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 13;
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -5590,16 +5572,6 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getCompletePattern__GetNewRefNo__Class();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#recordValues() <em>Record Values</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Record Values</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#recordValues()
-	 * @generated
-	 */
-	EOperation getCompletePattern__RecordValues();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractionLevel() <em>Get Abstraction Level</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5608,16 +5580,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getCompletePattern__GetAbstractionLevel();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Validate Against Schema</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#validateAgainstSchema()
-	 * @generated
-	 */
-	EOperation getCompletePattern__ValidateAgainstSchema();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#resetQuery() <em>Reset Query</em>}' operation.
@@ -6749,28 +6711,12 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS = eINSTANCE.getCompletePattern__GetNewRefNo__Class();
 
 		/**
-		 * The meta object literal for the '<em><b>Record Values</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPLETE_PATTERN___RECORD_VALUES = eINSTANCE.getCompletePattern__RecordValues();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Abstraction Level</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL = eINSTANCE.getCompletePattern__GetAbstractionLevel();
-
-		/**
-		 * The meta object literal for the '<em><b>Validate Against Schema</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA = eINSTANCE.getCompletePattern__ValidateAgainstSchema();
 
 		/**
 		 * The meta object literal for the '<em><b>Reset Query</b></em>' operation.

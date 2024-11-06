@@ -9,10 +9,7 @@ import org.eclipse.emf.common.util.EList;
 
 import de.gwdg.metadataqa.api.schema.BaseSchema;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.javaquery.JavaFilter;
-import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.ValueMap;
@@ -339,14 +336,6 @@ public interface CompletePattern extends Pattern {
 	void setNamespaces(ValueMap value);
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	EList<Parameter> validateAgainstSchema() throws InvalidityException;
-
-	/**
 	 * Returns the value of the '<em><b>Counter</b></em>' attribute.
 	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
@@ -440,14 +429,6 @@ public interface CompletePattern extends Pattern {
 	 * @generated NOT
 	 */
 	int getNewRefNo(Class<?> type);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper qualitypatternmodel.patternstructure.MissingPatternContainerException"
-	 * @generated
-	 */
-	void recordValues() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->

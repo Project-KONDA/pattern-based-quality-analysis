@@ -871,19 +871,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void recordValues() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -1418,19 +1405,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 */
 	@Override
-	public EList<Parameter> validateAgainstSchema() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Integer getCounter() {
 		return counter;
 	}
@@ -1774,25 +1748,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PatternstructurePackage.COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA:
-				try {
-					return validateAgainstSchema();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case PatternstructurePackage.COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL:
 				return getAbstractionLevel();
 			case PatternstructurePackage.COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS:
 				return getNewRefNo((Class)arguments.get(0));
-			case PatternstructurePackage.COMPLETE_PATTERN___RECORD_VALUES:
-				try {
-					recordValues();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case PatternstructurePackage.COMPLETE_PATTERN___RESET_QUERY:
 				resetQuery();
 				return null;

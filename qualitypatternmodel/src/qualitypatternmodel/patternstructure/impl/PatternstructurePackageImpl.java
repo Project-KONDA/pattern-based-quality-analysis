@@ -731,26 +731,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getCompletePattern__GetNewRefNo__Class() {
-		return completePatternEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getCompletePattern__RecordValues() {
-		return completePatternEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getCompletePattern__GetAbstractionLevel() {
 		return completePatternEClass.getEOperations().get(1);
 	}
 
@@ -760,7 +740,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getCompletePattern__ValidateAgainstSchema() {
+	public EOperation getCompletePattern__GetAbstractionLevel() {
 		return completePatternEClass.getEOperations().get(0);
 	}
 
@@ -771,7 +751,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getCompletePattern__ResetQuery() {
-		return completePatternEClass.getEOperations().get(4);
+		return completePatternEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -781,7 +761,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getCompletePattern__GenerateCypherReturn() {
-		return completePatternEClass.getEOperations().get(5);
+		return completePatternEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -791,7 +771,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getCompletePattern__GenerateWikidataSparql() {
-		return completePatternEClass.getEOperations().get(6);
+		return completePatternEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -801,7 +781,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getCompletePattern__GenerateXmlConstraintSchema() {
-		return completePatternEClass.getEOperations().get(7);
+		return completePatternEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -811,7 +791,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getCompletePattern__GenerateXmlConstraintYAMLFile__String() {
-		return completePatternEClass.getEOperations().get(8);
+		return completePatternEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -821,7 +801,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getCompletePattern__GenerateQueryFilter() {
-		return completePatternEClass.getEOperations().get(9);
+		return completePatternEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -831,7 +811,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getCompletePattern__UpdateLastSaved() {
-		return completePatternEClass.getEOperations().get(10);
+		return completePatternEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -841,7 +821,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getCompletePattern__GenerateXQueryNamespaces() {
-		return completePatternEClass.getEOperations().get(11);
+		return completePatternEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -851,7 +831,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getCompletePattern__PrintParameters__boolean() {
-		return completePatternEClass.getEOperations().get(12);
+		return completePatternEClass.getEOperations().get(10);
 	}
 
 	/**
@@ -1587,10 +1567,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__OPERATOR_COUNTER);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__LAST_SAVED);
 		createEReference(completePatternEClass, COMPLETE_PATTERN__NAMESPACES);
-		createEOperation(completePatternEClass, COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS);
-		createEOperation(completePatternEClass, COMPLETE_PATTERN___RECORD_VALUES);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___RESET_QUERY);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_CYPHER_RETURN);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GENERATE_WIKIDATA_SPARQL);
@@ -1707,8 +1685,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
 		TextrepresentationPackage theTextrepresentationPackage = (TextrepresentationPackage)EPackage.Registry.INSTANCE.getEPackage(TextrepresentationPackage.eNS_URI);
-		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
 		JavaqueryPackage theJavaqueryPackage = (JavaqueryPackage)EPackage.Registry.INSTANCE.getEPackage(JavaqueryPackage.eNS_URI);
+		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1782,18 +1760,10 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEAttribute(getCompletePattern_LastSaved(), ecorePackage.getEDate(), "lastSaved", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCompletePattern_Namespaces(), theTextrepresentationPackage.getValueMap(), null, "namespaces", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getCompletePattern__ValidateAgainstSchema(), theParametersPackage.getParameter(), "validateAgainstSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getInvalidityExceptionWrapper());
-
 		initEOperation(getCompletePattern__GetAbstractionLevel(), this.getAbstractionLevel(), "getAbstractionLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getCompletePattern__GetNewRefNo__Class(), ecorePackage.getEInt(), "getNewRefNo", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getClassWrapper(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getCompletePattern__RecordValues(), null, "recordValues", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getInvalidityExceptionWrapper());
-		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
-		addEException(op, this.getMissingPatternContainerException());
 
 		initEOperation(getCompletePattern__ResetQuery(), null, "resetQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
 
