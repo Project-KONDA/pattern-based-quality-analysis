@@ -31,7 +31,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.utility.ConstantsNeo;
-import utilis.Java2Neo4JConnector;
+import utility.Java2Neo4JConnector;
 
 /**
  * <p>
@@ -91,7 +91,7 @@ public abstract class CypherTranslation implements ICypherTranslatione {
 	}
 
 	public static void testCompletePatterns(ArrayList<CompletePattern> completePatterns) throws Exception {
-		boolean isDbOn = utilis.Java2Neo4JConnector.verifyConnectivity();
+		boolean isDbOn = utility.Java2Neo4JConnector.verifyConnectivity();
 		if (isDbOn) {
 			System.out.print(MODE + TESTING_WITH_DB);
 		} else {

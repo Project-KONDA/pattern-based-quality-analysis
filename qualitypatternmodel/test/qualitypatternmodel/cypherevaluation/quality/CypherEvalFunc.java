@@ -3,7 +3,7 @@ package qualitypatternmodel.cypherevaluation.quality;
 import java.time.Duration;
 import java.time.Instant;
 
-import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
+import qualitypatternmodel.cypherevaluation.utility.DummyFiller;
 import qualitypatternmodel.evaluationquality.EvalFunc;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
