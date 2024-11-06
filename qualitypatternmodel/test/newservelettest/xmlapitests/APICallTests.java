@@ -125,7 +125,7 @@ public class APICallTests {
 
 	static String newConstraint()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		return newConstraint("Match_xml", "default-antipattern");
+		return newConstraint("Match_xml", "default-constraint");
 	}
 
 	static String newConstraint(String pattern, String variant)
