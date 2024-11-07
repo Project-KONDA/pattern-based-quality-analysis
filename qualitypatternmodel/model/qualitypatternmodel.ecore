@@ -31,8 +31,7 @@
       <eOperations name="clear"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" eType="#//parameters/ParameterList"
           eOpposite="#//parameters/ParameterList/parameters"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="predefined" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="predefined" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterReferences"
           upperBound="-1" eType="#//textrepresentation/ParameterReference" eOpposite="#//textrepresentation/ParameterReference/parameter"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -43,8 +42,7 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
           eType="#//operators/ComparisonOperator"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
-          eType="#//operators/ComparisonOperator"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//operators/ComparisonOperator"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comparisons" upperBound="-1"
           eType="#//operators/Comparison" eOpposite="#//operators/Comparison/option"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="countConditions" upperBound="-1"
@@ -69,8 +67,7 @@
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
           defaultValueLiteral="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="matches" upperBound="-1"
           eType="#//operators/Match" eOpposite="#//operators/Match/option"/>
@@ -153,8 +150,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="TypeOptionParam" eSuperTypes="#//parameters/Parameter">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
           eType="#//graphstructure/ReturnType"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
-          eType="#//graphstructure/ReturnType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//graphstructure/ReturnType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="typeComparisons" upperBound="-1"
           eType="#//operators/Comparison" eOpposite="#//operators/Comparison/typeOption"/>
     </eClassifiers>
