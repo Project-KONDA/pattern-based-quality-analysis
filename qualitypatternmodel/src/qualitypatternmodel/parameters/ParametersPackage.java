@@ -395,31 +395,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER___VALIDATE_AGAINST_SCHEMA = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
-
-	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___INPUT_IS_VALID = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int PARAMETER___INPUT_IS_VALID = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Used</em>' operation.
@@ -428,7 +410,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___IS_USED = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int PARAMETER___IS_USED = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Set Value From String</em>' operation.
@@ -437,7 +419,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___SET_VALUE_FROM_STRING__STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+	int PARAMETER___SET_VALUE_FROM_STRING__STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Value As String</em>' operation.
@@ -446,7 +428,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___GET_VALUE_AS_STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
+	int PARAMETER___GET_VALUE_AS_STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -455,7 +437,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___CHECK_COMPARISON_CONSISTENCY = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
+	int PARAMETER___CHECK_COMPARISON_CONSISTENCY = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Options As Json Array</em>' operation.
@@ -464,7 +446,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___GET_OPTIONS_AS_JSON_ARRAY = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
+	int PARAMETER___GET_OPTIONS_AS_JSON_ARRAY = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -473,7 +455,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___GENERATE_DESCRIPTION = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
+	int PARAMETER___GENERATE_DESCRIPTION = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Clear</em>' operation.
@@ -482,7 +464,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___CLEAR = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
+	int PARAMETER___CLEAR = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
@@ -491,7 +473,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 11;
+	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl <em>Comparison Option Param</em>}' class.
@@ -871,24 +853,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON_OPTION_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON_OPTION_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON_OPTION_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1297,22 +1261,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_LIST___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_LIST___VALIDATE_AGAINST_SCHEMA = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Add</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_LIST___ADD__PARAMETER = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int PARAMETER_LIST___ADD__PARAMETER = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Remove</em>' operation.
@@ -1321,7 +1276,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_LIST___REMOVE__PARAMETER = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
+	int PARAMETER_LIST___REMOVE__PARAMETER = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Parameter List</em>' class.
@@ -1330,7 +1285,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int PARAMETER_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ParameterValueImpl <em>Parameter Value</em>}' class.
@@ -1683,24 +1638,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_VALUE___MY_TO_STRING = PARAMETER___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA = PARAMETER___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2280,24 +2217,6 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
-
-	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2846,24 +2765,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -3441,24 +3342,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___MY_TO_STRING = LIST_PARAM___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LIST_PARAM___VALIDATE_AGAINST_SCHEMA = LIST_PARAM___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -4074,24 +3957,6 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LITERAL_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LITERAL_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
-
-	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4660,24 +4525,6 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
-
-	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5226,24 +5073,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -5796,24 +5625,6 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
-
-	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6353,24 +6164,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNTYPED_PARAMETER_VALUE___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNTYPED_PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNTYPED_PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -6923,24 +6716,6 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_TIME_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_TIME_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
-
-	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7491,24 +7266,6 @@ public interface ParametersPackage extends EPackage {
 	int TYPE_OPTION_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_OPTION_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_OPTION_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING;
-
-	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7940,24 +7697,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int KEY_VALUE_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_VALUE_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -8420,24 +8159,6 @@ public interface ParametersPackage extends EPackage {
 	int MULTI_LIST_PARAM___MY_TO_STRING = LIST_PARAM___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTI_LIST_PARAM___VALIDATE_AGAINST_SCHEMA = LIST_PARAM___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTI_LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
-
-	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8777,16 +8498,6 @@ public interface ParametersPackage extends EPackage {
 	EOperation getParameter__SetValueFromString__String();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Validate Against Schema</em>' operation.
-	 * @see qualitypatternmodel.parameters.Parameter#validateAgainstSchema()
-	 * @generated
-	 */
-	EOperation getParameter__ValidateAgainstSchema();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8805,16 +8516,6 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameter__GetOptionsAsJsonArray();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#validateExampleValue(java.lang.String) <em>Validate Example Value</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Validate Example Value</em>' operation.
-	 * @see qualitypatternmodel.parameters.Parameter#validateExampleValue(java.lang.String)
-	 * @generated
-	 */
-	EOperation getParameter__ValidateExampleValue__String();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}' operation.
@@ -8962,16 +8663,6 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameterList__Remove__Parameter();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterList#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Validate Against Schema</em>' operation.
-	 * @see qualitypatternmodel.parameters.ParameterList#validateAgainstSchema()
-	 * @generated
-	 */
-	EOperation getParameterList__ValidateAgainstSchema();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.BooleanParam <em>Boolean Param</em>}'.
@@ -9663,14 +9354,6 @@ public interface ParametersPackage extends EPackage {
 		EOperation PARAMETER___SET_VALUE_FROM_STRING__STRING = eINSTANCE.getParameter__SetValueFromString__String();
 
 		/**
-		 * The meta object literal for the '<em><b>Validate Against Schema</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PARAMETER___VALIDATE_AGAINST_SCHEMA = eINSTANCE.getParameter__ValidateAgainstSchema();
-
-		/**
 		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9685,14 +9368,6 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER___GET_OPTIONS_AS_JSON_ARRAY = eINSTANCE.getParameter__GetOptionsAsJsonArray();
-
-		/**
-		 * The meta object literal for the '<em><b>Validate Example Value</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING = eINSTANCE.getParameter__ValidateExampleValue__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate Description</b></em>' operation.
@@ -9809,14 +9484,6 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER_LIST___REMOVE__PARAMETER = eINSTANCE.getParameterList__Remove__Parameter();
-
-		/**
-		 * The meta object literal for the '<em><b>Validate Against Schema</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PARAMETER_LIST___VALIDATE_AGAINST_SCHEMA = eINSTANCE.getParameterList__ValidateAgainstSchema();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.BooleanParamImpl <em>Boolean Param</em>}' class.

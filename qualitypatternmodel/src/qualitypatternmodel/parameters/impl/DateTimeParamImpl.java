@@ -185,13 +185,6 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 		}
 	}
 
-	@Override
-	public void validateExampleValue(String val) throws InvalidityException {
-		if(!val.equals(VALUE_EDEFAULT) && !isFormatValid(val)) {
-			throw new InvalidityException("DateTime format invalid");
-		}
-	}
-
 	private static boolean isFormatValid(String newValue) {
 		// [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
 

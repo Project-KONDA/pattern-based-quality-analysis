@@ -15,10 +15,6 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eOperations name="validateAgainstSchema" upperBound="-1" eType="#//parameters/Parameter"/>
-      <eOperations name="validateExampleValue" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </eOperations>
       <eOperations name="inputIsValid" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="isUsed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="setValueFromString" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
@@ -51,7 +47,6 @@
           eType="#//operators/StringLength" eOpposite="#//operators/StringLength/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterList" eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="validateAgainstSchema" upperBound="-1" eType="#//parameters/Parameter"/>
       <eOperations name="add">
         <eParameters name="parameter" eType="#//parameters/Parameter"/>
       </eOperations>

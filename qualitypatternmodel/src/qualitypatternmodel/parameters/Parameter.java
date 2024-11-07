@@ -88,7 +88,7 @@ public interface Parameter extends PatternElement {
 	 * @return the value of the '<em>Predefined</em>' attribute.
 	 * @see #setPredefined(boolean)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getParameter_Predefined()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	boolean isPredefined();
@@ -178,26 +178,10 @@ public interface Parameter extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EList<Parameter> validateAgainstSchema();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
 	void checkComparisonConsistency() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	void validateExampleValue(String val) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

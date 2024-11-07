@@ -356,7 +356,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EOperation getParameter__InputIsValid() {
-		return parameterEClass.getEOperations().get(3);
+		return parameterEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -376,66 +376,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EOperation getParameter__IsUsed() {
-		return parameterEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameter__GetValueAsString() {
-		return parameterEClass.getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameter__SetValueFromString__String() {
-		return parameterEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameter__ValidateAgainstSchema() {
-		return parameterEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameter__CheckComparisonConsistency() {
-		return parameterEClass.getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameter__GetOptionsAsJsonArray() {
-		return parameterEClass.getEOperations().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameter__ValidateExampleValue__String() {
 		return parameterEClass.getEOperations().get(2);
 	}
 
@@ -445,8 +385,48 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getParameter__GetValueAsString() {
+		return parameterEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameter__SetValueFromString__String() {
+		return parameterEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameter__CheckComparisonConsistency() {
+		return parameterEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameter__GetOptionsAsJsonArray() {
+		return parameterEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getParameter__GenerateDescription() {
-		return parameterEClass.getEOperations().get(9);
+		return parameterEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -456,7 +436,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EOperation getParameter__Clear() {
-		return parameterEClass.getEOperations().get(10);
+		return parameterEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -566,7 +546,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EOperation getParameterList__Add__Parameter() {
-		return parameterListEClass.getEOperations().get(1);
+		return parameterListEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -576,17 +556,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EOperation getParameterList__Remove__Parameter() {
-		return parameterListEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameterList__ValidateAgainstSchema() {
-		return parameterListEClass.getEOperations().get(0);
+		return parameterListEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1184,8 +1154,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEReference(parameterEClass, PARAMETER__PARAMETER_REFERENCES);
 		createEAttribute(parameterEClass, PARAMETER__DESCRIPTION);
 		createEOperation(parameterEClass, PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP);
-		createEOperation(parameterEClass, PARAMETER___VALIDATE_AGAINST_SCHEMA);
-		createEOperation(parameterEClass, PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING);
 		createEOperation(parameterEClass, PARAMETER___INPUT_IS_VALID);
 		createEOperation(parameterEClass, PARAMETER___IS_USED);
 		createEOperation(parameterEClass, PARAMETER___SET_VALUE_FROM_STRING__STRING);
@@ -1206,7 +1174,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		parameterListEClass = createEClass(PARAMETER_LIST);
 		createEReference(parameterListEClass, PARAMETER_LIST__PARAMETERS);
 		createEReference(parameterListEClass, PARAMETER_LIST__PATTERN);
-		createEOperation(parameterListEClass, PARAMETER_LIST___VALIDATE_AGAINST_SCHEMA);
 		createEOperation(parameterListEClass, PARAMETER_LIST___ADD__PARAMETER);
 		createEOperation(parameterListEClass, PARAMETER_LIST___REMOVE__PARAMETER);
 
@@ -1342,7 +1309,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		// Initialize classes, features, and operations; add parameters
 		initEClass(parameterEClass, Parameter.class, "Parameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameter_ParameterList(), this.getParameterList(), this.getParameterList_Parameters(), "parameterList", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_Predefined(), ecorePackage.getEBoolean(), "predefined", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_Predefined(), ecorePackage.getEBoolean(), "predefined", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameter_ParameterReferences(), theTextrepresentationPackage.getParameterReference(), theTextrepresentationPackage.getParameterReference_Parameter(), "parameterReferences", null, 0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_Description(), ecorePackage.getEString(), "description", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1354,12 +1321,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getParameter__ValidateAgainstSchema(), this.getParameter(), "validateAgainstSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getParameter__ValidateExampleValue__String(), null, "validateExampleValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "val", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEOperation(getParameter__InputIsValid(), ecorePackage.getEBoolean(), "inputIsValid", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1382,7 +1343,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEClass(comparisonOptionParamEClass, ComparisonOptionParam.class, "ComparisonOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComparisonOptionParam_Options(), theOperatorsPackage.getComparisonOperator(), "options", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComparisonOptionParam_Value(), theOperatorsPackage.getComparisonOperator(), "value", null, 1, 1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComparisonOptionParam_Value(), theOperatorsPackage.getComparisonOperator(), "value", null, 0, 1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparisonOptionParam_Comparisons(), theOperatorsPackage.getComparison(), theOperatorsPackage.getComparison_Option(), "comparisons", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparisonOptionParam_CountConditions(), thePatternstructurePackage.getCountCondition(), thePatternstructurePackage.getCountCondition_Option(), "countConditions", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparisonOptionParam_StringLength(), theOperatorsPackage.getStringLength(), theOperatorsPackage.getStringLength_Option(), "stringLength", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1395,8 +1356,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getParameterList_Parameters(), this.getParameter(), this.getParameter_ParameterList(), "parameters", null, 0, -1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameterList_Pattern(), thePatternstructurePackage.getCompletePattern(), thePatternstructurePackage.getCompletePattern_ParameterList(), "pattern", null, 1, 1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getParameterList__ValidateAgainstSchema(), this.getParameter(), "validateAgainstSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
-
 		op = initEOperation(getParameterList__Add__Parameter(), null, "add", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getParameter(), "parameter", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1404,7 +1363,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		addEParameter(op, this.getParameter(), "parameter", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(booleanParamEClass, BooleanParam.class, "BooleanParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBooleanParam_Value(), ecorePackage.getEBooleanObject(), "value", "true", 1, 1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBooleanParam_Value(), ecorePackage.getEBooleanObject(), "value", "true", 0, 1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBooleanParam_Matches(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_Option(), "matches", null, 0, -1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBooleanParam_Contains(), theOperatorsPackage.getContains(), theOperatorsPackage.getContains_Option(), "contains", null, 0, -1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBooleanParam_NullCheck(), theOperatorsPackage.getNullCheck(), theOperatorsPackage.getNullCheck_Option(), "nullCheck", null, 0, -1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1483,7 +1442,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEClass(typeOptionParamEClass, TypeOptionParam.class, "TypeOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTypeOptionParam_Options(), theGraphstructurePackage.getReturnType(), "options", null, 0, -1, TypeOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTypeOptionParam_Value(), theGraphstructurePackage.getReturnType(), "value", null, 1, 1, TypeOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTypeOptionParam_Value(), theGraphstructurePackage.getReturnType(), "value", null, 0, 1, TypeOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypeOptionParam_TypeComparisons(), theOperatorsPackage.getComparison(), theOperatorsPackage.getComparison_TypeOption(), "typeComparisons", null, 0, -1, TypeOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(keyValueParamEClass, KeyValueParam.class, "KeyValueParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

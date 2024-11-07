@@ -13,8 +13,6 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#validateAgainstSchema() <em>Validate Against Schema</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#validateExampleValue(java.lang.String) <em>Validate Example Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#inputIsValid() <em>Input Is Valid</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#isUsed() <em>Is Used</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#setValueFromString(java.lang.String) <em>Set Value From String</em>}</li>
@@ -48,32 +46,6 @@ public abstract class ParameterTest extends PatternElementTest {
 	@Override
 	protected Parameter getFixture() {
 		return (Parameter)fixture;
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.Parameter#validateAgainstSchema()
-	 * @generated
-	 */
-	public void testValidateAgainstSchema() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#validateExampleValue(java.lang.String) <em>Validate Example Value</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.Parameter#validateExampleValue(java.lang.String)
-	 * @generated
-	 */
-	public void testValidateExampleValue__String() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 	/**

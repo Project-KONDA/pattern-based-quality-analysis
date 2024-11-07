@@ -3365,24 +3365,6 @@ public interface AdaptionrdfPackage extends EPackage {
 	int IRI_PARAM___MY_TO_STRING = ParametersPackage.PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IRI_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IRI_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
-
-	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4673,24 +4655,6 @@ public interface AdaptionrdfPackage extends EPackage {
 	int IRI_LIST_PARAM___MY_TO_STRING = ParametersPackage.PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IRI_LIST_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IRI_LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
-
-	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5211,24 +5175,6 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = ParametersPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RDF_PATH_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RDF_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.

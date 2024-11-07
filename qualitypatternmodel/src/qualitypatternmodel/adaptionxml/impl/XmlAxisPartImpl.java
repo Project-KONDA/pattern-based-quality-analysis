@@ -570,30 +570,6 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 	 * @generated
 	 */
 	@Override
-	public EList<Parameter> validateAgainstSchema() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void validateExampleValue(String val) throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public boolean inputIsValid() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -1014,8 +990,6 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 		if (baseClass == Parameter.class) {
 			switch (baseOperationID) {
 				case ParametersPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP: return AdaptionxmlPackage.XML_AXIS_PART___VALIDATE__DIAGNOSTICCHAIN_MAP;
-				case ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA: return AdaptionxmlPackage.XML_AXIS_PART___VALIDATE_AGAINST_SCHEMA;
-				case ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING: return AdaptionxmlPackage.XML_AXIS_PART___VALIDATE_EXAMPLE_VALUE__STRING;
 				case ParametersPackage.PARAMETER___INPUT_IS_VALID: return AdaptionxmlPackage.XML_AXIS_PART___INPUT_IS_VALID;
 				case ParametersPackage.PARAMETER___IS_USED: return AdaptionxmlPackage.XML_AXIS_PART___IS_USED;
 				case ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING: return AdaptionxmlPackage.XML_AXIS_PART___SET_VALUE_FROM_STRING__STRING;
@@ -1050,16 +1024,6 @@ public class XmlAxisPartImpl extends PatternElementImpl implements XmlAxisPart {
 				return addAxisCondition((XmlPropertyKind)arguments.get(0));
 			case AdaptionxmlPackage.XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND_STRING:
 				return addAxisCondition((XmlPropertyKind)arguments.get(0), (String)arguments.get(1));
-			case AdaptionxmlPackage.XML_AXIS_PART___VALIDATE_AGAINST_SCHEMA:
-				return validateAgainstSchema();
-			case AdaptionxmlPackage.XML_AXIS_PART___VALIDATE_EXAMPLE_VALUE__STRING:
-				try {
-					validateExampleValue((String)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case AdaptionxmlPackage.XML_AXIS_PART___INPUT_IS_VALID:
 				return inputIsValid();
 			case AdaptionxmlPackage.XML_AXIS_PART___IS_USED:

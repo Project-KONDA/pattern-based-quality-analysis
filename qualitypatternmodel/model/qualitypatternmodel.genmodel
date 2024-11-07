@@ -23,10 +23,6 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/Parameter/validate/diagnostics"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/Parameter/validate/context"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/validateAgainstSchema"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/validateExampleValue">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/Parameter/validateExampleValue/val"/>
-        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/inputIsValid"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/isUsed"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/setValueFromString">
@@ -54,7 +50,6 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/ParameterList">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/ParameterList/parameters"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/ParameterList/pattern"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterList/validateAgainstSchema"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterList/add">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/ParameterList/add/parameter"/>
         </genOperations>

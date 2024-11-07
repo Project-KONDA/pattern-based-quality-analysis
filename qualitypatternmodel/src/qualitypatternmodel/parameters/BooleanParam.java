@@ -41,7 +41,7 @@ public interface BooleanParam extends ParameterValue {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(Boolean)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getBooleanParam_Value()
-	 * @model default="true" required="true"
+	 * @model default="true"
 	 * @generated
 	 */
 	Boolean getValue();
