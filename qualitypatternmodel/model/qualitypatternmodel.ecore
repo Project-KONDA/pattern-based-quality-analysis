@@ -702,8 +702,8 @@
           eType="#//patternstructure/CountPattern" containment="true" eOpposite="#//patternstructure/CountPattern/countCondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
           eType="#//parameters/ComparisonOptionParam" eOpposite="#//parameters/ComparisonOptionParam/countConditions"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" eType="#//patternstructure/CountConditionArgument"
-          containment="true" eOpposite="#//patternstructure/CountConditionArgument/countCondition2"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
+          eType="#//patternstructure/CountConditionArgument" containment="true" eOpposite="#//patternstructure/CountConditionArgument/countCondition2"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CountConditionArgument" abstract="true"
         interface="true" eSuperTypes="#//patternstructure/PatternElement">
