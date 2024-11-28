@@ -350,15 +350,6 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION___RECORD_VALUES__XMLDATADATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -772,15 +763,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARABLE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARABLE___RECORD_VALUES__XMLDATADATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1223,15 +1205,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = COMPARABLE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE___RECORD_VALUES__XMLDATADATABASE = COMPARABLE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2081,15 +2054,6 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_NODE___RECORD_VALUES__XMLDATADATABASE = NODE___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2865,15 +2829,6 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH___RECORD_VALUES__XMLDATADATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3278,15 +3233,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int ADAPTABLE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADAPTABLE___RECORD_VALUES__XMLDATADATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3702,15 +3648,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPLEX_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_NODE___RECORD_VALUES__XMLDATADATABASE = NODE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.

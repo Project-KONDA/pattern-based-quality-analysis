@@ -25,7 +25,6 @@ import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.utility.PatternUtility;
 import qualitypatternmodel.xmltranslationtests.Test03Quantor;
 
@@ -48,14 +47,13 @@ public class RelationSwitch {
 //		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
-		TrueElement t = (TrueElement) ((QuantifiedCondition) completePattern.getCondition()).getCondition();
 		QuantifiedCondition qc1 = (QuantifiedCondition) completePattern.getCondition();
 		NotCondition n = factory.createNotCondition();
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
 
 		qc1.setCondition(n);
 		n.setCondition(qc2);
-		qc2.setCondition(t);
+		qc2.setCondition(null);
 
 		Node e1g0 = completePattern.getGraph().getNodes().get(0);
 		e1g0.addOutgoing().getTarget().addPrimitiveComparison();

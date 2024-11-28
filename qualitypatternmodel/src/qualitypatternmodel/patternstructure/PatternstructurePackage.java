@@ -67,7 +67,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getPatternElement()
 	 * @generated
 	 */
-	int PATTERN_ELEMENT = 6;
+	int PATTERN_ELEMENT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -295,22 +295,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = 21;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE = 22;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GET_CONTAINER = 23;
+	int PATTERN_ELEMENT___GET_CONTAINER = 22;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -319,7 +310,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GET_ANCESTOR__CLASS = 24;
+	int PATTERN_ELEMENT___GET_ANCESTOR__CLASS = 23;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -328,7 +319,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GET_OPERATOR_LIST = 25;
+	int PATTERN_ELEMENT___GET_OPERATOR_LIST = 24;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -337,7 +328,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GET_ALL_OPERATORS = 26;
+	int PATTERN_ELEMENT___GET_ALL_OPERATORS = 25;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -346,7 +337,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GET_PARAMETER_LIST = 27;
+	int PATTERN_ELEMENT___GET_PARAMETER_LIST = 26;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -355,7 +346,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GET_ALL_PARAMETERS = 28;
+	int PATTERN_ELEMENT___GET_ALL_PARAMETERS = 27;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -364,7 +355,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___MY_TO_STRING = 29;
+	int PATTERN_ELEMENT___MY_TO_STRING = 28;
 
 	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
@@ -373,7 +364,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 30;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 29;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.ConditionImpl <em>Condition</em>}' class.
@@ -654,15 +645,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1071,15 +1053,6 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTIFIED_CONDITION___RECORD_VALUES__XMLDATADATABASE = CONDITION___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1457,15 +1430,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1856,15 +1820,6 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA___RECORD_VALUES__XMLDATADATABASE = CONDITION___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1955,385 +1910,6 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.TrueElementImpl <em>True Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.impl.TrueElementImpl
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getTrueElement()
-	 * @generated
-	 */
-	int TRUE_ELEMENT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT__ID = CONDITION__ID;
-
-	/**
-	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT__INTERNAL_ID = CONDITION__INTERNAL_ID;
-
-	/**
-	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT__PATTERN = CONDITION__PATTERN;
-
-	/**
-	 * The feature id for the '<em><b>Quantified Condition</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT__QUANTIFIED_CONDITION = CONDITION__QUANTIFIED_CONDITION;
-
-	/**
-	 * The feature id for the '<em><b>Formula1</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT__FORMULA1 = CONDITION__FORMULA1;
-
-	/**
-	 * The feature id for the '<em><b>Formula2</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT__FORMULA2 = CONDITION__FORMULA2;
-
-	/**
-	 * The feature id for the '<em><b>Not Condition</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT__NOT_CONDITION = CONDITION__NOT_CONDITION;
-
-	/**
-	 * The number of structural features of the '<em>True Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___IS_VALID__ABSTRACTIONLEVEL = CONDITION___IS_VALID__ABSTRACTIONLEVEL;
-
-	/**
-	 * The operation id for the '<em>Is Valid Local</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL = CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
-
-	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GENERATE_QUERY__LANGUAGE = CONDITION___GENERATE_QUERY__LANGUAGE;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GENERATE_XQUERY = CONDITION___GENERATE_XQUERY;
-
-	/**
-	 * The operation id for the '<em>Generate Sparql</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GENERATE_SPARQL = CONDITION___GENERATE_SPARQL;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GENERATE_CYPHER = CONDITION___GENERATE_CYPHER;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GENERATE_XQUERY_JAVA = CONDITION___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GENERATE_XQUERY_JAVA_RETURN = CONDITION___GENERATE_XQUERY_JAVA_RETURN;
-
-	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GENERATE_QUERY_FILTER_PART = CONDITION___GENERATE_QUERY_FILTER_PART;
-
-	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___CONTAINS_JAVA_OPERATOR = CONDITION___CONTAINS_JAVA_OPERATOR;
-
-	/**
-	 * The operation id for the '<em>Create Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___CREATE_ADAPTION__LANGUAGE = CONDITION___CREATE_ADAPTION__LANGUAGE;
-
-	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
-
-	/**
-	 * The operation id for the '<em>Prepare Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___PREPARE_PARAMETER_UPDATES = CONDITION___PREPARE_PARAMETER_UPDATES;
-
-	/**
-	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
-
-	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = CONDITION___UPDATE_PARAMETERS__PARAMETERLIST;
-
-	/**
-	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___RECORD_VALUES__XMLDATADATABASE = CONDITION___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GET_CONTAINER = CONDITION___GET_CONTAINER;
-
-	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
-
-	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GET_ALL_OPERATORS = CONDITION___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
-
-	/**
-	 * The operation id for the '<em>My To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___MY_TO_STRING = CONDITION___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___GET_NEXT_MORPHISM_CONTAINERS = CONDITION___GET_NEXT_MORPHISM_CONTAINERS;
-
-	/**
-	 * The operation id for the '<em>Is In Rdf Filter</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___IS_IN_RDF_FILTER = CONDITION___IS_IN_RDF_FILTER;
-
-	/**
-	 * The number of operations of the '<em>True Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.PatternImpl <em>Pattern</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2341,7 +1917,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getPattern()
 	 * @generated
 	 */
-	int PATTERN = 12;
+	int PATTERN = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2605,15 +2181,6 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2702,7 +2269,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCompletePattern()
 	 * @generated
 	 */
-	int COMPLETE_PATTERN = 5;
+	int COMPLETE_PATTERN = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2768,22 +2335,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__PARAMETER_LIST = PATTERN_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Database</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN__DATABASE = PATTERN_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Text</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__TEXT = PATTERN_FEATURE_COUNT + 2;
+	int COMPLETE_PATTERN__TEXT = PATTERN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Pattern Id</b></em>' attribute.
@@ -2792,7 +2350,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__PATTERN_ID = PATTERN_FEATURE_COUNT + 3;
+	int COMPLETE_PATTERN__PATTERN_ID = PATTERN_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2801,7 +2359,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__NAME = PATTERN_FEATURE_COUNT + 4;
+	int COMPLETE_PATTERN__NAME = PATTERN_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Id</b></em>' attribute.
@@ -2810,7 +2368,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__ABSTRACT_ID = PATTERN_FEATURE_COUNT + 5;
+	int COMPLETE_PATTERN__ABSTRACT_ID = PATTERN_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2819,7 +2377,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__DESCRIPTION = PATTERN_FEATURE_COUNT + 6;
+	int COMPLETE_PATTERN__DESCRIPTION = PATTERN_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Language</b></em>' attribute.
@@ -2828,7 +2386,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__LANGUAGE = PATTERN_FEATURE_COUNT + 7;
+	int COMPLETE_PATTERN__LANGUAGE = PATTERN_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Data Model Name</b></em>' attribute.
@@ -2837,7 +2395,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__DATA_MODEL_NAME = PATTERN_FEATURE_COUNT + 8;
+	int COMPLETE_PATTERN__DATA_MODEL_NAME = PATTERN_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Database Name</b></em>' attribute.
@@ -2846,7 +2404,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__DATABASE_NAME = PATTERN_FEATURE_COUNT + 9;
+	int COMPLETE_PATTERN__DATABASE_NAME = PATTERN_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Keywords</b></em>' attribute list.
@@ -2855,7 +2413,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__KEYWORDS = PATTERN_FEATURE_COUNT + 10;
+	int COMPLETE_PATTERN__KEYWORDS = PATTERN_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Counter</b></em>' attribute.
@@ -2864,7 +2422,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__PARAMETER_COUNTER = PATTERN_FEATURE_COUNT + 11;
+	int COMPLETE_PATTERN__PARAMETER_COUNTER = PATTERN_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Counter</b></em>' attribute.
@@ -2873,7 +2431,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__COUNTER = PATTERN_FEATURE_COUNT + 12;
+	int COMPLETE_PATTERN__COUNTER = PATTERN_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Element Counter</b></em>' attribute.
@@ -2882,7 +2440,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__ELEMENT_COUNTER = PATTERN_FEATURE_COUNT + 13;
+	int COMPLETE_PATTERN__ELEMENT_COUNTER = PATTERN_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Relation Counter</b></em>' attribute.
@@ -2891,7 +2449,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__RELATION_COUNTER = PATTERN_FEATURE_COUNT + 14;
+	int COMPLETE_PATTERN__RELATION_COUNTER = PATTERN_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Operator Counter</b></em>' attribute.
@@ -2900,7 +2458,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__OPERATOR_COUNTER = PATTERN_FEATURE_COUNT + 15;
+	int COMPLETE_PATTERN__OPERATOR_COUNTER = PATTERN_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Last Saved</b></em>' attribute.
@@ -2909,7 +2467,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__LAST_SAVED = PATTERN_FEATURE_COUNT + 16;
+	int COMPLETE_PATTERN__LAST_SAVED = PATTERN_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Namespaces</b></em>' containment reference.
@@ -2918,7 +2476,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__NAMESPACES = PATTERN_FEATURE_COUNT + 17;
+	int COMPLETE_PATTERN__NAMESPACES = PATTERN_FEATURE_COUNT + 16;
 
 	/**
 	 * The number of structural features of the '<em>Complete Pattern</em>' class.
@@ -2927,7 +2485,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 18;
+	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3128,15 +2686,6 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN___RECORD_VALUES__XMLDATADATABASE = PATTERN___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3209,22 +2758,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH = PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH;
 
 	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA = PATTERN_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Get Abstraction Level</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL = PATTERN_OPERATION_COUNT + 1;
+	int COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL = PATTERN_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get New Ref No</em>' operation.
@@ -3233,16 +2773,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS = PATTERN_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN___RECORD_VALUES = PATTERN_OPERATION_COUNT + 3;
+	int COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS = PATTERN_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Reset Query</em>' operation.
@@ -3251,7 +2782,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___RESET_QUERY = PATTERN_OPERATION_COUNT + 4;
+	int COMPLETE_PATTERN___RESET_QUERY = PATTERN_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher Return</em>' operation.
@@ -3260,7 +2791,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GENERATE_CYPHER_RETURN = PATTERN_OPERATION_COUNT + 5;
+	int COMPLETE_PATTERN___GENERATE_CYPHER_RETURN = PATTERN_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Generate Wikidata Sparql</em>' operation.
@@ -3269,7 +2800,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GENERATE_WIKIDATA_SPARQL = PATTERN_OPERATION_COUNT + 6;
+	int COMPLETE_PATTERN___GENERATE_WIKIDATA_SPARQL = PATTERN_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate Xml Constraint Schema</em>' operation.
@@ -3278,7 +2809,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_SCHEMA = PATTERN_OPERATION_COUNT + 7;
+	int COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_SCHEMA = PATTERN_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Generate Xml Constraint YAML File</em>' operation.
@@ -3287,7 +2818,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_YAML_FILE__STRING = PATTERN_OPERATION_COUNT + 8;
+	int COMPLETE_PATTERN___GENERATE_XML_CONSTRAINT_YAML_FILE__STRING = PATTERN_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Generate Query Filter</em>' operation.
@@ -3296,7 +2827,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GENERATE_QUERY_FILTER = PATTERN_OPERATION_COUNT + 9;
+	int COMPLETE_PATTERN___GENERATE_QUERY_FILTER = PATTERN_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Update Last Saved</em>' operation.
@@ -3305,7 +2836,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___UPDATE_LAST_SAVED = PATTERN_OPERATION_COUNT + 10;
+	int COMPLETE_PATTERN___UPDATE_LAST_SAVED = PATTERN_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery Namespaces</em>' operation.
@@ -3314,7 +2845,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GENERATE_XQUERY_NAMESPACES = PATTERN_OPERATION_COUNT + 11;
+	int COMPLETE_PATTERN___GENERATE_XQUERY_NAMESPACES = PATTERN_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Print Parameters</em>' operation.
@@ -3323,7 +2854,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___PRINT_PARAMETERS__BOOLEAN = PATTERN_OPERATION_COUNT + 12;
+	int COMPLETE_PATTERN___PRINT_PARAMETERS__BOOLEAN = PATTERN_OPERATION_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
@@ -3332,7 +2863,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 13;
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -3342,7 +2873,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNotCondition()
 	 * @generated
 	 */
-	int NOT_CONDITION = 7;
+	int NOT_CONDITION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3624,15 +3155,6 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_CONDITION___RECORD_VALUES__XMLDATADATABASE = CONDITION___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3739,7 +3261,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountCondition()
 	 * @generated
 	 */
-	int COUNT_CONDITION = 8;
+	int COUNT_CONDITION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4039,15 +3561,6 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION___RECORD_VALUES__XMLDATADATABASE = CONDITION___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4163,7 +3676,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountConditionArgument()
 	 * @generated
 	 */
-	int COUNT_CONDITION_ARGUMENT = 9;
+	int COUNT_CONDITION_ARGUMENT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4400,15 +3913,6 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION_ARGUMENT___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4488,7 +3992,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMorphismContainer()
 	 * @generated
 	 */
-	int MORPHISM_CONTAINER = 10;
+	int MORPHISM_CONTAINER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4725,15 +4229,6 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_CONTAINER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM_CONTAINER___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4831,7 +4326,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountPattern()
 	 * @generated
 	 */
-	int COUNT_PATTERN = 11;
+	int COUNT_PATTERN = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5122,15 +4617,6 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_PATTERN___RECORD_VALUES__XMLDATADATABASE = PATTERN___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5237,7 +4723,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNumberElement()
 	 * @generated
 	 */
-	int NUMBER_ELEMENT = 13;
+	int NUMBER_ELEMENT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5483,15 +4969,6 @@ public interface PatternstructurePackage extends EPackage {
 	int NUMBER_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = COUNT_CONDITION_ARGUMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ELEMENT___RECORD_VALUES__XMLDATADATABASE = COUNT_CONDITION_ARGUMENT___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5580,7 +5057,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLogicalOperator()
 	 * @generated
 	 */
-	int LOGICAL_OPERATOR = 14;
+	int LOGICAL_OPERATOR = 13;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.Quantifier <em>Quantifier</em>}' enum.
@@ -5590,7 +5067,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getQuantifier()
 	 * @generated
 	 */
-	int QUANTIFIER = 15;
+	int QUANTIFIER = 14;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.AbstractionLevel <em>Abstraction Level</em>}' enum.
@@ -5600,7 +5077,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getAbstractionLevel()
 	 * @generated
 	 */
-	int ABSTRACTION_LEVEL = 16;
+	int ABSTRACTION_LEVEL = 15;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.Language <em>Language</em>}' enum.
@@ -5610,7 +5087,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLanguage()
 	 * @generated
 	 */
-	int LANGUAGE = 17;
+	int LANGUAGE = 16;
 
 	/**
 	 * The meta object id for the '<em>Invalidity Exception Wrapper</em>' data type.
@@ -5620,7 +5097,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getInvalidityExceptionWrapper()
 	 * @generated
 	 */
-	int INVALIDITY_EXCEPTION_WRAPPER = 18;
+	int INVALIDITY_EXCEPTION_WRAPPER = 17;
 
 	/**
 	 * The meta object id for the '<em>Class Wrapper</em>' data type.
@@ -5630,7 +5107,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getClassWrapper()
 	 * @generated
 	 */
-	int CLASS_WRAPPER = 19;
+	int CLASS_WRAPPER = 18;
 
 	/**
 	 * The meta object id for the '<em>Missing Pattern Container Exception</em>' data type.
@@ -5640,7 +5117,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMissingPatternContainerException()
 	 * @generated
 	 */
-	int MISSING_PATTERN_CONTAINER_EXCEPTION = 20;
+	int MISSING_PATTERN_CONTAINER_EXCEPTION = 19;
 
 	/**
 	 * The meta object id for the '<em>Base Schema Wrapper</em>' data type.
@@ -5650,7 +5127,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getBaseSchemaWrapper()
 	 * @generated
 	 */
-	int BASE_SCHEMA_WRAPPER = 21;
+	int BASE_SCHEMA_WRAPPER = 20;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.QuantifiedCondition <em>Quantified Condition</em>}'.
@@ -5888,16 +5365,6 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getFormula_Clamped();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.TrueElement <em>True Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>True Element</em>'.
-	 * @see qualitypatternmodel.patternstructure.TrueElement
-	 * @generated
-	 */
-	EClass getTrueElement();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.CompletePattern <em>Complete Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5939,17 +5406,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCompletePattern_AbstractId();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabase <em>Database</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Database</em>'.
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#getDatabase()
-	 * @see #getCompletePattern()
-	 * @generated
-	 */
-	EReference getCompletePattern_Database();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}'.
@@ -6116,16 +5572,6 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getCompletePattern__GetNewRefNo__Class();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#recordValues() <em>Record Values</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Record Values</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#recordValues()
-	 * @generated
-	 */
-	EOperation getCompletePattern__RecordValues();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractionLevel() <em>Get Abstraction Level</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6134,16 +5580,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getCompletePattern__GetAbstractionLevel();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Validate Against Schema</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#validateAgainstSchema()
-	 * @generated
-	 */
-	EOperation getCompletePattern__ValidateAgainstSchema();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#resetQuery() <em>Reset Query</em>}' operation.
@@ -6466,16 +5902,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__GenerateXQueryJava();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#recordValues(qualitypatternmodel.execution.XmlDataDatabase) <em>Record Values</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Record Values</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#recordValues(qualitypatternmodel.execution.XmlDataDatabase)
-	 * @generated
-	 */
-	EOperation getPatternElement__RecordValues__XmlDataDatabase();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#relationsXmlAdapted() <em>Relations Xml Adapted</em>}' operation.
@@ -7131,16 +6557,6 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute FORMULA__CLAMPED = eINSTANCE.getFormula_Clamped();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.TrueElementImpl <em>True Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.impl.TrueElementImpl
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getTrueElement()
-		 * @generated
-		 */
-		EClass TRUE_ELEMENT = eINSTANCE.getTrueElement();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl <em>Complete Pattern</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7173,14 +6589,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPLETE_PATTERN__ABSTRACT_ID = eINSTANCE.getCompletePattern_AbstractId();
-
-		/**
-		 * The meta object literal for the '<em><b>Database</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPLETE_PATTERN__DATABASE = eINSTANCE.getCompletePattern_Database();
 
 		/**
 		 * The meta object literal for the '<em><b>Element Counter</b></em>' attribute feature.
@@ -7303,28 +6711,12 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS = eINSTANCE.getCompletePattern__GetNewRefNo__Class();
 
 		/**
-		 * The meta object literal for the '<em><b>Record Values</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPLETE_PATTERN___RECORD_VALUES = eINSTANCE.getCompletePattern__RecordValues();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Abstraction Level</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL = eINSTANCE.getCompletePattern__GetAbstractionLevel();
-
-		/**
-		 * The meta object literal for the '<em><b>Validate Against Schema</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA = eINSTANCE.getCompletePattern__ValidateAgainstSchema();
 
 		/**
 		 * The meta object literal for the '<em><b>Reset Query</b></em>' operation.
@@ -7591,14 +6983,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___GENERATE_XQUERY_JAVA = eINSTANCE.getPatternElement__GenerateXQueryJava();
-
-		/**
-		 * The meta object literal for the '<em><b>Record Values</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE = eINSTANCE.getPatternElement__RecordValues__XmlDataDatabase();
 
 		/**
 		 * The meta object literal for the '<em><b>Relations Xml Adapted</b></em>' operation.

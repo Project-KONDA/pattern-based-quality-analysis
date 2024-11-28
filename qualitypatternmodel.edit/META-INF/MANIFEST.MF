@@ -11,7 +11,6 @@ Bundle-Localization: plugin
 Export-Package: qualitypatternmodel.adaptionneo4j.provider,
  qualitypatternmodel.adaptionrdf.provider,
  qualitypatternmodel.adaptionxml.provider,
- qualitypatternmodel.execution.provider,
  qualitypatternmodel.graphstructure.provider,
  qualitypatternmodel.javaoperators.provider,
  qualitypatternmodel.javaquery.provider,

@@ -5,21 +5,7 @@ package qualitypatternmodel.patternstructure.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Condition;
-import qualitypatternmodel.patternstructure.CountCondition;
-import qualitypatternmodel.patternstructure.CountConditionArgument;
-import qualitypatternmodel.patternstructure.CountPattern;
-import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.Morphism;
-import qualitypatternmodel.patternstructure.MorphismContainer;
-import qualitypatternmodel.patternstructure.NotCondition;
-import qualitypatternmodel.patternstructure.NumberElement;
-import qualitypatternmodel.patternstructure.Pattern;
-import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.TrueElement;
+import qualitypatternmodel.patternstructure.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -106,14 +92,6 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				T result = caseFormula(formula);
 				if (result == null) result = caseCondition(formula);
 				if (result == null) result = casePatternElement(formula);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PatternstructurePackage.TRUE_ELEMENT: {
-				TrueElement trueElement = (TrueElement)theEObject;
-				T result = caseTrueElement(trueElement);
-				if (result == null) result = caseCondition(trueElement);
-				if (result == null) result = casePatternElement(trueElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -247,21 +225,6 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFormula(Formula object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>True Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>True Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTrueElement(TrueElement object) {
 		return null;
 	}
 

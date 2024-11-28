@@ -11,7 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
-import utilis.Java2Neo4JConnector;
+import utility.Java2Neo4JConnector;
 
 @DisplayName("Systemtest with Neo4J-DB")
 @TestInstance(Lifecycle.PER_CLASS)
@@ -26,7 +26,7 @@ public class CypherTestSuiteTranslationWithDbTests extends  CypherTestSuiteTrans
 
 	@Override
 	public ConditionEvaluationResult evaluateExecutionCondition(ExtensionContext context) {
-		if (utilis.Java2Neo4JConnector.verifyConnectivity()) {
+		if (utility.Java2Neo4JConnector.verifyConnectivity()) {
 			return ConditionEvaluationResult.enabled(TEST_ENABLED_ON_QA_ENVIRONMENT);
 		}
 		return ConditionEvaluationResult.disabled(TEST_DISABLED_ON_QA_ENVIRONMENT);

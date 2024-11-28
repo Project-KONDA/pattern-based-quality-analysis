@@ -245,11 +245,6 @@ public class PatternItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.PATTERN__CONDITION,
-				 PatternstructureFactory.eINSTANCE.createTrueElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PatternstructurePackage.Literals.PATTERN__CONDITION,
 				 PatternstructureFactory.eINSTANCE.createNotCondition()));
 
 		newChildDescriptors.add

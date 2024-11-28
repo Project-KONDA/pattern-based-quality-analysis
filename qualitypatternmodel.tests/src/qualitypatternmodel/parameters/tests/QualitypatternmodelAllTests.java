@@ -13,8 +13,6 @@ import qualitypatternmodel.adaptionrdf.tests.AdaptionrdfTests;
 
 import qualitypatternmodel.adaptionxml.tests.AdaptionxmlTests;
 
-import qualitypatternmodel.execution.tests.ExecutionTests;
-
 import qualitypatternmodel.graphstructure.tests.GraphstructureTests;
 
 import qualitypatternmodel.javaoperators.tests.JavaoperatorsTests;
@@ -55,7 +53,6 @@ public class QualitypatternmodelAllTests extends TestSuite {
 		suite.addTest(GraphstructureTests.suite());
 		suite.addTest(PatternstructureTests.suite());
 		suite.addTest(AdaptionxmlTests.suite());
-		suite.addTest(ExecutionTests.suite());
 		suite.addTest(TextrepresentationTests.suite());
 		suite.addTest(AdaptionrdfTests.suite());
 		suite.addTest(Adaptionneo4jTests.suite());

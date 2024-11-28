@@ -498,15 +498,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.COMPLEX_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_NODE___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.COMPLEX_NODE___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1300,15 +1291,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.RELATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1814,15 +1796,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NEO_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_EDGE___RECORD_VALUES__XMLDATADATABASE = NEO_EDGE___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2274,15 +2247,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PART___RECORD_VALUES__XMLDATADATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2669,15 +2633,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_COMPLEX_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NEO_PATH_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_COMPLEX_EDGE___RECORD_VALUES__XMLDATADATABASE = NEO_PATH_PART___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3120,15 +3075,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_SIMPLE_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NEO_PATH_PART___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_SIMPLE_EDGE___RECORD_VALUES__XMLDATADATABASE = NEO_PATH_PART___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3661,15 +3607,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.PRIMITIVE_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NODE___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.PRIMITIVE_NODE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -4447,15 +4384,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4526,24 +4454,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = ParametersPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -4943,15 +4853,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NEO_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = NEO_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5022,24 +4923,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_ELEMENT_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = NEO_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_PATH_PARAM___VALIDATE_AGAINST_SCHEMA = NEO_PATH_PARAM___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ELEMENT_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = NEO_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -5448,15 +5331,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NEO_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = NEO_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5527,24 +5401,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = NEO_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_PATH_PARAM___VALIDATE_AGAINST_SCHEMA = NEO_PATH_PARAM___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = NEO_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -5978,15 +5834,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NEO_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_EDGE___RECORD_VALUES__XMLDATADATABASE = NEO_EDGE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -6503,15 +6350,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_NODE_LABELS_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.TEXT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE_LABELS_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.TEXT_LIST_PARAM___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6573,24 +6411,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_NODE_LABELS_PARAM___MY_TO_STRING = ParametersPackage.TEXT_LIST_PARAM___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE_LABELS_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.TEXT_LIST_PARAM___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE_LABELS_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.TEXT_LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -6737,24 +6557,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_NODE_LABELS_PARAM___REPLACE_VIA_VALUE__STRING_STRING = ParametersPackage.TEXT_LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Get Element Tags</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE_LABELS_PARAM___GET_ELEMENT_TAGS = ParametersPackage.TEXT_LIST_PARAM___GET_ELEMENT_TAGS;
-
-	/**
-	 * The operation id for the '<em>Get Data Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE_LABELS_PARAM___GET_DATA_VALUES = ParametersPackage.TEXT_LIST_PARAM___GET_DATA_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6773,24 +6575,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_NODE_LABELS_PARAM___IS_IN_TAG_COMPARISON = ParametersPackage.TEXT_LIST_PARAM___IS_IN_TAG_COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Attribute Names</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE_LABELS_PARAM___GET_ATTRIBUTE_NAMES = ParametersPackage.TEXT_LIST_PARAM___GET_ATTRIBUTE_NAMES;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE_LABELS_PARAM___GET_ATTRIBUTE_VALUES = ParametersPackage.TEXT_LIST_PARAM___GET_ATTRIBUTE_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6798,24 +6582,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_NODE_LABELS_PARAM___IS_IN_ATTRIBUTE_COMPARISON = ParametersPackage.TEXT_LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE_LABELS_PARAM___GET_SUGGESTIONS = ParametersPackage.TEXT_LIST_PARAM___GET_SUGGESTIONS;
-
-	/**
-	 * The operation id for the '<em>Infer Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_NODE_LABELS_PARAM___INFER_SUGGESTIONS = ParametersPackage.TEXT_LIST_PARAM___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -7197,15 +6963,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.TEXT_LITERAL_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.TEXT_LITERAL_PARAM___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7267,24 +7024,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_EDGE_LABEL_PARAM___MY_TO_STRING = ParametersPackage.TEXT_LITERAL_PARAM___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.TEXT_LITERAL_PARAM___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.TEXT_LITERAL_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -7431,24 +7170,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM___REPLACE_VIA_VALUE__STRING_STRING = ParametersPackage.TEXT_LITERAL_PARAM___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Get Element Tags</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM___GET_ELEMENT_TAGS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ELEMENT_TAGS;
-
-	/**
-	 * The operation id for the '<em>Get Data Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM___GET_DATA_VALUES = ParametersPackage.TEXT_LITERAL_PARAM___GET_DATA_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7467,24 +7188,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM___IS_IN_TAG_COMPARISON = ParametersPackage.TEXT_LITERAL_PARAM___IS_IN_TAG_COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Attribute Names</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM___GET_ATTRIBUTE_NAMES = ParametersPackage.TEXT_LITERAL_PARAM___GET_ATTRIBUTE_NAMES;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM___GET_ATTRIBUTE_VALUES = ParametersPackage.TEXT_LITERAL_PARAM___GET_ATTRIBUTE_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7492,24 +7195,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_EDGE_LABEL_PARAM___IS_IN_ATTRIBUTE_COMPARISON = ParametersPackage.TEXT_LITERAL_PARAM___IS_IN_ATTRIBUTE_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM___GET_SUGGESTIONS = ParametersPackage.TEXT_LITERAL_PARAM___GET_SUGGESTIONS;
-
-	/**
-	 * The operation id for the '<em>Infer Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM___INFER_SUGGESTIONS = ParametersPackage.TEXT_LITERAL_PARAM___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -7892,15 +7577,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NAME_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.TEXT_LITERAL_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.TEXT_LITERAL_PARAM___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7962,24 +7638,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NAME_PARAM___MY_TO_STRING = ParametersPackage.TEXT_LITERAL_PARAM___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Validate Against Schema</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.TEXT_LITERAL_PARAM___VALIDATE_AGAINST_SCHEMA;
-
-	/**
-	 * The operation id for the '<em>Validate Example Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.TEXT_LITERAL_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -8126,24 +7784,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NAME_PARAM___REPLACE_VIA_VALUE__STRING_STRING = ParametersPackage.TEXT_LITERAL_PARAM___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Get Element Tags</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM___GET_ELEMENT_TAGS = ParametersPackage.TEXT_LITERAL_PARAM___GET_ELEMENT_TAGS;
-
-	/**
-	 * The operation id for the '<em>Get Data Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM___GET_DATA_VALUES = ParametersPackage.TEXT_LITERAL_PARAM___GET_DATA_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8162,24 +7802,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NAME_PARAM___IS_IN_TAG_COMPARISON = ParametersPackage.TEXT_LITERAL_PARAM___IS_IN_TAG_COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Attribute Names</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM___GET_ATTRIBUTE_NAMES = ParametersPackage.TEXT_LITERAL_PARAM___GET_ATTRIBUTE_NAMES;
-
-	/**
-	 * The operation id for the '<em>Get Attribute Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM___GET_ATTRIBUTE_VALUES = ParametersPackage.TEXT_LITERAL_PARAM___GET_ATTRIBUTE_VALUES;
-
-	/**
 	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8187,24 +7809,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NAME_PARAM___IS_IN_ATTRIBUTE_COMPARISON = ParametersPackage.TEXT_LITERAL_PARAM___IS_IN_ATTRIBUTE_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM___GET_SUGGESTIONS = ParametersPackage.TEXT_LITERAL_PARAM___GET_SUGGESTIONS;
-
-	/**
-	 * The operation id for the '<em>Infer Suggestions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM___INFER_SUGGESTIONS = ParametersPackage.TEXT_LITERAL_PARAM___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.

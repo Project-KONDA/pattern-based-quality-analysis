@@ -87,7 +87,7 @@ public interface CountCondition extends Condition {
 	 * @see #setArgument2(CountConditionArgument)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountCondition_Argument2()
 	 * @see qualitypatternmodel.patternstructure.CountConditionArgument#getCountCondition2
-	 * @model opposite="countCondition2" containment="true"
+	 * @model opposite="countCondition2" containment="true" required="true"
 	 * @generated
 	 */
 	CountConditionArgument getArgument2();

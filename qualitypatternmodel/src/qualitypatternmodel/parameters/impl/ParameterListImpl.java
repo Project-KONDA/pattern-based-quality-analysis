@@ -7,7 +7,6 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -210,20 +209,6 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<Parameter> validateAgainstSchema() {
-		EList<Parameter> invalidParams = new BasicEList<Parameter>();
-		for(Parameter p : getParameters()) {
-			invalidParams.addAll(p.validateAgainstSchema());
-		}
-		return invalidParams;
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -342,8 +327,6 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ParametersPackage.PARAMETER_LIST___VALIDATE_AGAINST_SCHEMA:
-				return validateAgainstSchema();
 			case ParametersPackage.PARAMETER_LIST___ADD__PARAMETER:
 				add((Parameter)arguments.get(0));
 				return null;

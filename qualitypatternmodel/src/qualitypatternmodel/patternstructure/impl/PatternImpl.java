@@ -30,7 +30,6 @@ import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
@@ -44,7 +43,6 @@ import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.ConstantsXml;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
@@ -153,8 +151,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		super.isValid(abstractionLevel);
 		graph.isValid(abstractionLevel);
 
-		if (condition != null) {
-			condition.isValid(abstractionLevel);
+		if (getCondition() != null) {
+			getCondition().isValid(abstractionLevel);
 		}
 	}
 
@@ -162,9 +160,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (graph == null) {
 			throw new InvalidityException("Graph null" + " (" + getInternalId() + ")");
-		}
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && condition == null) {
-			throw new InvalidityException("condition null" + " (" + getInternalId() + ")");
 		}
 
 		checkMorphismOfNextGraph();
@@ -191,9 +186,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		forClauses = forClauses.substring(1);
 
 		String whereClause = "";
-		if (!(condition instanceof TrueElement)) {
+		if (getCondition() != null) {
 			whereClause = "\n";
-			String condQuery = condition.generateXQuery().replace("\n", "\n  ");
+			String condQuery = getCondition().generateXQuery().replace("\n", "\n  ");
 			whereClause = ConstantsXml.WHERE + condQuery;
 		}
 
@@ -242,8 +237,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 
 		String whereClause = "\n";
-		if (!(condition instanceof TrueElement)) {
-			String condQuery = condition.generateXQueryJava();
+		if (getCondition() != null) {
+			String condQuery = getCondition().generateXQueryJava();
 //			!condQuery.equals("(true())") && !condQuery.equals("(((true())))") && !condQuery.equals("")
 			if (!condQuery.matches("^([(]*true[(][)][)]*)?$")) {
 				condQuery = condQuery.replace("\n", "\n  ");
@@ -308,7 +303,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 		String query = "";
 		query += graph.generateSparql();
-		query += condition.generateSparql();
+		if (getCondition() != null)
+			query += getCondition().generateSparql();
 		return query;
 	}
 
@@ -336,7 +332,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 
 		//In the current version this feature is not supported. Hence Cypher does not allow AGGREGATION-FUNCTIONS to be nested.
 		if (!(condition instanceof CountConditionImpl)) {
-			String cond = condition.generateCypher();
+			String cond = "";
+			if (getCondition() != null)
+				cond = getCondition().generateCypher();
 			if (!cond.isEmpty()) {
 				cond = addWhiteSpacesForConditions(cond, whereClause);
 				if (!whereClause.isEmpty() && !cond.isEmpty()) {
@@ -531,47 +529,45 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 
 	@Override
 	public boolean relationsXmlAdapted() {
-		return getGraph().relationsXmlAdapted() && getCondition().relationsXmlAdapted();
+		return getGraph().relationsXmlAdapted() && (getCondition() == null || getCondition().relationsXmlAdapted());
 	}
 
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getGraph().createXmlAdaption();
-		getCondition().createXmlAdaption();
+		if (getCondition() != null)
+			getCondition().createXmlAdaption();
 		return this;
 	}
 
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getGraph().createRdfAdaption();
-		getCondition().createRdfAdaption();
+		if (getCondition() != null)
+			getCondition().createRdfAdaption();
 		return this;
 	}
 
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getGraph().createNeo4jAdaption();
-		getCondition().createNeo4jAdaption();
+		if (getCondition() != null)
+			getCondition().createNeo4jAdaption();
 		return this;
 	}
 
 	@Override
 	public void prepareTranslation() {
-		graph.prepareTranslation();
-		condition.prepareTranslation();
-	}
-
-	@Override
-	public void recordValues(XmlDataDatabase database) {
-		getGraph().recordValues(database);
-		getCondition().recordValues(database);
+		getGraph().prepareTranslation();
+		if (getCondition() != null)
+			getCondition().prepareTranslation();
 	}
 
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
-		EList<Parameter> parameters = graph.getAllParameters();
-		if (condition != null) {
-			parameters.addAll(condition.getAllParameters());
+		EList<Parameter> parameters = getGraph().getAllParameters();
+		if (getCondition() != null) {
+			parameters.addAll(getCondition().getAllParameters());
 		}
 		return parameters;
 	}
@@ -579,9 +575,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	@Override
 	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> operators = new BasicEList<Operator>();
-		operators.addAll(graph.getAllOperators());
-		if (condition != null) {
-			operators.addAll(condition.getAllOperators());
+		operators.addAll(getGraph().getAllOperators());
+		if (getCondition() != null) {
+			operators.addAll(getCondition().getAllOperators());
 		}
 		return operators;
 	}
@@ -610,7 +606,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
-		patternElements.add(getCondition());
+		if (getCondition() != null)
+			patternElements.add(getCondition());
 		patternElements.add(getGraph());
 		return patternElements;
 	}

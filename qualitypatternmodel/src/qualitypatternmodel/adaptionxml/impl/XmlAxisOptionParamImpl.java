@@ -7,7 +7,6 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -24,7 +23,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -87,16 +85,6 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	public XmlAxisOptionParamImpl() {
 		super();
 		getOptions().addAll(XmlAxisKind.VALUES);
-	}
-
-	@Override
-	public EList<Parameter> validateAgainstSchema() {
-		EList<Parameter> invalidParams = new BasicEList<Parameter>();
-		EList<XmlAxisKind> suggestions = inferSuggestions();
-		if(!suggestions.contains(getValue()) && !suggestions.isEmpty()) {
-			invalidParams.add(this);
-		}
-		return invalidParams;
 	}
 
 	@Override

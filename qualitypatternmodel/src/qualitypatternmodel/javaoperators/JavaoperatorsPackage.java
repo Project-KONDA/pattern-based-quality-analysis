@@ -321,15 +321,6 @@ public interface JavaoperatorsPackage extends EPackage {
 	int JAVA_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = OperatorsPackage.BOOLEAN_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_OPERATOR___RECORD_VALUES__XMLDATADATABASE = OperatorsPackage.BOOLEAN_OPERATOR___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -806,15 +797,6 @@ public interface JavaoperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ONE_ARG_JAVA_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = JAVA_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ONE_ARG_JAVA_OPERATOR___RECORD_VALUES__XMLDATADATABASE = JAVA_OPERATOR___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1304,15 +1286,6 @@ public interface JavaoperatorsPackage extends EPackage {
 	int TWO_ARG_JAVA_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = JAVA_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TWO_ARG_JAVA_OPERATOR___RECORD_VALUES__XMLDATADATABASE = JAVA_OPERATOR___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1798,15 +1771,6 @@ public interface JavaoperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALIDATE_LINK_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ONE_ARG_JAVA_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALIDATE_LINK_OPERATOR___RECORD_VALUES__XMLDATADATABASE = ONE_ARG_JAVA_OPERATOR___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.

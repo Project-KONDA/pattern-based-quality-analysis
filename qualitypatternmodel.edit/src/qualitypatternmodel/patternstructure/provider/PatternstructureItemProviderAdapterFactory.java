@@ -141,29 +141,6 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.TrueElement} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TrueElementItemProvider trueElementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.TrueElement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTrueElementAdapter() {
-		if (trueElementItemProvider == null) {
-			trueElementItemProvider = new TrueElementItemProvider(this);
-		}
-
-		return trueElementItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.CompletePattern} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,7 +363,6 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 		if (quantifiedConditionItemProvider != null) quantifiedConditionItemProvider.dispose();
 		if (morphismItemProvider != null) morphismItemProvider.dispose();
 		if (formulaItemProvider != null) formulaItemProvider.dispose();
-		if (trueElementItemProvider != null) trueElementItemProvider.dispose();
 		if (completePatternItemProvider != null) completePatternItemProvider.dispose();
 		if (notConditionItemProvider != null) notConditionItemProvider.dispose();
 		if (countConditionItemProvider != null) countConditionItemProvider.dispose();

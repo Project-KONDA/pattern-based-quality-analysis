@@ -17,6 +17,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.javaoperators.JavaoperatorsFactory;
+
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsFactory;
 import qualitypatternmodel.operators.OperatorsPackage;

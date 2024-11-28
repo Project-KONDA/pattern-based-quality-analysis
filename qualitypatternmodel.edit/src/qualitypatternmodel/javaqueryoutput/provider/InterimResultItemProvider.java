@@ -21,6 +21,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**

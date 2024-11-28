@@ -16,7 +16,6 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.ParameterList#validateAgainstSchema() <em>Validate Against Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ParameterList#add(qualitypatternmodel.parameters.Parameter) <em>Add</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ParameterList#remove(qualitypatternmodel.parameters.Parameter) <em>Remove</em>}</li>
  * </ul>
@@ -75,19 +74,6 @@ public class ParameterListTest extends PatternElementTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.ParameterList#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.ParameterList#validateAgainstSchema()
-	 * @generated
-	 */
-	public void testValidateAgainstSchema() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 	/**

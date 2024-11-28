@@ -12,25 +12,7 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Condition;
-import qualitypatternmodel.patternstructure.CountCondition;
-import qualitypatternmodel.patternstructure.CountConditionArgument;
-import qualitypatternmodel.patternstructure.CountPattern;
-import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.Language;
-import qualitypatternmodel.patternstructure.LogicalOperator;
-import qualitypatternmodel.patternstructure.Morphism;
-import qualitypatternmodel.patternstructure.MorphismContainer;
-import qualitypatternmodel.patternstructure.NotCondition;
-import qualitypatternmodel.patternstructure.NumberElement;
-import qualitypatternmodel.patternstructure.Pattern;
-import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.patternstructure.TrueElement;
+import qualitypatternmodel.patternstructure.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -121,8 +103,6 @@ public class PatternstructureValidator extends EObjectValidator {
 				return validateMorphism((Morphism)value, diagnostics, context);
 			case PatternstructurePackage.FORMULA:
 				return validateFormula((Formula)value, diagnostics, context);
-			case PatternstructurePackage.TRUE_ELEMENT:
-				return validateTrueElement((TrueElement)value, diagnostics, context);
 			case PatternstructurePackage.COMPLETE_PATTERN:
 				return validateCompletePattern((CompletePattern)value, diagnostics, context);
 			case PatternstructurePackage.PATTERN_ELEMENT:
@@ -235,25 +215,6 @@ public class PatternstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(formula, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(formula, diagnostics, context);
 		if (result || diagnostics != null) result &= validatePatternElement_validate(formula, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateTrueElement(TrueElement trueElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(trueElement, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(trueElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(trueElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(trueElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(trueElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(trueElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(trueElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(trueElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(trueElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePatternElement_validate(trueElement, diagnostics, context);
 		return result;
 	}
 

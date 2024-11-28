@@ -37,7 +37,6 @@ import qualitypatternmodel.adaptionxml.impl.XmlRootImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -1074,13 +1073,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		for(Relation relation: getRelations()) {
 			relation.prepareTranslation();
-		}
-	}
-
-	@Override
-	public void recordValues(XmlDataDatabase database) {
-		for(Node e : getNodes()) {
-			e.recordValues(database);
 		}
 	}
 

@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.javaquery.impl.BooleanFilterElementImpl;
@@ -125,8 +124,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 */
 	protected FormulaImpl() {
 		super();
-		setCondition1(new TrueElementImpl());
-		setCondition2(new TrueElementImpl());
+		setCondition1(null);
+		setCondition2(null);
 	}
 
 	@Override
@@ -134,19 +133,19 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		if (!containsJavaOperator()) {
 			return new BooleanFilterElementImpl();
 		}
-
-
-//		Boolean c1 = getCondition1().containsJavaOperator();
-//		Boolean c2 = getCondition2().containsJavaOperator();
-//		Boolean isAnd = (getOperator() == LogicalOperator.AND);
-
-//		if (isAnd && c1 && !c2)
-//			return (BooleanFilterPart) getCondition1().generateQueryFilterPart();
-//		if (isAnd && !c1 && c2)
-//			return (BooleanFilterPart) getCondition2().generateQueryFilterPart();
-
-		BooleanFilterPart qfp1 = (BooleanFilterPart) getCondition1().generateQueryFilterPart();
-		BooleanFilterPart qfp2 = (BooleanFilterPart) getCondition2().generateQueryFilterPart();
+		
+		// Condition 1
+		BooleanFilterPart qfp1;
+		if (getCondition1() == null)
+			qfp1 = new BooleanFilterElementImpl();
+		else
+			qfp1 = (BooleanFilterPart) getCondition1().generateQueryFilterPart();
+		// Condition 2
+		BooleanFilterPart qfp2;
+		if (getCondition2() == null)
+			qfp2 = new BooleanFilterElementImpl();
+		else
+			qfp2 = (BooleanFilterPart) getCondition2().generateQueryFilterPart();
 		return new FormulaFilterPartImpl(getOperator(), qfp1, qfp2);
 	}
 
@@ -154,35 +153,35 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	public String generateXQuery() throws InvalidityException {
 		String result = "";
 		if (operator != null) {
-			if (condition1 != null && condition2 != null) {
-				String condition1Query = condition1.generateXQuery();
-				String condition2Query = condition2.generateXQuery();
-				switch (operator) {
-				case AND:
-				case OR:
-					result += "((" + condition1Query + ")";
-					result += "\n" + operator.getLiteral() + "\n";
-					result += "(" + condition2Query + "))";
-					break;
-				case IMPLIES:
-					result += "(" + ConstantsXml.NOT + "(" + condition1Query + ")";
-					result += ConstantsXml.OR;
-					result += "(" + condition2Query + "))";
-					break;
-				case XOR:
-					result = "(" + ConstantsXml.NOT + "(" + condition1Query + "))";
-					result += " = ";
-					result += "(" + condition2Query + ")";
-					break;
-				case EQUAL:
-					result = "(" + condition1Query + ")";
-					result += " = ";
-					result += "(" + condition2Query + ")";
-					break;
-				default:
-					throw new InvalidityException("invalid arguments");
-				}
-			} else {
+			String condition1Query = "true()", condition2Query = "true()";
+			if (getCondition1() != null)
+				condition1Query = getCondition1().generateXQuery();
+			if (getCondition2() != null)
+				condition2Query = getCondition2().generateXQuery();
+			
+			switch (operator) {
+			case AND:
+			case OR:
+				result += "((" + condition1Query + ")";
+				result += "\n" + operator.getLiteral() + "\n";
+				result += "(" + condition2Query + "))";
+				break;
+			case IMPLIES:
+				result += "(" + ConstantsXml.NOT + "(" + condition1Query + ")";
+				result += ConstantsXml.OR;
+				result += "(" + condition2Query + "))";
+				break;
+			case XOR:
+				result = "(" + ConstantsXml.NOT + "(" + condition1Query + "))";
+				result += " = ";
+				result += "(" + condition2Query + ")";
+				break;
+			case EQUAL:
+				result = "(" + condition1Query + ")";
+				result += " = ";
+				result += "(" + condition2Query + ")";
+				break;
+			default:
 				throw new InvalidityException("invalid arguments");
 			}
 			return addMissingBrackets(result);
@@ -198,17 +197,22 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
-		Boolean cond1Java = getCondition1().containsJavaOperator();
-		Boolean cond2Java = getCondition2().containsJavaOperator();
-
-		String cond1String = cond1Java?
+		Boolean cond1Java = false, cond2Java = false;
+		String cond1String = "\"<boolean>\",\n  (true()),\n  \"</boolean>\""; 
+		String cond2String = "\"<boolean>\",\n  (true()),\n  \"</boolean>\"";;
+		
+		
+		if (getCondition1() != null) {
+			cond1Java = getCondition1().containsJavaOperator();
+			cond1String = cond1Java?
 				getCondition1().generateXQueryJavaReturn()
-				: "\"<boolean>\",\n  ("
-				+ getCondition1().generateXQuery().indent(2)
-				+ "  ),\n  \"</boolean>\"";
-		String cond2String = cond2Java? getCondition2().generateXQueryJavaReturn()
+				: "\"<boolean>\",\n  (" + getCondition1().generateXQuery().indent(2) + "  ),\n  \"</boolean>\"";
+		}
+		if (getCondition2() != null) {
+			cond2Java = getCondition2().containsJavaOperator();
+			cond2String = cond2Java? getCondition2().generateXQueryJavaReturn()
 				: "\"<boolean>\",\n  (" + getCondition2().generateXQuery().indent(2) + "  ),\n  \"</boolean>\"";
-
+		}
 
 		if (!cond1Java && !cond2Java) {
 			return generateXQuery();
@@ -225,35 +229,35 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	public String generateSparql() throws InvalidityException {
 		String result = "";
 		if (operator != null) {
-			if (condition1 != null && condition2 != null) {
+			String condition1Query = "";
+			if (getCondition1() != null)
+				condition1Query = getCondition1().generateSparql().substring(1);
+			
+			String condition2Query = "";
+			if (getCondition2() != null)
+				condition2Query = condition2.generateSparql();
 
-				String condition1Query = condition1.generateSparql().substring(1);
-				String condition2Query = condition2.generateSparql();
+			if(operator != LogicalOperator.AND && !isInRdfFilter()) {
+				result += ConstantsRdf.FILTER;
+			}
 
-				if(operator != LogicalOperator.AND && !isInRdfFilter()) {
-					result += ConstantsRdf.FILTER;
-				}
-
-				switch (operator) {
-				case AND:
-					result += condition1Query + condition2Query;
-					break;
-				case OR:
-					result += "(" + condition1Query + " || " + condition2Query + ")";
-					break;
-				case IMPLIES:
-					result += "( NOT " + condition1Query + " || " + condition2Query + " )";
-					break;
-				case XOR:
-					result += "(" + condition1Query + " != " + condition2Query + ")";
-					break;
-				case EQUAL:
-					result += "(" + condition1Query + " = " + condition2Query + ")";
-					break;
-				default:
-					throw new InvalidityException("invalid arguments");
-				}
-			} else {
+			switch (operator) {
+			case AND:
+				result += condition1Query + condition2Query;
+				break;
+			case OR:
+				result += "(" + condition1Query + " || " + condition2Query + ")";
+				break;
+			case IMPLIES:
+				result += "( NOT " + condition1Query + " || " + condition2Query + " )";
+				break;
+			case XOR:
+				result += "(" + condition1Query + " != " + condition2Query + ")";
+				break;
+			case EQUAL:
+				result += "(" + condition1Query + " = " + condition2Query + ")";
+				break;
+			default:
 				throw new InvalidityException("invalid arguments");
 			}
 			return addMissingBrackets(result);
@@ -276,66 +280,66 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 		if (this.operator != null) {
 			StringBuilder cypher = new StringBuilder();
-			if (this.condition1 != null && this.condition2 != null) {
-				String condition1Query = condition1.generateCypher();
-				//If the generated Condition isBlank (Cases: TrueElement, FORALL [true])
-				if (condition1Query.isBlank()) {
-					condition1Query = ConstantsNeo.BOOLEAN_TRUE;
-				} else {
-					StringBuilder temp = new StringBuilder(condition1Query);
-					super.addWhiteSpacesForPreviewsCondition(temp, ConstantsNeo.THREE_WHITESPACES);
-					condition1Query = temp.toString();
-				}
-
-				//If the generated Condition isBlank (Cases: TrueElement, FORALL [true])
-				String condition2Query = condition2.generateCypher();
-				if (condition1Query.isBlank()) {
-					condition2Query = ConstantsNeo.BOOLEAN_TRUE;
-				} else {
-					StringBuilder temp = new StringBuilder(condition2Query);
-					super.addWhiteSpacesForPreviewsCondition(temp, ConstantsNeo.THREE_WHITESPACES);
-					condition2Query = temp.toString();
-				}
-
-				//For cypher there are less Boolean Operators
-				switch (operator) {
-				case AND:
-					cypher.append(condition1Query);
-					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND);
-					cypher.append(ConstantsNeo.ONE_WHITESPACE + condition2Query);
-					break;
-				case OR:
-					cypher.append(condition1Query);
-					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_OR);
-					cypher.append(ConstantsNeo.ONE_WHITESPACE + condition2Query);
-					break;
-				case XOR:
-					//XOR is between the EXISTS-FUNCTION NOT POSSIBLE
-					cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query);
-					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND);
-					cypher.append(ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition2Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
-					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_OR + ConstantsNeo.ONE_WHITESPACE);
-					cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
-					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND);
-					cypher.append(ConstantsNeo.ONE_WHITESPACE + condition2Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
-					break;
-				case IMPLIES:
-					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
-					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND);
-					cypher.append(ConstantsNeo.ONE_WHITESPACE + condition2Query);
-					break;
-				case EQUAL:
-					cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE + condition2Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
-					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_OR + ConstantsNeo.ONE_WHITESPACE);
-					cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE);
-					cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE + condition2Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
-					break;
-				default:
-					throw new InvalidityException(ConstantsError.INVALID_OPERATOR);
-				}
+			String condition1Query = "";
+			if (getCondition1() != null)
+				condition1Query = getCondition1().generateCypher();
+			//If the generated Condition isBlank (Cases: TrueElement, FORALL [true])
+			if (condition1Query.isBlank()) {
+				condition1Query = ConstantsNeo.BOOLEAN_TRUE;
 			} else {
-				throw new InvalidityException(ConstantsError.INVALID_ARGUMENTS);
+				StringBuilder temp = new StringBuilder(condition1Query);
+				super.addWhiteSpacesForPreviewsCondition(temp, ConstantsNeo.THREE_WHITESPACES);
+				condition1Query = temp.toString();
 			}
+
+			//If the generated Condition isBlank (Cases: TrueElement, FORALL [true])
+			String condition2Query = "";
+			if (getCondition2() != null)
+				condition2Query = getCondition2().generateCypher();
+			if (condition2Query.isBlank()) {
+				condition2Query = ConstantsNeo.BOOLEAN_TRUE;
+			} else {
+				StringBuilder temp = new StringBuilder(condition2Query);
+				super.addWhiteSpacesForPreviewsCondition(temp, ConstantsNeo.THREE_WHITESPACES);
+				condition2Query = temp.toString();
+			}
+
+			//For cypher there are less Boolean Operators
+			switch (operator) {
+			case AND:
+				cypher.append(condition1Query);
+				cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND);
+				cypher.append(ConstantsNeo.ONE_WHITESPACE + condition2Query);
+				break;
+			case OR:
+				cypher.append(condition1Query);
+				cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_OR);
+				cypher.append(ConstantsNeo.ONE_WHITESPACE + condition2Query);
+				break;
+			case XOR:
+				//XOR is between the EXISTS-FUNCTION NOT POSSIBLE
+				cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query);
+				cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND);
+				cypher.append(ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition2Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
+				cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_OR + ConstantsNeo.ONE_WHITESPACE);
+				cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
+				cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND);
+				cypher.append(ConstantsNeo.ONE_WHITESPACE + condition2Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
+				break;
+			case IMPLIES:
+				cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
+				cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND);
+				cypher.append(ConstantsNeo.ONE_WHITESPACE + condition2Query);
+				break;
+			case EQUAL:
+				cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE + condition2Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
+				cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_OR + ConstantsNeo.ONE_WHITESPACE);
+				cypher.append(ConstantsNeo.BOOLEAN_OPERATOR_NOT + ConstantsNeo.ONE_WHITESPACE);
+				cypher.append(ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + condition1Query + ConstantsNeo.BOOLEAN_OPERATOR_PREFIX + ConstantsNeo.BOOLEAN_OPERATOR_AND + ConstantsNeo.ONE_WHITESPACE + condition2Query + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
+				break;
+			default:
+				throw new InvalidityException(ConstantsError.INVALID_OPERATOR);
+			} 
 			if (this.clamped) {
 				cypher.insert(0, ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET);
 				cypher.append(ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET);
@@ -360,11 +364,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
 
-		if(condition1 != null) {
-			condition1.isValid(abstractionLevel);
+		if(getCondition1() != null) {
+			getCondition1().isValid(abstractionLevel);
 		}
-		if(condition2 != null) {
-			condition2.isValid(abstractionLevel);
+		if(getCondition2() != null) {
+			getCondition2().isValid(abstractionLevel);
 		}
 	}
 
@@ -380,77 +384,83 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	@Override
 	public boolean relationsXmlAdapted() {
-		return getCondition1().relationsXmlAdapted() && getCondition2().relationsXmlAdapted();
+		boolean c1 = getCondition1() == null || getCondition1().relationsXmlAdapted();
+		boolean c2 = getCondition2() == null || getCondition2().relationsXmlAdapted();
+		return c1 && c2;
 	}
 
 	@Override
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		getCondition1().createXmlAdaption();
-		getCondition2().createXmlAdaption();
+		if (getCondition1() != null)
+			getCondition1().createXmlAdaption();
+		if (getCondition2() != null)
+			getCondition2().createXmlAdaption();
 		return this;
 	}
 
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		getCondition1().createRdfAdaption();
-		getCondition2().createRdfAdaption();
+		if (getCondition1() != null)
+			getCondition1().createRdfAdaption();
+		if (getCondition2() != null)
+			getCondition2().createRdfAdaption();
 		return this;
 	}
 
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		getCondition1().createNeo4jAdaption();
-		getCondition2().createNeo4jAdaption();
+		if (getCondition1() != null)
+			getCondition1().createNeo4jAdaption();
+		if (getCondition2() != null)
+			getCondition2().createNeo4jAdaption();
 		return this;
 	}
 
 	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
-		result.addAll(getCondition1().getNextMorphismContainers());
-		result.addAll(getCondition2().getNextMorphismContainers());
+		if (getCondition1() != null)
+			result.addAll(getCondition1().getNextMorphismContainers());
+		if (getCondition2() != null)
+			result.addAll(getCondition2().getNextMorphismContainers());
 		return result;
 	}
 
 	@Override
 	public void prepareTranslation() {
-		condition1.prepareTranslation();
-		if(condition2 != null) {
-			condition2.prepareTranslation();
-		}
-	}
-
-	@Override
-	public void recordValues(XmlDataDatabase database) {
-		getCondition1().recordValues(database);
-		getCondition2().recordValues(database);
+		if (getCondition1() != null)
+			getCondition1().prepareTranslation();
+		if (getCondition2() != null)
+			getCondition2().prepareTranslation();
 	}
 
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> parameters = new BasicEList<Parameter>();
-		parameters.addAll(condition1.getAllParameters());
-		if(condition2 != null) {
-			parameters.addAll(condition2.getAllParameters());
-		}
+		if(getCondition1() != null)
+			parameters.addAll(getCondition1().getAllParameters());
+		if(getCondition2() != null)
+			parameters.addAll(getCondition2().getAllParameters());
 		return parameters;
 	}
 
 	@Override
 	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> operators = new BasicEList<Operator>();
-		operators.addAll(condition1.getAllOperators());
-		if(condition2 != null) {
-			operators.addAll(condition2.getAllOperators());
-		}
+		if(getCondition1() != null)
+			operators.addAll(getCondition1().getAllOperators());
+		if(getCondition2() != null)
+			operators.addAll(getCondition2().getAllOperators());
 		return operators;
 	}
 
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
-		patternElements.add(getCondition1());
-		patternElements.add(getCondition2());
+		if(getCondition1() != null)
+			patternElements.add(getCondition1());
+		if(getCondition2() != null)
+			patternElements.add(getCondition2());
 		return patternElements;
 	}
 
@@ -735,10 +745,17 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	@Override
 	public String myToString() {
-		String res = "( " + getCondition1().myToString().replace("\n", "\n. ") + "\n)\n";
-//		res += getOperator().getName() + " " + getInternalId();
+		String res = "";
+		if (getCondition1() != null)
+			res += "( " + getCondition1().myToString().replace("\n", "\n. ") + "\n)\n";
+		else 
+			res += "( TRUE\n)\n";
 		res += getOperator().getName();
-		res += "\n( " + getCondition2().myToString().replace("\n", "\n. ") + "\n)";
+
+		if (getCondition2() != null)
+			res += "\n( " + getCondition2().myToString().replace("\n", "\n. ") + "\n)";
+		else 
+			res += "\n( TRUE\n)\n";
 		return res;
 	}
 

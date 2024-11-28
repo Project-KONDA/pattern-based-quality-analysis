@@ -6,21 +6,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Condition;
-import qualitypatternmodel.patternstructure.CountCondition;
-import qualitypatternmodel.patternstructure.CountConditionArgument;
-import qualitypatternmodel.patternstructure.CountPattern;
-import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.Morphism;
-import qualitypatternmodel.patternstructure.MorphismContainer;
-import qualitypatternmodel.patternstructure.NotCondition;
-import qualitypatternmodel.patternstructure.NumberElement;
-import qualitypatternmodel.patternstructure.Pattern;
-import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.TrueElement;
+import qualitypatternmodel.patternstructure.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,10 +79,6 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseFormula(Formula object) {
 				return createFormulaAdapter();
-			}
-			@Override
-			public Adapter caseTrueElement(TrueElement object) {
-				return createTrueElementAdapter();
 			}
 			@Override
 			public Adapter caseCompletePattern(CompletePattern object) {
@@ -207,20 +189,6 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFormulaAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.TrueElement <em>True Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.patternstructure.TrueElement
-	 * @generated
-	 */
-	public Adapter createTrueElementAdapter() {
 		return null;
 	}
 

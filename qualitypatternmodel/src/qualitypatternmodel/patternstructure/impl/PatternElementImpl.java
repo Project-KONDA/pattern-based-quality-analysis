@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.javaoperators.JavaOperator;
@@ -304,18 +303,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		throw new UnsupportedOperationException("Class " + getClass().getSimpleName() + " does not implement generateQueryFilterPart().");
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void recordValues(XmlDataDatabase database) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -739,9 +726,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				return null;
 			case PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT:
 				triggerParameterUpdates((PatternElement)arguments.get(0));
-				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE:
-				recordValues((XmlDataDatabase)arguments.get(0));
 				return null;
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER:
 				try {
