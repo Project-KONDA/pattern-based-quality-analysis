@@ -33,6 +33,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
@@ -136,6 +137,25 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	abstract public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String generateQuery(Language language) throws InvalidityException {
+		switch(language) {
+		case XML:
+			return generateXQuery();
+		case RDF:
+			return generateSparql();
+		case NEO4J:
+			return generateCypher();
+		default:
+			throw new InvalidityException(language + " is not a valid langauge.");
+		}
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -255,6 +275,25 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public PatternElement createAdaption(Language language) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		switch(language) {
+		case XML:
+			return createXmlAdaption();
+		case RDF:
+			return createRdfAdaption();
+		case NEO4J:
+			return createNeo4jAdaption();
+		default:
+			throw new InvalidityException(language + " is not a valid langauge.");
+		}
 	}
 
 	/**
@@ -598,11 +637,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING:
-				return myToString();
-			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_CYPHER:
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY__LANGUAGE:
 				try {
-					return generateCypher();
+					return generateQuery((Language)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -621,60 +658,48 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER:
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_CYPHER:
 				try {
-					return getContainer();
+					return generateCypher();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS:
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA:
 				try {
-					return getAncestor((Class)arguments.get(0));
+					return generateXQueryJava();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___INITIALIZE_TRANSLATION:
-				initializeTranslation();
-				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION:
-				prepareTranslation();
-				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST:
-				return getOperatorList();
-			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_OPERATORS:
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN:
 				try {
-					return getAllOperators();
+					return generateXQueryJavaReturn();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST:
-				return getParameterList();
-			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_PARAMETERS:
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART:
 				try {
-					return getAllParameters();
+					return generateQueryFilterPart();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES:
-				return prepareParameterUpdates();
-			case PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST:
-				triggerParameterUpdates((PatternElement)arguments.get(0), (EList<PatternElement>)arguments.get(1));
-				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST:
-				updateParameters((ParameterList)arguments.get(0));
-				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT:
-				triggerParameterUpdates((PatternElement)arguments.get(0));
-				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE:
-				recordValues((XmlDataDatabase)arguments.get(0));
-				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED:
-				return relationsXmlAdapted();
+			case PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR:
+				try {
+					return containsJavaOperator();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_ADAPTION__LANGUAGE:
+				try {
+					return createAdaption((Language)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION:
 				try {
 					return createXmlAdaption();
@@ -696,34 +721,62 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___CONTAINS_JAVA_OPERATOR:
+			case PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED:
+				return relationsXmlAdapted();
+			case PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION:
+				prepareTranslation();
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___INITIALIZE_TRANSLATION:
+				initializeTranslation();
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES:
+				return prepareParameterUpdates();
+			case PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST:
+				triggerParameterUpdates((PatternElement)arguments.get(0), (EList<PatternElement>)arguments.get(1));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST:
+				updateParameters((ParameterList)arguments.get(0));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT:
+				triggerParameterUpdates((PatternElement)arguments.get(0));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE:
+				recordValues((XmlDataDatabase)arguments.get(0));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER:
 				try {
-					return containsJavaOperator();
+					return getContainer();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY_FILTER_PART:
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS:
 				try {
-					return generateQueryFilterPart();
+					return getAncestor((Class)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA:
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST:
+				return getOperatorList();
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_OPERATORS:
 				try {
-					return generateXQueryJava();
+					return getAllOperators();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY_JAVA_RETURN:
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST:
+				return getParameterList();
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_PARAMETERS:
 				try {
-					return generateXQueryJavaReturn();
+					return getAllParameters();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING:
+				return myToString();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

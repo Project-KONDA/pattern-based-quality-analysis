@@ -150,22 +150,13 @@ public interface JavaoperatorsPackage extends EPackage {
 	int JAVA_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL = OperatorsPackage.BOOLEAN_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_OPERATOR___MY_TO_STRING = OperatorsPackage.BOOLEAN_OPERATOR___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_OPERATOR___GENERATE_CYPHER = OperatorsPackage.BOOLEAN_OPERATOR___GENERATE_CYPHER;
+	int JAVA_OPERATOR___GENERATE_QUERY__LANGUAGE = OperatorsPackage.BOOLEAN_OPERATOR___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -186,31 +177,94 @@ public interface JavaoperatorsPackage extends EPackage {
 	int JAVA_OPERATOR___GENERATE_SPARQL = OperatorsPackage.BOOLEAN_OPERATOR___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_OPERATOR___GET_CONTAINER = OperatorsPackage.BOOLEAN_OPERATOR___GET_CONTAINER;
+	int JAVA_OPERATOR___GENERATE_CYPHER = OperatorsPackage.BOOLEAN_OPERATOR___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_OPERATOR___GET_ANCESTOR__CLASS = OperatorsPackage.BOOLEAN_OPERATOR___GET_ANCESTOR__CLASS;
+	int JAVA_OPERATOR___GENERATE_XQUERY_JAVA = OperatorsPackage.BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_OPERATOR___INITIALIZE_TRANSLATION = OperatorsPackage.BOOLEAN_OPERATOR___INITIALIZE_TRANSLATION;
+	int JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = OperatorsPackage.BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART = OperatorsPackage.BOOLEAN_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR = OperatorsPackage.BOOLEAN_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_OPERATOR___CREATE_ADAPTION__LANGUAGE = OperatorsPackage.BOOLEAN_OPERATOR___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_OPERATOR___CREATE_XML_ADAPTION = OperatorsPackage.BOOLEAN_OPERATOR___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_OPERATOR___CREATE_RDF_ADAPTION = OperatorsPackage.BOOLEAN_OPERATOR___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_OPERATOR___CREATE_NEO4J_ADAPTION = OperatorsPackage.BOOLEAN_OPERATOR___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_OPERATOR___RELATIONS_XML_ADAPTED = OperatorsPackage.BOOLEAN_OPERATOR___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -222,40 +276,13 @@ public interface JavaoperatorsPackage extends EPackage {
 	int JAVA_OPERATOR___PREPARE_TRANSLATION = OperatorsPackage.BOOLEAN_OPERATOR___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_OPERATOR___GET_OPERATOR_LIST = OperatorsPackage.BOOLEAN_OPERATOR___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_OPERATOR___GET_ALL_OPERATORS = OperatorsPackage.BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_OPERATOR___GET_PARAMETER_LIST = OperatorsPackage.BOOLEAN_OPERATOR___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_OPERATOR___GET_ALL_PARAMETERS = OperatorsPackage.BOOLEAN_OPERATOR___GET_ALL_PARAMETERS;
+	int JAVA_OPERATOR___INITIALIZE_TRANSLATION = OperatorsPackage.BOOLEAN_OPERATOR___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -303,76 +330,67 @@ public interface JavaoperatorsPackage extends EPackage {
 	int JAVA_OPERATOR___RECORD_VALUES__XMLDATADATABASE = OperatorsPackage.BOOLEAN_OPERATOR___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_OPERATOR___RELATIONS_XML_ADAPTED = OperatorsPackage.BOOLEAN_OPERATOR___RELATIONS_XML_ADAPTED;
+	int JAVA_OPERATOR___GET_CONTAINER = OperatorsPackage.BOOLEAN_OPERATOR___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_OPERATOR___CREATE_XML_ADAPTION = OperatorsPackage.BOOLEAN_OPERATOR___CREATE_XML_ADAPTION;
+	int JAVA_OPERATOR___GET_ANCESTOR__CLASS = OperatorsPackage.BOOLEAN_OPERATOR___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_OPERATOR___CREATE_RDF_ADAPTION = OperatorsPackage.BOOLEAN_OPERATOR___CREATE_RDF_ADAPTION;
+	int JAVA_OPERATOR___GET_OPERATOR_LIST = OperatorsPackage.BOOLEAN_OPERATOR___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_OPERATOR___CREATE_NEO4J_ADAPTION = OperatorsPackage.BOOLEAN_OPERATOR___CREATE_NEO4J_ADAPTION;
+	int JAVA_OPERATOR___GET_ALL_OPERATORS = OperatorsPackage.BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR = OperatorsPackage.BOOLEAN_OPERATOR___CONTAINS_JAVA_OPERATOR;
+	int JAVA_OPERATOR___GET_PARAMETER_LIST = OperatorsPackage.BOOLEAN_OPERATOR___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART = OperatorsPackage.BOOLEAN_OPERATOR___GENERATE_QUERY_FILTER_PART;
+	int JAVA_OPERATOR___GET_ALL_PARAMETERS = OperatorsPackage.BOOLEAN_OPERATOR___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_OPERATOR___GENERATE_XQUERY_JAVA = OperatorsPackage.BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = OperatorsPackage.BOOLEAN_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+	int JAVA_OPERATOR___MY_TO_STRING = OperatorsPackage.BOOLEAN_OPERATOR___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -619,22 +637,13 @@ public interface JavaoperatorsPackage extends EPackage {
 	int ONE_ARG_JAVA_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL = JAVA_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_JAVA_OPERATOR___MY_TO_STRING = JAVA_OPERATOR___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ONE_ARG_JAVA_OPERATOR___GENERATE_CYPHER = JAVA_OPERATOR___GENERATE_CYPHER;
+	int ONE_ARG_JAVA_OPERATOR___GENERATE_QUERY__LANGUAGE = JAVA_OPERATOR___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -655,31 +664,94 @@ public interface JavaoperatorsPackage extends EPackage {
 	int ONE_ARG_JAVA_OPERATOR___GENERATE_SPARQL = JAVA_OPERATOR___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_JAVA_OPERATOR___GET_CONTAINER = JAVA_OPERATOR___GET_CONTAINER;
+	int ONE_ARG_JAVA_OPERATOR___GENERATE_CYPHER = JAVA_OPERATOR___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_JAVA_OPERATOR___GET_ANCESTOR__CLASS = JAVA_OPERATOR___GET_ANCESTOR__CLASS;
+	int ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA = JAVA_OPERATOR___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_JAVA_OPERATOR___INITIALIZE_TRANSLATION = JAVA_OPERATOR___INITIALIZE_TRANSLATION;
+	int ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART = JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR = JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_OPERATOR___CREATE_ADAPTION__LANGUAGE = JAVA_OPERATOR___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_OPERATOR___CREATE_XML_ADAPTION = JAVA_OPERATOR___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_OPERATOR___CREATE_RDF_ADAPTION = JAVA_OPERATOR___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_OPERATOR___CREATE_NEO4J_ADAPTION = JAVA_OPERATOR___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_OPERATOR___RELATIONS_XML_ADAPTED = JAVA_OPERATOR___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -691,40 +763,13 @@ public interface JavaoperatorsPackage extends EPackage {
 	int ONE_ARG_JAVA_OPERATOR___PREPARE_TRANSLATION = JAVA_OPERATOR___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_JAVA_OPERATOR___GET_OPERATOR_LIST = JAVA_OPERATOR___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ONE_ARG_JAVA_OPERATOR___GET_ALL_OPERATORS = JAVA_OPERATOR___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ONE_ARG_JAVA_OPERATOR___GET_PARAMETER_LIST = JAVA_OPERATOR___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ONE_ARG_JAVA_OPERATOR___GET_ALL_PARAMETERS = JAVA_OPERATOR___GET_ALL_PARAMETERS;
+	int ONE_ARG_JAVA_OPERATOR___INITIALIZE_TRANSLATION = JAVA_OPERATOR___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -772,76 +817,67 @@ public interface JavaoperatorsPackage extends EPackage {
 	int ONE_ARG_JAVA_OPERATOR___RECORD_VALUES__XMLDATADATABASE = JAVA_OPERATOR___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_JAVA_OPERATOR___RELATIONS_XML_ADAPTED = JAVA_OPERATOR___RELATIONS_XML_ADAPTED;
+	int ONE_ARG_JAVA_OPERATOR___GET_CONTAINER = JAVA_OPERATOR___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_JAVA_OPERATOR___CREATE_XML_ADAPTION = JAVA_OPERATOR___CREATE_XML_ADAPTION;
+	int ONE_ARG_JAVA_OPERATOR___GET_ANCESTOR__CLASS = JAVA_OPERATOR___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_JAVA_OPERATOR___CREATE_RDF_ADAPTION = JAVA_OPERATOR___CREATE_RDF_ADAPTION;
+	int ONE_ARG_JAVA_OPERATOR___GET_OPERATOR_LIST = JAVA_OPERATOR___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_JAVA_OPERATOR___CREATE_NEO4J_ADAPTION = JAVA_OPERATOR___CREATE_NEO4J_ADAPTION;
+	int ONE_ARG_JAVA_OPERATOR___GET_ALL_OPERATORS = JAVA_OPERATOR___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR = JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR;
+	int ONE_ARG_JAVA_OPERATOR___GET_PARAMETER_LIST = JAVA_OPERATOR___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART = JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART;
+	int ONE_ARG_JAVA_OPERATOR___GET_ALL_PARAMETERS = JAVA_OPERATOR___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA = JAVA_OPERATOR___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+	int ONE_ARG_JAVA_OPERATOR___MY_TO_STRING = JAVA_OPERATOR___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1097,22 +1133,13 @@ public interface JavaoperatorsPackage extends EPackage {
 	int TWO_ARG_JAVA_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL = JAVA_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_JAVA_OPERATOR___MY_TO_STRING = JAVA_OPERATOR___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TWO_ARG_JAVA_OPERATOR___GENERATE_CYPHER = JAVA_OPERATOR___GENERATE_CYPHER;
+	int TWO_ARG_JAVA_OPERATOR___GENERATE_QUERY__LANGUAGE = JAVA_OPERATOR___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -1133,31 +1160,94 @@ public interface JavaoperatorsPackage extends EPackage {
 	int TWO_ARG_JAVA_OPERATOR___GENERATE_SPARQL = JAVA_OPERATOR___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_JAVA_OPERATOR___GET_CONTAINER = JAVA_OPERATOR___GET_CONTAINER;
+	int TWO_ARG_JAVA_OPERATOR___GENERATE_CYPHER = JAVA_OPERATOR___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_JAVA_OPERATOR___GET_ANCESTOR__CLASS = JAVA_OPERATOR___GET_ANCESTOR__CLASS;
+	int TWO_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA = JAVA_OPERATOR___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_JAVA_OPERATOR___INITIALIZE_TRANSLATION = JAVA_OPERATOR___INITIALIZE_TRANSLATION;
+	int TWO_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART = JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR = JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_JAVA_OPERATOR___CREATE_ADAPTION__LANGUAGE = JAVA_OPERATOR___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_JAVA_OPERATOR___CREATE_XML_ADAPTION = JAVA_OPERATOR___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_JAVA_OPERATOR___CREATE_RDF_ADAPTION = JAVA_OPERATOR___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_JAVA_OPERATOR___CREATE_NEO4J_ADAPTION = JAVA_OPERATOR___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TWO_ARG_JAVA_OPERATOR___RELATIONS_XML_ADAPTED = JAVA_OPERATOR___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1169,40 +1259,13 @@ public interface JavaoperatorsPackage extends EPackage {
 	int TWO_ARG_JAVA_OPERATOR___PREPARE_TRANSLATION = JAVA_OPERATOR___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_JAVA_OPERATOR___GET_OPERATOR_LIST = JAVA_OPERATOR___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TWO_ARG_JAVA_OPERATOR___GET_ALL_OPERATORS = JAVA_OPERATOR___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TWO_ARG_JAVA_OPERATOR___GET_PARAMETER_LIST = JAVA_OPERATOR___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TWO_ARG_JAVA_OPERATOR___GET_ALL_PARAMETERS = JAVA_OPERATOR___GET_ALL_PARAMETERS;
+	int TWO_ARG_JAVA_OPERATOR___INITIALIZE_TRANSLATION = JAVA_OPERATOR___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -1250,76 +1313,67 @@ public interface JavaoperatorsPackage extends EPackage {
 	int TWO_ARG_JAVA_OPERATOR___RECORD_VALUES__XMLDATADATABASE = JAVA_OPERATOR___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_JAVA_OPERATOR___RELATIONS_XML_ADAPTED = JAVA_OPERATOR___RELATIONS_XML_ADAPTED;
+	int TWO_ARG_JAVA_OPERATOR___GET_CONTAINER = JAVA_OPERATOR___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_JAVA_OPERATOR___CREATE_XML_ADAPTION = JAVA_OPERATOR___CREATE_XML_ADAPTION;
+	int TWO_ARG_JAVA_OPERATOR___GET_ANCESTOR__CLASS = JAVA_OPERATOR___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_JAVA_OPERATOR___CREATE_RDF_ADAPTION = JAVA_OPERATOR___CREATE_RDF_ADAPTION;
+	int TWO_ARG_JAVA_OPERATOR___GET_OPERATOR_LIST = JAVA_OPERATOR___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_JAVA_OPERATOR___CREATE_NEO4J_ADAPTION = JAVA_OPERATOR___CREATE_NEO4J_ADAPTION;
+	int TWO_ARG_JAVA_OPERATOR___GET_ALL_OPERATORS = JAVA_OPERATOR___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR = JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR;
+	int TWO_ARG_JAVA_OPERATOR___GET_PARAMETER_LIST = JAVA_OPERATOR___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART = JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART;
+	int TWO_ARG_JAVA_OPERATOR___GET_ALL_PARAMETERS = JAVA_OPERATOR___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TWO_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA = JAVA_OPERATOR___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TWO_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+	int TWO_ARG_JAVA_OPERATOR___MY_TO_STRING = JAVA_OPERATOR___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1575,22 +1629,13 @@ public interface JavaoperatorsPackage extends EPackage {
 	int VALIDATE_LINK_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ONE_ARG_JAVA_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
-	 * The operation id for the '<em>My To String</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATE_LINK_OPERATOR___MY_TO_STRING = ONE_ARG_JAVA_OPERATOR___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Generate Cypher</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALIDATE_LINK_OPERATOR___GENERATE_CYPHER = ONE_ARG_JAVA_OPERATOR___GENERATE_CYPHER;
+	int VALIDATE_LINK_OPERATOR___GENERATE_QUERY__LANGUAGE = ONE_ARG_JAVA_OPERATOR___GENERATE_QUERY__LANGUAGE;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -1611,31 +1656,94 @@ public interface JavaoperatorsPackage extends EPackage {
 	int VALIDATE_LINK_OPERATOR___GENERATE_SPARQL = ONE_ARG_JAVA_OPERATOR___GENERATE_SPARQL;
 
 	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATE_LINK_OPERATOR___GET_CONTAINER = ONE_ARG_JAVA_OPERATOR___GET_CONTAINER;
+	int VALIDATE_LINK_OPERATOR___GENERATE_CYPHER = ONE_ARG_JAVA_OPERATOR___GENERATE_CYPHER;
 
 	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATE_LINK_OPERATOR___GET_ANCESTOR__CLASS = ONE_ARG_JAVA_OPERATOR___GET_ANCESTOR__CLASS;
+	int VALIDATE_LINK_OPERATOR___GENERATE_XQUERY_JAVA = ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA;
 
 	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATE_LINK_OPERATOR___INITIALIZE_TRANSLATION = ONE_ARG_JAVA_OPERATOR___INITIALIZE_TRANSLATION;
+	int VALIDATE_LINK_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_LINK_OPERATOR___GENERATE_QUERY_FILTER_PART = ONE_ARG_JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_LINK_OPERATOR___CONTAINS_JAVA_OPERATOR = ONE_ARG_JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_LINK_OPERATOR___CREATE_ADAPTION__LANGUAGE = ONE_ARG_JAVA_OPERATOR___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_LINK_OPERATOR___CREATE_XML_ADAPTION = ONE_ARG_JAVA_OPERATOR___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_LINK_OPERATOR___CREATE_RDF_ADAPTION = ONE_ARG_JAVA_OPERATOR___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_LINK_OPERATOR___CREATE_NEO4J_ADAPTION = ONE_ARG_JAVA_OPERATOR___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_LINK_OPERATOR___RELATIONS_XML_ADAPTED = ONE_ARG_JAVA_OPERATOR___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1647,40 +1755,13 @@ public interface JavaoperatorsPackage extends EPackage {
 	int VALIDATE_LINK_OPERATOR___PREPARE_TRANSLATION = ONE_ARG_JAVA_OPERATOR___PREPARE_TRANSLATION;
 
 	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATE_LINK_OPERATOR___GET_OPERATOR_LIST = ONE_ARG_JAVA_OPERATOR___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALIDATE_LINK_OPERATOR___GET_ALL_OPERATORS = ONE_ARG_JAVA_OPERATOR___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALIDATE_LINK_OPERATOR___GET_PARAMETER_LIST = ONE_ARG_JAVA_OPERATOR___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALIDATE_LINK_OPERATOR___GET_ALL_PARAMETERS = ONE_ARG_JAVA_OPERATOR___GET_ALL_PARAMETERS;
+	int VALIDATE_LINK_OPERATOR___INITIALIZE_TRANSLATION = ONE_ARG_JAVA_OPERATOR___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -1728,76 +1809,67 @@ public interface JavaoperatorsPackage extends EPackage {
 	int VALIDATE_LINK_OPERATOR___RECORD_VALUES__XMLDATADATABASE = ONE_ARG_JAVA_OPERATOR___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * The operation id for the '<em>Get Container</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATE_LINK_OPERATOR___RELATIONS_XML_ADAPTED = ONE_ARG_JAVA_OPERATOR___RELATIONS_XML_ADAPTED;
+	int VALIDATE_LINK_OPERATOR___GET_CONTAINER = ONE_ARG_JAVA_OPERATOR___GET_CONTAINER;
 
 	/**
-	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATE_LINK_OPERATOR___CREATE_XML_ADAPTION = ONE_ARG_JAVA_OPERATOR___CREATE_XML_ADAPTION;
+	int VALIDATE_LINK_OPERATOR___GET_ANCESTOR__CLASS = ONE_ARG_JAVA_OPERATOR___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATE_LINK_OPERATOR___CREATE_RDF_ADAPTION = ONE_ARG_JAVA_OPERATOR___CREATE_RDF_ADAPTION;
+	int VALIDATE_LINK_OPERATOR___GET_OPERATOR_LIST = ONE_ARG_JAVA_OPERATOR___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATE_LINK_OPERATOR___CREATE_NEO4J_ADAPTION = ONE_ARG_JAVA_OPERATOR___CREATE_NEO4J_ADAPTION;
+	int VALIDATE_LINK_OPERATOR___GET_ALL_OPERATORS = ONE_ARG_JAVA_OPERATOR___GET_ALL_OPERATORS;
 
 	/**
-	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATE_LINK_OPERATOR___CONTAINS_JAVA_OPERATOR = ONE_ARG_JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR;
+	int VALIDATE_LINK_OPERATOR___GET_PARAMETER_LIST = ONE_ARG_JAVA_OPERATOR___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATE_LINK_OPERATOR___GENERATE_QUERY_FILTER_PART = ONE_ARG_JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART;
+	int VALIDATE_LINK_OPERATOR___GET_ALL_PARAMETERS = ONE_ARG_JAVA_OPERATOR___GET_ALL_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATE_LINK_OPERATOR___GENERATE_XQUERY_JAVA = ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA;
-
-	/**
-	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALIDATE_LINK_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+	int VALIDATE_LINK_OPERATOR___MY_TO_STRING = ONE_ARG_JAVA_OPERATOR___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
