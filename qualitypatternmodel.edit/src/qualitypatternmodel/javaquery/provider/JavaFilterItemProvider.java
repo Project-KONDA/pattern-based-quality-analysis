@@ -29,6 +29,7 @@ import qualitypatternmodel.javaquery.JavaqueryFactory;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
+
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**

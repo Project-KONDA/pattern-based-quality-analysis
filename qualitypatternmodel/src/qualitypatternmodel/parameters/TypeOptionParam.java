@@ -50,7 +50,7 @@ public interface TypeOptionParam extends Parameter {
 	 * @see qualitypatternmodel.graphstructure.ReturnType
 	 * @see #setValue(ReturnType)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getTypeOptionParam_Value()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	ReturnType getValue();

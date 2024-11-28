@@ -19,11 +19,6 @@ import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.TrueElement;
-//import de.gwdg.metadataqa.api.configuration.schema.Rule;
-//import de.gwdg.metadataqa.api.json.DataElement;
-//import de.gwdg.metadataqa.api.schema.BaseSchema;
-//import de.gwdg.metadataqa.api.schema.Format;
 
 public class MqafTranslationHelper {
 
@@ -72,7 +67,7 @@ public class MqafTranslationHelper {
 
 
 	static Boolean validateNodeConfigurationCondition (Condition condition, ComplexNode record) {
-		if (condition instanceof TrueElement || condition == null) {
+		if (condition == null) {
 			return true;
 		} else if (condition instanceof NotCondition) {
 			NotCondition not = (NotCondition) condition;
@@ -88,7 +83,7 @@ public class MqafTranslationHelper {
 
 			if (validateNodeConfigurationGraph(countPattern.getGraph(), record)) {
 				Condition following = countPattern.getCondition();
-				if (following instanceof TrueElement || following == null) {
+				if (following == null) {
 					return true;
 				}
 			}
@@ -103,7 +98,7 @@ public class MqafTranslationHelper {
 			}
 
 			Condition following = quantified.getCondition();
-			if (following instanceof TrueElement || following == null) {
+			if (following == null) {
 				return true;
 			}
 		}

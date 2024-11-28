@@ -23,11 +23,6 @@ import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.patternstructure.TrueElement;
-//import de.gwdg.metadataqa.api.configuration.schema.Rule;
-//import de.gwdg.metadataqa.api.json.DataElement;
-//import de.gwdg.metadataqa.api.schema.BaseSchema;
-//import de.gwdg.metadataqa.api.schema.Format;
 
 public class MqafTranslationValidation {
 
@@ -91,7 +86,7 @@ public class MqafTranslationValidation {
 			return true;
 		}
 
-		if (condition instanceof TrueElement || condition == null) {
+		if (condition == null) {
 			return true;
 
 		} else if (condition instanceof NotCondition) {
@@ -112,7 +107,7 @@ public class MqafTranslationValidation {
 			CountPattern countPattern = countcond.getCountPattern();
 			if (validateNodeConfigurationGraph(countPattern.getGraph(), record)) {
 				Condition following = countPattern.getCondition();
-				if (following instanceof TrueElement || following == null) {
+				if (following == null) {
 					return true;
 				}
 			}
@@ -129,7 +124,7 @@ public class MqafTranslationValidation {
 			}
 
 			Condition following = quantified.getCondition();
-			if (following instanceof TrueElement || following == null) {
+			if (following == null) {
 				return true;
 			}
 		} else {
@@ -155,7 +150,7 @@ public class MqafTranslationValidation {
 		} else if (element instanceof CountCondition) {
 			CountCondition count = (CountCondition) element;
 			return validateEdgeConfiguration(count.getCountPattern()) && validateEdgeConfiguration(count.getArgument2());
-		} else if (element instanceof TrueElement || element instanceof NumberElement) {
+		} else if (element == null || element instanceof NumberElement) {
 			return true;
 		} else if (element instanceof Graph) {
 			Graph graph = (Graph) element;

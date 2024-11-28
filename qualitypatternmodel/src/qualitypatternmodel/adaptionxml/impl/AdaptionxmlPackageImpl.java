@@ -32,8 +32,6 @@ import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.XmlRoot;
-import qualitypatternmodel.execution.ExecutionPackage;
-import qualitypatternmodel.execution.impl.ExecutionPackageImpl;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
@@ -226,8 +224,6 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		GraphstructurePackageImpl theGraphstructurePackage = (GraphstructurePackageImpl)(registeredPackage instanceof GraphstructurePackageImpl ? registeredPackage : GraphstructurePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
 		PatternstructurePackageImpl thePatternstructurePackage = (PatternstructurePackageImpl)(registeredPackage instanceof PatternstructurePackageImpl ? registeredPackage : PatternstructurePackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExecutionPackage.eNS_URI);
-		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl)(registeredPackage instanceof ExecutionPackageImpl ? registeredPackage : ExecutionPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TextrepresentationPackage.eNS_URI);
 		TextrepresentationPackageImpl theTextrepresentationPackage = (TextrepresentationPackageImpl)(registeredPackage instanceof TextrepresentationPackageImpl ? registeredPackage : TextrepresentationPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdaptionrdfPackage.eNS_URI);
@@ -247,7 +243,6 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		theOperatorsPackage.createPackageContents();
 		theGraphstructurePackage.createPackageContents();
 		thePatternstructurePackage.createPackageContents();
-		theExecutionPackage.createPackageContents();
 		theTextrepresentationPackage.createPackageContents();
 		theAdaptionrdfPackage.createPackageContents();
 		theAdaptionneo4jPackage.createPackageContents();
@@ -261,7 +256,6 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		theOperatorsPackage.initializePackageContents();
 		theGraphstructurePackage.initializePackageContents();
 		thePatternstructurePackage.initializePackageContents();
-		theExecutionPackage.initializePackageContents();
 		theTextrepresentationPackage.initializePackageContents();
 		theAdaptionrdfPackage.initializePackageContents();
 		theAdaptionneo4jPackage.initializePackageContents();
@@ -773,7 +767,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlAxisPart__InferElementTagSuggestions() {
+	public EOperation getXmlAxisPart__SetAxisOption__XmlAxisKind() {
 		return xmlAxisPartEClass.getEOperations().get(3);
 	}
 
@@ -783,17 +777,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlAxisPart__InferElementTagSuggestionsFromIncomingRelations() {
-		return xmlAxisPartEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getXmlAxisPart__InferElementTagSuggestionsFromOutgoingRelations() {
+	public EOperation getXmlAxisPart__AddAxisCondition__XmlPropertyKind_String() {
 		return xmlAxisPartEClass.getEOperations().get(5);
 	}
 
@@ -803,28 +787,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlAxisPart__SetAxisOption__XmlAxisKind() {
-		return xmlAxisPartEClass.getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getXmlAxisPart__AddAxisCondition__XmlPropertyKind_String() {
-		return xmlAxisPartEClass.getEOperations().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getXmlAxisPart__AddAxisCondition__XmlPropertyKind() {
-		return xmlAxisPartEClass.getEOperations().get(7);
+		return xmlAxisPartEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -1074,9 +1038,6 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEOperation(xmlAxisPartEClass, XML_AXIS_PART___GET_NEXT_XML_AXIS_PAIRS);
 		createEOperation(xmlAxisPartEClass, XML_AXIS_PART___GET_PREVIOUS_XML_AXIS_PAIRS);
 		createEOperation(xmlAxisPartEClass, XML_AXIS_PART___INFER_AXIS_SUGGESTIONS);
-		createEOperation(xmlAxisPartEClass, XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS);
-		createEOperation(xmlAxisPartEClass, XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS);
-		createEOperation(xmlAxisPartEClass, XML_AXIS_PART___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS);
 		createEOperation(xmlAxisPartEClass, XML_AXIS_PART___SET_AXIS_OPTION__XMLAXISKIND);
 		createEOperation(xmlAxisPartEClass, XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND);
 		createEOperation(xmlAxisPartEClass, XML_AXIS_PART___ADD_AXIS_CONDITION__XMLPROPERTYKIND_STRING);
@@ -1251,12 +1212,6 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		initEOperation(getXmlAxisPart__GetPreviousXmlAxisPairs(), this.getXmlAxisPart(), "getPreviousXmlAxisPairs", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getXmlAxisPart__InferAxisSuggestions(), this.getXmlAxisKind(), "inferAxisSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getXmlAxisPart__InferElementTagSuggestions(), ecorePackage.getEString(), "inferElementTagSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getXmlAxisPart__InferElementTagSuggestionsFromIncomingRelations(), ecorePackage.getEString(), "inferElementTagSuggestionsFromIncomingRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getXmlAxisPart__InferElementTagSuggestionsFromOutgoingRelations(), ecorePackage.getEString(), "inferElementTagSuggestionsFromOutgoingRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getXmlAxisPart__SetAxisOption__XmlAxisKind(), this.getXmlAxisOptionParam(), "setAxisOption", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getXmlAxisKind(), "axis", 0, 1, IS_UNIQUE, IS_ORDERED);

@@ -336,17 +336,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<Parameter> validateAgainstSchema() {
-		EList<Parameter> invalidParams = new BasicEList<Parameter>();
-		return invalidParams;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -355,14 +344,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void validateExampleValue(String val) throws InvalidityException {}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -503,16 +484,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA:
-				return validateAgainstSchema();
-			case ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING:
-				try {
-					validateExampleValue((String)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case ParametersPackage.PARAMETER___INPUT_IS_VALID:
 				return inputIsValid();
 			case ParametersPackage.PARAMETER___IS_USED:

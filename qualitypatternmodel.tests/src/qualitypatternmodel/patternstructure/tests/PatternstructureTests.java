@@ -34,7 +34,6 @@ public class PatternstructureTests extends TestSuite {
 		suite.addTestSuite(QuantifiedConditionTest.class);
 		suite.addTestSuite(MorphismTest.class);
 		suite.addTestSuite(FormulaTest.class);
-		suite.addTestSuite(TrueElementTest.class);
 		suite.addTestSuite(CompletePatternTest.class);
 		suite.addTestSuite(NotConditionTest.class);
 		suite.addTestSuite(CountConditionTest.class);

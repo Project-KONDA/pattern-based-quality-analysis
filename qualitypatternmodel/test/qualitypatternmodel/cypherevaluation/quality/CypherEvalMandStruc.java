@@ -5,7 +5,7 @@ import java.time.Instant;
 
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPlace;
-import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
+import qualitypatternmodel.cypherevaluation.utility.DummyFiller;
 import qualitypatternmodel.evaluationquality.EvalMandAtt;
 import qualitypatternmodel.evaluationquality.EvalMandStruc;
 import qualitypatternmodel.exceptions.InvalidityException;

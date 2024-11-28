@@ -294,11 +294,6 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 		}
 	}
 
-	@Override
-	public void validateExampleValue(String val) throws InvalidityException {
-		Double.parseDouble(val);
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

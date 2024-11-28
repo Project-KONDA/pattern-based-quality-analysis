@@ -5,7 +5,7 @@ import java.time.Instant;
 import java.util.List;
 
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
-import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
+import qualitypatternmodel.cypherevaluation.utility.DummyFiller;
 import qualitypatternmodel.evaluationquality.EvalMatch;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;

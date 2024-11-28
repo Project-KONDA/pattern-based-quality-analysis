@@ -6,7 +6,7 @@ import java.time.Instant;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyEdge;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
-import qualitypatternmodel.cypherevaluation.utilis.DummyFiller;
+import qualitypatternmodel.cypherevaluation.utility.DummyFiller;
 import qualitypatternmodel.evaluationquality.EvalContains;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;

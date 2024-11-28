@@ -203,11 +203,6 @@ public class FormulaItemProvider extends ConditionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.FORMULA__CONDITION1,
-				 PatternstructureFactory.eINSTANCE.createTrueElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PatternstructurePackage.Literals.FORMULA__CONDITION1,
 				 PatternstructureFactory.eINSTANCE.createNotCondition()));
 
 		newChildDescriptors.add
@@ -224,11 +219,6 @@ public class FormulaItemProvider extends ConditionItemProvider {
 			(createChildParameter
 				(PatternstructurePackage.Literals.FORMULA__CONDITION2,
 				 PatternstructureFactory.eINSTANCE.createFormula()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PatternstructurePackage.Literals.FORMULA__CONDITION2,
-				 PatternstructureFactory.eINSTANCE.createTrueElement()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -30,7 +30,7 @@ import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests
 import qualitypatternmodel.cyphertranslationtests.cyphertranslationconcretetests.CypherTest12CheckNull;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import utilis.Java2Neo4JConnector;
+import utility.Java2Neo4JConnector;
 
 //The Exception handler can do more then the for the single case
 public abstract class CypherTestSuiteTranslation implements ExecutionCondition {

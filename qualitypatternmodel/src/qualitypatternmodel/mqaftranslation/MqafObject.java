@@ -46,7 +46,6 @@ import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 public class MqafObject {
@@ -185,7 +184,7 @@ public class MqafObject {
 			// TODO maybe
 		}
 
-		if (condition.getCondition() != null && !(condition.getCondition() instanceof TrueElement)) {
+		if (condition.getCondition() != null) {
 			throw new InvalidityException();
 		}
 

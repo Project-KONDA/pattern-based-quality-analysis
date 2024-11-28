@@ -86,14 +86,16 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		setMorphism(new MorphismImpl());
 		setGraph(new GraphImpl());
 		getInternalId();
-		setCondition(new TrueElementImpl());
+		setCondition(null);
 	}
 
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 
 		Boolean graph = getGraph().containsJavaOperator();
-		Boolean condition = getCondition().containsJavaOperator();
+		Boolean condition = false;
+		if (getCondition() != null)
+			condition = getCondition().containsJavaOperator();
 
 		if (!graph && !condition) {
 			return new NumberFilterElementImpl();
@@ -134,9 +136,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		Boolean graphJava = getGraph().containsJavaOperator();
-		Boolean conditionJava = getCondition().containsJavaOperator();
+		Boolean conditionJava = false;
+		if (getCondition() != null)
+			conditionJava = getCondition().containsJavaOperator();
 		String graphString = getGraph().generateXQueryJavaReturn();
-		String conditionString = getCondition().generateXQueryJavaReturn();
+		String conditionString = null;
+		if (getCondition() != null)
+			conditionString = getCondition().generateXQueryJavaReturn();
 		if (!graphJava && !conditionJava) {
 			return generateXQuery();
 		} else if (!graphJava) {
@@ -255,7 +261,9 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			cypher.append(tempWhere);
 		}
 		if (!(getCondition() instanceof CountCondition)) {
-			String tempConString = getCondition().generateCypher();
+			String tempConString = "";
+			if (getCondition() != null)
+				tempConString = getCondition().generateCypher();
 			if (!tempConString.isEmpty()) {
 				tempConString = tempConString.replaceAll("\n", "\n" + ConstantsNeo.THREE_WHITESPACES);
 				if (!tempWhere.isEmpty()) {
@@ -543,7 +551,8 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		patternElements.add(getGraph());
-		patternElements.add(getCondition());
+		if (getCondition() != null)
+			patternElements.add(getCondition());
 		return patternElements;
 	}
 
@@ -983,22 +992,15 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	}
 
 	@Override
-	public String toString() {
-		if (eIsProxy()) {
-			return super.toString();
-		}
-
-		StringBuilder result = new StringBuilder(super.toString());
-		return result.toString();
-	}
-
-	@Override
 	public String myToString() {
 		String res = "Count Subpattern [" + getInternalId() + "] (";
 //		String res = "Count Subpattern (";
 		res += "\n  " + getGraph().myToString().replace("\n", "\n  ");
 		res += "\n  : " + getMorphism().myToString().replace("\n", "\n  | ");
-		res += "\n  " + getCondition().myToString().replace("\n", "\n  ");
+		if (getCondition() != null)
+				res += "\n  " + getCondition().myToString().replace("\n", "\n  ");
+		else 
+			res += "\n  TRUE";
 		res += "\n)";
 		return res;
 	}

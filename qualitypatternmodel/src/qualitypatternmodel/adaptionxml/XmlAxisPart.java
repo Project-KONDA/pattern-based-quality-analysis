@@ -110,22 +110,6 @@ public interface XmlAxisPart extends Adaptable, Parameter {
 	 * @model
 	 * @generated
 	 */
-	EList<String> inferElementTagSuggestions();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EList<String> inferElementTagSuggestionsFromOutgoingRelations();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	XmlAxisOptionParam setAxisOption(XmlAxisKind axis);
 
 	/**
@@ -143,14 +127,6 @@ public interface XmlAxisPart extends Adaptable, Parameter {
 	 * @generated
 	 */
 	XmlAxisPartCondition addAxisCondition(XmlPropertyKind propertyKind);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EList<String> inferElementTagSuggestionsFromIncomingRelations();
 
 	/**
 	 * <!-- begin-user-doc -->

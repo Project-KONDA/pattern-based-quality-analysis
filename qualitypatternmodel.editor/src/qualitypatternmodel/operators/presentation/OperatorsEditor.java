@@ -164,9 +164,6 @@ import qualitypatternmodel.adaptionneo4j.provider.Adaptionneo4jItemProviderAdapt
 import qualitypatternmodel.adaptionrdf.provider.AdaptionrdfItemProviderAdapterFactory;
 
 import qualitypatternmodel.adaptionxml.provider.AdaptionxmlItemProviderAdapterFactory;
-
-import qualitypatternmodel.execution.provider.ExecutionItemProviderAdapterFactory;
-
 import qualitypatternmodel.graphstructure.provider.GraphstructureItemProviderAdapterFactory;
 
 import qualitypatternmodel.javaoperators.provider.JavaoperatorsItemProviderAdapterFactory;
@@ -736,7 +733,6 @@ public class OperatorsEditor
 		adapterFactory.addAdapterFactory(new GraphstructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PatternstructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AdaptionxmlItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ExecutionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TextrepresentationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AdaptionrdfItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new Adaptionneo4jItemProviderAdapterFactory());

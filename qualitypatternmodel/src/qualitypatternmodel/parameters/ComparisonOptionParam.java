@@ -56,7 +56,7 @@ public interface ComparisonOptionParam extends Parameter {
 	 * @see qualitypatternmodel.operators.ComparisonOperator
 	 * @see #setValue(ComparisonOperator)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getComparisonOptionParam_Value()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	ComparisonOperator getValue();
