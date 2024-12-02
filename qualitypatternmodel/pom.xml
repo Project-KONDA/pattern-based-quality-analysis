@@ -8,20 +8,6 @@
 <!--  <description>Quality Pattern Model - A proof-of-concept implementation of a top-down approach to analyzing data quality via anti-patterns.</description>-->
   <repositories>
     <repository>
-      <id>mvnrepository</id>
-      <name>MvnRepository</name>
-      <url>https://mvnrepository.com/artifact</url>
-    </repository>
-    <repository>
-      <id>ossrh</id>
-      <name>Sonatype Releases</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-    <!-- enable downloading snapshots from Sonatype -->
-    <repository>
       <id>snapshots</id>
       <name>Sonatype Snapshots</name>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
