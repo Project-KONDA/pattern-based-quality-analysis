@@ -853,7 +853,7 @@ paths:
       parameters:
         - name: files
           in: query
-          description: paths to files relative to FILE_VOLUME to be analyzed
+          description: paths to files relative to FILE_VOLUME (defined via environmental variable) to be analyzed
           required: true
           schema:
             type: array
@@ -861,7 +861,7 @@ paths:
               type: string
         - name: constraintIDs
           in: query
-          description: identifier of constraints for quality analysis. will be combined with constraints specified in constraints parameter
+          description: identifier of constraints for quality analysis. the constraints will be compiled to querys before the quality analysis. then they will be combined with precompiled constraints specified in constraints parameter. At least one constraintID or one constraint is required for a quality analysis
           required: true
           schema:
             type: array
@@ -869,7 +869,7 @@ paths:
               type: string
         - name: constraints
           in: query
-          description: compiled constraints for quality analysis. will be combined with constraints specified in constraintIDs parameter
+          description: precompiled constraints for quality analysis. they will be combined with the constraints specified in constraintIDs parameter after they got compiled. At least one constraintID or one constraint is required for a quality analysis
           required: true
           style: deepObject
           explode: true
@@ -1379,13 +1379,13 @@ components:
       type: object
       properties:
         failedFiles:
-          description: path of the file relative to FILE_VOLUME that were not found and a reason
+          description: path of the file relative to FILE_VOLUME (env. var) that were not found and a reason
           type: array
           items:
             type: object
             properties:
               <filePath>:
-                description: field name is path of the file relative to FILE_VOLUME, content is reason
+                description: field name is path of the file relative to FILE_VOLUME (env. var), content is reason
                 type: string
         failedConstraints:
           type: array
@@ -1403,7 +1403,7 @@ components:
             type: object
             properties:
               file:
-                description: path of the file relative to FILE_VOLUME
+                description: path of the file relative to FILE_VOLUME (env. var)
                 type: string
               constraintID:
                 description: identifier of the constraint
