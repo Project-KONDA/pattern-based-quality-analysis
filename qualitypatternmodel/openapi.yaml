@@ -8,10 +8,11 @@ info:
     - [Quality Pattern Model](https://github.com/Project-KONDA/pattern-based-quality-analysis)
   contact:
     email: arno.kesper@uni-marburg.de
-  version: 1.0.0
+  version: 1.0.1
 paths:
 
   /qualitypatternmodel/pattern/list/{technology}/{abstraction}:
+    description: request a list of constraints
     parameters:
       - name: technology
         in: path
@@ -58,6 +59,7 @@ paths:
 
 
   /qualitypatternmodel/pattern/list/{technology}/{abstraction}/{datamodel}:
+    description: request a list of constraints with a specific datamodel tag
     parameters:
       - name: technology
         in: path
@@ -82,7 +84,7 @@ paths:
             - ready
       - name: datamodel
         in: path
-        description: Optional filter for datamodels
+        description: filter for constraints with a specific datamodel
         required: true
         schema:
           type: string
@@ -111,6 +113,7 @@ paths:
 
 
   /qualitypatternmodel/constraint/{technology}/{constraintID}:
+    description: request, update or delete a specific constraint
     parameters:
       - name: technology
         in: path
@@ -188,35 +191,36 @@ paths:
               - type: string
               - $ref: '#/components/schemas/ParameterSetter'
         - name: name
-          description: set the name of the new constraint
+          description: set the name of the constraint
           in: query
           schema:
             type: string
         - name: database
-          description: set the database of the new constraint
+          description: set the database of the constraint
           in: query
           schema:
             type: string
         - name: datamodel
-          description: set the datamodel of the new constraint
+          description: set the datamodel of the constraint
           in: query
           schema:
             type: string
         - name: namespace
-          description: set the datamodel of the new constraint
+          description: set the datamodel of the constraint
           in: query
           schema:
             type: object
             properties:
               <prefix>:
-                type: string
                 description: prefix and uri of a namespace
+                type: string
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
+                description: message on which parameters succeded and which failed to be updated
                 $ref: '#/components/schemas/ParameterResponse'
         '304':
           description: Not modified  
@@ -229,6 +233,7 @@ paths:
 
 
   /qualitypatternmodel/template/instantiate/{technology}/{templateID}/{variantID}:
+    description: instantiate a constraint from a template
     parameters:
       - name: technology
         in: path
@@ -253,7 +258,7 @@ paths:
         schema:
           type: string
       - name: name
-        description: set the name of the new constraint
+        description: optionally define set the name of the new constraint
         in: query
         required: false
         schema:
@@ -303,6 +308,7 @@ paths:
 
 
   /qualitypatternmodel/constraint/copy/{technology}/{constraintID}:
+    description: duplicate an existing constraint
     parameters:
       - name: technology
         in: path
@@ -316,7 +322,7 @@ paths:
             - neo4j
       - name: constraintID
         in: path
-        description: identifier of constraint
+        description: identifier of old constraint
         required: true
         schema:
           type: string
@@ -336,13 +342,13 @@ paths:
           schema:
             type: string
         - name: database
-          description: set the database of the new constraint
+          description: optionally set the database of the new constraint
           in: query
           required: false
           schema:
             type: string
         - name: datamodel
-          description: set the datamodel of the new constraint
+          description: optionally set the datamodel of the new constraint
           in: query
           required: false
           schema:
@@ -365,6 +371,7 @@ paths:
 
 
   /qualitypatternmodel/constraint/database/{technology}/{constraintID}:
+    description: request and update the database field of a specific constraint
     parameters:
       - name: technology
         in: path
@@ -389,8 +396,8 @@ paths:
         - Database
         - Modification
         - Parameter
-      summary: Set the database parameter of a constrant
-      description: Set the database parameter of a constrant
+      summary: Set the database parameter of a constraint
+      description: Set the database parameter of a constraint
       operationId: postdatabase
       parameters:
         - name: database
@@ -419,8 +426,8 @@ paths:
         - Database
         - Request
         - Parameter
-      summary: Request the database parameter from a constrant
-      description: Request the database parameter from a constrant
+      summary: Request the database parameter from a constraint
+      description: Request the database parameter from a constraint
       operationId: requestdatabase
       responses:
         '200':
@@ -438,6 +445,7 @@ paths:
 
 
   /qualitypatternmodel/constraint/datamodel/{technology}/{constraintID}:
+    description: request and update the datamodel field of a specific constraint
     parameters:
       - name: technology
         in: path
@@ -462,8 +470,8 @@ paths:
         - Datamodel
         - Modification
         - Parameter
-      summary: Set the datamodel parameter of a constrant
-      description: Set the datamodel parameter of a constrant
+      summary: Set the datamodel parameter of a constraint
+      description: Set the datamodel parameter of a constraint
       operationId: postdatamodel
       parameters:
         - name: datamodel
@@ -492,8 +500,8 @@ paths:
         - Datamodel
         - Request
         - Parameter
-      summary: Request the datamodel parameter from a constrant
-      description: Request the datamodel parameter from a constrant
+      summary: Request the datamodel parameter from a constraint
+      description: Request the datamodel parameter from a constraint
       operationId: requestdatamodel
       responses:
         '200':
@@ -560,6 +568,7 @@ paths:
 
 
   /qualitypatternmodel/constraint/tag/{technology}/{constraintID}:
+    description: update and delete tags of a constraint
     parameters:
       - name: technology
         in: path
@@ -590,7 +599,7 @@ paths:
       parameters:
         - name: tag
           in: query
-          description: specification of the new tags
+          description: list of the new tags
           required: true
           schema:
             type: array
@@ -622,7 +631,7 @@ paths:
       parameters:
         - name: tag
           in: query
-          description: specification of the tags to delete
+          description: list of the tags to delete
           required: true
           schema:
             type: array
@@ -686,6 +695,7 @@ paths:
 
 
   /qualitypatternmodel/constraint/mqaf/{technology}:
+    description: mqaf export of constraints
     parameters:
       - name: technology
         in: path
@@ -731,6 +741,7 @@ paths:
 
 
   /qualitypatternmodel/constraint/query/{technology}/{constraintID}:
+    description: export of a specific compiled constraint
     parameters:
       - name: technology
         in: path
@@ -773,6 +784,7 @@ paths:
 
 
   /qualitypatternmodel/constraint/query/{technology}:
+    description: export of a list of compiled constraints
     parameters:
       - name: technology
         in: path
@@ -818,6 +830,7 @@ paths:
 
 
   /qualitypatternmodel/constraint/execute/{technology}:
+    description: quality analysis of constraints on files
     parameters:
       - name: technology
         in: path
@@ -840,7 +853,7 @@ paths:
       parameters:
         - name: files
           in: query
-          description: links to files to be analyzed
+          description: paths to files relative to FILE_VOLUME to be analyzed
           required: true
           schema:
             type: array
@@ -848,7 +861,7 @@ paths:
               type: string
         - name: constraintIDs
           in: query
-          description: identifier of existing constraints to check on the files
+          description: identifier of constraints for quality analysis. will be combined with constraints specified in constraints parameter
           required: true
           schema:
             type: array
@@ -856,7 +869,7 @@ paths:
               type: string
         - name: constraints
           in: query
-          description: links to files to be analyzed
+          description: compiled constraints for quality analysis. will be combined with constraints specified in constraintIDs parameter
           required: true
           style: deepObject
           explode: true
@@ -880,6 +893,7 @@ paths:
 
 
   /qualitypatternmodel/template/variant/{technology}/{templateID}:
+    description: request, post and delete variants on templates
     parameters:
       - name: technology
         in: path
@@ -968,14 +982,12 @@ paths:
       parameters:
         - name: variants
           in: query
-          description: specification of variant(s) to delete
+          description: specification of variant name(s) to delete
           required: true
           style: deepObject
           explode: true
           schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/VariantSpecification'
+            type: string
       responses:
         '200':
           description: Successful operation
@@ -995,6 +1007,7 @@ components:
   schemas:
     Pattern: # 2, 3, 4
       type: object
+      description: A Pattern be either be an abstract template or a (concrete) constraint. A template can contain multiple variants. When creating a constraint from a temlate, only one variant will be chosen, therefore a constraint is limited to one variant in the variants array. A template can never be executed, so the execution booleans do only occur in constraints.
       properties:
         name:
           type: string
@@ -1013,25 +1026,25 @@ components:
         shortdescription:
           type: string
           description: shortened explanation text for parameters
-        language:
+        technology:
           type: string
-          description: technology
+          description: technology of the template or constraint
           enum:
             - xml
             - rdf
             - neo4j
         executable:
           type: boolean
-          description: is this pattern executable
+          description: is this constraint executable
         mqafExecutable:
           type: boolean
-          description: is this pattern executable via the mqaf framework
+          description: is this constraint executable via the mqaf framework
         queryExecutable:
           type: boolean
-          description: is this pattern executable via a technology-specific query
+          description: is this constraint executable via a technology-specific query
         filterExecutable:
           type: boolean
-          description: is this pattern executable via a java filter in the qualitypatternmodel framework
+          description: is this constraint executable via a java filter in the qualitypatternmodel framework
         database:
           type: string
           description: string for a database
@@ -1050,13 +1063,14 @@ components:
 
     Variant:
       type: object
+      description: specification of a variant, which ultimately is the gap text used to represent the parameters of a constraint in a context
       properties:
         name:
           type: string
           description: variant id
         fragments:
           type: array
-          description: fragments of the sentence
+          description: fragments of the sentence which comprises parameter specifications and text fragments and to set the context of the parameters
           items:
             oneOf:
               - $ref: '#/components/schemas/TextFragment'
@@ -1064,34 +1078,35 @@ components:
 
     TextFragment:
       type: object
+      description: text fragment of a sentence
       properties:
         text:
           type: string
-          description: text fragment
       required:
         - text
 
     ParameterFragment: 
       type: object
+      description: parameter fragment of a sentence, which comprises the type, an example and current value and additional information
       properties:
         id:
           type: string
           description: identifier of the parameter
         name:
           type: string
-          description: name of the parameter
+          description: display name of the parameter
         value:
           type: string
-          description: current value
+          description: current value. if the value is empty, this field is missing
         userValue:
           type: string
-          description: input of the user that got used to calculate the real value
+          description: user input for display. interpreted by constrainfy to calculate the real value
         exampleValue:
           type: string
-          description: example on how to use the constraint
+          description: example value for the user
         type:
           type: string
-          description: type of the parameter
+          description: datatype of the parameter
         role:
           type: string
           description: additional information of the parameter type
@@ -1102,7 +1117,7 @@ components:
             type: string
         plural:
           type: boolean
-          description: wether the parameter shall be formulated as a plural in the context of the sentence formulation
+          description: whether the parameter shall be formulated as a plural in the context of the sentence formulation for representation
         description:
           type: string
           description: additional information of the parameter
@@ -1117,30 +1132,31 @@ components:
 
     ParameterFragmentDefinition:
       type: object
+      description: definition of a parameter fragment for new variants added via API
       properties:
         name:
           type: string
-          description: name of the parameter
+          description: display name of the parameter fragment
         params:
           type: array
           items:
             type: integer
-          description: indices of the referenced parameters 
+          description: indices of the referenced parameters
         exampleValue:
           type: string
           description: example value for users
         newid:
           type: string
-          description: specify new parameter id if wanted
+          description: specify new parameter fragment id if necessary
         description:
           type: string
           description: additional explanation of a parameter
         map:
           type: object
-          description: map from real values to the values that the user gets presented
+          description: optional map from real values to the values that the user gets presented
         defaultMap:
           type: string
-          description: name of a default map, that is implemented already
+          description: name of a predefined default map
           enum:
             - comparison
             - comparison_negated
@@ -1152,10 +1168,11 @@ components:
             - does not
         plural:
           type: boolean
-          description: wether the parameter shall be formulated as a plural in the context of the sentence formulation
+          description: whether the parameter shall be formulated as a plural in the context of the sentence formulation
 
     ParameterPredefinition:
       type: object
+      description: definition of a predefined parameter for new variants added via API
       properties:
         params:
           type: array
@@ -1168,6 +1185,7 @@ components:
 
     PatternList: # 1, 1.1
       type: object
+      description: list of patterns
       properties:
         total:
           type: integer
@@ -1177,11 +1195,13 @@ components:
           description: list of the constraintIDs of the returned patterns
           items:
             type: string
-        templates: # description: complete pattern json
+        templates: 
+          description: list of patterns
           $ref: '#/components/schemas/Pattern'
 
     ParameterResponse: # 6
       type: object
+      description: response of api call to modify parameter values
       properties:
         success:
           type: array
@@ -1195,7 +1215,7 @@ components:
             properties:
               <parameter>: 
                 type: string
-          description: parameter that failed to be modified and a reason
+          description: ids of parameters that failed to be modified and a reason
         lastSaved:
           type: string
           description: timestamp of the applied change
@@ -1203,6 +1223,7 @@ components:
 
     ParameterReturn: # 8, 10
       type: object
+      description: response when modifying the name, database or datamodel of a constraint. only changed parameters occur
       properties:
         name:
           type: string
@@ -1230,12 +1251,13 @@ components:
 
     TagSuccess: # 12, 13
       type: object
+      description: report on changes of tags
       properties:
         success:
           type: array
           items:
             type: string
-          description: successfully added or deleted tags
+          description: tags that got added or deleted successfully
         failed:
           type: array
           items:
@@ -1251,11 +1273,12 @@ components:
 
     VariantSpecification: # 17
       type: object
+      description: full specification of a variant including predefined parameters and value mappings to create a new variant on the server
       properties:
         template:
           type: string
           description: identifier of the template
-        language:
+        technology:
           type: string
           description: identifier of the technology
           enum:
@@ -1276,20 +1299,11 @@ components:
     
     VariantParameters: #18
       type: object
+      description: metainformation for templates to be able to create new variants via api
       properties:
-        variants:
-          type: array
-          description: list of available variants
-          items:
-            variant:
-              type: object
-              properties:
-                template: 
-                  type: string
-                name:
-                  type: string
-                language:
-                  type: string
+        variants: 
+          description: full specification of all existing variants 
+          $ref: '#/components/schemas/VariantSpecification'
         params:
           type: object
           description: map of parameter id to parameter type
@@ -1307,10 +1321,11 @@ components:
           description: all constraint that failed to be translated
         constraint:
           type: object
-          description: json generated by mqaf framework from a BaseSchema object via ConfigurationReader.toJson
+          description: constraint translated to BaseSchema as json generated by mqaf framework via ConfigurationReader.toJson in the metadata-qa-api project
 
     Query: # 15, 15.1, 16
       type: object
+      description: compiled query object from constraint
       properties:
         constraints:
           type: object
@@ -1344,82 +1359,88 @@ components:
               description: technology-specific query without linebreaks
             queryPartial:
               type: string
-              description: technology-specific query
+              description: technology-specific query to all findings
             queryPartialLine:
               type: string
-              description: technology-specific query without linebreaks
+              description: technology-specific query to all findings without linebreaks
         failed:
+          description: all constraint that failed to be translated
           type: array
           items:
+            description: list of constraints that could not be translated with reason
             type: object
             properties:
-              <parameter>: 
+              <constriantID>: 
+                description: field name is constraintID, content is reason
                 type: string
-          description: all constraint that failed to be translated
 
     AnalysisResult: # 16
+      description: result of the quality analyis
       type: object
       properties:
         failedFiles:
+          description: path of the file relative to FILE_VOLUME that were not found and a reason
           type: array
           items:
             type: object
             properties:
-              <parameter>: 
+              <filePath>:
+                description: field name is path of the file relative to FILE_VOLUME, content is reason
                 type: string
-          description: file paths that were not found
         failedConstraints:
           type: array
+          description: constraint IDs that could not be executed
           items:
             type: object
             properties:
-              <parameter>: 
+              <parameter>:
+                description: field name is constraintID, content is reason 
                 type: string
-          description: constraint IDs that could not be executed
         result:
-          type: array
           description: result of the executed constraints
+          type: array
           items:
             type: object
             properties:
               file:
+                description: path of the file relative to FILE_VOLUME
                 type: string
-                description: path of the file
               constraintID:
-                type: string
                 description: identifier of the constraint
-              constraintName:
                 type: string
+              constraintName:
                 description: user-defined name of the constraint
+                type: string
               incidents:
-                type: array
                 description: list of found incidents of the constraint in the file
+                type: array
                 items:
                   type: string
               totalFindings:
-                type: integer
                 description: amount of total analysed findings in the file
+                type: integer
               totalCompliances:
+                description: amount of found compliances of the constraint 
                 type: integer
-                description: amount of found compliances of the constraint in the file
               totalIncidents:
-                type: integer
                 description: amount of found incidents of the constraint in the file
+                type: integer
 #              query:
-#                type: string
 #                description: generated query
-#              language:
 #                type: string
+#              language:
 #                description: language of the constraint
+#                type: string
 #                enum: # XQuery, Sparql, Cypher
 #                  - XQuery
 #              technology:
-#                type: string
 #                description: technology of the constraint
+#                type: string
 #                enum: # xml, rdf, neo4j
 #                  - xml
 
     ParameterSetter: #6
+      description: object to specify the value of a parameter
       type: object
       properties:
         value:
@@ -1429,13 +1450,17 @@ components:
             - $ref: '#/components/schemas/NeoElementPath'
             - $ref: '#/components/schemas/NeoPropertyPath'
         userValue:
+          description: user input, that got interpreted by constrainify
           type: string
         clear:
+          description: reset parameter to null
           type: boolean
         <custom-attribute>:
+          descriptoion: parameters can get custom fields that hold information. they do not have influence on the quality analysis. the information will be returned when requesting the constraint json
           type: string
 
     RdfPathParam:
+      description: realisation of a rdf path in json
       oneOf:
         - $ref: '#/components/schemas/RdfPathPart'
         - type: array
@@ -1443,6 +1468,7 @@ components:
             $ref: '#/components/schemas/RdfPathPart'
 
     RdfPathPart:
+      description: realisation of a rdf path part in json
       oneOf:
         - $ref: '#/components/schemas/RdfPathComponent'
         - type: object
@@ -1457,12 +1483,14 @@ components:
                     $ref: '#/components/schemas/RdfLabel'
 
     RdfPathComponent:
+      description: realisation of a rdf path component in json
       oneOf:
         - $ref: '#/components/schemas/RdfPathSequence'
         - $ref: '#/components/schemas/RdfPathXor'
         - $ref: '#/components/schemas/RdfLabel'
 
     RdfPathSequence:
+      description: realisation of a rdf path sequence in json
       type: object
       properties:
         sequence:
@@ -1471,6 +1499,7 @@ components:
             $ref: '#/components/schemas/RdfPathPart'
 
     RdfPathXor:
+      description: realisation of a rdf path xor in json
       type: object
       properties:
         xor:
@@ -1479,15 +1508,18 @@ components:
             $ref: '#/components/schemas/RdfPathPart'
 
     RdfLabel:
+      description: realisation of a rdf label in json
       type: string
       pattern: '^?([a-z]+:[a-zA-Z0-9]+|<[a-zA-A0-9]+>)'
 
     NeoElementPath:
+      description: realisation of a neo element path in json
       oneOf:
         - $ref: '#/components/schemas/NeoComplexEdge'
         - $ref: '#/components/schemas/NeoSimpleEdge'
 
     NeoPropertyPath:
+      description: realisation of a neo property path in json
       type: object
       properties:
         pathpart:
@@ -1496,11 +1528,13 @@ components:
           type: string
 
     NeoNodeLabels:
+      description: realisation of a neo node labels in json
       type: array
       items:
         $ref: '#/components/schemas/NeoLabel'
 
     NeoSimpleEdge:
+      description: realisation of a neo simple edge in json
       type: object
       properties:
         edgetype:
@@ -1509,14 +1543,14 @@ components:
           $ref: '#/components/schemas/NeoNodeLabels'
 
     NeoComplexEdge:
+      description: realisation of a neo complex edge in json
       type: array
-      description: label of a neo element
       items:
         oneOf:
           - $ref: '#/components/schemas/NeoComplexEdge'
           - $ref: '#/components/schemas/NeoSimpleEdge'
 
     NeoLabel:
+      description: realisation of a neo label in json
       type: string
       pattern: '[A-Za-z_0-9]+'
-      description: label of a neo element

@@ -401,7 +401,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		try {
 			result.put(ConstantsJSON.TEMPLATE, getPattern().getPatternId());
 			result.put(ConstantsJSON.NAME, getName());
-			result.put(ConstantsJSON.LANGUAGE, getPattern().getLanguage());
+			result.put(ConstantsJSON.TECHNOLOGY, getPattern().getLanguage());
 
 			JSONArray fragments = new JSONArray();
 			for (Fragment fragment: getFragmentsOrdered()) {

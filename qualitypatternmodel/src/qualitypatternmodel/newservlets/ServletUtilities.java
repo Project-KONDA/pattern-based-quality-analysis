@@ -174,6 +174,7 @@ public abstract class ServletUtilities {
 			Boolean filter = false;
 			try {
 				pattern.isValid(AbstractionLevel.CONCRETE);
+				json.put(ConstantsJSON.TECHNOLOGY, Language.XML);
 				filter = pattern.getLanguage().equals(Language.XML);
 				try {
 					MqafTranslationValidation.checkPatternTranslatable(pattern);
