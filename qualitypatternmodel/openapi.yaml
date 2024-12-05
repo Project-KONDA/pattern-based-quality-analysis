@@ -1007,7 +1007,7 @@ components:
   schemas:
     Pattern: # 2, 3, 4
       type: object
-      description: Structure that can be either describe a template or a constraint. A template can contain multiple variants, while a constraint is limited to one variant in the variants array. A template cannot be executed, so the execution booleans are exclusive to constraints.
+      description: A Pattern be either be an abstract template or a (concrete) constraint. A template can contain multiple variants. When creating a constraint from a temlate, only one variant will be chosen, therefore a constraint is limited to one variant in the variants array. A template can never be executed, so the execution booleans do only occur in constraints.
       properties:
         name:
           type: string
