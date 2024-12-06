@@ -2,7 +2,6 @@ package qualitypatternmodel.utility;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -124,7 +123,7 @@ public class XmlServletUtility {
 		assertTrue(responseCode2 >= 200 && responseCode2 < 300);
 
 		String result2 = getResult(connection2);
-		assertEquals(value, result2);
+		assert(value.equals(result2));
 
 		HttpURLConnection connection3 = (HttpURLConnection) new URL(PATH_PREFIX + Util.CONCRETE_PATTERN_TEXT_ENDPOINT + concretePatternName).openConnection();
 		connection3.setRequestMethod("GET");
