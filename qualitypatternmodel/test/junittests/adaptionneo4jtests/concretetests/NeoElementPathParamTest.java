@@ -66,7 +66,6 @@ public class NeoElementPathParamTest extends NeoPathParamTest {
 	public void getReturnInnerEdgeNodes() {
 		try {
 			//No NeoPathPart is set
-			assumeNotNull(neoPathParam.getNeoPathPart());
 			neoPathParam.setNeoPathPart(null);
 			assertNull(neoPathParam.getNeoPathPart());
 			assertNull(neoPathParam.getReturnInnerEdgeNodes());
