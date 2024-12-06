@@ -153,7 +153,7 @@ public class NeoPropertyPathParamTest extends NeoPathParamTest {
 		//Set a valid Property-Namen
 		String neoPropertyName = ORIGINAL_PLACE_OF_ISSUE;
 		assertDoesNotThrow(() -> neoPropertyPathParam.setNeoPropertyName(neoPropertyName));
-		assertEquals(neoPropertyName, neoPropertyPathParam.getNeoPropertyName());
+		assertEquals(neoPropertyName, neoPropertyPathParam.getNeoPropertyName().getValueAsString());
 
 		//Setting the Value to null
 		assertDoesNotThrow(()-> neoPropertyPathParam.setNeoPropertyName((String) null));
