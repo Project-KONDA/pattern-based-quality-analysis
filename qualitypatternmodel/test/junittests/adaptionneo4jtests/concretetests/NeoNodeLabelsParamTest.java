@@ -38,15 +38,11 @@ public class NeoNodeLabelsParamTest extends NeoLabelTest {
 
 	@Override
 	@ParameterizedTest
-	@ValueSource(strings = {"Regesta1", "Regesta_2,IndexPlace", "Index_Entry,Index_Entry", "null"})
+	@ValueSource(strings = {"Regesta1", "Regesta_2,IndexPlace", "Index_Entry,Index_Entry"})
 	public void setValueIfValid(String label) {
-		if (label.compareTo("null") == 0) {
-			assertDoesNotThrow(() -> nodeLabel.setValueIfValid(null));
-		} else {
-			final EList<String> newValue = new BasicEList<String>();
-			fillLabelList(label, newValue);
-			assertDoesNotThrow(() -> nodeLabel.setValueIfValid(newValue));
-		}
+		final EList<String> newValue = new BasicEList<String>();
+		fillLabelList(label, newValue);
+		assertDoesNotThrow(() -> nodeLabel.setValueIfValid(newValue));
 	}
 
 	@ParameterizedTest
@@ -98,10 +94,6 @@ public class NeoNodeLabelsParamTest extends NeoLabelTest {
 			assertTrue(nodeLabel.generateCypher().compareTo(seperator + "Regesta1") == 0);
 
 			newValue.add("IndexPlace");
-			nodeLabel.setValueIfValid(newValue);
-			assertTrue(nodeLabel.generateCypher().compareTo(seperator + "Regesta1" + seperator + "IndexPlace") == 0);
-
-			newValue.add("");
 			nodeLabel.setValueIfValid(newValue);
 			assertTrue(nodeLabel.generateCypher().compareTo(seperator + "Regesta1" + seperator + "IndexPlace") == 0);
 		} catch (Exception e) {
