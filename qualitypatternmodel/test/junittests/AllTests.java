@@ -1,14 +1,14 @@
 package junittests;
 
-import org.junit.platform.suite.api.SelectClasses;
-import org.junit.platform.suite.api.Suite;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
 import newservelettest.xmlapitests.APITemplateTests;
 import newservelettest.xmlapitests.APICallTests;
 import qualitypatternmodel.xmltranslationtests.XmlTranslationJUnitTests;
 
-@Suite
-@SelectClasses({
+@RunWith(Suite.class)
+@Suite.SuiteClasses({
 	XmlJUnitTests.class,
 	RdfJUnitTests.class,
 //	Neo4jJUnitTests.class,
