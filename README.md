@@ -51,6 +51,14 @@ The graphical user interface is implemented in the gui branch in the project cal
 
 ## Installation
 
+A Docker image can be started like this:
+
+```bash
+docker run --name qpm-dev -d -p 8080:8080 harbor.gwdg.de/aqinda/qpm
+```
+
+To install from sources:
+
 1. Install Eclipse
 	1. Download: [https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
 	2. Select installation option "Eclipse Modelling Tools"
