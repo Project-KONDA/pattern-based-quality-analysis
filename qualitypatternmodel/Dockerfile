@@ -30,7 +30,7 @@ WORKDIR /usr/src/app
 RUN mvn clean compile install package -DskipTests
 
 # deploy war
-RUN cp target/*.war /usr/local/tomcat/webapps/qualitypatternmodel.war
+RUN cp target/*.war /usr/local/tomcat/webapps/ROOT.war
 WORKDIR /usr
 
 # clean src
