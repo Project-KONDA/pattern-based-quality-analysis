@@ -11,7 +11,7 @@ info:
   version: 1.0.1
 paths:
 
-  /qualitypatternmodel/pattern/list/{technology}/{abstraction}:
+   /pattern/list/{technology}/{abstraction}:
     description: request a list of constraints
     parameters:
       - name: technology
@@ -58,7 +58,7 @@ paths:
           description: Internal server error
 
 
-  /qualitypatternmodel/pattern/list/{technology}/{abstraction}/{datamodel}:
+   /pattern/list/{technology}/{abstraction}/{datamodel}:
     description: request a list of constraints with a specific datamodel tag
     parameters:
       - name: technology
@@ -112,7 +112,7 @@ paths:
           description: Internal server error
 
 
-  /qualitypatternmodel/constraint/{technology}/{constraintID}:
+   /constraint/{technology}/{constraintID}:
     description: request, update or delete a specific constraint
     parameters:
       - name: technology
@@ -232,7 +232,7 @@ paths:
           description: Internal server error
 
 
-  /qualitypatternmodel/template/instantiate/{technology}/{templateID}/{variantID}:
+   /template/instantiate/{technology}/{templateID}/{variantID}:
     description: instantiate a constraint from a template
     parameters:
       - name: technology
@@ -307,7 +307,7 @@ paths:
           description: Internal server error
 
 
-  /qualitypatternmodel/constraint/copy/{technology}/{constraintID}:
+   /constraint/copy/{technology}/{constraintID}:
     description: duplicate an existing constraint
     parameters:
       - name: technology
@@ -370,7 +370,7 @@ paths:
           description: Internal server error
 
 
-  /qualitypatternmodel/constraint/database/{technology}/{constraintID}:
+   /constraint/database/{technology}/{constraintID}:
     description: request and update the database field of a specific constraint
     parameters:
       - name: technology
@@ -444,7 +444,7 @@ paths:
           description: Internal server error
 
 
-  /qualitypatternmodel/constraint/datamodel/{technology}/{constraintID}:
+   /constraint/datamodel/{technology}/{constraintID}:
     description: request and update the datamodel field of a specific constraint
     parameters:
       - name: technology
@@ -518,7 +518,7 @@ paths:
           description: Internal server error
 
 
-  /qualitypatternmodel/constraint/name/{technology}/{constraintID}:
+   /constraint/name/{technology}/{constraintID}:
     parameters:
       - name: technology
         in: path
@@ -567,7 +567,7 @@ paths:
           description: Internal server error
 
 
-  /qualitypatternmodel/constraint/tag/{technology}/{constraintID}:
+   /constraint/tag/{technology}/{constraintID}:
     description: update and delete tags of a constraint
     parameters:
       - name: technology
@@ -652,7 +652,7 @@ paths:
           description: Internal server error
 
 
-  /qualitypatternmodel/constraint/mqaf/{technology}/{constraintID}:
+   /constraint/mqaf/{technology}/{constraintID}:
     parameters:
       - name: technology
         in: path
@@ -694,7 +694,7 @@ paths:
           description: Internal server error
 
 
-  /qualitypatternmodel/constraint/mqaf/{technology}:
+   /constraint/mqaf/{technology}:
     description: mqaf export of constraints
     parameters:
       - name: technology
@@ -740,7 +740,7 @@ paths:
           description: Internal server error
 
 
-  /qualitypatternmodel/constraint/query/{technology}/{constraintID}:
+   /constraint/query/{technology}/{constraintID}:
     description: export of a specific compiled constraint
     parameters:
       - name: technology
@@ -783,7 +783,7 @@ paths:
           description: Internal server error
 
 
-  /qualitypatternmodel/constraint/query/{technology}:
+   /constraint/query/{technology}:
     description: export of a list of compiled constraints
     parameters:
       - name: technology
@@ -829,7 +829,7 @@ paths:
           description: Internal server error
 
 
-  /qualitypatternmodel/constraint/execute/{technology}:
+   /constraint/execute/{technology}:
     description: quality analysis of constraints on files
     parameters:
       - name: technology
@@ -892,7 +892,7 @@ paths:
           description: Internal server error
 
 
-  /qualitypatternmodel/template/variant/{technology}/{templateID}:
+   /template/variant/{technology}/{templateID}:
     description: request, post and delete variants on templates
     parameters:
       - name: technology
