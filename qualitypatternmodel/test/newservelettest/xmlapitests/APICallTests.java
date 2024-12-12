@@ -241,7 +241,7 @@ public class APICallTests {
 			JSONObject var = variants.getJSONObject(i);
 			assert(var.has("template"));
 			assert(var.has("name"));
-			assert(var.has("language"));
+			assert(var.has("technology"));
 			assert(var.has("fragments"));
 			JSONArray fragments = var.getJSONArray("fragments");
 			assert(fragments.length()>0);
