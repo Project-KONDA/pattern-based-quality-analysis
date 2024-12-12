@@ -8,7 +8,7 @@ info:
     - [Quality Pattern Model](https://github.com/Project-KONDA/pattern-based-quality-analysis)
   contact:
     email: arno.kesper@uni-marburg.de
-  version: 1.0.1
+  version: 1.0.2
 paths:
    /:
     description: "Get the service status"

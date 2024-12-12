@@ -14,6 +14,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -195,12 +196,17 @@ public class InitialisationServlet extends HttpServlet {
 	    return file.exists();
 	}
 
-	private JSONObject applyGet(String path, Map<String, String[]> params) {
-		JSONObject result = new JSONObject();
-		result.put("title", "Quality Pattern Model API");
-		result.put("status", "ok");
-		result.put("repository", "https://github.com/Project-KONDA/pattern-based-quality-analysis");
-		result.put("timestamp", new Timestamp(new Date().getTime()).toString());
-		return result;
+	public static JSONObject applyGet(String path, Map<String, String[]> params) throws FailedServletCallException {
+		if (path == null || path.equals("") || path.equals("/") || path.equals("/status") || path.equals("/health")) {
+			JSONObject result = new JSONObject();
+			result.put("title", "Quality Pattern Model API");
+			result.put("status", "ok");
+			result.put("repository", "https://github.com/Project-KONDA/pattern-based-quality-analysis");
+			result.put("timestamp", new Timestamp(new Date().getTime()).toString());
+			return result;
+		}
+		else {
+			throw new FailedServletCallException("invalid URL");
+		}
 	}
 }

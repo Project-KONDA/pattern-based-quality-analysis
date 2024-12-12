@@ -303,7 +303,7 @@ public class APICallTests {
 			deleteConstraint(constriantID);
 		});
 	}
-	
+
 	@Test
 	public void testDocs()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
@@ -311,6 +311,20 @@ public class APICallTests {
 		assert(result != null);
 		assert(result.length() > 100);
 		assert(result.startsWith("openapi:"));
+	}
+
+	@Test
+	public void testHealth()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		JSONObject result = InitialisationServlet.applyGet("", getEmptyParams());
+		assert(result.has("title"));
+		assert(result.has("status"));
+		assert(result.has("timestamp"));
+		result = InitialisationServlet.applyGet("/health", getEmptyParams());
+		assert(result.has("title"));
+		assert(result.has("status"));
+		assert(result.has("timestamp"));
+		assertThrows(FailedServletCallException.class, () -> InitialisationServlet.applyGet("/anything", getEmptyParams()));
 	}
 
 	@Test
