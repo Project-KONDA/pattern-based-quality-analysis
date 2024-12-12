@@ -11,12 +11,11 @@ RUN apt-get -y update \
     && rm -rf /var/lib/apt/lists/*
 
 # create directories
-RUN mkdir -p /usr/src/app/src/main/java
 RUN mkdir -p /usr/src/app/src/main/webapp
 
 # copy files
 COPY pom.xml /usr/src/app/pom.xml
-COPY ./src /usr/src/app/src/main/java
+COPY ./src /usr/src/app/src
 COPY ./WebContent /usr/src/app/src/main/webapp
 
 # change path to web.xml
