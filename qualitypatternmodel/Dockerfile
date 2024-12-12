@@ -19,6 +19,8 @@ COPY pom.xml /usr/src/app/pom.xml
 COPY ./src /usr/src/app/src
 COPY ./WebContent /usr/src/app/src/main/webapp
 COPY ./test /usr/src/app/test
+COPY ./demo.data /usr/src/app/demo.data
+COPY ./lido.xml /usr/src/app/lido.xml
 
 # change path to web.xml
 RUN sed -i 's#WebContent/WEB-INF#src/main/webapp/WEB-INF#g' /usr/src/app/pom.xml
@@ -28,7 +30,7 @@ RUN sed -i 's/<Connector port="8080" protocol="HTTP\/1.1"/<Connector port="8080"
 
 # compile maven to war file
 WORKDIR /usr/src/app
-RUN mvn clean compile install package -Dmaven.test.failure.ignore=true
+RUN mvn clean compile install package
 RUN cp -r target/surefire-reports /usr/test-reports
 
 # deploy war
