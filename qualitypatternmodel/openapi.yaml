@@ -11,6 +11,25 @@ info:
   version: 1.0.1
 paths:
 
+   /docs:
+    description: "Get the OpenAPI specification (YAML)"
+    get:
+      tags:
+        - Documentation
+      summary: "Get the OpenAPI specification (YAML)"
+      description: "This endpoint serves the OpenAPI specification in YAML format."
+      operationId: documentation
+      responses:
+        '200':
+          description: "Successfully returns the OpenAPI specification in YAML format"
+          content:
+            application/x-yaml:
+              schema:
+                type: string
+                description: "The OpenAPI specification in YAML format"
+        '500':
+          description: Internal server error
+
    /pattern/list/{technology}/{abstraction}:
     description: request a list of constraints
     parameters:

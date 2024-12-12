@@ -19,6 +19,10 @@ COPY pom.xml /usr/src/app/pom.xml
 COPY ./src /usr/src/app/src/main/java
 COPY ./WebContent /usr/src/app/src/main/webapp
 
+# copy resource files
+COPY ./openapi.yaml /usr/openapi.yaml
+COPY ./openapi.yaml /usr/src/app/openapi.yaml
+
 # change path to web.xml
 RUN sed -i 's#WebContent/WEB-INF#src/main/webapp/WEB-INF#g' /usr/src/app/pom.xml
 
