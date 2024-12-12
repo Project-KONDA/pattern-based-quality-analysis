@@ -10,12 +10,59 @@ info:
     email: arno.kesper@uni-marburg.de
   version: 1.0.1
 paths:
+   /:
+    description: "Get the service status"
+    get:
+      tags:
+        - Management
+      summary: "check status"
+      description: "monitoring status for the quality pattern model api"
+      operationId: status1
+      responses:
+        '200':
+          description: status ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthStatusResponse'
+
+   /health:
+    description: "Get the service status"
+    get:
+      tags:
+        - Management
+      summary: "check status"
+      description: "monitoring status for the quality pattern model api"
+      operationId: status2
+      responses:
+        '200':
+          description: status ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthStatusResponse'
+
+   /status:
+    description: "Get the service status"
+    get:
+      tags:
+        - Management
+      summary: "check status"
+      description: "monitoring status for the quality pattern model api"
+      operationId: status3
+      responses:
+        '200':
+          description: status ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthStatusResponse'
 
    /docs:
     description: "Get the OpenAPI specification (YAML)"
     get:
       tags:
-        - Documentation
+        - Management
       summary: "Get the OpenAPI specification (YAML)"
       description: "This endpoint serves the OpenAPI specification in YAML format."
       operationId: documentation
@@ -1024,6 +1071,20 @@ paths:
 
 components:
   schemas:
+
+    HealthStatusResponse:
+      type: object
+      description:
+      properties:
+        title:
+          type: string
+        repository:
+          type: string
+        status:
+          type: string
+        timestamp:
+          type: string
+
     Pattern: # 2, 3, 4
       type: object
       description: A Pattern be either be an abstract template or a (concrete) constraint. A template can contain multiple variants. When creating a constraint from a temlate, only one variant will be chosen, therefore a constraint is limited to one variant in the variants array. A template can never be executed, so the execution booleans do only occur in constraints.
