@@ -37,6 +37,7 @@ import qualitypatternmodel.newservlets.ConstraintNameServlet;
 import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 import qualitypatternmodel.newservlets.ConstraintServlet;
 import qualitypatternmodel.newservlets.ConstraintTagServlet;
+import qualitypatternmodel.newservlets.DocumentationServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.PatternListServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
@@ -241,7 +242,7 @@ public class APICallTests {
 			JSONObject var = variants.getJSONObject(i);
 			assert(var.has("template"));
 			assert(var.has("name"));
-			assert(var.has("language"));
+			assert(var.has("technology"));
 			assert(var.has("fragments"));
 			JSONArray fragments = var.getJSONArray("fragments");
 			assert(fragments.length()>0);
@@ -301,6 +302,29 @@ public class APICallTests {
 		assertThrows(FailedServletCallException.class, () -> {
 			deleteConstraint(constriantID);
 		});
+	}
+
+	@Test
+	public void testDocs()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String result = DocumentationServlet.applyGet("", getEmptyParams());
+		assert(result != null);
+		assert(result.length() > 100);
+		assert(result.startsWith("openapi:"));
+	}
+
+	@Test
+	public void testHealth()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		JSONObject result = InitialisationServlet.applyGet("", getEmptyParams());
+		assert(result.has("title"));
+		assert(result.has("status"));
+		assert(result.has("timestamp"));
+		result = InitialisationServlet.applyGet("/health", getEmptyParams());
+		assert(result.has("title"));
+		assert(result.has("status"));
+		assert(result.has("timestamp"));
+		assertThrows(FailedServletCallException.class, () -> InitialisationServlet.applyGet("/anything", getEmptyParams()));
 	}
 
 	@Test
