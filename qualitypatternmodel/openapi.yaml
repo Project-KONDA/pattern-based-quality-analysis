@@ -1074,7 +1074,7 @@ components:
 
     HealthStatusResponse:
       type: object
-      description:
+      description: Status of QPM
       properties:
         title:
           type: string
@@ -1536,7 +1536,7 @@ components:
           description: reset parameter to null
           type: boolean
         <custom-attribute>:
-          descriptoion: parameters can get custom fields that hold information. they do not have influence on the quality analysis. the information will be returned when requesting the constraint json
+          description: parameters can get custom fields that hold information. they do not have influence on the quality analysis. the information will be returned when requesting the constraint json
           type: string
 
     RdfPathParam:
@@ -1590,7 +1590,7 @@ components:
     RdfLabel:
       description: realisation of a rdf label in json
       type: string
-      pattern: '^?([a-z]+:[a-zA-Z0-9]+|<[a-zA-A0-9]+>)'
+      pattern: '^\?([a-z]+:[a-zA-Z0-9]+|<[a-zA-A0-9]+>)'
 
     NeoElementPath:
       description: realisation of a neo element path in json
