@@ -18,7 +18,7 @@ import qualitypatternmodel.utility.ConstantsNeo;
  * @generated
  */
 public interface NeoLabel extends EObject {
-	public static final String LABEL_REGEX = "[A-Za-z����_0-9]+";
+	public static final String LABEL_REGEX = "[A-Za-zäöüß_0-9]+";
 	public static final String A_LABEL_CAN_NOT_BE_EMPTY = "A Label can not be empty";
 	static final String A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S = "A Label can not contain Whitespace(s)";
 

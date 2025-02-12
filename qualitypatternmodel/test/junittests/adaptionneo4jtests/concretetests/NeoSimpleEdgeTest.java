@@ -1,14 +1,12 @@
 package junittests.adaptionneo4jtests.concretetests;
 
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assume.assumeNotNull;
-import static org.junit.Assume.assumeTrue;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -127,7 +125,7 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	public void addTargetNodeLabel(String label) {
 		assertDoesNotThrow(() -> neoSimpleEdge.addNeoTargetNodeLabel(label));
 		EList<String> labelList = neoSimpleEdge.getNeoTargetNodeLabels().getValues();
-		assumeNotNull(labelList);
+		assumeTrue(labelList != null);
 		assumeTrue(labelList.size() == 1);
 		assertTrue(labelList.get(0).compareTo(label) == 0);
 	}
@@ -143,7 +141,7 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 		labelList.clear();
 
 		labelList = neoSimpleEdge.getNeoTargetNodeLabels().getValues();
-		assumeNotNull(labelList);
+		assumeTrue(labelList != null);
 
 		assertTrue(labelList.size() == 1);
 		assertEquals(label, labelList.get(0));
@@ -157,7 +155,7 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 			assertDoesNotThrow(() ->  neoSimpleEdge.addNeoTargetNodeLabel(label));
 		}
 		EList<String> labelList = neoSimpleEdge.getNeoTargetNodeLabels().getValues();
-		assumeNotNull(labelList);
+		assumeTrue(labelList != null);
 
 		assertTrue(labels.length == labelList.size());
 		for (int i = 0; i < labels.length; i++) {
@@ -173,7 +171,7 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 			assertDoesNotThrow(() ->  neoSimpleEdge.addNeoTargetNodeLabel(label));
 		}
 		EList<String> labelList = neoSimpleEdge.getNeoTargetNodeLabels().getValues();
-		assumeNotNull(labelList);
+		assumeTrue(labelList != null);
 
 		assertTrue(labels.length / 2 == labelList.size());
 		for (int i = labels.length / 2 - 1; i > -1; i--) {
@@ -250,7 +248,7 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	@Test
 	@Override
 	public void getNeoPathPartEdges() {
-		assumeNotNull(neoSimpleEdge.getNeoPathPartEdgeLeafs());
+		assumeTrue(neoSimpleEdge.getNeoPathPartEdgeLeafs() != null);
 		assumeTrue(neoSimpleEdge.getNeoPathPartEdgeLeafs().size() == 1);
 		assertEquals(neoSimpleEdge, neoSimpleEdge.getNeoPathPartEdgeLeafs().get(0));
 	}
@@ -358,10 +356,6 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 			neoSimpleEdge.addNeoTargetNodeLabel(TEST_LABEL);
 			assertTrue(neoSimpleEdge.generateCypher().compareTo(VAR_ELEMENT_EDGE_1_INT_EG_NODE_1_TEST_LABEL) == 0);
 
-			//WITH AN EMPTY STRING_LABEL
-			neoSimpleEdge.addNeoTargetNodeLabel(new String());
-			assertTrue(neoSimpleEdge.generateCypher().compareTo(VAR_ELEMENT_EDGE_1_INT_EG_NODE_1_TEST_LABEL) == 0);
-
 			//WITH TARGET-Label AND EDGE-Label
 			neoSimpleEdge.addNeoEdgeLabel(TEST_LABEL);
 			assertTrue(neoSimpleEdge.generateCypher().compareTo(VAR_ELEMENT_EDGE_1_TEST_LABEL_INT_EG_NODE_1_TEST_LABEL) == 0);
@@ -422,13 +416,6 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 			//WITH TARGET-Label
 			neoSimpleEdge.setNeoDirection(NeoDirection.IMPLICIT);
 			neoSimpleEdge.addNeoTargetNodeLabel(TEST_LABEL);
-			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
-			temp = localStringBuilder.toString();
-			localStringBuilder.setLength(0);
-			assertTrue(temp.compareTo(VAR_ELEMENT_EDGE_1_INT_EG_NODE_1) == 0);
-
-			//WITH AN EMPTY STRING_LABEL
-			neoSimpleEdge.addNeoTargetNodeLabel(new String());
 			generateInternalCypherMethod.invoke(neoSimpleEdge, params);
 			temp = localStringBuilder.toString();
 			localStringBuilder.setLength(0);

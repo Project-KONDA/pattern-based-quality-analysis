@@ -1,13 +1,13 @@
 package junittests.adaptionneo4jtests.concretetests;
 
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assume.assumeNotNull;
+//Assume.assumeNotNull;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -278,7 +278,7 @@ public class NeoPropertyPathParamTest extends NeoPathParamTest {
 			//NeoPropertyEdge is set with the Id 1
 			f.set(neoPropertyEdge, 1);
 			neoPropertyPathParam.setNeoPropertyEdge(neoPropertyEdge);
-			assumeNotNull(neoPropertyPathParam.getNeoPropertyEdge());
+			assumeTrue(neoPropertyPathParam.getNeoPropertyEdge() != null);
 			assertEquals(1, m.invoke(neoPropertyPathParam));
 		} catch (Exception e) {
 			System.out.println(e);
