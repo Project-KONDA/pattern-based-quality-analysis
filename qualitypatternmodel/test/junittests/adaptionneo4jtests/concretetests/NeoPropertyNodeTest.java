@@ -1,7 +1,8 @@
 package junittests.adaptionneo4jtests.concretetests;
 
-import static org.junit.Assert.assertNull;
-import static org.junit.Assume.assumeTrue;
+
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;

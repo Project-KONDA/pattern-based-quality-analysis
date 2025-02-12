@@ -1,6 +1,6 @@
 package junittests.adaptionneo4jtests.concretetests;
 
-import static org.junit.Assume.assumeNotNull;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -86,7 +86,7 @@ public class NeoElementEdgeTest extends NeoEdgeTest {
 			Mockito.when(mockNeoPathParam.generateCypher()).thenReturn(VAR_EDGE1_CLAMPED);
 			Field f = getNeoAbstractPathParamField(NeoElementEdgeImpl.class, "neoElementPathParam");
 			f.set(neoEdge, mockNeoPathParam);
-			assumeNotNull(neoEdge.getNeoElementPathParam());
+			assumeTrue(neoEdge.getNeoElementPathParam() != null);
 			assertTrue(neoAbstractEdge.generateCypher().compareTo(VAR_EDGE1_CLAMPED) == 0);
 			assertEquals("", neoAbstractEdge.generateCypher());
 		} catch (Exception e) {
@@ -164,7 +164,7 @@ public class NeoElementEdgeTest extends NeoEdgeTest {
 			NeoPathParam neotPathParam = FACTORY.createNeoElementPathParam();
 			((NeoElementPathParam) neotPathParam).setNeoPathPart(null);
 			neoEdge.setNeoElementPathParam((NeoElementPathParam) neotPathParam);
-			assumeNotNull(neoEdge.getNeoElementPathParam());
+			assumeTrue(neoEdge.getNeoElementPathParam() != null);
 			assertEquals(null, neoEdge.getCypherReturn());
 
 			NeoSimpleEdgeImpl mockNeoEdgeImpl = prepaireMockObjNeoSimpleEdge(number);

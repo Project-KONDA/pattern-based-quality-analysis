@@ -1,13 +1,12 @@
 package junittests.adaptionneo4jtests.concretetests;
 
-import static org.junit.Assume.assumeNotNull;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -130,7 +129,7 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 
 	private void unsetNeoPathPartInComplexEdge() {
 		((NeoComplexEdgeImpl) neoComplexEdge).eUnset(Adaptionneo4jPackage.NEO_COMPLEX_EDGE__NEO_PATH_PARTS);
-		assumeNotNull(neoComplexEdge.getNeoPathPartEdgeLeafs());
+		assumeTrue(neoComplexEdge.getNeoPathPartEdgeLeafs() != null);
 		assertTrue(neoComplexEdge.getNeoPathPartEdgeLeafs().size() == 0);
 	}
 
@@ -314,7 +313,7 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 	@Test
 	@Override
 	public void getNeoPathPartEdges() {
-		assumeNotNull(neoPathPart.getNeoPathPartEdgeLeafs());
+		assumeTrue(neoPathPart.getNeoPathPartEdgeLeafs() != null);
 		assumeTrue(neoPathPart.getNeoPathPartEdgeLeafs().size() == 0);
 		NeoPathPart part1 = FACTORY.createNeoComplexEdge();
 		NeoPathPart part2 = FACTORY.createNeoComplexEdge();
@@ -507,14 +506,14 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			neoComplexEdge.setNeoPathParam(neoAbstractPathParam);
 			neoComplexEdge1.setNeoComplexEdge(neoComplexEdge);
 			assertEquals(neoAbstractPathParam, neoComplexEdge1.getNeoPathParam());
-			assumeNotNull(neoComplexEdge1.getNeoComplexEdge());
+			assumeTrue(neoComplexEdge1.getNeoComplexEdge() != null);
 
 			//If a NeoComplexEdge is set then return the NeoAbstractPathParam from that (NeoPropertyPathParam)
 			neoComplexEdge.setNeoPathParam(null);
 			neoAbstractPathParam = FACTORY.createNeoPropertyPathParam();
 			neoComplexEdge.setNeoPathParam(neoAbstractPathParam);
 			assertEquals(neoAbstractPathParam, neoComplexEdge1.getNeoPathParam());
-			assumeNotNull(neoComplexEdge1.getNeoComplexEdge());
+			assumeTrue(neoComplexEdge1.getNeoComplexEdge() != null);
 		} catch (Exception e) {
 			System.out.println(e);
 			assertFalse(true);
@@ -546,9 +545,9 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 			neoComplexEdge1.addNeoPathPart(FACTORY.createNeoComplexEdge());
 			neoComplexEdge1.addNeoPathPart(FACTORY.createNeoSimpleEdge());
 			((NeoComplexEdge) neoPathPart).addNeoPathPart(neoComplexEdge1);
-			assumeNotNull(((NeoComplexEdge) neoPathPart).getNeoPathParts());
+			assumeTrue(((NeoComplexEdge) neoPathPart).getNeoPathParts() != null);
 			assertTrue(((NeoComplexEdge) neoPathPart).getNeoPathParts().size() == 1);
-			assumeNotNull(neoComplexEdge1.getNeoPathParts());
+			assumeTrue(neoComplexEdge1.getNeoPathParts() != null);
 			assertTrue(neoComplexEdge1.getNeoPathParts().size() == 2);
 
 			assertEquals(neoComplexEdge, neoComplexEdge1.getNeoComplexEdge());

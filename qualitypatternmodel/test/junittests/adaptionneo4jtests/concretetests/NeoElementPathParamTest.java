@@ -1,10 +1,9 @@
 package junittests.adaptionneo4jtests.concretetests;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assume.assumeNotNull;
-import static org.junit.Assume.assumeTrue;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -222,7 +221,7 @@ public class NeoElementPathParamTest extends NeoPathParamTest {
 			//With a NeoSimpleEdge
 			buildMockSimpleEdge();
 			neoPathParam.setNeoPathPart(super.mockSimpleEdge);
-			assumeNotNull(neoPathParam.getNeoPathPart());
+			assumeTrue(neoPathParam.getNeoPathPart() != null);
 			assertEquals("-[varEEdge1]-", neoPathParam.generateCypher());
 
 			//With a NeoComplexEdge
@@ -240,7 +239,7 @@ public class NeoElementPathParamTest extends NeoPathParamTest {
 			neoComplexEdge.addNeoPathPart(mockNeoSimpleEdgeImplClass2);
 			neoPathParam.setNeoPathPart(neoComplexEdge);
 			assumeTrue(neoPathParam.getNeoPathPart().getNeoPathPartEdgeLeafs().size() == 2);
-			assumeNotNull(neoPathParam.getNeoPathPart());
+			assumeTrue(neoPathParam.getNeoPathPart() != null);
 			assertEquals("-[varEEdge1]--[varEEdge2]-", neoPathParam.generateCypher());
 		} catch (Exception e) {
 			System.out.println(e);
@@ -253,14 +252,14 @@ public class NeoElementPathParamTest extends NeoPathParamTest {
 		try {
 			//Set Empty NeoComplexEdge
 			neoPathParam.setNeoPathPart(FACTORY.createNeoComplexEdge());
-			assumeNotNull(neoPathParam.getNeoPathPart());
+			assumeTrue(neoPathParam.getNeoPathPart() != null);
 			assertThrows(InvalidityException.class, () -> neoPathParam.generateCypher());
 
 			//Set Empty NeoComplexEdge --> Which returns null
 			NeoComplexEdgeImpl mockNeoComplexEdge = Mockito.mock(NeoComplexEdgeImpl.class);
 			Mockito.when(mockNeoComplexEdge.getNeoPathPartEdgeLeafs()).thenReturn(null);
 			neoPathParam.setNeoPathPart(mockNeoComplexEdge);
-			assumeNotNull(neoPathParam.getNeoPathPart());
+			assumeTrue(neoPathParam.getNeoPathPart() != null);
 			assertThrows(InvalidityException.class, () -> neoPathParam.generateCypher());
 		} catch (Exception e) {
 			System.out.println(e);
@@ -300,7 +299,7 @@ public class NeoElementPathParamTest extends NeoPathParamTest {
 			//NeoEdge is set with the Id 1
 			neoPathParam.setNeoElementEdge(neoEdge);
 			f.set(neoEdge, 1);
-			assumeNotNull(neoPathParam.getNeoElementEdge());
+			assumeTrue(neoPathParam.getNeoElementEdge() != null);
 			assertEquals(1, m.invoke(neoPathParam));
 		} catch (Exception e) {
 			System.out.println(e);

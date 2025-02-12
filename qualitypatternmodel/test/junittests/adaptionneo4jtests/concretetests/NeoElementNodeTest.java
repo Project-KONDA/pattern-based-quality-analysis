@@ -1,8 +1,7 @@
 package junittests.adaptionneo4jtests.concretetests;
 
-import static org.junit.Assert.assertNull;
-import static org.junit.Assume.assumeNotNull;
-import static org.junit.Assume.assumeTrue;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -67,7 +66,7 @@ public class NeoElementNodeTest extends NeoNodeTest {
 		assertDoesNotThrow(() -> neoNode.addNeoLabel(label));
 
 		EList<String> labelList = neoNode.getNeoNodeLabels().getValues();
-		assumeNotNull(labelList);
+		assumeTrue(labelList != null);
 
 		assertTrue(labelList.size() == 1);
 		assertEquals(label, labelList.get(0));
@@ -81,7 +80,7 @@ public class NeoElementNodeTest extends NeoNodeTest {
 			assertDoesNotThrow(() ->  neoNode.addNeoLabel(label));
 		}
 		EList<String> labelList = neoNode.getNeoNodeLabels().getValues();
-		assumeNotNull(labelList);
+		assumeTrue(labelList != null);
 
 		assertTrue(labels.length == labelList.size());
 		for (int i = 0; i < labels.length; i++) {
@@ -97,7 +96,7 @@ public class NeoElementNodeTest extends NeoNodeTest {
 			assertDoesNotThrow(() ->  neoNode.addNeoLabel(label));
 		}
 		EList<String> labelList = neoNode.getNeoNodeLabels().getValues();
-		assumeNotNull(labelList);
+		assumeTrue(labelList != null);
 
 		assertTrue(labels.length - 2 == labelList.size());
 		assertEquals(labels[0], labelList.get(0));
@@ -265,7 +264,7 @@ public class NeoElementNodeTest extends NeoNodeTest {
 		//Do it again --> No changes
 		Mockito.when(mockNeoElementNode.getNeoNodeLabels()).thenReturn((NeoNodeLabelsParam) list.getParameters().get(0));
 		mockNeoElementNode.createParameters();
-		assumeNotNull(list.getParameters().get(0));
+		assumeTrue(list.getParameters().get(0) != null);
 
 		assertEquals(neoNodeLabelsParam, list.getParameters().get(0));
 
