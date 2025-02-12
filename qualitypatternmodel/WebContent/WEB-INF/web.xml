@@ -16,6 +16,15 @@
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>DocumentationServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.DocumentationServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DocumentationServlet</servlet-name>
+		<url-pattern>/docs</url-pattern>
+	</servlet-mapping>
+
 	<!--
 		format: xml, rdf, neo4j
 		level: all, abstract, semi-concrete, concrete 

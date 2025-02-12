@@ -2,7 +2,11 @@ package qualitypatternmodel.newservlets;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Map;
+
+import org.json.JSONObject;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletContext;
@@ -10,6 +14,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -37,10 +42,13 @@ public class InitialisationServlet extends HttpServlet {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
 		ServletUtilities.logCall(this.getClass().getName(), path, params);
-		
-		String call = getCall(path, params);
-		response.getOutputStream().println(getWebsite(call));
-		response.setStatus(HttpServletResponse.SC_OK);
+		try {
+			JSONObject result = applyGet(path, params);
+			ServletUtilities.putResponse(response, result);
+		}
+		catch (Exception e) {
+			ServletUtilities.putResponseError(response, e);
+		}
 	}
 
 	@Override
@@ -188,59 +196,17 @@ public class InitialisationServlet extends HttpServlet {
 	    return file.exists();
 	}
 
-	private String getCall(String path, Map<String, String[]> params) {
-		Boolean pathnull = path == null || "/".equals(path);
-		Boolean paramsnull = params == null || params.isEmpty();
-		
-		if (pathnull && paramsnull)
-			return null;
-		return (pathnull? "/" : path) + (paramsnull? "" : " " + ServletUtilities.mapToString(params));
-	}
-
-	private String getWebsite(String call) {
-		String result = "<!doctype html>\r\n"
-				+ "<html lang=\"en\">\r\n"
-				+ "<head>\r\n"
-				+ "    <title>QualityPatternModel API</title>\r\n"
-				+ "    <style type=\"text/css\">\r\n"
-				+ "        body {\r\n"
-				+ "            font-family: Tahoma, Arial, sans-serif;\r\n"
-				+ "        }\r\n"
-				+ "        h1,\r\n"
-				+ "        h2,\r\n"
-				+ "        h3,\r\n"
-				+ "        b {\r\n"
-				+ "            color: white;\r\n"
-				+ "            background-color: #525D76;\r\n"
-				+ "        }\r\n"
-				+ "        h1 {\r\n"
-				+ "            font-size: 22px;\r\n"
-				+ "        }\r\n"
-				+ "        h2 {\r\n"
-				+ "            font-size: 16px;\r\n"
-				+ "        }\r\n"
-				+ "        h3 {\r\n"
-				+ "            font-size: 14px;\r\n"
-				+ "        }\r\n"
-				+ "        p {\r\n"
-				+ "            font-size: 12px;\r\n"
-				+ "        }\r\n"
-				+ "        a {\r\n"
-				+ "            color: black;\r\n"
-				+ "        }\r\n"
-				+ "        .line {\r\n"
-				+ "            height: 1px;\r\n"
-				+ "            background-color: #525D76;\r\n"
-				+ "            border: none;\r\n"
-				+ "        }\r\n"
-				+ "    </style>"
-				+ "</head>\r\n"
-				+ "<body>\r\n"
-				+ "    <h1>QualityPatternModel API</h1>\r\n";
-		if (call != null)
-			result += "    <h2>404 Page not found : qualitypatternmodel" + call + "</h2>\r\n";
-		result += "</body>\r\n"
-				+ "</html>";
-		return result;
+	public static JSONObject applyGet(String path, Map<String, String[]> params) throws FailedServletCallException {
+		if (path == null || path.equals("") || path.equals("/") || path.equals("/status") || path.equals("/health")) {
+			JSONObject result = new JSONObject();
+			result.put("title", "Quality Pattern Model API");
+			result.put("status", "ok");
+			result.put("repository", "https://github.com/Project-KONDA/pattern-based-quality-analysis");
+			result.put("timestamp", new Timestamp(new Date().getTime()).toString());
+			return result;
+		}
+		else {
+			throw new FailedServletCallException("invalid URL");
+		}
 	}
 }
