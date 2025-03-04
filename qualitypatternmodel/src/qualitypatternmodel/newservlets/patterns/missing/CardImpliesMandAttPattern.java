@@ -1,4 +1,4 @@
-package qualitypatternmodel.newservlets.patterns;
+package qualitypatternmodel.newservlets.patterns.missing;
 
 import java.util.Map;
 

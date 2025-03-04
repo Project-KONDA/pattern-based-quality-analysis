@@ -42,7 +42,8 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 	public Boolean apply(String urlString) {
 		Boolean negate = getOption().getValue();
 	    try {
-	        URL url = new URL(urlString);
+	        @SuppressWarnings("deprecation")
+			URL url = new URL(urlString);
 	        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 	        connection.setRequestMethod("HEAD");
 	        int responseCode = connection.getResponseCode();
