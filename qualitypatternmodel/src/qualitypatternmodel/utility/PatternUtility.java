@@ -80,13 +80,13 @@ public class PatternUtility {
 				String result = null;
 				switch (lan){
 				case XML:
-					completePattern.generateXQuery();
+					result = completePattern.generateXQuery();
 					break;
 				case RDF:
-					completePattern.generateSparql();
+					result = completePattern.generateSparql();
 					break;
 				case NEO4J:
-					completePattern.generateCypher();
+					result = completePattern.generateCypher();
 					break;
 				default:
 					throw new RuntimeException();

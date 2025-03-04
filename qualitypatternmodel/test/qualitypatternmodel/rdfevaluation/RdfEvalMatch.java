@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
-import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
-import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
+import qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl;
 import qualitypatternmodel.evaluationquality.EvalMatch;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -45,7 +44,7 @@ public class RdfEvalMatch {
 		p0.setValue(false);
 		p1.setValue("^(<http:\\\\/\\\\/www\\\\.wikidata\\\\.org\\\\/entity\\\\/Q[0-9]+> )?Point\\\\((-)?[0-9]+(\\\\.[0-9]+)? (-)?[0-9]+(\\\\.[0-9]+)?\\\\)$");
 //		p1.setValue("\\?");
-		((RdfSinglePredicate) p3.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P625"));
+		p3.getRdfPathParts().add(new RdfPathPartImpl("wdt:P625"));
 
 		return completePattern;
 	}

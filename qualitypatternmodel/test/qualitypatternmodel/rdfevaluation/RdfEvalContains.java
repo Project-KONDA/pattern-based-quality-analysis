@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
-import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
-import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
+import qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl;
 import qualitypatternmodel.evaluationquality.EvalContains;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -44,7 +43,7 @@ public class RdfEvalContains {
 
 		p0.setValue(false);
 		p1.setValue("Point(");
-		((RdfSinglePredicate) p3.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P625"));
+		p3.getRdfPathParts().add(new RdfPathPartImpl("wdt:P625"));
 
 		return completePattern;
 	}

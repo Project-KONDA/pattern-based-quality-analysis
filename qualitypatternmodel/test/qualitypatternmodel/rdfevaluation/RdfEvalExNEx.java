@@ -6,8 +6,8 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionrdf.IriListParam;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
-import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
+import qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl;
 import qualitypatternmodel.evaluationquality.EvalExNEx;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -44,7 +44,7 @@ public class RdfEvalExNEx {
 //		IriListParam p2 = ((IriListParam) params.get(2));
 
 		p0.getIriParams().add(new IriParamImpl("wd:Q5"));
-		((RdfSinglePredicate) p1.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wd:P22"));
+		p1.getRdfPathParts().add(new RdfPathPartImpl("wdt:P22"));
 
 		return completePattern;
 	}
@@ -58,7 +58,7 @@ public class RdfEvalExNEx {
 //		IriListParam p2 = ((IriListParam) params.get(2));
 
 		p0.getIriParams().add(new IriParamImpl("wd:Q5"));
-		((RdfSinglePredicate) p1.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wd:P21"));
+		p1.getRdfPathParts().add(new RdfPathPartImpl("wdt:P21"));
 		return completePattern;
 	}
 

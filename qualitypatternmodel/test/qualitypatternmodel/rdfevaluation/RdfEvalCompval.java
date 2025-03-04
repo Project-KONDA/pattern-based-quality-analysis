@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
-import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
-import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
+import qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl;
 import qualitypatternmodel.evaluationquality.EvalCompval;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -50,7 +49,7 @@ public class RdfEvalCompval {
 		dateValue.setValue("2022-12-31");
 		p0.replace(dateValue);
 		p1.setValue(ComparisonOperator.GREATER);
-		((RdfSinglePredicate) p4.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P569"));
+		p4.getRdfPathParts().add(new RdfPathPartImpl("wdt:P569"));
 
 		return completePattern;
 	}

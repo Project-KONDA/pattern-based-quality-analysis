@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
-import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
-import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
+import qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl;
 import qualitypatternmodel.evaluationquality.EvalAppDup;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -46,11 +45,11 @@ public class RdfEvalAppDup {
 		RdfPathParam p6 = ((RdfPathParam) params.get(6));
 		RdfPathParam p7 = ((RdfPathParam) params.get(7));
 
-		((RdfSinglePredicate) p4.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P569")); // BIRTHDATE
-		((RdfSinglePredicate) p5.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P569")); // BIRTHDATE
-		((RdfSinglePredicate) p6.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P570")); // DEATHDATE
-		((RdfSinglePredicate) p7.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P570")); // DEATHDATE
-
+		p4.getRdfPathParts().add(new RdfPathPartImpl("wdt:P569")); // BIRTHDATE
+		p5.getRdfPathParts().add(new RdfPathPartImpl("wdt:P569")); // BIRTHDATE
+		p6.getRdfPathParts().add(new RdfPathPartImpl("wdt:P570")); // DEATHDATE
+		p7.getRdfPathParts().add(new RdfPathPartImpl("wdt:P570")); // DEATHDATE
+		
 		return completePattern;
 	}
 
@@ -75,17 +74,12 @@ public class RdfEvalAppDup {
 		RdfPathParam p8 = ((RdfPathParam) params.get(8));
 		RdfPathParam p9 = ((RdfPathParam) params.get(9));
 
-
-		((RdfSinglePredicate) p4.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P2561"));
-		((RdfSinglePredicate) p5.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P2561"));
-		// = offizieller Name
-		((RdfSinglePredicate) p6.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P31"));
-		((RdfSinglePredicate) p7.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P31"));
-		// = Name
-		((RdfSinglePredicate) p8.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P1448"));
-		((RdfSinglePredicate) p9.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P1448"));
-		// = Typ von
-
+		p4.getRdfPathParts().add(new RdfPathPartImpl("wdt:P2561")); // offizieller Name
+		p5.getRdfPathParts().add(new RdfPathPartImpl("wdt:P2561")); // offizieller Name
+		p6.getRdfPathParts().add(new RdfPathPartImpl("wdt:P31")); // Name
+		p7.getRdfPathParts().add(new RdfPathPartImpl("wdt:P31")); // Name
+		p8.getRdfPathParts().add(new RdfPathPartImpl("wdt:P1448")); // Typ von
+		p9.getRdfPathParts().add(new RdfPathPartImpl("wdt:P1448")); // Typ von
 
 		return completePattern;
 	}

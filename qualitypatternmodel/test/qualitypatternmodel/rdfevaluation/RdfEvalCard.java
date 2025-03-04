@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
-import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
-import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
+import qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl;
 import qualitypatternmodel.evaluationquality.EvalCard;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -49,7 +48,7 @@ public class RdfEvalCard {
 		p0.setValue(ComparisonOperator.GREATER);
 		p1.setValue(1.);
 
-		((RdfSinglePredicate) p3.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P22"));
+		p3.getRdfPathParts().add(new RdfPathPartImpl("wdt:P22"));
 
 		return completePattern;
 	}
@@ -69,7 +68,7 @@ public class RdfEvalCard {
 		p0.setValue(ComparisonOperator.GREATER);
 		p1.setValue(1.);
 
-		((RdfSinglePredicate) p3.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P25"));
+		p3.getRdfPathParts().add(new RdfPathPartImpl("wdt:P25"));
 
 		return completePattern;
 	}

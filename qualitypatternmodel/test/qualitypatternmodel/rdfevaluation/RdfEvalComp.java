@@ -3,9 +3,8 @@ package qualitypatternmodel.rdfevaluation;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
-import qualitypatternmodel.adaptionrdf.impl.IriParamImpl;
 import qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl;
+import qualitypatternmodel.adaptionrdf.impl.RdfPathPartImpl;
 import qualitypatternmodel.evaluationquality.EvalComp;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -49,9 +48,8 @@ public class RdfEvalComp {
 		p0.setValue(ComparisonOperator.GREATER);
 		p1.setValue(ReturnType.DATE);
 
-		((RdfSinglePredicate) p3.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P569"));
-
-		((RdfSinglePredicate) p4.getRdfPathParts().get(0).getRdfPath()).setIriParam(new IriParamImpl("wdt:P570"));
+		p3.getRdfPathParts().add(new RdfPathPartImpl("wdt:P569"));
+		p4.getRdfPathParts().add(new RdfPathPartImpl("wdt:P570"));
 
 		return completePattern;
 	}
