@@ -33,6 +33,7 @@ import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
@@ -54,7 +55,7 @@ public class PatternUtility {
 				System.out.println("\n\n___PATTERN_(VALID)___");
 				System.out.println(result);
 				System.out.println("\n___TRANSLATION___");
-				System.out.println(completePattern.generateXQuery());
+				System.out.println(completePattern.generateXQueryJava());
 				valid++;
 			} catch (Exception e) {
 				System.out.print("\n####### PATTERN INVALID #######");
@@ -124,6 +125,12 @@ public class PatternUtility {
 				TextLiteralParam text = (TextLiteralParam) param;
 				if(text.getValue() == null) {
 					text.setValue("something");
+				}
+			}
+			if (param instanceof TextListParam) {
+				TextListParam text = (TextListParam) param;
+				if(text.getValues().isEmpty()) {
+					text.getValues().add("test");
 				}
 			}
 			if (param instanceof ComparisonOptionParam) {
