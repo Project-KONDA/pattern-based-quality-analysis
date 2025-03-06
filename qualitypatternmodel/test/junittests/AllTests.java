@@ -11,7 +11,7 @@ import qualitypatternmodel.xmltranslationtests.XmlTranslationJUnitTests;
 @SelectClasses({
 	XmlJUnitTests.class,
 	RdfJUnitTests.class,
-//	Neo4jJUnitTests.class,
+	Neo4jJUnitTests.class,
 	XmlTranslationJUnitTests.class,
 	APICallTests.class,
 	APITemplateTests.class
