@@ -109,7 +109,9 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 			setNeoPropertyName(property);
 			return;
 		} catch (JSONException e) {
-			throw new InvalidityException(ConstantsError.INVALID_VALUE + " '" + value + "'", e);
+			checkLabel(value);
+        	newVals.add(value);
+//			throw new InvalidityException(ConstantsError.INVALID_VALUE + " '" + value + "'", e);
 		}
 	}
 

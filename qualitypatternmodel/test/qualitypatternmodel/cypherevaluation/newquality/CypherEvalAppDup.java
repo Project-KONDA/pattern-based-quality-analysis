@@ -3,6 +3,8 @@ package qualitypatternmodel.cypherevaluation.newquality;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONObject;
+
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
 import qualitypatternmodel.cyphertranslationtests_new.Test00;
@@ -21,7 +23,7 @@ public class CypherEvalAppDup {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getAppdup3Concrete());
 //		Test00.test(completePatterns);
-		Test00.getQueries(completePatterns);
+//		Test00.getQueries(completePatterns);
 	}
 
 	public static CompletePattern getAppdup2Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -55,7 +57,7 @@ public class CypherEvalAppDup {
 		p0.setValue(ComparisonOperator.NOTEQUAL);
 		p2.setValueFromString("Regesta");
 		p3.setValueFromString("Regesta");
-		p4.setValueFromString("path1");
+		p4.setValueFromString("path");
 		p5.setValueFromString("path1");
 		p6.setValueFromString("path2");
 		p7.setValueFromString("path2");

@@ -32,13 +32,5 @@ public interface NeoLabel extends EObject {
 		if (value == null || !value.matches(LABEL_REGEX)) {
 			throw new InvalidityException(ConstantsNeo.ONLY_ALPHANUMERICAL_VALUES_AND_UNDERSCORE + " [" + value + "]");
 		}
-//		if (value != null && !(value.isEmpty())) {
-//			if (value.contains(ConstantsNeo.ONE_WHITESPACE)) {
-//				throw new InvalidityException(A_LABEL_CAN_NOT_CONTAIN_WHITESPACE_S);
-//			}
-//			if (!value.matches(LABEL_REGEX)) {
-//				throw new InvalidityException(ConstantsNeo.ONLY_ALPHANUMERICAL_VALUES_AND_UNDERSCORE);
-//			}
-//		}
 	}
 } // NeoLabel
