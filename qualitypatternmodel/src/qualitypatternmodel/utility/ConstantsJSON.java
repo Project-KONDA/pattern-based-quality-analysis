@@ -15,6 +15,7 @@ public class ConstantsJSON {
 	public static final String TYPE = "type";
 	public static final String ROLE = "role";
 	public static final String TAG = "tag";
+	public static final String TAGS = "tags";
 	public static final String NAMESPACES = "namespace";
 	public static final String VARIANTS = "variants";
 	public static final String TYPE_CONSTRAINT = "typeConstraint";

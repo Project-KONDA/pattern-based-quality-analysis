@@ -1275,6 +1275,11 @@ components:
           description: list of the constraintIDs of the returned patterns
           items:
             type: string
+        tags:
+          type: array
+          description: list of the distinct tags within the templates
+          items:
+            type: string
         templates: 
           description: list of patterns
           $ref: '#/components/schemas/Pattern'
