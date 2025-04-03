@@ -15,6 +15,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Semaphore;
@@ -130,15 +131,22 @@ public abstract class ServletUtilities {
 	public static JSONObject getPatternListJSON(List<CompletePattern> patterns) {
 		JSONObject json = new JSONObject();
 		JSONArray ids = new JSONArray();
+        HashSet<String> uniqueTags = new HashSet<>();
+		JSONArray tags = new JSONArray();
 		try {
 			JSONArray templates = new JSONArray();
 			for (CompletePattern pattern: patterns) {
 				ids.put(pattern.getPatternId());
 				templates.put(getPatternJSON(pattern));
+				if (pattern.getKeywords() != null)
+					uniqueTags.addAll(pattern.getKeywords());
 			}
+			tags.putAll(uniqueTags);
 			json.put(ConstantsJSON.TEMPLATES, templates);
 			json.put(ConstantsJSON.TOTAL, patterns.size());
 			json.put(ConstantsJSON.IDS, ids);
+			if(!tags.isEmpty())
+				json.put(ConstantsJSON.TAGS, tags);
 		} catch (JSONException e) {
 			logError(e);
 		}
