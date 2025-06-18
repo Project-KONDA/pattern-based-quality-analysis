@@ -2,10 +2,13 @@ package qualitypatternmodel.newservlets;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import jakarta.servlet.ServletConfig;
@@ -25,7 +28,10 @@ import qualitypatternmodel.newservlets.initialisation.RdfPatterns;
 import qualitypatternmodel.newservlets.initialisation.XmlPatterns;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
@@ -67,24 +73,34 @@ public class InitialisationServlet extends HttpServlet {
 	}
 
 	public static void initialisation(ServletContext scon) throws ServletException {
+		
+//		ENVIRONMENTAL VARIABLES
+
 //	      SHARED_VOLUME: /shared
 		String files = System.getenv().get(ServletConstants.ENV_FILE_VOLUME);
 		if (files != null)
 			ServletConstants.FILE_VOLUME = files;
 		else 
 			ServletConstants.FILE_VOLUME = scon.getRealPath(ServletConstants.FILE_VOLUME_DEFAULT);
-//	      UPLOAD_FOLDER: /shared/uploads
-		String upload = System.getenv().get(ServletConstants.ENV_UPLOAD_FOLDER);
-		if (upload != null)
-			ServletConstants.UPLOAD_FOLDER = upload;
-		else 
-			ServletConstants.UPLOAD_FOLDER = scon.getRealPath(ServletConstants.UPLOAD_FOLDER_DEFAULT);
 //	      TEMPLATE_VOLUME: /templates
 		String templates = System.getenv().get(ServletConstants.ENV_PATTERN_VOLUME);
 		if (templates != null)
 			ServletConstants.PATTERN_VOLUME = templates;
 		else 
 			ServletConstants.PATTERN_VOLUME = scon.getRealPath(ServletConstants.PATTERN_VOLUME_DEFAULT);
+//	      UPLOAD_FOLDER: /shared/uploads
+		String upload = System.getenv().get(ServletConstants.ENV_UPLOAD_FOLDER);
+		if (upload != null)
+			ServletConstants.UPLOAD_FOLDER = upload;
+		else 
+			ServletConstants.UPLOAD_FOLDER = scon.getRealPath(ServletConstants.UPLOAD_FOLDER_DEFAULT);
+//	      VARIANTS_FOLDER: /templates/variants
+		String variants = System.getenv().get(ServletConstants.ENV_VARIANTS_FOLDER);
+		if (variants != null)
+			ServletConstants.VARIANTS_FOLDER = variants;
+		else 
+			ServletConstants.VARIANTS_FOLDER = scon.getRealPath(ServletConstants.VARIANTS_FOLDER_DEFAULT);
+
 //	      LOGFILE: qpm-logfile.log
 		String logfile = System.getenv().get(ServletConstants.ENV_LOGFILE);
 		if (logfile != null)
@@ -93,6 +109,7 @@ public class InitialisationServlet extends HttpServlet {
 		String savefile = System.getenv().get(ServletConstants.ENV_SAVEFILE);
 		if (savefile != null)
 			ServletConstants.SAVEFILE = savefile;
+
 //	      SAVE_LOG_IN_SHARED: true
 		String log_in_files = System.getenv().get(ServletConstants.ENV_LOG_IN_FILE_VOLUME);
 		if (log_in_files != null)
@@ -129,8 +146,9 @@ public class InitialisationServlet extends HttpServlet {
 		System.out.println("Files can be found at " + ServletConstants.PATTERN_VOLUME);
 		ServletUtilities.log("Initializing ...");
 		ServletUtilities.log("Environmental Variable FILE_VOLUME:               " + files);
-		ServletUtilities.log("Environmental Variable UPLOAD_FOLDER:             " + upload);
 		ServletUtilities.log("Environmental Variable PATTERN_VOLUME:            " + templates);
+		ServletUtilities.log("Environmental Variable UPLOAD_FOLDER:             " + upload);
+		ServletUtilities.log("Environmental Variable VARIANTS_FOLDER:           " + variants);
 		ServletUtilities.log("Environmental Variable LOGFILE:                   " + logfile);
 		ServletUtilities.log("Environmental Variable SAVEFILE:                  " + savefile);
 		ServletUtilities.log("Environmental Variable LOG_IN_FILE_VOLUME:        " + log_in_files);
@@ -141,7 +159,14 @@ public class InitialisationServlet extends HttpServlet {
 		ServletUtilities.log("Environmental Variable OVERRIDE_VARIANTS:         " + override);
 		ServletUtilities.log("Environmental Variable GENERATE_GENERIC:          " + generate_generic);
 		ServletUtilities.log("Environmental Variable VALUE_AS_JSON:             " + value_as_json);
+		
+		// CHECK ACCESS TO VOLUMES
+		checkDirectoryAccess(files, ServletConstants.ENV_FILE_VOLUME);
+		checkDirectoryAccess(templates, ServletConstants.ENV_PATTERN_VOLUME);
+		checkDirectoryAccess(upload, ServletConstants.ENV_UPLOAD_FOLDER);
+		checkDirectoryAccess(variants, ServletConstants.ENV_VARIANTS_FOLDER);
 
+//		TEMPLATE INITIALISATION
 		try {
 			if (ServletConstants.GENERATE_GENERIC) {
 				String genericfolder = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.GENERICFOLDER;
@@ -188,6 +213,41 @@ public class InitialisationServlet extends HttpServlet {
 			patternbundle.export(neofolder, ServletConstants.OVERRIDE_VARIANTS);
 		}
 		ServletUtilities.log("NEO4J Patterns created:   " + neofolder);
+		
+
+//		VARIANT INITIALISATION
+		initializeVariants(variants);
+		
+		
+		
+		
+		// read all json files to json objects
+		// import all json files
+		
+	}
+
+	private static void initializeVariants(String variants) {
+		ArrayList<File> jsonFiles = getAllJSONFilesInFolder(new File(variants));
+		for (File file: jsonFiles) {
+			String path = file.getAbsolutePath();
+			try {
+				JSONObject json = readJsonFromFile(file);
+				String templatefolder = ServletConstants.PATTERN_VOLUME + "/" + json.getString(ConstantsJSON.LANGUAGE) + "/" + ServletConstants.TEMPLATEFOLDER;
+				String templateID = json.getString(ConstantsJSON.TEMPLATE);
+				
+				
+				CompletePattern template = EMFModelLoad.loadCompletePattern(templatefolder, templateID, Constants.EXTENSION);
+				new PatternTextImpl(template, json);
+				EMFModelSave.exportToFile2(template, templatefolder, templateID, Constants.EXTENSION);
+				
+			} catch (IOException e) {
+				ServletUtilities.logError(new InvalidityException("Invalid JSON File on " + path + ": " + e.getMessage()));
+			} catch (JSONException e) {
+				ServletUtilities.logError(new InvalidityException("Invalid JSON Format of File " + path + ": " + e.getMessage()));
+			} catch (InvalidityException e) {
+				ServletUtilities.logError(new InvalidityException("Specified Variant of File " + path + " is invalid: " + e.getMessage()));
+			}
+		}
 	}
 
 	private static boolean fileExists(String folder, String id) {
@@ -195,6 +255,41 @@ public class InitialisationServlet extends HttpServlet {
 		File file = new File(filepath);
 	    return file.exists();
 	}
+	
+	private static void checkDirectoryAccess(String path, String name) throws ServletException {
+		File directory = new File (path);
+		if (!directory.exists() || !directory.isDirectory() || !directory.canRead() || !directory.canWrite()) {
+			ServletException exception = new ServletException("No Access to " + name + ": " + path);
+			ServletUtilities.logError(exception);
+			throw exception;
+		}
+	}
+	
+	private static ArrayList<File> getAllJSONFilesInFolder(File directory){
+		ArrayList<File> files = new ArrayList<File>();
+		for (File file: directory.listFiles()) {
+			if (file.isDirectory())
+				files.addAll(getAllJSONFilesInFolder(file));
+			else {
+				if (file.isFile() && file.getName().toLowerCase().endsWith(".json")) {					
+					files.add(file);
+				}
+			}
+		}
+		return files;
+	}
+	
+	private static JSONObject readJsonFromFile(File file) throws IOException {
+        String content = new String(Files.readAllBytes(file.toPath()));
+        return new JSONObject(content);
+    }
+	
+	private static void initializeVariant(JSONObject json) throws ServletException {
+		
+		
+	}
+	
+	
 
 	public static JSONObject applyGet(String path, Map<String, String[]> params) throws FailedServletCallException {
 		if (path == null || path.equals("") || path.equals("/") || path.equals("/status") || path.equals("/health")) {

@@ -2,20 +2,27 @@ package qualitypatternmodel.newservlets;
 
 public class ServletConstants {
 
-	// name of folder
+	// path to shared volume
 	public static String FILE_VOLUME_DEFAULT =  "/files";
 	public static String FILE_VOLUME =  "/files";
 	public static String ENV_FILE_VOLUME = "SHARED_VOLUME";
+
+	// path to template volume 
+	public static String PATTERN_VOLUME_DEFAULT =  "/templates";
+	public static String PATTERN_VOLUME =  "/templates";
+	public static String ENV_PATTERN_VOLUME = "TEMPLATE_VOLUME";
 	
-	// name of upload folder
+	// path to file upload folder
 	public static String UPLOAD_FOLDER_DEFAULT =  "/files/uploads";
 	public static String UPLOAD_FOLDER =  "/files/uploads";
 	public static String ENV_UPLOAD_FOLDER = "UPLOAD_FOLDER";
 
-	// name of folder 
-	public static String PATTERN_VOLUME_DEFAULT =  "/templates";
-	public static String PATTERN_VOLUME =  "/templates";
-	public static String ENV_PATTERN_VOLUME = "TEMPLATE_VOLUME";
+	// path to template volume 
+	public static String VARIANTS_FOLDER_DEFAULT =  "/templates/variants";
+	public static String VARIANTS_FOLDER =  "/templates/variants";
+	public static String ENV_VARIANTS_FOLDER = "VARIANTS_FOLDER";
+
+
 
 	// name of logfile
 	public static String LOGFILE = "logfile.log";
@@ -24,6 +31,8 @@ public class ServletConstants {
 	// name of savefile
 	public static String SAVEFILE = "savefile.txt";
 	public static String ENV_SAVEFILE = "SAVEFILE";
+
+
 
 	// save log in shared
 	public static boolean LOG_IN_FILE_VOLUME = false;
@@ -56,6 +65,7 @@ public class ServletConstants {
 	// return values as JSONObject or JSONArray instead of Strings
 	public static boolean VALUE_AS_JSON = true;
 	public static String ENV_VALUE_AS_JSON = "VALUE_AS_JSON";
+
 
 	// name of folder for generic templates (only required if GENERATE_GENERIC)
 	public static final String GENERICFOLDER = "generic-patterns";
