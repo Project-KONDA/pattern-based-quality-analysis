@@ -231,10 +231,13 @@ public class InitialisationServlet extends HttpServlet {
 			ServletUtilities.logError(e);
 		}
 
+		ServletUtilities.log("Checking for Variant initialization");
+		ServletUtilities.log("Checking for Variant initialization " + ServletConstants.VALUE_AS_JSON);
+		ServletUtilities.log("Checking for Variant initialization " + ServletConstants.VARIANTS_FOLDER);
 
 //		VARIANT INITIALISATION
 		if (ServletConstants.VALUE_AS_JSON && ServletConstants.VARIANTS_FOLDER != null && !ServletConstants.VARIANTS_FOLDER.equals("")){
-			ServletUtilities.log("Initializing Variants in " + variants);
+			ServletUtilities.log("Initializing Variants in " + ServletConstants.VARIANTS_FOLDER);
 			initializeVariants(ServletConstants.VARIANTS_FOLDER);
 		}
         else {
@@ -249,14 +252,7 @@ public class InitialisationServlet extends HttpServlet {
 			String path = file.getAbsolutePath();
 			try {
 				JSONObject json = readJsonFromFile(file);
-				String templatefolder = ServletConstants.PATTERN_VOLUME + "/" + json.getString(ConstantsJSON.LANGUAGE) + "/" + ServletConstants.TEMPLATEFOLDER;
-				String templateID = json.getString(ConstantsJSON.TEMPLATE);
-				
-				
-				CompletePattern template = EMFModelLoad.loadCompletePattern(templatefolder, templateID, Constants.EXTENSION);
-				new PatternTextImpl(template, json);
-				EMFModelSave.exportToFile2(template, templatefolder, templateID, Constants.EXTENSION);
-				
+				initializeVariant(json, path);
 			} catch (IOException e) {
 				ServletUtilities.logError(new InvalidityException("Invalid JSON File on " + path + ": " + e.getMessage()));
 			} catch (JSONException e) {
@@ -265,6 +261,15 @@ public class InitialisationServlet extends HttpServlet {
 				ServletUtilities.logError(new InvalidityException("Specified Variant of File " + path + " is invalid: " + e.getMessage()));
 			}
 		}
+	}
+	
+	private static void initializeVariant(JSONObject json, String path) throws IOException, JSONException, InvalidityException {
+		String templatefolder = ServletConstants.PATTERN_VOLUME + "/" + json.getString(ConstantsJSON.LANGUAGE) + "/" + ServletConstants.TEMPLATEFOLDER;
+		String templateID = json.getString(ConstantsJSON.TEMPLATE);
+		
+		CompletePattern template = EMFModelLoad.loadCompletePattern(templatefolder, templateID, Constants.EXTENSION);
+		new PatternTextImpl(template, json);
+		EMFModelSave.exportToFile2(template, templatefolder, templateID, Constants.EXTENSION);
 	}
 
 	private static boolean fileExists(String folder, String id) {
@@ -300,11 +305,6 @@ public class InitialisationServlet extends HttpServlet {
         String content = new String(Files.readAllBytes(file.toPath()));
         return new JSONObject(content);
     }
-	
-	private static void initializeVariant(JSONObject json) throws ServletException {
-		
-		
-	}
 	
 	
 
