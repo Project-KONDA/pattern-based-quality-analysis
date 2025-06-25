@@ -163,8 +163,9 @@ public class InitialisationServlet extends HttpServlet {
 		// CHECK ACCESS TO VOLUMES
 		checkDirectoryAccess(files, ServletConstants.ENV_FILE_VOLUME);
 		checkDirectoryAccess(templates, ServletConstants.ENV_PATTERN_VOLUME);
-		checkDirectoryAccess(upload, ServletConstants.ENV_UPLOAD_FOLDER);
-		checkDirectoryAccess(variants, ServletConstants.ENV_VARIANTS_FOLDER);
+//		checkDirectoryAccess(upload, ServletConstants.ENV_UPLOAD_FOLDER);
+//		if (value_as_json.equals("true"))
+//			checkDirectoryAccess(variants, ServletConstants.ENV_VARIANTS_FOLDER);
 
 //		TEMPLATE INITIALISATION
 		try {
@@ -197,37 +198,40 @@ public class InitialisationServlet extends HttpServlet {
 		}
 
 		String xmlfolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.XML + "/" + ServletConstants.TEMPLATEFOLDER;
+		ServletUtilities.log("XML Patterns creation started to :     " + xmlfolder);
 		for (PatternBundle patternbundle: XmlPatterns.getAllXmlPatternBundles()) {
 			patternbundle.export(xmlfolder, ServletConstants.OVERRIDE_VARIANTS);
 		}
 		ServletUtilities.log("XML Patterns created:     " + xmlfolder);
 
 		String rdffolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.RDF + "/" + ServletConstants.TEMPLATEFOLDER;
+		ServletUtilities.log("RDF" + rdffolder);
 		for (PatternBundle patternbundle: RdfPatterns.getAllRdfPatternBundles()) {
 			patternbundle.export(rdffolder, ServletConstants.OVERRIDE_VARIANTS);
 		}
 		ServletUtilities.log("RDF Patterns created:     " + rdffolder);
 
 		String neofolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.NEO4J + "/" + ServletConstants.TEMPLATEFOLDER;
+		ServletUtilities.log("NEO4J Patterns creation started to :     " + neofolder);
 		for (PatternBundle patternbundle: Neo4jPatterns.getAllNeoPatternBundles()) {
 			patternbundle.export(neofolder, ServletConstants.OVERRIDE_VARIANTS);
 		}
 		ServletUtilities.log("NEO4J Patterns created:   " + neofolder);
-		
+
 
 //		VARIANT INITIALISATION
-		initializeVariants(variants);
-		
-		
-		
-		
-		// read all json files to json objects
-		// import all json files
-		
+		if (ServletConstants.VALUE_AS_JSON && ServletConstants.VARIANTS_FOLDER != null && !ServletConstants.VARIANTS_FOLDER.equals("")){
+			ServletUtilities.log("Initializing Variants in " + variants);
+			initializeVariants(ServletConstants.VARIANTS_FOLDER);
+		}
+        else {
+          ServletUtilities.log("No Variants initialized, because VALUE_AS_JSON is false or VARIANTS_FOLDER is not set.");
+        }
 	}
 
 	private static void initializeVariants(String variants) {
 		ArrayList<File> jsonFiles = getAllJSONFilesInFolder(new File(variants));
+		ServletUtilities.log("Found " + jsonFiles.size() + " JSON files to specify variants in: " + variants);
 		for (File file: jsonFiles) {
 			String path = file.getAbsolutePath();
 			try {
