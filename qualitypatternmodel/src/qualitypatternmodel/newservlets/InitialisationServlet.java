@@ -197,26 +197,39 @@ public class InitialisationServlet extends HttpServlet {
 			throw new ServletException("Unexpected Error: " + e.getMessage(), e);
 		}
 
-		String xmlfolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.XML + "/" + ServletConstants.TEMPLATEFOLDER;
-		ServletUtilities.log("XML Patterns creation started to :     " + xmlfolder);
-		for (PatternBundle patternbundle: XmlPatterns.getAllXmlPatternBundles()) {
-			patternbundle.export(xmlfolder, ServletConstants.OVERRIDE_VARIANTS);
-		}
-		ServletUtilities.log("XML Patterns created:     " + xmlfolder);
 
-		String rdffolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.RDF + "/" + ServletConstants.TEMPLATEFOLDER;
-		ServletUtilities.log("RDF" + rdffolder);
-		for (PatternBundle patternbundle: RdfPatterns.getAllRdfPatternBundles()) {
-			patternbundle.export(rdffolder, ServletConstants.OVERRIDE_VARIANTS);
+		try {
+			String xmlfolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.XML + "/" + ServletConstants.TEMPLATEFOLDER;
+			ServletUtilities.log("XML Patterns creation started to :     " + xmlfolder);
+			for (PatternBundle patternbundle: XmlPatterns.getAllXmlPatternBundles()) {
+				patternbundle.export(xmlfolder, ServletConstants.OVERRIDE_VARIANTS);
+			}
+			ServletUtilities.log("XML Patterns created:     " + xmlfolder);
+		} catch (Exception e) {
+			ServletUtilities.logError(e);
 		}
-		ServletUtilities.log("RDF Patterns created:     " + rdffolder);
 
-		String neofolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.NEO4J + "/" + ServletConstants.TEMPLATEFOLDER;
-		ServletUtilities.log("NEO4J Patterns creation started to :     " + neofolder);
-		for (PatternBundle patternbundle: Neo4jPatterns.getAllNeoPatternBundles()) {
-			patternbundle.export(neofolder, ServletConstants.OVERRIDE_VARIANTS);
+		try {
+			String rdffolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.RDF + "/" + ServletConstants.TEMPLATEFOLDER;
+			ServletUtilities.log("RDF" + rdffolder);
+			for (PatternBundle patternbundle: RdfPatterns.getAllRdfPatternBundles()) {
+				patternbundle.export(rdffolder, ServletConstants.OVERRIDE_VARIANTS);
+			}
+			ServletUtilities.log("RDF Patterns created:     " + rdffolder);
+		} catch (Exception e) {
+			ServletUtilities.logError(e);
 		}
-		ServletUtilities.log("NEO4J Patterns created:   " + neofolder);
+
+		try {
+			String neofolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.NEO4J + "/" + ServletConstants.TEMPLATEFOLDER;
+			ServletUtilities.log("NEO4J Patterns creation started to :     " + neofolder);
+			for (PatternBundle patternbundle: Neo4jPatterns.getAllNeoPatternBundles()) {
+				patternbundle.export(neofolder, ServletConstants.OVERRIDE_VARIANTS);
+			}
+			ServletUtilities.log("NEO4J Patterns created:   " + neofolder);
+		} catch (Exception e) {
+			ServletUtilities.logError(e);
+		}
 
 
 //		VARIANT INITIALISATION
