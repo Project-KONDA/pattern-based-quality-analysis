@@ -161,8 +161,8 @@ public class InitialisationServlet extends HttpServlet {
 		ServletUtilities.log("Environmental Variable VALUE_AS_JSON:             " + value_as_json);
 		
 		// CHECK ACCESS TO VOLUMES
-		checkDirectoryAccess(files, ServletConstants.ENV_FILE_VOLUME);
-		checkDirectoryAccess(templates, ServletConstants.ENV_PATTERN_VOLUME);
+//		checkDirectoryAccess(files, ServletConstants.ENV_FILE_VOLUME);
+//		checkDirectoryAccess(templates, ServletConstants.ENV_PATTERN_VOLUME);
 //		checkDirectoryAccess(upload, ServletConstants.ENV_UPLOAD_FOLDER);
 //		if (value_as_json.equals("true"))
 //			checkDirectoryAccess(variants, ServletConstants.ENV_VARIANTS_FOLDER);
@@ -211,7 +211,7 @@ public class InitialisationServlet extends HttpServlet {
 
 		try {
 			String rdffolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.RDF + "/" + ServletConstants.TEMPLATEFOLDER;
-			ServletUtilities.log("RDF" + rdffolder);
+			ServletUtilities.log("RDF Patterns creation started to :     " + rdffolder);
 			for (PatternBundle patternbundle: RdfPatterns.getAllRdfPatternBundles()) {
 				patternbundle.export(rdffolder, ServletConstants.OVERRIDE_VARIANTS);
 			}
@@ -258,7 +258,7 @@ public class InitialisationServlet extends HttpServlet {
 			} catch (JSONException e) {
 				ServletUtilities.logError(new InvalidityException("Invalid JSON Format of File " + path + ": " + e.getMessage()));
 			} catch (InvalidityException e) {
-				ServletUtilities.logError(new InvalidityException("Specified Variant of File " + path + " is invalid: " + e.getMessage()));
+				ServletUtilities.logError(new InvalidityException("Specified Variant of File " + path + " is invalid: " + e.getMessage()), 0);
 			}
 		}
 	}
@@ -289,15 +289,17 @@ public class InitialisationServlet extends HttpServlet {
 	
 	private static ArrayList<File> getAllJSONFilesInFolder(File directory){
 		ArrayList<File> files = new ArrayList<File>();
-		for (File file: directory.listFiles()) {
-			if (file.isDirectory())
-				files.addAll(getAllJSONFilesInFolder(file));
-			else {
-				if (file.isFile() && file.getName().toLowerCase().endsWith(".json")) {					
-					files.add(file);
+		File[] filearray = directory.listFiles();
+		if (filearray != null)
+			for (File file: filearray) {
+				if (file.isDirectory())
+					files.addAll(getAllJSONFilesInFolder(file));
+				else {
+					if (file.isFile() && file.getName().toLowerCase().endsWith(".json")) {					
+						files.add(file);
+					}
 				}
 			}
-		}
 		return files;
 	}
 	
@@ -314,6 +316,7 @@ public class InitialisationServlet extends HttpServlet {
 			result.put("title", "Quality Pattern Model API");
 			result.put("status", "ok");
 			result.put("repository", "https://github.com/Project-KONDA/pattern-based-quality-analysis");
+			result.put("docs", "https://github.com/Project-KONDA/pattern-based-quality-analysis/blob/master/qualitypatternmodel/openapi.yaml");
 			result.put("timestamp", new Timestamp(new Date().getTime()).toString());
 			return result;
 		}

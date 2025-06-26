@@ -457,16 +457,24 @@ public abstract class ServletUtilities {
 	}
 
 	public static void logError(Throwable th) {
+		logError(th, -1);
+	}
+
+	public static void logError(Throwable th, int lines) {
+		boolean all = lines < 0;
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
         printWriter.println(th.getClass().getSimpleName() + ": " + th.getMessage());
 		for (StackTraceElement element : th.getStackTrace()) {
-            printWriter.println("    " + element.toString());
+			if (all || lines > 0) {
+				printWriter.println("    " + element.toString());
+				lines--;
+			}
         }
         log("ERROR: " + stringWriter.toString());
 		if(th.getCause() != null) {
 			log("CAUSED BY");
-			logError(th.getCause());
+			logError(th.getCause(), lines);
 		}
 	}
 
