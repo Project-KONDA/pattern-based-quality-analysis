@@ -1,0 +1,28 @@
+name: BuildAndPushDockerImageToHarbor
+
+on:
+  push:
+    branches: [ "development", "development2"]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+          
+      - name: Harbor Login
+        uses: docker/login-action@v3
+        with:
+          registry: harbor.gwdg.de
+          username: ${{ secrets.HARBOR_USERNAME }}
+          password: ${{ secrets.HARBOR_PASSWORD }}
+
+      - name: Harbor Build and Push
+        uses: docker/build-push-action@v5
+        with:
+          context: qualitypatternmodel
+          file: qualitypatternmodel/Dockerfile
+          push: true
+          tags: harbor.gwdg.de/aqinda/qpm-dev:latest
