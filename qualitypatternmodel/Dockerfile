@@ -13,11 +13,13 @@ RUN apt-get -y update \
 # create directories
 RUN mkdir -p /usr/src/app/src/main/java
 RUN mkdir -p /usr/src/app/src/main/webapp
+RUN mkdir -p /usr/src/app/src/main/resources/model
 
 # copy files
 COPY pom.xml /usr/src/app/pom.xml
 COPY ./src /usr/src/app/src/main/java
 COPY ./WebContent /usr/src/app/src/main/webapp
+COPY ./model /usr/src/app/src/main/resources/model
 
 # copy resource files
 COPY ./openapi.yaml /usr/openapi.yaml

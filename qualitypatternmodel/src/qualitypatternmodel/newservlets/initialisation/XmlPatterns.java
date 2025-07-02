@@ -35,24 +35,24 @@ public class XmlPatterns {
 				System.out.println("___" + pattern.getName() + "___");
 				pattern.isValid(AbstractionLevel.ABSTRACT);
 			} catch (Exception e) {
-				e.printStackTrace();
+				ServletUtilities.logError(e);
 			}
 			try {
 				PatternUtility.fillParameter(pattern);
 				pattern.getText().get(0).instantiate();
 			} catch (Exception e) {
-				e.printStackTrace();
+				ServletUtilities.logError(e);
 			}
 			try {
 				pattern.generateXQuery();
 			} catch (Exception e) {
-				e.printStackTrace();
+				ServletUtilities.logError(e);
 			}
 			try {
 				BaseSchema schema = MqafTranslation.translateToConstraintSchema(pattern);
 				ConfigurationReader.toJson(schema);
 			} catch (Exception e) {
-				e.printStackTrace();
+				ServletUtilities.logError(e);
 			}
 		}
 	}

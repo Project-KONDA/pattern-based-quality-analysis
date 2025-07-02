@@ -2,6 +2,7 @@ package qualitypatternmodel.newservlets;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -167,6 +168,21 @@ public class InitialisationServlet extends HttpServlet {
 //		if (value_as_json.equals("true"))
 //			checkDirectoryAccess(variants, ServletConstants.ENV_VARIANTS_FOLDER);
 
+		try {
+			InputStream stream = Thread.currentThread()
+				    .getContextClassLoader()
+				    .getResourceAsStream("model/MyModel.ecore");
+	        if (stream == null) {
+	        	ServletUtilities.log("⚠️ Could not find model/MyModel.ecore on classpath.");
+	        } else {
+	        	ServletUtilities.log("✅ Found model/MyModel.ecore.");
+	        }
+		} catch (Exception e) {
+			ServletUtilities.logError(e);
+		}
+		
+//		EMFInitializer.initialize();
+		
 //		TEMPLATE INITIALISATION
 		try {
 			if (ServletConstants.GENERATE_GENERIC) {
@@ -278,14 +294,14 @@ public class InitialisationServlet extends HttpServlet {
 	    return file.exists();
 	}
 	
-	private static void checkDirectoryAccess(String path, String name) throws ServletException {
-		File directory = new File (path);
-		if (!directory.exists() || !directory.isDirectory() || !directory.canRead() || !directory.canWrite()) {
-			ServletException exception = new ServletException("No Access to " + name + ": " + path);
-			ServletUtilities.logError(exception);
-			throw exception;
-		}
-	}
+//	private static void checkDirectoryAccess(String path, String name) throws ServletException {
+//		File directory = new File (path);
+//		if (!directory.exists() || !directory.isDirectory() || !directory.canRead() || !directory.canWrite()) {
+//			ServletException exception = new ServletException("No Access to " + name + ": " + path);
+//			ServletUtilities.logError(exception);
+//			throw exception;
+//		}
+//	}
 	
 	private static ArrayList<File> getAllJSONFilesInFolder(File directory){
 		ArrayList<File> files = new ArrayList<File>();
