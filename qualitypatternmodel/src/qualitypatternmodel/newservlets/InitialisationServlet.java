@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.EPackage;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,17 +19,27 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
+import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
+import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
+import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.newservlets.initialisation.GenericPatterns;
 import qualitypatternmodel.newservlets.initialisation.Neo4jPatterns;
 import qualitypatternmodel.newservlets.initialisation.PatternBundle;
 import qualitypatternmodel.newservlets.initialisation.RdfPatterns;
 import qualitypatternmodel.newservlets.initialisation.XmlPatterns;
+import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
@@ -171,17 +182,18 @@ public class InitialisationServlet extends HttpServlet {
 		try {
 			InputStream stream = Thread.currentThread()
 				    .getContextClassLoader()
-				    .getResourceAsStream("model/MyModel.ecore");
+				    .getResourceAsStream("model/qualitypatternmodel.ecore");
 	        if (stream == null) {
-	        	ServletUtilities.log("⚠️ Could not find model/MyModel.ecore on classpath.");
+	        	ServletUtilities.log("⚠️ Could not find model/qualitypatternmodel.ecore on classpath.");
 	        } else {
-	        	ServletUtilities.log("✅ Found model/MyModel.ecore.");
+	        	ServletUtilities.log("✅ Found model/qualitypatternmodel.ecore.");
 	        }
 		} catch (Exception e) {
 			ServletUtilities.logError(e);
 		}
 		
-//		EMFInitializer.initialize();
+		checkLoadedDependencies();
+		initializeEMF();
 		
 //		TEMPLATE INITIALISATION
 		try {
@@ -324,6 +336,47 @@ public class InitialisationServlet extends HttpServlet {
         return new JSONObject(content);
     }
 	
+	public static void checkLoadedDependencies() {
+		String[][] dependencies = {
+			    {"metadata-qa-api", "de.gwdg.metadataqa.api.util.Converter"},
+			    {"jakarta.servlet-api", "jakarta.servlet.http.HttpServlet"},
+			    {"org.eclipse.emf.common", "org.eclipse.emf.common.util.URI"},
+			    {"org.eclipse.emf.ecore", "org.eclipse.emf.ecore.EObject"},
+			    {"org.eclipse.emf.ecore.xmi", "org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl"},
+			    {"json", "org.json.JSONObject"},
+			    {"basex", "org.basex.BaseX"},
+			    {"junit", "org.junit.Assert"},
+			    {"junit-jupiter", "org.junit.jupiter.api.Test"},
+			    {"reactive-streams", "org.reactivestreams.Publisher"},
+			    {"org.everit.json.schema", "org.everit.json.schema.Schema"},
+			    {"neo4j-java-driver", "org.neo4j.driver.Driver"},
+			    {"mockito-core", "org.mockito.Mockito"},
+			    {"commons-io", "org.apache.commons.io.FileUtils"},
+			    {"byte-buddy", "net.bytebuddy.ByteBuddy"},
+			    {"byte-buddy-agent", "net.bytebuddy.agent.ByteBuddyAgent"},
+			    {"objenesis", "org.objenesis.ObjenesisStd"},
+			    {"json-path", "com.jayway.jsonpath.JsonPath"},
+			    {"jackson-core", "com.fasterxml.jackson.core.JsonFactory"},
+			    {"ws-commons-util", "org.apache.ws.commons.util.NamespaceContextImpl"},
+			    {"commons-lang3", "org.apache.commons.lang3.StringUtils"},
+			    {"jackson-databind", "com.fasterxml.jackson.databind.ObjectMapper"},
+			    {"jackson-dataformat-yaml", "com.fasterxml.jackson.dataformat.yaml.YAMLFactory"},
+			    {"jackson-annotations", "com.fasterxml.jackson.annotation.JsonProperty"},
+			    {"snakeyaml", "org.yaml.snakeyaml.Yaml"},
+			    {"junit-platform-suite-api", "org.junit.platform.suite.api.SelectClasses"}
+			};
+		for (String[] dep : dependencies) {
+            String artifact = dep[0];
+            String className = dep[1];
+            try {
+                Class.forName(className);
+                ServletUtilities.log("✅ " + artifact + ": loaded");
+            } catch (ClassNotFoundException e) {
+                ServletUtilities.log("❌ " + artifact + ": NOT found (" + className + ")");
+            }
+        }
+	}
+	
 	
 
 	public static JSONObject applyGet(String path, Map<String, String[]> params) throws FailedServletCallException {
@@ -339,5 +392,40 @@ public class InitialisationServlet extends HttpServlet {
 		else {
 			throw new FailedServletCallException("invalid URL");
 		}
+	}
+	
+
+	static void initializeEMF() {
+        try {
+			ServletUtilities.log("EMF Classes initializing");
+			PatternstructurePackage.eINSTANCE.eClass();
+			EPackage.Registry.INSTANCE.put(PatternstructurePackage.eNS_URI, PatternstructurePackage.eINSTANCE);
+		
+			GraphstructurePackage.eINSTANCE.eClass();
+			EPackage.Registry.INSTANCE.put(GraphstructurePackage.eNS_URI, GraphstructurePackage.eINSTANCE);
+			OperatorsPackage.eINSTANCE.eClass();
+			EPackage.Registry.INSTANCE.put(OperatorsPackage.eNS_URI, OperatorsPackage.eINSTANCE);		
+			ParametersPackage.eINSTANCE.eClass();
+			EPackage.Registry.INSTANCE.put(ParametersPackage.eNS_URI, ParametersPackage.eINSTANCE);
+			
+			TextrepresentationPackage.eINSTANCE.eClass();
+			EPackage.Registry.INSTANCE.put(TextrepresentationPackage.eNS_URI, TextrepresentationPackage.eINSTANCE);
+			
+			AdaptionxmlPackage.eINSTANCE.eClass();
+			EPackage.Registry.INSTANCE.put(AdaptionxmlPackage.eNS_URI, AdaptionxmlPackage.eINSTANCE);
+			AdaptionrdfPackage.eINSTANCE.eClass();
+			EPackage.Registry.INSTANCE.put(AdaptionrdfPackage.eNS_URI, AdaptionrdfPackage.eINSTANCE);
+			Adaptionneo4jPackage.eINSTANCE.eClass();
+			EPackage.Registry.INSTANCE.put(Adaptionneo4jPackage.eNS_URI, Adaptionneo4jPackage.eINSTANCE);
+	
+			JavaoperatorsPackage.eINSTANCE.eClass();
+			EPackage.Registry.INSTANCE.put(OperatorsPackage.eNS_URI, OperatorsPackage.eINSTANCE);
+			JavaqueryoutputPackage.eINSTANCE.eClass();
+			EPackage.Registry.INSTANCE.put(JavaqueryoutputPackage.eNS_URI, JavaqueryoutputPackage.eINSTANCE);
+			
+			ServletUtilities.log("EMF Classes initialized");
+        } catch (Throwable t) {
+        	ServletUtilities.logError(t);
+        }
 	}
 }

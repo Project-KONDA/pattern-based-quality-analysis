@@ -40,7 +40,7 @@ RUN cp target/*.war /usr/local/tomcat/webapps/ROOT.war
 WORKDIR /usr
 
 # clean src
-RUN rm -rf src
+# RUN rm -rf src
 
 # start application
 EXPOSE 8080

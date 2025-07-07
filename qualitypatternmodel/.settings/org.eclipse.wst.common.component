@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+        
     <wb-module deploy-name="qualitypatternmodel">
+                
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/demo"/>
+                
         <wb-resource deploy-path="/abstract-patterns" source-path="/abstract-patterns"/>
+                
         <wb-resource deploy-path="/concrete-patterns" source-path="/concrete-patterns"/>
+                
         <wb-resource deploy-path="/databases" source-path="/databases"/>
+                
         <wb-resource deploy-path="/schemata" source-path="/schemata"/>
+                
         <wb-resource deploy-path="/WEB-INF/queries" source-path="/queries"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
-        <dependent-module archiveName="metadata-qa-api.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/metadata-qa-api/metadata-qa-api">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="snakeyaml-2.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/qualitypatternmodel/lib/snakeyaml-2.2.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
+                
         <property name="context-root" value="qualitypatternmodel"/>
+                
         <property name="java-output-path" value="/qualitypatternmodel/bin"/>
+            
     </wb-module>
+    
 </project-modules>
