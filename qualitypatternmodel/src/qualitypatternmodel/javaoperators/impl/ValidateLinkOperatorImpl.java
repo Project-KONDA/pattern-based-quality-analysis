@@ -122,6 +122,10 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 	        	result = false;
 	        }
 	        
+	        // if http is invalid, check https
+	        if (result == false && urlString.startsWith("http://"))
+	        	return apply("https" + urlString.substring(4));
+	        
 	        return result != negate;
 	    } catch (Exception e) {
 	    	ServletUtilities.logError(e);
