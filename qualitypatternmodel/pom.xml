@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>qualitypatternmodel</groupId>
   <artifactId>qualitypatternmodel</artifactId>
@@ -6,6 +6,7 @@
   <packaging>war</packaging>
 <!--  <name>qualitypatternmodel</name>-->
 <!--  <description>Quality Pattern Model - A proof-of-concept implementation of a top-down approach to analyzing data quality via anti-patterns.</description>-->
+<!-- 
   <repositories>
     <repository>
       <id>snapshots</id>
@@ -15,11 +16,12 @@
       <snapshots><enabled>true</enabled></snapshots>
     </repository>
   </repositories>
+-->
   <dependencies>
     <dependency>
       <groupId>de.gwdg.metadataqa</groupId>
       <artifactId>metadata-qa-api</artifactId>
-      <version>0.9.7-SNAPSHOT</version>
+      <version>0.9.8</version>
     </dependency>
     <dependency>
       <groupId>jakarta.servlet</groupId>
@@ -30,17 +32,17 @@
     <dependency>
       <groupId>org.eclipse.emf</groupId>
       <artifactId>org.eclipse.emf.common</artifactId>
-      <version>2.22.0</version>
+      <version>2.30.0</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.emf</groupId>
       <artifactId>org.eclipse.emf.ecore</artifactId>
-      <version>2.22.0</version>
+      <version>2.35.0</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.emf</groupId>
       <artifactId>org.eclipse.emf.ecore.xmi</artifactId>
-      <version>2.37.0</version>
+      <version>2.35.0</version>
     </dependency>
     <dependency>
       <groupId>org.json</groupId>
@@ -62,11 +64,13 @@
       <artifactId>junit-jupiter</artifactId>
       <version>5.6.0</version>
     </dependency>
+<!--
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
       <version>2.5</version>
     </dependency>
+-->
     <dependency>
       <groupId>org.reactivestreams</groupId>
       <artifactId>reactive-streams</artifactId>
@@ -87,6 +91,11 @@
       <artifactId>mockito-core</artifactId>
       <version>4.8.0</version>
     </dependency>
+    <dependency>
+	  <groupId>commons-io</groupId>
+	  <artifactId>commons-io</artifactId>
+	  <version>2.15.1</version> <!-- Use the latest stable version -->
+	</dependency>
     <dependency>
       <groupId>net.bytebuddy</groupId>
       <artifactId>byte-buddy</artifactId>
@@ -149,6 +158,14 @@
     </dependency>
   </dependencies>
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*.ecore</include>
+        </includes>
+      </resource>
+    </resources>
     <plugins>
       <!-- Maven Compiler Plugin -->
       <plugin>

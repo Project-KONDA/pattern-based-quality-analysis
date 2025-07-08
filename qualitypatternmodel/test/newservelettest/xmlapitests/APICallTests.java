@@ -92,6 +92,22 @@ public class APICallTests {
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		FOLDER = new File(".").getCanonicalPath().replace('\\', '/') + "/temp_" + UUID.randomUUID();
 		System.out.println("Create: " + FOLDER);
+		
+
+		File lido_original = new File("lido.xml");
+		File lido_copy = new File(FOLDER + "/files/lido.xml");
+
+		File variants_original = new File("./src/qualitypatternmodel/newservlets/patterns/jsons");
+		File variants_copy = new File(FOLDER + "/templates/variants");
+
+		try {
+			FileUtils.copyFile(lido_original, lido_copy);
+			FileUtils.copyDirectory(variants_original, variants_copy);
+			System.out.println("Files copied successfully");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		ServletContext context = mock(ServletContext.class);
 		doAnswer(invocation -> {
 			String argument = invocation.getArgument(0);
@@ -101,15 +117,9 @@ public class APICallTests {
 				return FOLDER + argument;
 			}
 		}).when(context).getRealPath(anyString());
+		System.out.println("Mock initialized successfully");
+		
 		InitialisationServlet.initialisation(context);
-
-		File original = new File("lido.xml");
-		File copy = new File(FOLDER + "/files/lido.xml");
-		try {
-			FileUtils.copyFile(original, copy);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 
 	@AfterAll

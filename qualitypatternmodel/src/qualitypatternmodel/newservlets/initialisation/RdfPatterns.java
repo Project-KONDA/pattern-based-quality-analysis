@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.newservlets.patterns.CardPattern;
 import qualitypatternmodel.newservlets.patterns.CompSetPattern;
 import qualitypatternmodel.newservlets.patterns.ContainsPattern;
@@ -48,7 +49,7 @@ public class RdfPatterns {
 			patternbundles.add(UniquePattern.getRdfBundle());
 			
 		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-			e.printStackTrace();
+			ServletUtilities.logError(e);
 		}
 		return patternbundles;
 	}

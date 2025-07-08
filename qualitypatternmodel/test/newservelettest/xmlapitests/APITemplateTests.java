@@ -62,6 +62,25 @@ public class APITemplateTests {
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		FOLDER = new File(".").getCanonicalPath().replace('\\', '/') + "/temp_" + UUID.randomUUID();
 		System.out.println("Create: " + FOLDER);
+
+		File variants_original = new File("./src/qualitypatternmodel/newservlets/patterns/jsons");
+		File variants_copy = new File(FOLDER + "/templates/variants");
+
+		File lido_original = new File("lido.xml");
+		File lido_copy = new File(FOLDER + "/files/lido.xml");
+		
+		File database_original = new File("./demo.data/demo_database.xml");
+		File database_copy = new File(FOLDER + "/files/demo_database.xml");
+
+		try {
+			FileUtils.copyDirectory(variants_original, variants_copy);
+			FileUtils.copyFile(lido_original, lido_copy);
+			FileUtils.copyFile(database_original, database_copy);
+			System.out.println("Files copied successfully");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		ServletContext context = mock(ServletContext.class);
 		doAnswer(invocation -> {
 			String argument = invocation.getArgument(0);
@@ -71,18 +90,9 @@ public class APITemplateTests {
 				return FOLDER + argument;
 			}
 		}).when(context).getRealPath(anyString());
+		System.out.println("Mock initialized successfully");
+		
 		InitialisationServlet.initialisation(context);
-
-		File original = new File("lido.xml");
-		File original2 = new File("demo.data/demo_database.xml");
-		File copy = new File(FOLDER + "/files/lido.xml");
-		File copy2 = new File(FOLDER + "/files/demo_database.xml");
-		try {
-			FileUtils.copyFile(original, copy);
-			FileUtils.copyFile(original2, copy2);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 
 	@AfterAll

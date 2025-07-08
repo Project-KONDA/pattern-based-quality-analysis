@@ -10,6 +10,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.mqaftranslation.MqafTranslation;
+import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.newservlets.patterns.CardPattern;
 import qualitypatternmodel.newservlets.patterns.CompSetPattern;
 import qualitypatternmodel.newservlets.patterns.ContainsPattern;
@@ -34,24 +35,24 @@ public class XmlPatterns {
 				System.out.println("___" + pattern.getName() + "___");
 				pattern.isValid(AbstractionLevel.ABSTRACT);
 			} catch (Exception e) {
-				e.printStackTrace();
+				ServletUtilities.logError(e);
 			}
 			try {
 				PatternUtility.fillParameter(pattern);
 				pattern.getText().get(0).instantiate();
 			} catch (Exception e) {
-				e.printStackTrace();
+				ServletUtilities.logError(e);
 			}
 			try {
 				pattern.generateXQuery();
 			} catch (Exception e) {
-				e.printStackTrace();
+				ServletUtilities.logError(e);
 			}
 			try {
 				BaseSchema schema = MqafTranslation.translateToConstraintSchema(pattern);
 				ConfigurationReader.toJson(schema);
 			} catch (Exception e) {
-				e.printStackTrace();
+				ServletUtilities.logError(e);
 			}
 		}
 	}
@@ -77,7 +78,7 @@ public class XmlPatterns {
 			patternbundles.add(UniquePattern.getXmlBundle());
 			patternbundles.add(MandContPattern.getXmlBundle());
 		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-			e.printStackTrace();
+			ServletUtilities.logError(e);
 		}
 
 		return patternbundles;

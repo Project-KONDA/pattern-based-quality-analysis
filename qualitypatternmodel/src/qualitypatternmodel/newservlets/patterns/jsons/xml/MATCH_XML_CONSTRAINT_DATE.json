@@ -1,7 +1,7 @@
 {
     "template":"Match_xml",
     "language":"xml",
-    "name":"default-constraint",
+    "name":"iso-date",
 	"typeConstraint":true,
     "fragments":[
         {"text":"For each"},
