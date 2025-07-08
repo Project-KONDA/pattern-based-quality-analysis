@@ -3,7 +3,7 @@
 package qualitypatternmodel.javaoperators.impl;
 
 import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.URI;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -42,8 +42,8 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 	public Boolean apply(String urlString) {
 		Boolean negate = getOption().getValue();
 	    try {
-	        URL url = new URL(urlString);
-	        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+			HttpURLConnection connection = (HttpURLConnection) URI.create(urlString).toURL().openConnection();
 	        connection.setRequestMethod("HEAD");
 	        int responseCode = connection.getResponseCode();
 	        Boolean result = responseCode == HttpURLConnection.HTTP_OK;

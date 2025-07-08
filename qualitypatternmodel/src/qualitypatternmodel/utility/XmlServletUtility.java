@@ -9,6 +9,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
+import java.net.URI;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -16,6 +17,8 @@ import java.util.Scanner;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+
+import qualitypatternmodel.newservlets.ServletUtilities;
 
 
 public class XmlServletUtility {
@@ -51,47 +54,49 @@ public class XmlServletUtility {
 
 	public static void createConcretePattern(String abstractPatternName, String textName, String concretePatternName) throws IOException, MalformedURLException, ProtocolException, JSONException {
 
-			HttpURLConnection connection = (HttpURLConnection) new URL(PATH_PREFIX + Util.INSTANTIATION_ENDPOINT + abstractPatternName + "/" + textName).openConnection();
-			connection.setRequestMethod("POST");
+		String urlString = PATH_PREFIX + Util.INSTANTIATION_ENDPOINT + abstractPatternName + "/" + textName;
+		URL url = URI.create(urlString).toURL();
+		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+		connection.setRequestMethod("POST");
 
-			String parameters = "name=" + URLEncoder.encode(concretePatternName, "UTF-8");
+		String parameters = "name=" + URLEncoder.encode(concretePatternName, "UTF-8");
 
-			connection.setDoOutput(true);
-		    OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
-		    wr.write(parameters);
-		    wr.flush();
+		connection.setDoOutput(true);
+	    OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
+	    wr.write(parameters);
+	    wr.flush();
 
-			int responseCode = connection.getResponseCode();
+		int responseCode = connection.getResponseCode();
 //			System.out.println(responseCode);
-			assertTrue(responseCode >= 200 && responseCode < 300);
+		assertTrue(responseCode >= 200 && responseCode < 300);
 
 
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-			HttpURLConnection connection2 = (HttpURLConnection) new URL(PATH_PREFIX + Util.CONCRETE_PATTERN_LIST_ENDPOINT).openConnection();
-			connection2.setRequestMethod("GET");
-
-			int responseCode2 = connection2.getResponseCode();
-			assertTrue(responseCode2 >= 200 && responseCode < 300);
-
-			String result2 = getResult(connection2);
-
-			JSONArray array = new JSONArray(result2);
-			boolean contained = false;
-			for(int i=0; i < array.length(); i++) {
-				contained = contained || array.getJSONObject(i).get("Name").equals(concretePatternName);
-			}
-			assertTrue(contained);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			ServletUtilities.logError(e);
 		}
+		
+		HttpURLConnection connection2 = (HttpURLConnection) URI.create(PATH_PREFIX + Util.CONCRETE_PATTERN_LIST_ENDPOINT).toURL().openConnection();
+		connection2.setRequestMethod("GET");
+
+		int responseCode2 = connection2.getResponseCode();
+		assertTrue(responseCode2 >= 200 && responseCode < 300);
+
+		String result2 = getResult(connection2);
+
+		JSONArray array = new JSONArray(result2);
+		boolean contained = false;
+		for(int i=0; i < array.length(); i++) {
+			contained = contained || array.getJSONObject(i).get("Name").equals(concretePatternName);
+		}
+		assertTrue(contained);
+	}
 
 	public static void setParameter(String concretePatternName, String parameterId, String value, String type, String role) throws IOException, MalformedURLException, ProtocolException {
 		String patternAndParam = concretePatternName + "/" + parameterId;
-		HttpURLConnection connection = (HttpURLConnection) new URL(PATH_PREFIX + Util.CONCRETISATION_ENDPOINT + patternAndParam).openConnection();
+		
+		HttpURLConnection connection = (HttpURLConnection) URI.create(PATH_PREFIX + Util.CONCRETISATION_ENDPOINT + patternAndParam).toURL().openConnection();
 		connection.setRequestMethod("POST");
 		String valueEncoded = URLEncoder.encode(value, "UTF-8");
 		String parameters = "value=" + valueEncoded;
@@ -113,11 +118,10 @@ public class XmlServletUtility {
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ServletUtilities.logError(e);
 		}
-
-		HttpURLConnection connection2 = (HttpURLConnection) new URL(PATH_PREFIX + Util.CONCRETISATION_ENDPOINT + patternAndParam).openConnection();
+		
+		HttpURLConnection connection2 = (HttpURLConnection) URI.create(PATH_PREFIX + Util.CONCRETISATION_ENDPOINT + patternAndParam).toURL().openConnection();
 		connection2.setRequestMethod("GET");
 
 		int responseCode2 = connection2.getResponseCode();
@@ -125,8 +129,8 @@ public class XmlServletUtility {
 
 		String result2 = getResult(connection2);
 		assertEquals(value, result2);
-
-		HttpURLConnection connection3 = (HttpURLConnection) new URL(PATH_PREFIX + Util.CONCRETE_PATTERN_TEXT_ENDPOINT + concretePatternName).openConnection();
+		
+		HttpURLConnection connection3 = (HttpURLConnection) URI.create(PATH_PREFIX + Util.CONCRETE_PATTERN_TEXT_ENDPOINT + concretePatternName).toURL().openConnection();
 		connection3.setRequestMethod("GET");
 
 		int responseCode3 = connection3.getResponseCode();
@@ -149,7 +153,7 @@ public class XmlServletUtility {
 
 	public static void registerDatabase(String localName, String name, String host, String port, String user, String password, int size) throws IOException, MalformedURLException, ProtocolException, JSONException {
 
-		HttpURLConnection connection = (HttpURLConnection) new URL(PATH_PREFIX + Util.DATABASE_REGISTRATION_ENDPOINT + localName).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) URI.create(PATH_PREFIX + Util.DATABASE_REGISTRATION_ENDPOINT + localName).toURL().openConnection();
 		connection.setRequestMethod("POST");
 
 		String hostEncoded = URLEncoder.encode(host, "UTF-8");
@@ -180,7 +184,7 @@ public class XmlServletUtility {
 
 	public static void checkDatabaseListContains(String localName, String name, String host, String port, int size)
 			throws IOException, MalformedURLException, ProtocolException, JSONException {
-		HttpURLConnection connection2 = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.DATABASES_LIST_ENDPOINT).openConnection();
+		HttpURLConnection connection2 = (HttpURLConnection) URI.create(XmlServletUtility.PATH_PREFIX + Util.DATABASES_LIST_ENDPOINT).toURL().openConnection();
 		connection2.setRequestMethod("GET");
 
 		int responseCode2 = connection2.getResponseCode();
@@ -204,7 +208,7 @@ public class XmlServletUtility {
 	}
 
 	public static void deleteDatabase(String localName) throws IOException, JSONException {
-		HttpURLConnection connection = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.DATABASE_DELETION_ENDPOINT + localName).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) URI.create(XmlServletUtility.PATH_PREFIX + Util.DATABASE_DELETION_ENDPOINT + localName).toURL().openConnection();
 		connection.setRequestMethod("DELETE");
 		int responseCode = connection.getResponseCode();
 		System.out.println(responseCode);
@@ -216,7 +220,7 @@ public class XmlServletUtility {
 
 	public static void checkDatabaseListDoesNotContain(String localName)
 			throws IOException, MalformedURLException, ProtocolException, JSONException {
-		HttpURLConnection connection2 = (HttpURLConnection) new URL(XmlServletUtility.PATH_PREFIX + Util.DATABASES_LIST_ENDPOINT).openConnection();
+		HttpURLConnection connection2 = (HttpURLConnection) URI.create(XmlServletUtility.PATH_PREFIX + Util.DATABASES_LIST_ENDPOINT).toURL().openConnection();
 		connection2.setRequestMethod("GET");
 
 		int responseCode2 = connection2.getResponseCode();
@@ -233,7 +237,7 @@ public class XmlServletUtility {
 	}
 
 	public static void setDatabase(String localDbName, String patternName1) throws IOException, MalformedURLException, ProtocolException {
-		HttpURLConnection connection = (HttpURLConnection) new URL(PATH_PREFIX + Util.DATABASE_SETTING_ENDPOINT + localDbName + "/" + patternName1).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) URI.create(PATH_PREFIX + Util.DATABASE_SETTING_ENDPOINT + localDbName + "/" + patternName1).toURL().openConnection();
 		connection.setRequestMethod("POST");
 
 		int responseCode = connection.getResponseCode();
