@@ -157,20 +157,20 @@ public class InitialisationServlet extends HttpServlet {
 
 		System.out.println("Files can be found at " + ServletConstants.PATTERN_VOLUME);
 		ServletUtilities.log("Initializing ...");
-		ServletUtilities.log("Environmental Variable FILE_VOLUME:               " + files);
-		ServletUtilities.log("Environmental Variable PATTERN_VOLUME:            " + templates);
-		ServletUtilities.log("Environmental Variable UPLOAD_FOLDER:             " + upload);
-		ServletUtilities.log("Environmental Variable VARIANTS_FOLDER:           " + variants);
-		ServletUtilities.log("Environmental Variable LOGFILE:                   " + logfile);
-		ServletUtilities.log("Environmental Variable SAVEFILE:                  " + savefile);
-		ServletUtilities.log("Environmental Variable LOG_IN_FILE_VOLUME:        " + log_in_files);
-		ServletUtilities.log("Environmental Variable FILL_VALUES:               " + values);
-		ServletUtilities.log("Environmental Variable VARIANTS_TYPE_CONSTRAINT:  " + constraint_variants);
-		ServletUtilities.log("Environmental Variable VARIANTS_TYPE_ANTIPATTERN: " + antipattern_variants);
-		ServletUtilities.log("Environmental Variable OLD_VARIANTS:              " + old_variants);
-		ServletUtilities.log("Environmental Variable OVERRIDE_VARIANTS:         " + override);
-		ServletUtilities.log("Environmental Variable GENERATE_GENERIC:          " + generate_generic);
-		ServletUtilities.log("Environmental Variable VALUE_AS_JSON:             " + value_as_json);
+		ServletUtilities.log("Environmental Variable FILE_VOLUME:               " + ServletConstants.FILE_VOLUME);
+		ServletUtilities.log("Environmental Variable PATTERN_VOLUME:            " + ServletConstants.PATTERN_VOLUME);
+		ServletUtilities.log("Environmental Variable UPLOAD_FOLDER:             " + ServletConstants.UPLOAD_FOLDER);
+		ServletUtilities.log("Environmental Variable VARIANTS_FOLDER:           " + ServletConstants.VARIANTS_FOLDER);
+		ServletUtilities.log("Environmental Variable LOGFILE:                   " + ServletConstants.LOGFILE);
+		ServletUtilities.log("Environmental Variable SAVEFILE:                  " + ServletConstants.SAVEFILE);
+		ServletUtilities.log("Environmental Variable LOG_IN_FILE_VOLUME:        " + ServletConstants.LOG_IN_FILE_VOLUME);
+		ServletUtilities.log("Environmental Variable FILL_VALUES:               " + ServletConstants.FILL_VALUES);
+		ServletUtilities.log("Environmental Variable VARIANTS_TYPE_CONSTRAINT:  " + ServletConstants.VARIANTS_TYPE_CONSTRAINT);
+		ServletUtilities.log("Environmental Variable VARIANTS_TYPE_ANTIPATTERN: " + ServletConstants.VARIANTS_TYPE_ANTIPATTERN);
+		ServletUtilities.log("Environmental Variable OLD_VARIANTS:              " + ServletConstants.OLD_VARIANTS);
+		ServletUtilities.log("Environmental Variable OVERRIDE_VARIANTS:         " + ServletConstants.OVERRIDE_VARIANTS);
+		ServletUtilities.log("Environmental Variable GENERATE_GENERIC:          " + ServletConstants.GENERATE_GENERIC);
+		ServletUtilities.log("Environmental Variable VALUE_AS_JSON:             " + ServletConstants.VALUE_AS_JSON);
 		
 		// CHECK ACCESS TO VOLUMES
 //		checkDirectoryAccess(files, ServletConstants.ENV_FILE_VOLUME);

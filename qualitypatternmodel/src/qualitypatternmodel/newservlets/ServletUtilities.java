@@ -6,6 +6,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -242,8 +245,8 @@ public abstract class ServletUtilities {
 
 	// LOAD SAVE DELETE
 
-	protected static CompletePattern loadConstraint(String technology, String name) throws IOException {
-		String patternpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + name + "." + Constants.EXTENSION;
+	protected static CompletePattern loadConstraint(String technology, String constraintId) throws IOException {
+		String patternpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + constraintId + "." + Constants.EXTENSION;
 		return EMFModelLoad.loadCompletePattern(patternpath);
 	}
 
@@ -372,6 +375,29 @@ public abstract class ServletUtilities {
         response.setCharacterEncoding("UTF-8");
         response.setStatus(responseCode);
         response.getWriter().write(text);
+	}
+	
+	public static void putResponse(HttpServletResponse response, File file, int responseCode, String contentType) throws IOException {
+		
+		if (file == null || !file.exists()) {
+		    response.sendError(HttpServletResponse.SC_NOT_FOUND, "File not found");
+		    return;
+		}
+		
+        response.setStatus(responseCode);
+	    response.setContentType(contentType);
+        response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getName() + "\"");
+        response.setContentLengthLong(file.length());
+
+        try (InputStream in = new FileInputStream(file);
+                OutputStream out = response.getOutputStream()) {
+        	byte[] buffer = new byte[8192];
+            int bytesRead;
+            while ((bytesRead = in.read(buffer)) != -1) {
+            	out.write(buffer, 0, bytesRead);
+            }
+            out.flush();
+        }
 	}
 
 	public static void putResponseError(HttpServletResponse response, Exception error, int responseCode) throws IOException {

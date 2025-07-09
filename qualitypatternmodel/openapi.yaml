@@ -718,6 +718,48 @@ paths:
           description: Internal server error
 
 
+   /constraint/download/{technology}/{constraintID}:
+    description: Download a constraint file
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: constraintID
+        in: path
+        description: identifier of constraint
+        required: true
+        schema:
+          type: string
+
+    get: #?
+      tags:
+        - Constraint
+      summary: Download constraint
+      description: Download a constraint file
+      operationId: download
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/xml:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+
+
    /constraint/mqaf/{technology}/{constraintID}:
     parameters:
       - name: technology

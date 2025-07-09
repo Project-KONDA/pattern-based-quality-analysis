@@ -189,6 +189,18 @@
 		<url-pattern>/constraint/execute/*</url-pattern>
 	</servlet-mapping>
 	
+	<!-- request file download  of a certain constraint
+		/constraint/download/<technology>/<constraintId>
+	-->
+	<servlet>
+		<servlet-name>ConstraintDownloadServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintDownloadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConstraintDownloadServlet</servlet-name>
+		<url-pattern>/constraint/download/*</url-pattern>
+	</servlet-mapping>
+	
 	
 	<!-- 
 	<servlet>

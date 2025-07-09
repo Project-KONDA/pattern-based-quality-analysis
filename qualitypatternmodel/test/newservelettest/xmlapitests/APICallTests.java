@@ -31,6 +31,7 @@ import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.newservlets.ConstraintCopyServlet;
 import qualitypatternmodel.newservlets.ConstraintDataModelServlet;
 import qualitypatternmodel.newservlets.ConstraintDatabaseServlet;
+import qualitypatternmodel.newservlets.ConstraintDownloadServlet;
 import qualitypatternmodel.newservlets.ConstraintExecuteServlet;
 import qualitypatternmodel.newservlets.ConstraintMqafServlet;
 import qualitypatternmodel.newservlets.ConstraintNameServlet;
@@ -78,6 +79,8 @@ public class APICallTests {
 
 			testTemplateVariantServletGet();
 			testTemplateVariantServletPutDelete();
+			
+			testConstraintDownloadServletGet();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -671,5 +674,17 @@ public class APICallTests {
 		TemplateVariantServlet.applyDelete("/xml/Card_xml", params1);
 		variant = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
 		assertVariantObjectWithout(variant, variantname);
+	}
+	
+	@Test
+	public void testConstraintDownloadServletGet() 
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraintID = newConstraint("Card_xml", "default-constraint");
+		File file = ConstraintDownloadServlet.applyGet("/xml/" + constraintID, getEmptyParams());
+		assert(file != null);
+		assert(file.isFile());
+		assert(file.length() > 10);
+		assert(file.getName().equals(constraintID + ".patternstructure"));
+		deleteConstraint(constraintID);
 	}
 }
