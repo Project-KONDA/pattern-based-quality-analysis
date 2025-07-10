@@ -760,6 +760,39 @@ paths:
           description: Internal server error
 
 
+   /constraint/upload:
+    post:
+       tags:
+         - Constraint
+       summary: Upload constraint file
+       description: Upload an XML constraint file (with .constraint extension)
+       operationId: uploadConstraint
+       requestBody:
+          required: true
+          content:
+            multipart/form-data:
+              schema:
+                type: object
+                properties:
+                  file:
+                    type: string
+                    format: binary
+                    description: XML constraint file (.constraint)
+       responses:
+        '200':
+          description: File uploaded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pattern'
+        '400':
+          description: Invalid file or bad request
+        '404':
+          description: Not found
+        '500':
+          description: Server error
+
+
    /constraint/mqaf/{technology}/{constraintID}:
     parameters:
       - name: technology

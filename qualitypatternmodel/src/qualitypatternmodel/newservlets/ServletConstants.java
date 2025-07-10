@@ -16,6 +16,11 @@ public class ServletConstants {
 	public static String UPLOAD_FOLDER_DEFAULT =  "/files/uploads";
 	public static String UPLOAD_FOLDER =  "/files/uploads";
 	public static String ENV_UPLOAD_FOLDER = "UPLOAD_FOLDER";
+	
+	// path to file upload folder
+	public static String CONSTRAINT_UPLOAD_FOLDER_DEFAULT =  "/templates/uploads";
+	public static String CONSTRAINT_UPLOAD_FOLDER =  "/templates/uploads";
+	public static String ENV_CONSTRAINT_UPLOAD_FOLDER = "UPLOAD_FOLDER";
 
 	// path to template volume 
 	public static String VARIANTS_FOLDER_DEFAULT =  "/templates/variants";

@@ -96,10 +96,15 @@ public class InitialisationServlet extends HttpServlet {
 			ServletConstants.FILE_VOLUME = scon.getRealPath(ServletConstants.FILE_VOLUME_DEFAULT);
 //	      TEMPLATE_VOLUME: /templates
 		String templates = System.getenv().get(ServletConstants.ENV_PATTERN_VOLUME);
-		if (templates != null)
+		if (templates != null) {
 			ServletConstants.PATTERN_VOLUME = templates;
-		else 
+			ServletConstants.CONSTRAINT_UPLOAD_FOLDER = templates + "/uploads";
+		}	
+		else {
 			ServletConstants.PATTERN_VOLUME = scon.getRealPath(ServletConstants.PATTERN_VOLUME_DEFAULT);
+			ServletConstants.CONSTRAINT_UPLOAD_FOLDER = scon.getRealPath(ServletConstants.PATTERN_VOLUME_DEFAULT) + "/uploads";
+			
+		}
 //	      UPLOAD_FOLDER: /shared/uploads
 		String upload = System.getenv().get(ServletConstants.ENV_UPLOAD_FOLDER);
 		if (upload != null)

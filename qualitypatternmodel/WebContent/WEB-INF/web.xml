@@ -201,6 +201,18 @@
 		<url-pattern>/constraint/download/*</url-pattern>
 	</servlet-mapping>
 	
+	<!-- upload constraint
+		/constraint/upload {file}
+	-->
+	<servlet>
+		<servlet-name>ConstraintUploadServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.ConstraintUploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConstraintUploadServlet</servlet-name>
+		<url-pattern>/constraint/upload</url-pattern>
+	</servlet-mapping>
+	
 	
 	<!-- 
 	<servlet>
