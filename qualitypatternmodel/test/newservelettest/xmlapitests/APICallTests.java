@@ -31,12 +31,14 @@ import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.newservlets.ConstraintCopyServlet;
 import qualitypatternmodel.newservlets.ConstraintDataModelServlet;
 import qualitypatternmodel.newservlets.ConstraintDatabaseServlet;
+import qualitypatternmodel.newservlets.ConstraintDownloadServlet;
 import qualitypatternmodel.newservlets.ConstraintExecuteServlet;
 import qualitypatternmodel.newservlets.ConstraintMqafServlet;
 import qualitypatternmodel.newservlets.ConstraintNameServlet;
 import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 import qualitypatternmodel.newservlets.ConstraintServlet;
 import qualitypatternmodel.newservlets.ConstraintTagServlet;
+import qualitypatternmodel.newservlets.ConstraintUploadServlet;
 import qualitypatternmodel.newservlets.DocumentationServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.PatternListServlet;
@@ -78,6 +80,9 @@ public class APICallTests {
 
 			testTemplateVariantServletGet();
 			testTemplateVariantServletPutDelete();
+
+			testConstraintDownloadServletGet();
+			testConstraintUploadServletPost();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -671,5 +676,29 @@ public class APICallTests {
 		TemplateVariantServlet.applyDelete("/xml/Card_xml", params1);
 		variant = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
 		assertVariantObjectWithout(variant, variantname);
+	}
+	
+	@Test
+	public void testConstraintDownloadServletGet() 
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraintID = newConstraint("Card_xml", "default-constraint");
+		File file = ConstraintDownloadServlet.applyGet("/xml/" + constraintID, getEmptyParams());
+		assert(file != null);
+		assert(file.isFile());
+		assert(file.length() > 10);
+		assert(file.getName().equals(constraintID + ".patternstructure"));
+		deleteConstraint(constraintID);
+	}
+	
+	@Test
+	public void testConstraintUploadServletPost() 
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraintID = newConstraint("Card_xml", "default-constraint");
+		File file = ConstraintDownloadServlet.applyGet("/xml/" + constraintID, getEmptyParams());
+		JSONObject object = ConstraintUploadServlet.applyPost(null, getEmptyParams(), file);
+		assertPatternJSONObject(object);
+		String constraintIDnew = object.getString("constraintID");
+		deleteConstraint(constraintID);
+		deleteConstraint(constraintIDnew);
 	}
 }
