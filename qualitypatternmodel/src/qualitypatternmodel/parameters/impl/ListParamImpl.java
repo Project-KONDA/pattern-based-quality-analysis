@@ -120,7 +120,8 @@ public abstract class ListParamImpl extends ParameterValueImpl implements ListPa
 			if (i!=0) {
 				res += ", ";
 			}
-			res += "'" + getValues().get(i) + "'";
+			String val = getValues().get(i).replace("'", "''");
+			res += "'" + val + "'";
 		}
 		return res + ")";
 	}
