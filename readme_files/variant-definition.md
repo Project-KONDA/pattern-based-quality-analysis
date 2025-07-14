@@ -13,7 +13,7 @@ This sentence is split into fragments: TextFragments and ParameterFragments (Gap
 The fragments and the predefined parameters need to be translated into the corresponding JSON structure. For further information see [Variant Header](#variant-header) and [Fragment Types](#fragment-types).
 
 ### Load JSON into QPM
-If the JSON is created, there are two options for loading the JSON into QPM, either 
+If the JSON is created, there are two options for loading the JSON into QPM, either permanently before startup (or before restart), or temporarily at runtime.
 
 ### Before Startup
 During the startup of QPM, variants are automatically loaded into the QPM-service, if they are in the variants folder, specified by the environmental variable `VARIANTS_FOLDER`. Note, that the environmental variable `VALUE_AS_JSON` must be set.

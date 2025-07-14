@@ -13,7 +13,7 @@ This approach is based on the observation of a dynamic digitalisation (resulting
 The approach is described in detail in the research paper "[Detecting Quality Problems in Research Data: A Model-Driven Approach](https://dl.acm.org/doi/10.1145/3365438.3410987)", published in the [proceedings](https://dl.acm.org/doi/proceedings/10.1145/3417990) of the conference "[MODELS2020](https://conf.researchr.org/home/models-2020)".
 
 
-![Component Diagram](readme_images/component_diagram.png)
+![Component Diagram](readme_files/component_diagram.png)
 
 
 This diagram gives an overview of the components and their interfaces.
@@ -100,12 +100,12 @@ In the following we will present visualizations of the concrete patterns and cor
 
 
 ### COMP Pattern
-![COMP](readme_images/COMP_generic.png)
+![COMP](readme_files/COMP_generic.png)
 
 The depicted example pattern is a generic pattern for detecting simple interval violations.
 It searches for `Element0`s (identified via a `Property0`) that are related to an `Element1` (identified via a `Property1`), whose `Property2` is outside a specific range.
 
-![COMP](readme_images/COMP_concrete.png)
+![COMP](readme_files/COMP_concrete.png)
 
 ```xml
 <demo:architect demo:id="301">
@@ -126,7 +126,7 @@ They are selected if they contain an XML element with the name ```demo:birthyear
 
 
 ### CARD Pattern
-![CARD](readme_images/CARD_concrete.png)
+![CARD](readme_files/CARD_concrete.png)
 
 ```xml
 <demo:artist demo:id="402">
@@ -144,7 +144,7 @@ For each ```demo:artist``` element, it checks whether the inner pattern matches 
 
 
 ### FUNC Pattern
-![FUNC](readme_images/FUNC_concrete.png)
+![FUNC](readme_files/FUNC_concrete.png)
 
 ```xml
 <demo:building demo:id="101">
@@ -176,8 +176,8 @@ As the graph shows, the pattern detects ```demo:building``` elements that contai
 
 This work emerged from the research project "[KONDA](https://zenodo.org/communities/konda-project)" 
 and was continued in the the research project "[AQinDa]()".
-![KONDA](readme_images/konda_logo.jpg)
-![AQinDa](readme_images/aqinda_logo.jpg)
+![KONDA](readme_files/konda_logo.jpg)
+![AQinDa](readme_files/aqinda_logo.png)
 
 
 
