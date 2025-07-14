@@ -38,4 +38,5 @@ public class ConstantsError {
 	public static final String INVALID_OPTION = "invalid option";
 	public static final String INVALID_TAG = "invalid tag";
 	public static final String INVALID_NAMESPACE_PREFIX = "Invalid namespace prefix defined. prefixes must match [a-zA-Z]+. Special case is the default namespace, that is defined via an empty key value.";
+	public static final String INVALID_VARIANT_ID = "Invalid variant ID defined. Variant IDs must " + Constants.ID_REGEX + ".";
 }
