@@ -219,8 +219,7 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 					p.setValueFromString(value);
 				}
 			} catch (Exception e) {
-				e.printStackTrace();
-				throw new InvalidityException("Predefined value '" + getValue() + "' has wrong type");
+				throw new InvalidityException("Predefined value '" + getValue() + "' has wrong type", e);
 			}
 		}
 	}
@@ -234,7 +233,7 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 	public JSONObject generateVariantJSONObject() {
 		JSONArray params = new JSONArray();
 		try {
-			EList<Parameter> allParams = getParameter().get(0).getAllParameters();
+			EList<Parameter> allParams = getParameter().get(0).getParameterList().getParameters();
 //			EList<Parameter> allParams = getPatternText().getPattern().getParameterList().getParameters();
 			for (Parameter pa: getParameter()) {
 				int index = allParams.indexOf(pa);
@@ -242,7 +241,9 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 					params.put(index);
 				}
 			}
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		JSONObject result = new JSONObject();
 		try {
