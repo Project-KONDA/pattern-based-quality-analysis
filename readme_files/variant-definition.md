@@ -8,7 +8,7 @@ Variants are specified using a specific JSON format.
 ## How-To Guide
 
 ### Create new Variant JSON
-To create a new variant for a template, first the sentence needs to be formulated. All parameters of a template must either occur in the sentence or be 
+To create a new variant for a template, first the sentence needs to be formulated. All parameters of a template must either occur in the sentence or be [... something missing...]
 This sentence is split into fragments: TextFragments and ParameterFragments (Gaps). 
 The fragments and the predefined parameters need to be translated into the corresponding JSON structure. For further information see [Variant Header](#variant-header) and [Fragment Types](#fragment-types).
 
@@ -30,14 +30,14 @@ At runtime, if the API of QPM is accessible, variants can also be deleted via th
 ```curl
 curl --location --request DELETE 'http://<server>:<port>/template/variant/<technology>/<templateID>?variants=<variantsID>
 ```
-Note: If the JSON-file of the variant remains in the folder, and the environmental variable `VALUE_AS_JSON` is set as true, deleted variants will be recreated on a restart of QPM.
+Note: If the JSON-file of the variant remains in the folder and the environmental variable `VALUE_AS_JSON` is set as true, deleted variants will be recreated on a restart of QPM.
 
 ### Change an existing Variant
 To change an existing variant, first find the corresponding JSON either in the variants folder (see [Load JSON into QPM](#before-startup)) or per cURL request (see [Template Parameters](#template-parameters).
 Modify the JSON to your liking and load it into the application (see [Load JSON into QPM](#load-json-into-qpm).
 
 ### Create new Templates
-Currently, we offer no option to create new templates. Please report template-requests to the AQinDa team or create a [new issue](https://github.com/Project-KONDA/pattern-based-quality-analysis/issues). If possible, suggest a formulation as a constraint sentence.
+Currently, we offer no option to create new templates. [-------> EXPLAIN WHY NOT...] Please report template-requests to the AQinDa team or create a [new issue](https://github.com/Project-KONDA/pattern-based-quality-analysis/issues). If possible, suggest a formulation as a constraint sentence. 
 
 ## Templates
 QPM by default provides a set of templates, each with at least one variant.
@@ -50,7 +50,7 @@ Each template comes with a fixed set of parameters. A variant must put all param
 A variant provides a sentence to explain the quality analysis and maps all template-parameters to the gaps in the sentence.
 
 ### Parameter Types
-The available parameter Types are:
+The available parameter types are:
 `Text` (any String), `RegEx` (a regular expression for string-matching), `TextList` (a list of strings),  `Number`, `Boolean` (true or false), `Date`, `Time`, `DateTime`, `Enumeration` (limited list of specific options), `ComparisonOption` (equals, greater than, …)
 There are some technology-specific parameters, namely:
 - for XML: `XmlPath_Element`, `XmlPath_Property`
@@ -62,7 +62,7 @@ A list of all parameters and the existing variants of a template can be requeste
 ```curl
 curl --location --request GET 'http://<server>:<port>/template/variant/<technology>/<templateID>
 ```
-This request also returns a list of currently existing variants in the variants definition schema in the `variants` array.
+This request also returns a list of currently existing variants in the variants definition schema within the `variants` array.
 It always includes a section listing all available parameters with ID and type:
 For the technology `xml` and the templateId `Match_xml`, this call returns:
 ```json
@@ -79,7 +79,7 @@ For the technology `xml` and the templateId `Match_xml`, this call returns:
 Thus, the template `Match_xml` contains 4 parameters of type Boolean, Text, XmlPath_Element and XmlPath_Property.
 
 ## Variant Header
-To start the definition of a new variant, we create json file with the following structure:
+To start the definition of a new variant, we create a json file with the following structure:
 ```json
 {
     "template": "<templateId>",
@@ -92,8 +92,8 @@ To start the definition of a new variant, we create json file with the following
 - **template**: The definition starts with the ID of the template, which we want to extend, for example `Match_xml`.
 - **technology**: Here, we specify which technology this template is associated with. Currently, we support `xml`, `rdf` and `neo4j`.
 - **name**: This name builds an internal ID of the variant. It must be unique within a template and is only allowed to contain letters (`a-zA-Z`), digits (`0-9`), underscores (`_`) and hyphens (`-`).
-- **typeConstraint**: This is an optional parameter that indicates whether the variant is formulated as a constraint (true) or as antipattern (false). A constraint defines a condition that shall be followed (“X must apply”). Meanwhile, an antipattern defines the search process for issues (“Search, where X does not apply”). The underlying analysis of QPM is based on antipatterns. Therefore, the formulation as constraint requires an additional negation, which must be realized via the variants. This value of the typeConstraint-parameter has no influence on the analysis or in the UI.
-- **fragments**: This parameter contains an ordered list of fragments in the Form of a JSON Array. Here, the text parts and the parameter gaps are specified in the order, in which they will appear in the UI. Each fragment is represented as a single JSON Object.
+- **typeConstraint**: This is an optional parameter that indicates whether the variant is formulated as a constraint (true) or as antipattern (false). A constraint defines a condition that shall be followed (“X must apply”). Meanwhile, an antipattern defines the search process for issues (“Search, where X does not apply”). The underlying analysis of QPM is based on antipatterns. Therefore, the formulation as constraint requires an additional negation, which must be realized via the variants. This value of the typeConstraint-parameter has no influence on the analysis or in the UI. [-------> A BIT DIFFICULT TO UNDERSTAND]
+- **fragments**: This parameter contains an ordered list of fragments in the form of a JSON Array. Here, the text parts and the parameter gaps are specified in the order, in which they will appear in the UI. Each fragment is represented as a single JSON Object.
 
 ## Fragment types
 A variant is built as a text with gaps. As such, the text must be split into fragments. For this, the order of fragments specified in the JSON file is important.
@@ -214,7 +214,7 @@ The variant specification looks as follows:
         {"text":"For each"},
         {
             "name":"element",
-            "params":[2],
+            "params":[2],                            
             "exampleValue":"Actors",
             "description":"anchor for analysis"
         },
