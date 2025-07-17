@@ -57,10 +57,12 @@ import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 
@@ -925,7 +927,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 
 	// XmlPathParam helper functions
 	// get Param IDs of source params for relative paths
-	private HashSet<String> getSourceParamIDs(EList<Parameter> parameters){
+	private HashSet<String> getSourceParamIDs(EList<Parameter> parameters) {
+		// get all XmlNavigations that use the parameters
 		EList<XmlNavigation> navs = new BasicEList<XmlNavigation>();
 		for (Parameter p: parameters) {
 			if (p instanceof XmlPathParam) {
@@ -933,6 +936,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}
 		}
 
+		// get all sourcenodes of the XmlNavigations
 		EList<Node> nodes = new BasicEList<Node>();
 		for (XmlNavigation nav: navs) {
 			if (nav.getSource() instanceof XmlNode) {
@@ -940,6 +944,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}
 		}
 
+		// get all XmlNavigation, that are be source-XmlNavigations
 		EList<XmlNavigation> sourcenavs = new BasicEList<XmlNavigation>();
 		for (Node node: nodes) {
 			for (Relation r: node.getIncoming()) {
@@ -949,6 +954,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}
 		}
 
+		// get the parameters of the source-XmlNavigations
 		EList<XmlPathParam> sourceparams = new BasicEList<XmlPathParam>();
 		for (XmlNavigation sn: sourcenavs) {
 			if (sn.getXmlPathParam() != null) {
@@ -956,6 +962,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}
 		}
 
+		// get the fragments that use the source-parameters 
 		EList<ParameterReference> sourcefrags = new BasicEList<ParameterReference>();
 		for (XmlPathParam sp: sourceparams) {
 			if (sp.getParameterReferences() != null) {
@@ -963,7 +970,18 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}
 		}
 
+		// get the IDs of the source-fragments
 		HashSet<String> sourcefragids = new HashSet<String>();
+		for (ParameterReference sourcefrag: sourcefrags) {
+			if (sourcefrag instanceof ParameterPredefinition) {
+				ParameterPredefinition predef = (ParameterPredefinition) sourcefrag;
+				if (predef.getValue().equals("/self::*")) {
+					sourcefragids.addAll(getSourceParamIDs(predef.getParameter()));
+				} else {
+					new InvalidityException(ConstantsError.INVALID_VARIANT_PREDEFINITION).printStackTrace();
+				}
+			}
+		}
 		for (ParameterReference sourcefrag: sourcefrags) {
 			if (sourcefrag instanceof ParameterFragment) {
 				sourcefragids.add(((ParameterFragment)sourcefrag).getId());

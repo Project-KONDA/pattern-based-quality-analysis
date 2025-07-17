@@ -278,9 +278,9 @@ public class InitialisationServlet extends HttpServlet {
         }
 	}
 
-	private static void initializeVariants(String variants) {
-		ArrayList<File> jsonFiles = getAllJSONFilesInFolder(new File(variants));
-		ServletUtilities.log("Found " + jsonFiles.size() + " JSON files to specify variants in: " + variants);
+	private static void initializeVariants(String variantsFolder) {
+		ArrayList<File> jsonFiles = getAllJSONFilesInFolder(new File(variantsFolder));
+		ServletUtilities.log("Found " + jsonFiles.size() + " JSON files to specify variants in: " + variantsFolder);
 		for (File file: jsonFiles) {
 			String path = file.getAbsolutePath();
 			try {
