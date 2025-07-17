@@ -18,10 +18,13 @@
             "exampleValue":"Birth Certificate Source",
             "description":"property of interest,that should contain a valid link."
         },
-        {"text":"is not valid?"},
         {
+            "name":"is / is not",
             "params":[0],
-            "value": "true"
-        }
+            "defaultMap":"is",
+            "exampleValue":"is",
+            "description":"Do you search for elements that contain a valid link (‘is’) or invalid links (‘is not’)?"
+        },
+        {"text":"valid?"}
     ]
 }

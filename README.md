@@ -1,6 +1,6 @@
-# Quality Pattern Model
+# Quality Pattern Model (QPM)
 
-This tool is a proof of concept for a model-driven approach to analyze the quality of research data.
+The tool Quality Pattern Model (QPM) is a proof of concept for a model-driven approach to analyze the quality of research data.
 It supports the specification of anti-patterns for data quality problems.
 These anti-patterns are generic with respect to database technologies and formats.
 Generic patterns can be adapted to several database technologies, resulting in several abstract patterns.
@@ -13,7 +13,7 @@ This approach is based on the observation of a dynamic digitalisation (resulting
 The approach is described in detail in the research paper "[Detecting Quality Problems in Research Data: A Model-Driven Approach](https://dl.acm.org/doi/10.1145/3365438.3410987)", published in the [proceedings](https://dl.acm.org/doi/proceedings/10.1145/3417990) of the conference "[MODELS2020](https://conf.researchr.org/home/models-2020)".
 
 
-![Component Diagram](readme_images/component_diagram.png)
+![Component Diagram](readme_files/component_diagram.png)
 
 
 This diagram gives an overview of the components and their interfaces.
@@ -71,11 +71,21 @@ To install from sources:
 	2. Initialize submodule: "git submodule update --init"
 	3. Import the framework into the Eclipse Workspace via "Import.. > Existing Projects into Workspace"
 
+
+## Variant Definition
+
+The service [Constrainify]( www.gwdg.gitlab.de/aqinda/constrainify) utilizes QPM as backend for the quality analysis.
+The patterns are displayed in the UI as sentences with gaps.
+This variants are defined using JSON files.
+We provide a comprehensive [Guide for Variant Definition](readme_files/variant-definition.md), adapted to Constrainify.
+
+
 ## Tests
 
 Tests concerning the correctness of the translation of concrete patterns are contained in the package ```qualitypatternmodel.test```.
 The tests are splitted into translation tests, where all components are validated by system tests with artificial patterns, and evaluation tests, that contain patterns, that can be applied to real databases.
 Such tests are done for all supported database technologies, namely XML, RDF and Neo4j.
+
 
 ## Examples
 
@@ -100,12 +110,13 @@ In the following we will present visualizations of the concrete patterns and cor
 
 
 ### COMP Pattern
-![COMP](readme_images/COMP_generic.png)
+
+![COMP](readme_files/COMP_generic.png)
 
 The depicted example pattern is a generic pattern for detecting simple interval violations.
 It searches for `Element0`s (identified via a `Property0`) that are related to an `Element1` (identified via a `Property1`), whose `Property2` is outside a specific range.
 
-![COMP](readme_images/COMP_concrete.png)
+![COMP](readme_files/COMP_concrete.png)
 
 ```xml
 <demo:architect demo:id="301">
@@ -124,9 +135,9 @@ The depicted concrete pattern searches for XML elements with the name ```demo:ar
 They are selected if they contain an XML element with the name ```demo:birthyear``` that has a data value greater than ```2021```.
 
 
-
 ### CARD Pattern
-![CARD](readme_images/CARD_concrete.png)
+
+![CARD](readme_files/CARD_concrete.png)
 
 ```xml
 <demo:artist demo:id="402">
@@ -142,9 +153,9 @@ The concrete CARD pattern allows detecting this problem.
 For each ```demo:artist``` element, it checks whether the inner pattern matches more than once, thus whether multiple ```demo:birthyear``` elements are contained.
 
 
-
 ### FUNC Pattern
-![FUNC](readme_images/FUNC_concrete.png)
+
+![FUNC](readme_files/FUNC_concrete.png)
 
 ```xml
 <demo:building demo:id="101">
@@ -176,12 +187,10 @@ As the graph shows, the pattern detects ```demo:building``` elements that contai
 
 This work emerged from the research project "[KONDA](https://zenodo.org/communities/konda-project)" 
 and was continued in the the research project "[AQinDa]()".
-![KONDA](readme_images/konda_logo.jpg)
-![AQinDa](readme_images/aqinda_logo.jpg)
-
+![KONDA](readme_files/konda_logo.jpg)
+![AQinDa](readme_files/aqinda_logo.png)
 
 
 ## License
 
 GNU Lesser General Public License v3.0
-

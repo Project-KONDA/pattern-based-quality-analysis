@@ -19,7 +19,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import qualitypatternmodel.adaptionxml.XmlElement;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -27,6 +30,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 /**
@@ -92,14 +96,17 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 
 		String value = json.getString(ConstantsJSON.VALUE);
         JSONArray params = json.getJSONArray(ConstantsJSON.PARAMETER);
+        
         for (int i = 0; i < params.length(); i++) {
             int paramID = params.getInt(i);
-            try {
-            	Parameter p = pattern.getParameterList().getParameters().get(paramID);
-                getParameter().add(p);
-            } catch (Exception e) {
-            	e.printStackTrace();
-            }
+           	Parameter p = pattern.getParameterList().getParameters().get(paramID);
+           	if (p instanceof XmlPathParam && !value.equals("/self::*")) {
+       			Node node = ((XmlPathParam) p).getXmlNavigation().getTarget();
+       			if (node instanceof XmlElement && !((XmlElement) node).getOutgoing().isEmpty()) {
+       				throw new InvalidityException(ConstantsError.INVALID_VARIANT_PREDEFINITION + " for " + params);
+       			}
+           	}
+           	getParameter().add(p);
         }
         setValue(value);
 	}
@@ -219,8 +226,7 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 					p.setValueFromString(value);
 				}
 			} catch (Exception e) {
-				e.printStackTrace();
-				throw new InvalidityException("Predefined value '" + getValue() + "' has wrong type");
+				throw new InvalidityException("Predefined value '" + getValue() + "' has wrong type", e);
 			}
 		}
 	}
@@ -234,7 +240,7 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 	public JSONObject generateVariantJSONObject() {
 		JSONArray params = new JSONArray();
 		try {
-			EList<Parameter> allParams = getParameter().get(0).getAllParameters();
+			EList<Parameter> allParams = getParameter().get(0).getParameterList().getParameters();
 //			EList<Parameter> allParams = getPatternText().getPattern().getParameterList().getParameters();
 			for (Parameter pa: getParameter()) {
 				int index = allParams.indexOf(pa);
@@ -242,7 +248,9 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 					params.put(index);
 				}
 			}
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		JSONObject result = new JSONObject();
 		try {

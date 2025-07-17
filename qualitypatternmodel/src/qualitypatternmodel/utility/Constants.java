@@ -59,6 +59,7 @@ public class Constants {
 	public static final String PARAMETER_TYPE_NEO_NODE_LABEL = "NeoNodeLabel";
 	public static final String PARAMETER_TYPE_NEO_ELEMENT_PATH = "NeoElementPath";
 	public static final String PARAMETER_TYPE_NEO_PROPERTY_PATH = "NeoPropertyPath";
+	public static final String ID_REGEX = "^[a-zA-Z0-9_-]+$";
 
 	/**
 	 * Appends as many closing brackets to <code>str</code> as it contains opening brackets that are not yet closed.

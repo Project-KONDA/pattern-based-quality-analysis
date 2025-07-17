@@ -39,6 +39,7 @@ import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
@@ -158,6 +159,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 
 		// name
 		String name = json.getString("name");
+		if (!name.matches(Constants.ID_REGEX))
+			throw new InvalidityException(ConstantsError.INVALID_VARIANT_ID);
 		this.setName(name);
 		for (PatternText text: pattern.getText()) {
 			if (text.getName().equals(name)) {
@@ -401,7 +404,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		try {
 			result.put(ConstantsJSON.TEMPLATE, getPattern().getPatternId());
 			result.put(ConstantsJSON.NAME, getName());
-			result.put(ConstantsJSON.TECHNOLOGY, getPattern().getLanguage());
+			result.put(ConstantsJSON.TECHNOLOGY, getPattern().getLanguage().getLiteral());
 
 			JSONArray fragments = new JSONArray();
 			for (Fragment fragment: getFragmentsOrdered()) {
