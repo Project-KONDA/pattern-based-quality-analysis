@@ -292,8 +292,9 @@ public class APITemplateTests {
 		String constraintID = APICallTests.newConstraint("InvalidLink_xml", "default-constraint");
 		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
 		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
-		setConstraintParameter(constraintID, "Boolean_2", "is");
+//		setConstraintParameter(constraintID, "Boolean_2", "is");
 
+		System.out.println(ConstraintQueryServlet.applyGet("xml", new String[] {constraintID}));
 		testConcretePattern(constraintID);
 		APICallTests.deleteConstraint(constraintID);
 
@@ -301,7 +302,7 @@ public class APITemplateTests {
 		String constraintID2 = APICallTests.newConstraint("InvalidLink_xml", "question");
 		setConstraintParameter(constraintID2, "XmlPath_Element_0", "//*");
 		setConstraintParameter(constraintID2, "XmlPath_Property_1", "/text()");
-		setConstraintParameter(constraintID2, "Boolean_2", "is");
+//		setConstraintParameter(constraintID2, "Boolean_2", "is");
 
 		testConcretePattern(constraintID2);
 		APICallTests.deleteConstraint(constraintID2);
