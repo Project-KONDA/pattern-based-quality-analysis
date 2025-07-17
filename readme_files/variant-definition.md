@@ -6,41 +6,63 @@ Variants shall be based on a natural sentence, which puts the parameters of a te
 Variants are specified using a specific JSON format.
 
 ## How-To Guide
+This guide provides a quick overview and step-by-step instructions for managing variants in [Constrainify](https://gitlab.gwdg.de/aqinda/constrainify).
+Each **variant** is defined as a JSON file. The variant creation using JSON (see [Variant Creation](#variant-creation) is independent from constrainify.
 
-### Create new Variant JSON
-To create a new variant for a template, first the sentence needs to be formulated. All parameters of a template must either occur in the sentence or be 
-This sentence is split into fragments: TextFragments and ParameterFragments (Gaps). 
-The fragments and the predefined parameters need to be translated into the corresponding JSON structure. For further information see [Variant Header](#variant-header) and [Fragment Types](#fragment-types).
-
-### Load JSON into QPM
-If the JSON is created, there are two options for loading the JSON into QPM, either permanently before startup (or before restart), or temporarily at runtime.
-
-### Before Startup
-During the startup of QPM, variants are automatically loaded into the QPM-service, if they are in the variants folder, specified by the environmental variable `VARIANTS_FOLDER`. Note, that the environmental variable `VALUE_AS_JSON` must be set.
-In [Constrainify](https://gitlab.gwdg.de/aqinda/constrainify), these JSONs need to be in the folder `configuration\templates` before starting the application. If the service already runs, the application needs to be restarted to locate the variant.
-### At Runtime
-If the API of QPM is accessible, variants can also be loaded mid-runtime via the API call:
-```curl
-curl --location --request PUT 'http://<server>:<port>/template/variant/<technology>/<templateID>?variants=<url-encoded-json>
-```
-Note: If the environmental variable `OVERRIDE_VARIANTS` is set as true, variants created this way will be removed after a restart of QPM.
+### Create a New Variant
+1. **Navigate to the Variants Directory**  
+  - In the Constrainify files, go to `/configuration/variants` where all variants are stored as JSON files.
+2. **Create a new JSON file**
+  - Create a new file with any name directly in the folder `/configuration/variants` or any subfolder.
+  - Define the variant header (see [Variant Header](#variant-header).
+  - Define the fragments as variant body (see [Variant Body](#variant-body).
+3. **Ensure the Following**:
+  - The name is unique across all variants of the same template
+  - The target sentence is correctly depicted via fragments.
+  - All parameters of the template are referenced exactly once, either as parameter-fragment or as parameter-predefinition.
+5. **Apply Changes**  
+  - Restart **Constrainify** to apply the changes: In the terminal navigate to the constrainify repository and execute:  `docker-compose up --force-recreate`
 
 ### Delete Variant
-At runtime, if the API of QPM is accessible, variants can also be deleted via the API call:
-```curl
-curl --location --request DELETE 'http://<server>:<port>/template/variant/<technology>/<templateID>?variants=<variantsID>
-```
-Note: If the JSON-file of the variant remains in the folder, and the environmental variable `VALUE_AS_JSON` is set as true, deleted variants will be recreated on a restart of QPM.
+1. **Navigate to the Variants Directory**  
+  - Go to `/configuration/variants` where all variants are stored as JSON files.
+2. **Locate and delete the Variant File**
+3. **Apply Changes**  
+  - Ensure, that the environmental variable `OVERRIDE_VARIANTS` in the docker-compose.yaml file is set as true.
+  - Restart **Constrainify** to apply the changes.
 
 ### Change an existing Variant
-To change an existing variant, first find the corresponding JSON either in the variants folder (see [Load JSON into QPM](#before-startup)) or per cURL request (see [Template Parameters](#template-parameters).
-Modify the JSON to your liking and load it into the application (see [Load JSON into QPM](#load-json-into-qpm).
+1. **Navigate to the Variants Directory**  
+  - Go to `/configuration/variants` where all variants are stored as JSON files.
+2. **Locate and modify the Variant File**
+  - optionally make a backup copy of the file first
+  - examples for changes include: 
+    - restructure the sentence by reordering fragments or adapting text fragments
+    - reducing the input options by adding a map 
+    - predefining a parameter with a fixed value
+3. **Apply Changes**  
+  - Ensure, that the environmental variable `OVERRIDE_VARIANTS` in the docker-compose.yaml file is set as true.
+  - Restart **Constrainify** to apply the changes.
 
-### Create new Templates
+### Create new Template
 Currently, we offer no option to create new templates. Please report template-requests to the AQinDa team or create a [new issue](https://github.com/Project-KONDA/pattern-based-quality-analysis/issues). If possible, suggest a formulation as a constraint sentence.
 
 ## Templates
-QPM by default provides a set of templates, each with at least one variant.
+QPM currently supports three technologies, namely XML, RDF and Neo4j. Constrainify currently only supports XML.
+For each technology, QPM by default provides a set of templates, each with at least one specified default-variant.
+The list of templates can be requested from QPM using the following API call:
+```curl
+curl --location --request GET 'http://<server>:<port>/pattern/list/<technology>/template
+```
+This returns the following JSON:
+```json
+{
+    "total": 9,
+    "templates": [ ... ],
+    "ids": [ … ]
+}
+```
+The IDs of the currently available templates are the following:
 - **xml**: `MandAtt_xml`, `CompSet_xml`, `Match_xml`, `Card_xml`, `InvalidLink_xml`, `StringLength_xml`, `Contains_xml`, `Unique_xml`, `MandCont_xml`
 - **rdf**: `StringLength_rdf`, `Unique_rdf`, `Match_rdf`, `MandAtt_rdf`, `Card_rdf`, `Contains_rdf`, `CompSet_rdf`
 - **neo4j**: `Card_neo4j`, `Contains_neo4j`, `Match_neo4j`, `Unique_neo4j`, `CompSet_neo4j`, `MandAtt_neo4j`, `StringLength_neo4j`
@@ -49,36 +71,7 @@ QPM by default provides a set of templates, each with at least one variant.
 Each template comes with a fixed set of parameters. A variant must put all parameters of a parameter in context. Therefore, each parameter must be included exactly once in the specification of a variant. 
 A variant provides a sentence to explain the quality analysis and maps all template-parameters to the gaps in the sentence.
 
-### Parameter Types
-The available parameter Types are:
-`Text` (any String), `RegEx` (a regular expression for string-matching), `TextList` (a list of strings),  `Number`, `Boolean` (true or false), `Date`, `Time`, `DateTime`, `Enumeration` (limited list of specific options), `ComparisonOption` (equals, greater than, …)
-There are some technology-specific parameters, namely:
-- for XML: `XmlPath_Element`, `XmlPath_Property`
-- for RDF: `RdfPath`, `IriList`
-- for NEO4J: `NeoNodeLabel`, `NeoElementPath`, `NeoPropertyPath`
-
-### Template Parameters
-A list of all parameters and the existing variants of a template can be requested using the API call: 
-```curl
-curl --location --request GET 'http://<server>:<port>/template/variant/<technology>/<templateID>
-```
-This request also returns a list of currently existing variants in the variants definition schema in the `variants` array.
-It always includes a section listing all available parameters with ID and type:
-For the technology `xml` and the templateId `Match_xml`, this call returns:
-```json
-{
-    "variants": [ ]
-    "params": {
-        "0": "Boolean",
-        "1": "Text",
-        "2": "XmlPath_Element",
-        "3": "XmlPath_Property"
-    }
-}
-```
-Thus, the template `Match_xml` contains 4 parameters of type Boolean, Text, XmlPath_Element and XmlPath_Property.
-
-## Variant Header
+### Variant Header
 To start the definition of a new variant, we create json file with the following structure:
 ```json
 {
@@ -95,8 +88,38 @@ To start the definition of a new variant, we create json file with the following
 - **typeConstraint**: This is an optional parameter that indicates whether the variant is formulated as a constraint (true) or as antipattern (false). A constraint defines a condition that shall be followed (“X must apply”). Meanwhile, an antipattern defines the search process for issues (“Search, where X does not apply”). The underlying analysis of QPM is based on antipatterns. Therefore, the formulation as constraint requires an additional negation, which must be realized via the variants. This value of the typeConstraint-parameter has no influence on the analysis or in the UI.
 - **fragments**: This parameter contains an ordered list of fragments in the Form of a JSON Array. Here, the text parts and the parameter gaps are specified in the order, in which they will appear in the UI. Each fragment is represented as a single JSON Object.
 
-## Fragment types
-A variant is built as a text with gaps. As such, the text must be split into fragments. For this, the order of fragments specified in the JSON file is important.
+### Parameter Types
+The available parameter Types are:
+`Text` (any String), `RegEx` (a regular expression for string-matching), `TextList` (a list of strings),  `Number`, `Boolean` (true or false), `Date`, `Time`, `DateTime`, `Enumeration` (limited list of specific options), `ComparisonOption` (equals, greater than, …)
+There are some technology-specific parameters, namely:
+- **XML**: `XmlPath_Element`, `XmlPath_Property`
+- **RDF** `RdfPath`, `IriList`
+- **Neo4j**: `NeoNodeLabel`, `NeoElementPath`, `NeoPropertyPath`
+
+### Available Parameters
+A list of all parameters of a template can be requested using the API call of QPM:
+```curl
+curl --location --request GET 'http://<server>:<port>/template/variant/<technology>/<templateID>
+```
+This request also returns a list of currently existing variants in the variants definition schema in the `variants` array.
+It always includes a section listing the parameters of the template with ID and type. All parameters **must** occur in each valid variant exactly once.
+For the technology `xml` and the templateId `Match_xml`, this call returns:
+```json
+{
+    "variants": [ ]
+    "params": {
+        "0": "Boolean",
+        "1": "Text",
+        "2": "XmlPath_Element",
+        "3": "XmlPath_Property"
+    }
+}
+```
+Thus, the template `Match_xml` contains 4 parameters of type Boolean, Text, XmlPath_Element and XmlPath_Property.
+This call additionally returns a list of all currently available variants in the variants-array.
+
+## Variant Body
+The variant body specifies the variant-sentence with its parameters-gaps. As such, the sentence is split into fragments. Each fragment is represented as one JSON Object. The order of fragments specified in the JSON file is important.
 
 ### Text Fragment
 Text Fragments specify parts of the sentence that are displayed before, between or after parameters. 

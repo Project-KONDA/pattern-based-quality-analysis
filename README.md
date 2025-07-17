@@ -1,6 +1,6 @@
-# Quality Pattern Model
+# Quality Pattern Model (QPM)
 
-This tool is a proof of concept for a model-driven approach to analyze the quality of research data.
+The tool Quality Pattern Model (QPM) is a proof of concept for a model-driven approach to analyze the quality of research data.
 It supports the specification of anti-patterns for data quality problems.
 These anti-patterns are generic with respect to database technologies and formats.
 Generic patterns can be adapted to several database technologies, resulting in several abstract patterns.
@@ -71,11 +71,21 @@ To install from sources:
 	2. Initialize submodule: "git submodule update --init"
 	3. Import the framework into the Eclipse Workspace via "Import.. > Existing Projects into Workspace"
 
+
+## Variant Definition
+
+The service [Constrainify]( www.gwdg.gitlab.de/aqinda/constrainify) utilizes QPM as backend for the quality analysis.
+The patterns are displayed in the UI as sentences with gaps.
+This variants are defined using JSON files.
+We provide a comprehensive [Guide for Variant Definition](readme_files/variant-definition.md), adapted to Constrainify.
+
+
 ## Tests
 
 Tests concerning the correctness of the translation of concrete patterns are contained in the package ```qualitypatternmodel.test```.
 The tests are splitted into translation tests, where all components are validated by system tests with artificial patterns, and evaluation tests, that contain patterns, that can be applied to real databases.
 Such tests are done for all supported database technologies, namely XML, RDF and Neo4j.
+
 
 ## Examples
 
@@ -100,6 +110,7 @@ In the following we will present visualizations of the concrete patterns and cor
 
 
 ### COMP Pattern
+
 ![COMP](readme_files/COMP_generic.png)
 
 The depicted example pattern is a generic pattern for detecting simple interval violations.
@@ -124,8 +135,8 @@ The depicted concrete pattern searches for XML elements with the name ```demo:ar
 They are selected if they contain an XML element with the name ```demo:birthyear``` that has a data value greater than ```2021```.
 
 
-
 ### CARD Pattern
+
 ![CARD](readme_files/CARD_concrete.png)
 
 ```xml
@@ -142,8 +153,8 @@ The concrete CARD pattern allows detecting this problem.
 For each ```demo:artist``` element, it checks whether the inner pattern matches more than once, thus whether multiple ```demo:birthyear``` elements are contained.
 
 
-
 ### FUNC Pattern
+
 ![FUNC](readme_files/FUNC_concrete.png)
 
 ```xml
@@ -180,8 +191,6 @@ and was continued in the the research project "[AQinDa]()".
 ![AQinDa](readme_files/aqinda_logo.png)
 
 
-
 ## License
 
 GNU Lesser General Public License v3.0
-
