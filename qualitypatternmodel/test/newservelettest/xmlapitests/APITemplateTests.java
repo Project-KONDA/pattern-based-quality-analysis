@@ -112,7 +112,7 @@ public class APITemplateTests {
 			object.put("size", obj.getJSONArray("variants").length());
 			store.put(obj.getString("constraintID"), object);
 		}
-		System.out.println(store);
+//		System.out.println(store);
 	}
 
 	@AfterAll
@@ -294,7 +294,6 @@ public class APITemplateTests {
 		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
 //		setConstraintParameter(constraintID, "Boolean_2", "is");
 
-		System.out.println(ConstraintQueryServlet.applyGet("xml", new String[] {constraintID}));
 		testConcretePattern(constraintID);
 		APICallTests.deleteConstraint(constraintID);
 
