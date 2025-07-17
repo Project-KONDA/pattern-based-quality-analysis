@@ -1,7 +1,7 @@
 {
     "template":"Card_xml",
     "language":"xml",
-    "name":"question_simple",
+    "name":"question",
 	"typeConstraint":false,
     "fragments":[
         {"text":"Is there a"},
@@ -11,14 +11,17 @@
             "exampleValue":"Actors",
             "description":"anchor for analysis"
         },
-        {"text":"with more than one"},
+        {"text":"that has"},
         {
+            "name":"compared to",
             "params":[0],
-            "value":"GREATER"
+            "exampleValue":"more than",
+            "defaultMap":"comparison"
         },
         {
+            "name":"a specific number",
             "params":[1],
-            "value":"1"
+            "exampleValue":1
         },
         {
             "name":"child elements",

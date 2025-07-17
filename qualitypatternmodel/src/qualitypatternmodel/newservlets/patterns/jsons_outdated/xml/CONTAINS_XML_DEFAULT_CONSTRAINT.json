@@ -1,0 +1,36 @@
+{
+    "template":"Contains_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+    "fragments":[
+        {"text":"For"},
+        {
+            "name":"elements",
+            "params":[2],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis",
+            "plural":"true"
+        },
+        {"text":", each"},
+        {
+            "name":"property",
+            "params":[3],
+            "exampleValue":"Education",
+            "description":"analysed property"
+        },
+        {
+            "name":"does / does not",
+            "params":[0],
+            "defaultMap":"does not",
+            "exampleValue":"does"
+        },
+        {"text":"contain"},
+        {
+            "name":"a specific term",
+            "params":[1],
+            "exampleValue":"Master of"
+        },
+        {"text":"."}
+    ]
+}

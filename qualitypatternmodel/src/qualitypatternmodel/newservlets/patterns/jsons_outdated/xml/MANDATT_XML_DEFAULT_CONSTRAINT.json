@@ -1,0 +1,23 @@
+{
+    "template":"MandAtt_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"element",
+            "params":[0],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":"has at least one"},
+        {
+            "name":"child element",
+            "params":[1],
+            "exampleValue":"Birthdate",
+            "description":"value that gets analysed"
+        },
+        {"text":"."}
+    ]
+}

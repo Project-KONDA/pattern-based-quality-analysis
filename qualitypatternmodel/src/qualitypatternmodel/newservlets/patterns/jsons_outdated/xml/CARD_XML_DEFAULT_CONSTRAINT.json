@@ -1,24 +1,27 @@
 {
     "template":"Card_xml",
     "language":"xml",
-    "name":"question_simple",
-	"typeConstraint":false,
+    "name":"default-constraint",
+	"typeConstraint":true,
     "fragments":[
-        {"text":"Is there a"},
+        {"text":"Each"},
         {
             "name":"element",
             "params":[2],
             "exampleValue":"Actors",
             "description":"anchor for analysis"
         },
-        {"text":"with more than one"},
+        {"text":"has"},
         {
+            "name":"a comparison with",
             "params":[0],
-            "value":"GREATER"
+            "exampleValue":"at most",
+            "defaultMap":"comparison_negated"
         },
         {
+            "name":"a specific number",
             "params":[1],
-            "value":"1"
+            "exampleValue":"1"
         },
         {
             "name":"child elements",

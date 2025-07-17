@@ -649,10 +649,8 @@ public class APICallTests {
 	@Test
 	public void testTemplateVariantServletGet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		String constraintID = newConstraint();
 		JSONObject variant = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
 		assertVariantObject(variant);
-		deleteConstraint(constraintID);
 	}
 
 	@Test

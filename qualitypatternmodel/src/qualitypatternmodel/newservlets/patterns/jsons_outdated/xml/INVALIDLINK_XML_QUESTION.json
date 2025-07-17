@@ -1,0 +1,30 @@
+{
+    "template":"InvalidLink_xml",
+    "language":"xml",
+    "name":"question",
+	"typeConstraint":false,
+    "fragments":[
+        {"text":"Is there a"},
+        {
+            "name":"element",
+            "params":[1],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis"
+        },
+        {"text":"where the link in the"},
+        {
+            "name":"property",
+            "params":[2],
+            "exampleValue":"Birth Certificate Source",
+            "description":"property of interest,that should contain a valid link."
+        },
+        {
+            "name":"is / is not",
+            "params":[0],
+            "defaultMap":"is",
+            "exampleValue":"is",
+            "description":"Do you search for elements that contain a valid link (‘is’) or invalid links (‘is not’)?"
+        },
+        {"text":"valid?"}
+    ]
+}
