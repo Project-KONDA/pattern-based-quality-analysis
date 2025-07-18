@@ -25,50 +25,50 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 	public static final int DEFAULT_TIMEOUT = 5000;
     
 	public static final List<Integer>  httpSuccess = Arrays.asList(
-    	HttpURLConnection.HTTP_OK, // 200
-    	HttpURLConnection.HTTP_CREATED, // 201
-    	HttpURLConnection.HTTP_ACCEPTED, // 202
-    	HttpURLConnection.HTTP_NOT_AUTHORITATIVE, // 203
-    	HttpURLConnection.HTTP_NO_CONTENT, // 204
-    	HttpURLConnection.HTTP_RESET, // 205
-    	HttpURLConnection.HTTP_PARTIAL // 206
+		HttpURLConnection.HTTP_OK, // 200
+		HttpURLConnection.HTTP_CREATED, // 201
+		HttpURLConnection.HTTP_ACCEPTED, // 202
+		HttpURLConnection.HTTP_NOT_AUTHORITATIVE, // 203
+		HttpURLConnection.HTTP_NO_CONTENT, // 204
+		HttpURLConnection.HTTP_RESET, // 205
+		HttpURLConnection.HTTP_PARTIAL // 206
     );
 
 	public static final List<Integer>  httpRedirect = Arrays.asList(
-    	HttpURLConnection.HTTP_MULT_CHOICE, // 300
-    	HttpURLConnection.HTTP_MOVED_PERM, // 301
-    	HttpURLConnection.HTTP_MOVED_TEMP, // 302
-    	HttpURLConnection.HTTP_SEE_OTHER, // 303
-    	HttpURLConnection.HTTP_NOT_MODIFIED, // 304
-    	HttpURLConnection.HTTP_USE_PROXY // 305
+		HttpURLConnection.HTTP_MULT_CHOICE, // 300
+		HttpURLConnection.HTTP_MOVED_PERM, // 301
+		HttpURLConnection.HTTP_MOVED_TEMP, // 302
+		HttpURLConnection.HTTP_SEE_OTHER, // 303
+		HttpURLConnection.HTTP_NOT_MODIFIED, // 304
+		HttpURLConnection.HTTP_USE_PROXY // 305
     );
 
 	public static final List<Integer>  httpRestricted = Arrays.asList(
-	    	HttpURLConnection.HTTP_UNAUTHORIZED, // 401
-	    	HttpURLConnection.HTTP_PAYMENT_REQUIRED, // 402
-	    	HttpURLConnection.HTTP_FORBIDDEN, // 403
-	    	HttpURLConnection.HTTP_PROXY_AUTH // 407
+		HttpURLConnection.HTTP_UNAUTHORIZED, // 401
+		HttpURLConnection.HTTP_PAYMENT_REQUIRED, // 402
+		HttpURLConnection.HTTP_FORBIDDEN, // 403
+		HttpURLConnection.HTTP_PROXY_AUTH // 407
 	);
 
 	public static final List<Integer>  httpFailure = Arrays.asList(
-    	HttpURLConnection.HTTP_BAD_REQUEST, // 400
-    	HttpURLConnection.HTTP_NOT_FOUND, // 404
-    	HttpURLConnection.HTTP_BAD_METHOD, // 405
-    	HttpURLConnection.HTTP_NOT_ACCEPTABLE, // 406
-    	HttpURLConnection.HTTP_CLIENT_TIMEOUT, // 408
-    	HttpURLConnection.HTTP_CONFLICT, // 409
-    	HttpURLConnection.HTTP_GONE, // 410
-    	HttpURLConnection.HTTP_LENGTH_REQUIRED, // 411
-    	HttpURLConnection.HTTP_PRECON_FAILED, // 412
-    	HttpURLConnection.HTTP_ENTITY_TOO_LARGE, // 413
-    	HttpURLConnection.HTTP_REQ_TOO_LONG, // 414
-    	HttpURLConnection.HTTP_UNSUPPORTED_TYPE, // 415
-    	HttpURLConnection.HTTP_INTERNAL_ERROR, // 500
-    	HttpURLConnection.HTTP_NOT_IMPLEMENTED, // 501
-    	HttpURLConnection.HTTP_BAD_GATEWAY, // 502
-    	HttpURLConnection.HTTP_UNAVAILABLE, // 503
-    	HttpURLConnection.HTTP_GATEWAY_TIMEOUT, // 504
-    	HttpURLConnection.HTTP_VERSION // 505
+		HttpURLConnection.HTTP_BAD_REQUEST, // 400
+		HttpURLConnection.HTTP_NOT_FOUND, // 404
+		HttpURLConnection.HTTP_BAD_METHOD, // 405
+		HttpURLConnection.HTTP_NOT_ACCEPTABLE, // 406
+		HttpURLConnection.HTTP_CLIENT_TIMEOUT, // 408
+		HttpURLConnection.HTTP_CONFLICT, // 409
+		HttpURLConnection.HTTP_GONE, // 410
+		HttpURLConnection.HTTP_LENGTH_REQUIRED, // 411
+		HttpURLConnection.HTTP_PRECON_FAILED, // 412
+		HttpURLConnection.HTTP_ENTITY_TOO_LARGE, // 413
+		HttpURLConnection.HTTP_REQ_TOO_LONG, // 414
+		HttpURLConnection.HTTP_UNSUPPORTED_TYPE, // 415
+		HttpURLConnection.HTTP_INTERNAL_ERROR, // 500
+		HttpURLConnection.HTTP_NOT_IMPLEMENTED, // 501
+		HttpURLConnection.HTTP_BAD_GATEWAY, // 502
+		HttpURLConnection.HTTP_UNAVAILABLE, // 503
+		HttpURLConnection.HTTP_GATEWAY_TIMEOUT, // 504
+		HttpURLConnection.HTTP_VERSION // 505
     );
 	
 	public static void main (String[] params) {

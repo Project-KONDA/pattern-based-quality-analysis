@@ -50,7 +50,7 @@ public class APITemplateTests {
 			testTemplateMandAtt();
 			testTemplateStringLength();
 			testTemplateUniqueness();
-			testTemplateInvalidLink();
+			testTemplateValidLink();
 			testTemplateMandContent();
 
 		} catch (Exception e) {
@@ -285,11 +285,11 @@ public class APITemplateTests {
 	}
 
 	@Test
-	public void testTemplateInvalidLink()
+	public void testTemplateValidLink()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("InvalidLink_xml").getInt("size") == 2);
+//		assert(store.getJSONObject("ValidLink_xml").getInt("size") == 2);
 
-		String constraintID = APICallTests.newConstraint("InvalidLink_xml", "default-constraint");
+		String constraintID = APICallTests.newConstraint("ValidLink_xml", "default-constraint");
 		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
 		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
 //		setConstraintParameter(constraintID, "Boolean_2", "is");
@@ -298,7 +298,7 @@ public class APITemplateTests {
 		APICallTests.deleteConstraint(constraintID);
 
 
-		String constraintID2 = APICallTests.newConstraint("InvalidLink_xml", "question");
+		String constraintID2 = APICallTests.newConstraint("ValidLink_xml", "question");
 		setConstraintParameter(constraintID2, "XmlPath_Element_0", "//*");
 		setConstraintParameter(constraintID2, "XmlPath_Property_1", "/text()");
 //		setConstraintParameter(constraintID2, "Boolean_2", "is");

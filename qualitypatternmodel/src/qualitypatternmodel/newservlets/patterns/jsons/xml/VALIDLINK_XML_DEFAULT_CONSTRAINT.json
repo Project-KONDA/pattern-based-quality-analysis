@@ -1,5 +1,5 @@
 {
-    "template":"InvalidLink_xml",
+    "template":"ValidLink_xml",
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,
