@@ -14,7 +14,7 @@ import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.newservlets.patterns.CardPattern;
 import qualitypatternmodel.newservlets.patterns.CompSetPattern;
 import qualitypatternmodel.newservlets.patterns.ContainsPattern;
-import qualitypatternmodel.newservlets.patterns.InvalidLinkPattern;
+import qualitypatternmodel.newservlets.patterns.ValidLinkPattern;
 import qualitypatternmodel.newservlets.patterns.MandAttPattern;
 import qualitypatternmodel.newservlets.patterns.MandContPattern;
 import qualitypatternmodel.newservlets.patterns.MatchPattern;
@@ -74,7 +74,7 @@ public class XmlPatterns {
 			patternbundles.add(ContainsPattern.getXmlBundle());
 			patternbundles.add(StringLengthPattern.getXmlBundle());
 			patternbundles.add(CompSetPattern.getXmlBundle());
-			patternbundles.add(InvalidLinkPattern.getXmlBundle());
+			patternbundles.add(ValidLinkPattern.getXmlBundle());
 			patternbundles.add(UniquePattern.getXmlBundle());
 			patternbundles.add(MandContPattern.getXmlBundle());
 		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {

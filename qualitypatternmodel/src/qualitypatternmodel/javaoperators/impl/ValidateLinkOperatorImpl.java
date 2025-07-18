@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.ValidateLinkOperator;
-import qualitypatternmodel.newservlets.ServletUtilities;
+import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,6 +70,15 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
     	HttpURLConnection.HTTP_GATEWAY_TIMEOUT, // 504
     	HttpURLConnection.HTTP_VERSION // 505
     );
+	
+	public static void main (String[] params) {
+		String link = "https://muenzen.uni-koeln.de/portal/databases/id/muenzen/titles/id/VAR_0008.html";
+		ValidateLinkOperatorImpl validateLink = new ValidateLinkOperatorImpl();
+		validateLink.setOption(new BooleanParamImpl());
+		validateLink.getOption().setValue(false);
+		System.out.println(validateLink.apply(link));
+		System.out.println(validateLink.apply("https://www.google.com"));
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,45 +101,59 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 
 	@Override
 	public Boolean apply(String urlString) {
+		urlString = urlString.trim();
 		Boolean negate = getOption().getValue();
-	    try {
+		Boolean result = apply(urlString, "HEAD");
+		if (!result)
+			result = apply(urlString, "GET");
+		return result != negate;
+	}
 
+	public Boolean apply(String urlString, String responseMethod) {
+	    try {
 			HttpURLConnection connection = (HttpURLConnection) URI.create(urlString).toURL().openConnection();
-	        connection.setRequestMethod("HEAD");
+	        connection.setRequestMethod(responseMethod);
 	        Integer responseCode = connection.getResponseCode();
+	        System.out.println(responseCode);
 	        connection.setConnectTimeout(DEFAULT_TIMEOUT);
 	        connection.setReadTimeout(DEFAULT_TIMEOUT);
 	        
-	        Boolean result = false;
-	        
-	        // SUCCESS
-	        if (httpSuccess.contains(responseCode)) { 
-	        	result = true;
-	        	
-	        // REDIRECT
-	        } else if (httpRedirect.contains(responseCode)) {
-	            String location = connection.getHeaderField("Location");
-	            if (location != null)
-	            	return apply(location);
-	            
-	        // RESTRICTED
-	        } else if (httpRestricted.contains(responseCode)) {
-	        	result = true;
-	        
-	        // FAILURE
-	        } else if (httpFailure.contains(responseCode)) {
-	        	result = false;
-	        }
+	        Boolean result = categorizeResponseCode(responseCode, responseMethod, connection);
 	        
 	        // if http is invalid, check https
 	        if (result == false && urlString.startsWith("http://"))
-	        	return apply("https" + urlString.substring(4));
+	        	return apply("https" + urlString.substring(4), responseMethod);
 	        
-	        return result != negate;
+	        return result;
 	    } catch (Exception e) {
-	    	ServletUtilities.logError(e);
-	        return negate;
+//	    	e.printStackTrace();
+//	    	ServletUtilities.logError(e);
+	        return false;
 	    }
+	}
+
+	
+	public Boolean categorizeResponseCode(int responseCode, String responseMethod, HttpURLConnection connection) {
+        
+        // SUCCESS
+        if (httpSuccess.contains(responseCode)) { 
+        	return true;
+        	
+        // REDIRECT
+        } else if (httpRedirect.contains(responseCode)) {
+            String location = connection.getHeaderField("Location");
+            if (location != null)
+            	return apply(location, responseMethod);
+            
+        // RESTRICTED
+        } else if (httpRestricted.contains(responseCode)) {
+        	return true;
+        
+        // FAILURE
+        } else if (httpFailure.contains(responseCode)) {
+        	return false;
+        }
+        return false;
 	}
 
 	@Override
