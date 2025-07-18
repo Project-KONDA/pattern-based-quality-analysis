@@ -23,7 +23,8 @@ import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements ValidateLinkOperator {
 	
 	public static final int DEFAULT_TIMEOUT = 5000;
-    
+	public static final String[] REQUEST_METHOD = new String[] {"HEAD", "GET"};
+	
 	public static final List<Integer>  httpSuccess = Arrays.asList(
 		HttpURLConnection.HTTP_OK, // 200
 		HttpURLConnection.HTTP_CREATED, // 201
@@ -103,9 +104,12 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 	public Boolean apply(String urlString) {
 		urlString = urlString.trim();
 		Boolean negate = getOption().getValue();
-		Boolean result = apply(urlString, "HEAD");
-		if (!result)
-			result = apply(urlString, "GET");
+		Boolean result = false;
+		for (String method: REQUEST_METHOD) {
+			if (!result) {
+				result = apply(urlString, method);
+			}
+		}
 		return result != negate;
 	}
 
@@ -114,7 +118,6 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 			HttpURLConnection connection = (HttpURLConnection) URI.create(urlString).toURL().openConnection();
 	        connection.setRequestMethod(responseMethod);
 	        Integer responseCode = connection.getResponseCode();
-	        System.out.println(responseCode);
 	        connection.setConnectTimeout(DEFAULT_TIMEOUT);
 	        connection.setReadTimeout(DEFAULT_TIMEOUT);
 	        
