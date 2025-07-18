@@ -10,7 +10,7 @@ public class ConstantsError {
 	public static final String SAVING_FAILED = "saving constraint failed";
 	public static final String QUERY_FAILED = "querying failed";
 	public static final String TOO_MUCH_VALUES = "multiple values for a single parameter";
-	public static final String VARIANT_INITIALIZATION_FAILED = "could not initialize Variant";
+	public static final String VARIANT_INITIALIZATION_FAILED = "could not initialize Variant ";
 	public static final String DUPLICATE_VARIANT_NAMES = "there are variants with the same name";
 	public static final String NOT_IMPLEMENTED_RDF = "not implemented for RDF";
 	public static final String NOT_IMPLEMENTED_NEO = "not implemented for Neo4j";
