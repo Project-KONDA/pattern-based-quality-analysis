@@ -20,15 +20,15 @@
 		},
 		{"text":"must contain either a"},
 		{
-			"params":[2],
-			"value":"/text()"
-		},
-		{
 			"name":"element",
 			"params":[3],
 			"exampleValue":"element",
 			"description":"element condition"
 		},
-		{"text":"or a text."}
+		{"text":"or a text."},
+		{
+			"params":[2],
+			"value":"/text()"
+		}
 	]
 }
