@@ -1231,10 +1231,10 @@ components:
               - $ref: '#/components/schemas/TextFragment'
               - $ref: '#/components/schemas/ParameterFragment'
         params:
-			type: array
-			description: list of parameter IDs
-			items:
-				string
+            type: array
+            description: list of parameter IDs
+            items:
+                type: string
 
     TextFragment:
       type: object
