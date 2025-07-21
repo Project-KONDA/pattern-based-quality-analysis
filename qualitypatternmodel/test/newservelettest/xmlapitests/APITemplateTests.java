@@ -152,7 +152,7 @@ public class APITemplateTests {
 		params2.put("constraintIDs", new String[] { constraintID });
 		params2.put("files", new String[] { "lido.xml", "demo_database.xml"});
 		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
-		APICallTests.assertExecuteResultObject(result);
+		APICallTests.assertExecuteResultObject(result, true);
 	}
 
 //	private CompletePattern getConstraintPattern(String constraintID) {

@@ -320,7 +320,7 @@ public class InitialisationServlet extends HttpServlet {
 //		}
 //	}
 	
-	private static ArrayList<File> getAllJSONFilesInFolder(File directory){
+	public static ArrayList<File> getAllJSONFilesInFolder(File directory){
 		ArrayList<File> files = new ArrayList<File>();
 		File[] filearray = directory.listFiles();
 		if (filearray != null)
@@ -336,7 +336,7 @@ public class InitialisationServlet extends HttpServlet {
 		return files;
 	}
 	
-	private static JSONObject readJsonFromFile(File file) throws IOException {
+	public static JSONObject readJsonFromFile(File file) throws IOException {
         String content = new String(Files.readAllBytes(file.toPath()));
         return new JSONObject(content);
     }

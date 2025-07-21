@@ -223,7 +223,7 @@ public class APICallTests {
 		assert (mqaf.has(ConstantsJSON.FAILED) && mqaf.getJSONArray(ConstantsJSON.FAILED).isEmpty());
 	}
 
-	static void assertExecuteResultObject(JSONObject resultObject) {
+	static void assertExecuteResultObject(JSONObject resultObject, Boolean forceResult) {
 		assert(resultObject.has(ConstantsJSON.RESULT));
 		JSONArray result = resultObject.getJSONArray(ConstantsJSON.RESULT);
 		assert(result.length() > 0);
@@ -239,7 +239,7 @@ public class APICallTests {
 //			assert(object.has(ConstantsJSON.TECHNOLOGY));
 //			assert(object.has(ConstantsJSON.LANGUAGE));
 			JSONArray incidents = object.getJSONArray(ConstantsJSON.INCIDENTS);
-			assert(incidents.length() > 0);
+			assert(!forceResult || (incidents.length() > 0));
 		}
 		assert(!resultObject.has(ConstantsJSON.FAILEDFILES));
 		assert(!resultObject.has(ConstantsJSON.FAILEDCONSTRAINTS));
@@ -644,7 +644,7 @@ public class APICallTests {
 		params2.put("constraintIDs", new String[] { constraintID });
 		params2.put("files", new String[] { "lido.xml" });
 		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
-		assertExecuteResultObject(result);
+		assertExecuteResultObject(result, true);
 		deleteConstraint(constraintID);
 	}
 

@@ -89,6 +89,9 @@ import qualitypatternmodel.utility.ConstantsJSON;
  */
 public class ParameterFragmentImpl extends FragmentImpl implements ParameterFragment {
 
+	public static boolean ALLOW_IGNORE_MAP = false;
+
+
 	/**
 	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -1159,7 +1162,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 
 		if (getValueMap() != null) {
 			myValue = getValueMap().getKey(value);
-			if (myValue.equals(value)) {
+			if (myValue.equals(value) && !ALLOW_IGNORE_MAP) {
 				String allowed = getValueMap().getValuesAsJsonArray().toString().replace("\"", "'");
 				throw new InvalidityException("invalid value '" + value + "'. expected one of " + allowed);
 			}
