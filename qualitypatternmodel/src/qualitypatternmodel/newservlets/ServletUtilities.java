@@ -122,6 +122,8 @@ public abstract class ServletUtilities {
 				try {
 					semi.isValid(AbstractionLevel.CONCRETE);
 					concrete.add(semi);
+				} catch (InvalidityException e) {
+					// In this cased, the pattern is not concrete
 				} catch (Exception e) {
 					logError(e);
 				}

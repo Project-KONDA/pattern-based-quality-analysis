@@ -191,7 +191,7 @@ public class InitialisationServlet extends HttpServlet {
 	        if (stream == null) {
 	        	ServletUtilities.log("⚠️ Could not find model/qualitypatternmodel.ecore on classpath.");
 	        } else {
-	        	ServletUtilities.log("✅ Found model/qualitypatternmodel.ecore.");
+//	        	ServletUtilities.log("✅ Found model/qualitypatternmodel.ecore.");
 	        }
 		} catch (Exception e) {
 			ServletUtilities.logError(e);
@@ -264,9 +264,9 @@ public class InitialisationServlet extends HttpServlet {
 			ServletUtilities.logError(e);
 		}
 
-		ServletUtilities.log("Checking for Variant initialization");
-		ServletUtilities.log("Checking for Variant initialization " + ServletConstants.VALUE_AS_JSON);
-		ServletUtilities.log("Checking for Variant initialization " + ServletConstants.VARIANTS_FOLDER);
+//		ServletUtilities.log("Checking for Variant initialization");
+//		ServletUtilities.log("Checking for Variant initialization " + ServletConstants.VALUE_AS_JSON);
+//		ServletUtilities.log("Checking for Variant initialization " + ServletConstants.VARIANTS_FOLDER);
 
 //		VARIANT INITIALISATION
 		if (ServletConstants.VALUE_AS_JSON && ServletConstants.VARIANTS_FOLDER != null && !ServletConstants.VARIANTS_FOLDER.equals("")){
@@ -375,7 +375,7 @@ public class InitialisationServlet extends HttpServlet {
             String className = dep[1];
             try {
                 Class.forName(className);
-                ServletUtilities.log("✅ " + artifact + ": loaded");
+//                ServletUtilities.log("✅ " + artifact + ": loaded");
             } catch (ClassNotFoundException e) {
                 ServletUtilities.log("❌ " + artifact + ": NOT found (" + className + ")");
             }
