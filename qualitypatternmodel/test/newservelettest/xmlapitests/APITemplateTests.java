@@ -26,8 +26,7 @@ import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 import qualitypatternmodel.newservlets.ConstraintServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.PatternListServlet;
-//import qualitypatternmodel.patternstructure.CompletePattern;
-//import qualitypatternmodel.utility.EMFModelLoad;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 public class APITemplateTests {
 	private static String FOLDER;
@@ -132,10 +131,10 @@ public class APITemplateTests {
 		} catch (InvalidServletCallException | FailedServletCallException e) {
 			e.printStackTrace();
 		}
-		if (result.has("failed"))
+		if (result.has(ConstantsJSON.FAILED))
 			System.out.println(result);
-		assert (!result.has("failed"));
-		assert (result.has("success"));
+		assert (!result.has(ConstantsJSON.FAILED));
+		assert (result.has(ConstantsJSON.SUCCESS));
 		return result;
 	}
 

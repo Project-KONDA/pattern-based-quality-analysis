@@ -327,25 +327,29 @@ public class ConstraintServlet extends HttpServlet {
 		JSONObject json = new JSONObject();
 		try {
 			if (success.length() > 0 || keys.size() == 0) {
-				json.put("success", success);
+				json.put(ConstantsJSON.SUCCESS, success);
 			}
 			if (failed.length() > 0) {
-				json.put("failed", failed);
+				json.put(ConstantsJSON.FAILED, failed);
 			}
 			if (failed.length() > 0 || notfound) {
-				JSONArray available = new JSONArray();
-				available.put("name");
-				available.put("database");
-				available.put("datamodel");
-				available.put("namespace");
-				for (ParameterFragment frag: paramfragments) {
-					available.put(frag.getId());
-				}
-				json.put("available", available);
+				json.put(ConstantsJSON.AVAILABLE, getAvailableParams(paramfragments));
 			}
 
 		} catch (JSONException e) {}
 		return json;
+	}
+	
+	public static JSONArray getAvailableParams(List<ParameterFragment> paramfragments) {
+		JSONArray available = new JSONArray();
+		available.put(ConstantsJSON.NAME);
+		available.put(ConstantsJSON.DATABASE);
+		available.put(ConstantsJSON.DATAMODEL);
+		available.put(ConstantsJSON.NAMESPACES);
+		for (ParameterFragment frag: paramfragments) {
+			available.put(frag.getId());
+		}
+		return available;
 	}
 
 	private static void changeParameterFragment(ParameterFragment frag, String[] call_values) throws InvalidityException {
