@@ -333,25 +333,13 @@ public class ConstraintServlet extends HttpServlet {
 				json.put(ConstantsJSON.FAILED, failed);
 			}
 			if (failed.length() > 0 || notfound) {
-				json.put(ConstantsJSON.AVAILABLE, getAvailableParams(paramfragments));
+				json.put(ConstantsJSON.AVAILABLE, ServletUtilities.getAvailableParams(paramfragments));
 			}
 
 		} catch (JSONException e) {}
 		return json;
 	}
 	
-	public static JSONArray getAvailableParams(List<ParameterFragment> paramfragments) {
-		JSONArray available = new JSONArray();
-		available.put(ConstantsJSON.NAME);
-		available.put(ConstantsJSON.DATABASE);
-		available.put(ConstantsJSON.DATAMODEL);
-		available.put(ConstantsJSON.NAMESPACES);
-		for (ParameterFragment frag: paramfragments) {
-			available.put(frag.getId());
-		}
-		return available;
-	}
-
 	private static void changeParameterFragment(ParameterFragment frag, String[] call_values) throws InvalidityException {
 		if (call_values.length != 1) {
 			throw new InvalidityException(ConstantsError.TOO_MUCH_VALUES);
@@ -412,7 +400,8 @@ public class ConstraintServlet extends HttpServlet {
                 String key = keys.next();
                 String value = jsonObject.get(key).toString();
                 hashMap.put(key, value);
-            }            return hashMap;
+            }
+            return hashMap;
         } catch (JSONException e) {
         	return null;
         }

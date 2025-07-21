@@ -40,6 +40,8 @@ import qualitypatternmodel.mqaftranslation.MqafTranslationValidation;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.textrepresentation.Fragment;
+import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
@@ -567,5 +569,18 @@ public abstract class ServletUtilities {
 		} else {
 			return null;
 		}
+	}
+
+	public static JSONArray getAvailableParams(List<? extends Fragment> paramfragments) {
+		JSONArray available = new JSONArray();
+		available.put(ConstantsJSON.NAME);
+		available.put(ConstantsJSON.DATABASE);
+		available.put(ConstantsJSON.DATAMODEL);
+		available.put(ConstantsJSON.NAMESPACES);
+		for (Fragment frag: paramfragments) {
+			if (frag instanceof ParameterFragment)
+				available.put(((ParameterFragment)frag).getId());
+		}
+		return available;
 	}
 }

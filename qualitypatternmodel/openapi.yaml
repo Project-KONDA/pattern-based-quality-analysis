@@ -1230,6 +1230,11 @@ components:
             oneOf:
               - $ref: '#/components/schemas/TextFragment'
               - $ref: '#/components/schemas/ParameterFragment'
+        params:
+			type: array
+			description: list of parameter IDs
+			items:
+				string
 
     TextFragment:
       type: object
