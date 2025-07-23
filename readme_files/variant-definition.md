@@ -3,19 +3,30 @@ This document is about the definition of variants that fit an already existing t
 Templates define a flexible quality analysis using different parameters. However, they cannot be understand by the common user.
 Variants define a mapping from the complex templates to a simple user-comprehensible sentence.
 Variants shall be based on a natural sentence, which puts the parameters of a template into context. This shall help users to understand how to use a template to define a quality analyis.
-Variants are specified using a specific JSON format.
+Variants are specified using a specific JSON format, which is explained in the following.
+
+Creating new variants has the following advantages:
+generally:
+- the formulation of the sentence can be improved to enhance comprehensibility
+- the order of parameters in the sentence can be changed
+Variants for specific use cases:
+- options of parameters can be limited
+- parameters can be predefined with fixed values
+
+However, a variant can not add complexity to the quality analysis (e.g. adding new conditions), as that the analysis itself is determined by the template.
 
 ## How-To Guide
 This guide provides a quick overview and step-by-step instructions for managing variants in [Constrainify](https://gitlab.gwdg.de/aqinda/constrainify).
+We assume that the Constrainify repository has already been pulled from Git.
 Each **variant** is defined as a JSON file. The variant creation using JSON (see [Variant Creation](#variant-creation) is independent from constrainify.
 
 ### Create a New Variant
 1. **Navigate to the Variants Directory**  
-  - In the Constrainify files, go to `/configuration/variants` where all variants are stored as JSON files.
+  - Within the files from the Constrainify repository, go to [`/configuration/variants`](https://gitlab.gwdg.de/aqinda/constrainify/-/tree/main/configuration/variants?ref_type=heads) where all variants are stored as JSON files.
 2. **Create a new JSON file**
   - Create a new file with any name directly in the folder `/configuration/variants` or any subfolder.
-  - Define the variant header (see [Variant Header](#variant-header).
-  - Define the fragments as variant body (see [Variant Body](#variant-body).
+  - Define the variant header (see [Variant Header](#variant-header)).
+  - Define the fragments as variant body (see [Variant Body](#variant-body)).
 3. **Ensure the Following**:
   - The name is unique across all variants of the same template
   - The target sentence is correctly depicted via fragments.
@@ -28,14 +39,14 @@ Each **variant** is defined as a JSON file. The variant creation using JSON (see
   - Go to `/configuration/variants` where all variants are stored as JSON files.
 2. **Locate and delete the Variant File**
 3. **Apply Changes**  
-  - Ensure, that the environmental variable `OVERRIDE_VARIANTS` in the docker-compose.yaml file is set as true.
+  - Ensure, that the environmental variable `OVERRIDE_VARIANTS` in the [docker-compose.yaml](https://gitlab.gwdg.de/aqinda/constrainify/-/blob/main/docker-compose.yaml) file is set as true.
   - Restart **Constrainify** to apply the changes.
 
 ### Change an existing Variant
 1. **Navigate to the Variants Directory**  
   - Go to `/configuration/variants` where all variants are stored as JSON files.
 2. **Locate and modify the Variant File**
-  - optionally make a backup copy of the file first
+  - optionally make a backup copy of the file first. If the file remains in the variants folder, make sure to change the name attribute of the new variant.
   - examples for changes include: 
     - restructure the sentence by reordering fragments or adapting text fragments
     - reducing the input options by adding a map 
