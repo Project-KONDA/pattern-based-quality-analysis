@@ -27,14 +27,13 @@ public class TemplateInstantiateServlet extends HttpServlet {
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyPut(path, params);
-			ServletUtilities.logOutput(result);
-			ServletUtilities.putResponse(response, result);
+			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, e);
+			ServletUtilities.putResponseError(response, callId, e);
 		}
 	}
 

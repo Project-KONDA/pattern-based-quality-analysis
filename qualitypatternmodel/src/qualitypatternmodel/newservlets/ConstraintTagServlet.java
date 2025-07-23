@@ -25,14 +25,13 @@ public class ConstraintTagServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyPost(path, params);
-			ServletUtilities.logOutput(result);
-			ServletUtilities.putResponse(response, result);
+			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, e);
+			ServletUtilities.putResponseError(response, callId, e);
 		}
 	}
 
@@ -42,14 +41,13 @@ public class ConstraintTagServlet extends HttpServlet {
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyDelete(path, params);
-			ServletUtilities.logOutput(result);
-			ServletUtilities.putResponse(response, result);
+			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, e);
+			ServletUtilities.putResponseError(response, callId, e);
 		}
 	}
 

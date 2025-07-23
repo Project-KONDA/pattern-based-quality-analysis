@@ -40,14 +40,13 @@ public class ConstraintServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyGet(path, params);
-			ServletUtilities.logOutput(result);
-			ServletUtilities.putResponse(response, result);
+			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, e);
+			ServletUtilities.putResponseError(response, callId, e);
 		}
 	}
 
@@ -57,14 +56,13 @@ public class ConstraintServlet extends HttpServlet {
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
 			String result = applyDelete(path, params);
-			ServletUtilities.logOutput(result);
-			ServletUtilities.putResponse(response, result);
+			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, e);
+			ServletUtilities.putResponseError(response, callId, e);
 		}
 	}
 
@@ -74,21 +72,20 @@ public class ConstraintServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyPost(path, params);
-			ServletUtilities.logOutput(result);
-			ServletUtilities.putResponse(response, result);
+			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (FailedServletCallException e) {
 	        if (e.getMessage().startsWith("404")) {
-				ServletUtilities.putResponseError(response, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
+				ServletUtilities.putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
 			} else {
-				ServletUtilities.putResponseError(response, e, HttpServletResponse.SC_NOT_MODIFIED);
+				ServletUtilities.putResponseError(response, callId, e, HttpServletResponse.SC_NOT_MODIFIED);
 			}
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, e);
+			ServletUtilities.putResponseError(response, callId, e);
 		}
 	}
 

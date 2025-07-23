@@ -25,13 +25,13 @@ public class ConstraintDataModelServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyGet(path, params);
-			ServletUtilities.putResponse(response, result);
+			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, e);
+			ServletUtilities.putResponseError(response, callId, e);
 		}
 	}
 
@@ -41,13 +41,13 @@ public class ConstraintDataModelServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyPost(path, params);
-			ServletUtilities.putResponse(response, result);
+			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, e);
+			ServletUtilities.putResponseError(response, callId, e);
 		}
 	}
 
