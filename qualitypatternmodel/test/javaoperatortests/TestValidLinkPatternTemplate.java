@@ -9,18 +9,18 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.javaquery.impl.JavaFilterImpl;
 import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
-import qualitypatternmodel.newservlets.patterns.InvalidLinkPattern;
+import qualitypatternmodel.newservlets.patterns.ValidLinkPattern;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.PatternUtility;
 
-public class TestInvalidLinkPatternTemplate {
+public class TestValidLinkPatternTemplate {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		String DEMO_DATA_PATH = "demo.data/demo_database.xml";
-		CompletePattern invalidLinkPattern = InvalidLinkPattern.getXmlBundle().getConcrete();
+		CompletePattern validLinkPattern = ValidLinkPattern.getXmlBundle().getConcrete();
 		
-		PatternUtility.fillParameter(invalidLinkPattern);
-		JavaFilter filter = invalidLinkPattern.generateQueryFilter();
+		PatternUtility.fillParameter(validLinkPattern);
+		JavaFilter filter = validLinkPattern.generateQueryFilter();
 		filter.execute(DEMO_DATA_PATH);
 		
 		JSONObject json = filter.toJson();

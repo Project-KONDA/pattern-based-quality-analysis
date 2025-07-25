@@ -28,6 +28,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TypeOptionParam;
@@ -386,6 +387,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				fragments.put(fragment.generateJSONObject());
 			}
 			json.put(ConstantsJSON.FRAGMENTS, fragments);
+			json.put(ConstantsJSON.PARAMETER, ServletUtilities.getAvailableParams(getFragmentsOrdered()));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

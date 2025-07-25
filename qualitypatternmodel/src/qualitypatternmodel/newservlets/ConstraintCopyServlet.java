@@ -24,22 +24,22 @@ public class ConstraintCopyServlet extends HttpServlet {
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyPut(path, params);
-			ServletUtilities.putResponse(response, result);
+			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (FailedServletCallException e) {
 	        if (e.getMessage().startsWith("404")) {
-				ServletUtilities.putResponseError(response, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
+				ServletUtilities.putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
 			} else if (e.getMessage().startsWith("409")) {
-				ServletUtilities.putResponseError(response, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_CONFLICT);
+				ServletUtilities.putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_CONFLICT);
 			} else {
-				ServletUtilities.putResponseError(response, e, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+				ServletUtilities.putResponseError(response, callId, e, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			}
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, e);
+			ServletUtilities.putResponseError(response, callId, e);
 		}
 	}
 

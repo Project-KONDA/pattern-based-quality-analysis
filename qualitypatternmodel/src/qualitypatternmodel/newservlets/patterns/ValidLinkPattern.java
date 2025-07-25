@@ -14,22 +14,22 @@ import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class InvalidLinkPattern {
+public class ValidLinkPattern {
 
-	static String INVALIDLINK_ID_GENERIC = "InvalidLink_generic";
-	static String INVALIDLINK_ID_XML = "InvalidLink_xml";
-	static String INVALIDLINK_ID_RDF = "InvalidLink_rdf";
-	static String INVALIDLINK_ID_NEO = "InvalidLink_neo4j";
-	static String INVALIDLINK_NAME = "Invalid Link";
-	static String INVALIDLINK_DESCR = "Check whether a record an invalid link in a field.";
+	static String VALIDLINK_ID_GENERIC = "ValidLink_generic";
+	static String VALIDLINK_ID_XML = "ValidLink_xml";
+	static String VALIDLINK_ID_RDF = "ValidLink_rdf";
+	static String VALIDLINK_ID_NEO = "ValidLink_neo4j";
+	static String VALIDLINK_NAME = "Valid Link";
+	static String VALIDLINK_DESCR = "Check whether a record an invalid link in a field.";
 
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(INVALIDLINK_ID_GENERIC);
-		pattern.setAbstractId(INVALIDLINK_ID_GENERIC);
-		pattern.setName(INVALIDLINK_NAME);
-		pattern.setDescription(INVALIDLINK_DESCR);
+		pattern.setPatternId(VALIDLINK_ID_GENERIC);
+		pattern.setAbstractId(VALIDLINK_ID_GENERIC);
+		pattern.setName(VALIDLINK_NAME);
+		pattern.setDescription(VALIDLINK_DESCR);
 
 		ComplexNode main = pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
@@ -50,7 +50,7 @@ public class InvalidLinkPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				INVALIDLINK_ID_XML,
+				VALIDLINK_ID_XML,
 				Map.of(1, "//*", 2, "/*/text()"),
 				INVALIDLINK_XML_VARIANTS,
 				INVALIDLINK_XML_VARIANTS_OLD);
@@ -60,7 +60,7 @@ public class InvalidLinkPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				INVALIDLINK_ID_RDF,
+				VALIDLINK_ID_RDF,
 				Map.of(),
 				null,
 				null);
@@ -70,7 +70,7 @@ public class InvalidLinkPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				INVALIDLINK_ID_NEO,
+				VALIDLINK_ID_NEO,
 				Map.of(),
 				null,
 				null);

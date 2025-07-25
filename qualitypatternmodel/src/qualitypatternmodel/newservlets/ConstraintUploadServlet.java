@@ -40,12 +40,12 @@ public class ConstraintUploadServlet extends HttpServlet {
 		String uploadFolder = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.UPLOAD_FOLDER;
 		File file = storePart(filePart, uploadFolder);
 	    
-		ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyPost(path, params, file);
-			ServletUtilities.putResponse(response, result, HttpURLConnection.HTTP_ACCEPTED);
+			ServletUtilities.putResponse(response, callId, result, HttpURLConnection.HTTP_ACCEPTED);
 		} catch (Exception e) {
-			ServletUtilities.putResponseError(response, e);
+			ServletUtilities.putResponseError(response, callId, e);
 		}
 	}
 	

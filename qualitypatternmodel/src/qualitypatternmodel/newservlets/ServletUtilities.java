@@ -40,6 +40,8 @@ import qualitypatternmodel.mqaftranslation.MqafTranslationValidation;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.textrepresentation.Fragment;
+import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
@@ -120,6 +122,8 @@ public abstract class ServletUtilities {
 				try {
 					semi.isValid(AbstractionLevel.CONCRETE);
 					concrete.add(semi);
+				} catch (InvalidityException e) {
+					// In this cased, the pattern is not concrete
 				} catch (Exception e) {
 					logError(e);
 				}
@@ -356,28 +360,31 @@ public abstract class ServletUtilities {
 
 	// RESPONSE HANDLING
 
-	public static void putResponse(HttpServletResponse response, JSONObject jsonObject, int responseCode) throws IOException {
+	public static void putResponse(HttpServletResponse response, int id, JSONObject jsonObject, int responseCode) throws IOException {
+		logOutput(jsonObject, id);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.setStatus(responseCode);
         response.getWriter().write(jsonObject.toString());
 	}
 
-	public static void putResponse(HttpServletResponse response, JSONArray jsonArray, int responseCode) throws IOException {
+	public static void putResponse(HttpServletResponse response, int id, JSONArray jsonArray, int responseCode) throws IOException {
+		logOutput(jsonArray, id);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.setStatus(responseCode);
         response.getWriter().write(jsonArray.toString());
 	}
 
-	public static void putResponse(HttpServletResponse response, String text, int responseCode) throws IOException {
+	public static void putResponse(HttpServletResponse response, int id, String text, int responseCode) throws IOException {
+		logOutput(text, id);
 	    response.setContentType("text/plain");
         response.setCharacterEncoding("UTF-8");
         response.setStatus(responseCode);
         response.getWriter().write(text);
 	}
 	
-	public static void putResponse(HttpServletResponse response, File file, int responseCode, String contentType) throws IOException {
+	public static void putResponse(HttpServletResponse response, int id, File file, int responseCode, String contentType) throws IOException {
 		
 		if (file == null || !file.exists()) {
 		    response.sendError(HttpServletResponse.SC_NOT_FOUND, "File not found");
@@ -400,7 +407,7 @@ public abstract class ServletUtilities {
         }
 	}
 
-	public static void putResponseError(HttpServletResponse response, Exception error, int responseCode) throws IOException {
+	public static void putResponseError(HttpServletResponse response, int id, Exception error, int responseCode) throws IOException {
 		logError(error);
 		JSONObject object = new JSONObject();
 		try {
@@ -408,10 +415,10 @@ public abstract class ServletUtilities {
 		} catch (JSONException e) {
 			logError(e);
 		}
-		putResponse(response, object, responseCode);
+		putResponse(response, id, object, responseCode);
 	}
 
-	public static void putResponseError(HttpServletResponse response, Exception error) throws IOException {
+	public static void putResponseError(HttpServletResponse response, int id, Exception error) throws IOException {
 		int responseCode = HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
 		if (error.getClass().equals(InvalidServletCallException.class)) {
 			responseCode = HttpServletResponse.SC_BAD_REQUEST;
@@ -419,17 +426,17 @@ public abstract class ServletUtilities {
 		if (error.getClass().equals(FailedServletCallException.class)) {
 			responseCode = HttpServletResponse.SC_NOT_FOUND;
 		}
-		putResponseError(response, error, responseCode);
+		putResponseError(response, id, error, responseCode);
 	}
 
-	public static void putResponse(HttpServletResponse response, JSONObject jsonObject) throws IOException {
-        putResponse(response, jsonObject, HttpServletResponse.SC_OK);
+	public static void putResponse(HttpServletResponse response, int id, JSONObject jsonObject) throws IOException {
+        putResponse(response, id, jsonObject, HttpServletResponse.SC_OK);
 	}
-	public static void putResponse(HttpServletResponse response, JSONArray jsonArray) throws IOException {
-        putResponse(response, jsonArray, HttpServletResponse.SC_OK);
+	public static void putResponse(HttpServletResponse response, int id, JSONArray jsonArray) throws IOException {
+        putResponse(response, id, jsonArray, HttpServletResponse.SC_OK);
 	}
-	public static void putResponse(HttpServletResponse response, String text) throws IOException {
-        putResponse(response, text, HttpServletResponse.SC_OK);
+	public static void putResponse(HttpServletResponse response, int id, String text) throws IOException {
+        putResponse(response, id, text, HttpServletResponse.SC_OK);
 	}
 
 
@@ -474,12 +481,16 @@ public abstract class ServletUtilities {
         }
 	}
 
-	public static void logOutput(JSONObject json) {
-		log("OUTPUT: " + json);
+	public static void logOutput(JSONObject json, int id) {
+		logOutput(json.toString(), id);
 	}
 
-	public static void logOutput(String text) {
-		log("OUTPUT: " + text);
+	public static void logOutput(JSONArray json, int id) {
+		logOutput(json.toString(), id);
+	}
+
+	public static void logOutput(String text, int id) {
+		log("OUTPUT " + id + " : " + text);
 	}
 
 	public static void logError(Throwable th) {
@@ -504,8 +515,16 @@ public abstract class ServletUtilities {
 		}
 	}
 
-	public static void logCall(String clazz, String path, Map<String, String[]> params) {
-		log("CALL: " + clazz + "(" + path + ")" + mapToString(params));
+	public static int logCall(String clazz, String path, Map<String, String[]> params) {
+		int callId = -1;
+		try {
+			String filepath = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.SAVEFILE;
+			callId = getNextNumber(filepath, "call");
+		} catch (JSONException | IOException e) {
+			logError(e);
+		}
+		log("CALL " + callId + ": " + clazz + "(" + path + ")" + mapToString(params));
+		return callId;
 	}
 
 	static String mapToString(Map<String, String[]> map) {
@@ -567,5 +586,18 @@ public abstract class ServletUtilities {
 		} else {
 			return null;
 		}
+	}
+
+	public static JSONArray getAvailableParams(List<? extends Fragment> paramfragments) {
+		JSONArray available = new JSONArray();
+		available.put(ConstantsJSON.NAME);
+		available.put(ConstantsJSON.DATABASE);
+		available.put(ConstantsJSON.DATAMODEL);
+		available.put(ConstantsJSON.NAMESPACES);
+		for (Fragment frag: paramfragments) {
+			if (frag instanceof ParameterFragment)
+				available.put(((ParameterFragment)frag).getId());
+		}
+		return available;
 	}
 }

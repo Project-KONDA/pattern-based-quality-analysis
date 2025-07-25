@@ -59,13 +59,13 @@ public class InitialisationServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyGet(path, params);
-			ServletUtilities.putResponse(response, result);
+			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, e);
+			ServletUtilities.putResponseError(response, callId, e);
 		}
 	}
 
@@ -191,7 +191,7 @@ public class InitialisationServlet extends HttpServlet {
 	        if (stream == null) {
 	        	ServletUtilities.log("⚠️ Could not find model/qualitypatternmodel.ecore on classpath.");
 	        } else {
-	        	ServletUtilities.log("✅ Found model/qualitypatternmodel.ecore.");
+//	        	ServletUtilities.log("✅ Found model/qualitypatternmodel.ecore.");
 	        }
 		} catch (Exception e) {
 			ServletUtilities.logError(e);
@@ -264,9 +264,9 @@ public class InitialisationServlet extends HttpServlet {
 			ServletUtilities.logError(e);
 		}
 
-		ServletUtilities.log("Checking for Variant initialization");
-		ServletUtilities.log("Checking for Variant initialization " + ServletConstants.VALUE_AS_JSON);
-		ServletUtilities.log("Checking for Variant initialization " + ServletConstants.VARIANTS_FOLDER);
+//		ServletUtilities.log("Checking for Variant initialization");
+//		ServletUtilities.log("Checking for Variant initialization " + ServletConstants.VALUE_AS_JSON);
+//		ServletUtilities.log("Checking for Variant initialization " + ServletConstants.VARIANTS_FOLDER);
 
 //		VARIANT INITIALISATION
 		if (ServletConstants.VALUE_AS_JSON && ServletConstants.VARIANTS_FOLDER != null && !ServletConstants.VARIANTS_FOLDER.equals("")){
@@ -320,7 +320,7 @@ public class InitialisationServlet extends HttpServlet {
 //		}
 //	}
 	
-	private static ArrayList<File> getAllJSONFilesInFolder(File directory){
+	public static ArrayList<File> getAllJSONFilesInFolder(File directory){
 		ArrayList<File> files = new ArrayList<File>();
 		File[] filearray = directory.listFiles();
 		if (filearray != null)
@@ -336,7 +336,7 @@ public class InitialisationServlet extends HttpServlet {
 		return files;
 	}
 	
-	private static JSONObject readJsonFromFile(File file) throws IOException {
+	public static JSONObject readJsonFromFile(File file) throws IOException {
         String content = new String(Files.readAllBytes(file.toPath()));
         return new JSONObject(content);
     }
@@ -375,7 +375,7 @@ public class InitialisationServlet extends HttpServlet {
             String className = dep[1];
             try {
                 Class.forName(className);
-                ServletUtilities.log("✅ " + artifact + ": loaded");
+//                ServletUtilities.log("✅ " + artifact + ": loaded");
             } catch (ClassNotFoundException e) {
                 ServletUtilities.log("❌ " + artifact + ": NOT found (" + className + ")");
             }

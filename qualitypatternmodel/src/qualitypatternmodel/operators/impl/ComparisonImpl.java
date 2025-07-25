@@ -570,7 +570,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 
 		if (abstractionLevel == AbstractionLevel.CONCRETE && getTypeOption().getValue() == ReturnType.UNSPECIFIED) {
-			throw new InvalidityException("input value type unspecified in " + myToString() );
+			throw new InvalidityException("input value type unspecified in " + myToString() + " (" + abstractionLevel + " " + getTypeOption().getValue() + ")");
 		}
 
 		if (abstractionLevel == AbstractionLevel.CONCRETE && argument1 instanceof ComplexNode && argument2 instanceof ComplexNode) {

@@ -15,7 +15,7 @@ import qualitypatternmodel.newservlets.patterns.CompValPattern;
 import qualitypatternmodel.newservlets.patterns.ContainsPattern;
 import qualitypatternmodel.newservlets.patterns.DupvalPattern;
 import qualitypatternmodel.newservlets.patterns.FuncPattern;
-import qualitypatternmodel.newservlets.patterns.InvalidLinkPattern;
+import qualitypatternmodel.newservlets.patterns.ValidLinkPattern;
 import qualitypatternmodel.newservlets.patterns.MandAttPattern;
 import qualitypatternmodel.newservlets.patterns.MatchPattern;
 import qualitypatternmodel.newservlets.patterns.StringLengthPattern;
@@ -37,7 +37,7 @@ public class SaveModelTest {
 		patterns.add(ContainsPattern.getGeneric());
 		patterns.add(Appdup3Pattern.getGeneric());
 		patterns.add(DupvalPattern.getGeneric());
-		patterns.add(InvalidLinkPattern.getGeneric());
+		patterns.add(ValidLinkPattern.getGeneric());
 		patterns.add(MandAttPattern.getGeneric());
 		patterns.add(StringLengthPattern.getGeneric());
 		patterns.add(CompValPattern.getGeneric());

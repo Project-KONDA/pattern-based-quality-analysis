@@ -12,6 +12,7 @@
 			"description":"base element for analysis"
 		},
 		{"text":"must contain something."},
+		
 		{
 			"params":[1],
 			"value":"/self::*"

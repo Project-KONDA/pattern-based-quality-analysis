@@ -40,14 +40,13 @@ public class ConstraintServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyGet(path, params);
-			ServletUtilities.logOutput(result);
-			ServletUtilities.putResponse(response, result);
+			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, e);
+			ServletUtilities.putResponseError(response, callId, e);
 		}
 	}
 
@@ -57,14 +56,13 @@ public class ConstraintServlet extends HttpServlet {
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try {
 			String result = applyDelete(path, params);
-			ServletUtilities.logOutput(result);
-			ServletUtilities.putResponse(response, result);
+			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, e);
+			ServletUtilities.putResponseError(response, callId, e);
 		}
 	}
 
@@ -74,21 +72,20 @@ public class ConstraintServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyPost(path, params);
-			ServletUtilities.logOutput(result);
-			ServletUtilities.putResponse(response, result);
+			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (FailedServletCallException e) {
 	        if (e.getMessage().startsWith("404")) {
-				ServletUtilities.putResponseError(response, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
+				ServletUtilities.putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
 			} else {
-				ServletUtilities.putResponseError(response, e, HttpServletResponse.SC_NOT_MODIFIED);
+				ServletUtilities.putResponseError(response, callId, e, HttpServletResponse.SC_NOT_MODIFIED);
 			}
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, e);
+			ServletUtilities.putResponseError(response, callId, e);
 		}
 	}
 
@@ -327,27 +324,19 @@ public class ConstraintServlet extends HttpServlet {
 		JSONObject json = new JSONObject();
 		try {
 			if (success.length() > 0 || keys.size() == 0) {
-				json.put("success", success);
+				json.put(ConstantsJSON.SUCCESS, success);
 			}
 			if (failed.length() > 0) {
-				json.put("failed", failed);
+				json.put(ConstantsJSON.FAILED, failed);
 			}
 			if (failed.length() > 0 || notfound) {
-				JSONArray available = new JSONArray();
-				available.put("name");
-				available.put("database");
-				available.put("datamodel");
-				available.put("namespace");
-				for (ParameterFragment frag: paramfragments) {
-					available.put(frag.getId());
-				}
-				json.put("available", available);
+				json.put(ConstantsJSON.AVAILABLE, ServletUtilities.getAvailableParams(paramfragments));
 			}
 
 		} catch (JSONException e) {}
 		return json;
 	}
-
+	
 	private static void changeParameterFragment(ParameterFragment frag, String[] call_values) throws InvalidityException {
 		if (call_values.length != 1) {
 			throw new InvalidityException(ConstantsError.TOO_MUCH_VALUES);
@@ -408,7 +397,8 @@ public class ConstraintServlet extends HttpServlet {
                 String key = keys.next();
                 String value = jsonObject.get(key).toString();
                 hashMap.put(key, value);
-            }            return hashMap;
+            }
+            return hashMap;
         } catch (JSONException e) {
         	return null;
         }

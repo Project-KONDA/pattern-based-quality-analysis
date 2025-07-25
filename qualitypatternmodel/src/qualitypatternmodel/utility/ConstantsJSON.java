@@ -54,6 +54,7 @@ public class ConstantsJSON {
 	public static final String CLEAR = "clear";
 	public static final String SUCCESS = "success";
 	public static final String FAILED = "failed";
+	public static final String AVAILABLE = "available";
 	public static final String FAILEDCONSTRAINTS = "failedConstraints";
 	public static final String FAILEDFILES = "failedfiles";
 

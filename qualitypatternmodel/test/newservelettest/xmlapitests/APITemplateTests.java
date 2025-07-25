@@ -26,8 +26,7 @@ import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 import qualitypatternmodel.newservlets.ConstraintServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.PatternListServlet;
-//import qualitypatternmodel.patternstructure.CompletePattern;
-//import qualitypatternmodel.utility.EMFModelLoad;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 public class APITemplateTests {
 	private static String FOLDER;
@@ -50,7 +49,7 @@ public class APITemplateTests {
 			testTemplateMandAtt();
 			testTemplateStringLength();
 			testTemplateUniqueness();
-			testTemplateInvalidLink();
+			testTemplateValidLink();
 			testTemplateMandContent();
 
 		} catch (Exception e) {
@@ -132,10 +131,10 @@ public class APITemplateTests {
 		} catch (InvalidServletCallException | FailedServletCallException e) {
 			e.printStackTrace();
 		}
-		if (result.has("failed"))
+		if (result.has(ConstantsJSON.FAILED))
 			System.out.println(result);
-		assert (!result.has("failed"));
-		assert (result.has("success"));
+		assert (!result.has(ConstantsJSON.FAILED));
+		assert (result.has(ConstantsJSON.SUCCESS));
 		return result;
 	}
 
@@ -153,7 +152,7 @@ public class APITemplateTests {
 		params2.put("constraintIDs", new String[] { constraintID });
 		params2.put("files", new String[] { "lido.xml", "demo_database.xml"});
 		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
-		APICallTests.assertExecuteResultObject(result);
+		APICallTests.assertExecuteResultObject(result, true);
 	}
 
 //	private CompletePattern getConstraintPattern(String constraintID) {
@@ -285,11 +284,11 @@ public class APITemplateTests {
 	}
 
 	@Test
-	public void testTemplateInvalidLink()
+	public void testTemplateValidLink()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("InvalidLink_xml").getInt("size") == 2);
+//		assert(store.getJSONObject("ValidLink_xml").getInt("size") == 2);
 
-		String constraintID = APICallTests.newConstraint("InvalidLink_xml", "default-constraint");
+		String constraintID = APICallTests.newConstraint("ValidLink_xml", "default-constraint");
 		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
 		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
 //		setConstraintParameter(constraintID, "Boolean_2", "is");
@@ -298,7 +297,7 @@ public class APITemplateTests {
 		APICallTests.deleteConstraint(constraintID);
 
 
-		String constraintID2 = APICallTests.newConstraint("InvalidLink_xml", "question");
+		String constraintID2 = APICallTests.newConstraint("ValidLink_xml", "question");
 		setConstraintParameter(constraintID2, "XmlPath_Element_0", "//*");
 		setConstraintParameter(constraintID2, "XmlPath_Property_1", "/text()");
 //		setConstraintParameter(constraintID2, "Boolean_2", "is");

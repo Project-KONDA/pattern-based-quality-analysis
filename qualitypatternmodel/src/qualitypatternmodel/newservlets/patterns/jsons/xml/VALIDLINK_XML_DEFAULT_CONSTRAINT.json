@@ -1,5 +1,5 @@
 {
-    "template":"InvalidLink_xml",
+    "template":"ValidLink_xml",
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,
@@ -20,6 +20,7 @@
             "description":"property of interest,that should contain a valid link."
         },
         {"text":"is a valid link."},
+        
         {
             "params":[0],
             "value": "true"
