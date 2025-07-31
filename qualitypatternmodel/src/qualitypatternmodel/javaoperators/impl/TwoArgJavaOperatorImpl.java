@@ -82,7 +82,7 @@ public abstract class TwoArgJavaOperatorImpl extends JavaOperatorImpl implements
 	}
 
 	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
 			if (argument1 == null) {
 				throw new InvalidityException("argument1 null");

@@ -29,6 +29,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.ConstantsError;
@@ -144,19 +145,22 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 
 	@Override
-	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		super.isValid(abstractionLevel);
-		option.isValid(abstractionLevel);
-		regularExpression.isValid(abstractionLevel);
-	}
-
-	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (option == null) {
 			throw new InvalidityException("options null");
+		} else {
+			option.isValid(abstractionLevel);
 		}
 		if (regularExpression == null) {
 			throw new InvalidityException("regularExpression null");
+		} else {
+			regularExpression.isValid(abstractionLevel);
+
+			if (abstractionLevel == AbstractionLevel.CONCRETE) {
+				
+				if (!isValidRegex(regularExpression.getValue(), ((CompletePattern) getAncestor(CompletePattern.class)).getLanguage()))
+					throw new InvalidityException("Regular Expression invalid: " + regularExpression.getValue());
+			}
 		}
 		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && primitiveNode == null) {
 			throw new InvalidityException("property null");
@@ -651,7 +655,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			case RDF:
 			case NEO4J:
 			default:
-				throw new UnsupportedOperationException("RegEx-Validation not implemented for " + lang);
+				new UnsupportedOperationException("RegEx-Validation not implemented for " + lang).printStackTrace();
+				return true;
 		}
 	}
 

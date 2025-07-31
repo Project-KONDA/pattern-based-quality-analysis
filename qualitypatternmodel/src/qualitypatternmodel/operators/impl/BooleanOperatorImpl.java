@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
@@ -60,7 +61,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		super();
 	}
 	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		if (getComparison1().isEmpty() && getComparison2().isEmpty()) {
 			// this is root operator, thus does not serve as an argument to another operator

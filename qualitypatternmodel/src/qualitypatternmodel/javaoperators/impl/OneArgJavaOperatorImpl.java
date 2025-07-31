@@ -117,7 +117,7 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
     }
 
 	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (option == null) {
 			throw new InvalidityException("options null");
 		}

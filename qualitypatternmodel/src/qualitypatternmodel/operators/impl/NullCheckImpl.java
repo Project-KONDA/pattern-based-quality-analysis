@@ -234,7 +234,7 @@ public class NullCheckImpl extends BooleanOperatorImpl implements NullCheck {
 	}
 
 	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (option == null) {
 			throw new InvalidityException("options null");
 		}
