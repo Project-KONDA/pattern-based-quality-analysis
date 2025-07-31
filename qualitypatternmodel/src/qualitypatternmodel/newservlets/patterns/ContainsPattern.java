@@ -18,20 +18,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class ContainsPattern {
 
-	static String CONTAINS_ID_GENERIC = "Contains_generic";
-	static String CONTAINS_ID_XML = "Contains_xml";
-	static String CONTAINS_ID_RDF = "Contains_rdf";
-	static String CONTAINS_ID_NEO = "Contains_neo4j";
-	static String CONTAINS_NAME = "Contains Check";
-	static String CONTAINS_DESCR = "Check, whether a value contains a specific substring.";
-
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(CONTAINS_ID_GENERIC);
-		pattern.setAbstractId(CONTAINS_ID_GENERIC);
-		pattern.setName(CONTAINS_NAME);
-		pattern.setDescription(CONTAINS_DESCR);
+		pattern.setPatternId(PatternConstants.CONTAINS_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.CONTAINS_ID_GENERIC);
+		pattern.setName(PatternConstants.CONTAINS_NAME);
+		pattern.setDescription(PatternConstants.CONTAINS_DESCR);
 
 		// Context graph of pattern:
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -57,7 +50,7 @@ public class ContainsPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				CONTAINS_ID_NEO,
+				PatternConstants.CONTAINS_ID_NEO,
 				Map.of(),
 				CONTAINS_NEO_VARIANTS,
 				CONTAINS_NEO_VARIANTS_OLD);
@@ -67,7 +60,7 @@ public class ContainsPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				CONTAINS_ID_RDF,
+				PatternConstants.CONTAINS_ID_RDF,
 				Map.of(),
 				CONTAINS_RDF_VARIANTS,
 				CONTAINS_RDF_VARIANTS_OLD);
@@ -77,7 +70,7 @@ public class ContainsPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				CONTAINS_ID_XML,
+				PatternConstants.CONTAINS_ID_XML,
 				Map.of(2, "//*", 3, "/*/text()"),
 				CONTAINS_XML_VARIANTS,
 				CONTAINS_XML_VARIANTS_OLD);

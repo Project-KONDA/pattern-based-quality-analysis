@@ -16,20 +16,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class MandAttPattern {
 
-	static String MANDATT_ID_GENERIC = "MandAtt_generic";
-	static String MANDATT_ID_XML = "MandAtt_xml";
-	static String MANDATT_ID_RDF = "MandAtt_rdf";
-	static String MANDATT_ID_NEO = "MandAtt_neo4j";
-	static String MANDATT_NAME = "Mandatory Attribute";
-	static String MANDATT_DESCR = "Check whether a record has a mandatory field.";
-
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(MANDATT_ID_GENERIC);
-		pattern.setAbstractId(MANDATT_ID_GENERIC);
-		pattern.setName(MANDATT_NAME);
-		pattern.setDescription(MANDATT_DESCR);
+		pattern.setPatternId(PatternConstants.MANDATT_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.MANDATT_ID_GENERIC);
+		pattern.setName(PatternConstants.MANDATT_NAME);
+		pattern.setDescription(PatternConstants.MANDATT_DESCR);
 
 		ComplexNode main = pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
@@ -51,7 +44,7 @@ public class MandAttPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				MANDATT_ID_XML,
+				PatternConstants.MANDATT_ID_XML,
 				Map.of(0, "//*", 1, "/*"),
 				MANDATT_XML_VARIANTS,
 				MANDATT_XML_VARIANTS_OLD);
@@ -61,7 +54,7 @@ public class MandAttPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				MANDATT_ID_RDF,
+				PatternConstants.MANDATT_ID_RDF,
 				Map.of(),
 				MANDATT_RDF_VARIANTS,
 				MANDATT_RDF_VARIANTS_OLD);
@@ -71,7 +64,7 @@ public class MandAttPattern {
 		return new PatternBundle(
 				getGeneric(), 
 				Language.NEO4J,
-				MANDATT_ID_NEO,
+				PatternConstants.MANDATT_ID_NEO,
 				Map.of(),
 				MANDATT_NEO_VARIANTS,
 				MANDATT_NEO_VARIANTS_OLD);

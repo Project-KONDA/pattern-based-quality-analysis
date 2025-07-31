@@ -18,19 +18,12 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class CompSetPattern {
 
-	static String COMPSET_ID_GENERIC = "CompSet_generic";
-	static String COMPSET_ID_XML = "CompSet_xml";
-	static String COMPSET_ID_RDF = "CompSet_rdf";
-	static String COMPSET_ID_NEO = "CompSet_neo4j";
-	static String COMPSET_NAME = "Comparison Pattern with Set";
-	static String COMPSET_DESCR = "Check, wether the value of fields are within a list of allowed (/forbidden) terms.";
-
 	public static CompletePattern getGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(COMPSET_ID_GENERIC);
-		pattern.setAbstractId(COMPSET_ID_GENERIC);
-		pattern.setName(COMPSET_NAME);
-		pattern.setDescription(COMPSET_DESCR);
+		pattern.setPatternId(PatternConstants.COMPSET_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.COMPSET_ID_GENERIC);
+		pattern.setName(PatternConstants.COMPSET_NAME);
+		pattern.setDescription(PatternConstants.COMPSET_DESCR);
 
 		Graph graph1 = pattern.getGraph();
 		Node returnNode = graph1.getReturnNodes().get(0).makeComplex();
@@ -57,7 +50,7 @@ public class CompSetPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				COMPSET_ID_NEO,
+				PatternConstants.COMPSET_ID_NEO,
 				Map.of(),
 				COMPSET_NEO_VARIANTS,
 				COMPSET_NEO_VARIANTS_OLD);
@@ -67,7 +60,7 @@ public class CompSetPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				COMPSET_ID_RDF,
+				PatternConstants.COMPSET_ID_RDF,
 				Map.of(),
 				COMPSET_RDF_VARIANTS,
 				COMPSET_RDF_VARIANTS_OLD);
@@ -77,7 +70,7 @@ public class CompSetPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				COMPSET_ID_XML,
+				PatternConstants.COMPSET_ID_XML,
 				Map.of(3, "//*", 4, "/*/text()"),
 				COMPSET_XML_VARIANTS,
 				COMPSET_XML_VARIANTS_OLD);

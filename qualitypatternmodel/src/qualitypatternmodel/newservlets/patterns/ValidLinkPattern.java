@@ -16,20 +16,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class ValidLinkPattern {
 
-	static String VALIDLINK_ID_GENERIC = "ValidLink_generic";
-	static String VALIDLINK_ID_XML = "ValidLink_xml";
-	static String VALIDLINK_ID_RDF = "ValidLink_rdf";
-	static String VALIDLINK_ID_NEO = "ValidLink_neo4j";
-	static String VALIDLINK_NAME = "Valid Link";
-	static String VALIDLINK_DESCR = "Check whether a record an invalid link in a field.";
-
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(VALIDLINK_ID_GENERIC);
-		pattern.setAbstractId(VALIDLINK_ID_GENERIC);
-		pattern.setName(VALIDLINK_NAME);
-		pattern.setDescription(VALIDLINK_DESCR);
+		pattern.setPatternId(PatternConstants.VALIDLINK_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.VALIDLINK_ID_GENERIC);
+		pattern.setName(PatternConstants.VALIDLINK_NAME);
+		pattern.setDescription(PatternConstants.VALIDLINK_DESCR);
 
 		ComplexNode main = pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
@@ -50,7 +43,7 @@ public class ValidLinkPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				VALIDLINK_ID_XML,
+				PatternConstants.VALIDLINK_ID_XML,
 				Map.of(1, "//*", 2, "/*/text()"),
 				INVALIDLINK_XML_VARIANTS,
 				INVALIDLINK_XML_VARIANTS_OLD);
@@ -60,7 +53,7 @@ public class ValidLinkPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				VALIDLINK_ID_RDF,
+				PatternConstants.VALIDLINK_ID_RDF,
 				Map.of(),
 				null,
 				null);
@@ -70,7 +63,7 @@ public class ValidLinkPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				VALIDLINK_ID_NEO,
+				PatternConstants.VALIDLINK_ID_NEO,
 				Map.of(),
 				null,
 				null);

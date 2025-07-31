@@ -15,20 +15,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class Appdup3Pattern {
 
-	static String APPDUP3_ID_GENERIC = "Appdup3_generic";
-	static String APPDUP3_ID_XML = "Appdup3_xml";
-	static String APPDUP3_ID_RDF = "Appdup3_rdf";
-	static String APPDUP3_ID_NEO = "Appdup3_neo4j";
-	static String APPDUP3_NAME = "Approximate Duplicate based on three attributes";
-	static String APPDUP3_DESCR = "Check whether there are records that have the same value in three important attributes, suggesting that they describe the same real-world object.";
-
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = Appdup2Pattern.getGeneric();
-		pattern.setPatternId(APPDUP3_ID_GENERIC);
-		pattern.setAbstractId(APPDUP3_ID_GENERIC);
-		pattern.setName(APPDUP3_NAME);
-		pattern.setDescription(APPDUP3_DESCR);
+		pattern.setPatternId(PatternConstants.APPDUP3_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.APPDUP3_ID_GENERIC);
+		pattern.setName(PatternConstants.APPDUP3_NAME);
+		pattern.setDescription(PatternConstants.APPDUP3_DESCR);
 
 		Graph g0 = pattern.getGraph();
 		QuantifiedCondition qc1 = (QuantifiedCondition) pattern.getCondition();
@@ -48,7 +41,7 @@ public class Appdup3Pattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				APPDUP3_ID_XML,
+				PatternConstants.APPDUP3_ID_XML,
 				Map.of(),
 				null,
 				null);
@@ -58,7 +51,7 @@ public class Appdup3Pattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				APPDUP3_ID_RDF,
+				PatternConstants.APPDUP3_ID_RDF,
 				Map.of(),
 				null,
 				null);
@@ -68,7 +61,7 @@ public class Appdup3Pattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				APPDUP3_ID_NEO,
+				PatternConstants.APPDUP3_ID_NEO,
 				Map.of(),
 				null,
 				null);

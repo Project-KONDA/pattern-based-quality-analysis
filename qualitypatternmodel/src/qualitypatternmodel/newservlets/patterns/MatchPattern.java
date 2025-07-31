@@ -17,20 +17,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class MatchPattern {
 
-	static String MATCH_ID_GENERIC = "Match_generic";
-	static String MATCH_ID_XML = "Match_xml";
-	static String MATCH_ID_RDF = "Match_rdf";
-	static String MATCH_ID_NEO = "Match_neo4j";
-	static String MATCH_NAME = "Regular Expression Check";
-	static String MATCH_DESCR = "Check, whether a value matches a specific regular expression.";
-
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(MATCH_ID_GENERIC);
-		pattern.setAbstractId(MATCH_ID_GENERIC);
-		pattern.setName(MATCH_NAME);
-		pattern.setDescription(MATCH_DESCR);
+		pattern.setPatternId(PatternConstants.MATCH_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.MATCH_ID_GENERIC);
+		pattern.setName(PatternConstants.MATCH_NAME);
+		pattern.setDescription(PatternConstants.MATCH_DESCR);
 
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
 
@@ -53,7 +46,7 @@ public class MatchPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				MATCH_ID_NEO,
+				PatternConstants.MATCH_ID_NEO,
 				Map.of(),
 				MATCH_NEO_VARIANTS,
 				MATCH_NEO_VARIANTS_OLD);
@@ -63,7 +56,7 @@ public class MatchPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				MATCH_ID_RDF,
+				PatternConstants.MATCH_ID_RDF,
 				Map.of(),
 				MATCH_RDF_VARIANTS,
 				MATCH_RDF_VARIANTS_OLD);
@@ -73,7 +66,7 @@ public class MatchPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				MATCH_ID_XML,
+				PatternConstants.MATCH_ID_XML,
 				Map.of(2, "//*", 3, "/*/text()"),
 				MATCH_XML_VARIANTS,
 				MATCH_XML_VARIANTS_OLD);

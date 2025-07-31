@@ -18,29 +18,14 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class MandContPattern {
-	
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = getGeneric();
-		pattern.createXmlAdaption();
-		
-		pattern.printParameters(false);
-		
-	}
-
-	static String MANDCONT_ID_GENERIC = "MandCont_generic";
-	static String MANDCONT_ID_XML = "MandCont_xml";
-	static String MANDCONT_ID_RDF = "MandCont_rdf";
-	static String MANDCONT_ID_NEO = "MandCont_neo4j";
-	static String MANDCONT_NAME = "Mandatory Content";
-	static String MANDCONT_DESCR = "Check whether an element has mandatory content.";
 
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(MANDCONT_ID_GENERIC);
-		pattern.setAbstractId(MANDCONT_ID_GENERIC);
-		pattern.setName(MANDCONT_NAME);
-		pattern.setDescription(MANDCONT_DESCR);
+		pattern.setPatternId(PatternConstants.MANDCONT_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.MANDCONT_ID_GENERIC);
+		pattern.setName(PatternConstants.MANDCONT_NAME);
+		pattern.setDescription(PatternConstants.MANDCONT_DESCR);
 
 		// search for ...
 		ComplexNode main = pattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -81,7 +66,7 @@ public class MandContPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				MANDCONT_ID_XML,
+				PatternConstants.MANDCONT_ID_XML,
 				Map.of(0, "//*", 1, "/*"),
 				MANDCONT_XML_VARIANTS,
 				MANDCONT_XML_VARIANTS_OLD);
@@ -91,7 +76,7 @@ public class MandContPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				MANDCONT_ID_RDF,
+				PatternConstants.MANDCONT_ID_RDF,
 				Map.of(),
 				null,
 				null);
@@ -101,7 +86,7 @@ public class MandContPattern {
 		return new PatternBundle(
 				getGeneric(), 
 				Language.NEO4J,
-				MANDCONT_ID_NEO,
+				PatternConstants.MANDCONT_ID_NEO,
 				Map.of(),
 				null,
 				null);

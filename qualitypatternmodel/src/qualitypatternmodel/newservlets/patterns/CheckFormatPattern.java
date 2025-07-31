@@ -13,20 +13,13 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 
 public class CheckFormatPattern {
 
-	static String CHECKFORMAT_ID_GENERIC = "CheckFormat_generic";
-	static String CHECKFORMAT_ID_XML = "CheckFormat_xml";
-	static String CHECKFORMAT_ID_RDF = "CheckFormat_rdf";
-	static String CHECKFORMAT_ID_NEO = "CheckFormat_neo4j";
-	static String CHECKFORMAT_NAME = "Check the format of a resource";
-	static String CHECKFORMAT_DESCR = "Check if the ressource under an URL is of a specific format.";
-
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(CHECKFORMAT_ID_GENERIC);
-		pattern.setAbstractId(CHECKFORMAT_ID_GENERIC);
-		pattern.setName(CHECKFORMAT_NAME);
-		pattern.setDescription(CHECKFORMAT_DESCR);
+		pattern.setPatternId(PatternConstants.CHECKFORMAT_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.CHECKFORMAT_ID_GENERIC);
+		pattern.setName(PatternConstants.CHECKFORMAT_NAME);
+		pattern.setDescription(PatternConstants.CHECKFORMAT_DESCR);
 		// TODO
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
@@ -36,7 +29,7 @@ public class CheckFormatPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				CHECKFORMAT_ID_XML,
+				PatternConstants.CHECKFORMAT_ID_XML,
 				Map.of(),
 				null,
 				null);
@@ -46,7 +39,7 @@ public class CheckFormatPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				CHECKFORMAT_ID_RDF,
+				PatternConstants.CHECKFORMAT_ID_RDF,
 				Map.of(),
 				null,
 				null);
@@ -56,7 +49,7 @@ public class CheckFormatPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				CHECKFORMAT_ID_NEO,
+				PatternConstants.CHECKFORMAT_ID_NEO,
 				Map.of(),
 				null,
 				null);

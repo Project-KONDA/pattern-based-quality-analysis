@@ -18,20 +18,13 @@ import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 public class CardPattern {
 
-	static String CARD_ID_GENERIC = "Card_generic";
-	static String CARD_ID_XML = "Card_xml";
-	static String CARD_ID_RDF = "Card_rdf";
-	static String CARD_ID_NEO = "Card_neo4j";
-	static String CARD_NAME = "Cardinality Constraint";
-	static String CARD_DESCR = "Check, wether the occurence count of specific elements apply.";
-
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(CARD_ID_GENERIC);
-		pattern.setAbstractId(CARD_ID_GENERIC);
-		pattern.setName(CARD_NAME);
-		pattern.setDescription(CARD_DESCR);
+		pattern.setPatternId(PatternConstants.CARD_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.CARD_ID_GENERIC);
+		pattern.setName(PatternConstants.CARD_NAME);
+		pattern.setDescription(PatternConstants.CARD_DESCR);
 
 		// Context graph of pattern:
 		Node returnNode = pattern.getGraph().getNodes().get(0).makeComplex();
@@ -60,7 +53,7 @@ public class CardPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				CARD_ID_XML,
+				PatternConstants.CARD_ID_XML,
 				Map.of(2, "//*", 3, "/*"),
 				CARD_XML_VARIANTS,
 				CARD_XML_VARIANTS_OLD);
@@ -70,7 +63,7 @@ public class CardPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				CARD_ID_RDF,
+				PatternConstants.CARD_ID_RDF,
 				Map.of(),
 				CARD_RDF_VARIANTS,
 				CARD_RDF_VARIANTS_OLD);
@@ -80,7 +73,7 @@ public class CardPattern {
 		PatternBundle result = new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				CardPattern.CARD_ID_NEO,
+				PatternConstants.CARD_ID_NEO,
 				Map.of(),
 				CARD_NEO_VARIANTS,
 				CARD_NEO_VARIANTS_OLD);

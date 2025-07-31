@@ -16,20 +16,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class CompValPattern {
 
-	static String COMPVAL_ID_GENERIC = "CompVal_generic";
-	static String COMPVAL_ID_XML = "CompVal_xml";
-	static String COMPVAL_ID_RDF = "CompVal_rdf";
-	static String COMPVAL_ID_NEO = "CompVal_neo4j";
-	static String COMPVAL_NAME = "Compare Values";
-	static String COMPVAL_DESCR = "Check whether all values of a specific field within a record does comply to a value restriction.";
-
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(COMPVAL_ID_GENERIC);
-		pattern.setAbstractId(COMPVAL_ID_GENERIC);
-		pattern.setName(COMPVAL_NAME);
-		pattern.setDescription(COMPVAL_DESCR);
+		pattern.setPatternId(PatternConstants.COMPVAL_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.COMPVAL_ID_GENERIC);
+		pattern.setName(PatternConstants.COMPVAL_NAME);
+		pattern.setDescription(PatternConstants.COMPVAL_DESCR);
 
 		ComplexNode main = pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
@@ -50,7 +43,7 @@ public class CompValPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				COMPVAL_ID_XML,
+				PatternConstants.COMPVAL_ID_XML,
 				Map.of(),
 				null,
 				null);
@@ -60,7 +53,7 @@ public class CompValPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				COMPVAL_ID_RDF,
+				PatternConstants.COMPVAL_ID_RDF,
 				Map.of(),
 				null,
 				null);
@@ -70,7 +63,7 @@ public class CompValPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				COMPVAL_ID_NEO,
+				PatternConstants.COMPVAL_ID_NEO,
 				Map.of(),
 				null,
 				null);
