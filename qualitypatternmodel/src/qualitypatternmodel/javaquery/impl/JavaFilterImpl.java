@@ -2,20 +2,11 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
-import java.io.File;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
-import org.basex.core.Context;
-import org.basex.core.cmd.CreateDB;
-import org.basex.core.cmd.DropDB;
-import org.basex.query.QueryProcessor;
-import org.basex.query.iter.Iter;
-import org.basex.query.value.item.Item;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -42,6 +33,7 @@ import qualitypatternmodel.javaqueryoutput.impl.InterimResultContainerImpl;
 import qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
+import qualitypatternmodel.utility.XmlServletUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -222,36 +214,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 */
 	@Override
 	public List<String> executeXQueryJava(String datapath) throws InvalidityException {
-		return executeXQueryJava(getQuery(), datapath);
-	}
-
-	public static List<String> executeXQueryJava(String query, String datapath) throws InvalidityException {
-		String databasename = "execution_" + UUID.randomUUID();
-		if (query == null || query == "") {
-			throw new InvalidityException("Empty Query");
-		}
-		if (databasename == null || databasename == "") {
-			throw new InvalidityException("Invalid database name");
-		}
-		if (!new File(datapath).exists()) {
-			throw new InvalidityException("File not found");
-		}
-		List<String> outcome = new ArrayList<String>();
-		Context context = new Context();
-		try {
-			new CreateDB(databasename, datapath).execute(context);
-			try (QueryProcessor proc = new QueryProcessor(query, context)) {
-				Iter iter = proc.iter();
-				for (Item item; (item = iter.next()) != null;) {
-					outcome.add(item.serialize().toString());
-				}
-			}
-			new DropDB(databasename).execute(context);
-		} catch(Exception e) {}
-		context.closeDB();
-		context.close();
-
-		return outcome;
+		return XmlServletUtility.executeXQueryJava(getQuery(), datapath);
 	}
 
 	/**

@@ -23,6 +23,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.XmlServletUtility;
 
 @SuppressWarnings("serial")
 public class ConstraintExecuteServlet extends HttpServlet {
@@ -95,8 +96,8 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		// transform constraint parameters
 		if (constraintsCompiled != null) {
 			for (String constraint: constraintsCompiled) {
+				String constraintID = "<invalid>";
 				try {
-					String constraintID;
 					JSONObject object = new JSONObject(constraint);
 					if (!object.has(ConstantsJSON.CONSTRAINT_ID)) {
 						failedConstraints.put(constraint, ConstantsError.INVALID_FILEFORMAT);
@@ -122,7 +123,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 					}
 				} catch (JSONException e) {
 					try {
-						failedConstraints.put("invalid", e.getMessage());
+						failedConstraints.put(constraintID, e.getMessage());
 						ServletUtilities.log("Constraint not valid: " + e.getMessage());
 					} catch (JSONException f) {}
 				}
@@ -158,16 +159,21 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		ServletUtilities.log("constraint found: " + constraints.size());
 
 		// query
-		for (File file: files) {
-			for (JSONObject constraint: constraints) {
-				try {
-					ServletUtilities.log("querying: " + file + " " + constraint);
-					JSONObject res = queryFileToJSONObject(file, constraint);
-					results.put(res);
-					ServletUtilities.log("querying successfull: " + res.length());
-				} catch (JSONException e) {
-					throw new FailedServletCallException("JSON Error: " + e.getMessage(), e);
+		for (JSONObject constraint: constraints) {
+			try {
+				for (File file: files) {
+					try {
+						ServletUtilities.log("querying: " + file + " " + constraint);
+						JSONObject res = queryFileToJSONObject(file, constraint);
+						results.put(res);
+						ServletUtilities.log("querying successfull: " + res.length());
+					} catch (JSONException e) {
+						throw new FailedServletCallException("JSON Error: " + e.getMessage(), e);
+					}
 				}
+			}
+			catch (InvalidityException e) {
+				failedConstraints.put(constraint.getString(ConstantsJSON.CONSTRAINT_ID), e.getMessage());
 			}
 		}
 
@@ -191,7 +197,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		return object;
 	}
 
-	private static JSONObject queryFileToJSONObject (File file, JSONObject constraint) throws JSONException, FailedServletCallException {
+	private static JSONObject queryFileToJSONObject (File file, JSONObject constraint) throws JSONException, FailedServletCallException, InvalidityException {
 		ServletUtilities.log( "query file [" + file.getAbsolutePath()  + "] with constraint [" + constraint + "]");
 		
 		JSONObject object = new JSONObject();
@@ -221,11 +227,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		List<String> result = null;
 
 		if (!constraint.has(ConstantsJSON.FILTER)) {
-			try {
-				result = executeXQuery(file, query);
-			} catch (InvalidityException e) {
-				throw new FailedServletCallException ("Failed to execute constraint", e);
-			}
+			result = executeXQuery(file, query);
 		} else {
 			try {
 				JSONObject filterjson = constraint.getJSONObject(ConstantsJSON.FILTER);
@@ -248,8 +250,8 @@ public class ConstraintExecuteServlet extends HttpServlet {
 	}
 
 	private static List<String> executeXQuery(File file, String query) throws InvalidityException {
-		ServletUtilities.log( "query file [" + file  + "] with query [" + query + "]");
-		List<String> results = JavaFilterImpl.executeXQueryJava(query, file.getAbsolutePath());
+		ServletUtilities.log( "query file [" + file  + "] with query [" + ServletUtilities.makeQueryOneLine(query) + "]");
+		List<String> results = XmlServletUtility.executeXQueryJava(query, file.getAbsolutePath());
 		return results;
 	}
 }

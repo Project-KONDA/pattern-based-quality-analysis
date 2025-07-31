@@ -147,10 +147,10 @@ public class ConstraintQueryServlet extends HttpServlet {
 				else 
 					xquery = pattern.generateXQuery();
 				json.put(ConstantsJSON.QUERY, xquery);
-				json.put(ConstantsJSON.QUERY_LINE, makeQueryOneLine(xquery));
+				json.put(ConstantsJSON.QUERY_LINE, ServletUtilities.makeQueryOneLine(xquery));
 				String xquerypartial = pattern.getPartialXmlQuery();
 				json.put(ConstantsJSON.QUERY_PARTIAL, xquerypartial);
-				json.put(ConstantsJSON.QUERY_PARTIAL_LINE, makeQueryOneLine(xquerypartial));
+				json.put(ConstantsJSON.QUERY_PARTIAL_LINE, ServletUtilities.makeQueryOneLine(xquerypartial));
 				json.put(ConstantsJSON.LANGUAGE, Constants.XQUERY);
 
 			} else if (technology.equals(Constants.RDF)) {
@@ -160,7 +160,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 				json.put(ConstantsJSON.LANGUAGE, Constants.SPARQL);
 				String sparql = pattern.generateSparql();
 				json.put(ConstantsJSON.QUERY, sparql);
-				json.put(ConstantsJSON.QUERY_LINE, makeQueryOneLine(sparql));
+				json.put(ConstantsJSON.QUERY_LINE, ServletUtilities.makeQueryOneLine(sparql));
 
 			} else if (technology.equals(Constants.NEO4J)) {
 				if (pattern.containsJavaOperator()) {
@@ -169,7 +169,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 				json.put(ConstantsJSON.LANGUAGE, Constants.CYPHER);
 				String cypher = pattern.generateCypher();
 				json.put(ConstantsJSON.QUERY, cypher);
-				json.put(ConstantsJSON.QUERY_LINE, makeQueryOneLine(cypher));
+				json.put(ConstantsJSON.QUERY_LINE, ServletUtilities.makeQueryOneLine(cypher));
 
 			} else {
 				throw new InvalidServletCallException();
@@ -181,19 +181,5 @@ public class ConstraintQueryServlet extends HttpServlet {
 
 		// 3 return json
 		return json;
-	}
-
-	private static String makeQueryOneLine(String query) {
-		if (query == null)
-			return null;
-		String shortQuery = query.replace("\r\n", " ");
-		shortQuery = shortQuery.replace("\n", " ");
-		int len = shortQuery.length() + 1;
-		while (shortQuery.length()< len) {
-			len = shortQuery.length();
-			shortQuery = shortQuery.replace("  ", " ");
-		}
-		shortQuery = shortQuery.trim();
-		return shortQuery;
 	}
 }

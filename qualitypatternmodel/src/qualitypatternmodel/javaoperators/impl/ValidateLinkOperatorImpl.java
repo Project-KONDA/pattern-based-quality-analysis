@@ -73,12 +73,14 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
     );
 	
 	public static void main (String[] params) {
-		String link = "https://muenzen.uni-koeln.de/portal/databases/id/muenzen/titles/id/VAR_0008.html";
+		String[] links = new String[] {"https://muenzen.uni-koeln.de/portal/databases/id/muenzen/titles/id/VAR_0008.html", "https://www.google.com", "das_ist_ein_nicht-valider_link"};
 		ValidateLinkOperatorImpl validateLink = new ValidateLinkOperatorImpl();
 		validateLink.setOption(new BooleanParamImpl());
 		validateLink.getOption().setValue(false);
-		System.out.println(validateLink.apply(link));
-		System.out.println(validateLink.apply("https://www.google.com"));
+		
+		for (String link: links) {
+			System.out.println(validateLink.apply(link));	
+		}
 	}
 
 	/**
