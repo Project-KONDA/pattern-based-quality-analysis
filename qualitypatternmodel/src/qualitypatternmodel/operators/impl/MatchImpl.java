@@ -29,9 +29,11 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsNeo;
+import qualitypatternmodel.utility.XmlServletUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -633,6 +635,24 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		res += getOption().getInternalId() + "]";
 		res += "[" + getPrimitiveNode().getInternalId() + ", " + getRegularExpression().getInternalId() + "]";
 		return res;
+	}
+
+	@Override
+	public Boolean isValidRegex(String regex, Language lang) {
+		switch (lang) {
+			case XML:
+				String query = "matches(\"\", \"" + regex + "\")";
+				try {
+					XmlServletUtility.executeXQueryJava(query);
+					return true;
+				} catch (InvalidityException e) {
+					return false;
+				}
+			case RDF:
+			case NEO4J:
+			default:
+				throw new UnsupportedOperationException("RegEx-Validation not implemented for " + lang);
+		}
 	}
 
 } //MatchImpl

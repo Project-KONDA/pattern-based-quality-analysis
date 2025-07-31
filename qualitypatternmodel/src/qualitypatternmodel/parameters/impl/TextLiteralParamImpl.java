@@ -7,6 +7,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -23,7 +24,9 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -374,10 +377,18 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		String oldValue = getValue();
 		setValue(newValue);
 		try {
-			checkComparisonConsistency();
+			if (newValue != null) {
+				checkComparisonConsistency();
+				for (Operator operator: getOperators()) {
+					operator.isValid(AbstractionLevel.CONCRETE);
+				}
+				for (Parameter parameter: getParameters()) {
+					parameter.isValid(AbstractionLevel.CONCRETE);
+				}
+			}
 		} catch (Exception e) {
 			setValue(oldValue);
-			throw e;
+			throw new InvalidityException(e.getMessage(), e);
 		}
 	}
 
@@ -462,6 +473,24 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return getContains();
 		}
 		return super.eGet(featureID, resolve, coreType);
+	}
+	
+	@Override
+	public EList<Operator> getOperators() {
+		EList<Operator> parameters = new BasicEList<>();
+		parameters.addAll((EList<? extends Operator>) getMatches());
+		parameters.addAll((EList<? extends Operator>) getContains());
+		return parameters;
+	}
+	
+	@Override
+	public EList<Parameter> getParameters() {
+		EList<Parameter> parameters = new BasicEList<Parameter>();
+		if (getXmlPropertyOptionParam() != null)
+			parameters.add(getXmlPropertyOptionParam());
+		if (getXmlAxisPartCondition() != null)
+			parameters.add(getXmlAxisPartCondition());
+		return parameters;
 	}
 
 	/**

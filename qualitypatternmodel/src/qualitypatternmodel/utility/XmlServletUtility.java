@@ -19,40 +19,52 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.newservlets.ServletUtilities;
 
 public class XmlServletUtility {
+	
+	
+	public static List<String> executeXQueryJava(String query) throws InvalidityException {
+		return executeXQueryJava(query, null);
+	}
 
 	public static List<String> executeXQueryJava(String query, String datapath) throws InvalidityException {
-		String databasename = "execution_" + UUID.randomUUID();
 		if (query == null || query == "") {
 			throw new InvalidityException("Empty Query");
 		}
 		query = ServletUtilities.makeQueryOneLine(query);
-		if (databasename == null || databasename == "") {
-			throw new InvalidityException("Invalid database name");
-		}
-		if (!new File(datapath).exists()) {
-			throw new InvalidityException("File not found");
-		}
+		
+		Context context = null;
+		String databasename = null;
 		List<String> outcome = new ArrayList<String>();
-		Context context = new Context();
 		try {
-			new CreateDB(databasename, datapath).execute(context);
+			context = new Context();
+			if (datapath != null) {
+				databasename = "execution_" + UUID.randomUUID();
+				if (!new File(datapath).exists()) {
+					throw new InvalidityException("File not found");
+				}
+				new CreateDB(databasename, datapath).execute(context);
+			}
 			try (QueryProcessor proc = new QueryProcessor(query, context)) {
 				Iter iter = proc.iter();
 				for (Item item; (item = iter.next()) != null;) {
 					outcome.add(item.serialize().toString());
 				}
-			} 
-			new DropDB(databasename).execute(context);
+			}
 		} catch(BaseXException e) {
 			throw new InvalidityException("BaseXException on file " + datapath + " with query: " + query + " [" + e.getMessage() + "]");
 		} catch(QueryException e) {
 			throw new InvalidityException("QueryException on file " + datapath + " with query: " + query + " [" + e.getMessage() + "]");
 		} catch (QueryIOException e) {
 			throw new InvalidityException("QueryIOException on file " + datapath + " with query: " + query + " [" + e.getMessage() + "]");
+		} finally {
+			if (context != null) {
+				if (databasename != null)
+					try {
+						new DropDB(databasename).execute(context);
+					} catch (BaseXException e) {}
+				context.closeDB();
+				context.close();
+			}
 		}
-		context.closeDB();
-		context.close();
-	
 		return outcome;
 	}
 	

@@ -5,6 +5,7 @@ package qualitypatternmodel.operators;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.patternstructure.Language;
 
 /**
  * <!-- begin-user-doc -->
@@ -98,5 +99,6 @@ public interface Match extends BooleanOperator {
 	 */
 	void setOption(BooleanParam value);
 
+	Boolean isValidRegex(String regex, Language language);
 
 } // Match

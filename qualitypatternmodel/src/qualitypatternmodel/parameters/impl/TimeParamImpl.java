@@ -158,7 +158,7 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	@Override
 	public void setValueIfValid(String newValue) throws InvalidityException {
 		String oldValue = getValue();
-		if (value == null) {
+		if (newValue == null) {
 			clear();
 			return;
 		}

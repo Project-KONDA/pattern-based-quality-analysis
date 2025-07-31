@@ -9,6 +9,7 @@ import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.Operator;
 
 
 /**
@@ -139,5 +140,9 @@ public interface TextLiteralParam extends ParameterValue {
 	 * @generated
 	 */
 	void setValueIfValid(String newValue) throws InvalidityException;
+
+	EList<Parameter> getParameters();
+
+	EList<Operator> getOperators();
 
 } // TextLiteral
