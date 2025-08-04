@@ -1,6 +1,10 @@
 package qualitypatternmodel.newservlets;
 
 public class ServletConstants {
+	
+	// logging
+	public static final String LOGDATEFORMAT = "yyyy-MM-dd";
+	public static final int LOGDAYS = 7;
 
 	// path to shared volume
 	public static String FILE_VOLUME_DEFAULT =  "/files";

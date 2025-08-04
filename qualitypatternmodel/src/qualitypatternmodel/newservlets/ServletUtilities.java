@@ -54,9 +54,6 @@ public abstract class ServletUtilities {
 	private static List<CompletePattern> abstractPatternNeo = null;
 	private static Semaphore saveSemaphore = new Semaphore(1);
 
-	public static final String DATEFORMAT = "yyyy-MM-dd";
-	private static final int LOGDAYS = 7;
-
 	// Pattern request
 	public static List<CompletePattern> getAllPattern(String technology) {
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
@@ -512,7 +509,7 @@ public abstract class ServletUtilities {
 	private static String getLogfileName() {
 		String filename = getLogfileDirectory();
 		filename += getLogfileNameStart();
-		filename += LocalDate.now().format(DateTimeFormatter.ofPattern(DATEFORMAT));
+		filename += LocalDate.now().format(DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT));
 		filename += getLogfileNameEnd();
 		return filename;
 	}
@@ -529,7 +526,7 @@ public abstract class ServletUtilities {
 			if (name.startsWith(logstart) && name.endsWith(logend)) {
 				String date = name.substring(logstart.length(), name.length() - logend.length());
 				try {
-					if (calculateAgeInDays(date) > LOGDAYS) {
+					if (calculateAgeInDays(date) > ServletConstants.LOGDAYS) {
 						file.delete();
 						log("Old log deleted: " + name);
 					}
@@ -540,7 +537,7 @@ public abstract class ServletUtilities {
 	
 
     public static long calculateAgeInDays(String dateString) throws DateTimeParseException {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATEFORMAT);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT);
         LocalDate inputDate = LocalDate.parse(dateString, formatter);
         LocalDate currentDate = LocalDate.now();
         return ChronoUnit.DAYS.between(inputDate, currentDate);
