@@ -3,23 +3,12 @@ package utility;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+import java.util.List;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.newservlets.patterns.Appdup3Pattern;
-import qualitypatternmodel.newservlets.patterns.CardPattern;
-import qualitypatternmodel.newservlets.patterns.CompPattern;
-import qualitypatternmodel.newservlets.patterns.CompValPattern;
-import qualitypatternmodel.newservlets.patterns.ContainsPattern;
-import qualitypatternmodel.newservlets.patterns.DupvalPattern;
-import qualitypatternmodel.newservlets.patterns.FuncPattern;
-import qualitypatternmodel.newservlets.patterns.ValidLinkPattern;
-import qualitypatternmodel.newservlets.patterns.MandAttPattern;
-import qualitypatternmodel.newservlets.patterns.MatchPattern;
-import qualitypatternmodel.newservlets.patterns.StringLengthPattern;
-import qualitypatternmodel.newservlets.patterns.UniquePattern;
+import qualitypatternmodel.newservlets.initialisation.PatternCollection;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
@@ -27,20 +16,7 @@ import qualitypatternmodel.utility.EMFModelSave;
 public class SaveModelTest {
 
 	public static void main(String[] args) throws IOException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ArrayList<CompletePattern> patterns = new ArrayList<CompletePattern>();
-
-		patterns.add(CardPattern.getGeneric());
-		patterns.add(CompPattern.getGeneric());
-		patterns.add(FuncPattern.getGeneric());
-		patterns.add(UniquePattern.getGeneric());
-		patterns.add(MatchPattern.getGeneric());
-		patterns.add(ContainsPattern.getGeneric());
-		patterns.add(Appdup3Pattern.getGeneric());
-		patterns.add(DupvalPattern.getGeneric());
-		patterns.add(ValidLinkPattern.getGeneric());
-		patterns.add(MandAttPattern.getGeneric());
-		patterns.add(StringLengthPattern.getGeneric());
-		patterns.add(CompValPattern.getGeneric());
+		List<CompletePattern> patterns = PatternCollection.getGenericPatterns();
 
 		String path = "serverpatterns/xml/abstract-patterns";
 
