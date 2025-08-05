@@ -30,6 +30,6 @@
             "description":"counted elements",
             "plural":"true"
         },
-        {"text":"."}
+        {"text":"?"}
     ]
 }

@@ -13,20 +13,21 @@
         },
         {"text":"with more than one"},
         {
-            "params":[0],
-            "value":"GREATER"
-        },
-        {
-            "params":[1],
-            "value":"1"
-        },
-        {
             "name":"child elements",
             "params":[3],
             "exampleValue":"Birthdates",
             "description":"counted elements",
             "plural":"true"
         },
-        {"text":"."}
+        {"text":"?"},
+        
+        {
+            "params":[0],
+            "value":"GREATER"
+        },
+        {
+            "params":[1],
+            "value":"1"
+        }
     ]
 }

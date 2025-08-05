@@ -1,0 +1,29 @@
+{
+    "template":"ValidLink_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+    "fragments":[
+        {"text":"For"},
+        {
+            "name":"elements",
+            "params":[1],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis",
+            "plural":"true"
+        },
+        {"text":", each"},
+        {
+            "name":"property",
+            "params":[2],
+            "exampleValue":"Birth Certificate Source",
+            "description":"property of interest,that should contain a valid link."
+        },
+        {"text":"is a valid link."},
+        
+        {
+            "params":[0],
+            "value": "true"
+        }
+    ]
+}
