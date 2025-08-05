@@ -6,23 +6,17 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
-import qualitypatternmodel.newservlets.initialisation.PatternBundle;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class MandAttPattern {
+public class MandAttPattern extends PatternClass {
 
-	public static CompletePattern getGeneric()
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	@Override
+	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(PatternConstants.MANDATT_ID_GENERIC);
-		pattern.setAbstractId(PatternConstants.MANDATT_ID_GENERIC);
-		pattern.setName(PatternConstants.MANDATT_NAME);
-		pattern.setDescription(PatternConstants.MANDATT_DESCR);
 
 		ComplexNode main = pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
@@ -36,38 +30,62 @@ public class MandAttPattern {
 		ComplexNode field = main.addOutgoing(qc.getGraph()).getTarget().makeComplex();
 		field.setName("field");
 
-		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
 
-	public static PatternBundle getXmlBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.XML,
-				PatternConstants.MANDATT_ID_XML,
-				Map.of(0, "//*", 1, "/*"),
-				MANDATT_XML_VARIANTS,
-				MANDATT_XML_VARIANTS_OLD);
+	@Override
+	public String id() {
+		return PatternConstants.MANDATT_ID;
 	}
 
-	public static PatternBundle getRdfBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.RDF,
-				PatternConstants.MANDATT_ID_RDF,
-				Map.of(),
-				MANDATT_RDF_VARIANTS,
-				MANDATT_RDF_VARIANTS_OLD);
+	@Override
+	String name() {
+		return PatternConstants.MANDATT_NAME;
 	}
 
-	public static PatternBundle getNeoBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(), 
-				Language.NEO4J,
-				PatternConstants.MANDATT_ID_NEO,
-				Map.of(),
-				MANDATT_NEO_VARIANTS,
-				MANDATT_NEO_VARIANTS_OLD);
+	@Override
+	String description() {
+		return PatternConstants.MANDATT_DESCR;
+	}
+
+	@Override
+	public Boolean genericValid() {
+		return true;
+	}
+
+	@Override
+	public Boolean xmlValid() {
+		return true;
+	}
+
+	@Override
+	public Boolean rdfValid() {
+		return true;
+	}
+
+	@Override
+	public Boolean neoValid() {
+		return true;
+	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+	
+	@Override 
+	protected Map<Integer, String> xmlMap() {
+		return Map.of(0, "//*", 1, "/*");
+	}
+
+	@Override
+	protected String[] xmlVariants() {
+		return new String[] { MANDATT_XML_DEFAULT_CONSTRAINT, MANDATT_XML_DEFAULT_ANTIPATTERN };
+	}
+
+	protected String[] rdfVariants() {
+		return new String[] { MANDATT_RDF_DEFAULT };
+	}
+
+	protected String[] neoVariants() {
+		return new String[] { MANDATT_NEO_DEFAULT };
 	}
 
 	public static String MANDATT_XML_DEFAULT_CONSTRAINT =
@@ -92,8 +110,6 @@ public class MandAttPattern {
 			+ "{\"text\":\"without a\"},"
 			+ "{\"name\":\"child element\",\"params\":[1],\"exampleValue\":\"Birthdate\",\"description\":\"value that gets analysed\"},"
 			+ "{\"text\":\".\"}]}";
-	public static String[] MANDATT_XML_VARIANTS = { MANDATT_XML_DEFAULT_CONSTRAINT, MANDATT_XML_DEFAULT_ANTIPATTERN };
-	public static String[] MANDATT_XML_VARIANTS_OLD = {};
 
 	public static String MANDATT_RDF_DEFAULT = "{\"template\":\"MandAtt_rdf\","
 			+ "\"language\":\"rdf\","
@@ -107,8 +123,6 @@ public class MandAttPattern {
 			+ "{\"text\":\"reached by\"},"
 			+ "{\"name\":\"an rdf property path\",\"params\":[1],\"exampleValue\":\"has\"},"
 			+ "{\"text\":\".\"}]}";
-	public static String[] MANDATT_RDF_VARIANTS = { MANDATT_RDF_DEFAULT };
-	public static String[] MANDATT_RDF_VARIANTS_OLD = {};
 
 	public static String MANDATT_NEO_DEFAULT = "{\"template\":\"MandAtt_neo4j\","
 			+ "\"language\":\"neo4j\","
@@ -121,7 +135,5 @@ public class MandAttPattern {
 			+ "{\"text\":\"reached by\"},"
 			+ "{\"name\":\"an neo property path\",\"params\":[2],\"exampleValue\":\"has\"},"
 			+ "{\"text\":\".\"}]}";
-	public static String[] MANDATT_NEO_VARIANTS = { MANDATT_NEO_DEFAULT };
-	public static String[] MANDATT_NEO_VARIANTS_OLD = {};
 
 }

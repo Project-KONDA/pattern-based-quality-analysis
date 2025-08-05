@@ -7,24 +7,17 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.newservlets.initialisation.PatternBundle;
+import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class UniquePattern {
-
-	public static CompletePattern getGeneric()
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+public class UniquePattern extends PatternClass {
+	@Override
+	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(PatternConstants.UNIQUE_ID_GENERIC);
-		pattern.setAbstractId(PatternConstants.UNIQUE_ID_GENERIC);
-		pattern.setName(PatternConstants.UNIQUE_NAME);
-		pattern.setDescription(PatternConstants.UNIQUE_DESCR);
 
 		// NotCondition notCon = PatternstructureFactory.eINSTANCE.createNotCondition();
 		// pattern.setCondition(notCon);
@@ -46,38 +39,65 @@ public class UniquePattern {
 		n.setName("Value");
 		r2.addOutgoing(n);
 
-		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
 
-	public static PatternBundle getNeoBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.NEO4J,
-				PatternConstants.UNIQUE_ID_NEO,
-				Map.of(),
-				UNIQUE_NEO_VARIANTS,
-				UNIQUE_NEO_VARIANTS_OLD);
+	@Override
+	public String id() {
+		return PatternConstants.UNIQUE_ID;
 	}
 
-	public static PatternBundle getRdfBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.RDF,
-				PatternConstants.UNIQUE_ID_RDF,
-				Map.of(),
-				UNIQUE_RDF_VARIANTS,
-				UNIQUE_RDF_VARIANTS_OLD);
+	@Override
+	String name() {
+		return PatternConstants.UNIQUE_NAME;
 	}
 
-	public static PatternBundle getXmlBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.XML,
-				PatternConstants.UNIQUE_ID_XML,
-				Map.of(2, "//*", 3, "/*/text()", 4, "/*/text()", 5, "//*"),
-				UNIQUE_XML_VARIANTS,
-				UNIQUE_XML_VARIANTS_OLD);
+	@Override
+	String description() {
+		return PatternConstants.UNIQUE_DESCR;
+	}
+
+	@Override
+	public Boolean genericValid() {
+		return true;
+	}
+
+	@Override
+	public Boolean xmlValid() {
+		return true;
+	}
+
+	@Override
+	public Boolean rdfValid() {
+		return true;
+	}
+
+	@Override
+	public Boolean neoValid() {
+		return true;
+	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
+	@Override
+	protected Map<Integer, String> xmlMap() {
+		return Map.of(2, "//*", 3, "/*/text()", 4, "/*/text()", 5, "//*");
+	}
+
+	protected String[] xmlVariants() {
+		return new String[] { UNIQUE_XML_DEFAULT_CONSTRAINT, UNIQUE_XML_DEFAULT_ANTIPATTERN };
+	}
+
+	protected String[] xmlVariantsOld() {
+		return new String[] { UNIQUE_XML_DEFAULT_OLD };
+	}
+
+	protected String[] rdfVariants() {
+		return new String[] { UNIQUE_RDF_DEFAULT };
+	}
+
+	protected String[] neoVariants() {
+		return new String[] { UNIQUE_NEO_DEFAULT };
 	}
 
 	public static String UNIQUE_XML_DEFAULT_CONSTRAINT =
@@ -113,8 +133,6 @@ public class UniquePattern {
 		+ "{\"text\":\"where a value of\"},"
 		+ "{\"name\":\"property\",\"params\":[3,4],\"exampleValue\":\"Identifier (Value)\",\"description\":\"value that gets analysed\"},"
 		+ "{\"text\":\"is not unique within the data set.\"}]}";
-	public static String[] UNIQUE_XML_VARIANTS = {UNIQUE_XML_DEFAULT_CONSTRAINT, UNIQUE_XML_DEFAULT_ANTIPATTERN};
-	public static String[] UNIQUE_XML_VARIANTS_OLD = {UNIQUE_XML_DEFAULT_OLD};
 
 	public static String UNIQUE_RDF_DEFAULT =
 		"{\"template\":\"Unique_rdf\","
@@ -127,8 +145,6 @@ public class UniquePattern {
 		+ "{\"text\":\"where a property reached by\"},"
 		+ "{\"name\":\"an rdf property path\",\"params\":[4,5],\"exampleValue\":\"has\"},"
 		+ "{\"text\":\"is not unique within the data set.\"}]}";
-	public static String[] UNIQUE_RDF_VARIANTS = {UNIQUE_RDF_DEFAULT};
-	public static String[] UNIQUE_RDF_VARIANTS_OLD = {};
 
 	public static String UNIQUE_NEO_DEFAULT =
 		"{\"template\":\"Unique_neo4j\","
@@ -141,7 +157,4 @@ public class UniquePattern {
 		+ "{\"text\":\"where a property reached by\"},"
 		+ "{\"name\":\"an neo property path\",\"params\":[4,5],\"exampleValue\":\"has\"},"
 		+ "{\"text\":\"is not unique within the data set.\"}]}";
-	public static String[] UNIQUE_NEO_VARIANTS = {UNIQUE_NEO_DEFAULT};
-	public static String[] UNIQUE_NEO_VARIANTS_OLD = {};
-
 }

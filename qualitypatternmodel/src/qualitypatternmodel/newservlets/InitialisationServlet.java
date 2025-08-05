@@ -29,11 +29,8 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
-import qualitypatternmodel.newservlets.initialisation.GenericPatterns;
-import qualitypatternmodel.newservlets.initialisation.Neo4jPatterns;
 import qualitypatternmodel.newservlets.initialisation.PatternBundle;
-import qualitypatternmodel.newservlets.initialisation.RdfPatterns;
-import qualitypatternmodel.newservlets.initialisation.XmlPatterns;
+import qualitypatternmodel.newservlets.initialisation.PatternCollection;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -204,7 +201,7 @@ public class InitialisationServlet extends HttpServlet {
 		try {
 			if (ServletConstants.GENERATE_GENERIC) {
 				String genericfolder = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.GENERICFOLDER;
-				for (CompletePattern pattern: GenericPatterns.getAllGenericPattern()) {
+				for (CompletePattern pattern: PatternCollection.getGenericPatterns()) {
 					String id = pattern.getPatternId();
 					if (ServletConstants.OVERRIDE_VARIANTS || !fileExists(genericfolder, id)) {
 						pattern.isValid(AbstractionLevel.GENERIC);
@@ -230,11 +227,10 @@ public class InitialisationServlet extends HttpServlet {
 			throw new ServletException("Unexpected Error: " + e.getMessage(), e);
 		}
 
-
 		try {
 			String xmlfolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.XML + "/" + ServletConstants.TEMPLATEFOLDER;
 			ServletUtilities.log("XML Patterns creation started to :     " + xmlfolder);
-			for (PatternBundle patternbundle: XmlPatterns.getAllXmlPatternBundles()) {
+			for (PatternBundle patternbundle: PatternCollection.getXmlPatternBundles()) {
 				patternbundle.export(xmlfolder, ServletConstants.OVERRIDE_VARIANTS);
 			}
 			ServletUtilities.log("XML Patterns created:     " + xmlfolder);
@@ -245,7 +241,7 @@ public class InitialisationServlet extends HttpServlet {
 		try {
 			String rdffolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.RDF + "/" + ServletConstants.TEMPLATEFOLDER;
 			ServletUtilities.log("RDF Patterns creation started to :     " + rdffolder);
-			for (PatternBundle patternbundle: RdfPatterns.getAllRdfPatternBundles()) {
+			for (PatternBundle patternbundle: PatternCollection.getRdfPatternBundles()) {
 				patternbundle.export(rdffolder, ServletConstants.OVERRIDE_VARIANTS);
 			}
 			ServletUtilities.log("RDF Patterns created:     " + rdffolder);
@@ -256,7 +252,7 @@ public class InitialisationServlet extends HttpServlet {
 		try {
 			String neofolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.NEO4J + "/" + ServletConstants.TEMPLATEFOLDER;
 			ServletUtilities.log("NEO4J Patterns creation started to :     " + neofolder);
-			for (PatternBundle patternbundle: Neo4jPatterns.getAllNeoPatternBundles()) {
+			for (PatternBundle patternbundle: PatternCollection.getNeoPatternBundles()) {
 				patternbundle.export(neofolder, ServletConstants.OVERRIDE_VARIANTS);
 			}
 			ServletUtilities.log("NEO4J Patterns created:   " + neofolder);

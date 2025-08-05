@@ -1,58 +1,57 @@
 package qualitypatternmodel.newservlets.patterns;
 
-import java.util.Map;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.newservlets.initialisation.PatternBundle;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 
-public class CardImpliesMandAttPattern {
+public class CardImpliesMandAttPattern extends PatternClass {
 
-	public static CompletePattern getGeneric()
+	@Override
+	public CompletePattern getPattern()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(PatternConstants.CARDIMPLIESMANDATT_ID_GENERIC);
-		pattern.setAbstractId(PatternConstants.CARDIMPLIESMANDATT_ID_GENERIC);
-		pattern.setName(PatternConstants.CARDIMPLIESMANDATT_NAME);
-		pattern.setDescription(PatternConstants.CARDIMPLIESMANDATT_DESCR);
+
 		// TODO
-		pattern.isValid(AbstractionLevel.GENERIC);
+
 		return pattern;
 	}
-	
-	public static PatternBundle getXmlBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
-		return new PatternBundle(
-				getGeneric(),
-				Language.XML,
-				PatternConstants.CARDIMPLIESMANDATT_ID_XML,
-				Map.of(),
-				null,
-				null);
+
+	@Override
+	public String id() {
+		return PatternConstants.CARDIMPLIESMANDATT_ID;
 	}
-	
-	public static PatternBundle getRdfBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
-		return new PatternBundle(
-				getGeneric(),
-				Language.RDF,
-				PatternConstants.CARDIMPLIESMANDATT_ID_RDF,
-				Map.of(),
-				null,
-				null);
+
+	String name() {
+		return PatternConstants.CARDIMPLIESMANDATT_NAME;
 	}
-	
-	public static PatternBundle getNeoBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
-		return new PatternBundle(
-				getGeneric(),
-				Language.NEO4J,
-				PatternConstants.CARDIMPLIESMANDATT_ID_NEO,
-				Map.of(),
-				null,
-				null);
+
+	String description() {
+		return PatternConstants.CARDIMPLIESMANDATT_DESCR;
 	}
+
+	@Override
+	public Boolean genericValid() {
+		return false;
+	}
+
+	@Override
+	public Boolean xmlValid() {
+		return false;
+	}
+
+	@Override
+	public Boolean rdfValid() {
+		return false;
+	}
+
+	@Override
+	public Boolean neoValid() {
+		return false;
+	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
 
 }
