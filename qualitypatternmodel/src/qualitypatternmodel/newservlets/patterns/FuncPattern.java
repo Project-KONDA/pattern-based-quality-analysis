@@ -9,24 +9,18 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.newservlets.initialisation.PatternBundle;
+import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class FuncPattern {
+public class FuncPattern extends PatternClass {
 
-	public static CompletePattern getGeneric()
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	@Override
+	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(PatternConstants.FUNC_ID_GENERIC);
-		pattern.setAbstractId(PatternConstants.FUNC_ID_GENERIC);
-		pattern.setName(PatternConstants.FUNC_NAME);
-		pattern.setDescription(PatternConstants.FUNC_DESCR);
 
 		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 
@@ -55,38 +49,49 @@ public class FuncPattern {
 		c2.getOption().setValue(ComparisonOperator.NOTEQUAL);
 		c2.getOption().setPredefined(true);
 
-		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
 
-	public static PatternBundle getXmlBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.XML,
-				PatternConstants.FUNC_ID_XML,
-				Map.of(2, "//*", 3, "/*/text()"),
-				null,
-				null);
+	@Override
+	public String id() {
+		return PatternConstants.FUNC_ID;
 	}
 
-	public static PatternBundle getRdfBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.RDF,
-				PatternConstants.FUNC_ID_RDF,
-				Map.of(),
-				null,
-				null);
+	@Override
+	String name() {
+		return PatternConstants.FUNC_NAME;
 	}
 
-	public static PatternBundle getNeoBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.NEO4J,
-				PatternConstants.FUNC_ID_NEO,
-				Map.of(),
-				null,
-				null);
+	@Override
+	String description() {
+		return PatternConstants.FUNC_DESCR;
+	}
+
+	@Override
+	public Boolean genericValid() {
+		return true;
+	}
+
+	@Override
+	public Boolean xmlValid() {
+		return false;
+	}
+
+	@Override
+	public Boolean rdfValid() {
+		return false;
+	}
+
+	@Override
+	public Boolean neoValid() {
+		return false;
+	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+	
+	@Override
+	protected Map<Integer, String> xmlMap(){
+		return Map.of(2, "//*", 3, "/*/text()");
 	}
 
 }

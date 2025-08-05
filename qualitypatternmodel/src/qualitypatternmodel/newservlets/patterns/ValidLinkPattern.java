@@ -7,22 +7,15 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.newservlets.initialisation.PatternBundle;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class ValidLinkPattern {
-
-	public static CompletePattern getGeneric()
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+public class ValidLinkPattern extends PatternClass {
+	@Override
+	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(PatternConstants.VALIDLINK_ID_GENERIC);
-		pattern.setAbstractId(PatternConstants.VALIDLINK_ID_GENERIC);
-		pattern.setName(PatternConstants.VALIDLINK_NAME);
-		pattern.setDescription(PatternConstants.VALIDLINK_DESCR);
 
 		ComplexNode main = pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
@@ -35,38 +28,59 @@ public class ValidLinkPattern {
 
 		field.addPrimitiveValidateLink();
 
-		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
 
-	public static PatternBundle getXmlBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.XML,
-				PatternConstants.VALIDLINK_ID_XML,
-				Map.of(1, "//*", 2, "/*/text()"),
-				INVALIDLINK_XML_VARIANTS,
-				INVALIDLINK_XML_VARIANTS_OLD);
+	@Override
+	public String id() {
+		return PatternConstants.VALIDLINK_ID;
 	}
 
-	public static PatternBundle getRdfBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.RDF,
-				PatternConstants.VALIDLINK_ID_RDF,
-				Map.of(),
-				null,
-				null);
+	@Override
+	String name() {
+		return PatternConstants.VALIDLINK_NAME;
 	}
 
-	public static PatternBundle getNeoBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.NEO4J,
-				PatternConstants.VALIDLINK_ID_NEO,
-				Map.of(),
-				null,
-				null);
+	@Override
+	String description() {
+		return PatternConstants.VALIDLINK_DESCR;
+	}
+
+	@Override
+	public Boolean genericValid() {
+		return true;
+	}
+
+	@Override
+	public Boolean xmlValid() {
+		return true;
+	}
+
+	@Override
+	public Boolean rdfValid() {
+		return false;
+	}
+
+	@Override
+	public Boolean neoValid() {
+		return false;
+	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
+	@Override
+	protected Map<Integer, String> xmlMap() {
+		return Map.of(1, "//*", 2, "/*/text()");
+	}
+
+	@Override
+	protected String[] xmlVariants() {
+		return new String[] { INVALIDLINK_XML_DEFAULT_CONSTRAINT, INVALIDLINK_XML_DEFAULT_ANTIPATTERN };
+	}
+
+	@Override
+	protected String[] xmlVariantsOld() {
+		return new String[] { INVALIDLINK_XML_QUESTION };
 	}
 
 	public static String INVALIDLINK_XML_DEFAULT_CONSTRAINT =
@@ -105,7 +119,4 @@ public class ValidLinkPattern {
 		+ "{\"name\":\"property\",\"params\":[2],\"exampleValue\":\"Birth Certificate Source\",\"description\":\"property of interest,that should contain a valid link.\"},"
 		+ "{\"name\":\"is / is not\",\"params\":[0],\"defaultMap\":\"is\",\"exampleValue\":\"is\",\"description\":\"Do you search for elements that contain a valid link (‘is’) or invalid links (‘is not’)?\"},"
 		+ "{\"text\":\"valid?\"}]}";
-	public static String[] INVALIDLINK_XML_VARIANTS = {INVALIDLINK_XML_DEFAULT_CONSTRAINT, INVALIDLINK_XML_DEFAULT_ANTIPATTERN};
-	public static String[] INVALIDLINK_XML_VARIANTS_OLD = {INVALIDLINK_XML_QUESTION};
-
 }
