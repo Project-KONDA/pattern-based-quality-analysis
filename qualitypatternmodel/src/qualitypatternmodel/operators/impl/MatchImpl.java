@@ -655,7 +655,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			case RDF:
 			case NEO4J:
 			default:
-				new UnsupportedOperationException("RegEx-Validation not implemented for " + lang).printStackTrace();
+				System.err.println("RegEx-Validation not implemented for " + lang);
 				return true;
 		}
 	}
