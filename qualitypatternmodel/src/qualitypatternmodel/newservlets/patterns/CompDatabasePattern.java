@@ -8,7 +8,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class CompDatabasePattern extends PatternClass {
 
-	CompDatabasePattern() {
+	public CompDatabasePattern() {
 		super(PatternConstants.COMPDATABASE_ID,
 				PatternConstants.COMPDATABASE_NAME, 
 				PatternConstants.COMPDATABASE_DESCR, 

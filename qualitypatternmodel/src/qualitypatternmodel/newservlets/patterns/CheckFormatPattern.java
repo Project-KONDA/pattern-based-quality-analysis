@@ -8,7 +8,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class CheckFormatPattern extends PatternClass {
 
-	CheckFormatPattern() {
+	public CheckFormatPattern() {
 		super(PatternConstants.CHECKFORMAT_ID,
 				PatternConstants.CHECKFORMAT_NAME, 
 				PatternConstants.CHECKFORMAT_DESCR, 

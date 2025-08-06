@@ -18,7 +18,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class FuncPattern extends PatternClass {
 
-	FuncPattern() {
+	public FuncPattern() {
 		super(PatternConstants.FUNC_ID,
 				PatternConstants.FUNC_NAME, 
 				PatternConstants.FUNC_DESCR, 

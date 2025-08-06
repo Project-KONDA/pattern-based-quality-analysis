@@ -14,7 +14,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class ValidLinkPattern extends PatternClass {
 
-	ValidLinkPattern() {
+	public ValidLinkPattern() {
 		super(PatternConstants.VALIDLINK_ID,
 				PatternConstants.VALIDLINK_NAME, 
 				PatternConstants.VALIDLINK_DESCR, 

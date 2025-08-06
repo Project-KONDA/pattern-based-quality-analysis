@@ -9,7 +9,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 
 public class CardImpliesMandAttPattern extends PatternClass {
 
-	CardImpliesMandAttPattern() {
+	public CardImpliesMandAttPattern() {
 		super(PatternConstants.CARDIMPLIESMANDATT_ID,
 				PatternConstants.CARDIMPLIESMANDATT_NAME, 
 				PatternConstants.CARDIMPLIESMANDATT_DESCR, 

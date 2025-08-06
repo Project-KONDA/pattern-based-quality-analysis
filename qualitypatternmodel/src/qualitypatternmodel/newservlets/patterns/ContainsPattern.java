@@ -16,7 +16,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class ContainsPattern extends PatternClass {
 
-	ContainsPattern() {
+	public ContainsPattern() {
 		super(PatternConstants.CONTAINS_ID,
 				PatternConstants.CONTAINS_NAME, 
 				PatternConstants.CONTAINS_DESCR, 

@@ -8,7 +8,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class CompValAnyPattern extends PatternClass {
 
-	CompValAnyPattern() {
+	public CompValAnyPattern() {
 		super(PatternConstants.COMPVALANY_ID,
 				PatternConstants.COMPVALANY_NAME, 
 				PatternConstants.COMPVALANY_DESCR, 

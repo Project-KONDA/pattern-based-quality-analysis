@@ -16,7 +16,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class StringLengthPattern extends PatternClass {
 
-	StringLengthPattern() {
+	public StringLengthPattern() {
 		super(PatternConstants.STRINGLENGTH_ID,
 				PatternConstants.STRINGLENGTH_NAME, 
 				PatternConstants.STRINGLENGTH_DESCR, 

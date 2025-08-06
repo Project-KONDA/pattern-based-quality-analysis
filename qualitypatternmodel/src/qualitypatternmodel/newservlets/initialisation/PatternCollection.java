@@ -116,7 +116,7 @@ public class PatternCollection {
 					else throw new RuntimeException("XML Patternbundle Null for Class " + id);
 				}
 			} catch (Exception e) {
-				throw new InvalidityException("Exception when compiling XML PatternBundle for Class " + id);
+				throw new InvalidityException("Exception when compiling XML PatternBundle for Class " + id, e);
 			}
 		}
 		return patternbundles;

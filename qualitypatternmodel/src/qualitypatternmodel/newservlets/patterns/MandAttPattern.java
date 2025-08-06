@@ -14,7 +14,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class MandAttPattern extends PatternClass {
 
-	MandAttPattern() {
+	public MandAttPattern() {
 		super(PatternConstants.MANDATT_ID,
 				PatternConstants.MANDATT_NAME, 
 				PatternConstants.MANDATT_DESCR, 

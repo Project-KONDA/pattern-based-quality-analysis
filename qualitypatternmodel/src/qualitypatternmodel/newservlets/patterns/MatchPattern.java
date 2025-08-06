@@ -13,7 +13,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class MatchPattern extends PatternClass {
 
-	MatchPattern() {
+	public MatchPattern() {
 		super(PatternConstants.MATCH_ID,
 				PatternConstants.MATCH_NAME, 
 				PatternConstants.MATCH_DESCR, 

@@ -16,7 +16,7 @@ import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 public class CardPattern extends PatternClass {
 
-	CardPattern() {
+	public CardPattern() {
 		super(PatternConstants.CARD_ID,
 				PatternConstants.CARD_NAME, 
 				PatternConstants.CARD_DESCR, 

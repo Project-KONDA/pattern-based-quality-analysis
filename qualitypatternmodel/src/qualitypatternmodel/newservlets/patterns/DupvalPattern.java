@@ -21,7 +21,7 @@ import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 public class DupvalPattern extends PatternClass {
 
-	DupvalPattern() {
+	public DupvalPattern() {
 		super(PatternConstants.DUPVAL_ID,
 				PatternConstants.DUPVAL_NAME, 
 				PatternConstants.DUPVAL_DESCR, 

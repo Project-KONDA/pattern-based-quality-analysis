@@ -16,7 +16,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class UniquePattern extends PatternClass {
 
-	UniquePattern() {
+	public UniquePattern() {
 		super(PatternConstants.UNIQUE_ID,
 				PatternConstants.UNIQUE_NAME, 
 				PatternConstants.UNIQUE_DESCR, 

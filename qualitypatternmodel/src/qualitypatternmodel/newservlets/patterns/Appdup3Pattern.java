@@ -11,7 +11,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class Appdup3Pattern extends PatternClass {
 
-	Appdup3Pattern() {
+	public Appdup3Pattern() {
 		super(PatternConstants.APPDUP3_ID,
 				PatternConstants.APPDUP3_NAME, 
 				PatternConstants.APPDUP3_DESCR, 

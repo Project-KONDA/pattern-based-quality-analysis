@@ -12,7 +12,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class CompValPattern extends PatternClass {
 
-	CompValPattern() {
+	public CompValPattern() {
 		super(PatternConstants.COMPVAL_ID,
 				PatternConstants.COMPVAL_NAME, 
 				PatternConstants.COMPVAL_DESCR, 

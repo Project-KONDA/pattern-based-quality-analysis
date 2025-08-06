@@ -8,7 +8,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class LocalUniquePattern extends PatternClass {
 
-	LocalUniquePattern() {
+	public LocalUniquePattern() {
 		super(PatternConstants.LOCALUNIQUE_ID,
 				PatternConstants.LOCALUNIQUE_NAME, 
 				PatternConstants.LOCALUNIQUE_DESCR, 
