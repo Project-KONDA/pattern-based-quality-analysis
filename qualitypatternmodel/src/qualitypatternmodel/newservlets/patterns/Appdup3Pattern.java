@@ -11,6 +11,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class Appdup3Pattern extends PatternClass {
 
+	public Appdup3Pattern() {
+		super(PatternConstants.APPDUP3_ID,
+				PatternConstants.APPDUP3_NAME, 
+				PatternConstants.APPDUP3_DESCR, 
+				true, false, false, false);
+	}
+
 	@Override
 	public CompletePattern getPattern()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -27,39 +34,6 @@ public class Appdup3Pattern extends PatternClass {
 		other.addOutgoing(n2);
 
 		return pattern;
-	}
-
-	@Override
-	public String id() {
-		return PatternConstants.APPDUP3_ID;
-	}
-
-	String name() {
-		return PatternConstants.APPDUP3_NAME;
-	}
-
-	String description() {
-		return PatternConstants.APPDUP3_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return false;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____

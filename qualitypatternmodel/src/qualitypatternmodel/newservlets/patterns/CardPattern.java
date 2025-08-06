@@ -16,6 +16,13 @@ import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 public class CardPattern extends PatternClass {
 
+	public CardPattern() {
+		super(PatternConstants.CARD_ID,
+				PatternConstants.CARD_NAME, 
+				PatternConstants.CARD_DESCR, 
+				true, true, true, true);
+	}
+
 	@Override
 	public CompletePattern getPattern()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -41,39 +48,6 @@ public class CardPattern extends PatternClass {
 		countReturn.setReturnNode(true);
 
 		return pattern;
-	}
-
-	@Override
-	public String id() {
-		return PatternConstants.CARD_ID;
-	}
-
-	String name() {
-		return PatternConstants.CARD_NAME;
-	}
-
-	String description() {
-		return PatternConstants.CARD_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return true;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____

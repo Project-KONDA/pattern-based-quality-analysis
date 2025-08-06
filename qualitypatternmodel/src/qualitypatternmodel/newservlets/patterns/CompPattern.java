@@ -14,6 +14,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class CompPattern extends PatternClass {
 
+	public CompPattern() {
+		super(PatternConstants.COMP_ID,
+				PatternConstants.COMP_NAME, 
+				PatternConstants.COMP_DESCR, 
+				true, false, false, false);
+	}
+
 	@Override
 	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
@@ -35,42 +42,6 @@ public class CompPattern extends PatternClass {
 		comp2.getOption().getOptions().add(ComparisonOperator.LESSOREQUAL);
 
 		return pattern;
-	}
-
-
-	@Override
-	public String id() {
-		return PatternConstants.COMP_ID;
-	}
-
-	@Override
-	String name() {
-		return PatternConstants.COMP_NAME;
-	}
-
-	@Override
-	String description() {
-		return PatternConstants.COMP_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return false;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____

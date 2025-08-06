@@ -14,37 +14,47 @@ abstract public class PatternClass {
 
 	// Implement generic Pattern here
 	abstract CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
-	
+
 	// Add information
-	public abstract String id();
-	abstract String name();
-	abstract String description();
-	public abstract Boolean genericValid();
-	public abstract Boolean xmlValid();
-	public abstract Boolean rdfValid();
-	public abstract Boolean neoValid();
+	public final String id;
+	public final String name;
+	public final String description;
+	public final Boolean genericValid;
+	public final Boolean xmlValid;
+	public final Boolean rdfValid;
+	public final Boolean neoValid;
+
+	protected PatternClass(String id, String name, String description, Boolean genericValid, Boolean xmlValid, Boolean rdfValid, Boolean neoValid) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.genericValid = genericValid;
+		this.xmlValid = xmlValid;
+		this.rdfValid = rdfValid;
+		this.neoValid = neoValid;
+	}
 
 	String genericId() {
-		return id() + "_generic";
+		return id + "_generic";
 	};
 
 	String xmlId() {
-		return id() + "_xml";
+		return id + "_xml";
 	};
 
 	String rdfId() {
-		return id() + "_rdf";
+		return id + "_rdf";
 	};
 
 	String neoId() {
-		return id() + "_neo4j";
+		return id + "_neo4j";
 	};
 
 
 	public CompletePattern getGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = getPattern();
 		if (pattern == null) {
-			System.err.println("Pattern " + id() + " is null");
+			System.err.println("Pattern " + id + " is null");
 		}
 
 		setInfo(pattern);
@@ -55,8 +65,8 @@ abstract public class PatternClass {
 	protected void setInfo(CompletePattern pattern) {
 		pattern.setPatternId(genericId());
 		pattern.setAbstractId(genericId());
-		pattern.setName(name());
-		pattern.setDescription(description());
+		pattern.setName(name);
+		pattern.setDescription(description);
 	}
 
 	public PatternBundle getXmlBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

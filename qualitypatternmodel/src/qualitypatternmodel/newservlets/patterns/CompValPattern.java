@@ -12,6 +12,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class CompValPattern extends PatternClass {
 
+	public CompValPattern() {
+		super(PatternConstants.COMPVAL_ID,
+				PatternConstants.COMPVAL_NAME, 
+				PatternConstants.COMPVAL_DESCR, 
+				true, false, false, false);
+	}
+
 	@Override
 	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
@@ -28,41 +35,6 @@ public class CompValPattern extends PatternClass {
 		field.addPrimitiveComparison();
 
 		return pattern;
-	}
-
-	@Override
-	public String id() {
-		return PatternConstants.COMPVAL_ID;
-	}
-
-	@Override
-	String name() {
-		return PatternConstants.COMPVAL_NAME;
-	}
-
-	@Override
-	String description() {
-		return PatternConstants.COMPVAL_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return false;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____

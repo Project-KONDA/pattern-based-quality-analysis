@@ -12,6 +12,14 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class MatchPattern extends PatternClass {
+
+	public MatchPattern() {
+		super(PatternConstants.MATCH_ID,
+				PatternConstants.MATCH_NAME, 
+				PatternConstants.MATCH_DESCR, 
+				true, true, true, true);
+	}
+
 	@Override
 	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
@@ -30,41 +38,6 @@ public class MatchPattern extends PatternClass {
 		}
 
 		return pattern;
-	}
-
-	@Override
-	public String id() {
-		return PatternConstants.MATCH_ID;
-	}
-
-	@Override
-	String name() {
-		return PatternConstants.MATCH_NAME;
-	}
-
-	@Override
-	String description() {
-		return PatternConstants.MATCH_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return true;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____

@@ -14,6 +14,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class MandAttPattern extends PatternClass {
 
+	public MandAttPattern() {
+		super(PatternConstants.MANDATT_ID,
+				PatternConstants.MANDATT_NAME, 
+				PatternConstants.MANDATT_DESCR, 
+				true, true, true, true);
+	}
+
 	@Override
 	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
@@ -31,41 +38,6 @@ public class MandAttPattern extends PatternClass {
 		field.setName("field");
 
 		return pattern;
-	}
-
-	@Override
-	public String id() {
-		return PatternConstants.MANDATT_ID;
-	}
-
-	@Override
-	String name() {
-		return PatternConstants.MANDATT_NAME;
-	}
-
-	@Override
-	String description() {
-		return PatternConstants.MANDATT_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return true;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____

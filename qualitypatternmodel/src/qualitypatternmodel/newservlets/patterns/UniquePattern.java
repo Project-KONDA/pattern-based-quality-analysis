@@ -15,6 +15,14 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class UniquePattern extends PatternClass {
+
+	public UniquePattern() {
+		super(PatternConstants.UNIQUE_ID,
+				PatternConstants.UNIQUE_NAME, 
+				PatternConstants.UNIQUE_DESCR, 
+				true, true, true, true);
+	}
+
 	@Override
 	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
@@ -40,41 +48,6 @@ public class UniquePattern extends PatternClass {
 		r2.addOutgoing(n);
 
 		return pattern;
-	}
-
-	@Override
-	public String id() {
-		return PatternConstants.UNIQUE_ID;
-	}
-
-	@Override
-	String name() {
-		return PatternConstants.UNIQUE_NAME;
-	}
-
-	@Override
-	String description() {
-		return PatternConstants.UNIQUE_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return true;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____
