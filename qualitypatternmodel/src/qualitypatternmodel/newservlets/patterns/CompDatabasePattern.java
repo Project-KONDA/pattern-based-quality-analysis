@@ -13,20 +13,13 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 
 public class CompDatabasePattern {
 
-	static String COMPDATABASE_ID_GENERIC = "CompDatabase_generic";
-	static String COMPDATABASE_ID_XML = "CompDatabase_xml";
-	static String COMPDATABASE_ID_RDF = "CompDatabase_rdf";
-	static String COMPDATABASE_ID_NEO = "CompDatabase_neo4j";
-	static String COMPDATABASE_NAME = "Fieldvalue in Database";
-	static String COMPDATABASE_DESCR = "Check whether all values in a field are in a database.";
-
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(COMPDATABASE_ID_GENERIC);
-		pattern.setAbstractId(COMPDATABASE_ID_GENERIC);
-		pattern.setName(COMPDATABASE_NAME);
-		pattern.setDescription(COMPDATABASE_DESCR);
+		pattern.setPatternId(PatternConstants.COMPDATABASE_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.COMPDATABASE_ID_GENERIC);
+		pattern.setName(PatternConstants.COMPDATABASE_NAME);
+		pattern.setDescription(PatternConstants.COMPDATABASE_DESCR);
 		// TODO
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
@@ -36,7 +29,7 @@ public class CompDatabasePattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				COMPDATABASE_ID_XML,
+				PatternConstants.COMPDATABASE_ID_XML,
 				Map.of(),
 				null,
 				null);
@@ -46,7 +39,7 @@ public class CompDatabasePattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				COMPDATABASE_ID_RDF,
+				PatternConstants.COMPDATABASE_ID_RDF,
 				Map.of(),
 				null,
 				null);
@@ -56,7 +49,7 @@ public class CompDatabasePattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				COMPDATABASE_ID_NEO,
+				PatternConstants.COMPDATABASE_ID_NEO,
 				Map.of(),
 				null,
 				null);

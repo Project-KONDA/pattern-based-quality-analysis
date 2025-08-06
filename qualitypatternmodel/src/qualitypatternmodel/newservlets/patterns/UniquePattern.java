@@ -18,20 +18,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class UniquePattern {
 
-	static String UNIQUE_ID_GENERIC = "Unique_generic";
-	static String UNIQUE_ID_XML = "Unique_xml";
-	static String UNIQUE_ID_RDF = "Unique_rdf";
-	static String UNIQUE_ID_NEO = "Unique_neo4j";
-	static String UNIQUE_NAME = "Uniqueness Constraint";
-	static String UNIQUE_DESCR = "Check, whether a value is unique within the dataset.";
-
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(UNIQUE_ID_GENERIC);
-		pattern.setAbstractId(UNIQUE_ID_GENERIC);
-		pattern.setName(UNIQUE_NAME);
-		pattern.setDescription(UNIQUE_DESCR);
+		pattern.setPatternId(PatternConstants.UNIQUE_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.UNIQUE_ID_GENERIC);
+		pattern.setName(PatternConstants.UNIQUE_NAME);
+		pattern.setDescription(PatternConstants.UNIQUE_DESCR);
 
 		// NotCondition notCon = PatternstructureFactory.eINSTANCE.createNotCondition();
 		// pattern.setCondition(notCon);
@@ -61,7 +54,7 @@ public class UniquePattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				UNIQUE_ID_NEO,
+				PatternConstants.UNIQUE_ID_NEO,
 				Map.of(),
 				UNIQUE_NEO_VARIANTS,
 				UNIQUE_NEO_VARIANTS_OLD);
@@ -71,7 +64,7 @@ public class UniquePattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				UNIQUE_ID_RDF,
+				PatternConstants.UNIQUE_ID_RDF,
 				Map.of(),
 				UNIQUE_RDF_VARIANTS,
 				UNIQUE_RDF_VARIANTS_OLD);
@@ -81,7 +74,7 @@ public class UniquePattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				UNIQUE_ID_XML,
+				PatternConstants.UNIQUE_ID_XML,
 				Map.of(2, "//*", 3, "/*/text()", 4, "/*/text()", 5, "//*"),
 				UNIQUE_XML_VARIANTS,
 				UNIQUE_XML_VARIANTS_OLD);

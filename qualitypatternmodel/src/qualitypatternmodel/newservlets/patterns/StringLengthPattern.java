@@ -18,20 +18,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class StringLengthPattern {
 
-	static String STRINGLENGTH_ID_GENERIC = "StringLength_generic";
-	static String STRINGLENGTH_ID_XML = "StringLength_xml";
-	static String STRINGLENGTH_ID_RDF = "StringLength_rdf";
-	static String STRINGLENGTH_ID_NEO = "StringLength_neo4j";
-	static String STRINGLENGTH_NAME = "String value length restriction";
-	static String STRINGLENGTH_DESCR = "Check whether all field values comply to the length restriction.";
-
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(STRINGLENGTH_ID_GENERIC);
-		pattern.setAbstractId(STRINGLENGTH_ID_GENERIC);
-		pattern.setName(STRINGLENGTH_NAME);
-		pattern.setDescription(STRINGLENGTH_DESCR);
+		pattern.setPatternId(PatternConstants.STRINGLENGTH_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.STRINGLENGTH_ID_GENERIC);
+		pattern.setName(PatternConstants.STRINGLENGTH_NAME);
+		pattern.setDescription(PatternConstants.STRINGLENGTH_DESCR);
 
 		ComplexNode main = pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
@@ -56,7 +49,7 @@ public class StringLengthPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				STRINGLENGTH_ID_NEO,
+				PatternConstants.STRINGLENGTH_ID_NEO,
 				Map.of(),
 				STRINGLENGTH_NEO_VARIANTS,
 				STRINGLENGTH_NEO_VARIANTS_OLD);
@@ -66,7 +59,7 @@ public class StringLengthPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				STRINGLENGTH_ID_RDF,
+				PatternConstants.STRINGLENGTH_ID_RDF,
 				Map.of(),
 				STRINGLENGTH_RDF_VARIANTS,
 				STRINGLENGTH_RDF_VARIANTS_OLD);
@@ -76,7 +69,7 @@ public class StringLengthPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				STRINGLENGTH_ID_XML,
+				PatternConstants.STRINGLENGTH_ID_XML,
 				Map.of(2, "//*", 3, "/*/text()"),
 				STRINGLENGTH_XML_VARIANTS,
 				STRINGLENGTH_XML_VARIANTS_OLD);

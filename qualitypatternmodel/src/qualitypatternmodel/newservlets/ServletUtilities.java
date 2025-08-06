@@ -36,7 +36,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.mqaftranslation.MqafTranslationValidation;
-//import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
@@ -48,7 +47,6 @@ import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
-//import qualitypatternmodel.utility.EMFModelSave;
 
 public abstract class ServletUtilities {
 
@@ -599,5 +597,19 @@ public abstract class ServletUtilities {
 				available.put(((ParameterFragment)frag).getId());
 		}
 		return available;
+	}
+
+	public static String makeQueryOneLine(String query) {
+		if (query == null)
+			return null;
+		String shortQuery = query.replace("\r\n", " ");
+		shortQuery = shortQuery.replace("\n", " ");
+		int len = shortQuery.length() + 1;
+		while (shortQuery.length()< len) {
+			len = shortQuery.length();
+			shortQuery = shortQuery.replace("  ", " ");
+		}
+		shortQuery = shortQuery.trim();
+		return shortQuery;
 	}
 }

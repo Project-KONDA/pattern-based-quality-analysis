@@ -20,20 +20,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class FuncPattern {
 
-	static String FUNC_ID_GENERIC = "Func_generic";
-	static String FUNC_ID_XML = "Func_xml";
-	static String FUNC_ID_RDF = "Func_rdf";
-	static String FUNC_ID_NEO = "Func_neo4j";
-	static String FUNC_NAME = "Functional Dependency Constraint";
-	static String FUNC_DESCR = "Validate a dependency between two subordinate fields is valid in comparison to data records next to it.";
-
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(FUNC_ID_GENERIC);
-		pattern.setAbstractId(FUNC_ID_GENERIC);
-		pattern.setName(FUNC_NAME);
-		pattern.setDescription(FUNC_DESCR);
+		pattern.setPatternId(PatternConstants.FUNC_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.FUNC_ID_GENERIC);
+		pattern.setName(PatternConstants.FUNC_NAME);
+		pattern.setDescription(PatternConstants.FUNC_DESCR);
 
 		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 
@@ -70,7 +63,7 @@ public class FuncPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				FUNC_ID_XML,
+				PatternConstants.FUNC_ID_XML,
 				Map.of(2, "//*", 3, "/*/text()"),
 				null,
 				null);
@@ -80,7 +73,7 @@ public class FuncPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				FUNC_ID_RDF,
+				PatternConstants.FUNC_ID_RDF,
 				Map.of(),
 				null,
 				null);
@@ -90,7 +83,7 @@ public class FuncPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				FUNC_ID_NEO,
+				PatternConstants.FUNC_ID_NEO,
 				Map.of(),
 				null,
 				null);

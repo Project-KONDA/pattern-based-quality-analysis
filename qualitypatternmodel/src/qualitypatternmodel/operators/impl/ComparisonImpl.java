@@ -533,10 +533,11 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- begin-user-doc -->
 	 * Validation of internal values.
 	 * <!-- end-user-doc -->
+	 * @throws MissingPatternContainerException 
 	 */
 
 	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if(abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
 			if (argument1 == null) {
 				throw new InvalidityException("argument1 null" + " (" + getInternalId() + ")");

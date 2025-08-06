@@ -1,3 +1,4 @@
 *.class
 \target
 qualitypatternmodel/temp/
+qualitypatternmodel/test/playground

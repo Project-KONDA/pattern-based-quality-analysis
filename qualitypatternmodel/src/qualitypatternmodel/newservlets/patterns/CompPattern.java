@@ -18,20 +18,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class CompPattern {
 
-	static String COMP_ID_GENERIC = "Comp_generic";
-	static String COMP_ID_XML = "Comp_xml";
-	static String COMP_ID_RDF = "Comp_rdf";
-	static String COMP_ID_NEO = "Comp_neo4j";
-	static String COMP_NAME = "Comparison Pattern";
-	static String COMP_DESCR = "Check, wether the occurence count of specific elements apply.";
-
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(COMP_ID_GENERIC);
-		pattern.setAbstractId(COMP_ID_GENERIC);
-		pattern.setName(COMP_NAME);
-		pattern.setDescription(COMP_DESCR);
+		pattern.setPatternId(PatternConstants.COMP_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.COMP_ID_GENERIC);
+		pattern.setName(PatternConstants.COMP_NAME);
+		pattern.setDescription(PatternConstants.COMP_DESCR);
 
 		Graph graph1 = pattern.getGraph();
 		Node returnNode = graph1.getReturnNodes().get(0).makeComplex();
@@ -57,7 +50,7 @@ public class CompPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				COMP_ID_XML,
+				PatternConstants.COMP_ID_XML,
 				Map.of(),
 				null,
 				null);
@@ -67,7 +60,7 @@ public class CompPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				COMP_ID_RDF,
+				PatternConstants.COMP_ID_RDF,
 				Map.of(),
 				null,
 				null);
@@ -77,7 +70,7 @@ public class CompPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				COMP_ID_NEO,
+				PatternConstants.COMP_ID_NEO,
 				Map.of(),
 				null,
 				null);

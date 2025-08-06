@@ -23,20 +23,13 @@ import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 public class DupvalPattern {
 
-	static String DUPVAL_ID_GENERIC = "DupVal_generic";
-	static String DUPVAL_ID_XML = "DupVal_xml";
-	static String DUPVAL_ID_RDF = "DupVal_rdf";
-	static String DUPVAL_ID_NEO = "DupVal_neo4j";
-	static String DUPVAL_NAME = "Duplicate value";
-	static String DUPVAL_DESCR = "Check whether a record has the same value in two distinct fields.";
-
 	public static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(DUPVAL_ID_GENERIC);
-		pattern.setAbstractId(DUPVAL_ID_GENERIC);
-		pattern.setName(DUPVAL_NAME);
-		pattern.setDescription(DUPVAL_DESCR);
+		pattern.setPatternId(PatternConstants.DUPVAL_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.DUPVAL_ID_GENERIC);
+		pattern.setName(PatternConstants.DUPVAL_NAME);
+		pattern.setDescription(PatternConstants.DUPVAL_DESCR);
 
 		ComplexNode main = pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
@@ -76,7 +69,7 @@ public class DupvalPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				DUPVAL_ID_XML,
+				PatternConstants.DUPVAL_ID_XML,
 				Map.of(2, "//*", 3, "/*/text()"),
 				null,
 				null);
@@ -86,7 +79,7 @@ public class DupvalPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				DUPVAL_ID_RDF,
+				PatternConstants.DUPVAL_ID_RDF,
 				Map.of(),
 				null,
 				null);
@@ -96,7 +89,7 @@ public class DupvalPattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				DUPVAL_ID_NEO,
+				PatternConstants.DUPVAL_ID_NEO,
 				Map.of(),
 				null,
 				null);

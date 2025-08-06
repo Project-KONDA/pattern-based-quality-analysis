@@ -20,20 +20,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class Appdup2Pattern {
 
-	static String APPDUP2_ID_GENERIC = "Appdup2_generic";
-	static String APPDUP2_ID_XML = "Appdup2_xml";
-	static String APPDUP2_ID_RDF = "Appdup2_rdf";
-	static String APPDUP2_ID_NEO = "Appdup2_neo4j";
-	static String APPDUP2_NAME = "Approximate Duplicate based on two attributes";
-	static String APPDUP2_DESCR = "Check whether there are records that have the same value in two important attributes, suggesting that they describe the same real-world object.";
-
 	static CompletePattern getGeneric()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(APPDUP2_ID_GENERIC);
-		pattern.setAbstractId(APPDUP2_ID_GENERIC);
-		pattern.setName(APPDUP2_NAME);
-		pattern.setDescription(APPDUP2_DESCR);
+		pattern.setPatternId(PatternConstants.APPDUP2_ID_GENERIC);
+		pattern.setAbstractId(PatternConstants.APPDUP2_ID_GENERIC);
+		pattern.setName(PatternConstants.APPDUP2_NAME);
+		pattern.setDescription(PatternConstants.APPDUP2_DESCR);
 
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		pattern.getGraph().getReturnNodes().get(0).setName("main");
@@ -67,7 +60,7 @@ public class Appdup2Pattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.XML,
-				APPDUP2_ID_XML,
+				PatternConstants.APPDUP2_ID_XML,
 				Map.of(),
 				null,
 				null);
@@ -77,7 +70,7 @@ public class Appdup2Pattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.RDF,
-				APPDUP2_ID_RDF,
+				PatternConstants.APPDUP2_ID_RDF,
 				Map.of(),
 				null,
 				null);
@@ -87,7 +80,7 @@ public class Appdup2Pattern {
 		return new PatternBundle(
 				getGeneric(),
 				Language.NEO4J,
-				APPDUP2_ID_NEO,
+				PatternConstants.APPDUP2_ID_NEO,
 				Map.of(),
 				null,
 				null);
