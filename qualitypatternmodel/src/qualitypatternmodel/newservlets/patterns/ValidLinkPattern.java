@@ -13,6 +13,14 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class ValidLinkPattern extends PatternClass {
+
+	ValidLinkPattern() {
+		super(PatternConstants.VALIDLINK_ID,
+				PatternConstants.VALIDLINK_NAME, 
+				PatternConstants.VALIDLINK_DESCR, 
+				true, true, false, false);
+	}
+
 	@Override
 	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
@@ -29,41 +37,6 @@ public class ValidLinkPattern extends PatternClass {
 		field.addPrimitiveValidateLink();
 
 		return pattern;
-	}
-
-	@Override
-	public String id() {
-		return PatternConstants.VALIDLINK_ID;
-	}
-
-	@Override
-	String name() {
-		return PatternConstants.VALIDLINK_NAME;
-	}
-
-	@Override
-	String description() {
-		return PatternConstants.VALIDLINK_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return false;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____

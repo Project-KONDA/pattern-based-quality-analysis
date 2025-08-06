@@ -18,6 +18,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class FuncPattern extends PatternClass {
 
+	FuncPattern() {
+		super(PatternConstants.FUNC_ID,
+				PatternConstants.FUNC_NAME, 
+				PatternConstants.FUNC_DESCR, 
+				true, false, false, false);
+	}
+
 	@Override
 	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
@@ -50,41 +57,6 @@ public class FuncPattern extends PatternClass {
 		c2.getOption().setPredefined(true);
 
 		return pattern;
-	}
-
-	@Override
-	public String id() {
-		return PatternConstants.FUNC_ID;
-	}
-
-	@Override
-	String name() {
-		return PatternConstants.FUNC_NAME;
-	}
-
-	@Override
-	String description() {
-		return PatternConstants.FUNC_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return false;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____

@@ -108,8 +108,8 @@ public class PatternCollection {
 			String id = "<not found>";
 			try {
 				PatternClass patternClass = clazz.getDeclaredConstructor().newInstance();
-				id = patternClass.id();
-				if (patternClass.xmlValid()) {
+				id = patternClass.id;
+				if (patternClass.xmlValid) {
 					PatternBundle patternbundle = patternClass.getXmlBundle(); 
 					if (patternbundle != null)
 						patternbundles.add(patternbundle);
@@ -129,8 +129,8 @@ public class PatternCollection {
 			String id = "<not found>";
 			try {
 				PatternClass patternClass = clazz.getDeclaredConstructor().newInstance();
-				id = patternClass.id();
-				if (patternClass.rdfValid()) {
+				id = patternClass.id;
+				if (patternClass.rdfValid) {
 					PatternBundle patternbundle = patternClass.getRdfBundle(); 
 					if (patternbundle != null)
 						patternbundles.add(patternbundle);
@@ -150,8 +150,8 @@ public class PatternCollection {
 			String id = "<not found>";
 			try {
 				PatternClass patternClass = clazz.getDeclaredConstructor().newInstance();
-				id = patternClass.id();
-				if (patternClass.neoValid()) {
+				id = patternClass.id;
+				if (patternClass.neoValid) {
 					PatternBundle patternbundle = patternClass.getNeoBundle(); 
 					if (patternbundle != null)
 						patternbundles.add(patternbundle);

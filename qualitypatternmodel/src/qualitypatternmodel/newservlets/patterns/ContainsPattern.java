@@ -16,6 +16,13 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class ContainsPattern extends PatternClass {
 
+	ContainsPattern() {
+		super(PatternConstants.CONTAINS_ID,
+				PatternConstants.CONTAINS_NAME, 
+				PatternConstants.CONTAINS_DESCR, 
+				true, true, true, true);
+	}
+
 	@Override
 	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
@@ -37,41 +44,6 @@ public class ContainsPattern extends PatternClass {
 		}
 
 		return pattern;
-	}
-
-	@Override
-	public String id() {
-		return PatternConstants.CONTAINS_ID;
-	}
-
-	@Override
-	String name() {
-		return PatternConstants.CONTAINS_NAME;
-	}
-
-	@Override
-	String description() {
-		return PatternConstants.CONTAINS_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return true;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____

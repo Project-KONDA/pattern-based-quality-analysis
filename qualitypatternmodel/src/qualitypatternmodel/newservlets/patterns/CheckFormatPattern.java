@@ -8,45 +8,17 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class CheckFormatPattern extends PatternClass {
 
+	CheckFormatPattern() {
+		super(PatternConstants.CHECKFORMAT_ID,
+				PatternConstants.CHECKFORMAT_NAME, 
+				PatternConstants.CHECKFORMAT_DESCR, 
+				false, false, false, false);
+	}
+
 	@Override
 	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public String id() {
-		return PatternConstants.CHECKFORMAT_ID;
-	}
-
-	@Override
-	String name() {
-		return PatternConstants.CHECKFORMAT_NAME;
-	}
-
-	@Override
-	String description() {
-		return PatternConstants.CHECKFORMAT_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return false;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____

@@ -21,6 +21,13 @@ import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 public class DupvalPattern extends PatternClass {
 
+	DupvalPattern() {
+		super(PatternConstants.DUPVAL_ID,
+				PatternConstants.DUPVAL_NAME, 
+				PatternConstants.DUPVAL_DESCR, 
+				true, false, false, false);
+	}
+
 	@Override
 	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
@@ -56,41 +63,6 @@ public class DupvalPattern extends PatternClass {
 		comparisonOption.setPredefined(true);
 
 		return pattern;
-	}
-
-	@Override
-	public String id() {
-		return PatternConstants.DUPVAL_ID;
-	}
-
-	@Override
-	String name() {
-		return PatternConstants.DUPVAL_NAME;
-	}
-
-	@Override
-	String description() {
-		return PatternConstants.DUPVAL_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return false;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____

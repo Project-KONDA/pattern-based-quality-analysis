@@ -15,6 +15,13 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class StringLengthPattern extends PatternClass {
+
+	StringLengthPattern() {
+		super(PatternConstants.STRINGLENGTH_ID,
+				PatternConstants.STRINGLENGTH_NAME, 
+				PatternConstants.STRINGLENGTH_DESCR, 
+				true, true, true, true);
+	}
 	
 	@Override
 	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -36,41 +43,6 @@ public class StringLengthPattern extends PatternClass {
 		}
 
 		return pattern;
-	}
-
-	@Override
-	public String id() {
-		return PatternConstants.STRINGLENGTH_ID;
-	}
-
-	@Override
-	String name() {
-		return PatternConstants.STRINGLENGTH_NAME;
-	}
-
-	@Override
-	String description() {
-		return PatternConstants.STRINGLENGTH_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return true;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____

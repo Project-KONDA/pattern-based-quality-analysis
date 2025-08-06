@@ -16,6 +16,13 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class CompSetPattern extends PatternClass {
+
+	CompSetPattern() {
+		super(PatternConstants.COMPSET_ID,
+				PatternConstants.COMPSET_NAME, 
+				PatternConstants.COMPSET_DESCR, 
+				true, true, true, true);
+	}
 	
 	@Override
 	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -40,41 +47,6 @@ public class CompSetPattern extends PatternClass {
 
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
-	}
-
-	@Override
-	public String id() {
-		return PatternConstants.COMPSET_ID;
-	}
-
-	@Override
-	String name() {
-		return PatternConstants.COMPSET_NAME;
-	}
-
-	@Override
-	String description() {
-		return PatternConstants.COMPSET_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return true;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return true;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____

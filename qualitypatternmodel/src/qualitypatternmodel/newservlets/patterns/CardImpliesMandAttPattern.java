@@ -9,6 +9,13 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 
 public class CardImpliesMandAttPattern extends PatternClass {
 
+	CardImpliesMandAttPattern() {
+		super(PatternConstants.CARDIMPLIESMANDATT_ID,
+				PatternConstants.CARDIMPLIESMANDATT_NAME, 
+				PatternConstants.CARDIMPLIESMANDATT_DESCR, 
+				false, false, false, false);
+	}
+
 	@Override
 	public CompletePattern getPattern()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -17,39 +24,6 @@ public class CardImpliesMandAttPattern extends PatternClass {
 		// TODO
 
 		return pattern;
-	}
-
-	@Override
-	public String id() {
-		return PatternConstants.CARDIMPLIESMANDATT_ID;
-	}
-
-	String name() {
-		return PatternConstants.CARDIMPLIESMANDATT_NAME;
-	}
-
-	String description() {
-		return PatternConstants.CARDIMPLIESMANDATT_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return false;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____

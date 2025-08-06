@@ -8,45 +8,17 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class CompDatabasePattern extends PatternClass {
 
+	CompDatabasePattern() {
+		super(PatternConstants.COMPDATABASE_ID,
+				PatternConstants.COMPDATABASE_NAME, 
+				PatternConstants.COMPDATABASE_DESCR, 
+				false, false, false, false);
+	}
+
 	@Override
 	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public String id() {
-		return PatternConstants.COMPDATABASE_ID;
-	}
-
-	@Override
-	String name() {
-		return PatternConstants.COMPDATABASE_NAME;
-	}
-
-	@Override
-	String description() {
-		return PatternConstants.COMPDATABASE_DESCR;
-	}
-
-	@Override
-	public Boolean genericValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean xmlValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean rdfValid() {
-		return false;
-	}
-
-	@Override
-	public Boolean neoValid() {
-		return false;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____
