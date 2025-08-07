@@ -234,11 +234,13 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			if(isInRdfFilter()) {
 				query += ConstantsRdf.EXISTS;
 				query += graph.generateSparql().replace("\n", "\n  ");
-				query += condition.generateSparql().replace("\n", "\n    ");
+				if (condition != null)
+					query += condition.generateSparql().replace("\n", "\n    ");
 				query += "}";
 			} else {
 				query = graph.generateSparql();
-				query += condition.generateSparql();
+				if (condition != null)
+					query += condition.generateSparql();
 			}
 		} else if (quantifier == Quantifier.FORALL) {
 			String condtranslation = condition.generateSparql().replace("\n", "\n    ");

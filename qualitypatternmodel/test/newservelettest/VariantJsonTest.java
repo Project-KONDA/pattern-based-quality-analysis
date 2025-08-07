@@ -10,7 +10,7 @@ public class VariantJsonTest {
 
 		// XML
 		try {
-			CompletePattern pattern = new CardPattern().getGeneric();
+			CompletePattern pattern = new CardPattern().getGenericPattern();
 			pattern.createXmlAdaption();
 			System.out.println(pattern.myToString());
 			for (Parameter p : pattern.getParameterList().getParameters()) {
@@ -25,7 +25,7 @@ public class VariantJsonTest {
 
 		// RDF
 		try {
-			CompletePattern pattern = new CardPattern().getGeneric();
+			CompletePattern pattern = new CardPattern().getGenericPattern();
 			pattern.createRdfAdaption();
 			System.out.println(pattern.myToString());
 			for (Parameter p : pattern.getParameterList().getParameters()) {
@@ -40,7 +40,7 @@ public class VariantJsonTest {
 
 		// NEO4J
 		try {
-			CompletePattern pattern = new CardPattern().getGeneric();
+			CompletePattern pattern = new CardPattern().getGenericPattern();
 			pattern.createNeo4jAdaption();
 			System.out.println(pattern.myToString());
 			for (Parameter p : pattern.getParameterList().getParameters()) {

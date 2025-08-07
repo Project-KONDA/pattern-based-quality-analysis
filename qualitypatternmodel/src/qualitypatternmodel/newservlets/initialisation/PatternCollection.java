@@ -71,7 +71,7 @@ public class PatternCollection {
 		for (PatternClass patternClass: getPatternClassInstances()) {
 			if (patternClass.genericValid)
 				try {
-					CompletePattern pattern = patternClass.getGeneric(); 
+					CompletePattern pattern = patternClass.getGenericPattern(); 
 					if (pattern != null)
 						patterns.add(pattern);
 				} catch (Exception e) {
