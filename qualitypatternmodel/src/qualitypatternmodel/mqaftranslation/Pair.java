@@ -28,7 +28,8 @@ public class Pair<N, V> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Pair<?, ?> pair)) return false;
+        if (!(o instanceof Pair)) return false;
+        Pair<?, ?> pair = (Pair<?, ?>) o;
         return Objects.equals(name, pair.name) &&
                Objects.equals(value, pair.value);
     }
