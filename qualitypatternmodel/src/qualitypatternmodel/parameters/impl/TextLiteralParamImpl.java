@@ -118,7 +118,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid())) {
 			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + container + ")");
 		}
-		if(isPredefined() && !inputIsValid()) {
+		if (isPredefined() && !inputIsValid()) {
 			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + container + ")");
 		}
 	}
@@ -149,7 +149,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		if(inputIsValid()) {
+		if (inputIsValid()) {
 			return "\"" + getValue() + "\"";
 		} else {
 			throw new InvalidityException("invalid string at textlistparam " + getInternalId());
@@ -158,7 +158,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 
 	@Override
 	public String generateSparql() throws InvalidityException {
-		if(inputIsValid()) {
+		if (inputIsValid()) {
 			return "\"" + getValue() + "\"";
 		} else {
 			return super.generateSparql();
@@ -197,9 +197,9 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override
 	protected EList<XmlPropertyKind> getPrimitiveComparisonPropertyKinds() {
 		EList<XmlPropertyKind> list = super.getPrimitiveComparisonPropertyKinds();
-		if(this instanceof TextLiteralParam) {
+		if (this instanceof TextLiteralParam) {
 			TextLiteralParam text = this;
-			if(text.getXmlAxisPartCondition() != null) {
+			if (text.getXmlAxisPartCondition() != null) {
 				list.add(XmlPropertyKind.TAG);
 			}
 		}
@@ -224,7 +224,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 */
 	@Override
 	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
-		if(newVariableList == null) {
+		if (newVariableList == null) {
 			getMatches().clear();
 			setXmlPropertyOptionParam(null);
 		}

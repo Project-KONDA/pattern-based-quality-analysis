@@ -183,6 +183,9 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//operators/BooleanOperator/removeElement/element"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/BooleanOperator/getElement"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/BooleanOperator/generateXQueryIsolated"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/BooleanOperator/generateSparqlIsolated"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/BooleanOperator/generateCypherIsolated"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//operators/Operator">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Operator/operatorList"/>

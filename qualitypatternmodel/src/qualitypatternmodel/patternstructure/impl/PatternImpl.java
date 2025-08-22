@@ -11,6 +11,7 @@ import static qualitypatternmodel.utility.JavaQueryTranslationUtility.RETURNSTAR
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -215,6 +216,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				throw new InvalidityException("There was no associated variable generated to the return node");
 			}
 			else {
+				System.out.println(((XmlNode) returnElements.get(i)).getVariables().get(0) + " - " + i);
 				returnClause += ((XmlNode) returnElements.get(i)).getVariables().get(0);
 //			returnClause += VARIABLE + returnElements.get(i).getOriginalID();
 			}
@@ -230,11 +232,12 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		if (!containsJavaOperator()) {
 			return generateXQuery();
 		}
-
-		String forClauses = graph.generateXQuery();
+		
 		if (graph.containsJavaOperator() && this instanceof CompletePattern) {
 			throw new UnsupportedOperationException("Java Operator in Return Graph");
 		}
+
+		String forClauses = graph.generateXQuery();
 
 		String whereClause = "\n";
 		if (getCondition() != null) {
@@ -565,10 +568,14 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
-		EList<Parameter> parameters = getGraph().getAllParameters();
+		LinkedHashSet<Parameter> parameterset = new LinkedHashSet<Parameter>();
+		parameterset.addAll(getGraph().getAllParameters());
 		if (getCondition() != null) {
-			parameters.addAll(getCondition().getAllParameters());
+			parameterset.addAll(getCondition().getAllParameters());
 		}
+
+		EList<Parameter> parameters = new BasicEList<Parameter>();
+		parameters.addAll(parameterset);
 		return parameters;
 	}
 

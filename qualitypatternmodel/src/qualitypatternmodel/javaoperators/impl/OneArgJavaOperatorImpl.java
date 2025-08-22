@@ -275,11 +275,19 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetOption(BooleanParam newOption, NotificationChain msgs) {
 		BooleanParam oldOption = option;
+
+		ParameterList varlist = getParameterList();
+		if (varlist != null) {
+			varlist.remove(oldOption);
+			varlist.add(newOption);
+		}
+
 		option = newOption;
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION, oldOption, newOption);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

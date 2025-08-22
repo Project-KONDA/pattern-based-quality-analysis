@@ -928,13 +928,40 @@ public interface OperatorsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___GET_ELEMENT = OPERATOR_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Generate XQuery Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GENERATE_XQUERY_ISOLATED = OPERATOR_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GENERATE_SPARQL_ISOLATED = OPERATOR_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GENERATE_CYPHER_ISOLATED = OPERATOR_OPERATION_COUNT + 6;
+
+	/**
 	 * The number of operations of the '<em>Boolean Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 4;
+	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.NumberOperatorImpl <em>Number Operator</em>}' class.
@@ -1830,6 +1857,33 @@ public interface OperatorsPackage extends EPackage {
 	int MATCH___GET_ELEMENT = BOOLEAN_OPERATOR___GET_ELEMENT;
 
 	/**
+	 * The operation id for the '<em>Generate XQuery Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GENERATE_XQUERY_ISOLATED = BOOLEAN_OPERATOR___GENERATE_XQUERY_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GENERATE_SPARQL_ISOLATED = BOOLEAN_OPERATOR___GENERATE_SPARQL_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GENERATE_CYPHER_ISOLATED = BOOLEAN_OPERATOR___GENERATE_CYPHER_ISOLATED;
+
+	/**
 	 * The number of operations of the '<em>Match</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2324,6 +2378,33 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON___GET_ELEMENT = BOOLEAN_OPERATOR___GET_ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GENERATE_XQUERY_ISOLATED = BOOLEAN_OPERATOR___GENERATE_XQUERY_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GENERATE_SPARQL_ISOLATED = BOOLEAN_OPERATOR___GENERATE_SPARQL_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GENERATE_CYPHER_ISOLATED = BOOLEAN_OPERATOR___GENERATE_CYPHER_ISOLATED;
 
 	/**
 	 * The operation id for the '<em>Is Primitive</em>' operation.
@@ -3165,6 +3246,33 @@ public interface OperatorsPackage extends EPackage {
 	int CONTAINS___GET_ELEMENT = BOOLEAN_OPERATOR___GET_ELEMENT;
 
 	/**
+	 * The operation id for the '<em>Generate XQuery Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GENERATE_XQUERY_ISOLATED = BOOLEAN_OPERATOR___GENERATE_XQUERY_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GENERATE_SPARQL_ISOLATED = BOOLEAN_OPERATOR___GENERATE_SPARQL_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GENERATE_CYPHER_ISOLATED = BOOLEAN_OPERATOR___GENERATE_CYPHER_ISOLATED;
+
+	/**
 	 * The number of operations of the '<em>Contains</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3641,6 +3749,33 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NULL_CHECK___GET_ELEMENT = BOOLEAN_OPERATOR___GET_ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_CHECK___GENERATE_XQUERY_ISOLATED = BOOLEAN_OPERATOR___GENERATE_XQUERY_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_CHECK___GENERATE_SPARQL_ISOLATED = BOOLEAN_OPERATOR___GENERATE_SPARQL_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_CHECK___GENERATE_CYPHER_ISOLATED = BOOLEAN_OPERATOR___GENERATE_CYPHER_ISOLATED;
 
 	/**
 	 * The number of operations of the '<em>Null Check</em>' class.
@@ -4130,6 +4265,33 @@ public interface OperatorsPackage extends EPackage {
 	int STRING_LENGTH___GET_ELEMENT = BOOLEAN_OPERATOR___GET_ELEMENT;
 
 	/**
+	 * The operation id for the '<em>Generate XQuery Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GENERATE_XQUERY_ISOLATED = BOOLEAN_OPERATOR___GENERATE_XQUERY_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GENERATE_SPARQL_ISOLATED = BOOLEAN_OPERATOR___GENERATE_SPARQL_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LENGTH___GENERATE_CYPHER_ISOLATED = BOOLEAN_OPERATOR___GENERATE_CYPHER_ISOLATED;
+
+	/**
 	 * The number of operations of the '<em>String Length</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4209,6 +4371,36 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getBooleanOperator__GetElement();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.operators.BooleanOperator#generateXQueryIsolated() <em>Generate XQuery Isolated</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate XQuery Isolated</em>' operation.
+	 * @see qualitypatternmodel.operators.BooleanOperator#generateXQueryIsolated()
+	 * @generated
+	 */
+	EOperation getBooleanOperator__GenerateXQueryIsolated();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.operators.BooleanOperator#generateSparqlIsolated() <em>Generate Sparql Isolated</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Sparql Isolated</em>' operation.
+	 * @see qualitypatternmodel.operators.BooleanOperator#generateSparqlIsolated()
+	 * @generated
+	 */
+	EOperation getBooleanOperator__GenerateSparqlIsolated();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.operators.BooleanOperator#generateCypherIsolated() <em>Generate Cypher Isolated</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Cypher Isolated</em>' operation.
+	 * @see qualitypatternmodel.operators.BooleanOperator#generateCypherIsolated()
+	 * @generated
+	 */
+	EOperation getBooleanOperator__GenerateCypherIsolated();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.operators.BooleanOperator#createParameters() <em>Create Parameters</em>}' operation.
@@ -4663,6 +4855,30 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation BOOLEAN_OPERATOR___GET_ELEMENT = eINSTANCE.getBooleanOperator__GetElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate XQuery Isolated</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_OPERATOR___GENERATE_XQUERY_ISOLATED = eINSTANCE.getBooleanOperator__GenerateXQueryIsolated();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Sparql Isolated</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_OPERATOR___GENERATE_SPARQL_ISOLATED = eINSTANCE.getBooleanOperator__GenerateSparqlIsolated();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Cypher Isolated</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_OPERATOR___GENERATE_CYPHER_ISOLATED = eINSTANCE.getBooleanOperator__GenerateCypherIsolated();
 
 		/**
 		 * The meta object literal for the '<em><b>Create Parameters</b></em>' operation.

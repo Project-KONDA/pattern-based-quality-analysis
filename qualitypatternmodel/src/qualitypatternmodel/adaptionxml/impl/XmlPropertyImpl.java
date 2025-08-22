@@ -95,7 +95,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 		predicatesAreBeingTranslated = true;
 
 		for (BooleanOperator predicate : predicates) {
-			if (predicate.isTranslatable()) {
+			if (predicate.isTranslatable() && predicate.getOperatorList() == getOperatorList()) {
 				xPredicates += "[" + predicate.generateXQuery() + "]";
 			}
 		}
