@@ -1,6 +1,5 @@
 package mqaftranslationtest;
 
-import org.basex.util.Pair;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
@@ -9,6 +8,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.mqaftranslation.MqafUniquenessConditionCheck;
+import qualitypatternmodel.mqaftranslation.Pair;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class MqafUniquenessTranslationTest {
