@@ -7,25 +7,26 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.newservlets.initialisation.PatternBundle;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class MandContPattern {
+public class MandContPattern extends PatternClass {
 
-	public static CompletePattern getGeneric()
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public MandContPattern() {
+		super(PatternConstants.MANDCONT_ID,
+				PatternConstants.MANDCONT_NAME, 
+				PatternConstants.MANDCONT_DESCR, 
+				true, true, false, false);
+	}
+
+	@Override
+	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(PatternConstants.MANDCONT_ID_GENERIC);
-		pattern.setAbstractId(PatternConstants.MANDCONT_ID_GENERIC);
-		pattern.setName(PatternConstants.MANDCONT_NAME);
-		pattern.setDescription(PatternConstants.MANDCONT_DESCR);
 
 		// search for ...
 		ComplexNode main = pattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -58,38 +59,17 @@ public class MandContPattern {
 		ComplexNode contentelement = element.addOutgoing(qcelement.getGraph()).getTarget().makeComplex();
 		contentelement.setName("content");
 
-		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
 
-	public static PatternBundle getXmlBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.XML,
-				PatternConstants.MANDCONT_ID_XML,
-				Map.of(0, "//*", 1, "/*"),
-				MANDCONT_XML_VARIANTS,
-				MANDCONT_XML_VARIANTS_OLD);
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
+	protected Map<Integer, String> xmlMap() {
+		return Map.of(0, "//*", 1, "/*");
 	}
 
-	public static PatternBundle getRdfBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.RDF,
-				PatternConstants.MANDCONT_ID_RDF,
-				Map.of(),
-				null,
-				null);
-	}
-
-	public static PatternBundle getNeoBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(), 
-				Language.NEO4J,
-				PatternConstants.MANDCONT_ID_NEO,
-				Map.of(),
-				null,
-				null);
+	protected String[] xmlVariants() {
+		return new String[] { MANDCONT_XML_DEFAULT_CONSTRAINT, MANDCONT_XML_DEFAULT_ANTIPATTERN, MANDCONT_XML_CONSTRAINT_2, MANDCONT_XML_CONSTRAINT_M, MANDCONT_XML_ANTIPATTERN_M, MANDCONT_XML_CONSTRAINT_M2, MANDCONT_XML_JUSTNOTEMPTY };
 	}
 
 	public static String MANDCONT_XML_DEFAULT_ANTIPATTERN =
@@ -196,7 +176,5 @@ public class MandContPattern {
 			+ "{\"params\":[1],\"value\":\"/self::*\"},"
 			+ "{\"params\":[2],\"value\":\"/text()\"},"
 			+ "{\"params\":[3],\"value\":\"/*\"}"
-			+ "]}";
-	public static String[] MANDCONT_XML_VARIANTS = { MANDCONT_XML_DEFAULT_CONSTRAINT, MANDCONT_XML_DEFAULT_ANTIPATTERN, MANDCONT_XML_CONSTRAINT_2, MANDCONT_XML_CONSTRAINT_M, MANDCONT_XML_ANTIPATTERN_M, MANDCONT_XML_CONSTRAINT_M2, MANDCONT_XML_JUSTNOTEMPTY };
-	public static String[] MANDCONT_XML_VARIANTS_OLD = {};
+			+ "]}";	
 }

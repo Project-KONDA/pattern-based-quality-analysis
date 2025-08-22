@@ -11,10 +11,6 @@
 			"exampleValue":"measurement",
 			"description":"base element for analysis"
 		},
-		{
-			"params":[1],
-			"value":"/self::*"
-		},
 		{"text":"must contain either a"},
 		{
 			"name":"property",
@@ -29,6 +25,10 @@
 			"exampleValue":"element",
 			"description":"element condition"
 		},
-		{"text":"."}
+		{"text":"."},
+		{
+			"params":[1],
+			"value":"/self::*"
+		}
     ]
 }

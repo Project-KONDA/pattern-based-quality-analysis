@@ -8,23 +8,24 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.newservlets.ServletConstants;
-import qualitypatternmodel.newservlets.initialisation.PatternBundle;
+import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.operators.StringLength;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class StringLengthPattern {
+public class StringLengthPattern extends PatternClass {
 
-	public static CompletePattern getGeneric()
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public StringLengthPattern() {
+		super(PatternConstants.STRINGLENGTH_ID,
+				PatternConstants.STRINGLENGTH_NAME, 
+				PatternConstants.STRINGLENGTH_DESCR, 
+				true, true, true, true);
+	}
+	
+	@Override
+	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(PatternConstants.STRINGLENGTH_ID_GENERIC);
-		pattern.setAbstractId(PatternConstants.STRINGLENGTH_ID_GENERIC);
-		pattern.setName(PatternConstants.STRINGLENGTH_NAME);
-		pattern.setDescription(PatternConstants.STRINGLENGTH_DESCR);
 
 		ComplexNode main = pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("main");
@@ -41,38 +42,34 @@ public class StringLengthPattern {
 			sl.getNumber().setValue(1.);
 		}
 
-		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
 
-	public static PatternBundle getNeoBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.NEO4J,
-				PatternConstants.STRINGLENGTH_ID_NEO,
-				Map.of(),
-				STRINGLENGTH_NEO_VARIANTS,
-				STRINGLENGTH_NEO_VARIANTS_OLD);
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
+	@Override
+	protected Map<Integer, String> xmlMap() {
+		return Map.of(2, "//*", 3, "/*/text()");
 	}
 
-	public static PatternBundle getRdfBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.RDF,
-				PatternConstants.STRINGLENGTH_ID_RDF,
-				Map.of(),
-				STRINGLENGTH_RDF_VARIANTS,
-				STRINGLENGTH_RDF_VARIANTS_OLD);
+	@Override
+	protected String[] xmlVariants() {
+		return new String[] { STRINGLENGTH_XML_DEFAULT_CONSTRAINT, STRINGLENGTH_XML_DEFAULT_ANTIPATTERN };
 	}
 
-	public static PatternBundle getXmlBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.XML,
-				PatternConstants.STRINGLENGTH_ID_XML,
-				Map.of(2, "//*", 3, "/*/text()"),
-				STRINGLENGTH_XML_VARIANTS,
-				STRINGLENGTH_XML_VARIANTS_OLD);
+	@Override
+	protected String[] xmlVariantsOld() {
+		return new String[] { STRINGLENGTH_XML_DEFAULT_OLD };
+	}
+
+	@Override
+	protected String[] rdfVariants() {
+		return new String[] { STRINGLENGTH_RDF_DEFAULT };
+	}
+
+	@Override
+	protected String[] neoVariants() {
+		return new String[] { STRINGLENGTH_NEO_DEFAULT };
 	}
 
 	public static String STRINGLENGTH_XML_DEFAULT_CONSTRAINT =
@@ -117,8 +114,6 @@ public class StringLengthPattern {
 		+ "{\"name\":\"compared to\",\"params\":[0],\"exampleValue\":\"less than\",\"defaultMap\":\"comparison\"},"
 		+ "{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":\"10\"},"
 		+ "{\"text\":\".\"}]}";
-	public static String[] STRINGLENGTH_XML_VARIANTS = {STRINGLENGTH_XML_DEFAULT_CONSTRAINT, STRINGLENGTH_XML_DEFAULT_ANTIPATTERN};
-	public static String[] STRINGLENGTH_XML_VARIANTS_OLD = {STRINGLENGTH_XML_DEFAULT_OLD};
 
 	public static String STRINGLENGTH_RDF_DEFAULT =
 	"{\"template\":\"StringLength_rdf\","
@@ -134,8 +129,6 @@ public class StringLengthPattern {
 		+ "{\"name\":\"compared to\",\"params\":[0], \"exampleValue\":\"exactly\", \"defaultMap\":\"comparison\"},"
 		+ "{\"name\":\"a specific number of\",\"params\":[1]},"
 		+ "{\"text\":\"characters in length.\"}]}";
-	public static String[] STRINGLENGTH_RDF_VARIANTS = {STRINGLENGTH_RDF_DEFAULT};
-	public static String[] STRINGLENGTH_RDF_VARIANTS_OLD = {};
 
 	public static String STRINGLENGTH_NEO_DEFAULT =
 	"{\"template\":\"StringLength_neo4j\","
@@ -151,7 +144,5 @@ public class StringLengthPattern {
 		+ "{\"name\":\"compared to\",\"params\":[0], \"exampleValue\":\"exactly\", \"defaultMap\":\"comparison\"},"
 		+ "{\"name\":\"a specific number of\",\"params\":[1]},"
 		+ "{\"text\":\"characters in length.\"}]}";
-	public static String[] STRINGLENGTH_NEO_VARIANTS = {STRINGLENGTH_NEO_DEFAULT};
-	public static String[] STRINGLENGTH_NEO_VARIANTS_OLD = {};
 
 }

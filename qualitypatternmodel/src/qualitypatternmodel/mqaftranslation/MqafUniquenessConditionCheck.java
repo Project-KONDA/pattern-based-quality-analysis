@@ -1,6 +1,5 @@
  package qualitypatternmodel.mqaftranslation;
 
-import org.basex.util.Pair;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 

@@ -17,7 +17,7 @@ public class TestValidLinkPatternTemplate {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		String DEMO_DATA_PATH = "demo.data/demo_database.xml";
-		CompletePattern validLinkPattern = ValidLinkPattern.getXmlBundle().getConcrete();
+		CompletePattern validLinkPattern = new ValidLinkPattern().getXmlBundle().getConcrete();
 		
 		PatternUtility.fillParameter(validLinkPattern);
 		JavaFilter filter = validLinkPattern.generateQueryFilter();

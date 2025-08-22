@@ -9,6 +9,11 @@ import static org.mockito.Mockito.mock;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -42,6 +47,8 @@ import qualitypatternmodel.newservlets.ConstraintUploadServlet;
 import qualitypatternmodel.newservlets.DocumentationServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.PatternListServlet;
+import qualitypatternmodel.newservlets.ServletConstants;
+import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
 import qualitypatternmodel.newservlets.TemplateVariantServlet;
 import qualitypatternmodel.utility.Constants;
@@ -62,6 +69,7 @@ public class APICallTests {
 		try {
 
 			testBasics();
+			testLogDeletion();
 			testConstraintCopyServlet();
 			testConstraintDatabaseServlet();
 			testConstraintDataModelServlet();
@@ -319,6 +327,49 @@ public class APICallTests {
 		assertThrows(FailedServletCallException.class, () -> {
 			deleteConstraint(constriantID);
 		});
+	}
+
+	@Test
+	public void testLogDeletion() throws IOException {
+		String logdirectory = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.LOGFILE;
+		logdirectory = logdirectory.substring(0, logdirectory.lastIndexOf('/'));
+        String currentDate = LocalDate.now().format(DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT));
+        String currentFile = "logfile-" + currentDate + ".log";
+        
+		File logdir = new File(logdirectory); 
+		File currentLog = new File(logdirectory + "/" + currentFile);
+        
+		
+		if (!logdir.exists()) {
+        	logdir.mkdirs();
+		}
+		
+		String[] datesOld = new String[] {
+			LocalDate.now().minusDays(ServletConstants.LOGDAYS + 1).format(DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT)),
+			LocalDate.now().minusDays(ServletConstants.LOGDAYS + 10).format(DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT)),
+			LocalDate.now().minusDays(ServletConstants.LOGDAYS + 20).format(DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT)),
+			LocalDate.now().minusDays(ServletConstants.LOGDAYS + 100).format(DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT)),
+			LocalDate.now().minusDays(ServletConstants.LOGDAYS + 1000).format(DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT))
+		};
+		
+		String[] datesNew = new String[] {
+			LocalDate.now().minusDays(ServletConstants.LOGDAYS - 1).format(DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT)),
+			LocalDate.now().minusDays(ServletConstants.LOGDAYS - 5).format(DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT))
+		};
+		
+		for (String date: datesOld)
+			Files.write(Paths.get(logdirectory + "/logfile-" + date + ".log"), new byte[0], StandardOpenOption.CREATE);
+		for (String date: datesNew)
+			Files.write(Paths.get(logdirectory + "/logfile-" + date + ".log"), new byte[0], StandardOpenOption.CREATE);
+
+        currentLog.delete();
+        ServletUtilities.log("Trigger New Logfile");
+        
+        File[] array = Arrays.stream(logdir.listFiles())
+                .filter(File::isFile)
+                .filter(f -> f.getName().endsWith(".log"))
+                .toArray(File[]::new);
+        assert(array.length == 1 + datesNew.length);
 	}
 
 	@Test

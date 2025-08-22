@@ -8,22 +8,25 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.newservlets.ServletConstants;
-import qualitypatternmodel.newservlets.initialisation.PatternBundle;
+import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class CompSetPattern {
+public class CompSetPattern extends PatternClass {
 
-	public static CompletePattern getGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public CompSetPattern() {
+		super(PatternConstants.COMPSET_ID,
+				PatternConstants.COMPSET_NAME, 
+				PatternConstants.COMPSET_DESCR, 
+				true, true, true, true);
+	}
+	
+	@Override
+	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(PatternConstants.COMPSET_ID_GENERIC);
-		pattern.setAbstractId(PatternConstants.COMPSET_ID_GENERIC);
-		pattern.setName(PatternConstants.COMPSET_NAME);
-		pattern.setDescription(PatternConstants.COMPSET_DESCR);
 
 		Graph graph1 = pattern.getGraph();
 		Node returnNode = graph1.getReturnNodes().get(0).makeComplex();
@@ -46,34 +49,27 @@ public class CompSetPattern {
 		return pattern;
 	}
 
-	public static PatternBundle getNeoBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.NEO4J,
-				PatternConstants.COMPSET_ID_NEO,
-				Map.of(),
-				COMPSET_NEO_VARIANTS,
-				COMPSET_NEO_VARIANTS_OLD);
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
+	@Override
+	protected Map<Integer, String> xmlMap() {
+		return Map.of(3, "//*", 4, "/*/text()");
 	}
 
-	public static PatternBundle getRdfBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.RDF,
-				PatternConstants.COMPSET_ID_RDF,
-				Map.of(),
-				COMPSET_RDF_VARIANTS,
-				COMPSET_RDF_VARIANTS_OLD);
+	protected String[] xmlVariants() {
+		return new String[] { COMPSET_XML_DEFAULT_CONSTRAINT, COMPSET_XML_DEFAULT_ANTIPATTERN };
 	}
 
-	public static PatternBundle getXmlBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.XML,
-				PatternConstants.COMPSET_ID_XML,
-				Map.of(3, "//*", 4, "/*/text()"),
-				COMPSET_XML_VARIANTS,
-				COMPSET_XML_VARIANTS_OLD);
+	protected String[] xmlVariantsOld() {
+		return new String[] {COMPSET_XML_DEFAULT_OLD };
+	}
+
+	protected String[] rdfVariants() {
+		return new String[] { COMPSET_RDF_DEFAULT };
+	}
+
+	protected String[] neoVariants() {
+		return new String[] { COMPSET_NEO_DEFAULT };
 	}
 
 	public static String COMPSET_XML_DEFAULT_CONSTRAINT =
@@ -117,8 +113,6 @@ public class CompSetPattern {
 		+ "{\"name\":\"is / is not\",\"params\":[1],\"exampleValue\":\"is\",\"defaultMap\":\"comparison_isnot\"},"
 		+ "{\"text\":\"in the list:\"},"
 		+ "{\"name\":\"terms\",\"params\":[0],\"exampleValue\": \"Mueller, Meier\"}]}";
-	public static String[] COMPSET_XML_VARIANTS = {COMPSET_XML_DEFAULT_CONSTRAINT, COMPSET_XML_DEFAULT_ANTIPATTERN};
-	public static String[] COMPSET_XML_VARIANTS_OLD = {COMPSET_XML_DEFAULT_OLD};
 
 	public static String COMPSET_RDF_DEFAULT =
 		"{\"template\":\"CompSet_rdf\","
@@ -134,8 +128,6 @@ public class CompSetPattern {
 		+ "{\"text\":\"in the list of\"},"
 		+ "{\"name\":\"terms\",\"params\":[0]},"
 		+ "{\"text\":\".\"}]}";
-	public static String[] COMPSET_RDF_VARIANTS = {COMPSET_RDF_DEFAULT};
-	public static String[] COMPSET_RDF_VARIANTS_OLD = {};
 
 	public static String COMPSET_NEO_DEFAULT =
 		"{\"template\":\"CompSet_neo4j\","
@@ -151,7 +143,4 @@ public class CompSetPattern {
 		+ "{\"text\":\"in the list of\"},"
 		+ "{\"name\":\"terms\",\"params\":[0]},"
 		+ "{\"text\":\".\"}]}";
-	public static String[] COMPSET_NEO_VARIANTS = {COMPSET_NEO_DEFAULT};
-	public static String[] COMPSET_NEO_VARIANTS_OLD = {};
-
 }

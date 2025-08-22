@@ -4,20 +4,18 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -441,43 +439,109 @@ public abstract class ServletUtilities {
 	// LOGGING
 
 	public static void log(String text) {
+		boolean acquired = false;
+		boolean deleteOldLogs = false;
 		try {
 			saveSemaphore.acquire();
-			String filepath = "/" + ServletConstants.LOGFILE;
-			if (ServletConstants.LOG_IN_FILE_VOLUME) {
-				filepath = ServletConstants.FILE_VOLUME + filepath;
-			} else {
-				filepath = ServletConstants.PATTERN_VOLUME + filepath;
-			}
+			acquired = true;
+			String filepath = getLogfileName();
 			File file = new File(filepath);
 		    file.getParentFile().mkdirs();
 	        if (!file.exists()) {
-	        	String dirPath = filepath.substring(0, filepath.lastIndexOf('/'));
-	            File directory = new File(dirPath);
+	            File directory = new File(getLogfileDirectory());
 	            if (!directory.exists()) {
 					directory.mkdirs();
 				}
 	            Files.write(Paths.get(filepath), new byte[0], StandardOpenOption.CREATE);
 	            System.out.println("File created successfully: " + filepath);
+	            deleteOldLogs = true;
 	        }
-	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
-	        String timestamp = LocalDateTime.now().format(formatter);
+	        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
 
 	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
 				writer.newLine();
 				writer.write("[" + timestamp + "] " + text);
 			}
         } catch (IOException e) {
+        	if (acquired)
+        		saveSemaphore.release();
+        	acquired = false;
             logError(e);
         } catch (InterruptedException e) {
+        	if (acquired)
+        		saveSemaphore.release();
+        	acquired = false;
             Thread.currentThread().interrupt();
             log("Thread was interrupted");
 			logError(e);
         } finally {
             // Release the semaphore
-        	saveSemaphore.release();
+        	if (acquired)
+        		saveSemaphore.release();
+        	if (deleteOldLogs)
+            	deleteOldLogs();
         }
 	}
+
+	private static String getLogfileDirectory() {
+		String filepath = "/" + ServletConstants.LOGFILE;
+
+		if (ServletConstants.LOG_IN_FILE_VOLUME) {
+			filepath = ServletConstants.FILE_VOLUME + filepath;
+		} else {
+			filepath = ServletConstants.PATTERN_VOLUME + filepath;
+		}
+		
+		return filepath.substring(0, filepath.lastIndexOf('/'));
+	}
+	
+	private static String getLogfileNameStart() {
+		String filepath = "/" + ServletConstants.LOGFILE;
+		filepath = filepath.substring(filepath.lastIndexOf('/'));
+		filepath = filepath.substring(0,filepath.lastIndexOf('.'));
+		return filepath + "-";
+	}
+	
+	private static String getLogfileNameEnd() {
+		return ServletConstants.LOGFILE.substring(ServletConstants.LOGFILE.lastIndexOf('.'));
+	}
+	
+	private static String getLogfileName() {
+		String filename = getLogfileDirectory();
+		filename += getLogfileNameStart();
+		filename += LocalDate.now().format(DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT));
+		filename += getLogfileNameEnd();
+		return filename;
+	}
+	
+	private static void deleteOldLogs() {
+		log("deleting old logfiles");
+		String logdir = getLogfileDirectory(), logstart = getLogfileNameStart(), logend = getLogfileNameEnd();
+
+		File logdirectory = new File(logdir);
+		File[] filearray = logdirectory.listFiles();
+
+		for (File file: filearray) {
+			String name = "/" + file.getName();
+			if (name.startsWith(logstart) && name.endsWith(logend)) {
+				String date = name.substring(logstart.length(), name.length() - logend.length());
+				try {
+					if (calculateAgeInDays(date) > ServletConstants.LOGDAYS) {
+						file.delete();
+						log("Old log deleted: " + name);
+					}
+				} catch (DateTimeParseException e) {}
+			}
+		}
+	}
+	
+
+    public static long calculateAgeInDays(String dateString) throws DateTimeParseException {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT);
+        LocalDate inputDate = LocalDate.parse(dateString, formatter);
+        LocalDate currentDate = LocalDate.now();
+        return ChronoUnit.DAYS.between(inputDate, currentDate);
+    }
 
 	public static void logOutput(JSONObject json, int id) {
 		logOutput(json.toString(), id);
@@ -497,16 +561,14 @@ public abstract class ServletUtilities {
 
 	public static void logError(Throwable th, int lines) {
 		boolean all = lines < 0;
-        StringWriter stringWriter = new StringWriter();
-        PrintWriter printWriter = new PrintWriter(stringWriter);
-        printWriter.println(th.getClass().getSimpleName() + ": " + th.getMessage());
+		String error = th.getClass().getSimpleName() + ": " + th.getMessage();
 		for (StackTraceElement element : th.getStackTrace()) {
 			if (all || lines > 0) {
-				printWriter.println("    " + element.toString());
+				error += "\r\n    " + element.toString();
 				lines--;
 			}
         }
-        log("ERROR: " + stringWriter.toString());
+        log("ERROR: " + error);
 		if(th.getCause() != null) {
 			log("CAUSED BY");
 			logError(th.getCause(), lines);
@@ -541,49 +603,6 @@ public abstract class ServletUtilities {
 			}
 		}
 		return job.toString();
-	}
-
-
-	// DEPRECATED METHODS
-
-	public static String getFileNamesInFolder(String path, Class<?> clas) throws URISyntaxException {
-		URL url = clas.getClassLoader().getResource(path);
-		if(url != null) {
-			File[] files = Paths.get(url.toURI()).toFile().listFiles();
-			if(files.length == 0) {
-				return "";
-			}
-//			String json = "{\"Patterns\": [";
-			String json = "[";
-			for(File f : files) {
-				json += "\"" + f.getName().split("\\.")[0] + "\", ";
-			}
-			json = json.substring(0, json.length()-2);
-			json += "]";
-//			json += "]}";
-			return json;
-
-		} else {
-			return null;
-		}
-	}
-
-	public static ArrayList<String> getListOfFileNamesInFolder(String path, Class<?> clas) throws URISyntaxException {
-		URL url = clas.getClassLoader().getResource(path);
-		ArrayList<String> fileNames = new ArrayList<String>();
-		if(url != null) {
-			File[] files = Paths.get(url.toURI()).toFile().listFiles();
-			if(files.length == 0) {
-				return null;
-			}
-			for(File f : files) {
-				fileNames.add(f.getName().split("\\.")[0]);
-			}
-			return fileNames;
-
-		} else {
-			return null;
-		}
 	}
 
 	public static JSONArray getAvailableParams(List<? extends Fragment> paramfragments) {

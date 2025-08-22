@@ -7,24 +7,26 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.newservlets.ServletConstants;
-import qualitypatternmodel.newservlets.initialisation.PatternBundle;
+import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
-import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
-public class CardPattern {
+public class CardPattern extends PatternClass {
 
-	public static CompletePattern getGeneric()
+	public CardPattern() {
+		super(PatternConstants.CARD_ID,
+				PatternConstants.CARD_NAME, 
+				PatternConstants.CARD_DESCR, 
+				true, true, true, true);
+	}
+
+	@Override
+	public CompletePattern getPattern()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(PatternConstants.CARD_ID_GENERIC);
-		pattern.setAbstractId(PatternConstants.CARD_ID_GENERIC);
-		pattern.setName(PatternConstants.CARD_NAME);
-		pattern.setDescription(PatternConstants.CARD_DESCR);
 
 		// Context graph of pattern:
 		Node returnNode = pattern.getGraph().getNodes().get(0).makeComplex();
@@ -45,39 +47,34 @@ public class CardPattern {
 				.makeComplex(); // .makePrimitive();
 		countReturn.setReturnNode(true);
 
-		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
 
-	public static PatternBundle getXmlBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.XML,
-				PatternConstants.CARD_ID_XML,
-				Map.of(2, "//*", 3, "/*"),
-				CARD_XML_VARIANTS,
-				CARD_XML_VARIANTS_OLD);
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
+	@Override 
+	protected Map<Integer, String> xmlMap() {
+		return Map.of(2, "//*", 3, "/*");
 	}
 
-	public static PatternBundle getRdfBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.RDF,
-				PatternConstants.CARD_ID_RDF,
-				Map.of(),
-				CARD_RDF_VARIANTS,
-				CARD_RDF_VARIANTS_OLD);
+	@Override 
+	protected String[] xmlVariants() {
+		return new String[] { CARD_XML_DEFAULT_CONSTRAINT, CARD_XML_DEFAULT_ANTIPATTERN };
 	}
 
-	public static PatternBundle getNeoBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternBundle result = new PatternBundle(
-				getGeneric(),
-				Language.NEO4J,
-				PatternConstants.CARD_ID_NEO,
-				Map.of(),
-				CARD_NEO_VARIANTS,
-				CARD_NEO_VARIANTS_OLD);
-		return result;
+	@Override 
+	protected String[] xmlVariantsOld() {
+		return new String[] { CARD_XML_DEFAULT_OLD, CARD_XML_QUESTION_SIMPLE, CARD_XML_QUESTION };
+	}
+
+	@Override 
+	protected String[] rdfVariants() {
+		return new String[] { CARD_RDF_DEFAULT };
+	}
+
+	@Override 
+	protected String[] neoVariants() {
+		return new String[] { CARD_NEO_DEFAULT };
 	}
 
 	public static String CARD_XML_DEFAULT_CONSTRAINT =
@@ -144,8 +141,6 @@ public class CardPattern {
 			+ "{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":1},"
 			+ "{\"name\":\"child elements\",\"params\":[3],\"exampleValue\":\"Birthdates\",\"description\":\"counted elements\", \"plural\": \"true\"},"
 			+ "{\"text\":\".\"}" + "]}";
-	public static String[] CARD_XML_VARIANTS = { CARD_XML_DEFAULT_CONSTRAINT, CARD_XML_DEFAULT_ANTIPATTERN };
-	public static String[] CARD_XML_VARIANTS_OLD = { CARD_XML_DEFAULT_OLD, CARD_XML_QUESTION_SIMPLE, CARD_XML_QUESTION };
 
 	public static String CARD_RDF_DEFAULT =
 			"{\"template\":\"Card_rdf\","
@@ -162,8 +157,6 @@ public class CardPattern {
 			+ "{\"text\":\"is\"},"
 			+ "{\"name\":\"compared to\",\"params\":[0], \"exampleValue\":\"exactly\", \"defaultMap\":\"comparison\"},"
 			+ "{\"name\":\"a specific number\",\"params\":[1]}," + "{\"text\":\".\"}]}";
-	public static String[] CARD_RDF_VARIANTS = { CARD_RDF_DEFAULT };
-	public static String[] CARD_RDF_VARIANTS_OLD = {};
 
 	public static String CARD_NEO_DEFAULT = 
 			"{\"template\":\"Card_neo4j\"," 
@@ -180,7 +173,4 @@ public class CardPattern {
 			+ "{\"text\":\"is\"},"
 			+ "{\"name\":\"compared to\",\"params\":[0],\"exampleValue\":\"more than\",\"defaultMap\":\"comparison\"},"
 			+ "{\"name\":\"a specific number\",\"params\":[1],\"exampleValue\":1}," + "{\"text\":\".\"}]}";
-	public static String[] CARD_NEO_VARIANTS = { CARD_NEO_DEFAULT };
-	public static String[] CARD_NEO_VARIANTS_OLD = {};
-
 }

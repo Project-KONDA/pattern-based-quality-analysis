@@ -1,8 +1,6 @@
 package newservelettest;
 
 import java.io.IOException;
-import java.util.Map;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,10 +9,8 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.newservlets.ServletUtilities;
-import qualitypatternmodel.newservlets.initialisation.GenericPatterns;
 import qualitypatternmodel.newservlets.patterns.CardPattern;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.EMFModelLoad;
@@ -23,10 +19,7 @@ import qualitypatternmodel.utility.EMFModelSave;
 public class ValueMapLoadTest {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException, JSONException {
-		CompletePattern pattern = GenericPatterns.getConcrete(CardPattern.getGeneric(), Language.XML, "Card_xml",
-				Map.of(2, "//*", 3, "/*"),
-				CardPattern.CARD_XML_VARIANTS,
-				CardPattern.CARD_XML_VARIANTS_OLD);
+		CompletePattern pattern = new CardPattern().getXmlBundle().getConcrete();
 
 		JSONObject before = ServletUtilities.getPatternJSON(pattern);
 		JSONArray fragments = before.getJSONArray(ConstantsJSON.VARIANTS).getJSONObject(0).getJSONArray(ConstantsJSON.FRAGMENTS);

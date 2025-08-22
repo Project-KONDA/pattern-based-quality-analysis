@@ -168,7 +168,7 @@ public class APITemplateTests {
 	@Test
 	public void testTemplateCard()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("Card_xml").getInt("size") == 3);
+		assert(store.getJSONObject("Card_xml").getInt("size") == 1);
 
 		String constraintID = APICallTests.newConstraint("Card_xml", "default-constraint");
 		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
@@ -178,22 +178,6 @@ public class APITemplateTests {
 
 		testConcretePattern(constraintID);
 		APICallTests.deleteConstraint(constraintID);
-
-
-		String constraintID2 = APICallTests.newConstraint("Card_xml", "question");
-		setConstraintParameter(constraintID2, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID2, "ComparisonOption_1", "exactly not");
-		setConstraintParameter(constraintID2, "Number_2", "2");
-		setConstraintParameter(constraintID2, "XmlPath_Element_3", "/*");
-		testConcretePattern(constraintID2);
-
-
-		String constraintID3 = APICallTests.newConstraint("Card_xml", "question_simple");
-		setConstraintParameter(constraintID3, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID3, "XmlPath_Element_1", "/*");
-		testConcretePattern(constraintID3);
-
-		APICallTests.deleteConstraint(constraintID3);
 	}
 
 
@@ -286,7 +270,7 @@ public class APITemplateTests {
 	@Test
 	public void testTemplateValidLink()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-//		assert(store.getJSONObject("ValidLink_xml").getInt("size") == 2);
+		assert(store.getJSONObject("ValidLink_xml").getInt("size") == 1);
 
 		String constraintID = APICallTests.newConstraint("ValidLink_xml", "default-constraint");
 		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
@@ -295,15 +279,6 @@ public class APITemplateTests {
 
 		testConcretePattern(constraintID);
 		APICallTests.deleteConstraint(constraintID);
-
-
-		String constraintID2 = APICallTests.newConstraint("ValidLink_xml", "question");
-		setConstraintParameter(constraintID2, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID2, "XmlPath_Property_1", "/text()");
-//		setConstraintParameter(constraintID2, "Boolean_2", "is");
-
-		testConcretePattern(constraintID2);
-		APICallTests.deleteConstraint(constraintID2);
 	}
 
 	@Test

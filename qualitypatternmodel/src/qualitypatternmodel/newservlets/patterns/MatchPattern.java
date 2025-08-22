@@ -1,29 +1,28 @@
 package qualitypatternmodel.newservlets.patterns;
 
-import java.util.Map;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.newservlets.ServletConstants;
-import qualitypatternmodel.newservlets.initialisation.PatternBundle;
+import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class MatchPattern {
+public class MatchPattern extends PatternClass {
 
-	public static CompletePattern getGeneric()
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public MatchPattern() {
+		super(PatternConstants.MATCH_ID,
+				PatternConstants.MATCH_NAME, 
+				PatternConstants.MATCH_DESCR, 
+				true, true, true, true);
+	}
+
+	@Override
+	CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		pattern.setPatternId(PatternConstants.MATCH_ID_GENERIC);
-		pattern.setAbstractId(PatternConstants.MATCH_ID_GENERIC);
-		pattern.setName(PatternConstants.MATCH_NAME);
-		pattern.setDescription(PatternConstants.MATCH_DESCR);
 
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
 
@@ -38,38 +37,21 @@ public class MatchPattern {
 			tlp.setValue("[a-zA-Z]*");
 		}
 
-		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
 
-	public static PatternBundle getNeoBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.NEO4J,
-				PatternConstants.MATCH_ID_NEO,
-				Map.of(),
-				MATCH_NEO_VARIANTS,
-				MATCH_NEO_VARIANTS_OLD);
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
+	protected String[] xmlVariants() {
+		return new String[] { MATCH_XML_DEFAULT_CONSTRAINT, MATCH_XML_DEFAULT_ANTIPATTERN, MATCH_XML_CONSTRAINT_DATE };
 	}
 
-	public static PatternBundle getRdfBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.RDF,
-				PatternConstants.MATCH_ID_RDF,
-				Map.of(),
-				MATCH_RDF_VARIANTS,
-				MATCH_RDF_VARIANTS_OLD);
+	protected String[] rdfVariants() {
+		return new String[] { MATCH_RDF_DEFAULT };
 	}
 
-	public static PatternBundle getXmlBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return new PatternBundle(
-				getGeneric(),
-				Language.XML,
-				PatternConstants.MATCH_ID_XML,
-				Map.of(2, "//*", 3, "/*/text()"),
-				MATCH_XML_VARIANTS,
-				MATCH_XML_VARIANTS_OLD);
+	protected String[] neoVariants() {
+		return new String[] { MATCH_NEO_DEFAULT };
 	}
 
 	public static String MATCH_XML_DEFAULT_CONSTRAINT =
@@ -115,8 +97,6 @@ public class MatchPattern {
 		+ "{\"text\":\"match the ISO 8601 format.\"},"
 		+ "{\"params\":[0],\"value\": \"false\"},"
 		+ "{\"params\":[1],\"value\":\"" + DATE_REGEX_ESCAPED + "\"}]}";
-	public static String[] MATCH_XML_VARIANTS = {MATCH_XML_DEFAULT_CONSTRAINT, MATCH_XML_DEFAULT_ANTIPATTERN, MATCH_XML_CONSTRAINT_DATE};
-	public static String[] MATCH_XML_VARIANTS_OLD = {};
 
 	public static String MATCH_RDF_DEFAULT =
 		"{\"template\":\"Match_rdf\","
@@ -133,8 +113,6 @@ public class MatchPattern {
 		+ "{\"text\":\"match\"},"
 		+ "{\"name\":\"a specific pattern\",\"params\":[1]},"
 		+ "{\"text\":\".\"}]}";
-	public static String[] MATCH_RDF_VARIANTS = {MATCH_RDF_DEFAULT};
-	public static String[] MATCH_RDF_VARIANTS_OLD = {};
 
 	public static String MATCH_NEO_DEFAULT =
 		"{\"template\":\"Match_neo4j\","
@@ -151,7 +129,4 @@ public class MatchPattern {
 		+ "{\"text\":\"match\"},"
 		+ "{\"name\":\"a specific pattern\",\"params\":[1]},"
 		+ "{\"text\":\".\"}]}";
-	public static String[] MATCH_NEO_VARIANTS = {MATCH_NEO_DEFAULT};
-	public static String[] MATCH_NEO_VARIANTS_OLD = {};
-
 }
