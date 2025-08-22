@@ -162,24 +162,20 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		String sourceVariable = sourceVariable();
-		if (sourceVariable.length() > 0)
-			sourceVariable += " ";
 		String query = generateLocalXQuery();
 		if (getAlternatives() != null && !getAlternatives().isEmpty()) {
 			for (XmlPathParam alternative: getAlternatives()) {
-				query += ConstantsXml.XPATH_UNION + ((XmlPathParamImpl) alternative).generateLocalXQuery();
+				query += ConstantsXml.XPATH_UNION + alternative.generateXQuery();
 			}
-			query = "(" + query + ")";
+			return "(" + query + ")";
 		}
-		return sourceVariable + query;
+		return query;
 	}
 
-	public String generateLocalXQuery() throws InvalidityException {
-//		String query = sourceVariable();
-//		if (query.length() != 0)
-//			query += " ";
-		String query = "";
+	protected String generateLocalXQuery() throws InvalidityException {
+		String query = sourceVariable();
+		if (query.length() != 0)
+			query += " ";
 		if (getXmlAxisParts() != null) {
 			for (XmlAxisPart xmlAxisPart : getXmlAxisParts()) {
 				query += xmlAxisPart.generateXQuery();
