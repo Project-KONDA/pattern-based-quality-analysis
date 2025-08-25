@@ -7,6 +7,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.newservlets.patterns.Appdup2Pattern;
 import qualitypatternmodel.newservlets.patterns.Appdup3Pattern;
 import qualitypatternmodel.newservlets.patterns.CardImpliesMandAttPattern;
@@ -68,7 +69,7 @@ public class PatternCollection {
 				if (pattern != null)
 					patterns.add(pattern);
 			} catch (Exception e) {
-				continue;
+				ServletUtilities.logError(new InvalidityException("Exception when compiling Generic Pattern " + clazz.getName(), e));
 			}
 		}
 		return patterns;
@@ -78,7 +79,12 @@ public class PatternCollection {
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 
 		for (PatternBundle bundle: getXmlPatternBundles()) {
-			patterns.add(bundle.getConcrete());
+			try {
+				patterns.add(bundle.getConcrete());
+			}
+			catch (Exception e) {
+				ServletUtilities.logError(new InvalidityException("Exception when compiling Xml PatternBundle " + bundle.id, e));
+			}		
 		}
 		return patterns;
 	}
@@ -87,7 +93,12 @@ public class PatternCollection {
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		
 		for (PatternBundle bundle: getRdfPatternBundles()) {
-			patterns.add(bundle.getConcrete());
+			try {
+				patterns.add(bundle.getConcrete());
+			}
+			catch (Exception e) {
+				ServletUtilities.logError(new InvalidityException("Exception when compiling Rdf PatternBundle " + bundle.id, e));
+			}
 		}
 		return patterns;
 	}
@@ -96,7 +107,12 @@ public class PatternCollection {
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		
 		for (PatternBundle bundle: getNeoPatternBundles()) {
-			patterns.add(bundle.getConcrete());
+			try {
+				patterns.add(bundle.getConcrete());
+			}
+			catch (Exception e) {
+				ServletUtilities.logError(new InvalidityException("Exception when compiling Neo PatternBundle " + bundle.id, e));
+			}
 		}
 		return patterns;
 	}
@@ -116,7 +132,7 @@ public class PatternCollection {
 					else throw new RuntimeException("XML Patternbundle Null for Class " + id);
 				}
 			} catch (Exception e) {
-				throw new InvalidityException("Exception when compiling XML PatternBundle for Class " + id, e);
+				ServletUtilities.logError(new InvalidityException("Exception when compiling XML PatternBundle for Class " + id, e));
 			}
 		}
 		return patternbundles;

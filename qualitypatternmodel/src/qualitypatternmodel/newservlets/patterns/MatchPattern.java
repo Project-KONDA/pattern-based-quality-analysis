@@ -4,9 +4,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.newservlets.initialisation.PatternConstants;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -32,10 +30,7 @@ public class MatchPattern extends PatternClass {
 		Node ret = pattern.getGraph().getReturnNodes().get(0);
 		Node element1 = ret.addOutgoing(quantifiedCondition.getGraph()).getTarget().makePrimitive();
 
-		TextLiteralParam tlp = element1.addPrimitiveMatch();
-		if (ServletConstants.FILL_VALUES) {
-			tlp.setValue("[a-zA-Z]*");
-		}
+		element1.addPrimitiveMatch();
 
 		return pattern;
 	}

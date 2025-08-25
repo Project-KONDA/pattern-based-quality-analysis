@@ -215,11 +215,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			if (r.getVariables() == null || r.getVariables().isEmpty()) {
 				throw new InvalidityException("There was no associated variable generated to the return node");
 			}
-			else {
-				System.out.println(((XmlNode) returnElements.get(i)).getVariables().get(0) + " - " + i);
+			else
 				returnClause += ((XmlNode) returnElements.get(i)).getVariables().get(0);
-//			returnClause += VARIABLE + returnElements.get(i).getOriginalID();
-			}
+//				returnClause += VARIABLE + returnElements.get(i).getOriginalID();
 		}
 		if (returnElements.size()>1) {
 			returnClause = "(" + returnClause + ")";

@@ -54,7 +54,7 @@ abstract public class PatternClass {
 	public CompletePattern getGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = getPattern();
 		if (pattern == null) {
-			System.err.println("Pattern " + id + " is null");
+			throw new RuntimeException("Pattern " + id + " is null");
 		}
 
 		setInfo(pattern);
