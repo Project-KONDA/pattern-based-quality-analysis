@@ -1,0 +1,35 @@
+{
+    "template":"ContainsIso_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+    "fragments":[
+        {"text":"Within each"},
+        {
+            "name":"element",
+            "params":[2],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":", each"},
+        {
+            "name":"property",
+            "params":[3],
+            "exampleValue":"Education",
+            "description":"analysed property"
+        },
+        {
+            "name":"does / does not",
+            "params":[0],
+            "defaultMap":"does not",
+            "exampleValue":"does"
+        },
+        {"text":"contain"},
+        {
+            "name":"a specific term",
+            "params":[1],
+            "exampleValue":"Master of"
+        },
+        {"text":"."}
+    ]
+}

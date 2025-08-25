@@ -15,20 +15,27 @@ import qualitypatternmodel.newservlets.patterns.CardPattern;
 import qualitypatternmodel.newservlets.patterns.CheckFormatPattern;
 import qualitypatternmodel.newservlets.patterns.CompDatabasePattern;
 import qualitypatternmodel.newservlets.patterns.CompPattern;
+import qualitypatternmodel.newservlets.patterns.CompSetIsoPattern;
 import qualitypatternmodel.newservlets.patterns.CompSetPattern;
 import qualitypatternmodel.newservlets.patterns.CompValAnyPattern;
 import qualitypatternmodel.newservlets.patterns.CompValPattern;
+import qualitypatternmodel.newservlets.patterns.ContainsIsoPattern;
 import qualitypatternmodel.newservlets.patterns.ContainsPattern;
 import qualitypatternmodel.newservlets.patterns.DupvalPattern;
 import qualitypatternmodel.newservlets.patterns.FuncPattern;
 import qualitypatternmodel.newservlets.patterns.LocalUniquePattern;
 import qualitypatternmodel.newservlets.patterns.MandAttPattern;
 import qualitypatternmodel.newservlets.patterns.MandContPattern;
+import qualitypatternmodel.newservlets.patterns.MatchIsoPattern;
+import qualitypatternmodel.newservlets.patterns.MatchIsoSinPattern;
 import qualitypatternmodel.newservlets.patterns.MatchPattern;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
+import qualitypatternmodel.newservlets.patterns.StringLengthIsoPattern;
 import qualitypatternmodel.newservlets.patterns.StringLengthPattern;
 import qualitypatternmodel.newservlets.patterns.UniquePattern;
 import qualitypatternmodel.newservlets.patterns.ValidLinkPattern;
+import qualitypatternmodel.newservlets.patterns.ValidLinkIsolatedPattern;
+import qualitypatternmodel.newservlets.patterns.ValidLinkIsolatedSinglePattern;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class PatternCollection {
@@ -44,18 +51,25 @@ public class PatternCollection {
 		classes.add(CompDatabasePattern.class);
 		classes.add(CompPattern.class);
 		classes.add(CompSetPattern.class);
+		classes.add(CompSetIsoPattern.class);
 		classes.add(CompValAnyPattern.class);
 		classes.add(CompValPattern.class);
 		classes.add(ContainsPattern.class);
+		classes.add(ContainsIsoPattern.class);
 		classes.add(DupvalPattern.class);
 		classes.add(FuncPattern.class);
 		classes.add(LocalUniquePattern.class);
 		classes.add(MandAttPattern.class);
 		classes.add(MandContPattern.class);
 		classes.add(MatchPattern.class);
+		classes.add(MatchIsoPattern.class);
+		classes.add(MatchIsoSinPattern.class);
 		classes.add(StringLengthPattern.class);
+		classes.add(StringLengthIsoPattern.class);
 		classes.add(UniquePattern.class);
 		classes.add(ValidLinkPattern.class);
+		classes.add(ValidLinkIsolatedPattern.class);
+		classes.add(ValidLinkIsolatedSinglePattern.class);
 		return classes;
 	}
 
