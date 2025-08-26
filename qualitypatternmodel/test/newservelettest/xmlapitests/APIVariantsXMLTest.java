@@ -52,7 +52,7 @@ public class APIVariantsXMLTest {
 		folder = new File(".").getCanonicalPath().replace('\\', '/') + "/temp_" + UUID.randomUUID();
 		System.out.println("Create: " + folder);
 
-		File variants_original = new File("./src/qualitypatternmodel/newservlets/patterns/jsons");
+		File variants_original = new File("./src/qualitypatternmodel/newservlets/jsons");
 		File variants_copy = new File(folder + "/templates/variants");
 
 		File lido_original = new File("lido.xml");
@@ -101,7 +101,7 @@ public class APIVariantsXMLTest {
 	}
 
 	private static List<String[]> getTemplateVariantPairs() {
-		File jsondir = new File("./src/qualitypatternmodel/newservlets/patterns/jsons/xml");
+		File jsondir = new File("./src/qualitypatternmodel/newservlets/jsons/xml");
 		ArrayList<File> files = InitialisationServlet.getAllJSONFilesInFolder(jsondir);
 
 		List<String[]> pairs = new ArrayList<String[]>();

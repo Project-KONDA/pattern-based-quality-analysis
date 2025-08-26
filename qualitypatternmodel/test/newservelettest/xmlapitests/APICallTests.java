@@ -112,7 +112,7 @@ public class APICallTests {
 		File lido_original = new File("lido.xml");
 		File lido_copy = new File(FOLDER + "/files/lido.xml");
 
-		File variants_original = new File("./src/qualitypatternmodel/newservlets/patterns/jsons");
+		File variants_original = new File("./src/qualitypatternmodel/newservlets/jsons");
 		File variants_copy = new File(FOLDER + "/templates/variants");
 
 		try {

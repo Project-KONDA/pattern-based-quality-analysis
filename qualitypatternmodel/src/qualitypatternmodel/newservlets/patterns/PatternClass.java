@@ -13,7 +13,7 @@ import qualitypatternmodel.patternstructure.Language;
 abstract public class PatternClass {
 
 	// Implement generic Pattern here
-	abstract CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
+	public abstract CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	// Add information
 	public final String id;

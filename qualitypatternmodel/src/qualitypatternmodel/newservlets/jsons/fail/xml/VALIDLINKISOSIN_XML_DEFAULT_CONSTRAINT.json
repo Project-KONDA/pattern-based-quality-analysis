@@ -1,0 +1,21 @@
+{
+    "template":"ValidLinkIsoSin_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+    "fragments":[
+        {"text":"Check each"},
+        {
+            "name":"property",
+            "params":[1],
+            "exampleValue":"Birth Certificate Source",
+            "description":"property of interest,that should contain a valid link."
+        },
+        {"text":"if it is a valid link."},
+        
+        {
+            "params":[0],
+            "value": "true"
+        }
+    ]
+}
