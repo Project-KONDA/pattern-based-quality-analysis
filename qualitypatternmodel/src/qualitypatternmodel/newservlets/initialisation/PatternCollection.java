@@ -34,8 +34,8 @@ import qualitypatternmodel.newservlets.patterns.StringLengthIsoPattern;
 import qualitypatternmodel.newservlets.patterns.StringLengthPattern;
 import qualitypatternmodel.newservlets.patterns.UniquePattern;
 import qualitypatternmodel.newservlets.patterns.ValidLinkPattern;
-import qualitypatternmodel.newservlets.patterns.ValidLinkIsolatedPattern;
-import qualitypatternmodel.newservlets.patterns.ValidLinkIsolatedSinglePattern;
+import qualitypatternmodel.newservlets.patterns.ValidLinkIsoPattern;
+import qualitypatternmodel.newservlets.patterns.ValidLinkIsoSinPattern;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class PatternCollection {
@@ -68,8 +68,8 @@ public class PatternCollection {
 		classes.add(StringLengthIsoPattern.class);
 		classes.add(UniquePattern.class);
 		classes.add(ValidLinkPattern.class);
-		classes.add(ValidLinkIsolatedPattern.class);
-		classes.add(ValidLinkIsolatedSinglePattern.class);
+		classes.add(ValidLinkIsoPattern.class);
+		classes.add(ValidLinkIsoSinPattern.class);
 		return classes;
 	}
 
