@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -90,6 +91,13 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		OneArgFunctionFilterPart filterPart = new OneArgFunctionFilterPartImpl(this.getClass(), getOption().getValue());
 		return filterPart;
+	}
+
+	@Override
+	public String generateXQueryIsolated() throws InvalidityException {
+		if (!(getPrimitiveNode() instanceof XmlProperty))
+			throw new InvalidityException();
+		return ((XmlProperty) getPrimitiveNode()).getVariables().get(0);
 	}
 
 	@Override

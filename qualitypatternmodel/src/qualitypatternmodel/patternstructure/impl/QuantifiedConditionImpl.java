@@ -182,6 +182,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			result += "(true())";
 		else 
 			result += "(" + getCondition().generateXQuery() + ")";
+		String andtrue = " and (true())";
+		if (result.endsWith(andtrue))
+			result = result.substring(0, result.length()-andtrue.length());
 		return result;
 	}
 

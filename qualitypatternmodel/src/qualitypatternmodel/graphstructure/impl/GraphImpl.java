@@ -44,6 +44,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.javaoperators.impl.JavaOperatorImpl;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.operators.BooleanOperator;
@@ -253,12 +254,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public String generateXQueryJava() throws InvalidityException {
 		String result = "";
 		EList<Relation> relations = new BasicEList<Relation>();
-		for(Relation relation : getRelations()) {
+		for (Relation relation : getRelations()) {
 			if (relation.getTarget() != null && relation.getTarget().inJavaWhere()) {
 				relations.add(relation);
 			}
 		}
-
 		for (Relation relation : relations) {
 			if (relation instanceof XmlPropertyNavigation && relation.isCrossGraph()) {
 				XmlPropertyNavigationImpl nav = (XmlPropertyNavigationImpl) relation;
@@ -269,11 +269,25 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 			}
 		}
-		for(Relation relation : relations) {
+		for (Relation relation : relations) {
 			if (relation instanceof XmlElementNavigation && relation.isCrossGraph()) {
 				result += relation.generateXQuery();
 			}
 		}
+		for (Operator op: getOperatorList().getOperators()) {
+			if (op instanceof JavaOperatorImpl) {
+				BooleanOperator bop = (BooleanOperator) op;
+				Boolean anyInGraph = false;
+				for (Node node: bop.getAllArgumentElements()) {
+					if (node.getGraph() == this)
+						anyInGraph = true;
+				}
+				if (!anyInGraph) {
+					result += bop.generateXQueryIsolated();
+				}
+			}
+		}
+		
 		return result;
 	}
 
@@ -284,13 +298,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		String result = "";
 		List<Relation> relations = new BasicEList<Relation>();
 
-		for(Relation relation : getRelations()) {
+		for (Relation relation : getRelations()) {
 			if (relation.isCrossGraph() && !relation.isTranslated() && !relation.getTarget().inJavaWhere()) {
 				relations.add(relation);
 			}
 		}
 		relations = JavaQueryTranslationUtility.orderRelationsJavaQuery(relations);
-		for(int i = 0; i< relations.size(); i++) {
+		for (int i = 0; i< relations.size(); i++) {
 			Relation relation = relations.get(i);
 			String relationtranslation = relation.generateXQueryJavaReturn();
 			if (relation instanceof XmlPropertyNavigation) {
