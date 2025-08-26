@@ -200,13 +200,10 @@ public class TemplateVariantServlet extends HttpServlet {
 				JSONObject json = new JSONObject(variant);
 				new PatternTextImpl(pattern, json);
 			} catch (JSONException e) {
-				e.printStackTrace();
 				throw new FailedServletCallException(ConstantsError.INVALID_JSON, e);
 			} catch (InvalidityException e) {
-				e.printStackTrace();
 				throw new FailedServletCallException(ConstantsError.INVALID_JSON + ": " + e.getMessage(), e);
 			} catch (Exception e) {
-				e.printStackTrace();
 				throw new FailedServletCallException("error: " + e.getMessage(), e);
 			}
 		}
@@ -221,7 +218,7 @@ public class TemplateVariantServlet extends HttpServlet {
 			ServletUtilities.saveTemplate(technology, templateId, pattern);
 		} catch (IOException e) {
 			ServletUtilities.saveTemplate(technology, templateId, patternSave);
-			throw new FailedServletCallException("Failed to update template.", e);
+			throw new FailedServletCallException(ConstantsError.VARIANT_UPDATE_FAILED, e);
 		}
 
 		CompletePattern pattern2 = ServletUtilities.loadTemplate(technology, templateId);

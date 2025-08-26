@@ -38,6 +38,10 @@ public class PatternConstants {
 	public static String COMPSETISO_NAME = "Comparison Pattern with Set (Isolated)";
 	public static String COMPSETISO_DESCR = "Check, whether the value of fields are within a list of allowed (/forbidden) terms.";
 	
+	public static String COMPSETISOSIN_ID = "CompSetIsoSin";
+	public static String COMPSETISOSIN_NAME = "Comparison Pattern with Set (Isolated, Single)";
+	public static String COMPSETISOSIN_DESCR = "Check, whether the value of fields are within a list of allowed (/forbidden) terms.";
+	
 	public static String COMPVALANY_ID = "CompValAny";
 	public static String COMPVALANY_NAME = "Compare values within a record";
 	public static String COMPVALANY_DESCR = "Check whether any value of a specific field within a record does comply to a value restriction.";
@@ -53,6 +57,10 @@ public class PatternConstants {
 	public static String CONTAINSISO_ID = "ContainsIso";
 	public static String CONTAINSISO_NAME = "Contains Check (Isolated)";
 	public static String CONTAINSISO_DESCR = "Check, whether a value contains a specific substring.";
+	
+	public static String CONTAINSISOSIN_ID = "ContainsIsoSin";
+	public static String CONTAINSISOSIN_NAME = "Contains Check (Isolated, Single)";
+	public static String CONTAINSISOSIN_DESCR = "Check, whether a value contains a specific substring.";
 	
 	public static String DUPVAL_ID = "DupVal";
 	public static String DUPVAL_NAME = "Duplicate value";
@@ -93,6 +101,10 @@ public class PatternConstants {
 	public static String STRINGLENGTHISO_ID = "StringLengthIso";
 	public static String STRINGLENGTHISO_NAME = "String value length restriction (Isolated)";
 	public static String STRINGLENGTHISO_DESCR = "Check all field values whether they comply to the length restriction.";
+	
+	public static String STRINGLENGTHISOSIN_ID = "StringLengthIsoSin";
+	public static String STRINGLENGTHISOSIN_NAME = "String value length restriction (Isolated Single)";
+	public static String STRINGLENGTHISOSIN_DESCR = "Check all field values whether they comply to the length restriction.";
 	
 	public static String UNIQUE_ID = "Unique";
 	public static String UNIQUE_NAME = "Uniqueness Constraint";

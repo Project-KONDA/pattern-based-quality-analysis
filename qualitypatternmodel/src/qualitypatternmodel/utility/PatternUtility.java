@@ -154,7 +154,23 @@ public class PatternUtility {
 			// XML
 			if (param instanceof XmlPathParam) {
 				XmlPathParam xmlPathParam = (XmlPathParam) param;
-				if (xmlPathParam.getXmlAxisParts().isEmpty() && xmlPathParam.isValue()) {
+//				try {
+//					if (xmlPathParam.getXmlNavigation() instanceof XmlPropertyNavigation) {
+//						if (xmlPathParam.getXmlNavigation().getSource() instanceof XmlRoot)
+//							xmlPathParam.setValueFromString("//*/text()");
+//						else
+//							xmlPathParam.setValueFromString("/text()");
+//					} else {
+//						if (xmlPathParam.getXmlNavigation().getSource() instanceof XmlRoot)
+//								xmlPathParam.setValueFromString("//*");
+//						else
+//							xmlPathParam.setValueFromString("/*");
+//					}
+//				} catch (InvalidityException e) {
+//					e.printStackTrace();
+//				}
+				if (xmlPathParam.getXmlAxisParts().isEmpty() && 
+						(xmlPathParam.isValue() || xmlPathParam.getXmlNavigation().getSource() instanceof XmlRoot) ) {
 					xmlPathParam.getXmlAxisParts().add(new XmlAxisPartImpl());
 				}
 				for (XmlAxisPart pair : xmlPathParam.getXmlAxisParts()) {
@@ -183,6 +199,7 @@ public class PatternUtility {
 					}
 				}
 				if (xmlPathParam.getXmlNavigation() instanceof XmlPropertyNavigation) {
+					
 					if (xmlPathParam.getXmlPropertyOptionParam() == null) {
 						xmlPathParam.setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
 					}

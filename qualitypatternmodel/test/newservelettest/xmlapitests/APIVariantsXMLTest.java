@@ -52,8 +52,8 @@ public class APIVariantsXMLTest {
 		folder = new File(".").getCanonicalPath().replace('\\', '/') + "/temp_" + UUID.randomUUID();
 		System.out.println("Create: " + folder);
 
-		File variants_original = new File("./src/qualitypatternmodel/newservlets/jsons");
-		File variants_copy = new File(folder + "/templates/variants");
+		File variants_original = new File("./src/qualitypatternmodel/newservlets/jsons/xml");
+		File variants_copy = new File(folder + "/templates/variants/xml");
 
 		File lido_original = new File("lido.xml");
 		File lido_copy = new File(folder + "/files/lido.xml");
@@ -163,7 +163,7 @@ public class APIVariantsXMLTest {
 	}
 	
 	private static void setDefaultParameter(String constraintId, String param) {
-		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'TextList':'[\"a\"]', 'Boolean':'true', 'Text':'a'}");
+		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'TextList':'[\"a\"]', 'Boolean':'true', 'Text':'a'}");
 
 		if (Set.of("name", "namespace", "datamodel", "database").contains(param))
 			return;

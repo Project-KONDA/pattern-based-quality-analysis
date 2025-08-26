@@ -1,5 +1,5 @@
 {
-    "template":"CompSetIso_xml",
+    "template":"CompSetIsoSin_xml",
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,
@@ -13,14 +13,14 @@
         },
         {
             "name":"is/is not",
-            "params":[1],
+            "params":[0],
             "exampleValue":"is",
             "defaultMap":"comparison_isnot"
         },
         {"text":"in the list of"},
         {
             "name":"terms",
-            "params":[0],
+            "params":[2],
             "exampleValue":"Mueller, Meier"
         },
         {"text":"."}
