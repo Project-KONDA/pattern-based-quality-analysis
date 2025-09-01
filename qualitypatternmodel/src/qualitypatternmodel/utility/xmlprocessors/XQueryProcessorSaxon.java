@@ -117,13 +117,7 @@ public class XQueryProcessorSaxon {
 	}
 
 	private static String formatItemString(XdmItem item, Processor processor) throws SaxonApiException {
-        StringWriter sw = new StringWriter();
-        Serializer serializer = processor.newSerializer(sw);
-        serializer.setOutputProperty(Serializer.Property.METHOD, "xml");
-        serializer.setOutputProperty(Serializer.Property.INDENT, "no");
-        serializer.setOutputProperty(Serializer.Property.OMIT_XML_DECLARATION, "yes");
-        serializer.serializeXdmValue(item);
-        return sw.toString().trim();
+        return item.getStringValue();
 	}
 
 	private static JSONObject formatItemJSON(XdmItem item, Processor processor) throws SaxonApiException {
@@ -134,7 +128,7 @@ public class XQueryProcessorSaxon {
         serializer.setOutputProperty(Serializer.Property.OMIT_XML_DECLARATION, "yes");
         serializer.setOutputProperty(Serializer.Property.ENCODING, "UTF-8");
         serializer.serializeXdmValue(item);
-        String snippet = sw.toString().trim();
+        String snippet = sw.toString();
 
         int startline = -1;
         if (!item.isAtomicValue() && item instanceof XdmNode) {

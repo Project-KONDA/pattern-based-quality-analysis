@@ -14,12 +14,12 @@ public class XmlServletUtility {
 
 	public static JSONArray executeXQueryString(String query, String datapath) throws InvalidityException {
 
-		switch(Util.EXECUTION_PROCESSOR) {
+		switch (Util.EXECUTION_PROCESSOR) {
 		case ConstantsXml.PROCESSOR_BASEX:
 			return XQueryProcessorBaseX.baseXExecuteXQuery(query, datapath, ConstantsXml.FORMAT_STRING);
 
 		case ConstantsXml.PROCESSOR_SAXON:
-			return XQueryProcessorSaxon.saxonExecuteXQuery(query, datapath);
+			return XQueryProcessorSaxon.saxonExecuteXQuery(query, datapath, ConstantsXml.FORMAT_STRING);
 
 		default:
 			throw new InvalidityException("Processor " + Util.EXECUTION_PROCESSOR + " is not registered");
