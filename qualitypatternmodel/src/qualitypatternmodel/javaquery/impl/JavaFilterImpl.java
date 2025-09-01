@@ -9,13 +9,13 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,6 +32,7 @@ import qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl;
 import qualitypatternmodel.javaqueryoutput.impl.InterimResultContainerImpl;
 import qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl;
 import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
@@ -181,7 +182,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public void createInterimResultContainer(List<Object> objectList) throws InvalidityException {
+	public void createInterimResultContainer(JSONArray objectList) throws InvalidityException {
 		EList<InterimResultContainer> interimContainer = getInterimResults();
 		interimContainer.clear();
 //		if (objectList != null) {
@@ -213,7 +214,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public List<String> executeXQueryJava(String datapath) throws InvalidityException {
+	public JSONArray executeXQueryJava(String datapath) throws InvalidityException {
 		return XmlServletUtility.executeXQueryString(getQuery(), datapath);
 	}
 
@@ -223,9 +224,9 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public List<String> execute(String datapath) throws InvalidityException {
+	public JSONArray execute(String datapath) throws InvalidityException {
 		// Query Results
-		List<String> list = executeXQueryJava(datapath);
+		JSONArray list = executeXQueryJava(datapath);
 
 		// import Query Results
 		createInterimResultContainerXQuery(list);
@@ -236,7 +237,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 			}
 		}
 
-		List<String> result = filterQueryResults();
+		JSONArray result = filterQueryResults();
 		return result;
 	}
 
@@ -313,13 +314,19 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public void createInterimResultContainerXQuery(List<String> objectList) throws InvalidityException {
+	public void createInterimResultContainerXQuery(JSONArray list) throws InvalidityException {
 		int depth = 0;
 		int depthbefore = 0;
 		InterimResultContainer current = null;
 		getInterimResults().clear();
 
-		for (String value: objectList) {
+		for (int i = 0; i < list.length(); i++) {
+			Object object = list.get(i);
+			String value = "";
+			if (object instanceof String)
+				value = (String) object;
+			else
+				value = ((JSONObject) object).getString(ConstantsJSON.RESULT_SNIPPET);
 			depthbefore = depth;
 			if (JavaQueryTranslationUtility.isStartTag(value)) {
 				depth +=1;
@@ -570,17 +577,17 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public EList<String> filterQueryResults() throws InvalidityException {
+	public JSONArray filterQueryResults() throws InvalidityException {
 		EList<InterimResultContainer> interims = getInterimResults();
-		EList<String> results = new BasicEList<String>();
+		JSONArray results = new JSONArray();
 		for (InterimResultContainer ir: interims) {
 			try {
 				if (getFilter().apply(ir.getParameter())) {
 					InterimResult ret = ir.getReturn();
 					if (ret instanceof ValueResult) {
-						results.add(((ValueResult) ret).getValue());
+						results.put(((ValueResult) ret).getValue());
 					} else {
-						results.add(ret.toString());
+						results.put(ret.toString());
 					}
 				}
 			} catch (InvalidityException e) {
@@ -732,7 +739,6 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case JavaqueryPackage.JAVA_FILTER___FILTER_QUERY_RESULTS:
@@ -742,9 +748,9 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case JavaqueryPackage.JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__LIST:
+			case JavaqueryPackage.JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__JSONARRAY:
 				try {
-					createInterimResultContainer((List<Object>)arguments.get(0));
+					createInterimResultContainer((JSONArray)arguments.get(0));
 					return null;
 				}
 				catch (Throwable throwable) {

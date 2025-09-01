@@ -156,7 +156,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__LIST = 1;
+	int JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__JSONARRAY = 1;
 
 	/**
 	 * The operation id for the '<em>Execute XQuery Java</em>' operation.
@@ -1311,14 +1311,14 @@ public interface JavaqueryPackage extends EPackage {
 	EOperation getJavaFilter__FilterQueryResults();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(java.util.List) <em>Create Interim Result Container</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(org.json.JSONArray) <em>Create Interim Result Container</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Create Interim Result Container</em>' operation.
-	 * @see qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(java.util.List)
+	 * @see qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(org.json.JSONArray)
 	 * @generated
 	 */
-	EOperation getJavaFilter__CreateInterimResultContainer__List();
+	EOperation getJavaFilter__CreateInterimResultContainer__JSONArray();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String) <em>Execute XQuery Java</em>}' operation.
@@ -1939,7 +1939,7 @@ public interface JavaqueryPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__LIST = eINSTANCE.getJavaFilter__CreateInterimResultContainer__List();
+		EOperation JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__JSONARRAY = eINSTANCE.getJavaFilter__CreateInterimResultContainer__JSONArray();
 
 		/**
 		 * The meta object literal for the '<em><b>Execute XQuery Java</b></em>' operation.

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import org.json.JSONArray;
+
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -35,7 +37,7 @@ public class InterimResultTest {
 		System.out.print("total: " + (!results.contains(false)));
 	}
 
-	static Boolean testTestPattern (CompletePattern testpattern, List<Object> rawResults, List<String> expected, Boolean output)
+	static Boolean testTestPattern (CompletePattern testpattern, JSONArray rawResults, List<String> expected, Boolean output)
 			throws InvalidityException {
 		
 		if (testpattern.getLanguage() == Language.GENERIC) {
@@ -81,7 +83,7 @@ public class InterimResultTest {
 
 			// Result
 			filter.createInterimResultContainer(rawResults);
-			List<String> result = filter.filterQueryResults();
+			JSONArray result = filter.filterQueryResults();
 			if (output) {
 				System.out.println("res: " + result);
 			}
@@ -149,12 +151,12 @@ public class InterimResultTest {
 		return result;
 	}
 
-	static List<Object> testList1 = testList1();
-	private static List<Object> testList1(){
-		List<Object> result = new ArrayList<Object>();
+	static JSONArray testList1 = testList1();
+	private static JSONArray testList1(){
+		JSONArray result = new JSONArray();
 		int i = 0;
 		for (List<String> list: lists) {
-			result.add(List.of("record" + i, list));
+			result.put(List.of("record" + i, list));
 			i++;
 		}
 		return result;
@@ -175,51 +177,51 @@ public class InterimResultTest {
 
 
 
-	static List<Object> testList2 = testList2();
-	private static List<Object> testList2(){
-		List<Object> result = new ArrayList<Object>();
+	static JSONArray testList2 = testList2();
+	private static JSONArray testList2(){
+		JSONArray result = new JSONArray();
 		int i = 0;
 		for (String bool: booleanStrings) {
 			for (List<String> list: lists) {
-				result.add(List.of("record" + i, List.of(bool, list)));
+				result.put(List.of("record" + i, List.of(bool, list)));
 				i++;
 			}
 		}
 		return result;
 	}
 
-	static List<Object> testList3 = testList3();
-	private static List<Object> testList3(){
-		List<Object> result = new ArrayList<Object>();
+	static JSONArray testList3 = testList3();
+	private static JSONArray testList3(){
+		JSONArray result = new JSONArray();
 		int i = 0;
 		for (List<String> list1: lists) {
 			for (List<String> list2: lists) {
-				result.add(List.of("record" + i, List.of(list1, list2)));
+				result.put(List.of("record" + i, List.of(list1, list2)));
 				i++;
 			}
 		}
 		return result;
 	}
 
-	static List<Object> testList7 = testList7();
-	private static List<Object> testList7(){
-		List<Object> result = new ArrayList<Object>();
+	static JSONArray testList7 = testList7();
+	private static JSONArray testList7(){
+		JSONArray result = new JSONArray();
 		int i = 0;
 
 		for (List<List<String>> sublist: listCombinations) {
-			result.add(List.of("record" + i, sublist));
+			result.put(List.of("record" + i, sublist));
 			i++;
 		}
 		return result;
 
 	}
 
-	static List<Object> testList8 = testList8();
-	private static List<Object> testList8(){
-		List<Object> result = new ArrayList<Object>();
+	static JSONArray testList8 = testList8();
+	private static JSONArray testList8(){
+		JSONArray result = new JSONArray();
 		int i = 0;
 		for (List<List<List<String>>> sublist: listListCombinations) {
-			result.add(List.of("record" + i, sublist));
+			result.put(List.of("record" + i, sublist));
 			i++;
 		}
 		return result;
@@ -258,14 +260,14 @@ public class InterimResultTest {
 		return result;
 	}
 
-	static List<Object> testList10 = testList10(); //testList10old();
-	private static List<Object> testList10(){
-		List<Object> result = new ArrayList<Object>();
+	static JSONArray testList10 = testList10(); //testList10old();
+	private static JSONArray testList10(){
+		JSONArray result = new JSONArray();
 		int i = 0;
 		for (List<String> lst1: lists) {
 			for (List<String> lst2: lists) {
 				List<Object> myList = List.of(lst1, lst2);
-				result.add(List.of("record" + i, myList));
+				result.put(List.of("record" + i, myList));
 				i++;
 			}
 		}

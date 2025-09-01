@@ -374,7 +374,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getJavaFilter__CreateInterimResultContainer__List() {
+	public EOperation getJavaFilter__CreateInterimResultContainer__JSONArray() {
 		return javaFilterEClass.getEOperations().get(1);
 	}
 
@@ -906,7 +906,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		createEAttribute(javaFilterEClass, JAVA_FILTER__PATTERN_NAME);
 		createEAttribute(javaFilterEClass, JAVA_FILTER__PATTERN_ID);
 		createEOperation(javaFilterEClass, JAVA_FILTER___FILTER_QUERY_RESULTS);
-		createEOperation(javaFilterEClass, JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__LIST);
+		createEOperation(javaFilterEClass, JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__JSONARRAY);
 		createEOperation(javaFilterEClass, JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING);
 		createEOperation(javaFilterEClass, JAVA_FILTER___EXECUTE__STRING);
 		createEOperation(javaFilterEClass, JAVA_FILTER___TO_JSON);
@@ -1032,18 +1032,18 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		initEAttribute(getJavaFilter_PatternName(), ecorePackage.getEString(), "patternName", null, 0, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaFilter_PatternId(), ecorePackage.getEString(), "patternId", null, 0, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getJavaFilter__FilterQueryResults(), ecorePackage.getEString(), "filterQueryResults", 0, -1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getJavaFilter__FilterQueryResults(), theTextrepresentationPackage.getJSONArrayWrapper(), "filterQueryResults", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getJavaFilter__CreateInterimResultContainer__List(), null, "createInterimResultContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getObjectListWrapper(), "objectList", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJavaFilter__CreateInterimResultContainer__JSONArray(), null, "createInterimResultContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theTextrepresentationPackage.getJSONArrayWrapper(), "objectList", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getJavaFilter__ExecuteXQueryJava__String(), this.getStringListWrapper(), "executeXQueryJava", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJavaFilter__ExecuteXQueryJava__String(), theTextrepresentationPackage.getJSONArrayWrapper(), "executeXQueryJava", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "datapath", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getJavaFilter__Execute__String(), this.getStringListWrapper(), "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJavaFilter__Execute__String(), theTextrepresentationPackage.getJSONArrayWrapper(), "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "datapath", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 

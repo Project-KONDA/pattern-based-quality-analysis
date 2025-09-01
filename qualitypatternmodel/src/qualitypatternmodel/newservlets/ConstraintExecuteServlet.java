@@ -3,7 +3,6 @@ package qualitypatternmodel.newservlets;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.json.JSONArray;
@@ -216,15 +215,15 @@ public class ConstraintExecuteServlet extends HttpServlet {
 
 		int total;
 		try {
-			List<String> totalResults;
+			JSONArray totalResults;
 			ServletUtilities.log( "query file [" + file  + "] with query [" + ServletUtilities.makeQueryOneLine(query_partial) + "]");
 			totalResults = XmlServletUtility.executeXQueryString(query_partial, file.getAbsolutePath());
-			total = totalResults.size();
+			total = totalResults.length();
 		} catch (InvalidityException e) {
 			e.printStackTrace();
 			throw new FailedServletCallException(ConstantsError.QUERY_FAILED, e);
 		}
-		List<String> result = null;
+		JSONArray result = null;
 
 		if (!constraint.has(ConstantsJSON.FILTER)) {
 			ServletUtilities.log( "query file [" + file  + "] with query [" + ServletUtilities.makeQueryOneLine(query) + "]");
@@ -245,8 +244,8 @@ public class ConstraintExecuteServlet extends HttpServlet {
 
 		object.put(ConstantsJSON.INCIDENTS, result);
 		object.put(ConstantsJSON.TOTAL_FINDINGS, total);
-		object.put(ConstantsJSON.TOTAL_INCIDENCES, result.size());
-		object.put(ConstantsJSON.TOTAL_COMPLIANCES, total - result.size());
+		object.put(ConstantsJSON.TOTAL_INCIDENCES, result.length());
+		object.put(ConstantsJSON.TOTAL_COMPLIANCES, total - result.length());
 		return object;
 	}
 }

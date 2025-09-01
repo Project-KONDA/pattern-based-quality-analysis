@@ -1,6 +1,8 @@
 package javaoperatortests;
 
 import java.util.List;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -27,8 +29,8 @@ public class TestValidLinkPatternTemplate {
 		
 		JavaFilter restored = JavaFilterImpl.fromJson(json);
 
-		List<String> list2 = restored.executeXQueryJava(DEMO_DATA_PATH);
-		List<String> list = filter.executeXQueryJava(DEMO_DATA_PATH);
+		JSONArray list2 = restored.executeXQueryJava(DEMO_DATA_PATH);
+		JSONArray list = filter.executeXQueryJava(DEMO_DATA_PATH);
 
 		System.out.println("Execution Result equal: " + list.toString().equals(list2.toString()));
 		
@@ -42,10 +44,10 @@ public class TestValidLinkPatternTemplate {
 
 		System.out.println("Interim Results equal: " + filterInterims.toString().equals(restoredInterims.toString()));
 		
-		List<String> result = filter.execute(DEMO_DATA_PATH);
-		List<String> restoredresult = restored.execute(DEMO_DATA_PATH);
-		System.out.println(result.size());
-		System.err.println(restoredresult.size());
+		JSONArray result = filter.execute(DEMO_DATA_PATH);
+		JSONArray restoredresult = restored.execute(DEMO_DATA_PATH);
+		System.out.println(result.length());
+		System.err.println(restoredresult.length());
 //
 		System.out.println("Result:\n" + result);
 		System.out.println("RestoredResult:\n" + restoredresult);

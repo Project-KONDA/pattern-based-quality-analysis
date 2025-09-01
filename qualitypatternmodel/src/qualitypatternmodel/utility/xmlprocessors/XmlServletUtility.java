@@ -1,16 +1,17 @@
 package qualitypatternmodel.utility.xmlprocessors;
 
-import java.util.List;
+import org.json.JSONArray;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.utility.ConstantsXml;
 
 public class XmlServletUtility {
-	
-	public static List<String> executeXQueryString(String query) throws InvalidityException {
+
+	public static JSONArray executeXQueryString(String query) throws InvalidityException {
 		return executeXQueryString(query, null);
 	}
-	
-	public static List<String> executeXQueryString(String query, String datapath) throws InvalidityException {
-		return XQueryProcessorBaseX.baseXXQueryToString(query, datapath);
+
+	public static JSONArray executeXQueryString(String query, String datapath) throws InvalidityException {
+		return XQueryProcessorBaseX.baseXExecuteXQuery(query, datapath, ConstantsXml.FORMAT_STRING);
 	}
 }

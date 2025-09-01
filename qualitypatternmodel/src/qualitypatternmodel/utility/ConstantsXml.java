@@ -36,4 +36,9 @@ public class ConstantsXml {
 
 	public static final String REGEX_XMLPATH_ELEMENT = "(" + REGEX_NAVIGATION + "+)";
 	public static final String REGEX_XMLPATH_VALUE = "(" + REGEX_NAVIGATION + "*" + REGEX_PROPERTY + ")";
+
+	public static final String PROCESSOR_BASEX = "BaseX";
+	public static final String PROCESSOR_SAXON = "Saxon";
+	public static final String FORMAT_STRING = "String";
+	public static final String FORMAT_JSON = "JSON";
 }

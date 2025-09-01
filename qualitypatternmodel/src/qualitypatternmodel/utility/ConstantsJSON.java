@@ -83,4 +83,8 @@ public class ConstantsJSON {
 	public static final String FILE = "file";
 	public static final Object FILES = "files";
 	public static final String RESULT = "result";
+	public static final String RESULT_SNIPPET = "snippet";
+	public static final String RESULT_STARTLINE = "startline";
+	public static final String RESULT_ENDLINE = "endline";
+	public static final String RESULT_LINESIZE = "linesize";
 }
