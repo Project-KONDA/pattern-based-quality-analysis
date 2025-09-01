@@ -1,6 +1,5 @@
 package javaoperatortests;
 
-import org.json.JSONArray;
 import org.junit.jupiter.api.Test;
 
 import qualitypatternmodel.exceptions.InvalidityException;

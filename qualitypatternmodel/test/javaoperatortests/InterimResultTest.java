@@ -91,9 +91,9 @@ public class InterimResultTest {
 				System.out.println("exp: " + expected);
 			}
 			if (output) {
-				System.out.println(Objects.equals(expected, result));
+				System.out.println(Objects.equals(new JSONArray(expected), result));
 			}
-			return Objects.equals(expected, result);
+			return Objects.equals(new JSONArray(expected), result);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -161,21 +161,19 @@ public class InterimResultTest {
 		}
 		return result;
 	}
-	@SuppressWarnings("unchecked")
 	private static List<String> getExpectedList1(){
 		List<String> result = new ArrayList<String>();
-		for (Object list: testList1()) {
-			List<Object> lst = (List<Object>) list;
+		for (int i = 0; i < testList1().length(); i++) {
+			JSONArray lst = (JSONArray) testList1().get(i);
+			System.out.println(" _ " + lst);
 			String record = (String) lst.get(0);
-			List<Object> test = ((List<Object>) lst.get(1));
+			String test = lst.get(1).toString();
 			if (test.contains(invalid)) {
 				result.add(record);
 			}
 		}
 		return result;
 	}
-
-
 
 	static JSONArray testList2 = testList2();
 	private static JSONArray testList2(){
