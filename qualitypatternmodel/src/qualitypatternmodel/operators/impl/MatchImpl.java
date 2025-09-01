@@ -34,7 +34,7 @@ import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsNeo;
-import qualitypatternmodel.utility.XmlServletUtility;
+import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -647,7 +647,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			case XML:
 				String query = "matches(\"\", \"" + regex + "\")";
 				try {
-					XmlServletUtility.executeXQueryJava(query);
+					XmlServletUtility.executeXQueryString(query);
 					return true;
 				} catch (InvalidityException e) {
 					return false;

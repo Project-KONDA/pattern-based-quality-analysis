@@ -23,7 +23,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
-import qualitypatternmodel.utility.XmlServletUtility;
+import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 @SuppressWarnings("serial")
 public class ConstraintExecuteServlet extends HttpServlet {
@@ -217,8 +217,8 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		int total;
 		try {
 			List<String> totalResults;
-//			rawResults = executeXQuery(file, query);
-			totalResults = executeXQuery(file, query_partial);
+			ServletUtilities.log( "query file [" + file  + "] with query [" + ServletUtilities.makeQueryOneLine(query_partial) + "]");
+			totalResults = XmlServletUtility.executeXQueryString(query_partial, file.getAbsolutePath());
 			total = totalResults.size();
 		} catch (InvalidityException e) {
 			e.printStackTrace();
@@ -227,7 +227,8 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		List<String> result = null;
 
 		if (!constraint.has(ConstantsJSON.FILTER)) {
-			result = executeXQuery(file, query);
+			ServletUtilities.log( "query file [" + file  + "] with query [" + ServletUtilities.makeQueryOneLine(query) + "]");
+			result = XmlServletUtility.executeXQueryString(query, file.getAbsolutePath());
 		} else {
 			try {
 				JSONObject filterjson = constraint.getJSONObject(ConstantsJSON.FILTER);
@@ -247,11 +248,5 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		object.put(ConstantsJSON.TOTAL_INCIDENCES, result.size());
 		object.put(ConstantsJSON.TOTAL_COMPLIANCES, total - result.size());
 		return object;
-	}
-
-	private static List<String> executeXQuery(File file, String query) throws InvalidityException {
-		ServletUtilities.log( "query file [" + file  + "] with query [" + ServletUtilities.makeQueryOneLine(query) + "]");
-		List<String> results = XmlServletUtility.executeXQueryJava(query, file.getAbsolutePath());
-		return results;
 	}
 }

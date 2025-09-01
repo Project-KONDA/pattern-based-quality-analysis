@@ -33,7 +33,7 @@ import qualitypatternmodel.javaqueryoutput.impl.InterimResultContainerImpl;
 import qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
-import qualitypatternmodel.utility.XmlServletUtility;
+import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -214,7 +214,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 */
 	@Override
 	public List<String> executeXQueryJava(String datapath) throws InvalidityException {
-		return XmlServletUtility.executeXQueryJava(getQuery(), datapath);
+		return XmlServletUtility.executeXQueryString(getQuery(), datapath);
 	}
 
 	/**
