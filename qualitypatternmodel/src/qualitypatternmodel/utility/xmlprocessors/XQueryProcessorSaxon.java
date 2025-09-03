@@ -232,6 +232,8 @@ public class XQueryProcessorSaxon {
 	}
 
 	private static File getAndTestFile(String filepath) throws InvalidityException {
+		if (filepath == null)
+			return null;
 	    File filesave = null;
 		File file = new File(ServletConstants.FILE_VOLUME + "/" + filepath);
 		if (file.exists()) {
