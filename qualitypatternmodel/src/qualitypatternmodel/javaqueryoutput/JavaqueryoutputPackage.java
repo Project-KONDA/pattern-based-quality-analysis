@@ -477,7 +477,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_RESULT___STREAM__STRING = INTERIM_RESULT_OPERATION_COUNT + 0;
+	int CONTAINER_RESULT___STREAM__JSONOBJECT = INTERIM_RESULT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Container Result</em>' class.
@@ -614,7 +614,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERIM_RESULT_CONTAINER___STREAM__STRING = 1;
+	int INTERIM_RESULT_CONTAINER___STREAM__JSONOBJECT = 1;
 
 	/**
 	 * The number of operations of the '<em>Interim Result Container</em>' class.
@@ -844,14 +844,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EAttribute getContainerResult_Tagname();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.ContainerResult#stream(java.lang.String) <em>Stream</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.ContainerResult#stream(org.json.JSONObject) <em>Stream</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Stream</em>' operation.
-	 * @see qualitypatternmodel.javaqueryoutput.ContainerResult#stream(java.lang.String)
+	 * @see qualitypatternmodel.javaqueryoutput.ContainerResult#stream(org.json.JSONObject)
 	 * @generated
 	 */
-	EOperation getContainerResult__Stream__String();
+	EOperation getContainerResult__Stream__JSONObject();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.ValueResult <em>Value Result</em>}'.
@@ -928,14 +928,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EOperation getInterimResultContainer__IsValidToStructure();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#stream(java.lang.String) <em>Stream</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#stream(org.json.JSONObject) <em>Stream</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Stream</em>' operation.
-	 * @see qualitypatternmodel.javaqueryoutput.InterimResultContainer#stream(java.lang.String)
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultContainer#stream(org.json.JSONObject)
 	 * @generated
 	 */
-	EOperation getInterimResultContainer__Stream__String();
+	EOperation getInterimResultContainer__Stream__JSONObject();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1150,7 +1150,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CONTAINER_RESULT___STREAM__STRING = eINSTANCE.getContainerResult__Stream__String();
+		EOperation CONTAINER_RESULT___STREAM__JSONOBJECT = eINSTANCE.getContainerResult__Stream__JSONObject();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.ValueResultImpl <em>Value Result</em>}' class.
@@ -1218,7 +1218,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation INTERIM_RESULT_CONTAINER___STREAM__STRING = eINSTANCE.getInterimResultContainer__Stream__String();
+		EOperation INTERIM_RESULT_CONTAINER___STREAM__JSONOBJECT = eINSTANCE.getInterimResultContainer__Stream__JSONObject();
 
 	}
 

@@ -1065,7 +1065,7 @@
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//javaquery/StringListWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//javaquery/ObjectListWrapper"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/JavaFilter">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/JavaFilter/filter"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/JavaFilter/filter.1"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/JavaFilter/structure"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/JavaFilter/interimResults"/>
@@ -1077,11 +1077,11 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/createInterimResultContainer">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/createInterimResultContainer/objectList"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/executeXQueryJava">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/executeXQueryJava/datapath"/>
-        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/execute">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/execute/datapath"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/filter">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/filter/array"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/toJson"/>
       </genClasses>

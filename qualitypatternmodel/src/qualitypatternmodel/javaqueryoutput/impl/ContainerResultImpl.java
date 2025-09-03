@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.ContainerInterim;
@@ -23,6 +24,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
+import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
@@ -85,8 +87,8 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 		for (Object inputobject: input) {
 			if (inputobject instanceof List) {
 				getSubresult().add(new ContainerResultImpl((List<Object>) inputobject));
-			} else if (inputobject instanceof String) {
-				getSubresult().add(new ValueResultImpl((String) inputobject));
+			} else if (inputobject instanceof JSONObject) {
+				getSubresult().add(new ValueResultImpl((JSONObject) inputobject));
 			} else {
 				throw new InvalidityException(inputobject.toString() + " cannot be transformed to an InterimResultObject.");
 			}
@@ -213,10 +215,12 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	 * @generated NOT
 	 */
 	@Override
-	public Boolean stream(String value) throws InvalidityException {
+	public Boolean stream(JSONObject object) throws InvalidityException {
 		if (done) {
 			return false;
 		}
+		
+		String value = object.getString(ConstantsJSON.RESULT_SNIPPET);
 
 		depth0 = depth;
 		if (JavaQueryTranslationUtility.isStartTag(value)) {
@@ -236,17 +240,17 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 			setTagname(value);
 		}
 		else if (depth0 == 1 && depth == 1) {
-			getSubresult().add(new ValueResultImpl(value));
+			getSubresult().add(new ValueResultImpl(object));
 		}
 		else if (depth0 == 1 && depth == 2) {
 			if (currentCreationResult != null) {
 				throw new InvalidityException();
 			}
 			currentCreationResult = new ContainerResultImpl();
-			currentCreationResult.stream(value);
+			currentCreationResult.stream(object);
 		}
 		else if (depth0 == 2 && depth == 1) {
-			currentCreationResult.stream(value);
+			currentCreationResult.stream(object);
 			getSubresult().add(currentCreationResult);
 			currentCreationResult = null;
 		}
@@ -254,7 +258,7 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 			if (!(currentCreationResult instanceof ContainerResult)) {
 				throw new InvalidityException("ContainerResult expected, recieved: " + currentCreationResult);
 			}
-			currentCreationResult.stream(value);
+			currentCreationResult.stream(object);
 		}
 
 
@@ -382,9 +386,9 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case JavaqueryoutputPackage.CONTAINER_RESULT___STREAM__STRING:
+			case JavaqueryoutputPackage.CONTAINER_RESULT___STREAM__JSONOBJECT:
 				try {
-					return stream((String)arguments.get(0));
+					return stream((JSONObject)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

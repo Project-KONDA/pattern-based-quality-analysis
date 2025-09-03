@@ -201,6 +201,14 @@ public interface JavaFilter extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model dataType="qualitypatternmodel.textrepresentation.JSONArrayWrapper" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" arrayDataType="qualitypatternmodel.textrepresentation.JSONArrayWrapper"
+	 * @generated
+	 */
+	JSONArray filter(JSONArray array) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model dataType="qualitypatternmodel.javaquery.StringListWrapper" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated NOT
 	 */

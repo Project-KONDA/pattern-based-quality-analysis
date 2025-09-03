@@ -11,11 +11,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 /**
  * <!-- begin-user-doc -->
@@ -202,8 +204,12 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 	public static InterimResult transformToInterimResult(Object input) throws InvalidityException{
 		if (input instanceof List) {
 			return new ContainerResultImpl((List<Object>) input);
+		} else if (input instanceof JSONObject) {
+			return new ValueResultImpl((JSONObject) input);
 		} else if (input instanceof String) {
-			return new ValueResultImpl((String) input);
+			JSONObject object = new JSONObject();
+			object.put(ConstantsJSON.RESULT_SNIPPET, (String) input);
+			return new ValueResultImpl(object);
 		} else {
 			throw new InvalidityException();
 		}

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.ContainerResult;
@@ -19,6 +20,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
@@ -121,10 +123,6 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 		return returnvalid && parametervalid;
 	}
 
-
-
-
-
 	private int depth0 = 0;
 	private int depth = 0;
 	private boolean param = false;
@@ -136,8 +134,10 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 	 * @generated NOT
 	 */
 	@Override
-	public Boolean stream(String value) throws InvalidityException{
+	public Boolean stream(JSONObject object) throws InvalidityException{
 		depth0 = depth;
+		String value = object.getString(ConstantsJSON.RESULT_SNIPPET);
+		
 		if (JavaQueryTranslationUtility.isStartTag(value)) {
 			depth +=1;
 		} else if (JavaQueryTranslationUtility.isEndTag(value)) {
@@ -165,7 +165,7 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 				}
 			}
 			else if (depth0 == depth) {
-				ValueResultImpl valueresult = new ValueResultImpl(value);
+				ValueResultImpl valueresult = new ValueResultImpl(object);
 				if(!param) {
 					if (getReturn() != null) {
 						throw new InvalidityException("invalid input for return");
@@ -182,7 +182,7 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 		else if (depth > 1) {
 			if (depth0 == 1) {
 				ContainerResult container = new ContainerResultImpl();
-				container.stream(value);
+				container.stream(object);
 				if (!param) {
 					if (getReturn() != null) {
 						throw new InvalidityException("Return value is already configured");
@@ -202,13 +202,13 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 				if (!(getReturn() instanceof ContainerResult)) {
 					throw new InvalidityException("invalid input for return: " + value);
 				}
-				((ContainerResult) getReturn()).stream(value);
+				((ContainerResult) getReturn()).stream(object);
 			}
 			else {
 				if (!(getParameter() instanceof ContainerResult)) {
 					throw new InvalidityException("invalid input for condition: " + value + "\n" + depth0 + "->"+ depth + " "  + param );
 				}
-				((ContainerResult) getParameter()).stream(value);
+				((ContainerResult) getParameter()).stream(object);
 			}
 		}
 		return !done;
@@ -459,9 +459,9 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 		switch (operationID) {
 			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___IS_VALID_TO_STRUCTURE:
 				return isValidToStructure();
-			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___STREAM__STRING:
+			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___STREAM__JSONOBJECT:
 				try {
-					return stream((String)arguments.get(0));
+					return stream((JSONObject)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

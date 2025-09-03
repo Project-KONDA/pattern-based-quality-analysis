@@ -8,11 +8,11 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.json.JSONObject;
 
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.ValueResult;
@@ -91,7 +91,8 @@ public class ValueResultItemProvider extends InterimResultItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ValueResult)object).getValue();
+		JSONObject labelValue = ((ValueResult)object).getValue();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ValueResult_type") :
 			getString("_UI_ValueResult_type") + " " + label;

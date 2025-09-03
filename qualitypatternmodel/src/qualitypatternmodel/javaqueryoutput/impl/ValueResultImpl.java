@@ -6,6 +6,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
@@ -33,7 +34,7 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VALUE_EDEFAULT = null;
+	protected static final JSONObject VALUE_EDEFAULT = null;
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -42,7 +43,7 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	 * @generated
 	 * @ordered
 	 */
-	protected String value = VALUE_EDEFAULT;
+	protected JSONObject value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -53,7 +54,7 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 		super();
 	}
 
-	public ValueResultImpl(String input) {
+	public ValueResultImpl(JSONObject input) {
 		super();
 		value = input;
 	}
@@ -92,7 +93,7 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	 * @generated
 	 */
 	@Override
-	public String getValue() {
+	public JSONObject getValue() {
 		return value;
 	}
 
@@ -102,8 +103,8 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	 * @generated
 	 */
 	@Override
-	public void setValue(String newValue) {
-		String oldValue = value;
+	public void setValue(JSONObject newValue) {
+		JSONObject oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.VALUE_RESULT__VALUE, oldValue, value));
@@ -132,7 +133,7 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaqueryoutputPackage.VALUE_RESULT__VALUE:
-				setValue((String)newValue);
+				setValue((JSONObject)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -174,7 +175,7 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	 */
 	@Override
 	public String toString() {
-		String val = value.replace("\r\n", " ");
+		String val = value.toString().replace("\r\n", " ");
 		int max = 100;
 		if (val.length() > max) {
 			val = val.substring(0, max - 10) + " ...";

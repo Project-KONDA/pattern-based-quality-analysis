@@ -6,7 +6,6 @@ public class Util {
 //	public static final int EXECUTE_MAX_RESULTS = 100000;                    // max number of results
 	public static final long EXECUTE_QUERY_TIMEOUT_MS = 60000L;               // Execution timeout 1 min
 	public static final String EXECUTION_PROCESSOR = ConstantsXml.PROCESSOR_SAXON;
-	public static final String EXECUTION_FORMAT = ConstantsXml.FORMAT_JSON;
 	
 	static final String ABSTRACT_PATTERNS_PATH = "../../abstract-patterns/";
 	static final String CONCRETE_PATTERNS_PATH = "../../concrete-patterns/";

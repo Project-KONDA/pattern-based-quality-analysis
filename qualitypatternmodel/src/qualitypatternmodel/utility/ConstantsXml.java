@@ -39,6 +39,4 @@ public class ConstantsXml {
 
 	public static final String PROCESSOR_BASEX = "BaseX";
 	public static final String PROCESSOR_SAXON = "Saxon";
-	public static final String FORMAT_STRING = "String";
-	public static final String FORMAT_JSON = "JSON";
 }

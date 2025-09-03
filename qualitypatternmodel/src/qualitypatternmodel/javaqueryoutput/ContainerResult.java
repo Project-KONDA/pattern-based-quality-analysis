@@ -4,6 +4,7 @@ package qualitypatternmodel.javaqueryoutput;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 
@@ -62,9 +63,9 @@ public interface ContainerResult extends InterimResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" valueDataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	Boolean stream(String value) throws InvalidityException;
+	Boolean stream(JSONObject value) throws InvalidityException;
 
 } // ContainerResult

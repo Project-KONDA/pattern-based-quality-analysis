@@ -384,7 +384,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getJavaFilter__ExecuteXQueryJava__String() {
+	public EOperation getJavaFilter__Execute__String() {
 		return javaFilterEClass.getEOperations().get(2);
 	}
 
@@ -394,7 +394,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getJavaFilter__Execute__String() {
+	public EOperation getJavaFilter__Filter__JSONArray() {
 		return javaFilterEClass.getEOperations().get(3);
 	}
 
@@ -907,8 +907,8 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		createEAttribute(javaFilterEClass, JAVA_FILTER__PATTERN_ID);
 		createEOperation(javaFilterEClass, JAVA_FILTER___FILTER_QUERY_RESULTS);
 		createEOperation(javaFilterEClass, JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__JSONARRAY);
-		createEOperation(javaFilterEClass, JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING);
 		createEOperation(javaFilterEClass, JAVA_FILTER___EXECUTE__STRING);
+		createEOperation(javaFilterEClass, JAVA_FILTER___FILTER__JSONARRAY);
 		createEOperation(javaFilterEClass, JAVA_FILTER___TO_JSON);
 
 		booleanFilterPartEClass = createEClass(BOOLEAN_FILTER_PART);
@@ -1039,12 +1039,12 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		addEParameter(op, theTextrepresentationPackage.getJSONArrayWrapper(), "objectList", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getJavaFilter__ExecuteXQueryJava__String(), theTextrepresentationPackage.getJSONArrayWrapper(), "executeXQueryJava", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJavaFilter__Execute__String(), theTextrepresentationPackage.getJSONArrayWrapper(), "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "datapath", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getJavaFilter__Execute__String(), theTextrepresentationPackage.getJSONArrayWrapper(), "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "datapath", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJavaFilter__Filter__JSONArray(), theTextrepresentationPackage.getJSONArrayWrapper(), "filter", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theTextrepresentationPackage.getJSONArrayWrapper(), "array", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEOperation(getJavaFilter__ToJson(), theTextrepresentationPackage.getJSONObjectWrapper(), "toJson", 0, 1, IS_UNIQUE, IS_ORDERED);

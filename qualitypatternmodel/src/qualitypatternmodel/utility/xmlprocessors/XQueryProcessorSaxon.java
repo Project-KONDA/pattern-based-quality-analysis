@@ -2,6 +2,8 @@ package qualitypatternmodel.utility.xmlprocessors;
 
 import java.io.File;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -10,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import net.sf.saxon.om.NodeInfo;
@@ -20,21 +23,22 @@ import net.sf.saxon.s9api.Serializer;
 import net.sf.saxon.s9api.XQueryCompiler;
 import net.sf.saxon.s9api.XQueryEvaluator;
 import net.sf.saxon.s9api.XQueryExecutable;
+import net.sf.saxon.s9api.XdmAtomicValue;
 import net.sf.saxon.s9api.XdmItem;
 import net.sf.saxon.s9api.XdmNode;
+import net.sf.saxon.s9api.XdmValue;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.javaquery.JavaFilter;
+import qualitypatternmodel.javaquery.impl.JavaFilterImpl;
+import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.newservlets.ServletUtilities;
+import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
-import qualitypatternmodel.utility.ConstantsXml;
 import qualitypatternmodel.utility.Util;
 
 public class XQueryProcessorSaxon {
 	
 	public static JSONArray saxonExecuteXQuery(String query, String datapath) throws InvalidityException {
-		return saxonExecuteXQuery(query, datapath, ConstantsXml.FORMAT_STRING);
-	}
-
-	public static JSONArray saxonExecuteXQuery(String query, String datapath, String format) throws InvalidityException {
 		final String testedQuery = testAndFormatQuery(query);
 		final File inputFile = getAndTestFile(datapath);
 		
@@ -53,22 +57,14 @@ public class XQueryProcessorSaxon {
 	            // Provide context item if XML file is given
 	            if (inputFile != null) {
 	                DocumentBuilder builder = processor.newDocumentBuilder();
+	                builder.setLineNumbering(true);
 	                XdmNode inputDoc = builder.build(inputFile);
 	                evaluator.setContextItem(inputDoc);
 	            }
 	
 	            // Evaluate results
 	            for (XdmItem item : evaluator) {
-	            	switch (format) {
-	            	case ConstantsXml.FORMAT_JSON:
-	            		outcome.put(formatItemJSON(item, processor));
-	            		break;
-	            	case ConstantsXml.FORMAT_STRING:
-	            		outcome.put(formatItemString(item, processor));
-	            		break;
-	            	default:
-	            		throw new InvalidityException(format + "is not defined");
-	            	}
+	            	outcome.put(formatItemJSON(item, processor));
 	            }
 	        } catch (SaxonApiException e) {
 	            throw new InvalidityException("Saxon error with query: " + testedQuery + " [" + e.getMessage() + "]");
@@ -93,20 +89,178 @@ public class XQueryProcessorSaxon {
 	        executor.shutdownNow();
 	    }
 	}
+	
+	
+	public static class SaxonConstraint {
+		public String id;
+		public String name;
+	    public XQueryExecutable query_executable;
+	    public XQueryExecutable query_total_executable;
+	    public JSONObject filter;
+	}
+	
+	
+	public static JSONObject saxonExecuteXQueries(List<JSONObject> constraints, List<String> datapaths) {
 
-	private static File getAndTestFile(String datapath) throws InvalidityException {
-	    File file = null;
-	    if (datapath != null) {
-	        File tmp = new File(datapath);
-	        if (!tmp.exists()) {
-	            throw new InvalidityException("File not found: " + datapath);
-	        }
-	        if (tmp.length() > Util.EXECUTE_MAX_FILE_SIZE_BYTES) {
-	            throw new InvalidityException("File too large: " + datapath);
-	        }
-	        file = tmp;
-	    }
-	    return file;
+		JSONObject failedConstraints = new JSONObject();
+		JSONObject failedFiles = new JSONObject();
+		JSONArray results = new JSONArray();
+		JSONObject resultobject = new JSONObject();
+
+	    Processor processor = new Processor(false);
+
+	    // compile constraints
+
+	    XQueryCompiler compiler = processor.newXQueryCompiler();
+		List<SaxonConstraint> constraintExecutables = new ArrayList<SaxonConstraint>();
+		for (JSONObject constraint: constraints) { 
+			try {
+				SaxonConstraint ce = new SaxonConstraint();
+				ce.id = constraint.getString(ConstantsJSON.CONSTRAINT_ID);
+				ce.name = constraint.getString(ConstantsJSON.NAME);
+				ce.query_executable = compiler.compile(constraint.getString(ConstantsJSON.QUERY));
+				String counterquery = "count(" + constraint.getString(ConstantsJSON.QUERY_PARTIAL) + ")";
+				ce.query_total_executable = compiler.compile(counterquery);
+				if (constraint.has(ConstantsJSON.FILTER)) {
+					ce.filter = constraint.getJSONObject(ConstantsJSON.FILTER);
+				}
+				constraintExecutables.add(ce);
+			} catch (Exception e) {
+				failedFiles.put(ConstantsJSON.CONSTRAINT_ID, e.getMessage());
+			}
+		}
+
+		// files
+
+	    final DocumentBuilder builder = processor.newDocumentBuilder();
+	    builder.setLineNumbering(true);
+	    
+        for (String path: datapaths) {
+			File file;
+			try {
+				file = getAndTestFile(path);
+				if (file == null) {
+					failedFiles.put(path, ConstantsError.NOT_FOUND_FILEPATH);
+					continue;
+				}
+			} catch (Exception e) {
+				failedFiles.put(path, e.getMessage());
+				continue;
+			}
+
+            XdmNode inputDoc;
+			try {
+				inputDoc = builder.build(file);
+			} catch (SaxonApiException e) {
+				failedFiles.put(path, ConstantsError.NOT_FOUND_FILEPATH);
+				continue;
+			}
+            
+            for (SaxonConstraint executable: constraintExecutables) {
+                try {
+	                JSONObject queryResult = new JSONObject();
+	                queryResult.put(ConstantsJSON.CONSTRAINT_ID, executable.id);
+	                queryResult.put(ConstantsJSON.CONSTRAINT_NAME, executable.name);
+	                queryResult.put(ConstantsJSON.FILE, file.getName());
+	
+	                // query partial
+	                XQueryEvaluator evalPartial = executable.query_total_executable.load();
+					evalPartial.setContextItem(inputDoc);
+	
+	                XdmValue count = evalPartial.evaluate();
+	                long total = ((XdmAtomicValue) count.itemAt(0)).getLongValue();
+	                
+	                
+	                JSONArray incidents = new JSONArray();
+	                
+	                // query
+	                XQueryEvaluator eval = executable.query_executable.load();
+	                eval.setContextItem(inputDoc);
+	
+	                for (XdmItem item : eval) {
+	                	incidents.put(formatItemString(item, processor));
+//                    	incidents.put(formatItemJSON(item, processor));
+//	                    switch (format) {
+//	                        case ConstantsXml.FORMAT_JSON:
+//	                        	incidents.put(formatItemJSON(item, processor));
+//	                            break;
+//	                        case ConstantsXml.FORMAT_SIMPLEJSON:
+//	                        	incidents.put(formatItemString(item, processor));
+//	                            break;
+//	                        default:
+//	                            throw new InvalidityException(format + " is not defined");
+//	                    }
+	                }
+                	if (executable.filter != null) {
+        				JavaFilter filter = JavaFilterImpl.fromJson(executable.filter);
+//        				incidents = filter.execute(file.getCanonicalPath());
+        				incidents = filter.filter(incidents);
+        				System.out.println(incidents);
+	                }
+	
+	                queryResult.put(ConstantsJSON.INCIDENTS, incidents);
+	                queryResult.put(ConstantsJSON.TOTAL_FINDINGS, total);
+	                queryResult.put(ConstantsJSON.TOTAL_INCIDENCES, incidents.length());
+	                queryResult.put(ConstantsJSON.TOTAL_COMPLIANCES, total - incidents.length());
+	                results.put(queryResult);
+				} catch (SaxonApiException | JSONException | InvalidityException e) {
+					failedConstraints.put(executable.id, e.getMessage());
+					e.printStackTrace();
+					continue;
+				}
+            }
+        }
+		
+
+		try {
+			resultobject.put(ConstantsJSON.RESULT, results);
+			if (!failedFiles.isEmpty()) {
+				resultobject.put(ConstantsJSON.FAILEDFILES, failedFiles);
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		try {
+			if (!failedConstraints.isEmpty()) {
+				resultobject.put(ConstantsJSON.FAILEDCONSTRAINTS, failedConstraints);
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		return resultobject;
+	}
+
+	private static File getAndTestFile(String filepath) throws InvalidityException {
+	    File filesave = null;
+		File file = new File(ServletConstants.FILE_VOLUME + "/" + filepath);
+		if (file.exists()) {
+			filesave = file;
+			ServletUtilities.log(ServletConstants.FILE_VOLUME + "/" + filepath + " found");
+		}
+		else {
+			file = new File(filepath);
+			if (file.exists()) {
+				filesave = file;
+				ServletUtilities.log(filepath + " found");
+			}
+			else {
+				ServletUtilities.log(ServletConstants.FILE_VOLUME + "/" + filepath + " not found");
+				throw new InvalidityException(ConstantsError.NOT_FOUND_FILEPATH);
+			}
+		}
+	    
+//	    if (datapath != null) {
+//	        File tmp = new File(datapath);
+//	        if (!tmp.exists()) {
+//	            throw new InvalidityException("File not found: " + datapath);
+//	        }
+////	        if (tmp.length() > Util.EXECUTE_MAX_FILE_SIZE_BYTES) {
+////	            throw new InvalidityException("File too large: " + datapath);
+////	        }
+//	        file = tmp;
+//	    }
+	    return filesave;
 	}
 
 	private static String testAndFormatQuery(String query) throws InvalidityException {
@@ -116,19 +270,41 @@ public class XQueryProcessorSaxon {
 	    return ServletUtilities.makeQueryOneLine(query);
 	}
 
-	private static String formatItemString(XdmItem item, Processor processor) throws SaxonApiException {
-        return item.getStringValue();
+	private static JSONObject formatItemString(XdmItem item, Processor processor) throws SaxonApiException {
+		JSONObject object = new JSONObject();
+		object.put(ConstantsJSON.RESULT_SNIPPET, item.toString());
+        return object;
 	}
 
 	private static JSONObject formatItemJSON(XdmItem item, Processor processor) throws SaxonApiException {
-        StringWriter sw = new StringWriter();
-        Serializer serializer = processor.newSerializer(sw);
-        serializer.setOutputProperty(Serializer.Property.METHOD, "xml");
-        serializer.setOutputProperty(Serializer.Property.INDENT, "no");
-        serializer.setOutputProperty(Serializer.Property.OMIT_XML_DECLARATION, "yes");
-        serializer.setOutputProperty(Serializer.Property.ENCODING, "UTF-8");
-        serializer.serializeXdmValue(item);
-        String snippet = sw.toString();
+		
+		
+		String snippet;
+	    if (item instanceof XdmNode) {
+	        // Serialize the node to XML
+	        StringWriter sw = new StringWriter();
+	        Serializer serializer = processor.newSerializer(sw);
+	        serializer.setOutputProperty(Serializer.Property.METHOD, "xml");
+	        serializer.setOutputProperty(Serializer.Property.INDENT, "no");
+	        serializer.setOutputProperty(Serializer.Property.OMIT_XML_DECLARATION, "yes");
+	        serializer.setOutputProperty(Serializer.Property.ENCODING, "UTF-8");
+
+	        serializer.serializeNode(((XdmNode) item));
+	        snippet = sw.toString();
+	    } else {
+	        // Atomic value → just use string representation
+	        snippet = item.getStringValue();
+	    }
+		
+		
+//        StringWriter sw = new StringWriter();
+//        Serializer serializer = processor.newSerializer(sw);
+//        serializer.setOutputProperty(Serializer.Property.METHOD, "xml");
+//        serializer.setOutputProperty(Serializer.Property.INDENT, "no");
+//        serializer.setOutputProperty(Serializer.Property.OMIT_XML_DECLARATION, "yes");
+//        serializer.setOutputProperty(Serializer.Property.ENCODING, "UTF-8");
+//        serializer.serializeXdmValue(item);
+//        String snippet = sw.toString();
 
         int startline = -1;
         if (!item.isAtomicValue() && item instanceof XdmNode) {
@@ -137,13 +313,15 @@ public class XQueryProcessorSaxon {
         }
 
         int linesize = snippet.split("\n").length;
-        int endline = startline + linesize - 1;
 
         JSONObject obj = new JSONObject();
         obj.put(ConstantsJSON.RESULT_SNIPPET, snippet);
-        obj.put(ConstantsJSON.RESULT_STARTLINE, startline);
-        obj.put(ConstantsJSON.RESULT_ENDLINE, endline);
         obj.put(ConstantsJSON.RESULT_LINESIZE, linesize);
+        if (startline != -1) {
+            int endline = startline + linesize - 1;
+            obj.put(ConstantsJSON.RESULT_STARTLINE, startline);
+            obj.put(ConstantsJSON.RESULT_ENDLINE, endline);
+        }
         return obj;
 	}
 

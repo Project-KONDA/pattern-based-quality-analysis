@@ -23,6 +23,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 /**
  * <!-- begin-user-doc -->
@@ -110,7 +111,8 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	@Override
 	public Boolean apply(InterimResult parameter) {
 		assert(parameter instanceof ValueResult);
-		String value = ((ValueResult) parameter).getValue();
+		JSONObject object = ((ValueResult) parameter).getValue();
+		String value = object.getString(ConstantsJSON.RESULT_SNIPPET);		
 		OneArgJavaOperatorImpl functionClass = OneArgJavaOperatorImpl.getOneInstanceOf(functionclassname, negate);
 		boolean result = functionClass.apply(value);
 		return result; 

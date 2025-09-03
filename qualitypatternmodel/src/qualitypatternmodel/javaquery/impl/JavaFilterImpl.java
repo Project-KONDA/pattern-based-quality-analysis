@@ -227,9 +227,19 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	public JSONArray execute(String datapath) throws InvalidityException {
 		// Query Results
 		JSONArray list = executeXQueryJava(datapath);
+		return filter(list);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public JSONArray filter(JSONArray array) throws InvalidityException {
 
 		// import Query Results
-		createInterimResultContainerXQuery(list);
+		createInterimResultContainerXQuery(array);
 
 		for (InterimResultContainer interim: getInterimResults()) {
 			if (!interim.isValidToStructure()) {
@@ -321,12 +331,8 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		getInterimResults().clear();
 
 		for (int i = 0; i < list.length(); i++) {
-			Object object = list.get(i);
-			String value = "";
-			if (object instanceof String)
-				value = (String) object;
-			else
-				value = ((JSONObject) object).getString(ConstantsJSON.RESULT_SNIPPET);
+			JSONObject object = list.getJSONObject(i);
+			String value = object.getString(ConstantsJSON.RESULT_SNIPPET);
 			depthbefore = depth;
 			if (JavaQueryTranslationUtility.isStartTag(value)) {
 				depth +=1;
@@ -345,7 +351,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				getInterimResults().add(current);
 				current = null;
 			} else {
-				current.stream(value);
+				current.stream(object);
 			}
 		}
 	}
@@ -756,16 +762,16 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case JavaqueryPackage.JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING:
+			case JavaqueryPackage.JAVA_FILTER___EXECUTE__STRING:
 				try {
-					return executeXQueryJava((String)arguments.get(0));
+					return execute((String)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case JavaqueryPackage.JAVA_FILTER___EXECUTE__STRING:
+			case JavaqueryPackage.JAVA_FILTER___FILTER__JSONARRAY:
 				try {
-					return execute((String)arguments.get(0));
+					return filter((JSONArray)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

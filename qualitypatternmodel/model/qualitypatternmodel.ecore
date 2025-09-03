@@ -1288,12 +1288,11 @@
       <eOperations name="createInterimResultContainer" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="objectList" eType="#//textrepresentation/JSONArrayWrapper"/>
       </eOperations>
-      <eOperations name="executeXQueryJava" eType="#//textrepresentation/JSONArrayWrapper"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="datapath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </eOperations>
       <eOperations name="execute" eType="#//textrepresentation/JSONArrayWrapper" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="datapath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="filter" eType="#//textrepresentation/JSONArrayWrapper" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="array" eType="#//textrepresentation/JSONArrayWrapper"/>
       </eOperations>
       <eOperations name="toJson" eType="#//textrepresentation/JSONObjectWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//javaquery/BooleanFilterPart"
@@ -1436,20 +1435,20 @@
     <eClassifiers xsi:type="ecore:EClass" name="ContainerResult" eSuperTypes="#//javaqueryoutput/InterimResult">
       <eOperations name="stream" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="value" eType="#//textrepresentation/JSONObjectWrapper"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="subresult" upperBound="-1"
           eType="#//javaqueryoutput/InterimResult" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="tagname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ValueResult" eSuperTypes="#//javaqueryoutput/InterimResult">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//textrepresentation/JSONObjectWrapper"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InterimResultContainer">
       <eOperations name="isValidToStructure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
       <eOperations name="stream" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="value" eType="#//textrepresentation/JSONObjectWrapper"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="correspondsTo" eType="#//javaqueryoutput/InterimResultStructure"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//javaqueryoutput/InterimResult"
