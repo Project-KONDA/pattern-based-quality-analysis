@@ -63,6 +63,9 @@ public class PatternCollection {
 		classes.add(MatchPattern.class);
 		classes.add(StringLengthIsoPattern.class);
 		classes.add(StringLengthPattern.class);
+		classes.add(StringLengthRangeIsoPattern.class);
+		classes.add(StringLengthRangeSinPattern.class);
+		classes.add(StringLengthRangePattern.class);
 		classes.add(StringLengthSinPattern.class);
 		
 		return classes;
