@@ -1,0 +1,48 @@
+{
+    "template":"CardMatch_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"element",
+            "params":[2],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis"
+        },
+        {"text":"has"},
+        {
+            "name":"a comparison with",
+            "params":[0],
+            "exampleValue":"at most",
+            "defaultMap":"comparison_negated"
+        },
+        {
+            "name":"a specific number of",
+            "params":[1],
+            "exampleValue":"1"
+        },
+        {
+            "name":"subelements",
+            "params":[3],
+            "exampleValue":"Birthdates",
+            "description":"counted elements",
+            "plural":"true"
+        },
+        {"text":"that "},
+        {
+            "name":"does / does not",
+            "params":[4],
+            "defaultMap":"does not",
+            "exampleValue":"does"
+        },
+        {"text":"match"},
+        {
+            "name":"a specific pattern (RegEx)",
+            "params":[5],
+            "exampleValue":"[A-Z][a-z][a-z]+"
+        },
+        {"text":"."}
+    ]
+}

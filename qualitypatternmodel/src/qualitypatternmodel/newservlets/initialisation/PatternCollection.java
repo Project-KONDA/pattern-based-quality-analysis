@@ -49,6 +49,7 @@ public class PatternCollection {
 		classes.add(MandAttPattern.class);
 		classes.add(MandContPattern.class);
 		// string
+		classes.add(CardMatchPattern.class);
 		classes.add(ContainsIsoPattern.class);
 		classes.add(ContainsSinPattern.class);
 		classes.add(ContainsPattern.class);
