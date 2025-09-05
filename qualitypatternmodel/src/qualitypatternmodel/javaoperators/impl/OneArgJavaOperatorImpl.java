@@ -86,6 +86,11 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	 */
 	@Override
 	abstract public Boolean apply(String param1);
+	
+	@Override
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		return generateXQueryIsolated();
+	}
 
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {

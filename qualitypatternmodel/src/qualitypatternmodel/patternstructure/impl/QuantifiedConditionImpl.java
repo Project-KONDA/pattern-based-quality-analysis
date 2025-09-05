@@ -2,12 +2,7 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIEDEND;
-//import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIED;
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIEDSTART;
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIER;
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIEREND;
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.QUANTIFIERSTART;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
@@ -219,14 +214,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		String conditionPath = conditionJava? ((GraphImpl) getGraph()).generateXQueryJavaReturnCondition(): "";
 		String conditionString = "";
 		if (conditionJava) 
-			conditionString = QUANTIFIEDSTART + ",\n  " + getCondition().generateXQueryJavaReturn() + ",\n  " + QUANTIFIEDEND;
+			conditionString = start(QUANTIFIED) + ",\n  " + getCondition().generateXQueryJavaReturn() + ",\n  " + end(QUANTIFIED);
 
 		String result = "";
 		result += graphString;
 		if (conditionJava) {
 			result += Constants.addMissingBrackets(conditionPath + conditionString);
 		}
-		result = QUANTIFIERSTART + ",\n  " + result + ",\n  " + QUANTIFIEREND;
+		result = start(QUANTIFIER) + ",\n  " + result + end(QUANTIFIER);
 		return result;
 	}
 
