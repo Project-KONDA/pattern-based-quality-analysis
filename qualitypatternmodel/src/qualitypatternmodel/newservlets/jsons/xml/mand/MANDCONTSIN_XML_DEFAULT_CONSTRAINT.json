@@ -1,0 +1,30 @@
+{
+    "template":"MandContSin_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+    "fragments":[
+		{"text":"Each"},
+		{
+			"name":"element",
+			"params":[0],
+			"exampleValue":"unit",
+			"description":"element of analyis"
+		},
+		{"text":"must contain either a"},
+		{
+			"name":"subelement",
+			"params":[2],
+			"exampleValue":"element",
+			"description":"element condition"
+		},
+		{"text":"or a"},
+		{
+			"name":"property",
+			"params":[1],
+			"exampleValue":"text",
+			"description":"property condition"
+		},
+		{"text":"."}
+    ]
+}

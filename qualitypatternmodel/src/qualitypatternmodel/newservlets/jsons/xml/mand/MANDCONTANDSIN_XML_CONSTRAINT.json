@@ -1,0 +1,27 @@
+{
+    "template":"MandContSin_xml",
+    "language":"xml",
+    "name":"constraint2",
+	"typeConstraint":true,
+    "fragments":[
+		{"text":"Each"},
+		{
+			"name":"element",
+			"params":[0],
+			"exampleValue":"unit",
+			"description":"element of analyis"
+		},
+		{"text":"must contain both a"},
+		{
+			"name":"subelement",
+			"params":[2],
+			"exampleValue":"element",
+			"description":"element condition"
+		},
+		{"text":"and a text."},
+		{
+			"params":[1],
+			"value":"/text()"
+		}
+    ]
+}
