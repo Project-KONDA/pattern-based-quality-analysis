@@ -28,14 +28,16 @@ public class ContainsIsoPattern extends PatternClass {
 		// Context graph of pattern:
 		pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		Graph g1 = pattern.getGraph();
-		Node ret = g1.getReturnNodes().get(0);
-		Node element1 = ret.addOutgoing().getTarget().makePrimitive();
+		Node container = g1.getReturnNodes().get(0);
+		Node ret = container.addOutgoing().getTarget().makePrimitive();
+		container.setReturnNode(false);
+		ret.setReturnNode(true);
 
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		pattern.setCondition(quantifiedCondition);
 
-		Contains cont = element1.addPrimitiveContains().getContains().get(0);
+		Contains cont = ret.addPrimitiveContains().getContains().get(0);
 		
 		cont.setOperatorList(quantifiedCondition.getGraph().getOperatorList());
 

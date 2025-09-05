@@ -1,47 +1,37 @@
-package qualitypatternmodel.newservlets.patterns.comp;
+package qualitypatternmodel.newservlets.patterns.string;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.impl.ComparisonImpl;
-import qualitypatternmodel.parameters.impl.TextListParamImpl;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class CompSetIsoSinPattern extends PatternClass {
+public class StringLengthSinPattern extends PatternClass {
 
-	public CompSetIsoSinPattern() {
-		super(PatternConstants.COMPSETISOSIN_ID,
-				PatternConstants.COMPSETISOSIN_NAME, 
-				PatternConstants.COMPSETISOSIN_DESCR, 
+	public StringLengthSinPattern() {
+		super(PatternConstants.STRINGLENGTHSIN_ID,
+				PatternConstants.STRINGLENGTHSIN_NAME, 
+				PatternConstants.STRINGLENGTHSIN_DESCR, 
 				true, true, false, false);
 	}
-	
+
 	@Override
 	public CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 
-		Graph graph1 = pattern.getGraph();
-		PrimitiveNode returnNode = graph1.getReturnNodes().get(0).makePrimitive();
+		PrimitiveNode ret = pattern.getGraph().getReturnNodes().get(0).makePrimitive();
+
+		StringLength str = ret.addPrimitiveStringLength();
 
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		pattern.setCondition(quantifiedCondition);
 
-		TextListParamImpl tlp = new TextListParamImpl();
-		Comparison c = new ComparisonImpl();
-		c.setOperatorList(quantifiedCondition.getGraph().getOperatorList());
-		c.setArgument1(returnNode);
-		c.setArgument2(tlp);
-		tlp.setParameterList(pattern.getParameterList());
-
-		pattern.isValid(AbstractionLevel.GENERIC);
+		str.setOperatorList(quantifiedCondition.getGraph().getOperatorList());
 		return pattern;
 	}
 }

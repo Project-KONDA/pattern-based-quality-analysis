@@ -29,8 +29,10 @@ public class CompSetIsoPattern extends PatternClass {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 
 		Graph graph1 = pattern.getGraph();
-		Node returnNode = graph1.getReturnNodes().get(0).makeComplex();
-		Node element1 = returnNode.addOutgoing().getTarget().makePrimitive();
+		Node container = graph1.getReturnNodes().get(0).makeComplex();
+		Node returnnode = container.addOutgoing().getTarget().makePrimitive();
+		container.setReturnNode(false);
+		returnnode.setReturnNode(true);
 
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		pattern.setCondition(quantifiedCondition);
@@ -38,7 +40,7 @@ public class CompSetIsoPattern extends PatternClass {
 		TextListParamImpl tlp = new TextListParamImpl();
 		Comparison c = new ComparisonImpl();
 		c.setOperatorList(quantifiedCondition.getGraph().getOperatorList());
-		c.setArgument1(element1);
+		c.setArgument1(returnnode);
 		c.setArgument2(tlp);
 		tlp.setParameterList(pattern.getParameterList());
 

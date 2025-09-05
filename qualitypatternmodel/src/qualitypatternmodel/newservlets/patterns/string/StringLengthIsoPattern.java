@@ -17,19 +17,19 @@ public class StringLengthIsoPattern extends PatternClass {
 		super(PatternConstants.STRINGLENGTHISO_ID,
 				PatternConstants.STRINGLENGTHISO_NAME, 
 				PatternConstants.STRINGLENGTHISO_DESCR, 
-				true, true, true, true);
+				true, true, false, false);
 	}
 	
 	@Override
 	public CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 
-		pattern.getGraph().getReturnNodes().get(0).makeComplex();
+		Node container = pattern.getGraph().getReturnNodes().get(0);
+		Node ret = container.addOutgoing().getTarget().makePrimitive();
+		container.setReturnNode(false);
+		ret.setReturnNode(true);
 
-		Node ret = pattern.getGraph().getReturnNodes().get(0);
-		Node element1 = ret.addOutgoing().getTarget().makePrimitive();
-
-		StringLength strlen = element1.addPrimitiveStringLength();
+		StringLength strlen = ret.addPrimitiveStringLength();
 
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		pattern.setCondition(quantifiedCondition);

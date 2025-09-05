@@ -12,12 +12,12 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class ValidLinkIsoSinPattern extends PatternClass {
+public class ValidLinkSinPattern extends PatternClass {
 
-	public ValidLinkIsoSinPattern() {
-		super (PatternConstants.VALIDLINKISOSIN_ID,
-				PatternConstants.VALIDLINKISOSIN_NAME, 
-				PatternConstants.VALIDLINKISOSIN_DESCR, 
+	public ValidLinkSinPattern() {
+		super (PatternConstants.VALIDLINKSIN_ID,
+				PatternConstants.VALIDLINKSIN_NAME, 
+				PatternConstants.VALIDLINKSIN_DESCR, 
 				true, true, false, false);
 	}
 

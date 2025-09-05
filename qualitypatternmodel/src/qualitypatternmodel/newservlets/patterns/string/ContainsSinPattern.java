@@ -11,20 +11,18 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class ContainsIsoSinPattern extends PatternClass {
+public class ContainsSinPattern extends PatternClass {
 
-	public ContainsIsoSinPattern() {
-		super(PatternConstants.CONTAINSISOSIN_ID,
-				PatternConstants.CONTAINSISOSIN_NAME, 
-				PatternConstants.CONTAINSISOSIN_DESCR, 
+	public ContainsSinPattern() {
+		super(PatternConstants.CONTAINSSIN_ID,
+				PatternConstants.CONTAINSSIN_NAME, 
+				PatternConstants.CONTAINSSIN_DESCR, 
 				true, true, false, false);
 	}
 
 	@Override
 	public CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-
-		pattern.getGraph().getReturnNodes().get(0).makeComplex();
 
 		PrimitiveNode element1 = pattern.getGraph().getReturnNodes().get(0).makePrimitive();
 

@@ -13,10 +13,14 @@ public class PatternConstants {
 	public static String CARDIMPLIESMANDATT_ID = "CardImpliesMandAtt";
 	public static String CARDIMPLIESMANDATT_NAME = "Mandatory Attribute based on Cardinality Constraint";
 	public static String CARDIMPLIESMANDATT_DESCR = "Check whether a attribute exists, that is mandatory on specific cardinalities of a field.";
-	
+
 	public static String CARD_ID = "Card";
 	public static String CARD_NAME = "Cardinality Constraint";
 	public static String CARD_DESCR = "Check, whether the occurence count of specific elements apply.";
+	
+	public static String CARDMATCH_ID = "CardMatch";
+	public static String CARDMATCH_NAME = "Cardinality of RegEx-Constrained Values";
+	public static String CARDMATCH_DESCR = "Check, whether the occurence count of specific elements, that match a regular expression apply.";
 	
 	public static String CHECKFORMAT_ID = "CheckFormat";
 	public static String CHECKFORMAT_NAME = "Check the format of a resource";
@@ -38,9 +42,9 @@ public class PatternConstants {
 	public static String COMPSETISO_NAME = "Comparison Pattern with Set (Isolated)";
 	public static String COMPSETISO_DESCR = "Check, whether the value of fields are within a list of allowed (/forbidden) terms.";
 	
-	public static String COMPSETISOSIN_ID = "CompSetIsoSin";
-	public static String COMPSETISOSIN_NAME = "Comparison Pattern with Set (Isolated, Single)";
-	public static String COMPSETISOSIN_DESCR = "Check, whether the value of fields are within a list of allowed (/forbidden) terms.";
+	public static String COMPSETSIN_ID = "CompSetSin";
+	public static String COMPSETSIN_NAME = "Comparison Pattern with Set (Single)";
+	public static String COMPSETSIN_DESCR = "Check, whether the value of fields are within a list of allowed (/forbidden) terms.";
 	
 	public static String COMPVALANY_ID = "CompValAny";
 	public static String COMPVALANY_NAME = "Compare values within a record";
@@ -58,9 +62,9 @@ public class PatternConstants {
 	public static String CONTAINSISO_NAME = "Contains Check (Isolated)";
 	public static String CONTAINSISO_DESCR = "Check, whether a value contains a specific substring.";
 	
-	public static String CONTAINSISOSIN_ID = "ContainsIsoSin";
-	public static String CONTAINSISOSIN_NAME = "Contains Check (Isolated, Single)";
-	public static String CONTAINSISOSIN_DESCR = "Check, whether a value contains a specific substring.";
+	public static String CONTAINSSIN_ID = "ContainsSin";
+	public static String CONTAINSSIN_NAME = "Contains Check (Single)";
+	public static String CONTAINSSIN_DESCR = "Check, whether a value contains a specific substring.";
 	
 	public static String DUPVAL_ID = "DupVal";
 	public static String DUPVAL_NAME = "Duplicate value";
@@ -82,6 +86,26 @@ public class PatternConstants {
 	public static String MANDCONT_NAME = "Mandatory Content";
 	public static String MANDCONT_DESCR = "Check whether an element has mandatory content.";
 	
+	public static String MANDCONTISO_ID = "MandContIso";
+	public static String MANDCONTISO_NAME = "Mandatory Content (Isolated)";
+	public static String MANDCONTISO_DESCR = "Check whether an element has mandatory content.";
+	
+	public static String MANDCONTSIN_ID = "MandContSin";
+	public static String MANDCONTSIN_NAME = "Mandatory Content (Single)";
+	public static String MANDCONTSIN_DESCR = "Check whether an element has mandatory content.";
+
+	public static String MANDCONTAND_ID = "MandContAnd";
+	public static String MANDCONTAND_NAME = "Two Mandatory Contents";
+	public static String MANDCONTAND_DESCR = "Check whether an element has mandatory content.";
+
+	public static String MANDCONTANDISO_ID = "MandContAndIso";
+	public static String MANDCONTANDISO_NAME = "Two Mandatory Contents (Isolated)";
+	public static String MANDCONTANDISO_DESCR = "Check whether an element has mandatory content.";
+
+	public static String MANDCONTANDSIN_ID = "MandContAndSin";
+	public static String MANDCONTANDSIN_NAME = "Two Mandatory Contents (Single)";
+	public static String MANDCONTANDSIN_DESCR = "Check whether an element has mandatory content.";
+	
 	public static String MATCH_ID = "Match";
 	public static String MATCH_NAME = "Regular Expression Check";
 	public static String MATCH_DESCR = "Check, whether a value matches a specific regular expression.";
@@ -90,9 +114,9 @@ public class PatternConstants {
 	public static String MATCHISO_NAME = "Regular Expression Check (Isolated)";
 	public static String MATCHISO_DESCR = "Check, whether a value matches a specific regular expression.";
 	
-	public static String MATCHISOSIN_ID = "MatchIsoSin";
-	public static String MATCHISOSIN_NAME = "Regular Expression Check (Isolated, Single)";
-	public static String MATCHISOSIN_DESCR = "Check, whether a value matches a specific regular expression.";
+	public static String MATCHSIN_ID = "MatchSin";
+	public static String MATCHSIN_NAME = "Regular Expression Check (Single)";
+	public static String MATCHSIN_DESCR = "Check, whether a value matches a specific regular expression.";
 	
 	public static String STRINGLENGTH_ID = "StringLength";
 	public static String STRINGLENGTH_NAME = "String value length restriction";
@@ -102,9 +126,21 @@ public class PatternConstants {
 	public static String STRINGLENGTHISO_NAME = "String value length restriction (Isolated)";
 	public static String STRINGLENGTHISO_DESCR = "Check all field values whether they comply to the length restriction.";
 	
-	public static String STRINGLENGTHISOSIN_ID = "StringLengthIsoSin";
-	public static String STRINGLENGTHISOSIN_NAME = "String value length restriction (Isolated Single)";
-	public static String STRINGLENGTHISOSIN_DESCR = "Check all field values whether they comply to the length restriction.";
+	public static String STRINGLENGTHSIN_ID = "StringLengthSin";
+	public static String STRINGLENGTHSIN_NAME = "String value length restriction (Single)";
+	public static String STRINGLENGTHSIN_DESCR = "Check all field values whether they comply to the length restriction.";
+
+	public static String STRINGLENGTHRANGE_ID = "StringLengthRange";
+	public static String STRINGLENGTHRANGE_NAME = "String value length range restriction";
+	public static String STRINGLENGTHRANGE_DESCR = "Check all field values whether they comply to the length restriction.";
+	
+	public static String STRINGLENGTHRANGEISO_ID = "StringLengthRangeIso";
+	public static String STRINGLENGTHRANGEISO_NAME = "String value length range restriction (Isolated)";
+	public static String STRINGLENGTHRANGEISO_DESCR = "Check all field values whether they comply to the length restriction.";
+	
+	public static String STRINGLENGTHRANGESIN_ID = "StringLengthRangeSin";
+	public static String STRINGLENGTHRANGESIN_NAME = "String value length range restriction (Single)";
+	public static String STRINGLENGTHRANGESIN_DESCR = "Check all field values whether they comply to the length restriction.";
 	
 	public static String UNIQUE_ID = "Unique";
 	public static String UNIQUE_NAME = "Uniqueness Constraint";
@@ -118,7 +154,7 @@ public class PatternConstants {
 	public static String VALIDLINKISO_NAME = "Valid Link (Isolated)";
 	public static String VALIDLINKISO_DESCR = "Check whether a field is an valid link.";
 	
-	public static String VALIDLINKISOSIN_ID = "ValidLinkIsoSin";
-	public static String VALIDLINKISOSIN_NAME = "Valid Link (Isolated, Single)";
-	public static String VALIDLINKISOSIN_DESCR = "Check whether a field is an valid link.";
+	public static String VALIDLINKSIN_ID = "ValidLinkSin";
+	public static String VALIDLINKSIN_NAME = "Valid Link (Single)";
+	public static String VALIDLINKSIN_DESCR = "Check whether a field is an valid link.";
 }

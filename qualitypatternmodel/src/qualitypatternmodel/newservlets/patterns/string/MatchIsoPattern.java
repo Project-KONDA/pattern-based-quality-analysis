@@ -24,12 +24,12 @@ public class MatchIsoPattern extends PatternClass {
 	public CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 
-		pattern.getGraph().getReturnNodes().get(0).makeComplex();
+		Node container = pattern.getGraph().getReturnNodes().get(0).makeComplex();
+		Node ret= container.addOutgoing().getTarget().makePrimitive();
+		container.setReturnNode(false);
+		ret.setReturnNode(true);
 
-		Node ret = pattern.getGraph().getReturnNodes().get(0);
-		Node element1 = ret.addOutgoing().getTarget().makePrimitive();
-
-		Match match = element1.addPrimitiveMatch().getMatches().get(0);
+		Match match = ret.addPrimitiveMatch().getMatches().get(0);
 
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		pattern.setCondition(quantifiedCondition);

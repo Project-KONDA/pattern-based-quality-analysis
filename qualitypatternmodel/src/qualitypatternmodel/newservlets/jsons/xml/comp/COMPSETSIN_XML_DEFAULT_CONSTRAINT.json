@@ -1,5 +1,5 @@
 {
-    "template":"CompSetIsoSin_xml",
+    "template":"CompSetSin_xml",
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,

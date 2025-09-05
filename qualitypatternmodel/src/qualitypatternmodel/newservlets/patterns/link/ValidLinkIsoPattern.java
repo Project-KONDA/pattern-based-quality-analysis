@@ -26,10 +26,8 @@ public class ValidLinkIsoPattern extends PatternClass {
 	public CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		ComplexNode record = pattern.getGraph().getReturnNodes().get(0).makeComplex();
-		record.setName("Record");
 		record.setReturnNode(false);
 		PrimitiveNode field = record.addOutgoing().getTarget().makePrimitive();
-		field.setName("Field");
 		field.setReturnNode(true);
 		
 		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();

@@ -26,7 +26,7 @@ public class PatternCollection {
 		classes.add(CompDatabasePattern.class);
 		classes.add(CompPattern.class);
 		classes.add(CompSetIsoPattern.class);
-		classes.add(CompSetIsoSinPattern.class);
+		classes.add(CompSetSinPattern.class);
 		classes.add(CompSetPattern.class);
 		classes.add(CompValAnyPattern.class);
 		classes.add(CompValPattern.class);
@@ -42,7 +42,7 @@ public class PatternCollection {
 		// link
 		classes.add(CheckFormatPattern.class);
 		classes.add(ValidLinkIsoPattern.class);
-		classes.add(ValidLinkIsoSinPattern.class);
+		classes.add(ValidLinkSinPattern.class);
 		classes.add(ValidLinkPattern.class);
 		// mand
 		classes.add(CardImpliesMandAttPattern.class);
@@ -50,14 +50,14 @@ public class PatternCollection {
 		classes.add(MandContPattern.class);
 		// string
 		classes.add(ContainsIsoPattern.class);
-		classes.add(ContainsIsoSinPattern.class);
+		classes.add(ContainsSinPattern.class);
 		classes.add(ContainsPattern.class);
 		classes.add(MatchIsoPattern.class);
-		classes.add(MatchIsoSinPattern.class);
+		classes.add(MatchSinPattern.class);
 		classes.add(MatchPattern.class);
 		classes.add(StringLengthIsoPattern.class);
-		classes.add(StringLengthIsoSinPattern.class);
 		classes.add(StringLengthPattern.class);
+		classes.add(StringLengthSinPattern.class);
 		
 		return classes;
 	}

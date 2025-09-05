@@ -1,5 +1,5 @@
 {
-    "template":"StringLengthIsoSin_xml",
+    "template":"StringLengthSin_xml",
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,

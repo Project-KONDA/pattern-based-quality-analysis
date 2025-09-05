@@ -1,5 +1,5 @@
 {
-    "template":"MatchIsoSin_xml",
+    "template":"MatchSin_xml",
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,

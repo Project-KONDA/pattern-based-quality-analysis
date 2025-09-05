@@ -269,7 +269,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
             	Parameter p = pattern.getParameterList().getParameters().get(paramID);
                 getParameter().add(p);
             } catch (Exception e) {
-            	e.printStackTrace();
+            	throw new InvalidityException("Not valid JSON to a create ParameterFragment: ", e);
             }
         }
 		// exampleValue
