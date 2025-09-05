@@ -8,37 +8,13 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.newservlets.ServletUtilities;
-import qualitypatternmodel.newservlets.patterns.PatternClass;
-import qualitypatternmodel.newservlets.patterns.comp.CompDatabasePattern;
-import qualitypatternmodel.newservlets.patterns.comp.CompPattern;
-import qualitypatternmodel.newservlets.patterns.comp.CompSetIsoPattern;
-import qualitypatternmodel.newservlets.patterns.comp.CompSetIsoSinPattern;
-import qualitypatternmodel.newservlets.patterns.comp.CompSetPattern;
-import qualitypatternmodel.newservlets.patterns.comp.CompValAnyPattern;
-import qualitypatternmodel.newservlets.patterns.comp.CompValPattern;
-import qualitypatternmodel.newservlets.patterns.external.Appdup2Pattern;
-import qualitypatternmodel.newservlets.patterns.external.Appdup3Pattern;
-import qualitypatternmodel.newservlets.patterns.external.FuncPattern;
-import qualitypatternmodel.newservlets.patterns.external.UniquePattern;
-import qualitypatternmodel.newservlets.patterns.internal.CardPattern;
-import qualitypatternmodel.newservlets.patterns.internal.DupvalPattern;
-import qualitypatternmodel.newservlets.patterns.internal.LocalUniquePattern;
-import qualitypatternmodel.newservlets.patterns.link.CheckFormatPattern;
-import qualitypatternmodel.newservlets.patterns.link.ValidLinkIsoPattern;
-import qualitypatternmodel.newservlets.patterns.link.ValidLinkIsoSinPattern;
-import qualitypatternmodel.newservlets.patterns.link.ValidLinkPattern;
-import qualitypatternmodel.newservlets.patterns.mand.CardImpliesMandAttPattern;
-import qualitypatternmodel.newservlets.patterns.mand.MandAttPattern;
-import qualitypatternmodel.newservlets.patterns.mand.MandContPattern;
-import qualitypatternmodel.newservlets.patterns.string.ContainsIsoPattern;
-import qualitypatternmodel.newservlets.patterns.string.ContainsIsoSinPattern;
-import qualitypatternmodel.newservlets.patterns.string.ContainsPattern;
-import qualitypatternmodel.newservlets.patterns.string.MatchIsoPattern;
-import qualitypatternmodel.newservlets.patterns.string.MatchIsoSinPattern;
-import qualitypatternmodel.newservlets.patterns.string.MatchPattern;
-import qualitypatternmodel.newservlets.patterns.string.StringLengthIsoPattern;
-import qualitypatternmodel.newservlets.patterns.string.StringLengthIsoSinPattern;
-import qualitypatternmodel.newservlets.patterns.string.StringLengthPattern;
+import qualitypatternmodel.newservlets.patterns.*;
+import qualitypatternmodel.newservlets.patterns.comp.*;
+import qualitypatternmodel.newservlets.patterns.external.*;
+import qualitypatternmodel.newservlets.patterns.internal.*;
+import qualitypatternmodel.newservlets.patterns.link.*;
+import qualitypatternmodel.newservlets.patterns.mand.*;
+import qualitypatternmodel.newservlets.patterns.string.*;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class PatternCollection {
@@ -46,36 +22,43 @@ public class PatternCollection {
 
 	public static List<Class<? extends PatternClass>> getPatternClasses() {
 		List<Class<? extends PatternClass>> classes = new BasicEList<Class<? extends PatternClass>>();
-		classes.add(Appdup2Pattern.class);
-		classes.add(Appdup3Pattern.class);
-		classes.add(CardImpliesMandAttPattern.class);
-		classes.add(CardPattern.class);
-		classes.add(CheckFormatPattern.class);
+		// comp
 		classes.add(CompDatabasePattern.class);
 		classes.add(CompPattern.class);
-		classes.add(CompSetPattern.class);
 		classes.add(CompSetIsoPattern.class);
 		classes.add(CompSetIsoSinPattern.class);
+		classes.add(CompSetPattern.class);
 		classes.add(CompValAnyPattern.class);
 		classes.add(CompValPattern.class);
-		classes.add(ContainsPattern.class);
-		classes.add(ContainsIsoPattern.class);
-		classes.add(ContainsIsoSinPattern.class);
-		classes.add(DupvalPattern.class);
+		// external
+		classes.add(Appdup2Pattern.class);
+		classes.add(Appdup3Pattern.class);
 		classes.add(FuncPattern.class);
-		classes.add(LocalUniquePattern.class);
-		classes.add(MandAttPattern.class);
-		classes.add(MandContPattern.class);
-		classes.add(MatchPattern.class);
-		classes.add(MatchIsoPattern.class);
-		classes.add(MatchIsoSinPattern.class);
-		classes.add(StringLengthPattern.class);
-		classes.add(StringLengthIsoPattern.class);
-		classes.add(StringLengthIsoSinPattern.class);
 		classes.add(UniquePattern.class);
-		classes.add(ValidLinkPattern.class);
+		// internal
+		classes.add(CardPattern.class);
+		classes.add(DupvalPattern.class);
+		classes.add(LocalUniquePattern.class);
+		// link
+		classes.add(CheckFormatPattern.class);
 		classes.add(ValidLinkIsoPattern.class);
 		classes.add(ValidLinkIsoSinPattern.class);
+		classes.add(ValidLinkPattern.class);
+		// mand
+		classes.add(CardImpliesMandAttPattern.class);
+		classes.add(MandAttPattern.class);
+		classes.add(MandContPattern.class);
+		// string
+		classes.add(ContainsIsoPattern.class);
+		classes.add(ContainsIsoSinPattern.class);
+		classes.add(ContainsPattern.class);
+		classes.add(MatchIsoPattern.class);
+		classes.add(MatchIsoSinPattern.class);
+		classes.add(MatchPattern.class);
+		classes.add(StringLengthIsoPattern.class);
+		classes.add(StringLengthIsoSinPattern.class);
+		classes.add(StringLengthPattern.class);
+		
 		return classes;
 	}
 
