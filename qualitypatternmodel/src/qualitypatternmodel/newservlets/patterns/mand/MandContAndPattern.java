@@ -29,4 +29,7 @@ public class MandContAndPattern extends PatternClass {
 		formula.setOperator(LogicalOperator.AND);
 		return pattern;
 	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
 }

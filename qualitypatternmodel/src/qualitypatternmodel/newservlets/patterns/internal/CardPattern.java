@@ -1,7 +1,5 @@
 package qualitypatternmodel.newservlets.patterns.internal;
 
-import java.util.Map;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -52,11 +50,6 @@ public class CardPattern extends PatternClass {
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____
-
-	@Override 
-	protected Map<Integer, String> xmlMap() {
-		return Map.of(2, "//*", 3, "/*");
-	}
 
 	@Override 
 	protected String[] xmlVariants() {

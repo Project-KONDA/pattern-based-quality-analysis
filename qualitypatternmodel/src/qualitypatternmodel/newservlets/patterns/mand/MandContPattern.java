@@ -1,7 +1,5 @@
 package qualitypatternmodel.newservlets.patterns.mand;
 
-import java.util.Map;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -64,10 +62,6 @@ public class MandContPattern extends PatternClass {
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____
-
-	protected Map<Integer, String> xmlMap() {
-		return Map.of(0, "//*", 1, "/*");
-	}
 
 	protected String[] xmlVariants() {
 		return new String[] { MANDCONT_XML_DEFAULT_CONSTRAINT, MANDCONT_XML_DEFAULT_ANTIPATTERN, MANDCONT_XML_CONSTRAINT_2, MANDCONT_XML_CONSTRAINT_M, MANDCONT_XML_ANTIPATTERN_M, MANDCONT_XML_CONSTRAINT_M2, MANDCONT_XML_JUSTNOTEMPTY };

@@ -1,7 +1,5 @@
 package qualitypatternmodel.newservlets.patterns.external;
 
-import java.util.Map;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -23,7 +21,7 @@ public class FuncPattern extends PatternClass {
 		super(PatternConstants.FUNC_ID,
 				PatternConstants.FUNC_NAME, 
 				PatternConstants.FUNC_DESCR, 
-				true, false, false, false);
+				false, false, false, false);
 	}
 
 	@Override
@@ -61,10 +59,5 @@ public class FuncPattern extends PatternClass {
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____
-	
-	@Override
-	protected Map<Integer, String> xmlMap(){
-		return Map.of(2, "//*", 3, "/*/text()");
-	}
 
 }

@@ -6,7 +6,6 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.PatternstructureFactory;
 
 public class CardImpliesMandAttPattern extends PatternClass {
 
@@ -18,13 +17,8 @@ public class CardImpliesMandAttPattern extends PatternClass {
 	}
 
 	@Override
-	public CompletePattern getPattern()
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-
-		// TODO
-
-		return pattern;
+	public CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return null;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____

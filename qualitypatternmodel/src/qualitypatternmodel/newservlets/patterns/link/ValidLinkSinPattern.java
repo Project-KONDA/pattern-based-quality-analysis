@@ -38,9 +38,10 @@ public class ValidLinkSinPattern extends PatternClass {
 		op4.setOperatorList(qc.getGraph().getOperatorList());
 		BooleanParamImpl bpi = new BooleanParamImpl();
 		op4.setOption(bpi);
-//			bpi.setParameterList(pattern.getParameterList());
 		op4.setPrimitiveNode(field);
 		return pattern;
 	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
 
 }

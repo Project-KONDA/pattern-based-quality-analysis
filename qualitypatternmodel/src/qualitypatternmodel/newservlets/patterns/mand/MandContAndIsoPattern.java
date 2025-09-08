@@ -27,4 +27,7 @@ public class MandContAndIsoPattern extends PatternClass {
 		formula.setOperator(LogicalOperator.AND);
 		return pattern;
 	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
 }

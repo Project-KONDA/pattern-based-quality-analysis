@@ -43,4 +43,7 @@ public class ContainsIsoPattern extends PatternClass {
 
 		return pattern;
 	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
 }

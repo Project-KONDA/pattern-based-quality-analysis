@@ -1,7 +1,5 @@
 package qualitypatternmodel.newservlets.patterns.external;
 
-import java.util.Map;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -52,11 +50,6 @@ public class UniquePattern extends PatternClass {
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____
-
-	@Override
-	protected Map<Integer, String> xmlMap() {
-		return Map.of(2, "//*", 3, "/*/text()", 4, "/*/text()", 5, "//*");
-	}
 
 	protected String[] xmlVariants() {
 		return new String[] { UNIQUE_XML_DEFAULT_CONSTRAINT, UNIQUE_XML_DEFAULT_ANTIPATTERN };

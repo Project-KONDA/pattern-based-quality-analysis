@@ -17,7 +17,7 @@ public class CompValPattern extends PatternClass {
 		super(PatternConstants.COMPVAL_ID,
 				PatternConstants.COMPVAL_NAME, 
 				PatternConstants.COMPVAL_DESCR, 
-				true, false, false, false);
+				false, false, false, false);
 	}
 
 	@Override

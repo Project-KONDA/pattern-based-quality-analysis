@@ -44,4 +44,7 @@ public class CompSetSinPattern extends PatternClass {
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
 }

@@ -37,4 +37,7 @@ public class MatchIsoPattern extends PatternClass {
 		match.setOperatorList(quantifiedCondition.getGraph().getOperatorList());
 		return pattern;
 	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
 }

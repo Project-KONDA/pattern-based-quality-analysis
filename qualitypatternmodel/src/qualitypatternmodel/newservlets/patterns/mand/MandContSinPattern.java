@@ -53,4 +53,7 @@ public class MandContSinPattern extends PatternClass {
 
 		return pattern;
 	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
 }

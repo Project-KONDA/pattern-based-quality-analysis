@@ -51,4 +51,7 @@ public class CardMatchPattern extends PatternClass {
 
 		return pattern;
 	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
 }

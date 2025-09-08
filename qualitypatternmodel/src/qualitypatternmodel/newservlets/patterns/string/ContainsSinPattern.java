@@ -34,4 +34,7 @@ public class ContainsSinPattern extends PatternClass {
 		contains.setOperatorList(quantifiedCondition.getGraph().getOperatorList());
 		return pattern;
 	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
 }

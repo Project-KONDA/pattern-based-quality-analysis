@@ -40,4 +40,7 @@ public class ValidLinkIsoPattern extends PatternClass {
 		op4.setPrimitiveNode(field);
 		return pattern;
 	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
 }

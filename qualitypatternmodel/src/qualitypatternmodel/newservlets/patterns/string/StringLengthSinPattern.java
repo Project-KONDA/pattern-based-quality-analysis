@@ -34,4 +34,7 @@ public class StringLengthSinPattern extends PatternClass {
 		str.setOperatorList(quantifiedCondition.getGraph().getOperatorList());
 		return pattern;
 	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
 }

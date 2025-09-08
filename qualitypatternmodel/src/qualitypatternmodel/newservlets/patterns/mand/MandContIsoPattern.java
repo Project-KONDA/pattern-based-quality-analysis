@@ -58,4 +58,7 @@ public class MandContIsoPattern extends PatternClass {
 
 		return pattern;
 	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
 }

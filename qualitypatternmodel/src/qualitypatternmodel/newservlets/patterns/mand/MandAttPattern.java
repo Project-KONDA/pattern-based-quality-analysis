@@ -1,7 +1,5 @@
 package qualitypatternmodel.newservlets.patterns.mand;
 
-import java.util.Map;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -42,11 +40,6 @@ public class MandAttPattern extends PatternClass {
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____
-	
-	@Override 
-	protected Map<Integer, String> xmlMap() {
-		return Map.of(0, "//*", 1, "/*");
-	}
 
 	@Override
 	protected String[] xmlVariants() {
@@ -108,5 +101,4 @@ public class MandAttPattern extends PatternClass {
 			+ "{\"text\":\"reached by\"},"
 			+ "{\"name\":\"an neo property path\",\"params\":[2],\"exampleValue\":\"has\"},"
 			+ "{\"text\":\".\"}]}";
-
 }

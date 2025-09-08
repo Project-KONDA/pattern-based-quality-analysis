@@ -1,7 +1,5 @@
 package qualitypatternmodel.newservlets.patterns.internal;
 
-import java.util.Map;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -26,7 +24,7 @@ public class DupvalPattern extends PatternClass {
 		super(PatternConstants.DUPVAL_ID,
 				PatternConstants.DUPVAL_NAME, 
 				PatternConstants.DUPVAL_DESCR, 
-				true, false, false, false);
+				false, false, false, false);
 	}
 
 	@Override
@@ -67,10 +65,5 @@ public class DupvalPattern extends PatternClass {
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____
-	
-	@Override
-	protected Map<Integer, String> xmlMap(){
-		return Map.of(2, "//*", 3, "/*/text()");
-	}
 
 }

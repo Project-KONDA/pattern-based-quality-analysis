@@ -18,7 +18,6 @@ public class LocalUniquePattern extends PatternClass {
 
 	@Override
 	public CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

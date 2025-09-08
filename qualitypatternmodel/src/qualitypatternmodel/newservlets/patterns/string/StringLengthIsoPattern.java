@@ -37,4 +37,7 @@ public class StringLengthIsoPattern extends PatternClass {
 		strlen.setOperatorList(quantifiedCondition.getGraph().getOperatorList());
 		return pattern;
 	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
 }

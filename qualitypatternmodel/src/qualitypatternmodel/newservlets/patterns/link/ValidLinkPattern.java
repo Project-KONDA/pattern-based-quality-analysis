@@ -1,7 +1,5 @@
 package qualitypatternmodel.newservlets.patterns.link;
 
-import java.util.Map;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -41,11 +39,6 @@ public class ValidLinkPattern extends PatternClass {
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____
-
-	@Override
-	protected Map<Integer, String> xmlMap() {
-		return Map.of(1, "//*", 2, "/*/text()");
-	}
 
 	@Override
 	protected String[] xmlVariants() {
