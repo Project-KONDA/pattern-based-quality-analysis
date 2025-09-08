@@ -94,7 +94,7 @@ public class ConstraintServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting a constraint: "
 					+ "GET '/constraint/{technology}/{constraintID}' "
-					+ "(not /constraint/" + path + ")");
+					+ "(not /constraint" + path + ")");
 		}
 
 		String technology = pathparts[1];
@@ -126,7 +126,7 @@ public class ConstraintServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for deleting a constraint: "
 					+ "DELETE '/constraint/{technology}/{constraintID}' "
-					+ "(not /constraint/" + path + ")");
+					+ "(not /constraint" + path + ")");
 		}
 
 		String technology = pathparts[1];

@@ -92,7 +92,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting a variant of a constraint: "
 					+ "GET '/template/variant/{technology}/{templateID}' "
-					+ "(not /template/variant/" + path + ")");
+					+ "(not /template/variant" + path + ")");
 		}
 
 		// 1 get parameters
@@ -143,7 +143,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting a variant of a constraint: "
 					+ "PUT '/template/variant/{technology}/{templateID}' "
-					+ "(not /template/variant/" + path + ")");
+					+ "(not /template/variant" + path + ")");
 		}
 
 		// 1 get parameters
@@ -240,7 +240,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for deleting a variant of a constraint: "
 					+ "DELETE '/template/variant/{technology}/{templateID}' "
-					+ "(not /template/variant/" + path + ")");
+					+ "(not /template/variant" + path + ")");
 		}
 
 		// 1 get parameters

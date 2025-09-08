@@ -45,7 +45,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 			} else {
 				throw new InvalidServletCallException("Wrong URL for requesting the query of a constraint: "
 						+ "' GET '/constraint/query/{technology}/{constraintID}' "
-						+ "(not /constraint/query/" + path + ")");
+						+ "(not /constraint/query" + path + ")");
 			}
 			ServletUtilities.putResponse(response, callId, result);
 		}
@@ -60,7 +60,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 			throw new InvalidServletCallException("Wrong URL for requesting the query of a constraint: "
 					+ "GET '/constraint/query/{technology}/{constraintID}' "
 					+ "OR '/constraint/query/{technology}' "
-					+ "(not /constraint/query/" + path + ")");
+					+ "(not /constraint/query" + path + ")");
 		}
 
 		String technology = pathparts[1];
@@ -79,7 +79,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 		if (pathparts.length != 2 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the query of multiple constraints: "
 					+ "' GET '/constraint/query/{technology}' "
-					+ "(not /constraint/query/" + path + ")");
+					+ "(not /constraint/query" + path + ")");
 		}
 
 		String technology = pathparts[1];

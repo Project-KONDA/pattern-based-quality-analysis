@@ -56,7 +56,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the database of a constraint: "
 					+ "GET /constraint/database/{technology}/{constraintID} "
-					+ "(not /constraint/database/" + path + ")");
+					+ "(not /constraint/database" + path + ")");
 		}
 
 		String technology = pathparts[1];
@@ -87,7 +87,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: "
 					+ "POST /constraint/database/{technology}/{constraintID}{technology}/{constraintID} "
-					+ "(not /constraint/database/" + path + ")");
+					+ "(not /constraint/database" + path + ")");
 		}
 
 		String technology = pathparts[1];
