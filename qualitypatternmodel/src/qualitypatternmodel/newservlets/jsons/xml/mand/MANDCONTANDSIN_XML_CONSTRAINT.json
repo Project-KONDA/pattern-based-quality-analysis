@@ -1,5 +1,5 @@
 {
-    "template":"MandContSin_xml",
+    "template":"MandContAndSin_xml",
     "language":"xml",
     "name":"constraint2",
 	"typeConstraint":true,

@@ -1,5 +1,5 @@
 {
-    "template":"MandContIso_xml",
+    "template":"MandContAndIso_xml",
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,
@@ -7,21 +7,21 @@
 		{"text":"For all"},
 		{
 			"name":"container elements",
-			"params":[0],
+			"params":[1],
 			"exampleValue":"measurement",
 			"description":"base element for analysis"
 		},
 		{"text":", each"},
 		{
 			"name":"element",
-			"params":[1],
+			"params":[3],
 			"exampleValue":"unit",
 			"description":"element of analyis"
 		},
 		{"text":"must contain both a"},
 		{
 			"name":"subelement",
-			"params":[3],
+			"params":[0],
 			"exampleValue":"element",
 			"description":"element condition"
 		},

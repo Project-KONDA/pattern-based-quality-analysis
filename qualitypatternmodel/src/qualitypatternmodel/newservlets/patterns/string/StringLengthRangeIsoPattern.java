@@ -29,12 +29,14 @@ public class StringLengthRangeIsoPattern extends PatternClass {
 		element1.setReturnNode(true);
 		ret.setReturnNode(false);
 
-		StringLength strlen = element1.addPrimitiveStringLength();
+		StringLength strlen1 = element1.addPrimitiveStringLength();
+		StringLength strlen2 = element1.addPrimitiveStringLength();
 
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		pattern.setCondition(quantifiedCondition);
 
-		strlen.setOperatorList(quantifiedCondition.getGraph().getOperatorList());
+		strlen1.setOperatorList(quantifiedCondition.getGraph().getOperatorList());
+		strlen2.setOperatorList(quantifiedCondition.getGraph().getOperatorList());
 		return pattern;
 	}
 }

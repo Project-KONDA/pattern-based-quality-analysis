@@ -33,10 +33,12 @@ import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 import qualitypatternmodel.newservlets.ConstraintServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.PatternListServlet;
+import qualitypatternmodel.newservlets.TemplateVariantServlet;
 import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 public class APIVariantsXMLTest {
+	private static final boolean PRINTCONSTRAINTS = false;
 	
 	// __________ STATIC VARIABLES __________
 	private static String folder;
@@ -218,6 +220,10 @@ public class APIVariantsXMLTest {
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 
 		String constraintID = APICallTests.newConstraint(constraint, variant);
+		
+		if(PRINTCONSTRAINTS) {
+			System.out.println(constraint + "\t" + variant+ "\t" + constraintID + "\t" + getConstraint(constraintID) + "\t" + TemplateVariantServlet.applyGet("/xml/" + constraint, getEmptyParams()));
+		}
 		
 		setAllConstraintParameter(constraintID);
 

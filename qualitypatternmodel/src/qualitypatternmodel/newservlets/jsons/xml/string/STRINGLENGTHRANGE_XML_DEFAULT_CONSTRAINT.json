@@ -1,5 +1,5 @@
 {
-    "template":"StringLength_xml",
+    "template":"StringLengthRange_xml",
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,
@@ -12,7 +12,7 @@
             "description":"anchor for analysis",
             "plural":"true"
         },
-        {"text":", each"},
+        {"text":", the characters in length of each"},
         {
             "name":"property",
             "params":[5],
@@ -43,6 +43,6 @@
             "params":[3],
             "exampleValue":"10"
         },
-        {"text":"characters in length."}
+        {"text":"."}
     ]
 }

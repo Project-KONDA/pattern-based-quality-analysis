@@ -7,7 +7,7 @@
         {"text":"Each"},
         {
             "name":"element",
-            "params":[2],
+            "params":[4],
             "exampleValue":"Actors",
             "description":"anchor for analysis"
         },
@@ -25,7 +25,7 @@
         },
         {
             "name":"subelements",
-            "params":[3],
+            "params":[5],
             "exampleValue":"Birthdates",
             "description":"counted elements",
             "plural":"true"
@@ -33,14 +33,14 @@
         {"text":"that "},
         {
             "name":"does / does not",
-            "params":[4],
+            "params":[2],
             "defaultMap":"does not",
             "exampleValue":"does"
         },
         {"text":"match"},
         {
             "name":"a specific pattern (RegEx)",
-            "params":[5],
+            "params":[3],
             "exampleValue":"[A-Z][a-z][a-z]+"
         },
         {"text":"."}

@@ -1,5 +1,5 @@
 {
-    "template":"StringLengthIso_xml",
+    "template":"StringLengthRangeIso_xml",
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,

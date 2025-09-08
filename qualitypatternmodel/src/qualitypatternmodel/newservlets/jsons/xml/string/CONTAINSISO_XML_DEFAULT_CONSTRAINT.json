@@ -7,14 +7,14 @@
         {"text":"Within each"},
         {
             "name":"element",
-            "params":[2],
+            "params":[3],
             "exampleValue":"Actor",
             "description":"anchor for analysis"
         },
         {"text":", each"},
         {
             "name":"property",
-            "params":[3],
+            "params":[2],
             "exampleValue":"Education",
             "description":"analysed property"
         },

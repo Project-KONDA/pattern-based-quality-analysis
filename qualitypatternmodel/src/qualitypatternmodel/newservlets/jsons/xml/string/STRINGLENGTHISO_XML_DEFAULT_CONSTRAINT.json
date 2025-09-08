@@ -7,7 +7,7 @@
         {"text":"Within"},
         {
             "name":"elements",
-            "params":[2],
+            "params":[3],
             "exampleValue":"Actors",
             "description":"anchor for analysis",
             "plural":"true"
@@ -15,7 +15,7 @@
         {"text":", check that each"},
         {
             "name":"property",
-            "params":[3],
+            "params":[2],
             "exampleValue":"LastName",
             "description":"value that gets analysed"
         },

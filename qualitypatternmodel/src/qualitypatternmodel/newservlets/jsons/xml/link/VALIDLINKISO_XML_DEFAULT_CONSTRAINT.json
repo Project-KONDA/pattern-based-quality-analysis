@@ -7,7 +7,7 @@
         {"text":"Within"},
         {
             "name":"elements",
-            "params":[1],
+            "params":[2],
             "exampleValue":"Actors",
             "description":"anchor for analysis",
             "plural":"true"
@@ -15,7 +15,7 @@
         {"text":", check each"},
         {
             "name":"property",
-            "params":[2],
+            "params":[1],
             "exampleValue":"Birth Certificate Source",
             "description":"property of interest,that should contain a valid link."
         },
