@@ -19,6 +19,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class PatternCollection {
 
+
 	public static List<Class<? extends PatternClass>> getPatternClasses() {
 		List<Class<? extends PatternClass>> classes = new BasicEList<Class<? extends PatternClass>>();
 		// comp
@@ -70,32 +71,24 @@ public class PatternCollection {
 		return classes;
 	}
 
-	public static List<PatternClass> getPatternClassInstances() {
-		List<PatternClass> instances = new BasicEList<PatternClass>();
+	public static List<CompletePattern> getGenericPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
+		
 		for (Class<? extends PatternClass> clazz: getPatternClasses()) {
 			try {
-				instances.add(clazz.getDeclaredConstructor().newInstance());
+				PatternClass patternClass = clazz.getDeclaredConstructor().newInstance();
+				CompletePattern pattern = patternClass.getPattern(); 
+				if (pattern != null)
+					patterns.add(pattern);
 			} catch (Exception e) {
 				ServletUtilities.logError(new InvalidityException("Exception when compiling Generic Pattern " + clazz.getName(), e));
 			}
 		}
-		return instances;
-	}
-
-	public static List<CompletePattern> getGenericPatterns() {
-		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
-		for (PatternClass patternClass: getPatternClassInstances()) {
-			if (patternClass.genericValid)
-				try {
-					CompletePattern pattern = patternClass.getGenericPattern(); 
-					if (pattern != null)
-						patterns.add(pattern);
-				} catch (Exception e) {
-					continue;
-				}
-		}
 		return patterns;
 	}
+
+	public static List<CompletePattern> getXmlPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 
 		for (PatternBundle bundle: getXmlPatternBundles()) {
 			try {
@@ -103,12 +96,12 @@ public class PatternCollection {
 			}
 			catch (Exception e) {
 				ServletUtilities.logError(new InvalidityException("Exception when compiling Xml PatternBundle " + bundle.id, e));
-			}
+			}		
 		}
 		return patterns;
 	}
 
-	public static List<CompletePattern> getRdfPatterns() {
+	public static List<CompletePattern> getRdfPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		
 		for (PatternBundle bundle: getRdfPatternBundles()) {
@@ -122,8 +115,9 @@ public class PatternCollection {
 		return patterns;
 	}
 
-	public static List<CompletePattern> getNeoPatterns() {
+	public static List<CompletePattern> getNeoPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
+		
 		for (PatternBundle bundle: getNeoPatternBundles()) {
 			try {
 				patterns.add(bundle.getConcrete());
@@ -135,16 +129,19 @@ public class PatternCollection {
 		return patterns;
 	}
 
-	public static List<PatternBundle> getXmlPatternBundles() {
+	public static List<PatternBundle> getXmlPatternBundles() throws InvalidityException {
 		List<PatternBundle> patternbundles = new BasicEList<PatternBundle>();
-		for (PatternClass patternClass: getPatternClassInstances()) {
-			if (patternClass.xmlValid)
-				try {
+		
+		for (Class<? extends PatternClass> clazz: getPatternClasses()) {
+			String id = "<not found>";
+			try {
+				PatternClass patternClass = clazz.getDeclaredConstructor().newInstance();
+				id = patternClass.id;
+				if (patternClass.xmlValid) {
 					PatternBundle patternbundle = patternClass.getXmlBundle(); 
 					if (patternbundle != null)
 						patternbundles.add(patternbundle);
-				} catch (Exception e) {
-					continue;
+					else throw new RuntimeException("XML Patternbundle Null for Class " + id);
 				}
 			} catch (Exception e) {
 				ServletUtilities.logError(new InvalidityException("Exception when compiling XML PatternBundle for Class " + id, e));
@@ -153,32 +150,44 @@ public class PatternCollection {
 		return patternbundles;
 	}
 
-	public static List<PatternBundle> getRdfPatternBundles() {
+	public static List<PatternBundle> getRdfPatternBundles() throws InvalidityException {
 		List<PatternBundle> patternbundles = new BasicEList<PatternBundle>();
-		for (PatternClass patternClass: getPatternClassInstances()) {
-			if (patternClass.rdfValid)
-				try {
+		
+		for (Class<? extends PatternClass> clazz: getPatternClasses()) {
+			String id = "<not found>";
+			try {
+				PatternClass patternClass = clazz.getDeclaredConstructor().newInstance();
+				id = patternClass.id;
+				if (patternClass.rdfValid) {
 					PatternBundle patternbundle = patternClass.getRdfBundle(); 
 					if (patternbundle != null)
 						patternbundles.add(patternbundle);
-				} catch (Exception e) {
-					continue;
+					else throw new RuntimeException("RDF Patternbundle Null for Class " + id);
 				}
+			} catch (Exception e) {
+				throw new InvalidityException("Exception when compiling RDF PatternBundle for Class " + id);
+			}
 		}
 		return patternbundles;
 	}
 
-	public static List<PatternBundle> getNeoPatternBundles() {
+	public static List<PatternBundle> getNeoPatternBundles() throws InvalidityException {
 		List<PatternBundle> patternbundles = new BasicEList<PatternBundle>();
-		for (PatternClass patternClass: getPatternClassInstances()) {
-			if (patternClass.neoValid)
-				try {
+		
+		for (Class<? extends PatternClass> clazz: getPatternClasses()) {
+			String id = "<not found>";
+			try {
+				PatternClass patternClass = clazz.getDeclaredConstructor().newInstance();
+				id = patternClass.id;
+				if (patternClass.neoValid) {
 					PatternBundle patternbundle = patternClass.getNeoBundle(); 
 					if (patternbundle != null)
 						patternbundles.add(patternbundle);
-				} catch (Exception e) {
-					continue;
+					else throw new RuntimeException("NEO Patternbundle Null for Class " + id);
 				}
+			} catch (Exception e) {
+				throw new InvalidityException("Exception when compiling NEO PatternBundle for Class " + id);
+			}
 		}
 		return patternbundles;
 	}
