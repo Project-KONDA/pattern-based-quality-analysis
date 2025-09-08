@@ -300,6 +300,36 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getBooleanOperator__GenerateXQueryIsolated() {
+		return booleanOperatorEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBooleanOperator__GenerateSparqlIsolated() {
+		return booleanOperatorEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBooleanOperator__GenerateCypherIsolated() {
+		return booleanOperatorEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getBooleanOperator__CreateParameters() {
 		return booleanOperatorEClass.getEOperations().get(0);
 	}
@@ -699,6 +729,9 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___ADD_ELEMENT__NODE);
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE);
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___GET_ELEMENT);
+		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___GENERATE_XQUERY_ISOLATED);
+		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___GENERATE_SPARQL_ISOLATED);
+		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___GENERATE_CYPHER_ISOLATED);
 
 		operatorEClass = createEClass(OPERATOR);
 		createEReference(operatorEClass, OPERATOR__OPERATOR_LIST);
@@ -806,6 +839,15 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		addEParameter(op, theGraphstructurePackage.getNode(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getBooleanOperator__GetElement(), theGraphstructurePackage.getNode(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getBooleanOperator__GenerateXQueryIsolated(), ecorePackage.getEString(), "generateXQueryIsolated", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getBooleanOperator__GenerateSparqlIsolated(), ecorePackage.getEString(), "generateSparqlIsolated", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getBooleanOperator__GenerateCypherIsolated(), ecorePackage.getEString(), "generateCypherIsolated", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperator_OperatorList(), this.getOperatorList(), this.getOperatorList_Operators(), "operatorList", null, 1, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

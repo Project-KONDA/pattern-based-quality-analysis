@@ -190,7 +190,7 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 	public String myToString() {
 		String res = "ValidateLink (" + getInternalId() + ")";
 		if (getOption() != null) {
-			res +=  "[";
+			res +=  "[bool ";
 			if (!getOption().getValue()) {
 				res += "not ";
 			}
@@ -200,7 +200,7 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 		}
 
 		if (getPrimitiveNode() != null) {
-			res += "[" + getPrimitiveNode().getInternalId() + "]";
+			res += "[node " + getPrimitiveNode().getInternalId() + "]";
 		} else {
 			res += "[no node] ";
 		}

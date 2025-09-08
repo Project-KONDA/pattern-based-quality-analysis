@@ -42,7 +42,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		if (pathparts.length != 4 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for instantiate in a constraint: "
 					+ "PUT '/template/instantiate/{technology}/{templateID}/{variantID}' "
-					+ "(not /template/instantiate/" + path + ")");
+					+ "(not /template/instantiate" + path + ")");
 		}
 
 		// 1 get parameters

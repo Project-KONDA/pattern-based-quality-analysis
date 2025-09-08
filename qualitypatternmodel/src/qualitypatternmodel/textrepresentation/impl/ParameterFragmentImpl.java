@@ -264,12 +264,15 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 
 		JSONArray params = json.getJSONArray(ConstantsJSON.PARAMETER);
         for (int i = 0; i < params.length(); i++) {
+        	List<Parameter> parameters = pattern.getParameterList().getParameters(); 
             int paramID = params.getInt(i);
+            if (parameters.size()<= paramID)
+            	throw new InvalidityException("invalid parameter ID in JSON: " + paramID);
             try {
-            	Parameter p = pattern.getParameterList().getParameters().get(paramID);
+            	Parameter p = parameters.get(paramID);
                 getParameter().add(p);
             } catch (Exception e) {
-            	e.printStackTrace();
+            	throw new InvalidityException("Not valid JSON to a create ParameterFragment: ", e);
             }
         }
 		// exampleValue

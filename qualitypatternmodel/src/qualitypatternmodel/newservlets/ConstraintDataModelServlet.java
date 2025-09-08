@@ -56,7 +56,7 @@ public class ConstraintDataModelServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the data model of a constraint: "
 					+ "SET '/qpm/constraint/datamodel/{technology}/{constraintID}' "
-					+ "(not /constraint/datamodel/" + path + ")");
+					+ "(not /constraint/datamodel" + path + ")");
 		}
 
 		String technology = pathparts[1];
@@ -87,7 +87,7 @@ public class ConstraintDataModelServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for setting a data model in a constraint: "
 					+ "PUT '/constraint/datamodel/{technology}/{constraintID}' "
-					+ "(not /constraint/datamodel/" + path + ")");
+					+ "(not /constraint/datamodel" + path + ")");
 		}
 
 		String technology = pathparts[1];

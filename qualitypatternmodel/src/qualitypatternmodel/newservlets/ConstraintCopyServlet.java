@@ -48,7 +48,7 @@ public class ConstraintCopyServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for copying a constraint: "
 					+ "PUT /constraint/copy/{technology}/{constraintID} "
-					+ "(not /constraint/copy/" + path + ")");
+					+ "(not /constraint/copy" + path + ")");
 		}
 
 		String technology = pathparts[1];

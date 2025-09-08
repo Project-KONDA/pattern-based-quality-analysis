@@ -1,0 +1,34 @@
+{
+	"template":"MandContAnd_xml",
+	"language":"xml",
+	"name":"constraint_2",
+	"typeConstraint":true,
+	"fragments":[
+		{"text":"Within each"},
+		{
+			"name":"element",
+			"params":[0],
+			"exampleValue":"measurement",
+			"description":"base element for analysis"
+		},
+		{"text":", every"},
+		{
+			"name":"subelement",
+			"params":[1],
+			"exampleValue":"unit",
+			"description":"element of analyis"
+		},
+		{"text":"must contain both a"},
+		{
+			"name":"element",
+			"params":[3],
+			"exampleValue":"element",
+			"description":"element condition"
+		},
+		{"text":"and a text."},
+		{
+			"params":[2],
+			"value":"/text()"
+		}
+	]
+}

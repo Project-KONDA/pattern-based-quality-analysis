@@ -1,5 +1,6 @@
 package newservelettest.xmlapitests;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
@@ -66,8 +67,8 @@ public class APITemplateTests {
 		FOLDER = new File(".").getCanonicalPath().replace('\\', '/') + "/temp_" + UUID.randomUUID();
 		System.out.println("Create: " + FOLDER);
 
-		File variants_original = new File("./src/qualitypatternmodel/newservlets/patterns/jsons");
-		File variants_copy = new File(FOLDER + "/templates/variants");
+		File variants_original = new File("./src/qualitypatternmodel/newservlets/jsons/xml");
+		File variants_copy = new File(FOLDER + "/templates/variants/xml");
 
 		File lido_original = new File("lido.xml");
 		File lido_copy = new File(FOLDER + "/files/lido.xml");
@@ -169,157 +170,134 @@ public class APITemplateTests {
 	public void testTemplateCard()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		assert(store.getJSONObject("Card_xml").getInt("size") == 1);
-
-		String constraintID = APICallTests.newConstraint("Card_xml", "default-constraint");
-		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID, "ComparisonOption_1", "exactly");
-		setConstraintParameter(constraintID, "Number_2", "2");
-		setConstraintParameter(constraintID, "XmlPath_Element_3", "/*");
-
-		testConcretePattern(constraintID);
-		APICallTests.deleteConstraint(constraintID);
+		testConstraint("Card_xml", "default-constraint", 
+				Map.of(
+						"XmlPath_Element_0", "//*", 
+						"ComparisonOption_1", "exactly", 
+						"Number_2", "2", 
+						"XmlPath_Element_3", "/*"));
 	}
 
 
 	@Test
 	public void testTemplateContains()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("Contains_xml").getInt("size") == 1);
-
-		String constraintID = APICallTests.newConstraint("Contains_xml", "default-constraint");
-		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
-		setConstraintParameter(constraintID, "Boolean_2", "does");
-		setConstraintParameter(constraintID, "Text_3", "a");
-
-		testConcretePattern(constraintID);
-		APICallTests.deleteConstraint(constraintID);
+		assertEquals(1, store.getJSONObject("Contains_xml").getInt("size"));
+		
+		testConstraint("Contains_xml", "default-constraint", 
+				Map.of(
+						"XmlPath_Element_0", "//*", 
+						"XmlPath_Property_1", "/text()", 
+						"Boolean_2", "does", 
+						"Text_3", "a"));
 	}
 
 	@Test
 	public void testTemplateMatch()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("Match_xml").getInt("size") == 2);
+		assertEquals(2, store.getJSONObject("Match_xml").getInt("size"));
 
-		String constraintID = APICallTests.newConstraint("Match_xml", "default-constraint");
-		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
-		setConstraintParameter(constraintID, "Boolean_2", "do not");
-		setConstraintParameter(constraintID, "Text_3", ".*a.*");
-
-		testConcretePattern(constraintID);
-		APICallTests.deleteConstraint(constraintID);
+		testConstraint("Match_xml", "default-constraint", 
+				Map.of(
+						"XmlPath_Element_0", "//*", 
+						"XmlPath_Property_1", "/text()", 
+						"Boolean_2", "do not", 
+						"Text_3", ".*a.*"));
 	}
 
 	@Test
 	public void testTemplateCompSet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("CompSet_xml").getInt("size") == 1);
+		assertEquals(1, store.getJSONObject("CompSet_xml").getInt("size"));
 
-		String constraintID = APICallTests.newConstraint("CompSet_xml", "default-constraint");
-		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
-		setConstraintParameter(constraintID, "ComparisonOption_2", "is");
-		setConstraintParameter(constraintID, "TextList_3", "{\"a\"}");
-
-		testConcretePattern(constraintID);
-		APICallTests.deleteConstraint(constraintID);
+		testConstraint("CompSet_xml", "default-constraint",
+				Map.of("XmlPath_Element_0", "//*",
+						"XmlPath_Property_1", "/text()",
+						"ComparisonOption_2", "is",
+						"TextList_3", "{\"a\"}"));
 	}
 
 	@Test
 	public void testTemplateMandAtt()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("MandAtt_xml").getInt("size") == 1);
+		assertEquals(1, store.getJSONObject("MandAtt_xml").getInt("size"));
 
-		String constraintID = APICallTests.newConstraint("MandAtt_xml", "default-constraint");
-		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID, "XmlPath_Element_1", "/*");
-
-		testConcretePattern(constraintID);
-		APICallTests.deleteConstraint(constraintID);
+		testConstraint("MandAtt_xml", "default-constraint",
+				Map.of(
+						"XmlPath_Element_0", "//*",
+						"XmlPath_Element_1", "/*"));
 	}
 
 	@Test
 	public void testTemplateStringLength()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("StringLength_xml").getInt("size") == 1);
+		assertEquals(1, store.getJSONObject("StringLength_xml").getInt("size"));
 
-		String constraintID = APICallTests.newConstraint("StringLength_xml", "default-constraint");
-		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
-		setConstraintParameter(constraintID, "ComparisonOption_2", "exactly");
-		setConstraintParameter(constraintID, "Number_3", "10");
-
-		testConcretePattern(constraintID);
-		APICallTests.deleteConstraint(constraintID);
+		testConstraint("StringLength_xml", "default-constraint",
+				Map.of(
+						"XmlPath_Element_0", "//*",
+						"XmlPath_Property_1", "/text()",
+						"ComparisonOption_2", "exactly",
+						"Number_3", "10"));
 	}
 
 	@Test
 	public void testTemplateUniqueness()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("Unique_xml").getInt("size") == 1);
+		assertEquals(1, store.getJSONObject("Unique_xml").getInt("size"));
 
-		String constraintID = APICallTests.newConstraint("Unique_xml", "default-constraint");
-		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
-
-		testConcretePattern(constraintID);
-		APICallTests.deleteConstraint(constraintID);
+		testConstraint("Unique_xml", "default-constraint",
+				Map.of("XmlPath_Element_0", "//*",
+						"XmlPath_Property_1", "/text()"));
 	}
 
 	@Test
 	public void testTemplateValidLink()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("ValidLink_xml").getInt("size") == 1);
+		assertEquals(1, store.getJSONObject("ValidLink_xml").getInt("size"));
 
-		String constraintID = APICallTests.newConstraint("ValidLink_xml", "default-constraint");
-		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID, "XmlPath_Property_1", "/text()");
-//		setConstraintParameter(constraintID, "Boolean_2", "is");
-
-		testConcretePattern(constraintID);
-		APICallTests.deleteConstraint(constraintID);
+		testConstraint("ValidLink_xml", "default-constraint",
+				Map.of(
+						"XmlPath_Element_0", "//*",
+//						"Boolean_2", "is",						
+						"XmlPath_Property_1", "/text()"
+						));
 	}
 
 	@Test
 	public void testTemplateMandContent() throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("MandCont_xml").getInt("size") == 4);
+		assertEquals(4, store.getJSONObject("MandCont_xml").getInt("size"));
 
-		String constraintID = APICallTests.newConstraint("MandCont_xml", "default-constraint");
-		setConstraintParameter(constraintID, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID, "XmlPath_Element_1", "//*");
-		setConstraintParameter(constraintID, "XmlPath_Property_2", "/text()");
-		setConstraintParameter(constraintID, "XmlPath_Element_3", "//*");
+		testConstraint("MandCont_xml", "default-constraint",
+				Map.of(
+						"XmlPath_Element_0", "//*",
+						"XmlPath_Element_1", "//*",
+						"XmlPath_Property_2", "/text()",
+						"XmlPath_Element_3", "//*"));
+
+		testConstraint("MandCont_xml", "constraint_2",
+				Map.of("XmlPath_Element_0", "//*", 
+						"XmlPath_Element_1", "//*",
+						"XmlPath_Element_2", "//*"));
+
+		testConstraint("MandCont_xml", "constraint_m",
+				Map.of(
+						"XmlPath_Element_0", "//*",
+						"XmlPath_Property_1", "/text()",
+						"XmlPath_Element_2", "//*"));
+
+		testConstraint("MandCont_xml", "justnotempty", 
+				Map.of(
+						"XmlPath_Element_0", "//*"));
+	}
+	
+	private void testConstraint(String constraint, String variant, Map<String, String> params) throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+
+		String constraintID = APICallTests.newConstraint(constraint, variant);
+		for (String key: params.keySet())
+			setConstraintParameter(constraintID, key, params.get(key));
 
 		testConcretePattern(constraintID);
 		APICallTests.deleteConstraint(constraintID);
-
-
-
-		String constraintID2 = APICallTests.newConstraint("MandCont_xml", "constraint_2");
-		setConstraintParameter(constraintID2, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID2, "XmlPath_Element_1", "//*");
-		setConstraintParameter(constraintID2, "XmlPath_Element_2", "//*");
-
-		testConcretePattern(constraintID2);
-		APICallTests.deleteConstraint(constraintID2);
-
-
-
-		String constraintID3 = APICallTests.newConstraint("MandCont_xml", "constraint_m");
-		setConstraintParameter(constraintID3, "XmlPath_Element_0", "//*");
-		setConstraintParameter(constraintID3, "XmlPath_Property_1", "/text()");
-		setConstraintParameter(constraintID3, "XmlPath_Element_2", "//*");
-
-		testConcretePattern(constraintID3);
-		APICallTests.deleteConstraint(constraintID3);
-
-
-
-		String constraintID4 = APICallTests.newConstraint("MandCont_xml", "justnotempty");
-		setConstraintParameter(constraintID4, "XmlPath_Element_0", "//*");
-
-		testConcretePattern(constraintID4);
-		APICallTests.deleteConstraint(constraintID4);
 	}
 }

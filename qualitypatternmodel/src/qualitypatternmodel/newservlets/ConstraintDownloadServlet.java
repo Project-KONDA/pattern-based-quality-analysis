@@ -37,7 +37,7 @@ public class ConstraintDownloadServlet extends HttpServlet {
 		if (pathparts.length < 3 || pathparts.length > 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for executing constraints: " 
 					+ "GET '/constraint/download/{technology}/{constraintID}' "
-					+ "(not /constraint/download/{" + path + ")");
+					+ "(not /constraint/download{" + path + ")");
 		}
 
 		String technology = pathparts[1];

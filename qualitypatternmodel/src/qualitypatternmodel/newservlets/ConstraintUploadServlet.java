@@ -73,7 +73,7 @@ public class ConstraintUploadServlet extends HttpServlet {
 			if (pathparts.length > 0 || pathparts.length > 3 || !pathparts[0].equals("")) {
 				throw new InvalidServletCallException("Wrong URL for executing constraints: " 
 						+ "GET '/constraint/download/ "
-						+ "(not /constraint/download/{" + path + ")");
+						+ "(not /constraint/download" + path + ")");
 			}
 		}
 

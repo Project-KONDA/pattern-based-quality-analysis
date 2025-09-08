@@ -1,0 +1,29 @@
+{
+    "template":"MatchSin_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+    "fragments":[
+        {"text":"Check each"},
+        {
+            "name":"property",
+            "params":[2],
+            "exampleValue":"Surname",
+            "description":"value that gets analysed"
+        },
+        {"text":"if it"},
+        {
+            "name":"does / does not",
+            "params":[0],
+            "defaultMap":"does not",
+            "exampleValue":"do"
+        },
+        {"text":"match"},
+        {
+            "name":"a specific pattern (RegEx)",
+            "params":[1],
+            "exampleValue":"[A-Z][a-z][a-z]+"
+        },
+        {"text":"."}
+    ]
+}

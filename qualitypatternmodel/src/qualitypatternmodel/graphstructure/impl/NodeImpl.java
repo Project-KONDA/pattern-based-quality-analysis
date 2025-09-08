@@ -1938,7 +1938,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> res = new BasicEList<Operator>();
 		for (Operator op : getPredicates()) {
-			res.addAll(op.getAllOperators());
+			if (op.getOperatorList() == getGraph().getOperatorList())
+				res.addAll(op.getAllOperators());
 		}
 		return res;
 	}
@@ -1951,7 +1952,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		for (Operator op : getPredicates()) {
-			res.addAll(op.getAllParameters());
+			if (op.getOperatorList() == getGraph().getOperatorList())
+				res.addAll(op.getAllParameters());
 		}
 		return res;
 	}

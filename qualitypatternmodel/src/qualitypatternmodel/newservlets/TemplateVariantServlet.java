@@ -92,7 +92,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting a variant of a constraint: "
 					+ "GET '/template/variant/{technology}/{templateID}' "
-					+ "(not /template/variant/" + path + ")");
+					+ "(not /template/variant" + path + ")");
 		}
 
 		// 1 get parameters
@@ -143,7 +143,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting a variant of a constraint: "
 					+ "PUT '/template/variant/{technology}/{templateID}' "
-					+ "(not /template/variant/" + path + ")");
+					+ "(not /template/variant" + path + ")");
 		}
 
 		// 1 get parameters
@@ -200,13 +200,10 @@ public class TemplateVariantServlet extends HttpServlet {
 				JSONObject json = new JSONObject(variant);
 				new PatternTextImpl(pattern, json);
 			} catch (JSONException e) {
-				e.printStackTrace();
 				throw new FailedServletCallException(ConstantsError.INVALID_JSON, e);
 			} catch (InvalidityException e) {
-				e.printStackTrace();
 				throw new FailedServletCallException(ConstantsError.INVALID_JSON + ": " + e.getMessage(), e);
 			} catch (Exception e) {
-				e.printStackTrace();
 				throw new FailedServletCallException("error: " + e.getMessage(), e);
 			}
 		}
@@ -221,7 +218,7 @@ public class TemplateVariantServlet extends HttpServlet {
 			ServletUtilities.saveTemplate(technology, templateId, pattern);
 		} catch (IOException e) {
 			ServletUtilities.saveTemplate(technology, templateId, patternSave);
-			throw new FailedServletCallException("Failed to update template.", e);
+			throw new FailedServletCallException(ConstantsError.VARIANT_UPDATE_FAILED, e);
 		}
 
 		CompletePattern pattern2 = ServletUtilities.loadTemplate(technology, templateId);
@@ -243,7 +240,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for deleting a variant of a constraint: "
 					+ "DELETE '/template/variant/{technology}/{templateID}' "
-					+ "(not /template/variant/" + path + ")");
+					+ "(not /template/variant" + path + ")");
 		}
 
 		// 1 get parameters

@@ -4,53 +4,69 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.BasicEList;
 
-import qualitypatternmodel.newservlets.patterns.Appdup2Pattern;
-import qualitypatternmodel.newservlets.patterns.Appdup3Pattern;
-import qualitypatternmodel.newservlets.patterns.CardImpliesMandAttPattern;
-import qualitypatternmodel.newservlets.patterns.CardPattern;
-import qualitypatternmodel.newservlets.patterns.CheckFormatPattern;
-import qualitypatternmodel.newservlets.patterns.CompDatabasePattern;
-import qualitypatternmodel.newservlets.patterns.CompPattern;
-import qualitypatternmodel.newservlets.patterns.CompSetPattern;
-import qualitypatternmodel.newservlets.patterns.CompValAnyPattern;
-import qualitypatternmodel.newservlets.patterns.CompValPattern;
-import qualitypatternmodel.newservlets.patterns.ContainsPattern;
-import qualitypatternmodel.newservlets.patterns.DupvalPattern;
-import qualitypatternmodel.newservlets.patterns.FuncPattern;
-import qualitypatternmodel.newservlets.patterns.LocalUniquePattern;
-import qualitypatternmodel.newservlets.patterns.MandAttPattern;
-import qualitypatternmodel.newservlets.patterns.MandContPattern;
-import qualitypatternmodel.newservlets.patterns.MatchPattern;
-import qualitypatternmodel.newservlets.patterns.PatternClass;
-import qualitypatternmodel.newservlets.patterns.StringLengthPattern;
-import qualitypatternmodel.newservlets.patterns.UniquePattern;
-import qualitypatternmodel.newservlets.patterns.ValidLinkPattern;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.newservlets.ServletUtilities;
+import qualitypatternmodel.newservlets.patterns.*;
+import qualitypatternmodel.newservlets.patterns.comp.*;
+import qualitypatternmodel.newservlets.patterns.external.*;
+import qualitypatternmodel.newservlets.patterns.internal.*;
+import qualitypatternmodel.newservlets.patterns.link.*;
+import qualitypatternmodel.newservlets.patterns.mand.*;
+import qualitypatternmodel.newservlets.patterns.string.*;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class PatternCollection {
 
 	public static List<Class<? extends PatternClass>> getPatternClasses() {
 		List<Class<? extends PatternClass>> classes = new BasicEList<Class<? extends PatternClass>>();
-		classes.add(Appdup2Pattern.class);
-		classes.add(Appdup3Pattern.class);
-		classes.add(CardImpliesMandAttPattern.class);
-		classes.add(CardPattern.class);
-		classes.add(CheckFormatPattern.class);
+		// comp
 		classes.add(CompDatabasePattern.class);
 		classes.add(CompPattern.class);
+		classes.add(CompSetIsoPattern.class);
+		classes.add(CompSetSinPattern.class);
 		classes.add(CompSetPattern.class);
 		classes.add(CompValAnyPattern.class);
 		classes.add(CompValPattern.class);
-		classes.add(ContainsPattern.class);
-		classes.add(DupvalPattern.class);
+		// external
+		classes.add(Appdup2Pattern.class);
+		classes.add(Appdup3Pattern.class);
 		classes.add(FuncPattern.class);
-		classes.add(LocalUniquePattern.class);
-		classes.add(MandAttPattern.class);
-		classes.add(MandContPattern.class);
-		classes.add(MatchPattern.class);
-		classes.add(StringLengthPattern.class);
 		classes.add(UniquePattern.class);
+		// internal
+		classes.add(CardPattern.class);
+		classes.add(DupvalPattern.class);
+		classes.add(LocalUniquePattern.class);
+		// link
+		classes.add(CheckFormatPattern.class);
+		classes.add(ValidLinkIsoPattern.class);
+		classes.add(ValidLinkSinPattern.class);
 		classes.add(ValidLinkPattern.class);
+		// mand
+		classes.add(CardImpliesMandAttPattern.class);
+		classes.add(MandAttPattern.class);
+		classes.add(MandContAndIsoPattern.class);
+		classes.add(MandContAndSinPattern.class);
+		classes.add(MandContAndPattern.class);
+		classes.add(MandContIsoPattern.class);
+		classes.add(MandContSinPattern.class);
+		classes.add(MandContPattern.class);
+		// string
+		classes.add(CardMatchPattern.class);
+		classes.add(ContainsIsoPattern.class);
+		classes.add(ContainsSinPattern.class);
+		classes.add(ContainsPattern.class);
+		classes.add(MatchIsoPattern.class);
+		classes.add(MatchSinPattern.class);
+		classes.add(MatchPattern.class);
+		classes.add(StringLengthIsoPattern.class);
+		classes.add(StringLengthPattern.class);
+		classes.add(StringLengthRangeIsoPattern.class);
+		classes.add(StringLengthRangeSinPattern.class);
+		classes.add(StringLengthRangePattern.class);
+		classes.add(StringLengthSinPattern.class);
+		
 		return classes;
 	}
 
@@ -60,7 +76,7 @@ public class PatternCollection {
 			try {
 				instances.add(clazz.getDeclaredConstructor().newInstance());
 			} catch (Exception e) {
-				continue;
+				ServletUtilities.logError(new InvalidityException("Exception when compiling Generic Pattern " + clazz.getName(), e));
 			}
 		}
 		return instances;
@@ -81,47 +97,40 @@ public class PatternCollection {
 		return patterns;
 	}
 
-	public static List<CompletePattern> getXmlPatterns() {
-		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
-		for (PatternClass patternClass: getPatternClassInstances()) {
-			if (patternClass.xmlValid)
-				try {
-					CompletePattern pattern = patternClass.getXmlPattern(); 
-					if (pattern != null)
-						patterns.add(pattern);
-				} catch (Exception e) {
-					continue;
-				}
+		for (PatternBundle bundle: getXmlPatternBundles()) {
+			try {
+				patterns.add(bundle.getConcrete());
+			}
+			catch (Exception e) {
+				ServletUtilities.logError(new InvalidityException("Exception when compiling Xml PatternBundle " + bundle.id, e));
+			}
 		}
 		return patterns;
 	}
 
 	public static List<CompletePattern> getRdfPatterns() {
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
-		for (PatternClass patternClass: getPatternClassInstances()) {
-			if (patternClass.rdfValid)
-				try {
-					CompletePattern pattern = patternClass.getRdfPattern(); 
-					if (pattern != null)
-						patterns.add(pattern);
-				} catch (Exception e) {
-					continue;
-				}
+		
+		for (PatternBundle bundle: getRdfPatternBundles()) {
+			try {
+				patterns.add(bundle.getConcrete());
+			}
+			catch (Exception e) {
+				ServletUtilities.logError(new InvalidityException("Exception when compiling Rdf PatternBundle " + bundle.id, e));
+			}
 		}
 		return patterns;
 	}
 
 	public static List<CompletePattern> getNeoPatterns() {
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
-		for (PatternClass patternClass: getPatternClassInstances()) {
-			if (patternClass.neoValid)
-				try {
-					CompletePattern pattern = patternClass.getNeoPattern(); 
-					if (pattern != null)
-						patterns.add(pattern);
-				} catch (Exception e) {
-					continue;
-				}
+		for (PatternBundle bundle: getNeoPatternBundles()) {
+			try {
+				patterns.add(bundle.getConcrete());
+			}
+			catch (Exception e) {
+				ServletUtilities.logError(new InvalidityException("Exception when compiling Neo PatternBundle " + bundle.id, e));
+			}
 		}
 		return patterns;
 	}
@@ -137,6 +146,9 @@ public class PatternCollection {
 				} catch (Exception e) {
 					continue;
 				}
+			} catch (Exception e) {
+				ServletUtilities.logError(new InvalidityException("Exception when compiling XML PatternBundle for Class " + id, e));
+			}
 		}
 		return patternbundles;
 	}

@@ -197,6 +197,12 @@
         <eParameters name="element" eType="#//graphstructure/Node"/>
       </eOperations>
       <eOperations name="getElement" eType="#//graphstructure/Node"/>
+      <eOperations name="generateXQueryIsolated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateSparqlIsolated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateCypherIsolated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
           eType="#//graphstructure/Node" eOpposite="#//graphstructure/Node/predicates"/>
     </eClassifiers>

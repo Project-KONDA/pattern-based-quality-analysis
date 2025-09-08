@@ -283,11 +283,11 @@ public class InitialisationServlet extends HttpServlet {
 				JSONObject json = readJsonFromFile(file);
 				initializeVariant(json, path);
 			} catch (IOException e) {
-				ServletUtilities.logError(new InvalidityException("Invalid JSON File on " + path + ": " + e.getMessage()));
+				ServletUtilities.logError(new InvalidityException("Invalid JSON File on " + path + ": " + e.getMessage(), e), 2);
 			} catch (JSONException e) {
-				ServletUtilities.logError(new InvalidityException("Invalid JSON Format of File " + path + ": " + e.getMessage()));
+				ServletUtilities.logError(new InvalidityException("Invalid JSON Format of File " + path + ": " + e.getMessage(), e), 2);
 			} catch (InvalidityException e) {
-				ServletUtilities.logError(new InvalidityException("Specified Variant of File " + path + " is invalid: " + e.getMessage()), 0);
+				ServletUtilities.logError(new InvalidityException("Specified Variant of File " + path + " is invalid: " + e.getMessage(), e), 2);
 			}
 		}
 	}

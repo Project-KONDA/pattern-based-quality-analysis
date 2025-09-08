@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -108,6 +109,15 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		} else {
 			throw new InvalidityException("invalid option");
 		}
+	}
+
+	@Override
+	public String generateXQueryIsolated() throws InvalidityException {
+		String query = generateXQuery();
+		EList<String> vars = ((XmlProperty) primitiveNode).getXQueryRepresentation();
+		String var = vars.get(vars.size()-1);
+		query = query.replace("matches(.,", "matches(" + var + ",");
+		return query;
 	}
 
 	@Override
@@ -378,8 +388,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		TextLiteralParam oldRegularExpression = regularExpression;
 
 		ParameterList varlist = getParameterList();
-		varlist.remove(oldRegularExpression);
-		varlist.add(newRegularExpression);
+		if (varlist != null) {
+			varlist.remove(oldRegularExpression);
+			varlist.add(newRegularExpression);
+		}
 
 		regularExpression = newRegularExpression;
 
@@ -513,8 +525,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		BooleanParam oldOption = option;
 
 		ParameterList varlist = getParameterList();
-		varlist.remove(oldOption);
-		varlist.add(newOption);
+		if (varlist != null) {
+			varlist.remove(oldOption);
+			varlist.add(newOption);
+		}
 
 		option = newOption;
 

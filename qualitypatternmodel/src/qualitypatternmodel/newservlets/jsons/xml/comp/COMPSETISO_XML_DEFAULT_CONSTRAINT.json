@@ -1,0 +1,35 @@
+{
+    "template":"CompSetIso_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+    "fragments":[
+        {"text":"Within each"},
+        {
+            "name":"element",
+            "params":[4],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":", check that each"},
+        {
+            "name":"property",
+            "params":[3],
+            "exampleValue":"Surname",
+            "description":"value that gets analysed"
+        },
+        {
+            "name":"is/is not",
+            "params":[0],
+            "exampleValue":"is",
+            "defaultMap":"comparison_isnot"
+        },
+        {"text":"in the list of"},
+        {
+            "name":"terms",
+            "params":[2],
+            "exampleValue":"Mueller, Meier"
+        },
+        {"text":"."}
+    ]
+}

@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -75,6 +76,13 @@ public abstract class TwoArgJavaOperatorImpl extends JavaOperatorImpl implements
 	 */
 	@Override
 	abstract public Boolean apply(String param1, String param2);
+
+	@Override
+	public String generateXQueryIsolated() throws InvalidityException {
+		if (!(getArgument1() instanceof XmlProperty) || !(getArgument2() instanceof XmlProperty))
+			throw new InvalidityException();
+		return ((XmlProperty) getArgument1()).getVariables().get(0) + ", " + ((XmlProperty) getArgument2()).getVariables().get(0);
+	}
 
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

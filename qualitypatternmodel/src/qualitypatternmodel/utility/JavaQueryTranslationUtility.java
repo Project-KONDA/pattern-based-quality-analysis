@@ -15,31 +15,25 @@ import qualitypatternmodel.operators.BooleanOperator;
 public class JavaQueryTranslationUtility {
 
 	public static String INTERIM = "interim";
-	public static String INTERIMSTART = "\"<interim>\"";
-	public static String INTERIMEND = "\"</interim>\"";
 	public static String RETURN = "return";
-	public static String RETURNSTART = "\"<return>\"";
-	public static String RETURNEND = "\"</return>\"";
-	public static String CONDITIONSTART = "\"<condition>\"";
-	public static String CONDITIONEND = "\"</condition>\"";
+	public static String CONDITION = "condition";
 	public static String QUANTIFIED = "quantified";
-	public static String QUANTIFIEDSTART = "\"<quantified>\"";
-	public static String QUANTIFIEDEND = "\"</quantified>\"";
 	public static String QUANTIFIER = "quantifier";
-	public static String QUANTIFIERSTART = "\"<quantifier>\"";
-	public static String QUANTIFIEREND = "\"</quantifier>\"";
 	public static String FORMULA = "formula";
-//	public static String FORMULASTART = "\"<formula>\"";
-//	public static String FORMULAEND = "\"</formula>\"";
 	public static String VALUE = "value";
-//	public static String VALUESTART = "\"<value>\"";
-//	public static String VALUEEND = "\"</value>\"";
 	public static String BOOLEAN = "boolean";
 	public static String RETURNSTATEMENT = "return\n  ";
 	public static String COUNT = "count";
 
+	public static String start(String tag){
+		return "\"<" + tag + ">\"";
+	}
+	public static String end(String tag){
+		return "\"</" + tag + ">\"";
+	}
+
 	public static String getXQueryReturnList(List<String> elements, String tagname, boolean ret, boolean outerbrackets, boolean innerbrackets) {
-		String returnstring = "\"<" + tagname + ">\",\n  ";
+		String returnstring = start(tagname) + ",\n  ";
 		if (innerbrackets) {
 			returnstring += "(";
 		}
@@ -61,7 +55,7 @@ public class JavaQueryTranslationUtility {
 			}
 		}
 
-		returnstring += "\"</" + tagname + ">\"";
+		returnstring += end(tagname);
 		if (outerbrackets) {
 			returnstring += ")";
 		}

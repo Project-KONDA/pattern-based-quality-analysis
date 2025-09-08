@@ -1,0 +1,28 @@
+{
+    "template":"ContainsSin_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"property",
+            "params":[2],
+            "exampleValue":"Education",
+            "description":"analysed property"
+        },
+        {
+            "name":"does / does not",
+            "params":[0],
+            "defaultMap":"does not",
+            "exampleValue":"does"
+        },
+        {"text":"contain"},
+        {
+            "name":"a specific term",
+            "params":[1],
+            "exampleValue":"Master of"
+        },
+        {"text":"."}
+    ]
+}
