@@ -3,7 +3,6 @@ package qualitypatternmodel.mqaftranslation;
 import java.util.List;
 import java.util.Map;
 
-import org.basex.util.Pair;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 

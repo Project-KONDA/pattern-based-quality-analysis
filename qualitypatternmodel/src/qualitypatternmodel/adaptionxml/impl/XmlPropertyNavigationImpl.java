@@ -109,10 +109,10 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		}
 
 		path = xmlPathParam.generateXQuery();
-		if (!path.startsWith(sourcevariable)) {
-			System.err.println("path '" + path + "' does not start with variable '" + sourcevariable + "'");
-			path = sourcevariable + path;
-		}
+//		if (!path.startsWith(sourcevariable)) {
+//			System.err.println("path '" + path + "' does not start with variable '" + sourcevariable + "'");
+//			path = sourcevariable + path;
+//		}
 			
 
 		// Predicate

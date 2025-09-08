@@ -42,6 +42,10 @@ public class XmlServletUtility {
 					throw new InvalidityException("File not found");
 				}
 				new CreateDB(databasename, datapath).execute(context);
+			} else {
+		        databasename = "dummydb_" + UUID.randomUUID();
+		        String dummyXml = "<dummy/>";
+		        new CreateDB(databasename, dummyXml).execute(context);
 			}
 			try (QueryProcessor proc = new QueryProcessor(query, context)) {
 				Iter iter = proc.iter();
@@ -50,11 +54,11 @@ public class XmlServletUtility {
 				}
 			}
 		} catch(BaseXException e) {
-			throw new InvalidityException("BaseXException on file " + datapath + " with query: " + query + " [" + e.getMessage() + "]");
+			throw new InvalidityException("BaseXException on file " + datapath + " with query: " + query + " [" + e.getMessage() + "]", e);
 		} catch(QueryException e) {
-			throw new InvalidityException("QueryException on file " + datapath + " with query: " + query + " [" + e.getMessage() + "]");
+			throw new InvalidityException("QueryException on file " + datapath + " with query: " + query + " [" + e.getMessage() + "]", e);
 		} catch (QueryIOException e) {
-			throw new InvalidityException("QueryIOException on file " + datapath + " with query: " + query + " [" + e.getMessage() + "]");
+			throw new InvalidityException("QueryIOException on file " + datapath + " with query: " + query + " [" + e.getMessage() + "]", e);
 		} finally {
 			if (context != null) {
 				if (databasename != null)

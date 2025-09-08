@@ -17,6 +17,10 @@ abstract public class PatternClass {
 
 	// Add information
 	public final String id;
+	public final String genericId;
+	public final String xmlId;
+	public final String rdfId;
+	public final String neoId;
 	public final String name;
 	public final String description;
 	public final Boolean genericValid;
@@ -26,6 +30,10 @@ abstract public class PatternClass {
 
 	protected PatternClass(String id, String name, String description, Boolean genericValid, Boolean xmlValid, Boolean rdfValid, Boolean neoValid) {
 		this.id = id;
+		genericId = id + "_generic";
+		xmlId = id + "_xml";
+		rdfId = id + "_rdf";
+		neoId = id + "_neo4j";
 		this.name = name;
 		this.description = description;
 		this.genericValid = genericValid;
@@ -34,24 +42,9 @@ abstract public class PatternClass {
 		this.neoValid = neoValid;
 	}
 
-	String genericId() {
-		return id + "_generic";
-	};
+	// Patterns
 
-	String xmlId() {
-		return id + "_xml";
-	};
-
-	String rdfId() {
-		return id + "_rdf";
-	};
-
-	String neoId() {
-		return id + "_neo4j";
-	};
-
-
-	public CompletePattern getGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public CompletePattern getGenericPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = getPattern();
 		if (pattern == null) {
 			throw new RuntimeException("Pattern " + id + " is null");
@@ -62,18 +55,40 @@ abstract public class PatternClass {
 		return pattern;
 	}
 	
-	protected void setInfo(CompletePattern pattern) {
-		pattern.setPatternId(genericId());
-		pattern.setAbstractId(genericId());
-		pattern.setName(name);
-		pattern.setDescription(description);
+	public CompletePattern getXmlPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return getXmlBundle().getConcrete();
 	}
+	
+	public CompletePattern getRdfPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return getRdfBundle().getConcrete();
+	}
+	
+	public CompletePattern getNeoPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return getNeoBundle().getConcrete();
+	}
+	
+	public CompletePattern getPattern(Language lan) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		switch(lan) {
+		case GENERIC:
+			return getGenericPattern();
+		case XML:
+			return getXmlPattern();
+		case RDF:
+			return getRdfPattern();
+		case NEO4J:
+			return getNeoPattern();
+		default:
+			return null;
+		}
+	}
+
+	// PatternBundes
 
 	public PatternBundle getXmlBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return new PatternBundle(
-				getGeneric(),
+				getGenericPattern(),
 				Language.XML,
-				xmlId(),
+				xmlId,
 				xmlMap(),
 				xmlVariants(),
 				xmlVariantsOld());
@@ -81,9 +96,9 @@ abstract public class PatternClass {
 
 	public PatternBundle getRdfBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
 		return new PatternBundle(
-				getGeneric(),
+				getGenericPattern(),
 				Language.RDF,
-				rdfId(),
+				rdfId,
 				rdfMap(),
 				rdfVariants(),
 				rdfVariantsOld());
@@ -91,12 +106,49 @@ abstract public class PatternClass {
 
 	public PatternBundle getNeoBundle() throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
 		return new PatternBundle(
-				getGeneric(),
+				getGenericPattern(),
 				Language.NEO4J,
-				neoId(),
+				neoId,
 				neoMap(),
 				neoVariants(),
 				neoVariantsOld());
+	}
+
+	public PatternBundle getBundle(Language lan) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		switch(lan) {
+		case XML:
+			return getXmlBundle();
+		case RDF:
+			return getRdfBundle();
+		case NEO4J:
+			return getNeoBundle();
+		default:
+			return null;
+		}
+	}
+
+	// Helper 
+
+	protected void setInfo(CompletePattern pattern) {
+		pattern.setPatternId(genericId);
+		pattern.setAbstractId(genericId);
+		pattern.setName(name);
+		pattern.setDescription(description);
+	}
+
+	public Boolean validity(Language lan) {
+		switch (lan) {
+		case GENERIC:
+			return genericValid;
+		case XML:
+			return xmlValid;
+		case RDF:
+			return rdfValid;
+		case NEO4J:
+			return neoValid;
+		default:
+			return false;
+		}
 	}
 
 	// Override for specific Patternbundle options

@@ -5,6 +5,7 @@ import org.junit.platform.suite.api.Suite;
 
 import newservelettest.xmlapitests.APITemplateTests;
 import newservelettest.xmlapitests.APIVariantsXMLTest;
+import newservelettest.PatternCollectionTests;
 import newservelettest.xmlapitests.APICallTests;
 import qualitypatternmodel.xmltranslationtests.XmlTranslationJUnitTests;
 
@@ -14,6 +15,7 @@ import qualitypatternmodel.xmltranslationtests.XmlTranslationJUnitTests;
 	RdfJUnitTests.class,
 //	Neo4jJUnitTests.class,
 	XmlTranslationJUnitTests.class,
+	PatternCollectionTests.class,
 	APICallTests.class,
 	APITemplateTests.class,
 	APIVariantsXMLTest.class

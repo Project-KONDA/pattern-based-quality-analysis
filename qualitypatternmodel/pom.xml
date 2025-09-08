@@ -52,7 +52,7 @@
     <dependency>
       <groupId>org.basex</groupId>
       <artifactId>basex</artifactId>
-      <version>9.0</version>
+      <version>10.6</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
