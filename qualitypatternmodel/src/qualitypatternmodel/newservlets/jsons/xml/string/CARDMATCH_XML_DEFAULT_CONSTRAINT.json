@@ -6,7 +6,7 @@
     "fragments":[
         {"text":"Each"},
         {
-            "name":"element",
+            "name":"Element",
             "params":[4],
             "exampleValue":"Actors",
             "description":"anchor for analysis"
@@ -24,7 +24,7 @@
             "exampleValue":"1"
         },
         {
-            "name":"subelements",
+            "name":"Properties",
             "params":[5],
             "exampleValue":"Birthdates",
             "description":"counted elements",
@@ -32,10 +32,10 @@
         },
         {"text":"that "},
         {
-            "name":"does / does not",
+            "name":"do / do not",
             "params":[2],
-            "defaultMap":"does not",
-            "exampleValue":"does"
+            "defaultMap":"do",
+            "exampleValue":"do"
         },
         {"text":"match"},
         {
