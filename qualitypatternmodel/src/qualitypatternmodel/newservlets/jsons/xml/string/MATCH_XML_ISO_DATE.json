@@ -4,22 +4,22 @@
     "name":"iso-date",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"For each"},
+        {"text":"For all"},
         {
-            "name":"element",
+            "name":"Container Elements",
             "params":[2],
             "exampleValue":"Actors",
             "description":"anchor for analysis"
         },
-        {"text":"all"},
+        {"text":"each"},
         {
-            "name":"properties",
+            "name":"Property",
             "params":[3],
             "exampleValue":"Surname",
             "description":"value that gets analysed",
             "plural":"true"
         },
-        {"text":"match the ISO 8601 format."},
+        {"text":"matches the ISO 8601 format."},
         
         {
             "params":[0],
