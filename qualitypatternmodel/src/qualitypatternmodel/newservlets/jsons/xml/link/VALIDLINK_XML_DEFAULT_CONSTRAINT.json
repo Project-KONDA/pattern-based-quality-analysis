@@ -4,9 +4,9 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"For"},
+        {"text":"For all"},
         {
-            "name":"elements",
+            "name":"Container Elements",
             "params":[1],
             "exampleValue":"Actors",
             "description":"anchor for analysis",
@@ -14,7 +14,7 @@
         },
         {"text":", each"},
         {
-            "name":"property",
+            "name":"Property",
             "params":[2],
             "exampleValue":"Birth Certificate Source",
             "description":"property of interest,that should contain a valid link."
