@@ -6,7 +6,7 @@
     "fragments":[
 		{"text":"Each"},
 		{
-			"name":"element",
+			"name":"Element",
 			"params":[0],
 			"exampleValue":"measurement",
 			"description":"base element for analysis"
