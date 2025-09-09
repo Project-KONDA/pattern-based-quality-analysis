@@ -6,14 +6,14 @@
     "fragments":[
         {"text":"Each"},
         {
-            "name":"element",
+            "name":"Element",
             "params":[0],
             "exampleValue":"Actor",
             "description":"anchor for analysis"
         },
-        {"text":"has at least one"},
+        {"text":"has a"},
         {
-            "name":"child element",
+            "name":"Property",
             "params":[1],
             "exampleValue":"Birthdate",
             "description":"value that gets analysed"
