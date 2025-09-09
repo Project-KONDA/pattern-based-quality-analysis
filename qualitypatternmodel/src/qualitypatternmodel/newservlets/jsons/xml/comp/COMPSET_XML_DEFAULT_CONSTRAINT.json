@@ -4,9 +4,9 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"For"},
+        {"text":"For all"},
         {
-            "name":"elements",
+            "name":"Container elements",
             "params":[3],
             "exampleValue":"Actors",
             "description":"anchor for analysis",
@@ -14,7 +14,7 @@
         },
         {"text":", each"},
         {
-            "name":"property",
+            "name":"Property",
             "params":[4],
             "exampleValue":"Surname",
             "description":"value that gets analysed"
