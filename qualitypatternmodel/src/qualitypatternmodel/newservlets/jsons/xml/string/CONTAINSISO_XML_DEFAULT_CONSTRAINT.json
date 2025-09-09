@@ -4,16 +4,16 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"Within each"},
+        {"text":"For all"},
         {
-            "name":"element",
+            "name":"Container elements",
             "params":[3],
             "exampleValue":"Actor",
             "description":"anchor for analysis"
         },
         {"text":", each"},
         {
-            "name":"property",
+            "name":"Property",
             "params":[2],
             "exampleValue":"Education",
             "description":"analysed property"
@@ -21,7 +21,7 @@
         {
             "name":"does / does not",
             "params":[0],
-            "defaultMap":"does not",
+            "defaultMap":"does",
             "exampleValue":"does"
         },
         {"text":"contain"},
