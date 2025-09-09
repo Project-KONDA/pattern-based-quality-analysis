@@ -6,14 +6,14 @@
     "fragments":[
 		{"text":"Each"},
 		{
-			"name":"element",
+			"name":"Element",
 			"params":[0],
 			"exampleValue":"unit",
 			"description":"element of analyis"
 		},
 		{"text":"must contain both a"},
 		{
-			"name":"subelement",
+			"name":"Subelement",
 			"params":[2],
 			"exampleValue":"element",
 			"description":"element condition"
