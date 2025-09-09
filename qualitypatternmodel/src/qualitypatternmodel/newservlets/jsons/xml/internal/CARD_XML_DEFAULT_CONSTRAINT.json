@@ -6,7 +6,7 @@
     "fragments":[
         {"text":"Each"},
         {
-            "name":"element",
+            "name":"Element",
             "params":[2],
             "exampleValue":"Actors",
             "description":"anchor for analysis"
@@ -19,12 +19,12 @@
             "defaultMap":"comparison_negated"
         },
         {
-            "name":"a specific number",
+            "name":"a specific number of",
             "params":[1],
             "exampleValue":"1"
         },
         {
-            "name":"child elements",
+            "name":"Subelements",
             "params":[3],
             "exampleValue":"Birthdates",
             "description":"counted elements",
