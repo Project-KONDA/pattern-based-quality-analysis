@@ -6,7 +6,7 @@
     "fragments":[
         {"text":"Each"},
         {
-            "name":"property",
+            "name":"Property",
             "params":[2],
             "exampleValue":"Education",
             "description":"analysed property"
@@ -14,7 +14,7 @@
         {
             "name":"does / does not",
             "params":[0],
-            "defaultMap":"does not",
+            "defaultMap":"does",
             "exampleValue":"does"
         },
         {"text":"contain"},
