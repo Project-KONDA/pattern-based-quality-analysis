@@ -4,16 +4,17 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"Within each"},
+        {"text":"For all"},
         {
-            "name":"element",
+            "name":"Container Elements",
             "params":[4],
-            "exampleValue":"Actor",
-            "description":"anchor for analysis"
+            "exampleValue":"Actors",
+            "description":"anchor for analysis",
+			"plural":"true"
         },
-        {"text":", check that each"},
+        {"text":", each"},
         {
-            "name":"property",
+            "name":"Property",
             "params":[3],
             "exampleValue":"Surname",
             "description":"value that gets analysed"
@@ -26,7 +27,7 @@
         },
         {"text":"in the list of"},
         {
-            "name":"terms",
+            "name":"Terms",
             "params":[2],
             "exampleValue":"Mueller, Meier"
         },

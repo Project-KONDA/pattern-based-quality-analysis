@@ -4,16 +4,17 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"Within each"},
+        {"text":"For all"},
         {
-            "name":"element",
+            "name":"Container elements",
             "params":[3],
             "exampleValue":"Actor",
-            "description":"anchor for analysis"
+            "description":"anchor for analysis",
+			"plural": "true"
         },
         {"text":", each"},
         {
-            "name":"property",
+            "name":"Property",
             "params":[2],
             "exampleValue":"Education",
             "description":"analysed property"

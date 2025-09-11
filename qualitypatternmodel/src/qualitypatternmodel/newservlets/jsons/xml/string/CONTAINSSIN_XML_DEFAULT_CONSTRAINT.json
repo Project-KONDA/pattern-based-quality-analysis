@@ -6,7 +6,7 @@
     "fragments":[
         {"text":"Each"},
         {
-            "name":"property",
+            "name":"Property",
             "params":[2],
             "exampleValue":"Education",
             "description":"analysed property"

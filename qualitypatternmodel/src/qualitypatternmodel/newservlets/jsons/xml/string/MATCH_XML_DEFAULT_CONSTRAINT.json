@@ -4,25 +4,25 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"For each"},
+        {"text":"For all"},
         {
-            "name":"element",
+            "name":"Container Elements",
             "params":[2],
             "exampleValue":"Actors",
-            "description":"anchor for analysis"
-        },
-        {"text":"all"},
-        {
-            "name":"properties",
-            "params":[3],
-            "exampleValue":"Surname",
-            "description":"value that gets analysed",
+            "description":"anchor for analysis",
             "plural":"true"
         },
+        {"text":"each"},
         {
-            "name":"do / do not",
+            "name":"Property",
+            "params":[3],
+            "exampleValue":"Surname",
+            "description":"value that gets analysed"
+        },
+        {
+            "name":"does / does not",
             "params":[0],
-            "defaultMap":"do not",
+            "defaultMap":"does not",
             "exampleValue":"do"
         },
         {"text":"match"},

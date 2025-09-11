@@ -13,14 +13,14 @@
 		},
 		{"text":"must contain either a"},
 		{
-			"name":"property",
+			"name":"Property",
 			"params":[2],
 			"exampleValue":"text",
 			"description":"property condition"
 		},
 		{"text":"or a"},
 		{
-			"name":"element",
+			"name":"Subelement",
 			"params":[3],
 			"exampleValue":"element",
 			"description":"element condition"

@@ -4,9 +4,9 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"For"},
+        {"text":"For all"},
         {
-            "name":"elements",
+            "name":"Container Elements",
             "params":[3],
             "exampleValue":"Actors",
             "description":"anchor for analysis",
@@ -14,7 +14,7 @@
         },
         {"text":", each"},
         {
-            "name":"property",
+            "name":"Property",
             "params":[4],
             "exampleValue":"Surname",
             "description":"value that gets analysed"
@@ -22,12 +22,12 @@
         {
             "name":"is/is not",
             "params":[1],
-            "exampleValue":"is",
+            "exampleValue":"is not",
             "defaultMap":"comparison_isnot"
         },
         {"text":"in the list of"},
         {
-            "name":"terms",
+            "name":"Terms",
             "params":[0],
             "exampleValue":"Mueller, Meier"
         },
