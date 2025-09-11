@@ -6,7 +6,7 @@
     "fragments":[
         {"text":"For all"},
         {
-            "name":"Container elements",
+            "name":"Container Elements",
             "params":[4],
             "exampleValue":"Actors",
             "description":"anchor for analysis",
