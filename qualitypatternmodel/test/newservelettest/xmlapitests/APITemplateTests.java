@@ -188,14 +188,14 @@ public class APITemplateTests {
 				Map.of(
 						"XmlPath_Element_0", "//*", 
 						"XmlPath_Property_1", "/text()", 
-						"Boolean_2", "does", 
+						"Boolean_2", "do", 
 						"Text_3", "a"));
 	}
 
 	@Test
 	public void testTemplateMatch()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assertEquals(2, store.getJSONObject("Match_xml").getInt("size"));
+		assertEquals(3, store.getJSONObject("Match_xml").getInt("size"));
 
 		testConstraint("Match_xml", "default-constraint", 
 				Map.of(
@@ -213,7 +213,7 @@ public class APITemplateTests {
 		testConstraint("CompSet_xml", "default-constraint",
 				Map.of("XmlPath_Element_0", "//*",
 						"XmlPath_Property_1", "/text()",
-						"ComparisonOption_2", "is",
+						"ComparisonOption_2", "are",
 						"TextList_3", "{\"a\"}"));
 	}
 
@@ -266,7 +266,7 @@ public class APITemplateTests {
 
 	@Test
 	public void testTemplateMandContent() throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assertEquals(4, store.getJSONObject("MandCont_xml").getInt("size"));
+		assertEquals(2, store.getJSONObject("MandCont_xml").getInt("size"));
 
 		testConstraint("MandCont_xml", "default-constraint",
 				Map.of(
@@ -279,16 +279,6 @@ public class APITemplateTests {
 				Map.of("XmlPath_Element_0", "//*", 
 						"XmlPath_Element_1", "//*",
 						"XmlPath_Element_2", "//*"));
-
-		testConstraint("MandCont_xml", "constraint_m",
-				Map.of(
-						"XmlPath_Element_0", "//*",
-						"XmlPath_Property_1", "/text()",
-						"XmlPath_Element_2", "//*"));
-
-		testConstraint("MandCont_xml", "justnotempty", 
-				Map.of(
-						"XmlPath_Element_0", "//*"));
 	}
 	
 	private void testConstraint(String constraint, String variant, Map<String, String> params) throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {

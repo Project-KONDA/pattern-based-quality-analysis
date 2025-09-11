@@ -1,5 +1,5 @@
 {
-    "template":"Match_xml",
+    "template":"MatchIso_xml",
     "language":"xml",
     "name":"bcp-lang",
 	"typeConstraint":true,

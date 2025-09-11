@@ -1,5 +1,5 @@
 {
-    "template":"Match_xml",
+    "template":"MatchSin_xml",
     "language":"xml",
     "name":"iso-date",
 	"typeConstraint":true,
