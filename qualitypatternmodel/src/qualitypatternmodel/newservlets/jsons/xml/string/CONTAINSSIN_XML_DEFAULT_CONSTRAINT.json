@@ -14,7 +14,7 @@
         {
             "name":"does / does not",
             "params":[0],
-            "defaultMap":"does",
+            "defaultMap":"does not",
             "exampleValue":"does"
         },
         {"text":"contain"},
