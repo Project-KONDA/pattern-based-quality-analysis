@@ -1,7 +1,7 @@
 {
     "template":"MandContAndSin_xml",
     "language":"xml",
-    "name":"default-constraint",
+    "name":"constraint_2",
 	"typeConstraint":true,
     "fragments":[
 		{"text":"Each"},
@@ -18,13 +18,10 @@
 			"exampleValue":"element",
 			"description":"element condition"
 		},
-		{"text":"and a"},
+		{"text":"and a text."},
 		{
-			"name":"Property",
 			"params":[1],
-			"exampleValue":"text",
-			"description":"property condition"
-		},
-		{"text":"."}
+			"value":"/text()"
+		}
     ]
 }

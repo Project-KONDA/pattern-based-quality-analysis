@@ -4,30 +4,31 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-		{"text":"Within each"},
+		{"text":"For each"},
 		{
-			"name":"element",
+			"name":"Element",
 			"params":[0],
 			"exampleValue":"measurement",
 			"description":"base element for analysis"
 		},
-		{"text":", every"},
+		{"text":", all"},
 		{
-			"name":"subelement",
+			"name":"Subelements",
 			"params":[1],
-			"exampleValue":"unit",
-			"description":"element of analyis"
+			"exampleValue":"units",
+			"description":"element of analyis",
+			"plural":"true"
 		},
 		{"text":"must contain both a"},
 		{
-			"name":"property",
+			"name":"Property",
 			"params":[2],
 			"exampleValue":"text",
 			"description":"property condition"
 		},
 		{"text":"and a"},
 		{
-			"name":"element",
+			"name":"Subsubelement",
 			"params":[3],
 			"exampleValue":"element",
 			"description":"element condition"

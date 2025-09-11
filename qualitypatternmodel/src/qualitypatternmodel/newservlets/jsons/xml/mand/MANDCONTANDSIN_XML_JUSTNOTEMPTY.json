@@ -1,24 +1,23 @@
 {
-    "template":"MandContSin_xml",
+    "template":"MandContAndSin_xml",
     "language":"xml",
-    "name":"constraint2",
+    "name":"justnotempty",
 	"typeConstraint":true,
     "fragments":[
 		{"text":"Each"},
 		{
-			"name":"element",
+			"name":"Element",
 			"params":[0],
 			"exampleValue":"unit",
 			"description":"element of analyis"
 		},
-		{"text":"must contain either a"},
+		{"text":"must contain something."},
+		
+		
 		{
-			"name":"subelement",
 			"params":[2],
-			"exampleValue":"element",
-			"description":"element condition"
+			"value":"/*"
 		},
-		{"text":"or a text."},
 		{
 			"params":[1],
 			"value":"/text()"

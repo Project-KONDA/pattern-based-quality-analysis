@@ -6,7 +6,7 @@
     "fragments":[
         {"text":"Each"},
         {
-            "name":"property",
+            "name":"Property",
             "params":[2],
             "exampleValue":"Education",
             "description":"analysed property"
@@ -19,7 +19,7 @@
         },
         {"text":"contain"},
         {
-            "name":"a specific term",
+            "name":"a Specific Term",
             "params":[1],
             "exampleValue":"Master of"
         },

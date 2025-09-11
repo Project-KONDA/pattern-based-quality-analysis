@@ -4,22 +4,22 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"Within"},
+        {"text":"For all"},
         {
-            "name":"elements",
+            "name":"Container Elements",
             "params":[2],
             "exampleValue":"Actors",
             "description":"anchor for analysis",
             "plural":"true"
         },
-        {"text":", check each"},
+        {"text":", each"},
         {
-            "name":"property",
+            "name":"Property",
             "params":[1],
             "exampleValue":"Birth Certificate Source",
             "description":"property of interest,that should contain a valid link."
         },
-        {"text":"if it is a valid link."},
+        {"text":"is a valid link."},
         
         {
             "params":[0],

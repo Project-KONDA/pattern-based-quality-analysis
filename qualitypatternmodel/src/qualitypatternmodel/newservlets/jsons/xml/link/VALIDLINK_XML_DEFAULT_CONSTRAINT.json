@@ -4,22 +4,21 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"For"},
+        {"text":"For each"},
         {
-            "name":"elements",
+            "name":"Container Element",
             "params":[1],
-            "exampleValue":"Actors",
-            "description":"anchor for analysis",
-            "plural":"true"
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
         },
-        {"text":", each"},
+        {"text":", all"},
         {
-            "name":"property",
+            "name":"Properties",
             "params":[2],
-            "exampleValue":"Birth Certificate Source",
+            "exampleValue":"Birth Certificate Sources",
             "description":"property of interest,that should contain a valid link."
         },
-        {"text":"is a valid link."},
+        {"text":"are a valid link."},
         
         {
             "params":[0],

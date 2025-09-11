@@ -4,30 +4,30 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"For"},
+        {"text":"In every"},
         {
-            "name":"elements",
+            "name":"Container Element",
             "params":[3],
-            "exampleValue":"Actors",
-            "description":"anchor for analysis",
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":", all"},
+        {
+            "name":"Properties",
+            "params":[4],
+            "exampleValue":"Surnames",
+            "description":"values that get analysed",
             "plural":"true"
         },
-        {"text":", each"},
         {
-            "name":"property",
-            "params":[4],
-            "exampleValue":"Surname",
-            "description":"value that gets analysed"
-        },
-        {
-            "name":"is/is not",
+            "name":"are/are not",
             "params":[1],
-            "exampleValue":"is",
-            "defaultMap":"comparison_isnot"
+            "exampleValue":"are not",
+            "defaultMap":"comparison_arenot"
         },
         {"text":"in the list of"},
         {
-            "name":"terms",
+            "name":"Terms",
             "params":[0],
             "exampleValue":"Mueller, Meier"
         },

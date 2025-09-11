@@ -4,22 +4,22 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"For"},
+        {"text":"For each"},
         {
-            "name":"elements",
+            "name":"Element",
             "params":[4],
-            "exampleValue":"Actors",
-            "description":"anchor for analysis",
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":", the character length of all"},
+        {
+            "name":"Properties",
+            "params":[5],
+            "exampleValue":"LastNames",
+            "description":"value that gets analysed",
             "plural":"true"
         },
-        {"text":", the characters in length of each"},
-        {
-            "name":"property",
-            "params":[5],
-            "exampleValue":"LastName",
-            "description":"value that gets analysed"
-        },
-        {"text":"is"},
+        {"text":"are"},
         {
             "name":"compared to",
             "params":[0],
@@ -27,7 +27,7 @@
             "defaultMap":"comparison_negated"
         },
         {
-            "name":"a specific number",
+            "name":"a Specific Number of",
             "params":[1],
             "exampleValue":"10"
         },
@@ -39,7 +39,7 @@
             "defaultMap":"comparison_negated"
         },
         {
-            "name":"a specific number",
+            "name":"a Specific Number of",
             "params":[3],
             "exampleValue":"10"
         },
