@@ -5,8 +5,6 @@ import java.util.List;
 import org.eclipse.emf.common.util.BasicEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.newservlets.patterns.*;
 import qualitypatternmodel.newservlets.patterns.comp.*;
@@ -70,8 +68,20 @@ public class PatternCollection {
 		
 		return classes;
 	}
+	public static List<PatternClass> getPatternClassInstances() {
+		List<PatternClass> patternclasses = new BasicEList<PatternClass>();
+		for (Class<? extends PatternClass> clazz: getPatternClasses()) {
+			try {
+				patternclasses.add(clazz.getDeclaredConstructor().newInstance());
+			} catch (Exception e) {
+				ServletUtilities.logError(new InvalidityException("Exception when instantiating PatternClass " + clazz.getName(), e));
+			}
+		}
+		return patternclasses;
+		
+	}
 
-	public static List<CompletePattern> getGenericPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static List<CompletePattern> getGenericPatterns() {
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		
 		for (Class<? extends PatternClass> clazz: getPatternClasses()) {
@@ -87,7 +97,7 @@ public class PatternCollection {
 		return patterns;
 	}
 
-	public static List<CompletePattern> getXmlPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static List<CompletePattern> getXmlPatterns() throws InvalidityException {
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 
 		for (PatternBundle bundle: getXmlPatternBundles()) {
@@ -101,7 +111,7 @@ public class PatternCollection {
 		return patterns;
 	}
 
-	public static List<CompletePattern> getRdfPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static List<CompletePattern> getRdfPatterns() throws InvalidityException {
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		
 		for (PatternBundle bundle: getRdfPatternBundles()) {
@@ -115,7 +125,7 @@ public class PatternCollection {
 		return patterns;
 	}
 
-	public static List<CompletePattern> getNeoPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static List<CompletePattern> getNeoPatterns() throws InvalidityException {
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		
 		for (PatternBundle bundle: getNeoPatternBundles()) {
