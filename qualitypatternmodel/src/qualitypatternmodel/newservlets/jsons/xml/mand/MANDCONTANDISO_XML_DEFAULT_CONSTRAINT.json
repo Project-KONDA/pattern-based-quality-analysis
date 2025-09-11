@@ -6,10 +6,11 @@
     "fragments":[
 		{"text":"For all"},
 		{
-			"name":"Container elements",
+			"name":"Container Elements",
 			"params":[1],
 			"exampleValue":"measurement",
-			"description":"base element for analysis"
+			"description":"base element for analysis",
+			"plural":"true"
 		},
 		{"text":", each"},
 		{

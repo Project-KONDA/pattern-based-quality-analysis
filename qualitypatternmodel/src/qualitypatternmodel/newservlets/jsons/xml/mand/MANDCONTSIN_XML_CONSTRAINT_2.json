@@ -1,7 +1,7 @@
 {
     "template":"MandContSin_xml",
     "language":"xml",
-    "name":"constraint2",
+    "name":"constraint_2",
 	"typeConstraint":true,
     "fragments":[
 		{"text":"Each"},

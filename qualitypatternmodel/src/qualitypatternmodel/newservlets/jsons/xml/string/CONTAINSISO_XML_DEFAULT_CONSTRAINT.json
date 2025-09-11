@@ -6,11 +6,11 @@
     "fragments":[
         {"text":"For all"},
         {
-            "name":"Container elements",
+            "name":"Container Elements",
             "params":[3],
-            "exampleValue":"Actor",
+            "exampleValue":"Actors",
             "description":"anchor for analysis",
-			"plural": "true"
+			"plural":"true"
         },
         {"text":", each"},
         {
@@ -27,7 +27,7 @@
         },
         {"text":"contain"},
         {
-            "name":"a specific term",
+            "name":"a Specific Term",
             "params":[1],
             "exampleValue":"Master of"
         },

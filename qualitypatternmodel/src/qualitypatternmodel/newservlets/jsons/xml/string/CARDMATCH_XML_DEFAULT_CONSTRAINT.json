@@ -30,11 +30,11 @@
             "description":"counted elements",
             "plural":"true"
         },
-        {"text":"that "},
+        {"text":"that"},
         {
             "name":"do / do not",
             "params":[2],
-            "defaultMap":"do",
+            "defaultMap":"do not",
             "exampleValue":"do"
         },
         {"text":"match"},

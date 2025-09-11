@@ -4,24 +4,24 @@
 	"name":"constraint_2",
 	"typeConstraint":true,
 	"fragments":[
-		{"text":"For all"},
-		{
-			"name":"Container Elements",
-			"params":[0],
-			"exampleValue":"measurement",
-			"description":"base element for analysis",
-			"plural": "true"
-		},
-		{"text":", each"},
+		{"text":"For each"},
 		{
 			"name":"Element",
+			"params":[0],
+			"exampleValue":"measurement",
+			"description":"base element for analysis"
+		},
+		{"text":", all"},
+		{
+			"name":"Subelements",
 			"params":[1],
 			"exampleValue":"unit",
-			"description":"element of analyis"
+			"description":"element of analyis",
+			"plural":"true"
 		},
 		{"text":"must contain both a"},
 		{
-			"name":"Element",
+			"name":"Subsubelement",
 			"params":[3],
 			"exampleValue":"element",
 			"description":"element condition"

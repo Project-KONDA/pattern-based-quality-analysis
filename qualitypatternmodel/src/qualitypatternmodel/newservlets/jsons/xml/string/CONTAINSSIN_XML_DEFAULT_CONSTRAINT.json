@@ -19,7 +19,7 @@
         },
         {"text":"contain"},
         {
-            "name":"a specific term",
+            "name":"a Specific Term",
             "params":[1],
             "exampleValue":"Master of"
         },

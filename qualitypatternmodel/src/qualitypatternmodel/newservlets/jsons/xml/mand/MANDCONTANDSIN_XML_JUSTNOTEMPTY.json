@@ -1,5 +1,5 @@
 {
-    "template":"MandCont_xml",
+    "template":"MandContAndSin_xml",
     "language":"xml",
     "name":"justnotempty",
 	"typeConstraint":true,
@@ -8,22 +8,19 @@
 		{
 			"name":"Element",
 			"params":[0],
-			"exampleValue":"measurement",
-			"description":"base element for analysis"
+			"exampleValue":"unit",
+			"description":"element of analyis"
 		},
 		{"text":"must contain something."},
 		
-		{
-			"params":[1],
-			"value":"/self::*"
-		},
+		
 		{
 			"params":[2],
-			"value":"/text()"
+			"value":"/*"
 		},
 		{
-			"params":[3],
-			"value":"/*"
+			"params":[1],
+			"value":"/text()"
 		}
     ]
 }

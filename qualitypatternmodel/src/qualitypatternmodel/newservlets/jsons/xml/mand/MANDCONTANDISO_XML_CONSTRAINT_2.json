@@ -1,26 +1,34 @@
 {
-    "template":"MandContAndSin_xml",
+    "template":"MandContAndIso_xml",
     "language":"xml",
-    "name":"constraint2",
+    "name":"constraint_2",
 	"typeConstraint":true,
     "fragments":[
-		{"text":"Each"},
+		{"text":"For all"},
+		{
+			"name":"Container Elements",
+			"params":[1],
+			"exampleValue":"measurement",
+			"description":"base element for analysis",
+			"plural":"true"
+		},
+		{"text":", each"},
 		{
 			"name":"Element",
-			"params":[0],
+			"params":[3],
 			"exampleValue":"unit",
 			"description":"element of analyis"
 		},
 		{"text":"must contain both a"},
 		{
 			"name":"Subelement",
-			"params":[2],
+			"params":[0],
 			"exampleValue":"element",
 			"description":"element condition"
 		},
 		{"text":"and a text."},
 		{
-			"params":[1],
+			"params":[2],
 			"value":"/text()"
 		}
     ]

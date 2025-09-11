@@ -10,7 +10,7 @@
 			"params":[1],
 			"exampleValue":"measurement",
 			"description":"base element for analysis",
-			"plural": "true"
+			"plural":"true"
 		},
 		{"text":", each"},
 		{

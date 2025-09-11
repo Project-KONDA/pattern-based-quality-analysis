@@ -4,30 +4,30 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"For"},
+        {"text":"For each"},
         {
-            "name":"elements",
+            "name":"Element",
             "params":[2],
             "exampleValue":"Actors",
-            "description":"anchor for analysis",
+            "description":"anchor for analysis"
+        },
+        {"text":", all"},
+        {
+            "name":"Properties",
+            "params":[3],
+            "exampleValue":"Educations",
+            "description":"analysed property",
             "plural":"true"
         },
-        {"text":", each"},
         {
-            "name":"property",
-            "params":[3],
-            "exampleValue":"Education",
-            "description":"analysed property"
-        },
-        {
-            "name":"does / does not",
+            "name":"do / do not",
             "params":[0],
-            "defaultMap":"does not",
-            "exampleValue":"does"
+            "defaultMap":"do not",
+            "exampleValue":"do"
         },
         {"text":"contain"},
         {
-            "name":"a specific term",
+            "name":"a Specific Term",
             "params":[1],
             "exampleValue":"Master of"
         },

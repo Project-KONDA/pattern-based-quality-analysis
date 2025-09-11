@@ -4,30 +4,30 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"For all"},
+        {"text":"For each"},
         {
-            "name":"Container Elements",
+            "name":"Element",
             "params":[2],
             "exampleValue":"Actors",
-            "description":"anchor for analysis",
-            "plural":"true"
+            "description":"anchor for analysis"
         },
-        {"text":"each"},
+        {"text":", all"},
         {
-            "name":"Property",
+            "name":"Properties",
             "params":[3],
             "exampleValue":"Surname",
-            "description":"value that gets analysed"
+            "description":"value that gets analysed",
+            "plural":"true"
         },
         {
-            "name":"does / does not",
+            "name":"do / do not",
             "params":[0],
-            "defaultMap":"does not",
+            "defaultMap":"do not",
             "exampleValue":"do"
         },
         {"text":"match"},
         {
-            "name":"a specific pattern (RegEx)",
+            "name":"a Specific Pattern (RegEx)",
             "params":[1],
             "exampleValue":"[A-Z][a-z][a-z]+"
         },

@@ -4,20 +4,20 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"For"},
+        {"text":"In each"},
         {
-            "name":"elements",
+            "name":"Container Element",
             "params":[2,5],
-            "exampleValue":"Actors",
-            "description":"anchor for analysis",
-            "plural":"true"
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
         },
-        {"text":", the"},
+        {"text":", all"},
         {
-            "name":"property",
+            "name":"Properties",
             "params":[3,4],
-            "exampleValue":"Identifier (Value)",
-            "description":"value that gets analysed"
+            "exampleValue":"Identifiers (Value)",
+            "description":"value that gets analysed",
+			"plural":"true"
         },
         {"text":"is unique."}
     ]
