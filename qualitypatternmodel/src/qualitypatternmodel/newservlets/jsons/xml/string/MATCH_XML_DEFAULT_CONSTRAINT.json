@@ -6,23 +6,23 @@
     "fragments":[
         {"text":"For all"},
         {
-            "name":"Container elements",
+            "name":"Container Elements",
             "params":[2],
             "exampleValue":"Actors",
-            "description":"anchor for analysis"
+            "description":"anchor for analysis",
+            "plural":"true"
         },
         {"text":"each"},
         {
             "name":"Property",
             "params":[3],
             "exampleValue":"Surname",
-            "description":"value that gets analysed",
-            "plural":"true"
+            "description":"value that gets analysed"
         },
         {
             "name":"does / does not",
             "params":[0],
-            "defaultMap":"does",
+            "defaultMap":"does not",
             "exampleValue":"do"
         },
         {"text":"match"},
