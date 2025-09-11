@@ -9,7 +9,8 @@
             "name":"Container elements",
             "params":[3],
             "exampleValue":"Actor",
-            "description":"anchor for analysis"
+            "description":"anchor for analysis",
+			"plural": "true"
         },
         {"text":", each"},
         {
@@ -21,7 +22,7 @@
         {
             "name":"does / does not",
             "params":[0],
-            "defaultMap":"does",
+            "defaultMap":"does not",
             "exampleValue":"does"
         },
         {"text":"contain"},
