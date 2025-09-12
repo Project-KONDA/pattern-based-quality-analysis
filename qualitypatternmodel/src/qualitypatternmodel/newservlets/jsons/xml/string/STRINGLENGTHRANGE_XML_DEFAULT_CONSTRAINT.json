@@ -19,7 +19,7 @@
             "description":"value that gets analysed",
             "plural":"true"
         },
-        {"text":"are"},
+        {"text":"is"},
         {
             "name":"compared to",
             "params":[0],
@@ -27,7 +27,7 @@
             "defaultMap":"comparison_negated"
         },
         {
-            "name":"a Specific Number of",
+            "name":"a Specific Number",
             "params":[1],
             "exampleValue":"10"
         },
@@ -39,7 +39,7 @@
             "defaultMap":"comparison_negated"
         },
         {
-            "name":"a Specific Number of",
+            "name":"a Specific Number",
             "params":[3],
             "exampleValue":"10"
         },

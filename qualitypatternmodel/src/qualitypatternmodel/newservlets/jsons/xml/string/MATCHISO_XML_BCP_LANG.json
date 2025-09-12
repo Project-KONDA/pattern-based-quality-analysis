@@ -19,7 +19,7 @@
             "exampleValue":"Surname",
             "description":"value that gets analysed"
         },
-        {"text":"match the BCP language code format (BCP 47)."},
+        {"text":"matches the BCP language code format (BCP 47)."},
         
         {
             "params":[0],
