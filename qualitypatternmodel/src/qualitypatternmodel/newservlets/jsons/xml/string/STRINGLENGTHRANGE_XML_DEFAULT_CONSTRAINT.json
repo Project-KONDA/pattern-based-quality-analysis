@@ -19,7 +19,7 @@
             "description":"value that gets analysed",
             "plural":"true"
         },
-        {"text":"are"},
+        {"text":"is"},
         {
             "name":"compared to",
             "params":[0],
@@ -43,6 +43,6 @@
             "params":[3],
             "exampleValue":"10"
         },
-        {"text":"."}
+        {"text":"characters."}
     ]
 }
