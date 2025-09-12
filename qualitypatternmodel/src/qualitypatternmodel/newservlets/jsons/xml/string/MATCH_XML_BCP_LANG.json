@@ -19,7 +19,7 @@
             "description":"value that gets analysed",
             "plural":"true"
         },
-        {"text":"match the BCP language code format (BCP 47)."},
+        {"text":"matches the BCP language code format (which extends ISO 639)."},
         
         {
             "params":[0],
