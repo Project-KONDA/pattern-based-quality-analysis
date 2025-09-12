@@ -8,7 +8,7 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Surname",
+            "exampleValue":"Birthdate",
             "description":"value that gets analysed"
         },
         {"text":"matches the ISO date format (ISO 8601)."},
