@@ -13,7 +13,7 @@
         },
         {"text":"is"},
         {
-            "name":"compared to",
+            "name":"Compared to",
             "params":[0],
             "exampleValue":"less than",
             "defaultMap":"comparison_negated"

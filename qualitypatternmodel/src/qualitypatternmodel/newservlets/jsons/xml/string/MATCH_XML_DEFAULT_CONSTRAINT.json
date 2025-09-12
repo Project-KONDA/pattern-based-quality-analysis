@@ -20,7 +20,7 @@
             "plural":"true"
         },
         {
-            "name":"do / do not",
+            "name":"Do / Do Not",
             "params":[0],
             "defaultMap":"do not",
             "exampleValue":"do"

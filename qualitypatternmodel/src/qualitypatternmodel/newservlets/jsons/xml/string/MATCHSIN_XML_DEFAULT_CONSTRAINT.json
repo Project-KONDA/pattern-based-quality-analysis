@@ -12,7 +12,7 @@
             "description":"value that gets analysed"
         },
         {
-            "name":"does / does not",
+            "name":"Does / Does Not",
             "params":[0],
             "defaultMap":"does not",
             "exampleValue":"does"

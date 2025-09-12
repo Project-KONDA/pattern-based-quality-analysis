@@ -20,7 +20,7 @@
             "description":"value that gets analysed"
         },
         {
-            "name":"is/is not",
+            "name":"Is / Is Not",
             "params":[0],
             "exampleValue":"is",
             "defaultMap":"comparison_isnot"

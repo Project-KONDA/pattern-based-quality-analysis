@@ -20,7 +20,7 @@
             "plural":"true"
         },
         {
-            "name":"are/are not",
+            "name":"Are / Are Not",
             "params":[1],
             "exampleValue":"are not",
             "defaultMap":"comparison_arenot"

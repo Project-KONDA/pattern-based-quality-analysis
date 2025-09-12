@@ -13,7 +13,7 @@
         },
         {"text":"has"},
         {
-            "name":"a comparison with",
+            "name":"a Comparison with",
             "params":[0],
             "exampleValue":"at most",
             "defaultMap":"comparison_negated"
