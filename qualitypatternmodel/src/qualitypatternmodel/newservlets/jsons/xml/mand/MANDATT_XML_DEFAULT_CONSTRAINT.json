@@ -15,7 +15,7 @@
         {
             "name":"Property",
             "params":[1],
-            "exampleValue":"Birthdate",
+            "exampleValue":"Identifier (Value)",
             "description":"value that gets analysed"
         },
         {"text":"."}
