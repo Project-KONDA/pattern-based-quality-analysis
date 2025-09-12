@@ -8,7 +8,7 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Education",
+            "exampleValue":"Attribution statement",
             "description":"analysed property"
         },
         {
@@ -21,7 +21,7 @@
         {
             "name":"a Specific Term",
             "params":[1],
-            "exampleValue":"Master of"
+            "exampleValue":"Workshop of"
         },
         {"text":"."}
     ]
