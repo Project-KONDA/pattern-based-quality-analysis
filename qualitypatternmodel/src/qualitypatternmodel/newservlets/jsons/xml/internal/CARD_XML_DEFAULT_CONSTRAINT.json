@@ -8,7 +8,7 @@
         {
             "name":"Element",
             "params":[2],
-            "exampleValue":"Actors",
+            "exampleValue":"Actor",
             "description":"anchor for analysis"
         },
         {"text":"has"},
@@ -26,7 +26,7 @@
         {
             "name":"Subelements",
             "params":[3],
-            "exampleValue":"Birthdates",
+            "exampleValue":"Birthdate",
             "description":"counted elements",
             "plural":"true"
         },

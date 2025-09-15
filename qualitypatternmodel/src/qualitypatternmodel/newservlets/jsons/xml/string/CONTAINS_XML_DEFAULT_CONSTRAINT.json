@@ -8,14 +8,14 @@
         {
             "name":"Element",
             "params":[2],
-            "exampleValue":"Actors",
+            "exampleValue":"Actor",
             "description":"anchor for analysis"
         },
         {"text":", all"},
         {
             "name":"Properties",
             "params":[3],
-            "exampleValue":"Educations",
+            "exampleValue":"Attribution statements",
             "description":"analysed property",
             "plural":"true"
         },
@@ -29,7 +29,7 @@
         {
             "name":"a Specific Term",
             "params":[1],
-            "exampleValue":"Master of"
+            "exampleValue":"Workshop of"
         },
         {"text":"."}
     ]

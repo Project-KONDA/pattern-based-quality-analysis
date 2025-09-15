@@ -8,7 +8,7 @@
         {
             "name":"Container Elements",
             "params":[3],
-            "exampleValue":"Actors",
+            "exampleValue":"Personal Names",
             "description":"anchor for analysis",
             "plural": "true"
         },
@@ -16,7 +16,7 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Surname",
+            "exampleValue":"Language Specification",
             "description":"value that gets analysed"
         },
         {"text":"matches the BCP language code format (BCP 47, extension of ISO 639)."},

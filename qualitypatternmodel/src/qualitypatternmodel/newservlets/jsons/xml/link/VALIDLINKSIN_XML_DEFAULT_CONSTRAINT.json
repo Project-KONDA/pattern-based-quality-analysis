@@ -8,7 +8,7 @@
         {
             "name":"Property",
             "params":[1],
-            "exampleValue":"Birth Certificate Source",
+            "exampleValue":"Homepage URL",
             "description":"property of interest,that should contain a valid link."
         },
         {"text":"is a valid link."},
