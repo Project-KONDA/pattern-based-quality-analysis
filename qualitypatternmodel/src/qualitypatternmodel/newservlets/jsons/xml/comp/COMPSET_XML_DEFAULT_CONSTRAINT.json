@@ -4,9 +4,9 @@
     "name":"default-constraint",
 	"typeConstraint":true,
     "fragments":[
-        {"text":"In every"},
+        {"text":"In each"},
         {
-            "name":"Container Element",
+            "name":"Element",
             "params":[3],
             "exampleValue":"Actor",
             "description":"anchor for analysis"
