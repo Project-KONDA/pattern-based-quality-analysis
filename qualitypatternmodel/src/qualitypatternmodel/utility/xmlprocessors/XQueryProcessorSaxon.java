@@ -178,8 +178,8 @@ public class XQueryProcessorSaxon {
 	                eval.setContextItem(inputDoc);
 	
 	                for (XdmItem item : eval) {
-	                	incidents.put(formatItemString(item, processor));
-//                    	incidents.put(formatItemJSON(item, processor));
+//	                	incidents.put(formatItemString(item, processor));
+                    	incidents.put(formatItemJSON(item, processor));
 //	                    switch (format) {
 //	                        case ConstantsXml.FORMAT_JSON:
 //	                        	incidents.put(formatItemJSON(item, processor));
@@ -272,11 +272,11 @@ public class XQueryProcessorSaxon {
 	    return ServletUtilities.makeQueryOneLine(query);
 	}
 
-	private static JSONObject formatItemString(XdmItem item, Processor processor) throws SaxonApiException {
-		JSONObject object = new JSONObject();
-		object.put(ConstantsJSON.RESULT_SNIPPET, item.toString());
-        return object;
-	}
+//	private static JSONObject formatItemString(XdmItem item, Processor processor) throws SaxonApiException {
+//		JSONObject object = new JSONObject();
+//		object.put(ConstantsJSON.RESULT_SNIPPET, item.toString());
+//        return object;
+//	}
 
 	private static JSONObject formatItemJSON(XdmItem item, Processor processor) throws SaxonApiException {
 		
