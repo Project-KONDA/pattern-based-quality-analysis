@@ -8,21 +8,21 @@
 		{
 			"name":"Element",
 			"params":[0],
-			"exampleValue":"unit",
+			"exampleValue":"Actor",
 			"description":"element of analyis"
 		},
 		{"text":"must contain both a"},
 		{
 			"name":"Subelement",
 			"params":[2],
-			"exampleValue":"element",
+			"exampleValue":"Name",
 			"description":"element condition"
 		},
 		{"text":"and a"},
 		{
 			"name":"Property",
 			"params":[1],
-			"exampleValue":"text",
+			"exampleValue":"Role (statement)",
 			"description":"property condition"
 		},
 		{"text":"."}
