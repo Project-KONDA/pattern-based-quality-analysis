@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,11 +14,16 @@ import org.json.JSONObject;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlNode;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -98,6 +105,12 @@ public class TemplateVariantServlet extends HttpServlet {
 		// 1 get parameters
 		String technology = pathparts[1];
 		String templateId = pathparts[2];
+		
+		boolean putvariants = true;
+		if (parameterMap.containsKey(ConstantsJSON.VARIANTS)) {
+			if (parameterMap.get(ConstantsJSON.VARIANTS)[0].equals("false"))
+				putvariants = false;
+		}
 
 		if (!Constants.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
@@ -113,29 +126,81 @@ public class TemplateVariantServlet extends HttpServlet {
 		int i = 0;
 		for (Parameter param: pattern.getParameterList().getParameters()) {
 			try {
-//				JSONObject paramobj = new JSONObject();
-//				paramobj.put(Constants.JSON_TYPE, param.getClass().getSimpleName());
-//				paramobj.put(Constants.JSON_ROLE, ParameterFragmentImpl.getRole(param));
-//				if (param.getValueAsString() != null)
-//					paramobj.put(Constants.JSON_VALUE, param.getValueAsString());
-//				parameter.put(Integer.toString(i), paramobj);
-				parameter.put(Integer.toString(i), ParameterFragmentImpl.getRole(param));
+				JSONObject paramobj = new JSONObject();
+				paramobj.put(ConstantsJSON.TYPE, param.getClass().getSimpleName());
+				paramobj.put(ConstantsJSON.ROLE, ParameterFragmentImpl.getRole(param));
+				if (param.getValueAsString() != null)
+					paramobj.put(ConstantsJSON.VALUE, param.getValueAsString());
+				
+				paramobj.put(ConstantsJSON.ID, param.getInternalId());
+				if (param instanceof XmlPathParam) {
+					HashSet<Integer> sourceParamIds = getSourceParamIDs((XmlPathParam) param);
+					if (!sourceParamIds.isEmpty()) {
+						paramobj.put(ConstantsJSON.STARTPOINT, new JSONArray(sourceParamIds));
+					}
+				}
+				parameter.put(Integer.toString(i), paramobj);
+//				parameter.put(Integer.toString(i), ParameterFragmentImpl.getRole(param));
 			} catch (JSONException e) {}
 			i++;
 		}
 
 		JSONArray variants = new JSONArray();
-		for (PatternText text: pattern.getText()) {
-			variants.put(text.generateVariantJSONObject());
+		if (putvariants) {
+			for (PatternText text: pattern.getText()) {
+				variants.put(text.generateVariantJSONObject());
+			}
 		}
 
 		JSONObject result = new JSONObject();
 		try {
-			result.put(ConstantsJSON.VARIANTS, variants);
+			if (putvariants)
+				result.put(ConstantsJSON.VARIANTS, variants);
 			result.put(ConstantsJSON.PARAMETER, parameter);
 		} catch (JSONException e) {}
 
 		return result;
+	}
+	
+
+	private static HashSet<Integer> getSourceParamIDs(XmlPathParam param) {
+		// get all XmlNavigations that use the parameters
+		EList<XmlNavigation> navs = new BasicEList<XmlNavigation>();
+		navs.add(param.getXmlNavigation());
+
+		// get all sourcenodes of the XmlNavigations
+		EList<Node> nodes = new BasicEList<Node>();
+		for (XmlNavigation nav: navs) {
+			if (nav.getSource() instanceof XmlNode) {
+				nodes.add(nav.getSource());
+			}
+		}
+
+		// get all XmlNavigation, that are be source-XmlNavigations
+		EList<XmlNavigation> sourcenavs = new BasicEList<XmlNavigation>();
+		for (Node node: nodes) {
+			for (Relation r: node.getIncoming()) {
+				if (r instanceof XmlNavigation) {
+					sourcenavs.add((XmlNavigation) r);
+				}
+			}
+		}
+
+		// get the parameters of the source-XmlNavigations
+		EList<XmlPathParam> sourceparams = new BasicEList<XmlPathParam>();
+		for (XmlNavigation sn: sourcenavs) {
+			if (sn.getXmlPathParam() != null) {
+				sourceparams.add(sn.getXmlPathParam());
+			}
+		}
+
+		// get the IDs of the source-fragments
+		EList<Parameter> parameterlist = param.getParameterList().getParameters();
+		HashSet<Integer> sourcefragids = new HashSet<Integer>();
+		for (XmlPathParam source: sourceparams) {
+			sourcefragids.add(parameterlist.indexOf(source));
+		}
+		return sourcefragids;
 	}
 
 	public static String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {

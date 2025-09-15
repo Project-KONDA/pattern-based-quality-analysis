@@ -222,12 +222,36 @@ public class APIVariantsXMLTest {
 		String constraintID = APICallTests.newConstraint(constraint, variant);
 		
 		if(PRINTCONSTRAINTS) {
-			System.out.println(constraint + "\t" + variant+ "\t" + constraintID + "\t" + getConstraint(constraintID) + "\t" + TemplateVariantServlet.applyGet("/xml/" + constraint, getEmptyParams()));
+			Map<String, String[]> params = getEmptyParams();
+			params.put(ConstantsJSON.VARIANTS, new String[]{"false"});
+			JSONObject myconstraint = getConstraint(constraintID);
+			JSONObject myparams = TemplateVariantServlet.applyGet("/xml/" + constraint, params);
+			System.out.println(constraint + "\t" + variant+ "\t" + constraintID + "\t" + myconstraint + "\t" + myparams);
+			testConstraintParameter(myconstraint);
 		}
 		
 		setAllConstraintParameter(constraintID);
 
 		testConcretePattern(constraintID);
 		APICallTests.deleteConstraint(constraintID);
+	}
+
+	private void testConstraintParameter(JSONObject myconstraint) {
+		JSONArray variants = myconstraint.getJSONArray(ConstantsJSON.VARIANTS);
+		JSONObject variant = variants.getJSONObject(0);
+		JSONArray fragments = variant.getJSONArray(ConstantsJSON.FRAGMENTS);
+		
+		ArrayList<String> ids = new ArrayList<String>();
+		for (int i = 0; i<fragments.length(); i++) {
+			JSONObject fragment = fragments.getJSONObject(i);
+			if (fragment.has(ConstantsJSON.STARTPOINT)) {
+				JSONArray startpoints = fragment.getJSONArray(ConstantsJSON.STARTPOINT);
+				for (int j = 0; j<startpoints.length(); j++) {
+					assert(ids.contains(startpoints.getString(j)));
+				}
+			}
+			if (fragment.has(ConstantsJSON.ID))
+				ids.add(fragment.getString(ConstantsJSON.ID));
+		}
 	}
 }

@@ -15,14 +15,14 @@
 		{"text":", each"},
 		{
 			"name":"Element",
-			"params":[3],
+			"params":[0],
 			"exampleValue":"unit",
 			"description":"element of analyis"
 		},
 		{"text":"must contain both a"},
 		{
 			"name":"Subelement",
-			"params":[0],
+			"params":[3],
 			"exampleValue":"element",
 			"description":"element condition"
 		},
