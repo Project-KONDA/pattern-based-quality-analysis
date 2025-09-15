@@ -1,8 +1,8 @@
-name: BuildAndPushDockerImageToHarborDev
+name: BuildAndPushDockerImageToHarborSaxon
 
 on:
   push:
-    branches: [ "development", "development2"]
+    branches: ["saxon"]
     
 jobs:
   build:
@@ -25,4 +25,4 @@ jobs:
           context: qualitypatternmodel
           file: qualitypatternmodel/Dockerfile
           push: true
-          tags: harbor.gwdg.de/aqinda/qpm:dev
+          tags: harbor.gwdg.de/aqinda/qpm:saxon
