@@ -26,9 +26,8 @@ public class ContainsIsoPattern extends PatternClass {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 
 		// Context graph of pattern:
-		pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		Graph g1 = pattern.getGraph();
-		Node container = g1.getReturnNodes().get(0);
+		Node container = g1.getReturnNodes().get(0).makeComplex();
 		Node ret = container.addOutgoing().getTarget().makePrimitive();
 		container.setReturnNode(false);
 		ret.setReturnNode(true);

@@ -38,7 +38,7 @@ import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 public class APIVariantsXMLTest {
-	private static final boolean PRINTCONSTRAINTS = false;
+	private static final boolean PRINTCONSTRAINTS = true;
 	
 	// __________ STATIC VARIABLES __________
 	private static String folder;
@@ -231,6 +231,9 @@ public class APIVariantsXMLTest {
 		}
 		
 		setAllConstraintParameter(constraintID);
+		
+		if (PRINTCONSTRAINTS)
+			System.out.println(ConstraintQueryServlet.applyGet("xml", new String[] {constraintID}));
 
 		testConcretePattern(constraintID);
 		APICallTests.deleteConstraint(constraintID);

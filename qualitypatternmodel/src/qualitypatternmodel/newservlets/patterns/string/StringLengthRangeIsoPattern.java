@@ -24,7 +24,7 @@ public class StringLengthRangeIsoPattern extends PatternClass {
 	public CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 
-		Node ret = pattern.getGraph().getReturnNodes().get(0);
+		Node ret = pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		Node element1 = ret.addOutgoing().getTarget().makePrimitive();
 		element1.setReturnNode(true);
 		ret.setReturnNode(false);
