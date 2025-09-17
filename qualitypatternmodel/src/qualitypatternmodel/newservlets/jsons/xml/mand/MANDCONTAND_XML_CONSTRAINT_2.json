@@ -6,14 +6,14 @@
 	"fragments":[
 		{"text":"For each"},
 		{
-			"name":"Element",
+			"name":"Containerelement",
 			"params":[0],
 			"exampleValue":"measurement",
 			"description":"base element for analysis"
 		},
 		{"text":", all"},
 		{
-			"name":"Subelements",
+			"name":"Elements",
 			"params":[1],
 			"exampleValue":"unit",
 			"description":"element of analyis",
@@ -21,7 +21,7 @@
 		},
 		{"text":"must contain both a"},
 		{
-			"name":"Subsubelement",
+			"name":"Subelement",
 			"params":[3],
 			"exampleValue":"element",
 			"description":"element condition"
