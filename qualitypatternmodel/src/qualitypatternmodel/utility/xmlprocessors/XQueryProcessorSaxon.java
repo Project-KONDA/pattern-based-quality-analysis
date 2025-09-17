@@ -326,5 +326,15 @@ public class XQueryProcessorSaxon {
         }
         return obj;
 	}
-
+	
+	public static void validateXQuery(String query) throws InvalidityException {
+        try {
+            Processor processor = new Processor(false); // false = no schema-aware features
+            XQueryCompiler compiler = processor.newXQueryCompiler();
+            compiler.compile(query);
+        } catch (SaxonApiException e) {
+            throw new InvalidityException("Invalid XQuery: \"" + query + "\" " + e.getMessage(), e);
+        }
+		
+	}
 }

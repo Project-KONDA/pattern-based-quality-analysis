@@ -647,7 +647,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			case XML:
 				String query = "matches(\"\", \"" + regex + "\")";
 				try {
-					XmlServletUtility.executeXQueryString(query);
+					XmlServletUtility.validateXQuery(query);
 					return true;
 				} catch (InvalidityException e) {
 					return false;

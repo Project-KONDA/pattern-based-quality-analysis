@@ -41,4 +41,8 @@ public class XmlServletUtility {
 			throw new InvalidityException("Processor " + Util.EXECUTION_PROCESSOR + " is not registered");
 		}
 	}
+
+	public static void validateXQuery(String query) throws InvalidityException {
+		XQueryProcessorSaxon.validateXQuery(query);
+	}
 }
