@@ -19,7 +19,7 @@
 			"exampleValue":"unit",
 			"description":"element of analyis"
 		},
-		{"text":"must contain both a"},
+		{"text":"contains both a"},
 		{
 			"name":"Subelement",
 			"params":[3],
