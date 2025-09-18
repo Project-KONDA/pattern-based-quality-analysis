@@ -13,7 +13,7 @@
 		},
 		{"text":"contains both a"},
 		{
-			"name":"Subelement",
+			"name":"Property",
 			"params":[2],
 			"exampleValue":"element",
 			"description":"element condition"
