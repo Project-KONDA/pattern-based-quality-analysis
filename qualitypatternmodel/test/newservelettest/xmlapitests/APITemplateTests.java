@@ -266,7 +266,7 @@ public class APITemplateTests {
 
 	@Test
 	public void testTemplateMandContent() throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assertEquals(2, store.getJSONObject("MandCont_xml").getInt("size"));
+		assertEquals(3, store.getJSONObject("MandCont_xml").getInt("size"));
 
 		testConstraint("MandCont_xml", "default-constraint",
 				Map.of(
