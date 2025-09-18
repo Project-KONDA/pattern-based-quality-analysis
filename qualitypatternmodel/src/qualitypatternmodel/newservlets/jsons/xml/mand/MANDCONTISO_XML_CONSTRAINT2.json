@@ -21,7 +21,7 @@
 		},
 		{"text":"contains either a"},
 		{
-			"name":"Subelement",
+			"name":"Property",
 			"params":[3],
 			"exampleValue":"Identifier",
 			"description":"element condition"
