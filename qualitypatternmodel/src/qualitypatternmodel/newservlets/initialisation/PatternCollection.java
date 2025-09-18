@@ -45,6 +45,7 @@ public class PatternCollection {
 		// mand
 		classes.add(CardImpliesMandAttPattern.class);
 		classes.add(MandAttPattern.class);
+		classes.add(MandElePattern.class);
 		classes.add(MandContAndIsoPattern.class);
 		classes.add(MandContAndSinPattern.class);
 		classes.add(MandContAndPattern.class);

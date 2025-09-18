@@ -34,7 +34,7 @@
         {
             "name":"Do / Do Not",
             "params":[2],
-            "defaultMap":"do not",
+            "defaultMap":"do",
             "exampleValue":"do"
         },
         {"text":"match"},

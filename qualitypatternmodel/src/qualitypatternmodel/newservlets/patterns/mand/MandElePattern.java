@@ -1,10 +1,9 @@
-package qualitypatternmodel.newservlets.patterns.string;
+package qualitypatternmodel.newservlets.patterns.mand;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -12,34 +11,33 @@ import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class StringLengthRangePattern extends PatternClass {
+public class MandElePattern extends PatternClass {
 
-	public StringLengthRangePattern() {
-		super(PatternConstants.STRINGLENGTHRANGE_ID,
-				PatternConstants.STRINGLENGTHRANGE_NAME, 
-				PatternConstants.STRINGLENGTHRANGE_DESCR, 
-				true, true, false, false);
+	public MandElePattern() {
+		super(PatternConstants.MANDELE_ID,
+				PatternConstants.MANDELE_NAME, 
+				PatternConstants.MANDELE_DESCR, 
+				true, true, true, true);
 	}
-	
+
 	@Override
 	public CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 
 		ComplexNode main = pattern.getGraph().getReturnNodes().get(0).makeComplex();
+		main.setName("element");
 
 		NotCondition not = PatternstructureFactory.eINSTANCE.createNotCondition();
 		pattern.setCondition(not);
-		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		not.setCondition(quantifiedCondition);
 
-		PrimitiveNode field = main.addOutgoing(quantifiedCondition.getGraph()).getTarget().makePrimitive();
+		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		not.setCondition(qc);
 
-		field.addPrimitiveStringLength();
-		field.addPrimitiveStringLength();
+		ComplexNode field = main.addOutgoing(qc.getGraph()).getTarget().makeComplex();
+		field.setName("subelement");
 
 		return pattern;
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____
-
 }

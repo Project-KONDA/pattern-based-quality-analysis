@@ -169,7 +169,7 @@ public class APITemplateTests {
 	@Test
 	public void testTemplateCard()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("Card_xml").getInt("size") == 1);
+		assertEquals(2, store.getJSONObject("Card_xml").getInt("size"));
 		testConstraint("Card_xml", "default-constraint", 
 				Map.of(
 						"XmlPath_Element_0", "//*", 
@@ -225,7 +225,7 @@ public class APITemplateTests {
 		testConstraint("MandAtt_xml", "default-constraint",
 				Map.of(
 						"XmlPath_Element_0", "//*",
-						"XmlPath_Element_1", "/*"));
+						"XmlPath_Property_1", "/text()"));
 	}
 
 	@Test

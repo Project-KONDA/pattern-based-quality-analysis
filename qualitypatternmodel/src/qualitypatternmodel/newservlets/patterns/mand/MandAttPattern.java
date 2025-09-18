@@ -4,6 +4,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -25,7 +26,7 @@ public class MandAttPattern extends PatternClass {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 
 		ComplexNode main = pattern.getGraph().getReturnNodes().get(0).makeComplex();
-		main.setName("main");
+		main.setName("element");
 
 		NotCondition not = PatternstructureFactory.eINSTANCE.createNotCondition();
 		pattern.setCondition(not);
@@ -33,8 +34,8 @@ public class MandAttPattern extends PatternClass {
 		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		not.setCondition(qc);
 
-		ComplexNode field = main.addOutgoing(qc.getGraph()).getTarget().makeComplex();
-		field.setName("field");
+		PrimitiveNode field = main.addOutgoing(qc.getGraph()).getTarget().makePrimitive();
+		field.setName("property");
 
 		return pattern;
 	}

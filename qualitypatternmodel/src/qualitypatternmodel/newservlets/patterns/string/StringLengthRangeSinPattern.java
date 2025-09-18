@@ -8,6 +8,7 @@ import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
@@ -29,8 +30,10 @@ public class StringLengthRangeSinPattern extends PatternClass {
 		StringLength str1 = ret.addPrimitiveStringLength();
 		StringLength str2 = ret.addPrimitiveStringLength();
 
+		NotCondition not = PatternstructureFactory.eINSTANCE.createNotCondition();
+		pattern.setCondition(not);
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		pattern.setCondition(quantifiedCondition);
+		not.setCondition(quantifiedCondition);
 
 		str1.setOperatorList(quantifiedCondition.getGraph().getOperatorList());
 		str2.setOperatorList(quantifiedCondition.getGraph().getOperatorList());

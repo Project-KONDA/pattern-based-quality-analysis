@@ -16,7 +16,7 @@
             "name":"Compared to",
             "params":[0],
             "exampleValue":"less than",
-            "defaultMap":"comparison_negated"
+            "defaultMap":"comparison"
         },
         {
             "name":"a Specific Number",
@@ -28,7 +28,7 @@
             "name":"Compared to",
             "params":[2],
             "exampleValue":"less than",
-            "defaultMap":"comparison_negated"
+            "defaultMap":"comparison"
         },
         {
             "name":"a Specific Number",

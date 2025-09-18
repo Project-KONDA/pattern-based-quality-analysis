@@ -82,6 +82,10 @@ public class PatternConstants {
 	public static String MANDATT_NAME = "Mandatory Attribute";
 	public static String MANDATT_DESCR = "Check whether a record has a mandatory field.";
 	
+	public static String MANDELE_ID = "MandEle";
+	public static String MANDELE_NAME = "Mandatory Element";
+	public static String MANDELE_DESCR = "Check whether a record has a mandatory element.";
+	
 	public static String MANDCONT_ID = "MandCont";
 	public static String MANDCONT_NAME = "Mandatory Content";
 	public static String MANDCONT_DESCR = "Check whether an element has mandatory content.";

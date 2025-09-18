@@ -8,6 +8,7 @@ import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
@@ -32,8 +33,10 @@ public class StringLengthRangeIsoPattern extends PatternClass {
 		StringLength strlen1 = element1.addPrimitiveStringLength();
 		StringLength strlen2 = element1.addPrimitiveStringLength();
 
+		NotCondition not = PatternstructureFactory.eINSTANCE.createNotCondition();
+		pattern.setCondition(not);
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		pattern.setCondition(quantifiedCondition);
+		not.setCondition(quantifiedCondition);
 
 		strlen1.setOperatorList(quantifiedCondition.getGraph().getOperatorList());
 		strlen2.setOperatorList(quantifiedCondition.getGraph().getOperatorList());

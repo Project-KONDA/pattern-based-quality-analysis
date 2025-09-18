@@ -6,7 +6,7 @@
     "fragments":[
         {"text":"In each"},
         {
-            "name":"Container Element",
+            "name":"Element",
             "params":[2,5],
             "exampleValue":"Actor",
             "description":"anchor for analysis"
@@ -19,6 +19,6 @@
             "description":"value that gets analysed",
 			"plural":"true"
         },
-        {"text":"are unique."}
+        {"text":"are unique within the file."}
     ]
 }
