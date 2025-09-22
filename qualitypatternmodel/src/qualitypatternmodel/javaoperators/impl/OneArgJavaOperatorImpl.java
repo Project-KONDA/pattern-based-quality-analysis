@@ -102,7 +102,8 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	public String generateXQueryIsolated() throws InvalidityException {
 		if (!(getPrimitiveNode() instanceof XmlProperty))
 			throw new InvalidityException();
-		return ((XmlProperty) getPrimitiveNode()).getVariables().get(0);
+		String var = ((XmlProperty) getPrimitiveNode()).getVariables().get(0); 
+		return "string(" + var + ")";
 	}
 
 	@Override
