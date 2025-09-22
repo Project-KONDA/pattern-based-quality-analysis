@@ -7,7 +7,6 @@ import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -28,7 +27,8 @@ public class Test01Axis {
 			completePatterns.add(getBasePatternAxisRoot(ax));
 			completePatterns.add(getBasePatternAxisNotRoot(ax));
 		}
-		for (XmlPropertyKind kind : XmlPropertyKind.VALUES) {
+		String[] kinds = new String[] {"DATA", "NAME", "ATTRIBUTE", "ATTRIBUTE_PLUS"};  
+		for (String kind : kinds) {
 			completePatterns.add(getBasePatternAxisPart(kind, null));
 			completePatterns.add(getBasePatternAxisPart(kind, "test"));
 		}
@@ -73,18 +73,25 @@ public class Test01Axis {
 		return completePattern;
 	}
 
-	private static CompletePattern getBasePatternAxisPart(XmlPropertyKind type, String value) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getBasePatternAxisPart(String type, String value) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 
 		completePattern.createXmlAdaption();
 		
 		String axisvalue = "/*[";
-		if (type == XmlPropertyKind.ATTRIBUTE)
+		switch(type) {
+		case "ATTRIBUTE":
 			axisvalue += "@attribute";
-		else if (type == XmlPropertyKind.TAG)
+			break;
+		case "ATTRIBUTE_PLUS":
+			axisvalue += "@attribute/data()";
+			break;
+		case "NAME":
 			axisvalue += "name()";
-		else if (type == XmlPropertyKind.DATA)
+			break;
+		case "DATA":
 			axisvalue += "data()";
+		}
 		if (value != null)
 			axisvalue += "=\"" + value + "\"";
 		axisvalue += "]";
