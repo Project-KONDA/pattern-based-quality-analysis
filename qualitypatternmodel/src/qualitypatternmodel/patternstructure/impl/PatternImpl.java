@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionneo4j.NeoEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElement;
+import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -272,7 +273,13 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			if (!(node instanceof XmlNode))
 				throw new RuntimeException("return node is not an XmlNode: " + node.getClass());
 			XmlNode xmlnode = ((XmlNode) node);
-			nodes.add(xmlnode.getVariables().get(0)); //  VARIABLE + ((Node) xmlnode).getInternalId() + "_0");
+			//  VARIABLE + ((Node) xmlnode).getInternalId() + "_0");
+			String var = xmlnode.getVariables().get(0);
+			if (xmlnode instanceof XmlElement) {
+				nodes.add(var); 
+			} else 
+				nodes.add("string(" + xmlnode.getVariables().get(0) + ")");
+
 		}
 
 		String graphString = getGraph().generateXQueryJavaReturn();

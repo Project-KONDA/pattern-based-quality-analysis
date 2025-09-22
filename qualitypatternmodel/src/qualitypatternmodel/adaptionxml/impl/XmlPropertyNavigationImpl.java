@@ -131,6 +131,7 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		query = query.indent(2);
 		query = JavaQueryTranslationUtility.getXQueryReturnList(List.of(query), VALUE, false, false, true);
 //		query = "\n  " + VALUESTART +",\n  (" + query + "  ),\n  "+ VALUEEND; // + "\n  ";
+
 		return query;
 	}
 
