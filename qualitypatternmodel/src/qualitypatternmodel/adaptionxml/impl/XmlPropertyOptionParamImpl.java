@@ -186,9 +186,6 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 			if (value.matches(ConstantsXml.REGEX_ATTRIBUTE)){
 				if (value.substring(1).matches(ConstantsXml.REGEX_ATTRIBUTE_NAME))
 					attName = value.substring(1);
-				else if(value.substring(1).matches(ConstantsXml.REGEX_ATTRIBUTE_NAME_PLUS_DATA)) {
-					attName = value.substring(1).replace("/data()", "");
-				}
 				else {
 					String[] parts = value.split("\"");
 					if (parts.length != 3)
@@ -262,10 +259,10 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 					try {
 						CompletePattern p = (CompletePattern) getAncestor(CompletePattern.class);
 						if (!p.getNamespaces().getKeys().contains(ns))
-							return axis + "@*[name()=\"" + attributeName.getValue() + "\"]" + "/data()";
+							return axis + "@*[name()=\"" + attributeName.getValue() + "\"]";
 					} catch (MissingPatternContainerException e) {}
 				}
-				return axis + "@" + attributeName.getValue() + "/data()";
+				return axis + "@" + attributeName.getValue() + "";
 			}
 		case DATA:
 			return axis + "text()";
