@@ -8,7 +8,6 @@ import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
-import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class MandContAndPattern extends PatternClass {
@@ -23,10 +22,9 @@ public class MandContAndPattern extends PatternClass {
 	@Override
 	public CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = new MandContPattern().getPattern();
-		QuantifiedCondition qc = (QuantifiedCondition) pattern.getCondition();
-		NotCondition not = (NotCondition) qc.getCondition();
-		Formula formula = (Formula) not.getCondition();
-		formula.setOperator(LogicalOperator.AND);
+		QuantifiedCondition check = (QuantifiedCondition) pattern.getCondition(); 
+		Formula formula = (Formula) check.getCondition();
+		formula.setOperator(LogicalOperator.OR);
 		return pattern;
 	}
 

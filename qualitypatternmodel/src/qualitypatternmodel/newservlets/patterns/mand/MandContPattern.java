@@ -36,25 +36,27 @@ public class MandContPattern extends PatternClass {
 		pattern.setCondition(check);
 		ComplexNode element = main.addOutgoing(check.getGraph()).getTarget().makeComplex();
 		element.setName("element");
-		
+
 		// that does not contain
-		NotCondition not = PatternstructureFactory.eINSTANCE.createNotCondition();
-		check.setCondition(not);
-		
-		// either
 		Formula or = PatternstructureFactory.eINSTANCE.createFormula();
 		or.setOperator(LogicalOperator.OR);
-		not.setCondition(or);
-		
-		// an text
+		check.setCondition(or);		
+
+		NotCondition not1 = PatternstructureFactory.eINSTANCE.createNotCondition();
+		NotCondition not2 = PatternstructureFactory.eINSTANCE.createNotCondition();
+
+		or.setCondition1(not1);
+		or.setCondition2(not2);
+
+		// either an text
 		QuantifiedCondition qctext = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		or.setCondition1(qctext);
+		not1.setCondition(qctext);
 		PrimitiveNode text = element.addOutgoing(qctext.getGraph()).getTarget().makePrimitive();
 		text.setName("text");
 
 		// or an element
 		QuantifiedCondition qcelement = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		or.setCondition2(qcelement);
+		not2.setCondition(qcelement);
 		ComplexNode contentelement = element.addOutgoing(qcelement.getGraph()).getTarget().makeComplex();
 		contentelement.setName("content");
 

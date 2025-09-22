@@ -8,7 +8,6 @@ import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
-import qualitypatternmodel.patternstructure.NotCondition;
 
 public class MandContAndIsoPattern extends PatternClass {
 
@@ -22,9 +21,8 @@ public class MandContAndIsoPattern extends PatternClass {
 	@Override
 	public CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = new MandContIsoPattern().getPattern();
-		NotCondition not = (NotCondition) pattern.getCondition();
-		Formula formula = (Formula) not.getCondition();
-		formula.setOperator(LogicalOperator.AND);
+		Formula formula = (Formula) pattern.getCondition();
+		formula.setOperator(LogicalOperator.OR);
 		return pattern;
 	}
 
