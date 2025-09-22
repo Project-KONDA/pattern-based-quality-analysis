@@ -1,5 +1,6 @@
 package qualitypatternmodel.mqaftranslation;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +24,6 @@ import qualitypatternmodel.mqaftranslation.MqafRuleObject.ListComparisonRuleObje
 import qualitypatternmodel.mqaftranslation.MqafRuleObject.NotConstraintRuleObject;
 import qualitypatternmodel.mqaftranslation.MqafRuleObject.NumberComparisonRuleObject;
 import qualitypatternmodel.mqaftranslation.MqafRuleObject.PatternRuleObject;
-import qualitypatternmodel.mqaftranslation.MqafRuleObject.SingleConstraintRuleObject;
 import qualitypatternmodel.mqaftranslation.MqafRuleObject.StringLengthRuleObject;
 import qualitypatternmodel.mqaftranslation.MqafRuleObject.UniqueRuleObject;
 import qualitypatternmodel.operators.BooleanOperator;
@@ -235,7 +235,7 @@ public class MqafObject {
 	}
 
 	private static MqafRuleObject transformOperator(Operator op, Node node) throws InvalidityException {
-		SingleConstraintRuleObject rule = null;
+		MqafRuleObject rule = null;
 
 		if (op instanceof Comparison) {
 			Comparison cf = (Comparison) op;
@@ -282,17 +282,37 @@ public class MqafObject {
 			}
 
 		} else if (op instanceof Match) {
-//			"pattern" <regex>
-//			"minWords", "maxWords"
+//			contains
 			Match match = (Match) op;
-			rule = new PatternRuleObject( match.getRegularExpression().getValue(), !match.getOption().getValue() );
-
+			if (match.getRegularExpression() instanceof TextLiteralParam) {
+				TextLiteralParam text = (TextLiteralParam) match.getRegularExpression();
+				rule = new PatternRuleObject(text.getValue(), !match.getOption().getValue());
+				
+			} else {
+				TextListParam list = (TextListParam) match.getRegularExpression();
+				List<MqafRuleObject> containsrules = new ArrayList<MqafRuleObject>();
+				for (String regex : list.getValues()) {
+					containsrules.add(new PatternRuleObject(regex, !match.getOption().getValue()));
+				}
+				rule = new FormulaConstraintRuleObject(LogicalOperator.OR, containsrules);
+			}
 		} else if (op instanceof Contains) {
 //			contains
 			Contains contains = (Contains) op;
-			String containsAsRegex = ".*" + java.util.regex.Pattern.quote(contains.getContent().getValue()) + ".*";
-			rule = new PatternRuleObject(containsAsRegex, !contains.getOption().getValue());
-
+			if (contains.getContent() instanceof TextLiteralParam) {
+				TextLiteralParam text = (TextLiteralParam) contains.getContent();
+				String containsAsRegex = ".*" + java.util.regex.Pattern.quote(text.getValue()) + ".*";
+				rule = new PatternRuleObject(containsAsRegex, !contains.getOption().getValue());
+				
+			} else {
+				TextListParam list = (TextListParam) contains.getContent();
+				List<MqafRuleObject> containsrules = new ArrayList<MqafRuleObject>();
+				for (String regex : list.getValues()) {
+					String containsAsRegex = ".*" + java.util.regex.Pattern.quote(regex) + ".*";
+					containsrules.add(new PatternRuleObject(containsAsRegex, !contains.getOption().getValue()));
+				}
+				rule = new FormulaConstraintRuleObject(LogicalOperator.OR, containsrules);
+			}
 		} else if (op instanceof StringLength) {
 //			"minLength" , "maxLength"
 			StringLength len = (StringLength) op;

@@ -4,7 +4,7 @@ package qualitypatternmodel.operators;
 
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.BooleanParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TextParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -75,17 +75,17 @@ public interface Contains extends BooleanOperator {
 
 	/**
 	 * Returns the value of the '<em><b>Content</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getContains <em>Contains</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextParam#getContains <em>Contains</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Content</em>' reference.
-	 * @see #setContent(TextLiteralParam)
+	 * @see #setContent(TextParam)
 	 * @see qualitypatternmodel.operators.OperatorsPackage#getContains_Content()
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getContains
+	 * @see qualitypatternmodel.parameters.TextParam#getContains
 	 * @model opposite="contains" required="true"
 	 * @generated
 	 */
-	TextLiteralParam getContent();
+	TextParam getContent();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.operators.Contains#getContent <em>Content</em>}' reference.
@@ -95,6 +95,6 @@ public interface Contains extends BooleanOperator {
 	 * @see #getContent()
 	 * @generated
 	 */
-	void setContent(TextLiteralParam value);
+	void setContent(TextParam value);
 
 } // Contains

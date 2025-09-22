@@ -26,7 +26,9 @@ import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TextParam;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -86,7 +88,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 * @ordered
 	 */
-	protected TextLiteralParam regularExpression;
+	protected TextParam regularExpression;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,11 +102,11 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		if (option != null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
+		if (option != null && regularExpression != null && regularExpression.inputIsValid() && primitiveNode != null) {
 			if (option.getValue()){
-				return primitiveNode.generateXQuery() + "matches(., \"" + regularExpression.getValue() + "\")";
+				return primitiveNode.generateXQuery() + "matches(., " + regularExpression.generateXQuery() + ")";
 			} else {
-				return primitiveNode.generateXQuery() + "not(matches(., \"" + regularExpression.getValue() + "\"))";
+				return primitiveNode.generateXQuery() + "not(matches(., " + regularExpression.generateXQuery() + "))";
 			}
 		} else {
 			throw new InvalidityException("invalid option");
@@ -122,7 +124,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 
 	@Override
 	public String generateSparql() throws InvalidityException {
-		if(option!=null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
+		if (! (regularExpression instanceof TextLiteralParam))
+			throw new InvalidityException(ConstantsError.NOT_IMPLEMENTED_RDF);
+		if(option!=null && regularExpression != null && regularExpression.inputIsValid() && primitiveNode != null) {
 			if (option.getValue()){
 				return "\nFILTER (regex(" + primitiveNode.generateSparql() + ", " + regularExpression.generateSparql() + "))";
 			} else {
@@ -141,7 +145,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
-		if (option != null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
+		if (! (regularExpression instanceof TextLiteralParam))
+			throw new InvalidityException(ConstantsError.NOT_IMPLEMENTED_NEO);
+		if (option != null && regularExpression != null && regularExpression.inputIsValid() && primitiveNode != null) {
 			String tempCypherPropertyAddressing = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
 			if (!tempCypherPropertyAddressing.isEmpty()) {
 				if (option.getValue()) {
@@ -167,9 +173,22 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			regularExpression.isValid(abstractionLevel);
 
 			if (abstractionLevel == AbstractionLevel.CONCRETE) {
+				if (regularExpression instanceof TextLiteralParam) {
+					TextLiteralParam regex = (TextLiteralParam) regularExpression;
+					if (!isValidRegex(regex.getValue(), ((CompletePattern) getAncestor(CompletePattern.class)).getLanguage()))
+						throw new InvalidityException("Regular Expression invalid: " + regex.getValue());
+				}
+				else {
+					TextListParam regex = (TextListParam) regularExpression;
+					for (String value : regex.getValues()) {
+						String failed = "";
+						if (!isValidRegex(value, ((CompletePattern) getAncestor(CompletePattern.class)).getLanguage()))
+							failed += "'" + value + "'";
+						if (!failed.equals(""))
+							new InvalidityException("Regular Expressions invalid: [" + failed + "]");
+					}
+				}
 				
-				if (!isValidRegex(regularExpression.getValue(), ((CompletePattern) getAncestor(CompletePattern.class)).getLanguage()))
-					throw new InvalidityException("Regular Expression invalid: " + regularExpression.getValue());
 			}
 		}
 		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && primitiveNode == null) {
@@ -358,10 +377,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	@Override
-	public TextLiteralParam getRegularExpression() {
+	public TextParam getRegularExpression() {
 		if (regularExpression != null && regularExpression.eIsProxy()) {
 			InternalEObject oldRegularExpression = (InternalEObject)regularExpression;
-			regularExpression = (TextLiteralParam)eResolveProxy(oldRegularExpression);
+			regularExpression = (TextParam)eResolveProxy(oldRegularExpression);
 			if (regularExpression != oldRegularExpression) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OperatorsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, regularExpression));
@@ -375,8 +394,43 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TextLiteralParam basicGetRegularExpression() {
+	public TextParam basicGetRegularExpression() {
 		return regularExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRegularExpression(TextParam newRegularExpression, NotificationChain msgs) {
+		TextParam oldRegularExpression = regularExpression;
+		regularExpression = newRegularExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, newRegularExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRegularExpression(TextParam newRegularExpression) {
+		if (newRegularExpression != regularExpression) {
+			NotificationChain msgs = null;
+			if (regularExpression != null)
+				msgs = ((InternalEObject)regularExpression).eInverseRemove(this, ParametersPackage.TEXT_PARAM__MATCHES, TextParam.class, msgs);
+			if (newRegularExpression != null)
+				msgs = ((InternalEObject)newRegularExpression).eInverseAdd(this, ParametersPackage.TEXT_PARAM__MATCHES, TextParam.class, msgs);
+			msgs = basicSetRegularExpression(newRegularExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__REGULAR_EXPRESSION, newRegularExpression, newRegularExpression));
 	}
 
 	/**
@@ -385,7 +439,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetRegularExpression(TextLiteralParam newRegularExpression, NotificationChain msgs) {
-		TextLiteralParam oldRegularExpression = regularExpression;
+		TextParam oldRegularExpression = regularExpression;
 
 		ParameterList varlist = getParameterList();
 		if (varlist != null) {
@@ -405,26 +459,6 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			}
 		}
 		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setRegularExpression(TextLiteralParam newRegularExpression) {
-		if (newRegularExpression != regularExpression) {
-			NotificationChain msgs = null;
-			if (regularExpression != null)
-				msgs = ((InternalEObject)regularExpression).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__MATCHES, TextLiteralParam.class, msgs);
-			if (newRegularExpression != null)
-				msgs = ((InternalEObject)newRegularExpression).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__MATCHES, TextLiteralParam.class, msgs);
-			msgs = basicSetRegularExpression(newRegularExpression, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__REGULAR_EXPRESSION, newRegularExpression, newRegularExpression));
 	}
 
 	/**
@@ -465,8 +499,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				return basicSetOption((BooleanParam)otherEnd, msgs);
 			case OperatorsPackage.MATCH__REGULAR_EXPRESSION:
 				if (regularExpression != null)
-					msgs = ((InternalEObject)regularExpression).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__MATCHES, TextLiteralParam.class, msgs);
-				return basicSetRegularExpression((TextLiteralParam)otherEnd, msgs);
+					msgs = ((InternalEObject)regularExpression).eInverseRemove(this, ParametersPackage.TEXT_PARAM__MATCHES, TextParam.class, msgs);
+				return basicSetRegularExpression((TextParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -599,7 +633,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				setOption((BooleanParam)newValue);
 				return;
 			case OperatorsPackage.MATCH__REGULAR_EXPRESSION:
-				setRegularExpression((TextLiteralParam)newValue);
+				setRegularExpression((TextParam)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -620,7 +654,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				setOption((BooleanParam)null);
 				return;
 			case OperatorsPackage.MATCH__REGULAR_EXPRESSION:
-				setRegularExpression((TextLiteralParam)null);
+				setRegularExpression((TextParam)null);
 				return;
 		}
 		super.eUnset(featureID);

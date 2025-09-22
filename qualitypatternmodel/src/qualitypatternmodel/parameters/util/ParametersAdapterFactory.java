@@ -6,6 +6,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import qualitypatternmodel.parameters.*;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.DateParam;
@@ -144,6 +145,10 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseMultiListParam(MultiListParam object) {
 				return createMultiListParamAdapter();
+			}
+			@Override
+			public Adapter caseTextParam(TextParam object) {
+				return createTextParamAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -394,6 +399,20 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMultiListParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.TextParam <em>Text Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.parameters.TextParam
+	 * @generated
+	 */
+	public Adapter createTextParamAdapter() {
 		return null;
 	}
 

@@ -2223,9 +2223,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			match.setPrimitiveNode(p);
 
 			if(regex != null) {
-				match.getRegularExpression().setValue(regex);
+				((TextLiteralParam) match.getRegularExpression()).setValue(regex);
 			}
-			return match.getRegularExpression();
+			return (TextLiteralParam) match.getRegularExpression();
 		} catch (Exception e) {
 			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
 			e.printStackTrace();
@@ -2268,9 +2268,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			contains.setPrimitiveNode(p);
 
 			if(content != null) {
-				contains.getContent().setValue(content);
+				((TextLiteralParam) contains.getContent()).setValue(content);
 			}
-			return contains.getContent();
+			return (TextLiteralParam) contains.getContent();
 		} catch (Exception e) {
 			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
 			e.printStackTrace();
