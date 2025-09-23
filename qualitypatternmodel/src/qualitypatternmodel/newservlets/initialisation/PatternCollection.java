@@ -26,6 +26,7 @@ public class PatternCollection {
 		classes.add(CompSetIsoPattern.class);
 		classes.add(CompSetSinPattern.class);
 		classes.add(CompSetPattern.class);
+		classes.add(CompSetAnyPattern.class);
 		classes.add(CompValAnyPattern.class);
 		classes.add(CompValPattern.class);
 		// external

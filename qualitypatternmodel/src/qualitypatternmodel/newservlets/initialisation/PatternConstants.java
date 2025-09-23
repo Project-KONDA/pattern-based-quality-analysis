@@ -46,6 +46,10 @@ public class PatternConstants {
 	public static String COMPSETSIN_NAME = "Comparison Pattern with Set (Single)";
 	public static String COMPSETSIN_DESCR = "Check, whether the value of fields are within a list of allowed (/forbidden) terms.";
 	
+	public static String COMPSETANY_ID = "CompSetAny";
+	public static String COMPSETANY_NAME = "Comparison Pattern Any in Set";
+	public static String COMPSETANY_DESCR = "Check, whether at least one value of fields are within a list of allowed (/forbidden) terms.";
+	
 	public static String COMPVALANY_ID = "CompValAny";
 	public static String COMPVALANY_NAME = "Compare values within a record";
 	public static String COMPVALANY_DESCR = "Check whether any value of a specific field within a record does comply to a value restriction.";
