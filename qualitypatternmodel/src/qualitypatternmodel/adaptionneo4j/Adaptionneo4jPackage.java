@@ -732,6 +732,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_MATCH = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Match List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_MATCH_LIST = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH_LIST;
+
+	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -748,6 +757,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_CONTAINS = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_CONTAINS_LIST = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS_LIST;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
@@ -3843,6 +3861,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_MATCH = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_MATCH;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Match List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_MATCH_LIST = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_MATCH_LIST;
+
+	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3859,6 +3886,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_CONTAINS = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_CONTAINS;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_CONTAINS_LIST = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_CONTAINS_LIST;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Contains</em>' operation.

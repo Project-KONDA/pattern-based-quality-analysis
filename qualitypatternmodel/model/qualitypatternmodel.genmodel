@@ -345,10 +345,12 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison.3/input"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatchList"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch.1">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch.1/regex"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveContains"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveContainsList"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveContains.1">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveContains.1/content"/>
         </genOperations>

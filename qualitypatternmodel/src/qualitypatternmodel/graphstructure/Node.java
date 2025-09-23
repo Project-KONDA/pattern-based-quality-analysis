@@ -238,6 +238,14 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model
 	 * @generated
 	 */
+	Contains addPrimitiveContainsList();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	Contains addPrimitiveContains(String content);
 
 	/**
@@ -262,6 +270,14 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @generated
 	 */
 	Match addPrimitiveMatch() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	Match addPrimitiveMatchList() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

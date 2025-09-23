@@ -27,8 +27,10 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveMatch() <em>Add Primitive Match</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveMatchList() <em>Add Primitive Match List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveMatch(java.lang.String) <em>Add Primitive Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveContains() <em>Add Primitive Contains</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveContainsList() <em>Add Primitive Contains List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveContains(java.lang.String) <em>Add Primitive Contains</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveStringLength() <em>Add Primitive String Length</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveStringLength(qualitypatternmodel.operators.ComparisonOperator, java.lang.Double) <em>Add Primitive String Length</em>}</li>
@@ -261,6 +263,19 @@ public class NodeTest extends PatternElementTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveMatchList() <em>Add Primitive Match List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveMatchList()
+	 * @generated
+	 */
+	public void testAddPrimitiveMatchList() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveMatch(java.lang.String) <em>Add Primitive Match</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -281,6 +296,19 @@ public class NodeTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testAddPrimitiveContains() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveContainsList() <em>Add Primitive Contains List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveContainsList()
+	 * @generated
+	 */
+	public void testAddPrimitiveContainsList() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

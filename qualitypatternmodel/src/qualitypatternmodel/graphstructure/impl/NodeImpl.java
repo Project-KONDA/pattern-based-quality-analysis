@@ -61,9 +61,11 @@ import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
+import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
+import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -1755,6 +1757,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_MATCH_LIST:
+				try {
+					return addPrimitiveMatchList();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_MATCH__STRING:
 				try {
 					return addPrimitiveMatch((String)arguments.get(0));
@@ -1764,6 +1773,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				}
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_CONTAINS:
 				return addPrimitiveContains();
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_CONTAINS_LIST:
+				return addPrimitiveContainsList();
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_CONTAINS__STRING:
 				return addPrimitiveContains((String)arguments.get(0));
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_STRING_LENGTH:
@@ -2201,6 +2212,37 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Match addPrimitiveMatchList() throws InvalidityException {
+		Match match = new MatchImpl();
+		try {
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+
+			oplist.add(match);
+			match.createParameters();
+			PrimitiveNode p = null;
+			if(this instanceof PrimitiveNode) {
+				p = (PrimitiveNode) this;
+			} else {
+				p = makePrimitive();
+			}
+			TextListParam list = new TextListParamImpl();
+			match.setRegularExpression(list);
+			match.setPrimitiveNode(p);
+			return match;
+		} catch (Exception e) {
+			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return
 	 *
@@ -2244,6 +2286,37 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public Contains addPrimitiveContains() {
 		return addPrimitiveContains(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Contains addPrimitiveContainsList() {
+		Contains contains = new ContainsImpl();
+		try {
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+
+			oplist.add(contains);
+			contains.createParameters();
+			PrimitiveNode p = null;
+			if(this instanceof PrimitiveNode) {
+				p = (PrimitiveNode) this;
+			} else {
+				p = makePrimitive();
+			}
+			contains.setPrimitiveNode(p);
+			TextListParam list = new TextListParamImpl();
+			contains.setContent(list);
+			return contains;
+		} catch (Exception e) {
+			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	/**
