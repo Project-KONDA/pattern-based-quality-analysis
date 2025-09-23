@@ -57,9 +57,15 @@ public class PatternCollection {
 		classes.add(ContainsIsoPattern.class);
 		classes.add(ContainsSinPattern.class);
 		classes.add(ContainsPattern.class);
+		classes.add(ContainsListIsoPattern.class);
+		classes.add(ContainsListSinPattern.class);
+		classes.add(ContainsListPattern.class);
 		classes.add(MatchIsoPattern.class);
 		classes.add(MatchSinPattern.class);
 		classes.add(MatchPattern.class);
+		classes.add(MatchListIsoPattern.class);
+		classes.add(MatchListSinPattern.class);
+		classes.add(MatchListPattern.class);
 		classes.add(StringLengthIsoPattern.class);
 		classes.add(StringLengthPattern.class);
 		classes.add(StringLengthRangeIsoPattern.class);
