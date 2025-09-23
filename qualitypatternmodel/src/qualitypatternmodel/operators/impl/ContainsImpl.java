@@ -385,21 +385,6 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContent(TextParam newContent, NotificationChain msgs) {
-		TextParam oldContent = content;
-		content = newContent;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.CONTAINS__CONTENT, oldContent, newContent);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public void setContent(TextParam newContent) {
 		if (newContent != content) {
@@ -420,7 +405,7 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetContent(TextLiteralParam newContent, NotificationChain msgs) {
+	public NotificationChain basicSetContent(TextParam newContent, NotificationChain msgs) {
 		TextParam oldContent = content;
 
 		ParameterList varlist = getParameterList();

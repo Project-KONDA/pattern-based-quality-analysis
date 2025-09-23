@@ -403,21 +403,6 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRegularExpression(TextParam newRegularExpression, NotificationChain msgs) {
-		TextParam oldRegularExpression = regularExpression;
-		regularExpression = newRegularExpression;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, newRegularExpression);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public void setRegularExpression(TextParam newRegularExpression) {
 		if (newRegularExpression != regularExpression) {
@@ -438,7 +423,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetRegularExpression(TextLiteralParam newRegularExpression, NotificationChain msgs) {
+	public NotificationChain basicSetRegularExpression(TextParam newRegularExpression, NotificationChain msgs) {
 		TextParam oldRegularExpression = regularExpression;
 
 		ParameterList varlist = getParameterList();
