@@ -1527,32 +1527,32 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getNode__AddIncomming__ComplexNode(), this.getRelation(), "addIncomming", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getComplexNode(), "node", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getNode__AddPrimitiveComparison(), theParametersPackage.getUntypedParameterValue(), "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AddPrimitiveComparison(), theOperatorsPackage.getComparison(), "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getNode__AddPrimitiveComparison__String(), theParametersPackage.getTextLiteralParam(), "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AddPrimitiveComparison__String(), theOperatorsPackage.getComparison(), "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getNode__AddPrimitiveComparison__ParameterValue(), theParametersPackage.getParameterValue(), "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AddPrimitiveComparison__ParameterValue(), theOperatorsPackage.getComparison(), "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theParametersPackage.getParameterValue(), "input", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getNode__AddPrimitiveComparison__ComparisonOperator_ParameterValue(), theParametersPackage.getParameterValue(), "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AddPrimitiveComparison__ComparisonOperator_ParameterValue(), theOperatorsPackage.getComparison(), "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatorsPackage.getComparisonOperator(), "operator", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theParametersPackage.getParameterValue(), "input", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getNode__AddPrimitiveMatch(), theParametersPackage.getTextLiteralParam(), "addPrimitiveMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AddPrimitiveMatch(), theOperatorsPackage.getMatch(), "addPrimitiveMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getNode__AddPrimitiveMatch__String(), theParametersPackage.getTextLiteralParam(), "addPrimitiveMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AddPrimitiveMatch__String(), theOperatorsPackage.getMatch(), "addPrimitiveMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "regex", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getNode__AddPrimitiveContains(), theParametersPackage.getTextLiteralParam(), "addPrimitiveContains", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getNode__AddPrimitiveContains(), theOperatorsPackage.getContains(), "addPrimitiveContains", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getNode__AddPrimitiveContains__String(), theParametersPackage.getTextLiteralParam(), "addPrimitiveContains", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AddPrimitiveContains__String(), theOperatorsPackage.getContains(), "addPrimitiveContains", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "content", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getNode__AddPrimitiveStringLength(), theOperatorsPackage.getStringLength(), "addPrimitiveStringLength", 0, 1, IS_UNIQUE, IS_ORDERED);

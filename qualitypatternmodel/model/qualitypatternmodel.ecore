@@ -358,29 +358,23 @@
       <eOperations name="addIncomming" eType="#//graphstructure/Relation">
         <eParameters name="node" eType="#//graphstructure/ComplexNode"/>
       </eOperations>
-      <eOperations name="addPrimitiveComparison" eType="#//parameters/UntypedParameterValue"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="addPrimitiveComparison" eType="#//parameters/TextLiteralParam"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="addPrimitiveComparison" eType="#//operators/Comparison" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addPrimitiveComparison" eType="#//operators/Comparison" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eOperations name="addPrimitiveComparison" eType="#//parameters/ParameterValue"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="addPrimitiveComparison" eType="#//operators/Comparison" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="input" eType="#//parameters/ParameterValue"/>
       </eOperations>
-      <eOperations name="addPrimitiveComparison" eType="#//parameters/ParameterValue"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="addPrimitiveComparison" eType="#//operators/Comparison" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="operator" eType="#//operators/ComparisonOperator"/>
         <eParameters name="input" eType="#//parameters/ParameterValue"/>
       </eOperations>
-      <eOperations name="addPrimitiveMatch" eType="#//parameters/TextLiteralParam"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="addPrimitiveMatch" eType="#//parameters/TextLiteralParam"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="addPrimitiveMatch" eType="#//operators/Match" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addPrimitiveMatch" eType="#//operators/Match" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="regex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eOperations name="addPrimitiveContains" eType="#//parameters/TextLiteralParam"/>
-      <eOperations name="addPrimitiveContains" eType="#//parameters/TextLiteralParam">
+      <eOperations name="addPrimitiveContains" eType="#//operators/Contains"/>
+      <eOperations name="addPrimitiveContains" eType="#//operators/Contains">
         <eParameters name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eOperations name="addPrimitiveStringLength" eType="#//operators/StringLength"

@@ -1970,7 +1970,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public UntypedParameterValue addPrimitiveComparison() {
+	public Comparison addPrimitiveComparison() {
 		try {
 			Comparison comparison = new ComparisonImpl();
 			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
@@ -1993,7 +1993,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			comparison.setArgument2(untypedParameterValue);
 			comparison.getOption().setValue(ComparisonOperator.EQUAL);
 
-			return untypedParameterValue;
+			return comparison;
 
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());
@@ -2009,13 +2009,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public TextLiteralParam addPrimitiveComparison(String value) {
+	public Comparison addPrimitiveComparison(String value) {
 //		Comparison comparison = new ComparisonImpl();
 		try {
 			TextLiteralParam textlit = new TextLiteralParamImpl(value);
-			addPrimitiveComparison(textlit);
-			textlit.getComparison2().get(0).getTypeOption().setValue(ReturnType.STRING);
-			return textlit;
+			Comparison comp = addPrimitiveComparison(textlit);
+			comp.getTypeOption().setValue(ReturnType.STRING);
+			return comp;
 
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());
@@ -2031,9 +2031,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public ParameterValue addPrimitiveComparison(ParameterValue parameter) throws InvalidityException {
-		addPrimitiveComparison().replace(parameter);
-		return parameter;
+	public Comparison addPrimitiveComparison(ParameterValue parameter) throws InvalidityException {
+		Comparison comp = addPrimitiveComparison();
+		((UntypedParameterValue) comp.getArgument2()).replace(parameter);
+		return comp;
 	}
 
 	/**
@@ -2043,7 +2044,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public ParameterValue addPrimitiveComparison(ComparisonOperator operator, ParameterValue parameter) {
+	public Comparison addPrimitiveComparison(ComparisonOperator operator, ParameterValue parameter) {
 		Comparison comparison = new ComparisonImpl();
 		try {
 			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
@@ -2063,7 +2064,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			}
 			comparison.setArgument1(p);
 			comparison.setArgument2(parameter);
-			return parameter;
+			return comparison;
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());
 			return null;
@@ -2195,7 +2196,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public TextLiteralParam addPrimitiveMatch() {
+	public Match addPrimitiveMatch() {
 		return addPrimitiveMatch(null);
 	}
 
@@ -2206,7 +2207,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public TextLiteralParam addPrimitiveMatch(String regex) {
+	public Match addPrimitiveMatch(String regex) {
 		Match match = new MatchImpl();
 		try {
 			Graph graph = (Graph) getAncestor(Graph.class);
@@ -2225,7 +2226,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			if(regex != null) {
 				((TextLiteralParam) match.getRegularExpression()).setValue(regex);
 			}
-			return (TextLiteralParam) match.getRegularExpression();
+			return match;
 		} catch (Exception e) {
 			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
 			e.printStackTrace();
@@ -2241,7 +2242,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public TextLiteralParam addPrimitiveContains() {
+	public Contains addPrimitiveContains() {
 		return addPrimitiveContains(null);
 	}
 
@@ -2251,7 +2252,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public TextLiteralParam addPrimitiveContains(String content) {
+	public Contains addPrimitiveContains(String content) {
 		Contains contains = new ContainsImpl();
 		try {
 			Graph graph = (Graph) getAncestor(Graph.class);
@@ -2270,7 +2271,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			if(content != null) {
 				((TextLiteralParam) contains.getContent()).setValue(content);
 			}
-			return (TextLiteralParam) contains.getContent();
+			return contains;
 		} catch (Exception e) {
 			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
 			e.printStackTrace();

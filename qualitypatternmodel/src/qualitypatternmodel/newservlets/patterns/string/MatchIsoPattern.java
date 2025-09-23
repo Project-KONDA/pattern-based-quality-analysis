@@ -29,7 +29,7 @@ public class MatchIsoPattern extends PatternClass {
 		container.setReturnNode(false);
 		ret.setReturnNode(true);
 
-		Match match = ret.addPrimitiveMatch().getMatches().get(0);
+		Match match = ret.addPrimitiveMatch();
 
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		pattern.setCondition(quantifiedCondition);

@@ -26,7 +26,7 @@ public class ContainsSinPattern extends PatternClass {
 
 		PrimitiveNode element1 = pattern.getGraph().getReturnNodes().get(0).makePrimitive();
 
-		Contains contains = element1.addPrimitiveContains().getContains().get(0);
+		Contains contains = element1.addPrimitiveContains();
 
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		pattern.setCondition(quantifiedCondition);

@@ -36,7 +36,7 @@ public class ContainsIsoPattern extends PatternClass {
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		pattern.setCondition(quantifiedCondition);
 
-		Contains cont = ret.addPrimitiveContains().getContains().get(0);
+		Contains cont = ret.addPrimitiveContains();
 		
 		cont.setOperatorList(quantifiedCondition.getGraph().getOperatorList());
 
