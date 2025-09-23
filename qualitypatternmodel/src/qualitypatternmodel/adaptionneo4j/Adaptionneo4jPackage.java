@@ -732,6 +732,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_MATCH = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Match List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_MATCH_LIST = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH_LIST;
+
+	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -748,6 +757,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_CONTAINS = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_CONTAINS_LIST = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS_LIST;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
@@ -3843,6 +3861,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_MATCH = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_MATCH;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Match List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_MATCH_LIST = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_MATCH_LIST;
+
+	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3859,6 +3886,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_CONTAINS = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_CONTAINS;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_CONTAINS_LIST = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_CONTAINS_LIST;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
@@ -6152,6 +6188,24 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_NODE_LABELS_PARAM__VALUES = ParametersPackage.TEXT_LIST_PARAM__VALUES;
 
 	/**
+	 * The feature id for the '<em><b>Contains</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM__CONTAINS = ParametersPackage.TEXT_LIST_PARAM__CONTAINS;
+
+	/**
+	 * The feature id for the '<em><b>Matches</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM__MATCHES = ParametersPackage.TEXT_LIST_PARAM__MATCHES;
+
+	/**
 	 * The number of structural features of the '<em>Neo Node Labels Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6720,13 +6774,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_EDGE_LABEL_PARAM__TYPE_MODIFIABLE = ParametersPackage.TEXT_LITERAL_PARAM__TYPE_MODIFIABLE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Contains</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_EDGE_LABEL_PARAM__VALUE = ParametersPackage.TEXT_LITERAL_PARAM__VALUE;
+	int NEO_EDGE_LABEL_PARAM__CONTAINS = ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS;
 
 	/**
 	 * The feature id for the '<em><b>Matches</b></em>' reference list.
@@ -6736,6 +6790,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_EDGE_LABEL_PARAM__MATCHES = ParametersPackage.TEXT_LITERAL_PARAM__MATCHES;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_EDGE_LABEL_PARAM__VALUE = ParametersPackage.TEXT_LITERAL_PARAM__VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Xml Property Option Param</b></em>' container reference.
@@ -6754,15 +6817,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_EDGE_LABEL_PARAM__XML_AXIS_PART_CONDITION = ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART_CONDITION;
-
-	/**
-	 * The feature id for the '<em><b>Contains</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_EDGE_LABEL_PARAM__CONTAINS = ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS;
 
 	/**
 	 * The number of structural features of the '<em>Neo Edge Label Param</em>' class.
@@ -7334,13 +7388,13 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_PROPERTY_NAME_PARAM__TYPE_MODIFIABLE = ParametersPackage.TEXT_LITERAL_PARAM__TYPE_MODIFIABLE;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Contains</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_NAME_PARAM__VALUE = ParametersPackage.TEXT_LITERAL_PARAM__VALUE;
+	int NEO_PROPERTY_NAME_PARAM__CONTAINS = ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS;
 
 	/**
 	 * The feature id for the '<em><b>Matches</b></em>' reference list.
@@ -7350,6 +7404,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NAME_PARAM__MATCHES = ParametersPackage.TEXT_LITERAL_PARAM__MATCHES;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NAME_PARAM__VALUE = ParametersPackage.TEXT_LITERAL_PARAM__VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Xml Property Option Param</b></em>' container reference.
@@ -7368,15 +7431,6 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NAME_PARAM__XML_AXIS_PART_CONDITION = ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PART_CONDITION;
-
-	/**
-	 * The feature id for the '<em><b>Contains</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_PROPERTY_NAME_PARAM__CONTAINS = ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS;
 
 	/**
 	 * The number of structural features of the '<em>Neo Property Name Param</em>' class.

@@ -8,6 +8,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
+import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -37,7 +38,8 @@ public class ContainsPattern extends PatternClass {
 		Graph g2 = quantifiedCondition.getGraph();
 
 		Node element1 = ret.addOutgoing(g2).getTarget().makePrimitive();
-		TextLiteralParam tlp = element1.addPrimitiveContains();
+		Contains cont = element1.addPrimitiveContains();
+		TextLiteralParam tlp = (TextLiteralParam) cont.getContent();
 		if (ServletConstants.FILL_VALUES) {
 			tlp.setValue("abc");
 		}

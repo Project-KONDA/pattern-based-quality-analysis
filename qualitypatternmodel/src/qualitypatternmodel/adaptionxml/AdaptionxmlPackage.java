@@ -720,6 +720,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___ADD_PRIMITIVE_MATCH = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Match List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADD_PRIMITIVE_MATCH_LIST = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH_LIST;
+
+	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -736,6 +745,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ELEMENT___ADD_PRIMITIVE_CONTAINS = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADD_PRIMITIVE_CONTAINS_LIST = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS_LIST;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
@@ -3060,6 +3078,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___ADD_PRIMITIVE_MATCH = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_MATCH;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Match List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_PRIMITIVE_MATCH_LIST = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_MATCH_LIST;
+
+	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3076,6 +3103,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___ADD_PRIMITIVE_CONTAINS = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_CONTAINS;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_PRIMITIVE_CONTAINS_LIST = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_CONTAINS_LIST;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
@@ -3879,6 +3915,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___ADD_PRIMITIVE_MATCH = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Match List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_PRIMITIVE_MATCH_LIST = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH_LIST;
+
+	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3895,6 +3940,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___ADD_PRIMITIVE_CONTAINS = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_PRIMITIVE_CONTAINS_LIST = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS_LIST;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Contains</em>' operation.

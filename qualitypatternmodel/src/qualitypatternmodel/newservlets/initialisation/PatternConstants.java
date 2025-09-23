@@ -53,7 +53,7 @@ public class PatternConstants {
 	public static String COMPVAL_ID = "CompVal";
 	public static String COMPVAL_NAME = "Compare Values";
 	public static String COMPVAL_DESCR = "Check whether all values of a specific field within a record does comply to a value restriction.";
-	
+
 	public static String CONTAINS_ID = "Contains";
 	public static String CONTAINS_NAME = "Contains Check";
 	public static String CONTAINS_DESCR = "Check, whether a value contains a specific substring.";
@@ -65,6 +65,18 @@ public class PatternConstants {
 	public static String CONTAINSSIN_ID = "ContainsSin";
 	public static String CONTAINSSIN_NAME = "Contains Check (Single)";
 	public static String CONTAINSSIN_DESCR = "Check, whether a value contains a specific substring.";
+
+	public static String CONTAINSLIST_ID = "ContainsList";
+	public static String CONTAINSLIST_NAME = "Contains List Check";
+	public static String CONTAINSLIST_DESCR = "Check, whether a value contains one of a list of substrings.";
+
+	public static String CONTAINSLISTISO_ID = "ContainsListIso";
+	public static String CONTAINSLISTISO_NAME = "Contains List Check (Isolated)";
+	public static String CONTAINSLISTISO_DESCR = "Check, whether a value contains one of a list of substrings.";
+ 
+	public static String CONTAINSLISTSIN_ID = "ContainsListSin";
+	public static String CONTAINSLISTSIN_NAME = "Contains List Check (Single)";
+	public static String CONTAINSLISTSIN_DESCR = "Check, whether a value contains one of a list of substrings.";
 	
 	public static String DUPVAL_ID = "DupVal";
 	public static String DUPVAL_NAME = "Duplicate value";
@@ -121,6 +133,18 @@ public class PatternConstants {
 	public static String MATCHSIN_ID = "MatchSin";
 	public static String MATCHSIN_NAME = "Regular Expression Check (Single)";
 	public static String MATCHSIN_DESCR = "Check, whether a value matches a specific regular expression.";
+	
+	public static String MATCHLIST_ID = "MatchList";
+	public static String MATCHLIST_NAME = "Regular Expression List Check";
+	public static String MATCHLIST_DESCR = "Check, whether a value matches at least one regular expression from a list.";
+	
+	public static String MATCHLISTISO_ID = "MatchListIso";
+	public static String MATCHLISTISO_NAME = "Regular Expression List Check (Isolated)";
+	public static String MATCHLISTISO_DESCR = "Check, whether a value matches at least one regular expression from a list.";
+
+	public static String MATCHLISTSIN_ID = "MatchListSin";
+	public static String MATCHLISTSIN_NAME = "Regular Expression List Check (Single)";
+	public static String MATCHLISTSIN_DESCR = "Check, whether a value matches at least one regular expression from a list.";
 	
 	public static String STRINGLENGTH_ID = "StringLength";
 	public static String STRINGLENGTH_NAME = "String value length restriction";

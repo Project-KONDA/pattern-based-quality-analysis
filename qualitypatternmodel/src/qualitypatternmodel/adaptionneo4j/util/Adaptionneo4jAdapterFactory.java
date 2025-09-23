@@ -34,6 +34,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TextParam;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -199,6 +200,10 @@ public class Adaptionneo4jAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseListParam(ListParam object) {
 				return createListParamAdapter();
+			}
+			@Override
+			public Adapter caseTextParam(TextParam object) {
+				return createTextParamAdapter();
 			}
 			@Override
 			public Adapter caseTextListParam(TextListParam object) {
@@ -603,6 +608,20 @@ public class Adaptionneo4jAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createListParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.TextParam <em>Text Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.parameters.TextParam
+	 * @generated
+	 */
+	public Adapter createTextParamAdapter() {
 		return null;
 	}
 
