@@ -38,7 +38,9 @@ import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 public class APIVariantsXMLTest {
-	private static final boolean PRINTCONSTRAINTS = true;
+	private static final boolean PRINTPARAMS = false;
+	private static final boolean PRINTCONSTRAINT = false;
+	private static final boolean PRINTQUERY = false;
 	
 	// __________ STATIC VARIABLES __________
 	private static String folder;
@@ -219,20 +221,24 @@ public class APIVariantsXMLTest {
 	public void testVariant(String constraint, String variant)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 
-		String constraintID = APICallTests.newConstraint(constraint, variant);
-		
-		if(PRINTCONSTRAINTS) {
+		if(PRINTPARAMS) {
 			Map<String, String[]> params = getEmptyParams();
 			params.put(ConstantsJSON.VARIANTS, new String[]{"false"});
-			JSONObject myconstraint = getConstraint(constraintID);
 			JSONObject myparams = TemplateVariantServlet.applyGet("/xml/" + constraint, params);
-			System.out.println(constraint + "\t" + variant+ "\t" + constraintID + "\t" + myconstraint + "\t" + myparams);
+			System.out.println(constraint + "\t" + variant+ "\t" + myparams);
+		}
+		String constraintID = APICallTests.newConstraint(constraint, variant);
+		
+		if(PRINTCONSTRAINT) {
+			Map<String, String[]> params = getEmptyParams();
+			JSONObject myconstraint = getConstraint(constraintID);
+			System.out.println(constraint + "\t" + variant+ "\t" + constraintID + "\t" + myconstraint);
 			testConstraintParameter(myconstraint);
 		}
 		
 		setAllConstraintParameter(constraintID);
-		
-		if (PRINTCONSTRAINTS)
+
+		if (PRINTQUERY)
 			System.out.println(ConstraintQueryServlet.applyGet("xml", new String[] {constraintID}));
 
 		testConcretePattern(constraintID);

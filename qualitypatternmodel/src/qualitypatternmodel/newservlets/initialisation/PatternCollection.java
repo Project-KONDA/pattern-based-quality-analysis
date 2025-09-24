@@ -55,6 +55,7 @@ public class PatternCollection {
 		classes.add(MandContPattern.class);
 		// string
 		classes.add(CardMatchPattern.class);
+		classes.add(CardCompSetIfCompSetPattern.class);
 		classes.add(ContainsIsoPattern.class);
 		classes.add(ContainsSinPattern.class);
 		classes.add(ContainsPattern.class);
