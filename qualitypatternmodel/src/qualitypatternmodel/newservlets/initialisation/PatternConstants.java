@@ -22,9 +22,13 @@ public class PatternConstants {
 	public static String CARDMATCH_NAME = "Cardinality of RegEx-Constrained Values";
 	public static String CARDMATCH_DESCR = "Check, whether the occurence count of specific elements, that match a regular expression apply.";
 
+	public static String CARDIFCOMPSET_ID = "CardIfCompSet";
+	public static String CARDIFCOMPSET_NAME = "If Property A in Set, Check Cardinality of Property B";
+	public static String CARDIFCOMPSET_DESCR = "If one specific property is in a specific Set, check the occurence count of another specific element applies";
+
 	public static String CARDCOMPSETIFCOMPSET_ID = "CardCompSetIfCompSet";
 	public static String CARDCOMPSETIFCOMPSET_NAME = "If Property A in Set, Check Cardinality of Property B in Set";
-	public static String CARDCOMPSETIFCOMPSET_DESCR = "If one specific property is in a specific Set, check whether the occurence count of values of another specific property apply, that are in another set";
+	public static String CARDCOMPSETIFCOMPSET_DESCR = "If one specific property is in a specific Set, check the occurence count of values of another specific property, that are in another set";
 	
 	public static String CHECKFORMAT_ID = "CheckFormat";
 	public static String CHECKFORMAT_NAME = "Check the format of a resource";

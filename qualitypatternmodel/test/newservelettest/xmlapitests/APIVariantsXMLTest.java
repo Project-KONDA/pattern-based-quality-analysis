@@ -38,6 +38,7 @@ import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 public class APIVariantsXMLTest {
+	private static final boolean DELETE = true;
 	private static final boolean PRINTPARAMS = false;
 	private static final boolean PRINTCONSTRAINT = false;
 	private static final boolean PRINTQUERY = false;
@@ -133,7 +134,8 @@ public class APIVariantsXMLTest {
 	@AfterAll
 	public static void close() throws IOException {
 		System.out.println("Delete: " + folder);
-		FileUtils.deleteDirectory(new File(folder));
+		if (DELETE)
+			FileUtils.deleteDirectory(new File(folder));
 	}
 
 	// __________ BASE FUNCTIONS __________
