@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -58,6 +59,7 @@ import qualitypatternmodel.utility.ConstantsJSON;
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getParameterPredefinitions <em>Parameter Predefinitions</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getFragmentsOrdered <em>Fragments Ordered</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#isTypeConstraint <em>Type Constraint</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getCustom <em>Custom</em>}</li>
  * </ul>
  *
  * @generated
@@ -133,6 +135,16 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @ordered
 	 */
 	protected boolean typeConstraint = TYPE_CONSTRAINT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCustom() <em>Custom</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCustom()
+	 * @generated
+	 * @ordered
+	 */
+	protected Map<String, String> custom;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -344,6 +356,31 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Map<String, String> getCustom() {
+		return custom;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCustom(Map<String, String> newCustom) {
+		Map<String, String> oldCustom = custom;
+		custom = newCustom;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PATTERN_TEXT__CUSTOM, oldCustom, custom));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -421,6 +458,21 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public JSONObject generateCustomAsJson() {
+		JSONObject object = new JSONObject();
+		for (String key: custom.keySet()) {
+			object.put(key, custom.get(key));
+		}
+		return object;
 	}
 
 
@@ -801,6 +853,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return getFragmentsOrdered();
 			case TextrepresentationPackage.PATTERN_TEXT__TYPE_CONSTRAINT:
 				return isTypeConstraint();
+			case TextrepresentationPackage.PATTERN_TEXT__CUSTOM:
+				return getCustom();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -835,6 +889,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			case TextrepresentationPackage.PATTERN_TEXT__TYPE_CONSTRAINT:
 				setTypeConstraint((Boolean)newValue);
 				return;
+			case TextrepresentationPackage.PATTERN_TEXT__CUSTOM:
+				setCustom((Map<String, String>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -865,6 +922,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			case TextrepresentationPackage.PATTERN_TEXT__TYPE_CONSTRAINT:
 				setTypeConstraint(TYPE_CONSTRAINT_EDEFAULT);
 				return;
+			case TextrepresentationPackage.PATTERN_TEXT__CUSTOM:
+				setCustom((Map<String, String>)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -889,6 +949,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return fragmentsOrdered != null && !fragmentsOrdered.isEmpty();
 			case TextrepresentationPackage.PATTERN_TEXT__TYPE_CONSTRAINT:
 				return typeConstraint != TYPE_CONSTRAINT_EDEFAULT;
+			case TextrepresentationPackage.PATTERN_TEXT__CUSTOM:
+				return custom != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -938,6 +1000,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return generateJSONObject();
 			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_VARIANT_JSON_OBJECT:
 				return generateVariantJSONObject();
+			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_CUSTOM_AS_JSON:
+				return generateCustomAsJson();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -956,6 +1020,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		result.append(name);
 		result.append(", typeConstraint: ");
 		result.append(typeConstraint);
+		result.append(", custom: ");
+		result.append(custom);
 		result.append(')');
 		return result.toString();
 	}

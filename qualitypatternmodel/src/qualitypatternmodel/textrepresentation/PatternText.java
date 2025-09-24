@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.textrepresentation;
 
+import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.json.JSONObject;
@@ -28,6 +29,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getParameterPredefinitions <em>Parameter Predefinitions</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getFragmentsOrdered <em>Fragments Ordered</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#isTypeConstraint <em>Type Constraint</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getCustom <em>Custom</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText()
@@ -144,6 +146,28 @@ public interface PatternText extends EObject {
 	void setTypeConstraint(boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Custom</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Custom</em>' attribute.
+	 * @see #setCustom(Map)
+	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText_Custom()
+	 * @model transient="true"
+	 * @generated
+	 */
+	Map<String, String> getCustom();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.PatternText#getCustom <em>Custom</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Custom</em>' attribute.
+	 * @see #getCustom()
+	 * @generated
+	 */
+	void setCustom(Map<String, String> value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * Returns a JSON representation of <code>this</code> <code>PatternText</code> and its contents.
 	 *
@@ -194,6 +218,14 @@ public interface PatternText extends EObject {
 	 * @generated
 	 */
 	JSONObject generateVariantJSONObject();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
+	 * @generated
+	 */
+	JSONObject generateCustomAsJson();
 
 	/**
 	 * <!-- begin-user-doc -->

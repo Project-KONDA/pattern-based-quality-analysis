@@ -33,7 +33,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Adaptable;
-import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -415,10 +414,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
-	public Comparison addComparison(Comparable comparable) {
+	public Comparison addComparison(qualitypatternmodel.graphstructure.Comparable comparable) {
 		if (this.getClass() == NodeImpl.class)
 			throw new RuntimeException("Adding Condition Failed: argument is a generic node");
 		if (comparable == null) {
@@ -1922,7 +1921,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE___IS_OPERATOR_ARGUMENT:
 				return isOperatorArgument();
 			case GraphstructurePackage.NODE___ADD_COMPARISON__COMPARABLE:
-				return addComparison((Comparable)arguments.get(0));
+				return addComparison((qualitypatternmodel.graphstructure.Comparable)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

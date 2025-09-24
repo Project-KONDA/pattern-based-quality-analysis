@@ -299,6 +299,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPatternText_Custom() {
+		return (EAttribute)patternTextEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPatternText__GenerateJSON() {
 		return patternTextEClass.getEOperations().get(2);
 	}
@@ -351,6 +361,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	@Override
 	public EOperation getPatternText__GenerateVariantJSONObject() {
 		return patternTextEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternText__GenerateCustomAsJson() {
+		return patternTextEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -909,6 +929,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEReference(patternTextEClass, PATTERN_TEXT__PARAMETER_PREDEFINITIONS);
 		createEReference(patternTextEClass, PATTERN_TEXT__FRAGMENTS_ORDERED);
 		createEAttribute(patternTextEClass, PATTERN_TEXT__TYPE_CONSTRAINT);
+		createEAttribute(patternTextEClass, PATTERN_TEXT__CUSTOM);
 		createEOperation(patternTextEClass, PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL);
 		createEOperation(patternTextEClass, PATTERN_TEXT___ADD_FRAGMENT__FRAGMENT);
 		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_JSON);
@@ -918,6 +939,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_SPARQL_TEMPLATE);
 		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_JSON_OBJECT);
 		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_VARIANT_JSON_OBJECT);
+		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_CUSTOM_AS_JSON);
 
 		parameterFragmentEClass = createEClass(PARAMETER_FRAGMENT);
 		createEAttribute(parameterFragmentEClass, PARAMETER_FRAGMENT__EXAMPLE_VALUE);
@@ -1023,6 +1045,12 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		initEReference(getPatternText_ParameterPredefinitions(), this.getParameterPredefinition(), this.getParameterPredefinition_Patterntext(), "parameterPredefinitions", null, 0, -1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPatternText_FragmentsOrdered(), this.getFragment(), null, "fragmentsOrdered", null, 1, -1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPatternText_TypeConstraint(), ecorePackage.getEBoolean(), "typeConstraint", null, 0, 1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getPatternText_Custom(), g1, "custom", null, 0, 1, PatternText.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getPatternText__IsValid__AbstractionLevel(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, thePatternstructurePackage.getAbstractionLevel(), "abstractionLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1048,6 +1076,8 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		initEOperation(getPatternText__GenerateJSONObject(), this.getJSONObjectWrapper(), "generateJSONObject", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPatternText__GenerateVariantJSONObject(), this.getJSONObjectWrapper(), "generateVariantJSONObject", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPatternText__GenerateCustomAsJson(), this.getJSONObjectWrapper(), "generateCustomAsJson", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(parameterFragmentEClass, ParameterFragment.class, "ParameterFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParameterFragment_ExampleValue(), ecorePackage.getEString(), "exampleValue", null, 0, 1, ParameterFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1130,8 +1160,8 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getValueMap__AddAll__Map(), null, "addAll", 0, 1, IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-		EGenericType g2 = createEGenericType(ecorePackage.getEString());
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
