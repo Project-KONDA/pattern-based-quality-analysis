@@ -32,7 +32,7 @@ public class MandContSinPattern extends PatternClass {
 
 		// that does not contain
 		Formula or = PatternstructureFactory.eINSTANCE.createFormula();
-		or.setOperator(LogicalOperator.OR);
+		or.setOperator(LogicalOperator.AND);
 		pattern.setCondition(or);
 
 		NotCondition not1 = PatternstructureFactory.eINSTANCE.createNotCondition();
