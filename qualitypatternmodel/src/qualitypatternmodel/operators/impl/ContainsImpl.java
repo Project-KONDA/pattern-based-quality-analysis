@@ -443,8 +443,8 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		patternElements.add(getOption());
 		patternElements.add(getContent());
-		setOption(null);
-		setContent(null);
+//		setOption(null);
+//		setContent(null);
 		return patternElements;
 	}
 
@@ -648,11 +648,24 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	@Override
 	public String myToString() {
 		String res = "CONTAINS (" + getInternalId() + ") [";
-		if (!getOption().getValue()) {
-			res += "not ";
+		if (getOption() == null)
+			res += "null]";
+		else {
+			if (!getOption().getValue()) {
+				res += "not ";
+			}
+			res += getOption().getInternalId() + "]";
 		}
-		res += getOption().getInternalId() + "]";
-		res += "[" + getPrimitiveNode().getInternalId() + ", " + getContent().getInternalId() + "]";
+		res += "[";
+		if (getPrimitiveNode() == null) {
+			res += "null, ";
+		}
+		else 
+			res +=  getPrimitiveNode().getInternalId() + ", ";
+		if (getContent() == null)
+			res += "null]";
+		else 
+			res += getContent().getInternalId() + "]";
 		return res;
 	}
 

@@ -461,8 +461,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		patternElements.add(getOption());
 		patternElements.add(getRegularExpression());
-		setOption(null);
-		setRegularExpression(null);
+//		setOption(null);
+//		setRegularExpression(null);
 		return patternElements;
 	}
 
@@ -666,11 +666,24 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	@Override
 	public String myToString() {
 		String res = "MATCH (" + getInternalId() + ") [";
-		if (!getOption().getValue()) {
-			res += "not ";
+		if (getOption() == null)
+			res += "null]";
+		else {
+			if (!getOption().getValue()) {
+				res += "not ";
+			}
+			res += getOption().getInternalId() + "]";
 		}
-		res += getOption().getInternalId() + "]";
-		res += "[" + getPrimitiveNode().getInternalId() + ", " + getRegularExpression().getInternalId() + "]";
+		res += "[";
+		if (getPrimitiveNode() == null) {
+			res += "null, ";
+		}
+		else 
+			res +=  getPrimitiveNode().getInternalId() + ", ";
+		if (getRegularExpression() == null)
+			res += "null]";
+		else 
+			res += getRegularExpression().getInternalId() + "]";
 		return res;
 	}
 
