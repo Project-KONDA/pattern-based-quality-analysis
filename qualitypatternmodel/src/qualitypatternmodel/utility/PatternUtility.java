@@ -33,6 +33,7 @@ import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
@@ -124,6 +125,15 @@ public class PatternUtility {
 				TextLiteralParam text = (TextLiteralParam) param;
 				if(text.getValue() == null) {
 					text.setValue("something");
+				}
+			}
+			if (param instanceof TextListParam) {
+				TextListParam list = (TextListParam) param;
+				if(list.getValues() == null || list.getValues().isEmpty()) {
+					try {
+						list.addStringValue("test");
+						list.addStringValue("text");
+					} catch (Exception e) {}
 				}
 			}
 			if (param instanceof ComparisonOptionParam) {

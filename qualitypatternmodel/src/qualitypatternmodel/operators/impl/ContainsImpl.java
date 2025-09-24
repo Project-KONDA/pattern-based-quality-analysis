@@ -102,14 +102,27 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		if(option != null && content != null && content.inputIsValid() && primitiveNode != null) {
-			if (option.getValue()){
-				return primitiveNode.generateXQuery() + "contains(., " + content.generateXQuery() + ")";
-			} else {
-				return primitiveNode.generateXQuery() + "not(contains(., " + content.generateXQuery() + "))";
-			}
+		if (option == null)
+			throw new InvalidityException("option null");
+		if (content == null)
+			throw new InvalidityException("content null");
+		if (!content.inputIsValid())
+			throw new InvalidityException("content input invalid: " + content.myToString() + ": "+ content.getValueAsString());
+		if (primitiveNode == null)
+			throw new InvalidityException("node null");
+		
+		String contains;
+		if (content instanceof TextLiteralParam)
+			contains = "contains(., " + content.generateXQuery() + ")";
+		else {
+			String var = "$contains" + getInternalId();
+			contains = "some " + var + " in " + content.generateXQuery() + " satisfies contains(., " + var + ")";
+		}	
+		
+		if (option.getValue()){
+			return primitiveNode.generateXQuery() + contains;
 		} else {
-			throw new InvalidityException("invalid option");
+			return primitiveNode.generateXQuery() + "not(" + contains + ")";
 		}
 	}
 

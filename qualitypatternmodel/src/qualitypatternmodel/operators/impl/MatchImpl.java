@@ -102,14 +102,27 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		if (option != null && regularExpression != null && regularExpression.inputIsValid() && primitiveNode != null) {
-			if (option.getValue()){
-				return primitiveNode.generateXQuery() + "matches(., " + regularExpression.generateXQuery() + ")";
-			} else {
-				return primitiveNode.generateXQuery() + "not(matches(., " + regularExpression.generateXQuery() + "))";
-			}
+		if (option == null)
+			throw new InvalidityException("option null");
+		if (regularExpression == null)
+			throw new InvalidityException("content null");
+		if (!regularExpression.inputIsValid())
+			throw new InvalidityException("content input invalid: " + regularExpression.myToString() + ": "+ regularExpression.getValueAsString());
+		if (primitiveNode == null)
+			throw new InvalidityException("node null");
+		
+		String matches;
+		if (regularExpression instanceof TextLiteralParam)
+			matches = "matches(., " + regularExpression.generateXQuery() + ")";
+		else {
+			String var = "$contains" + getInternalId();
+			matches = "some " + var + " in " + regularExpression.generateXQuery() + " satisfies matches(., " + var + ")";
+		}	
+		
+		if (option.getValue()){
+			return primitiveNode.generateXQuery() + matches;
 		} else {
-			throw new InvalidityException("invalid option");
+			return primitiveNode.generateXQuery() + "not(" + matches + ")";
 		}
 	}
 
