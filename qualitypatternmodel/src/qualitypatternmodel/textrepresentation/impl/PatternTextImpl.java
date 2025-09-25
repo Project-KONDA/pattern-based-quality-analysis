@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -137,6 +136,16 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	protected boolean typeConstraint = TYPE_CONSTRAINT_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getCustom() <em>Custom</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCustom()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final JSONObject CUSTOM_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getCustom() <em>Custom</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -144,7 +153,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @generated
 	 * @ordered
 	 */
-	protected Map<String, String> custom;
+	protected JSONObject custom = CUSTOM_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -359,7 +368,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @generated
 	 */
 	@Override
-	public Map<String, String> getCustom() {
+	public JSONObject getCustom() {
 		return custom;
 	}
 
@@ -370,8 +379,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @generated
 	 */
 	@Override
-	public void setCustom(Map<String, String> newCustom) {
-		Map<String, String> oldCustom = custom;
+	public void setCustom(JSONObject newCustom) {
+		JSONObject oldCustom = custom;
 		custom = newCustom;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PATTERN_TEXT__CUSTOM, oldCustom, custom));
@@ -408,7 +417,11 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			}
 			json += getFragmentsOrdered().get(i).generateJSON();
 		}
-		json += "]}";
+		json += "]";
+		if (getCustom() != null && !getCustom().isEmpty()){
+			json += ", \"custom\" : " + getCustom().toString();
+		}
+		json += "}";
 		return json;
 	}
 
@@ -425,9 +438,10 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			}
 			json.put(ConstantsJSON.FRAGMENTS, fragments);
 			json.put(ConstantsJSON.PARAMETER, ServletUtilities.getAvailableParams(getFragmentsOrdered()));
+			if (custom != null && !custom.isEmpty())
+				json.put(ConstantsJSON.CUSTOM, getCustom());
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ServletUtilities.logError(e);
 		}
 		return json;
 	}
@@ -467,14 +481,12 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @generated NOT
 	 */
 	@Override
-	public JSONObject generateCustomAsJson() {
-		JSONObject object = new JSONObject();
-		for (String key: custom.keySet()) {
-			object.put(key, custom.get(key));
-		}
-		return object;
+	public void addToCustom(JSONObject addition) {
+		if (custom == null)
+			setCustom(addition);
+		for (String key: addition.keySet())
+			custom.put(key, addition.get(key));
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -890,7 +902,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				setTypeConstraint((Boolean)newValue);
 				return;
 			case TextrepresentationPackage.PATTERN_TEXT__CUSTOM:
-				setCustom((Map<String, String>)newValue);
+				setCustom((JSONObject)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -923,7 +935,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				setTypeConstraint(TYPE_CONSTRAINT_EDEFAULT);
 				return;
 			case TextrepresentationPackage.PATTERN_TEXT__CUSTOM:
-				setCustom((Map<String, String>)null);
+				setCustom(CUSTOM_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -950,7 +962,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			case TextrepresentationPackage.PATTERN_TEXT__TYPE_CONSTRAINT:
 				return typeConstraint != TYPE_CONSTRAINT_EDEFAULT;
 			case TextrepresentationPackage.PATTERN_TEXT__CUSTOM:
-				return custom != null;
+				return CUSTOM_EDEFAULT == null ? custom != null : !CUSTOM_EDEFAULT.equals(custom);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1000,8 +1012,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return generateJSONObject();
 			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_VARIANT_JSON_OBJECT:
 				return generateVariantJSONObject();
-			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_CUSTOM_AS_JSON:
-				return generateCustomAsJson();
+			case TextrepresentationPackage.PATTERN_TEXT___ADD_TO_CUSTOM__JSONOBJECT:
+				addToCustom((JSONObject)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

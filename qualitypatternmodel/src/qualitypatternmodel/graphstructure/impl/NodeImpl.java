@@ -414,7 +414,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Comparison addComparison(qualitypatternmodel.graphstructure.Comparable comparable) {

@@ -25,7 +25,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#generateSparqlTemplate() <em>Generate Sparql Template</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#generateJSONObject() <em>Generate JSON Object</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#generateVariantJSONObject() <em>Generate Variant JSON Object</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#generateCustomAsJson() <em>Generate Custom As Json</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#addToCustom(org.json.JSONObject) <em>Add To Custom</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -219,13 +219,13 @@ public class PatternTextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#generateCustomAsJson() <em>Generate Custom As Json</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#addToCustom(org.json.JSONObject) <em>Add To Custom</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.textrepresentation.PatternText#generateCustomAsJson()
+	 * @see qualitypatternmodel.textrepresentation.PatternText#addToCustom(org.json.JSONObject)
 	 * @generated
 	 */
-	public void testGenerateCustomAsJson() {
+	public void testAddToCustom__JSONObject() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

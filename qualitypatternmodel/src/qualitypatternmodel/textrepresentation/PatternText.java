@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.textrepresentation;
 
-import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.json.JSONObject;
@@ -150,12 +149,12 @@ public interface PatternText extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Custom</em>' attribute.
-	 * @see #setCustom(Map)
+	 * @see #setCustom(JSONObject)
 	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText_Custom()
-	 * @model transient="true"
+	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper" transient="true"
 	 * @generated
 	 */
-	Map<String, String> getCustom();
+	JSONObject getCustom();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.PatternText#getCustom <em>Custom</em>}' attribute.
@@ -165,7 +164,7 @@ public interface PatternText extends EObject {
 	 * @see #getCustom()
 	 * @generated
 	 */
-	void setCustom(Map<String, String> value);
+	void setCustom(JSONObject value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -222,10 +221,10 @@ public interface PatternText extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
+	 * @model additionDataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	JSONObject generateCustomAsJson();
+	void addToCustom(JSONObject addition);
 
 	/**
 	 * <!-- begin-user-doc -->

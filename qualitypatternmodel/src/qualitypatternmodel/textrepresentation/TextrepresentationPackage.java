@@ -222,13 +222,13 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT___GENERATE_VARIANT_JSON_OBJECT = 8;
 
 	/**
-	 * The operation id for the '<em>Generate Custom As Json</em>' operation.
+	 * The operation id for the '<em>Add To Custom</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT___GENERATE_CUSTOM_AS_JSON = 9;
+	int PATTERN_TEXT___ADD_TO_CUSTOM__JSONOBJECT = 9;
 
 	/**
 	 * The number of operations of the '<em>Pattern Text</em>' class.
@@ -1102,14 +1102,14 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getPatternText__GenerateVariantJSONObject();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#generateCustomAsJson() <em>Generate Custom As Json</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#addToCustom(org.json.JSONObject) <em>Add To Custom</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Generate Custom As Json</em>' operation.
-	 * @see qualitypatternmodel.textrepresentation.PatternText#generateCustomAsJson()
+	 * @return the meta object for the '<em>Add To Custom</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#addToCustom(org.json.JSONObject)
 	 * @generated
 	 */
-	EOperation getPatternText__GenerateCustomAsJson();
+	EOperation getPatternText__AddToCustom__JSONObject();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}' operation.
@@ -1787,12 +1787,12 @@ public interface TextrepresentationPackage extends EPackage {
 		EOperation PATTERN_TEXT___GENERATE_VARIANT_JSON_OBJECT = eINSTANCE.getPatternText__GenerateVariantJSONObject();
 
 		/**
-		 * The meta object literal for the '<em><b>Generate Custom As Json</b></em>' operation.
+		 * The meta object literal for the '<em><b>Add To Custom</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN_TEXT___GENERATE_CUSTOM_AS_JSON = eINSTANCE.getPatternText__GenerateCustomAsJson();
+		EOperation PATTERN_TEXT___ADD_TO_CUSTOM__JSONOBJECT = eINSTANCE.getPatternText__AddToCustom__JSONObject();
 
 		/**
 		 * The meta object literal for the '<em><b>Delete</b></em>' operation.
