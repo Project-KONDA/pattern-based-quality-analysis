@@ -169,18 +169,18 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		super();
 
 		//template check
-		String template = json.getString("template");
+		String template = json.getString(ConstantsJSON.TEMPLATE);
 		if (!pattern.getPatternId().equals(template)) {
 			throw new InvalidityException("Selected Pattern '" + pattern.getPatternId() + "' does not match '" + template + "'.");
 		}
 		pattern.getLanguage().getLiteral();
-		String language = json.getString("language");
+		String language = json.getString(ConstantsJSON.LANGUAGE);
 		if (!pattern.getLanguage().getLiteral().equals(language)) {
-			throw new InvalidityException("The language of the selected Pattern '" + pattern.getName() + "' is '" + pattern.getLanguage().getLiteral() + "', which does not match '" + language + "'.");
+			throw new InvalidityException("The language of the selected Pattern '" + pattern.getPatternId() + "' is '" + pattern.getLanguage().getLiteral() + "', which does not match '" + language + "'.");
 		}
 
 		// name
-		String name = json.getString("name");
+		String name = json.getString(ConstantsJSON.NAME);
 		if (!name.matches(Constants.ID_REGEX))
 			throw new InvalidityException(ConstantsError.INVALID_VARIANT_ID);
 		this.setName(name);
@@ -191,6 +191,15 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		}
 		Boolean typeConstraint = json.getBoolean(ConstantsJSON.TYPE_CONSTRAINT);
 		this.setTypeConstraint(typeConstraint);
+		
+		// custom
+		if (json.has(ConstantsJSON.CUSTOM)) {
+			if (json.get(ConstantsJSON.CUSTOM) instanceof JSONObject) {
+				JSONObject custom = json.getJSONObject(ConstantsJSON.CUSTOM);
+				this.setCustom(custom);
+			} else 
+				ServletUtilities.log( "Variant '" + name + " for pattern " + pattern.getPatternId() + " has an invalid JSONObject as " + ConstantsJSON.CUSTOM + " value.");
+		}
 
 		// pattern
 		pattern.getText().add(this);
@@ -467,6 +476,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			for (ParameterPredefinition predefinition: getParameterPredefinitions()) {
 				fragments.put(predefinition.generateVariantJSONObject());
 			}
+			if (custom != null && !custom.isEmpty())
+				result.put(ConstantsJSON.CUSTOM, getCustom());
 			result.put(ConstantsJSON.FRAGMENTS, fragments);
 		} catch (JSONException e) {
 			e.printStackTrace();
