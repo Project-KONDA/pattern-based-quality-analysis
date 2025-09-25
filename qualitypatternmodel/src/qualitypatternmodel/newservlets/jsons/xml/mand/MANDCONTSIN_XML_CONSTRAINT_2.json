@@ -11,7 +11,7 @@
 			"exampleValue":"unit",
 			"description":"element of analyis"
 		},
-		{"text":"contains either a"},
+		{"text":"has either a"},
 		{
 			"name":"Subelement",
 			"params":[2],

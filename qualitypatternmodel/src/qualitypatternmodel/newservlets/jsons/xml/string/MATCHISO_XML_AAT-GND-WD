@@ -1,0 +1,33 @@
+{
+    "template":"MatchIso_xml",
+    "language":"xml",
+    "name":"aat-gnd-wd",
+	"typeConstraint":true,
+    "fragments":[
+        {"text":"For all"},
+        {
+            "name":"Container Elements",
+            "params":[3],
+            "exampleValue":"Personal Names",
+            "description":"anchor for analysis",
+            "plural": "true"
+        },
+        {"text":", each"},
+        {
+            "name":"Property",
+            "params":[2],
+            "exampleValue":"Language Specification",
+            "description":"value that gets analysed"
+        },
+        {"text":"matches a URI from either AAT, GND, or Wikidata."},
+        
+        {
+            "params":[0],
+            "value": "false"
+        },
+        {
+            "params":[1],
+    		"value":"^https?://(d-nb.info/gnd/[0-9] +?|vocab.getty.edu/aat/[0-9]+|www.wikidata.org/entity/Q[0-9]+)$"
+        }
+    ]
+}
