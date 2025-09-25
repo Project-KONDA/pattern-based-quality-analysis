@@ -1228,6 +1228,12 @@ components:
         name:
           type: string
           description: variant id
+        typeConstraint:
+          type: boolean
+          description: is formulated as constraint
+        custom:
+          type: object
+          description: custom parameters
         fragments:
           type: array
           description: fragments of the sentence which comprises parameter specifications and text fragments and to set the context of the parameters
