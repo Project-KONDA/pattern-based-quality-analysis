@@ -97,6 +97,7 @@ public class XQueryProcessorSaxon {
 	    public XQueryExecutable query_executable;
 	    public XQueryExecutable query_total_executable;
 	    public JSONObject filter;
+	    public JSONObject custom;
 	}
 	
 	
@@ -119,6 +120,8 @@ public class XQueryProcessorSaxon {
 				ce.id = constraint.getString(ConstantsJSON.CONSTRAINT_ID);
 				ce.name = constraint.getString(ConstantsJSON.NAME);
 				ce.query_executable = compiler.compile(constraint.getString(ConstantsJSON.QUERY));
+				if (constraint.has(ConstantsJSON.CUSTOM))
+					ce.custom = constraint.getJSONObject(ConstantsJSON.CUSTOM);
 				System.out.println("XQueryProcessorSaxon122: counterquery - count after namespaces - how?");
 				String counterquery = addCountToQuery( constraint.getString(ConstantsJSON.QUERY_PARTIAL));
 				ce.query_total_executable = compiler.compile(counterquery);
@@ -163,6 +166,8 @@ public class XQueryProcessorSaxon {
 	                queryResult.put(ConstantsJSON.CONSTRAINT_ID, executable.id);
 	                queryResult.put(ConstantsJSON.CONSTRAINT_NAME, executable.name);
 	                queryResult.put(ConstantsJSON.FILE, file.getName());
+	                if (executable.custom != null)
+	                	queryResult.put(ConstantsJSON.CUSTOM, executable.custom);
 	
 	                // query partial
 	                XQueryEvaluator evalPartial = executable.query_total_executable.load();

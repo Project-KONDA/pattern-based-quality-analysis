@@ -225,6 +225,11 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	@Override
+	public String generateXQueryIsolated() throws InvalidityException {
+		return generateXQuery();
+	}
+
+	@Override
 	public String generateSparql() throws InvalidityException {
 		String argument1Translation = getArgument1().generateSparql();
 		String argument2Translation = getArgument2().generateSparql();
@@ -1465,7 +1470,12 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	@Override
 	public String myToString() {
-		String res = "COMP [" + getInternalId() + "] " + getTypeOption().getValue() + ":" + getReturnType() + " ";
+		String res = "COMP [" + getInternalId() + "] ";
+		if (getTypeOption() == null)
+			res += "[type null]";
+		else
+			res += getTypeOption().getValue();
+		res += ":" + getReturnType() + " ";
 		res += "(";
 		if (getArgument1() != null) {
 			res += getArgument1().getClass().getSimpleName() + " [" + getArgument1().getInternalId() + "] ";

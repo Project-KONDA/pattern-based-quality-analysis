@@ -1,0 +1,36 @@
+{
+    "template":"Card_xml",
+    "language":"xml",
+    "name":"mand_element",
+	"typeConstraint":true,
+	"custom": {
+		"description": "Same as MandAtt_xml but realized via Card_xml"
+	},
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"Element",
+            "params":[2],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":"has at least one"},
+        {
+            "name":"Subelements",
+            "params":[3],
+            "exampleValue":"Birthdate",
+            "description":"counted elements",
+            "plural":"true"
+        },
+        {"text":"."},
+        
+        {
+            "params":[0],
+            "value":"EQUAL"
+        },
+        {
+            "params":[1],
+            "value":"0"
+        }
+    ]
+}

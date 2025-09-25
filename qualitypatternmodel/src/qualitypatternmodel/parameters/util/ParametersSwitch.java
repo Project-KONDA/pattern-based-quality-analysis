@@ -5,6 +5,7 @@ package qualitypatternmodel.parameters.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import qualitypatternmodel.parameters.*;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.DateParam;
@@ -117,6 +118,7 @@ public class ParametersSwitch<T> extends Switch<T> {
 				TextListParam textListParam = (TextListParam)theEObject;
 				T result = caseTextListParam(textListParam);
 				if (result == null) result = caseListParam(textListParam);
+				if (result == null) result = caseTextParam(textListParam);
 				if (result == null) result = caseParameterValue(textListParam);
 				if (result == null) result = caseParameter(textListParam);
 				if (result == null) result = caseComparable(textListParam);
@@ -127,6 +129,7 @@ public class ParametersSwitch<T> extends Switch<T> {
 			case ParametersPackage.TEXT_LITERAL_PARAM: {
 				TextLiteralParam textLiteralParam = (TextLiteralParam)theEObject;
 				T result = caseTextLiteralParam(textLiteralParam);
+				if (result == null) result = caseTextParam(textLiteralParam);
 				if (result == null) result = caseParameterValue(textLiteralParam);
 				if (result == null) result = caseParameter(textLiteralParam);
 				if (result == null) result = caseComparable(textLiteralParam);
@@ -227,6 +230,16 @@ public class ParametersSwitch<T> extends Switch<T> {
 				if (result == null) result = caseParameter(multiListParam);
 				if (result == null) result = caseComparable(multiListParam);
 				if (result == null) result = casePatternElement(multiListParam);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ParametersPackage.TEXT_PARAM: {
+				TextParam textParam = (TextParam)theEObject;
+				T result = caseTextParam(textParam);
+				if (result == null) result = caseParameterValue(textParam);
+				if (result == null) result = caseParameter(textParam);
+				if (result == null) result = caseComparable(textParam);
+				if (result == null) result = casePatternElement(textParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -471,6 +484,21 @@ public class ParametersSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMultiListParam(MultiListParam object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTextParam(TextParam object) {
 		return null;
 	}
 

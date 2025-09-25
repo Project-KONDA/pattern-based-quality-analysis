@@ -1,0 +1,40 @@
+{
+    "template":"CompSetAny_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for CompSetAny_xml"
+	},
+    "fragments":[
+        {"text":"In each"},
+        {
+            "name":"Element",
+            "params":[3],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":", there is at least one"},
+        {
+            "name":"Property",
+            "params":[4],
+            "exampleValue":"Surname",
+            "description":"values that get analysed",
+            "plural":"true"
+        },
+        {"text":", that"},
+        {
+            "name":"Is / Is Not",
+            "params":[1],
+            "exampleValue":"is not",
+            "defaultMap":"comparison_arenot"
+        },
+        {"text":"in the list of"},
+        {
+            "name":"Terms",
+            "params":[0],
+            "exampleValue":"Mueller, Meier"
+        },
+        {"text":"."}
+    ]
+}

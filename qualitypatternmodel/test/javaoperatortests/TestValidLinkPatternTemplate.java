@@ -11,7 +11,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.javaquery.impl.JavaFilterImpl;
 import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
-import qualitypatternmodel.newservlets.patterns.ValidLinkPattern;
+import qualitypatternmodel.newservlets.patterns.link.ValidLinkPattern;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.PatternUtility;
 

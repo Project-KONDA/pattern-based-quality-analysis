@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import qualitypatternmodel.graphstructure.util.GraphstructureValidator;
+import qualitypatternmodel.parameters.*;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.DateParam;
@@ -160,6 +161,8 @@ public class ParametersValidator extends EObjectValidator {
 				return validateListParam((ListParam)value, diagnostics, context);
 			case ParametersPackage.MULTI_LIST_PARAM:
 				return validateMultiListParam((MultiListParam)value, diagnostics, context);
+			case ParametersPackage.TEXT_PARAM:
+				return validateTextParam((TextParam)value, diagnostics, context);
 			case ParametersPackage.STRING_TO_INT_EMAP:
 				return validateStringToIntEMap((EMap<?, ?>)value, diagnostics, context);
 			case ParametersPackage.STRING_ARRAY:
@@ -480,6 +483,25 @@ public class ParametersValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(multiListParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(multiListParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validateParameter_validate(multiListParam, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTextParam(TextParam textParam, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(textParam, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(textParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(textParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(textParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(textParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(textParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(textParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(textParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(textParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(textParam, diagnostics, context);
 		return result;
 	}
 

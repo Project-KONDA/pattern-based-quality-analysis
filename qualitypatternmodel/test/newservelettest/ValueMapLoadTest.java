@@ -9,7 +9,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.newservlets.ServletUtilities;
-import qualitypatternmodel.newservlets.patterns.CardPattern;
+import qualitypatternmodel.newservlets.patterns.internal.CardPattern;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;

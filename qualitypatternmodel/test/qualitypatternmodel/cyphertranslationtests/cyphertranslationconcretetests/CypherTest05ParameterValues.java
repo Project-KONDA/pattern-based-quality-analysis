@@ -279,7 +279,8 @@ public class CypherTest05ParameterValues extends CypherTranslation {
 	private static CompletePattern getConcreteBaseComparisonPattern(ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = CypherTranslation.getBasePattern();
 		Node se = completePattern.getGraph().getNodes().get(1);
-		UntypedParameterValue p = se.addPrimitiveComparison();
+		Comparison comp = se.addPrimitiveComparison();
+		UntypedParameterValue p = (UntypedParameterValue) comp.getArgument2();
 		p.replace(parameter);
 		completePattern.createNeo4jAdaption();
 

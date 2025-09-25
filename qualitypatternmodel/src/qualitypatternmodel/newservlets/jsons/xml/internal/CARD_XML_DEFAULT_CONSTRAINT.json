@@ -1,0 +1,38 @@
+{
+    "template":"Card_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for Card_xml"
+	},
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"Element",
+            "params":[2],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":"has"},
+        {
+            "name":"a Comparison with",
+            "params":[0],
+            "exampleValue":"at most",
+            "defaultMap":"comparison_negated"
+        },
+        {
+            "name":"a Specific Number of",
+            "params":[1],
+            "exampleValue":"1"
+        },
+        {
+            "name":"Subelements",
+            "params":[3],
+            "exampleValue":"Birthdate",
+            "description":"counted elements",
+            "plural":"true"
+        },
+        {"text":"."}
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "template":"Match_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for Match_xml"
+	},
+    "fragments":[
+        {"text":"For each"},
+        {
+            "name":"Element",
+            "params":[2],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis"
+        },
+        {"text":", all"},
+        {
+            "name":"Properties",
+            "params":[3],
+            "exampleValue":"Surname",
+            "description":"value that gets analysed",
+            "plural":"true"
+        },
+        {
+            "name":"Do / Do Not",
+            "params":[0],
+            "defaultMap":"do not",
+            "exampleValue":"do"
+        },
+        {"text":"match"},
+        {
+            "name":"a Specific Pattern (RegEx)",
+            "params":[1],
+            "exampleValue":"[A-Z][a-z][a-z]+"
+        },
+        {"text":"."}
+    ]
+}

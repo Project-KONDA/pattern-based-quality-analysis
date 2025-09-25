@@ -1,0 +1,31 @@
+{
+    "template":"ContainsListSin_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for ContainsListSin_xml"
+	},
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"Property",
+            "params":[2],
+            "exampleValue":"Attribution statement",
+            "description":"analysed property"
+        },
+        {
+            "name":"Does / Does Not",
+            "params":[0],
+            "defaultMap":"does not",
+            "exampleValue":"does"
+        },
+        {"text":"contain one term from"},
+        {
+            "name":"a List of Terms",
+            "params":[1],
+            "exampleValue":"['a', 'b']"
+        },
+        {"text":"."}
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "template":"CompSetSin_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for CompSetSin_xml"
+	},
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"Property",
+            "params":[3],
+            "exampleValue":"Surname",
+            "description":"value that gets analysed"
+        },
+        {
+            "name":"Is / Is Not",
+            "params":[0],
+            "exampleValue":"is",
+            "defaultMap":"comparison_isnot"
+        },
+        {"text":"in the list of"},
+        {
+            "name":"Terms",
+            "params":[2],
+            "exampleValue":"Mueller, Meier"
+        },
+        {"text":"."}
+    ]
+}

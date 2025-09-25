@@ -4,7 +4,7 @@ package qualitypatternmodel.operators;
 
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.BooleanParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TextParam;
 import qualitypatternmodel.patternstructure.Language;
 
 /**
@@ -53,17 +53,17 @@ public interface Match extends BooleanOperator {
 
 	/**
 	 * Returns the value of the '<em><b>Regular Expression</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getMatches <em>Matches</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextParam#getMatches <em>Matches</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Regular Expression</em>' reference.
-	 * @see #setRegularExpression(TextLiteralParam)
+	 * @see #setRegularExpression(TextParam)
 	 * @see qualitypatternmodel.operators.OperatorsPackage#getMatch_RegularExpression()
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getMatches
+	 * @see qualitypatternmodel.parameters.TextParam#getMatches
 	 * @model opposite="matches" required="true"
 	 * @generated
 	 */
-	TextLiteralParam getRegularExpression();
+	TextParam getRegularExpression();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.operators.Match#getRegularExpression <em>Regular Expression</em>}' reference.
@@ -73,7 +73,7 @@ public interface Match extends BooleanOperator {
 	 * @see #getRegularExpression()
 	 * @generated
 	 */
-	void setRegularExpression(TextLiteralParam value);
+	void setRegularExpression(TextParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.

@@ -20,6 +20,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
@@ -45,7 +46,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 			} else {
 				throw new InvalidServletCallException("Wrong URL for requesting the query of a constraint: "
 						+ "' GET '/constraint/query/{technology}/{constraintID}' "
-						+ "(not /constraint/query/" + path + ")");
+						+ "(not /constraint/query" + path + ")");
 			}
 			ServletUtilities.putResponse(response, callId, result);
 		}
@@ -60,7 +61,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 			throw new InvalidServletCallException("Wrong URL for requesting the query of a constraint: "
 					+ "GET '/constraint/query/{technology}/{constraintID}' "
 					+ "OR '/constraint/query/{technology}' "
-					+ "(not /constraint/query/" + path + ")");
+					+ "(not /constraint/query" + path + ")");
 		}
 
 		String technology = pathparts[1];
@@ -79,7 +80,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 		if (pathparts.length != 2 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the query of multiple constraints: "
 					+ "' GET '/constraint/query/{technology}' "
-					+ "(not /constraint/query/" + path + ")");
+					+ "(not /constraint/query" + path + ")");
 		}
 
 		String technology = pathparts[1];
@@ -111,6 +112,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 				JSONObject queryJson = generateQueryJson(pattern, technology);
 				result.append(ConstantsJSON.CONSTRAINTS, queryJson);
 			} catch (Exception e) {
+				ServletUtilities.logError(e);
 				JSONObject object = new JSONObject();
 				try {
 					object.put(constraintId, e.getMessage());
@@ -128,11 +130,16 @@ public class ConstraintQueryServlet extends HttpServlet {
 	static JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
 		JSONObject json = new JSONObject();
 
+		// 1 info
 		json.put(ConstantsJSON.NAME, pattern.getName());
 		json.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
-
-		// 1 technology
 		json.put(ConstantsJSON.TECHNOLOGY, pattern.getLanguage().getLiteral());
+		if (pattern.getText() != null && pattern.getText().size()>0) {
+			PatternText text = pattern.getText().get(0);
+			if (text.getCustom() != null && !text.getCustom().isEmpty()) {
+				json.put(ConstantsJSON.CUSTOM, text.getCustom());
+			}
+		}
 
 		// 2 query
 		try {

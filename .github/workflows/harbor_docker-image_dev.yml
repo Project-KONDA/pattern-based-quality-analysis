@@ -2,7 +2,7 @@ name: BuildAndPushDockerImageToHarborDev
 
 on:
   push:
-    branches: [ "development", "development2"]
+    branches: [ "development2"]
     
 jobs:
   build:

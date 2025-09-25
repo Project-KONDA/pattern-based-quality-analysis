@@ -56,7 +56,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for posting tags in a constraint: "
 					+ "POST '/constraint/tag/{technology}/{constraintID}' "
-					+ "(not /constraint/tag/" + path + ")");
+					+ "(not /constraint/tag" + path + ")");
 		}
 
 		String technology = pathparts[1];
@@ -114,7 +114,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for deleting tags in a constraint: "
 					+ "DELETE '/constraint/tag/{technology}/{constraintID}' "
-					+ "(not /constraint/tag/" + path + ")");
+					+ "(not /constraint/tag" + path + ")");
 		}
 
 		String technology = pathparts[1];

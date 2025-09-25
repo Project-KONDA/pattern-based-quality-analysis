@@ -7,8 +7,6 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionxml.XmlAxisPartCondition;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.operators.Contains;
-import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.Operator;
 
 
@@ -23,17 +21,15 @@ import qualitypatternmodel.operators.Operator;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getMatches <em>Matches</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlPropertyOptionParam <em>Xml Property Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPartCondition <em>Xml Axis Part Condition</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getContains <em>Contains</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam()
  * @model
  * @generated
  */
-public interface TextLiteralParam extends ParameterValue {
+public interface TextLiteralParam extends ParameterValue, TextParam {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * The default value is <code>""</code>.
@@ -56,20 +52,6 @@ public interface TextLiteralParam extends ParameterValue {
 	 * @generated
 	 */
 	void setValue(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Matches</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.operators.Match}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.Match#getRegularExpression <em>Regular Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Matches</em>' reference list.
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_Matches()
-	 * @see qualitypatternmodel.operators.Match#getRegularExpression
-	 * @model opposite="regularExpression"
-	 * @generated
-	 */
-	EList<Match> getMatches();
 
 	/**
 	 * Returns the value of the '<em><b>Xml Property Option Param</b></em>' container reference.
@@ -118,20 +100,6 @@ public interface TextLiteralParam extends ParameterValue {
 	 * @generated
 	 */
 	void setXmlAxisPartCondition(XmlAxisPartCondition value);
-
-	/**
-	 * Returns the value of the '<em><b>Contains</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.operators.Contains}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.Contains#getContent <em>Content</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Contains</em>' reference list.
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_Contains()
-	 * @see qualitypatternmodel.operators.Contains#getContent
-	 * @model opposite="content"
-	 * @generated
-	 */
-	EList<Contains> getContains();
 
 	/**
 	 * <!-- begin-user-doc -->

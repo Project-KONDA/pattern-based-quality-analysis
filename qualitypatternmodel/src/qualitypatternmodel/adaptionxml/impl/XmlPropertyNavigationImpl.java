@@ -65,8 +65,9 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		String path = getXmlPathParam().generateXQuery();
 		path = path.substring(getXmlPathParam().sourceVariable().length()+1);
 
-		XmlElement source = (XmlElement) getSource();
-		String variable = source.getVariables().get(0) + path;
+		String variable = path;
+		if (!(getSource() instanceof XmlRoot))
+			variable = ((XmlElement) getSource()).getVariables().get(0) + path;
 		target.getVariables().add(variable);
 		String result = "." + path;
 		target.setTranslated(true);
@@ -130,6 +131,7 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		query = query.indent(2);
 		query = JavaQueryTranslationUtility.getXQueryReturnList(List.of(query), VALUE, false, false, true);
 //		query = "\n  " + VALUESTART +",\n  (" + query + "  ),\n  "+ VALUEEND; // + "\n  ";
+
 		return query;
 	}
 

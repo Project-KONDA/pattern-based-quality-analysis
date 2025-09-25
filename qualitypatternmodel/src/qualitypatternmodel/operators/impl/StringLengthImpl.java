@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -95,6 +96,15 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 		} else {
 			throw new InvalidityException("invalid option");
 		}
+	}
+
+	@Override
+	public String generateXQueryIsolated() throws InvalidityException {
+		String query = generateXQuery();
+		EList<String> vars = ((XmlProperty) primitiveNode).getXQueryRepresentation();
+		String var = vars.get(vars.size()-1);
+		query = query.replace("string-length(.)", "string-length(" + var + ")");
+		return query;
 	}
 
 	@Override
@@ -491,8 +501,10 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 		ComparisonOptionParam oldOption = option;
 
 		ParameterList varlist = getParameterList();
-		varlist.remove(oldOption);
-		varlist.add(newOption);
+		if (varlist != null) {
+			varlist.remove(oldOption);
+			varlist.add(newOption);
+		}
 
 		option = newOption;
 
@@ -591,18 +603,28 @@ public class StringLengthImpl extends BooleanOperatorImpl implements StringLengt
 	@Override
 	public String myToString() {
 		String res = "LENGTH (" + getInternalId() + ") [";
+		if (getPrimitiveNode() != null) {
+			res += " (node " + getPrimitiveNode().getInternalId() + ")";
+		}
+		else 
+			res += "(node null)";
 		if (getOption() != null) {
 			if (getOption().getValue() != null) {
 				res += getOption().getValue();
 			}
-				res += " (" + getOption().getInternalId() + ")";
-		}
-		if (getPrimitiveNode() != null) {
-			res += " (" + getPrimitiveNode().getInternalId() + ")";
-		}
+				res += " (option " + getOption().getInternalId() + ")";
+		} 
+		else 
+			res += "(option null)";
+
 		if (getNumber() != null) {
-			res += " (" + getNumber().getInternalId() + ")";
-		}
+			if (getNumber().getValue() != null) {
+				res += getNumber().getValue();
+			}
+				res += " (number " + getNumber().getInternalId() + ")";
+		} 
+		else 
+			res += "(number null)";
 		return res + "]";
 	}
 

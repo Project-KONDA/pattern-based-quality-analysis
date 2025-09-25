@@ -1,0 +1,52 @@
+{
+    "template":"CardMatch_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for CardMatch_xml. This is a constraint specifically created to check a requirement of a LIDO requirement",
+		"aqindaid": 31
+	},
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"Element",
+            "params":[4],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis"
+        },
+        {"text":"has"},
+        {
+            "name":"a Comparison with",
+            "params":[0],
+            "exampleValue":"at most",
+            "defaultMap":"comparison_negated"
+        },
+        {
+            "name":"a Specific Number of",
+            "params":[1],
+            "exampleValue":"1"
+        },
+        {
+            "name":"Properties",
+            "params":[5],
+            "exampleValue":"Birthdates",
+            "description":"counted elements",
+            "plural":"true"
+        },
+        {"text":"that"},
+        {
+            "name":"Do / Do Not",
+            "params":[2],
+            "defaultMap":"do",
+            "exampleValue":"do"
+        },
+        {"text":"match"},
+        {
+            "name":"a Specific Pattern (RegEx)",
+            "params":[3],
+            "exampleValue":"[A-Z][a-z][a-z]+"
+        },
+        {"text":"."}
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "template":"Match_xml",
+    "language":"xml",
+    "name":"iso-date",
+	"typeConstraint":true,
+	"custom": {
+		"description": "constraint for Match_xml specific to the ISO date format"
+	},
+    "fragments":[
+        {"text":"For each"},
+        {
+            "name":"Element",
+            "params":[2],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":", all"},
+        {
+            "name":"Properties",
+            "params":[3],
+            "exampleValue":"Surname",
+            "description":"value that gets analysed",
+            "plural":"true"
+        },
+        {"text":"match the ISO date format (ISO 8601)."},
+        
+        {
+            "params":[0],
+            "value": "false"
+        },
+        {
+            "params":[1],
+    		"value":"^\\d{4}(-[01]\\d(-[0-3]\\d(T[01]\\d:[0-5]\\d(:[0-5]\\d(\\.\\d+)?)?(\\+[01]\\d:[03]0)?)?)?)?$"
+        }
+    ]
+}

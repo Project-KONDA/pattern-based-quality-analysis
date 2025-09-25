@@ -48,7 +48,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		if (pathparts.length < 2  || pathparts.length > 2  || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for executing constraints: "
 					+ "GET '/constraint/execute/{technology}' "
-					+ "(not /constraint/execute/{" + path + ")");
+					+ "(not /constraint/execute{" + path + ")");
 		}
 
 		String technology = pathparts[1];
@@ -129,7 +129,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		if (constraints.isEmpty()) {
 			throw new InvalidServletCallException(ConstantsError.INVALID_CONSTRAINTS);
 		}
-		
+
 		JSONObject result;
 		switch (Util.EXECUTION_PROCESSOR) {
 		case ConstantsXml.PROCESSOR_BASEX:

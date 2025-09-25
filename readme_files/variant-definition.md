@@ -87,7 +87,7 @@ To start the definition of a new variant, we create json file with the following
 ```json
 {
     "template": "<templateId>",
-    "technology": "<technology>"
+    "technology": "<technology>",
     "name": "<variantId>",
     "typeConstraint": true,
     "fragments": [ ]
@@ -169,7 +169,7 @@ The parameter-fragments can be supplemented with further optional parameters:
 - **plural**: In some sentences, the grammar of the sentence demands a plural. In this case, the parameter should be annotated with `"plural":"true"`. This typically only appears on technology-specific parameters.
 - **newId**: The parameter-fragment needs an associated ID to be addressable from the UI. This ID must be unique within the parameter-fragment IDs of a variant-declaration. Typically, these are generated automatically, but can also be set manually.
 - **map**: Some values have many options. These options can be limited by specifying a map manually. Specifying a map results in the parameter becoming a dropdown-menu in the UI with a limited choice. The entries of the map always have the form `<actual value>: <shown choice>`.
-- **defaultMap**: With the default maps, we can reuse existing maps. Currently available are: `comparison`, `comparison_negated`, `comparison_is`, `comparison_isnot`, `is`, `isnot`, `do`, `donot`, `does`, `doesnot`
+- **defaultMap**: With the default maps, we can reuse existing maps. Currently available are: `comparison`, `comparison_negated`, `comparison_is`, `comparison_isnot`, `comparison_are`, `comparison_arenot`, `is`, `isnot`, `are`, `are not`, `do`, `donot`, `does`, `doesnot`, `must` `must not`.
 Note, that sometimes the negation is required, if the formulation is a constraint instead of an antipattern (see typeConstraint).
 The declaration of default maps can be found [here](https://github.com/Project-KONDA/pattern-based-quality-analysis/blob/master/qualitypatternmodel/src/qualitypatternmodel/textrepresentation/impl/ParameterFragmentImpl.java#L571).
 

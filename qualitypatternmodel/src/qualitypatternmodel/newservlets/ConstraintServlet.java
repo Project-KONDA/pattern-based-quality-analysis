@@ -24,6 +24,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.textrepresentation.impl.ValueMapImpl;
 import qualitypatternmodel.utility.Constants;
@@ -94,7 +95,7 @@ public class ConstraintServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting a constraint: "
 					+ "GET '/constraint/{technology}/{constraintID}' "
-					+ "(not /constraint/" + path + ")");
+					+ "(not /constraint" + path + ")");
 		}
 
 		String technology = pathparts[1];
@@ -126,7 +127,7 @@ public class ConstraintServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for deleting a constraint: "
 					+ "DELETE '/constraint/{technology}/{constraintID}' "
-					+ "(not /constraint/" + path + ")");
+					+ "(not /constraint" + path + ")");
 		}
 
 		String technology = pathparts[1];
@@ -180,7 +181,7 @@ public class ConstraintServlet extends HttpServlet {
 		}
 
 		// 2. change patterns
-		Boolean name = false, database = false, datamodel = false, namespaces = false, namespacevalid = true;
+		Boolean name = false, database = false, datamodel = false, namespaces = false, namespacevalid = true, custom = false;
 
 		// name?
 		String[] nameArray = parameterMap.get(ConstantsJSON.NAME);
@@ -232,7 +233,21 @@ public class ConstraintServlet extends HttpServlet {
 				}
 				parameterMap.remove(ConstantsJSON.NAMESPACES);
 			} catch (JSONException e) {
-				e.printStackTrace();
+				ServletUtilities.logError(e);
+			}
+		}
+		// custom?
+		String[] customArray = parameterMap.get(ConstantsJSON.CUSTOM);
+		if (customArray != null && customArray.length == 1 && !customArray[0].equals("")) {
+			String customAddition = nameArray[0];
+			try {
+				JSONObject addition = new JSONObject(customAddition);
+				PatternText text = pattern.getText().get(0);
+				text.addToCustom(addition);
+				custom = true;
+				parameterMap.remove(ConstantsJSON.CUSTOM);
+			} catch (Exception e) {
+				ServletUtilities.logError(e);
 			}
 		}
 
@@ -259,7 +274,11 @@ public class ConstraintServlet extends HttpServlet {
 					output.put(ConstantsJSON.FAILED, failed);
 				}
 			}
+			if (custom) {
+				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.CUSTOM);
+			}
 		} catch (JSONException e) {
+			ServletUtilities.logError(e);
 		}
 
 		// 3. save constraint

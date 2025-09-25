@@ -74,13 +74,9 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/TextListParam"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/TextLiteralParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/TextLiteralParam/value"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/matches"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/xmlPropertyOptionParam"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/xmlAxisPartCondition"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/contains"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/TextLiteralParam/setValueIfValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/TextLiteralParam/setValueIfValid/newValue"/>
         </genOperations>
@@ -160,6 +156,12 @@
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/MultiListParam"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//parameters/TextParam">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextParam/contains"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextParam/matches"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Operators" basePackage="qualitypatternmodel" disposableProviderFactory="true"
         ecorePackage="qualitypatternmodel.ecore#//operators">
@@ -183,6 +185,9 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//operators/BooleanOperator/removeElement/element"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/BooleanOperator/getElement"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/BooleanOperator/generateXQueryIsolated"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/BooleanOperator/generateSparqlIsolated"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/BooleanOperator/generateCypherIsolated"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//operators/Operator">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Operator/operatorList"/>
@@ -340,10 +345,12 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison.3/input"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatchList"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch.1">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch.1/regex"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveContains"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveContainsList"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveContains.1">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveContains.1/content"/>
         </genOperations>
@@ -761,6 +768,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/fragmentsOrdered"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/PatternText/typeConstraint"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/PatternText/custom"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/isValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/PatternText/isValid/abstractionLevel"/>
         </genOperations>
@@ -774,6 +782,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/generateSparqlTemplate"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/generateJSONObject"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/generateVariantJSONObject"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/addToCustom">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/PatternText/addToCustom/addition"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
