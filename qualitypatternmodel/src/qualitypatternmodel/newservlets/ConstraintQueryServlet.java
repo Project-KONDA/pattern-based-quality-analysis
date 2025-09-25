@@ -20,6 +20,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
@@ -129,11 +130,16 @@ public class ConstraintQueryServlet extends HttpServlet {
 	static JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
 		JSONObject json = new JSONObject();
 
+		// 1 info
 		json.put(ConstantsJSON.NAME, pattern.getName());
 		json.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
-
-		// 1 technology
 		json.put(ConstantsJSON.TECHNOLOGY, pattern.getLanguage().getLiteral());
+		if (pattern.getText() != null && pattern.getText().size()>0) {
+			PatternText text = pattern.getText().get(0);
+			if (text.getCustom() != null && !text.getCustom().isEmpty()) {
+				json.put(ConstantsJSON.CUSTOM, text.getCustom());
+			}
+		}
 
 		// 2 query
 		try {

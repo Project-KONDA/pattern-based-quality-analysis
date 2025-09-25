@@ -1518,6 +1518,8 @@ components:
                 - XQuery
                 - Sparql
                 - Cypher
+            custom:
+              type: object
             query:
               type: string
               description: technology-specific query
