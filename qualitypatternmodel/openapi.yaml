@@ -1580,6 +1580,8 @@ components:
               constraintName:
                 description: user-defined name of the constraint
                 type: string
+              custom:
+                type: object
               incidents:
                 description: list of found incidents of the constraint in the file
                 type: array

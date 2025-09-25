@@ -204,6 +204,8 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		object.put(ConstantsJSON.FILE, file.getName());
 		object.put(ConstantsJSON.CONSTRAINT_ID, constraint.getString(ConstantsJSON.CONSTRAINT_ID));
 		object.put(ConstantsJSON.CONSTRAINT_NAME, constraint.getString(ConstantsJSON.NAME));
+		if (constraint.has(ConstantsJSON.CUSTOM))
+			object.put(ConstantsJSON.CUSTOM, constraint.get(ConstantsJSON.CUSTOM));
 
 		String query = constraint.getString(ConstantsJSON.QUERY);
 		String query_partial = constraint.getString(ConstantsJSON.QUERY_PARTIAL);
