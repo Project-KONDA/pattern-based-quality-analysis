@@ -271,6 +271,11 @@ paths:
           in: query
           schema:
             type: string
+        - name: custom
+          description: add or override custom attributes of the constraint
+          in: query
+          schema:
+            type: object
         - name: namespace
           description: set the datamodel of the constraint
           in: query
@@ -1469,8 +1474,8 @@ components:
       description: metainformation for templates to be able to create new variants via api
       properties:
         variants: 
-          description: full specification of all existing variants 
           $ref: '#/components/schemas/VariantSpecification'
+          description: full specification of all existing variants
         params:
           type: object
           description: map of parameter id to parameter type
