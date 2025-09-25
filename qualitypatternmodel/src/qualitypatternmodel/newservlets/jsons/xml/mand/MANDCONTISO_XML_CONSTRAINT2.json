@@ -3,6 +3,9 @@
     "language":"xml",
     "name":"constraint2",
 	"typeConstraint":true,
+	"custom": {
+		"description": "simplified constraint for MandContIso_xml"
+	},
     "fragments":[
 		{"text":"For all"},
 		{

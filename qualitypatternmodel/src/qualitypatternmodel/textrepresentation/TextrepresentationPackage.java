@@ -123,13 +123,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT__TYPE_CONSTRAINT = 5;
 
 	/**
+	 * The feature id for the '<em><b>Custom</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT__CUSTOM = 6;
+
+	/**
 	 * The number of structural features of the '<em>Pattern Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT_FEATURE_COUNT = 6;
+	int PATTERN_TEXT_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -213,13 +222,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT___GENERATE_VARIANT_JSON_OBJECT = 8;
 
 	/**
+	 * The operation id for the '<em>Add To Custom</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT___ADD_TO_CUSTOM__JSONOBJECT = 9;
+
+	/**
 	 * The number of operations of the '<em>Pattern Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT_OPERATION_COUNT = 9;
+	int PATTERN_TEXT_OPERATION_COUNT = 10;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.FragmentImpl <em>Fragment</em>}' class.
@@ -1013,6 +1031,17 @@ public interface TextrepresentationPackage extends EPackage {
 	EAttribute getPatternText_TypeConstraint();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.textrepresentation.PatternText#getCustom <em>Custom</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Custom</em>'.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#getCustom()
+	 * @see #getPatternText()
+	 * @generated
+	 */
+	EAttribute getPatternText_Custom();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#generateJSON() <em>Generate JSON</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1071,6 +1100,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternText__GenerateVariantJSONObject();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#addToCustom(org.json.JSONObject) <em>Add To Custom</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add To Custom</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#addToCustom(org.json.JSONObject)
+	 * @generated
+	 */
+	EOperation getPatternText__AddToCustom__JSONObject();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}' operation.
@@ -1692,6 +1731,14 @@ public interface TextrepresentationPackage extends EPackage {
 		EAttribute PATTERN_TEXT__TYPE_CONSTRAINT = eINSTANCE.getPatternText_TypeConstraint();
 
 		/**
+		 * The meta object literal for the '<em><b>Custom</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PATTERN_TEXT__CUSTOM = eINSTANCE.getPatternText_Custom();
+
+		/**
 		 * The meta object literal for the '<em><b>Generate JSON</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1738,6 +1785,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_TEXT___GENERATE_VARIANT_JSON_OBJECT = eINSTANCE.getPatternText__GenerateVariantJSONObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Add To Custom</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_TEXT___ADD_TO_CUSTOM__JSONOBJECT = eINSTANCE.getPatternText__AddToCustom__JSONObject();
 
 		/**
 		 * The meta object literal for the '<em><b>Delete</b></em>' operation.

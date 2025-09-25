@@ -3,6 +3,10 @@
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for CardCompSetIfCompSet_xml. This is a constraint specifically created to check a requirement of a LIDO requirement",
+		"aqindaid": 22
+	},
     "fragments":[
         {"text":"If a"},
         {

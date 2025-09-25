@@ -3,6 +3,9 @@
     "language":"xml",
     "name":"constraint_2",
 	"typeConstraint":true,
+	"custom": {
+		"description": "simplified constraint for MandContAndSin_xml"
+	},
     "fragments":[
 		{"text":"Each"},
 		{

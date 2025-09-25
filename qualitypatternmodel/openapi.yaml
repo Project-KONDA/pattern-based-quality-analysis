@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.0.0
 info:
   title: QPM Constrainify
   description: |-
@@ -271,6 +271,11 @@ paths:
           in: query
           schema:
             type: string
+        - name: custom
+          description: add or override custom attributes of the constraint
+          in: query
+          schema:
+            type: object
         - name: namespace
           description: set the datamodel of the constraint
           in: query
@@ -1223,6 +1228,12 @@ components:
         name:
           type: string
           description: variant id
+        typeConstraint:
+          type: boolean
+          description: is formulated as constraint
+        custom:
+          type: object
+          description: custom parameters
         fragments:
           type: array
           description: fragments of the sentence which comprises parameter specifications and text fragments and to set the context of the parameters
@@ -1453,6 +1464,8 @@ components:
         name:
           description: identifier of the variant
           type: string
+        custom:
+          type: object
         fragments:
           type: array
           description: fragments of the variant sentence
@@ -1467,8 +1480,8 @@ components:
       description: metainformation for templates to be able to create new variants via api
       properties:
         variants: 
-          description: full specification of all existing variants 
           $ref: '#/components/schemas/VariantSpecification'
+          description: full specification of all existing variants
         params:
           type: object
           description: map of parameter id to parameter type
@@ -1516,6 +1529,8 @@ components:
                 - XQuery
                 - Sparql
                 - Cypher
+            custom:
+              type: object
             query:
               type: string
               description: technology-specific query
@@ -1576,6 +1591,8 @@ components:
               constraintName:
                 description: user-defined name of the constraint
                 type: string
+              custom:
+                type: object
               incidents:
                 description: list of found incidents of the constraint in the file
                 type: array

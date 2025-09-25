@@ -3,6 +3,9 @@
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for CompSet_xml"
+	},
     "fragments":[
         {"text":"In each"},
         {

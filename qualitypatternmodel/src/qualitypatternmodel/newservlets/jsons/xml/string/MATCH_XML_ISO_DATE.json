@@ -3,6 +3,9 @@
     "language":"xml",
     "name":"iso-date",
 	"typeConstraint":true,
+	"custom": {
+		"description": "constraint for Match_xml specific to the ISO date format"
+	},
     "fragments":[
         {"text":"For each"},
         {

@@ -87,7 +87,7 @@ To start the definition of a new variant, we create json file with the following
 ```json
 {
     "template": "<templateId>",
-    "technology": "<technology>"
+    "technology": "<technology>",
     "name": "<variantId>",
     "typeConstraint": true,
     "fragments": [ ]

@@ -3,6 +3,9 @@
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for StringLengthRangeSin_xml"
+	},
     "fragments":[
         {"text":"The character length of each"},
         {

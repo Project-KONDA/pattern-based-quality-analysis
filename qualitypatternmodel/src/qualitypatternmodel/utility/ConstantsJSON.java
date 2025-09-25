@@ -46,6 +46,7 @@ public class ConstantsJSON {
 	public static final String OPTIONS = "options";
 	public static final String TYPEMODIFIABLE = "typeModifiable";
 	public static final String DEPENDANT = "dependant";
+	public static final String CUSTOM = "custom";
 
 	// Parameter Modification
 	public static final String OLD_NAME = "oldName";
