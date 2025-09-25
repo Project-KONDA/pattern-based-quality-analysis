@@ -151,7 +151,7 @@ public interface PatternText extends EObject {
 	 * @return the value of the '<em>Custom</em>' attribute.
 	 * @see #setCustom(JSONObject)
 	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText_Custom()
-	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper" transient="true"
+	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
 	JSONObject getCustom();
