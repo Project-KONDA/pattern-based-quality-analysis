@@ -122,8 +122,7 @@ public class XQueryProcessorSaxon {
 				ce.query_executable = compiler.compile(constraint.getString(ConstantsJSON.QUERY));
 				if (constraint.has(ConstantsJSON.CUSTOM))
 					ce.custom = constraint.getJSONObject(ConstantsJSON.CUSTOM);
-				System.out.println("XQueryProcessorSaxon122: counterquery - count after namespaces - how?");
-				String counterquery = addCountToQuery( constraint.getString(ConstantsJSON.QUERY_PARTIAL));
+				String counterquery = addCountToQuery(constraint.getString(ConstantsJSON.QUERY_PARTIAL));
 				ce.query_total_executable = compiler.compile(counterquery);
 				if (constraint.has(ConstantsJSON.FILTER)) {
 					ce.filter = constraint.getJSONObject(ConstantsJSON.FILTER);
@@ -201,7 +200,6 @@ public class XQueryProcessorSaxon {
         				JavaFilter filter = JavaFilterImpl.fromJson(executable.filter);
 //        				incidents = filter.execute(file.getCanonicalPath());
         				incidents = filter.filter(incidents);
-        				System.out.println(incidents);
 	                }
 	
 	                queryResult.put(ConstantsJSON.INCIDENTS, incidents);
