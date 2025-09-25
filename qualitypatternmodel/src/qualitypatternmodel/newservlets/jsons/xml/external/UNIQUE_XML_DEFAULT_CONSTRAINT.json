@@ -3,6 +3,9 @@
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for Unique_xml. Checks only uniqueness of a value within a file."
+	},	
     "fragments":[
         {"text":"In each"},
         {

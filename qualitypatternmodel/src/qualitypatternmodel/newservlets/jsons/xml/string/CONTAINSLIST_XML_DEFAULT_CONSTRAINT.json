@@ -3,6 +3,9 @@
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for ContainsList_xml"
+	},
     "fragments":[
         {"text":"For each"},
         {
