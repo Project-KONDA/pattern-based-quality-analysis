@@ -19,7 +19,7 @@
 			"description":"element of analyis",
 			"plural":"true"
 		},
-		{"text":"contain both a"},
+		{"text":"have both a"},
 		{
 			"name":"Subsubelement",
 			"params":[3],
