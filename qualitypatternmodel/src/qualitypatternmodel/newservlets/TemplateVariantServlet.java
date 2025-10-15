@@ -28,7 +28,6 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.PatternText;
-import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
@@ -121,49 +120,11 @@ public class TemplateVariantServlet extends HttpServlet {
 		if (pattern == null) {
 			throw new FailedServletCallException(ConstantsError.NOT_FOUND_TEMPLATE + ": '" + templateId + "'");
 		}
-
-		JSONObject parameter = new JSONObject();
-		int i = 0;
-		for (Parameter param: pattern.getParameterList().getParameters()) {
-			try {
-				JSONObject paramobj = new JSONObject();
-				paramobj.put(ConstantsJSON.TYPE, param.getClass().getSimpleName());
-				paramobj.put(ConstantsJSON.ROLE, ParameterFragmentImpl.getRole(param));
-				if (param.getValueAsString() != null)
-					paramobj.put(ConstantsJSON.VALUE, param.getValueAsString());
-				
-				paramobj.put(ConstantsJSON.ID, param.getInternalId());
-				if (param instanceof XmlPathParam) {
-					HashSet<Integer> sourceParamIds = getSourceParamIDs((XmlPathParam) param);
-					if (!sourceParamIds.isEmpty()) {
-						paramobj.put(ConstantsJSON.STARTPOINT, new JSONArray(sourceParamIds));
-					}
-				}
-				parameter.put(Integer.toString(i), paramobj);
-//				parameter.put(Integer.toString(i), ParameterFragmentImpl.getRole(param));
-			} catch (JSONException e) {}
-			i++;
-		}
-
-		JSONArray variants = new JSONArray();
-		if (putvariants) {
-			for (PatternText text: pattern.getText()) {
-				variants.put(text.generateVariantJSONObject());
-			}
-		}
-
-		JSONObject result = new JSONObject();
-		try {
-			if (putvariants)
-				result.put(ConstantsJSON.VARIANTS, variants);
-			result.put(ConstantsJSON.PARAMETER, parameter);
-		} catch (JSONException e) {}
-
-		return result;
+		
+		return ServletUtilities.getParameterJSON(pattern, putvariants);
 	}
-	
 
-	private static HashSet<Integer> getSourceParamIDs(XmlPathParam param) {
+	static HashSet<Integer> getSourceParamIDs(XmlPathParam param) {
 		// get all XmlNavigations that use the parameters
 		EList<XmlNavigation> navs = new BasicEList<XmlNavigation>();
 		navs.add(param.getXmlNavigation());
