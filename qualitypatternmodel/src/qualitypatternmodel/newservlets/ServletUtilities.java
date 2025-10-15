@@ -28,18 +28,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import jakarta.servlet.http.HttpServletResponse;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.mqaftranslation.MqafTranslationValidation;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.PatternText;
+import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
@@ -62,6 +65,20 @@ public abstract class ServletUtilities {
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		List<CompletePattern> astr = getTemplates(technology);
 		List<CompletePattern> conc = getReadyConstraints(technology);
+		if (astr!=null) {
+			patterns.addAll(astr);
+		}
+		if (conc!=null) {
+			patterns.addAll(conc);
+		}
+		return patterns;
+	}
+
+	// Pattern request
+	public static List<JSONObject> getAllPatternJsons(String technology) {
+		EList<JSONObject> patterns = new BasicEList<JSONObject>();
+		List<JSONObject> astr = getTemplateJSONs(technology);
+		List<JSONObject> conc = getReadyConstraintJSONs(technology);
 		if (astr!=null) {
 			patterns.addAll(astr);
 		}
@@ -134,7 +151,7 @@ public abstract class ServletUtilities {
 
 	public static List<JSONObject> getTemplateJSONs(String technology) {
 		String patternfolder = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
-		String jsonfolder = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.PRECOMPILEDFOLDER;
+		String jsonfolder = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.PATTERNJSONFOLDER;
 		try {
 			if (technology.equals(Constants.XML)) {
 				if (abstractPatternJsonXml == null) {
@@ -164,7 +181,7 @@ public abstract class ServletUtilities {
 
 	public static List<JSONObject> getConstraintJSONs(String technology) {
 		String constraintfolderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER;
-		String jsonfolderpath = constraintfolderpath + "/" + ServletConstants.PRECOMPILEDFOLDER;
+		String jsonfolderpath = constraintfolderpath + "/" + ServletConstants.PATTERNJSONFOLDER;
 
 		if (Constants.TECHS.contains(technology)) {
 			try {
@@ -176,7 +193,7 @@ public abstract class ServletUtilities {
 		return new BasicEList<JSONObject>();
 	}
 
-	public static List<JSONObject> getReadyConstraintJSONss(String technology) {
+	public static List<JSONObject> getReadyConstraintJSONs(String technology) {
 		List<JSONObject> constraintjsons = getConstraintJSONs(technology);
 		List<JSONObject> readyconstraintjsons = new BasicEList<JSONObject>();
 		for (JSONObject json: constraintjsons) {
@@ -203,6 +220,35 @@ public abstract class ServletUtilities {
 			tags.putAll(uniqueTags);
 			json.put(ConstantsJSON.TEMPLATES, templates);
 			json.put(ConstantsJSON.TOTAL, patterns.size());
+			json.put(ConstantsJSON.IDS, ids);
+			if(!tags.isEmpty())
+				json.put(ConstantsJSON.TAGS, tags);
+		} catch (JSONException e) {
+			logError(e);
+		}
+		return json;
+	}
+
+	public static JSONObject combinePatternJSONs(List<JSONObject> patternjsons) {
+		JSONObject json = new JSONObject();
+		JSONArray ids = new JSONArray();
+        HashSet<String> uniqueTags = new HashSet<>();
+		try {
+			JSONArray templates = new JSONArray();
+			for (JSONObject patternjson: patternjsons) {
+				ids.put(patternjson.getString(ConstantsJSON.CONSTRAINT_ID));
+				templates.put(json);
+				if (patternjson.has(ConstantsJSON.TAG)) {
+					JSONArray tags = patternjson.getJSONArray(ConstantsJSON.TAG);
+					for (int i = 0; i< tags.length(); i++) {
+						uniqueTags.add(tags.getString(i));
+					}
+				}
+			}
+			JSONArray tags = new JSONArray();
+			tags.putAll(uniqueTags);
+			json.put(ConstantsJSON.TEMPLATES, templates);
+			json.put(ConstantsJSON.TOTAL, patternjsons.size());
 			json.put(ConstantsJSON.IDS, ids);
 			if(!tags.isEmpty())
 				json.put(ConstantsJSON.TAGS, tags);
@@ -309,12 +355,70 @@ public abstract class ServletUtilities {
 	protected static JSONObject loadConstraintJson(String technology, String constraintId) throws IOException {
 		String folderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/";
 		String patternpath = folderpath + constraintId + "." + Constants.EXTENSION;
-		String jsonpath = folderpath + ServletConstants.PRECOMPILEDFOLDER + "/" + constraintId + ".json";
+		String jsonpath = folderpath + ServletConstants.PATTERNJSONFOLDER + "/" + constraintId + ".json";
+
+		// if precompiled patternjson exists
 		try {
 			return EMFModelLoad.loadJson(jsonpath); 
 		} catch (Exception e) {}
+
+		// if precompiled patternjson does not exist
 		CompletePattern pattern = EMFModelLoad.loadCompletePattern(patternpath);
-		return ServletUtilities.getPatternJSON(pattern);
+		JSONObject json = ServletUtilities.getPatternJSON(pattern); 
+
+		try {
+			saveSemaphore.acquire();
+			EMFModelSave.exportJson(json, jsonpath);
+		} catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            log("Thread was interrupted");
+			logError(e);
+		} finally {
+			saveSemaphore.release();
+		}
+		return json;
+	}
+
+	protected static JSONObject loadConstraintQueryJson(String technology, String constraintId) throws IOException, JSONException, InvalidServletCallException, FailedServletCallException {
+		String folderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/";
+		String patternpath = folderpath + constraintId + "." + Constants.EXTENSION;
+		String queryjsonpath = folderpath + ServletConstants.QUERYJSONFOLDER + "/" + constraintId + ".json";
+		String patternjsonpath = folderpath + ServletConstants.PATTERNJSONFOLDER + "/" + constraintId + ".json";
+
+		// if precompiled queryjson exists
+		try {
+			return EMFModelLoad.loadJson(queryjsonpath); 
+		} catch (Exception e) {}
+
+		// if precompiled queryjson does not exist
+		CompletePattern pattern = EMFModelLoad.loadCompletePattern(patternpath);
+		JSONObject queryjson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
+		try {
+			saveSemaphore.acquire();
+			EMFModelSave.exportJson(queryjson, queryjsonpath);
+		} catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            log("Thread was interrupted");
+			logError(e);
+		} finally {
+			saveSemaphore.release();
+		}
+
+		if (!new File(patternjsonpath).exists()) {
+			JSONObject json = ServletUtilities.getPatternJSON(pattern); 
+			try {
+				saveSemaphore.acquire();
+				EMFModelSave.exportJson(json, patternjsonpath);
+			} catch (InterruptedException e) {
+	            Thread.currentThread().interrupt();
+	            log("Thread was interrupted");
+				logError(e);
+			} finally {
+				saveSemaphore.release();
+			}
+		}
+
+		return queryjson;
 	}
 
 	protected static CompletePattern loadTemplate(String technology, String templateId) throws IOException {
@@ -323,13 +427,22 @@ public abstract class ServletUtilities {
 	}
 
 	protected static JSONObject loadTemplateJSON(String technology, String templateId) throws IOException {
-		String jsonfilepath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.PRECOMPILEDFOLDER + "/" + templateId + ".json";
+		String jsonfilepath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + templateId + ".json";
 		try {
 			return EMFModelLoad.loadJson(jsonfilepath);
 		} catch (Exception e) {}
-		
+
 		JSONObject json = ServletUtilities.getPatternJSON(loadTemplate(technology, templateId));
-		EMFModelSave.exportJson(json, jsonfilepath);
+		try {
+			saveSemaphore.acquire();
+			EMFModelSave.exportJson(json, jsonfilepath);
+		} catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            log("Thread was interrupted");
+			logError(e);
+		} finally {
+			saveSemaphore.release();
+		}
 		return json;
 	}
 
@@ -339,8 +452,15 @@ public abstract class ServletUtilities {
 			String folderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
 			EMFModelSave.exportToFile2(pattern, folderpath, templateId, Constants.EXTENSION);
 			JSONObject json = getPatternJSON(pattern);
-			String filepath = folderpath + "/" + ServletConstants.PRECOMPILEDFOLDER + "/" + templateId + ".json";
+			String filepath = folderpath + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + templateId + ".json";
 			EMFModelSave.exportJson(json, filepath);
+			if (json.getBoolean(ConstantsJSON.EXECUTABLE)) {
+				try {
+					String queryfilepath = folderpath + "/" + ServletConstants.QUERYJSONFOLDER + "/" + templateId + ".json";
+					JSONObject queryjson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
+					EMFModelSave.exportJson(queryjson, queryfilepath);
+				} catch (Exception e) {}
+			}
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             log("Thread was interrupted");
@@ -357,7 +477,7 @@ public abstract class ServletUtilities {
 			saveSemaphore.acquire();
 			EMFModelSave.exportToFile2(pattern, folderpath, constraintId, Constants.EXTENSION);
 			JSONObject json = getPatternJSON(pattern);
-			String filepath = folderpath + "/" + ServletConstants.PRECOMPILEDFOLDER + "/" + constraintId + ".json";
+			String filepath = folderpath + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + constraintId + ".json";
 			EMFModelSave.exportJson(json, filepath);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
@@ -427,7 +547,7 @@ public abstract class ServletUtilities {
 
 	public static void deleteConstraint(String technology, String constraintId) throws IOException {
 		String patternpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + constraintId + "." + Constants.EXTENSION;
-		String jsonpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + ServletConstants.PRECOMPILEDFOLDER + "/" + constraintId + ".json";
+		String jsonpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + constraintId + ".json";
 //		patternpath = servletContext.getRealPath(patternpath);
 
 		CompletePattern constraint = EMFModelLoad.loadCompletePattern(patternpath);
@@ -720,4 +840,46 @@ public abstract class ServletUtilities {
 		shortQuery = shortQuery.trim();
 		return shortQuery;
 	}
+
+	static JSONObject getParameterJSON(CompletePattern pattern, Boolean putvariants) {
+	
+			JSONObject parameter = new JSONObject();
+			int i = 0;
+			for (Parameter param: pattern.getParameterList().getParameters()) {
+				try {
+					JSONObject paramobj = new JSONObject();
+					paramobj.put(ConstantsJSON.TYPE, param.getClass().getSimpleName());
+					paramobj.put(ConstantsJSON.ROLE, ParameterFragmentImpl.getRole(param));
+					if (param.getValueAsString() != null)
+						paramobj.put(ConstantsJSON.VALUE, param.getValueAsString());
+					
+					paramobj.put(ConstantsJSON.ID, param.getInternalId());
+					if (param instanceof XmlPathParam) {
+						HashSet<Integer> sourceParamIds = TemplateVariantServlet.getSourceParamIDs((XmlPathParam) param);
+						if (!sourceParamIds.isEmpty()) {
+							paramobj.put(ConstantsJSON.STARTPOINT, new JSONArray(sourceParamIds));
+						}
+					}
+					parameter.put(Integer.toString(i), paramobj);
+	//				parameter.put(Integer.toString(i), ParameterFragmentImpl.getRole(param));
+				} catch (JSONException e) {}
+				i++;
+			}
+	
+			JSONArray variants = new JSONArray();
+			if (putvariants) {
+				for (PatternText text: pattern.getText()) {
+					variants.put(text.generateVariantJSONObject());
+				}
+			}
+	
+			JSONObject result = new JSONObject();
+			try {
+				if (putvariants)
+					result.put(ConstantsJSON.VARIANTS, variants);
+				result.put(ConstantsJSON.PARAMETER, parameter);
+			} catch (JSONException e) {}
+	
+			return result;
+		}
 }

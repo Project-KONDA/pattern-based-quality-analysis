@@ -82,6 +82,8 @@ public class ServletConstants {
 	public static final String TEMPLATEFOLDER = "abstract-patterns";
 	// name of folder for constraints
 	public static final String CONSTRAINTFOLDER = "concrete-patterns";
-	// name of folder for precompiled json files
-	public static final String PRECOMPILEDFOLDER = "precompiled";
+	// name of folder for precompiled patternjson files
+	public static final String PATTERNJSONFOLDER = "patternjson";
+	// name of folder for precompiled queryjson files
+	public static final String QUERYJSONFOLDER = "queryjson";
 }
