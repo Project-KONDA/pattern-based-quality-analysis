@@ -86,4 +86,6 @@ public class ServletConstants {
 	public static final String PATTERNJSONFOLDER = "patternjson";
 	// name of folder for precompiled queryjson files
 	public static final String QUERYJSONFOLDER = "queryjson";
+	// name of folder for precompiled queryjson files
+	public static final String VARIANTJSONFOLDER = "variantjson";
 }

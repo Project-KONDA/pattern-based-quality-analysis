@@ -65,10 +65,10 @@ public abstract class ServletUtilities {
 		EList<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		List<CompletePattern> astr = getTemplates(technology);
 		List<CompletePattern> conc = getReadyConstraints(technology);
-		if (astr!=null) {
+		if (astr != null) {
 			patterns.addAll(astr);
 		}
-		if (conc!=null) {
+		if (conc != null) {
 			patterns.addAll(conc);
 		}
 		return patterns;
@@ -79,10 +79,10 @@ public abstract class ServletUtilities {
 		EList<JSONObject> patterns = new BasicEList<JSONObject>();
 		List<JSONObject> astr = getTemplateJSONs(technology);
 		List<JSONObject> conc = getReadyConstraintJSONs(technology);
-		if (astr!=null) {
+		if (astr != null) {
 			patterns.addAll(astr);
 		}
-		if (conc!=null) {
+		if (conc != null) {
 			patterns.addAll(conc);
 		}
 		return patterns;
@@ -110,8 +110,7 @@ public abstract class ServletUtilities {
 			} else {
 				return null;
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			logError(e);
 			return null;
 		}
@@ -121,7 +120,8 @@ public abstract class ServletUtilities {
 
 		if (Constants.TECHS.contains(technology)) {
 			try {
-				return EMFModelLoad.loadCompletePatternFromFolder(ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER, Constants.EXTENSION);
+				String constraintfolder = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER;
+				return EMFModelLoad.loadCompletePatternFromFolder(constraintfolder, Constants.EXTENSION);
 			} catch (IOException e) {
 				logError(e);
 			}
@@ -133,7 +133,7 @@ public abstract class ServletUtilities {
 		List<CompletePattern> concrete = new BasicEList<CompletePattern>();
 		List<CompletePattern> semiconcrete = getConstraints(technology);
 		if (semiconcrete != null) {
-			for (CompletePattern semi: semiconcrete) {
+			for (CompletePattern semi : semiconcrete) {
 				try {
 					semi.isValid(AbstractionLevel.CONCRETE);
 					concrete.add(semi);
@@ -172,8 +172,7 @@ public abstract class ServletUtilities {
 			} else {
 				return null;
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			logError(e);
 			return null;
 		}
@@ -196,7 +195,7 @@ public abstract class ServletUtilities {
 	public static List<JSONObject> getReadyConstraintJSONs(String technology) {
 		List<JSONObject> constraintjsons = getConstraintJSONs(technology);
 		List<JSONObject> readyconstraintjsons = new BasicEList<JSONObject>();
-		for (JSONObject json: constraintjsons) {
+		for (JSONObject json : constraintjsons) {
 			if (json.getBoolean(ConstantsJSON.EXECUTABLE)) {
 				readyconstraintjsons.add(json);
 			}
@@ -207,11 +206,11 @@ public abstract class ServletUtilities {
 	public static JSONObject getPatternListJSON(List<CompletePattern> patterns) {
 		JSONObject json = new JSONObject();
 		JSONArray ids = new JSONArray();
-        HashSet<String> uniqueTags = new HashSet<>();
+		HashSet<String> uniqueTags = new HashSet<>();
 		JSONArray tags = new JSONArray();
 		try {
 			JSONArray templates = new JSONArray();
-			for (CompletePattern pattern: patterns) {
+			for (CompletePattern pattern : patterns) {
 				ids.put(pattern.getPatternId());
 				templates.put(getPatternJSON(pattern));
 				if (pattern.getKeywords() != null)
@@ -221,7 +220,7 @@ public abstract class ServletUtilities {
 			json.put(ConstantsJSON.TEMPLATES, templates);
 			json.put(ConstantsJSON.TOTAL, patterns.size());
 			json.put(ConstantsJSON.IDS, ids);
-			if(!tags.isEmpty())
+			if (!tags.isEmpty())
 				json.put(ConstantsJSON.TAGS, tags);
 		} catch (JSONException e) {
 			logError(e);
@@ -232,15 +231,15 @@ public abstract class ServletUtilities {
 	public static JSONObject combinePatternJSONs(List<JSONObject> patternjsons) {
 		JSONObject json = new JSONObject();
 		JSONArray ids = new JSONArray();
-        HashSet<String> uniqueTags = new HashSet<>();
+		HashSet<String> uniqueTags = new HashSet<>();
 		try {
 			JSONArray templates = new JSONArray();
-			for (JSONObject patternjson: patternjsons) {
+			for (JSONObject patternjson : patternjsons) {
 				ids.put(patternjson.getString(ConstantsJSON.CONSTRAINT_ID));
 				templates.put(json);
 				if (patternjson.has(ConstantsJSON.TAG)) {
 					JSONArray tags = patternjson.getJSONArray(ConstantsJSON.TAG);
-					for (int i = 0; i< tags.length(); i++) {
+					for (int i = 0; i < tags.length(); i++) {
 						uniqueTags.add(tags.getString(i));
 					}
 				}
@@ -250,7 +249,7 @@ public abstract class ServletUtilities {
 			json.put(ConstantsJSON.TEMPLATES, templates);
 			json.put(ConstantsJSON.TOTAL, patternjsons.size());
 			json.put(ConstantsJSON.IDS, ids);
-			if(!tags.isEmpty())
+			if (!tags.isEmpty())
 				json.put(ConstantsJSON.TAGS, tags);
 		} catch (JSONException e) {
 			logError(e);
@@ -292,29 +291,25 @@ public abstract class ServletUtilities {
 				try {
 					MqafTranslationValidation.checkPatternTranslatable(pattern);
 					mqaf = true;
-				}
-				catch (InvalidityException e) {
+				} catch (InvalidityException e) {
 					// not mqaf translateable
 				}
 				try {
 					query = !pattern.containsJavaOperator();
-				}
-				catch (InvalidityException e) {
+				} catch (InvalidityException e) {
 					// not query translateable
 				}
-			}
-			catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+			} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
 				// not translateable
 			}
 
-			json.put(ConstantsJSON.EXECUTABLE , mqaf || query || filter);
+			json.put(ConstantsJSON.EXECUTABLE, mqaf || query || filter);
 			json.put(ConstantsJSON.EXECUTABLE_MQAF, mqaf);
 			json.put(ConstantsJSON.EXECUTABLE_QUERY, query);
 			json.put(ConstantsJSON.EXECUTABLE_FILTER, filter);
 
-
 			JSONArray variants = new JSONArray();
-			for (PatternText text: pattern.getText()) {
+			for (PatternText text : pattern.getText()) {
 				variants.put(text.generateJSONObject());
 			}
 			json.put(ConstantsJSON.VARIANTS, variants);
@@ -326,7 +321,7 @@ public abstract class ServletUtilities {
 
 	public static String getPatternJSONHeads(List<CompletePattern> patterns) {
 		JSONArray jsonarray = new JSONArray();
-		for (CompletePattern pattern: patterns) {
+		for (CompletePattern pattern : patterns) {
 			jsonarray.put(getPatternJSONHead(pattern));
 		}
 		return jsonarray.toString();
@@ -364,14 +359,14 @@ public abstract class ServletUtilities {
 
 		// if precompiled patternjson does not exist
 		CompletePattern pattern = EMFModelLoad.loadCompletePattern(patternpath);
-		JSONObject json = ServletUtilities.getPatternJSON(pattern); 
+		JSONObject json = ServletUtilities.getPatternJSON(pattern);
 
 		try {
 			saveSemaphore.acquire();
 			EMFModelSave.exportJson(json, jsonpath);
 		} catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            log("Thread was interrupted");
+			Thread.currentThread().interrupt();
+			log("Thread was interrupted");
 			logError(e);
 		} finally {
 			saveSemaphore.release();
@@ -397,21 +392,21 @@ public abstract class ServletUtilities {
 			saveSemaphore.acquire();
 			EMFModelSave.exportJson(queryjson, queryjsonpath);
 		} catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            log("Thread was interrupted");
+			Thread.currentThread().interrupt();
+			log("Thread was interrupted");
 			logError(e);
 		} finally {
 			saveSemaphore.release();
 		}
 
 		if (!new File(patternjsonpath).exists()) {
-			JSONObject json = ServletUtilities.getPatternJSON(pattern); 
+			JSONObject json = ServletUtilities.getPatternJSON(pattern);
 			try {
 				saveSemaphore.acquire();
 				EMFModelSave.exportJson(json, patternjsonpath);
 			} catch (InterruptedException e) {
-	            Thread.currentThread().interrupt();
-	            log("Thread was interrupted");
+				Thread.currentThread().interrupt();
+				log("Thread was interrupted");
 				logError(e);
 			} finally {
 				saveSemaphore.release();
@@ -437,8 +432,8 @@ public abstract class ServletUtilities {
 			saveSemaphore.acquire();
 			EMFModelSave.exportJson(json, jsonfilepath);
 		} catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            log("Thread was interrupted");
+			Thread.currentThread().interrupt();
+			log("Thread was interrupted");
 			logError(e);
 		} finally {
 			saveSemaphore.release();
@@ -446,46 +441,116 @@ public abstract class ServletUtilities {
 		return json;
 	}
 
-	public static void saveTemplate(String technology, String templateId, CompletePattern pattern) throws IOException {
+	protected static JSONObject loadTemplateVariantJSON(String technology, String templateId) throws IOException {
+		String variantjsonfilepath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.VARIANTJSONFOLDER + "/" + templateId + ".json";
+		try {
+			return EMFModelLoad.loadJson(variantjsonfilepath);
+		} catch (Exception e) {}
+
+		JSONObject variantjson = getVariantJSON(loadTemplate(technology, templateId), true);
 		try {
 			saveSemaphore.acquire();
-			String folderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
-			EMFModelSave.exportToFile2(pattern, folderpath, templateId, Constants.EXTENSION);
-			JSONObject json = getPatternJSON(pattern);
-			String filepath = folderpath + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + templateId + ".json";
-			EMFModelSave.exportJson(json, filepath);
-			if (json.getBoolean(ConstantsJSON.EXECUTABLE)) {
-				try {
-					String queryfilepath = folderpath + "/" + ServletConstants.QUERYJSONFOLDER + "/" + templateId + ".json";
-					JSONObject queryjson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
-					EMFModelSave.exportJson(queryjson, queryfilepath);
-				} catch (Exception e) {}
-			}
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            log("Thread was interrupted");
+			EMFModelSave.exportJson(variantjson, variantjsonfilepath);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+			log("Thread was interrupted");
 			logError(e);
-        } finally {
-        	saveSemaphore.release();
-        }
+		} finally {
+			saveSemaphore.release();
+		}
+		return variantjson;
 	}
 
-	public static String saveConstraint(String technology, String constraintId, CompletePattern pattern) throws IOException {
-		String folderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER;
+	public static void saveTemplate(String technology, String templateId, CompletePattern pattern) throws IOException {
+		String folderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
+		try {
+			saveSemaphore.acquire();
+			EMFModelSave.exportToFile2(pattern, folderpath, templateId, Constants.EXTENSION);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+			log("Thread was interrupted");
+			logError(e);
+		} finally {
+			saveSemaphore.release();
+		}
+
+		// patternjson
+		JSONObject json = getPatternJSON(pattern);
+		String filepath = folderpath + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + templateId + ".json";
+		try {
+			saveSemaphore.acquire();
+			EMFModelSave.exportJson(json, filepath);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+			log("Thread was interrupted");
+			logError(e);
+		} finally {
+			saveSemaphore.release();
+		}
+
+		// variantjson
+		JSONObject variantjson = ServletUtilities.getVariantJSON(pattern, true);
+		String variantfilepath = folderpath + "/" + ServletConstants.VARIANTJSONFOLDER + "/" + templateId + ".json";
+		try {
+			saveSemaphore.acquire();
+			EMFModelSave.exportJson(variantjson, variantfilepath);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+			log("Thread was interrupted");
+			logError(e);
+		} finally {
+			saveSemaphore.release();
+		}
+	}
+
+	public static String saveConstraint(String technology, String constraintId, CompletePattern pattern)
+			throws IOException {
+		String folderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/"
+				+ ServletConstants.CONSTRAINTFOLDER;
+		String patternjsonfilepath = folderpath + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + constraintId
+				+ ".json";
+		String queryjsonfilepath = folderpath + "/" + ServletConstants.QUERYJSONFOLDER + "/" + constraintId + ".json";
 		pattern.updateLastSaved();
 		try {
 			saveSemaphore.acquire();
 			EMFModelSave.exportToFile2(pattern, folderpath, constraintId, Constants.EXTENSION);
-			JSONObject json = getPatternJSON(pattern);
-			String filepath = folderpath + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + constraintId + ".json";
-			EMFModelSave.exportJson(json, filepath);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            log("Thread was interrupted");
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+			log("Thread was interrupted");
 			logError(e);
-        } finally {
-        	saveSemaphore.release();
-        }
+		} finally {
+			saveSemaphore.release();
+		}
+
+		// patternjson
+		JSONObject json = getPatternJSON(pattern);
+		try {
+			saveSemaphore.acquire();
+			EMFModelSave.exportJson(json, patternjsonfilepath);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+			log("Thread was interrupted");
+			logError(e);
+		} finally {
+			saveSemaphore.release();
+		}
+
+		// queryjson
+		if (json.getBoolean(ConstantsJSON.EXECUTABLE)) {
+			try {
+				JSONObject queryjson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
+				try {
+					saveSemaphore.acquire();
+					EMFModelSave.exportJson(queryjson, queryjsonfilepath);
+				} catch (InterruptedException e) {
+					Thread.currentThread().interrupt();
+					log("Thread was interrupted");
+					logError(e);
+				} finally {
+					saveSemaphore.release();
+				}
+			} catch (Exception e) {}
+		}
 		return new Timestamp(pattern.getLastSaved().getTime()).toString();
 	}
 
@@ -504,45 +569,44 @@ public abstract class ServletUtilities {
 	}
 
 	public static Integer getNextNumber(String filepath, String variableName) throws JSONException, IOException {
-        int currentValue = 0;
-		try {
-			saveSemaphore.acquire();
+		int currentValue = 0;
 
-	        File file = new File(filepath);
-	        if (!file.exists()) {
-	            // If the file doesn't exist, create it and initialize with an empty JSON object
-	            JSONObject jsonObject = new JSONObject();
+		File file = new File(filepath);
+		if (!file.exists()) {
+			// If the file doesn't exist, create it and initialize with an empty JSON object
+			JSONObject jsonObject = new JSONObject();
 //	            jsonObject.put(variableName, 0);
-	            Files.write(Paths.get(filepath), jsonObject.toString().getBytes(), StandardOpenOption.CREATE);
-	            System.out.println("File created successfully: " + filepath);
+			try {
+				saveSemaphore.acquire();
+				Files.write(Paths.get(filepath), jsonObject.toString().getBytes(), StandardOpenOption.CREATE);
+			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
+				log("Thread was interrupted");
+				logError(e);
+			} finally {
+				saveSemaphore.release();
+			}
+			System.out.println("File created successfully: " + filepath);
 //	            return 0; // Return 0 as the initial value
-	        }
+		}
 
-	        // Read JSON file
-	        String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
-	        JSONObject jsonObject = new JSONObject(jsonString);
+		// Read JSON file
+		String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
+		JSONObject jsonObject = new JSONObject(jsonString);
 
-	        // Retrieve the value associated with the provided variable name
-	        if (!jsonObject.has(variableName) || !(jsonObject.get(variableName) instanceof Integer)) {
-	            jsonObject.put(variableName, currentValue);
-	            Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
-	        } else {
-	            currentValue = jsonObject.getInt(variableName);
-	        }
+		// Retrieve the value associated with the provided variable name
+		if (!jsonObject.has(variableName) || !(jsonObject.get(variableName) instanceof Integer)) {
+			jsonObject.put(variableName, currentValue);
+			Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
+		} else {
+			currentValue = jsonObject.getInt(variableName);
+		}
 
-	        // Update the JSON with the new value
-	        jsonObject.put(variableName, currentValue + 1);
-	        Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
-			
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            log("Thread was interrupted");
-			logError(e);
-        } finally {
-        	saveSemaphore.release();
-        }
+		// Update the JSON with the new value
+		jsonObject.put(variableName, currentValue + 1);
+		Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
 
-        return currentValue;
+		return currentValue;
 	}
 
 	public static void deleteConstraint(String technology, String constraintId) throws IOException {
@@ -566,26 +630,26 @@ public abstract class ServletUtilities {
 
 	public static void putResponse(HttpServletResponse response, int id, JSONObject jsonObject, int responseCode) throws IOException {
 		logOutput(jsonObject, id);
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.setStatus(responseCode);
-        response.getWriter().write(jsonObject.toString());
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.setStatus(responseCode);
+		response.getWriter().write(jsonObject.toString());
 	}
 
 	public static void putResponse(HttpServletResponse response, int id, JSONArray jsonArray, int responseCode) throws IOException {
 		logOutput(jsonArray, id);
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.setStatus(responseCode);
-        response.getWriter().write(jsonArray.toString());
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		response.setStatus(responseCode);
+		response.getWriter().write(jsonArray.toString());
 	}
 
 	public static void putResponse(HttpServletResponse response, int id, String text, int responseCode) throws IOException {
 		logOutput(text, id);
-	    response.setContentType("text/plain");
-        response.setCharacterEncoding("UTF-8");
-        response.setStatus(responseCode);
-        response.getWriter().write(text);
+		response.setContentType("text/plain");
+		response.setCharacterEncoding("UTF-8");
+		response.setStatus(responseCode);
+		response.getWriter().write(text);
 	}
 	
 	public static void putResponse(HttpServletResponse response, int id, File file, int responseCode, String contentType) throws IOException {
@@ -634,15 +698,16 @@ public abstract class ServletUtilities {
 	}
 
 	public static void putResponse(HttpServletResponse response, int id, JSONObject jsonObject) throws IOException {
-        putResponse(response, id, jsonObject, HttpServletResponse.SC_OK);
-	}
-	public static void putResponse(HttpServletResponse response, int id, JSONArray jsonArray) throws IOException {
-        putResponse(response, id, jsonArray, HttpServletResponse.SC_OK);
-	}
-	public static void putResponse(HttpServletResponse response, int id, String text) throws IOException {
-        putResponse(response, id, text, HttpServletResponse.SC_OK);
+		putResponse(response, id, jsonObject, HttpServletResponse.SC_OK);
 	}
 
+	public static void putResponse(HttpServletResponse response, int id, JSONArray jsonArray) throws IOException {
+		putResponse(response, id, jsonArray, HttpServletResponse.SC_OK);
+	}
+
+	public static void putResponse(HttpServletResponse response, int id, String text) throws IOException {
+		putResponse(response, id, text, HttpServletResponse.SC_OK);
+	}
 
 	// LOGGING
 
@@ -654,41 +719,41 @@ public abstract class ServletUtilities {
 			acquired = true;
 			String filepath = getLogfileName();
 			File file = new File(filepath);
-		    file.getParentFile().mkdirs();
-	        if (!file.exists()) {
-	            File directory = new File(getLogfileDirectory());
-	            if (!directory.exists()) {
+			file.getParentFile().mkdirs();
+			if (!file.exists()) {
+				File directory = new File(getLogfileDirectory());
+				if (!directory.exists()) {
 					directory.mkdirs();
 				}
-	            Files.write(Paths.get(filepath), new byte[0], StandardOpenOption.CREATE);
-	            System.out.println("File created successfully: " + filepath);
-	            deleteOldLogs = true;
-	        }
-	        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
+				Files.write(Paths.get(filepath), new byte[0], StandardOpenOption.CREATE);
+				System.out.println("File created successfully: " + filepath);
+				deleteOldLogs = true;
+			}
+			String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
 
-	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+			try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
 				writer.newLine();
 				writer.write("[" + timestamp + "] " + text);
 			}
-        } catch (IOException e) {
-        	if (acquired)
-        		saveSemaphore.release();
-        	acquired = false;
-            logError(e);
-        } catch (InterruptedException e) {
-        	if (acquired)
-        		saveSemaphore.release();
-        	acquired = false;
-            Thread.currentThread().interrupt();
-            log("Thread was interrupted");
+		} catch (IOException e) {
+			if (acquired)
+				saveSemaphore.release();
+			acquired = false;
 			logError(e);
-        } finally {
-            // Release the semaphore
-        	if (acquired)
-        		saveSemaphore.release();
-        	if (deleteOldLogs)
-            	deleteOldLogs();
-        }
+		} catch (InterruptedException e) {
+			if (acquired)
+				saveSemaphore.release();
+			acquired = false;
+			Thread.currentThread().interrupt();
+			log("Thread was interrupted");
+			logError(e);
+		} finally {
+			// Release the semaphore
+			if (acquired)
+				saveSemaphore.release();
+			if (deleteOldLogs)
+				deleteOldLogs();
+		}
 	}
 
 	private static String getLogfileDirectory() {
@@ -699,21 +764,21 @@ public abstract class ServletUtilities {
 		} else {
 			filepath = ServletConstants.PATTERN_VOLUME + filepath;
 		}
-		
+
 		return filepath.substring(0, filepath.lastIndexOf('/'));
 	}
-	
+
 	private static String getLogfileNameStart() {
 		String filepath = "/" + ServletConstants.LOGFILE;
 		filepath = filepath.substring(filepath.lastIndexOf('/'));
-		filepath = filepath.substring(0,filepath.lastIndexOf('.'));
+		filepath = filepath.substring(0, filepath.lastIndexOf('.'));
 		return filepath + "-";
 	}
-	
+
 	private static String getLogfileNameEnd() {
 		return ServletConstants.LOGFILE.substring(ServletConstants.LOGFILE.lastIndexOf('.'));
 	}
-	
+
 	private static String getLogfileName() {
 		String filename = getLogfileDirectory();
 		filename += getLogfileNameStart();
@@ -721,7 +786,7 @@ public abstract class ServletUtilities {
 		filename += getLogfileNameEnd();
 		return filename;
 	}
-	
+
 	private static void deleteOldLogs() {
 		log("deleting old logfiles");
 		String logdir = getLogfileDirectory(), logstart = getLogfileNameStart(), logend = getLogfileNameEnd();
@@ -729,7 +794,7 @@ public abstract class ServletUtilities {
 		File logdirectory = new File(logdir);
 		File[] filearray = logdirectory.listFiles();
 
-		for (File file: filearray) {
+		for (File file : filearray) {
 			String name = "/" + file.getName();
 			if (name.startsWith(logstart) && name.endsWith(logend)) {
 				String date = name.substring(logstart.length(), name.length() - logend.length());
@@ -744,12 +809,12 @@ public abstract class ServletUtilities {
 	}
 	
 
-    public static long calculateAgeInDays(String dateString) throws DateTimeParseException {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT);
-        LocalDate inputDate = LocalDate.parse(dateString, formatter);
-        LocalDate currentDate = LocalDate.now();
-        return ChronoUnit.DAYS.between(inputDate, currentDate);
-    }
+	public static long calculateAgeInDays(String dateString) throws DateTimeParseException {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT);
+		LocalDate inputDate = LocalDate.parse(dateString, formatter);
+		LocalDate currentDate = LocalDate.now();
+		return ChronoUnit.DAYS.between(inputDate, currentDate);
+	}
 
 	public static void logOutput(JSONObject json, int id) {
 		logOutput(json.toString(), id);
@@ -776,9 +841,9 @@ public abstract class ServletUtilities {
 				error += "\r\n    " + element.toString();
 				counter--;
 			}
-        }
-        log("ERROR: " + error);
-		if(th.getCause() != null) {
+		}
+		log("ERROR: " + error);
+		if (th.getCause() != null) {
 			log("CAUSED BY");
 			logError(th.getCause(), lines);
 		}
@@ -798,7 +863,7 @@ public abstract class ServletUtilities {
 
 	static String mapToString(Map<String, String[]> map) {
 		JSONObject job = new JSONObject();
-		for (String key: map.keySet()) {
+		for (String key : map.keySet()) {
 			try {
 				String[] vals = map.get(key);
 				if (vals.length > 1) {
@@ -820,9 +885,9 @@ public abstract class ServletUtilities {
 		available.put(ConstantsJSON.DATABASE);
 		available.put(ConstantsJSON.DATAMODEL);
 		available.put(ConstantsJSON.NAMESPACES);
-		for (Fragment frag: paramfragments) {
+		for (Fragment frag : paramfragments) {
 			if (frag instanceof ParameterFragment)
-				available.put(((ParameterFragment)frag).getId());
+				available.put(((ParameterFragment) frag).getId());
 		}
 		return available;
 	}
@@ -833,7 +898,7 @@ public abstract class ServletUtilities {
 		String shortQuery = query.replace("\r\n", " ");
 		shortQuery = shortQuery.replace("\n", " ");
 		int len = shortQuery.length() + 1;
-		while (shortQuery.length()< len) {
+		while (shortQuery.length() < len) {
 			len = shortQuery.length();
 			shortQuery = shortQuery.replace("  ", " ");
 		}
@@ -841,45 +906,47 @@ public abstract class ServletUtilities {
 		return shortQuery;
 	}
 
-	static JSONObject getParameterJSON(CompletePattern pattern, Boolean putvariants) {
-	
-			JSONObject parameter = new JSONObject();
-			int i = 0;
-			for (Parameter param: pattern.getParameterList().getParameters()) {
-				try {
-					JSONObject paramobj = new JSONObject();
-					paramobj.put(ConstantsJSON.TYPE, param.getClass().getSimpleName());
-					paramobj.put(ConstantsJSON.ROLE, ParameterFragmentImpl.getRole(param));
-					if (param.getValueAsString() != null)
-						paramobj.put(ConstantsJSON.VALUE, param.getValueAsString());
-					
-					paramobj.put(ConstantsJSON.ID, param.getInternalId());
-					if (param instanceof XmlPathParam) {
-						HashSet<Integer> sourceParamIds = TemplateVariantServlet.getSourceParamIDs((XmlPathParam) param);
-						if (!sourceParamIds.isEmpty()) {
-							paramobj.put(ConstantsJSON.STARTPOINT, new JSONArray(sourceParamIds));
-						}
-					}
-					parameter.put(Integer.toString(i), paramobj);
-	//				parameter.put(Integer.toString(i), ParameterFragmentImpl.getRole(param));
-				} catch (JSONException e) {}
-				i++;
-			}
-	
-			JSONArray variants = new JSONArray();
-			if (putvariants) {
-				for (PatternText text: pattern.getText()) {
-					variants.put(text.generateVariantJSONObject());
-				}
-			}
-	
-			JSONObject result = new JSONObject();
+	static JSONObject getVariantJSON(CompletePattern pattern, Boolean putvariants) {
+
+		JSONObject parameter = new JSONObject();
+		int i = 0;
+		for (Parameter param : pattern.getParameterList().getParameters()) {
 			try {
-				if (putvariants)
-					result.put(ConstantsJSON.VARIANTS, variants);
-				result.put(ConstantsJSON.PARAMETER, parameter);
-			} catch (JSONException e) {}
-	
-			return result;
+				JSONObject paramobj = new JSONObject();
+				paramobj.put(ConstantsJSON.TYPE, param.getClass().getSimpleName());
+				paramobj.put(ConstantsJSON.ROLE, ParameterFragmentImpl.getRole(param));
+				if (param.getValueAsString() != null)
+					paramobj.put(ConstantsJSON.VALUE, param.getValueAsString());
+
+				paramobj.put(ConstantsJSON.ID, param.getInternalId());
+				if (param instanceof XmlPathParam) {
+					HashSet<Integer> sourceParamIds = TemplateVariantServlet.getSourceParamIDs((XmlPathParam) param);
+					if (!sourceParamIds.isEmpty()) {
+						paramobj.put(ConstantsJSON.STARTPOINT, new JSONArray(sourceParamIds));
+					}
+				}
+				parameter.put(Integer.toString(i), paramobj);
+				// parameter.put(Integer.toString(i), ParameterFragmentImpl.getRole(param));
+			} catch (JSONException e) {
+			}
+			i++;
 		}
+
+		JSONArray variants = new JSONArray();
+		if (putvariants) {
+			for (PatternText text : pattern.getText()) {
+				variants.put(text.generateVariantJSONObject());
+			}
+		}
+
+		JSONObject result = new JSONObject();
+		try {
+			if (putvariants)
+				result.put(ConstantsJSON.VARIANTS, variants);
+			result.put(ConstantsJSON.PARAMETER, parameter);
+		} catch (JSONException e) {
+		}
+
+		return result;
+	}
 }

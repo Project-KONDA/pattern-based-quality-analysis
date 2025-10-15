@@ -115,13 +115,19 @@ public class TemplateVariantServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		// 2 load template
-		CompletePattern pattern = ServletUtilities.loadTemplate(technology, templateId);
-		if (pattern == null) {
-			throw new FailedServletCallException(ConstantsError.NOT_FOUND_TEMPLATE + ": '" + templateId + "'");
+		JSONObject variantjson = ServletUtilities.loadTemplateVariantJSON(technology, templateId);
+		if (!putvariants) {
+			variantjson.remove(ConstantsJSON.VARIANTS);
 		}
+		return variantjson;
 		
-		return ServletUtilities.getParameterJSON(pattern, putvariants);
+//		// 2 load template
+//		CompletePattern pattern = ServletUtilities.loadTemplate(technology, templateId);
+//		if (pattern == null) {
+//			throw new FailedServletCallException(ConstantsError.NOT_FOUND_TEMPLATE + ": '" + templateId + "'");
+//		}
+//		
+//		return ServletUtilities.getVariantJSON(pattern, putvariants);
 	}
 
 	static HashSet<Integer> getSourceParamIDs(XmlPathParam param) {
