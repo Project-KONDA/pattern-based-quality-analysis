@@ -142,7 +142,6 @@ public class APICallTests {
 	public static void close() throws IOException {
 		System.out.println("Delete: " + FOLDER);
 		FileUtils.deleteDirectory(new File(FOLDER));
-		ServletUtilities.reset();
 	}
 
 	// __________ BASE FUNCTIONS __________

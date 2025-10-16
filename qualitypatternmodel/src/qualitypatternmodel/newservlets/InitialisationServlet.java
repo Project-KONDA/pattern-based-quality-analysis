@@ -82,6 +82,7 @@ public class InitialisationServlet extends HttpServlet {
 	}
 
 	public static void initialisation(ServletContext scon) throws ServletException {
+		ServletUtilities.reset();
 		
 //		ENVIRONMENTAL VARIABLES
 
