@@ -59,6 +59,16 @@ public abstract class ServletUtilities {
 	private static List<JSONObject> abstractPatternJsonRdf = null;
 	private static List<JSONObject> abstractPatternJsonNeo = null;
 	private static Semaphore saveSemaphore = new Semaphore(1);
+	
+	public static void reset() {
+		abstractPatternXml = null;
+		abstractPatternRdf = null;
+		abstractPatternNeo = null;
+		abstractPatternJsonXml = null;
+		abstractPatternJsonRdf = null;
+		abstractPatternJsonNeo = null;
+		
+	}
 
 	// Pattern request
 	public static List<CompletePattern> getAllPattern(String technology) {
@@ -76,15 +86,8 @@ public abstract class ServletUtilities {
 
 	// Pattern request
 	public static List<JSONObject> getAllPatternJsons(String technology) {
-		EList<JSONObject> patterns = new BasicEList<JSONObject>();
-		List<JSONObject> astr = getTemplateJSONs(technology);
-		List<JSONObject> conc = getReadyConstraintJSONs(technology);
-		if (astr != null) {
-			patterns.addAll(astr);
-		}
-		if (conc != null) {
-			patterns.addAll(conc);
-		}
+		List<JSONObject> patterns = getTemplateJSONs(technology);
+		patterns.addAll(getConstraintJSONs(technology));
 		return patterns;
 	}
 
@@ -229,14 +232,14 @@ public abstract class ServletUtilities {
 	}
 
 	public static JSONObject combinePatternJSONs(List<JSONObject> patternjsons) {
-		JSONObject json = new JSONObject();
+		JSONObject resultjson = new JSONObject();
 		JSONArray ids = new JSONArray();
 		HashSet<String> uniqueTags = new HashSet<>();
 		try {
 			JSONArray templates = new JSONArray();
 			for (JSONObject patternjson : patternjsons) {
 				ids.put(patternjson.getString(ConstantsJSON.CONSTRAINT_ID));
-				templates.put(json);
+				templates.put(patternjson);
 				if (patternjson.has(ConstantsJSON.TAG)) {
 					JSONArray tags = patternjson.getJSONArray(ConstantsJSON.TAG);
 					for (int i = 0; i < tags.length(); i++) {
@@ -246,15 +249,16 @@ public abstract class ServletUtilities {
 			}
 			JSONArray tags = new JSONArray();
 			tags.putAll(uniqueTags);
-			json.put(ConstantsJSON.TEMPLATES, templates);
-			json.put(ConstantsJSON.TOTAL, patternjsons.size());
-			json.put(ConstantsJSON.IDS, ids);
+			resultjson.put(ConstantsJSON.TEMPLATES, templates);
+			resultjson.put(ConstantsJSON.TOTAL, patternjsons.size());
+			resultjson.put(ConstantsJSON.IDS, ids);
 			if (!tags.isEmpty())
-				json.put(ConstantsJSON.TAGS, tags);
+				resultjson.put(ConstantsJSON.TAGS, tags);
 		} catch (JSONException e) {
+			e.printStackTrace();
 			logError(e);
 		}
-		return json;
+		return resultjson;
 	}
 
 	public static JSONObject getPatternJSON(CompletePattern pattern) {
@@ -263,7 +267,7 @@ public abstract class ServletUtilities {
 			json.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
 			json.put(ConstantsJSON.NAME, pattern.getName());
 			json.put(ConstantsJSON.DESCRIPTION, pattern.getDescription());
-			json.put(ConstantsJSON.LANGUAGE, pattern.getLanguage());
+			json.put(ConstantsJSON.LANGUAGE, pattern.getLanguage().getLiteral());
 			if (pattern.getLastSaved() != null) {
 				json.put(ConstantsJSON.LASTSAVED, new Timestamp(pattern.getLastSaved().getTime()).toString());
 			}

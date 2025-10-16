@@ -113,7 +113,7 @@ public class EMFModelLoad {
 
 	public static List<CompletePattern> loadCompletePatternFromFolder(String folder, String extension) throws IOException {
 //		String path = context.getRealPath(relativepath);
-		List<String> files = getFilesInDirectory(folder);
+		List<String> files = getFilesInDirectory(folder, extension);
 
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		for (String file: files) {
@@ -129,7 +129,7 @@ public class EMFModelLoad {
 
 	public static List<JSONObject> loadPatternJSONsFromFolder(String folder, String jsonfolder, String extension) throws IOException {
 //		String path = context.getRealPath(relativepath);
-		List<String> patternfiles = getFilesInDirectory(folder);
+		List<String> patternfiles = getFilesInDirectory(folder, extension);
 //		List<String> jsonfiles = getFilesInDirectory(jsonfolder);
 		
 		List<JSONObject> patternjsons = new BasicEList<JSONObject>();
@@ -156,11 +156,16 @@ public class EMFModelLoad {
 		return patternjsons;
 	}
 
-    public static List<String> getFilesInDirectory(String directory) {
+    public static List<String> getFilesInDirectory(String directory, String extension) {
         Path directoryPath = Paths.get(directory);
         try (Stream<Path> pathStream = Files.list(directoryPath)) {
             Stream<String> fileStream = pathStream.map(Path::getFileName).map(Path::toString);
-            return fileStream.collect(Collectors.toList());
+            List<String> files = fileStream.collect(Collectors.toList());
+            List<String> results = new BasicEList<>();
+            for (String filename : files)
+            	if (filename.endsWith(extension))
+            		results.add(filename);
+            return results;
         } catch (IOException e) {
             return new BasicEList<>();  // Return an empty list in case of an error
         }

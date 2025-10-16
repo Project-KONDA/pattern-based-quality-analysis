@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.Collections;
@@ -88,11 +89,13 @@ public class EMFModelSave {
     }
 
 	public static void exportJson(JSONObject json, String filepath) throws IOException {
-		File file = new File(filepath);
-        if (!file.exists()) {
-            Files.write(Paths.get(filepath), json.toString().getBytes(), StandardOpenOption.CREATE);
-        }
-        else 
-        	Files.write(Paths.get(filepath), json.toString().getBytes());
+	    Path path = Paths.get(filepath);
+	    File file = path.toFile();
+
+	    if (file.getParentFile() != null) {
+	        Files.createDirectories(file.getParentFile().toPath());
+	    }
+
+	    Files.write(path, json.toString().getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
 	}
 }

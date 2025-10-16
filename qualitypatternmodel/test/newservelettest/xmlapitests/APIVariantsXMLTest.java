@@ -89,7 +89,8 @@ public class APIVariantsXMLTest {
 		InitialisationServlet.initialisation(context);
 		
 		store = new JSONObject();
-		for (Object template: PatternListServlet.applyGet("/xml" + "/template", new HashMap<String, String[]>()).getJSONArray("templates")) {
+		JSONArray templates = PatternListServlet.applyGet("/xml" + "/template", new HashMap<String, String[]>()).getJSONArray("templates");
+		for (Object template: templates) {
 			JSONObject obj = (JSONObject) template;
 			JSONArray variants = obj.getJSONArray(ConstantsJSON.VARIANTS);
 			JSONArray variantIDs = new JSONArray();
