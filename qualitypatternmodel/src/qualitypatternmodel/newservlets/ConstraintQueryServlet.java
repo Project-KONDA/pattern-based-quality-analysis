@@ -18,7 +18,6 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaFilter;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.Constants;
@@ -104,12 +103,13 @@ public class ConstraintQueryServlet extends HttpServlet {
 
 		for (String constraintId: constraintIds) {
 			// 1 load constraint
-			CompletePattern pattern;
+//			CompletePattern pattern;
 			try {
-				pattern = ServletUtilities.loadConstraint(technology, constraintId);
-				pattern.isValid(AbstractionLevel.CONCRETE);
-			// 2 generate query
-				JSONObject queryJson = generateQueryJson(pattern, technology);
+//				pattern = ServletUtilities.loadConstraint(technology, constraintId);
+//				pattern.isValid(AbstractionLevel.CONCRETE);
+//			// 2 generate query
+//				JSONObject queryJson = generateQueryJson(pattern, technology);
+				JSONObject queryJson = ServletUtilities.loadConstraintQueryJson(technology, constraintId);
 				result.append(ConstantsJSON.CONSTRAINTS, queryJson);
 			} catch (Exception e) {
 				ServletUtilities.logError(e);

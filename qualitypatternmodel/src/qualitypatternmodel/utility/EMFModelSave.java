@@ -1,7 +1,12 @@
 package qualitypatternmodel.utility;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Collections;
 import java.util.Map;
 
@@ -11,6 +16,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.json.JSONObject;
 
 import jakarta.servlet.ServletContext;
 
@@ -81,4 +87,15 @@ public class EMFModelSave {
             return null;
         }
     }
+
+	public static void exportJson(JSONObject json, String filepath) throws IOException {
+	    Path path = Paths.get(filepath);
+	    File file = path.toFile();
+
+	    if (file.getParentFile() != null) {
+	        Files.createDirectories(file.getParentFile().toPath());
+	    }
+
+	    Files.write(path, json.toString().getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+	}
 }

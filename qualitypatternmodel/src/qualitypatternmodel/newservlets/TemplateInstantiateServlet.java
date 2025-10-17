@@ -107,7 +107,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		try {
 			ServletUtilities.saveConstraint(technology, constraintId, pattern);
 		} catch (IOException e) {
-			throw new FailedServletCallException(ConstantsError.SAVING_FAILED);
+			throw new FailedServletCallException(ConstantsError.SAVING_FAILED, e);
 		}
 
 		return ServletUtilities.getPatternJSON(pattern);

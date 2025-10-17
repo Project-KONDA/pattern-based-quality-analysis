@@ -18,9 +18,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
@@ -106,20 +103,21 @@ public class ConstraintServlet extends HttpServlet {
 		}
 
 		// 1 load constraint
-		CompletePattern pattern;
+//		CompletePattern pattern;
 		try {
-			pattern = ServletUtilities.loadConstraint(technology, constraintId);
+//			pattern = ServletUtilities.loadConstraint(technology, constraintId);
 //			System.out.println(pattern.myToString());
-			pattern.isValid(AbstractionLevel.ABSTRACT);
+//			pattern.isValid(AbstractionLevel.ABSTRACT);
+			return ServletUtilities.loadConstraintJson(technology, constraintId);
 		} catch (IOException e) {
 			throw new FailedServletCallException("constraint '" + constraintId + "' not found", e);
 		}
-		catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-			throw new FailedServletCallException(ConstantsError.INVALID_CONSTRAINT, e);
-		}
+//		catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+//			throw new FailedServletCallException(ConstantsError.INVALID_CONSTRAINT, e);
+//		}
 
 		// 2 return json
-		return ServletUtilities.getPatternJSON(pattern);
+//		return ServletUtilities.getPatternJSON(pattern);
 	}
 
 	public static String applyDelete(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {

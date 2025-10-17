@@ -53,6 +53,7 @@ import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
 import qualitypatternmodel.newservlets.TemplateVariantServlet;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.EMFModelLoad;
 
 public class APICallTests {
 	private static String FOLDER;
@@ -572,7 +573,8 @@ public class APICallTests {
 	public void testPatternListServletGetAll()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject listTemplate = PatternListServlet.applyGet("/xml" + "/all", getEmptyParams());
-		int templateNo = new File(FOLDER + "/templates/xml/abstract-patterns").listFiles().length;
+		int templateNo = EMFModelLoad.getFilesInDirectory(FOLDER + "/templates/xml/abstract-patterns", Constants.EXTENSION).size();
+		templateNo += EMFModelLoad.getFilesInDirectory(FOLDER + "/templates/xml/concrete-patterns", Constants.EXTENSION).size();
 		assert (templateNo > 0);
 		assert (listTemplate.has(ConstantsJSON.TOTAL) && listTemplate.getInt(ConstantsJSON.TOTAL) == templateNo);
 		assert (listTemplate.has(ConstantsJSON.IDS) && listTemplate.getJSONArray(ConstantsJSON.IDS).length() == templateNo);
@@ -585,7 +587,7 @@ public class APICallTests {
 	public void testPatternListServletGetTemplate()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject listTemplate = PatternListServlet.applyGet("/xml" + "/template", getEmptyParams());
-		int templateNo = new File(FOLDER + "/templates/xml/abstract-patterns").listFiles().length;
+		int templateNo = EMFModelLoad.getFilesInDirectory(FOLDER + "/templates/xml/abstract-patterns", Constants.EXTENSION).size();
 		assert (templateNo > 0);
 		assert (listTemplate.has(ConstantsJSON.TOTAL) && listTemplate.getInt(ConstantsJSON.TOTAL) == templateNo);
 		assert (listTemplate.has(ConstantsJSON.IDS) && listTemplate.getJSONArray(ConstantsJSON.IDS).length() == templateNo);

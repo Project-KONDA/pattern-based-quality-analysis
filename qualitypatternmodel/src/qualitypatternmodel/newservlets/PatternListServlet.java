@@ -1,7 +1,6 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -12,9 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
-import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
-import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class PatternListServlet extends HttpServlet {
@@ -47,49 +44,70 @@ public class PatternListServlet extends HttpServlet {
 		String technology = pathparts[1];
 		String level = pathparts[2];
 
-
 		if (!Constants.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 		if (!Constants.LEVELS.contains(level)) {
 			throw new InvalidServletCallException("'" + level + "' is an invalid abstraction level. The levels are: " + Constants.LEVELS);
 		}
+		
+		return getPatternJsons(technology, level);
 
-		List<CompletePattern> patterns = getPatterns(technology, level);
-
-		if (pathparts.length == 4) {
-			String datamodel = pathparts[3];
-			List<CompletePattern> clone = new ArrayList<CompletePattern>(patterns);
-			for (CompletePattern pattern: clone) {
-				if (pattern.getDataModelName() == null || !pattern.getDataModelName().equals(datamodel)) {
-					patterns.remove(pattern);
-				}
-			}
-		}
-		if (patterns == null) {
-			throw new FailedServletCallException("No " + ((level == Constants.LVLTEMPLATE)? ConstantsJSON.TEMPLATE: ConstantsJSON.CONSTRAINT) + " found for the technology " + technology + " on level " + level + ".");
-		}
-
-		return ServletUtilities.getPatternListJSON(patterns);
+//		List<CompletePattern> patterns = getPatterns(technology, level);
+//
+//		if (pathparts.length == 4) {
+//			String datamodel = pathparts[3];
+//			List<CompletePattern> clone = new ArrayList<CompletePattern>(patterns);
+//			for (CompletePattern pattern: clone) {
+//				if (pattern.getDataModelName() == null || !pattern.getDataModelName().equals(datamodel)) {
+//					patterns.remove(pattern);
+//				}
+//			}
+//		}
+//		if (patterns == null) {
+//			throw new FailedServletCallException("No " + ((level == Constants.LVLTEMPLATE)? ConstantsJSON.TEMPLATE: ConstantsJSON.CONSTRAINT) + " found for the technology " + technology + " on level " + level + ".");
+//		}
+//
+//		return ServletUtilities.getPatternListJSON(patterns);
 	}
 
-	private static List<CompletePattern> getPatterns(String technology, String level)
+//	private static List<CompletePattern> getPatterns(String technology, String level)
+//			throws InvalidServletCallException {
+//		List<CompletePattern> patterns = null;
+//		switch (level) {
+//		case Constants.LVLALL:
+//			patterns = ServletUtilities.getAllPattern(technology);
+//			break;
+//		case Constants.LVLTEMPLATE:
+//			patterns = ServletUtilities.getTemplates(technology);
+//			break;
+//		case Constants.LVLCONSTRAINT:
+//			patterns = ServletUtilities.getConstraints(technology);
+//			break;
+//		case Constants.LVLREADY:
+//			patterns = ServletUtilities.getReadyConstraints(technology);
+//			break;
+//		}
+//		return patterns;
+//	}
+
+	private static JSONObject getPatternJsons(String technology, String level)
 			throws InvalidServletCallException {
-		List<CompletePattern> patterns = null;
+		List<JSONObject> patterns = null;
 		switch (level) {
 		case Constants.LVLALL:
-			patterns = ServletUtilities.getAllPattern(technology);
+			patterns = ServletUtilities.getAllPatternJsons(technology);
 			break;
 		case Constants.LVLTEMPLATE:
-			patterns = ServletUtilities.getTemplates(technology);
+			patterns = ServletUtilities.getTemplateJSONs(technology);
 			break;
 		case Constants.LVLCONSTRAINT:
-			patterns = ServletUtilities.getConstraints(technology);
+			patterns = ServletUtilities.getConstraintJSONs(technology);
 			break;
 		case Constants.LVLREADY:
-			patterns = ServletUtilities.getReadyConstraints(technology);
+			patterns = ServletUtilities.getReadyConstraintJSONs(technology);
 			break;
 		}
-		return patterns;
+		return ServletUtilities.combinePatternJSONs(patterns);
 	}
 }

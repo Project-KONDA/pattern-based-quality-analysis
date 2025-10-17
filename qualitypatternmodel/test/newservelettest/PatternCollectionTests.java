@@ -93,7 +93,7 @@ public class PatternCollectionTests {
 	private void testSemiConcretePattern(CompletePattern pattern) throws InvalidityException {
 		assertDoesNotThrow(() -> pattern.isValid(AbstractionLevel.SEMI_CONCRETE));
 		if (pattern.getText().size() == 0)
-			System.out.println("No variants coded in " + pattern.getName());
+			System.out.println("No variants coded in " + pattern.getPatternId());
 		
 		if (pattern.getText().size() > 0) {
 

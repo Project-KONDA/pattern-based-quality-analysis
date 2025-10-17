@@ -40,8 +40,6 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
-import qualitypatternmodel.utility.EMFModelLoad;
-import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
 public class InitialisationServlet extends HttpServlet {
@@ -82,6 +80,7 @@ public class InitialisationServlet extends HttpServlet {
 	}
 
 	public static void initialisation(ServletContext scon) throws ServletException {
+		ServletUtilities.reset();
 		
 //		ENVIRONMENTAL VARIABLES
 
@@ -205,7 +204,8 @@ public class InitialisationServlet extends HttpServlet {
 					String id = pattern.getPatternId();
 					if (ServletConstants.OVERRIDE_VARIANTS || !fileExists(genericfolder, id)) {
 						pattern.isValid(AbstractionLevel.GENERIC);
-						EMFModelSave.exportToFile2(pattern, genericfolder, id, Constants.EXTENSION);
+						ServletUtilities.saveGeneric(id, pattern);
+//						EMFModelSave.exportToFile2(pattern, genericfolder, id, Constants.EXTENSION);
 					}
 				}
 				ServletUtilities.log("generic Patterns created: " + genericfolder);
@@ -231,7 +231,7 @@ public class InitialisationServlet extends HttpServlet {
 			String xmlfolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.XML + "/" + ServletConstants.TEMPLATEFOLDER;
 			ServletUtilities.log("XML Patterns creation started to :     " + xmlfolder);
 			for (PatternBundle patternbundle: PatternCollection.getXmlPatternBundles()) {
-				patternbundle.export(xmlfolder, ServletConstants.OVERRIDE_VARIANTS);
+				patternbundle.exportTemplate();
 			}
 			ServletUtilities.log("XML Patterns created:     " + xmlfolder);
 		} catch (Exception e) {
@@ -242,7 +242,7 @@ public class InitialisationServlet extends HttpServlet {
 			String rdffolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.RDF + "/" + ServletConstants.TEMPLATEFOLDER;
 			ServletUtilities.log("RDF Patterns creation started to :     " + rdffolder);
 			for (PatternBundle patternbundle: PatternCollection.getRdfPatternBundles()) {
-				patternbundle.export(rdffolder, ServletConstants.OVERRIDE_VARIANTS);
+				patternbundle.exportTemplate();
 			}
 			ServletUtilities.log("RDF Patterns created:     " + rdffolder);
 		} catch (Exception e) {
@@ -253,7 +253,7 @@ public class InitialisationServlet extends HttpServlet {
 			String neofolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.NEO4J + "/" + ServletConstants.TEMPLATEFOLDER;
 			ServletUtilities.log("NEO4J Patterns creation started to :     " + neofolder);
 			for (PatternBundle patternbundle: PatternCollection.getNeoPatternBundles()) {
-				patternbundle.export(neofolder, ServletConstants.OVERRIDE_VARIANTS);
+				patternbundle.exportTemplate();
 			}
 			ServletUtilities.log("NEO4J Patterns created:   " + neofolder);
 		} catch (Exception e) {
@@ -293,12 +293,15 @@ public class InitialisationServlet extends HttpServlet {
 	}
 	
 	private static void initializeVariant(JSONObject json, String path) throws IOException, JSONException, InvalidityException {
-		String templatefolder = ServletConstants.PATTERN_VOLUME + "/" + json.getString(ConstantsJSON.LANGUAGE) + "/" + ServletConstants.TEMPLATEFOLDER;
+//		String templatefolder = ServletConstants.PATTERN_VOLUME + "/" + json.getString(ConstantsJSON.LANGUAGE) + "/" + ServletConstants.TEMPLATEFOLDER;
 		String templateID = json.getString(ConstantsJSON.TEMPLATE);
+		String technology = json.getString(ConstantsJSON.LANGUAGE);
 		
-		CompletePattern template = EMFModelLoad.loadCompletePattern(templatefolder, templateID, Constants.EXTENSION);
+		CompletePattern template = ServletUtilities.loadTemplate(technology, templateID);
+//		EMFModelLoad.loadCompletePattern(templatefolder, templateID, Constants.EXTENSION);
 		new PatternTextImpl(template, json);
-		EMFModelSave.exportToFile2(template, templatefolder, templateID, Constants.EXTENSION);
+		ServletUtilities.saveTemplate(technology, templateID, template);
+//		EMFModelSave.exportToFile2(template, templatefolder, templateID, Constants.EXTENSION);
 	}
 
 	private static boolean fileExists(String folder, String id) {

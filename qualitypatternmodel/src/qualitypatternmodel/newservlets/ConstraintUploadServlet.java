@@ -91,8 +91,6 @@ public class ConstraintUploadServlet extends HttpServlet {
 			throw new FailedServletCallException("The uploaded file is not a valid constraint, tech: " + lan + " is not in list: " + Constants.TECHS);
 		}
 
-		pattern.getId();
-
 		// update patternID
 		String newID = ServletUtilities.generateNewId(lan.getLiteral(), pattern.getAbstractId(), pattern.getText().get(0).getName());
 		pattern.setPatternId(newID);
