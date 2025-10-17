@@ -1090,6 +1090,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return Constants.PARAMETER_TYPE_NEO_NODE_LABEL;
 		} else if (type.equals(NeoElementPathParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_NEO_ELEMENT_PATH;
+		} else if (type.equals(NeoPropertyPathParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_NEO_PROPERTY_PATH;
 		} else {
 			throw new UnsupportedOperationException("Type '" + type + "' not implemented");
 		}

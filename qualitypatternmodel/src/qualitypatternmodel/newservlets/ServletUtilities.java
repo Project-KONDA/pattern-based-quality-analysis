@@ -420,7 +420,7 @@ public abstract class ServletUtilities {
 		return queryjson;
 	}
 
-	protected static CompletePattern loadTemplate(String technology, String templateId) throws IOException {
+	public static CompletePattern loadTemplate(String technology, String templateId) throws IOException {
 		String folderPath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
 		return EMFModelLoad.loadCompletePattern(folderPath, templateId, Constants.EXTENSION);
 	}
@@ -463,6 +463,21 @@ public abstract class ServletUtilities {
 			saveSemaphore.release();
 		}
 		return variantjson;
+	}
+
+	public static void saveGeneric(String patternId, CompletePattern pattern) throws IOException {
+		String folderpath = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.GENERICFOLDER;
+		try {
+			saveSemaphore.acquire();
+			EMFModelSave.exportToFile2(pattern, folderpath, patternId, Constants.EXTENSION);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+			log("Thread was interrupted");
+			logError(e);
+		} finally {
+			saveSemaphore.release();
+		}
+		
 	}
 
 	public static void saveTemplate(String technology, String templateId, CompletePattern pattern) throws IOException {

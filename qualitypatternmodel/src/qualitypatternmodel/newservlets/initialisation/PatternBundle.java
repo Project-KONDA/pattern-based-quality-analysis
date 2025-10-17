@@ -1,6 +1,6 @@
 package qualitypatternmodel.newservlets.initialisation;
 
-import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -17,10 +17,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
-import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
-import qualitypatternmodel.utility.EMFModelLoad;
-import qualitypatternmodel.utility.EMFModelSave;
 
 public class PatternBundle {
 	CompletePattern genericpattern;
@@ -43,10 +40,10 @@ public class PatternBundle {
 		return PatternBundle.getConcrete(genericpattern, language, id, values, variants, oldvariants);
 	}
 
-	public void export(String folder, boolean override) {
-		if (fileExists(folder, id) && !override) {
+	public void exportTemplate() throws JSONException, InvalidityException, IOException, OperatorCycleException, MissingPatternContainerException {
+		if (ServletConstants.OVERRIDE_VARIANTS) {
 			try {
-				CompletePattern existing = EMFModelLoad.loadCompletePattern(folder);
+				CompletePattern existing = ServletUtilities.loadTemplate(language.getLiteral(), id);
 				for (String variant: variants) {
 					JSONObject var = new JSONObject(variant);
 					Boolean typeConstraint = var.getBoolean(ConstantsJSON.TYPE_CONSTRAINT);
@@ -58,20 +55,42 @@ public class PatternBundle {
 						new PatternTextImpl(existing, new JSONObject(variant));
 					}
 				}
-				EMFModelSave.exportToFile2(existing, folder, id, Constants.EXTENSION);
+				ServletUtilities.saveTemplate(language.getLiteral(), id, existing);
 				return;
-			} catch (Exception e) {
-				ServletUtilities.logError(e);
-			}
+			} catch (IOException e) {}
 		}
-		try {
-			CompletePattern pattern = getConcrete();
-			pattern.isValid(AbstractionLevel.ABSTRACT);
-			EMFModelSave.exportToFile2(pattern, folder, id, Constants.EXTENSION);
-		} catch (Exception e) {
-			ServletUtilities.logError(e);
-		}
+		ServletUtilities.saveTemplate(language.getLiteral(), id, getConcrete());
 	}
+
+//	public void export(String folder, boolean override) {
+//		if (fileExists(folder, id) && !override) {
+//			try {
+//				CompletePattern existing = EMFModelLoad.loadCompletePattern(folder);
+//				for (String variant: variants) {
+//					JSONObject var = new JSONObject(variant);
+//					Boolean typeConstraint = var.getBoolean(ConstantsJSON.TYPE_CONSTRAINT);
+//					if (typeConstraint && ServletConstants.VARIANTS_TYPE_CONSTRAINT || !typeConstraint && ServletConstants.VARIANTS_TYPE_ANTIPATTERN)
+//						new PatternTextImpl(existing, var);
+//				}
+//				if (ServletConstants.OLD_VARIANTS) {
+//					for (String variant: oldvariants) {
+//						new PatternTextImpl(existing, new JSONObject(variant));
+//					}
+//				}
+//				EMFModelSave.exportToFile2(existing, folder, id, Constants.EXTENSION);
+//				return;
+//			} catch (Exception e) {
+//				ServletUtilities.logError(e);
+//			}
+//		}
+//		try {
+//			CompletePattern pattern = getConcrete();
+//			pattern.isValid(AbstractionLevel.ABSTRACT);
+//			EMFModelSave.exportToFile2(pattern, folder, id, Constants.EXTENSION);
+//		} catch (Exception e) {
+//			ServletUtilities.logError(e);
+//		}
+//	}
 
 	public static CompletePattern getConcrete(CompletePattern pattern, Language lan, String new_id, Map<Integer, String> values, String[] variants, String[] oldvariants)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -132,9 +151,9 @@ public class PatternBundle {
 		return pattern;
 	}
 
-	private static boolean fileExists(String folder, String id) {
-		String filepath = folder + "/" + id + "." + Constants.EXTENSION;
-		File file = new File(filepath);
-	    return file.exists();
-	}
+//	private static boolean fileExists(String folder, String id) {
+//		String filepath = folder + "/" + id + "." + Constants.EXTENSION;
+//		File file = new File(filepath);
+//	    return file.exists();
+//	}
 }

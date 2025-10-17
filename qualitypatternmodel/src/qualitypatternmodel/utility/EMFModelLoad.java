@@ -137,7 +137,7 @@ public class EMFModelLoad {
 		for (String patternfilename: patternfiles) {
 			String jsonfilename = patternfilename.replace("." + extension, ".json");
 			
-			File jsonfile = new File(jsonfilename);
+			File jsonfile = new File(jsonfolder + "/" + jsonfilename);
 			if (jsonfile.exists()) {
 				JSONObject json = EMFModelLoad.loadJson(jsonfolder + "/" + jsonfilename);
 				patternjsons.add(json);

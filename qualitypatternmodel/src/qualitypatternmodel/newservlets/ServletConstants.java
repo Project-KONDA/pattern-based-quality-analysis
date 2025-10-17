@@ -64,7 +64,7 @@ public class ServletConstants {
 	public static String ENV_OLD_VARIANTS = "OLD_VARIANTS";
 
 	// shall existing templates be overwritten
-	static boolean OVERRIDE_VARIANTS = true;
+	public static boolean OVERRIDE_VARIANTS = true;
 	public static String ENV_OVERRIDE_VARIANTS = "OVERRIDE_VARIANTS";
 
 	// also generate generic templates
