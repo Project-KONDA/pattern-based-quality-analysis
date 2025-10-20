@@ -8,6 +8,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.sql.Timestamp;
@@ -569,6 +570,13 @@ public abstract class ServletUtilities {
 					saveSemaphore.release();
 				}
 			} catch (Exception e) {}
+		} else {
+			Path path = Paths.get(queryjsonfilepath);
+			try {
+			    Files.deleteIfExists(path); // throws exception if deletion fails
+			} catch (IOException e) {
+			    logError(e);
+			}
 		}
 		return new Timestamp(pattern.getLastSaved().getTime()).toString();
 	}
