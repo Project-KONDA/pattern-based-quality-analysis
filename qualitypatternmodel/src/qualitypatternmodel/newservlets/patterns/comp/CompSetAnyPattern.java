@@ -12,7 +12,6 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.utility.PatternUtility;
 
 public class CompSetAnyPattern extends PatternClass {
@@ -36,19 +35,16 @@ public class CompSetAnyPattern extends PatternClass {
 
 		Graph graph1 = pattern.getGraph();
 		Node returnNode = graph1.getReturnNodes().get(0).makeComplex();
-		
 		NotCondition notCondition = PatternstructureFactory.eINSTANCE.createNotCondition();
 		pattern.setCondition(notCondition);
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		notCondition.setCondition(quantifiedCondition);
-		quantifiedCondition.setQuantifier(Quantifier.FORALL);
 		Graph graph2 = quantifiedCondition.getGraph();
 
 		Node element1 = returnNode.addOutgoing(graph2).getTarget().makePrimitive();
 
 		TextListParamImpl tlp = new TextListParamImpl();
 		element1.addPrimitiveComparison(tlp);
-
 		return pattern;
 	}
 
