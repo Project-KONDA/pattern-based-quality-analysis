@@ -702,21 +702,28 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 
 	@Override
 	public Boolean isValidRegex(String regex, Language lang) {
-		switch (lang) {
-			case XML:
-				String query = "matches(\"\", \"" + regex + "\")";
-				try {
-					XmlServletUtility.executeXQueryJava(query);
-					return true;
-				} catch (InvalidityException e) {
-					return false;
-				}
-			case RDF:
-			case NEO4J:
-			default:
-				System.err.println("RegEx-Validation not implemented for " + lang);
-				return true;
+		try {
+			matches( "", regex, lang);
+			return true;
+		} catch (InvalidityException e) {
+			return false;
 		}
+		
+	}
+	
+	public static String matches (String teststring, String regex, Language lang) throws InvalidityException {
+		switch (lang) {
+		case XML:
+			String query = "matches(\'" + teststring + "\', \'" + regex + "\')";
+			return XmlServletUtility.executeXQueryJava(query).get(0);
+		case RDF:
+		case NEO4J:
+		default:
+			System.err.println("RegEx-Validation not implemented for " + lang);
+			return "";
+	}
+		
+		
 	}
 
 } //MatchImpl

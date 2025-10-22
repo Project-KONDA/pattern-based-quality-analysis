@@ -249,7 +249,8 @@ public class APIVariantsXMLTest {
 			System.out.println(ConstraintQueryServlet.applyGet("xml", new String[] {constraintID}));
 
 		testConcretePattern(constraintID, hasCustom);
-		APICallTests.deleteConstraint(constraintID);
+		if (DELETE)
+			APICallTests.deleteConstraint(constraintID);
 	}
 
 	private void testConstraintParameter(JSONObject myconstraint) {
