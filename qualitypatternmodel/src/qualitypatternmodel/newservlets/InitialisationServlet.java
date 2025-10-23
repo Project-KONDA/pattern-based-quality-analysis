@@ -296,12 +296,14 @@ public class InitialisationServlet extends HttpServlet {
 //		String templatefolder = ServletConstants.PATTERN_VOLUME + "/" + json.getString(ConstantsJSON.LANGUAGE) + "/" + ServletConstants.TEMPLATEFOLDER;
 		String templateID = json.getString(ConstantsJSON.TEMPLATE);
 		String technology = json.getString(ConstantsJSON.LANGUAGE);
-		
-		CompletePattern template = ServletUtilities.loadTemplate(technology, templateID);
-//		EMFModelLoad.loadCompletePattern(templatefolder, templateID, Constants.EXTENSION);
-		new PatternTextImpl(template, json);
-		ServletUtilities.saveTemplate(technology, templateID, template);
-//		EMFModelSave.exportToFile2(template, templatefolder, templateID, Constants.EXTENSION);
+
+		try {
+			CompletePattern template = ServletUtilities.loadTemplate(technology, templateID);
+//			EMFModelLoad.loadCompletePattern(templatefolder, templateID, Constants.EXTENSION);
+			new PatternTextImpl(template, json);
+			ServletUtilities.saveTemplate(technology, templateID, template);
+//			EMFModelSave.exportToFile2(template, templatefolder, templateID, Constants.EXTENSION);
+		} catch (Exception e) {}
 	}
 
 	private static boolean fileExists(String folder, String id) {

@@ -25,7 +25,7 @@
             "name":"Is / Is Not",
             "params":[1],
             "exampleValue":"is",
-            "defaultMap":"comparison_is"
+            "defaultMap":"comparison_isnot"
         },
         {"text":"in the list of"},
         {

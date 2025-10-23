@@ -28,6 +28,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.Parameter;
@@ -186,7 +187,12 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		this.setName(name);
 		for (PatternText text: pattern.getText()) {
 			if (text.getName().equals(name)) {
-				throw new InvalidityException(ConstantsError.DUPLICATE_VARIANT_NAMES);
+				if (ServletConstants.OVERRIDE_VARIANTS) {
+					text.delete();
+					ServletUtilities.log(ConstantsError.DUPLICATE_VARIANT_NAMES + ": " + template + "_" + name + ". Old variant got overwritten.");
+				} 
+				else 
+					throw new InvalidityException(ConstantsError.DUPLICATE_VARIANT_NAMES + ": " + template + "_" + name);
 			}
 		}
 		Boolean typeConstraint = json.getBoolean(ConstantsJSON.TYPE_CONSTRAINT);
