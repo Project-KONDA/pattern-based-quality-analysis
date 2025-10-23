@@ -42,7 +42,7 @@ public class TemplateVariantServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyGet(path, params);
 			ServletUtilities.putResponse(response, callId, result);
@@ -58,7 +58,7 @@ public class TemplateVariantServlet extends HttpServlet {
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("PUT", this.getClass().getName(), path, params);
 		try{
 			String result = applyPut(path, params);
 			ServletUtilities.putResponse(response, callId, result);
@@ -83,7 +83,7 @@ public class TemplateVariantServlet extends HttpServlet {
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("DELETE", this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyDelete(path, params);
 			ServletUtilities.putResponse(response, callId, result);

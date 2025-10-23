@@ -876,7 +876,7 @@ public abstract class ServletUtilities {
 		}
 	}
 
-	public static int logCall(String clazz, String path, Map<String, String[]> params) {
+	public static int logCall(String method, String clazz, String path, Map<String, String[]> params) {
 		int callId = -1;
 		try {
 			String filepath = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.SAVEFILE;
@@ -884,7 +884,7 @@ public abstract class ServletUtilities {
 		} catch (JSONException | IOException e) {
 			logError(e);
 		}
-		log("CALL " + callId + ": " + clazz + "(" + path + ")" + mapToString(params));
+		log("CALL " + callId + ": " + method + " "+ clazz + "(" + path + ")" + mapToString(params));
 		return callId;
 	}
 

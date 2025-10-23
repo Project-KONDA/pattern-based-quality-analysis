@@ -23,7 +23,7 @@ public class ConstraintDownloadServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
 			File result = applyGet(path, params);
 			ServletUtilities.putResponse(response, callId, result, HttpURLConnection.HTTP_ACCEPTED, "");
