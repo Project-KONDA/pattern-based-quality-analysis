@@ -38,7 +38,7 @@
             "name":"a Comparison with",
             "params":[3],
 			"exampleValue": "",
-            "defaultMap":"comparison_negated"
+            "defaultMap":"comparison"
         },
         {
             "name":"a Specific Number of",
@@ -55,7 +55,7 @@
             "name":"Is / Is Not",
             "params":[6],
             "exampleValue":"is",
-            "defaultMap":"comparison_isnot"
+            "defaultMap":"comparison_is"
         },
         {"text":"in the list of"},
         {
