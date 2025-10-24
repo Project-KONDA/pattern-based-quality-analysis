@@ -25,7 +25,7 @@ public class ConstraintDataModelServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyGet(path, params);
 			ServletUtilities.putResponse(response, callId, result);
@@ -41,7 +41,7 @@ public class ConstraintDataModelServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("POST", this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyPost(path, params);
 			ServletUtilities.putResponse(response, callId, result);
@@ -66,20 +66,33 @@ public class ConstraintDataModelServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		// 1 load constraint
-		CompletePattern pattern;
+		JSONObject patternjson;
 		try {
-			pattern = ServletUtilities.loadConstraint(technology, constraintId);
+			patternjson = ServletUtilities.loadConstraintJson(technology, constraintId);
 		} catch (IOException e) {
 			throw new FailedServletCallException(ConstantsError.NOT_FOUND_CONSTRAINT);
 		}
 
-		// 2 return datamodel name
 		JSONObject result = new JSONObject();
 		try {
-			result.put(ConstantsJSON.DATAMODEL, pattern.getDataModelName());
+			result.put(ConstantsJSON.DATAMODEL, patternjson.getString(ConstantsJSON.DATAMODEL));
 		} catch (JSONException e) {}
 		return result;
+
+//		// 1 load constraint
+//		CompletePattern pattern;
+//		try {
+//			pattern = ServletUtilities.loadConstraint(technology, constraintId);
+//		} catch (IOException e) {
+//			throw new FailedServletCallException(ConstantsError.NOT_FOUND_CONSTRAINT);
+//		}
+//
+//		// 2 return datamodel name
+//		JSONObject result = new JSONObject();
+//		try {
+//			result.put(ConstantsJSON.DATAMODEL, pattern.getDataModelName());
+//		} catch (JSONException e) {}
+//		return result;
 	}
 
 	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {

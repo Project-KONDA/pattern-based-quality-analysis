@@ -16,6 +16,7 @@ import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
+import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
@@ -53,8 +54,10 @@ public class CardIfCompSetPattern extends PatternClass {
 		TextListParam list = new TextListParamImpl();
 		nodeA.addComparison(list);
 		
+		NotCondition notCondition = PatternstructureFactory.eINSTANCE.createNotCondition();
+		formula.setCondition2(notCondition);
 		CountCondition count = PatternstructureFactory.eINSTANCE.createCountCondition();
-		formula.setCondition2(count);
+		notCondition.setCondition(count);
 		NumberElementImpl ne = new NumberElementImpl();
 		count.setArgument2(ne);
 		ne.createParameters();

@@ -17,7 +17,7 @@ public class DocumentationServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 
 		try {
 			String result = applyGet(path, params);

@@ -64,7 +64,7 @@ public class ServletConstants {
 	public static String ENV_OLD_VARIANTS = "OLD_VARIANTS";
 
 	// shall existing templates be overwritten
-	static boolean OVERRIDE_VARIANTS = true;
+	public static boolean OVERRIDE_VARIANTS = true;
 	public static String ENV_OVERRIDE_VARIANTS = "OVERRIDE_VARIANTS";
 
 	// also generate generic templates
@@ -82,4 +82,10 @@ public class ServletConstants {
 	public static final String TEMPLATEFOLDER = "abstract-patterns";
 	// name of folder for constraints
 	public static final String CONSTRAINTFOLDER = "concrete-patterns";
+	// name of folder for precompiled patternjson files
+	public static final String PATTERNJSONFOLDER = "patternjson";
+	// name of folder for precompiled queryjson files
+	public static final String QUERYJSONFOLDER = "queryjson";
+	// name of folder for precompiled queryjson files
+	public static final String VARIANTJSONFOLDER = "variantjson";
 }

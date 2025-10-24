@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.ValidateLinkOperator;
-import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -96,17 +95,6 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 		507, // 507 - Insufficient Storage
 		508 // 508 - Loop Detected
     );
-	
-	public static void main (String[] params) {
-		String[] links = new String[] {"https://muenzen.uni-koeln.de/portal/databases/id/muenzen/titles/id/VAR_0008.html", "https://www.google.com", "das_ist_ein_nicht-valider_link"};
-		ValidateLinkOperatorImpl validateLink = new ValidateLinkOperatorImpl();
-		validateLink.setOption(new BooleanParamImpl());
-		validateLink.getOption().setValue(false);
-		
-		for (String link: links) {
-			System.out.println(validateLink.apply(link));	
-		}
-	}
 
 	/**
 	 * <!-- begin-user-doc -->

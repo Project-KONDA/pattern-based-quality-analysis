@@ -1,5 +1,6 @@
 package qualitypatternmodel.utility;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,7 +16,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.json.JSONObject;
 
+import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -108,29 +111,69 @@ public class EMFModelLoad {
         return object;
     }
 
-	public static List<CompletePattern> loadCompletePatternFromFolder(String path, String extension) throws IOException {
+	public static List<CompletePattern> loadCompletePatternFromFolder(String folder, String extension) throws IOException {
 //		String path = context.getRealPath(relativepath);
-		List<String> files = getFilesInDirectory(path);
+		List<String> files = getFilesInDirectory(folder, extension);
 
 		List<CompletePattern> patterns = new BasicEList<CompletePattern>();
 		for (String file: files) {
 			try {
-				patterns.add(loadCompletePattern(path + "/" + file));
+				patterns.add(loadCompletePattern(folder + "/" + file));
 			} catch (Exception e) {
-				System.out.println("Failed to load pattern: " + path + "/" + file);
+				System.out.println("Failed to load pattern: " + folder + "/" + file);
 				e.printStackTrace();
 			}
 		}
 		return patterns;
 	}
 
-    public static List<String> getFilesInDirectory(String directory) {
+	public static List<JSONObject> loadPatternJSONsFromFolder(String folder, String jsonfolder, String extension) throws IOException {
+//		String path = context.getRealPath(relativepath);
+		List<String> patternfiles = getFilesInDirectory(folder, extension);
+//		List<String> jsonfiles = getFilesInDirectory(jsonfolder);
+		
+		List<JSONObject> patternjsons = new BasicEList<JSONObject>();
+		
+		for (String patternfilename: patternfiles) {
+			String jsonfilename = patternfilename.replace("." + extension, ".json");
+			
+			File jsonfile = new File(jsonfolder + "/" + jsonfilename);
+			if (jsonfile.exists()) {
+				JSONObject json = EMFModelLoad.loadJson(jsonfolder + "/" + jsonfilename);
+				patternjsons.add(json);
+			} else {
+				try {
+					CompletePattern pattern = loadCompletePattern(folder + "/" + patternfilename);
+					JSONObject json = ServletUtilities.getPatternJSON(pattern);
+					EMFModelSave.exportJson(json, jsonfolder + "/" + jsonfilename);
+					patternjsons.add(json);
+				} catch (Exception e) {
+					System.out.println("Failed to load pattern: " + folder + "/" + patternfilename);
+					e.printStackTrace();
+				}
+			}
+		}
+		return patternjsons;
+	}
+
+    public static List<String> getFilesInDirectory(String directory, String extension) {
         Path directoryPath = Paths.get(directory);
         try (Stream<Path> pathStream = Files.list(directoryPath)) {
             Stream<String> fileStream = pathStream.map(Path::getFileName).map(Path::toString);
-            return fileStream.collect(Collectors.toList());
+            List<String> files = fileStream.collect(Collectors.toList());
+            List<String> results = new BasicEList<>();
+            for (String filename : files)
+            	if (filename.endsWith(extension))
+            		results.add(filename);
+            return results;
         } catch (IOException e) {
             return new BasicEList<>();  // Return an empty list in case of an error
         }
     }
+
+	public static JSONObject loadJson(String filepath) throws IOException {
+        String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
+        JSONObject jsonObject = new JSONObject(jsonString);
+        return jsonObject;
+	}
 }

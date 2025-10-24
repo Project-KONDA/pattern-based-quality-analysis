@@ -24,7 +24,7 @@ public class ConstraintCopyServlet extends HttpServlet {
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int callId = ServletUtilities.logCall("PUT", this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyPut(path, params);
 			ServletUtilities.putResponse(response, callId, result);

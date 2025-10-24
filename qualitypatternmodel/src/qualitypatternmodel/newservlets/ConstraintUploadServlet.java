@@ -40,7 +40,7 @@ public class ConstraintUploadServlet extends HttpServlet {
 		String uploadFolder = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.UPLOAD_FOLDER;
 		File file = storePart(filePart, uploadFolder);
 	    
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("POST", this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyPost(path, params, file);
 			ServletUtilities.putResponse(response, callId, result, HttpURLConnection.HTTP_ACCEPTED);
@@ -90,8 +90,6 @@ public class ConstraintUploadServlet extends HttpServlet {
 		if (lan == null || !Constants.TECHS.contains(lan.getLiteral())) {
 			throw new FailedServletCallException("The uploaded file is not a valid constraint, tech: " + lan + " is not in list: " + Constants.TECHS);
 		}
-
-		pattern.getId();
 
 		// update patternID
 		String newID = ServletUtilities.generateNewId(lan.getLiteral(), pattern.getAbstractId(), pattern.getText().get(0).getName());

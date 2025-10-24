@@ -187,7 +187,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 				if (value.substring(1).matches(ConstantsXml.REGEX_ATTRIBUTE_NAME))
 					attName = value.substring(1);
 				else {
-					String[] parts = value.split("\"");
+					String[] parts = value.split("[\"']");
 					if (parts.length != 3)
 						throw new InvalidityException("Invalid configuration: invalid attribute specification.");
 					 attName = parts[1];
@@ -259,7 +259,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 					try {
 						CompletePattern p = (CompletePattern) getAncestor(CompletePattern.class);
 						if (!p.getNamespaces().getKeys().contains(ns))
-							return axis + "@*[name()=\"" + attributeName.getValue() + "\"]";
+							return axis + "@*[name()='" + attributeName.getValue() + "']";
 					} catch (MissingPatternContainerException e) {}
 				}
 				return axis + "@" + attributeName.getValue() + "";

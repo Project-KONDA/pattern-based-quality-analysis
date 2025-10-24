@@ -28,7 +28,6 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.PatternText;
-import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
@@ -43,7 +42,7 @@ public class TemplateVariantServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyGet(path, params);
 			ServletUtilities.putResponse(response, callId, result);
@@ -59,7 +58,7 @@ public class TemplateVariantServlet extends HttpServlet {
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("PUT", this.getClass().getName(), path, params);
 		try{
 			String result = applyPut(path, params);
 			ServletUtilities.putResponse(response, callId, result);
@@ -84,7 +83,7 @@ public class TemplateVariantServlet extends HttpServlet {
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("DELETE", this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyDelete(path, params);
 			ServletUtilities.putResponse(response, callId, result);
@@ -116,54 +115,22 @@ public class TemplateVariantServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		// 2 load template
-		CompletePattern pattern = ServletUtilities.loadTemplate(technology, templateId);
-		if (pattern == null) {
-			throw new FailedServletCallException(ConstantsError.NOT_FOUND_TEMPLATE + ": '" + templateId + "'");
+		JSONObject variantjson = ServletUtilities.loadTemplateVariantJSON(technology, templateId);
+		if (!putvariants) {
+			variantjson.remove(ConstantsJSON.VARIANTS);
 		}
-
-		JSONObject parameter = new JSONObject();
-		int i = 0;
-		for (Parameter param: pattern.getParameterList().getParameters()) {
-			try {
-				JSONObject paramobj = new JSONObject();
-				paramobj.put(ConstantsJSON.TYPE, param.getClass().getSimpleName());
-				paramobj.put(ConstantsJSON.ROLE, ParameterFragmentImpl.getRole(param));
-				if (param.getValueAsString() != null)
-					paramobj.put(ConstantsJSON.VALUE, param.getValueAsString());
-				
-				paramobj.put(ConstantsJSON.ID, param.getInternalId());
-				if (param instanceof XmlPathParam) {
-					HashSet<Integer> sourceParamIds = getSourceParamIDs((XmlPathParam) param);
-					if (!sourceParamIds.isEmpty()) {
-						paramobj.put(ConstantsJSON.STARTPOINT, new JSONArray(sourceParamIds));
-					}
-				}
-				parameter.put(Integer.toString(i), paramobj);
-//				parameter.put(Integer.toString(i), ParameterFragmentImpl.getRole(param));
-			} catch (JSONException e) {}
-			i++;
-		}
-
-		JSONArray variants = new JSONArray();
-		if (putvariants) {
-			for (PatternText text: pattern.getText()) {
-				variants.put(text.generateVariantJSONObject());
-			}
-		}
-
-		JSONObject result = new JSONObject();
-		try {
-			if (putvariants)
-				result.put(ConstantsJSON.VARIANTS, variants);
-			result.put(ConstantsJSON.PARAMETER, parameter);
-		} catch (JSONException e) {}
-
-		return result;
+		return variantjson;
+		
+//		// 2 load template
+//		CompletePattern pattern = ServletUtilities.loadTemplate(technology, templateId);
+//		if (pattern == null) {
+//			throw new FailedServletCallException(ConstantsError.NOT_FOUND_TEMPLATE + ": '" + templateId + "'");
+//		}
+//		
+//		return ServletUtilities.getVariantJSON(pattern, putvariants);
 	}
-	
 
-	private static HashSet<Integer> getSourceParamIDs(XmlPathParam param) {
+	static HashSet<Integer> getSourceParamIDs(XmlPathParam param) {
 		// get all XmlNavigations that use the parameters
 		EList<XmlNavigation> navs = new BasicEList<XmlNavigation>();
 		navs.add(param.getXmlNavigation());

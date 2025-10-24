@@ -3,13 +3,24 @@ package qualitypatternmodel.newservlets.patterns.comp;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
+import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.NotCondition;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.utility.PatternUtility;
 
 public class CompSetAnyPattern extends PatternClass {
+	
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern pattern = new CompSetAnyPattern().getXmlPattern();
+		PatternUtility.fillParameter(pattern);
+		System.out.println(pattern.generateXQuery());
+	}
 
 	public CompSetAnyPattern() {
 		super(PatternConstants.COMPSETANY_ID,
@@ -20,9 +31,20 @@ public class CompSetAnyPattern extends PatternClass {
 	
 	@Override
 	public CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = new CompSetPattern().getPattern();
-		QuantifiedCondition qc = (QuantifiedCondition) pattern.getCondition();
-		qc.setQuantifier(Quantifier.FORALL);
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+
+		Graph graph1 = pattern.getGraph();
+		Node returnNode = graph1.getReturnNodes().get(0).makeComplex();
+		NotCondition notCondition = PatternstructureFactory.eINSTANCE.createNotCondition();
+		pattern.setCondition(notCondition);
+		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		notCondition.setCondition(quantifiedCondition);
+		Graph graph2 = quantifiedCondition.getGraph();
+
+		Node element1 = returnNode.addOutgoing(graph2).getTarget().makePrimitive();
+
+		TextListParamImpl tlp = new TextListParamImpl();
+		element1.addPrimitiveComparison(tlp);
 		return pattern;
 	}
 
