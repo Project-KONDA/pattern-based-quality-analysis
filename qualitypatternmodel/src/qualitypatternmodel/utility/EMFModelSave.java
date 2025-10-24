@@ -96,6 +96,6 @@ public class EMFModelSave {
 	        Files.createDirectories(file.getParentFile().toPath());
 	    }
 
-	    Files.write(path, json.toString().getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+	    Files.write(path, json.toString(4).getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
 	}
 }

@@ -598,28 +598,34 @@ public abstract class ServletUtilities {
 	public static Integer getNextNumber(String filepath, String variableName) throws JSONException, IOException {
 		int currentValue = 0;
 
-		File file = new File(filepath);
-		if (!file.exists()) {
-			// If the file doesn't exist, create it and initialize with an empty JSON object
-			JSONObject jsonObject = new JSONObject();
-//	            jsonObject.put(variableName, 0);
-			try {
-				saveSemaphore.acquire();
-				Files.write(Paths.get(filepath), jsonObject.toString().getBytes(), StandardOpenOption.CREATE);
-			} catch (InterruptedException e) {
-				Thread.currentThread().interrupt();
-				log("Thread was interrupted");
-				logError(e);
-			} finally {
-				saveSemaphore.release();
-			}
-			System.out.println("File created successfully: " + filepath);
-//	            return 0; // Return 0 as the initial value
-		}
+//		File file = new File(filepath);
+//		if (!file.exists()) {
+//			// If the file doesn't exist, create it and initialize with an empty JSON object
+//			JSONObject jsonObject = new JSONObject();
+////	            jsonObject.put(variableName, 0);
+//			try {
+//				saveSemaphore.acquire();
+//				Files.write(Paths.get(filepath), jsonObject.toString().getBytes(), StandardOpenOption.CREATE);
+//			} catch (InterruptedException e) {
+//				Thread.currentThread().interrupt();
+//				log("Thread was interrupted");
+//				logError(e);
+//			} finally {
+//				saveSemaphore.release();
+//			}
+//			System.out.println("File created successfully: " + filepath);
+////	            return 0; // Return 0 as the initial value
+//		}
 
 		// Read JSON file
-		String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
-		JSONObject jsonObject = new JSONObject(jsonString);
+//		String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
+//		JSONObject jsonObject = new JSONObject(jsonString);
+		JSONObject jsonObject;
+		try{
+			jsonObject = EMFModelLoad.loadJson(filepath);
+		} catch (IOException e) {
+			jsonObject = new JSONObject();
+		}
 
 		// Retrieve the value associated with the provided variable name
 		if (!jsonObject.has(variableName) || !(jsonObject.get(variableName) instanceof Integer)) {
@@ -631,7 +637,7 @@ public abstract class ServletUtilities {
 
 		// Update the JSON with the new value
 		jsonObject.put(variableName, currentValue + 1);
-		Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
+		EMFModelSave.exportJson(jsonObject, filepath);
 
 		return currentValue;
 	}
