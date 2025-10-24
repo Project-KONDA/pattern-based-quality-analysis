@@ -893,7 +893,7 @@ public abstract class ServletUtilities {
 		for (String key : map.keySet()) {
 			try {
 				String[] vals = map.get(key);
-				if (vals.length > 1) {
+				if (vals.length == 1) {
 					job.put(key, vals[0]);
 				} else {
 					JSONArray jarr = new JSONArray(vals);
