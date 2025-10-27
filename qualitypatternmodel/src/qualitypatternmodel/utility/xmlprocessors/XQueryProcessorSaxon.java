@@ -23,7 +23,6 @@ import net.sf.saxon.s9api.Serializer;
 import net.sf.saxon.s9api.XQueryCompiler;
 import net.sf.saxon.s9api.XQueryEvaluator;
 import net.sf.saxon.s9api.XQueryExecutable;
-import net.sf.saxon.s9api.XdmAtomicValue;
 import net.sf.saxon.s9api.XdmItem;
 import net.sf.saxon.s9api.XdmNode;
 import net.sf.saxon.s9api.XdmValue;
@@ -122,7 +121,7 @@ public class XQueryProcessorSaxon {
 				ce.query_executable = compiler.compile(constraint.getString(ConstantsJSON.QUERY));
 				if (constraint.has(ConstantsJSON.CUSTOM))
 					ce.custom = constraint.getJSONObject(ConstantsJSON.CUSTOM);
-				String counterquery = addCountToQuery(constraint.getString(ConstantsJSON.QUERY_PARTIAL));
+				String counterquery = constraint.getString(ConstantsJSON.QUERY_PARTIAL);
 				ce.query_total_executable = compiler.compile(counterquery);
 				if (constraint.has(ConstantsJSON.FILTER)) {
 					ce.filter = constraint.getJSONObject(ConstantsJSON.FILTER);
@@ -171,10 +170,7 @@ public class XQueryProcessorSaxon {
 	                // query partial
 	                XQueryEvaluator evalPartial = executable.query_total_executable.load();
 					evalPartial.setContextItem(inputDoc);
-	
-	                XdmValue count = evalPartial.evaluate();
-	                long total = ((XdmAtomicValue) count.itemAt(0)).getLongValue();
-	                
+					long total = evalPartial.evaluate().size();
 	                
 	                JSONArray incidents = new JSONArray();
 	                
@@ -233,49 +229,6 @@ public class XQueryProcessorSaxon {
 		}
 		
 		return resultobject;
-	}
-
-	public static String addCountToQuery(String query) throws InvalidityException {
-		// case 1: XYZ return C
-		try {
-			String r = "return ";
-			int i = query.lastIndexOf(r);
-			if (i == -1)
-				throw new InvalidityException();
-			i += r.length();
-			String res = query.substring(0, i);
-			res += "count (" + query.substring(i) + ")";
-			XmlServletUtility.validateXQuery(query);
-			return res;
-		} catch (Exception e) {
-			System.out.println(" 1 " + e.getMessage());
-		}
-		
-		// case2: NAMESPACE; //*
-		
-		try {
-			int i = query.lastIndexOf(";");
-			if (i == -1)
-				throw new InvalidityException();
-			i += 2;
-			String myQuery = query.substring(0, i) + "count (" + query.substring(i) + ")";
-			XmlServletUtility.validateXQuery(myQuery);
-			return myQuery;
-		} catch (Exception e) {
-			System.out.println(" 2 " + e.getMessage());
-			}
-
-		// case3: //*
-		try {
-			String res = "count (" + query + ")";
-			XmlServletUtility.validateXQuery(query);
-			return res;
-		} catch (Exception e) {
-			System.out.println(" 3 " + e.getMessage());
-		}
-		
-		throw new InvalidityException("Failed to transform query \"" + query + "\" to count its results");
-
 	}
 
 	private static File getAndTestFile(String filepath) throws InvalidityException {
