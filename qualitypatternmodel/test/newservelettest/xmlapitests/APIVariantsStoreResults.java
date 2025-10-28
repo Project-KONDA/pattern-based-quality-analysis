@@ -29,6 +29,7 @@ import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
+import qualitypatternmodel.utility.Util;
 
 public class APIVariantsStoreResults {
 	private static final boolean DELETE = true;
@@ -37,7 +38,8 @@ public class APIVariantsStoreResults {
 	private static JSONObject store;
 	private static Boolean default_allow_ignore_map;
 	private static final List<String[]> pairs = getTemplateVariantArrays();
-	private static String jsonfile = "/jsonresult.json";
+//	private static String jsonfile = "/jsonresult.json";
+	private static String jsonfile = "/jsonresult_" + Util.EXECUTION_PROCESSOR + ".json";
 	
 	// __________ SETUP FUNCTIONS __________
 	

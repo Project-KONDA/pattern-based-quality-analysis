@@ -20,12 +20,13 @@ import net.sf.saxon.s9api.DocumentBuilder;
 import net.sf.saxon.s9api.Processor;
 import net.sf.saxon.s9api.SaxonApiException;
 import net.sf.saxon.s9api.Serializer;
+import net.sf.saxon.s9api.WhitespaceStrippingPolicy;
 import net.sf.saxon.s9api.XQueryCompiler;
 import net.sf.saxon.s9api.XQueryEvaluator;
 import net.sf.saxon.s9api.XQueryExecutable;
 import net.sf.saxon.s9api.XdmItem;
 import net.sf.saxon.s9api.XdmNode;
-import net.sf.saxon.s9api.XdmValue;
+import net.sf.saxon.s9api.XdmNodeKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.javaquery.impl.JavaFilterImpl;
@@ -36,6 +37,8 @@ import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.Util;
 
 public class XQueryProcessorSaxon {
+	
+	static boolean NOSKIPS = false;
 	
 	public static JSONArray saxonExecuteXQuery(String query, String datapath) throws InvalidityException {
 		final String testedQuery = testAndFormatQuery(query);
@@ -63,7 +66,8 @@ public class XQueryProcessorSaxon {
 	
 	            // Evaluate results
 	            for (XdmItem item : evaluator) {
-	            	outcome.put(formatItemJSON(item, processor));
+	            	if (NOSKIPS || !skipXdmItem(item))
+	            		outcome.put(formatItemJSON(item, processor));
 	            }
 	        } catch (SaxonApiException e) {
 	            throw new InvalidityException("Saxon error with query: " + testedQuery + " [" + e.getMessage() + "]");
@@ -136,6 +140,7 @@ public class XQueryProcessorSaxon {
 
 	    final DocumentBuilder builder = processor.newDocumentBuilder();
 	    builder.setLineNumbering(true);
+        builder.setWhitespaceStrippingPolicy(WhitespaceStrippingPolicy.ALL);
 	    
         for (String path: datapaths) {
 			File file;
@@ -179,8 +184,10 @@ public class XQueryProcessorSaxon {
 	                eval.setContextItem(inputDoc);
 	
 	                for (XdmItem item : eval) {
+	                	if (NOSKIPS || !skipXdmItem(item))
+	                		incidents.put(formatItemJSON(item, processor));
 //	                	incidents.put(formatItemString(item, processor));
-                    	incidents.put(formatItemJSON(item, processor));
+                    	
 //	                    switch (format) {
 //	                        case ConstantsXml.FORMAT_JSON:
 //	                        	incidents.put(formatItemJSON(item, processor));
@@ -277,12 +284,25 @@ public class XQueryProcessorSaxon {
 //		object.put(ConstantsJSON.RESULT_SNIPPET, item.toString());
 //        return object;
 //	}
+	
+	private static boolean skipXdmItem(XdmItem item) {
+		if (item.isAtomicValue()) {
+			return item.getStringValue().trim().isEmpty();
+		}
+		if (item.isNode()) {
+			XdmNode node = (XdmNode) item;
+			if (node.getNodeKind()== XdmNodeKind.TEXT)
+				return node.getStringValue().trim().isEmpty();
+		}
+		return false;
+	}
 
 	private static JSONObject formatItemJSON(XdmItem item, Processor processor) throws SaxonApiException {
 		
 		
 		String snippet;
 	    if (item instanceof XdmNode) {
+	    	XdmNode node = (XdmNode) item;
 	        // Serialize the node to XML
 	        StringWriter sw = new StringWriter();
 	        Serializer serializer = processor.newSerializer(sw);
@@ -291,10 +311,9 @@ public class XQueryProcessorSaxon {
 	        serializer.setOutputProperty(Serializer.Property.OMIT_XML_DECLARATION, "yes");
 	        serializer.setOutputProperty(Serializer.Property.ENCODING, "UTF-8");
 
-	        serializer.serializeNode(((XdmNode) item));
+	        serializer.serializeNode(node);
 	        snippet = sw.toString();
 	    } else {
-	        // Atomic value → just use string representation
 	        snippet = item.getStringValue();
 	    }
 		
