@@ -62,9 +62,9 @@ public interface ContainerResult extends InterimResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" param1DataType="qualitypatternmodel.parameters.StringArray"
 	 * @generated
 	 */
-	Boolean stream(String value) throws InvalidityException;
+	Boolean initialize(String[] param1) throws InvalidityException;
 
 } // ContainerResult

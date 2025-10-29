@@ -292,7 +292,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	private String getResultString(List<String> nodes, String graphString, String conditionString){
 		List<String> resultList = new ArrayList<String>();
 		resultList.add(start(RETURN));
+		resultList.add("{");
 		resultList.addAll(nodes);
+		resultList.add("}");
 		if (!graphString.equals("()")) {
 			resultList.addAll(List.of(end(RETURN), start(CONDITION), graphString, conditionString, end(CONDITION)));
 		} else {

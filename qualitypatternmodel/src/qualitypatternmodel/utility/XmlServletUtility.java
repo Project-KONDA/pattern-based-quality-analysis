@@ -71,5 +71,36 @@ public class XmlServletUtility {
 		}
 		return outcome;
 	}
+
+    public static List<String> extractFromDoc(String xmlString, String xpath) {
+        String query = "let $r := $doc" + xpath + " return if (exists($r/*)) then $r/* else $r/text()";
+    	return queryFromDoc(xmlString, query);
+    	
+    }
+    public static List<String> queryFromDoc(String xmlString, String query) {
+        Context context = new Context();
+		List<String> outcome = new ArrayList<String>();
+        try {
+            // XQuery: choose child element if exists, else text
+            String wrappedQuery =
+                    "declare variable $document external; " +
+                    "let $doc := parse-xml($document) " + query
+                    ;
+
+            try (QueryProcessor proc = new QueryProcessor(wrappedQuery, context)) {
+                proc.bind("document", xmlString);
+				Iter iter = proc.iter();
+				for (Item item; (item = iter.next()) != null;) {
+					outcome.add(item.serialize().toString());
+				}
+			}
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            context.close();
+        }
+        return outcome;
+    }
 	
 }

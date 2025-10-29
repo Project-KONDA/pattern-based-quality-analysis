@@ -105,6 +105,6 @@ public interface InterimResultContainer extends EObject {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	Boolean stream(String value) throws InvalidityException;
+	Boolean initialize(String value) throws InvalidityException;
 
 } // InterimResultContainer

@@ -3,6 +3,7 @@
 package qualitypatternmodel.javaqueryoutput.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -13,13 +14,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.javaqueryoutput.ContainerResult;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
-import qualitypatternmodel.utility.JavaQueryTranslationUtility;
+import qualitypatternmodel.utility.XmlServletUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -121,97 +121,22 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 		return returnvalid && parametervalid;
 	}
 
-
-
-
-
-	private int depth0 = 0;
-	private int depth = 0;
-	private boolean param = false;
-	private boolean done = false;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
-	public Boolean stream(String value) throws InvalidityException{
-		depth0 = depth;
-		if (JavaQueryTranslationUtility.isStartTag(value)) {
-			depth +=1;
-		} else if (JavaQueryTranslationUtility.isEndTag(value)) {
-			depth -=1;
-		}
-
-		if (depth < 0) {
-			done = true;
-		}
-		else if (depth == 0) {
-			if (depth0 == 0) {
-				throw new InvalidityException("unexpected value on depth 1: " + value.replace("\r\n", " "));
-			}
-			if (depth0 == 1 && !param ) {
-				if (!value.equals("</return>")) {
-					throw new InvalidityException("expected </return>, recieved: " + value);
-				}
-				param = true;
-			}
-		}
-		else if (depth == 1) {
-			if (depth0 == 0) {
-				if (param && !value.equals("<condition>") || !param && !value.equals("<return>")) {
-					throw new InvalidityException("invalid input for return");
-				}
-			}
-			else if (depth0 == depth) {
-				ValueResultImpl valueresult = new ValueResultImpl(value);
-				if(!param) {
-					if (getReturn() != null) {
-						throw new InvalidityException("invalid input for return");
-					}
-					setReturn(valueresult);
-				} else {
-					if (getParameter() != null) {
-						throw new InvalidityException("invalid input for condition");
-					}
-					setParameter(valueresult);
-				}
-			}
-		}
-		else if (depth > 1) {
-			if (depth0 == 1) {
-				ContainerResult container = new ContainerResultImpl();
-				container.stream(value);
-				if (!param) {
-					if (getReturn() != null) {
-						throw new InvalidityException("Return value is already configured");
-					}
-					setReturn(container);
-				} else {
-					if (getReturn() == null) {
-						throw new InvalidityException("Return value is not yet configured");
-					}
-					if (getParameter() != null) {
-						throw new InvalidityException("Return value is already configured");
-					}
-					setParameter(container);
-				}
-			}
-			else if (!param) {
-				if (!(getReturn() instanceof ContainerResult)) {
-					throw new InvalidityException("invalid input for return: " + value);
-				}
-				((ContainerResult) getReturn()).stream(value);
-			}
-			else {
-				if (!(getParameter() instanceof ContainerResult)) {
-					throw new InvalidityException("invalid input for condition: " + value + "\n" + depth0 + "->"+ depth + " "  + param );
-				}
-				((ContainerResult) getParameter()).stream(value);
-			}
-		}
-		return !done;
+	public Boolean initialize(String value) throws InvalidityException {
+        
+		String result = XmlServletUtility. extractFromDoc(value, "/interim/return").get(0);
+		setParameter(new ValueResultImpl(result));
+		
+		List<String> condition = XmlServletUtility. queryFromDoc(value, "/interim/condition");
+		new ContainerResultImpl().initialize(condition.toArray(new String[0]));
+		TODO
+		
+		return false;
 	}
 
 	/**
@@ -459,9 +384,9 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 		switch (operationID) {
 			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___IS_VALID_TO_STRUCTURE:
 				return isValidToStructure();
-			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___STREAM__STRING:
+			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___INITIALIZE__STRING:
 				try {
-					return stream((String)arguments.get(0));
+					return initialize((String)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

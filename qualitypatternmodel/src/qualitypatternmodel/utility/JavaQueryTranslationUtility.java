@@ -26,21 +26,21 @@ public class JavaQueryTranslationUtility {
 	public static String COUNT = "count";
 
 	public static String start(String tag){
-		return "\"<" + tag + ">\"";
+		return "<" + tag + ">";
 	}
 	public static String end(String tag){
-		return "\"</" + tag + ">\"";
+		return "</" + tag + ">";
 	}
 
 	public static String getXQueryReturnList(List<String> elements, String tagname, boolean ret, boolean outerbrackets, boolean innerbrackets) {
-		String returnstring = start(tagname) + ",\n  ";
+		String returnstring = start(tagname) + "\n  ";
 		if (innerbrackets) {
-			returnstring += "(";
+			returnstring += "{";
 		}
 //		returnstring = "\n  " + returnstring;
-		if (outerbrackets) {
-			returnstring = "(\n  " + returnstring;
-		}
+//		if (outerbrackets) {
+//			returnstring = "{\n  " + returnstring;
+//		}
 		if (ret) {
 			returnstring = RETURNSTATEMENT + returnstring;
 		}
@@ -49,16 +49,16 @@ public class JavaQueryTranslationUtility {
 			if (element != null && !element.equals("")) {
 				returnstring += element;
 				if (i == elements.size()-1 && innerbrackets) {
-					returnstring += "  )";
+					returnstring += "  }";
 				}
-				returnstring += ",\n  ";
+				returnstring += "\n  ";
 			}
 		}
 
 		returnstring += end(tagname);
-		if (outerbrackets) {
-			returnstring += ")";
-		}
+//		if (outerbrackets) {
+//			returnstring += "}";
+//		}
 		return returnstring;
 	}
 

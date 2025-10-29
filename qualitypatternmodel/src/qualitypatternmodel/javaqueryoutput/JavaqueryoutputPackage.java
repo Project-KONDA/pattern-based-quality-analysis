@@ -471,13 +471,13 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int CONTAINER_RESULT___IS_VALID_TO_CORRESPONDING = INTERIM_RESULT___IS_VALID_TO_CORRESPONDING;
 
 	/**
-	 * The operation id for the '<em>Stream</em>' operation.
+	 * The operation id for the '<em>Initialize</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_RESULT___STREAM__STRING = INTERIM_RESULT_OPERATION_COUNT + 0;
+	int CONTAINER_RESULT___INITIALIZE__STRING = INTERIM_RESULT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Container Result</em>' class.
@@ -608,13 +608,13 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int INTERIM_RESULT_CONTAINER___IS_VALID_TO_STRUCTURE = 0;
 
 	/**
-	 * The operation id for the '<em>Stream</em>' operation.
+	 * The operation id for the '<em>Initialize</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERIM_RESULT_CONTAINER___STREAM__STRING = 1;
+	int INTERIM_RESULT_CONTAINER___INITIALIZE__STRING = 1;
 
 	/**
 	 * The number of operations of the '<em>Interim Result Container</em>' class.
@@ -844,14 +844,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EAttribute getContainerResult_Tagname();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.ContainerResult#stream(java.lang.String) <em>Stream</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.ContainerResult#initialize(java.lang.String[]) <em>Initialize</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Stream</em>' operation.
-	 * @see qualitypatternmodel.javaqueryoutput.ContainerResult#stream(java.lang.String)
+	 * @return the meta object for the '<em>Initialize</em>' operation.
+	 * @see qualitypatternmodel.javaqueryoutput.ContainerResult#initialize(java.lang.String[])
 	 * @generated
 	 */
-	EOperation getContainerResult__Stream__String();
+	EOperation getContainerResult__Initialize__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.ValueResult <em>Value Result</em>}'.
@@ -928,14 +928,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EOperation getInterimResultContainer__IsValidToStructure();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#stream(java.lang.String) <em>Stream</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(java.lang.String) <em>Initialize</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Stream</em>' operation.
-	 * @see qualitypatternmodel.javaqueryoutput.InterimResultContainer#stream(java.lang.String)
+	 * @return the meta object for the '<em>Initialize</em>' operation.
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(java.lang.String)
 	 * @generated
 	 */
-	EOperation getInterimResultContainer__Stream__String();
+	EOperation getInterimResultContainer__Initialize__String();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1145,12 +1145,12 @@ public interface JavaqueryoutputPackage extends EPackage {
 		EAttribute CONTAINER_RESULT__TAGNAME = eINSTANCE.getContainerResult_Tagname();
 
 		/**
-		 * The meta object literal for the '<em><b>Stream</b></em>' operation.
+		 * The meta object literal for the '<em><b>Initialize</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CONTAINER_RESULT___STREAM__STRING = eINSTANCE.getContainerResult__Stream__String();
+		EOperation CONTAINER_RESULT___INITIALIZE__STRING = eINSTANCE.getContainerResult__Initialize__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.ValueResultImpl <em>Value Result</em>}' class.
@@ -1213,12 +1213,12 @@ public interface JavaqueryoutputPackage extends EPackage {
 		EOperation INTERIM_RESULT_CONTAINER___IS_VALID_TO_STRUCTURE = eINSTANCE.getInterimResultContainer__IsValidToStructure();
 
 		/**
-		 * The meta object literal for the '<em><b>Stream</b></em>' operation.
+		 * The meta object literal for the '<em><b>Initialize</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation INTERIM_RESULT_CONTAINER___STREAM__STRING = eINSTANCE.getInterimResultContainer__Stream__String();
+		EOperation INTERIM_RESULT_CONTAINER___INITIALIZE__STRING = eINSTANCE.getInterimResultContainer__Initialize__String();
 
 	}
 

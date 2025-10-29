@@ -1206,8 +1206,8 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/subresult"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/tagname"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/stream">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/stream/value"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/initialize">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/initialize/param1"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ValueResult">
@@ -1219,8 +1219,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/parameter"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/return"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/isValidToStructure"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/stream">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/stream/value"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/initialize">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/initialize/value"/>
         </genOperations>
       </genClasses>
     </nestedGenPackages>

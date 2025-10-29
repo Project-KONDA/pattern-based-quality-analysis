@@ -17,7 +17,7 @@ import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#isValidToStructure() <em>Is Valid To Structure</em>}</li>
- *   <li>{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#stream(java.lang.String) <em>Stream</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(java.lang.String) <em>Initialize</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -107,13 +107,13 @@ public class InterimResultContainerTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#stream(java.lang.String) <em>Stream</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(java.lang.String) <em>Initialize</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaqueryoutput.InterimResultContainer#stream(java.lang.String)
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(java.lang.String)
 	 * @generated
 	 */
-	public void testStream__String() {
+	public void testInitialize__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
