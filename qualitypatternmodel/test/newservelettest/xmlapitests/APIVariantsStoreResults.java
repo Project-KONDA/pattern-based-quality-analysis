@@ -39,7 +39,7 @@ public class APIVariantsStoreResults {
 	private static Boolean default_allow_ignore_map;
 	private static final List<String[]> pairs = getTemplateVariantArrays();
 //	private static String jsonfile = "/jsonresult.json";
-	private static String jsonfile = "/jsonresult_" + Util.EXECUTION_PROCESSOR + ".json";
+	private static String jsonfile = "/jsonresult_saxon.json";
 	
 	// __________ SETUP FUNCTIONS __________
 	

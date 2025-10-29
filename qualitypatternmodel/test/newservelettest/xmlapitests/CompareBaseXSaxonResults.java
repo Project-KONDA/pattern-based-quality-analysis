@@ -8,6 +8,7 @@ import java.util.stream.Stream;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -18,22 +19,41 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import qualitypatternmodel.utility.EMFModelLoad;
+import qualitypatternmodel.utility.EMFModelSave;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class CompareBaseXSaxonResults {
 
-	static String path1 = "/jsonresult_basex.json";
-	static String path2 = "/jsonresult.json"; // 36 Findings
-//	static String path2 = "/jsonresult_saxon_0.json"; // 108 Findings
-//	static String path2 = "/jsonresult_saxon_1.json"; // 40 Findings
+	static String path_basex = "/jsonresult_basex.json";
+//	static String path_basex = "/jsonresult_saxon_strip.json";
+	static String path_saxon = "/jsonresult_saxon.json";
+	static String resultpath = "/jsonresult_comparisondif2.json";
+	static String resultfailingpath = resultpath.replace(".json", "_failing.json");
 	static JSONObject basex;
 	static JSONObject saxon;
+	static JSONObject results;
+	static JSONObject results_failing;
 	
 	@BeforeAll
 	public static void initialize () throws IOException {
-		basex = EMFModelLoad.loadJson(path1);
-		saxon = EMFModelLoad.loadJson(path2);
-		
+		basex = EMFModelLoad.loadJson(path_basex);
+		saxon = EMFModelLoad.loadJson(path_saxon);
+		results = new JSONObject();
+		results_failing = new JSONObject();
+		results.put("saxon", new JSONObject());
+		results.put("basex", new JSONObject());
+		results.put("saxon_success", new JSONObject());
+		results.put("basex_success", new JSONObject());
+	}
+	
+	@AfterAll
+	public static void close() throws IOException {
+		results.put("saxon_len", results.getJSONObject("saxon").length());
+		results.put("basex_len", results.getJSONObject("basex").length());
+		results.put("saxon_success_len", results.getJSONObject("saxon_success").length());
+		results.put("basex_success_len", results.getJSONObject("basex_success").length());
+		EMFModelSave.exportJson(results, resultpath);
+		EMFModelSave.exportJson(results_failing, resultfailingpath);
 	}
 
     static Stream<Arguments> baseXkeys () {
@@ -84,7 +104,6 @@ public class CompareBaseXSaxonResults {
 		assertEquals(c1.get("constraint"), c2.get("constraint"));
 		assertEquals(c1.get("variant"), c2.get("variant"));
 		assertEquals(c1.get("constraintID"), c2.get("constraintID"));
-		
 	}
 
     @Order(4)
@@ -179,65 +198,117 @@ public class CompareBaseXSaxonResults {
 		assertEquals(resultBaseX.getJSONArray("incidents").length(), resultSaxon.getJSONArray("incidents").length());
 	}
 
+    @Order(9)
+	@ParameterizedTest
+    @MethodSource("baseXkeysOneTwo")
+	public void compareResults_incidents_jsonarrays2(String constraintId, int id) {
+    	JSONArray incidentsBaseX = basex.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id).getJSONArray("incidents");
+		JSONArray incidentsSaxon = saxon.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id).getJSONArray("incidents");
+		assertEquals(incidentsBaseX.length(), incidentsSaxon.length());
+	}
+
     @Order(10)
 	@ParameterizedTest
     @MethodSource("baseXkeysOneTwo")
-	public void compareResults_incidents_baseXInSaxon (String constraintId, int id) {
-		JSONArray incidentsBaseX = basex.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id).getJSONArray("incidents");
+	public void compareResults_incidents_baseXInSaxon (String constraintId, int id) throws Exception {
+    	JSONArray incidentsBaseX = basex.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id).getJSONArray("incidents");
 		JSONArray incidentsSaxon = saxon.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id).getJSONArray("incidents");
-		int fail = 0;
-
-		for (int i = 0; i<incidentsBaseX.length(); i++) {
-			String incident = normalize(incidentsBaseX.getJSONObject(i).getString("snippet"));
-			boolean found = false;
-			for (int j = 0; j<incidentsSaxon.length(); j++) {
-				String saxonincident = normalize(incidentsSaxon.getJSONObject(j).getString("snippet"));
-				if (incident.equals(saxonincident)) {
-					found = true;
-					incidentsSaxon.remove(j);
-					continue;
-				}
-			}
-			if (!found)
-				fail+=1;
-		}
-//		if (fail > 0 || incidentsSaxon.length() > 0) {
-//			System.out.println("basex, " + constraintId + ", " + id + ", " + fail + ", " + incidentsSaxon.length());
-//		}
-		assertEquals(0, fail);
-		assert (incidentsSaxon.isEmpty());
+		int saxlen = incidentsSaxon.length();
+		JSONObject o = compareJSONArrays(incidentsSaxon, "saxon", incidentsBaseX, "basex");
+		o.put("query", basex.getJSONObject(constraintId).getJSONObject("query").getJSONArray("constraints").getJSONObject(0).getString("query"));
+		int failing = o.getInt("failing_len");
+		if (failing > 0)
+			results.getJSONObject("basex").put(constraintId + id, o);
+		else 
+			results.getJSONObject("basex_success").put(constraintId + id, saxlen);
+		assertEquals(0, failing);
 	}
 
     @Order(11)
 	@ParameterizedTest
     @MethodSource("baseXkeysOneTwo")
-	public void compareResults_incidents_saxonInBaseX (String constraintId, int id) {
-		JSONArray incidentsBaseX = basex.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id).getJSONArray("incidents");
+	public void compareResults_incidents_saxonInBaseX (String constraintId, int id) throws Exception {
+    	JSONArray incidentsBaseX = basex.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id).getJSONArray("incidents");
 		JSONArray incidentsSaxon = saxon.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id).getJSONArray("incidents");
-		int lenBaseX = incidentsBaseX.length()+0;
-		int lenSaxon = incidentsSaxon.length()+0;
-		int fail = 0;
+		int saxlen = incidentsSaxon.length();
+		JSONObject o = compareJSONArrays(incidentsBaseX, "basex", incidentsSaxon, "saxon");
+		o.put("query", basex.getJSONObject(constraintId).getJSONObject("query").getJSONArray("constraints").getJSONObject(0).getString("query"));
+		int failing = o.getInt("failing_len");
+		if (failing > 0)
+			results.getJSONObject("saxon").put(constraintId + id, o);
+		else 
+			results.getJSONObject("saxon_success").put(constraintId + id, saxlen);
+		assertEquals(0, failing);
+	}
 
-		for (int i = 0; i<incidentsSaxon.length(); i++) {
-			String saxonincident = normalize(incidentsSaxon.getJSONObject(i).getString("snippet"));
+    @Order(12)
+	@ParameterizedTest
+    @MethodSource("baseXkeysOneTwo")
+	public void compareResults_incidents_Failing (String constraintId, int id) throws Exception {
+    	JSONArray incidentsBaseX = basex.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id).getJSONArray("incidents");
+		JSONArray incidentsSaxon = saxon.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id).getJSONArray("incidents");
+		JSONObject bToS = compareJSONArrays(incidentsBaseX, "basex", incidentsSaxon, "saxon");
+		JSONObject sToB = compareJSONArrays(incidentsSaxon, "saxon", incidentsBaseX, "basex");
+		
+		JSONObject failing_dif = compareJSONArrays(bToS.getJSONArray("failing"), "bToS", sToB.getJSONArray("failing"), "sTob");
+		failing_dif.put("query", basex.getJSONObject(constraintId).getJSONObject("query").getJSONArray("constraints").getJSONObject(0).getString("query"));
+		int failing = failing_dif.getInt("failing_len");
+		if (failing > 0)
+			results_failing.put(constraintId + id + "0", failing_dif);
+
+		JSONObject failing_dif2 = compareJSONArrays(sToB.getJSONArray("failing"), "sTob", bToS.getJSONArray("failing"), "bToS");
+		failing_dif2.put("query", basex.getJSONObject(constraintId).getJSONObject("query").getJSONArray("constraints").getJSONObject(0).getString("query"));
+		int failing2 = failing_dif2.getInt("failing_len");
+		if (failing2 > 0)
+			results_failing.put(constraintId + id + "1", failing_dif2);
+		
+		
+	}
+    
+    
+    private JSONObject compareJSONArrays (JSONArray array1, String name1, JSONArray array2, String name2) {
+		int arr1len = array1.length();
+		int arr2len = array2.length();
+		JSONArray array2copy = new JSONArray(array2.toString());
+		JSONObject o = new JSONObject();
+		o.put(name1 + "_len", arr1len);
+		o.put(name2 + "_len", arr2len);
+		o.put(name1 + "_incidents", array1);
+		o.put(name2 + "_incidents", array2);
+		
+		JSONArray failing = new JSONArray();
+		
+		for (int i = 0; i<arr1len; i++) {
+			Object obj1 = array1.get(i);
+			String incident1;
+			if (obj1 instanceof JSONObject)
+					incident1 = normalize(((JSONObject) obj1).getString("snippet"));
+			else 
+				incident1 = normalize((String) obj1);
 			boolean found = false;
-			for (int j = 0; j<incidentsBaseX.length(); j++) {
-				String incident = normalize(incidentsBaseX.getString(i));
-				if (incident.equals(saxonincident)) {
+			for (int j = 0; j<array2copy.length(); j++) {
+				Object obj2 = array2copy.get(j);
+				String incident2;
+				if (obj2 instanceof JSONObject)
+					incident2 = normalize(((JSONObject) obj2).getString("snippet"));
+				else 
+					incident2 = normalize((String) obj2);
+				if (incident1.equals(incident2)) {
 					found = true;
-					incidentsBaseX.remove(j);
-					continue;
+					array2copy.remove(j);
+					break;
 				}
 			}
-			if (!found)
-				fail+=1;
+			if (!found) {
+				failing.put(incident1);
+			}
 		}
-		if ((fail > 0 || incidentsBaseX.length() > 0) &&  lenSaxon > 0) {
-			System.out.println("saxon, " + constraintId + ", " + id + ", " + fail + ", " + incidentsBaseX.length() + ", " + lenBaseX + ", " + lenSaxon);
-		}
-		assertEquals(0, fail);
-		assert (incidentsBaseX.isEmpty());
-	}
+		
+		o.put("failing", failing);
+		o.put("failing_len", failing.length());
+		o.put(name2 + "_lenafter", array2copy.length());
+		return o;
+    }
     
 	public static String normalize(String s) {
 		s = s.replaceAll("(\\\\[rnt]|[\\r\\n\\t])", " ");

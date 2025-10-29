@@ -140,7 +140,7 @@ public class XQueryProcessorSaxon {
 
 	    final DocumentBuilder builder = processor.newDocumentBuilder();
 	    builder.setLineNumbering(true);
-        builder.setWhitespaceStrippingPolicy(WhitespaceStrippingPolicy.ALL);
+        builder.setWhitespaceStrippingPolicy(WhitespaceStrippingPolicy.NONE);
 	    
         for (String path: datapaths) {
 			File file;
