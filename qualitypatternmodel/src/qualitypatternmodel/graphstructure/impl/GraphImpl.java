@@ -318,8 +318,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		for (Relation relation: relations) {
 			String relationtranslation = relation.generateXQueryJavaReturn();
 			if (relation instanceof XmlPropertyNavigation) {
-				relationtranslation = "(" + relationtranslation + "\n  )";
-				relationtranslation += ",\n  ";
+//				relationtranslation = "(" + relationtranslation + "\n  ),";
+				relationtranslation += "\n  ";
 			}
 			else if (relation instanceof XmlElementNavigation) {
 				relationtranslation = relationtranslation + "\n  return\n  ";
@@ -333,16 +333,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				if (op.getArguments().get(0).getOperatorList() != getOperatorList())
 						operators.add(op);
 		}
-		for (Operator op: operators) {	
-			result += start(VALUE) + ", ";
-			result += op.generateXQueryJavaReturn() + ", ";
-			result += end(VALUE) + ",\n  ";
+		for (Operator op: operators) {
+			result += start(VALUE);
+			result += "{" + op.generateXQueryJavaReturn() + "}";
+			result += end(VALUE);
 		}
-		return result;
-	}
 
-	public String generateXQueryJavaReturnCondition() {
-		return "(";
+		return result;
 	}
 
 	@Override

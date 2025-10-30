@@ -150,6 +150,7 @@ public class InterimResultTest {
 	}
 
 	static List<Object> testList1 = testList1();
+	
 	private static List<Object> testList1(){
 		List<Object> result = new ArrayList<Object>();
 		int i = 0;

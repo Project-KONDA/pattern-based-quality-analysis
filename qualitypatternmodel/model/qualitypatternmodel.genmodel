@@ -1206,9 +1206,6 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/subresult"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/tagname"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/initialize">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/initialize/param1"/>
-        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ValueResult">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaqueryoutput/ValueResult/value"/>

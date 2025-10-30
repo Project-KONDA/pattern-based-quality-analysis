@@ -1443,10 +1443,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="correspondsTo" eType="#//javaqueryoutput/InterimResultPart"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ContainerResult" eSuperTypes="#//javaqueryoutput/InterimResult">
-      <eOperations name="initialize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="param1" eType="#//parameters/StringArray"/>
-      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="subresult" upperBound="-1"
           eType="#//javaqueryoutput/InterimResult" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="tagname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

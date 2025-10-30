@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.javaqueryoutput.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.List;
 
@@ -200,17 +199,6 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.CONTAINER_RESULT__TAGNAME, oldTagname, tagname));
 	}
 
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Boolean initialize(String[] param1) throws InvalidityException {
-		TODO
-	}
-
 	//	private ContainerResult currentCreationResult = null;
 //	private int depth = 0;
 //	private int depth0 = 0;
@@ -381,26 +369,6 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 				return TAGNAME_EDEFAULT == null ? tagname != null : !TAGNAME_EDEFAULT.equals(tagname);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case JavaqueryoutputPackage.CONTAINER_RESULT___INITIALIZE__STRING:
-				try {
-					return initialize((String[])arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

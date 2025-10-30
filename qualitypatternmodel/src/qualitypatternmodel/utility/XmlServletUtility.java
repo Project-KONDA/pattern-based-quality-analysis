@@ -77,6 +77,7 @@ public class XmlServletUtility {
     	return queryFromDoc(xmlString, query);
     	
     }
+
     public static List<String> queryFromDoc(String xmlString, String query) {
         Context context = new Context();
 		List<String> outcome = new ArrayList<String>();

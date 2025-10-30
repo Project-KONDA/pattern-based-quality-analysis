@@ -32,15 +32,10 @@ public class JavaQueryTranslationUtility {
 		return "</" + tag + ">";
 	}
 
-	public static String getXQueryReturnList(List<String> elements, String tagname, boolean ret, boolean outerbrackets, boolean innerbrackets) {
+	public static String getXQueryReturnList(List<String> elements, String tagname, boolean ret) {
 		String returnstring = start(tagname) + "\n  ";
-		if (innerbrackets) {
-			returnstring += "{";
-		}
-//		returnstring = "\n  " + returnstring;
-//		if (outerbrackets) {
-//			returnstring = "{\n  " + returnstring;
-//		}
+//		returnstring += "{";
+		returnstring = "\n  " + returnstring;
 		if (ret) {
 			returnstring = RETURNSTATEMENT + returnstring;
 		}
@@ -48,17 +43,14 @@ public class JavaQueryTranslationUtility {
 			String element = elements.get(i);
 			if (element != null && !element.equals("")) {
 				returnstring += element;
-				if (i == elements.size()-1 && innerbrackets) {
-					returnstring += "  }";
-				}
+//				if (i == elements.size()-1) {
+//					returnstring += "  }";
+//				}
 				returnstring += "\n  ";
 			}
 		}
 
 		returnstring += end(tagname);
-//		if (outerbrackets) {
-//			returnstring += "}";
-//		}
 		return returnstring;
 	}
 

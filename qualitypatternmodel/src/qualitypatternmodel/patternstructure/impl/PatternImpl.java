@@ -300,7 +300,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		} else {
 			resultList.addAll(List.of(end(RETURN), start(CONDITION), conditionString, end(CONDITION)));
 		}
-		return JavaQueryTranslationUtility.getXQueryReturnList(resultList, INTERIM, true, true, false);
+		return JavaQueryTranslationUtility.getXQueryReturnList(resultList, INTERIM, true);
 	}
 
 	@Override
