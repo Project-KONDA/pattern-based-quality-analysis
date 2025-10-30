@@ -437,16 +437,6 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public EOperation getContainerResult__Initialize__String() {
-		return containerResultEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getValueResult() {
 		return valueResultEClass;
 	}
@@ -578,7 +568,6 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		containerResultEClass = createEClass(CONTAINER_RESULT);
 		createEReference(containerResultEClass, CONTAINER_RESULT__SUBRESULT);
 		createEAttribute(containerResultEClass, CONTAINER_RESULT__TAGNAME);
-		createEOperation(containerResultEClass, CONTAINER_RESULT___INITIALIZE__STRING);
 
 		valueResultEClass = createEClass(VALUE_RESULT);
 		createEAttribute(valueResultEClass, VALUE_RESULT__VALUE);
@@ -617,7 +606,6 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		// Obtain other dependent packages
 		TextrepresentationPackage theTextrepresentationPackage = (TextrepresentationPackage)EPackage.Registry.INSTANCE.getEPackage(TextrepresentationPackage.eNS_URI);
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
-		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -667,10 +655,6 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		initEClass(containerResultEClass, ContainerResult.class, "ContainerResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContainerResult_Subresult(), this.getInterimResult(), null, "subresult", null, 0, -1, ContainerResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContainerResult_Tagname(), ecorePackage.getEString(), "tagname", null, 0, 1, ContainerResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getContainerResult__Initialize__String(), ecorePackage.getEBooleanObject(), "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theParametersPackage.getStringArray(), "param1", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(valueResultEClass, ValueResult.class, "ValueResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getValueResult_Value(), ecorePackage.getEString(), "value", null, 0, 1, ValueResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -3,7 +3,7 @@
 package qualitypatternmodel.javaqueryoutput.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
+import java.util.Arrays;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -19,6 +19,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 import qualitypatternmodel.utility.XmlServletUtility;
 
 /**
@@ -85,9 +86,9 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 		super();
 		setCorrespondsTo(structure);
 		setReturn(InterimResultImpl.transformToInterimResult(record));
-		getReturn().setCorresponding(structure.getRecord());
+		getReturn().setCorresponding(getCorrespondsTo().getRecord());
 		setParameter(InterimResultImpl.transformToInterimResult(parameter));
-		getParameter().setCorresponding(structure.getSubstructure());
+		getParameter().setCorresponding(getCorrespondsTo().getSubstructure());
 		if (!isValidToStructure()) {
 			throw new InvalidityException("Argument not valid to structure");
 		}
@@ -124,19 +125,20 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
 	public Boolean initialize(String value) throws InvalidityException {
-        
-		String result = XmlServletUtility. extractFromDoc(value, "/interim/return").get(0);
-		setParameter(new ValueResultImpl(result));
-		
-		List<String> condition = XmlServletUtility. queryFromDoc(value, "/interim/condition");
-		new ContainerResultImpl().initialize(condition.toArray(new String[0]));
-		TODO
-		
-		return false;
+		String[] retur = XmlServletUtility.extractFromDoc(value, "/" + JavaQueryTranslationUtility.INTERIM + "/" + JavaQueryTranslationUtility.RETURN).toArray(new String[0]);
+		String[] condi = XmlServletUtility.extractFromDoc(value, "/" + JavaQueryTranslationUtility.INTERIM + "/" + JavaQueryTranslationUtility.CONDITION).toArray(new String[0]);
+
+		InterimResult returnInterim = InterimResultImpl.createNew(getCorrespondsTo().getRecord(), retur); 
+		InterimResult paramInterim = InterimResultImpl.createNew(getCorrespondsTo().getSubstructure(), condi);
+		setReturn(returnInterim);
+		setParameter(paramInterim);
+
+		return true;
 	}
 
 	/**

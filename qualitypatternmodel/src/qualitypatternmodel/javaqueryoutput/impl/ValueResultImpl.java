@@ -58,6 +58,12 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 		value = input;
 	}
 
+	public ValueResultImpl(InterimResultPart interimResultPart, String input) throws InvalidityException {
+		super();
+		setCorresponding(interimResultPart);
+		value = input;
+	}
+
 	@Override
 	public void setCorresponding(InterimResultPart corresponding) throws InvalidityException {
 		if (corresponding instanceof ValueInterimImpl) {
