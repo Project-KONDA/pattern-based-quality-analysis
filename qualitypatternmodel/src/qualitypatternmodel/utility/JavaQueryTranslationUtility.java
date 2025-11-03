@@ -53,6 +53,13 @@ public class JavaQueryTranslationUtility {
 		returnstring += end(tagname);
 		return returnstring;
 	}
+	
+	public static String encloseXQueryTag(String query, String tagname) {
+		String returnstring = start(tagname) + "\n  ";
+		returnstring += query + "\n  ";
+		returnstring += end(tagname);
+		return returnstring;
+	}
 
 	public static List<Relation> orderRelationsJavaQuery(List<Relation> relations) {
 		@SuppressWarnings("unchecked")
