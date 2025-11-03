@@ -23,7 +23,6 @@ import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
-import qualitypatternmodel.utility.ConstantsJSON;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,8 +82,8 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 		} else if (!(container.getSubresult().get(0) instanceof ValueResult)) {
 			throw new InvalidityException();
 		}
-		JSONObject value = ((ValueResult) container.getSubresult().get(0)).getValue();
-		return ((JSONObject) value).getString(ConstantsJSON.RESULT_SNIPPET).contains("true");
+		String value = ((ValueResult) container.getSubresult().get(0)).getValue();
+		return value.contains("true");
 	}
 
 	@Override

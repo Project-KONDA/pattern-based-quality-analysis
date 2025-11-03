@@ -3,6 +3,7 @@
 package qualitypatternmodel.javaqueryoutput.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -11,13 +12,15 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.json.JSONObject;
-
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.javaqueryoutput.ContainerResult;
+import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
-import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.javaqueryoutput.ValueInterim;
+import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
+import qualitypatternmodel.utility.XmlServletUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,6 +53,69 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 	 */
 	protected InterimResultImpl() {
 		super();
+	}
+	
+	static InterimResult createNew(InterimResultPart corresponding, String[] interimArray) throws InvalidityException {
+		if (corresponding instanceof ValueInterim) {
+			if (interimArray.length != 1)
+				throw new InvalidityException("Length of interimArray is not 1 " + interimArray.length + ": " + Arrays.asList(interimArray));
+			return new ValueResultImpl(corresponding, interimArray[0]);
+
+		} else
+			if (corresponding instanceof VariableContainerInterim) {
+			VariableContainerInterim varcont = (VariableContainerInterim) corresponding;
+			
+			String tag = null;
+			if (interimArray.length > 0) 
+				tag = tag(interimArray[0]);
+			ContainerResult container = new ContainerResultImpl(tag);
+			for (int i= 0; i < interimArray.length; i++) {
+				InterimResult subresult;
+				try {
+					subresult = createNew(varcont.getContained(), children(interimArray[i]));
+				} catch (InvalidityException e) {
+					throw new InvalidityException("invalid container item: " + interimArray[i], e);
+				}
+				
+				container.getSubresult().add(subresult);
+			}
+			return container;
+
+		} else
+			if (corresponding instanceof FixedContainerInterim) {
+			FixedContainerInterim fixcont = (FixedContainerInterim) corresponding;
+			if (interimArray.length != fixcont.getSize())
+				throw new InvalidityException("interimArray is not of size " + fixcont.getSize() + " (" + interimArray.length + "): " + Arrays.asList(interimArray).toString().replace("[\r|\n]", ""));
+
+			String tag = null;
+			if (interimArray.length > 0) 
+				tag = tag(interimArray[0]);
+			ContainerResult container = new ContainerResultImpl(tag);
+			for (int i= 0; i< fixcont.getSize(); i++) {
+				InterimResult subresult;
+				try {
+					subresult = createNew(fixcont.getContained().get(i), children(interimArray[i]));
+				} catch (InvalidityException e) {
+					throw new InvalidityException("invalid container item: " + interimArray[i], e);
+				}
+				container.getSubresult().add(subresult);
+			}
+			return container;
+
+		}
+		throw new InvalidityException(corresponding.getClass() + " is not a valid InterimResultPart");
+	}
+
+	public static String[] children(String xml) throws InvalidityException {
+		return XmlServletUtility.extractFromDoc(xml, "/*").toArray(new String[0]);
+	}
+
+	public static String tag(String xml) throws InvalidityException {
+		try {
+			return XmlServletUtility.queryFromDoc(xml, "return $doc/*/name()").toArray(new String[0])[0];
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	/**
@@ -204,12 +270,8 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 	public static InterimResult transformToInterimResult(Object input) throws InvalidityException{
 		if (input instanceof List) {
 			return new ContainerResultImpl((List<Object>) input);
-		} else if (input instanceof JSONObject) {
-			return new ValueResultImpl((JSONObject) input);
 		} else if (input instanceof String) {
-			JSONObject object = new JSONObject();
-			object.put(ConstantsJSON.RESULT_SNIPPET, (String) input);
-			return new ValueResultImpl(object);
+			return new ValueResultImpl((String)input);
 		} else {
 			throw new InvalidityException();
 		}

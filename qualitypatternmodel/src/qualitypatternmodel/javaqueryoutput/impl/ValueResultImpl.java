@@ -5,8 +5,6 @@ package qualitypatternmodel.javaqueryoutput.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
@@ -34,7 +32,7 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final JSONObject VALUE_EDEFAULT = null;
+	protected static final String VALUE_EDEFAULT = null;
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -43,7 +41,7 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	 * @generated
 	 * @ordered
 	 */
-	protected JSONObject value = VALUE_EDEFAULT;
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -54,9 +52,15 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 		super();
 	}
 
-	public ValueResultImpl(JSONObject input) {
+	public ValueResultImpl(String input) {
 		super();
 		value = input;
+	}
+
+	public ValueResultImpl(InterimResultPart interimResultPart, String interimArray) throws InvalidityException {
+		super();
+		setCorresponding(interimResultPart);
+		value = interimArray;
 	}
 
 	@Override
@@ -93,7 +97,7 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	 * @generated
 	 */
 	@Override
-	public JSONObject getValue() {
+	public String getValue() {
 		return value;
 	}
 
@@ -103,8 +107,8 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	 * @generated
 	 */
 	@Override
-	public void setValue(JSONObject newValue) {
-		JSONObject oldValue = value;
+	public void setValue(String newValue) {
+		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.VALUE_RESULT__VALUE, oldValue, value));
@@ -133,7 +137,7 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaqueryoutputPackage.VALUE_RESULT__VALUE:
-				setValue((JSONObject)newValue);
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

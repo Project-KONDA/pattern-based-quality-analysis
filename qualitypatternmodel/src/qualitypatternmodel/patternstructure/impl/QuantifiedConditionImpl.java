@@ -49,7 +49,6 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.ConstantsRdf;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
@@ -206,22 +205,22 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			conditionJava = getCondition().containsJavaOperator();
 		if (!graphJava && !conditionJava) {
 			// should not occur
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(generateXQuery()), QUANTIFIER, false, false, false);
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(generateXQuery()), QUANTIFIER, false);
 		}
 
 //		String graphString = graphJava? getGraph().generateXQueryJavaReturn(): "";
 		String graphString = getGraph().generateXQueryJavaReturn();
-		String conditionPath = conditionJava? ((GraphImpl) getGraph()).generateXQueryJavaReturnCondition(): "";
 		String conditionString = "";
 		if (conditionJava) 
-			conditionString = start(QUANTIFIED) + ",\n  " + getCondition().generateXQueryJavaReturn() + ",\n  " + end(QUANTIFIED);
+			conditionString = start(QUANTIFIED) + "\n  " + getCondition().generateXQueryJavaReturn() + "\n  " + end(QUANTIFIED);
 
 		String result = "";
 		result += graphString;
 		if (conditionJava) {
-			result += Constants.addMissingBrackets(conditionPath + conditionString);
+			result += conditionString;
 		}
-		result = start(QUANTIFIER) + ",\n  " + result + end(QUANTIFIER);
+		result = start(QUANTIFIER) + "\n  {\n  " + result + "\n  }\n  " + end(QUANTIFIER);
+//		result = start(QUANTIFIER) + "\n  {\n  " + result + "}\n  " + end(QUANTIFIER);
 		return result;
 	}
 

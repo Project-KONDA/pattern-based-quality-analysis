@@ -164,9 +164,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			if (getArgument2() instanceof CountPattern) {
 				arg2String = ((CountPattern) getArgument2()).generateXQuery().substring(1).replace("\n", "\n  ");
 			} else {
-				return JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String), COUNT, false, true, false);
+				return JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String), COUNT, false);
 			}
-		return JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String, arg2String), COUNT, false, true, false);
+		return JavaQueryTranslationUtility.getXQueryReturnList(List.of(arg1String, arg2String), COUNT, false);
 	}
 
 	@Override

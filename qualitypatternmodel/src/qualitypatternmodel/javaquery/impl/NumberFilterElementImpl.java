@@ -21,7 +21,6 @@ import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
-import qualitypatternmodel.utility.ConstantsJSON;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,11 +70,10 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 	@Override
 	public Double apply(InterimResult parameter) throws InvalidityException{
 		assert(parameter instanceof ValueResult);
-		JSONObject value = ((ValueResult) parameter).getValue();
+		String value = ((ValueResult) parameter).getValue();
 		Double result;
 		try {
-			String myValue = ((JSONObject) value).getString(ConstantsJSON.RESULT_SNIPPET);
-			result = Double.parseDouble(myValue);
+			result = Double.parseDouble(value);
 		} catch (Exception e) {
 			throw new InvalidityException(e.getMessage());
 		}

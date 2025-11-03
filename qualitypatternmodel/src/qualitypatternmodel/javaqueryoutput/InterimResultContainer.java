@@ -3,8 +3,6 @@
 package qualitypatternmodel.javaqueryoutput;
 
 import org.eclipse.emf.ecore.EObject;
-
-import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
@@ -103,9 +101,9 @@ public interface InterimResultContainer extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" valueDataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	Boolean stream(JSONObject value) throws InvalidityException;
+	Boolean initialize(String value) throws InvalidityException;
 
 } // InterimResultContainer

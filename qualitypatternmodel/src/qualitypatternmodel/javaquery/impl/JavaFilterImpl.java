@@ -33,7 +33,6 @@ import qualitypatternmodel.javaqueryoutput.impl.InterimResultContainerImpl;
 import qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.utility.ConstantsJSON;
-import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 /**
@@ -325,34 +324,15 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 */
 	@Override
 	public void createInterimResultContainerXQuery(JSONArray list) throws InvalidityException {
-		int depth = 0;
-		int depthbefore = 0;
-		InterimResultContainer current = null;
+//	public void createInterimResultContainerXQuery(List<String> objectList) throws InvalidityException {
 		getInterimResults().clear();
-
-		for (int i = 0; i < list.length(); i++) {
-			JSONObject object = list.getJSONObject(i);
-			String value = object.getString(ConstantsJSON.RESULT_SNIPPET);
-			depthbefore = depth;
-			if (JavaQueryTranslationUtility.isStartTag(value)) {
-				depth +=1;
-			} else if (JavaQueryTranslationUtility.isEndTag(value)) {
-				depth -=1;
-			}
-
-			if (depthbefore == 0 && depth == 1) {
-				if (!value.equals("<interim>")) {
-					throw new InvalidityException();
-				}
-				current = new InterimResultContainerImpl(getStructure());
-			}
-			else if (depthbefore == 1 && depth == 0) {
-				assert(value.equals("</interim>"));
-				getInterimResults().add(current);
-				current = null;
-			} else {
-				current.stream(object);
-			}
+		
+		for (int i = 0; i<list.length(); i++) {
+			JSONObject interim = list.getJSONObject(i);
+			String interimString = interim.getString(ConstantsJSON.RESULT_SNIPPET);
+			InterimResultContainer interimresult = new InterimResultContainerImpl(getStructure());
+			interimresult.initialize(interimString);
+			getInterimResults().add(interimresult);
 		}
 	}
 
