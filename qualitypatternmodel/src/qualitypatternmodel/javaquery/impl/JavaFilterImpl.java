@@ -313,7 +313,6 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 */
 	@Override
 	public void createInterimResultContainerXQuery(List<String> objectList) throws InvalidityException {
-		System.out.println(objectList.get(objectList.size()-1).toString());
 		getInterimResults().clear();
 		
 		

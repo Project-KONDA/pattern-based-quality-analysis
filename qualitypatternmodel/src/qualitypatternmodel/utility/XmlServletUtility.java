@@ -72,13 +72,13 @@ public class XmlServletUtility {
 		return outcome;
 	}
 
-    public static List<String> extractFromDoc(String xmlString, String xpath) {
+    public static List<String> extractFromDoc(String xmlString, String xpath) throws InvalidityException {
         String query = "let $r := $doc" + xpath + " return if (exists($r/*)) then $r/* else $r/text()";
     	return queryFromDoc(xmlString, query);
     	
     }
 
-    public static List<String> queryFromDoc(String xmlString, String query) {
+    public static List<String> queryFromDoc(String xmlString, String query) throws InvalidityException {
         Context context = new Context();
 		List<String> outcome = new ArrayList<String>();
         try {
@@ -96,8 +96,7 @@ public class XmlServletUtility {
 				}
 			}
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+        	throw new InvalidityException("Cannot query file '" + xmlString + "' with query '" + query + "'");
         } finally {
             context.close();
         }

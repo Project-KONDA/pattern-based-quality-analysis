@@ -3,8 +3,6 @@
 package qualitypatternmodel.javaqueryoutput.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -133,7 +131,7 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 		String[] retur = XmlServletUtility.extractFromDoc(value, "/" + JavaQueryTranslationUtility.INTERIM + "/" + JavaQueryTranslationUtility.RETURN).toArray(new String[0]);
 		String[] condi = XmlServletUtility.extractFromDoc(value, "/" + JavaQueryTranslationUtility.INTERIM + "/" + JavaQueryTranslationUtility.CONDITION).toArray(new String[0]);
 
-		InterimResult returnInterim = InterimResultImpl.createNew(getCorrespondsTo().getRecord(), retur); 
+		InterimResult returnInterim = InterimResultImpl.createNew(getCorrespondsTo().getRecord(), retur);
 		InterimResult paramInterim = InterimResultImpl.createNew(getCorrespondsTo().getSubstructure(), condi);
 		setReturn(returnInterim);
 		setParameter(paramInterim);

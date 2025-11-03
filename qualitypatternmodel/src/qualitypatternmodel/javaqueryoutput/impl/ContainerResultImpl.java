@@ -77,6 +77,12 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 		super();
 	}
 
+	protected ContainerResultImpl(String tag) {
+		super();
+		if (tag != null)
+			setTagname(tag);
+	}
+
 	@SuppressWarnings("unchecked")
 	public ContainerResultImpl(List<Object> input) throws InvalidityException {
 		super();

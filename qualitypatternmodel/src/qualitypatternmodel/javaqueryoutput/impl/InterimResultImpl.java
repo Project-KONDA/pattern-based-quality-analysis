@@ -57,7 +57,6 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 	}
 	
 	static InterimResult createNew(InterimResultPart corresponding, String[] interimArray) throws InvalidityException {
-
 		if (corresponding instanceof ValueInterim) {
 			if (interimArray.length != 1)
 				throw new InvalidityException("Length of interimArray is not 1 " + interimArray.length + ": " + Arrays.asList(interimArray));
@@ -66,8 +65,11 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 		} else
 			if (corresponding instanceof VariableContainerInterim) {
 			VariableContainerInterim varcont = (VariableContainerInterim) corresponding;
-
-			ContainerResult container = new ContainerResultImpl();
+			
+			String tag = null;
+			if (interimArray.length > 0) 
+				tag = tag(interimArray[0]);
+			ContainerResult container = new ContainerResultImpl(tag);
 			for (int i= 0; i < interimArray.length; i++) {
 				InterimResult subresult;
 				try {
@@ -86,7 +88,10 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 			if (interimArray.length != fixcont.getSize())
 				throw new InvalidityException("interimArray is not of size " + fixcont.getSize() + " (" + interimArray.length + "): " + Arrays.asList(interimArray).toString().replace("[\r|\n]", ""));
 
-			ContainerResult container = new ContainerResultImpl();
+			String tag = null;
+			if (interimArray.length > 0) 
+				tag = tag(interimArray[0]);
+			ContainerResult container = new ContainerResultImpl(tag);
 			for (int i= 0; i< fixcont.getSize(); i++) {
 				InterimResult subresult;
 				try {
@@ -101,9 +106,17 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 		}
 		throw new InvalidityException(corresponding.getClass() + " is not a valid InterimResultPart");
 	}
-	
-	private static String[] children(String xml) {
+
+	public static String[] children(String xml) throws InvalidityException {
 		return XmlServletUtility.extractFromDoc(xml, "/*").toArray(new String[0]);
+	}
+
+	public static String tag(String xml) throws InvalidityException {
+		try {
+			return XmlServletUtility.queryFromDoc(xml, "return $doc/*/name()").toArray(new String[0])[0];
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	/**
