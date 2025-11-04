@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.json.JSONArray;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
@@ -17,7 +19,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
-import qualitypatternmodel.utility.XmlServletUtility;
+import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -127,9 +129,9 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 	 */
 	@Override
 	public Boolean initialize(String value) throws InvalidityException {
-		String[] retur = XmlServletUtility.extractFromDoc(value, "/" + JavaQueryTranslationUtility.INTERIM + "/" + JavaQueryTranslationUtility.RETURN).toArray(new String[0]);
-		String[] condi = XmlServletUtility.extractFromDoc(value, "/" + JavaQueryTranslationUtility.INTERIM + "/" + JavaQueryTranslationUtility.CONDITION).toArray(new String[0]);
-
+		JSONArray retur = XmlServletUtility.extractFromDoc(value, "/" + JavaQueryTranslationUtility.INTERIM + "/" + JavaQueryTranslationUtility.RETURN);
+		JSONArray condi = XmlServletUtility.extractFromDoc(value, "/" + JavaQueryTranslationUtility.INTERIM + "/" + JavaQueryTranslationUtility.CONDITION);
+		
 		InterimResult returnInterim = InterimResultImpl.createNew(getCorrespondsTo().getRecord(), retur);
 		InterimResult paramInterim = InterimResultImpl.createNew(getCorrespondsTo().getSubstructure(), condi);
 		setReturn(returnInterim);

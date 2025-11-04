@@ -49,6 +49,7 @@ import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
+import qualitypatternmodel.utility.Util;
 
 public abstract class ServletUtilities {
 
@@ -368,7 +369,7 @@ public abstract class ServletUtilities {
 
 		try {
 			saveSemaphore.acquire();
-			EMFModelSave.exportJson(json, jsonpath);
+			Util.exportJson(json, jsonpath);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 			log("Thread was interrupted");
@@ -395,7 +396,7 @@ public abstract class ServletUtilities {
 		JSONObject queryjson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
 		try {
 			saveSemaphore.acquire();
-			EMFModelSave.exportJson(queryjson, queryjsonpath);
+			Util.exportJson(queryjson, queryjsonpath);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 			log("Thread was interrupted");
@@ -408,7 +409,7 @@ public abstract class ServletUtilities {
 			JSONObject json = ServletUtilities.getPatternJSON(pattern);
 			try {
 				saveSemaphore.acquire();
-				EMFModelSave.exportJson(json, patternjsonpath);
+				Util.exportJson(json, patternjsonpath);
 			} catch (InterruptedException e) {
 				Thread.currentThread().interrupt();
 				log("Thread was interrupted");
@@ -435,7 +436,7 @@ public abstract class ServletUtilities {
 		JSONObject json = ServletUtilities.getPatternJSON(loadTemplate(technology, templateId));
 		try {
 			saveSemaphore.acquire();
-			EMFModelSave.exportJson(json, jsonfilepath);
+			Util.exportJson(json, jsonfilepath);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 			log("Thread was interrupted");
@@ -455,7 +456,7 @@ public abstract class ServletUtilities {
 		JSONObject variantjson = getVariantJSON(loadTemplate(technology, templateId), true);
 		try {
 			saveSemaphore.acquire();
-			EMFModelSave.exportJson(variantjson, variantjsonfilepath);
+			Util.exportJson(variantjson, variantjsonfilepath);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 			log("Thread was interrupted");
@@ -499,7 +500,7 @@ public abstract class ServletUtilities {
 		String filepath = folderpath + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + templateId + ".json";
 		try {
 			saveSemaphore.acquire();
-			EMFModelSave.exportJson(json, filepath);
+			Util.exportJson(json, filepath);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 			log("Thread was interrupted");
@@ -513,7 +514,7 @@ public abstract class ServletUtilities {
 		String variantfilepath = folderpath + "/" + ServletConstants.VARIANTJSONFOLDER + "/" + templateId + ".json";
 		try {
 			saveSemaphore.acquire();
-			EMFModelSave.exportJson(variantjson, variantfilepath);
+			Util.exportJson(variantjson, variantfilepath);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 			log("Thread was interrupted");
@@ -546,7 +547,7 @@ public abstract class ServletUtilities {
 		JSONObject json = getPatternJSON(pattern);
 		try {
 			saveSemaphore.acquire();
-			EMFModelSave.exportJson(json, patternjsonfilepath);
+			Util.exportJson(json, patternjsonfilepath);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 			log("Thread was interrupted");
@@ -561,7 +562,7 @@ public abstract class ServletUtilities {
 				JSONObject queryjson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
 				try {
 					saveSemaphore.acquire();
-					EMFModelSave.exportJson(queryjson, queryjsonfilepath);
+					Util.exportJson(queryjson, queryjsonfilepath);
 				} catch (InterruptedException e) {
 					Thread.currentThread().interrupt();
 					log("Thread was interrupted");
@@ -637,7 +638,7 @@ public abstract class ServletUtilities {
 
 		// Update the JSON with the new value
 		jsonObject.put(variableName, currentValue + 1);
-		EMFModelSave.exportJson(jsonObject, filepath);
+		Util.exportJson(jsonObject, filepath);
 
 		return currentValue;
 	}

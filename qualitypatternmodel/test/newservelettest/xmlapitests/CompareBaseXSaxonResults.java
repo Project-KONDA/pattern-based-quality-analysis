@@ -19,7 +19,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import qualitypatternmodel.utility.EMFModelLoad;
-import qualitypatternmodel.utility.EMFModelSave;
+import qualitypatternmodel.utility.Util;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class CompareBaseXSaxonResults {
@@ -52,8 +52,8 @@ public class CompareBaseXSaxonResults {
 		results.put("basex_len", results.getJSONObject("basex").length());
 		results.put("saxon_success_len", results.getJSONObject("saxon_success").length());
 		results.put("basex_success_len", results.getJSONObject("basex_success").length());
-		EMFModelSave.exportJson(results, resultpath);
-		EMFModelSave.exportJson(results_failing, resultfailingpath);
+		Util.exportJson(results, resultpath);
+		Util.exportJson(results_failing, resultfailingpath);
 	}
 
     static Stream<Arguments> baseXkeys () {

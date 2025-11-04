@@ -28,7 +28,7 @@ import qualitypatternmodel.newservlets.PatternListServlet;
 import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.EMFModelLoad;
-import qualitypatternmodel.utility.EMFModelSave;
+import qualitypatternmodel.utility.Util;
 
 public class APIVariantsStoreResults {
 	private static final boolean DELETE = true;
@@ -44,7 +44,7 @@ public class APIVariantsStoreResults {
 	
 	
 	public static void main(String[] args) throws IOException, InvalidServletCallException, FailedServletCallException, ServletException {
-		EMFModelSave.exportJson(new JSONObject(), jsonfile);
+		Util.exportJson(new JSONObject(), jsonfile);
 		initialize();
 		APIVariantsStoreResults test = new APIVariantsStoreResults();
 		for (String[] array: pairs) {
@@ -221,7 +221,7 @@ public class APIVariantsStoreResults {
 
 		JSONObject storage = EMFModelLoad.loadJson(jsonfile);
 		storage.put(constraint + "_" + variant, constraintinfo);
-		EMFModelSave.exportJson(storage, jsonfile);
+		Util.exportJson(storage, jsonfile);
 		
 	}
 }

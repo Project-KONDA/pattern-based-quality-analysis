@@ -15,7 +15,7 @@ import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.PatternUtility;
-import qualitypatternmodel.utility.XmlServletUtility;
+import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 public class PatternCollectionTests {
 
@@ -101,8 +101,7 @@ public class PatternCollectionTests {
 			case XML: {
 				PatternUtility.fillParameter(pattern);
 				String query = assertDoesNotThrow(() -> (pattern.generateXQuery()));
-				validateXmlQuery(query);
-				assertDoesNotThrow(() -> validateXmlQuery(query));
+				assertDoesNotThrow(() -> XmlServletUtility.validateQuery(query));
 				break;
 			}
 			case RDF: {
@@ -118,10 +117,6 @@ public class PatternCollectionTests {
 				throw new RuntimeException("Pattern has no valid Language");
 			}
 		}
-	}
-	
-	private void validateXmlQuery(String query) throws InvalidityException {
-		XmlServletUtility.executeXQueryJava(query);
 	}
 	
 	private void validateSparql(String query) throws InvalidityException {

@@ -214,7 +214,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 */
 	@Override
 	public JSONArray executeXQueryJava(String datapath) throws InvalidityException {
-		return XmlServletUtility.executeXQueryString(getQuery(), datapath);
+		return XmlServletUtility.executeQueryFile(getQuery(), datapath);
 	}
 
 	/**

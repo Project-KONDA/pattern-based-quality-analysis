@@ -145,7 +145,7 @@ public class EMFModelLoad {
 				try {
 					CompletePattern pattern = loadCompletePattern(folder + "/" + patternfilename);
 					JSONObject json = ServletUtilities.getPatternJSON(pattern);
-					EMFModelSave.exportJson(json, jsonfolder + "/" + jsonfilename);
+					Util.exportJson(json, jsonfolder + "/" + jsonfilename);
 					patternjsons.add(json);
 				} catch (Exception e) {
 					System.out.println("Failed to load pattern: " + folder + "/" + patternfilename);

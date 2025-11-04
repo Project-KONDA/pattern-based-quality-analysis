@@ -19,10 +19,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
-import qualitypatternmodel.utility.ConstantsXml;
-import qualitypatternmodel.utility.Util;
-import qualitypatternmodel.utility.xmlprocessors.XQueryProcessorBaseX;
-import qualitypatternmodel.utility.xmlprocessors.XQueryProcessorSaxon;
+import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 @SuppressWarnings("serial")
 public class ConstraintExecuteServlet extends HttpServlet {
@@ -130,17 +127,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 			throw new InvalidServletCallException(ConstantsError.INVALID_CONSTRAINTS);
 		}
 
-		JSONObject result;
-		switch (Util.EXECUTION_PROCESSOR) {
-		case ConstantsXml.PROCESSOR_BASEX:
-			result = XQueryProcessorBaseX.queryConstraints(constraints, filepaths);
-			break;
-		case ConstantsXml.PROCESSOR_SAXON:
-			result = XQueryProcessorSaxon.saxonExecuteXQueries(constraints, filepaths);
-			break;
-		default:
-			throw new FailedServletCallException(Util.EXECUTION_PROCESSOR + " is not a valid XQuery Processor Option");
-		}
+		JSONObject result = XmlServletUtility.queryConstraintsFilePaths(constraints, filepaths);
 
 		for (String failedid: failedConstraints.keySet()) {
 			result.getJSONObject(ConstantsJSON.FAILEDCONSTRAINTS).put(failedid, failedConstraints.get(failedid));

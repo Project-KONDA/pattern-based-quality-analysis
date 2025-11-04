@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.json.JSONArray;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.ContainerResult;
 import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
@@ -20,7 +22,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
-import qualitypatternmodel.utility.XmlServletUtility;
+import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,50 +57,45 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 		super();
 	}
 	
-	static InterimResult createNew(InterimResultPart corresponding, String[] interimArray) throws InvalidityException {
+	static InterimResult createNew(InterimResultPart corresponding, JSONArray interimArray) throws InvalidityException {
 		if (corresponding instanceof ValueInterim) {
-			if (interimArray.length != 1)
-				throw new InvalidityException("Length of interimArray is not 1 " + interimArray.length + ": " + Arrays.asList(interimArray));
-			return new ValueResultImpl(corresponding, interimArray[0]);
+			if (interimArray.length() != 1)
+				throw new InvalidityException("Length of interimArray is not 1 " + interimArray.length() + ": " + Arrays.asList(interimArray));
+			return new ValueResultImpl(corresponding, interimArray.getString(0));
 
 		} else
 			if (corresponding instanceof VariableContainerInterim) {
 			VariableContainerInterim varcont = (VariableContainerInterim) corresponding;
 			
 			String tag = null;
-			if (interimArray.length > 0) 
-				tag = tag(interimArray[0]);
+			if (interimArray.length() > 0) 
+				tag = tag(interimArray.getString(0));
 			ContainerResult container = new ContainerResultImpl(tag);
-			for (int i= 0; i < interimArray.length; i++) {
+			for (int i= 0; i < interimArray.length(); i++) {
 				InterimResult subresult;
 				try {
-					subresult = createNew(varcont.getContained(), children(interimArray[i]));
-				} catch (InvalidityException e) {
-					throw new InvalidityException("invalid container item: " + interimArray[i], e);
-				}
-				
-				container.getSubresult().add(subresult);
+					subresult = createNew(varcont.getContained(), children(interimArray.getString(i)));
+					container.getSubresult().add(subresult);
+				} catch (InvalidityException e) {}
 			}
 			return container;
 
 		} else
 			if (corresponding instanceof FixedContainerInterim) {
 			FixedContainerInterim fixcont = (FixedContainerInterim) corresponding;
-			if (interimArray.length != fixcont.getSize())
-				throw new InvalidityException("interimArray is not of size " + fixcont.getSize() + " (" + interimArray.length + "): " + Arrays.asList(interimArray).toString().replace("[\r|\n]", ""));
+			if (interimArray.length() != fixcont.getSize())
+				throw new InvalidityException("interimArray is not of size " + fixcont.getSize() + " (" + interimArray.length() + "): " + Arrays.asList(interimArray).toString().replace("[\r|\n]", ""));
 
 			String tag = null;
-			if (interimArray.length > 0) 
-				tag = tag(interimArray[0]);
+			if (interimArray.length() > 0) 
+				tag = tag(interimArray.getString(0));
 			ContainerResult container = new ContainerResultImpl(tag);
 			for (int i= 0; i< fixcont.getSize(); i++) {
 				InterimResult subresult;
 				try {
-					subresult = createNew(fixcont.getContained().get(i), children(interimArray[i]));
-				} catch (InvalidityException e) {
-					throw new InvalidityException("invalid container item: " + interimArray[i], e);
-				}
-				container.getSubresult().add(subresult);
+					subresult = createNew(fixcont.getContained().get(i), children(interimArray.getString(i)));
+					container.getSubresult().add(subresult);
+				} catch (InvalidityException e) {}
 			}
 			return container;
 
@@ -106,13 +103,13 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 		throw new InvalidityException(corresponding.getClass() + " is not a valid InterimResultPart");
 	}
 
-	public static String[] children(String xml) throws InvalidityException {
-		return XmlServletUtility.extractFromDoc(xml, "/*").toArray(new String[0]);
+	public static JSONArray children(String xml) throws InvalidityException {
+		return XmlServletUtility.extractFromDoc(xml, "/*");
 	}
 
 	public static String tag(String xml) throws InvalidityException {
 		try {
-			return XmlServletUtility.queryFromDoc(xml, "return $doc/*/name()").toArray(new String[0])[0];
+			return XmlServletUtility.queryFromDoc(xml, "return $doc/*/name()").getString(0);
 		} catch (Exception e) {
 			return null;
 		}
