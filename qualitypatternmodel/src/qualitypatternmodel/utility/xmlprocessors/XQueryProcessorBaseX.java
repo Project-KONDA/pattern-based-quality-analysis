@@ -18,7 +18,6 @@ import org.basex.query.QueryIOException;
 import org.basex.query.QueryProcessor;
 import org.basex.query.iter.Iter;
 import org.basex.query.value.item.Item;
-import org.basex.query.value.item.Str;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -210,27 +209,6 @@ public class XQueryProcessorBaseX {
 		return object;
 	}
 
-	public static JSONArray queryFromDoc(String xmlString, String query) throws InvalidityException {
-	    Context context = new Context();
-	    JSONArray outcome = new JSONArray();
-	    try {
-	        String wrappedQuery = "declare variable $document external; let $doc := parse-xml($document) " + query;
-	        try (QueryProcessor proc = new QueryProcessor(wrappedQuery, context)) {
-	            proc.bind("document", Str.get(xmlString));
-				Iter iter = proc.iter();
-				for (Item item; (item = iter.next()) != null;) {
-					JSONObject obj = new JSONObject();
-					obj.put(ConstantsJSON.RESULT_SNIPPET, item.serialize().toString());
-					outcome.put(obj);
-				}
-			}
-	    } catch (Exception e) {
-	    	throw new InvalidityException("Cannot query file '" + xmlString + "' with query '" + query + "'");
-	    } finally {
-	        context.close();
-	    }
-	    return outcome;
-	}
 
 	public static List<String> executeXQueryJava(String query, String datapath) throws InvalidityException {
 		if (query == null || query == "") {

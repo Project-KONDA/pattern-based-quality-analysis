@@ -59,14 +59,17 @@ public class XmlServletUtility {
 	}
 
 	public static JSONArray queryFromDoc(String xmlString, String query) throws InvalidityException {
-		switch(Util.EXECUTION_PROCESSOR) {
-		case ConstantsXml.PROCESSOR_SAXON:
+
+        String wrappedQuery = "let $doc := <root>" + xmlString + "</root>\n " + query;
+        return executeQuery(wrappedQuery);
+//		switch(Util.EXECUTION_PROCESSOR) {
+//		case ConstantsXml.PROCESSOR_SAXON:
 //			return XQueryProcessorSaxon.queryFromDoc(xmlString, query);
-		case ConstantsXml.PROCESSOR_BASEX:
-			return XQueryProcessorBaseX.queryFromDoc(xmlString, query);
-		default:
-			throw new RuntimeException("static method 'queryFromDoc(xmlString, query)' not implemented for Processor " + Util.EXECUTION_PROCESSOR);
-		}
+//		case ConstantsXml.PROCESSOR_BASEX:
+//			return XQueryProcessorBaseX.queryFromDoc(xmlString, query);
+//		default:
+//			throw new RuntimeException("static method 'queryFromDoc(xmlString, query)' not implemented for Processor " + Util.EXECUTION_PROCESSOR);
+//		}
 	}
 
 	public static JSONArray flattenResultJSONArray(JSONArray objects) {

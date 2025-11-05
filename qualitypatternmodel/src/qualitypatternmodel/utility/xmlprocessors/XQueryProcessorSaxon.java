@@ -298,8 +298,4 @@ public class XQueryProcessorSaxon {
         }
 	}
 
-	public static JSONArray queryFromDoc(String xmlString, String query) throws InvalidityException {
-		query = "let $doc := root() "  + query;
-		return executeQuerySnippet (query, xmlString);
-	}
 }
