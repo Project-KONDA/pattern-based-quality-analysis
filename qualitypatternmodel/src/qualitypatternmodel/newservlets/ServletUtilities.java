@@ -360,7 +360,7 @@ public abstract class ServletUtilities {
 
 		// if precompiled patternjson exists
 		try {
-			return EMFModelLoad.loadJson(jsonpath); 
+			return Util.loadJson(jsonpath); 
 		} catch (Exception e) {}
 
 		// if precompiled patternjson does not exist
@@ -388,7 +388,7 @@ public abstract class ServletUtilities {
 
 		// if precompiled queryjson exists
 		try {
-			return EMFModelLoad.loadJson(queryjsonpath); 
+			return Util.loadJson(queryjsonpath); 
 		} catch (Exception e) {}
 
 		// if precompiled queryjson does not exist
@@ -430,7 +430,7 @@ public abstract class ServletUtilities {
 	protected static JSONObject loadTemplateJSON(String technology, String templateId) throws IOException {
 		String jsonfilepath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + templateId + ".json";
 		try {
-			return EMFModelLoad.loadJson(jsonfilepath);
+			return Util.loadJson(jsonfilepath);
 		} catch (Exception e) {}
 
 		JSONObject json = ServletUtilities.getPatternJSON(loadTemplate(technology, templateId));
@@ -450,7 +450,7 @@ public abstract class ServletUtilities {
 	protected static JSONObject loadTemplateVariantJSON(String technology, String templateId) throws IOException {
 		String variantjsonfilepath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.VARIANTJSONFOLDER + "/" + templateId + ".json";
 		try {
-			return EMFModelLoad.loadJson(variantjsonfilepath);
+			return Util.loadJson(variantjsonfilepath);
 		} catch (Exception e) {}
 
 		JSONObject variantjson = getVariantJSON(loadTemplate(technology, templateId), true);
@@ -623,7 +623,7 @@ public abstract class ServletUtilities {
 //		JSONObject jsonObject = new JSONObject(jsonString);
 		JSONObject jsonObject;
 		try{
-			jsonObject = EMFModelLoad.loadJson(filepath);
+			jsonObject = Util.loadJson(filepath);
 		} catch (IOException e) {
 			jsonObject = new JSONObject();
 		}

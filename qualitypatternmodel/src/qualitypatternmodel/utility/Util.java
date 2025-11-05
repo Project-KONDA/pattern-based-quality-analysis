@@ -104,4 +104,10 @@ public class Util {
 	    }
 	    Files.delete(path);
 	}
+
+	public static JSONObject loadJson(String filepath) throws IOException {
+	    String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
+	    JSONObject jsonObject = new JSONObject(jsonString);
+	    return jsonObject;
+	}
 }
