@@ -146,7 +146,7 @@ public class APICallTests {
 
 	// __________ BASE FUNCTIONS __________
 
-	static Map<String, String[]> getEmptyParams() {
+	public static Map<String, String[]> getEmptyParams() {
 		return new HashMap<String, String[]>();
 	}
 
@@ -155,7 +155,7 @@ public class APICallTests {
 		return newConstraint("Match_xml", "default-constraint");
 	}
 
-	static String newConstraint(String pattern, String variant)
+	public static String newConstraint(String pattern, String variant)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject ob = TemplateInstantiateServlet.applyPut("/xml/" + pattern + "/" + variant,
 				getEmptyParams());

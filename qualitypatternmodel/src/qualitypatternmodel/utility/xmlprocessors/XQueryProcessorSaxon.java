@@ -1,7 +1,6 @@
 package qualitypatternmodel.utility.xmlprocessors;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,23 +37,14 @@ import qualitypatternmodel.utility.Util;
 
 public class XQueryProcessorSaxon {
 	static boolean NOSKIPS = false;
-	static String filepath = "/tempxmlfile.xml";
 
-	public static JSONArray executeQuerySnippet (String query, String snippet) throws InvalidityException {
-		JSONArray result;
-		try {
-			Util.writeStringToFile(snippet, filepath);
-			result = executeQueryFile(query, filepath);
-			Util.deleteFile(filepath);
-		} catch (IOException e) {
-			throw new InvalidityException("storing failed", e);
-		} finally {
-			try {
-				Util.deleteFile(filepath);
-			} catch (IOException e) {}
-		}
-		return result;
-	}
+	static String SERIALIZER_METHOD = "xml";
+	static String SERIALIZER_ENCODING = "UTF-8";
+
+	static String SERIALIZER_INDENT = "no";
+	static String SERIALIZER_OMIT_XML_DECLARATION = "no";
+	static boolean BUILDER_LINENUMBERING = true;
+	static WhitespaceStrippingPolicy WHITESPACESTRIPPING = WhitespaceStrippingPolicy.ALL;
 	
 	public static JSONArray executeQueryFile(String query, String filepath) throws InvalidityException {
 		final String testedQuery = testAndFormatQuery(query);
@@ -74,7 +64,8 @@ public class XQueryProcessorSaxon {
 	            // Provide context item if XML file is given
 	            if (inputFile != null) {
 	                DocumentBuilder builder = processor.newDocumentBuilder();
-	                builder.setLineNumbering(true);
+	                builder.setLineNumbering(BUILDER_LINENUMBERING);
+	                builder.setWhitespaceStrippingPolicy(WHITESPACESTRIPPING);
 	                XdmNode inputDoc = builder.build(inputFile);
 	                evaluator.setContextItem(inputDoc);
 	            }
@@ -85,7 +76,7 @@ public class XQueryProcessorSaxon {
 	            		outcome.put(formatItemJSON(item, processor));
 	            }
 	        } catch (SaxonApiException e) {
-	            throw new InvalidityException("Saxon error with query: " + testedQuery + " [" + e.getMessage() + "]");
+	            throw new InvalidityException("Saxon error with query: " + testedQuery + " [" + e.getMessage() + "]", e);
 	        }
 	        return outcome;
 	    });
@@ -149,8 +140,8 @@ public class XQueryProcessorSaxon {
 
 		// files
 	    final DocumentBuilder builder = processor.newDocumentBuilder();
-	    builder.setLineNumbering(true);
-        builder.setWhitespaceStrippingPolicy(WhitespaceStrippingPolicy.NONE);
+	    builder.setLineNumbering(BUILDER_LINENUMBERING);
+        builder.setWhitespaceStrippingPolicy(WHITESPACESTRIPPING);
 
         for (String path: datapaths) {
 			File file;
@@ -258,10 +249,10 @@ public class XQueryProcessorSaxon {
 	        // Serialize the node to XML
 	        StringWriter sw = new StringWriter();
 	        Serializer serializer = processor.newSerializer(sw);
-	        serializer.setOutputProperty(Serializer.Property.METHOD, "xml");
-	        serializer.setOutputProperty(Serializer.Property.INDENT, "no");
-	        serializer.setOutputProperty(Serializer.Property.OMIT_XML_DECLARATION, "yes");
-	        serializer.setOutputProperty(Serializer.Property.ENCODING, "UTF-8");
+	        serializer.setOutputProperty(Serializer.Property.METHOD, SERIALIZER_METHOD);
+	        serializer.setOutputProperty(Serializer.Property.INDENT, SERIALIZER_INDENT);
+	        serializer.setOutputProperty(Serializer.Property.OMIT_XML_DECLARATION, SERIALIZER_OMIT_XML_DECLARATION);
+	        serializer.setOutputProperty(Serializer.Property.ENCODING, SERIALIZER_ENCODING);
 
 	        serializer.serializeNode(node);
 	        snippet = sw.toString();
