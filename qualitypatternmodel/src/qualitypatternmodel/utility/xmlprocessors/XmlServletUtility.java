@@ -52,24 +52,16 @@ public class XmlServletUtility {
 		}
 	}
 
-	public static JSONArray extractFromDoc(String xmlString, String xpath) throws InvalidityException {
+	public static JSONArray extractFromSnippet(String xmlString, String xpath) throws InvalidityException {
 	    String query = "let $r := $doc" + xpath + " return if (exists($r/*)) then $r/* else $r/text()";
-		JSONArray resultarray = queryFromDoc(xmlString, query);
+		JSONArray resultarray = queryFromSnippet(xmlString, query);
 		return flattenResultJSONArray(resultarray);
 	}
 
-	public static JSONArray queryFromDoc(String xmlString, String query) throws InvalidityException {
-
+	public static JSONArray queryFromSnippet(String xmlString, String query) throws InvalidityException {
+		xmlString = cutProcessingInstructions(xmlString);
         String wrappedQuery = "let $doc := <root>" + xmlString + "</root>\n " + query;
         return executeQuery(wrappedQuery);
-//		switch(Util.EXECUTION_PROCESSOR) {
-//		case ConstantsXml.PROCESSOR_SAXON:
-//			return XQueryProcessorSaxon.queryFromDoc(xmlString, query);
-//		case ConstantsXml.PROCESSOR_BASEX:
-//			return XQueryProcessorBaseX.queryFromDoc(xmlString, query);
-//		default:
-//			throw new RuntimeException("static method 'queryFromDoc(xmlString, query)' not implemented for Processor " + Util.EXECUTION_PROCESSOR);
-//		}
 	}
 
 	public static JSONArray flattenResultJSONArray(JSONArray objects) {
@@ -78,4 +70,23 @@ public class XmlServletUtility {
 			flattened.put(objects.getJSONObject(i).getString(ConstantsJSON.RESULT_SNIPPET));
 		return flattened;
 	}
+
+	public static JSONArray unflattenResultJSONArray(JSONArray flattened) {
+		JSONArray unflattened = new JSONArray();
+		for (int i = 0; i < flattened.length(); i++) {
+			JSONObject o = new JSONObject();
+			o.put(ConstantsJSON.RESULT_SNIPPET, flattened.getString(i));
+			unflattened.put(o);
+		}
+		return unflattened;
+	}
+
+    public static String cutProcessingInstructions(String str) {
+    	str = str.trim();
+    	if (str.startsWith("<?")) {
+    		int i = str.indexOf("?>");
+    		str = str.substring(i+2);
+    	}
+    	return str;
+    }
 }

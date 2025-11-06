@@ -129,10 +129,10 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 	 */
 	@Override
 	public Boolean initialize(String value) throws InvalidityException {
-		JSONArray retur = XmlServletUtility.extractFromDoc(value, "/" + JavaQueryTranslationUtility.INTERIM + "/" + JavaQueryTranslationUtility.RETURN);
+		JSONArray retur = XmlServletUtility.extractFromSnippet(value, "/" + JavaQueryTranslationUtility.INTERIM + "/" + JavaQueryTranslationUtility.RETURN);
 		if (retur.length() == 0)
 			return false;
-		JSONArray condi = XmlServletUtility.extractFromDoc(value, "/" + JavaQueryTranslationUtility.INTERIM + "/" + JavaQueryTranslationUtility.CONDITION);
+		JSONArray condi = XmlServletUtility.extractFromSnippet(value, "/" + JavaQueryTranslationUtility.INTERIM + "/" + JavaQueryTranslationUtility.CONDITION);
 		
 		InterimResult returnInterim = InterimResultImpl.createNew(getCorrespondsTo().getRecord(), retur);
 		InterimResult paramInterim = InterimResultImpl.createNew(getCorrespondsTo().getSubstructure(), condi);

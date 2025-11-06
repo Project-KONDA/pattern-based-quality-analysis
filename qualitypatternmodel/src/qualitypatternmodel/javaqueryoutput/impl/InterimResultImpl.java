@@ -104,12 +104,12 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 	}
 
 	public static JSONArray children(String xml) throws InvalidityException {
-		return XmlServletUtility.extractFromDoc(xml, "/*");
+		return XmlServletUtility.extractFromSnippet(xml, "/*");
 	}
 
 	public static String tag(String xml) throws InvalidityException {
 		try {
-			return XmlServletUtility.queryFromDoc(xml, "return $doc/*/name()").getString(0);
+			return XmlServletUtility.queryFromSnippet(xml, "return $doc/*/name()").getString(0);
 		} catch (Exception e) {
 			return null;
 		}
