@@ -302,6 +302,49 @@ paths:
         '500':
           description: Internal server error
 
+   /constraint/{technology}:
+    description: request, update or delete a specific constraint
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: constraintIDs
+        in: query
+        description: array of identifiers of constraints
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+
+    get:
+      tags:
+        - Constraint
+        - Request
+      summary: Requests information of an array of specific constraints
+      description: Requests information of an array of specific constraints
+      operationId: constraints
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pattern'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+
 
    /template/instantiate/{technology}/{templateID}/{variantID}:
     description: instantiate a constraint from a template
