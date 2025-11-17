@@ -171,6 +171,13 @@ public class APICallTests {
 		return ConstraintServlet.applyGet("/xml/" + id, getEmptyParams());
 	}
 
+	static JSONObject getConstraints(String[] ids)
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		Map<String, String[]> params = getEmptyParams();
+		params.put(ConstantsJSON.CONSTRAINT_IDS, ids);
+		return ConstraintServlet.applyGet2("/xml", params);
+	}
+
 	static void deleteConstraint(String id)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		ConstraintServlet.applyDelete("/xml/" + id, getEmptyParams());
@@ -321,6 +328,8 @@ public class APICallTests {
 
 		JSONObject constraint = getConstraint(constriantID);
 		assertPatternJSONObject(constraint);
+		JSONObject constraint2 = getConstraints(new String[]{constriantID});
+		assertPatternJSONObject(constraint2.getJSONObject(constriantID));
 		deleteConstraint(constriantID);
 		assertThrows(FailedServletCallException.class, () -> {
 			getConstraint(constriantID);
