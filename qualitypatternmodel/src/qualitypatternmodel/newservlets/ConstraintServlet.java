@@ -40,7 +40,11 @@ public class ConstraintServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
-			JSONObject result = applyGet(path, params);
+			JSONObject result;
+			if (path.split("/").length == 2) {
+				result = applyGet2(path, params);
+			}
+			else result = applyGet(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -118,6 +122,32 @@ public class ConstraintServlet extends HttpServlet {
 
 		// 2 return json
 //		return ServletUtilities.getPatternJSON(pattern);
+	}
+
+	public static JSONObject applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+		String[] pathparts = path.split("/");
+		if (pathparts.length != 2 || !pathparts[0].equals("") || !parameterMap.containsKey(ConstantsJSON.CONSTRAINT_IDS)) {
+			throw new InvalidServletCallException("Wrong URL for requesting a constraint: "
+					+ "GET '/constraint/{technology} [constraintIDs = {}]' "
+					+ "(not /constraint" + path + ")");
+		}
+
+		String technology = pathparts[1];
+
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
+		}
+		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINT_IDS);
+
+		JSONObject result = new JSONObject();
+		for (String constraintId: constraintIds) {
+			try {
+				result.put(constraintId, ServletUtilities.loadConstraintJson(technology, constraintId));
+			} catch (IOException e) {
+				throw new FailedServletCallException("constraint '" + constraintId + "' not found", e);
+			}
+		}
+		return result;
 	}
 
 	public static String applyDelete(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
