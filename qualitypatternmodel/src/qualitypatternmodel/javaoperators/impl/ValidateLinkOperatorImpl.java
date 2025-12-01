@@ -19,9 +19,9 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	public ValidateLinkOperatorImpl() {
+	protected ValidateLinkOperatorImpl() {
 		super();
 	}
 	/**

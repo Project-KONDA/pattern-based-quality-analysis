@@ -40,6 +40,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.javaoperators.JavaoperatorsFactory;
 import qualitypatternmodel.javaoperators.ValidateLinkOperator;
 import qualitypatternmodel.javaoperators.impl.ValidateLinkOperatorImpl;
 import qualitypatternmodel.operators.BooleanOperator;
@@ -2132,7 +2133,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public ValidateLinkOperator addPrimitiveValidateLink() {
-		ValidateLinkOperator linkvalidation = new ValidateLinkOperatorImpl();
+		ValidateLinkOperator linkvalidation = JavaoperatorsFactory.eINSTANCE.createValidateLinkOperator();
 		try {
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
