@@ -32,6 +32,9 @@ public class JavaoperatorsTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new JavaoperatorsTests("javaoperators Tests");
 		suite.addTestSuite(ValidateLinkOperatorTest.class);
+		suite.addTestSuite(LinkMimeTypeOperatorTest.class);
+		suite.addTestSuite(LinkImageMinSizeOperatorTest.class);
+		suite.addTestSuite(LinkSourceOperatorTest.class);
 		return suite;
 	}
 

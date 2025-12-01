@@ -6206,6 +6206,15 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_NODE_LABELS_PARAM__MATCHES = ParametersPackage.TEXT_LIST_PARAM__MATCHES;
 
 	/**
+	 * The feature id for the '<em><b>Java List Operator</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE_LABELS_PARAM__JAVA_LIST_OPERATOR = ParametersPackage.TEXT_LIST_PARAM__JAVA_LIST_OPERATOR;
+
+	/**
 	 * The number of structural features of the '<em>Neo Node Labels Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -173,6 +173,21 @@ public class OperatorListItemProvider extends PatternElementItemProvider {
 			(createChildParameter
 				(OperatorsPackage.Literals.OPERATOR_LIST__OPERATORS,
 				 JavaoperatorsFactory.eINSTANCE.createValidateLinkOperator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OperatorsPackage.Literals.OPERATOR_LIST__OPERATORS,
+				 JavaoperatorsFactory.eINSTANCE.createLinkMimeTypeOperator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OperatorsPackage.Literals.OPERATOR_LIST__OPERATORS,
+				 JavaoperatorsFactory.eINSTANCE.createLinkImageMinSizeOperator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OperatorsPackage.Literals.OPERATOR_LIST__OPERATORS,
+				 JavaoperatorsFactory.eINSTANCE.createLinkSourceOperator()));
 	}
 
 	/**

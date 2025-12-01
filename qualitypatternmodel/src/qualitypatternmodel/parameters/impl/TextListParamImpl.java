@@ -14,6 +14,8 @@ import org.json.JSONException;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
+import qualitypatternmodel.javaoperators.OneArgJavaListOperator;
 import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -32,6 +34,7 @@ import qualitypatternmodel.parameters.TextParam;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.impl.TextListParamImpl#getContains <em>Contains</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.TextListParamImpl#getMatches <em>Matches</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.TextListParamImpl#getJavaListOperator <em>Java List Operator</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,6 +59,15 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	 */
 	protected EList<Match> matches;
 
+	/**
+	 * The cached value of the '{@link #getJavaListOperator() <em>Java List Operator</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJavaListOperator()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<OneArgJavaListOperator> javaListOperator;
 	/**
 	 * <!-- begin-user-doc -->
 	 * Constructor.
@@ -205,6 +217,19 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EList<OneArgJavaListOperator> getJavaListOperator() {
+		if (javaListOperator == null) {
+			javaListOperator = new EObjectWithInverseResolvingEList<OneArgJavaListOperator>(OneArgJavaListOperator.class, this, ParametersPackage.TEXT_LIST_PARAM__JAVA_LIST_OPERATOR, JavaoperatorsPackage.ONE_ARG_JAVA_LIST_OPERATOR__TEXT_LIST_PARAM);
+		}
+		return javaListOperator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -213,6 +238,8 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContains()).basicAdd(otherEnd, msgs);
 			case ParametersPackage.TEXT_LIST_PARAM__MATCHES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatches()).basicAdd(otherEnd, msgs);
+			case ParametersPackage.TEXT_LIST_PARAM__JAVA_LIST_OPERATOR:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getJavaListOperator()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -229,6 +256,8 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 				return ((InternalEList<?>)getContains()).basicRemove(otherEnd, msgs);
 			case ParametersPackage.TEXT_LIST_PARAM__MATCHES:
 				return ((InternalEList<?>)getMatches()).basicRemove(otherEnd, msgs);
+			case ParametersPackage.TEXT_LIST_PARAM__JAVA_LIST_OPERATOR:
+				return ((InternalEList<?>)getJavaListOperator()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -245,6 +274,8 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 				return getContains();
 			case ParametersPackage.TEXT_LIST_PARAM__MATCHES:
 				return getMatches();
+			case ParametersPackage.TEXT_LIST_PARAM__JAVA_LIST_OPERATOR:
+				return getJavaListOperator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -266,6 +297,10 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 				getMatches().clear();
 				getMatches().addAll((Collection<? extends Match>)newValue);
 				return;
+			case ParametersPackage.TEXT_LIST_PARAM__JAVA_LIST_OPERATOR:
+				getJavaListOperator().clear();
+				getJavaListOperator().addAll((Collection<? extends OneArgJavaListOperator>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -284,6 +319,9 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 			case ParametersPackage.TEXT_LIST_PARAM__MATCHES:
 				getMatches().clear();
 				return;
+			case ParametersPackage.TEXT_LIST_PARAM__JAVA_LIST_OPERATOR:
+				getJavaListOperator().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -300,6 +338,8 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 				return contains != null && !contains.isEmpty();
 			case ParametersPackage.TEXT_LIST_PARAM__MATCHES:
 				return matches != null && !matches.isEmpty();
+			case ParametersPackage.TEXT_LIST_PARAM__JAVA_LIST_OPERATOR:
+				return javaListOperator != null && !javaListOperator.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

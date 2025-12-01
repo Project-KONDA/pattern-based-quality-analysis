@@ -3101,13 +3101,22 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM__MATCHES = LIST_PARAM_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Java List Operator</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM__JAVA_LIST_OPERATOR = LIST_PARAM_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Text List Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM_FEATURE_COUNT = LIST_PARAM_FEATURE_COUNT + 2;
+	int TEXT_LIST_PARAM_FEATURE_COUNT = LIST_PARAM_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -4282,13 +4291,31 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM__STRING_LENGTH = PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>One Arg Java Two Number Operator1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR1 = PARAMETER_VALUE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>One Arg Java Two Number Operator2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR2 = PARAMETER_VALUE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Number Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 3;
+	int NUMBER_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -9318,6 +9345,17 @@ public interface ParametersPackage extends EPackage {
 	EClass getTextListParam();
 
 	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.TextListParam#getJavaListOperator <em>Java List Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Java List Operator</em>'.
+	 * @see qualitypatternmodel.parameters.TextListParam#getJavaListOperator()
+	 * @see #getTextListParam()
+	 * @generated
+	 */
+	EReference getTextListParam_JavaListOperator();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.TextLiteralParam <em>Text Literal Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9412,6 +9450,28 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNumberParam_StringLength();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.NumberParam#getOneArgJavaTwoNumberOperator1 <em>One Arg Java Two Number Operator1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>One Arg Java Two Number Operator1</em>'.
+	 * @see qualitypatternmodel.parameters.NumberParam#getOneArgJavaTwoNumberOperator1()
+	 * @see #getNumberParam()
+	 * @generated
+	 */
+	EReference getNumberParam_OneArgJavaTwoNumberOperator1();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.NumberParam#getOneArgJavaTwoNumberOperator2 <em>One Arg Java Two Number Operator2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>One Arg Java Two Number Operator2</em>'.
+	 * @see qualitypatternmodel.parameters.NumberParam#getOneArgJavaTwoNumberOperator2()
+	 * @see #getNumberParam()
+	 * @generated
+	 */
+	EReference getNumberParam_OneArgJavaTwoNumberOperator2();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.NumberParam#setValueIfValid(java.lang.Double) <em>Set Value If Valid</em>}' operation.
@@ -10132,6 +10192,14 @@ public interface ParametersPackage extends EPackage {
 		EClass TEXT_LIST_PARAM = eINSTANCE.getTextListParam();
 
 		/**
+		 * The meta object literal for the '<em><b>Java List Operator</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEXT_LIST_PARAM__JAVA_LIST_OPERATOR = eINSTANCE.getTextListParam_JavaListOperator();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl <em>Text Literal Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -10206,6 +10274,22 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NUMBER_PARAM__STRING_LENGTH = eINSTANCE.getNumberParam_StringLength();
+
+		/**
+		 * The meta object literal for the '<em><b>One Arg Java Two Number Operator1</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR1 = eINSTANCE.getNumberParam_OneArgJavaTwoNumberOperator1();
+
+		/**
+		 * The meta object literal for the '<em><b>One Arg Java Two Number Operator2</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR2 = eINSTANCE.getNumberParam_OneArgJavaTwoNumberOperator2();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.

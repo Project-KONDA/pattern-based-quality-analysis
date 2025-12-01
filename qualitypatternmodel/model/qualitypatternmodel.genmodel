@@ -71,7 +71,10 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/BooleanParam/setValueIfValid/newValue"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/TextListParam"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/TextListParam">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextListParam/javaListOperator"/>
+      </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/TextLiteralParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/TextLiteralParam/value"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/xmlPropertyOptionParam"/>
@@ -87,6 +90,10 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/NumberParam/numberArgument"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/NumberParam/stringLength"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/NumberParam/oneArgJavaTwoNumberOperator1"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/NumberParam/oneArgJavaTwoNumberOperator2"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/NumberParam/setValueIfValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/NumberParam/setValueIfValid/newValue"/>
         </genOperations>
@@ -1071,6 +1078,19 @@
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaoperators/ValidateLinkOperator"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaoperators/LinkMimeTypeOperator"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaoperators/LinkImageMinSizeOperator"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaoperators/LinkSourceOperator"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaoperators/OneArgJavaListOperator">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaoperators/OneArgJavaListOperator/textListParam"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaoperators/OneArgJavaTwoNumberOperator">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaoperators/OneArgJavaTwoNumberOperator/number1"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaoperators/OneArgJavaTwoNumberOperator/number2"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Javaquery" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//javaquery">
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//javaquery/StringListWrapper"/>

@@ -653,6 +653,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EReference getTextListParam_JavaListOperator() {
+		return (EReference)textListParamEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTextLiteralParam() {
 		return textLiteralParamEClass;
 	}
@@ -735,6 +745,26 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EReference getNumberParam_StringLength() {
 		return (EReference)numberParamEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNumberParam_OneArgJavaTwoNumberOperator1() {
+		return (EReference)numberParamEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNumberParam_OneArgJavaTwoNumberOperator2() {
+		return (EReference)numberParamEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1204,6 +1234,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(booleanParamEClass, BOOLEAN_PARAM___SET_VALUE_IF_VALID__BOOLEAN);
 
 		textListParamEClass = createEClass(TEXT_LIST_PARAM);
+		createEReference(textListParamEClass, TEXT_LIST_PARAM__JAVA_LIST_OPERATOR);
 
 		textLiteralParamEClass = createEClass(TEXT_LITERAL_PARAM);
 		createEAttribute(textLiteralParamEClass, TEXT_LITERAL_PARAM__VALUE);
@@ -1215,6 +1246,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEAttribute(numberParamEClass, NUMBER_PARAM__VALUE);
 		createEReference(numberParamEClass, NUMBER_PARAM__NUMBER_ARGUMENT);
 		createEReference(numberParamEClass, NUMBER_PARAM__STRING_LENGTH);
+		createEReference(numberParamEClass, NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR1);
+		createEReference(numberParamEClass, NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR2);
 		createEOperation(numberParamEClass, NUMBER_PARAM___SET_VALUE_IF_VALID__DOUBLE);
 
 		parameterValueEClass = createEClass(PARAMETER_VALUE);
@@ -1397,6 +1430,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(textListParamEClass, TextListParam.class, "TextListParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTextListParam_JavaListOperator(), theJavaoperatorsPackage.getOneArgJavaListOperator(), theJavaoperatorsPackage.getOneArgJavaListOperator_TextListParam(), "javaListOperator", null, 0, -1, TextListParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(textLiteralParamEClass, TextLiteralParam.class, "TextLiteralParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextLiteralParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1411,6 +1445,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEAttribute(getNumberParam_Value(), ecorePackage.getEDoubleObject(), "value", null, 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNumberParam_NumberArgument(), thePatternstructurePackage.getNumberElement(), thePatternstructurePackage.getNumberElement_NumberParam(), "numberArgument", null, 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNumberParam_StringLength(), theOperatorsPackage.getStringLength(), theOperatorsPackage.getStringLength_Number(), "stringLength", null, 0, -1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNumberParam_OneArgJavaTwoNumberOperator1(), theJavaoperatorsPackage.getOneArgJavaTwoNumberOperator(), theJavaoperatorsPackage.getOneArgJavaTwoNumberOperator_Number1(), "oneArgJavaTwoNumberOperator1", null, 0, -1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNumberParam_OneArgJavaTwoNumberOperator2(), theJavaoperatorsPackage.getOneArgJavaTwoNumberOperator(), theJavaoperatorsPackage.getOneArgJavaTwoNumberOperator_Number2(), "oneArgJavaTwoNumberOperator2", null, 0, -1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getNumberParam__SetValueIfValid__Double(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDoubleObject(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);

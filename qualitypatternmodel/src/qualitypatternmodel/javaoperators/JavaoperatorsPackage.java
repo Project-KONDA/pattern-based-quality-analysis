@@ -2089,6 +2089,2640 @@ public interface JavaoperatorsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaoperators.impl.OneArgJavaListOperatorImpl <em>One Arg Java List Operator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaoperators.impl.OneArgJavaListOperatorImpl
+	 * @see qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl#getOneArgJavaListOperator()
+	 * @generated
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR__ID = ONE_ARG_JAVA_OPERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR__INTERNAL_ID = ONE_ARG_JAVA_OPERATOR__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR__COMPARISON1 = ONE_ARG_JAVA_OPERATOR__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR__COMPARISON2 = ONE_ARG_JAVA_OPERATOR__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR__OPERATOR_LIST = ONE_ARG_JAVA_OPERATOR__OPERATOR_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Nodes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR__NODES = ONE_ARG_JAVA_OPERATOR__NODES;
+
+	/**
+	 * The feature id for the '<em><b>Primitive Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR__PRIMITIVE_NODE = ONE_ARG_JAVA_OPERATOR__PRIMITIVE_NODE;
+
+	/**
+	 * The feature id for the '<em><b>Option</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR__OPTION = ONE_ARG_JAVA_OPERATOR__OPTION;
+
+	/**
+	 * The feature id for the '<em><b>Text List Param</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR__TEXT_LIST_PARAM = ONE_ARG_JAVA_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>One Arg Java List Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR_FEATURE_COUNT = ONE_ARG_JAVA_OPERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___IS_VALID__ABSTRACTIONLEVEL = ONE_ARG_JAVA_OPERATOR___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ONE_ARG_JAVA_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_QUERY__LANGUAGE = ONE_ARG_JAVA_OPERATOR___GENERATE_QUERY__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_XQUERY = ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_SPARQL = ONE_ARG_JAVA_OPERATOR___GENERATE_SPARQL;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_CYPHER = ONE_ARG_JAVA_OPERATOR___GENERATE_CYPHER;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_XQUERY_JAVA = ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_QUERY_FILTER_PART = ONE_ARG_JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___CONTAINS_JAVA_OPERATOR = ONE_ARG_JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___CREATE_ADAPTION__LANGUAGE = ONE_ARG_JAVA_OPERATOR___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___CREATE_XML_ADAPTION = ONE_ARG_JAVA_OPERATOR___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___CREATE_RDF_ADAPTION = ONE_ARG_JAVA_OPERATOR___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___CREATE_NEO4J_ADAPTION = ONE_ARG_JAVA_OPERATOR___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___RELATIONS_XML_ADAPTED = ONE_ARG_JAVA_OPERATOR___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___PREPARE_TRANSLATION = ONE_ARG_JAVA_OPERATOR___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___INITIALIZE_TRANSLATION = ONE_ARG_JAVA_OPERATOR___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___PREPARE_PARAMETER_UPDATES = ONE_ARG_JAVA_OPERATOR___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ONE_ARG_JAVA_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = ONE_ARG_JAVA_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ONE_ARG_JAVA_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GET_CONTAINER = ONE_ARG_JAVA_OPERATOR___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GET_ANCESTOR__CLASS = ONE_ARG_JAVA_OPERATOR___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GET_OPERATOR_LIST = ONE_ARG_JAVA_OPERATOR___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GET_ALL_OPERATORS = ONE_ARG_JAVA_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GET_PARAMETER_LIST = ONE_ARG_JAVA_OPERATOR___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GET_ALL_PARAMETERS = ONE_ARG_JAVA_OPERATOR___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___MY_TO_STRING = ONE_ARG_JAVA_OPERATOR___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GET_RETURN_TYPE = ONE_ARG_JAVA_OPERATOR___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___IS_TRANSLATABLE = ONE_ARG_JAVA_OPERATOR___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS = ONE_ARG_JAVA_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___IS_OPERATOR_ARGUMENT = ONE_ARG_JAVA_OPERATOR___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___ADD_COMPARISON__COMPARABLE = ONE_ARG_JAVA_OPERATOR___ADD_COMPARISON__COMPARABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = ONE_ARG_JAVA_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GET_ARGUMENTS = ONE_ARG_JAVA_OPERATOR___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Get Root Boolean Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GET_ROOT_BOOLEAN_OPERATORS = ONE_ARG_JAVA_OPERATOR___GET_ROOT_BOOLEAN_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___IS_CYCLE_FREE = ONE_ARG_JAVA_OPERATOR___IS_CYCLE_FREE;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___IS_CYCLE_FREE__ELIST = ONE_ARG_JAVA_OPERATOR___IS_CYCLE_FREE__ELIST;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___CREATE_PARAMETERS = ONE_ARG_JAVA_OPERATOR___CREATE_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Add Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___ADD_ELEMENT__NODE = ONE_ARG_JAVA_OPERATOR___ADD_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Remove Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___REMOVE_ELEMENT__NODE = ONE_ARG_JAVA_OPERATOR___REMOVE_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GET_ELEMENT = ONE_ARG_JAVA_OPERATOR___GET_ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_XQUERY_ISOLATED = ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_SPARQL_ISOLATED = ONE_ARG_JAVA_OPERATOR___GENERATE_SPARQL_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_CYPHER_ISOLATED = ONE_ARG_JAVA_OPERATOR___GENERATE_CYPHER_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR___APPLY__STRING = ONE_ARG_JAVA_OPERATOR___APPLY__STRING;
+
+	/**
+	 * The number of operations of the '<em>One Arg Java List Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_LIST_OPERATOR_OPERATION_COUNT = ONE_ARG_JAVA_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaoperators.impl.LinkMimeTypeOperatorImpl <em>Link Mime Type Operator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaoperators.impl.LinkMimeTypeOperatorImpl
+	 * @see qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl#getLinkMimeTypeOperator()
+	 * @generated
+	 */
+	int LINK_MIME_TYPE_OPERATOR = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR__ID = ONE_ARG_JAVA_LIST_OPERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR__INTERNAL_ID = ONE_ARG_JAVA_LIST_OPERATOR__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR__COMPARISON1 = ONE_ARG_JAVA_LIST_OPERATOR__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR__COMPARISON2 = ONE_ARG_JAVA_LIST_OPERATOR__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR__OPERATOR_LIST = ONE_ARG_JAVA_LIST_OPERATOR__OPERATOR_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Nodes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR__NODES = ONE_ARG_JAVA_LIST_OPERATOR__NODES;
+
+	/**
+	 * The feature id for the '<em><b>Primitive Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR__PRIMITIVE_NODE = ONE_ARG_JAVA_LIST_OPERATOR__PRIMITIVE_NODE;
+
+	/**
+	 * The feature id for the '<em><b>Option</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR__OPTION = ONE_ARG_JAVA_LIST_OPERATOR__OPTION;
+
+	/**
+	 * The feature id for the '<em><b>Text List Param</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR__TEXT_LIST_PARAM = ONE_ARG_JAVA_LIST_OPERATOR__TEXT_LIST_PARAM;
+
+	/**
+	 * The number of structural features of the '<em>Link Mime Type Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR_FEATURE_COUNT = ONE_ARG_JAVA_LIST_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___IS_VALID__ABSTRACTIONLEVEL = ONE_ARG_JAVA_LIST_OPERATOR___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ONE_ARG_JAVA_LIST_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GENERATE_QUERY__LANGUAGE = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_QUERY__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GENERATE_XQUERY = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_XQUERY;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GENERATE_SPARQL = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_SPARQL;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GENERATE_CYPHER = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_CYPHER;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GENERATE_XQUERY_JAVA = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GENERATE_QUERY_FILTER_PART = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___CONTAINS_JAVA_OPERATOR = ONE_ARG_JAVA_LIST_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___CREATE_ADAPTION__LANGUAGE = ONE_ARG_JAVA_LIST_OPERATOR___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___CREATE_XML_ADAPTION = ONE_ARG_JAVA_LIST_OPERATOR___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___CREATE_RDF_ADAPTION = ONE_ARG_JAVA_LIST_OPERATOR___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___CREATE_NEO4J_ADAPTION = ONE_ARG_JAVA_LIST_OPERATOR___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___RELATIONS_XML_ADAPTED = ONE_ARG_JAVA_LIST_OPERATOR___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___PREPARE_TRANSLATION = ONE_ARG_JAVA_LIST_OPERATOR___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___INITIALIZE_TRANSLATION = ONE_ARG_JAVA_LIST_OPERATOR___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___PREPARE_PARAMETER_UPDATES = ONE_ARG_JAVA_LIST_OPERATOR___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ONE_ARG_JAVA_LIST_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = ONE_ARG_JAVA_LIST_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ONE_ARG_JAVA_LIST_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GET_CONTAINER = ONE_ARG_JAVA_LIST_OPERATOR___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GET_ANCESTOR__CLASS = ONE_ARG_JAVA_LIST_OPERATOR___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GET_OPERATOR_LIST = ONE_ARG_JAVA_LIST_OPERATOR___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GET_ALL_OPERATORS = ONE_ARG_JAVA_LIST_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GET_PARAMETER_LIST = ONE_ARG_JAVA_LIST_OPERATOR___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GET_ALL_PARAMETERS = ONE_ARG_JAVA_LIST_OPERATOR___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___MY_TO_STRING = ONE_ARG_JAVA_LIST_OPERATOR___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GET_RETURN_TYPE = ONE_ARG_JAVA_LIST_OPERATOR___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___IS_TRANSLATABLE = ONE_ARG_JAVA_LIST_OPERATOR___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS = ONE_ARG_JAVA_LIST_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___IS_OPERATOR_ARGUMENT = ONE_ARG_JAVA_LIST_OPERATOR___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___ADD_COMPARISON__COMPARABLE = ONE_ARG_JAVA_LIST_OPERATOR___ADD_COMPARISON__COMPARABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = ONE_ARG_JAVA_LIST_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GET_ARGUMENTS = ONE_ARG_JAVA_LIST_OPERATOR___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Get Root Boolean Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GET_ROOT_BOOLEAN_OPERATORS = ONE_ARG_JAVA_LIST_OPERATOR___GET_ROOT_BOOLEAN_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___IS_CYCLE_FREE = ONE_ARG_JAVA_LIST_OPERATOR___IS_CYCLE_FREE;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___IS_CYCLE_FREE__ELIST = ONE_ARG_JAVA_LIST_OPERATOR___IS_CYCLE_FREE__ELIST;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___CREATE_PARAMETERS = ONE_ARG_JAVA_LIST_OPERATOR___CREATE_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Add Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___ADD_ELEMENT__NODE = ONE_ARG_JAVA_LIST_OPERATOR___ADD_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Remove Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___REMOVE_ELEMENT__NODE = ONE_ARG_JAVA_LIST_OPERATOR___REMOVE_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GET_ELEMENT = ONE_ARG_JAVA_LIST_OPERATOR___GET_ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GENERATE_XQUERY_ISOLATED = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_XQUERY_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GENERATE_SPARQL_ISOLATED = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_SPARQL_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___GENERATE_CYPHER_ISOLATED = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_CYPHER_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR___APPLY__STRING = ONE_ARG_JAVA_LIST_OPERATOR___APPLY__STRING;
+
+	/**
+	 * The number of operations of the '<em>Link Mime Type Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_MIME_TYPE_OPERATOR_OPERATION_COUNT = ONE_ARG_JAVA_LIST_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaoperators.impl.OneArgJavaTwoNumberOperatorImpl <em>One Arg Java Two Number Operator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaoperators.impl.OneArgJavaTwoNumberOperatorImpl
+	 * @see qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl#getOneArgJavaTwoNumberOperator()
+	 * @generated
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__ID = ONE_ARG_JAVA_OPERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__INTERNAL_ID = ONE_ARG_JAVA_OPERATOR__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__COMPARISON1 = ONE_ARG_JAVA_OPERATOR__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__COMPARISON2 = ONE_ARG_JAVA_OPERATOR__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__OPERATOR_LIST = ONE_ARG_JAVA_OPERATOR__OPERATOR_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Nodes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__NODES = ONE_ARG_JAVA_OPERATOR__NODES;
+
+	/**
+	 * The feature id for the '<em><b>Primitive Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__PRIMITIVE_NODE = ONE_ARG_JAVA_OPERATOR__PRIMITIVE_NODE;
+
+	/**
+	 * The feature id for the '<em><b>Option</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__OPTION = ONE_ARG_JAVA_OPERATOR__OPTION;
+
+	/**
+	 * The feature id for the '<em><b>Number1</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__NUMBER1 = ONE_ARG_JAVA_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Number2</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__NUMBER2 = ONE_ARG_JAVA_OPERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>One Arg Java Two Number Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR_FEATURE_COUNT = ONE_ARG_JAVA_OPERATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___IS_VALID__ABSTRACTIONLEVEL = ONE_ARG_JAVA_OPERATOR___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ONE_ARG_JAVA_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_QUERY__LANGUAGE = ONE_ARG_JAVA_OPERATOR___GENERATE_QUERY__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_XQUERY = ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_SPARQL = ONE_ARG_JAVA_OPERATOR___GENERATE_SPARQL;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_CYPHER = ONE_ARG_JAVA_OPERATOR___GENERATE_CYPHER;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_XQUERY_JAVA = ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_QUERY_FILTER_PART = ONE_ARG_JAVA_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___CONTAINS_JAVA_OPERATOR = ONE_ARG_JAVA_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___CREATE_ADAPTION__LANGUAGE = ONE_ARG_JAVA_OPERATOR___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___CREATE_XML_ADAPTION = ONE_ARG_JAVA_OPERATOR___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___CREATE_RDF_ADAPTION = ONE_ARG_JAVA_OPERATOR___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___CREATE_NEO4J_ADAPTION = ONE_ARG_JAVA_OPERATOR___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___RELATIONS_XML_ADAPTED = ONE_ARG_JAVA_OPERATOR___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___PREPARE_TRANSLATION = ONE_ARG_JAVA_OPERATOR___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___INITIALIZE_TRANSLATION = ONE_ARG_JAVA_OPERATOR___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___PREPARE_PARAMETER_UPDATES = ONE_ARG_JAVA_OPERATOR___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ONE_ARG_JAVA_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = ONE_ARG_JAVA_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ONE_ARG_JAVA_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_CONTAINER = ONE_ARG_JAVA_OPERATOR___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_ANCESTOR__CLASS = ONE_ARG_JAVA_OPERATOR___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_OPERATOR_LIST = ONE_ARG_JAVA_OPERATOR___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_ALL_OPERATORS = ONE_ARG_JAVA_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_PARAMETER_LIST = ONE_ARG_JAVA_OPERATOR___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_ALL_PARAMETERS = ONE_ARG_JAVA_OPERATOR___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___MY_TO_STRING = ONE_ARG_JAVA_OPERATOR___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_RETURN_TYPE = ONE_ARG_JAVA_OPERATOR___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___IS_TRANSLATABLE = ONE_ARG_JAVA_OPERATOR___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS = ONE_ARG_JAVA_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___IS_OPERATOR_ARGUMENT = ONE_ARG_JAVA_OPERATOR___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___ADD_COMPARISON__COMPARABLE = ONE_ARG_JAVA_OPERATOR___ADD_COMPARISON__COMPARABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = ONE_ARG_JAVA_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_ARGUMENTS = ONE_ARG_JAVA_OPERATOR___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Get Root Boolean Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_ROOT_BOOLEAN_OPERATORS = ONE_ARG_JAVA_OPERATOR___GET_ROOT_BOOLEAN_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___IS_CYCLE_FREE = ONE_ARG_JAVA_OPERATOR___IS_CYCLE_FREE;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___IS_CYCLE_FREE__ELIST = ONE_ARG_JAVA_OPERATOR___IS_CYCLE_FREE__ELIST;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___CREATE_PARAMETERS = ONE_ARG_JAVA_OPERATOR___CREATE_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Add Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___ADD_ELEMENT__NODE = ONE_ARG_JAVA_OPERATOR___ADD_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Remove Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___REMOVE_ELEMENT__NODE = ONE_ARG_JAVA_OPERATOR___REMOVE_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_ELEMENT = ONE_ARG_JAVA_OPERATOR___GET_ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_XQUERY_ISOLATED = ONE_ARG_JAVA_OPERATOR___GENERATE_XQUERY_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_SPARQL_ISOLATED = ONE_ARG_JAVA_OPERATOR___GENERATE_SPARQL_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_CYPHER_ISOLATED = ONE_ARG_JAVA_OPERATOR___GENERATE_CYPHER_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___APPLY__STRING = ONE_ARG_JAVA_OPERATOR___APPLY__STRING;
+
+	/**
+	 * The number of operations of the '<em>One Arg Java Two Number Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_JAVA_TWO_NUMBER_OPERATOR_OPERATION_COUNT = ONE_ARG_JAVA_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaoperators.impl.LinkImageMinSizeOperatorImpl <em>Link Image Min Size Operator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaoperators.impl.LinkImageMinSizeOperatorImpl
+	 * @see qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl#getLinkImageMinSizeOperator()
+	 * @generated
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR__ID = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR__INTERNAL_ID = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR__COMPARISON1 = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR__COMPARISON2 = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR__OPERATOR_LIST = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__OPERATOR_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Nodes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR__NODES = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__NODES;
+
+	/**
+	 * The feature id for the '<em><b>Primitive Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR__PRIMITIVE_NODE = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__PRIMITIVE_NODE;
+
+	/**
+	 * The feature id for the '<em><b>Option</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR__OPTION = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__OPTION;
+
+	/**
+	 * The feature id for the '<em><b>Number1</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR__NUMBER1 = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__NUMBER1;
+
+	/**
+	 * The feature id for the '<em><b>Number2</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR__NUMBER2 = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__NUMBER2;
+
+	/**
+	 * The number of structural features of the '<em>Link Image Min Size Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR_FEATURE_COUNT = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___IS_VALID__ABSTRACTIONLEVEL = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GENERATE_QUERY__LANGUAGE = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_QUERY__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GENERATE_XQUERY = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_XQUERY;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GENERATE_SPARQL = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_SPARQL;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GENERATE_CYPHER = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_CYPHER;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GENERATE_XQUERY_JAVA = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GENERATE_QUERY_FILTER_PART = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___CONTAINS_JAVA_OPERATOR = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___CREATE_ADAPTION__LANGUAGE = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___CREATE_XML_ADAPTION = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___CREATE_RDF_ADAPTION = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___CREATE_NEO4J_ADAPTION = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___RELATIONS_XML_ADAPTED = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___PREPARE_TRANSLATION = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___INITIALIZE_TRANSLATION = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___PREPARE_PARAMETER_UPDATES = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GET_CONTAINER = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GET_ANCESTOR__CLASS = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GET_OPERATOR_LIST = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GET_ALL_OPERATORS = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GET_PARAMETER_LIST = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GET_ALL_PARAMETERS = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___MY_TO_STRING = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GET_RETURN_TYPE = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___IS_TRANSLATABLE = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___IS_OPERATOR_ARGUMENT = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___ADD_COMPARISON__COMPARABLE = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___ADD_COMPARISON__COMPARABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GET_ARGUMENTS = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Get Root Boolean Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GET_ROOT_BOOLEAN_OPERATORS = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_ROOT_BOOLEAN_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___IS_CYCLE_FREE = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___IS_CYCLE_FREE;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___IS_CYCLE_FREE__ELIST = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___IS_CYCLE_FREE__ELIST;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___CREATE_PARAMETERS = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___CREATE_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Add Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___ADD_ELEMENT__NODE = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___ADD_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Remove Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___REMOVE_ELEMENT__NODE = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___REMOVE_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GET_ELEMENT = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GET_ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GENERATE_XQUERY_ISOLATED = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_XQUERY_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GENERATE_SPARQL_ISOLATED = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_SPARQL_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___GENERATE_CYPHER_ISOLATED = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___GENERATE_CYPHER_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR___APPLY__STRING = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR___APPLY__STRING;
+
+	/**
+	 * The number of operations of the '<em>Link Image Min Size Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_IMAGE_MIN_SIZE_OPERATOR_OPERATION_COUNT = ONE_ARG_JAVA_TWO_NUMBER_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaoperators.impl.LinkSourceOperatorImpl <em>Link Source Operator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaoperators.impl.LinkSourceOperatorImpl
+	 * @see qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl#getLinkSourceOperator()
+	 * @generated
+	 */
+	int LINK_SOURCE_OPERATOR = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR__ID = ONE_ARG_JAVA_LIST_OPERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR__INTERNAL_ID = ONE_ARG_JAVA_LIST_OPERATOR__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR__COMPARISON1 = ONE_ARG_JAVA_LIST_OPERATOR__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR__COMPARISON2 = ONE_ARG_JAVA_LIST_OPERATOR__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR__OPERATOR_LIST = ONE_ARG_JAVA_LIST_OPERATOR__OPERATOR_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Nodes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR__NODES = ONE_ARG_JAVA_LIST_OPERATOR__NODES;
+
+	/**
+	 * The feature id for the '<em><b>Primitive Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR__PRIMITIVE_NODE = ONE_ARG_JAVA_LIST_OPERATOR__PRIMITIVE_NODE;
+
+	/**
+	 * The feature id for the '<em><b>Option</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR__OPTION = ONE_ARG_JAVA_LIST_OPERATOR__OPTION;
+
+	/**
+	 * The feature id for the '<em><b>Text List Param</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR__TEXT_LIST_PARAM = ONE_ARG_JAVA_LIST_OPERATOR__TEXT_LIST_PARAM;
+
+	/**
+	 * The number of structural features of the '<em>Link Source Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR_FEATURE_COUNT = ONE_ARG_JAVA_LIST_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___IS_VALID__ABSTRACTIONLEVEL = ONE_ARG_JAVA_LIST_OPERATOR___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ONE_ARG_JAVA_LIST_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GENERATE_QUERY__LANGUAGE = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_QUERY__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GENERATE_XQUERY = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_XQUERY;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GENERATE_SPARQL = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_SPARQL;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GENERATE_CYPHER = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_CYPHER;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GENERATE_XQUERY_JAVA = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_XQUERY_JAVA;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Java Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GENERATE_XQUERY_JAVA_RETURN = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_XQUERY_JAVA_RETURN;
+
+	/**
+	 * The operation id for the '<em>Generate Query Filter Part</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GENERATE_QUERY_FILTER_PART = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_QUERY_FILTER_PART;
+
+	/**
+	 * The operation id for the '<em>Contains Java Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___CONTAINS_JAVA_OPERATOR = ONE_ARG_JAVA_LIST_OPERATOR___CONTAINS_JAVA_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Create Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___CREATE_ADAPTION__LANGUAGE = ONE_ARG_JAVA_LIST_OPERATOR___CREATE_ADAPTION__LANGUAGE;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___CREATE_XML_ADAPTION = ONE_ARG_JAVA_LIST_OPERATOR___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___CREATE_RDF_ADAPTION = ONE_ARG_JAVA_LIST_OPERATOR___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___CREATE_NEO4J_ADAPTION = ONE_ARG_JAVA_LIST_OPERATOR___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___RELATIONS_XML_ADAPTED = ONE_ARG_JAVA_LIST_OPERATOR___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___PREPARE_TRANSLATION = ONE_ARG_JAVA_LIST_OPERATOR___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___INITIALIZE_TRANSLATION = ONE_ARG_JAVA_LIST_OPERATOR___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___PREPARE_PARAMETER_UPDATES = ONE_ARG_JAVA_LIST_OPERATOR___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ONE_ARG_JAVA_LIST_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = ONE_ARG_JAVA_LIST_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ONE_ARG_JAVA_LIST_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GET_CONTAINER = ONE_ARG_JAVA_LIST_OPERATOR___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GET_ANCESTOR__CLASS = ONE_ARG_JAVA_LIST_OPERATOR___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GET_OPERATOR_LIST = ONE_ARG_JAVA_LIST_OPERATOR___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GET_ALL_OPERATORS = ONE_ARG_JAVA_LIST_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GET_PARAMETER_LIST = ONE_ARG_JAVA_LIST_OPERATOR___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GET_ALL_PARAMETERS = ONE_ARG_JAVA_LIST_OPERATOR___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___MY_TO_STRING = ONE_ARG_JAVA_LIST_OPERATOR___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GET_RETURN_TYPE = ONE_ARG_JAVA_LIST_OPERATOR___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___IS_TRANSLATABLE = ONE_ARG_JAVA_LIST_OPERATOR___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS = ONE_ARG_JAVA_LIST_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___IS_OPERATOR_ARGUMENT = ONE_ARG_JAVA_LIST_OPERATOR___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___ADD_COMPARISON__COMPARABLE = ONE_ARG_JAVA_LIST_OPERATOR___ADD_COMPARISON__COMPARABLE;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = ONE_ARG_JAVA_LIST_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GET_ARGUMENTS = ONE_ARG_JAVA_LIST_OPERATOR___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Get Root Boolean Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GET_ROOT_BOOLEAN_OPERATORS = ONE_ARG_JAVA_LIST_OPERATOR___GET_ROOT_BOOLEAN_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___IS_CYCLE_FREE = ONE_ARG_JAVA_LIST_OPERATOR___IS_CYCLE_FREE;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___IS_CYCLE_FREE__ELIST = ONE_ARG_JAVA_LIST_OPERATOR___IS_CYCLE_FREE__ELIST;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___CREATE_PARAMETERS = ONE_ARG_JAVA_LIST_OPERATOR___CREATE_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Add Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___ADD_ELEMENT__NODE = ONE_ARG_JAVA_LIST_OPERATOR___ADD_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Remove Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___REMOVE_ELEMENT__NODE = ONE_ARG_JAVA_LIST_OPERATOR___REMOVE_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GET_ELEMENT = ONE_ARG_JAVA_LIST_OPERATOR___GET_ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GENERATE_XQUERY_ISOLATED = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_XQUERY_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GENERATE_SPARQL_ISOLATED = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_SPARQL_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher Isolated</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___GENERATE_CYPHER_ISOLATED = ONE_ARG_JAVA_LIST_OPERATOR___GENERATE_CYPHER_ISOLATED;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR___APPLY__STRING = ONE_ARG_JAVA_LIST_OPERATOR___APPLY__STRING;
+
+	/**
+	 * The number of operations of the '<em>Link Source Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK_SOURCE_OPERATOR_OPERATION_COUNT = ONE_ARG_JAVA_LIST_OPERATOR_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaoperators.JavaOperator <em>Java Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2191,6 +4825,89 @@ public interface JavaoperatorsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getValidateLinkOperator();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaoperators.LinkMimeTypeOperator <em>Link Mime Type Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Link Mime Type Operator</em>'.
+	 * @see qualitypatternmodel.javaoperators.LinkMimeTypeOperator
+	 * @generated
+	 */
+	EClass getLinkMimeTypeOperator();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaoperators.LinkImageMinSizeOperator <em>Link Image Min Size Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Link Image Min Size Operator</em>'.
+	 * @see qualitypatternmodel.javaoperators.LinkImageMinSizeOperator
+	 * @generated
+	 */
+	EClass getLinkImageMinSizeOperator();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaoperators.LinkSourceOperator <em>Link Source Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Link Source Operator</em>'.
+	 * @see qualitypatternmodel.javaoperators.LinkSourceOperator
+	 * @generated
+	 */
+	EClass getLinkSourceOperator();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaoperators.OneArgJavaListOperator <em>One Arg Java List Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>One Arg Java List Operator</em>'.
+	 * @see qualitypatternmodel.javaoperators.OneArgJavaListOperator
+	 * @generated
+	 */
+	EClass getOneArgJavaListOperator();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaoperators.OneArgJavaListOperator#getTextListParam <em>Text List Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Text List Param</em>'.
+	 * @see qualitypatternmodel.javaoperators.OneArgJavaListOperator#getTextListParam()
+	 * @see #getOneArgJavaListOperator()
+	 * @generated
+	 */
+	EReference getOneArgJavaListOperator_TextListParam();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator <em>One Arg Java Two Number Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>One Arg Java Two Number Operator</em>'.
+	 * @see qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator
+	 * @generated
+	 */
+	EClass getOneArgJavaTwoNumberOperator();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator#getNumber1 <em>Number1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Number1</em>'.
+	 * @see qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator#getNumber1()
+	 * @see #getOneArgJavaTwoNumberOperator()
+	 * @generated
+	 */
+	EReference getOneArgJavaTwoNumberOperator_Number1();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator#getNumber2 <em>Number2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Number2</em>'.
+	 * @see qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator#getNumber2()
+	 * @see #getOneArgJavaTwoNumberOperator()
+	 * @generated
+	 */
+	EReference getOneArgJavaTwoNumberOperator_Number2();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2302,6 +5019,80 @@ public interface JavaoperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass VALIDATE_LINK_OPERATOR = eINSTANCE.getValidateLinkOperator();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaoperators.impl.LinkMimeTypeOperatorImpl <em>Link Mime Type Operator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaoperators.impl.LinkMimeTypeOperatorImpl
+		 * @see qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl#getLinkMimeTypeOperator()
+		 * @generated
+		 */
+		EClass LINK_MIME_TYPE_OPERATOR = eINSTANCE.getLinkMimeTypeOperator();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaoperators.impl.LinkImageMinSizeOperatorImpl <em>Link Image Min Size Operator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaoperators.impl.LinkImageMinSizeOperatorImpl
+		 * @see qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl#getLinkImageMinSizeOperator()
+		 * @generated
+		 */
+		EClass LINK_IMAGE_MIN_SIZE_OPERATOR = eINSTANCE.getLinkImageMinSizeOperator();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaoperators.impl.LinkSourceOperatorImpl <em>Link Source Operator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaoperators.impl.LinkSourceOperatorImpl
+		 * @see qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl#getLinkSourceOperator()
+		 * @generated
+		 */
+		EClass LINK_SOURCE_OPERATOR = eINSTANCE.getLinkSourceOperator();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaoperators.impl.OneArgJavaListOperatorImpl <em>One Arg Java List Operator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaoperators.impl.OneArgJavaListOperatorImpl
+		 * @see qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl#getOneArgJavaListOperator()
+		 * @generated
+		 */
+		EClass ONE_ARG_JAVA_LIST_OPERATOR = eINSTANCE.getOneArgJavaListOperator();
+
+		/**
+		 * The meta object literal for the '<em><b>Text List Param</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ONE_ARG_JAVA_LIST_OPERATOR__TEXT_LIST_PARAM = eINSTANCE.getOneArgJavaListOperator_TextListParam();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaoperators.impl.OneArgJavaTwoNumberOperatorImpl <em>One Arg Java Two Number Operator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaoperators.impl.OneArgJavaTwoNumberOperatorImpl
+		 * @see qualitypatternmodel.javaoperators.impl.JavaoperatorsPackageImpl#getOneArgJavaTwoNumberOperator()
+		 * @generated
+		 */
+		EClass ONE_ARG_JAVA_TWO_NUMBER_OPERATOR = eINSTANCE.getOneArgJavaTwoNumberOperator();
+
+		/**
+		 * The meta object literal for the '<em><b>Number1</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__NUMBER1 = eINSTANCE.getOneArgJavaTwoNumberOperator_Number1();
+
+		/**
+		 * The meta object literal for the '<em><b>Number2</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__NUMBER2 = eINSTANCE.getOneArgJavaTwoNumberOperator_Number2();
 
 	}
 

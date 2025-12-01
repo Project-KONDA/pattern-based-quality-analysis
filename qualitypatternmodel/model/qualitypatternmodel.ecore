@@ -73,7 +73,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="oneArgJavaOperator" upperBound="-1"
           eType="#//javaoperators/OneArgJavaOperator" eOpposite="#//javaoperators/OneArgJavaOperator/option"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TextListParam" eSuperTypes="#//parameters/ListParam #//parameters/TextParam"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TextListParam" eSuperTypes="#//parameters/ListParam #//parameters/TextParam">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="javaListOperator" upperBound="-1"
+          eType="#//javaoperators/OneArgJavaListOperator" eOpposite="#//javaoperators/OneArgJavaListOperator/textListParam"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TextLiteralParam" eSuperTypes="#//parameters/ParameterValue #//parameters/TextParam">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -94,6 +97,10 @@
           eOpposite="#//patternstructure/NumberElement/numberParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="stringLength" upperBound="-1"
           eType="#//operators/StringLength" eOpposite="#//operators/StringLength/number"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="oneArgJavaTwoNumberOperator1"
+          upperBound="-1" eType="#//javaoperators/OneArgJavaTwoNumberOperator" eOpposite="#//javaoperators/OneArgJavaTwoNumberOperator/number1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="oneArgJavaTwoNumberOperator2"
+          upperBound="-1" eType="#//javaoperators/OneArgJavaTwoNumberOperator" eOpposite="#//javaoperators/OneArgJavaTwoNumberOperator/number2"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterValue" abstract="true" eSuperTypes="#//parameters/Parameter #//graphstructure/Comparable">
       <eOperations name="replace" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
@@ -1289,6 +1296,21 @@
           eOpposite="#//graphstructure/PrimitiveNode/twoArgJavaOperator2"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ValidateLinkOperator" eSuperTypes="#//javaoperators/OneArgJavaOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LinkMimeTypeOperator" eSuperTypes="#//javaoperators/OneArgJavaListOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LinkImageMinSizeOperator" eSuperTypes="#//javaoperators/OneArgJavaTwoNumberOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LinkSourceOperator" eSuperTypes="#//javaoperators/OneArgJavaListOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="OneArgJavaListOperator" abstract="true"
+        eSuperTypes="#//javaoperators/OneArgJavaOperator">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="textListParam" eType="#//parameters/TextListParam"
+          eOpposite="#//parameters/TextListParam/javaListOperator"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OneArgJavaTwoNumberOperator" abstract="true"
+        eSuperTypes="#//javaoperators/OneArgJavaOperator">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="number1" eType="#//parameters/NumberParam"
+          eOpposite="#//parameters/NumberParam/oneArgJavaTwoNumberOperator1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="number2" eType="#//parameters/NumberParam"
+          eOpposite="#//parameters/NumberParam/oneArgJavaTwoNumberOperator2"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="javaquery" nsURI="javaquery" nsPrefix="javaquery">
     <eClassifiers xsi:type="ecore:EClass" name="JavaFilter">

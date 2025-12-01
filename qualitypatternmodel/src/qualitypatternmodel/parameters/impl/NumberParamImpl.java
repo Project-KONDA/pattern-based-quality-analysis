@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
+import qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.parameters.NumberParam;
@@ -36,6 +38,8 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  *   <li>{@link qualitypatternmodel.parameters.impl.NumberParamImpl#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.NumberParamImpl#getNumberArgument <em>Number Argument</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.NumberParamImpl#getStringLength <em>String Length</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.NumberParamImpl#getOneArgJavaTwoNumberOperator1 <em>One Arg Java Two Number Operator1</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.NumberParamImpl#getOneArgJavaTwoNumberOperator2 <em>One Arg Java Two Number Operator2</em>}</li>
  * </ul>
  *
  * @generated
@@ -82,6 +86,26 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	 * @ordered
 	 */
 	protected EList<StringLength> stringLength;
+
+	/**
+	 * The cached value of the '{@link #getOneArgJavaTwoNumberOperator1() <em>One Arg Java Two Number Operator1</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOneArgJavaTwoNumberOperator1()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<OneArgJavaTwoNumberOperator> oneArgJavaTwoNumberOperator1;
+
+	/**
+	 * The cached value of the '{@link #getOneArgJavaTwoNumberOperator2() <em>One Arg Java Two Number Operator2</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOneArgJavaTwoNumberOperator2()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<OneArgJavaTwoNumberOperator> oneArgJavaTwoNumberOperator2;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -280,6 +304,32 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<OneArgJavaTwoNumberOperator> getOneArgJavaTwoNumberOperator1() {
+		if (oneArgJavaTwoNumberOperator1 == null) {
+			oneArgJavaTwoNumberOperator1 = new EObjectWithInverseResolvingEList<OneArgJavaTwoNumberOperator>(OneArgJavaTwoNumberOperator.class, this, ParametersPackage.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR1, JavaoperatorsPackage.ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__NUMBER1);
+		}
+		return oneArgJavaTwoNumberOperator1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<OneArgJavaTwoNumberOperator> getOneArgJavaTwoNumberOperator2() {
+		if (oneArgJavaTwoNumberOperator2 == null) {
+			oneArgJavaTwoNumberOperator2 = new EObjectWithInverseResolvingEList<OneArgJavaTwoNumberOperator>(OneArgJavaTwoNumberOperator.class, this, ParametersPackage.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR2, JavaoperatorsPackage.ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__NUMBER2);
+		}
+		return oneArgJavaTwoNumberOperator2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -309,6 +359,10 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 				return basicSetNumberArgument((NumberElement)otherEnd, msgs);
 			case ParametersPackage.NUMBER_PARAM__STRING_LENGTH:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getStringLength()).basicAdd(otherEnd, msgs);
+			case ParametersPackage.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR1:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOneArgJavaTwoNumberOperator1()).basicAdd(otherEnd, msgs);
+			case ParametersPackage.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR2:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOneArgJavaTwoNumberOperator2()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -325,6 +379,10 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 				return basicSetNumberArgument(null, msgs);
 			case ParametersPackage.NUMBER_PARAM__STRING_LENGTH:
 				return ((InternalEList<?>)getStringLength()).basicRemove(otherEnd, msgs);
+			case ParametersPackage.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR1:
+				return ((InternalEList<?>)getOneArgJavaTwoNumberOperator1()).basicRemove(otherEnd, msgs);
+			case ParametersPackage.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR2:
+				return ((InternalEList<?>)getOneArgJavaTwoNumberOperator2()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -344,6 +402,10 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 				return basicGetNumberArgument();
 			case ParametersPackage.NUMBER_PARAM__STRING_LENGTH:
 				return getStringLength();
+			case ParametersPackage.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR1:
+				return getOneArgJavaTwoNumberOperator1();
+			case ParametersPackage.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR2:
+				return getOneArgJavaTwoNumberOperator2();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -367,6 +429,14 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 				getStringLength().clear();
 				getStringLength().addAll((Collection<? extends StringLength>)newValue);
 				return;
+			case ParametersPackage.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR1:
+				getOneArgJavaTwoNumberOperator1().clear();
+				getOneArgJavaTwoNumberOperator1().addAll((Collection<? extends OneArgJavaTwoNumberOperator>)newValue);
+				return;
+			case ParametersPackage.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR2:
+				getOneArgJavaTwoNumberOperator2().clear();
+				getOneArgJavaTwoNumberOperator2().addAll((Collection<? extends OneArgJavaTwoNumberOperator>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -388,6 +458,12 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 			case ParametersPackage.NUMBER_PARAM__STRING_LENGTH:
 				getStringLength().clear();
 				return;
+			case ParametersPackage.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR1:
+				getOneArgJavaTwoNumberOperator1().clear();
+				return;
+			case ParametersPackage.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR2:
+				getOneArgJavaTwoNumberOperator2().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -406,6 +482,10 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 				return numberArgument != null;
 			case ParametersPackage.NUMBER_PARAM__STRING_LENGTH:
 				return stringLength != null && !stringLength.isEmpty();
+			case ParametersPackage.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR1:
+				return oneArgJavaTwoNumberOperator1 != null && !oneArgJavaTwoNumberOperator1.isEmpty();
+			case ParametersPackage.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR2:
+				return oneArgJavaTwoNumberOperator2 != null && !oneArgJavaTwoNumberOperator2.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -19,7 +19,12 @@ import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
 import qualitypatternmodel.javaoperators.JavaOperator;
 import qualitypatternmodel.javaoperators.JavaoperatorsFactory;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
+import qualitypatternmodel.javaoperators.LinkImageMinSizeOperator;
+import qualitypatternmodel.javaoperators.LinkMimeTypeOperator;
+import qualitypatternmodel.javaoperators.LinkSourceOperator;
+import qualitypatternmodel.javaoperators.OneArgJavaListOperator;
 import qualitypatternmodel.javaoperators.OneArgJavaOperator;
+import qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator;
 import qualitypatternmodel.javaoperators.TwoArgJavaOperator;
 import qualitypatternmodel.javaoperators.ValidateLinkOperator;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
@@ -69,6 +74,41 @@ public class JavaoperatorsPackageImpl extends EPackageImpl implements Javaoperat
 	 * @generated
 	 */
 	private EClass validateLinkOperatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass linkMimeTypeOperatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass linkImageMinSizeOperatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass linkSourceOperatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass oneArgJavaListOperatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass oneArgJavaTwoNumberOperatorEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -278,6 +318,86 @@ public class JavaoperatorsPackageImpl extends EPackageImpl implements Javaoperat
 	 * @generated
 	 */
 	@Override
+	public EClass getLinkMimeTypeOperator() {
+		return linkMimeTypeOperatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLinkImageMinSizeOperator() {
+		return linkImageMinSizeOperatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLinkSourceOperator() {
+		return linkSourceOperatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getOneArgJavaListOperator() {
+		return oneArgJavaListOperatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOneArgJavaListOperator_TextListParam() {
+		return (EReference)oneArgJavaListOperatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getOneArgJavaTwoNumberOperator() {
+		return oneArgJavaTwoNumberOperatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOneArgJavaTwoNumberOperator_Number1() {
+		return (EReference)oneArgJavaTwoNumberOperatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOneArgJavaTwoNumberOperator_Number2() {
+		return (EReference)oneArgJavaTwoNumberOperatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public JavaoperatorsFactory getJavaoperatorsFactory() {
 		return (JavaoperatorsFactory)getEFactoryInstance();
 	}
@@ -314,6 +434,19 @@ public class JavaoperatorsPackageImpl extends EPackageImpl implements Javaoperat
 		createEOperation(twoArgJavaOperatorEClass, TWO_ARG_JAVA_OPERATOR___APPLY__STRING_STRING);
 
 		validateLinkOperatorEClass = createEClass(VALIDATE_LINK_OPERATOR);
+
+		linkMimeTypeOperatorEClass = createEClass(LINK_MIME_TYPE_OPERATOR);
+
+		linkImageMinSizeOperatorEClass = createEClass(LINK_IMAGE_MIN_SIZE_OPERATOR);
+
+		linkSourceOperatorEClass = createEClass(LINK_SOURCE_OPERATOR);
+
+		oneArgJavaListOperatorEClass = createEClass(ONE_ARG_JAVA_LIST_OPERATOR);
+		createEReference(oneArgJavaListOperatorEClass, ONE_ARG_JAVA_LIST_OPERATOR__TEXT_LIST_PARAM);
+
+		oneArgJavaTwoNumberOperatorEClass = createEClass(ONE_ARG_JAVA_TWO_NUMBER_OPERATOR);
+		createEReference(oneArgJavaTwoNumberOperatorEClass, ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__NUMBER1);
+		createEReference(oneArgJavaTwoNumberOperatorEClass, ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__NUMBER2);
 	}
 
 	/**
@@ -353,6 +486,11 @@ public class JavaoperatorsPackageImpl extends EPackageImpl implements Javaoperat
 		oneArgJavaOperatorEClass.getESuperTypes().add(this.getJavaOperator());
 		twoArgJavaOperatorEClass.getESuperTypes().add(this.getJavaOperator());
 		validateLinkOperatorEClass.getESuperTypes().add(this.getOneArgJavaOperator());
+		linkMimeTypeOperatorEClass.getESuperTypes().add(this.getOneArgJavaListOperator());
+		linkImageMinSizeOperatorEClass.getESuperTypes().add(this.getOneArgJavaTwoNumberOperator());
+		linkSourceOperatorEClass.getESuperTypes().add(this.getOneArgJavaListOperator());
+		oneArgJavaListOperatorEClass.getESuperTypes().add(this.getOneArgJavaOperator());
+		oneArgJavaTwoNumberOperatorEClass.getESuperTypes().add(this.getOneArgJavaOperator());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(javaOperatorEClass, JavaOperator.class, "JavaOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -373,6 +511,19 @@ public class JavaoperatorsPackageImpl extends EPackageImpl implements Javaoperat
 		addEParameter(op, ecorePackage.getEString(), "param2", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(validateLinkOperatorEClass, ValidateLinkOperator.class, "ValidateLinkOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(linkMimeTypeOperatorEClass, LinkMimeTypeOperator.class, "LinkMimeTypeOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(linkImageMinSizeOperatorEClass, LinkImageMinSizeOperator.class, "LinkImageMinSizeOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(linkSourceOperatorEClass, LinkSourceOperator.class, "LinkSourceOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(oneArgJavaListOperatorEClass, OneArgJavaListOperator.class, "OneArgJavaListOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOneArgJavaListOperator_TextListParam(), theParametersPackage.getTextListParam(), theParametersPackage.getTextListParam_JavaListOperator(), "textListParam", null, 0, 1, OneArgJavaListOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(oneArgJavaTwoNumberOperatorEClass, OneArgJavaTwoNumberOperator.class, "OneArgJavaTwoNumberOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOneArgJavaTwoNumberOperator_Number1(), theParametersPackage.getNumberParam(), theParametersPackage.getNumberParam_OneArgJavaTwoNumberOperator1(), "number1", null, 0, 1, OneArgJavaTwoNumberOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOneArgJavaTwoNumberOperator_Number2(), theParametersPackage.getNumberParam(), theParametersPackage.getNumberParam_OneArgJavaTwoNumberOperator2(), "number2", null, 0, 1, OneArgJavaTwoNumberOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

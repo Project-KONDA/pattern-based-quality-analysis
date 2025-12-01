@@ -6,6 +6,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import qualitypatternmodel.javaoperators.*;
 import qualitypatternmodel.javaoperators.JavaOperator;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.OneArgJavaOperator;
@@ -86,6 +87,26 @@ public class JavaoperatorsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseValidateLinkOperator(ValidateLinkOperator object) {
 				return createValidateLinkOperatorAdapter();
+			}
+			@Override
+			public Adapter caseLinkMimeTypeOperator(LinkMimeTypeOperator object) {
+				return createLinkMimeTypeOperatorAdapter();
+			}
+			@Override
+			public Adapter caseLinkImageMinSizeOperator(LinkImageMinSizeOperator object) {
+				return createLinkImageMinSizeOperatorAdapter();
+			}
+			@Override
+			public Adapter caseLinkSourceOperator(LinkSourceOperator object) {
+				return createLinkSourceOperatorAdapter();
+			}
+			@Override
+			public Adapter caseOneArgJavaListOperator(OneArgJavaListOperator object) {
+				return createOneArgJavaListOperatorAdapter();
+			}
+			@Override
+			public Adapter caseOneArgJavaTwoNumberOperator(OneArgJavaTwoNumberOperator object) {
+				return createOneArgJavaTwoNumberOperatorAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -176,6 +197,76 @@ public class JavaoperatorsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createValidateLinkOperatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaoperators.LinkMimeTypeOperator <em>Link Mime Type Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.javaoperators.LinkMimeTypeOperator
+	 * @generated
+	 */
+	public Adapter createLinkMimeTypeOperatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaoperators.LinkImageMinSizeOperator <em>Link Image Min Size Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.javaoperators.LinkImageMinSizeOperator
+	 * @generated
+	 */
+	public Adapter createLinkImageMinSizeOperatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaoperators.LinkSourceOperator <em>Link Source Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.javaoperators.LinkSourceOperator
+	 * @generated
+	 */
+	public Adapter createLinkSourceOperatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaoperators.OneArgJavaListOperator <em>One Arg Java List Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.javaoperators.OneArgJavaListOperator
+	 * @generated
+	 */
+	public Adapter createOneArgJavaListOperatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator <em>One Arg Java Two Number Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator
+	 * @generated
+	 */
+	public Adapter createOneArgJavaTwoNumberOperatorAdapter() {
 		return null;
 	}
 
