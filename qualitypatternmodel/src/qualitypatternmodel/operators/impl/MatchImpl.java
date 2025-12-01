@@ -36,8 +36,9 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.ConstantsError;
+import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.ConstantsNeo;
-import qualitypatternmodel.utility.XmlServletUtility;
+import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -715,7 +716,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		switch (lang) {
 		case XML:
 			String query = "matches(\'" + teststring + "\', \'" + regex + "\')";
-			return XmlServletUtility.executeXQueryJava(query).get(0);
+			return XmlServletUtility.executeQuery(query).getJSONObject(0).getString(ConstantsJSON.RESULT_SNIPPET);
 		case RDF:
 		case NEO4J:
 		default:

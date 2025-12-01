@@ -150,7 +150,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		} else if (!conditionJava) {
 			return graphString;
 		} else {
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString, conditionString), "condition", false, true, false);
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(graphString, conditionString), "condition", false);
 		}
 	}
 

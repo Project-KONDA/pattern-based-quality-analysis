@@ -87,7 +87,7 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		if (!getTarget().containsJavaOperator()) {
 			String query = generateXQuery2() + "(true())\n";
 			query = query.indent(2);
-			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(query), BOOLEAN, false, false, true);
+			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(query), BOOLEAN, false);
 		}
 
 		String variable = generateNextXQueryVariable();
@@ -126,10 +126,11 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		}
 
 		String query1 = ConstantsXml.FOR + variable + ConstantsXml.IN + path + predicates;
-		String query2 = ConstantsXml.RETURN + variable;
+		String variable2 = JavaQueryTranslationUtility.encloseXQueryTag("{" + variable + "}", VALUE);
+		String query2 = ConstantsXml.RETURN + variable2;
 		String query = query1 + query2;
 		query = query.indent(2);
-		query = JavaQueryTranslationUtility.getXQueryReturnList(List.of(query), VALUE, false, false, true);
+//		query = JavaQueryTranslationUtility.getXQueryReturnList(List.of(query), VALUE, false);
 //		query = "\n  " + VALUESTART +",\n  (" + query + "  ),\n  "+ VALUEEND; // + "\n  ";
 
 		return query;

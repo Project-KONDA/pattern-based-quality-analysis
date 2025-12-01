@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.json.JSONArray;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -18,7 +19,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 public class JavaFilterCompleteTest {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		List<List<String>> results = new ArrayList<List<String>>();
+		List<JSONArray> results = new ArrayList<JSONArray>();
 		List<Boolean> valid = new ArrayList<Boolean>();
 		List<CompletePattern> patterns = OneArgTestPatterns.getXmlTestPatterns();
 		List<JavaFilter> filters = new ArrayList<JavaFilter>();
@@ -44,7 +45,7 @@ public class JavaFilterCompleteTest {
 			filters.add(filter);
 			try {
 				// Query Results
-				List<String> list = filter.executeXQueryJava(DEMO_DATA_PATH);
+				JSONArray list = filter.executeXQueryJava(DEMO_DATA_PATH);
 				if (queryResult) {
 					System.out.println("QUERY RESULTS");
 					System.out.println(list);
@@ -87,7 +88,7 @@ public class JavaFilterCompleteTest {
 
 				if (fits) {
 					try {
-						List<String> result = filter.filterQueryResults();
+						JSONArray result = filter.filterQueryResults();
 						results.add(result);
 						System.out.println("results : " + !result.isEmpty());
 					} catch (Exception e) {
@@ -116,11 +117,11 @@ public class JavaFilterCompleteTest {
 		}
 	}
 
-	public List<String> executeJavaPattern(CompletePattern pattern, String database_path) throws InvalidityException {
+	public JSONArray executeJavaPattern(CompletePattern pattern, String database_path) throws InvalidityException {
 		JavaFilter filter = pattern.generateQueryFilter();
-		List<String> list = filter.executeXQueryJava(database_path);
+		JSONArray list = filter.executeXQueryJava(database_path);
 		filter.createInterimResultContainerXQuery(list);
-		List<String> results = filter.filterQueryResults();
+		JSONArray results = filter.filterQueryResults();
 		return results;
 	}
 

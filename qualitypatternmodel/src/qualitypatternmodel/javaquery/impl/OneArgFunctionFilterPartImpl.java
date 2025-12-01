@@ -110,7 +110,7 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	@Override
 	public Boolean apply(InterimResult parameter) {
 		assert(parameter instanceof ValueResult);
-		String value = ((ValueResult) parameter).getValue();
+		String value = ((ValueResult) parameter).getValue();		
 		OneArgJavaOperatorImpl functionClass = OneArgJavaOperatorImpl.getOneInstanceOf(functionclassname, negate);
 		boolean result = functionClass.apply(value);
 		return result; 

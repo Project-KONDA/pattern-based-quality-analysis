@@ -139,13 +139,13 @@ public class EMFModelLoad {
 			
 			File jsonfile = new File(jsonfolder + "/" + jsonfilename);
 			if (jsonfile.exists()) {
-				JSONObject json = EMFModelLoad.loadJson(jsonfolder + "/" + jsonfilename);
+				JSONObject json = Util.loadJson(jsonfolder + "/" + jsonfilename);
 				patternjsons.add(json);
 			} else {
 				try {
 					CompletePattern pattern = loadCompletePattern(folder + "/" + patternfilename);
 					JSONObject json = ServletUtilities.getPatternJSON(pattern);
-					EMFModelSave.exportJson(json, jsonfolder + "/" + jsonfilename);
+					Util.exportJson(json, jsonfolder + "/" + jsonfilename);
 					patternjsons.add(json);
 				} catch (Exception e) {
 					System.out.println("Failed to load pattern: " + folder + "/" + patternfilename);
@@ -170,10 +170,4 @@ public class EMFModelLoad {
             return new BasicEList<>();  // Return an empty list in case of an error
         }
     }
-
-	public static JSONObject loadJson(String filepath) throws IOException {
-        String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
-        JSONObject jsonObject = new JSONObject(jsonString);
-        return jsonObject;
-	}
 }

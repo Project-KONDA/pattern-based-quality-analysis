@@ -146,7 +146,7 @@ public class APICallTests {
 
 	// __________ BASE FUNCTIONS __________
 
-	static Map<String, String[]> getEmptyParams() {
+	public static Map<String, String[]> getEmptyParams() {
 		return new HashMap<String, String[]>();
 	}
 
@@ -155,7 +155,7 @@ public class APICallTests {
 		return newConstraint("Match_xml", "default-constraint");
 	}
 
-	static String newConstraint(String pattern, String variant)
+	public static String newConstraint(String pattern, String variant)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject ob = TemplateInstantiateServlet.applyPut("/xml/" + pattern + "/" + variant,
 				getEmptyParams());
@@ -169,6 +169,13 @@ public class APICallTests {
 	static JSONObject getConstraint(String id)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		return ConstraintServlet.applyGet("/xml/" + id, getEmptyParams());
+	}
+
+	static JSONObject getConstraints(String[] ids)
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		Map<String, String[]> params = getEmptyParams();
+		params.put(ConstantsJSON.CONSTRAINT_IDS, ids);
+		return ConstraintServlet.applyGet2("/xml", params);
 	}
 
 	static void deleteConstraint(String id)
@@ -321,6 +328,8 @@ public class APICallTests {
 
 		JSONObject constraint = getConstraint(constriantID);
 		assertPatternJSONObject(constraint);
+		JSONObject constraint2 = getConstraints(new String[]{constriantID});
+		assertPatternJSONObject(constraint2.getJSONObject(constriantID));
 		deleteConstraint(constriantID);
 		assertThrows(FailedServletCallException.class, () -> {
 			getConstraint(constriantID);

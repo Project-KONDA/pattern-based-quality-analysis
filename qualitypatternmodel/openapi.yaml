@@ -302,6 +302,49 @@ paths:
         '500':
           description: Internal server error
 
+   /constraint/{technology}:
+    description: request, update or delete a specific constraint
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: constraintIDs
+        in: query
+        description: array of identifiers of constraints
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+
+    get:
+      tags:
+        - Constraint
+        - Request
+      summary: Requests information of an array of specific constraints
+      description: Requests information of an array of specific constraints
+      operationId: constraints
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pattern'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+
 
    /template/instantiate/{technology}/{templateID}/{variantID}:
     description: instantiate a constraint from a template
@@ -1017,7 +1060,7 @@ paths:
           in: query
           description: compiled constraints for quality analysis. will be combined with constraints specified in constraintIDs parameter
           required: true
-          style: deepObject
+          style: form
           explode: true
           schema:
             type: array
@@ -1095,7 +1138,7 @@ paths:
           in: query
           description: specification of new variant(s)
           required: true
-          style: deepObject
+          style: form
           explode: true
           schema:
             type: array
@@ -1130,7 +1173,7 @@ paths:
           in: query
           description: specification of variant name(s) to delete
           required: true
-          style: deepObject
+          style: form
           explode: true
           schema:
             type: string
@@ -1597,7 +1640,20 @@ components:
                 description: list of found incidents of the constraint in the file
                 type: array
                 items:
-                  type: string
+                  type: object
+                  properties:
+                    snippet:
+                      description: xml-snippet
+                      type: string
+                    startline:
+                      description: linenumber of the start of the snippet in current file
+                      type: integer
+                    endline:
+                      description: linenumber of the end of the snippet in current file
+                      type: integer
+                    linesize:
+                      description: numbers of lines of the current snippet
+                      type: integer
               totalFindings:
                 description: amount of total analysed findings in the file
                 type: integer

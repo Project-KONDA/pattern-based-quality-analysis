@@ -260,7 +260,7 @@ public class APITemplateTests {
 				Map.of(
 						"XmlPath_Element_0", "//*",
 //						"Boolean_2", "is",						
-						"XmlPath_Property_1", "/text()"
+						"XmlPath_Property_1", "/*/text()"
 						));
 	}
 

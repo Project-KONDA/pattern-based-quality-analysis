@@ -5,7 +5,6 @@ package qualitypatternmodel.javaqueryoutput.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
@@ -56,6 +55,12 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	public ValueResultImpl(String input) {
 		super();
 		value = input;
+	}
+
+	public ValueResultImpl(InterimResultPart interimResultPart, String interimArray) throws InvalidityException {
+		super();
+		setCorresponding(interimResultPart);
+		value = interimArray;
 	}
 
 	@Override
@@ -174,7 +179,7 @@ public class ValueResultImpl extends InterimResultImpl implements ValueResult {
 	 */
 	@Override
 	public String toString() {
-		String val = value.replace("\r\n", " ");
+		String val = value.toString().replace("\r\n", " ");
 		int max = 100;
 		if (val.length() > max) {
 			val = val.substring(0, max - 10) + " ...";
