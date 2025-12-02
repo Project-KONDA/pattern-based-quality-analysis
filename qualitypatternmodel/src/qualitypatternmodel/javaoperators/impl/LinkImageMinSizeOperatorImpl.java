@@ -72,6 +72,15 @@ public class LinkImageMinSizeOperatorImpl extends OneArgJavaTwoNumberOperatorImp
 		} else {
 			res += "[no node] ";
 		}
+		if (getNumber1() == null)
+			res += "( no num1";
+		else 
+			res += "( num " + getNumber1().getInternalId();
+
+		if (getNumber2() == null)
+			res += " x no num2 )";
+		else 
+			res += " x num" + getNumber2().getInternalId() + " )";
 		return res;
 	}
 

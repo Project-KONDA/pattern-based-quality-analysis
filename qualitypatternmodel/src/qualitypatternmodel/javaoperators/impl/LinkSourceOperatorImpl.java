@@ -74,6 +74,11 @@ public class LinkSourceOperatorImpl extends OneArgJavaListOperatorImpl implement
 		} else {
 			res += "[no node] ";
 		}
+		if (getTextListParam() != null) {
+			res += "[list " + getTextListParam().getInternalId() + "]";
+		} else {
+			res += "[no list] ";
+		}
 		return res;
 	}
 

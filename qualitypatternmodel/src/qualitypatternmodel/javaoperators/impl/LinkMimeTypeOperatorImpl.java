@@ -33,7 +33,7 @@ public class LinkMimeTypeOperatorImpl extends OneArgJavaListOperatorImpl impleme
 			return negate;
 		EList<String> types = getTextListParam().getValues();
 		for (String type: types)
-			if (mime.startsWith(type))
+			if (type.length()>1 && mime.startsWith(type))
 				return !negate;
 		return negate;
 	}
@@ -65,6 +65,11 @@ public class LinkMimeTypeOperatorImpl extends OneArgJavaListOperatorImpl impleme
 			res += "[node " + getPrimitiveNode().getInternalId() + "]";
 		} else {
 			res += "[no node] ";
+		}
+		if (getTextListParam() != null) {
+			res += "[list " + getTextListParam().getInternalId() + "]";
+		} else {
+			res += "[no list] ";
 		}
 		return res;
 	}
