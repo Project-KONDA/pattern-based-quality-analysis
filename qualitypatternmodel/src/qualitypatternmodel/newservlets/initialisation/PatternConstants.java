@@ -197,4 +197,40 @@ public class PatternConstants {
 	public static String VALIDLINKSIN_ID = "ValidLinkSin";
 	public static String VALIDLINKSIN_NAME = "Valid Link (Single)";
 	public static String VALIDLINKSIN_DESCR = "Check whether a field is an valid link.";
+	
+	public static final String LINKSOURCE_ID = "LinkSource";
+	public static final String LINKSOURCE_NAME = "LinkSource";
+	public static final String LINKSOURCE_DESCR = "LinkSource";
+
+	public static final String LINKSOURCEISO_ID = "LinkSourceIso";
+	public static final String LINKSOURCEISO_NAME = "LinkSourceIso";
+	public static final String LINKSOURCEISO_DESCR = "LinkSourceIso";
+	
+	public static final String LINKSOURCESIN_ID = "LinkSourceSin";
+	public static final String LINKSOURCESIN_NAME = "LinkSourceSin";
+	public static final String LINKSOURCESIN_DESCR = "LinkSourceSin";
+
+	public static String LINKMIMETYPE_ID = "LinkMimeType";
+	public static String LINKMIMETYPE_NAME = "LinkMimeType";
+	public static String LINKMIMETYPE_DESCR = "LinkMimeType";
+	
+	public static String LINKMIMETYPEISO_ID = "LinkMimeTypeIso";
+	public static String LINKMIMETYPEISO_NAME = "LinkMimeTypeIso";
+	public static String LINKMIMETYPEISO_DESCR = "LinkMimeTypeIso";
+
+	public static String LINKMIMETYPESIN_ID = "LinkMimeTypeSin";
+	public static String LINKMIMETYPESIN_NAME = "LinkMimeTypeSin";
+	public static String LINKMIMETYPESIN_DESCR = "LinkMimeTypeSin";
+
+	public static String LINKIMAGESIZE_ID = "LinkImageSize";
+	public static String LINKIMAGESIZE_NAME = "LinkImageSize";
+	public static String LINKIMAGESIZE_DESCR = "LinkImageSize";
+
+	public static String LINKIMAGESIZEISO_ID = "LinkImageSizeIso";
+	public static String LINKIMAGESIZEISO_NAME = "LinkImageSizeIso";
+	public static String LINKIMAGESIZEISO_DESCR = "LinkImageSizeIso";
+
+	public static String LINKIMAGESIZESIN_ID = "LinkImageSizeSin";
+	public static String LINKIMAGESIZESIN_NAME = "LinkImageSizeSin";
+	public static String LINKIMAGESIZESIN_DESCR = "LinkImageSizeSin";
 }

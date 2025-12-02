@@ -39,10 +39,18 @@ public class PatternCollection {
 		classes.add(DupvalPattern.class);
 		classes.add(LocalUniquePattern.class);
 		// link
-		classes.add(CheckFormatPattern.class);
 		classes.add(ValidLinkIsoPattern.class);
 		classes.add(ValidLinkSinPattern.class);
 		classes.add(ValidLinkPattern.class);
+		classes.add(LinkImageSizeIsoPattern.class);
+		classes.add(LinkImageSizeSinPattern.class);
+		classes.add(LinkImageSizePattern.class);
+		classes.add(LinkSourceIsoPattern.class);
+		classes.add(LinkSourceSinPattern.class);
+		classes.add(LinkSourcePattern.class);
+		classes.add(LinkMimeTypeIsoPattern.class);
+		classes.add(LinkMimeTypeSinPattern.class);
+		classes.add(LinkMimeTypePattern.class);
 		// mand
 		classes.add(CardImpliesMandAttPattern.class);
 		classes.add(MandAttPattern.class);
