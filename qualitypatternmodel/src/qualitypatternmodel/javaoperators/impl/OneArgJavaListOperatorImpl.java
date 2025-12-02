@@ -4,17 +4,25 @@ package qualitypatternmodel.javaoperators.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.OneArgJavaListOperator;
-
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.impl.BooleanParamImpl;
+import qualitypatternmodel.parameters.impl.TextListParamImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,6 +55,36 @@ public abstract class OneArgJavaListOperatorImpl extends OneArgJavaOperatorImpl 
 	 */
 	protected OneArgJavaListOperatorImpl() {
 		super();
+	}
+
+	@Override
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		super.isValid(abstractionLevel);
+		textListParam.isValid(abstractionLevel);
+	}
+
+	@Override
+	public EList<Comparable> getArguments(){
+		EList<Comparable> list = super.getArguments();
+		list.add(textListParam);
+		return list;
+	}
+
+	@Override
+	public void createParameters() {
+		ParameterList parameterList = getParameterList();
+		if(parameterList != null) {
+			if(getOption() == null) {
+				BooleanParam bool = new BooleanParamImpl();
+				setOption(bool);
+			}
+			parameterList.add(getOption());
+			if(getTextListParam() == null) {
+				TextListParam textLiteral = new TextListParamImpl();
+				setTextListParam(textLiteral);
+			}
+			parameterList.add(getTextListParam());
+		}
 	}
 
 	/**

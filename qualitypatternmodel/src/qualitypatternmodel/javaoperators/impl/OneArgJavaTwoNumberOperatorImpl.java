@@ -4,14 +4,25 @@ package qualitypatternmodel.javaoperators.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator;
+import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.impl.BooleanParamImpl;
+import qualitypatternmodel.parameters.impl.NumberParamImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,6 +66,44 @@ public abstract class OneArgJavaTwoNumberOperatorImpl extends OneArgJavaOperator
 	protected OneArgJavaTwoNumberOperatorImpl() {
 		super();
 	}
+
+	@Override
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		super.isValid(abstractionLevel);
+		number1.isValid(abstractionLevel);
+		number2.isValid(abstractionLevel);
+	}
+
+	@Override
+	public EList<Comparable> getArguments(){
+		EList<Comparable> list = super.getArguments();
+		list.add(number1);
+		list.add(number2);
+		return list;
+	}
+
+	@Override
+	public void createParameters() {
+		ParameterList parameterList = getParameterList();
+		if(parameterList != null) {
+			if(getOption() == null) {
+				BooleanParam bool = new BooleanParamImpl();
+				setOption(bool);
+			}
+			parameterList.add(getOption());
+			if(getNumber1() == null) {
+				NumberParam num = new NumberParamImpl();
+				setNumber1(num);
+			}
+			parameterList.add(getNumber1());
+			if(getNumber2() == null) {
+				NumberParam num = new NumberParamImpl();
+				setNumber2(num);
+			}
+			parameterList.add(getNumber2());
+		}
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -27,11 +27,15 @@ public class LinkMimeTypeOperatorImpl extends OneArgJavaListOperatorImpl impleme
 
 	@Override
 	public Boolean apply(String param1) {
+		Boolean negate = getOption().getValue();
 		String mime = LinkOperatorUtil.getMimeType(param1, "GET");
 		if (mime == null)
-			return false;
+			return negate;
 		EList<String> types = getTextListParam().getValues();
-		return types.contains(mime);
+		for (String type: types)
+			if (mime.startsWith(type))
+				return !negate;
+		return negate;
 	}
 
 	/**

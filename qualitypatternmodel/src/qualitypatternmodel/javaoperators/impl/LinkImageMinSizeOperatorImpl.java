@@ -27,19 +27,21 @@ public class LinkImageMinSizeOperatorImpl extends OneArgJavaTwoNumberOperatorImp
 
 	@Override
 	public Boolean apply(String param1) {
+		Boolean negate = getOption().getValue();
 		double width = getNumber1().getValue();
 		double height = getNumber2().getValue();
 		Pair<Integer, Integer> size = LinkOperatorUtil.getImageSize(param1, "GET");
+
 		if (size == null || size.getLeft() == null || size.getRight() == null) 
-			return false;
-		
+			return negate;
+
 		double min = (width + height - Math.abs(width - height)) / 2;
 		double max = (width + height + Math.abs(width - height)) / 2;
-		
 		int min2 = (size.getLeft() + size.getRight() - Math.abs(size.getLeft() - size.getRight())) / 2;
 		int max2 = (size.getLeft() + size.getRight() + Math.abs(size.getLeft() - size.getRight())) / 2;
-				
-		return min <= min2 && max <= max2;
+
+		Boolean result = min <= min2 && max <= max2; 
+		return result != negate;
 	}
 
 	/**

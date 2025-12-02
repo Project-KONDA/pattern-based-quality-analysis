@@ -42,7 +42,6 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.javaoperators.JavaoperatorsFactory;
 import qualitypatternmodel.javaoperators.ValidateLinkOperator;
-import qualitypatternmodel.javaoperators.impl.ValidateLinkOperatorImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
