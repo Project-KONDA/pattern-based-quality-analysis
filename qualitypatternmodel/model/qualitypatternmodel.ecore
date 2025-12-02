@@ -398,6 +398,9 @@
         <eParameters name="isNull" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
       </eOperations>
       <eOperations name="addPrimitiveValidateLink" eType="#//javaoperators/ValidateLinkOperator"/>
+      <eOperations name="addPrimitiveLinkSource" eType="#//javaoperators/LinkSourceOperator"/>
+      <eOperations name="addPrimitiveLinkMimeType" eType="#//javaoperators/LinkMimeTypeOperator"/>
+      <eOperations name="addPrimitiveLinkImageSize" eType="#//javaoperators/LinkImageMinSizeOperator"/>
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="comp" eType="#//operators/Comparison"/>

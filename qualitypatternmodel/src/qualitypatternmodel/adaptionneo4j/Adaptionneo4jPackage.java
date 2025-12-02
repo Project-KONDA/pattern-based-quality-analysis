@@ -822,6 +822,33 @@ public interface Adaptionneo4jPackage extends EPackage {
 	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_VALIDATE_LINK = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_VALIDATE_LINK;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Link Source</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_LINK_SOURCE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_LINK_SOURCE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Link Mime Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_LINK_MIME_TYPE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_LINK_MIME_TYPE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Link Image Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ELEMENT_NODE___ADD_PRIMITIVE_LINK_IMAGE_SIZE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_LINK_IMAGE_SIZE;
+
+	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3949,6 +3976,33 @@ public interface Adaptionneo4jPackage extends EPackage {
 	 * @ordered
 	 */
 	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_VALIDATE_LINK = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_VALIDATE_LINK;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Link Source</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_LINK_SOURCE = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_LINK_SOURCE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Link Mime Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_LINK_MIME_TYPE = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_LINK_MIME_TYPE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Link Image Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_NODE___ADD_PRIMITIVE_LINK_IMAGE_SIZE = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_LINK_IMAGE_SIZE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.

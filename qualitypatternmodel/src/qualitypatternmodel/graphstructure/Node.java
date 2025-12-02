@@ -11,6 +11,9 @@ import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.javaoperators.LinkImageMinSizeOperator;
+import qualitypatternmodel.javaoperators.LinkMimeTypeOperator;
+import qualitypatternmodel.javaoperators.LinkSourceOperator;
 import qualitypatternmodel.javaoperators.ValidateLinkOperator;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
@@ -520,6 +523,30 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @generated
 	 */
 	ValidateLinkOperator addPrimitiveValidateLink();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	LinkSourceOperator addPrimitiveLinkSource();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	LinkMimeTypeOperator addPrimitiveLinkMimeType();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	LinkImageMinSizeOperator addPrimitiveLinkImageSize();
 
 	/**
 	 * <!-- begin-user-doc -->

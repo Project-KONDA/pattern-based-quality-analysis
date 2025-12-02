@@ -5,8 +5,6 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.javaoperators.JavaoperatorsFactory;
-import qualitypatternmodel.javaoperators.LinkImageMinSizeOperator;
 import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.patternstructure.CompletePattern;

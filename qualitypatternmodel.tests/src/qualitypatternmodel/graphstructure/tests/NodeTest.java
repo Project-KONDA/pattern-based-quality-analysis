@@ -37,6 +37,9 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck() <em>Add Primitive Null Check</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveNullCheck(java.lang.Boolean) <em>Add Primitive Null Check</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveValidateLink() <em>Add Primitive Validate Link</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveLinkSource() <em>Add Primitive Link Source</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveLinkMimeType() <em>Add Primitive Link Mime Type</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveLinkImageSize() <em>Add Primitive Link Image Size</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#checkGeneric() <em>Check Generic</em>}</li>
@@ -387,6 +390,45 @@ public class NodeTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testAddPrimitiveValidateLink() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveLinkSource() <em>Add Primitive Link Source</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveLinkSource()
+	 * @generated
+	 */
+	public void testAddPrimitiveLinkSource() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveLinkMimeType() <em>Add Primitive Link Mime Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveLinkMimeType()
+	 * @generated
+	 */
+	public void testAddPrimitiveLinkMimeType() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveLinkImageSize() <em>Add Primitive Link Image Size</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveLinkImageSize()
+	 * @generated
+	 */
+	public void testAddPrimitiveLinkImageSize() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
