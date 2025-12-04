@@ -16,6 +16,8 @@ import qualitypatternmodel.newservlets.patterns.string.*;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class PatternCollection {
+	
+	static boolean tryall = true;
 
 
 	public static List<Class<? extends PatternClass>> getPatternClasses() {
@@ -105,7 +107,7 @@ public class PatternCollection {
 		for (Class<? extends PatternClass> clazz: getPatternClasses()) {
 			try {
 				PatternClass patternClass = clazz.getDeclaredConstructor().newInstance();
-				CompletePattern pattern = patternClass.getPattern(); 
+				CompletePattern pattern = patternClass.getGenericPattern(); 
 				if (pattern != null)
 					patterns.add(pattern);
 			} catch (Exception e) {
@@ -165,7 +167,7 @@ public class PatternCollection {
 			try {
 				PatternClass patternClass = clazz.getDeclaredConstructor().newInstance();
 				id = patternClass.id;
-				if (patternClass.xmlValid) {
+				if (tryall || patternClass.xmlValid) {
 					PatternBundle patternbundle = patternClass.getXmlBundle(); 
 					if (patternbundle != null)
 						patternbundles.add(patternbundle);
@@ -186,14 +188,14 @@ public class PatternCollection {
 			try {
 				PatternClass patternClass = clazz.getDeclaredConstructor().newInstance();
 				id = patternClass.id;
-				if (patternClass.rdfValid) {
+				if (tryall || patternClass.rdfValid) {
 					PatternBundle patternbundle = patternClass.getRdfBundle(); 
 					if (patternbundle != null)
 						patternbundles.add(patternbundle);
 					else throw new RuntimeException("RDF Patternbundle Null for Class " + id);
 				}
 			} catch (Exception e) {
-				throw new InvalidityException("Exception when compiling RDF PatternBundle for Class " + id);
+				ServletUtilities.logError(new InvalidityException("Exception when compiling RDF PatternBundle for Class " + id));
 			}
 		}
 		return patternbundles;
@@ -207,14 +209,14 @@ public class PatternCollection {
 			try {
 				PatternClass patternClass = clazz.getDeclaredConstructor().newInstance();
 				id = patternClass.id;
-				if (patternClass.neoValid) {
+				if (tryall || patternClass.neoValid) {
 					PatternBundle patternbundle = patternClass.getNeoBundle(); 
 					if (patternbundle != null)
 						patternbundles.add(patternbundle);
 					else throw new RuntimeException("NEO Patternbundle Null for Class " + id);
 				}
 			} catch (Exception e) {
-				throw new InvalidityException("Exception when compiling NEO PatternBundle for Class " + id);
+				ServletUtilities.logError(new InvalidityException("Exception when compiling NEO PatternBundle for Class " + id));
 			}
 		}
 		return patternbundles;
