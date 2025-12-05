@@ -16,13 +16,14 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.OneArgJavaListOperator;
-import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,33 +59,63 @@ public abstract class OneArgJavaListOperatorImpl extends OneArgJavaOperatorImpl 
 	}
 
 	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+//		OneArgListFunctionFilterPart filterPart = new OneArgListFunctionFilterPartImpl(this.getClass(), getOption().getValue());
+//		return filterPart;
+		return null;
+	}
+
+	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
 		textListParam.isValid(abstractionLevel);
 	}
 
+    public static OneArgJavaOperatorImpl getOneInstanceOf(String subclassname, EList<String> list, boolean negate) {
+    	return null;
+    }
+
 	@Override
-	public EList<Comparable> getArguments(){
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		if (textListParam == null) {
+			throw new InvalidityException("textlist null");
+		}
+		super.isValidLocal(abstractionLevel);
+	}
+
+	@Override
+	public EList<Parameter> getAllParameters() throws InvalidityException {
+		EList<Parameter> res = super.getAllParameters();
+		res.add(textListParam);
+		return res;
+	}
+
+	@Override
+	public EList<Comparable> getArguments() {
 		EList<Comparable> list = super.getArguments();
-		list.add(textListParam);
+		list.add(getTextListParam());
 		return list;
 	}
 
 	@Override
 	public void createParameters() {
+		super.createParameters();
 		ParameterList parameterList = getParameterList();
 		if(parameterList != null) {
-			if(getOption() == null) {
-				BooleanParam bool = new BooleanParamImpl();
-				setOption(bool);
-			}
-			parameterList.add(getOption());
 			if(getTextListParam() == null) {
 				TextListParam textLiteral = new TextListParamImpl();
 				setTextListParam(textLiteral);
 			}
 			parameterList.add(getTextListParam());
 		}
+	}
+
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = super.prepareParameterUpdates();
+		patternElements.add(getTextListParam());
+		setTextListParam(null);
+		return patternElements;
 	}
 
 	/**
@@ -127,10 +158,17 @@ public abstract class OneArgJavaListOperatorImpl extends OneArgJavaOperatorImpl 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetTextListParam(TextListParam newTextListParam, NotificationChain msgs) {
 		TextListParam oldTextListParam = textListParam;
+
+		ParameterList varlist = getParameterList();
+		if (varlist != null) {
+			varlist.remove(oldTextListParam);
+			varlist.add(newTextListParam);
+		}
+
 		textListParam = newTextListParam;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaoperatorsPackage.ONE_ARG_JAVA_LIST_OPERATOR__TEXT_LIST_PARAM, oldTextListParam, newTextListParam);

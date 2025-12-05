@@ -169,6 +169,19 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 		}
 	}
 
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(getOption());
+		setOption(null);
+		return patternElements;
+	}
+
+	@Override
+	public EList<Node> getAllArgumentElements() {
+		return primitiveNode.getAllArgumentElements();
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -301,7 +314,6 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 		}
 
 		option = newOption;
-		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION, oldOption, newOption);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -337,19 +349,6 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	@Override
 	public Node getElement() {
 		return getPrimitiveNode();
-	}
-
-	@Override
-	public EList<PatternElement> prepareParameterUpdates() {
-		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
-		patternElements.add(getOption());
-		setOption(null);
-		return patternElements;
-	}
-
-	@Override
-	public EList<Node> getAllArgumentElements() {
-		return primitiveNode.getAllArgumentElements();
 	}
 	/**
 	 * <!-- begin-user-doc -->

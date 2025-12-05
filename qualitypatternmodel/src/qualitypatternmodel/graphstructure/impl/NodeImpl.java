@@ -2146,14 +2146,14 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 
-			oplist.add(linkvalidation);
-			linkvalidation.createParameters();
 			PrimitiveNode p = null;
 			if(this instanceof PrimitiveNode) {
 				p = (PrimitiveNode) this;
 			} else {
 				p = makePrimitive();
 			}
+			linkvalidation.setOperatorList(oplist);
+			linkvalidation.createParameters();
 			linkvalidation.setPrimitiveNode(p);
 			return linkvalidation;
 		} catch (Exception e) {
@@ -2170,21 +2170,21 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public LinkSourceOperator addPrimitiveLinkSource() {
-		LinkSourceOperator linkvalidation = JavaoperatorsFactory.eINSTANCE.createLinkSourceOperator();
+		LinkSourceOperator linksource = JavaoperatorsFactory.eINSTANCE.createLinkSourceOperator();
 		try {
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 
-			oplist.add(linkvalidation);
-			linkvalidation.createParameters();
 			PrimitiveNode p = null;
 			if(this instanceof PrimitiveNode) {
 				p = (PrimitiveNode) this;
 			} else {
 				p = makePrimitive();
 			}
-			linkvalidation.setPrimitiveNode(p);
-			return linkvalidation;
+			linksource.setPrimitiveNode(p);
+			linksource.setOperatorList(oplist);
+			linksource.createParameters();
+			return linksource;
 		} catch (Exception e) {
 			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
 			e.printStackTrace();
@@ -2204,8 +2204,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 
-			oplist.add(linkmime);
-			linkmime.createParameters();
 			PrimitiveNode p = null;
 			if(this instanceof PrimitiveNode) {
 				p = (PrimitiveNode) this;
@@ -2213,6 +2211,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				p = makePrimitive();
 			}
 			linkmime.setPrimitiveNode(p);
+			linkmime.setOperatorList(oplist);
+			linkmime.createParameters();
 			return linkmime;
 		} catch (Exception e) {
 			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
@@ -2233,8 +2233,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 
-			oplist.add(linkimagesize);
-			linkimagesize.createParameters();
 			PrimitiveNode p = null;
 			if(this instanceof PrimitiveNode) {
 				p = (PrimitiveNode) this;
@@ -2242,6 +2240,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				p = makePrimitive();
 			}
 			linkimagesize.setPrimitiveNode(p);
+			linkimagesize.setOperatorList(oplist);
+			linkimagesize.createParameters();
 			return linkimagesize;
 		} catch (Exception e) {
 			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());

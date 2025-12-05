@@ -16,13 +16,14 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator;
-import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.javaquery.JavaFilterPart;
 import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.NumberParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,10 +69,40 @@ public abstract class OneArgJavaTwoNumberOperatorImpl extends OneArgJavaOperator
 	}
 
 	@Override
+	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
+//		OneArgTwoNumberFunctionFilterPart filterPart = new OneArgTwoNumberFunctionFilterPartImpl(this.getClass(), getOption().getValue());
+//		return filterPart;
+    	return null;
+	}
+
+	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
 		number1.isValid(abstractionLevel);
 		number2.isValid(abstractionLevel);
+	}
+
+    public static OneArgJavaOperatorImpl getOneInstanceOf(String subclassname, Double num1, Double num2, boolean negate) {
+    	return null;
+    }
+
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		if (number1 == null) {
+			throw new InvalidityException("number1 null");
+		}
+		if (number2 == null) {
+			throw new InvalidityException("number2 null");
+		}
+		super.isValidLocal(abstractionLevel);
+	}
+
+	@Override
+	public EList<Parameter> getAllParameters() throws InvalidityException {
+		EList<Parameter> res = super.getAllParameters();
+		res.add(number1);
+		res.add(number2);
+		return res;
 	}
 
 	@Override
@@ -84,13 +115,9 @@ public abstract class OneArgJavaTwoNumberOperatorImpl extends OneArgJavaOperator
 
 	@Override
 	public void createParameters() {
+		super.createParameters();
 		ParameterList parameterList = getParameterList();
 		if(parameterList != null) {
-			if(getOption() == null) {
-				BooleanParam bool = new BooleanParamImpl();
-				setOption(bool);
-			}
-			parameterList.add(getOption());
 			if(getNumber1() == null) {
 				NumberParam num = new NumberParamImpl();
 				setNumber1(num);
@@ -102,6 +129,16 @@ public abstract class OneArgJavaTwoNumberOperatorImpl extends OneArgJavaOperator
 			}
 			parameterList.add(getNumber2());
 		}
+	}
+
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = super.prepareParameterUpdates();
+		patternElements.add(getNumber1());
+		setNumber1(null);
+		patternElements.add(getNumber2());
+		setNumber2(null);
+		return patternElements;
 	}
 
 
@@ -145,10 +182,17 @@ public abstract class OneArgJavaTwoNumberOperatorImpl extends OneArgJavaOperator
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetNumber1(NumberParam newNumber1, NotificationChain msgs) {
 		NumberParam oldNumber1 = number1;
+
+		ParameterList varlist = getParameterList();
+		if (varlist != null) {
+			varlist.remove(oldNumber1);
+			varlist.add(newNumber1);
+		}
+
 		number1 = newNumber1;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaoperatorsPackage.ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__NUMBER1, oldNumber1, newNumber1);
@@ -207,10 +251,17 @@ public abstract class OneArgJavaTwoNumberOperatorImpl extends OneArgJavaOperator
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetNumber2(NumberParam newNumber2, NotificationChain msgs) {
 		NumberParam oldNumber2 = number2;
+
+		ParameterList varlist = getParameterList();
+		if (varlist != null) {
+			varlist.remove(oldNumber2);
+			varlist.add(newNumber2);
+		}
+
 		number2 = newNumber2;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaoperatorsPackage.ONE_ARG_JAVA_TWO_NUMBER_OPERATOR__NUMBER2, oldNumber2, newNumber2);

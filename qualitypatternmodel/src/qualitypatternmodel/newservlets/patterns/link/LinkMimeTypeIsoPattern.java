@@ -5,8 +5,12 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.javaoperators.JavaoperatorsFactory;
+import qualitypatternmodel.javaoperators.LinkMimeTypeOperator;
 import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
+import qualitypatternmodel.parameters.impl.BooleanParamImpl;
+import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -30,9 +34,14 @@ public class LinkMimeTypeIsoPattern extends PatternClass {
 		
 		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		pattern.setCondition(qc);
-
-		field.addPrimitiveLinkMimeType();
-
+		
+		LinkMimeTypeOperator op4 = JavaoperatorsFactory.eINSTANCE.createLinkMimeTypeOperator();
+		op4.setOperatorList(qc.getGraph().getOperatorList());
+		BooleanParamImpl bpi = new BooleanParamImpl();
+		op4.setOption(bpi);
+		TextListParamImpl tlp = new TextListParamImpl();
+		op4.setTextListParam(tlp);
+		op4.setPrimitiveNode(field);
 		return pattern;
 	}
 
