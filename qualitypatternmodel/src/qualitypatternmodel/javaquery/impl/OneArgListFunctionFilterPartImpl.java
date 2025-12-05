@@ -3,17 +3,27 @@
 package qualitypatternmodel.javaquery.impl;
 
 import java.util.Collection;
+import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaoperators.impl.OneArgJavaListOperatorImpl;
+import qualitypatternmodel.javaoperators.impl.OneArgJavaOperatorImpl;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.OneArgListFunctionFilterPart;
+import qualitypatternmodel.javaqueryoutput.InterimResult;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
+import qualitypatternmodel.javaqueryoutput.ValueInterim;
+import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,6 +66,32 @@ public class OneArgListFunctionFilterPartImpl extends OneArgFunctionFilterPartIm
 		functionclassname = clazz.getSimpleName();
 		getList().clear();
 		getList().addAll(eList);
+	}
+
+	public OneArgListFunctionFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		super();
+		try {
+			ValueInterim argument = (ValueInterim) map.get(json.getInt(ConstantsJSON.ARGUMENT));
+			setArgument(argument);
+			setNegate(json.getBoolean(ConstantsJSON.NEGATE));
+			functionclassname = json.getString(ConstantsJSON.ARGUMENT_FUNCTION);
+			JSONArray list = json.getJSONArray(ConstantsJSON.ARGUMENT_LIST);
+			getList().clear();
+			for (int i = 0; i<list.length(); i++)
+				getList().add(list.getString(i));
+		}
+		catch (Exception e) {
+			throw new InvalidityException("Error creating OneArgListFunctionFilterPartImpl", e);
+		}
+	}
+
+	@Override
+	public Boolean apply(InterimResult parameter) {
+		assert(parameter instanceof ValueResult);
+		String value = ((ValueResult) parameter).getValue();
+		OneArgJavaOperatorImpl functionClass = OneArgJavaListOperatorImpl.getOneInstanceOf(functionclassname, getList(), negate);
+		boolean result = functionClass.apply(value);
+		return result; 
 	}
 
 	/**
@@ -139,6 +175,14 @@ public class OneArgListFunctionFilterPartImpl extends OneArgFunctionFilterPartIm
 				return list != null && !list.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = super.toJson();
+		JSONArray list = new JSONArray(getList());
+		result.put(ConstantsJSON.ARGUMENT_LIST, list);
+		return result;
 	}
 
 	/**

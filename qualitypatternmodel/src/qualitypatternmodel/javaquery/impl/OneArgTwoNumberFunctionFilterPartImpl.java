@@ -2,16 +2,25 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONObject;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaoperators.impl.OneArgJavaTwoNumberOperatorImpl;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.OneArgTwoNumberFunctionFilterPart;
+import qualitypatternmodel.javaqueryoutput.InterimResult;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
+import qualitypatternmodel.javaqueryoutput.ValueInterim;
+import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 /**
  * <!-- begin-user-doc -->
@@ -85,6 +94,30 @@ public class OneArgTwoNumberFunctionFilterPartImpl extends OneArgFunctionFilterP
 		functionclassname = clazz.getSimpleName();
 		setNumber1(double1);
 		setNumber2(double2);
+	}
+
+	public OneArgTwoNumberFunctionFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		super();
+		try {
+			ValueInterim argument = (ValueInterim) map.get(json.getInt(ConstantsJSON.ARGUMENT));
+			setArgument(argument);
+			setNegate(json.getBoolean(ConstantsJSON.NEGATE));
+			functionclassname = json.getString(ConstantsJSON.ARGUMENT_FUNCTION);
+			setNumber1(json.getDouble(ConstantsJSON.ARGUMENT_NUMBER1));
+			setNumber2(json.getDouble(ConstantsJSON.ARGUMENT_NUMBER2));
+		}
+		catch (Exception e) {
+			throw new InvalidityException();
+		}
+	}
+
+	@Override
+	public Boolean apply(InterimResult parameter) {
+		assert(parameter instanceof ValueResult);
+		String value = ((ValueResult) parameter).getValue();
+		OneArgJavaTwoNumberOperatorImpl functionClass = OneArgJavaTwoNumberOperatorImpl.getOneInstanceOf(functionclassname, getNumber1(), getNumber2(), negate);
+		boolean result = functionClass.apply(value);
+		return result; 
 	}
 
 	/**
@@ -209,6 +242,14 @@ public class OneArgTwoNumberFunctionFilterPartImpl extends OneArgFunctionFilterP
 				return NUMBER2_EDEFAULT == null ? number2 != null : !NUMBER2_EDEFAULT.equals(number2);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	public JSONObject toJson() {
+		JSONObject result = super.toJson();
+		result.put(ConstantsJSON.ARGUMENT_NUMBER1, getNumber1());
+		result.put(ConstantsJSON.ARGUMENT_NUMBER2, getNumber2());
+		return result;
 	}
 
 	/**
