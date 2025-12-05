@@ -1196,6 +1196,13 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/QuantifierFilterPart/argument"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/QuantifierFilterPart/quantifier"/>
       </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/OneArgListFunctionFilterPart">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/OneArgListFunctionFilterPart/list"/>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/OneArgTwoNumberFunctionFilterPart">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/OneArgTwoNumberFunctionFilterPart/number1"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/OneArgTwoNumberFunctionFilterPart/number2"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Javaqueryoutput" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//javaqueryoutput">
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultStructure">

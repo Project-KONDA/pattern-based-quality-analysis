@@ -317,6 +317,16 @@ public class JavaFilterItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(JavaqueryPackage.Literals.JAVA_FILTER__FILTER,
+				 JavaqueryFactory.eINSTANCE.createOneArgListFunctionFilterPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.JAVA_FILTER__FILTER,
+				 JavaqueryFactory.eINSTANCE.createOneArgTwoNumberFunctionFilterPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(JavaqueryPackage.Literals.JAVA_FILTER__STRUCTURE,
 				 JavaqueryoutputFactory.eINSTANCE.createInterimResultStructure()));
 	}

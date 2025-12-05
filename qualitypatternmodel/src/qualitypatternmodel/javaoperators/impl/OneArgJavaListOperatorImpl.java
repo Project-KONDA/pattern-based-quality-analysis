@@ -2,6 +2,9 @@
  */
 package qualitypatternmodel.javaoperators.impl;
 
+import java.lang.reflect.Constructor;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -9,6 +12,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -17,10 +22,14 @@ import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.OneArgJavaListOperator;
 import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.OneArgListFunctionFilterPart;
+import qualitypatternmodel.javaquery.impl.OneArgListFunctionFilterPartImpl;
+import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -58,11 +67,23 @@ public abstract class OneArgJavaListOperatorImpl extends OneArgJavaOperatorImpl 
 		super();
 	}
 
+	public OneArgJavaListOperatorImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+		super();
+		try {
+			JSONArray list = json.getJSONArray("list");
+			getTextListParam().clear();
+			for (int i = 0; i<list.length(); i++)
+				getTextListParam().addStringValue(list.getString(i));
+		}
+		catch (Exception e) {
+			throw new InvalidityException();
+		}
+	}
+
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
-//		OneArgListFunctionFilterPart filterPart = new OneArgListFunctionFilterPartImpl(this.getClass(), getOption().getValue());
-//		return filterPart;
-		return null;
+		OneArgListFunctionFilterPart filterPart = new OneArgListFunctionFilterPartImpl(this.getClass(), getTextListParam().getValues(), getOption().getValue());
+		return filterPart;
 	}
 
 	@Override
@@ -71,8 +92,26 @@ public abstract class OneArgJavaListOperatorImpl extends OneArgJavaOperatorImpl 
 		textListParam.isValid(abstractionLevel);
 	}
 
-    public static OneArgJavaOperatorImpl getOneInstanceOf(String subclassname, EList<String> list, boolean negate) {
-    	return null;
+    public static OneArgJavaListOperatorImpl getOneInstanceOf(String subclassname, EList<String> list, boolean negate) {
+        try {
+            String packageName = OneArgJavaOperatorImpl.class.getPackage().getName() + ".";
+            Class<?> subclass = Class.forName(packageName + subclassname);
+            Constructor<?> constructor = subclass.getDeclaredConstructor();
+            constructor.setAccessible(true);
+            OneArgJavaListOperatorImpl instance = (OneArgJavaListOperatorImpl) constructor.newInstance();
+
+            BooleanParamImpl bool = new BooleanParamImpl();
+            bool.setValue(negate);
+            instance.setOption(bool);
+            TextListParamImpl textlist = new TextListParamImpl();
+            textlist.clear();
+            textlist.getValues().addAll(list);
+            instance.setTextListParam(textlist);
+            return instance;
+        } catch (Exception e) {
+            e.printStackTrace(); // Handle exception appropriately
+            return null;
+        }
     }
 
 	@Override

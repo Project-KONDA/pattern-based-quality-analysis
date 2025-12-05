@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import qualitypatternmodel.javaquery.*;
 import qualitypatternmodel.javaquery.BooleanFilterElement;
 import qualitypatternmodel.javaquery.CountFilterElement;
 import qualitypatternmodel.javaquery.CountFilterPart;
@@ -79,6 +80,8 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 			case JavaqueryPackage.NUMBER_FILTER_ELEMENT: return createNumberFilterElement();
 			case JavaqueryPackage.NUMBER_VALUE_FILTER_ELEMENT: return createNumberValueFilterElement();
 			case JavaqueryPackage.QUANTIFIER_FILTER_PART: return createQuantifierFilterPart();
+			case JavaqueryPackage.ONE_ARG_LIST_FUNCTION_FILTER_PART: return createOneArgListFunctionFilterPart();
+			case JavaqueryPackage.ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART: return createOneArgTwoNumberFunctionFilterPart();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -237,6 +240,28 @@ public class JavaqueryFactoryImpl extends EFactoryImpl implements JavaqueryFacto
 	public QuantifierFilterPart createQuantifierFilterPart() {
 		QuantifierFilterPartImpl quantifierFilterPart = new QuantifierFilterPartImpl();
 		return quantifierFilterPart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public OneArgListFunctionFilterPart createOneArgListFunctionFilterPart() {
+		OneArgListFunctionFilterPartImpl oneArgListFunctionFilterPart = new OneArgListFunctionFilterPartImpl();
+		return oneArgListFunctionFilterPart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public OneArgTwoNumberFunctionFilterPart createOneArgTwoNumberFunctionFilterPart() {
+		OneArgTwoNumberFunctionFilterPartImpl oneArgTwoNumberFunctionFilterPart = new OneArgTwoNumberFunctionFilterPartImpl();
+		return oneArgTwoNumberFunctionFilterPart;
 	}
 
 	/**

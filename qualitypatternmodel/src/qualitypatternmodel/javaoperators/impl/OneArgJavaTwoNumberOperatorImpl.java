@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaoperators.impl;
 
+import java.lang.reflect.Constructor;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -17,10 +19,13 @@ import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator;
 import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.javaquery.OneArgTwoNumberFunctionFilterPart;
+import qualitypatternmodel.javaquery.impl.OneArgTwoNumberFunctionFilterPartImpl;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.NumberParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -70,9 +75,8 @@ public abstract class OneArgJavaTwoNumberOperatorImpl extends OneArgJavaOperator
 
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
-//		OneArgTwoNumberFunctionFilterPart filterPart = new OneArgTwoNumberFunctionFilterPartImpl(this.getClass(), getOption().getValue());
-//		return filterPart;
-    	return null;
+		OneArgTwoNumberFunctionFilterPart filterPart = new OneArgTwoNumberFunctionFilterPartImpl(this.getClass(), getNumber1().getValue(), getNumber2().getValue(), getOption().getValue());
+		return filterPart;
 	}
 
 	@Override
@@ -82,8 +86,28 @@ public abstract class OneArgJavaTwoNumberOperatorImpl extends OneArgJavaOperator
 		number2.isValid(abstractionLevel);
 	}
 
-    public static OneArgJavaOperatorImpl getOneInstanceOf(String subclassname, Double num1, Double num2, boolean negate) {
-    	return null;
+    public static OneArgJavaTwoNumberOperatorImpl getOneInstanceOf(String subclassname, Double num1, Double num2, boolean negate) {
+        try {
+            String packageName = OneArgJavaOperatorImpl.class.getPackage().getName() + ".";
+            Class<?> subclass = Class.forName(packageName + subclassname);
+            Constructor<?> constructor = subclass.getDeclaredConstructor();
+            constructor.setAccessible(true);
+            OneArgJavaTwoNumberOperatorImpl instance = (OneArgJavaTwoNumberOperatorImpl) constructor.newInstance();
+
+            BooleanParamImpl bool = new BooleanParamImpl();
+            bool.setValue(negate);
+            instance.setOption(bool);
+            NumberParamImpl nump1 = new NumberParamImpl();
+            nump1.setValue(num1);
+            instance.setNumber1(nump1);
+            NumberParamImpl nump2 = new NumberParamImpl();
+            nump2.setValue(num2);
+            instance.setNumber2(nump2);
+            return instance;
+        } catch (Exception e) {
+            e.printStackTrace(); // Handle exception appropriately
+            return null;
+        }
     }
 
 	@Override

@@ -1432,6 +1432,16 @@
           eType="#//javaqueryoutput/FixedContainerInterim"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//patternstructure/Quantifier"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OneArgListFunctionFilterPart" eSuperTypes="#//javaquery/OneArgFunctionFilterPart">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="list" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral=""/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OneArgTwoNumberFunctionFilterPart"
+        eSuperTypes="#//javaquery/OneArgFunctionFilterPart">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="number1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="number2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="javaqueryoutput" nsURI="javaqueryoutput" nsPrefix="javaqueryoutput">
     <eClassifiers xsi:type="ecore:EClass" name="InterimResultStructure">

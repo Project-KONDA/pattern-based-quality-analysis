@@ -121,6 +121,24 @@ public interface JavaqueryFactory extends EFactory {
 	QuantifierFilterPart createQuantifierFilterPart();
 
 	/**
+	 * Returns a new object of class '<em>One Arg List Function Filter Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>One Arg List Function Filter Part</em>'.
+	 * @generated
+	 */
+	OneArgListFunctionFilterPart createOneArgListFunctionFilterPart();
+
+	/**
+	 * Returns a new object of class '<em>One Arg Two Number Function Filter Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>One Arg Two Number Function Filter Part</em>'.
+	 * @generated
+	 */
+	OneArgTwoNumberFunctionFilterPart createOneArgTwoNumberFunctionFilterPart();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
