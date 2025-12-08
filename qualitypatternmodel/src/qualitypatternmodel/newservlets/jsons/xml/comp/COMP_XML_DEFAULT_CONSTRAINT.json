@@ -1,0 +1,41 @@
+{
+    "template":"Comp_xml",
+    "language":"xml",
+    "name":"constraint_type_predef",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for CompSet_xml"
+	},
+    "fragments":[
+        {"text":"In each"},
+        {
+            "name":"Element",
+            "params":[2],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":", all"},
+        {
+            "name":"Property1",
+            "params":[3],
+            "exampleValue":"Birthdates",
+            "description":"values that get analysed",
+            "plural":"true"
+        },
+        {"text":", are"},
+        {
+            "name":"compared with",
+            "params":[0]
+        },
+        {
+            "name":"Property2",
+            "params":[4],
+            "exampleValue":"Mueller, Meier"
+        },
+        {"text":"."},
+        {
+            "params":[1],
+            "value":"STRING"
+        }
+    ]
+}

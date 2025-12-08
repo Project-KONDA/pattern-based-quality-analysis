@@ -19,7 +19,7 @@ public class CompPattern extends PatternClass {
 		super(PatternConstants.COMP_ID,
 				PatternConstants.COMP_NAME, 
 				PatternConstants.COMP_DESCR, 
-				true, false, false, false);
+				true, true, true, true);
 	}
 
 	@Override
