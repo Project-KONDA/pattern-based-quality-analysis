@@ -304,6 +304,7 @@ public class InitialisationServlet extends HttpServlet {
 			ServletUtilities.saveTemplate(technology, templateID, template);
 //			EMFModelSave.exportToFile2(template, templatefolder, templateID, Constants.EXTENSION);
 		} catch (Exception e) {
+			System.err.println(e.getLocalizedMessage());
 			ServletUtilities.logError(e);
 		}
 	}
