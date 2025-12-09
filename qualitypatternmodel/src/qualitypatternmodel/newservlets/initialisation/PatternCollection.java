@@ -21,73 +21,76 @@ public class PatternCollection {
 	public static List<Class<? extends PatternClass>> getPatternClasses() {
 		List<Class<? extends PatternClass>> classes = new BasicEList<Class<? extends PatternClass>>();
 		// comp
-		classes.add(CompDatabasePattern.class);
 		classes.add(CompPattern.class);
-		classes.add(CompSetIsoPattern.class);
-		classes.add(CompSetSinPattern.class);
-		classes.add(CompSetPattern.class);
 		classes.add(CompSetAnyPattern.class);
-		classes.add(CompValAnyPattern.class);
-		classes.add(CompValPattern.class);
+		classes.add(CompSetIsoPattern.class);
+		classes.add(CompSetPattern.class);
+		classes.add(CompSetSinPattern.class);
+
 		// external
 		classes.add(Appdup2Pattern.class);
 		classes.add(Appdup3Pattern.class);
 		classes.add(FuncPattern.class);
 		classes.add(UniquePattern.class);
+
 		// internal
+		classes.add(CardCompSetIfCompSetPattern.class);
+		classes.add(CardIfCompSetPattern.class);
+		classes.add(CardImpliesMandAttPattern.class);
 		classes.add(CardPattern.class);
 		classes.add(DupvalPattern.class);
 		classes.add(LocalUniquePattern.class);
+
 		// link
-		classes.add(ValidLinkIsoPattern.class);
-		classes.add(ValidLinkSinPattern.class);
-		classes.add(ValidLinkPattern.class);
 		classes.add(LinkImageSizeIsoPattern.class);
-		classes.add(LinkImageSizeSinPattern.class);
 		classes.add(LinkImageSizePattern.class);
-		classes.add(LinkSourceIsoPattern.class);
-		classes.add(LinkSourceSinPattern.class);
-		classes.add(LinkSourcePattern.class);
+		classes.add(LinkImageSizeSinPattern.class);
 		classes.add(LinkMimeTypeIsoPattern.class);
-		classes.add(LinkMimeTypeSinPattern.class);
 		classes.add(LinkMimeTypePattern.class);
+		classes.add(LinkMimeTypeSinPattern.class);
+		classes.add(LinkSourceIsoPattern.class);
+		classes.add(LinkSourcePattern.class);
+		classes.add(LinkSourceSinPattern.class);
+		classes.add(ValidLinkIsoPattern.class);
+		classes.add(ValidLinkPattern.class);
+		classes.add(ValidLinkSinPattern.class);
+
 		// mand
-		classes.add(CardImpliesMandAttPattern.class);
-		classes.add(MandAttPattern.class);
-		classes.add(MandElePattern.class);
 		classes.add(Mand2EleOrPattern.class);
 		classes.add(Mand3EleOrPattern.class);
+		classes.add(MandAttPattern.class);
 		classes.add(MandContAndIsoPattern.class);
-		classes.add(MandContAndSinPattern.class);
 		classes.add(MandContAndPattern.class);
+		classes.add(MandContAndSinPattern.class);
 		classes.add(MandContIsoPattern.class);
-		classes.add(MandContSinPattern.class);
 		classes.add(MandContPattern.class);
+		classes.add(MandContSinPattern.class);
+		classes.add(MandElePattern.class);
+
 		// string
 		classes.add(CardMatchPattern.class);
-		classes.add(CardIfCompSetPattern.class);
-		classes.add(CardCompSetIfCompSetPattern.class);
 		classes.add(ContainsIsoPattern.class);
-		classes.add(ContainsSinPattern.class);
-		classes.add(ContainsPattern.class);
 		classes.add(ContainsListIsoPattern.class);
-		classes.add(ContainsListSinPattern.class);
 		classes.add(ContainsListPattern.class);
+		classes.add(ContainsListSinPattern.class);
+		classes.add(ContainsPattern.class);
+		classes.add(ContainsSinPattern.class);
 		classes.add(MatchIsoPattern.class);
-		classes.add(MatchSinPattern.class);
-		classes.add(MatchPattern.class);
 		classes.add(MatchListIsoPattern.class);
-		classes.add(MatchListSinPattern.class);
 		classes.add(MatchListPattern.class);
+		classes.add(MatchListSinPattern.class);
+		classes.add(MatchPattern.class);
+		classes.add(MatchSinPattern.class);
 		classes.add(StringLengthIsoPattern.class);
 		classes.add(StringLengthPattern.class);
 		classes.add(StringLengthRangeIsoPattern.class);
-		classes.add(StringLengthRangeSinPattern.class);
 		classes.add(StringLengthRangePattern.class);
+		classes.add(StringLengthRangeSinPattern.class);
 		classes.add(StringLengthSinPattern.class);
 		
 		return classes;
 	}
+
 	public static List<PatternClass> getPatternClassInstances() {
 		List<PatternClass> patternclasses = new BasicEList<PatternClass>();
 		for (Class<? extends PatternClass> clazz: getPatternClasses()) {
