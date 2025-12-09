@@ -1,4 +1,4 @@
-package qualitypatternmodel.newservlets.patterns.mand;
+package qualitypatternmodel.newservlets.patterns.internal;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;

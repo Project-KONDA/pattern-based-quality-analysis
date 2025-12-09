@@ -133,6 +133,14 @@ public class PatternConstants {
 	public static String MANDCONTANDSIN_ID = "MandContAndSin";
 	public static String MANDCONTANDSIN_NAME = "Two Mandatory Contents (Single)";
 	public static String MANDCONTANDSIN_DESCR = "Check whether an element has mandatory content.";
+
+	public static String MAND2ELEOR_ID = "Mand2EleOr";
+	public static String MAND2ELEOR_NAME = "Mand2EleOr";
+	public static String MAND2ELEOR_DESCR = "Mand2EleOr";
+
+	public static String MAND3ELEOR_ID = "Mand3EleOr";
+	public static String MAND3ELEOR_NAME = "Mand3EleOr";
+	public static String MAND3ELEOR_DESCR = "Mand3EleOr";
 	
 	public static String MATCH_ID = "Match";
 	public static String MATCH_NAME = "Regular Expression Check";
@@ -198,17 +206,17 @@ public class PatternConstants {
 	public static String VALIDLINKSIN_NAME = "Valid Link (Single)";
 	public static String VALIDLINKSIN_DESCR = "Check whether a field is an valid link.";
 	
-	public static final String LINKSOURCE_ID = "LinkSource";
-	public static final String LINKSOURCE_NAME = "LinkSource";
-	public static final String LINKSOURCE_DESCR = "LinkSource";
+	public static String LINKSOURCE_ID = "LinkSource";
+	public static String LINKSOURCE_NAME = "LinkSource";
+	public static String LINKSOURCE_DESCR = "LinkSource";
 
-	public static final String LINKSOURCEISO_ID = "LinkSourceIso";
-	public static final String LINKSOURCEISO_NAME = "LinkSourceIso";
-	public static final String LINKSOURCEISO_DESCR = "LinkSourceIso";
+	public static String LINKSOURCEISO_ID = "LinkSourceIso";
+	public static String LINKSOURCEISO_NAME = "LinkSourceIso";
+	public static String LINKSOURCEISO_DESCR = "LinkSourceIso";
 	
-	public static final String LINKSOURCESIN_ID = "LinkSourceSin";
-	public static final String LINKSOURCESIN_NAME = "LinkSourceSin";
-	public static final String LINKSOURCESIN_DESCR = "LinkSourceSin";
+	public static String LINKSOURCESIN_ID = "LinkSourceSin";
+	public static String LINKSOURCESIN_NAME = "LinkSourceSin";
+	public static String LINKSOURCESIN_DESCR = "LinkSourceSin";
 
 	public static String LINKMIMETYPE_ID = "LinkMimeType";
 	public static String LINKMIMETYPE_NAME = "LinkMimeType";

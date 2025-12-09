@@ -55,6 +55,8 @@ public class PatternCollection {
 		classes.add(CardImpliesMandAttPattern.class);
 		classes.add(MandAttPattern.class);
 		classes.add(MandElePattern.class);
+		classes.add(Mand2EleOrPattern.class);
+		classes.add(Mand3EleOrPattern.class);
 		classes.add(MandContAndIsoPattern.class);
 		classes.add(MandContAndSinPattern.class);
 		classes.add(MandContAndPattern.class);
@@ -193,7 +195,7 @@ public class PatternCollection {
 					else throw new RuntimeException("RDF Patternbundle Null for Class " + id);
 				}
 			} catch (Exception e) {
-				throw new InvalidityException("Exception when compiling RDF PatternBundle for Class " + id);
+				throw new InvalidityException("Exception when compiling RDF PatternBundle for Class " + id, e);
 			}
 		}
 		return patternbundles;
@@ -214,7 +216,7 @@ public class PatternCollection {
 					else throw new RuntimeException("NEO Patternbundle Null for Class " + id);
 				}
 			} catch (Exception e) {
-				throw new InvalidityException("Exception when compiling NEO PatternBundle for Class " + id);
+				throw new InvalidityException("Exception when compiling NEO PatternBundle for Class " + id, e);
 			}
 		}
 		return patternbundles;

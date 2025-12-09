@@ -1,0 +1,40 @@
+{
+    "template":"MandEle_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for MandEle_xml"
+	},
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"Element",
+            "params":[0],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":"contains at least one element from"},
+        {
+            "name":"Subelement",
+            "params":[11],
+            "exampleValue":"Identifier",
+            "description":"required element"
+        },
+        {"text":"or"},
+        {
+            "name":"Subelement",
+            "params":[2],
+            "exampleValue":"Identifier",
+            "description":"required element"
+        },
+        {"text":"or"},
+        {
+            "name":"Subelement",
+            "params":[3],
+            "exampleValue":"Identifier",
+            "description":"required element"
+        },
+        {"text":"."}
+    ]
+}
