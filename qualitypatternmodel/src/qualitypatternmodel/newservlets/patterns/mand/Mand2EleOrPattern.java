@@ -18,7 +18,7 @@ public class Mand2EleOrPattern extends PatternClass {
 		super(PatternConstants.MAND2ELEOR_ID,
 				PatternConstants.MAND2ELEOR_NAME, 
 				PatternConstants.MAND2ELEOR_DESCR, 
-				true, true, false, false);
+				true, true, true, true);
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class Mand2EleOrPattern extends PatternClass {
 		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
 		form1.setCondition1(qc1);
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
-		form1.setCondition1(qc2);
+		form1.setCondition2(qc2);
 
 		ComplexNode n1 = main.addOutgoing(qc1.getGraph()).getTarget().makeComplex();
 		ComplexNode n2 = main.addOutgoing(qc2.getGraph()).getTarget().makeComplex();

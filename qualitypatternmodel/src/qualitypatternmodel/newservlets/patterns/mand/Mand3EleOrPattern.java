@@ -18,7 +18,7 @@ public class Mand3EleOrPattern extends PatternClass {
 		super(PatternConstants.MAND3ELEOR_ID,
 				PatternConstants.MAND3ELEOR_NAME, 
 				PatternConstants.MAND3ELEOR_DESCR, 
-				true, true, false, false);
+				true, true, true, true);
 	}
 
 	@Override
