@@ -4,7 +4,7 @@
     "name":"bcp-lang",
 	"typeConstraint":true,
 	"custom": {
-		"description": "constraint for MatchSin_xml specific to the BCP language code format"
+		"description": "constraint for MatchSin_xml specific to the BCP 47 language code format"
 	},
     "fragments":[
         {"text":"Each"},

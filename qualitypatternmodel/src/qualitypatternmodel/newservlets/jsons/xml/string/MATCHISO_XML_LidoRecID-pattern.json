@@ -3,6 +3,9 @@
     "language":"xml",
     "name":"LidoRecID-pattern",
 	"typeConstraint":true,
+	"custom": {
+		"description": "constraint for MatchIso_xml specific to the ISO 15511 ISIL format"
+	},
     "fragments":[
         {"text":"For all"},
         {

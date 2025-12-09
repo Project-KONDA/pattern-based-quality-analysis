@@ -4,7 +4,7 @@
     "name":"bcp-lang",
 	"typeConstraint":true,
 	"custom": {
-		"description": "constraint for MatchIso_xml specific to the BCP language code format"
+		"description": "constraint for MatchIso_xml specific to the BCP 47 language code format"
 	},
     "fragments":[
         {"text":"For all"},

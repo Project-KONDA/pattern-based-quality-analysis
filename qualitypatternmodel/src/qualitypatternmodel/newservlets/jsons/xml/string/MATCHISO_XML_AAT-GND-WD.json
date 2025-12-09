@@ -3,6 +3,9 @@
     "language":"xml",
     "name":"aat-gnd-wd",
 	"typeConstraint":true,
+	"custom": {
+		"description": "constraint for MatchIso_xml specific to test URLs to the format of the AAT, GND or Wikidata"
+	},
     "fragments":[
         {"text":"For all"},
         {

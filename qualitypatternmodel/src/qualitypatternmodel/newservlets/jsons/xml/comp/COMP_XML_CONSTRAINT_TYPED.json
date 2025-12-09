@@ -4,7 +4,7 @@
     "name":"constraint_typed",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default constraint for CompSet_xml"
+		"description": "default constraint for Comp_xml"
 	},
     "fragments":[
         {"text":"In each"},

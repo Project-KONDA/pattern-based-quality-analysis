@@ -4,7 +4,7 @@
     "name":"default-constraint",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default constraint for MandEle_xml"
+		"description": "default constraint for Mand3EleOr_xml"
 	},
     "fragments":[
         {"text":"Each"},

@@ -4,7 +4,7 @@
     "name":"iso-date",
 	"typeConstraint":true,
 	"custom": {
-		"description": "constraint for MatchSin_xml specific to the ISO date format"
+		"description": "constraint for MatchSin_xml specific to the ISO 8601 date format"
 	},
     "fragments":[
         {"text":"Each"},
