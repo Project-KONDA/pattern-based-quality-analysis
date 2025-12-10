@@ -34,10 +34,12 @@ public class XmlServletUtility {
 		switch(Util.EXECUTION_PROCESSOR) {
 		case ConstantsXml.PROCESSOR_SAXON:
 			XQueryProcessorSaxon.validateXQuery(query);
+			break;
 		case ConstantsXml.PROCESSOR_BASEX:
 			XQueryProcessorBaseX.validateXQuery(query);
+			break;
 		default:
-			throw new RuntimeException ("static method 'validateQuery(query)' not implemented for Processor " + Util.EXECUTION_PROCESSOR);
+			throw new RuntimeException ("static method 'validateQuery(query)' not implemented for Processor '" + Util.EXECUTION_PROCESSOR + "'");
 		}
 	}
 

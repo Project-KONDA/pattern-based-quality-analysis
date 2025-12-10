@@ -95,7 +95,7 @@ public class PatternCollectionTests {
 		switch(pattern.getLanguage()) {
 		case XML: {
 			PatternUtility.fillParameter(pattern);
-			String query = assertDoesNotThrow(() -> (pattern.generateXQuery()));
+			String query = assertDoesNotThrow(() -> (pattern.generateXQueryJava()));
 			assertDoesNotThrow(() -> XmlServletUtility.validateQuery(query));
 			break;
 		}
