@@ -11,7 +11,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.newservlets.initialisation.PatternCollection;
-import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.PatternUtility;
@@ -40,9 +39,9 @@ public class PatternCollectionTests {
 
 	// Parameters
 	
-	private static List<PatternClass> getTemplateInstances() {
-		return PatternCollection.getPatternClassInstances();
-	}
+//	private static List<PatternClass> getTemplateInstances() {
+//		return PatternCollection.getPatternClassInstances();
+//	}
 	
 	private static List<CompletePattern> genericPatterns() {
 		return PatternCollection.getGenericPatterns();

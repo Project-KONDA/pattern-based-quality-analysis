@@ -250,7 +250,7 @@ public class PatternUtility {
 			if (param instanceof NeoNodeLabelsParam) {
 				NeoNodeLabelsParam neoNodeLabels = (NeoNodeLabelsParam) param;
 				try {
-					param.setValueFromString("['Label']");
+					neoNodeLabels.setValueFromString("['Label']");
 				} catch (Exception e) {
 				}
 			}
@@ -261,8 +261,7 @@ public class PatternUtility {
 			}
 			if (param instanceof NeoPropertyPathParam) {
 				NeoPropertyPathParam neoPropertyPath = (NeoPropertyPathParam) param;
-				((NeoPropertyPathParam) param).getNeoPropertyName().setValue("Name");
-//				throw new UnsupportedOperationException();
+				neoPropertyPath.getNeoPropertyName().setValue("Name");
 			}
 			
 		}
