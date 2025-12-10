@@ -60,11 +60,6 @@ public class PatternCollectionTests {
 		return PatternCollection.getNeoPatterns();
 	}
 
-	@ParameterizedTest
-    @MethodSource("getTemplateInstances")
-	public void testPatternClass(PatternClass clazz) {
-		
-	}
 
 	@ParameterizedTest
     @MethodSource("genericPatterns")
@@ -95,31 +90,37 @@ public class PatternCollectionTests {
 		if (pattern.getText().size() == 0)
 			System.out.println("No variants coded in " + pattern.getPatternId());
 		
-		if (pattern.getText().size() > 0) {
+//		if (pattern.getText().size() > 0) {
 
-			switch(pattern.getLanguage()) {
-			case XML: {
-				PatternUtility.fillParameter(pattern);
-				String query = assertDoesNotThrow(() -> (pattern.generateXQuery()));
-				assertDoesNotThrow(() -> XmlServletUtility.validateQuery(query));
-				break;
-			}
-			case RDF: {
-				PatternUtility.fillParameter(pattern);
-				String query = assertDoesNotThrow(() -> (pattern.generateSparql()));
-				assertDoesNotThrow(() -> validateSparql(query));
-				break;	
-			}
-			case NEO4J: {
-				break;	
-			}
-			default:
-				throw new RuntimeException("Pattern has no valid Language");
-			}
+		switch(pattern.getLanguage()) {
+		case XML: {
+			PatternUtility.fillParameter(pattern);
+			String query = assertDoesNotThrow(() -> (pattern.generateXQueryJava()));
+			assertDoesNotThrow(() -> XmlServletUtility.validateQuery(query));
+			break;
 		}
+		case RDF: {
+			PatternUtility.fillParameter(pattern);
+			String query = assertDoesNotThrow(() -> (pattern.generateSparql()));
+			assertDoesNotThrow(() -> validateSparql(query));
+			break;	
+		}
+		case NEO4J: {
+			PatternUtility.fillParameter(pattern);
+			String query = assertDoesNotThrow(() -> (pattern.generateCypher()));
+			assertDoesNotThrow(() -> validateCypher(query));
+			break;	
+		}
+		default:
+			throw new RuntimeException("Pattern has no valid Language");
+		}
+//		}
 	}
 	
 	private void validateSparql(String query) throws InvalidityException {
+	}
+	
+	private void validateCypher(String query) throws InvalidityException {
 	}
 
 }
