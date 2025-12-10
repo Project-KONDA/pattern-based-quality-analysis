@@ -26,7 +26,7 @@ public class CardIfCompSetPattern extends PatternClass {
 		super(PatternConstants.CARDIFCOMPSET_ID,
 				PatternConstants.CARDIFCOMPSET_NAME, 
 				PatternConstants.CARDIFCOMPSET_DESCR, 
-				true, true, false, false);
+				true, true, true, false);
 	}
 
 	@Override

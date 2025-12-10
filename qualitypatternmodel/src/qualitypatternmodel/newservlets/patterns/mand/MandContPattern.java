@@ -20,7 +20,7 @@ public class MandContPattern extends PatternClass {
 		super(PatternConstants.MANDCONT_ID,
 				PatternConstants.MANDCONT_NAME, 
 				PatternConstants.MANDCONT_DESCR, 
-				true, true, false, false);
+				true, true, true, true);
 	}
 
 	@Override

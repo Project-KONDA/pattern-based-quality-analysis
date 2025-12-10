@@ -18,13 +18,13 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
-public class DupvalPattern extends PatternClass {
+public class DupValPattern extends PatternClass {
 
-	public DupvalPattern() {
+	public DupValPattern() {
 		super(PatternConstants.DUPVAL_ID,
 				PatternConstants.DUPVAL_NAME, 
 				PatternConstants.DUPVAL_DESCR, 
-				false, false, false, false);
+				true, true, true, false);
 	}
 
 	@Override

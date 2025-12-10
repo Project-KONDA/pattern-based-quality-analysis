@@ -20,7 +20,7 @@ public class CardMatchPattern extends PatternClass {
 		super(PatternConstants.CARDMATCH_ID,
 				PatternConstants.CARDMATCH_NAME, 
 				PatternConstants.CARDMATCH_DESCR, 
-				true, true, false, false);
+				true, true, true, true);
 	}
 
 	@Override

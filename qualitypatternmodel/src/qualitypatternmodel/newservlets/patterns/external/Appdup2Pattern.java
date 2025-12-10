@@ -21,7 +21,7 @@ public class Appdup2Pattern extends PatternClass {
 		super(PatternConstants.APPDUP2_ID,
 				PatternConstants.APPDUP2_NAME, 
 				PatternConstants.APPDUP2_DESCR, 
-				false, false, false, false);
+				true, true, true, true);
 	}
 	
 	@Override

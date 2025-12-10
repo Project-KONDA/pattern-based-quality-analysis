@@ -15,7 +15,7 @@ public class MandContAndIsoPattern extends PatternClass {
 		super(PatternConstants.MANDCONTANDISO_ID,
 				PatternConstants.MANDCONTANDISO_NAME, 
 				PatternConstants.MANDCONTANDISO_DESCR, 
-				true, true, false, false);
+				true, true, true, true);
 	}
 
 	@Override

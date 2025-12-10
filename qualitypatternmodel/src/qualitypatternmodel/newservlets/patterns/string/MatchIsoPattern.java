@@ -17,7 +17,7 @@ public class MatchIsoPattern extends PatternClass {
 		super(PatternConstants.MATCHISO_ID,
 				PatternConstants.MATCHISO_NAME, 
 				PatternConstants.MATCHISO_DESCR, 
-				true, true, false, false);
+				true, true, true, false);
 	}
 
 	@Override

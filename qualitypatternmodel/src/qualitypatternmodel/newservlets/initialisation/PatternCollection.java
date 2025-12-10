@@ -17,7 +17,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 
 public class PatternCollection {
 	
-	static boolean tryall = true;
+	static boolean tryall = false;
 
 
 	public static List<Class<? extends PatternClass>> getPatternClasses() {
@@ -38,10 +38,8 @@ public class PatternCollection {
 		// internal
 		classes.add(CardCompSetIfCompSetPattern.class);
 		classes.add(CardIfCompSetPattern.class);
-		classes.add(CardImpliesMandAttPattern.class);
 		classes.add(CardPattern.class);
-		classes.add(DupvalPattern.class);
-		classes.add(LocalUniquePattern.class);
+		classes.add(DupValPattern.class);
 
 		// link
 		classes.add(LinkImageSizeIsoPattern.class);

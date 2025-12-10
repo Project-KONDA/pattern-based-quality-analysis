@@ -16,7 +16,7 @@ public class Appdup3Pattern extends PatternClass {
 		super(PatternConstants.APPDUP3_ID,
 				PatternConstants.APPDUP3_NAME, 
 				PatternConstants.APPDUP3_DESCR, 
-				false, false, false, false);
+				true, true, true, true);
 	}
 
 	@Override

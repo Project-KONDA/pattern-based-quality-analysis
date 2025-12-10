@@ -20,7 +20,7 @@ public class MandContIsoPattern extends PatternClass {
 		super(PatternConstants.MANDCONTISO_ID,
 				PatternConstants.MANDCONTISO_NAME, 
 				PatternConstants.MANDCONTISO_DESCR, 
-				true, true, false, false);
+				true, true, true, true);
 	}
 
 	@Override

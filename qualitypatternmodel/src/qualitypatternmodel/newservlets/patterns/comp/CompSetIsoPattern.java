@@ -21,7 +21,7 @@ public class CompSetIsoPattern extends PatternClass {
 		super(PatternConstants.COMPSETISO_ID,
 				PatternConstants.COMPSETISO_NAME, 
 				PatternConstants.COMPSETISO_DESCR, 
-				true, true, false, false);
+				true, true, true, false);
 	}
 	
 	@Override

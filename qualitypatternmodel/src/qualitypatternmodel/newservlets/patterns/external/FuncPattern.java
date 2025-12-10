@@ -21,7 +21,7 @@ public class FuncPattern extends PatternClass {
 		super(PatternConstants.FUNC_ID,
 				PatternConstants.FUNC_NAME, 
 				PatternConstants.FUNC_DESCR, 
-				false, false, false, false);
+				true, true, true, true);
 	}
 
 	@Override

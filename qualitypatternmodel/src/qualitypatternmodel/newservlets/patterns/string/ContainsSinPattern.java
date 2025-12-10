@@ -17,7 +17,7 @@ public class ContainsSinPattern extends PatternClass {
 		super(PatternConstants.CONTAINSSIN_ID,
 				PatternConstants.CONTAINSSIN_NAME, 
 				PatternConstants.CONTAINSSIN_DESCR, 
-				true, true, false, false);
+				true, true, true, false);
 	}
 
 	@Override

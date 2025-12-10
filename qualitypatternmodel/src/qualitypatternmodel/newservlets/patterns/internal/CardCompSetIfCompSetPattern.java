@@ -20,7 +20,7 @@ public class CardCompSetIfCompSetPattern extends PatternClass {
 		super(PatternConstants.CARDCOMPSETIFCOMPSET_ID,
 				PatternConstants.CARDCOMPSETIFCOMPSET_NAME, 
 				PatternConstants.CARDCOMPSETIFCOMPSET_DESCR, 
-				true, true, false, false);
+				true, true, true, false);
 	}
 
 	@Override

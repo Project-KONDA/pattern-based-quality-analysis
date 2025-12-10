@@ -18,7 +18,7 @@ public class StringLengthRangeIsoPattern extends PatternClass {
 		super(PatternConstants.STRINGLENGTHRANGEISO_ID,
 				PatternConstants.STRINGLENGTHRANGEISO_NAME, 
 				PatternConstants.STRINGLENGTHRANGEISO_DESCR, 
-				true, true, false, false);
+				true, true, true, false);
 	}
 	
 	@Override
