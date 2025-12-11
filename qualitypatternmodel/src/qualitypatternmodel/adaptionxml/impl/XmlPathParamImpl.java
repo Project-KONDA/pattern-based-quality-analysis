@@ -1217,18 +1217,21 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 
 	@Override
 	public String myToString() {
-		String res = "xmlpath [" + getInternalId() + "]";
+		String res = "xmlpath [" + getInternalId() + "] ";
+		if (getXmlNavigation() instanceof XmlPropertyNavigation) {
+			res += "P";
+		} else {
+			res += "E";
+		}
 		if (!getXmlAxisParts().isEmpty()) {
 			for (XmlAxisPart xmlAxisPart : getXmlAxisParts()) {
 				res += " {" + xmlAxisPart.myToString() + "}";
 			}
 		} else {
-			res += "[]";
+			res += " []";
 		}
 		if (getXmlNavigation() instanceof XmlPropertyNavigation) {
 			res += " " + getXmlPropertyOptionParam().myToString();
-		} else {
-			res += ".";
 		}
 		if (getAlternatives() != null && !getAlternatives().isEmpty()) {
 			for (XmlPathParam alternative: getAlternatives()) {

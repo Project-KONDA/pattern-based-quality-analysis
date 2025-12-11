@@ -30,8 +30,8 @@ public class PatternCollection {
 		classes.add(CompSetSinPattern.class);
 
 		// external
-		classes.add(Appdup2Pattern.class);
-		classes.add(Appdup3Pattern.class);
+		classes.add(AppDup2Pattern.class);
+		classes.add(AppDup3Pattern.class);
 		classes.add(FuncPattern.class);
 		classes.add(UniquePattern.class);
 

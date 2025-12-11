@@ -15,9 +15,9 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class Appdup2Pattern extends PatternClass {
+public class AppDup2Pattern extends PatternClass {
 
-	public Appdup2Pattern() {
+	public AppDup2Pattern() {
 		super(PatternConstants.APPDUP2_ID,
 				PatternConstants.APPDUP2_NAME, 
 				PatternConstants.APPDUP2_DESCR, 
@@ -29,8 +29,7 @@ public class Appdup2Pattern extends PatternClass {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 
-		pattern.getGraph().getReturnNodes().get(0).makeComplex();
-		pattern.getGraph().getReturnNodes().get(0).setName("main");
+		pattern.getGraph().getReturnNodes().get(0).makeComplex().setName("main");
 
 		ComplexNode main = (ComplexNode) pattern.getGraph().getReturnNodes().get(0);
 		ComplexNode other = GraphstructureFactory.eINSTANCE.createComplexNode();

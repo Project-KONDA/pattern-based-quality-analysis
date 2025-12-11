@@ -2,11 +2,11 @@ package qualitypatternmodel.newservlets.initialisation;
 
 public class PatternConstants {
 
-	public static String APPDUP2_ID = "Appdup2";
+	public static String APPDUP2_ID = "AppDup2";
 	public static String APPDUP2_NAME = "Approximate Duplicate based on two attributes";
 	public static String APPDUP2_DESCR = "Check whether there are records that have the same value in two important attributes, suggesting that they describe the same real-world object.";
 	
-	public static String APPDUP3_ID = "Appdup3";
+	public static String APPDUP3_ID = "AppDup3";
 	public static String APPDUP3_NAME = "Approximate Duplicate based on three attributes";
 	public static String APPDUP3_DESCR = "Check whether there are records that have the same value in three important attributes, suggesting that they describe the same real-world object.";
 	

@@ -10,9 +10,9 @@ import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class Appdup3Pattern extends PatternClass {
+public class AppDup3Pattern extends PatternClass {
 
-	public Appdup3Pattern() {
+	public AppDup3Pattern() {
 		super(PatternConstants.APPDUP3_ID,
 				PatternConstants.APPDUP3_NAME, 
 				PatternConstants.APPDUP3_DESCR, 
@@ -22,7 +22,7 @@ public class Appdup3Pattern extends PatternClass {
 	@Override
 	public CompletePattern getPattern()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = new Appdup2Pattern().getPattern();
+		CompletePattern pattern = new AppDup2Pattern().getPattern();
 
 		Graph g0 = pattern.getGraph();
 		QuantifiedCondition qc1 = (QuantifiedCondition) pattern.getCondition();
