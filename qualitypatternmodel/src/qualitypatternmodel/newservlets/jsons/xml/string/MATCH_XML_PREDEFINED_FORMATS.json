@@ -1,0 +1,45 @@
+{
+    "template":"Match_xml",
+    "language":"xml",
+    "name":"predefined-formats",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for Match_xml"
+	},
+    "fragments":[
+        {"text":"For each"},
+        {
+            "name":"Element",
+            "params":[2],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis"
+        },
+        {"text":", all"},
+        {
+            "name":"Properties",
+            "params":[3],
+            "exampleValue":"Surname",
+            "description":"value that gets analysed",
+            "plural":"true"
+        },
+        {"text":"match the"},
+        {
+            "name":"Specific Format",
+            "params":[1],
+            "exampleValue":"ISO Date Format (ISO 8601)",
+            "map":{
+            	"Alphanumerical Character": "[a-zA-Z0-9]",
+            	"ISO Date Format (ISO 8601)":"^\\d{4}(-[01]\\d(-[0-3]\\d(T([01]\\d|2[0-3]):[0-5]\\d(:[0-5]\\d(\\.\\d+)?)?(Z|[+\\-][01]\\d:[03]0)?)?)?)?$",
+            	"Language Code Format (BCP 47, extension of ISO 639)": "^[a-z]{2,3}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?(-([a-z0-9]{5,8}|[0-9]{4}))*(-[0-9A-WY-Za-wy-z](-[a-z0-9]{2,8})+)?(-x(-[a-z0-9]{1,8})+)?$",
+            	"ISIL Format (ISO 15511)": "^[A-Z]{2}-.+[-_/][A-Z0-9a-z_./-]+$",
+            	"LIDO Rec ID Format":"^(https?://[^/]+/.*?/organisations/)?[A-Z]{2}-.+$",
+            	"ASCII Format (ISO 646)":"^[!-~]+$"
+            }
+        },
+        {"text":"."},
+        {
+            "params":[0],
+            "value":"false"
+        }
+    ]
+}
