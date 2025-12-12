@@ -39,7 +39,9 @@ public class PatternCollection {
 		classes.add(CardCompSetIfCompSetPattern.class);
 		classes.add(CardIfCompSetPattern.class);
 		classes.add(CardPattern.class);
+		classes.add(CompSetIfMatchPattern.class);
 		classes.add(DupValPattern.class);
+		classes.add(ExistsIfExistsPattern.class);
 
 		// link
 		classes.add(LinkImageSizeIsoPattern.class);
