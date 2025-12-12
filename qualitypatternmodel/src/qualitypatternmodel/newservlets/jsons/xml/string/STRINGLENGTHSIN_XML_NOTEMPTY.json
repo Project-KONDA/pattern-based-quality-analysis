@@ -1,0 +1,28 @@
+{
+    "template":"StringLengthSin_xml",
+    "language":"xml",
+    "name":"not-empty",
+	"typeConstraint":true,
+	"custom": {
+		"description": "simplified variant for StringLengthSin_xml"
+	},
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"Property",
+            "params":[2],
+            "exampleValue":"LastName",
+            "description":"value that gets analysed"
+        },
+        {"text":"is not empty."},
+        {
+            "params":[0],
+            "value":"EQUAL",
+            "defaultMap":"comparison_negated"
+        },
+        {
+            "params":[1],
+            "value":"0"
+        }
+    ]
+}

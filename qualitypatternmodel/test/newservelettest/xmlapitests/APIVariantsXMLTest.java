@@ -171,7 +171,7 @@ public class APIVariantsXMLTest {
 	}
 	
 	private static void setDefaultParameter(String constraintId, String param) {
-		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'TextList':'[\"a\",\"b\"]', 'Boolean':'true', 'Text':'a'}");
+		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'TextList':'[\"a\",\"b\"]', 'Boolean':'true', 'Text':'a', 'TypeOption':'STRING'}");
 
 		if (Set.of("name", "namespace", "datamodel", "database").contains(param))
 			return;
@@ -196,7 +196,7 @@ public class APIVariantsXMLTest {
 			e.printStackTrace();
 		}
 		if (result.has(ConstantsJSON.FAILED))
-			System.out.println(result);
+			System.out.println("FAILED: " + result);
 		assert (!result.has(ConstantsJSON.FAILED));
 		assert (result.has(ConstantsJSON.SUCCESS));
 	}

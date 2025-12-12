@@ -10,7 +10,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import qualitypatternmodel.javaoperators.impl.ValidateLinkOperatorImpl;
+import qualitypatternmodel.javaoperators.JavaoperatorsFactory;
+import qualitypatternmodel.javaoperators.ValidateLinkOperator;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 
 public class ValidLinkTest {
@@ -36,11 +37,11 @@ public class ValidLinkTest {
 	
 	
 	
-	static ValidateLinkOperatorImpl validateLink;
+	static ValidateLinkOperator validateLink;
 
 	@BeforeAll
 	static void initialize() {
-		validateLink = new ValidateLinkOperatorImpl();
+		validateLink = JavaoperatorsFactory.eINSTANCE.createValidateLinkOperator();
 		validateLink.setOption(new BooleanParamImpl());
 		validateLink.getOption().setValue(false);
 	}

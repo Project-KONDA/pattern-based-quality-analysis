@@ -1,0 +1,38 @@
+{
+    "template":"LinkMimeType_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for LinkMimeType_xml"
+	},
+    "fragments":[
+        {"text":"For each"},
+        {
+            "name":"Element",
+            "params":[2],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":", all"},
+        {
+            "name":"Properties",
+            "params":[3],
+            "exampleValue":"Birth Certificate Sources",
+            "description":"property of interest,that should contain a valid link."
+        },
+        {"text":"are valid links, from which each has a MIME Type that is in the list of "},
+        {
+            "name":"MIME-Types",
+            "params":[1],
+            "exampleValue":"picture/jpeg",
+            "description":"MIME types"
+        },
+        {"text":"."},
+        
+        {
+            "params":[0],
+            "value": "true"
+        }
+    ]
+}

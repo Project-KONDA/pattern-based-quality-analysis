@@ -10,7 +10,6 @@ import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
@@ -22,18 +21,12 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 public class CardIfCompSetPattern extends PatternClass {
-	
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
-		CompletePattern pattern = new CardIfCompSetPattern().getPattern(); 
-		System.out.println(pattern.myToString());
-		pattern.isValid(AbstractionLevel.GENERIC);
-	}
 
 	public CardIfCompSetPattern() {
 		super(PatternConstants.CARDIFCOMPSET_ID,
 				PatternConstants.CARDIFCOMPSET_NAME, 
 				PatternConstants.CARDIFCOMPSET_DESCR, 
-				true, true, false, false);
+				true, true, true, false);
 	}
 
 	@Override

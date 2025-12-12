@@ -17,7 +17,7 @@ public class StringLengthIsoPattern extends PatternClass {
 		super(PatternConstants.STRINGLENGTHISO_ID,
 				PatternConstants.STRINGLENGTHISO_NAME, 
 				PatternConstants.STRINGLENGTHISO_DESCR, 
-				true, true, false, false);
+				true, true, true, false);
 	}
 	
 	@Override

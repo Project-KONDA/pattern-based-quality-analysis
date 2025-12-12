@@ -1,0 +1,36 @@
+{
+    "template":"MatchIso_xml",
+    "language":"xml",
+    "name":"iso-isil",
+	"typeConstraint":true,
+	"custom": {
+		"description": "constraint for MatchIso_xml specific to the ISO 15511 ISIL format"
+	},
+    "fragments":[
+        {"text":"For all"},
+        {
+            "name":"Container Elements",
+            "params":[3],
+            "exampleValue":"Record",
+            "description":"anchor for analysis",
+            "plural": "true"
+        },
+        {"text":", each"},
+        {
+            "name":"Property",
+            "params":[2],
+            "exampleValue":"Identifier",
+            "description":"value that gets analysed"
+        },
+        {"text":"matches ISO 15511 (ISIL as URI or identifier)"},
+        
+        {
+            "params":[0],
+            "value": "false"
+        },
+        {
+            "params":[1],
+    		"value":"^[A-Z]{2}-.+[-_/][A-Z0-9a-z_./-]+$"
+        }
+    ]
+}

@@ -303,7 +303,10 @@ public class InitialisationServlet extends HttpServlet {
 			new PatternTextImpl(template, json);
 			ServletUtilities.saveTemplate(technology, templateID, template);
 //			EMFModelSave.exportToFile2(template, templatefolder, templateID, Constants.EXTENSION);
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			System.err.println(e.getLocalizedMessage());
+			ServletUtilities.logError(e);
+		}
 	}
 
 	private static boolean fileExists(String folder, String id) {

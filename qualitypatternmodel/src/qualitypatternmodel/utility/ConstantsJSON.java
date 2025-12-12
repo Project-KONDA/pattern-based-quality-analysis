@@ -88,4 +88,13 @@ public class ConstantsJSON {
 	public static final String RESULT_STARTLINE = "startline";
 	public static final String RESULT_ENDLINE = "endline";
 	public static final String RESULT_LINESIZE = "linesize";
+
+	// Filter
+	public static final String NEGATE = "negate";
+	public static final String ARGUMENT = "argument";
+	public static final String ARGUMENT_FUNCTION = "functionclass";
+	public static final String ARGUMENT_CLASS = "class";
+	public static final String ARGUMENT_LIST = "list";
+	public static final String ARGUMENT_NUMBER1 = "number1";
+	public static final String ARGUMENT_NUMBER2 = "number2";
 }

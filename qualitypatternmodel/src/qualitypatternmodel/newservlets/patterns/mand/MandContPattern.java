@@ -13,22 +13,14 @@ import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.utility.PatternUtility;
 
 public class MandContPattern extends PatternClass {
-	
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = new MandContPattern().getXmlPattern();
-		PatternUtility.fillParameter(pattern);
-		System.out.println(pattern.generateXQuery());
-	}
-	
 
 	public MandContPattern() {
 		super(PatternConstants.MANDCONT_ID,
 				PatternConstants.MANDCONT_NAME, 
 				PatternConstants.MANDCONT_DESCR, 
-				true, true, false, false);
+				true, true, true, true);
 	}
 
 	@Override

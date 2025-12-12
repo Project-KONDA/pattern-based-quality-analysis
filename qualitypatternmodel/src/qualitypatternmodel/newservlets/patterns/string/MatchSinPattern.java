@@ -17,7 +17,7 @@ public class MatchSinPattern extends PatternClass {
 		super(PatternConstants.MATCHSIN_ID,
 				PatternConstants.MATCHSIN_NAME, 
 				PatternConstants.MATCHSIN_DESCR, 
-				true, true, false, false);
+				true, true, true, false);
 	}
 
 	@Override

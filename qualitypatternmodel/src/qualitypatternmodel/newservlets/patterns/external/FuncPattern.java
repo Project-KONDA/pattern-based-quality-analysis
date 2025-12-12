@@ -21,7 +21,7 @@ public class FuncPattern extends PatternClass {
 		super(PatternConstants.FUNC_ID,
 				PatternConstants.FUNC_NAME, 
 				PatternConstants.FUNC_DESCR, 
-				false, false, false, false);
+				true, true, true, true);
 	}
 
 	@Override
@@ -40,14 +40,8 @@ public class FuncPattern extends PatternClass {
 
 		PrimitiveNode fieldA1 = ret.addOutgoing(g2).getTarget().makePrimitive();
 		PrimitiveNode fieldA2 = ret.addOutgoing(g2).getTarget().makePrimitive();
-		PrimitiveNode fieldB1 = other.addOutgoing().getTarget().makePrimitive();
+		other.addOutgoing(fieldA1);
 		PrimitiveNode fieldB2 = other.addOutgoing().getTarget().makePrimitive();
-
-		Comparison c1 = fieldA1.addComparison(fieldB1);
-		c1.getTypeOption().setValue(ReturnType.STRING);
-		c1.getTypeOption().setPredefined(true);
-		c1.getOption().setValue(ComparisonOperator.EQUAL);
-		c1.getOption().setPredefined(true);
 
 		Comparison c2 = fieldA2.addComparison(fieldB2);
 		c2.getTypeOption().setValue(ReturnType.STRING);

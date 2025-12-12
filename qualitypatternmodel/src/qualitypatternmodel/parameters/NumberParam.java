@@ -5,6 +5,7 @@ package qualitypatternmodel.parameters;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator;
 import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.patternstructure.NumberElement;
 
@@ -22,6 +23,8 @@ import qualitypatternmodel.patternstructure.NumberElement;
  *   <li>{@link qualitypatternmodel.parameters.NumberParam#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.NumberParam#getNumberArgument <em>Number Argument</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.NumberParam#getStringLength <em>String Length</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.NumberParam#getOneArgJavaTwoNumberOperator1 <em>One Arg Java Two Number Operator1</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.NumberParam#getOneArgJavaTwoNumberOperator2 <em>One Arg Java Two Number Operator2</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getNumberParam()
@@ -88,6 +91,34 @@ public interface NumberParam extends ParameterValue {
 	 * @generated
 	 */
 	EList<StringLength> getStringLength();
+
+	/**
+	 * Returns the value of the '<em><b>One Arg Java Two Number Operator1</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator#getNumber1 <em>Number1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>One Arg Java Two Number Operator1</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getNumberParam_OneArgJavaTwoNumberOperator1()
+	 * @see qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator#getNumber1
+	 * @model opposite="number1"
+	 * @generated
+	 */
+	EList<OneArgJavaTwoNumberOperator> getOneArgJavaTwoNumberOperator1();
+
+	/**
+	 * Returns the value of the '<em><b>One Arg Java Two Number Operator2</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator#getNumber2 <em>Number2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>One Arg Java Two Number Operator2</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getNumberParam_OneArgJavaTwoNumberOperator2()
+	 * @see qualitypatternmodel.javaoperators.OneArgJavaTwoNumberOperator#getNumber2
+	 * @model opposite="number2"
+	 * @generated
+	 */
+	EList<OneArgJavaTwoNumberOperator> getOneArgJavaTwoNumberOperator2();
 
 	/**
 	 * <!-- begin-user-doc -->

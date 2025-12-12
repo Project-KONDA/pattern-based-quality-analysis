@@ -863,12 +863,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			return;
 		}
 		if (newArgument == null) {
-			getTypeOption().setValue(otherArgument.getReturnType());
+			if (otherArgument.getReturnType() != ReturnType.UNSPECIFIED)
+				getTypeOption().setValue(otherArgument.getReturnType());
 //			System.err.println("new argument null");
 			return;
 		}
 		if (otherArgument == null) {
-			getTypeOption().setValue(newArgument.getReturnType());
+			if (newArgument.getReturnType() != ReturnType.UNSPECIFIED)
+				getTypeOption().setValue(newArgument.getReturnType());
 //			System.err.println("old argument null");
 			return;
 		}
@@ -903,18 +905,17 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 //			System.err.println("no case did fit");
 		}
 			
-		if (value == null)
-			value = ReturnType.UNSPECIFIED;
+//		if (value == null)
+//			value = ReturnType.UNSPECIFIED;
 
-		if(!getTypeOption().getOptions().contains(value)) {
-			getTypeOption().getOptions().add(value);
-		}
-		getTypeOption().setValue(value);
+//		if(!getTypeOption().getOptions().contains(value)) {
+//			getTypeOption().getOptions().add(value);
+//		}
+		if (value != null)
+			getTypeOption().setValue(value);
 		
-		if (getTypeOption().getValue() != ReturnType.UNSPECIFIED)
+		if (next != ReturnType.UNSPECIFIED || other != ReturnType.UNSPECIFIED)
 			getTypeOption().setPredefined(true);
-		else 
-			getTypeOption().setPredefined(false);
 	}
 
 	private void adaptOperatorElementAssociation(qualitypatternmodel.graphstructure.Comparable newArgument, qualitypatternmodel.graphstructure.Comparable oldArgument) {

@@ -2,11 +2,11 @@ package qualitypatternmodel.newservlets.initialisation;
 
 public class PatternConstants {
 
-	public static String APPDUP2_ID = "Appdup2";
+	public static String APPDUP2_ID = "AppDup2";
 	public static String APPDUP2_NAME = "Approximate Duplicate based on two attributes";
 	public static String APPDUP2_DESCR = "Check whether there are records that have the same value in two important attributes, suggesting that they describe the same real-world object.";
 	
-	public static String APPDUP3_ID = "Appdup3";
+	public static String APPDUP3_ID = "AppDup3";
 	public static String APPDUP3_NAME = "Approximate Duplicate based on three attributes";
 	public static String APPDUP3_DESCR = "Check whether there are records that have the same value in three important attributes, suggesting that they describe the same real-world object.";
 	
@@ -21,6 +21,14 @@ public class PatternConstants {
 	public static String CARDMATCH_ID = "CardMatch";
 	public static String CARDMATCH_NAME = "Cardinality of RegEx-Constrained Values";
 	public static String CARDMATCH_DESCR = "Check, whether the occurence count of specific elements, that match a regular expression apply.";
+
+	public static String EXISTSIFEXISTS_ID = "ExistsIfExists";
+	public static String EXISTSIFEXISTS_NAME = "ExistsIfExists";
+	public static String EXISTSIFEXISTS_DESCR = "ExistsIfExists";
+
+	public static String COMPSETIFMATCH_ID = "CompSetIfMatch";
+	public static String COMPSETIFMATCH_NAME = "CompSetIfMatch";
+	public static String COMPSETIFMATCH_DESCR = "CompSetIfMatch";
 
 	public static String CARDIFCOMPSET_ID = "CardIfCompSet";
 	public static String CARDIFCOMPSET_NAME = "If Property A in Set, Check Cardinality of Property B";
@@ -133,6 +141,14 @@ public class PatternConstants {
 	public static String MANDCONTANDSIN_ID = "MandContAndSin";
 	public static String MANDCONTANDSIN_NAME = "Two Mandatory Contents (Single)";
 	public static String MANDCONTANDSIN_DESCR = "Check whether an element has mandatory content.";
+
+	public static String MAND2ELEOR_ID = "Mand2EleOr";
+	public static String MAND2ELEOR_NAME = "Mand2EleOr";
+	public static String MAND2ELEOR_DESCR = "Mand2EleOr";
+
+	public static String MAND3ELEOR_ID = "Mand3EleOr";
+	public static String MAND3ELEOR_NAME = "Mand3EleOr";
+	public static String MAND3ELEOR_DESCR = "Mand3EleOr";
 	
 	public static String MATCH_ID = "Match";
 	public static String MATCH_NAME = "Regular Expression Check";
@@ -197,4 +213,40 @@ public class PatternConstants {
 	public static String VALIDLINKSIN_ID = "ValidLinkSin";
 	public static String VALIDLINKSIN_NAME = "Valid Link (Single)";
 	public static String VALIDLINKSIN_DESCR = "Check whether a field is an valid link.";
+	
+	public static String LINKSOURCE_ID = "LinkSource";
+	public static String LINKSOURCE_NAME = "LinkSource";
+	public static String LINKSOURCE_DESCR = "LinkSource";
+
+	public static String LINKSOURCEISO_ID = "LinkSourceIso";
+	public static String LINKSOURCEISO_NAME = "LinkSourceIso";
+	public static String LINKSOURCEISO_DESCR = "LinkSourceIso";
+	
+	public static String LINKSOURCESIN_ID = "LinkSourceSin";
+	public static String LINKSOURCESIN_NAME = "LinkSourceSin";
+	public static String LINKSOURCESIN_DESCR = "LinkSourceSin";
+
+	public static String LINKMIMETYPE_ID = "LinkMimeType";
+	public static String LINKMIMETYPE_NAME = "LinkMimeType";
+	public static String LINKMIMETYPE_DESCR = "LinkMimeType";
+	
+	public static String LINKMIMETYPEISO_ID = "LinkMimeTypeIso";
+	public static String LINKMIMETYPEISO_NAME = "LinkMimeTypeIso";
+	public static String LINKMIMETYPEISO_DESCR = "LinkMimeTypeIso";
+
+	public static String LINKMIMETYPESIN_ID = "LinkMimeTypeSin";
+	public static String LINKMIMETYPESIN_NAME = "LinkMimeTypeSin";
+	public static String LINKMIMETYPESIN_DESCR = "LinkMimeTypeSin";
+
+	public static String LINKIMAGESIZE_ID = "LinkImageSize";
+	public static String LINKIMAGESIZE_NAME = "LinkImageSize";
+	public static String LINKIMAGESIZE_DESCR = "LinkImageSize";
+
+	public static String LINKIMAGESIZEISO_ID = "LinkImageSizeIso";
+	public static String LINKIMAGESIZEISO_NAME = "LinkImageSizeIso";
+	public static String LINKIMAGESIZEISO_DESCR = "LinkImageSizeIso";
+
+	public static String LINKIMAGESIZESIN_ID = "LinkImageSizeSin";
+	public static String LINKIMAGESIZESIN_NAME = "LinkImageSizeSin";
+	public static String LINKIMAGESIZESIN_DESCR = "LinkImageSizeSin";
 }

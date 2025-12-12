@@ -4,7 +4,7 @@
     "name":"default-constraint",
 	"typeConstraint":true,
 	"custom": {
-		"description": "Same as MandAtt_xml but realized via ValidLink_xml"
+		"description": "default constraint for ValidLink_xml"
 	},
     "fragments":[
         {"text":"For each"},

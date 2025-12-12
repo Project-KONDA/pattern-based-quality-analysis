@@ -40,8 +40,11 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.javaoperators.JavaoperatorsFactory;
+import qualitypatternmodel.javaoperators.LinkImageMinSizeOperator;
+import qualitypatternmodel.javaoperators.LinkMimeTypeOperator;
+import qualitypatternmodel.javaoperators.LinkSourceOperator;
 import qualitypatternmodel.javaoperators.ValidateLinkOperator;
-import qualitypatternmodel.javaoperators.impl.ValidateLinkOperatorImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
@@ -1797,6 +1800,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return addPrimitiveNullCheck((Boolean)arguments.get(0));
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_VALIDATE_LINK:
 				return addPrimitiveValidateLink();
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_LINK_SOURCE:
+				return addPrimitiveLinkSource();
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_LINK_MIME_TYPE:
+				return addPrimitiveLinkMimeType();
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_LINK_IMAGE_SIZE:
+				return addPrimitiveLinkImageSize();
 			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY:
 				try {
 					checkComparisonConsistency();
@@ -2132,21 +2141,108 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public ValidateLinkOperator addPrimitiveValidateLink() {
-		ValidateLinkOperator linkvalidation = new ValidateLinkOperatorImpl();
+		ValidateLinkOperator linkvalidation = JavaoperatorsFactory.eINSTANCE.createValidateLinkOperator();
 		try {
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 
-			oplist.add(linkvalidation);
-			linkvalidation.createParameters();
 			PrimitiveNode p = null;
 			if(this instanceof PrimitiveNode) {
 				p = (PrimitiveNode) this;
 			} else {
 				p = makePrimitive();
 			}
+			linkvalidation.setOperatorList(oplist);
+			linkvalidation.createParameters();
 			linkvalidation.setPrimitiveNode(p);
 			return linkvalidation;
+		} catch (Exception e) {
+			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public LinkSourceOperator addPrimitiveLinkSource() {
+		LinkSourceOperator linksource = JavaoperatorsFactory.eINSTANCE.createLinkSourceOperator();
+		try {
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+
+			PrimitiveNode p = null;
+			if(this instanceof PrimitiveNode) {
+				p = (PrimitiveNode) this;
+			} else {
+				p = makePrimitive();
+			}
+			linksource.setPrimitiveNode(p);
+			linksource.setOperatorList(oplist);
+			linksource.createParameters();
+			return linksource;
+		} catch (Exception e) {
+			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public LinkMimeTypeOperator addPrimitiveLinkMimeType() {
+		LinkMimeTypeOperator linkmime = JavaoperatorsFactory.eINSTANCE.createLinkMimeTypeOperator();
+		try {
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+
+			PrimitiveNode p = null;
+			if(this instanceof PrimitiveNode) {
+				p = (PrimitiveNode) this;
+			} else {
+				p = makePrimitive();
+			}
+			linkmime.setPrimitiveNode(p);
+			linkmime.setOperatorList(oplist);
+			linkmime.createParameters();
+			return linkmime;
+		} catch (Exception e) {
+			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public LinkImageMinSizeOperator addPrimitiveLinkImageSize() {
+		LinkImageMinSizeOperator linkimagesize = JavaoperatorsFactory.eINSTANCE.createLinkImageMinSizeOperator();
+		try {
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+
+			PrimitiveNode p = null;
+			if(this instanceof PrimitiveNode) {
+				p = (PrimitiveNode) this;
+			} else {
+				p = makePrimitive();
+			}
+			linkimagesize.setPrimitiveNode(p);
+			linkimagesize.setOperatorList(oplist);
+			linkimagesize.createParameters();
+			return linkimagesize;
 		} catch (Exception e) {
 			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
 			e.printStackTrace();

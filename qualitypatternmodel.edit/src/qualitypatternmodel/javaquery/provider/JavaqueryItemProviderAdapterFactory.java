@@ -325,6 +325,52 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.OneArgListFunctionFilterPart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OneArgListFunctionFilterPartItemProvider oneArgListFunctionFilterPartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaquery.OneArgListFunctionFilterPart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOneArgListFunctionFilterPartAdapter() {
+		if (oneArgListFunctionFilterPartItemProvider == null) {
+			oneArgListFunctionFilterPartItemProvider = new OneArgListFunctionFilterPartItemProvider(this);
+		}
+
+		return oneArgListFunctionFilterPartItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaquery.OneArgTwoNumberFunctionFilterPart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OneArgTwoNumberFunctionFilterPartItemProvider oneArgTwoNumberFunctionFilterPartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaquery.OneArgTwoNumberFunctionFilterPart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOneArgTwoNumberFunctionFilterPartAdapter() {
+		if (oneArgTwoNumberFunctionFilterPartItemProvider == null) {
+			oneArgTwoNumberFunctionFilterPartItemProvider = new OneArgTwoNumberFunctionFilterPartItemProvider(this);
+		}
+
+		return oneArgTwoNumberFunctionFilterPartItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -440,6 +486,8 @@ public class JavaqueryItemProviderAdapterFactory extends JavaqueryAdapterFactory
 		if (numberFilterElementItemProvider != null) numberFilterElementItemProvider.dispose();
 		if (numberValueFilterElementItemProvider != null) numberValueFilterElementItemProvider.dispose();
 		if (quantifierFilterPartItemProvider != null) quantifierFilterPartItemProvider.dispose();
+		if (oneArgListFunctionFilterPartItemProvider != null) oneArgListFunctionFilterPartItemProvider.dispose();
+		if (oneArgTwoNumberFunctionFilterPartItemProvider != null) oneArgTwoNumberFunctionFilterPartItemProvider.dispose();
 	}
 
 }

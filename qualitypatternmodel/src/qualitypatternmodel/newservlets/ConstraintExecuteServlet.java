@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
@@ -81,7 +82,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 					try {
 						failedConstraints.put(constraintId, ConstantsError.INVALID_CONSTRAINT);
 					} catch (JSONException f) {}
-					ServletUtilities.log("Constraint " + constraintId + " not valid: " + e.getMessage());
+					ServletUtilities.logError(new InvalidityException("Constraint " + constraintId + " not valid", e));
 				}
 			}
 		}
@@ -117,14 +118,14 @@ public class ConstraintExecuteServlet extends HttpServlet {
 				} catch (JSONException e) {
 					try {
 						failedConstraints.put(constraintID, e.getMessage());
-						ServletUtilities.log("Constraint not valid: " + e.getMessage());
+						ServletUtilities.logError(new InvalidityException("Constraint not valid ", e));
 					} catch (JSONException f) {}
 				}
 			}
 		}
 
 		if (constraints.isEmpty()) {
-			throw new InvalidServletCallException(ConstantsError.INVALID_CONSTRAINTS);
+			throw new InvalidServletCallException(ConstantsError.INVALID_CONSTRAINTS + ": " + failedConstraints);
 		}
 
 		JSONObject result = XmlServletUtility.queryConstraintsFilePaths(constraints, filepaths);

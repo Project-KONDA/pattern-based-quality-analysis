@@ -1814,12 +1814,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+//		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (patternId: ");
-		result.append(patternId);
-		result.append(", name: ");
+		StringBuilder result = new StringBuilder(patternId);
+		result.append(" (name: ");
 		result.append(name);
 		result.append(", abstractId: ");
 		result.append(abstractId);

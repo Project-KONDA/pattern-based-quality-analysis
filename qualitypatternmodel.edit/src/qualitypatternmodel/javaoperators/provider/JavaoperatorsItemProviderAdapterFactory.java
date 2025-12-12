@@ -95,6 +95,75 @@ public class JavaoperatorsItemProviderAdapterFactory extends JavaoperatorsAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaoperators.LinkMimeTypeOperator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LinkMimeTypeOperatorItemProvider linkMimeTypeOperatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaoperators.LinkMimeTypeOperator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLinkMimeTypeOperatorAdapter() {
+		if (linkMimeTypeOperatorItemProvider == null) {
+			linkMimeTypeOperatorItemProvider = new LinkMimeTypeOperatorItemProvider(this);
+		}
+
+		return linkMimeTypeOperatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaoperators.LinkImageMinSizeOperator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LinkImageMinSizeOperatorItemProvider linkImageMinSizeOperatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaoperators.LinkImageMinSizeOperator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLinkImageMinSizeOperatorAdapter() {
+		if (linkImageMinSizeOperatorItemProvider == null) {
+			linkImageMinSizeOperatorItemProvider = new LinkImageMinSizeOperatorItemProvider(this);
+		}
+
+		return linkImageMinSizeOperatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaoperators.LinkSourceOperator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LinkSourceOperatorItemProvider linkSourceOperatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaoperators.LinkSourceOperator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLinkSourceOperatorAdapter() {
+		if (linkSourceOperatorItemProvider == null) {
+			linkSourceOperatorItemProvider = new LinkSourceOperatorItemProvider(this);
+		}
+
+		return linkSourceOperatorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -200,6 +269,9 @@ public class JavaoperatorsItemProviderAdapterFactory extends JavaoperatorsAdapte
 	@Override
 	public void dispose() {
 		if (validateLinkOperatorItemProvider != null) validateLinkOperatorItemProvider.dispose();
+		if (linkMimeTypeOperatorItemProvider != null) linkMimeTypeOperatorItemProvider.dispose();
+		if (linkImageMinSizeOperatorItemProvider != null) linkImageMinSizeOperatorItemProvider.dispose();
+		if (linkSourceOperatorItemProvider != null) linkSourceOperatorItemProvider.dispose();
 	}
 
 }

@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import qualitypatternmodel.javaoperators.*;
 import qualitypatternmodel.javaoperators.JavaoperatorsFactory;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.ValidateLinkOperator;
@@ -56,6 +57,9 @@ public class JavaoperatorsFactoryImpl extends EFactoryImpl implements Javaoperat
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case JavaoperatorsPackage.VALIDATE_LINK_OPERATOR: return createValidateLinkOperator();
+			case JavaoperatorsPackage.LINK_MIME_TYPE_OPERATOR: return createLinkMimeTypeOperator();
+			case JavaoperatorsPackage.LINK_IMAGE_MIN_SIZE_OPERATOR: return createLinkImageMinSizeOperator();
+			case JavaoperatorsPackage.LINK_SOURCE_OPERATOR: return createLinkSourceOperator();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -70,6 +74,39 @@ public class JavaoperatorsFactoryImpl extends EFactoryImpl implements Javaoperat
 	public ValidateLinkOperator createValidateLinkOperator() {
 		ValidateLinkOperatorImpl validateLinkOperator = new ValidateLinkOperatorImpl();
 		return validateLinkOperator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LinkMimeTypeOperator createLinkMimeTypeOperator() {
+		LinkMimeTypeOperatorImpl linkMimeTypeOperator = new LinkMimeTypeOperatorImpl();
+		return linkMimeTypeOperator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LinkImageMinSizeOperator createLinkImageMinSizeOperator() {
+		LinkImageMinSizeOperatorImpl linkImageMinSizeOperator = new LinkImageMinSizeOperatorImpl();
+		return linkImageMinSizeOperator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LinkSourceOperator createLinkSourceOperator() {
+		LinkSourceOperatorImpl linkSourceOperator = new LinkSourceOperatorImpl();
+		return linkSourceOperator;
 	}
 
 	/**

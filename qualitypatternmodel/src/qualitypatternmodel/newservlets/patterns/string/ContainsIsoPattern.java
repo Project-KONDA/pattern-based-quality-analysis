@@ -18,7 +18,7 @@ public class ContainsIsoPattern extends PatternClass {
 		super(PatternConstants.CONTAINSISO_ID,
 				PatternConstants.CONTAINSISO_NAME, 
 				PatternConstants.CONTAINSISO_DESCR, 
-				true, true, false, false);
+				true, true, true, false);
 	}
 
 	@Override

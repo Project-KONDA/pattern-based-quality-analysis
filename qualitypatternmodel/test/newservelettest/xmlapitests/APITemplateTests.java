@@ -195,7 +195,7 @@ public class APITemplateTests {
 	@Test
 	public void testTemplateMatch()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assertEquals(3, store.getJSONObject("Match_xml").getInt("size"));
+		assertEquals(8, store.getJSONObject("Match_xml").getInt("size"));
 
 		testConstraint("Match_xml", "default-constraint", 
 				Map.of(
@@ -231,7 +231,7 @@ public class APITemplateTests {
 	@Test
 	public void testTemplateStringLength()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assertEquals(1, store.getJSONObject("StringLength_xml").getInt("size"));
+		assertEquals(2, store.getJSONObject("StringLength_xml").getInt("size"));
 
 		testConstraint("StringLength_xml", "default-constraint",
 				Map.of(

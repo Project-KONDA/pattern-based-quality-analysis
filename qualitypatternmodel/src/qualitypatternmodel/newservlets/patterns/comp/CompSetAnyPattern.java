@@ -12,15 +12,8 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.utility.PatternUtility;
 
 public class CompSetAnyPattern extends PatternClass {
-	
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = new CompSetAnyPattern().getXmlPattern();
-		PatternUtility.fillParameter(pattern);
-		System.out.println(pattern.generateXQuery());
-	}
 
 	public CompSetAnyPattern() {
 		super(PatternConstants.COMPSETANY_ID,

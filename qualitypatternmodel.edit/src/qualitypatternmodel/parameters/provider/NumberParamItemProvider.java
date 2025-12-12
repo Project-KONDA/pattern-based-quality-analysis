@@ -48,6 +48,8 @@ public class NumberParamItemProvider extends ParameterValueItemProvider {
 			addValuePropertyDescriptor(object);
 			addNumberArgumentPropertyDescriptor(object);
 			addStringLengthPropertyDescriptor(object);
+			addOneArgJavaTwoNumberOperator1PropertyDescriptor(object);
+			addOneArgJavaTwoNumberOperator2PropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -110,6 +112,50 @@ public class NumberParamItemProvider extends ParameterValueItemProvider {
 				 getString("_UI_NumberParam_stringLength_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NumberParam_stringLength_feature", "_UI_NumberParam_type"),
 				 ParametersPackage.Literals.NUMBER_PARAM__STRING_LENGTH,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the One Arg Java Two Number Operator1 feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOneArgJavaTwoNumberOperator1PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NumberParam_oneArgJavaTwoNumberOperator1_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NumberParam_oneArgJavaTwoNumberOperator1_feature", "_UI_NumberParam_type"),
+				 ParametersPackage.Literals.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR1,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the One Arg Java Two Number Operator2 feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOneArgJavaTwoNumberOperator2PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NumberParam_oneArgJavaTwoNumberOperator2_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NumberParam_oneArgJavaTwoNumberOperator2_feature", "_UI_NumberParam_type"),
+				 ParametersPackage.Literals.NUMBER_PARAM__ONE_ARG_JAVA_TWO_NUMBER_OPERATOR2,
 				 true,
 				 false,
 				 true,

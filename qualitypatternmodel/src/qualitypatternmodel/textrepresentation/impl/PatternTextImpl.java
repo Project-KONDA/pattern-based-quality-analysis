@@ -27,7 +27,7 @@ import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.operators.Comparison;
@@ -535,11 +535,12 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 					patternParametersNonPredefined.add(p);
 				} else {
 					TypeOptionParam t = (TypeOptionParam) p;
-					boolean automaticType = true;
+					boolean manual = true;
 					for(Comparison c : t.getTypeComparisons()) {
-						automaticType &= !(c.getArgument1() instanceof PrimitiveNode && c.getArgument2() instanceof PrimitiveNode);
+						manual &= c.getArgument1().getReturnType().equals(ReturnType.UNSPECIFIED);
+						manual &= c.getArgument2().getReturnType().equals(ReturnType.UNSPECIFIED);
 					}
-					if(!automaticType) {
+					if(manual) {
 						patternParametersNonPredefined.add(p);
 					}
 				}

@@ -4,7 +4,8 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.javaoperators.impl.ValidateLinkOperatorImpl;
+import qualitypatternmodel.javaoperators.JavaoperatorsFactory;
+import qualitypatternmodel.javaoperators.ValidateLinkOperator;
 import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
@@ -34,7 +35,7 @@ public class ValidLinkSinPattern extends PatternClass {
 		
 		QuantifiedCondition qc = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		pattern.setCondition(qc);
-		ValidateLinkOperatorImpl op4 = new ValidateLinkOperatorImpl();
+		ValidateLinkOperator op4 = JavaoperatorsFactory.eINSTANCE.createValidateLinkOperator();
 		op4.setOperatorList(qc.getGraph().getOperatorList());
 		BooleanParamImpl bpi = new BooleanParamImpl();
 		op4.setOption(bpi);

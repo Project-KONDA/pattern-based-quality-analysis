@@ -224,6 +224,16 @@ public class QuantifierFilterPartItemProvider extends BooleanFilterPartItemProvi
 			(createChildParameter
 				(JavaqueryPackage.Literals.QUANTIFIER_FILTER_PART__SUBFILTER,
 				 JavaqueryFactory.eINSTANCE.createQuantifierFilterPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.QUANTIFIER_FILTER_PART__SUBFILTER,
+				 JavaqueryFactory.eINSTANCE.createOneArgListFunctionFilterPart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryPackage.Literals.QUANTIFIER_FILTER_PART__SUBFILTER,
+				 JavaqueryFactory.eINSTANCE.createOneArgTwoNumberFunctionFilterPart()));
 	}
 
 }
