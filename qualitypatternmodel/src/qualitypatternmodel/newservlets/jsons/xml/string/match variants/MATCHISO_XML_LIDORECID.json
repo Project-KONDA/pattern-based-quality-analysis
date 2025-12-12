@@ -1,17 +1,17 @@
 {
     "template":"MatchIso_xml",
     "language":"xml",
-    "name":"LidoRecID-pattern",
+    "name":"lido-rec-id",
 	"typeConstraint":true,
 	"custom": {
-		"description": "constraint for MatchIso_xml specific to the ISO 15511 ISIL format"
+		"description": "constraint for MatchIso_xml specific to the format of LidoRecIDs"
 	},
     "fragments":[
         {"text":"For all"},
         {
             "name":"Container Elements",
             "params":[3],
-            "exampleValue":"Actors",
+            "exampleValue":"Lido Record",
             "description":"anchor for analysis",
             "plural": "true"
         },
@@ -19,7 +19,7 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Birthdate",
+            "exampleValue":"Lido Rec ID",
             "description":"value that gets analysed"
         },
         {"text":"matches the LIDORecID pattern (ISIL identifier + separator + recordID)."},
@@ -30,7 +30,7 @@
         },
         {
             "params":[1],
-    		"value":"^[A-Z]{2}-.+ [-_/][A-Z0-9a-z]+$"
+    		"value":"^(https?://[^/]+/.*/organisations/)?[A-Z]{2}-.+$"
         }
     ]
 }

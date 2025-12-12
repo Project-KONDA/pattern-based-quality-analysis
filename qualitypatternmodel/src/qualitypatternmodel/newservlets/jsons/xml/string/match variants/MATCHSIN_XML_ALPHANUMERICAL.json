@@ -1,0 +1,28 @@
+{
+    "template":"MatchSin_xml",
+    "language":"xml",
+    "name":"alphanumerical",
+	"typeConstraint":true,
+	"custom": {
+		"description": "alphanumerical character variant for MatchSin_xml"
+	},
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"Property",
+            "params":[2],
+            "exampleValue":"Surname",
+            "description":"value that gets analysed"
+        },
+        {"text":"must have at least one alphanumerical character."},
+		
+        {
+            "params":[0],
+            "value": "false"
+        },
+        {
+            "params":[1],
+    		"value":"[a-zA-Zo-9]"
+        }
+    ]
+}

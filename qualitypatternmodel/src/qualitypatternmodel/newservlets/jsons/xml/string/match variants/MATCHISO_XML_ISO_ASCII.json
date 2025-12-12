@@ -1,0 +1,36 @@
+{
+    "template":"MatchIso_xml",
+    "language":"xml",
+    "name":"iso-ascii",
+	"typeConstraint":true,
+	"custom": {
+		"description": "constraint for MatchIso_xml specific to ISO 646 ASCII format"
+	},
+    "fragments":[
+        {"text":"For all"},
+        {
+            "name":"Container Elements",
+            "params":[3],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis",
+            "plural": "true"
+        },
+        {"text":", each"},
+        {
+            "name":"Property",
+            "params":[2],
+            "exampleValue":"Surname",
+            "description":"value that gets analysed"
+        },
+        {"text":"matches ISO 646 (ASCII characters) excluding whitespace."},
+        
+        {
+            "params":[0],
+            "value": "false"
+        },
+        {
+            "params":[1],
+    		"value":"^[!-~]+$"
+        }
+    ]
+}

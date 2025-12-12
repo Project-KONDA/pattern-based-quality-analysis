@@ -11,7 +11,7 @@
         {
             "name":"Container Elements",
             "params":[3],
-            "exampleValue":"Actors",
+            "exampleValue":"Record",
             "description":"anchor for analysis",
             "plural": "true"
         },
@@ -19,7 +19,7 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Birthdate",
+            "exampleValue":"Identifier",
             "description":"value that gets analysed"
         },
         {"text":"matches ISO 15511 (ISIL as URI or identifier)"},
@@ -30,7 +30,7 @@
         },
         {
             "params":[1],
-    		"value":"^(?:https?://[^/]+/.*?/organisations/)?[A-Z]{2}-.+$"
+    		"value":"^[A-Z]{2}-.+[-_/][A-Z0-9a-z_./-]+$"
         }
     ]
 }

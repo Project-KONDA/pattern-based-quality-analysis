@@ -1,17 +1,17 @@
 {
     "template":"MatchIso_xml",
     "language":"xml",
-    "name":"aat-gnd-wd",
+    "name":"alphanumerical",
 	"typeConstraint":true,
 	"custom": {
-		"description": "constraint for MatchIso_xml specific to test URLs to the format of the AAT, GND or Wikidata"
+		"description": "alphanumerical character variant for MatchIso_xml"
 	},
     "fragments":[
         {"text":"For all"},
         {
             "name":"Container Elements",
             "params":[3],
-            "exampleValue":"Personal Names",
+            "exampleValue":"Actors",
             "description":"anchor for analysis",
             "plural": "true"
         },
@@ -19,10 +19,10 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Language Specification",
+            "exampleValue":"Surename",
             "description":"value that gets analysed"
         },
-        {"text":"matches a URI from either AAT, GND, or Wikidata."},
+        {"text":"must have at least one alphanumerical character."},
         
         {
             "params":[0],
@@ -30,7 +30,7 @@
         },
         {
             "params":[1],
-    		"value":"^https?://(d-nb.info/gnd/[0-9] +?|vocab.getty.edu/aat/[0-9]+|www.wikidata.org/entity/Q[0-9]+)$"
+    		"value":"[a-zA-Zo-9]"
         }
     ]
 }
