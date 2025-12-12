@@ -30,7 +30,7 @@
         },
         {
             "params":[1],
-    		"value":"[a-zA-Zo-9]"
+    		"value":"[a-zA-Z0-9]"
         }
     ]
 }
