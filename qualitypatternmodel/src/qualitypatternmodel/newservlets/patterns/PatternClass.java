@@ -40,10 +40,6 @@ abstract public class PatternClass {
 			id = info.getString(ConstantsJSON.INFO_ID);
 			name = info.getString(ConstantsJSON.INFO_NAME);
 			description = info.getString(ConstantsJSON.INFO_DESCRIPTION);
-			genericValid = info.getBoolean(ConstantsJSON.INFO_GENERIC);
-			xmlValid = info.getBoolean(ConstantsJSON.INFO_XML);
-			rdfValid = info.getBoolean(ConstantsJSON.INFO_RDF);
-			neoValid = info.getBoolean(ConstantsJSON.INFO_NEO4J);
 		} catch (IOException e) {};
 
 		this.id = id;

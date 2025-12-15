@@ -1,559 +1,311 @@
 {
 	"AppDup2Pattern":{
 		"id":"AppDup2",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Approximate Duplicate based on two attributes", 
 		"description":"Check whether there are records that have the same value in two important attributes, suggesting that they describe the same real-world object."
 	},
 	"AppDup3Pattern":{
 		"id":"AppDup3",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Approximate Duplicate based on three attributes",
 		"description":"Check whether there are records that have the same value in three important attributes, suggesting that they describe the same real-world object."
 	},
 	"CardImpliesMandAttPattern":{
 		"id":"CardImpliesMandAtt",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Mandatory Attribute based on Cardinality Constraint",
 		"description":"Check whether a attribute exists, that is mandatory on specific cardinalities of a field."
 	},
 	"CardPattern":{
 		"id":"Card",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Cardinality Constraint",
 		"description":"Check, whether the occurence count of specific elements apply."
 	},
 	"CardMatchPattern":{
 		"id":"CardMatch",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Cardinality of RegEx-Constrained Values",
 		"description":"Check, whether the occurence count of specific elements, that match a regular expression apply."
 	},
 	"ExistsIfExistsPattern":{
 		"id":"ExistsIfExists",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"ExistsIfExists",
 		"description":"ExistsIfExists"
 	},
 	"CompSetIfMatchPattern":{
 		"id":"CompSetIfMatch",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"CompSetIfMatch",
 		"description":"CompSetIfMatch"
 	},
 	"CardIfCompSetPattern":{
 		"id":"CardIfCompSet",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":false,
 		"name":"If Property A in Set, Check Cardinality of Property B",
 		"description":"If one specific property is in a specific Set, check the occurence count of another specific element applies"
 	},
 	"CardCompSetIfCompSetPattern":{
 		"id":"CardCompSetIfCompSet",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":false,
 		"name":"If Property A in Set, Check Cardinality of Property B in Set",
 		"description":"If one specific property is in a specific Set, check the occurence count of values of another specific property, that are in another set"
 	},
 	"CheckFormatPattern":{
 		"id":"CheckFormat",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Check the format of a resource",
 		"description":"Check if the ressource under an URL is of a specific format."
 	},
 	"CompDatabasePattern":{
 		"id":"CompDatabase",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Fieldvalue in Database",
 		"description":"Check whether all values in a field are in a database."
 	},
 	"CompPattern":{
 		"id":"Comp",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Comparison Pattern",
 		"description":"Check, whether the occurence count of specific elements apply."
 	},
 	"CompSetPattern":{
 		"id":"CompSet",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Comparison Pattern with Set",
 		"description":"Check, whether the value of fields are within a list of allowed (/forbidden) terms."
 	},
 	"CompSetIsoPattern":{
 		"id":"CompSetIso",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":false,
 		"name":"Comparison Pattern with Set (Isolated)",
 		"description":"Check, whether the value of fields are within a list of allowed (/forbidden) terms."
 	},
 	"CompSetSinPattern":{
 		"id":"CompSetSin",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":false,
 		"name":"Comparison Pattern with Set (Single)",
 		"description":"Check, whether the value of fields are within a list of allowed (/forbidden) terms."
 	},
 	"CompSetAnyPattern":{
 		"id":"CompSetAny",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Comparison Pattern Any in Set",
 		"description":"Check, whether at least one value of fields are within a list of allowed (/forbidden) terms."
 	},
 	"CompValAnyPattern":{
 		"id":"CompValAny",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Compare values within a record",
 		"description":"Check whether any value of a specific field within a record does comply to a value restriction."
 	},
 	"CompValPattern":{
 		"id":"CompVal",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Compare Values",
 		"description":"Check whether all values of a specific field within a record does comply to a value restriction."
 	},
 	"ContainsPattern":{
 		"id":"Contains",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Contains Check",
 		"description":"Check, whether a value contains a specific substring."
 	},
 	"ContainsIsoPattern":{
 		"id":"ContainsIso",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":false,
 		"name":"Contains Check (Isolated)",
 		"description":"Check, whether a value contains a specific substring."
 	},
 	"ContainsSinPattern":{
 		"id":"ContainsSin",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":false,
 		"name":"Contains Check (Single)",
 		"description":"Check, whether a value contains a specific substring."
 	},
 	"ContainsListPattern":{
 		"id":"ContainsList",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"Contains List Check",
 		"description":"Check, whether a value contains one of a list of substrings."
 	},
 	"ContainsListIsoPattern":{
 		"id":"ContainsListIso",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"Contains List Check (Isolated)",
 		"description":"Check, whether a value contains one of a list of substrings."
  	},
 	"ContainsListSinPattern":{
 		"id":"ContainsListSin",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"Contains List Check (Single)",
 		"description":"Check, whether a value contains one of a list of substrings."
 	},
 	"DupValPattern":{
 		"id":"DupVal",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":false,
 		"name":"Duplicate value",
 		"description":"Check whether a record has the same value in two distinct fields."
 	},
 	"FuncPattern":{
 		"id":"Func",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Functional Dependency Constraint",
 		"description":"Validate a dependency between two subordinate fields is valid in comparison to data records next to it."
 	},
 	"LocalUniquePattern":{
 		"id":"LocalUnique",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Local Unique Attribute Constraint",
 		"description":"Check whether all field values are unique within a record."
 	},
 	"MandAttPattern":{
 		"id":"MandAtt",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Mandatory Attribute",
 		"description":"Check whether a record has a mandatory field."
 	},
 	"MandElePattern":{
 		"id":"MandEle",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Mandatory Element",
 		"description":"Check whether a record has a mandatory element."
 	},
 	"MandContPattern":{
 		"id":"MandCont",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Mandatory Content",
 		"description":"Check whether an element has mandatory content."
 	},
 	"MandContIsoPattern":{
 		"id":"MandContIso",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Mandatory Content (Isolated)",
 		"description":"Check whether an element has mandatory content."
 	},
 	"MandContSinPattern":{
 		"id":"MandContSin",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Mandatory Content (Single)",
 		"description":"Check whether an element has mandatory content."
 	},
 	"MandContAndPattern":{
 		"id":"MandContAnd",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Two Mandatory Contents",
 		"description":"Check whether an element has mandatory content."
 	},
 	"MandContAndIsoPattern":{
 		"id":"MandContAndIso",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Two Mandatory Contents (Isolated)",
 		"description":"Check whether an element has mandatory content."
 	},
 	"MandContAndSinPattern":{
 		"id":"MandContAndSin",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Two Mandatory Contents (Single)",
 		"description":"Check whether an element has mandatory content."
 	},
 	"Mand2EleOrPattern":{
 		"id":"Mand2EleOr",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Mand2EleOr",
 		"description":"Mand2EleOr"
 	},
 	"Mand3EleOrPattern":{
 		"id":"Mand3EleOr",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Mand3EleOr",
 		"description":"Mand3EleOr"
 	},
 	"MatchPattern":{
 		"id":"Match",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Regular Expression Check",
 		"description":"Check, whether a value matches a specific regular expression."
 	},
 	"MatchIsoPattern":{
 		"id":"MatchIso",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":false,
 		"name":"Regular Expression Check (Isolated)",
 		"description":"Check, whether a value matches a specific regular expression."
 	},
 	"MatchSinPattern":{
 		"id":"MatchSin",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":false,
 		"name":"Regular Expression Check (Single)",
 		"description":"Check, whether a value matches a specific regular expression."
 	},
 	"MatchListPattern":{
 		"id":"MatchList",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"Regular Expression List Check",
 		"description":"Check, whether a value matches at least one regular expression from a list."
 	},
 	"MatchListIsoPattern":{
 		"id":"MatchListIso",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"Regular Expression List Check (Isolated)",
 		"description":"Check, whether a value matches at least one regular expression from a list."
 	},
 	"MatchListSinPattern":{
 		"id":"MatchListSin",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"Regular Expression List Check (Single)",
 		"description":"Check, whether a value matches at least one regular expression from a list."
 	},
 	"StringLengthPattern":{
 		"id":"StringLength",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"String value length restriction",
 		"description":"Check whether all field values comply to the length restriction."
 	},
 	"StringLengthIsoPattern":{
 		"id":"StringLengthIso",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":false,
 		"name":"String value length restriction (Isolated)",
 		"description":"Check all field values whether they comply to the length restriction."
 	},
 	"StringLengthSinPattern":{
 		"id":"StringLengthSin",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":false,
 		"name":"String value length restriction (Single)",
 		"description":"Check all field values whether they comply to the length restriction."
 	},
 	"StringLengthRangePattern":{
 		"id":"StringLengthRange",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"String value length range restriction",
 		"description":"Check all field values whether they comply to the length restriction."
 	},
 	"StringLengthRangeIsoPattern":{
 		"id":"StringLengthRangeIso",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":false,
 		"name":"String value length range restriction (Isolated)",
 		"description":"Check all field values whether they comply to the length restriction."
 	},
 	"StringLengthRangeSinPattern":{
 		"id":"StringLengthRangeSin",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":false,
 		"name":"String value length range restriction (Single)",
 		"description":"Check all field values whether they comply to the length restriction."
 	},
 	"UniquePattern":{
 		"id":"Unique",
-		"generic":true,
-		"xml":true,
-		"rdf":true,
-		"neo4j":true,
 		"name":"Uniqueness Constraint",
 		"description":"Check, whether a value is unique within the dataset."
 	},
 	"ValidLinkPattern":{
 		"id":"ValidLink",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"Valid Link",
 		"description":"Check that a record contains no field with an invalid link."
 	},
 	"ValidLinkIsoPattern":{
 		"id":"ValidLinkIso",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"Valid Link (Isolated)",
 		"description":"Check whether a field is an valid link."
 	},
 	"ValidLinkSinPattern":{
 		"id":"ValidLinkSin",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"Valid Link (Single)",
 		"description":"Check whether a field is an valid link."
 	},
 	"LinkSourcePattern":{
 		"id":"LinkSource",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"LinkSource",
 		"description":"LinkSource"
 	},
 	"LinkSourceIsoPattern":{
 		"id":"LinkSourceIso",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"LinkSourceIso",
 		"description":"LinkSourceIso"
 	},
 	"LinkSourceSinPattern":{
 		"id":"LinkSourceSin",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"LinkSourceSin",
 		"description":"LinkSourceSin"
 	},
 	"LinkMimeTypePattern":{
 		"id":"LinkMimeType",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"LinkMimeType",
 		"description":"LinkMimeType"
 	},
 	"LinkMimeTypeIsoPattern":{
 		"id":"LinkMimeTypeIso",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"LinkMimeTypeIso",
 		"description":"LinkMimeTypeIso"
 	},
 	"LinkMimeTypeSinPattern":{
 		"id":"LinkMimeTypeSin",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"LinkMimeTypeSin",
 		"description":"LinkMimeTypeSin"
 	},
 	"LinkImageSizePattern":{
 		"id":"LinkImageSize",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"LinkImageSize",
 		"description":"LinkImageSize"
 	},
 	"LinkImageSizeIsoPattern":{
 		"id":"LinkImageSizeIso",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"LinkImageSizeIso",
 		"description":"LinkImageSizeIso"
 	},
 	"LinkImageSizeSinPattern":{
 		"id":"LinkImageSizeSin",
-		"generic":true,
-		"xml":true,
-		"rdf":false,
-		"neo4j":false,
 		"name":"LinkImageSizeSin",
 		"description":"LinkImageSizeSin"
 	}
