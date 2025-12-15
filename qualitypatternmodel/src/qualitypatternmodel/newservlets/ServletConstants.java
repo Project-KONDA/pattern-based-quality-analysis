@@ -31,6 +31,10 @@ public class ServletConstants {
 	public static String VARIANTS_FOLDER =  "/templates/variants";
 	public static String ENV_VARIANTS_FOLDER = "VARIANTS_FOLDER";
 
+	// path to template info file
+	public static String TEMPLATE_INFO_FILE_DEFAULT =  "/templates/template_info.json";
+	public static String ENV_TEMPLATE_INFO_FILE = "TEMPLATE_INFO_FILE";
+	public static String TEMPLATE_INFO_FILE = "/templates/template_info.json";
 
 
 	// name of logfile
@@ -40,7 +44,6 @@ public class ServletConstants {
 	// name of savefile
 	public static String SAVEFILE = "savefile.txt";
 	public static String ENV_SAVEFILE = "SAVEFILE";
-
 
 
 	// save log in shared

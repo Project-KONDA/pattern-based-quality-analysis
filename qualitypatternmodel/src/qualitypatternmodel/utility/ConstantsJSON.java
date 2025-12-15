@@ -1,5 +1,7 @@
 package qualitypatternmodel.utility;
 
+import qualitypatternmodel.patternstructure.Language;
+
 public class ConstantsJSON {
 
 	// JSON variables
@@ -97,4 +99,13 @@ public class ConstantsJSON {
 	public static final String ARGUMENT_LIST = "list";
 	public static final String ARGUMENT_NUMBER1 = "number1";
 	public static final String ARGUMENT_NUMBER2 = "number2";
+
+	// INFO
+	public static final String INFO_ID = "id";
+	public static final String INFO_NAME = "name";
+	public static final String INFO_DESCRIPTION = "description";
+	public static final String INFO_GENERIC = Language.GENERIC.getLiteral();
+	public static final String INFO_XML = Language.XML.getLiteral();
+	public static final String INFO_RDF = Language.RDF.getLiteral();
+	public static final String INFO_NEO4J = Language.NEO4J.getLiteral();
 }

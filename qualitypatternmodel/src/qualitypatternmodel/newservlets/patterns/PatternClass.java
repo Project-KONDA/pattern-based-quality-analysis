@@ -1,14 +1,19 @@
 package qualitypatternmodel.newservlets.patterns;
 
+import java.io.IOException;
 import java.util.Map;
+
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.newservlets.initialisation.PatternBundle;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 abstract public class PatternClass {
 
@@ -29,17 +34,31 @@ abstract public class PatternClass {
 	public final Boolean neoValid;
 
 	protected PatternClass(String id, String name, String description, Boolean genericValid, Boolean xmlValid, Boolean rdfValid, Boolean neoValid) {
+		try {
+			String classname = this.getClass().getSimpleName();
+			JSONObject info = ServletUtilities.getTemplateInfo(classname);
+			id = info.getString(ConstantsJSON.INFO_ID);
+			name = info.getString(ConstantsJSON.INFO_NAME);
+			description = info.getString(ConstantsJSON.INFO_DESCRIPTION);
+			genericValid = info.getBoolean(ConstantsJSON.INFO_GENERIC);
+			xmlValid = info.getBoolean(ConstantsJSON.INFO_XML);
+			rdfValid = info.getBoolean(ConstantsJSON.INFO_RDF);
+			neoValid = info.getBoolean(ConstantsJSON.INFO_NEO4J);
+		} catch (IOException e) {};
+
 		this.id = id;
-		genericId = id + "_generic";
-		xmlId = id + "_xml";
-		rdfId = id + "_rdf";
-		neoId = id + "_neo4j";
 		this.name = name;
 		this.description = description;
 		this.genericValid = genericValid;
 		this.xmlValid = xmlValid;
 		this.rdfValid = rdfValid;
 		this.neoValid = neoValid;
+		
+//		this.id = id;
+		genericId = id + "_generic";
+		xmlId = id + "_xml";
+		rdfId = id + "_rdf";
+		neoId = id + "_neo4j";
 	}
 
 	// Patterns

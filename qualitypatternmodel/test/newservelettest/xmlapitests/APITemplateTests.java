@@ -30,7 +30,8 @@ import qualitypatternmodel.newservlets.PatternListServlet;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 public class APITemplateTests {
-	private static String FOLDER;
+	private static final boolean DELETE = true;
+	private static String folder;
 	private static JSONObject store;
 
 	public static void main(String[] args)
@@ -64,21 +65,25 @@ public class APITemplateTests {
 	@BeforeAll
 	public static void initialize()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		FOLDER = new File(".").getCanonicalPath().replace('\\', '/') + "/temp_" + UUID.randomUUID();
-		System.out.println("Create: " + FOLDER);
+		folder = new File(".").getCanonicalPath().replace('\\', '/') + "/temp_" + UUID.randomUUID();
+		System.out.println("Create: " + folder);
 
 		File variants_original = new File("./src/qualitypatternmodel/newservlets/jsons/xml");
-		File variants_copy = new File(FOLDER + "/templates/variants/xml");
+		File variants_copy = new File(folder + "/templates/variants/xml");
 
 		File lido_original = new File("lido.xml");
-		File lido_copy = new File(FOLDER + "/files/lido.xml");
+		File lido_copy = new File(folder + "/files/lido.xml");
 		
 		File database_original = new File("./demo.data/demo_database.xml");
-		File database_copy = new File(FOLDER + "/files/demo_database.xml");
+		File database_copy = new File(folder + "/files/demo_database.xml");
+
+		File template_info_original = new File("./src/qualitypatternmodel/newservlets/template_info.json");
+		File template_info_copy = new File(folder + "/templates/template_info.json");
 
 		try {
-			FileUtils.copyDirectory(variants_original, variants_copy);
 			FileUtils.copyFile(lido_original, lido_copy);
+			FileUtils.copyDirectory(variants_original, variants_copy);
+			FileUtils.copyFile(template_info_original, template_info_copy);
 			FileUtils.copyFile(database_original, database_copy);
 			System.out.println("Files copied successfully");
 		} catch (IOException e) {
@@ -89,9 +94,9 @@ public class APITemplateTests {
 		doAnswer(invocation -> {
 			String argument = invocation.getArgument(0);
 			if (argument.startsWith("/")) {
-				return FOLDER + argument;
+				return folder + argument;
 			} else {
-				return FOLDER + argument;
+				return folder + argument;
 			}
 		}).when(context).getRealPath(anyString());
 		System.out.println("Mock initialized successfully");
@@ -99,26 +104,28 @@ public class APITemplateTests {
 		InitialisationServlet.initialisation(context);
 		
 		store = new JSONObject();
-		for (Object template: PatternListServlet.applyGet("/xml" + "/template", new HashMap<String, String[]>()).getJSONArray("templates")) {
+		JSONArray templates = PatternListServlet.applyGet("/xml" + "/template", new HashMap<String, String[]>()).getJSONArray(ConstantsJSON.TEMPLATES);
+		for (Object template: templates) {
 			JSONObject obj = (JSONObject) template;
-			JSONArray variants = obj.getJSONArray("variants");
+			JSONArray variants = obj.getJSONArray(ConstantsJSON.VARIANTS);
 			JSONArray variantIDs = new JSONArray();
 			
 			for (Object variant: variants)
-				variantIDs.put(((JSONObject) variant).getString("name"));
+				variantIDs.put(((JSONObject) variant).getString(ConstantsJSON.NAME));
 			
 			JSONObject object = new JSONObject();
 			object.put("IDs", variantIDs);
-			object.put("size", obj.getJSONArray("variants").length());
-			store.put(obj.getString("constraintID"), object);
+			object.put("size", obj.getJSONArray(ConstantsJSON.VARIANTS).length());
+			store.put(obj.getString(ConstantsJSON.CONSTRAINT_ID), object);
 		}
 //		System.out.println(store);
 	}
 
 	@AfterAll
 	public static void close() throws IOException {
-		System.out.println("Delete: " + FOLDER);
-		FileUtils.deleteDirectory(new File(FOLDER));
+		System.out.println("Delete: " + folder);
+		if (DELETE)
+			FileUtils.deleteDirectory(new File(folder));
 	}
 
 	// __________ BASE FUNCTIONS __________

@@ -113,6 +113,12 @@ public class InitialisationServlet extends HttpServlet {
 			ServletConstants.VARIANTS_FOLDER = variants;
 		else 
 			ServletConstants.VARIANTS_FOLDER = scon.getRealPath(ServletConstants.VARIANTS_FOLDER_DEFAULT);
+//	      TEMPLATE_INFO_FILE: /templates/template_info.json
+		String template_info = System.getenv().get(ServletConstants.ENV_TEMPLATE_INFO_FILE);
+		if (template_info != null)
+			ServletConstants.TEMPLATE_INFO_FILE = template_info;
+		else 
+			ServletConstants.TEMPLATE_INFO_FILE = scon.getRealPath(ServletConstants.TEMPLATE_INFO_FILE_DEFAULT);
 
 //	      LOGFILE: qpm-logfile.log
 		String logfile = System.getenv().get(ServletConstants.ENV_LOGFILE);
@@ -162,6 +168,7 @@ public class InitialisationServlet extends HttpServlet {
 		ServletUtilities.log("Environmental Variable PATTERN_VOLUME:            " + ServletConstants.PATTERN_VOLUME);
 		ServletUtilities.log("Environmental Variable UPLOAD_FOLDER:             " + ServletConstants.UPLOAD_FOLDER);
 		ServletUtilities.log("Environmental Variable VARIANTS_FOLDER:           " + ServletConstants.VARIANTS_FOLDER);
+		ServletUtilities.log("Environmental Variable TEMPLATE_INFO_FILE:        " + ServletConstants.TEMPLATE_INFO_FILE);
 		ServletUtilities.log("Environmental Variable LOGFILE:                   " + ServletConstants.LOGFILE);
 		ServletUtilities.log("Environmental Variable SAVEFILE:                  " + ServletConstants.SAVEFILE);
 		ServletUtilities.log("Environmental Variable LOG_IN_FILE_VOLUME:        " + ServletConstants.LOG_IN_FILE_VOLUME);

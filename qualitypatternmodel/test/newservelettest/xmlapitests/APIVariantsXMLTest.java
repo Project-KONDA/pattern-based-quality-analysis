@@ -66,10 +66,14 @@ public class APIVariantsXMLTest {
 		File database_original = new File("./demo.data/demo_database.xml");
 		File database_copy = new File(folder + "/files/demo_database.xml");
 
+		File template_info_original = new File("./src/qualitypatternmodel/newservlets/template_info.json");
+		File template_info_copy = new File(folder + "/templates/template_info.json");
+
 		try {
 			FileUtils.copyDirectory(variants_original, variants_copy);
 			FileUtils.copyFile(lido_original, lido_copy);
 			FileUtils.copyFile(database_original, database_copy);
+			FileUtils.copyFile(template_info_original, template_info_copy);
 			System.out.println("Files copied successfully");
 		} catch (IOException e) {
 			e.printStackTrace();

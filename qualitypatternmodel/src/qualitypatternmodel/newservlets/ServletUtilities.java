@@ -743,6 +743,11 @@ public abstract class ServletUtilities {
 		putResponse(response, id, text, HttpServletResponse.SC_OK);
 	}
 
+	public static JSONObject getTemplateInfo(String classname) throws IOException {
+		JSONObject obj = Util.loadJson(ServletConstants.TEMPLATE_INFO_FILE);
+		return obj.getJSONObject(classname);
+	}
+	
 	// LOGGING
 
 	public static void log(String text) {
