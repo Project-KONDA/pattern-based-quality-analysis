@@ -249,6 +249,16 @@
 		"name":"Uniqueness Constraint",
 		"description":"Check, whether a value is unique within the dataset."
 	},
+	"UniqueIsoPattern":{
+		"id":"UniqueIso",
+		"name":"Uniqueness Constraint (Isolated)",
+		"description":"Check, whether a value is unique within the dataset."
+	},
+	"UniqueSinPattern":{
+		"id":"UniqueSin",
+		"name":"Uniqueness Constraint (Single)",
+		"description":"Check, whether a value is unique within the dataset."
+	},
 	"ValidLinkPattern":{
 		"id":"ValidLink",
 		"name":"Valid Link",

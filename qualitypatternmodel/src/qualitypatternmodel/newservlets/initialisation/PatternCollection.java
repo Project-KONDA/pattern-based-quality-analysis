@@ -33,7 +33,9 @@ public class PatternCollection {
 		classes.add(AppDup2Pattern.class);
 		classes.add(AppDup3Pattern.class);
 		classes.add(FuncPattern.class);
+		classes.add(UniqueIsoPattern.class);
 		classes.add(UniquePattern.class);
+		classes.add(UniqueSinPattern.class);
 
 		// internal
 		classes.add(CardCompSetIfCompSetPattern.class);

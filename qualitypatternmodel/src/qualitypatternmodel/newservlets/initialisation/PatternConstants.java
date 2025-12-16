@@ -197,11 +197,19 @@ public class PatternConstants {
 	public static String STRINGLENGTHRANGESIN_ID = "StringLengthRangeSin";
 	public static String STRINGLENGTHRANGESIN_NAME = "String value length range restriction (Single)";
 	public static String STRINGLENGTHRANGESIN_DESCR = "Check all field values whether they comply to the length restriction.";
-	
+
 	public static String UNIQUE_ID = "Unique";
 	public static String UNIQUE_NAME = "Uniqueness Constraint";
 	public static String UNIQUE_DESCR = "Check, whether a value is unique within the dataset.";
-	
+
+	public static String UNIQUEISO_ID = "UniqueIso";
+	public static String UNIQUEISO_NAME = "Uniqueness Constraint in File (Isolated)";
+	public static String UNIQUEISO_DESCR = "Check, whether a value is unique within the dataset.";
+
+	public static String UNIQUESIN_ID = "UniqueSin";
+	public static String UNIQUESIN_NAME = "Uniqueness Constraint in File (Single)";
+	public static String UNIQUESIN_DESCR = "Check, whether a value is unique within the dataset.";
+
 	public static String VALIDLINK_ID = "ValidLink";
 	public static String VALIDLINK_NAME = "Valid Link";
 	public static String VALIDLINK_DESCR = "Check that a record contains no field with an invalid link.";
