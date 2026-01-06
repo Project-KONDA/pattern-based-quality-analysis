@@ -162,7 +162,19 @@
       <version>1.10.2</version>
     </dependency>
   </dependencies>
+
   <build>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.3.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
     <resources>
       <resource>
         <directory>src/main/resources</directory>
@@ -171,6 +183,7 @@
         </includes>
       </resource>
     </resources>
+
     <plugins>
       <!-- Maven Compiler Plugin -->
       <plugin>
