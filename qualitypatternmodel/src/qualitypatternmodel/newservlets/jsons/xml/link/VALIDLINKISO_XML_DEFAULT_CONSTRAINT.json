@@ -1,0 +1,29 @@
+{
+    "template":"ValidLinkIso_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+    "fragments":[
+        {"text":"For all"},
+        {
+            "name":"Container Elements",
+            "params":[2],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis",
+            "plural":"true"
+        },
+        {"text":", each"},
+        {
+            "name":"Property",
+            "params":[1],
+            "exampleValue":"Birth Certificate Source",
+            "description":"property of interest,that should contain a valid link."
+        },
+        {"text":"is a valid link."},
+        
+        {
+            "params":[0],
+            "value": "true"
+        }
+    ]
+}

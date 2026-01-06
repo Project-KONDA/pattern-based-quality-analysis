@@ -40,7 +40,7 @@ public class ConstraintNameServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for setting a name in a constraint: "
 					+ "POST '/constraint/name/{technology}/{constraintID}' "
-					+ "(not /constraint/name/" + path + ")");
+					+ "(not /constraint/name" + path + ")");
 		}
 
 		String technology = pathparts[1];

@@ -13,7 +13,7 @@ import qualitypatternmodel.patternstructure.Language;
 abstract public class PatternClass {
 
 	// Implement generic Pattern here
-	abstract CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
+	public abstract CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	// Add information
 	public final String id;
@@ -47,7 +47,7 @@ abstract public class PatternClass {
 	public CompletePattern getGenericPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = getPattern();
 		if (pattern == null) {
-			System.err.println("Pattern " + id + " is null");
+			throw new RuntimeException("Pattern " + id + " is null");
 		}
 
 		setInfo(pattern);

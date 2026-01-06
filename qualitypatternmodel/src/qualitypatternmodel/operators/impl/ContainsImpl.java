@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -109,6 +110,15 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 		} else {
 			throw new InvalidityException("invalid option");
 		}
+	}
+
+	@Override
+	public String generateXQueryIsolated() throws InvalidityException {
+		String query = generateXQuery();
+		EList<String> vars = ((XmlProperty) primitiveNode).getXQueryRepresentation();
+		String var = vars.get(vars.size()-1);
+		query = query.replace("contains(.,", "contains(" + var + ",");
+		return query;
 	}
 
 	@Override
@@ -374,8 +384,10 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 		TextLiteralParam oldContent = content;
 
 		ParameterList varlist = getParameterList();
-		varlist.remove(oldContent);
-		varlist.add(newContent);
+		if (varlist != null) {
+			varlist.remove(oldContent);
+			varlist.add(newContent);
+		}
 
 		content = newContent;
 
@@ -509,8 +521,10 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 		BooleanParam oldOption = option;
 
 		ParameterList varlist = getParameterList();
-		varlist.remove(oldOption);
-		varlist.add(newOption);
+		if (varlist != null) {
+			varlist.remove(oldOption);
+			varlist.add(newOption);
+		}
 
 		option = newOption;
 

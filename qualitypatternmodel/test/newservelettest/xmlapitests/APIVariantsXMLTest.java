@@ -33,10 +33,12 @@ import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 import qualitypatternmodel.newservlets.ConstraintServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.PatternListServlet;
+import qualitypatternmodel.newservlets.TemplateVariantServlet;
 import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 public class APIVariantsXMLTest {
+	private static final boolean PRINTCONSTRAINTS = true;
 	
 	// __________ STATIC VARIABLES __________
 	private static String folder;
@@ -52,8 +54,8 @@ public class APIVariantsXMLTest {
 		folder = new File(".").getCanonicalPath().replace('\\', '/') + "/temp_" + UUID.randomUUID();
 		System.out.println("Create: " + folder);
 
-		File variants_original = new File("./src/qualitypatternmodel/newservlets/patterns/jsons");
-		File variants_copy = new File(folder + "/templates/variants");
+		File variants_original = new File("./src/qualitypatternmodel/newservlets/jsons/xml");
+		File variants_copy = new File(folder + "/templates/variants/xml");
 
 		File lido_original = new File("lido.xml");
 		File lido_copy = new File(folder + "/files/lido.xml");
@@ -101,7 +103,7 @@ public class APIVariantsXMLTest {
 	}
 
 	private static List<String[]> getTemplateVariantPairs() {
-		File jsondir = new File("./src/qualitypatternmodel/newservlets/patterns/jsons/xml");
+		File jsondir = new File("./src/qualitypatternmodel/newservlets/jsons/xml");
 		ArrayList<File> files = InitialisationServlet.getAllJSONFilesInFolder(jsondir);
 
 		List<String[]> pairs = new ArrayList<String[]>();
@@ -163,7 +165,7 @@ public class APIVariantsXMLTest {
 	}
 	
 	private static void setDefaultParameter(String constraintId, String param) {
-		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'TextList':'[\"a\"]', 'Boolean':'true', 'Text':'a'}");
+		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'TextList':'[\"a\"]', 'Boolean':'true', 'Text':'a'}");
 
 		if (Set.of("name", "namespace", "datamodel", "database").contains(param))
 			return;
@@ -219,9 +221,40 @@ public class APIVariantsXMLTest {
 
 		String constraintID = APICallTests.newConstraint(constraint, variant);
 		
+		if(PRINTCONSTRAINTS) {
+			Map<String, String[]> params = getEmptyParams();
+			params.put(ConstantsJSON.VARIANTS, new String[]{"false"});
+			JSONObject myconstraint = getConstraint(constraintID);
+			JSONObject myparams = TemplateVariantServlet.applyGet("/xml/" + constraint, params);
+			System.out.println(constraint + "\t" + variant+ "\t" + constraintID + "\t" + myconstraint + "\t" + myparams);
+			testConstraintParameter(myconstraint);
+		}
+		
 		setAllConstraintParameter(constraintID);
+		
+		if (PRINTCONSTRAINTS)
+			System.out.println(ConstraintQueryServlet.applyGet("xml", new String[] {constraintID}));
 
 		testConcretePattern(constraintID);
 		APICallTests.deleteConstraint(constraintID);
+	}
+
+	private void testConstraintParameter(JSONObject myconstraint) {
+		JSONArray variants = myconstraint.getJSONArray(ConstantsJSON.VARIANTS);
+		JSONObject variant = variants.getJSONObject(0);
+		JSONArray fragments = variant.getJSONArray(ConstantsJSON.FRAGMENTS);
+		
+		ArrayList<String> ids = new ArrayList<String>();
+		for (int i = 0; i<fragments.length(); i++) {
+			JSONObject fragment = fragments.getJSONObject(i);
+			if (fragment.has(ConstantsJSON.STARTPOINT)) {
+				JSONArray startpoints = fragment.getJSONArray(ConstantsJSON.STARTPOINT);
+				for (int j = 0; j<startpoints.length(); j++) {
+					assert(ids.contains(startpoints.getString(j)));
+				}
+			}
+			if (fragment.has(ConstantsJSON.ID))
+				ids.add(fragment.getString(ConstantsJSON.ID));
+		}
 	}
 }

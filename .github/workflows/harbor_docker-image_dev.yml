@@ -2,7 +2,7 @@ name: BuildAndPushDockerImageToHarborDev
 
 on:
   push:
-    branches: [ "development", "development2"]
+    branches: [ "development2"]
     
 jobs:
   build:
@@ -25,4 +25,4 @@ jobs:
           context: qualitypatternmodel
           file: qualitypatternmodel/Dockerfile
           push: true
-          tags: harbor.gwdg.de/aqinda/qpm-dev:latest
+          tags: harbor.gwdg.de/aqinda/qpm:dev

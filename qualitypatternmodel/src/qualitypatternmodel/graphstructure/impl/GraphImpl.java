@@ -4,6 +4,7 @@ package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -43,8 +44,10 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.javaoperators.JavaOperator;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.JavaFilterPart;
+import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -61,6 +64,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.*;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -200,6 +204,16 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 			}
 		}
+		for (Operator op: getOperatorList().getOperators()) {
+			if (op instanceof JavaOperator) {
+				if (op.getArguments().get(0).getOperatorList() != getOperatorList()) {
+					BooleanFilterPart filter = (BooleanFilterPart) op.generateQueryFilterPart();
+					if (filter != null) {
+						filters.add(filter);
+					}
+				}
+			}
+		}
 		return filters;
 	}
 
@@ -207,23 +221,36 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public String generateXQuery() throws InvalidityException {
 		String result = "";
 		try {
-			if(getContainer() instanceof CompletePattern) {
-				for(Node node : getNodes()) {
-					if(node instanceof XmlRoot) {
+			if (getContainer() instanceof CompletePattern) {
+				for (Node node : getNodes()) {
+					if (node instanceof XmlRoot) {
 						result += node.generateXQuery();
 					}
 				}
 			} else {
-				for(Relation relation : getRelations()) {
+				for (Relation relation : getRelations()) {
 					if (relation instanceof XmlPropertyNavigation && relation.isCrossGraph()) {
 						XmlPropertyNavigationImpl nav = (XmlPropertyNavigationImpl) relation;
 						result += nav.generateXQuery2();
 					}
 				}
-				for(Relation relation : getRelations()) {
+				for (Relation relation : getRelations()) {
 					if (relation instanceof XmlElementNavigation && relation.isCrossGraph()) {
 						result += relation.generateXQuery();
 					}
+				}
+				for (Operator operator: getOperatorList().getOperators()) {
+					if (operator instanceof BooleanOperator) {
+						BooleanOperator bop = (BooleanOperator) operator;
+						Boolean anyInGraph = false;
+						for (Node node: bop.getAllArgumentElements()) {
+							if (node.getGraph() == this)
+								anyInGraph = true;
+						}
+						if (!anyInGraph) {
+							result = bop.generateXQueryIsolated() + " and " + result;
+						}
+					}	
 				}
 			}
 		} catch (MissingPatternContainerException e) {
@@ -238,27 +265,40 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public String generateXQueryJava() throws InvalidityException {
 		String result = "";
 		EList<Relation> relations = new BasicEList<Relation>();
-		for(Relation relation : getRelations()) {
+		for (Relation relation : getRelations()) {
 			if (relation.getTarget() != null && relation.getTarget().inJavaWhere()) {
 				relations.add(relation);
 			}
 		}
-
-		for(Relation relation : relations) {
+		for (Relation relation : relations) {
 			if (relation instanceof XmlPropertyNavigation && relation.isCrossGraph()) {
 				XmlPropertyNavigationImpl nav = (XmlPropertyNavigationImpl) relation;
-				if( relation.inJavaReturnRequired()) {
+				if (relation.inJavaReturnRequired()) {
 					result += nav.generateXQueryJava();
 				} else {
 					result += nav.generateXQuery2();
 				}
 			}
 		}
-		for(Relation relation : relations) {
+		for (Relation relation : relations) {
 			if (relation instanceof XmlElementNavigation && relation.isCrossGraph()) {
 				result += relation.generateXQuery();
 			}
 		}
+//		for (Operator op: getOperatorList().getOperators()) {
+//			if (op instanceof JavaOperatorImpl) {
+//				BooleanOperator bop = (BooleanOperator) op;
+//				Boolean anyInGraph = false;
+//				for (Node node: bop.getAllArgumentElements()) {
+//					if (node.getGraph() == this)
+//						anyInGraph = true;
+//				}
+//				if (!anyInGraph) {
+//					result += bop.generateXQueryIsolated();
+//				}
+//			}
+//		}
+		
 		return result;
 	}
 
@@ -269,25 +309,34 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		String result = "";
 		List<Relation> relations = new BasicEList<Relation>();
 
-		for(Relation relation : getRelations()) {
+		for (Relation relation : getRelations()) {
 			if (relation.isCrossGraph() && !relation.isTranslated() && !relation.getTarget().inJavaWhere()) {
 				relations.add(relation);
 			}
 		}
 		relations = JavaQueryTranslationUtility.orderRelationsJavaQuery(relations);
-		for(int i = 0; i< relations.size(); i++) {
-			Relation relation = relations.get(i);
+		for (Relation relation: relations) {
 			String relationtranslation = relation.generateXQueryJavaReturn();
 			if (relation instanceof XmlPropertyNavigation) {
 				relationtranslation = "(" + relationtranslation + "\n  )";
-				if (i < relations.size()-1) {
-					relationtranslation += ",\n  ";
-				}
+				relationtranslation += ",\n  ";
 			}
 			else if (relation instanceof XmlElementNavigation) {
 				relationtranslation = relationtranslation + "\n  return\n  ";
 			}
-			result += relationtranslation + "";
+			result += relationtranslation;
+		}
+
+		List<Operator> operators = new BasicEList<Operator>();
+		for (Operator op: getOperatorList().getOperators()) {
+			if (op instanceof JavaOperator)
+				if (op.getArguments().get(0).getOperatorList() != getOperatorList())
+						operators.add(op);
+		}
+		for (Operator op: operators) {	
+			result += start(VALUE) + ", ";
+			result += op.generateXQueryJavaReturn() + ", ";
+			result += end(VALUE) + ",\n  ";
 		}
 		return result;
 	}
@@ -821,8 +870,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, MissingPatternContainerException {
 
-		if ((getNodes().isEmpty())) {
-			throw new InvalidityException("No Element in Graph (" + getInternalId() + ")");
+		if ((getNodes().isEmpty()) && getOperatorList().getOperators().isEmpty()) {
+			throw new InvalidityException("No Element or Operator in Graph (" + getInternalId() + ")");
 		}
 
 		if ((getReturnNodes().isEmpty() && getIncomingMorphism() == null)) {
@@ -1078,13 +1127,18 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
+		LinkedHashSet<Parameter> set = new LinkedHashSet<Parameter>();
+		for (Node node : getNodes()) {
+			set.addAll(node.getAllParameters());
+		}
+		for (Relation relation: getRelations()) {
+			set.addAll(relation.getAllParameters());
+		}
+		for (Operator operator: getOperatorList().getOperators()) {
+			set.addAll(operator.getAllParameters());
+		}
 		EList<Parameter> res = new BasicEList<Parameter>();
-		for(Node node : getNodes()) {
-			res.addAll(node.getAllParameters());
-		}
-		for(Relation relation: getRelations()) {
-			res.addAll(relation.getAllParameters());
-		}
+		res.addAll(set);
 		return res;
 	}
 
@@ -1093,6 +1147,19 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		EList<Operator> res = new BasicEList<Operator>();
 		for(Node node : getNodes()) {
 			res.addAll(node.getAllOperators());
+		}
+		for (Operator operator: getOperatorList().getOperators()) {
+			if (operator instanceof BooleanOperator) {
+				BooleanOperator bop = (BooleanOperator) operator;
+				Boolean anyInGraph = false;
+				for (Node node: bop.getAllArgumentElements()) {
+					if (node.getGraph() == this)
+						anyInGraph = true;
+				}
+				if (!anyInGraph) {
+					res.add(operator);
+				}
+			}	
 		}
 		return res;
 	}
@@ -1711,6 +1778,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		res += "Graph [" + getInternalId() + "]";
 		for (Node e : getNodes()) {
 			res += "\n| > " + e.myToString().replace("\n", "\n|   ");
+			if (e.isReturnNode()) 
+				res += " <-";
 		}
 		for (Relation r : getRelations()) {
 			res += "\n| ~ " + r.myToString().replace("\n", "\n|   ");

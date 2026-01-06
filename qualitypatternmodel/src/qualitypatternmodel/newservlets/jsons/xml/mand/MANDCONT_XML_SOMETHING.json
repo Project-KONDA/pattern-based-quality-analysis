@@ -1,0 +1,33 @@
+{
+	"template":"MandCont_xml",
+	"language":"xml",
+	"name":"something",
+	"typeConstraint":true,
+	"fragments":[
+		{"text":"For each"},
+		{
+			"name":"Element",
+			"params":[0],
+			"exampleValue":"measurement",
+			"description":"base element for analysis"
+		},
+		{"text":", all"},
+		{
+			"name":"Subelements",
+			"params":[1],
+			"exampleValue":"unit",
+			"description":"element of analyis",
+			"plural":"true"
+		},
+		{"text":"contains something."},
+		
+		{
+			"params":[3],
+			"value":"/*"
+		},
+		{
+			"params":[2],
+			"value":"/text()"
+		}
+	]
+}

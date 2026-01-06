@@ -560,12 +560,13 @@ public abstract class ServletUtilities {
 	}
 
 	public static void logError(Throwable th, int lines) {
+		int counter = lines;
 		boolean all = lines < 0;
 		String error = th.getClass().getSimpleName() + ": " + th.getMessage();
 		for (StackTraceElement element : th.getStackTrace()) {
-			if (all || lines > 0) {
+			if (all || counter > 0) {
 				error += "\r\n    " + element.toString();
-				lines--;
+				counter--;
 			}
         }
         log("ERROR: " + error);

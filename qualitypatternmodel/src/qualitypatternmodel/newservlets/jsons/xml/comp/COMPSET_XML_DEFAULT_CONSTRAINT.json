@@ -1,0 +1,36 @@
+{
+    "template":"CompSet_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+    "fragments":[
+        {"text":"In each"},
+        {
+            "name":"Element",
+            "params":[3],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":", all"},
+        {
+            "name":"Properties",
+            "params":[4],
+            "exampleValue":"Surnames",
+            "description":"values that get analysed",
+            "plural":"true"
+        },
+        {
+            "name":"Are / Are Not",
+            "params":[1],
+            "exampleValue":"are not",
+            "defaultMap":"comparison_arenot"
+        },
+        {"text":"in the list of"},
+        {
+            "name":"Terms",
+            "params":[0],
+            "exampleValue":"Mueller, Meier"
+        },
+        {"text":"."}
+    ]
+}

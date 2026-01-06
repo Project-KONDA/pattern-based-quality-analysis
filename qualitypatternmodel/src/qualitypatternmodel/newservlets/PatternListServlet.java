@@ -41,7 +41,7 @@ public class PatternListServlet extends HttpServlet {
 			throw new InvalidServletCallException("Wrong URL for requesting a list of a constraints or templates: "
 					+ "GET '/pattern/list/{technology}/{abstraction}' "
 					+ "OR '/pattern/list/{technology}/{abstraction}/{datamodel}'"
-					+ "(not /pattern/list/" + path + ")");
+					+ "(not /pattern/list" + path + ")");
 		}
 
 		String technology = pathparts[1];

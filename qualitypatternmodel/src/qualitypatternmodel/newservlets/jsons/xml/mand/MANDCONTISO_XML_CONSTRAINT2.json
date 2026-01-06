@@ -1,0 +1,35 @@
+{
+    "template":"MandContIso_xml",
+    "language":"xml",
+    "name":"constraint2",
+	"typeConstraint":true,
+    "fragments":[
+		{"text":"For all"},
+		{
+			"name":"Container Elements",
+			"params":[1],
+			"exampleValue":"Measurement",
+			"description":"base element for analysis",
+			"plural":"true"
+		},
+		{"text":", each"},
+		{
+			"name":"Element",
+			"params":[0],
+			"exampleValue":"Unit",
+			"description":"element of analyis"
+		},
+		{"text":"contains either a"},
+		{
+			"name":"Subelement",
+			"params":[3],
+			"exampleValue":"Identifier",
+			"description":"element condition"
+		},
+		{"text":"or a text."},
+		{
+			"params":[2],
+			"value":"/text()"
+		}
+    ]
+}

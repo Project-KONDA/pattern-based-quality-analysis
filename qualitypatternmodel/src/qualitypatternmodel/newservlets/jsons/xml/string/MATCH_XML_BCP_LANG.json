@@ -1,0 +1,33 @@
+{
+    "template":"Match_xml",
+    "language":"xml",
+    "name":"bcp-lang",
+	"typeConstraint":true,
+    "fragments":[
+        {"text":"For each"},
+        {
+            "name":"Element",
+            "params":[2],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":", all"},
+        {
+            "name":"Properties",
+            "params":[3],
+            "exampleValue":"Surname",
+            "description":"value that gets analysed",
+            "plural":"true"
+        },
+        {"text":"match the BCP language code format (BCP 47, extension of ISO 639)."},
+        
+        {
+            "params":[0],
+            "value": "false"
+        },
+        {
+            "params":[1],
+    		"value":"^[a-z]{2,3}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?(-([a-z0-9]{5,8}|[0-9]{4}))*(-[0-9A-WY-Za-wy-z](-[a-z0-9]{2,8})+)?(-x(-[a-z0-9]{1,8})+)?$"
+        }
+    ]
+}

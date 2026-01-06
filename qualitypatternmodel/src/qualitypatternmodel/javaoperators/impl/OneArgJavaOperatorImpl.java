@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -85,11 +86,24 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	 */
 	@Override
 	abstract public Boolean apply(String param1);
+	
+	@Override
+	public String generateXQueryJavaReturn() throws InvalidityException {
+		return generateXQueryIsolated();
+	}
 
 	@Override
 	public JavaFilterPart generateQueryFilterPart() throws InvalidityException {
 		OneArgFunctionFilterPart filterPart = new OneArgFunctionFilterPartImpl(this.getClass(), getOption().getValue());
 		return filterPart;
+	}
+
+	@Override
+	public String generateXQueryIsolated() throws InvalidityException {
+		if (!(getPrimitiveNode() instanceof XmlProperty))
+			throw new InvalidityException();
+		String var = ((XmlProperty) getPrimitiveNode()).getVariables().get(0); 
+		return "string(" + var + ")";
 	}
 
 	@Override
@@ -275,11 +289,19 @@ public abstract class OneArgJavaOperatorImpl extends JavaOperatorImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetOption(BooleanParam newOption, NotificationChain msgs) {
 		BooleanParam oldOption = option;
+
+		ParameterList varlist = getParameterList();
+		if (varlist != null) {
+			varlist.remove(oldOption);
+			varlist.add(newOption);
+		}
+
 		option = newOption;
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JavaoperatorsPackage.ONE_ARG_JAVA_OPERATOR__OPTION, oldOption, newOption);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

@@ -42,7 +42,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 			} else {
 				throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint:"
 						+ " GET '/constraint/mqaf/{technology}' OR '/constraint/mqaf/{technology}/{constraintID}' "
-						+ "(not /constraint/mqaf/" + path + ")");
+						+ "(not /constraint/mqaf" + path + ")");
 			}
 			ServletUtilities.putResponse(response, callId, result);
 		}
@@ -56,7 +56,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint for a constraint:"
 					+ " GET '/constraint/mqaf/{technology}/{constraintID}' "
-					+ "(not /constraint/mqaf/" + path + ")");
+					+ "(not /constraint/mqaf" + path + ")");
 		}
 
 		String technology = pathparts[1];
@@ -75,7 +75,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 		if (pathparts.length != 2 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint for multiple constraints:"
 					+ " GET '/constraint/mqaf/{technology}' "
-					+ "(not /constraint/mqaf/" + path + ")");
+					+ "(not /constraint/mqaf" + path + ")");
 		}
 
 		String technology = pathparts[1];

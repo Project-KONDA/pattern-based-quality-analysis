@@ -15,6 +15,9 @@ import qualitypatternmodel.operators.BooleanOperator;
  *   <li>{@link qualitypatternmodel.operators.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Node) <em>Add Element</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Node) <em>Remove Element</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.BooleanOperator#getElement() <em>Get Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.BooleanOperator#generateXQueryIsolated() <em>Generate XQuery Isolated</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.BooleanOperator#generateSparqlIsolated() <em>Generate Sparql Isolated</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.BooleanOperator#generateCypherIsolated() <em>Generate Cypher Isolated</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -89,6 +92,45 @@ public abstract class BooleanOperatorTest extends OperatorTest {
 	 * @generated
 	 */
 	public void testGetElement() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.operators.BooleanOperator#generateXQueryIsolated() <em>Generate XQuery Isolated</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.operators.BooleanOperator#generateXQueryIsolated()
+	 * @generated
+	 */
+	public void testGenerateXQueryIsolated() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.operators.BooleanOperator#generateSparqlIsolated() <em>Generate Sparql Isolated</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.operators.BooleanOperator#generateSparqlIsolated()
+	 * @generated
+	 */
+	public void testGenerateSparqlIsolated() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.operators.BooleanOperator#generateCypherIsolated() <em>Generate Cypher Isolated</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.operators.BooleanOperator#generateCypherIsolated()
+	 * @generated
+	 */
+	public void testGenerateCypherIsolated() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

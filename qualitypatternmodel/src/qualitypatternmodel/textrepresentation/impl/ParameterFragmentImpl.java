@@ -264,12 +264,15 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 
 		JSONArray params = json.getJSONArray(ConstantsJSON.PARAMETER);
         for (int i = 0; i < params.length(); i++) {
+        	List<Parameter> parameters = pattern.getParameterList().getParameters(); 
             int paramID = params.getInt(i);
+            if (parameters.size()<= paramID)
+            	throw new InvalidityException("invalid parameter ID in JSON: " + paramID);
             try {
-            	Parameter p = pattern.getParameterList().getParameters().get(paramID);
+            	Parameter p = parameters.get(paramID);
                 getParameter().add(p);
             } catch (Exception e) {
-            	e.printStackTrace();
+            	throw new InvalidityException("Not valid JSON to a create ParameterFragment: ", e);
             }
         }
 		// exampleValue
@@ -605,6 +608,16 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			map.put(ComparisonOperator.NOTEQUAL.getName(), "is");
 			break;
 
+		case "comparison_are":
+			map.put(ComparisonOperator.EQUAL.getName(), "are");
+			map.put(ComparisonOperator.NOTEQUAL.getName(), "are not");
+			break;
+
+		case "comparison_arenot":
+			map.put(ComparisonOperator.EQUAL.getName(), "are not");
+			map.put(ComparisonOperator.NOTEQUAL.getName(), "are");
+			break;
+
 		case "comparison_equal":
 			map.put(ComparisonOperator.EQUAL.getName(), "equal");
 			map.put(ComparisonOperator.NOTEQUAL.getName(), "not equal");
@@ -625,14 +638,14 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			map.put("false", "is");
 			break;
 
-		case "do":
-			map.put("true", "do");
-			map.put("false", "do not");
+		case "are":
+			map.put("true", "are");
+			map.put("false", "are not");
 			break;
 
-		case "do not":
-			map.put("true", "do not");
-			map.put("false", "do");
+		case "are not":
+			map.put("true", "are not");
+			map.put("false", "are");
 			break;
 
 		case "does":
@@ -643,6 +656,26 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		case "does not":
 			map.put("true", "does not");
 			map.put("false", "does");
+			break;
+
+		case "do":
+			map.put("true", "do");
+			map.put("false", "do not");
+			break;
+
+		case "do not":
+			map.put("true", "do not");
+			map.put("false", "do");
+			break;
+
+		case "must":
+			map.put("true", "must");
+			map.put("false", "must not");
+			break;
+
+		case "must not":
+			map.put("true", "must not");
+			map.put("false", "must");
 			break;
 
 		default:

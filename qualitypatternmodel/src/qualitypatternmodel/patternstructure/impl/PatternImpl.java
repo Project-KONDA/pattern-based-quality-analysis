@@ -2,15 +2,13 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.CONDITIONEND;
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.CONDITIONSTART;
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.INTERIM;
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.RETURNEND;
-import static qualitypatternmodel.utility.JavaQueryTranslationUtility.RETURNSTART;
+
+import static qualitypatternmodel.utility.JavaQueryTranslationUtility.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -26,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionneo4j.NeoEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElement;
+import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -214,10 +213,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			if (r.getVariables() == null || r.getVariables().isEmpty()) {
 				throw new InvalidityException("There was no associated variable generated to the return node");
 			}
-			else {
+			else
 				returnClause += ((XmlNode) returnElements.get(i)).getVariables().get(0);
-//			returnClause += VARIABLE + returnElements.get(i).getOriginalID();
-			}
+//				returnClause += VARIABLE + returnElements.get(i).getOriginalID();
 		}
 		if (returnElements.size()>1) {
 			returnClause = "(" + returnClause + ")";
@@ -230,11 +228,12 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		if (!containsJavaOperator()) {
 			return generateXQuery();
 		}
-
-		String forClauses = graph.generateXQuery();
+		
 		if (graph.containsJavaOperator() && this instanceof CompletePattern) {
 			throw new UnsupportedOperationException("Java Operator in Return Graph");
 		}
+
+		String forClauses = graph.generateXQuery();
 
 		String whereClause = "\n";
 		if (getCondition() != null) {
@@ -274,7 +273,13 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			if (!(node instanceof XmlNode))
 				throw new RuntimeException("return node is not an XmlNode: " + node.getClass());
 			XmlNode xmlnode = ((XmlNode) node);
-			nodes.add(xmlnode.getVariables().get(0)); //  VARIABLE + ((Node) xmlnode).getInternalId() + "_0");
+			//  VARIABLE + ((Node) xmlnode).getInternalId() + "_0");
+			String var = xmlnode.getVariables().get(0);
+			if (xmlnode instanceof XmlElement) {
+				nodes.add(var); 
+			} else 
+				nodes.add("string(" + xmlnode.getVariables().get(0) + ")");
+
 		}
 
 		String graphString = getGraph().generateXQueryJavaReturn();
@@ -286,12 +291,12 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 
 	private String getResultString(List<String> nodes, String graphString, String conditionString){
 		List<String> resultList = new ArrayList<String>();
-		resultList.add(RETURNSTART);
+		resultList.add(start(RETURN));
 		resultList.addAll(nodes);
 		if (!graphString.equals("()")) {
-			resultList.addAll(List.of(RETURNEND, CONDITIONSTART, graphString, conditionString, CONDITIONEND));
+			resultList.addAll(List.of(end(RETURN), start(CONDITION), graphString, conditionString, end(CONDITION)));
 		} else {
-			resultList.addAll(List.of(RETURNEND, CONDITIONSTART, conditionString, CONDITIONEND));
+			resultList.addAll(List.of(end(RETURN), start(CONDITION), conditionString, end(CONDITION)));
 		}
 		return JavaQueryTranslationUtility.getXQueryReturnList(resultList, INTERIM, true, true, false);
 	}
@@ -565,10 +570,14 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
-		EList<Parameter> parameters = getGraph().getAllParameters();
+		LinkedHashSet<Parameter> parameterset = new LinkedHashSet<Parameter>();
+		parameterset.addAll(getGraph().getAllParameters());
 		if (getCondition() != null) {
-			parameters.addAll(getCondition().getAllParameters());
+			parameterset.addAll(getCondition().getAllParameters());
 		}
+
+		EList<Parameter> parameters = new BasicEList<Parameter>();
+		parameters.addAll(parameterset);
 		return parameters;
 	}
 

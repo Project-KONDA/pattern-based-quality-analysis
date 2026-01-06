@@ -1,0 +1,38 @@
+{
+    "template":"MandContAnd_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+    "fragments":[
+		{"text":"For each"},
+		{
+			"name":"Element",
+			"params":[0],
+			"exampleValue":"measurement",
+			"description":"base element for analysis"
+		},
+		{"text":", all"},
+		{
+			"name":"Subelements",
+			"params":[1],
+			"exampleValue":"units",
+			"description":"element of analyis",
+			"plural":"true"
+		},
+		{"text":"contain both a"},
+		{
+			"name":"Property",
+			"params":[2],
+			"exampleValue":"text",
+			"description":"property condition"
+		},
+		{"text":"and a"},
+		{
+			"name":"Subsubelement",
+			"params":[3],
+			"exampleValue":"element",
+			"description":"element condition"
+		},
+		{"text":"."}
+    ]
+}
