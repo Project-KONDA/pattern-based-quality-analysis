@@ -20,7 +20,7 @@ public class MandContIsoPattern extends PatternClass {
 		super(PatternConstants.MANDCONTISO_ID,
 				PatternConstants.MANDCONTISO_NAME, 
 				PatternConstants.MANDCONTISO_DESCR, 
-				true, true, false, false);
+				true, true, true, true);
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class MandContIsoPattern extends PatternClass {
 
 		// that does not contain
 		Formula or = PatternstructureFactory.eINSTANCE.createFormula();
-		or.setOperator(LogicalOperator.OR);
+		or.setOperator(LogicalOperator.AND);
 		pattern.setCondition(or);
 
 		NotCondition not1 = PatternstructureFactory.eINSTANCE.createNotCondition();

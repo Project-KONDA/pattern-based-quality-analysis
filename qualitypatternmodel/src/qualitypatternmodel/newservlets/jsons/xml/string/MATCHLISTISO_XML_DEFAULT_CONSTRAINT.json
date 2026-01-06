@@ -1,0 +1,39 @@
+{
+    "template":"MatchListIso_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for MatchListIso_xml"
+	},
+    "fragments":[
+        {"text":"For all"},
+        {
+            "name":"Container Elements",
+            "params":[3],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis",
+            "plural": "true"
+        },
+        {"text":", each"},
+        {
+            "name":"Property",
+            "params":[2],
+            "exampleValue":"Surname",
+            "description":"value that gets analysed"
+        },
+        {
+            "name":"Does / Does Not",
+            "params":[0],
+            "defaultMap":"does not",
+            "exampleValue":"does"
+        },
+        {"text":"match one of"},
+        {
+            "name":"a Specific List of Patterns (RegEx)",
+            "params":[1],
+            "exampleValue":"['[A-Z]+', '[a-z]+', '[0-9]+']"
+        },
+        {"text":"."}
+    ]
+}

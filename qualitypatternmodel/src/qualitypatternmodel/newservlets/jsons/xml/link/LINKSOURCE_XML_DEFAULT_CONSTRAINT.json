@@ -1,0 +1,38 @@
+{
+    "template":"LinkSource_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for LinkSource_xml"
+	},
+    "fragments":[
+        {"text":"For each"},
+        {
+            "name":"Element",
+            "params":[2],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":", all"},
+        {
+            "name":"Properties",
+            "params":[3],
+            "exampleValue":"Birth Certificate Sources",
+            "description":"property of interest,that should contain a valid link."
+        },
+        {"text":"are valid links, that each target a subpage of"},
+        {
+            "name":"domain-urls",
+            "params":[1],
+            "exampleValue":"www.wikidata.org",
+            "description":"domains"
+        },
+        {"text":"."},
+        
+        {
+            "params":[0],
+            "value": "true"
+        }
+    ]
+}

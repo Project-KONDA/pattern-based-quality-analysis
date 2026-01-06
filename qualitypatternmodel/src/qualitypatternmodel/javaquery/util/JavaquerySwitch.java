@@ -5,6 +5,7 @@ package qualitypatternmodel.javaquery.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import qualitypatternmodel.javaquery.*;
 import qualitypatternmodel.javaquery.BooleanFilterElement;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
 import qualitypatternmodel.javaquery.CountFilterElement;
@@ -193,6 +194,24 @@ public class JavaquerySwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JavaqueryPackage.ONE_ARG_LIST_FUNCTION_FILTER_PART: {
+				OneArgListFunctionFilterPart oneArgListFunctionFilterPart = (OneArgListFunctionFilterPart)theEObject;
+				T result = caseOneArgListFunctionFilterPart(oneArgListFunctionFilterPart);
+				if (result == null) result = caseOneArgFunctionFilterPart(oneArgListFunctionFilterPart);
+				if (result == null) result = caseBooleanFilterPart(oneArgListFunctionFilterPart);
+				if (result == null) result = caseJavaFilterPart(oneArgListFunctionFilterPart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JavaqueryPackage.ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART: {
+				OneArgTwoNumberFunctionFilterPart oneArgTwoNumberFunctionFilterPart = (OneArgTwoNumberFunctionFilterPart)theEObject;
+				T result = caseOneArgTwoNumberFunctionFilterPart(oneArgTwoNumberFunctionFilterPart);
+				if (result == null) result = caseOneArgFunctionFilterPart(oneArgTwoNumberFunctionFilterPart);
+				if (result == null) result = caseBooleanFilterPart(oneArgTwoNumberFunctionFilterPart);
+				if (result == null) result = caseJavaFilterPart(oneArgTwoNumberFunctionFilterPart);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -254,6 +273,36 @@ public class JavaquerySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseQuantifierFilterPart(QuantifierFilterPart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>One Arg List Function Filter Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>One Arg List Function Filter Part</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOneArgListFunctionFilterPart(OneArgListFunctionFilterPart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>One Arg Two Number Function Filter Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>One Arg Two Number Function Filter Part</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOneArgTwoNumberFunctionFilterPart(OneArgTwoNumberFunctionFilterPart object) {
 		return null;
 	}
 

@@ -3,6 +3,9 @@
     "language":"xml",
     "name":"constraint2",
 	"typeConstraint":true,
+	"custom": {
+		"description": "simplified constraint for MandContIso_xml"
+	},
     "fragments":[
 		{"text":"For all"},
 		{
@@ -19,7 +22,7 @@
 			"exampleValue":"Unit",
 			"description":"element of analyis"
 		},
-		{"text":"contains either a"},
+		{"text":"has either a"},
 		{
 			"name":"Subelement",
 			"params":[3],

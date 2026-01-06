@@ -31,6 +31,10 @@ public class ServletConstants {
 	public static String VARIANTS_FOLDER =  "/templates/variants";
 	public static String ENV_VARIANTS_FOLDER = "VARIANTS_FOLDER";
 
+	// path to template info file
+	public static String TEMPLATE_INFO_FILE_DEFAULT =  "/templates/template_info.json";
+	public static String ENV_TEMPLATE_INFO_FILE = "TEMPLATE_INFO_FILE";
+	public static String TEMPLATE_INFO_FILE = "/templates/template_info.json";
 
 
 	// name of logfile
@@ -40,7 +44,6 @@ public class ServletConstants {
 	// name of savefile
 	public static String SAVEFILE = "savefile.txt";
 	public static String ENV_SAVEFILE = "SAVEFILE";
-
 
 
 	// save log in shared
@@ -64,7 +67,7 @@ public class ServletConstants {
 	public static String ENV_OLD_VARIANTS = "OLD_VARIANTS";
 
 	// shall existing templates be overwritten
-	static boolean OVERRIDE_VARIANTS = true;
+	public static boolean OVERRIDE_VARIANTS = true;
 	public static String ENV_OVERRIDE_VARIANTS = "OVERRIDE_VARIANTS";
 
 	// also generate generic templates
@@ -82,4 +85,10 @@ public class ServletConstants {
 	public static final String TEMPLATEFOLDER = "abstract-patterns";
 	// name of folder for constraints
 	public static final String CONSTRAINTFOLDER = "concrete-patterns";
+	// name of folder for precompiled patternjson files
+	public static final String PATTERNJSONFOLDER = "patternjson";
+	// name of folder for precompiled queryjson files
+	public static final String QUERYJSONFOLDER = "queryjson";
+	// name of folder for precompiled queryjson files
+	public static final String VARIANTJSONFOLDER = "variantjson";
 }

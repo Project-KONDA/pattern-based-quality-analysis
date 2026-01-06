@@ -71,16 +71,15 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/BooleanParam/setValueIfValid/newValue"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/TextListParam"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/TextListParam">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextListParam/javaListOperator"/>
+      </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/TextLiteralParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/TextLiteralParam/value"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/matches"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/xmlPropertyOptionParam"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/xmlAxisPartCondition"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/contains"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/TextLiteralParam/setValueIfValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/TextLiteralParam/setValueIfValid/newValue"/>
         </genOperations>
@@ -91,6 +90,10 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/NumberParam/numberArgument"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/NumberParam/stringLength"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/NumberParam/oneArgJavaTwoNumberOperator1"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/NumberParam/oneArgJavaTwoNumberOperator2"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/NumberParam/setValueIfValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/NumberParam/setValueIfValid/newValue"/>
         </genOperations>
@@ -160,6 +163,12 @@
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/MultiListParam"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//parameters/TextParam">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextParam/contains"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextParam/matches"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Operators" basePackage="qualitypatternmodel" disposableProviderFactory="true"
         ecorePackage="qualitypatternmodel.ecore#//operators">
@@ -343,10 +352,12 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison.3/input"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatchList"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch.1">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch.1/regex"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveContains"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveContainsList"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveContains.1">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveContains.1/content"/>
         </genOperations>
@@ -360,6 +371,9 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveNullCheck.1/isNull"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveValidateLink"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveLinkSource"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveLinkMimeType"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveLinkImageSize"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/checkComparisonConsistency"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/checkComparisonConsistency.1">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/checkComparisonConsistency.1/comp"/>
@@ -764,6 +778,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/fragmentsOrdered"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/PatternText/typeConstraint"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/PatternText/custom"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/isValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/PatternText/isValid/abstractionLevel"/>
         </genOperations>
@@ -777,6 +792,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/generateSparqlTemplate"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/generateJSONObject"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/generateVariantJSONObject"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/addToCustom">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/PatternText/addToCustom/addition"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -1063,12 +1081,25 @@
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaoperators/ValidateLinkOperator"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaoperators/LinkMimeTypeOperator"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaoperators/LinkImageMinSizeOperator"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaoperators/LinkSourceOperator"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaoperators/OneArgJavaListOperator">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaoperators/OneArgJavaListOperator/textListParam"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//javaoperators/OneArgJavaTwoNumberOperator">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaoperators/OneArgJavaTwoNumberOperator/number1"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaoperators/OneArgJavaTwoNumberOperator/number2"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Javaquery" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//javaquery">
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//javaquery/StringListWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//javaquery/ObjectListWrapper"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/JavaFilter">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/JavaFilter/filter"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/JavaFilter/filter.1"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/JavaFilter/structure"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/JavaFilter/interimResults"/>
@@ -1080,11 +1111,11 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/createInterimResultContainer">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/createInterimResultContainer/objectList"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/executeXQueryJava">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/executeXQueryJava/datapath"/>
-        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/execute">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/execute/datapath"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/filter">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaquery/JavaFilter/filter/array"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaquery/JavaFilter/toJson"/>
       </genClasses>
@@ -1165,6 +1196,13 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaquery/QuantifierFilterPart/argument"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/QuantifierFilterPart/quantifier"/>
       </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/OneArgListFunctionFilterPart">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/OneArgListFunctionFilterPart/list"/>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaquery/OneArgTwoNumberFunctionFilterPart">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/OneArgTwoNumberFunctionFilterPart/number1"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaquery/OneArgTwoNumberFunctionFilterPart/number2"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Javaqueryoutput" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//javaqueryoutput">
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultStructure">
@@ -1198,9 +1236,6 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/subresult"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/tagname"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/stream">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaqueryoutput/ContainerResult/stream/value"/>
-        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/ValueResult">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaqueryoutput/ValueResult/value"/>
@@ -1211,8 +1246,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/parameter"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/return"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/isValidToStructure"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/stream">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/stream/value"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/initialize">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/initialize/value"/>
         </genOperations>
       </genClasses>
     </nestedGenPackages>

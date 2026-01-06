@@ -1,0 +1,36 @@
+{
+    "template":"MatchIso_xml",
+    "language":"xml",
+    "name":"alphanumerical",
+	"typeConstraint":true,
+	"custom": {
+		"description": "alphanumerical character variant for MatchIso_xml"
+	},
+    "fragments":[
+        {"text":"For all"},
+        {
+            "name":"Container Elements",
+            "params":[3],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis",
+            "plural": "true"
+        },
+        {"text":", each"},
+        {
+            "name":"Property",
+            "params":[2],
+            "exampleValue":"Surename",
+            "description":"value that gets analysed"
+        },
+        {"text":"must have at least one alphanumerical character."},
+        
+        {
+            "params":[0],
+            "value": "false"
+        },
+        {
+            "params":[1],
+    		"value":"[a-zA-Z0-9]"
+        }
+    ]
+}

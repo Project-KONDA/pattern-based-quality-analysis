@@ -17,9 +17,9 @@ import qualitypatternmodel.javaquery.JavaqueryFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#filterQueryResults() <em>Filter Query Results</em>}</li>
- *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(java.util.List) <em>Create Interim Result Container</em>}</li>
- *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String) <em>Execute XQuery Java</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(org.json.JSONArray) <em>Create Interim Result Container</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#execute(java.lang.String) <em>Execute</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#filter(org.json.JSONArray) <em>Filter</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#toJson() <em>To Json</em>}</li>
  * </ul>
  * </p>
@@ -110,26 +110,13 @@ public class JavaFilterTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(java.util.List) <em>Create Interim Result Container</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(org.json.JSONArray) <em>Create Interim Result Container</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(java.util.List)
+	 * @see qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(org.json.JSONArray)
 	 * @generated
 	 */
-	public void testCreateInterimResultContainer__List() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String) <em>Execute XQuery Java</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String)
-	 * @generated
-	 */
-	public void testExecuteXQueryJava__String() {
+	public void testCreateInterimResultContainer__JSONArray() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -143,6 +130,19 @@ public class JavaFilterTest extends TestCase {
 	 * @generated
 	 */
 	public void testExecute__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#filter(org.json.JSONArray) <em>Filter</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.JavaFilter#filter(org.json.JSONArray)
+	 * @generated
+	 */
+	public void testFilter__JSONArray() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -3,6 +3,9 @@
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for MatchIso_xml"
+	},
     "fragments":[
         {"text":"For all"},
         {

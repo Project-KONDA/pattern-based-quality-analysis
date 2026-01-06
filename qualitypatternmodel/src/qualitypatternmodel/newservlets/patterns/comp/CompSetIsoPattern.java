@@ -21,7 +21,7 @@ public class CompSetIsoPattern extends PatternClass {
 		super(PatternConstants.COMPSETISO_ID,
 				PatternConstants.COMPSETISO_NAME, 
 				PatternConstants.COMPSETISO_DESCR, 
-				true, true, false, false);
+				true, true, true, false);
 	}
 	
 	@Override
@@ -47,4 +47,7 @@ public class CompSetIsoPattern extends PatternClass {
 		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
+
+	// _____ LANGUAGE SPECIFIC OPTIONS _____
+
 }

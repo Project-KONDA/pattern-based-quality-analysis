@@ -1,0 +1,31 @@
+{
+    "template":"LinkSourceSin_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for LinkSourceSin_xml"
+	},
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"Property",
+            "params":[2],
+            "exampleValue":"Homepage URL",
+            "description":"property of interest,that should contain a valid link."
+        },
+        {"text":"is a valid link, that targets a subpage of"},
+        {
+            "name":"domain-urls",
+            "params":[1],
+            "exampleValue":"www.wikidata.org",
+            "description":"domains"
+        },
+        {"text":"."},
+        
+        {
+            "params":[0],
+            "value": "true"
+        }
+    ]
+}

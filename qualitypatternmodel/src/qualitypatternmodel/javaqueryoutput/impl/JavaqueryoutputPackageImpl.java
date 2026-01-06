@@ -437,16 +437,6 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public EOperation getContainerResult__Stream__String() {
-		return containerResultEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getValueResult() {
 		return valueResultEClass;
 	}
@@ -517,7 +507,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public EOperation getInterimResultContainer__Stream__String() {
+	public EOperation getInterimResultContainer__Initialize__String() {
 		return interimResultContainerEClass.getEOperations().get(1);
 	}
 
@@ -578,7 +568,6 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		containerResultEClass = createEClass(CONTAINER_RESULT);
 		createEReference(containerResultEClass, CONTAINER_RESULT__SUBRESULT);
 		createEAttribute(containerResultEClass, CONTAINER_RESULT__TAGNAME);
-		createEOperation(containerResultEClass, CONTAINER_RESULT___STREAM__STRING);
 
 		valueResultEClass = createEClass(VALUE_RESULT);
 		createEAttribute(valueResultEClass, VALUE_RESULT__VALUE);
@@ -588,7 +577,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		createEReference(interimResultContainerEClass, INTERIM_RESULT_CONTAINER__PARAMETER);
 		createEReference(interimResultContainerEClass, INTERIM_RESULT_CONTAINER__RETURN);
 		createEOperation(interimResultContainerEClass, INTERIM_RESULT_CONTAINER___IS_VALID_TO_STRUCTURE);
-		createEOperation(interimResultContainerEClass, INTERIM_RESULT_CONTAINER___STREAM__STRING);
+		createEOperation(interimResultContainerEClass, INTERIM_RESULT_CONTAINER___INITIALIZE__STRING);
 	}
 
 	/**
@@ -667,10 +656,6 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		initEReference(getContainerResult_Subresult(), this.getInterimResult(), null, "subresult", null, 0, -1, ContainerResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContainerResult_Tagname(), ecorePackage.getEString(), "tagname", null, 0, 1, ContainerResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getContainerResult__Stream__String(), ecorePackage.getEBooleanObject(), "stream", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
 		initEClass(valueResultEClass, ValueResult.class, "ValueResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getValueResult_Value(), ecorePackage.getEString(), "value", null, 0, 1, ValueResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -681,7 +666,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 
 		initEOperation(getInterimResultContainer__IsValidToStructure(), ecorePackage.getEBooleanObject(), "isValidToStructure", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getInterimResultContainer__Stream__String(), ecorePackage.getEBooleanObject(), "stream", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getInterimResultContainer__Initialize__String(), ecorePackage.getEBooleanObject(), "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 

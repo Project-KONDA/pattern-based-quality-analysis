@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.0.0
 info:
   title: QPM Constrainify
   description: |-
@@ -271,6 +271,11 @@ paths:
           in: query
           schema:
             type: string
+        - name: custom
+          description: add or override custom attributes of the constraint
+          in: query
+          schema:
+            type: object
         - name: namespace
           description: set the datamodel of the constraint
           in: query
@@ -290,6 +295,49 @@ paths:
                 $ref: '#/components/schemas/ParameterResponse'
         '304':
           description: Not modified  
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+
+   /constraint/{technology}:
+    description: request, update or delete a specific constraint
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: constraintIDs
+        in: query
+        description: array of identifiers of constraints
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+
+    get:
+      tags:
+        - Constraint
+        - Request
+      summary: Requests information of an array of specific constraints
+      description: Requests information of an array of specific constraints
+      operationId: constraints
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pattern'
         '400':
           description: Bad request
         '404':
@@ -1012,7 +1060,7 @@ paths:
           in: query
           description: compiled constraints for quality analysis. will be combined with constraints specified in constraintIDs parameter
           required: true
-          style: deepObject
+          style: form
           explode: true
           schema:
             type: array
@@ -1090,7 +1138,7 @@ paths:
           in: query
           description: specification of new variant(s)
           required: true
-          style: deepObject
+          style: form
           explode: true
           schema:
             type: array
@@ -1125,7 +1173,7 @@ paths:
           in: query
           description: specification of variant name(s) to delete
           required: true
-          style: deepObject
+          style: form
           explode: true
           schema:
             type: string
@@ -1223,6 +1271,12 @@ components:
         name:
           type: string
           description: variant id
+        typeConstraint:
+          type: boolean
+          description: is formulated as constraint
+        custom:
+          type: object
+          description: custom parameters
         fragments:
           type: array
           description: fragments of the sentence which comprises parameter specifications and text fragments and to set the context of the parameters
@@ -1453,6 +1507,8 @@ components:
         name:
           description: identifier of the variant
           type: string
+        custom:
+          type: object
         fragments:
           type: array
           description: fragments of the variant sentence
@@ -1467,8 +1523,8 @@ components:
       description: metainformation for templates to be able to create new variants via api
       properties:
         variants: 
-          description: full specification of all existing variants 
           $ref: '#/components/schemas/VariantSpecification'
+          description: full specification of all existing variants
         params:
           type: object
           description: map of parameter id to parameter type
@@ -1516,6 +1572,8 @@ components:
                 - XQuery
                 - Sparql
                 - Cypher
+            custom:
+              type: object
             query:
               type: string
               description: technology-specific query
@@ -1576,11 +1634,26 @@ components:
               constraintName:
                 description: user-defined name of the constraint
                 type: string
+              custom:
+                type: object
               incidents:
                 description: list of found incidents of the constraint in the file
                 type: array
                 items:
-                  type: string
+                  type: object
+                  properties:
+                    snippet:
+                      description: xml-snippet
+                      type: string
+                    startline:
+                      description: linenumber of the start of the snippet in current file
+                      type: integer
+                    endline:
+                      description: linenumber of the end of the snippet in current file
+                      type: integer
+                    linesize:
+                      description: numbers of lines of the current snippet
+                      type: integer
               totalFindings:
                 description: amount of total analysed findings in the file
                 type: integer

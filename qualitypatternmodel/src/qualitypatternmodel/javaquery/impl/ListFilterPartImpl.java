@@ -100,7 +100,7 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 			setSubfilter((BooleanFilterPart) JavaFilterPartImpl.fromJson(json.getJSONObject("subfilter"), map));
 		}
 		catch (Exception e) {
-			throw new InvalidityException();
+			throw new InvalidityException("Error creating ListFilterPartImpl", e);
 		}
 	}
 

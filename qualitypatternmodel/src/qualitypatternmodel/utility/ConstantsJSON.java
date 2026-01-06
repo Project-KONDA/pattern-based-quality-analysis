@@ -1,5 +1,7 @@
 package qualitypatternmodel.utility;
 
+import qualitypatternmodel.patternstructure.Language;
+
 public class ConstantsJSON {
 
 	// JSON variables
@@ -46,6 +48,7 @@ public class ConstantsJSON {
 	public static final String OPTIONS = "options";
 	public static final String TYPEMODIFIABLE = "typeModifiable";
 	public static final String DEPENDANT = "dependant";
+	public static final String CUSTOM = "custom";
 
 	// Parameter Modification
 	public static final String OLD_NAME = "oldName";
@@ -79,8 +82,30 @@ public class ConstantsJSON {
 	public static final String CONSTRAINT = "constraint";
 	public static final String CONSTRAINTS = "constraints";
 	public static final String CONSTRAINT_NAME = "constraintName";
-	public static final Object CONSTRAINT_IDS = "constraintIDs";
+	public static final String CONSTRAINT_IDS = "constraintIDs";
 	public static final String FILE = "file";
-	public static final Object FILES = "files";
+	public static final String FILES = "files";
 	public static final String RESULT = "result";
+	public static final String RESULT_SNIPPET = "snippet";
+	public static final String RESULT_STARTLINE = "startline";
+	public static final String RESULT_ENDLINE = "endline";
+	public static final String RESULT_LINESIZE = "linesize";
+
+	// Filter
+	public static final String NEGATE = "negate";
+	public static final String ARGUMENT = "argument";
+	public static final String ARGUMENT_FUNCTION = "functionclass";
+	public static final String ARGUMENT_CLASS = "class";
+	public static final String ARGUMENT_LIST = "list";
+	public static final String ARGUMENT_NUMBER1 = "number1";
+	public static final String ARGUMENT_NUMBER2 = "number2";
+
+	// INFO
+	public static final String INFO_ID = "id";
+	public static final String INFO_NAME = "name";
+	public static final String INFO_DESCRIPTION = "description";
+	public static final String INFO_GENERIC = Language.GENERIC.getLiteral();
+	public static final String INFO_XML = Language.XML.getLiteral();
+	public static final String INFO_RDF = Language.RDF.getLiteral();
+	public static final String INFO_NEO4J = Language.NEO4J.getLiteral();
 }

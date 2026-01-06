@@ -31,6 +31,33 @@ public interface JavaoperatorsFactory extends EFactory {
 	ValidateLinkOperator createValidateLinkOperator();
 
 	/**
+	 * Returns a new object of class '<em>Link Mime Type Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Link Mime Type Operator</em>'.
+	 * @generated
+	 */
+	LinkMimeTypeOperator createLinkMimeTypeOperator();
+
+	/**
+	 * Returns a new object of class '<em>Link Image Min Size Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Link Image Min Size Operator</em>'.
+	 * @generated
+	 */
+	LinkImageMinSizeOperator createLinkImageMinSizeOperator();
+
+	/**
+	 * Returns a new object of class '<em>Link Source Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Link Source Operator</em>'.
+	 * @generated
+	 */
+	LinkSourceOperator createLinkSourceOperator();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

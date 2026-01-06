@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.javaqueryoutput.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.List;
 
@@ -14,7 +13,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.ContainerInterim;
 import qualitypatternmodel.javaqueryoutput.ContainerResult;
@@ -23,7 +21,6 @@ import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
-import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,6 +74,12 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 	 */
 	protected ContainerResultImpl() {
 		super();
+	}
+
+	protected ContainerResultImpl(String tag) {
+		super();
+		if (tag != null)
+			setTagname(tag);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -201,61 +204,60 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.CONTAINER_RESULT__TAGNAME, oldTagname, tagname));
 	}
 
-
-	private ContainerResult currentCreationResult = null;
-	private int depth = 0;
-	private int depth0 = 0;
-	private Boolean done = false;
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws InvalidityException
-	 * @generated NOT
-	 */
-	@Override
-	public Boolean stream(String value) throws InvalidityException {
-		if (done) {
-			return false;
-		}
-
-		depth0 = depth;
-		if (JavaQueryTranslationUtility.isStartTag(value)) {
-			depth +=1;
-		} else if (JavaQueryTranslationUtility.isEndTag(value)) {
-			depth-=1;
-		}
-
-		if (depth0 <= 0 && depth <= 0) {
-			throw new InvalidityException();
-		} else if (depth0 == 1 && depth == 0) {
-			done = true;
-		} else if (depth0 == 0 && depth == 1) {
-			if (getTagname() != null) {
-				throw new InvalidityException("Tagname already set: '" + getTagname() + "' and shell be: " + value);
-			}
-			setTagname(value);
-		}
-		else if (depth0 == 1 && depth == 1) {
-			getSubresult().add(new ValueResultImpl(value));
-		}
-		else if (depth0 == 1 && depth == 2) {
-			if (currentCreationResult != null) {
-				throw new InvalidityException();
-			}
-			currentCreationResult = new ContainerResultImpl();
-			currentCreationResult.stream(value);
-		}
-		else if (depth0 == 2 && depth == 1) {
-			currentCreationResult.stream(value);
-			getSubresult().add(currentCreationResult);
-			currentCreationResult = null;
-		}
-		else if (depth0 >= 2 && depth >= 2) {
-			if (!(currentCreationResult instanceof ContainerResult)) {
-				throw new InvalidityException("ContainerResult expected, recieved: " + currentCreationResult);
-			}
-			currentCreationResult.stream(value);
-		}
+	//	private ContainerResult currentCreationResult = null;
+//	private int depth = 0;
+//	private int depth0 = 0;
+//	private Boolean done = false;
+//	/**
+//	 * <!-- begin-user-doc -->
+//	 * <!-- end-user-doc -->
+//	 * @throws InvalidityException
+//	 * @generated NOT
+//	 */
+//	@Override
+//	public Boolean stream(String value) throws InvalidityException {
+//		if (done) {
+//			return false;
+//		}
+//
+//		depth0 = depth;
+//		if (JavaQueryTranslationUtility.isStartTag(value)) {
+//			depth +=1;
+//		} else if (JavaQueryTranslationUtility.isEndTag(value)) {
+//			depth-=1;
+//		}
+//
+//		if (depth0 <= 0 && depth <= 0) {
+//			throw new InvalidityException();
+//		} else if (depth0 == 1 && depth == 0) {
+//			done = true;
+//		} else if (depth0 == 0 && depth == 1) {
+//			if (getTagname() != null) {
+//				throw new InvalidityException("Tagname already set: '" + getTagname() + "' and shell be: " + value);
+//			}
+//			setTagname(value);
+//		}
+//		else if (depth0 == 1 && depth == 1) {
+//			getSubresult().add(new ValueResultImpl(value));
+//		}
+//		else if (depth0 == 1 && depth == 2) {
+//			if (currentCreationResult != null) {
+//				throw new InvalidityException();
+//			}
+//			currentCreationResult = new ContainerResultImpl();
+//			currentCreationResult.stream(value);
+//		}
+//		else if (depth0 == 2 && depth == 1) {
+//			currentCreationResult.stream(value);
+//			getSubresult().add(currentCreationResult);
+//			currentCreationResult = null;
+//		}
+//		else if (depth0 >= 2 && depth >= 2) {
+//			if (!(currentCreationResult instanceof ContainerResult)) {
+//				throw new InvalidityException("ContainerResult expected, recieved: " + currentCreationResult);
+//			}
+//			currentCreationResult.stream(value);
+//		}
 
 
 
@@ -286,8 +288,8 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 //				throw new InvalidityException("no currentCreationResult " + value);
 //			currentCreationResult.stream(value);
 //		}
-		return !done;
-	}
+//		return !done;
+//	}
 
 	static int i = 0;
 	/**
@@ -372,25 +374,6 @@ public class ContainerResultImpl extends InterimResultImpl implements ContainerR
 				return TAGNAME_EDEFAULT == null ? tagname != null : !TAGNAME_EDEFAULT.equals(tagname);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case JavaqueryoutputPackage.CONTAINER_RESULT___STREAM__STRING:
-				try {
-					return stream((String)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

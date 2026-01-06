@@ -23,6 +23,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 /**
  * <!-- begin-user-doc -->
@@ -90,10 +91,10 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	public OneArgFunctionFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			setNegate(json.getBoolean("negate"));
-			functionclassname = json.getString("functionclass");
-			ValueInterim argument = (ValueInterim) map.get(json.getInt("argument"));
+			ValueInterim argument = (ValueInterim) map.get(json.getInt(ConstantsJSON.ARGUMENT));
 			setArgument(argument);
+			setNegate(json.getBoolean(ConstantsJSON.NEGATE));
+			functionclassname = json.getString(ConstantsJSON.ARGUMENT_FUNCTION);
 		}
 		catch (Exception e) {
 			throw new InvalidityException();
@@ -110,7 +111,7 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	@Override
 	public Boolean apply(InterimResult parameter) {
 		assert(parameter instanceof ValueResult);
-		String value = ((ValueResult) parameter).getValue();
+		String value = ((ValueResult) parameter).getValue();		
 		OneArgJavaOperatorImpl functionClass = OneArgJavaOperatorImpl.getOneInstanceOf(functionclassname, negate);
 		boolean result = functionClass.apply(value);
 		return result; 
@@ -127,7 +128,7 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	public JSONObject toJson() {
 		JSONObject result = new JSONObject();
 		try {
-			result.put("class", getClass().getSimpleName());
+			result.put(ConstantsJSON.ARGUMENT_CLASS, getClass().getSimpleName());
 			result.put("negate", negate);
 			result.put("functionclass", functionclassname);
 			if (getArgument() != null)

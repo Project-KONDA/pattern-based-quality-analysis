@@ -3,6 +3,9 @@
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for MandContSin_xml"
+	},
     "fragments":[
 		{"text":"Each"},
 		{
@@ -11,7 +14,7 @@
 			"exampleValue":"unit",
 			"description":"element of analyis"
 		},
-		{"text":"contains either a"},
+		{"text":"has either a"},
 		{
 			"name":"Subelement",
 			"params":[2],

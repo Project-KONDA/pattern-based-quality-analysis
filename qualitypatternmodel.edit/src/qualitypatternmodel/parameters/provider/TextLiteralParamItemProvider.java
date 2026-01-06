@@ -45,10 +45,10 @@ public class TextLiteralParamItemProvider extends ParameterValueItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuePropertyDescriptor(object);
-			addMatchesPropertyDescriptor(object);
-			addXmlAxisPartConditionPropertyDescriptor(object);
 			addContainsPropertyDescriptor(object);
+			addMatchesPropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
+			addXmlAxisPartConditionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,9 +86,9 @@ public class TextLiteralParamItemProvider extends ParameterValueItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TextLiteralParam_matches_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TextLiteralParam_matches_feature", "_UI_TextLiteralParam_type"),
-				 ParametersPackage.Literals.TEXT_LITERAL_PARAM__MATCHES,
+				 getString("_UI_TextParam_matches_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TextParam_matches_feature", "_UI_TextParam_type"),
+				 ParametersPackage.Literals.TEXT_PARAM__MATCHES,
 				 true,
 				 false,
 				 true,
@@ -130,9 +130,9 @@ public class TextLiteralParamItemProvider extends ParameterValueItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TextLiteralParam_contains_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TextLiteralParam_contains_feature", "_UI_TextLiteralParam_type"),
-				 ParametersPackage.Literals.TEXT_LITERAL_PARAM__CONTAINS,
+				 getString("_UI_TextParam_contains_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TextParam_contains_feature", "_UI_TextParam_type"),
+				 ParametersPackage.Literals.TEXT_PARAM__CONTAINS,
 				 true,
 				 false,
 				 true,

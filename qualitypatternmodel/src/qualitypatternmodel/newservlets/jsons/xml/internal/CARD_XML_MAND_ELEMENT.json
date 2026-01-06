@@ -3,6 +3,9 @@
     "language":"xml",
     "name":"mand_element",
 	"typeConstraint":true,
+	"custom": {
+		"description": "Same as MandAtt_xml but realized via Card_xml"
+	},
     "fragments":[
         {"text":"Each"},
         {

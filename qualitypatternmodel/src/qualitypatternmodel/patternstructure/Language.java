@@ -26,7 +26,7 @@ public enum Language implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GENERIC(0, "GENERIC", "GENERIC"),
+	GENERIC(0, "GENERIC", "generic"),
 
 	/**
 	 * The '<em><b>XML</b></em>' literal object.
@@ -63,7 +63,7 @@ public enum Language implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #GENERIC
-	 * @model
+	 * @model literal="generic"
 	 * @generated
 	 * @ordered
 	 */

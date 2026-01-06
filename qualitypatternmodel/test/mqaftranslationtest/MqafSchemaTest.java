@@ -44,7 +44,6 @@ public class MqafSchemaTest {
 
 
 	// i tried to configure the namespace in this ways
-	@SuppressWarnings("serial")
 	static Map<String, String> namespaces = new HashMap<String, String>() {{
 //		    put("demo", "https://raw.githubusercontent.com/Project-KONDA/pattern-based-quality-analysis/constraint_translation_experiment/qualitypatternmodel/demo.data/demo_database_schema.xsd");
 		    put("demo", "demo");
@@ -105,7 +104,6 @@ public class MqafSchemaTest {
 	 * generates List of Maps with the expected values
 	 * @return List of Maps with the expected values
 	 */
-	@SuppressWarnings("serial")
 	private static ArrayList<Map<String, Object>> expectedResults() {
 		// expected results for each key
 		String existenceKey = "existence:source";

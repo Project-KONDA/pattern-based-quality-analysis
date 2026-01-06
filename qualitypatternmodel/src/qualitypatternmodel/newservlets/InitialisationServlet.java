@@ -40,8 +40,6 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
-import qualitypatternmodel.utility.EMFModelLoad;
-import qualitypatternmodel.utility.EMFModelSave;
 
 @SuppressWarnings("serial")
 public class InitialisationServlet extends HttpServlet {
@@ -56,7 +54,7 @@ public class InitialisationServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyGet(path, params);
 			ServletUtilities.putResponse(response, callId, result);
@@ -82,6 +80,7 @@ public class InitialisationServlet extends HttpServlet {
 	}
 
 	public static void initialisation(ServletContext scon) throws ServletException {
+		ServletUtilities.reset();
 		
 //		ENVIRONMENTAL VARIABLES
 
@@ -114,6 +113,12 @@ public class InitialisationServlet extends HttpServlet {
 			ServletConstants.VARIANTS_FOLDER = variants;
 		else 
 			ServletConstants.VARIANTS_FOLDER = scon.getRealPath(ServletConstants.VARIANTS_FOLDER_DEFAULT);
+//	      TEMPLATE_INFO_FILE: /templates/template_info.json
+		String template_info = System.getenv().get(ServletConstants.ENV_TEMPLATE_INFO_FILE);
+		if (template_info != null)
+			ServletConstants.TEMPLATE_INFO_FILE = template_info;
+		else 
+			ServletConstants.TEMPLATE_INFO_FILE = scon.getRealPath(ServletConstants.TEMPLATE_INFO_FILE_DEFAULT);
 
 //	      LOGFILE: qpm-logfile.log
 		String logfile = System.getenv().get(ServletConstants.ENV_LOGFILE);
@@ -163,6 +168,7 @@ public class InitialisationServlet extends HttpServlet {
 		ServletUtilities.log("Environmental Variable PATTERN_VOLUME:            " + ServletConstants.PATTERN_VOLUME);
 		ServletUtilities.log("Environmental Variable UPLOAD_FOLDER:             " + ServletConstants.UPLOAD_FOLDER);
 		ServletUtilities.log("Environmental Variable VARIANTS_FOLDER:           " + ServletConstants.VARIANTS_FOLDER);
+		ServletUtilities.log("Environmental Variable TEMPLATE_INFO_FILE:        " + ServletConstants.TEMPLATE_INFO_FILE);
 		ServletUtilities.log("Environmental Variable LOGFILE:                   " + ServletConstants.LOGFILE);
 		ServletUtilities.log("Environmental Variable SAVEFILE:                  " + ServletConstants.SAVEFILE);
 		ServletUtilities.log("Environmental Variable LOG_IN_FILE_VOLUME:        " + ServletConstants.LOG_IN_FILE_VOLUME);
@@ -205,7 +211,8 @@ public class InitialisationServlet extends HttpServlet {
 					String id = pattern.getPatternId();
 					if (ServletConstants.OVERRIDE_VARIANTS || !fileExists(genericfolder, id)) {
 						pattern.isValid(AbstractionLevel.GENERIC);
-						EMFModelSave.exportToFile2(pattern, genericfolder, id, Constants.EXTENSION);
+						ServletUtilities.saveGeneric(id, pattern);
+//						EMFModelSave.exportToFile2(pattern, genericfolder, id, Constants.EXTENSION);
 					}
 				}
 				ServletUtilities.log("generic Patterns created: " + genericfolder);
@@ -231,7 +238,7 @@ public class InitialisationServlet extends HttpServlet {
 			String xmlfolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.XML + "/" + ServletConstants.TEMPLATEFOLDER;
 			ServletUtilities.log("XML Patterns creation started to :     " + xmlfolder);
 			for (PatternBundle patternbundle: PatternCollection.getXmlPatternBundles()) {
-				patternbundle.export(xmlfolder, ServletConstants.OVERRIDE_VARIANTS);
+				patternbundle.exportTemplate();
 			}
 			ServletUtilities.log("XML Patterns created:     " + xmlfolder);
 		} catch (Exception e) {
@@ -242,7 +249,7 @@ public class InitialisationServlet extends HttpServlet {
 			String rdffolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.RDF + "/" + ServletConstants.TEMPLATEFOLDER;
 			ServletUtilities.log("RDF Patterns creation started to :     " + rdffolder);
 			for (PatternBundle patternbundle: PatternCollection.getRdfPatternBundles()) {
-				patternbundle.export(rdffolder, ServletConstants.OVERRIDE_VARIANTS);
+				patternbundle.exportTemplate();
 			}
 			ServletUtilities.log("RDF Patterns created:     " + rdffolder);
 		} catch (Exception e) {
@@ -253,7 +260,7 @@ public class InitialisationServlet extends HttpServlet {
 			String neofolder = ServletConstants.PATTERN_VOLUME + "/" + Constants.NEO4J + "/" + ServletConstants.TEMPLATEFOLDER;
 			ServletUtilities.log("NEO4J Patterns creation started to :     " + neofolder);
 			for (PatternBundle patternbundle: PatternCollection.getNeoPatternBundles()) {
-				patternbundle.export(neofolder, ServletConstants.OVERRIDE_VARIANTS);
+				patternbundle.exportTemplate();
 			}
 			ServletUtilities.log("NEO4J Patterns created:   " + neofolder);
 		} catch (Exception e) {
@@ -293,12 +300,20 @@ public class InitialisationServlet extends HttpServlet {
 	}
 	
 	private static void initializeVariant(JSONObject json, String path) throws IOException, JSONException, InvalidityException {
-		String templatefolder = ServletConstants.PATTERN_VOLUME + "/" + json.getString(ConstantsJSON.LANGUAGE) + "/" + ServletConstants.TEMPLATEFOLDER;
+//		String templatefolder = ServletConstants.PATTERN_VOLUME + "/" + json.getString(ConstantsJSON.LANGUAGE) + "/" + ServletConstants.TEMPLATEFOLDER;
 		String templateID = json.getString(ConstantsJSON.TEMPLATE);
-		
-		CompletePattern template = EMFModelLoad.loadCompletePattern(templatefolder, templateID, Constants.EXTENSION);
-		new PatternTextImpl(template, json);
-		EMFModelSave.exportToFile2(template, templatefolder, templateID, Constants.EXTENSION);
+		String technology = json.getString(ConstantsJSON.LANGUAGE);
+
+		try {
+			CompletePattern template = ServletUtilities.loadTemplate(technology, templateID);
+//			EMFModelLoad.loadCompletePattern(templatefolder, templateID, Constants.EXTENSION);
+			new PatternTextImpl(template, json);
+			ServletUtilities.saveTemplate(technology, templateID, template);
+//			EMFModelSave.exportToFile2(template, templatefolder, templateID, Constants.EXTENSION);
+		} catch (Exception e) {
+			System.err.println(e.getLocalizedMessage());
+			ServletUtilities.logError(e);
+		}
 	}
 
 	private static boolean fileExists(String folder, String id) {

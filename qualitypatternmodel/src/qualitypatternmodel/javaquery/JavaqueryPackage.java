@@ -156,16 +156,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__LIST = 1;
-
-	/**
-	 * The operation id for the '<em>Execute XQuery Java</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING = 2;
+	int JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__JSONARRAY = 1;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -174,7 +165,16 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER___EXECUTE__STRING = 3;
+	int JAVA_FILTER___EXECUTE__STRING = 2;
+
+	/**
+	 * The operation id for the '<em>Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_FILTER___FILTER__JSONARRAY = 3;
 
 	/**
 	 * The operation id for the '<em>To Json</em>' operation.
@@ -1193,6 +1193,197 @@ public interface JavaqueryPackage extends EPackage {
 	int QUANTIFIER_FILTER_PART_OPERATION_COUNT = BOOLEAN_FILTER_PART_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.OneArgListFunctionFilterPartImpl <em>One Arg List Function Filter Part</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.impl.OneArgListFunctionFilterPartImpl
+	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getOneArgListFunctionFilterPart()
+	 * @generated
+	 */
+	int ONE_ARG_LIST_FUNCTION_FILTER_PART = 15;
+
+	/**
+	 * The feature id for the '<em><b>Argument</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_LIST_FUNCTION_FILTER_PART__ARGUMENT = ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT;
+
+	/**
+	 * The feature id for the '<em><b>Negate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_LIST_FUNCTION_FILTER_PART__NEGATE = ONE_ARG_FUNCTION_FILTER_PART__NEGATE;
+
+	/**
+	 * The feature id for the '<em><b>List</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_LIST_FUNCTION_FILTER_PART__LIST = ONE_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>One Arg List Function Filter Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_LIST_FUNCTION_FILTER_PART_FEATURE_COUNT = ONE_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_LIST_FUNCTION_FILTER_PART___GET_ARGUMENTS = ONE_ARG_FUNCTION_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_LIST_FUNCTION_FILTER_PART___TO_JSON = ONE_ARG_FUNCTION_FILTER_PART___TO_JSON;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_LIST_FUNCTION_FILTER_PART___APPLY__INTERIMRESULT = ONE_ARG_FUNCTION_FILTER_PART___APPLY__INTERIMRESULT;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_LIST_FUNCTION_FILTER_PART___APPLY__STRING = ONE_ARG_FUNCTION_FILTER_PART___APPLY__STRING;
+
+	/**
+	 * The number of operations of the '<em>One Arg List Function Filter Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_LIST_FUNCTION_FILTER_PART_OPERATION_COUNT = ONE_ARG_FUNCTION_FILTER_PART_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaquery.impl.OneArgTwoNumberFunctionFilterPartImpl <em>One Arg Two Number Function Filter Part</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaquery.impl.OneArgTwoNumberFunctionFilterPartImpl
+	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getOneArgTwoNumberFunctionFilterPart()
+	 * @generated
+	 */
+	int ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART = 16;
+
+	/**
+	 * The feature id for the '<em><b>Argument</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART__ARGUMENT = ONE_ARG_FUNCTION_FILTER_PART__ARGUMENT;
+
+	/**
+	 * The feature id for the '<em><b>Negate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART__NEGATE = ONE_ARG_FUNCTION_FILTER_PART__NEGATE;
+
+	/**
+	 * The feature id for the '<em><b>Number1</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART__NUMBER1 = ONE_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Number2</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART__NUMBER2 = ONE_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>One Arg Two Number Function Filter Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART_FEATURE_COUNT = ONE_ARG_FUNCTION_FILTER_PART_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART___GET_ARGUMENTS = ONE_ARG_FUNCTION_FILTER_PART___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>To Json</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART___TO_JSON = ONE_ARG_FUNCTION_FILTER_PART___TO_JSON;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART___APPLY__INTERIMRESULT = ONE_ARG_FUNCTION_FILTER_PART___APPLY__INTERIMRESULT;
+
+	/**
+	 * The operation id for the '<em>Apply</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART___APPLY__STRING = ONE_ARG_FUNCTION_FILTER_PART___APPLY__STRING;
+
+	/**
+	 * The number of operations of the '<em>One Arg Two Number Function Filter Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART_OPERATION_COUNT = ONE_ARG_FUNCTION_FILTER_PART_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>String List Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1200,7 +1391,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getStringListWrapper()
 	 * @generated
 	 */
-	int STRING_LIST_WRAPPER = 15;
+	int STRING_LIST_WRAPPER = 17;
 
 
 	/**
@@ -1211,7 +1402,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getObjectListWrapper()
 	 * @generated
 	 */
-	int OBJECT_LIST_WRAPPER = 16;
+	int OBJECT_LIST_WRAPPER = 18;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.JavaFilter <em>Java Filter</em>}'.
@@ -1311,24 +1502,14 @@ public interface JavaqueryPackage extends EPackage {
 	EOperation getJavaFilter__FilterQueryResults();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(java.util.List) <em>Create Interim Result Container</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(org.json.JSONArray) <em>Create Interim Result Container</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Create Interim Result Container</em>' operation.
-	 * @see qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(java.util.List)
+	 * @see qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(org.json.JSONArray)
 	 * @generated
 	 */
-	EOperation getJavaFilter__CreateInterimResultContainer__List();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String) <em>Execute XQuery Java</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Execute XQuery Java</em>' operation.
-	 * @see qualitypatternmodel.javaquery.JavaFilter#executeXQueryJava(java.lang.String)
-	 * @generated
-	 */
-	EOperation getJavaFilter__ExecuteXQueryJava__String();
+	EOperation getJavaFilter__CreateInterimResultContainer__JSONArray();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#execute(java.lang.String) <em>Execute</em>}' operation.
@@ -1339,6 +1520,16 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getJavaFilter__Execute__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#filter(org.json.JSONArray) <em>Filter</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Filter</em>' operation.
+	 * @see qualitypatternmodel.javaquery.JavaFilter#filter(org.json.JSONArray)
+	 * @generated
+	 */
+	EOperation getJavaFilter__Filter__JSONArray();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#toJson() <em>To Json</em>}' operation.
@@ -1443,6 +1634,59 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getQuantifierFilterPart_Quantifier();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.OneArgListFunctionFilterPart <em>One Arg List Function Filter Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>One Arg List Function Filter Part</em>'.
+	 * @see qualitypatternmodel.javaquery.OneArgListFunctionFilterPart
+	 * @generated
+	 */
+	EClass getOneArgListFunctionFilterPart();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.javaquery.OneArgListFunctionFilterPart#getList <em>List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>List</em>'.
+	 * @see qualitypatternmodel.javaquery.OneArgListFunctionFilterPart#getList()
+	 * @see #getOneArgListFunctionFilterPart()
+	 * @generated
+	 */
+	EAttribute getOneArgListFunctionFilterPart_List();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaquery.OneArgTwoNumberFunctionFilterPart <em>One Arg Two Number Function Filter Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>One Arg Two Number Function Filter Part</em>'.
+	 * @see qualitypatternmodel.javaquery.OneArgTwoNumberFunctionFilterPart
+	 * @generated
+	 */
+	EClass getOneArgTwoNumberFunctionFilterPart();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.OneArgTwoNumberFunctionFilterPart#getNumber1 <em>Number1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Number1</em>'.
+	 * @see qualitypatternmodel.javaquery.OneArgTwoNumberFunctionFilterPart#getNumber1()
+	 * @see #getOneArgTwoNumberFunctionFilterPart()
+	 * @generated
+	 */
+	EAttribute getOneArgTwoNumberFunctionFilterPart_Number1();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaquery.OneArgTwoNumberFunctionFilterPart#getNumber2 <em>Number2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Number2</em>'.
+	 * @see qualitypatternmodel.javaquery.OneArgTwoNumberFunctionFilterPart#getNumber2()
+	 * @see #getOneArgTwoNumberFunctionFilterPart()
+	 * @generated
+	 */
+	EAttribute getOneArgTwoNumberFunctionFilterPart_Number2();
 
 	/**
 	 * Returns the meta object for data type '{@link java.util.List <em>String List Wrapper</em>}'.
@@ -1939,15 +2183,7 @@ public interface JavaqueryPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__LIST = eINSTANCE.getJavaFilter__CreateInterimResultContainer__List();
-
-		/**
-		 * The meta object literal for the '<em><b>Execute XQuery Java</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING = eINSTANCE.getJavaFilter__ExecuteXQueryJava__String();
+		EOperation JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__JSONARRAY = eINSTANCE.getJavaFilter__CreateInterimResultContainer__JSONArray();
 
 		/**
 		 * The meta object literal for the '<em><b>Execute</b></em>' operation.
@@ -1956,6 +2192,14 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JAVA_FILTER___EXECUTE__STRING = eINSTANCE.getJavaFilter__Execute__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Filter</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JAVA_FILTER___FILTER__JSONARRAY = eINSTANCE.getJavaFilter__Filter__JSONArray();
 
 		/**
 		 * The meta object literal for the '<em><b>To Json</b></em>' operation.
@@ -2042,6 +2286,50 @@ public interface JavaqueryPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute QUANTIFIER_FILTER_PART__QUANTIFIER = eINSTANCE.getQuantifierFilterPart_Quantifier();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.OneArgListFunctionFilterPartImpl <em>One Arg List Function Filter Part</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaquery.impl.OneArgListFunctionFilterPartImpl
+		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getOneArgListFunctionFilterPart()
+		 * @generated
+		 */
+		EClass ONE_ARG_LIST_FUNCTION_FILTER_PART = eINSTANCE.getOneArgListFunctionFilterPart();
+
+		/**
+		 * The meta object literal for the '<em><b>List</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ONE_ARG_LIST_FUNCTION_FILTER_PART__LIST = eINSTANCE.getOneArgListFunctionFilterPart_List();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaquery.impl.OneArgTwoNumberFunctionFilterPartImpl <em>One Arg Two Number Function Filter Part</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaquery.impl.OneArgTwoNumberFunctionFilterPartImpl
+		 * @see qualitypatternmodel.javaquery.impl.JavaqueryPackageImpl#getOneArgTwoNumberFunctionFilterPart()
+		 * @generated
+		 */
+		EClass ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART = eINSTANCE.getOneArgTwoNumberFunctionFilterPart();
+
+		/**
+		 * The meta object literal for the '<em><b>Number1</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART__NUMBER1 = eINSTANCE.getOneArgTwoNumberFunctionFilterPart_Number1();
+
+		/**
+		 * The meta object literal for the '<em><b>Number2</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART__NUMBER2 = eINSTANCE.getOneArgTwoNumberFunctionFilterPart_Number2();
 
 		/**
 		 * The meta object literal for the '<em>String List Wrapper</em>' data type.

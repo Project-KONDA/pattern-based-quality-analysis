@@ -501,11 +501,11 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		for (String prefix: namespaces.getKeys()) {
 			String uri = namespaces.get(prefix);
 			if (prefix.equals("")) {
-				result += "declare default element namespace \"" + uri + "\";\n";
+				result += "declare default element namespace '" + uri + "';\n";
 			} else if (prefix.matches(ConstantsXml.REGEX_PREFIX)) {
-				result += "declare namespace " + prefix + "=\"" + uri + "\";\n";
+				result += "declare namespace " + prefix + "='" + uri + "';\n";
 			} else 
-				throw new InvalidityException("Invalid Namespace : \"" + prefix + "\" : \"" + uri + "\"");
+				throw new InvalidityException("Invalid Namespace : '" + prefix + "' : '" + uri + "'");
 		}
 		return result;
 	}
@@ -1814,12 +1814,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+//		if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (patternId: ");
-		result.append(patternId);
-		result.append(", name: ");
+		StringBuilder result = new StringBuilder(patternId);
+		result.append(" (name: ");
 		result.append(name);
 		result.append(", abstractId: ");
 		result.append(abstractId);

@@ -104,6 +104,12 @@ public abstract class JavaFilterPartImpl extends MinimalEObjectImpl.Container im
 			if (clazz.equals(QuantifierFilterPartImpl.class.getSimpleName())) {
 				return new QuantifierFilterPartImpl(json, map);
 			}
+			if (clazz.equals(OneArgListFunctionFilterPartImpl.class.getSimpleName())) {
+				return new OneArgListFunctionFilterPartImpl(json, map);
+			}
+			if (clazz.equals(OneArgTwoNumberFunctionFilterPartImpl.class.getSimpleName())) {
+				return new OneArgTwoNumberFunctionFilterPartImpl(json, map);
+			}
 			if (clazz.equals(OneArgFunctionFilterPartImpl.class.getSimpleName())) {
 				return new OneArgFunctionFilterPartImpl(json, map);
 			}

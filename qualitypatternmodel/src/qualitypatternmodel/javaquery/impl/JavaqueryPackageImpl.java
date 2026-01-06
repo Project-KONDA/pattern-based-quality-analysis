@@ -37,6 +37,8 @@ import qualitypatternmodel.javaquery.NumberFilterElement;
 import qualitypatternmodel.javaquery.NumberFilterPart;
 import qualitypatternmodel.javaquery.NumberValueFilterElement;
 import qualitypatternmodel.javaquery.OneArgFunctionFilterPart;
+import qualitypatternmodel.javaquery.OneArgListFunctionFilterPart;
+import qualitypatternmodel.javaquery.OneArgTwoNumberFunctionFilterPart;
 import qualitypatternmodel.javaquery.QuantifierFilterPart;
 import qualitypatternmodel.javaquery.TwoArgFunctionFilterPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
@@ -84,6 +86,20 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	private EClass quantifierFilterPartEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass oneArgListFunctionFilterPartEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass oneArgTwoNumberFunctionFilterPartEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -374,7 +390,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getJavaFilter__CreateInterimResultContainer__List() {
+	public EOperation getJavaFilter__CreateInterimResultContainer__JSONArray() {
 		return javaFilterEClass.getEOperations().get(1);
 	}
 
@@ -384,7 +400,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getJavaFilter__ExecuteXQueryJava__String() {
+	public EOperation getJavaFilter__Execute__String() {
 		return javaFilterEClass.getEOperations().get(2);
 	}
 
@@ -394,7 +410,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getJavaFilter__Execute__String() {
+	public EOperation getJavaFilter__Filter__JSONArray() {
 		return javaFilterEClass.getEOperations().get(3);
 	}
 
@@ -496,6 +512,56 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	@Override
 	public EAttribute getQuantifierFilterPart_Quantifier() {
 		return (EAttribute)quantifierFilterPartEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getOneArgListFunctionFilterPart() {
+		return oneArgListFunctionFilterPartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getOneArgListFunctionFilterPart_List() {
+		return (EAttribute)oneArgListFunctionFilterPartEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getOneArgTwoNumberFunctionFilterPart() {
+		return oneArgTwoNumberFunctionFilterPartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getOneArgTwoNumberFunctionFilterPart_Number1() {
+		return (EAttribute)oneArgTwoNumberFunctionFilterPartEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getOneArgTwoNumberFunctionFilterPart_Number2() {
+		return (EAttribute)oneArgTwoNumberFunctionFilterPartEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -906,9 +972,9 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		createEAttribute(javaFilterEClass, JAVA_FILTER__PATTERN_NAME);
 		createEAttribute(javaFilterEClass, JAVA_FILTER__PATTERN_ID);
 		createEOperation(javaFilterEClass, JAVA_FILTER___FILTER_QUERY_RESULTS);
-		createEOperation(javaFilterEClass, JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__LIST);
-		createEOperation(javaFilterEClass, JAVA_FILTER___EXECUTE_XQUERY_JAVA__STRING);
+		createEOperation(javaFilterEClass, JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__JSONARRAY);
 		createEOperation(javaFilterEClass, JAVA_FILTER___EXECUTE__STRING);
+		createEOperation(javaFilterEClass, JAVA_FILTER___FILTER__JSONARRAY);
 		createEOperation(javaFilterEClass, JAVA_FILTER___TO_JSON);
 
 		booleanFilterPartEClass = createEClass(BOOLEAN_FILTER_PART);
@@ -969,6 +1035,13 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		createEReference(quantifierFilterPartEClass, QUANTIFIER_FILTER_PART__ARGUMENT);
 		createEAttribute(quantifierFilterPartEClass, QUANTIFIER_FILTER_PART__QUANTIFIER);
 
+		oneArgListFunctionFilterPartEClass = createEClass(ONE_ARG_LIST_FUNCTION_FILTER_PART);
+		createEAttribute(oneArgListFunctionFilterPartEClass, ONE_ARG_LIST_FUNCTION_FILTER_PART__LIST);
+
+		oneArgTwoNumberFunctionFilterPartEClass = createEClass(ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART);
+		createEAttribute(oneArgTwoNumberFunctionFilterPartEClass, ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART__NUMBER1);
+		createEAttribute(oneArgTwoNumberFunctionFilterPartEClass, ONE_ARG_TWO_NUMBER_FUNCTION_FILTER_PART__NUMBER2);
+
 		// Create data types
 		stringListWrapperEDataType = createEDataType(STRING_LIST_WRAPPER);
 		objectListWrapperEDataType = createEDataType(OBJECT_LIST_WRAPPER);
@@ -1021,6 +1094,8 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		numberFilterElementEClass.getESuperTypes().add(this.getNumberFilterPart());
 		numberValueFilterElementEClass.getESuperTypes().add(this.getNumberFilterPart());
 		quantifierFilterPartEClass.getESuperTypes().add(this.getBooleanFilterPart());
+		oneArgListFunctionFilterPartEClass.getESuperTypes().add(this.getOneArgFunctionFilterPart());
+		oneArgTwoNumberFunctionFilterPartEClass.getESuperTypes().add(this.getOneArgFunctionFilterPart());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(javaFilterEClass, JavaFilter.class, "JavaFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1032,19 +1107,19 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		initEAttribute(getJavaFilter_PatternName(), ecorePackage.getEString(), "patternName", null, 0, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJavaFilter_PatternId(), ecorePackage.getEString(), "patternId", null, 0, 1, JavaFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getJavaFilter__FilterQueryResults(), ecorePackage.getEString(), "filterQueryResults", 0, -1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getJavaFilter__FilterQueryResults(), theTextrepresentationPackage.getJSONArrayWrapper(), "filterQueryResults", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getJavaFilter__CreateInterimResultContainer__List(), null, "createInterimResultContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getObjectListWrapper(), "objectList", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJavaFilter__CreateInterimResultContainer__JSONArray(), null, "createInterimResultContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theTextrepresentationPackage.getJSONArrayWrapper(), "objectList", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getJavaFilter__ExecuteXQueryJava__String(), this.getStringListWrapper(), "executeXQueryJava", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJavaFilter__Execute__String(), theTextrepresentationPackage.getJSONArrayWrapper(), "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "datapath", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getJavaFilter__Execute__String(), this.getStringListWrapper(), "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "datapath", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJavaFilter__Filter__JSONArray(), theTextrepresentationPackage.getJSONArrayWrapper(), "filter", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theTextrepresentationPackage.getJSONArrayWrapper(), "array", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEOperation(getJavaFilter__ToJson(), theTextrepresentationPackage.getJSONObjectWrapper(), "toJson", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1119,6 +1194,13 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		initEReference(getQuantifierFilterPart_Subfilter(), this.getBooleanFilterPart(), null, "subfilter", null, 1, -1, QuantifierFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getQuantifierFilterPart_Argument(), theJavaqueryoutputPackage.getFixedContainerInterim(), null, "argument", null, 1, 1, QuantifierFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuantifierFilterPart_Quantifier(), thePatternstructurePackage.getQuantifier(), "quantifier", null, 0, 1, QuantifierFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(oneArgListFunctionFilterPartEClass, OneArgListFunctionFilterPart.class, "OneArgListFunctionFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOneArgListFunctionFilterPart_List(), ecorePackage.getEString(), "list", "", 0, -1, OneArgListFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(oneArgTwoNumberFunctionFilterPartEClass, OneArgTwoNumberFunctionFilterPart.class, "OneArgTwoNumberFunctionFilterPart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOneArgTwoNumberFunctionFilterPart_Number1(), ecorePackage.getEDoubleObject(), "number1", null, 0, 1, OneArgTwoNumberFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOneArgTwoNumberFunctionFilterPart_Number2(), ecorePackage.getEDoubleObject(), "number2", null, 0, 1, OneArgTwoNumberFunctionFilterPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(stringListWrapperEDataType, List.class, "StringListWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.List<String>");

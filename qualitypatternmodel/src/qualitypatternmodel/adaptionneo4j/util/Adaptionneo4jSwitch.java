@@ -33,6 +33,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TextParam;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -221,6 +222,7 @@ public class Adaptionneo4jSwitch<T> extends Switch<T> {
 				if (result == null) result = caseTextListParam(neoNodeLabelsParam);
 				if (result == null) result = caseNeoLabel(neoNodeLabelsParam);
 				if (result == null) result = caseListParam(neoNodeLabelsParam);
+				if (result == null) result = caseTextParam(neoNodeLabelsParam);
 				if (result == null) result = caseParameterValue(neoNodeLabelsParam);
 				if (result == null) result = caseParameter(neoNodeLabelsParam);
 				if (result == null) result = caseComparable(neoNodeLabelsParam);
@@ -233,6 +235,7 @@ public class Adaptionneo4jSwitch<T> extends Switch<T> {
 				T result = caseNeoEdgeLabelParam(neoEdgeLabelParam);
 				if (result == null) result = caseTextLiteralParam(neoEdgeLabelParam);
 				if (result == null) result = caseNeoLabel(neoEdgeLabelParam);
+				if (result == null) result = caseTextParam(neoEdgeLabelParam);
 				if (result == null) result = caseParameterValue(neoEdgeLabelParam);
 				if (result == null) result = caseParameter(neoEdgeLabelParam);
 				if (result == null) result = caseComparable(neoEdgeLabelParam);
@@ -250,6 +253,7 @@ public class Adaptionneo4jSwitch<T> extends Switch<T> {
 				NeoPropertyNameParam neoPropertyNameParam = (NeoPropertyNameParam)theEObject;
 				T result = caseNeoPropertyNameParam(neoPropertyNameParam);
 				if (result == null) result = caseTextLiteralParam(neoPropertyNameParam);
+				if (result == null) result = caseTextParam(neoPropertyNameParam);
 				if (result == null) result = caseParameterValue(neoPropertyNameParam);
 				if (result == null) result = caseParameter(neoPropertyNameParam);
 				if (result == null) result = caseComparable(neoPropertyNameParam);
@@ -663,6 +667,21 @@ public class Adaptionneo4jSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseListParam(ListParam object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTextParam(TextParam object) {
 		return null;
 	}
 

@@ -3,6 +3,9 @@
     "language":"xml",
     "name":"default-constraint",
 	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for MandContAnd_xml"
+	},
     "fragments":[
 		{"text":"For each"},
 		{
@@ -19,7 +22,7 @@
 			"description":"element of analyis",
 			"plural":"true"
 		},
-		{"text":"contain both a"},
+		{"text":"have both a"},
 		{
 			"name":"Property",
 			"params":[2],

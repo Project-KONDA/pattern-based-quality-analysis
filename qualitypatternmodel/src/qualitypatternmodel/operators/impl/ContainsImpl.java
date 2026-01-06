@@ -27,6 +27,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TextParam;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -78,7 +79,7 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	 * @generated
 	 * @ordered
 	 */
-	protected TextLiteralParam content;
+	protected TextParam content;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,14 +102,27 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		if(option!=null && content != null && content.getValue() != null && primitiveNode != null) {
-			if (option.getValue()){
-				return primitiveNode.generateXQuery() + "contains(., \"" + content.getValue() + "\")";
-			} else {
-				return primitiveNode.generateXQuery() + "not(contains(., \"" + content.getValue() + "\"))";
-			}
+		if (option == null)
+			throw new InvalidityException("option null");
+		if (content == null)
+			throw new InvalidityException("content null");
+		if (!content.inputIsValid())
+			throw new InvalidityException("content input invalid: " + content.myToString() + ": "+ content.getValueAsString());
+		if (primitiveNode == null)
+			throw new InvalidityException("node null");
+		
+		String contains;
+		if (content instanceof TextLiteralParam)
+			contains = "contains(., " + content.generateXQuery() + ")";
+		else {
+			String var = "$contains" + getInternalId();
+			contains = "some " + var + " in " + content.generateXQuery() + " satisfies contains(., " + var + ")";
+		}	
+		
+		if (option.getValue()){
+			return primitiveNode.generateXQuery() + contains;
 		} else {
-			throw new InvalidityException("invalid option");
+			return primitiveNode.generateXQuery() + "not(" + contains + ")";
 		}
 	}
 
@@ -123,7 +137,9 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 
 	@Override
 	public String generateSparql() throws InvalidityException {
-		if(option!=null && content != null && content.getValue() != null && primitiveNode != null) {
+		if (!(content instanceof TextLiteralParam))
+			throw new InvalidityException(ConstantsError.NOT_IMPLEMENTED_RDF);
+		if(option!=null && content != null && content.inputIsValid() && primitiveNode != null) {
 			if (option.getValue()){
 				String result = "\nFILTER (contains(";
 				result += primitiveNode.generateSparql();
@@ -146,16 +162,18 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
-		if(option != null && content != null && content.getValue() != null && primitiveNode != null) {
+		if (!(content instanceof TextLiteralParam))
+			throw new InvalidityException(ConstantsError.NOT_IMPLEMENTED_NEO);
+		if(option != null && content != null && content.inputIsValid() && primitiveNode != null) {
 			String tempCypherPropertyAddressing = ((NeoPropertyNode) primitiveNode).generateCypherPropertyAddressing().get(ConstantsNeo.FIRST_CYPHER_PROPERTY_ADDRESSING);
 			if (!tempCypherPropertyAddressing.isEmpty()) {
 				if (option.getValue()) {
 					return tempCypherPropertyAddressing + ConstantsNeo.ONE_WHITESPACE +
-							  ConstantsNeo.OPERATOR_CONTAINS + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + ConstantsNeo.CYPHER_QUOTATION_MARK + content.getValue() +
+							  ConstantsNeo.OPERATOR_CONTAINS + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + ConstantsNeo.CYPHER_QUOTATION_MARK + ((TextLiteralParam) content).getValue() +
 							  ConstantsNeo.CYPHER_QUOTATION_MARK + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
 				}
 				return  ConstantsNeo.BOOLEAN_OPERATOR_NOT+ ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET + tempCypherPropertyAddressing + ConstantsNeo.ONE_WHITESPACE +
-						  ConstantsNeo.OPERATOR_CONTAINS + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET +  ConstantsNeo.CYPHER_QUOTATION_MARK + content.getValue() +
+						  ConstantsNeo.OPERATOR_CONTAINS + ConstantsNeo.ONE_WHITESPACE + ConstantsNeo.SIGNLE_OPENING_ROUND_BRACKET +  ConstantsNeo.CYPHER_QUOTATION_MARK + ((TextLiteralParam) content).getValue() +
 						  ConstantsNeo.CYPHER_QUOTATION_MARK + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET + ConstantsNeo.SIGNLE_CLOSING_ROUND_BRACKET;
 			}
 			throw new InvalidityException(ConstantsNeo.NO_VALID_PROPERTY_IS_ACCESSABLE);
@@ -354,10 +372,10 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	 * @generated
 	 */
 	@Override
-	public TextLiteralParam getContent() {
+	public TextParam getContent() {
 		if (content != null && content.eIsProxy()) {
 			InternalEObject oldContent = (InternalEObject)content;
-			content = (TextLiteralParam)eResolveProxy(oldContent);
+			content = (TextParam)eResolveProxy(oldContent);
 			if (content != oldContent) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OperatorsPackage.CONTAINS__CONTENT, oldContent, content));
@@ -371,8 +389,28 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TextLiteralParam basicGetContent() {
+	public TextParam basicGetContent() {
 		return content;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setContent(TextParam newContent) {
+		if (newContent != content) {
+			NotificationChain msgs = null;
+			if (content != null)
+				msgs = ((InternalEObject)content).eInverseRemove(this, ParametersPackage.TEXT_PARAM__CONTAINS, TextParam.class, msgs);
+			if (newContent != null)
+				msgs = ((InternalEObject)newContent).eInverseAdd(this, ParametersPackage.TEXT_PARAM__CONTAINS, TextParam.class, msgs);
+			msgs = basicSetContent(newContent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.CONTAINS__CONTENT, newContent, newContent));
 	}
 
 	/**
@@ -380,8 +418,8 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetContent(TextLiteralParam newContent, NotificationChain msgs) {
-		TextLiteralParam oldContent = content;
+	public NotificationChain basicSetContent(TextParam newContent, NotificationChain msgs) {
+		TextParam oldContent = content;
 
 		ParameterList varlist = getParameterList();
 		if (varlist != null) {
@@ -406,26 +444,6 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setContent(TextLiteralParam newContent) {
-		if (newContent != content) {
-			NotificationChain msgs = null;
-			if (content != null)
-				msgs = ((InternalEObject)content).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS, TextLiteralParam.class, msgs);
-			if (newContent != null)
-				msgs = ((InternalEObject)newContent).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS, TextLiteralParam.class, msgs);
-			msgs = basicSetContent(newContent, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.CONTAINS__CONTENT, newContent, newContent));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -438,8 +456,8 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		patternElements.add(getOption());
 		patternElements.add(getContent());
-		setOption(null);
-		setContent(null);
+//		setOption(null);
+//		setContent(null);
 		return patternElements;
 	}
 
@@ -461,8 +479,8 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 				return basicSetOption((BooleanParam)otherEnd, msgs);
 			case OperatorsPackage.CONTAINS__CONTENT:
 				if (content != null)
-					msgs = ((InternalEObject)content).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS, TextLiteralParam.class, msgs);
-				return basicSetContent((TextLiteralParam)otherEnd, msgs);
+					msgs = ((InternalEObject)content).eInverseRemove(this, ParametersPackage.TEXT_PARAM__CONTAINS, TextParam.class, msgs);
+				return basicSetContent((TextParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -595,7 +613,7 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 				setOption((BooleanParam)newValue);
 				return;
 			case OperatorsPackage.CONTAINS__CONTENT:
-				setContent((TextLiteralParam)newValue);
+				setContent((TextParam)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -616,7 +634,7 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 				setOption((BooleanParam)null);
 				return;
 			case OperatorsPackage.CONTAINS__CONTENT:
-				setContent((TextLiteralParam)null);
+				setContent((TextParam)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -643,11 +661,24 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	@Override
 	public String myToString() {
 		String res = "CONTAINS (" + getInternalId() + ") [";
-		if (!getOption().getValue()) {
-			res += "not ";
+		if (getOption() == null)
+			res += "null]";
+		else {
+			if (!getOption().getValue()) {
+				res += "not ";
+			}
+			res += getOption().getInternalId() + "]";
 		}
-		res += getOption().getInternalId() + "]";
-		res += "[" + getPrimitiveNode().getInternalId() + ", " + getContent().getInternalId() + "]";
+		res += "[";
+		if (getPrimitiveNode() == null) {
+			res += "null, ";
+		}
+		else 
+			res +=  getPrimitiveNode().getInternalId() + ", ";
+		if (getContent() == null)
+			res += "null]";
+		else 
+			res += getContent().getInternalId() + "]";
 		return res;
 	}
 

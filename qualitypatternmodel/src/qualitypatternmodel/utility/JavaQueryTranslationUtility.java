@@ -26,21 +26,16 @@ public class JavaQueryTranslationUtility {
 	public static String COUNT = "count";
 
 	public static String start(String tag){
-		return "\"<" + tag + ">\"";
+		return "<" + tag + ">";
 	}
 	public static String end(String tag){
-		return "\"</" + tag + ">\"";
+		return "</" + tag + ">";
 	}
 
-	public static String getXQueryReturnList(List<String> elements, String tagname, boolean ret, boolean outerbrackets, boolean innerbrackets) {
-		String returnstring = start(tagname) + ",\n  ";
-		if (innerbrackets) {
-			returnstring += "(";
-		}
-//		returnstring = "\n  " + returnstring;
-		if (outerbrackets) {
-			returnstring = "(\n  " + returnstring;
-		}
+	public static String getXQueryReturnList(List<String> elements, String tagname, boolean ret) {
+		String returnstring = start(tagname) + "\n  ";
+//		returnstring += "{";
+		returnstring = "\n  " + returnstring;
 		if (ret) {
 			returnstring = RETURNSTATEMENT + returnstring;
 		}
@@ -48,17 +43,21 @@ public class JavaQueryTranslationUtility {
 			String element = elements.get(i);
 			if (element != null && !element.equals("")) {
 				returnstring += element;
-				if (i == elements.size()-1 && innerbrackets) {
-					returnstring += "  )";
-				}
-				returnstring += ",\n  ";
+//				if (i == elements.size()-1) {
+//					returnstring += "  }";
+//				}
+				returnstring += "\n  ";
 			}
 		}
 
 		returnstring += end(tagname);
-		if (outerbrackets) {
-			returnstring += ")";
-		}
+		return returnstring;
+	}
+	
+	public static String encloseXQueryTag(String query, String tagname) {
+		String returnstring = start(tagname) + "\n  ";
+		returnstring += query + "\n  ";
+		returnstring += end(tagname);
 		return returnstring;
 	}
 

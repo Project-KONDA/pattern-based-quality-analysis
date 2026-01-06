@@ -53,9 +53,11 @@ import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
 import qualitypatternmodel.newservlets.TemplateVariantServlet;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.EMFModelLoad;
 
 public class APICallTests {
-	private static String FOLDER;
+	private static final boolean DELETE = true;
+	private static String folder;
 
 	public static void main(String[] args)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
@@ -105,19 +107,23 @@ public class APICallTests {
 	@BeforeAll
 	public static void initialize()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		FOLDER = new File(".").getCanonicalPath().replace('\\', '/') + "/temp_" + UUID.randomUUID();
-		System.out.println("Create: " + FOLDER);
+		folder = new File(".").getCanonicalPath().replace('\\', '/') + "/temp_" + UUID.randomUUID();
+		System.out.println("Create: " + folder);
 		
 
 		File lido_original = new File("lido.xml");
-		File lido_copy = new File(FOLDER + "/files/lido.xml");
+		File lido_copy = new File(folder + "/files/lido.xml");
 
 		File variants_original = new File("./src/qualitypatternmodel/newservlets/jsons");
-		File variants_copy = new File(FOLDER + "/templates/variants");
+		File variants_copy = new File(folder + "/templates/variants");
+
+		File template_info_original = new File("./src/qualitypatternmodel/newservlets/template_info.json");
+		File template_info_copy = new File(folder + "/templates/template_info.json");
 
 		try {
 			FileUtils.copyFile(lido_original, lido_copy);
 			FileUtils.copyDirectory(variants_original, variants_copy);
+			FileUtils.copyFile(template_info_original, template_info_copy);
 			System.out.println("Files copied successfully");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -127,9 +133,9 @@ public class APICallTests {
 		doAnswer(invocation -> {
 			String argument = invocation.getArgument(0);
 			if (argument.startsWith("/")) {
-				return FOLDER + argument;
+				return folder + argument;
 			} else {
-				return FOLDER + argument;
+				return folder + argument;
 			}
 		}).when(context).getRealPath(anyString());
 		System.out.println("Mock initialized successfully");
@@ -139,13 +145,14 @@ public class APICallTests {
 
 	@AfterAll
 	public static void close() throws IOException {
-		System.out.println("Delete: " + FOLDER);
-		FileUtils.deleteDirectory(new File(FOLDER));
+		System.out.println("Delete: " + folder);
+		if (DELETE)
+			FileUtils.deleteDirectory(new File(folder));
 	}
 
 	// __________ BASE FUNCTIONS __________
 
-	static Map<String, String[]> getEmptyParams() {
+	public static Map<String, String[]> getEmptyParams() {
 		return new HashMap<String, String[]>();
 	}
 
@@ -154,7 +161,7 @@ public class APICallTests {
 		return newConstraint("Match_xml", "default-constraint");
 	}
 
-	static String newConstraint(String pattern, String variant)
+	public static String newConstraint(String pattern, String variant)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject ob = TemplateInstantiateServlet.applyPut("/xml/" + pattern + "/" + variant,
 				getEmptyParams());
@@ -168,6 +175,13 @@ public class APICallTests {
 	static JSONObject getConstraint(String id)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		return ConstraintServlet.applyGet("/xml/" + id, getEmptyParams());
+	}
+
+	static JSONObject getConstraints(String[] ids)
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		Map<String, String[]> params = getEmptyParams();
+		params.put(ConstantsJSON.CONSTRAINT_IDS, ids);
+		return ConstraintServlet.applyGet2("/xml", params);
 	}
 
 	static void deleteConstraint(String id)
@@ -320,6 +334,8 @@ public class APICallTests {
 
 		JSONObject constraint = getConstraint(constriantID);
 		assertPatternJSONObject(constraint);
+		JSONObject constraint2 = getConstraints(new String[]{constriantID});
+		assertPatternJSONObject(constraint2.getJSONObject(constriantID));
 		deleteConstraint(constriantID);
 		assertThrows(FailedServletCallException.class, () -> {
 			getConstraint(constriantID);
@@ -572,7 +588,8 @@ public class APICallTests {
 	public void testPatternListServletGetAll()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject listTemplate = PatternListServlet.applyGet("/xml" + "/all", getEmptyParams());
-		int templateNo = new File(FOLDER + "/templates/xml/abstract-patterns").listFiles().length;
+		int templateNo = EMFModelLoad.getFilesInDirectory(folder + "/templates/xml/abstract-patterns", Constants.EXTENSION).size();
+		templateNo += EMFModelLoad.getFilesInDirectory(folder + "/templates/xml/concrete-patterns", Constants.EXTENSION).size();
 		assert (templateNo > 0);
 		assert (listTemplate.has(ConstantsJSON.TOTAL) && listTemplate.getInt(ConstantsJSON.TOTAL) == templateNo);
 		assert (listTemplate.has(ConstantsJSON.IDS) && listTemplate.getJSONArray(ConstantsJSON.IDS).length() == templateNo);
@@ -585,7 +602,7 @@ public class APICallTests {
 	public void testPatternListServletGetTemplate()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject listTemplate = PatternListServlet.applyGet("/xml" + "/template", getEmptyParams());
-		int templateNo = new File(FOLDER + "/templates/xml/abstract-patterns").listFiles().length;
+		int templateNo = EMFModelLoad.getFilesInDirectory(folder + "/templates/xml/abstract-patterns", Constants.EXTENSION).size();
 		assert (templateNo > 0);
 		assert (listTemplate.has(ConstantsJSON.TOTAL) && listTemplate.getInt(ConstantsJSON.TOTAL) == templateNo);
 		assert (listTemplate.has(ConstantsJSON.IDS) && listTemplate.getJSONArray(ConstantsJSON.IDS).length() == templateNo);

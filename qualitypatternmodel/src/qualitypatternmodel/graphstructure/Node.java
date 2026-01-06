@@ -11,15 +11,18 @@ import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.javaoperators.LinkImageMinSizeOperator;
+import qualitypatternmodel.javaoperators.LinkMimeTypeOperator;
+import qualitypatternmodel.javaoperators.LinkSourceOperator;
 import qualitypatternmodel.javaoperators.ValidateLinkOperator;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.Contains;
+import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.NullCheck;
 import qualitypatternmodel.operators.StringLength;
 import qualitypatternmodel.parameters.ParameterValue;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -222,7 +225,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	TextLiteralParam addPrimitiveMatch(String regex) throws InvalidityException;
+	Match addPrimitiveMatch(String regex) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -230,7 +233,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model
 	 * @generated
 	 */
-	TextLiteralParam addPrimitiveContains();
+	Contains addPrimitiveContains();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -238,7 +241,15 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model
 	 * @generated
 	 */
-	TextLiteralParam addPrimitiveContains(String content);
+	Contains addPrimitiveContainsList();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Contains addPrimitiveContains(String content);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -251,7 +262,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	TextLiteralParam addPrimitiveComparison(String value) throws InvalidityException;
+	Comparison addPrimitiveComparison(String value) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -261,7 +272,15 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	TextLiteralParam addPrimitiveMatch() throws InvalidityException;
+	Match addPrimitiveMatch() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	Match addPrimitiveMatchList() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -275,7 +294,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	UntypedParameterValue addPrimitiveComparison() throws InvalidityException;
+	Comparison addPrimitiveComparison() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -289,7 +308,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	ParameterValue addPrimitiveComparison(ComparisonOperator operator, ParameterValue input) throws InvalidityException;
+	Comparison addPrimitiveComparison(ComparisonOperator operator, ParameterValue input) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -300,7 +319,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	ParameterValue addPrimitiveComparison(ParameterValue input) throws InvalidityException;
+	Comparison addPrimitiveComparison(ParameterValue input) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -504,6 +523,30 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @generated
 	 */
 	ValidateLinkOperator addPrimitiveValidateLink();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	LinkSourceOperator addPrimitiveLinkSource();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	LinkMimeTypeOperator addPrimitiveLinkMimeType();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	LinkImageMinSizeOperator addPrimitiveLinkImageSize();
 
 	/**
 	 * <!-- begin-user-doc -->

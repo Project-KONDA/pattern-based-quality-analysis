@@ -3,6 +3,9 @@
     "language":"xml",
     "name":"constraint_2",
 	"typeConstraint":true,
+	"custom": {
+		"description": "simplified constraint for MandContAndSin_xml"
+	},
     "fragments":[
 		{"text":"Each"},
 		{
@@ -11,7 +14,7 @@
 			"exampleValue":"unit",
 			"description":"element of analyis"
 		},
-		{"text":"contains both a"},
+		{"text":"has both a"},
 		{
 			"name":"Subelement",
 			"params":[2],

@@ -18,12 +18,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.textrepresentation.impl.ValueMapImpl;
 import qualitypatternmodel.utility.Constants;
@@ -40,9 +38,13 @@ public class ConstraintServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
-			JSONObject result = applyGet(path, params);
+			JSONObject result;
+			if (path.split("/").length == 2) {
+				result = applyGet2(path, params);
+			}
+			else result = applyGet(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -56,7 +58,7 @@ public class ConstraintServlet extends HttpServlet {
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("DELETE", this.getClass().getName(), path, params);
 		try {
 			String result = applyDelete(path, params);
 			ServletUtilities.putResponse(response, callId, result);
@@ -72,7 +74,7 @@ public class ConstraintServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("POST", this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyPost(path, params);
 			ServletUtilities.putResponse(response, callId, result);
@@ -105,20 +107,47 @@ public class ConstraintServlet extends HttpServlet {
 		}
 
 		// 1 load constraint
-		CompletePattern pattern;
+//		CompletePattern pattern;
 		try {
-			pattern = ServletUtilities.loadConstraint(technology, constraintId);
+//			pattern = ServletUtilities.loadConstraint(technology, constraintId);
 //			System.out.println(pattern.myToString());
-			pattern.isValid(AbstractionLevel.ABSTRACT);
+//			pattern.isValid(AbstractionLevel.ABSTRACT);
+			return ServletUtilities.loadConstraintJson(technology, constraintId);
 		} catch (IOException e) {
 			throw new FailedServletCallException("constraint '" + constraintId + "' not found", e);
 		}
-		catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-			throw new FailedServletCallException(ConstantsError.INVALID_CONSTRAINT, e);
-		}
+//		catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+//			throw new FailedServletCallException(ConstantsError.INVALID_CONSTRAINT, e);
+//		}
 
 		// 2 return json
-		return ServletUtilities.getPatternJSON(pattern);
+//		return ServletUtilities.getPatternJSON(pattern);
+	}
+
+	public static JSONObject applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+		String[] pathparts = path.split("/");
+		if (pathparts.length != 2 || !pathparts[0].equals("") || !parameterMap.containsKey(ConstantsJSON.CONSTRAINT_IDS)) {
+			throw new InvalidServletCallException("Wrong URL for requesting a constraint: "
+					+ "GET '/constraint/{technology} [constraintIDs = {}]' "
+					+ "(not /constraint" + path + ")");
+		}
+
+		String technology = pathparts[1];
+
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
+		}
+		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINT_IDS);
+
+		JSONObject result = new JSONObject();
+		for (String constraintId: constraintIds) {
+			try {
+				result.put(constraintId, ServletUtilities.loadConstraintJson(technology, constraintId));
+			} catch (IOException e) {
+				throw new FailedServletCallException("constraint '" + constraintId + "' not found", e);
+			}
+		}
+		return result;
 	}
 
 	public static String applyDelete(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
@@ -180,7 +209,7 @@ public class ConstraintServlet extends HttpServlet {
 		}
 
 		// 2. change patterns
-		Boolean name = false, database = false, datamodel = false, namespaces = false, namespacevalid = true;
+		Boolean name = false, database = false, datamodel = false, namespaces = false, namespacevalid = true, custom = false;
 
 		// name?
 		String[] nameArray = parameterMap.get(ConstantsJSON.NAME);
@@ -232,7 +261,21 @@ public class ConstraintServlet extends HttpServlet {
 				}
 				parameterMap.remove(ConstantsJSON.NAMESPACES);
 			} catch (JSONException e) {
-				e.printStackTrace();
+				ServletUtilities.logError(e);
+			}
+		}
+		// custom?
+		String[] customArray = parameterMap.get(ConstantsJSON.CUSTOM);
+		if (customArray != null && customArray.length == 1 && !customArray[0].equals("")) {
+			String customAddition = nameArray[0];
+			try {
+				JSONObject addition = new JSONObject(customAddition);
+				PatternText text = pattern.getText().get(0);
+				text.addToCustom(addition);
+				custom = true;
+				parameterMap.remove(ConstantsJSON.CUSTOM);
+			} catch (Exception e) {
+				ServletUtilities.logError(e);
 			}
 		}
 
@@ -259,7 +302,11 @@ public class ConstraintServlet extends HttpServlet {
 					output.put(ConstantsJSON.FAILED, failed);
 				}
 			}
+			if (custom) {
+				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.CUSTOM);
+			}
 		} catch (JSONException e) {
+			ServletUtilities.logError(e);
 		}
 
 		// 3. save constraint

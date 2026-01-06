@@ -720,6 +720,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___ADD_PRIMITIVE_MATCH = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Match List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADD_PRIMITIVE_MATCH_LIST = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH_LIST;
+
+	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -736,6 +745,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ELEMENT___ADD_PRIMITIVE_CONTAINS = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADD_PRIMITIVE_CONTAINS_LIST = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS_LIST;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
@@ -790,6 +808,33 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ELEMENT___ADD_PRIMITIVE_VALIDATE_LINK = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_VALIDATE_LINK;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Link Source</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADD_PRIMITIVE_LINK_SOURCE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_LINK_SOURCE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Link Mime Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADD_PRIMITIVE_LINK_MIME_TYPE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_LINK_MIME_TYPE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Link Image Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADD_PRIMITIVE_LINK_IMAGE_SIZE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_LINK_IMAGE_SIZE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3060,6 +3105,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___ADD_PRIMITIVE_MATCH = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_MATCH;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Match List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_PRIMITIVE_MATCH_LIST = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_MATCH_LIST;
+
+	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3076,6 +3130,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___ADD_PRIMITIVE_CONTAINS = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_CONTAINS;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_PRIMITIVE_CONTAINS_LIST = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_CONTAINS_LIST;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
@@ -3130,6 +3193,33 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___ADD_PRIMITIVE_VALIDATE_LINK = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_VALIDATE_LINK;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Link Source</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_PRIMITIVE_LINK_SOURCE = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_LINK_SOURCE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Link Mime Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_PRIMITIVE_LINK_MIME_TYPE = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_LINK_MIME_TYPE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Link Image Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_PRIMITIVE_LINK_IMAGE_SIZE = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_LINK_IMAGE_SIZE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3879,6 +3969,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___ADD_PRIMITIVE_MATCH = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Match List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_PRIMITIVE_MATCH_LIST = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH_LIST;
+
+	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3895,6 +3994,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___ADD_PRIMITIVE_CONTAINS = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_PRIMITIVE_CONTAINS_LIST = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS_LIST;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
@@ -3949,6 +4057,33 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___ADD_PRIMITIVE_VALIDATE_LINK = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_VALIDATE_LINK;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Link Source</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_PRIMITIVE_LINK_SOURCE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_LINK_SOURCE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Link Mime Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_PRIMITIVE_LINK_MIME_TYPE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_LINK_MIME_TYPE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Link Image Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_PRIMITIVE_LINK_IMAGE_SIZE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_LINK_IMAGE_SIZE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.

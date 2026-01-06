@@ -1,0 +1,28 @@
+{
+    "template":"MatchSin_xml",
+    "language":"xml",
+    "name":"lido-rec-id",
+	"typeConstraint":true,
+	"custom": {
+		"description": "constraint for MatchSin_xml specific to the format of LidoRecIDs"
+	},
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"Property",
+            "params":[2],
+            "exampleValue":"Lido Rec ID",
+            "description":"value that gets analysed"
+        },
+        {"text":"matches the LIDORecID pattern (ISIL identifier + separator + recordID)."},
+        
+        {
+            "params":[0],
+            "value": "false"
+        },
+        {
+            "params":[1],
+    		"value":"^(https?://[^/]+/.*/organisations/)?[A-Z]{2}-.+$"
+        }
+    ]
+}

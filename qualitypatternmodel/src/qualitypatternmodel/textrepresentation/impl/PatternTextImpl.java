@@ -27,7 +27,8 @@ import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.Parameter;
@@ -58,6 +59,7 @@ import qualitypatternmodel.utility.ConstantsJSON;
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getParameterPredefinitions <em>Parameter Predefinitions</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getFragmentsOrdered <em>Fragments Ordered</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#isTypeConstraint <em>Type Constraint</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getCustom <em>Custom</em>}</li>
  * </ul>
  *
  * @generated
@@ -135,6 +137,26 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	protected boolean typeConstraint = TYPE_CONSTRAINT_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getCustom() <em>Custom</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCustom()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final JSONObject CUSTOM_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCustom() <em>Custom</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCustom()
+	 * @generated
+	 * @ordered
+	 */
+	protected JSONObject custom = CUSTOM_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -148,28 +170,42 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		super();
 
 		//template check
-		String template = json.getString("template");
+		String template = json.getString(ConstantsJSON.TEMPLATE);
 		if (!pattern.getPatternId().equals(template)) {
 			throw new InvalidityException("Selected Pattern '" + pattern.getPatternId() + "' does not match '" + template + "'.");
 		}
 		pattern.getLanguage().getLiteral();
-		String language = json.getString("language");
+		String language = json.getString(ConstantsJSON.LANGUAGE);
 		if (!pattern.getLanguage().getLiteral().equals(language)) {
-			throw new InvalidityException("The language of the selected Pattern '" + pattern.getName() + "' is '" + pattern.getLanguage().getLiteral() + "', which does not match '" + language + "'.");
+			throw new InvalidityException("The language of the selected Pattern '" + pattern.getPatternId() + "' is '" + pattern.getLanguage().getLiteral() + "', which does not match '" + language + "'.");
 		}
 
 		// name
-		String name = json.getString("name");
+		String name = json.getString(ConstantsJSON.NAME);
 		if (!name.matches(Constants.ID_REGEX))
 			throw new InvalidityException(ConstantsError.INVALID_VARIANT_ID);
 		this.setName(name);
 		for (PatternText text: pattern.getText()) {
 			if (text.getName().equals(name)) {
-				throw new InvalidityException(ConstantsError.DUPLICATE_VARIANT_NAMES);
+				if (ServletConstants.OVERRIDE_VARIANTS) {
+					text.delete();
+					ServletUtilities.log(ConstantsError.DUPLICATE_VARIANT_NAMES + ": " + template + "_" + name + ". Old variant got overwritten.");
+				} 
+				else 
+					throw new InvalidityException(ConstantsError.DUPLICATE_VARIANT_NAMES + ": " + template + "_" + name);
 			}
 		}
 		Boolean typeConstraint = json.getBoolean(ConstantsJSON.TYPE_CONSTRAINT);
 		this.setTypeConstraint(typeConstraint);
+		
+		// custom
+		if (json.has(ConstantsJSON.CUSTOM)) {
+			if (json.get(ConstantsJSON.CUSTOM) instanceof JSONObject) {
+				JSONObject custom = json.getJSONObject(ConstantsJSON.CUSTOM);
+				this.setCustom(custom);
+			} else 
+				ServletUtilities.log( "Variant '" + name + " for pattern " + pattern.getPatternId() + " has an invalid JSONObject as " + ConstantsJSON.CUSTOM + " value.");
+		}
 
 		// pattern
 		pattern.getText().add(this);
@@ -344,6 +380,31 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public JSONObject getCustom() {
+		return custom;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCustom(JSONObject newCustom) {
+		JSONObject oldCustom = custom;
+		custom = newCustom;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PATTERN_TEXT__CUSTOM, oldCustom, custom));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -371,7 +432,11 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			}
 			json += getFragmentsOrdered().get(i).generateJSON();
 		}
-		json += "]}";
+		json += "]";
+		if (getCustom() != null && !getCustom().isEmpty()){
+			json += ", \"custom\" : " + getCustom().toString();
+		}
+		json += "}";
 		return json;
 	}
 
@@ -388,9 +453,10 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			}
 			json.put(ConstantsJSON.FRAGMENTS, fragments);
 			json.put(ConstantsJSON.PARAMETER, ServletUtilities.getAvailableParams(getFragmentsOrdered()));
+			if (custom != null && !custom.isEmpty())
+				json.put(ConstantsJSON.CUSTOM, getCustom());
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ServletUtilities.logError(e);
 		}
 		return json;
 	}
@@ -416,6 +482,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			for (ParameterPredefinition predefinition: getParameterPredefinitions()) {
 				fragments.put(predefinition.generateVariantJSONObject());
 			}
+			if (custom != null && !custom.isEmpty())
+				result.put(ConstantsJSON.CUSTOM, getCustom());
 			result.put(ConstantsJSON.FRAGMENTS, fragments);
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -423,6 +491,19 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		return result;
 	}
 
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addToCustom(JSONObject addition) {
+		if (custom == null)
+			setCustom(addition);
+		for (String key: addition.keySet())
+			custom.put(key, addition.get(key));
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -454,11 +535,12 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 					patternParametersNonPredefined.add(p);
 				} else {
 					TypeOptionParam t = (TypeOptionParam) p;
-					boolean automaticType = true;
+					boolean manual = true;
 					for(Comparison c : t.getTypeComparisons()) {
-						automaticType &= !(c.getArgument1() instanceof PrimitiveNode && c.getArgument2() instanceof PrimitiveNode);
+						manual &= c.getArgument1().getReturnType().equals(ReturnType.UNSPECIFIED);
+						manual &= c.getArgument2().getReturnType().equals(ReturnType.UNSPECIFIED);
 					}
-					if(!automaticType) {
+					if(manual) {
 						patternParametersNonPredefined.add(p);
 					}
 				}
@@ -801,6 +883,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return getFragmentsOrdered();
 			case TextrepresentationPackage.PATTERN_TEXT__TYPE_CONSTRAINT:
 				return isTypeConstraint();
+			case TextrepresentationPackage.PATTERN_TEXT__CUSTOM:
+				return getCustom();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -835,6 +919,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			case TextrepresentationPackage.PATTERN_TEXT__TYPE_CONSTRAINT:
 				setTypeConstraint((Boolean)newValue);
 				return;
+			case TextrepresentationPackage.PATTERN_TEXT__CUSTOM:
+				setCustom((JSONObject)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -865,6 +952,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			case TextrepresentationPackage.PATTERN_TEXT__TYPE_CONSTRAINT:
 				setTypeConstraint(TYPE_CONSTRAINT_EDEFAULT);
 				return;
+			case TextrepresentationPackage.PATTERN_TEXT__CUSTOM:
+				setCustom(CUSTOM_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -889,6 +979,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return fragmentsOrdered != null && !fragmentsOrdered.isEmpty();
 			case TextrepresentationPackage.PATTERN_TEXT__TYPE_CONSTRAINT:
 				return typeConstraint != TYPE_CONSTRAINT_EDEFAULT;
+			case TextrepresentationPackage.PATTERN_TEXT__CUSTOM:
+				return CUSTOM_EDEFAULT == null ? custom != null : !CUSTOM_EDEFAULT.equals(custom);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -938,6 +1030,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return generateJSONObject();
 			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_VARIANT_JSON_OBJECT:
 				return generateVariantJSONObject();
+			case TextrepresentationPackage.PATTERN_TEXT___ADD_TO_CUSTOM__JSONOBJECT:
+				addToCustom((JSONObject)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -956,6 +1051,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		result.append(name);
 		result.append(", typeConstraint: ");
 		result.append(typeConstraint);
+		result.append(", custom: ");
+		result.append(custom);
 		result.append(')');
 		return result.toString();
 	}

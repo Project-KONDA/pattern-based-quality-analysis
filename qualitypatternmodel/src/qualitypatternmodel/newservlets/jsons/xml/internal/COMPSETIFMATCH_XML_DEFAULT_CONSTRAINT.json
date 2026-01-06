@@ -1,0 +1,61 @@
+{
+    "template":"CompSetIfMatch_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for CompSetIfMatch_xml"
+	},
+    "fragments":[
+        {"text":"If a"},
+        {
+            "name":"Element",
+            "params":[5],
+            "exampleValue":"LIDO Record",
+            "description":"anchor for analysis"
+        },
+        {"text":"has a"},
+        {
+            "name":"conditioned Property",
+            "params":[6],
+            "exampleValue":"Concept Identifier",
+            "description":"conditioned property"
+        },
+        {"text":"that"},
+        {
+            "name":"Does / Does Not",
+            "params":[0],
+            "exampleValue":"Does",
+            "description":"possibly negate match"
+        },
+        {"text":"match"},
+        {
+            "name":"a Specific Pattern (RegEx)",
+            "params":[1],
+            "exampleValue":"^https://.*",
+            "description":"conditioned property"
+        },
+        {"text":"all"},
+        {
+            "name":"required Properties",
+            "params":[7],
+            "exampleValue":"Types",
+            "description":"required property",
+            "plural": "true"
+        },
+        {
+            "name":"Must / Must Not",
+            "params":[3],
+            "exampleValue":"must",
+            "defaultMap":"must not"
+        },
+        {"text":"be in the list of"},
+        {
+            "name":"Terms",
+            "params":[2],
+            "exampleValue":"['http://terminology.lido-schema.org/lido00099'', 'http://terminology.lido-schema.org/identifier_type/uri']",
+            "description": "list of allowed values"
+        },
+        {"text":"."}
+    ]
+}

@@ -8,6 +8,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionneo4j.NeoElementPathParam;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.adaptionneo4j.NeoPropertyPathParam;
+import qualitypatternmodel.adaptionneo4j.impl.NeoSimpleEdgeImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.IriListParam;
 import qualitypatternmodel.adaptionrdf.IriParam;
@@ -33,6 +34,7 @@ import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
@@ -124,6 +126,15 @@ public class PatternUtility {
 				TextLiteralParam text = (TextLiteralParam) param;
 				if(text.getValue() == null) {
 					text.setValue("something");
+				}
+			}
+			if (param instanceof TextListParam) {
+				TextListParam list = (TextListParam) param;
+				if(list.getValues() == null || list.getValues().isEmpty()) {
+					try {
+						list.addStringValue("test");
+						list.addStringValue("text");
+					} catch (Exception e) {}
 				}
 			}
 			if (param instanceof ComparisonOptionParam) {
@@ -237,16 +248,20 @@ public class PatternUtility {
 			
 			// NEO4J
 			if (param instanceof NeoNodeLabelsParam) {
-//				NeoNodeLabelsParam neoNodeLabels = (NeoNodeLabelsParam) param;
-				throw new UnsupportedOperationException();
+				NeoNodeLabelsParam neoNodeLabels = (NeoNodeLabelsParam) param;
+				try {
+					neoNodeLabels.setValueFromString("['Label']");
+				} catch (Exception e) {
+				}
 			}
 			if (param instanceof NeoElementPathParam) {
-//				NeoElementPathParam neoElementPath = (NeoElementPathParam) param;
-				throw new UnsupportedOperationException();
+				NeoElementPathParam neoElementPath = (NeoElementPathParam) param;
+				NeoSimpleEdgeImpl nse = new NeoSimpleEdgeImpl();
+				neoElementPath.setNeoPathPart(nse);
 			}
 			if (param instanceof NeoPropertyPathParam) {
-//				NeoPropertyPathParam neoPropertyPath = (NeoPropertyPathParam) param;
-				throw new UnsupportedOperationException();
+				NeoPropertyPathParam neoPropertyPath = (NeoPropertyPathParam) param;
+				neoPropertyPath.getNeoPropertyName().setValue("Name");
 			}
 			
 		}

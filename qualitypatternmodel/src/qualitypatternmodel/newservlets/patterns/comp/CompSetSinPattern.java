@@ -21,7 +21,7 @@ public class CompSetSinPattern extends PatternClass {
 		super(PatternConstants.COMPSETSIN_ID,
 				PatternConstants.COMPSETSIN_NAME, 
 				PatternConstants.COMPSETSIN_DESCR, 
-				true, true, false, false);
+				true, true, true, false);
 	}
 	
 	@Override

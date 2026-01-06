@@ -11,7 +11,6 @@ import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -46,7 +45,6 @@ public class CompSetPattern extends PatternClass {
 			tlp.addStringValue("ghi");
 		}
 
-		pattern.isValid(AbstractionLevel.GENERIC);
 		return pattern;
 	}
 

@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.utility.Constants;
-import qualitypatternmodel.utility.EMFModelLoad;
+//import qualitypatternmodel.utility.EMFModelLoad;
 
 import java.io.*;
 
@@ -23,7 +23,7 @@ public class ConstraintDownloadServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall(this.getClass().getName(), path, params);
+		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
 			File result = applyGet(path, params);
 			ServletUtilities.putResponse(response, callId, result, HttpURLConnection.HTTP_ACCEPTED, "");
@@ -46,14 +46,18 @@ public class ConstraintDownloadServlet extends HttpServlet {
 		String filePath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER
 				+ "/" + constraintId + "." + Constants.EXTENSION;
 
-		// 1. try to load Pattern
-		try {
-			EMFModelLoad.loadCompletePattern(filePath);
-		} catch (IOException e) {
-			throw new FailedServletCallException("404 Requested constraint '" + constraintId + "' does not exist", e);
-		}
+//		// 1. try to load Pattern
+//		try {
+//			EMFModelLoad.loadCompletePattern(filePath);
+//		} catch (IOException e) {
+//			throw new FailedServletCallException("404 Requested constraint '" + constraintId + "' does not exist", e);
+//		}
 
 		File file = new File(filePath);
+
+		if (!file.exists()) {
+			throw new FailedServletCallException("404 Requested constraint '" + constraintId + "' does not exist");
+		}
 
 		return file;
 	}

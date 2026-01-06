@@ -1,0 +1,24 @@
+{
+    "template":"UniqueSin_xml",
+    "language":"xml",
+    "name":"default-constraint",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default constraint for UniqueSin_xml. Checks only uniqueness of a value within a file."
+	},	
+    "fragments":[
+        {"text":"All"},
+        {
+            "name":"Properties",
+            "params":[4,5],
+            "exampleValue":"Identifiers (Value)",
+            "description":"value that gets analysed",
+			"plural":"true"
+        },
+        {"text":"are unique within the file."},
+        {
+            "params":[3],
+            "value":"STRING"
+        }
+    ]
+}

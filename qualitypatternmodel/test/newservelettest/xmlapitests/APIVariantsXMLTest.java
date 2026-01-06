@@ -38,13 +38,16 @@ import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 public class APIVariantsXMLTest {
-	private static final boolean PRINTCONSTRAINTS = true;
+	private static final boolean DELETE = true;
+	private static final boolean PRINTPARAMS = false;
+	private static final boolean PRINTCONSTRAINT = false;
+	private static final boolean PRINTQUERY = false;
 	
 	// __________ STATIC VARIABLES __________
 	private static String folder;
 	private static JSONObject store;
 	private static Boolean default_allow_ignore_map;
-	private static final List<String[]> pairs = getTemplateVariantPairs();
+	private static final List<String[]> pairs = getTemplateVariantArrays();
 	// __________ SETUP FUNCTIONS __________
 
 	@BeforeAll
@@ -63,10 +66,14 @@ public class APIVariantsXMLTest {
 		File database_original = new File("./demo.data/demo_database.xml");
 		File database_copy = new File(folder + "/files/demo_database.xml");
 
+		File template_info_original = new File("./src/qualitypatternmodel/newservlets/template_info.json");
+		File template_info_copy = new File(folder + "/templates/template_info.json");
+
 		try {
 			FileUtils.copyDirectory(variants_original, variants_copy);
 			FileUtils.copyFile(lido_original, lido_copy);
 			FileUtils.copyFile(database_original, database_copy);
+			FileUtils.copyFile(template_info_original, template_info_copy);
 			System.out.println("Files copied successfully");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -86,7 +93,8 @@ public class APIVariantsXMLTest {
 		InitialisationServlet.initialisation(context);
 		
 		store = new JSONObject();
-		for (Object template: PatternListServlet.applyGet("/xml" + "/template", new HashMap<String, String[]>()).getJSONArray("templates")) {
+		JSONArray templates = PatternListServlet.applyGet("/xml" + "/template", new HashMap<String, String[]>()).getJSONArray("templates");
+		for (Object template: templates) {
 			JSONObject obj = (JSONObject) template;
 			JSONArray variants = obj.getJSONArray(ConstantsJSON.VARIANTS);
 			JSONArray variantIDs = new JSONArray();
@@ -102,7 +110,7 @@ public class APIVariantsXMLTest {
 		System.out.println("STORE: " + store);
 	}
 
-	private static List<String[]> getTemplateVariantPairs() {
+	private static List<String[]> getTemplateVariantArrays() {
 		File jsondir = new File("./src/qualitypatternmodel/newservlets/jsons/xml");
 		ArrayList<File> files = InitialisationServlet.getAllJSONFilesInFolder(jsondir);
 
@@ -113,7 +121,8 @@ public class APIVariantsXMLTest {
 
 				String template = object.getString(ConstantsJSON.TEMPLATE);
 				String variant = object.getString(ConstantsJSON.NAME);
-				pairs.add(new String[] {template, variant});
+				String hasCustom = "" + object.has(ConstantsJSON.CUSTOM);
+				pairs.add(new String[] {template, variant, hasCustom});
 
 			} catch (IOException e) {
 				new RuntimeException("invalid variant definition in: " + file).printStackTrace();
@@ -125,13 +134,14 @@ public class APIVariantsXMLTest {
 	
     static Stream<Arguments> stringPairsProvider() {
         return pairs.stream()
-                .map(pair -> Arguments.of(pair[0], pair[1]));
+                .map(array -> Arguments.of(array[0], array[1], array[2].equals("true")));
     }
 
 	@AfterAll
 	public static void close() throws IOException {
 		System.out.println("Delete: " + folder);
-		FileUtils.deleteDirectory(new File(folder));
+		if (DELETE)
+			FileUtils.deleteDirectory(new File(folder));
 	}
 
 	// __________ BASE FUNCTIONS __________
@@ -165,7 +175,7 @@ public class APIVariantsXMLTest {
 	}
 	
 	private static void setDefaultParameter(String constraintId, String param) {
-		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'TextList':'[\"a\"]', 'Boolean':'true', 'Text':'a'}");
+		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'TextList':'[\"a\",\"b\"]', 'Boolean':'true', 'Text':'a', 'TypeOption':'STRING'}");
 
 		if (Set.of("name", "namespace", "datamodel", "database").contains(param))
 			return;
@@ -190,19 +200,21 @@ public class APIVariantsXMLTest {
 			e.printStackTrace();
 		}
 		if (result.has(ConstantsJSON.FAILED))
-			System.out.println(result);
+			System.out.println("FAILED: " + result);
 		assert (!result.has(ConstantsJSON.FAILED));
 		assert (result.has(ConstantsJSON.SUCCESS));
 	}
 
-	private void testConcretePattern(String constraintID)
+	private void testConcretePattern(String constraintID, boolean hasCustom)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		Map<String, String[]> params1 = APICallTests.getEmptyParams();
 		params1.put("constraints", new String[] { constraintID });
 		JSONObject query1 = ConstraintQueryServlet.applyGet2("/xml", params1);
 		APICallTests.assertQueryObject(query1);
+		assert(hasCustom == query1.getJSONArray(ConstantsJSON.CONSTRAINTS).getJSONObject(0).has(ConstantsJSON.CUSTOM));
 		JSONObject query2 = ConstraintQueryServlet.applyGet3("/xml/" + constraintID, APICallTests.getEmptyParams());
 		APICallTests.assertQueryObject(query2);
+		assert(hasCustom == query1.getJSONArray(ConstantsJSON.CONSTRAINTS).getJSONObject(0).has(ConstantsJSON.CUSTOM));
 		APICallTests.assertSimilarJSONObjects(query1, query2);
 
 		Map<String, String[]> params2 = APICallTests.getEmptyParams();
@@ -210,33 +222,39 @@ public class APIVariantsXMLTest {
 		params2.put("files", new String[] { "lido.xml", "demo_database.xml"});
 		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
 		APICallTests.assertExecuteResultObject(result, false);
+		assert(hasCustom == result.getJSONArray(ConstantsJSON.RESULT).getJSONObject(0).has(ConstantsJSON.CUSTOM));
 	}
 
 	// __________ CONCRETE PATTERN TESTS __________
 
 	@ParameterizedTest
     @MethodSource("stringPairsProvider")
-	public void testVariant(String constraint, String variant)
+	public void testVariant(String constraint, String variant, boolean hasCustom)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 
-		String constraintID = APICallTests.newConstraint(constraint, variant);
-		
-		if(PRINTCONSTRAINTS) {
+		if(PRINTPARAMS) {
 			Map<String, String[]> params = getEmptyParams();
 			params.put(ConstantsJSON.VARIANTS, new String[]{"false"});
-			JSONObject myconstraint = getConstraint(constraintID);
 			JSONObject myparams = TemplateVariantServlet.applyGet("/xml/" + constraint, params);
-			System.out.println(constraint + "\t" + variant+ "\t" + constraintID + "\t" + myconstraint + "\t" + myparams);
+			System.out.println(constraint + "\t" + variant+ "\t" + myparams);
+		}
+		String constraintID = APICallTests.newConstraint(constraint, variant);
+		
+		if(PRINTCONSTRAINT) {
+			JSONObject myconstraint = getConstraint(constraintID);
+			assert(hasCustom == myconstraint.has(ConstantsJSON.CUSTOM));
+			System.out.println(constraint + "\t" + variant+ "\t" + constraintID + "\t" + myconstraint);
 			testConstraintParameter(myconstraint);
 		}
 		
 		setAllConstraintParameter(constraintID);
-		
-		if (PRINTCONSTRAINTS)
+
+		if (PRINTQUERY)
 			System.out.println(ConstraintQueryServlet.applyGet("xml", new String[] {constraintID}));
 
-		testConcretePattern(constraintID);
-		APICallTests.deleteConstraint(constraintID);
+		testConcretePattern(constraintID, hasCustom);
+		if (DELETE)
+			APICallTests.deleteConstraint(constraintID);
 	}
 
 	private void testConstraintParameter(JSONObject myconstraint) {

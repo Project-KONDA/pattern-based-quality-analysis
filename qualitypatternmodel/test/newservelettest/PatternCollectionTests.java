@@ -11,11 +11,10 @@ import org.junit.jupiter.params.provider.MethodSource;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.newservlets.initialisation.PatternCollection;
-import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.PatternUtility;
-import qualitypatternmodel.utility.XmlServletUtility;
+import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 public class PatternCollectionTests {
 
@@ -40,9 +39,9 @@ public class PatternCollectionTests {
 
 	// Parameters
 	
-	private static List<PatternClass> getTemplateInstances() {
-		return PatternCollection.getPatternClassInstances();
-	}
+//	private static List<PatternClass> getTemplateInstances() {
+//		return PatternCollection.getPatternClassInstances();
+//	}
 	
 	private static List<CompletePattern> genericPatterns() {
 		return PatternCollection.getGenericPatterns();
@@ -60,11 +59,6 @@ public class PatternCollectionTests {
 		return PatternCollection.getNeoPatterns();
 	}
 
-	@ParameterizedTest
-    @MethodSource("getTemplateInstances")
-	public void testPatternClass(PatternClass clazz) {
-		
-	}
 
 	@ParameterizedTest
     @MethodSource("genericPatterns")
@@ -93,38 +87,39 @@ public class PatternCollectionTests {
 	private void testSemiConcretePattern(CompletePattern pattern) throws InvalidityException {
 		assertDoesNotThrow(() -> pattern.isValid(AbstractionLevel.SEMI_CONCRETE));
 		if (pattern.getText().size() == 0)
-			System.out.println("No variants coded in " + pattern.getName());
+			System.out.println("No variants coded in " + pattern.getPatternId());
 		
-		if (pattern.getText().size() > 0) {
+//		if (pattern.getText().size() > 0) {
 
-			switch(pattern.getLanguage()) {
-			case XML: {
-				PatternUtility.fillParameter(pattern);
-				String query = assertDoesNotThrow(() -> (pattern.generateXQuery()));
-				validateXmlQuery(query);
-				assertDoesNotThrow(() -> validateXmlQuery(query));
-				break;
-			}
-			case RDF: {
-				PatternUtility.fillParameter(pattern);
-				String query = assertDoesNotThrow(() -> (pattern.generateSparql()));
-				assertDoesNotThrow(() -> validateSparql(query));
-				break;	
-			}
-			case NEO4J: {
-				break;	
-			}
-			default:
-				throw new RuntimeException("Pattern has no valid Language");
-			}
+		switch(pattern.getLanguage()) {
+		case XML: {
+			PatternUtility.fillParameter(pattern);
+			String query = assertDoesNotThrow(() -> (pattern.generateXQueryJava()));
+			assertDoesNotThrow(() -> XmlServletUtility.validateQuery(query));
+			break;
 		}
-	}
-	
-	private void validateXmlQuery(String query) throws InvalidityException {
-		XmlServletUtility.executeXQueryJava(query);
+		case RDF: {
+			PatternUtility.fillParameter(pattern);
+			String query = assertDoesNotThrow(() -> (pattern.generateSparql()));
+			assertDoesNotThrow(() -> validateSparql(query));
+			break;	
+		}
+		case NEO4J: {
+			PatternUtility.fillParameter(pattern);
+			String query = assertDoesNotThrow(() -> (pattern.generateCypher()));
+			assertDoesNotThrow(() -> validateCypher(query));
+			break;	
+		}
+		default:
+			throw new RuntimeException("Pattern has no valid Language");
+		}
+//		}
 	}
 	
 	private void validateSparql(String query) throws InvalidityException {
+	}
+	
+	private void validateCypher(String query) throws InvalidityException {
 	}
 
 }

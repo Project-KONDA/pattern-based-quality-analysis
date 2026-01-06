@@ -2,11 +2,11 @@ package qualitypatternmodel.newservlets.initialisation;
 
 public class PatternConstants {
 
-	public static String APPDUP2_ID = "Appdup2";
+	public static String APPDUP2_ID = "AppDup2";
 	public static String APPDUP2_NAME = "Approximate Duplicate based on two attributes";
 	public static String APPDUP2_DESCR = "Check whether there are records that have the same value in two important attributes, suggesting that they describe the same real-world object.";
 	
-	public static String APPDUP3_ID = "Appdup3";
+	public static String APPDUP3_ID = "AppDup3";
 	public static String APPDUP3_NAME = "Approximate Duplicate based on three attributes";
 	public static String APPDUP3_DESCR = "Check whether there are records that have the same value in three important attributes, suggesting that they describe the same real-world object.";
 	
@@ -21,6 +21,22 @@ public class PatternConstants {
 	public static String CARDMATCH_ID = "CardMatch";
 	public static String CARDMATCH_NAME = "Cardinality of RegEx-Constrained Values";
 	public static String CARDMATCH_DESCR = "Check, whether the occurence count of specific elements, that match a regular expression apply.";
+
+	public static String EXISTSIFEXISTS_ID = "ExistsIfExists";
+	public static String EXISTSIFEXISTS_NAME = "ExistsIfExists";
+	public static String EXISTSIFEXISTS_DESCR = "ExistsIfExists";
+
+	public static String COMPSETIFMATCH_ID = "CompSetIfMatch";
+	public static String COMPSETIFMATCH_NAME = "CompSetIfMatch";
+	public static String COMPSETIFMATCH_DESCR = "CompSetIfMatch";
+
+	public static String CARDIFCOMPSET_ID = "CardIfCompSet";
+	public static String CARDIFCOMPSET_NAME = "If Property A in Set, Check Cardinality of Property B";
+	public static String CARDIFCOMPSET_DESCR = "If one specific property is in a specific Set, check the occurence count of another specific element applies";
+
+	public static String CARDCOMPSETIFCOMPSET_ID = "CardCompSetIfCompSet";
+	public static String CARDCOMPSETIFCOMPSET_NAME = "If Property A in Set, Check Cardinality of Property B in Set";
+	public static String CARDCOMPSETIFCOMPSET_DESCR = "If one specific property is in a specific Set, check the occurence count of values of another specific property, that are in another set";
 	
 	public static String CHECKFORMAT_ID = "CheckFormat";
 	public static String CHECKFORMAT_NAME = "Check the format of a resource";
@@ -46,6 +62,10 @@ public class PatternConstants {
 	public static String COMPSETSIN_NAME = "Comparison Pattern with Set (Single)";
 	public static String COMPSETSIN_DESCR = "Check, whether the value of fields are within a list of allowed (/forbidden) terms.";
 	
+	public static String COMPSETANY_ID = "CompSetAny";
+	public static String COMPSETANY_NAME = "Comparison Pattern Any in Set";
+	public static String COMPSETANY_DESCR = "Check, whether at least one value of fields are within a list of allowed (/forbidden) terms.";
+	
 	public static String COMPVALANY_ID = "CompValAny";
 	public static String COMPVALANY_NAME = "Compare values within a record";
 	public static String COMPVALANY_DESCR = "Check whether any value of a specific field within a record does comply to a value restriction.";
@@ -53,7 +73,7 @@ public class PatternConstants {
 	public static String COMPVAL_ID = "CompVal";
 	public static String COMPVAL_NAME = "Compare Values";
 	public static String COMPVAL_DESCR = "Check whether all values of a specific field within a record does comply to a value restriction.";
-	
+
 	public static String CONTAINS_ID = "Contains";
 	public static String CONTAINS_NAME = "Contains Check";
 	public static String CONTAINS_DESCR = "Check, whether a value contains a specific substring.";
@@ -65,6 +85,18 @@ public class PatternConstants {
 	public static String CONTAINSSIN_ID = "ContainsSin";
 	public static String CONTAINSSIN_NAME = "Contains Check (Single)";
 	public static String CONTAINSSIN_DESCR = "Check, whether a value contains a specific substring.";
+
+	public static String CONTAINSLIST_ID = "ContainsList";
+	public static String CONTAINSLIST_NAME = "Contains List Check";
+	public static String CONTAINSLIST_DESCR = "Check, whether a value contains one of a list of substrings.";
+
+	public static String CONTAINSLISTISO_ID = "ContainsListIso";
+	public static String CONTAINSLISTISO_NAME = "Contains List Check (Isolated)";
+	public static String CONTAINSLISTISO_DESCR = "Check, whether a value contains one of a list of substrings.";
+ 
+	public static String CONTAINSLISTSIN_ID = "ContainsListSin";
+	public static String CONTAINSLISTSIN_NAME = "Contains List Check (Single)";
+	public static String CONTAINSLISTSIN_DESCR = "Check, whether a value contains one of a list of substrings.";
 	
 	public static String DUPVAL_ID = "DupVal";
 	public static String DUPVAL_NAME = "Duplicate value";
@@ -109,6 +141,14 @@ public class PatternConstants {
 	public static String MANDCONTANDSIN_ID = "MandContAndSin";
 	public static String MANDCONTANDSIN_NAME = "Two Mandatory Contents (Single)";
 	public static String MANDCONTANDSIN_DESCR = "Check whether an element has mandatory content.";
+
+	public static String MAND2ELEOR_ID = "Mand2EleOr";
+	public static String MAND2ELEOR_NAME = "Mand2EleOr";
+	public static String MAND2ELEOR_DESCR = "Mand2EleOr";
+
+	public static String MAND3ELEOR_ID = "Mand3EleOr";
+	public static String MAND3ELEOR_NAME = "Mand3EleOr";
+	public static String MAND3ELEOR_DESCR = "Mand3EleOr";
 	
 	public static String MATCH_ID = "Match";
 	public static String MATCH_NAME = "Regular Expression Check";
@@ -121,6 +161,18 @@ public class PatternConstants {
 	public static String MATCHSIN_ID = "MatchSin";
 	public static String MATCHSIN_NAME = "Regular Expression Check (Single)";
 	public static String MATCHSIN_DESCR = "Check, whether a value matches a specific regular expression.";
+	
+	public static String MATCHLIST_ID = "MatchList";
+	public static String MATCHLIST_NAME = "Regular Expression List Check";
+	public static String MATCHLIST_DESCR = "Check, whether a value matches at least one regular expression from a list.";
+	
+	public static String MATCHLISTISO_ID = "MatchListIso";
+	public static String MATCHLISTISO_NAME = "Regular Expression List Check (Isolated)";
+	public static String MATCHLISTISO_DESCR = "Check, whether a value matches at least one regular expression from a list.";
+
+	public static String MATCHLISTSIN_ID = "MatchListSin";
+	public static String MATCHLISTSIN_NAME = "Regular Expression List Check (Single)";
+	public static String MATCHLISTSIN_DESCR = "Check, whether a value matches at least one regular expression from a list.";
 	
 	public static String STRINGLENGTH_ID = "StringLength";
 	public static String STRINGLENGTH_NAME = "String value length restriction";
@@ -145,11 +197,19 @@ public class PatternConstants {
 	public static String STRINGLENGTHRANGESIN_ID = "StringLengthRangeSin";
 	public static String STRINGLENGTHRANGESIN_NAME = "String value length range restriction (Single)";
 	public static String STRINGLENGTHRANGESIN_DESCR = "Check all field values whether they comply to the length restriction.";
-	
+
 	public static String UNIQUE_ID = "Unique";
 	public static String UNIQUE_NAME = "Uniqueness Constraint";
 	public static String UNIQUE_DESCR = "Check, whether a value is unique within the dataset.";
-	
+
+	public static String UNIQUEISO_ID = "UniqueIso";
+	public static String UNIQUEISO_NAME = "Uniqueness Constraint in File (Isolated)";
+	public static String UNIQUEISO_DESCR = "Check, whether a value is unique within the dataset.";
+
+	public static String UNIQUESIN_ID = "UniqueSin";
+	public static String UNIQUESIN_NAME = "Uniqueness Constraint in File (Single)";
+	public static String UNIQUESIN_DESCR = "Check, whether a value is unique within the dataset.";
+
 	public static String VALIDLINK_ID = "ValidLink";
 	public static String VALIDLINK_NAME = "Valid Link";
 	public static String VALIDLINK_DESCR = "Check that a record contains no field with an invalid link.";
@@ -161,4 +221,40 @@ public class PatternConstants {
 	public static String VALIDLINKSIN_ID = "ValidLinkSin";
 	public static String VALIDLINKSIN_NAME = "Valid Link (Single)";
 	public static String VALIDLINKSIN_DESCR = "Check whether a field is an valid link.";
+	
+	public static String LINKSOURCE_ID = "LinkSource";
+	public static String LINKSOURCE_NAME = "LinkSource";
+	public static String LINKSOURCE_DESCR = "LinkSource";
+
+	public static String LINKSOURCEISO_ID = "LinkSourceIso";
+	public static String LINKSOURCEISO_NAME = "LinkSourceIso";
+	public static String LINKSOURCEISO_DESCR = "LinkSourceIso";
+	
+	public static String LINKSOURCESIN_ID = "LinkSourceSin";
+	public static String LINKSOURCESIN_NAME = "LinkSourceSin";
+	public static String LINKSOURCESIN_DESCR = "LinkSourceSin";
+
+	public static String LINKMIMETYPE_ID = "LinkMimeType";
+	public static String LINKMIMETYPE_NAME = "LinkMimeType";
+	public static String LINKMIMETYPE_DESCR = "LinkMimeType";
+	
+	public static String LINKMIMETYPEISO_ID = "LinkMimeTypeIso";
+	public static String LINKMIMETYPEISO_NAME = "LinkMimeTypeIso";
+	public static String LINKMIMETYPEISO_DESCR = "LinkMimeTypeIso";
+
+	public static String LINKMIMETYPESIN_ID = "LinkMimeTypeSin";
+	public static String LINKMIMETYPESIN_NAME = "LinkMimeTypeSin";
+	public static String LINKMIMETYPESIN_DESCR = "LinkMimeTypeSin";
+
+	public static String LINKIMAGESIZE_ID = "LinkImageSize";
+	public static String LINKIMAGESIZE_NAME = "LinkImageSize";
+	public static String LINKIMAGESIZE_DESCR = "LinkImageSize";
+
+	public static String LINKIMAGESIZEISO_ID = "LinkImageSizeIso";
+	public static String LINKIMAGESIZEISO_NAME = "LinkImageSizeIso";
+	public static String LINKIMAGESIZEISO_DESCR = "LinkImageSizeIso";
+
+	public static String LINKIMAGESIZESIN_ID = "LinkImageSizeSin";
+	public static String LINKIMAGESIZESIN_NAME = "LinkImageSizeSin";
+	public static String LINKIMAGESIZESIN_DESCR = "LinkImageSizeSin";
 }
