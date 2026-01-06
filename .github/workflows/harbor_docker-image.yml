@@ -19,10 +19,16 @@ jobs:
           username: ${{ secrets.HARBOR_USERNAME }}
           password: ${{ secrets.HARBOR_PASSWORD }}
 
+      - name: Get Maven Project Version
+        run: |
+          cd qualitypatternmodel
+          VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
       - name: Harbor Build and Push
         uses: docker/build-push-action@v5
         with:
           context: qualitypatternmodel
           file: qualitypatternmodel/Dockerfile
           push: true
-          tags: harbor.gwdg.de/aqinda/qpm:latest
+          tags: harbor.gwdg.de/aqinda/qpm:latest, harbor.gwdg.de/aqinda/qpm:${{ env.VERSION }}

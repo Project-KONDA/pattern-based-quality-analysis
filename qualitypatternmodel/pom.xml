@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>qualitypatternmodel</groupId>
   <artifactId>qualitypatternmodel</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.5.0</version>
   <packaging>war</packaging>
 <!--  <name>qualitypatternmodel</name>-->
 <!--  <description>Quality Pattern Model - A proof-of-concept implementation of a top-down approach to analyzing data quality via anti-patterns.</description>-->
