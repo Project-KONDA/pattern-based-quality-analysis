@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history for tags
           
       - name: Harbor Login
         uses: docker/login-action@v3
@@ -22,7 +24,10 @@ jobs:
       - name: Get Maven Project Version
         run: |
           cd qualitypatternmodel
-          VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          POM_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          BASE_VERSION=${POM_VERSION%.0}
+          PATCH=$(git rev-list v$POM_VERSION..HEAD --count)
+          VERSION="$BASE_VERSION.$PATCH"
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Harbor Build and Push
