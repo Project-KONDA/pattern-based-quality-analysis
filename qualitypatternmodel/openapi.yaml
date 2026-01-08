@@ -1082,7 +1082,7 @@ paths:
 
 
    /template/variant/{technology}/{templateID}:
-    description: request, post and delete variants on templates
+    description: request, put and delete variants on templates
     parameters:
       - name: technology
         in: path
@@ -1188,6 +1188,38 @@ paths:
           description: Bad request
         '404':
           description: Not found
+        '500':
+          description: Internal server error
+
+   /template/variant/:
+    description: put variants across multiple templates
+
+    put:
+      tags:
+        - Template
+        - Variant
+        - Modification
+      summary: Add a variant to a template
+      description: Add a new variant to a specific template
+      operationId: postvariant
+      parameters:
+      - name: variants
+        in: query
+        description: specification of new variant(s)
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            $ref: '#/components/schemas/VariantSpecification'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParameterResponse'
         '500':
           description: Internal server error
 

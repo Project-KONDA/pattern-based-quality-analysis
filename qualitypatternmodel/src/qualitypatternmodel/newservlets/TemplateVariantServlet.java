@@ -171,6 +171,10 @@ public class TemplateVariantServlet extends HttpServlet {
 	}
 
 	public static String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+		if (path.equals("")) {
+			return applyPut1(path, parameterMap).toString();
+		}
+
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting a variant of a constraint: "
@@ -265,6 +269,85 @@ public class TemplateVariantServlet extends HttpServlet {
 		}
 
 		return "New variant(s) added successfully to '" + templateId + "'.";
+	}
+
+	public static JSONObject applyPut1 (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+		String[] variants = parameterMap.get(ConstantsJSON.VARIANTS);
+		
+		JSONArray success = new JSONArray();
+		JSONObject failed = new JSONObject();
+		
+		for (String variant: variants) {
+			JSONObject var = new JSONObject(variant);
+			String variantID = var.getString(ConstantsJSON.TEMPLATE) + "_" + var.getString(ConstantsJSON.NAME);
+			
+			try {
+				addVariant(var);
+				success.put(variantID);
+			} catch (Exception e) {
+				failed.put(variantID, e.getMessage());
+			}
+		}
+		
+		JSONObject result = new JSONObject();
+		result.put(ConstantsJSON.SUCCESS, success);
+		result.put(ConstantsJSON.FAILED, failed);
+		return result;
+	}
+
+	private static void addVariant(JSONObject variant) throws IOException, FailedServletCallException {
+
+		String technology = variant.getString(ConstantsJSON.TECHNOLOGY);
+		String templateId = variant.getString(ConstantsJSON.TEMPLATE);
+
+		// 3 load template
+		CompletePattern pattern = ServletUtilities.loadTemplate(technology, templateId);
+		CompletePattern patternSave = ServletUtilities.loadTemplate(technology, templateId);
+		if (pattern == null) {
+			throw new FailedServletCallException("404 Requested template '" + templateId + "' does not exist");
+		}
+		
+		ArrayList<String> patternTextNames = new ArrayList<String>();
+		for (PatternText text: pattern.getText()) {
+			patternTextNames.add(text.getName());
+		}
+
+		// 5 add variant
+		try {
+			new PatternTextImpl(pattern, variant);
+		} catch (JSONException e) {
+			throw new FailedServletCallException(ConstantsError.INVALID_JSON, e);
+		} catch (InvalidityException e) {
+			throw new FailedServletCallException(ConstantsError.INVALID_JSON + ": " + e.getMessage(), e);
+		} catch (Exception e) {
+			throw new FailedServletCallException("error: " + e.getMessage(), e);
+		}
+
+		try {
+			pattern.isValid(AbstractionLevel.ABSTRACT);
+		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+			throw new FailedServletCallException(ConstantsError.INVALID_VARIANT, e);
+		}
+
+		// 6 save template
+		try {
+			ServletUtilities.saveTemplate(technology, templateId, pattern);
+		} catch (IOException e) {
+			ServletUtilities.saveTemplate(technology, templateId, patternSave);
+			throw new FailedServletCallException(ConstantsError.VARIANT_UPDATE_FAILED, e);
+		}
+
+		// test
+		CompletePattern pattern2 = ServletUtilities.loadTemplate(technology, templateId);
+		try {
+			pattern2.isValid(AbstractionLevel.ABSTRACT);
+			for (PatternText text: pattern2.getText()) {
+				text.isValid(AbstractionLevel.ABSTRACT);
+			}
+		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+			ServletUtilities.saveTemplate(technology, templateId, patternSave);
+			throw new FailedServletCallException("", e);
+		}
 	}
 
 	public static JSONObject applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
