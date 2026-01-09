@@ -259,7 +259,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 					try {
 						CompletePattern p = (CompletePattern) getAncestor(CompletePattern.class);
 						if (!p.getNamespaces().getKeys().contains(ns))
-							return axis + "@*[name()='" + attributeName.getValue() + "']";
+							return axis + "@*[name()='" + attributeName.getValue() + "']/data()";
 					} catch (MissingPatternContainerException e) {}
 				}
 				return axis + "@" + attributeName.getValue() + "/data()";
