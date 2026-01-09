@@ -262,7 +262,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 							return axis + "@*[name()='" + attributeName.getValue() + "']";
 					} catch (MissingPatternContainerException e) {}
 				}
-				return axis + "@" + attributeName.getValue() + "";
+				return axis + "@" + attributeName.getValue() + "/data()";
 			}
 		case DATA:
 			return axis + "text()";
