@@ -3,6 +3,7 @@ package newservelettest;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import java.util.List;
 
+import org.json.JSONArray;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -14,6 +15,7 @@ import qualitypatternmodel.newservlets.initialisation.PatternCollection;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.PatternUtility;
+import qualitypatternmodel.utility.xmlprocessors.XQueryProcessorSaxon;
 import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 public class PatternCollectionTests {
@@ -95,7 +97,7 @@ public class PatternCollectionTests {
 		case XML: {
 			PatternUtility.fillParameter(pattern);
 			String query = assertDoesNotThrow(() -> (pattern.generateXQueryJava()));
-			assertDoesNotThrow(() -> XmlServletUtility.validateQuery(query));
+			assertDoesNotThrow(() -> validateXQuery(query));
 			break;
 		}
 		case RDF: {
@@ -115,7 +117,12 @@ public class PatternCollectionTests {
 		}
 //		}
 	}
-	
+
+	private void validateXQuery(String query) throws InvalidityException {
+		XmlServletUtility.validateQuery(query);
+		JSONArray result = XQueryProcessorSaxon.executeQueryFile(query, "lido.xml");
+	}
+
 	private void validateSparql(String query) throws InvalidityException {
 	}
 	

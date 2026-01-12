@@ -38,6 +38,7 @@ import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
@@ -106,6 +107,8 @@ public class PatternUtility {
 	public static CompletePattern fillParameter(CompletePattern pattern) {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+		
+		pattern.getNamespaces().put("", "http://www.lido-schema.org");
 
 		EList<Parameter> params = pattern.getParameterList().getParameters();
 		for (int i = params.size()-1; i > -1; i--) {
@@ -125,15 +128,15 @@ public class PatternUtility {
 			if (param instanceof TextLiteralParam) {
 				TextLiteralParam text = (TextLiteralParam) param;
 				if(text.getValue() == null) {
-					text.setValue("something");
+					text.setValue("person");
 				}
 			}
 			if (param instanceof TextListParam) {
 				TextListParam list = (TextListParam) param;
 				if(list.getValues() == null || list.getValues().isEmpty()) {
 					try {
-						list.addStringValue("test");
-						list.addStringValue("text");
+						list.addStringValue("person");
+						list.addStringValue("current");
 					} catch (Exception e) {}
 				}
 			}
@@ -199,7 +202,10 @@ public class PatternUtility {
 							cond.setXmlPropertyOption(new XmlPropertyOptionParamImpl());
 						}
 						if (cond.getXmlPropertyOption().getValue() == null) {
-							cond.getXmlPropertyOption().setValue(XmlPropertyKind.DATA);
+							cond.getXmlPropertyOption().setValue(XmlPropertyKind.ATTRIBUTE);
+							TextLiteralParamImpl attr = new TextLiteralParamImpl();
+							cond.getXmlPropertyOption().setAttributeName(attr);
+							attr.setValue("type");
 						}
 //						if(cond.getTextLiteralParam() == null) {
 //							cond.setTextLiteralParam(new TextLiteralParamImpl());
@@ -215,7 +221,10 @@ public class PatternUtility {
 						xmlPathParam.setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
 					}
 					if (xmlPathParam.getXmlPropertyOptionParam().getValue() == null) {
-						xmlPathParam.getXmlPropertyOptionParam().setValue(XmlPropertyKind.DATA);
+						xmlPathParam.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
+						TextLiteralParamImpl attr = new TextLiteralParamImpl();
+						xmlPathParam.getXmlPropertyOptionParam().setAttributeName(attr);
+						attr.setValue("type");
 					}
 				}
 			}

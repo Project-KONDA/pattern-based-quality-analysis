@@ -1,5 +1,7 @@
 package qualitypatternmodel.newservlets.patterns.internal;
 
+import java.util.List;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -12,6 +14,7 @@ import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -19,6 +22,23 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 
 public class DupValPattern extends PatternClass {
+	
+	public static void main (String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		
+		CompletePattern pattern = new DupValPattern().getXmlPattern();
+		
+		List<Parameter> params = pattern.getParameterList().getParameters();
+		params.get(0).setValueFromString("GREATER"); // ComparisonOptionParam
+		params.get(1).setValueFromString("1.0"); // NumberParam
+		params.get(2).setValueFromString("EQUAL"); // ComparisonOptionParam
+		params.get(3).setValueFromString("STRING"); // TypeOptionParam
+		params.get(4).setValueFromString("/*//*"); // XmlPathParam
+		params.get(5).setValueFromString("//*/text()"); // XmlPathParam Property
+		params.get(6).setValueFromString("//*/text()"); // XmlPathParam Property
+		
+		System.out.println(pattern.generateXQuery());
+		
+	}
 
 	public DupValPattern() {
 		super(PatternConstants.DUPVAL_ID,
