@@ -75,7 +75,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 //					pattern.isValid(AbstractionLevel.CONCRETE);
 				// 2 generate query
 //					JSONObject queryJson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
-					JSONObject queryJson = ServletUtilities.loadConstraintQueryJson(constraintId, technology);
+					JSONObject queryJson = ServletUtilities.loadConstraintQueryJson(technology, constraintId);
 					constraints.add(queryJson);
 				} catch (Exception e) {
 					try {
