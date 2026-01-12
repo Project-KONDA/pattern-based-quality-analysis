@@ -71,12 +71,13 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		// compile constraintIDs
 		if (constraintIDs != null) {
 			for (String constraintId: constraintIDs) {
-				CompletePattern pattern;
+//				CompletePattern pattern;
 				try {
-					pattern = ServletUtilities.loadConstraint(technology, constraintId);
-					pattern.isValid(AbstractionLevel.CONCRETE);
+//					pattern = ServletUtilities.loadConstraint(technology, constraintId);
+//					pattern.isValid(AbstractionLevel.CONCRETE);
 				// 2 generate query
-					JSONObject queryJson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
+//					JSONObject queryJson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
+					JSONObject queryJson = ServletUtilities.loadConstraintQueryJson(constraintId, technology);
 					constraints.add(queryJson);
 				} catch (Exception e) {
 					try {
