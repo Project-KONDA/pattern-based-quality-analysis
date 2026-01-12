@@ -28,15 +28,18 @@ public class Mand2EleOrPattern extends PatternClass {
 		ComplexNode main = pattern.getGraph().getReturnNodes().get(0).makeComplex();
 		main.setName("element");
 
-		NotCondition not = factory.createNotCondition();
-		pattern.setCondition(not);
-		Formula form1 = factory.createFormula();
-		not.setCondition(form1);
 		
+		Formula form1 = factory.createFormula();
+		pattern.setCondition(form1);
+
+		NotCondition not1 = factory.createNotCondition();
+		form1.setCondition1(not1);
 		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
-		form1.setCondition1(qc1);
+		not1.setCondition(qc1);
+		NotCondition not2 = factory.createNotCondition();
+		form1.setCondition2(not2);
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
-		form1.setCondition2(qc2);
+		not2.setCondition(qc2);
 
 		ComplexNode n1 = main.addOutgoing(qc1.getGraph()).getTarget().makeComplex();
 		ComplexNode n2 = main.addOutgoing(qc2.getGraph()).getTarget().makeComplex();
