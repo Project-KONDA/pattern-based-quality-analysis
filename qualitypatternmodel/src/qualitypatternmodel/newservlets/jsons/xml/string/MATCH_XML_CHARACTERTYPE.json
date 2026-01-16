@@ -1,0 +1,44 @@
+{
+    "template":"Match_xml",
+    "language":"xml",
+    "name":"charactertype",
+	"typeConstraint":true,
+	"custom": {
+		"description": "charactertype variant for Match_xml"
+	},
+    "fragments":[
+        {"text":"For each"},
+        {
+            "name":"Element",
+            "params":[2],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis"
+        },
+        {"text":", all"},
+        {
+            "name":"Properties",
+            "params":[3],
+            "exampleValue":"Surname",
+            "description":"value that gets analysed",
+            "plural":"true"
+        },
+        {"text":"contains at least one"},
+        {
+            "name":"Specific",
+            "params":[1],
+            "exampleValue":"numerical",
+            "map":{
+            	"[a-zA-Z]":"alphabetic",
+            	"[a-zA-Z0-9]":"alphanumeric",
+            	"[0-9]":"numerical",
+            	"[!-~]":"ASCII (without whitespace)",
+            	"[\\p{IsBasicLatin}]":"UNICODE"
+            }
+        },
+        {"text":"character."},
+        {
+            "params":[0],
+            "value":"false"
+        }
+    ]
+}

@@ -1,10 +1,10 @@
 {
     "template":"MandContIso_xml",
     "language":"xml",
-    "name":"something",
+    "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "very simplified variant for MandContIso_xml"
+		"description": "default variant for MandContIso_xml"
 	},
     "fragments":[
 		{"text":"For all"},
@@ -22,15 +22,20 @@
 			"exampleValue":"unit",
 			"description":"element of analyis"
 		},
-		{"text":"contains something."},
-		
+		{"text":"has either a"},
 		{
+			"name":"Subelement",
 			"params":[3],
-			"value":"/*"
+			"exampleValue":"element",
+			"description":"element condition"
 		},
+		{"text":"or a"},
 		{
+			"name":"Property",
 			"params":[2],
-			"value":"/text()"
-		}
+			"exampleValue":"text",
+			"description":"property condition"
+		},
+		{"text":"."}
     ]
 }

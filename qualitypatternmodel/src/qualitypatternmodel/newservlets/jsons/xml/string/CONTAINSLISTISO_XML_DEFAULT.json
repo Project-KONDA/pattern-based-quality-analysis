@@ -1,0 +1,39 @@
+{
+    "template":"ContainsListIso_xml",
+    "language":"xml",
+    "name":"default",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for ContainsListIso_xml"
+	},
+    "fragments":[
+        {"text":"For all"},
+        {
+            "name":"Container Elements",
+            "params":[3],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis",
+			"plural":"true"
+        },
+        {"text":", each"},
+        {
+            "name":"Property",
+            "params":[2],
+            "exampleValue":"Attribution statement",
+            "description":"analysed property"
+        },
+        {
+            "name":"Does / Does Not",
+            "params":[0],
+            "defaultMap":"does not",
+            "exampleValue":"does"
+        },
+        {"text":"contain at least one term from"},
+        {
+            "name":"a List of Terms",
+            "params":[1],
+            "exampleValue":"['a', 'b']"
+        },
+        {"text":"as a substring."}
+    ]
+}

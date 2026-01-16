@@ -286,7 +286,7 @@ public class APICallTests {
 			JSONArray fragments = var.getJSONArray(ConstantsJSON.FRAGMENTS);
 			assert(fragments.length()>0);
 			for (int j = 0; j<fragments.length(); j++) {
-				JSONObject fragment = fragments.getJSONObject(i);
+				JSONObject fragment = fragments.getJSONObject(j);
 				Boolean isText = fragment.has(ConstantsJSON.TEXT) && fragment.length() == 1;
 				Boolean isFragment =
 					fragment.has(ConstantsJSON.NAME) &&

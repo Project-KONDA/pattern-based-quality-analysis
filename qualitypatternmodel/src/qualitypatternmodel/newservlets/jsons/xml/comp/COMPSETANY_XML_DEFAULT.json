@@ -1,0 +1,40 @@
+{
+    "template":"CompSetAny_xml",
+    "language":"xml",
+    "name":"default",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for CompSetAny_xml"
+	},
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"Element",
+            "params":[3],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":"has at least one"},
+        {
+            "name":"Property",
+            "params":[4],
+            "exampleValue":"Surname",
+            "description":"values that get analysed",
+            "plural":"true"
+        },
+        {"text":"that"},
+        {
+            "name":"Is / Is Not",
+            "params":[1],
+            "exampleValue":"is",
+            "defaultMap":"comparison_is"
+        },
+        {"text":"in the list of"},
+        {
+            "name":"Terms",
+            "params":[0],
+            "exampleValue":"Mueller, Meier"
+        },
+        {"text":"."}
+    ]
+}

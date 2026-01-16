@@ -1,10 +1,10 @@
 {
     "template":"MandContSin_xml",
     "language":"xml",
-    "name":"something",
+    "name":"simplified",
 	"typeConstraint":true,
 	"custom": {
-		"description": "very simplified variant for MandContSin_xml"
+		"description": "simplified variant for MandContSin_xml"
 	},
     "fragments":[
 		{"text":"Each"},
@@ -14,12 +14,14 @@
 			"exampleValue":"unit",
 			"description":"element of analyis"
 		},
-		{"text":"contains something."},
-		
+		{"text":"has either a"},
 		{
+			"name":"Subelement",
 			"params":[2],
-			"value":"/*"
+			"exampleValue":"element",
+			"description":"element condition"
 		},
+		{"text":"or a text."},
 		{
 			"params":[1],
 			"value":"/text()"

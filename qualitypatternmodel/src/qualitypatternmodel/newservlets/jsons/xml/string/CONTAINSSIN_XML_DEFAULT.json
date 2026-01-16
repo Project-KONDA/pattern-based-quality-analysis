@@ -1,0 +1,31 @@
+{
+    "template":"ContainsSin_xml",
+    "language":"xml",
+    "name":"default",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for ContainsSin_xml"
+	},
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"Property",
+            "params":[2],
+            "exampleValue":"Attribution statement",
+            "description":"analysed property"
+        },
+        {
+            "name":"Does / Does Not",
+            "params":[0],
+            "defaultMap":"does not",
+            "exampleValue":"does"
+        },
+        {"text":"contain"},
+        {
+            "name":"a Specific Term",
+            "params":[1],
+            "exampleValue":"Workshop of"
+        },
+        {"text":"as a substring."}
+    ]
+}

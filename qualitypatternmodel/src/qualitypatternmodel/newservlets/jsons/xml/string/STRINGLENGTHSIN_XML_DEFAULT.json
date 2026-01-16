@@ -1,0 +1,31 @@
+{
+    "template":"StringLengthSin_xml",
+    "language":"xml",
+    "name":"default",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for StringLengthSin_xml"
+	},
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"Property",
+            "params":[2],
+            "exampleValue":"LastName",
+            "description":"value that gets analysed"
+        },
+        {"text":"is"},
+        {
+            "name":"Compared to",
+            "params":[0],
+            "exampleValue":"less than",
+            "defaultMap":"comparison_negated"
+        },
+        {
+            "name":"a Specific Number of",
+            "params":[1],
+            "exampleValue":"10"
+        },
+        {"text":"characters in length."}
+    ]
+}

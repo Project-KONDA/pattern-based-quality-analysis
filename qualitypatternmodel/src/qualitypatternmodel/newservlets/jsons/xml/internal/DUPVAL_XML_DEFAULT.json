@@ -1,0 +1,35 @@
+{
+    "template":"DupVal_xml",
+    "language":"xml",
+    "name":"default",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for DupVal_xml"
+	},	
+    "fragments":[
+    	{"text": "An"},
+        {
+            "name":"Element",
+            "params":[4],
+            "exampleValue":"Person",
+            "description":"anchor for analysis"
+        },
+    	{"text": "should not have any two properties with the same value."},
+    	{
+    		"params":[0],
+    		"value": "GREATER"
+    	},
+    	{
+    		"params":[1],
+    		"value": "1."
+    	},
+    	{
+    		"params":[3],
+    		"value": "STRING"
+    	},
+    	{
+    		"params":[5,6],
+    		"value": "//*/text()"
+    	}
+    ]
+}
