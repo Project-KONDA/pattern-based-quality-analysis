@@ -706,6 +706,12 @@
                <lido:resourceID lido:type="local">C 654.591</lido:resourceID>
                <lido:resourceRepresentation lido:type="image_thumb">
 				   <lido:linkResource lido:formatResource="jpg">http://www.bildindex.de/bilder/t/fmc654591</lido:linkResource>
+					<lido:linkResource lido:formatResource="image/jpeg">nix</lido:linkResource>
+					<lido:linkResource lido:formatResource="image/jpeg">google.com</lido:linkResource>
+					<lido:linkResource lido:formatResource="image/jpeg">http://google.de</lido:linkResource>
+					<lido:linkResource lido:formatResource="image/jpeg">www.invalid-link.de</lido:linkResource>
+					<lido:linkResource lido:formatResource="image/jpeg">http://www.invalid-link.de</lido:linkResource>
+					<lido:linkResource lido:formatResource="image/jpeg">no-valid-link.com</lido:linkResource>
 				   <lido:resourceMeasurementsSet>
 						<lido:measurementType>width</lido:measurementType>
 						<lido:measurementUnit>pixel</lido:measurementUnit>

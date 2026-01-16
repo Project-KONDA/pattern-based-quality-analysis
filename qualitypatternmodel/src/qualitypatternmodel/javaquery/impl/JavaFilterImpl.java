@@ -327,7 +327,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 //	public void createInterimResultContainerXQuery(List<String> objectList) throws InvalidityException {
 		getInterimResults().clear();
 		
-		for (int i = 0; i<list.length(); i++) {
+		for (int i = 0; i < list.length(); i++) {
 			JSONObject interim = list.getJSONObject(i);
 			String interimString = interim.getString(ConstantsJSON.RESULT_SNIPPET);
 			InterimResultContainer interimresult = new InterimResultContainerImpl(getStructure());
