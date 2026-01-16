@@ -571,9 +571,9 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				if (getFilter().apply(ir.getParameter())) {
 					InterimResult ret = ir.getReturn();
 					if (ret instanceof ValueResult) {
-						results.put(((ValueResult) ret).getValue());
+						results.put(resultjson(((ValueResult) ret).getValue()));
 					} else {
-						results.put(ret.toString());
+						results.put(resultjson(ret.toString()));
 					}
 				}
 			} catch (InvalidityException e) {
@@ -581,6 +581,15 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 			}
 		}
 		return results;
+	}
+	
+	private JSONObject resultjson(String value) {
+		JSONObject res = new JSONObject();
+		res.put(ConstantsJSON.RESULT_SNIPPET, value);
+		res.put(ConstantsJSON.RESULT_STARTLINE, -1);
+		res.put(ConstantsJSON.RESULT_ENDLINE, -1);
+		res.put(ConstantsJSON.RESULT_LINESIZE, 1);
+		return res;
 	}
 
 	/**
