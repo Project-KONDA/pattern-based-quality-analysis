@@ -15,8 +15,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
@@ -71,12 +69,13 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		// compile constraintIDs
 		if (constraintIDs != null) {
 			for (String constraintId: constraintIDs) {
-				CompletePattern pattern;
+//				CompletePattern pattern;
 				try {
-					pattern = ServletUtilities.loadConstraint(technology, constraintId);
-					pattern.isValid(AbstractionLevel.CONCRETE);
+//					pattern = ServletUtilities.loadConstraint(technology, constraintId);
+//					pattern.isValid(AbstractionLevel.CONCRETE);
 				// 2 generate query
-					JSONObject queryJson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
+//					JSONObject queryJson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
+					JSONObject queryJson = ServletUtilities.loadConstraintQueryJson(technology, constraintId);
 					constraints.add(queryJson);
 				} catch (Exception e) {
 					try {

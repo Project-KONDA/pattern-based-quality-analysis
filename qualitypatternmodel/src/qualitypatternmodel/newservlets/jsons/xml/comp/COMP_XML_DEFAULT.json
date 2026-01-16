@@ -1,0 +1,43 @@
+{
+    "template":"Comp_xml",
+    "language":"xml",
+    "name":"default",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for Comp_xml"
+	},
+    "fragments":[
+        {"text":"For each"},
+        {
+            "name":"Element",
+            "params":[2],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":","},
+        {
+            "name":"Property A",
+            "params":[3],
+            "exampleValue":"Birthdate",
+            "description":"values that get analysed",
+            "plural":"true"
+        },
+        {
+            "name":"Is / Is Not",
+            "params":[0],
+            "exampleValue":"is",
+            "defaultMap":"comparison_isnot"
+        },
+        {"text":"equal to"},
+        {
+            "name":"Property B",
+            "params":[4],
+            "exampleValue":"Deathdate"
+        },
+        {"text":"."},
+        {
+            "params":[1],
+            "value":"STRING"
+        }
+    ]
+}

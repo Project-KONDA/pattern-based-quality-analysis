@@ -63,6 +63,7 @@ public class Test00 {
 		se.addOutgoing().getTarget().addPrimitiveMatch(regex);
 		completePattern.createXmlAdaption();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
+		params.get(2).setValueFromString("/text()");
 		params.get(3).setValueFromString("//*");
 		return completePattern;
 	}

@@ -1,0 +1,68 @@
+{
+    "template":"CardCompSetIfCompSet_xml",
+    "language":"xml",
+    "name":"default",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for CardCompSetIfCompSet_xml. This is a template specifically created to check a requirement of a LIDO requirement",
+		"aqindaid": 22
+	},
+    "fragments":[
+        {"text":"If a"},
+        {
+            "name":"Element",
+            "params":[8],
+			"exampleValue": ""
+        },
+        {"text":"has a"},
+        {
+            "name":"Property A",
+            "params":[9],
+			"exampleValue": ""
+        },
+        {"text":"that"},
+        {
+            "name":"Is / Is Not",
+            "params":[1],
+            "exampleValue":"is",
+            "defaultMap":"comparison_is"
+        },
+        {"text":"in the list of"},
+        {
+            "name":"Terms",
+            "params":[0],
+			"exampleValue": ""
+        },
+        {"text":", it has"},
+        {
+            "name":"a Comparison with",
+            "params":[3],
+			"exampleValue": "",
+            "defaultMap":"comparison"
+        },
+        {
+            "name":"a Specific Number of",
+            "params":[4],
+			"exampleValue": ""
+        },
+        {
+            "name":"Property B",
+            "params":[10],
+			"exampleValue": ""
+        },
+        {"text":"that"},
+        {
+            "name":"Is / Is Not",
+            "params":[6],
+            "exampleValue":"is",
+            "defaultMap":"comparison_is"
+        },
+        {"text":"in the list of"},
+        {
+            "name":"Terms",
+            "params":[5],
+			"exampleValue": ""
+        },
+        {"text":"."}
+    ]
+}

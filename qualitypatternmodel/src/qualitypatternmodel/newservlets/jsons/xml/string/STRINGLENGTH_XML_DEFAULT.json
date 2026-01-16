@@ -1,0 +1,39 @@
+{
+    "template":"StringLength_xml",
+    "language":"xml",
+    "name":"default",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for StringLength_xml"
+	},
+    "fragments":[
+        {"text":"For each"},
+        {
+            "name":"Element",
+            "params":[2],
+            "exampleValue":"Actors",
+            "description":"anchor for analysis"
+        },
+        {"text":", all"},
+        {
+            "name":"Properties",
+            "params":[3],
+            "exampleValue":"LastNames",
+            "description":"value that gets analysed",
+            "plural":"true"
+        },
+        {"text":"are"},
+        {
+            "name":"Compared to",
+            "params":[0],
+            "exampleValue":"less than",
+            "defaultMap":"comparison_negated"
+        },
+        {
+            "name":"a Specific Number of",
+            "params":[1],
+            "exampleValue":"10"
+        },
+        {"text":"characters in length."}
+    ]
+}

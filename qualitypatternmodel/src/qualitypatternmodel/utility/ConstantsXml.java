@@ -16,7 +16,8 @@ public class ConstantsXml {
 	public static final String WHERE = "\nwhere ";
 	public static final String RETURN = "\nreturn ";
 	public static final String IN = " in ";
-	public static final String XPATH_UNION = " | ";
+	public static final String XPATH_ELEMENT_UNION = " | ";
+	public static final String XPATH_PROPERTY_UNION = " , ";
 
 	public static final String REGEX_PREFIX = "[a-zA-Z]+";
 	public static final String REGEX_NAMESPACE = "(" + REGEX_PREFIX + ":)?";

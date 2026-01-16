@@ -1,0 +1,33 @@
+{
+    "template":"ExistsIfExists_xml",
+    "language":"xml",
+    "name":"default",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for ExistsIfExists_xml"
+	},
+    "fragments":[
+        {"text":"If a"},
+        {
+            "name":"Element",
+            "params":[0],
+            "exampleValue":"LIDO Record",
+            "description":"anchor for analysis"
+        },
+        {"text":"has a"},
+        {
+            "name":"Property A",
+            "params":[1],
+            "exampleValue":"Term",
+            "description":"conditioned property"
+        },
+        {"text":"it has a"},
+        {
+            "name":"Property B",
+            "params":[2],
+            "exampleValue":"Concept Identifier",
+            "description":"required property"
+        },
+        {"text":"."}
+    ]
+}

@@ -14,6 +14,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.PatternUtility;
 
 abstract public class PatternClass {
 
@@ -32,6 +33,19 @@ abstract public class PatternClass {
 	public final Boolean xmlValid;
 	public final Boolean rdfValid;
 	public final Boolean neoValid;
+	
+	public void testXmlPattern() {
+		try {
+			CompletePattern pattern = getXmlPattern();
+			String myString = pattern.myToString();
+			System.out.println(myString);
+			PatternUtility.fillParameter(pattern);
+			String query = pattern.generateXQuery();
+			System.out.println(query);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	protected PatternClass(String id, String name, String description, Boolean genericValid, Boolean xmlValid, Boolean rdfValid, Boolean neoValid) {
 		try {

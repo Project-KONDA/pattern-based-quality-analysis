@@ -14,6 +14,7 @@ import qualitypatternmodel.newservlets.initialisation.PatternCollection;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.PatternUtility;
+import qualitypatternmodel.utility.xmlprocessors.XQueryProcessorSaxon;
 import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 public class PatternCollectionTests {
@@ -95,7 +96,7 @@ public class PatternCollectionTests {
 		case XML: {
 			PatternUtility.fillParameter(pattern);
 			String query = assertDoesNotThrow(() -> (pattern.generateXQueryJava()));
-			assertDoesNotThrow(() -> XmlServletUtility.validateQuery(query));
+			assertDoesNotThrow(() -> validateXQuery(query));
 			break;
 		}
 		case RDF: {
@@ -115,7 +116,12 @@ public class PatternCollectionTests {
 		}
 //		}
 	}
-	
+
+	private void validateXQuery(String query) throws InvalidityException {
+		XmlServletUtility.validateQuery(query);
+		XQueryProcessorSaxon.executeQueryFile(query, "lido.xml");
+	}
+
 	private void validateSparql(String query) throws InvalidityException {
 	}
 	

@@ -4,7 +4,7 @@
     "name":"something",
 	"typeConstraint":true,
 	"custom": {
-		"description": "very simplified constraint for MandContIso_xml"
+		"description": "very simplified variant for MandContIso_xml"
 	},
     "fragments":[
 		{"text":"For all"},
