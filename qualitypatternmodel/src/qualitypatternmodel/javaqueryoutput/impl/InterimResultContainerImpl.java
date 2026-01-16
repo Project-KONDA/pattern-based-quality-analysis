@@ -129,10 +129,10 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 	 */
 	@Override
 	public Boolean initialize(String value) throws InvalidityException {
-		JSONArray retur = XmlServletUtility.extractFromSnippet(value, "/" + JavaQueryTranslationUtility.INTERIM + "/" + JavaQueryTranslationUtility.RETURN);
+		JSONArray retur = XmlServletUtility.extractFromSnippet(value, "/*[name()='" + JavaQueryTranslationUtility.INTERIM + "']/*[name()='" + JavaQueryTranslationUtility.RETURN + "']");
 		if (retur.length() == 0)
 			return false;
-		JSONArray condi = XmlServletUtility.extractFromSnippet(value, "/" + JavaQueryTranslationUtility.INTERIM + "/" + JavaQueryTranslationUtility.CONDITION);
+		JSONArray condi = XmlServletUtility.extractFromSnippet(value, "/*[name()='" + JavaQueryTranslationUtility.INTERIM + "']/*[name()='" + JavaQueryTranslationUtility.CONDITION + "']");
 		
 		InterimResult returnInterim = InterimResultImpl.createNew(getCorrespondsTo().getRecord(), retur);
 		InterimResult paramInterim = InterimResultImpl.createNew(getCorrespondsTo().getSubstructure(), condi);
@@ -400,7 +400,7 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 
 	@Override
 	public String toString() {
-		String sub = getReturn().toString() + "\n  " + getParameter();
+		String sub = "" + getReturn() + "\n  " + getParameter();
 		return "InterimResult [\n  " + sub.indent(2) + "]";
 	}
 } //InterimResultContainerImpl
