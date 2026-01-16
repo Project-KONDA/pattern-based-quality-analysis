@@ -26,7 +26,7 @@ jobs:
           cd qualitypatternmodel
           POM_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
           BASE_VERSION=${POM_VERSION%.0}
-          PATCH=$(git rev-list v$POM_VERSION..HEAD --count)
+          PATCH=$(git rev-list v$POM_VERSION..HEAD --count --first-parent)
           VERSION="$BASE_VERSION.$PATCH"
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
