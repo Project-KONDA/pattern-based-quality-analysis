@@ -26,11 +26,15 @@ public class LinkImageMinSizeOperatorImpl extends OneArgJavaTwoNumberOperatorImp
 	}
 
 	@Override
-	public Boolean apply(String param1) {
+	public Boolean apply(String param) {
 		Boolean negate = getOption().getValue();
 		double width = getNumber1().getValue();
 		double height = getNumber2().getValue();
-		Pair<Integer, Integer> size = LinkOperatorUtil.getImageSize(param1, "GET");
+		return apply2(param, negate, width, height);
+	}
+	
+	public static Boolean apply2(String param, Boolean negate, double width, double height) {
+		Pair<Integer, Integer> size = LinkOperatorUtil.getImageSize(param, "GET");
 
 		if (size == null || size.getLeft() == null || size.getRight() == null) 
 			return negate;

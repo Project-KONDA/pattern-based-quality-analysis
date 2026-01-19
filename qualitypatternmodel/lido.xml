@@ -712,6 +712,10 @@
 					<lido:linkResource lido:formatResource="image/jpeg">www.invalid-link.de</lido:linkResource>
 					<lido:linkResource lido:formatResource="image/jpeg">http://www.invalid-link.de</lido:linkResource>
 					<lido:linkResource lido:formatResource="image/jpeg">no-valid-link.com</lido:linkResource>
+					<lido:linkResource lido:formatResource="image/jpeg">https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg</lido:linkResource>
+					<lido:linkResource lido:formatResource="image/jpeg">https://www.tierschutzbund.de/fileadmin/_processed_/e/1/csm_Strassenkatze_getigert_liegend_Xena_c_Tierschutzverein_Schwalbach___Frankfurt-West_e.V._603e5195d1.jpg</lido:linkResource>
+					<lido:linkResource lido:formatResource="image/jpeg">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</lido:linkResource>
+					<lido:linkResource lido:formatResource="image/jpeg">https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394-2.jpg</lido:linkResource>
 				   <lido:resourceMeasurementsSet>
 						<lido:measurementType>width</lido:measurementType>
 						<lido:measurementUnit>pixel</lido:measurementUnit>
