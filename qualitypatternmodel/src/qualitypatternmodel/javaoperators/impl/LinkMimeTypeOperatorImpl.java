@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaoperators.impl;
 
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
@@ -26,13 +28,17 @@ public class LinkMimeTypeOperatorImpl extends OneArgJavaListOperatorImpl impleme
 	}
 
 	@Override
-	public Boolean apply(String param1) {
+	public Boolean apply(String param) {
 		Boolean negate = getOption().getValue();
-		String mime = LinkOperatorUtil.getMimeType(param1, "GET");
+		EList<String> types = getTextListParam().getValues();
+		return apply2(param, negate, types);
+	}
+		
+	public static Boolean apply2(String param, Boolean negate, List<String> mimes) {
+		String mime = LinkOperatorUtil.getMimeType(param, "GET");
 		if (mime == null)
 			return negate;
-		EList<String> types = getTextListParam().getValues();
-		for (String type: types)
+		for (String type: mimes)
 			if (type.length()>1 && mime.startsWith(type))
 				return !negate;
 		return negate;

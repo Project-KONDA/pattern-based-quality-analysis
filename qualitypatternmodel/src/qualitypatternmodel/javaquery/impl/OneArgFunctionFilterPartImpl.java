@@ -129,8 +129,8 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 		JSONObject result = new JSONObject();
 		try {
 			result.put(ConstantsJSON.ARGUMENT_CLASS, getClass().getSimpleName());
-			result.put("negate", negate);
-			result.put("functionclass", functionclassname);
+			result.put(ConstantsJSON.NEGATE, negate);
+			result.put(ConstantsJSON.ARGUMENT_FUNCTION, functionclassname);
 			if (getArgument() != null)
 				result.put("argument", getArgument().getInterimPartId());
 		} catch (JSONException e) {

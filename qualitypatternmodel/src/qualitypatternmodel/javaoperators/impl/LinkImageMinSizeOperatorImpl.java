@@ -4,6 +4,7 @@ package qualitypatternmodel.javaoperators.impl;
 
 import org.apache.commons.lang3.tuple.Pair;
 import org.eclipse.emf.ecore.EClass;
+
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
 import qualitypatternmodel.javaoperators.LinkImageMinSizeOperator;
 import qualitypatternmodel.javaoperators.LinkOperatorUtil;

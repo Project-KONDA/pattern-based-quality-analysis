@@ -59,13 +59,13 @@ public class OneArgListFunctionFilterPartImpl extends OneArgFunctionFilterPartIm
 		setArgument(new ValueInterimImpl());
 	}
 
-	public OneArgListFunctionFilterPartImpl(Class<? extends OneArgJavaListOperatorImpl> clazz, EList<String> eList, Boolean boolean1) {
+	public OneArgListFunctionFilterPartImpl(Class<? extends OneArgJavaListOperatorImpl> clazz, EList<String> list, Boolean negate) {
 		super();
 		setArgument(new ValueInterimImpl());
 		setNegate(negate);
 		functionclassname = clazz.getSimpleName();
 		getList().clear();
-		getList().addAll(eList);
+		getList().addAll(list);
 	}
 
 	public OneArgListFunctionFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
