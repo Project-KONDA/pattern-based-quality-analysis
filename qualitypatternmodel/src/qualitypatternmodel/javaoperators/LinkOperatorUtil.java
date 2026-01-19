@@ -130,6 +130,11 @@ public class LinkOperatorUtil {
 	public static String getMimeType(String urlString, String responseMethod) {
 	    try {
 	    	HttpURLConnection connection = getConnection(urlString, responseMethod);
+	        Integer responseCode = connection.getResponseCode();
+	        if (isRedirect(responseCode)){
+	            String location = connection.getHeaderField("Location");
+	        	return getMimeType(location, responseMethod);
+	        }
 			return connection.getContentType();
 	    } catch (Exception e) {
 	        return null;
@@ -140,6 +145,11 @@ public class LinkOperatorUtil {
 	    try {
 	    	int width, height;
 	    	HttpURLConnection connection = getConnection(urlString, responseMethod);
+	        Integer responseCode = connection.getResponseCode();
+	        if (isRedirect(responseCode)){
+	            String location = connection.getHeaderField("Location");
+	        	return getImageSize(location, responseMethod);
+	        }
 	        try (InputStream is = connection.getInputStream();
 	                ImageInputStream iis = ImageIO.createImageInputStream(is)) {
 
