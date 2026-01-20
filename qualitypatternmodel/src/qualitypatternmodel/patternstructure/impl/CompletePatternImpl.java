@@ -591,10 +591,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			if (t.getNamespaces() != null && !t.getNamespaces().isEmpty()) {
 				preClauses = t.generateXQueryNamespaces();
 			}
-			preClauses += getParameterList().generateXQuery();
 		}
-		String res = getParameterList().generateXQuery();
-		res += super.generateXQueryJava();
+		preClauses += getParameterList().generateXQuery();
+		String res =  super.generateXQueryJava();
 		if (res.startsWith("\n")) {
 			res = res.substring(1);
 		}
