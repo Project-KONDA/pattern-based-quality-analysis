@@ -1,0 +1,19 @@
+{
+    "template":"UniqueSin_xml",
+    "language":"xml",
+    "name":"default",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for UniqueSin_xml. Checks only uniqueness of a value within a file."
+	},	
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"Property",
+            "params":[4,5],
+            "exampleValue":"Identifiers (Value)",
+            "description":"value that gets analysed"
+		},
+        {"text":"is unique within the file."}
+    ]
+}

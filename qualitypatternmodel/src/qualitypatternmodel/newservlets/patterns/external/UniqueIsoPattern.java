@@ -4,6 +4,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.newservlets.initialisation.PatternConstants;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.operators.Comparison;
@@ -55,6 +56,8 @@ public class UniqueIsoPattern extends PatternClass {
 		
 		c.getOption().setValue(ComparisonOperator.EQUAL);
 		c.getOption().setPredefined(true);
+		c.getTypeOption().setPredefined(true);
+		c.getTypeOption().setValue(ReturnType.STRING);
 		countCondition.getOption().setValue(ComparisonOperator.NOTEQUAL);
 		countCondition.getOption().setPredefined(true);
 		ne.getNumberParam().setValue(1.);
