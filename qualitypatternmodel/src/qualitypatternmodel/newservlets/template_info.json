@@ -1,322 +1,312 @@
 {
 	"AppDup2Pattern":{
 		"id":"AppDup2",
-		"name":"Approximate Duplicate based on two attributes", 
-		"description":"Check whether there are records that have the same value in two important attributes, suggesting that they describe the same real-world object."
+		"name":"Approximate Duplicate based on two Attributes", 
+		"description":"Check if there are records that have the same value in two important fields, suggesting that they describe the same real-world object."
 	},
 	"AppDup3Pattern":{
 		"id":"AppDup3",
-		"name":"Approximate Duplicate based on three attributes",
-		"description":"Check whether there are records that have the same value in three important attributes, suggesting that they describe the same real-world object."
+		"name":"Approximate Duplicate based on three Attributes",
+		"description":"Check if there are records that have the same value in three important fields, suggesting that they describe the same real-world object."
 	},
 	"CardImpliesMandAttPattern":{
 		"id":"CardImpliesMandAtt",
-		"name":"Mandatory Attribute based on Cardinality Constraint",
-		"description":"Check whether a attribute exists, that is mandatory on specific cardinalities of a field."
+		"name":"Mandatory Attribute based on Cardinality Check",
+		"description":"Check if an attribute exists that is mandatory on specific cardinalities of a field."
 	},
 	"CardPattern":{
 		"id":"Card",
-		"name":"Cardinality Constraint",
-		"description":"Check, whether the occurence count of specific elements apply."
+		"name":"Cardinality Check",
+		"description":"Check if the occurrence count of specific elements applies."
 	},
 	"CardMatchPattern":{
 		"id":"CardMatch",
-		"name":"Cardinality of RegEx-Constrained Values",
-		"description":"Check, whether the occurence count of specific elements, that match a regular expression apply."
+		"name":"Cardinality of Values Matching a Pattern",
+		"description":"Check if the occurrence count of elements matching a specific pattern applies."
 	},
 	"ExistsIfExistsPattern":{
 		"id":"ExistsIfExists",
-		"name":"ExistsIfExists",
-		"description":"ExistsIfExists"
+		"name":"Existence Check for Conditioned Values",
+		"description":"Check if a record that contains a specific field also contains another required field."
 	},
 	"CompSetIfMatchPattern":{
 		"id":"CompSetIfMatch",
-		"name":"CompSetIfMatch",
-		"description":"CompSetIfMatch"
+		"name":"List Check for Values Matching a Pattern",
+		"description":"Check if specific field values are within a list of allowed (/forbidden) terms when another field value matches a given pattern."
 	},
 	"CardIfCompSetPattern":{
 		"id":"CardIfCompSet",
-		"name":"If Property A in Set, Check Cardinality of Property B",
-		"description":"If one specific property is in a specific Set, check the occurence count of another specific element applies"
+		"name":"Cardinality Check for List-Conditioned Values",
+		"description": "Check if the occurrence count of specific elements applies when a field value is within a list of allowed (/forbidden) terms."
 	},
 	"CardCompSetIfCompSetPattern":{
 		"id":"CardCompSetIfCompSet",
-		"name":"If Property A in Set, Check Cardinality of Property B in Set",
-		"description":"If one specific property is in a specific Set, check the occurence count of values of another specific property, that are in another set"
+		"name":"Cardinality Check for List-Conditioned Values in Another List",
+		"description":"Check if the occurrence count of specific elements within a list of allowed (/forbidden) terms applies when a field value is within another list of allowed (/forbidden) terms."
 	},
 	"CheckFormatPattern":{
 		"id":"CheckFormat",
-		"name":"Check the format of a resource",
-		"description":"Check if the ressource under an URL is of a specific format."
+		"name":"Check the Format of a Resource",
+		"description":"Check if the resource referenced by a URL is of a given format."
 	},
 	"CompDatabasePattern":{
 		"id":"CompDatabase",
-		"name":"Fieldvalue in Database",
-		"description":"Check whether all values in a field are in a database."
+		"name":"Field Value in Database",
+		"description":"Check if all values in a field are in a database."
 	},
 	"CompPattern":{
 		"id":"Comp",
 		"name":"Comparison Pattern",
-		"description":"Check, whether the occurence count of specific elements apply."
+		"description":"Check if the occurrence count of specific elements applies."
 	},
 	"CompSetPattern":{
 		"id":"CompSet",
-		"name":"Comparison Pattern with Set",
-		"description":"Check, whether the value of fields are within a list of allowed (/forbidden) terms."
+		"name":"List Inclusion Check",
+		"description":"Check if field values are within a list of allowed (/forbidden) terms."
 	},
 	"CompSetIsoPattern":{
 		"id":"CompSetIso",
-		"name":"Comparison Pattern with Set (Isolated)",
-		"description":"Check, whether the value of fields are within a list of allowed (/forbidden) terms."
+		"name":"List Inclusion Check (Isolated)",
+		"description":"Check if field values are within a list of allowed (/forbidden) terms."
 	},
 	"CompSetSinPattern":{
 		"id":"CompSetSin",
-		"name":"Comparison Pattern with Set (Single)",
-		"description":"Check, whether the value of fields are within a list of allowed (/forbidden) terms."
+		"name":"List Inclusion Check (Single)",
+		"description":"Check if field values are within a list of allowed (/forbidden) terms."
 	},
 	"CompSetAnyPattern":{
 		"id":"CompSetAny",
-		"name":"Comparison Pattern Any in Set",
-		"description":"Check, whether at least one value of fields are within a list of allowed (/forbidden) terms."
+		"name":"List Inclusion Check (Any)",
+		"description":"Check if at least one field value is within a list of allowed (/forbidden) terms."
 	},
 	"CompValAnyPattern":{
 		"id":"CompValAny",
-		"name":"Compare values within a record",
-		"description":"Check whether any value of a specific field within a record does comply to a value restriction."
+		"name":"Compare Values Within a Record",
+		"description":"Check if any specific field value within a record comply with a value restriction."
 	},
 	"CompValPattern":{
 		"id":"CompVal",
 		"name":"Compare Values",
-		"description":"Check whether all values of a specific field within a record does comply to a value restriction."
+		"description":"Check if all values of a specific field within a record comply with a value restriction."
 	},
 	"ContainsPattern":{
 		"id":"Contains",
 		"name":"Contains Check",
-		"description":"Check, whether a value contains a specific substring."
+		"description":"Check if specific field values contain a given substring (e.g. a URL prefix or part of an identifier)."
 	},
 	"ContainsIsoPattern":{
 		"id":"ContainsIso",
 		"name":"Contains Check (Isolated)",
-		"description":"Check, whether a value contains a specific substring."
+		"description":"Check if specific field values contain a given substring (e.g. a URL prefix or part of an identifier)."
 	},
 	"ContainsSinPattern":{
 		"id":"ContainsSin",
 		"name":"Contains Check (Single)",
-		"description":"Check, whether a value contains a specific substring."
+		"description":"Check if specific field values contain a given substring (e.g. a URL prefix or part of an identifier)."
 	},
 	"ContainsListPattern":{
 		"id":"ContainsList",
 		"name":"Contains List Check",
-		"description":"Check, whether a value contains one of a list of substrings."
+		"description":"Check if specific field values contain any of a list of substrings (e.g., a URL prefix or part of an identifier)."
 	},
 	"ContainsListIsoPattern":{
 		"id":"ContainsListIso",
 		"name":"Contains List Check (Isolated)",
-		"description":"Check, whether a value contains one of a list of substrings."
+		"description":"Check if specific field values contain any of a list of substrings (e.g., a URL prefix or part of an identifier)."
  	},
 	"ContainsListSinPattern":{
 		"id":"ContainsListSin",
 		"name":"Contains List Check (Single)",
-		"description":"Check, whether a value contains one of a list of substrings."
+		"description":"Check if specific field values contain any of a list of substrings (e.g., a URL prefix or part of an identifier)."
 	},
 	"DupValPattern":{
 		"id":"DupVal",
-		"name":"Duplicate value",
-		"description":"Check whether a record has the same value in two distinct fields."
+		"name":"Duplicate Value Check",
+		"description":"Check if a specific element contains only unique field values."
 	},
 	"FuncPattern":{
 		"id":"Func",
-		"name":"Functional Dependency Constraint",
-		"description":"Validate a dependency between two subordinate fields is valid in comparison to data records next to it."
+		"name":"Functional Dependency Check",
+		"description":"Check if two elements containing the same value in one field also contain the same value in another field."
 	},
 	"LocalUniquePattern":{
 		"id":"LocalUnique",
-		"name":"Local Unique Attribute Constraint",
-		"description":"Check whether all field values are unique within a record."
+		"name":"Local Uniqueness Check (File)",
+		"description":"Check if specific field values are unique within a single file."
 	},
 	"MandAttPattern":{
 		"id":"MandAtt",
 		"name":"Mandatory Attribute",
-		"description":"Check whether a record has a mandatory field."
+		"description":"Check if a record contains a mandatory field (e.g. an attribute or an element with content)."
 	},
 	"MandElePattern":{
 		"id":"MandEle",
 		"name":"Mandatory Element",
-		"description":"Check whether a record has a mandatory element."
+		"description":"Check if a record contains a mandatory element."
 	},
 	"MandContPattern":{
 		"id":"MandCont",
 		"name":"Mandatory Content",
-		"description":"Check whether an element has mandatory content."
+		"description":"Check if an element contains the required content (e.g. another element, an attribute or text)."
 	},
 	"MandContIsoPattern":{
 		"id":"MandContIso",
 		"name":"Mandatory Content (Isolated)",
-		"description":"Check whether an element has mandatory content."
+		"description":"Check if an element contains mandatory content (e.g. another element, an attribute or text)"
 	},
 	"MandContSinPattern":{
 		"id":"MandContSin",
 		"name":"Mandatory Content (Single)",
-		"description":"Check whether an element has mandatory content."
+		"description":"Check if an element contains mandatory content (e.g. another element, an attribute or text)."
 	},
 	"MandContAndPattern":{
 		"id":"MandContAnd",
 		"name":"Two Mandatory Contents",
-		"description":"Check whether an element has mandatory content."
+		"description":"Check if an element contains both mandatory contents (e.g. another element and an attribute)."
 	},
 	"MandContAndIsoPattern":{
 		"id":"MandContAndIso",
 		"name":"Two Mandatory Contents (Isolated)",
-		"description":"Check whether an element has mandatory content."
+		"description":"Check if an element contains both mandatory contents (e.g. another element and an attribute)."
 	},
 	"MandContAndSinPattern":{
 		"id":"MandContAndSin",
 		"name":"Two Mandatory Contents (Single)",
-		"description":"Check whether an element has mandatory content."
+		"description":"Check if an element contains both mandatory contents (e.g. another element and an attribute)."
 	},
 	"Mand2EleOrPattern":{
 		"id":"Mand2EleOr",
-		"name":"Mand2EleOr",
-		"description":"Mand2EleOr"
+		"name":"Mandatory Content (One of Two Elements)",
+		"description":"Check if an element contains at least one mandatory element from two alternatives."
 	},
 	"Mand3EleOrPattern":{
 		"id":"Mand3EleOr",
-		"name":"Mand3EleOr",
-		"description":"Mand3EleOr"
+		"name":"Mandatory Content (One of Three Elements)",
+		"description":"Check if an element contains at least one mandatory element from three alternatives."
 	},
 	"MatchPattern":{
 		"id":"Match",
 		"name":"Regular Expression Check",
-		"description":"Check, whether a value matches a specific regular expression."
+		"description":"Check if specific field values match a particular pattern."
 	},
 	"MatchIsoPattern":{
 		"id":"MatchIso",
 		"name":"Regular Expression Check (Isolated)",
-		"description":"Check, whether a value matches a specific regular expression."
+		"description":"Check if specific field values match a particular pattern."
 	},
 	"MatchSinPattern":{
 		"id":"MatchSin",
 		"name":"Regular Expression Check (Single)",
-		"description":"Check, whether a value matches a specific regular expression."
+		"description":"Check if specific field values match a particular pattern."
 	},
 	"MatchListPattern":{
 		"id":"MatchList",
 		"name":"Regular Expression List Check",
-		"description":"Check, whether a value matches at least one regular expression from a list."
+		"description":"Check if specific field values match at least one pattern from a list of allowed (/forbidden) patterns."
 	},
 	"MatchListIsoPattern":{
 		"id":"MatchListIso",
 		"name":"Regular Expression List Check (Isolated)",
-		"description":"Check, whether a value matches at least one regular expression from a list."
+		"description":"Check if specific field values match at least one pattern from a list of allowed (/forbidden) patterns."
 	},
 	"MatchListSinPattern":{
 		"id":"MatchListSin",
 		"name":"Regular Expression List Check (Single)",
-		"description":"Check, whether a value matches at least one regular expression from a list."
+		"description":"Check if specific field values match at least one pattern from a list of allowed (/forbidden) patterns."
 	},
 	"StringLengthPattern":{
 		"id":"StringLength",
-		"name":"String value length restriction",
-		"description":"Check whether all field values comply to the length restriction."
+		"name":"String Value Length Restriction",
+		"description":"Check if specific field values comply with the specified character length."
 	},
 	"StringLengthIsoPattern":{
 		"id":"StringLengthIso",
-		"name":"String value length restriction (Isolated)",
-		"description":"Check all field values whether they comply to the length restriction."
+		"name":"String Value Length Restriction (Isolated)",
+		"description":"Check if specific field values comply with the specified character length."
 	},
 	"StringLengthSinPattern":{
 		"id":"StringLengthSin",
-		"name":"String value length restriction (Single)",
-		"description":"Check all field values whether they comply to the length restriction."
+		"name":"String Value Length Restriction (Single)",
+		"description":"Check if specific field values comply with the specified character length."
 	},
 	"StringLengthRangePattern":{
 		"id":"StringLengthRange",
-		"name":"String value length range restriction",
-		"description":"Check all field values whether they comply to the length restriction."
+		"name":"String Value Length Restriction (Range)",
+		"description":"Check if specific field values fall within the specified character length range."
 	},
 	"StringLengthRangeIsoPattern":{
 		"id":"StringLengthRangeIso",
-		"name":"String value length range restriction (Isolated)",
-		"description":"Check all field values whether they comply to the length restriction."
+		"name":"String Value Length Restriction (Range, Isolated)",
+		"description":"Check if specific field values fall within the specified character length range."
 	},
 	"StringLengthRangeSinPattern":{
 		"id":"StringLengthRangeSin",
-		"name":"String value length range restriction (Single)",
-		"description":"Check all field values whether they comply to the length restriction."
+		"name":"String Value Length Restriction (Range, Single)",
+		"description":"Check if specific field values fall within the specified character length range."
 	},
 	"UniquePattern":{
 		"id":"Unique",
-		"name":"Uniqueness Constraint",
-		"description":"Check, whether a value is unique within the dataset."
-	},
-	"UniqueIsoPattern":{
-		"id":"UniqueIso",
-		"name":"Uniqueness Constraint (Isolated)",
-		"description":"Check, whether a value is unique within the dataset."
-	},
-	"UniqueSinPattern":{
-		"id":"UniqueSin",
-		"name":"Uniqueness Constraint (Single)",
-		"description":"Check, whether a value is unique within the dataset."
+		"name":"Global Uniqueness Check (Across Records)",
+		"description":"Check if specific field values are unique across all records."
 	},
 	"ValidLinkPattern":{
 		"id":"ValidLink",
 		"name":"Valid Link",
-		"description":"Check that a record contains no field with an invalid link."
+		"description":"Check if a link value is a syntactically valid URL."
 	},
 	"ValidLinkIsoPattern":{
 		"id":"ValidLinkIso",
 		"name":"Valid Link (Isolated)",
-		"description":"Check whether a field is an valid link."
+		"description":"Check if a link value is a syntactically valid URL."
 	},
 	"ValidLinkSinPattern":{
 		"id":"ValidLinkSin",
 		"name":"Valid Link (Single)",
-		"description":"Check whether a field is an valid link."
+		"description":"Check if a link value is a syntactically valid URL."
 	},
 	"LinkSourcePattern":{
 		"id":"LinkSource",
-		"name":"LinkSource",
-		"description":"LinkSource"
+		"name":"Link Source Check",
+		"description":"Check if all link value targets a subpage within one of the specified domains (e.g. authority file domains)."
 	},
 	"LinkSourceIsoPattern":{
 		"id":"LinkSourceIso",
-		"name":"LinkSourceIso",
-		"description":"LinkSourceIso"
+		"name":"Link Source Check (Isolated)",
+		"description":"Check if a link value targets a subpage within one of the specified domains (e.g. authority file domains)."
 	},
 	"LinkSourceSinPattern":{
 		"id":"LinkSourceSin",
-		"name":"LinkSourceSin",
-		"description":"LinkSourceSin"
+		"name":"Link Source Check (Single)",
+		"description":"Check if a link value targets a subpage within one of the specified domains (e.g. authority file domains)."
 	},
 	"LinkMimeTypePattern":{
 		"id":"LinkMimeType",
-		"name":"LinkMimeType",
-		"description":"LinkMimeType"
+		"name":"Link MIME Type Check",
+		"description":"Check if the MIME type of a link value is within a list of allowed MIME types."
 	},
 	"LinkMimeTypeIsoPattern":{
 		"id":"LinkMimeTypeIso",
-		"name":"LinkMimeTypeIso",
-		"description":"LinkMimeTypeIso"
+		"name":"Link MIME Type Check (Isolated)",
+		"description":"Check if the MIME type of a link value is within a list of allowed MIME types."
 	},
 	"LinkMimeTypeSinPattern":{
 		"id":"LinkMimeTypeSin",
-		"name":"LinkMimeTypeSin",
-		"description":"LinkMimeTypeSin"
+		"name":"Link MIME Type Check (Single)",
+		"description":"Check if the MIME type of a link value is within a list of allowed MIME types."
 	},
 	"LinkImageSizePattern":{
 		"id":"LinkImageSize",
-		"name":"LinkImageSize",
-		"description":"LinkImageSize"
+		"name":"Link Image Size Check",
+		"description":"Check if a link value meets a minimum pixel dimension."
 	},
 	"LinkImageSizeIsoPattern":{
 		"id":"LinkImageSizeIso",
-		"name":"LinkImageSizeIso",
-		"description":"LinkImageSizeIso"
+		"name":"Link Image Size Check (Isolated)",
+		"description":"Check if a link value meets a minimum pixel dimension."
 	},
 	"LinkImageSizeSinPattern":{
 		"id":"LinkImageSizeSin",
-		"name":"LinkImageSizeSin",
-		"description":"LinkImageSizeSin"
+		"name":"Link Image Size Check (Single)",
+		"description":"Check if a link value meets a minimum pixel dimension."
 	}
 }

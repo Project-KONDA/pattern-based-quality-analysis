@@ -16,7 +16,7 @@
         },
         {"text":"matches the"},
         {
-            "name":"Specific",
+            "name":"Standard",
             "params":[1],
             "exampleValue":"ISO Date (ISO 8601)",
             "map":{
@@ -27,7 +27,7 @@
             	"^[!-~]+$":"ASCII (ISO 646)"
             }
         },
-        {"text":"Format."},
+        {"text":"format."},
         {
             "params":[0],
             "value":"false"

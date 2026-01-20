@@ -1,0 +1,35 @@
+{
+    "template":"LinkSource_xml",
+    "language":"xml",
+    "name":"aat-gnd-wiki",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for LinkSource_xml"
+	},
+    "fragments":[
+        {"text":"For each"},
+        {
+            "name":"Element",
+            "params":[2],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":", all"},
+        {
+            "name":"Properties",
+            "params":[3],
+            "exampleValue":"Birth Certificate Sources",
+            "description":"property of interest,that should contain a valid link."
+        },
+        {"text":"are valid links, that each target a subpage of AAT, GND, or Wikidata."},
+        
+        {
+            "params":[0],
+            "value": "true"
+        },
+        {
+            "params":[1],
+            "value": "['d-nb.info/gnd/','vocab.getty.edu/','www.wikidata.org/']"
+        }
+    ]
+}
