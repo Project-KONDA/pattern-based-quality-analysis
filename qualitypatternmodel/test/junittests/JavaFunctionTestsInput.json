@@ -14,10 +14,10 @@
 		{"link":"nothing","expected":false}
 	],
 	"linkImageMinSize":[
-		{"link":"https://id.smb.museum/digital-asset/5822610","size":2,"expected":false},
+		{"link":"https://recherche.smb.museum/images/5822610_2500x2500.jpg","size":2,"expected":true},
 		{"link":" http://fotothek.slub-dresden.de/fotos/df_hauptkatalog_0355520.jpg ","size":2,"expected":true},
 		{"link":" http://fotothek.slub-dresden.de/fotos/df_hauptkatalog_0355520_karte.jpg ","size":2,"expected":true},
-		{"link":"https://id.smb.museum/digital-asset/3371759","size":2,"expected":false},
+		{"link":"https://recherche.smb.museum/images/3371759_2500x2500.jpg","size":2,"expected":true},
 		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","size":1,"expected":true},
 		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","size":1000,"expected":true},
 		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","size":2000,"expected":false},

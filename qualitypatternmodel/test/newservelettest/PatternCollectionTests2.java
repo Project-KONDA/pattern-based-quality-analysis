@@ -34,6 +34,7 @@ public class PatternCollectionTests2 {
 //				"LinkMimeTypeIso",
 //				"LinkMimeType",
 //				"LinkMimeTypeSin",
+				"LinkSourceExists",
 //				"LinkSourceIso",
 //				"LinkSource",
 //				"LinkSourceSin",

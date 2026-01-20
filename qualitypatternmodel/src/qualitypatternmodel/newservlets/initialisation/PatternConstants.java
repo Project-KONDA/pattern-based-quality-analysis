@@ -226,6 +226,10 @@ public class PatternConstants {
 	public static String LINKSOURCE_NAME = "LinkSource";
 	public static String LINKSOURCE_DESCR = "LinkSource";
 
+	public static String LINKSOURCEEXISTS_ID = "LinkSourceExists";
+	public static String LINKSOURCEEXISTS_NAME = "LinkSourceExists";
+	public static String LINKSOURCEEXISTS_DESCR = "LinkSourceExists";
+
 	public static String LINKSOURCEISO_ID = "LinkSourceIso";
 	public static String LINKSOURCEISO_NAME = "LinkSourceIso";
 	public static String LINKSOURCEISO_DESCR = "LinkSourceIso";

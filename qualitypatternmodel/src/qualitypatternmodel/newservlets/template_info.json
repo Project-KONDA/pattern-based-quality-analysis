@@ -269,6 +269,11 @@
 		"name":"Link Source Check",
 		"description":"Check if all link value targets a subpage within one of the specified domains (e.g. authority file domains)."
 	},
+	"LinkSourceExistsPattern":{
+		"id":"LinkSourceExists",
+		"name":"Link Source Existence Check",
+		"description":"Check if at least one link value targets a subpage within one of the specified domains (e.g. authority file domains)."
+	},
 	"LinkSourceIsoPattern":{
 		"id":"LinkSourceIso",
 		"name":"Link Source Check (Isolated)",
