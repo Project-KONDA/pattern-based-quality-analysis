@@ -179,6 +179,11 @@
 		"name":"Mandatory Content (One of Two Elements)",
 		"description":"Check if an element contains at least one mandatory element from two alternatives."
 	},
+	"Mand2PropOrPattern":{
+		"id":"Mand2PropOr",
+		"name":"Mandatory Content (One of Two Properties)",
+		"description":"Check if an element contains at least one mandatory property from two alternatives."
+	},
 	"Mand3EleOrPattern":{
 		"id":"Mand3EleOr",
 		"name":"Mandatory Content (One of Three Elements)",

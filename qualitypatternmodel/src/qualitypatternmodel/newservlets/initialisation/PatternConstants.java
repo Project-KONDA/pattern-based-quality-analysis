@@ -146,6 +146,10 @@ public class PatternConstants {
 	public static String MAND2ELEOR_NAME = "Mand2EleOr";
 	public static String MAND2ELEOR_DESCR = "Mand2EleOr";
 
+	public static String MAND2PROPOR_ID = "Mand2PropOr";
+	public static String MAND2PROPOR_NAME = "Mand2PropOr";
+	public static String MAND2PROPOR_DESCR = "Mand2PropOr";
+
 	public static String MAND3ELEOR_ID = "Mand3EleOr";
 	public static String MAND3ELEOR_NAME = "Mand3EleOr";
 	public static String MAND3ELEOR_DESCR = "Mand3EleOr";

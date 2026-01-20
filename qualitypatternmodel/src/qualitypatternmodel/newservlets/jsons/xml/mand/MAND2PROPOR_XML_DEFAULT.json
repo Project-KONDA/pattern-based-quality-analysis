@@ -1,0 +1,33 @@
+{
+    "template":"Mand2PropOr_xml",
+    "language":"xml",
+    "name":"default",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for Mand2PropOr_xml"
+	},
+    "fragments":[
+        {"text":"Each"},
+        {
+            "name":"Element",
+            "params":[4],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":"has a non-empty"},
+        {
+            "name":"Property A",
+            "params":[5],
+            "exampleValue":"Identifier",
+            "description":"required element"
+        },
+        {"text":"or a non-empty"},
+        {
+            "name":"Property B",
+            "params":[6],
+            "exampleValue":"Identifier",
+            "description":"required element"
+        },
+        {"text":"."}
+    ]
+}
