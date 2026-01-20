@@ -1,0 +1,26 @@
+{
+    "template":"UniqueIso_xml",
+    "language":"xml",
+    "name":"default",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for UniqueIso_xml. Checks only uniqueness of a value within a file."
+	},	
+    "fragments":[
+        {"text":"In every"},
+        {
+            "name":"Element",
+            "params":[5,7],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":", each"},
+        {
+            "name":"Property",
+            "params":[4,6],
+            "exampleValue":"Identifiers (Value)",
+            "description":"value that gets analysed"
+        },
+        {"text":"is unique within the file."}
+    ]
+}

@@ -1,0 +1,66 @@
+{
+	"validateLink":[
+		{"link":"https://www.tierschutzbund.de/fileadmin/_processed_/e/1/csm_Strassenkatze_getigert_liegend_Xena_c_Tierschutzverein_Schwalbach___Frankfurt-West_e.V._603e5195d1.jpg","expected":true},
+		{"link":"  https://www.tierschutzbund.de/fileadmin/_processed_/e/1/csm_Strassenkatze_getigert_liegend_Xena_c_Tierschutzverein_Schwalbach___Frankfurt-West_e.V._603e5195d1.jpg  ","expected":true},
+		{"link":"http://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394-2.jpg","expected":true},
+		{"link":"  http://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394-2.jpg  ","expected":true},
+		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","expected":true},
+		{"link":"https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg","expected":true},
+		{"link":"https://fotothek.slub-dresden.de/fotos/df/hauptkatalog/0355000/df_hauptkatalog_0355520.jpg","expected":true},
+		{"link":"novalidlink.de","expected":false},
+		{"link":"http://novalidlink.de","expected":false},
+		{"link":"http://google.de","expected":true},
+		{"link":" http://google.de ","expected":true},
+		{"link":"nothing","expected":false}
+	],
+	"linkImageMinSize":[
+		{"link":"https://recherche.smb.museum/images/5822610_2500x2500.jpg","size":2,"expected":true},
+		{"link":" http://fotothek.slub-dresden.de/fotos/df_hauptkatalog_0355520.jpg ","size":2,"expected":true},
+		{"link":" http://fotothek.slub-dresden.de/fotos/df_hauptkatalog_0355520_karte.jpg ","size":2,"expected":true},
+		{"link":"https://recherche.smb.museum/images/3371759_2500x2500.jpg","size":2,"expected":true},
+		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","size":1,"expected":true},
+		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","size":1000,"expected":true},
+		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","size":2000,"expected":false},
+		{"link":"https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg","size":1,"expected":true},
+		{"link":"https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg","size":200,"expected":true},
+		{"link":"https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg","size":500,"expected":false},
+		{"link":"https://fotothek.slub-dresden.de/fotos/df/hauptkatalog/0355000/df_hauptkatalog_0355520.jpg","size":1,"expected":true},
+		{"link":"https://fotothek.slub-dresden.de/fotos/df/hauptkatalog/0355000/df_hauptkatalog_0355520.jpg","size":1000,"expected":true},
+		{"link":"https://fotothek.slub-dresden.de/fotos/df/hauptkatalog/0355000/df_hauptkatalog_0355520.jpg","size":2000,"expected":false},
+		{"link":"nothing","size":1,"expected":false},
+		{"link":"","size":1,"expected":false}
+	],
+	"linkMimeType":[
+		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","type":"image/jpeg","expected":true},
+		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","type":"image","expected":true},
+		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","type":"","expected":false},
+		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","type":"image/jepg","expected":false},
+		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","type":"text/html","expected":false},
+		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","type":"text","expected":false},
+		{"link":"https://fotothek.slub-dresden.de/fotos/df/hauptkatalog/0355000/df_hauptkatalog_0355520.jpg","type":"image/jpeg","expected":true},
+		{"link":"https://fotothek.slub-dresden.de/fotos/df/hauptkatalog/0355000/df_hauptkatalog_0355520.jpg","type":"image","expected":true},
+		{"link":"https://fotothek.slub-dresden.de/fotos/df/hauptkatalog/0355000/df_hauptkatalog_0355520.jpg","type":"text","expected":false},
+		{"link":"http://google.de","type":"text/html","expected":true},
+		{"link":"http://google.de","type":"text","expected":true},
+		{"link":"http://google.de","type":"image/jpeg","expected":false},
+		{"link":"http://google.de","type":"","expected":false},
+		{"link":"http://novalidlink.de","type":"text/html","expected":false},
+		{"link":"novalidlink.de","type":"text/html","expected":false},
+		{"link":"nothing","type":"text","expected":false},
+		{"link":"","type":"text","expected":false}
+	],
+	"linkSource":[
+		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","source":"","expected":true},
+		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","source":"https://","expected":true},
+		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","source":"blablabla","expected":false},
+		{"link":"http://google.de","source":"google","expected":true},
+		{"link":"http://google.de","source":"http","expected":true},
+		{"link":"http://google.de","source":"wikidata","expected":false},
+		{"link":"http://google.de","source":"","expected":true},
+		{"link":"http://novalidlink.de","source":"http://novalidlink","expected":false},
+		{"link":"nothing","source":"nothing","expected":false},
+		{"link":"nothing","source":"http","expected":false},
+		{"link":"","source":"http","expected":false}
+	]
+
+}

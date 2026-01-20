@@ -52,6 +52,7 @@ public class PatternCollection {
 		classes.add(LinkMimeTypeIsoPattern.class);
 		classes.add(LinkMimeTypePattern.class);
 		classes.add(LinkMimeTypeSinPattern.class);
+		classes.add(LinkSourceExistsPattern.class);
 		classes.add(LinkSourceIsoPattern.class);
 		classes.add(LinkSourcePattern.class);
 		classes.add(LinkSourceSinPattern.class);
@@ -61,6 +62,7 @@ public class PatternCollection {
 
 		// mand
 		classes.add(Mand2EleOrPattern.class);
+		classes.add(Mand2PropOrPattern.class);
 		classes.add(Mand3EleOrPattern.class);
 		classes.add(MandAttPattern.class);
 		classes.add(MandContAndIsoPattern.class);

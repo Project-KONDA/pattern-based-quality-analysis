@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.javaoperators.impl;
 
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
@@ -39,6 +41,10 @@ public class LinkSourceOperatorImpl extends OneArgJavaListOperatorImpl implement
 	public Boolean apply(String url) {
 		Boolean negate = getOption().getValue();
 		EList<String> urls = getTextListParam().getValues();
+		return apply2(url, negate, urls);
+	}
+	
+	public static Boolean apply2(String url, Boolean negate, List<String> urls) {
 		boolean contained = false;
 		for (String part: urls) {
 			contained = contained || url.contains(part);

@@ -36,6 +36,10 @@ public class ValidateLinkOperatorImpl extends OneArgJavaOperatorImpl implements 
 	@Override
 	public Boolean apply(String urlString) {
 		Boolean negate = getOption().getValue();
+		return apply2(urlString, negate);
+	}
+	
+	public static Boolean apply2(String urlString, Boolean negate) {
 		urlString = urlString.trim();
 		Boolean result = false;
 		for (String method: LinkOperatorUtil.REQUEST_METHOD) {

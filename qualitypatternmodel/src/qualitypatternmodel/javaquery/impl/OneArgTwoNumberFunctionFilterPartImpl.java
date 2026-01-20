@@ -87,7 +87,7 @@ public class OneArgTwoNumberFunctionFilterPartImpl extends OneArgFunctionFilterP
 		setArgument(new ValueInterimImpl());
 	}
 
-	public OneArgTwoNumberFunctionFilterPartImpl(Class<? extends OneArgJavaTwoNumberOperatorImpl> clazz, Double double1, Double double2, Boolean boolean1) {
+	public OneArgTwoNumberFunctionFilterPartImpl(Class<? extends OneArgJavaTwoNumberOperatorImpl> clazz, Double double1, Double double2, Boolean negate) {
 		super();
 		setArgument(new ValueInterimImpl());
 		setNegate(negate);

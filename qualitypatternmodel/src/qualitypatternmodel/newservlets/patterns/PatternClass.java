@@ -40,7 +40,7 @@ abstract public class PatternClass {
 			String myString = pattern.myToString();
 			System.out.println(myString);
 			PatternUtility.fillParameter(pattern);
-			String query = pattern.generateXQuery();
+			String query = pattern.generateXQueryJava();
 			System.out.println(query);
 		} catch (Exception e) {
 			e.printStackTrace();
