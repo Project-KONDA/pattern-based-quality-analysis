@@ -87,6 +87,7 @@ public class LinkOperatorUtil {
 	);
 
 	private static HttpURLConnection getConnection(String urlString, String responseMethod) {
+    	urlString = urlString.trim();
 	    try {
 			HttpURLConnection connection = (HttpURLConnection) URI.create(urlString).toURL().openConnection();
 	        connection.setRequestMethod(responseMethod);
@@ -99,6 +100,7 @@ public class LinkOperatorUtil {
 	}
 
 	public static Boolean evaluateResponseCode(String urlString, String responseMethod) {
+    	urlString = urlString.trim();
 	    try {
 	    	HttpURLConnection connection = getConnection(urlString, responseMethod);
 	        Integer responseCode = connection.getResponseCode();
@@ -128,6 +130,7 @@ public class LinkOperatorUtil {
 	}
 
 	public static String getMimeType(String urlString, String responseMethod) {
+    	urlString = urlString.trim();
 	    try {
 	    	HttpURLConnection connection = getConnection(urlString, responseMethod);
 	        Integer responseCode = connection.getResponseCode();
@@ -142,6 +145,7 @@ public class LinkOperatorUtil {
 	}
 
 	public static Pair<Integer, Integer> getImageSize(String urlString, String responseMethod) {
+    	urlString = urlString.trim();
 	    try {
 	    	int width, height;
 	    	HttpURLConnection connection = getConnection(urlString, responseMethod);
