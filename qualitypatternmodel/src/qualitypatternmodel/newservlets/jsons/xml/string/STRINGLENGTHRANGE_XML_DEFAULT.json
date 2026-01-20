@@ -14,7 +14,7 @@
             "exampleValue":"Actor",
             "description":"anchor for analysis"
         },
-        {"text":", the character length of all"},
+        {"text":", all"},
         {
             "name":"Properties",
             "params":[5],
@@ -22,30 +22,27 @@
             "description":"value that gets analysed",
             "plural":"true"
         },
-        {"text":"is"},
+        {"text":"are between"},
         {
-            "name":"Compared to",
-            "params":[0],
-            "exampleValue":"less than",
-            "defaultMap":"comparison"
-        },
-        {
-            "name":"a Specific Number",
+            "name":"a Minimum Number",
             "params":[1],
-            "exampleValue":"10"
+            "exampleValue":"5"
         },
         {"text":"and"},
         {
-            "name":"Compared to",
-            "params":[2],
-            "exampleValue":"less than",
-            "defaultMap":"comparison"
+            "name":"a Maximum Number of",
+            "params":[3],
+            "exampleValue":"20"
+        },
+        {"text":"characters in length."},
+		
+        {
+            "params":[0],
+			"value":"GREATEROREQUAL"
         },
         {
-            "name":"a Specific Number",
-            "params":[3],
-            "exampleValue":"10"
-        },
-        {"text":"."}
+            "params":[2],
+			"value":"LESSOREQUAL"
+        }
     ]
 }

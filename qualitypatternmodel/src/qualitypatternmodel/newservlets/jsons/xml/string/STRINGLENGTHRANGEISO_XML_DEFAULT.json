@@ -24,13 +24,13 @@
         },
         {"text":"is between"},
         {
-            "name":"a minimum Number",
+            "name":"a Minimum Number",
             "params":[1],
-            "exampleValue":"8"
+            "exampleValue":"5"
         },
         {"text":"and"},
         {
-            "name":"a maximum Number of",
+            "name":"a Maximum Number of",
             "params":[3],
             "exampleValue":"20"
         },
@@ -38,11 +38,11 @@
 		
 		{
 			"params":[0],
-			"value": "LESS"
+			"value": "GREATEROREQUAL"
 		},
 		{
 			"params":[2],
-			"value": "GREATER"
+			"value": "LESSOREQUAL"
 		}
     ]
 }

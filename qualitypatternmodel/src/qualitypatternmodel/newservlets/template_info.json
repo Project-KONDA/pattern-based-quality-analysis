@@ -249,6 +249,16 @@
 		"name":"Global Uniqueness Check (Across Records)",
 		"description":"Check if specific field values are unique across all records."
 	},
+	"UniqueSinPattern":{
+		"id":"UniqueSin",
+		"name":"Global Uniqueness Check (Across Records) (Single)",
+		"description":"Check if specific field values are unique across all records."
+	},
+	"UniqueIsoPattern":{
+		"id":"UniqueIso",
+		"name":"Global Uniqueness Check (Across Records) (Isolated)",
+		"description":"Check if specific field values are unique across all records."
+	},
 	"ValidLinkPattern":{
 		"id":"ValidLink",
 		"name":"Valid Link",

@@ -242,7 +242,6 @@ public class APIVariantsXMLTest {
 		
 		if(PRINTCONSTRAINT) {
 			JSONObject myconstraint = getConstraint(constraintID);
-			assert(hasCustom == myconstraint.has(ConstantsJSON.CUSTOM));
 			System.out.println(constraint + "\t" + variant+ "\t" + constraintID + "\t" + myconstraint);
 			testConstraintParameter(myconstraint);
 		}

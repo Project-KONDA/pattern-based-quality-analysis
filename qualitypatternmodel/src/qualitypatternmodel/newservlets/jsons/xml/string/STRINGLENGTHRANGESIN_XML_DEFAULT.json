@@ -14,30 +14,27 @@
             "exampleValue":"LastName",
             "description":"value that gets analysed"
         },
-        {"text":"is"},
+        {"text":"is between"},
         {
-            "name":"Compared to",
-            "params":[0],
-            "exampleValue":"less than",
-            "defaultMap":"comparison"
-        },
-        {
-            "name":"a Specific Number",
+            "name":"a Minimum Number",
             "params":[1],
-            "exampleValue":"10"
+            "exampleValue":"5"
         },
         {"text":"and"},
         {
-            "name":"Compared to",
-            "params":[2],
-            "exampleValue":"less than",
-            "defaultMap":"comparison"
-        },
-        {
-            "name":"a Specific Number",
+            "name":"a Maximum Number of",
             "params":[3],
-            "exampleValue":"10"
+            "exampleValue":"20"
         },
-        {"text":"."}
+        {"text":"characters in length."},
+		
+		{
+			"params":[0],
+			"value": "GREATEROREQUAL"
+		},
+		{
+			"params":[2],
+			"value": "LESSOREQUAL"
+		}
     ]
 }
