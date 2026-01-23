@@ -35,5 +35,6 @@ jobs:
         with:
           context: qualitypatternmodel
           file: qualitypatternmodel/Dockerfile
+          build-args: MAVEN_VERSION=${{ env.VERSION }}
           push: true
           tags: harbor.gwdg.de/aqinda/qpm:latest, harbor.gwdg.de/aqinda/qpm:${{ env.VERSION }}
