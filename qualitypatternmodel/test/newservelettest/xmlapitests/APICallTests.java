@@ -56,7 +56,7 @@ import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.EMFModelLoad;
 
 public class APICallTests {
-	private static final boolean DELETE = false;
+	private static final boolean DELETE = true;
 	private static String folder;
 
 	public static void main(String[] args)
@@ -345,7 +345,7 @@ public class APICallTests {
 		});
 	}
 
-//	@Test
+	@Test
 	public void testLogDeletion() throws IOException {
 		String logdirectory = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.LOGFILE;
 		logdirectory = logdirectory.substring(0, logdirectory.lastIndexOf('/'));
@@ -408,6 +408,7 @@ public class APICallTests {
 		assert(result.has("title"));
 		assert(result.has("status"));
 		assert(result.has("timestamp"));
+		assert(result.has("version"));
 		assertThrows(FailedServletCallException.class, () -> InitialisationServlet.applyGet("/anything", getEmptyParams()));
 	}
 

@@ -397,8 +397,11 @@ public class InitialisationServlet extends HttpServlet {
 
 	public static JSONObject applyGet(String path, Map<String, String[]> params) throws FailedServletCallException {
 		if (path == null || path.equals("") || path.equals("/") || path.equals("/status") || path.equals("/health")) {
+			String version = System.getenv("MAVEN_VERSION");
+			version = (version != null) ? version : "dev";
 			JSONObject result = new JSONObject();
 			result.put("title", "Quality Pattern Model API");
+			result.put("version", version);
 			result.put("status", "ok");
 			result.put("repository", "https://github.com/Project-KONDA/pattern-based-quality-analysis");
 			result.put("docs", "https://github.com/Project-KONDA/pattern-based-quality-analysis/blob/master/qualitypatternmodel/openapi.yaml");
