@@ -1,6 +1,7 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -138,7 +139,7 @@ public class PatternListServlet extends HttpServlet {
 
 		JSONArray templates = new JSONArray();
 		JSONArray ids = new JSONArray();
-		JSONArray tags = new JSONArray();
+		HashSet<String> tags = new HashSet<String>();
 		int total = 0;
 
 		for (int i = 0; i < allTemplates.size(); i++) {
@@ -146,7 +147,9 @@ public class PatternListServlet extends HttpServlet {
 			if (template.has(ConstantsJSON.DATAMODEL) && datamodel.equals(template.getString(ConstantsJSON.DATAMODEL))) {
 				templates.put(template);
 				ids.put(template.getString(ConstantsJSON.CONSTRAINT_ID));
-				tags.putAll(template.getJSONArray(ConstantsJSON.TAG));
+				JSONArray tagarray = template.getJSONArray(ConstantsJSON.TAG);
+				for (int j = 0; i<tagarray.length(); i++)
+					tags.add(tagarray.getString(j));
 				total++;
 			}
 		}
@@ -154,7 +157,7 @@ public class PatternListServlet extends HttpServlet {
 		JSONObject patternJSONs = new JSONObject();
 		patternJSONs.put(ConstantsJSON.TEMPLATES, templates);
 		patternJSONs.put(ConstantsJSON.IDS, ids);
-		patternJSONs.put(ConstantsJSON.TAGS, tags);
+		patternJSONs.put(ConstantsJSON.TAGS, new JSONArray(tags));
 		patternJSONs.put(ConstantsJSON.TOTAL, total);
 		return patternJSONs;
 	}
