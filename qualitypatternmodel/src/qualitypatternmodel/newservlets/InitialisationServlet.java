@@ -303,6 +303,7 @@ public class InitialisationServlet extends HttpServlet {
 //		String templatefolder = ServletConstants.PATTERN_VOLUME + "/" + json.getString(ConstantsJSON.LANGUAGE) + "/" + ServletConstants.TEMPLATEFOLDER;
 		String templateID = json.getString(ConstantsJSON.TEMPLATE);
 		String technology = json.getString(ConstantsJSON.LANGUAGE);
+		String name = json.getString(ConstantsJSON.NAME);
 
 		try {
 			CompletePattern template = ServletUtilities.loadTemplate(technology, templateID);
@@ -311,8 +312,7 @@ public class InitialisationServlet extends HttpServlet {
 			ServletUtilities.saveTemplate(technology, templateID, template);
 //			EMFModelSave.exportToFile2(template, templatefolder, templateID, Constants.EXTENSION);
 		} catch (Exception e) {
-			System.err.println(e.getLocalizedMessage());
-			ServletUtilities.logError(e);
+			ServletUtilities.logError(new InvalidityException("Invalid variant " + templateID + "_" + name, e));
 		}
 	}
 

@@ -254,6 +254,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 
 	protected ParameterFragmentImpl(CompletePattern pattern, JSONObject json, int nid) throws JSONException, InvalidityException {
 		super();
+		if (!json.has(ConstantsJSON.NAME)) {
+			throw new InvalidityException("Not valid JSON to a create ParameterFragment");
+		}
+		if (!json.has(ConstantsJSON.PARAMETER)) {
+			throw new InvalidityException("Not valid JSON to a create ParameterFragment");
+		}
 		if (!json.has(ConstantsJSON.NAME) || !json.has(ConstantsJSON.PARAMETER)) {
 			throw new InvalidityException("Not valid JSON to a create ParameterFragment");
 		}
@@ -267,12 +273,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
         	List<Parameter> parameters = pattern.getParameterList().getParameters(); 
             int paramID = params.getInt(i);
             if (parameters.size()<= paramID)
-            	throw new InvalidityException("invalid parameter ID in JSON: " + paramID);
+            	throw new InvalidityException("invalid parameter ID in JSON: " + paramID + " in variant " + json.get(ConstantsJSON.NAME));
             try {
             	Parameter p = parameters.get(paramID);
                 getParameter().add(p);
             } catch (Exception e) {
-            	throw new InvalidityException("Not valid JSON to a create ParameterFragment: ", e);
+            	throw new InvalidityException("Not valid JSON to a create ParameterFragment in variant " + json.get(ConstantsJSON.NAME), e);
             }
         }
 		// exampleValue

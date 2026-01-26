@@ -222,7 +222,11 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
             boolean hasValue = fragmentObject.has(ConstantsJSON.VALUE);
 
             if (hasParams && hasName) {
-            	addFragment(new ParameterFragmentImpl(pattern, fragmentObject, id_counter));
+            	try {
+            		addFragment(new ParameterFragmentImpl(pattern, fragmentObject, id_counter));
+            	} catch (Exception e) {
+            		throw new InvalidityException("invalid ParameterFragment object for " + template + "_" + name, e);
+            	}
             	id_counter++;
             }
             else if (hasParams && hasValue) {
