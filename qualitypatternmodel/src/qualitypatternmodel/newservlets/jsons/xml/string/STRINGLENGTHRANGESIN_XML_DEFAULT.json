@@ -7,7 +7,7 @@
 		"description": "default variant for StringLengthRangeSin_xml"
 	},
     "fragments":[
-        {"text":"The character length of each"},
+        {"text":"Each"},
         {
             "name":"Property",
             "params":[4],
