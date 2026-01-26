@@ -26,7 +26,7 @@ jobs:
           cd qualitypatternmodel
           POM_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
           BASE_VERSION=${POM_VERSION%.0}
-          PATCH=$(git rev-list v$POM_VERSION..HEAD --count)
+          PATCH=$(git rev-list v$POM_VERSION..HEAD --count --first-parent)
           VERSION="$BASE_VERSION.$PATCH"
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
@@ -35,5 +35,6 @@ jobs:
         with:
           context: qualitypatternmodel
           file: qualitypatternmodel/Dockerfile
+          build-args: MAVEN_VERSION=${{ env.VERSION }}
           push: true
           tags: harbor.gwdg.de/aqinda/qpm:latest, harbor.gwdg.de/aqinda/qpm:${{ env.VERSION }}

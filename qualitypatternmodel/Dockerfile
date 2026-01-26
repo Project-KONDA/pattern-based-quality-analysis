@@ -33,7 +33,10 @@ RUN sed -i 's/<Connector port="8080" protocol="HTTP\/1.1"/<Connector port="8080"
 
 # compile maven to war file
 WORKDIR /usr/src/app
-RUN mvn clean compile install package -DskipTests=true
+ARG MAVEN_VERSION='SNAPSHOT'
+ENV MAVEN_VERSION=${MAVEN_VERSION}
+RUN mvn clean compile install package -DskipTests=true -Drevision=${MAVEN_VERSION}
+
 
 # deploy war
 RUN cp target/*.war /usr/local/tomcat/webapps/ROOT.war
