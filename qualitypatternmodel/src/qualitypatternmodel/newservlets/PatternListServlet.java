@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import jakarta.servlet.http.HttpServlet;
@@ -12,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
 public class PatternListServlet extends HttpServlet {
@@ -51,7 +53,13 @@ public class PatternListServlet extends HttpServlet {
 			throw new InvalidServletCallException("'" + level + "' is an invalid abstraction level. The levels are: " + Constants.LEVELS);
 		}
 		
-		return getPatternJsons(technology, level);
+		if (pathparts.length == 3)	
+			return getPatternJsons(technology, level);
+		else {
+			String datamodel = pathparts[3];
+			return getPatternJsons(technology, level, datamodel);
+			
+		}
 
 //		List<CompletePattern> patterns = getPatterns(technology, level);
 //
@@ -109,5 +117,45 @@ public class PatternListServlet extends HttpServlet {
 			break;
 		}
 		return ServletUtilities.combinePatternJSONs(patterns);
+	}
+
+	private static JSONObject getPatternJsons(String technology, String level, String datamodel)
+			throws InvalidServletCallException {
+		
+
+		List<JSONObject> allTemplates = null;
+		switch (level) {
+		case Constants.LVLALL:
+		case Constants.LVLTEMPLATE:
+			throw new InvalidServletCallException("Templates do not have datamodels. Thus they cannot be filtered by datamodel.");
+		case Constants.LVLCONSTRAINT:
+			allTemplates = ServletUtilities.getConstraintJSONs(technology);
+			break;
+		case Constants.LVLREADY:
+			allTemplates = ServletUtilities.getReadyConstraintJSONs(technology);
+			break;
+		}
+
+		JSONArray templates = new JSONArray();
+		JSONArray ids = new JSONArray();
+		JSONArray tags = new JSONArray();
+		int total = 0;
+
+		for (int i = 0; i < allTemplates.size(); i++) {
+			JSONObject template = allTemplates.get(i);
+			if (template.has(ConstantsJSON.DATAMODEL) && datamodel.equals(template.getString(ConstantsJSON.DATAMODEL))) {
+				templates.put(template);
+				ids.put(template.getString(ConstantsJSON.CONSTRAINT_ID));
+				tags.putAll(template.getJSONArray(ConstantsJSON.TAG));
+				total++;
+			}
+		}
+
+		JSONObject patternJSONs = new JSONObject();
+		patternJSONs.put(ConstantsJSON.TEMPLATES, templates);
+		patternJSONs.put(ConstantsJSON.IDS, ids);
+		patternJSONs.put(ConstantsJSON.TAGS, tags);
+		patternJSONs.put(ConstantsJSON.TOTAL, total);
+		return patternJSONs;
 	}
 }
