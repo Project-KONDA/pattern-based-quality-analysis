@@ -144,13 +144,15 @@ public class PatternListServlet extends HttpServlet {
 
 		for (int i = 0; i < allTemplates.size(); i++) {
 			JSONObject template = allTemplates.get(i);
-			if (template.has(ConstantsJSON.DATAMODEL) && datamodel.equals(template.getString(ConstantsJSON.DATAMODEL))) {
+			if (template.has(ConstantsJSON.CONSTRAINT_ID) && template.has(ConstantsJSON.DATAMODEL) && datamodel.equals(template.getString(ConstantsJSON.DATAMODEL))) {
 				templates.put(template);
 				ids.put(template.getString(ConstantsJSON.CONSTRAINT_ID));
-				JSONArray tagarray = template.getJSONArray(ConstantsJSON.TAG);
-				for (int j = 0; i<tagarray.length(); i++)
-					tags.add(tagarray.getString(j));
 				total++;
+				if (template.has(ConstantsJSON.TAG)) {
+					JSONArray tagarray = template.getJSONArray(ConstantsJSON.TAG);
+					for (int j = 0; i<tagarray.length(); i++)
+						tags.add(tagarray.getString(j));
+				}
 			}
 		}
 
