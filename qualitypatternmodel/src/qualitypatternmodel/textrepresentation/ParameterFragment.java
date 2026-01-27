@@ -22,6 +22,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#isPlural <em>Plural</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getAttributeMap <em>Attribute Map</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getDefaultValue <em>Default Value</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterFragment()
@@ -182,6 +183,28 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	 * @generated
 	 */
 	void setAttributeMap(ValueMap value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value</em>' attribute.
+	 * @see #setDefaultValue(String)
+	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterFragment_DefaultValue()
+	 * @model
+	 * @generated
+	 */
+	String getDefaultValue();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getDefaultValue <em>Default Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value</em>' attribute.
+	 * @see #getDefaultValue()
+	 * @generated
+	 */
+	void setDefaultValue(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Map</b></em>' containment reference.

@@ -83,6 +83,7 @@ import qualitypatternmodel.utility.ConstantsJSON;
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#isPlural <em>Plural</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getAttributeMap <em>Attribute Map</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getDefaultValue <em>Default Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -244,6 +245,27 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	protected ValueMap attributeMap;
 
 	/**
+	 * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEFAULT_VALUE_EDEFAULT = null;
+
+
+	/**
+	 * The cached value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String defaultValue = DEFAULT_VALUE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -291,6 +313,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
         if(json.has(ConstantsJSON.DESCRIPTION)) {
         	String desc = json.get(ConstantsJSON.DESCRIPTION).toString();
         	setDescription(desc);
+        }
+
+		// defaultValue
+        if(json.has(ConstantsJSON.DEFAULTVALUE)) {
+        	setDefaultValue(json.get(ConstantsJSON.DEFAULTVALUE).toString());
         }
 
         // newId
@@ -534,6 +561,29 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__ATTRIBUTE_MAP, newAttributeMap, newAttributeMap));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDefaultValue() {
+		return defaultValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDefaultValue(String newDefaultValue) {
+		String oldDefaultValue = defaultValue;
+		defaultValue = newDefaultValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__DEFAULT_VALUE, oldDefaultValue, defaultValue));
 	}
 
 	/**
@@ -1316,6 +1366,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return isPlural();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__ATTRIBUTE_MAP:
 				return getAttributeMap();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__DEFAULT_VALUE:
+				return getDefaultValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1357,6 +1409,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__ATTRIBUTE_MAP:
 				setAttributeMap((ValueMap)newValue);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__DEFAULT_VALUE:
+				setDefaultValue((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1396,6 +1451,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__ATTRIBUTE_MAP:
 				setAttributeMap((ValueMap)null);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__DEFAULT_VALUE:
+				setDefaultValue(DEFAULT_VALUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1426,6 +1484,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return plural != PLURAL_EDEFAULT;
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__ATTRIBUTE_MAP:
 				return attributeMap != null;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__DEFAULT_VALUE:
+				return DEFAULT_VALUE_EDEFAULT == null ? defaultValue != null : !DEFAULT_VALUE_EDEFAULT.equals(defaultValue);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1555,6 +1615,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		result.append(description);
 		result.append(", plural: ");
 		result.append(plural);
+		result.append(", defaultValue: ");
+		result.append(defaultValue);
 		result.append(')');
 		return result.toString();
 	}

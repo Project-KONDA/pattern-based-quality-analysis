@@ -983,6 +983,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="plural" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeMap" eType="#//textrepresentation/ValueMap"
           containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Fragment" abstract="true">
       <eOperations name="generateJSON" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
