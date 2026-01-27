@@ -26,7 +26,8 @@
             "name":"Do / Do Not",
             "params":[0],
             "defaultMap":"do not",
-            "exampleValue":"do"
+            "exampleValue":"do",
+            "default": "do"
         },
         {"text":"match one of"},
         {
