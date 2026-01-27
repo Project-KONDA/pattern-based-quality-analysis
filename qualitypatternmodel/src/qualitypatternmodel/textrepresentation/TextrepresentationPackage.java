@@ -422,13 +422,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT__ATTRIBUTE_MAP = FRAGMENT_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT__DEFAULT_VALUE = FRAGMENT_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Parameter Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 9;
+	int PARAMETER_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Generate JSON</em>' operation.
@@ -1240,6 +1249,17 @@ public interface TextrepresentationPackage extends EPackage {
 	EReference getParameterFragment_AttributeMap();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getDefaultValue <em>Default Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Value</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#getDefaultValue()
+	 * @see #getParameterFragment()
+	 * @generated
+	 */
+	EAttribute getParameterFragment_DefaultValue();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getType() <em>Get Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1891,6 +1911,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PARAMETER_FRAGMENT__ATTRIBUTE_MAP = eINSTANCE.getParameterFragment_AttributeMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_FRAGMENT__DEFAULT_VALUE = eINSTANCE.getParameterFragment_DefaultValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Type</b></em>' operation.

@@ -162,7 +162,8 @@ The parameter-fragments can be supplemented with further optional parameters:
         "true": "do not",
         "false": "do"
     },
-    "defaultMap":"comparison_is"
+    "defaultMap":"donot",
+    "default":"do"
 }
 ```
 - **description**: The description can hold valuable information on what the parameter means in the context. This can be a String of any length.
@@ -172,6 +173,7 @@ The parameter-fragments can be supplemented with further optional parameters:
 - **defaultMap**: With the default maps, we can reuse existing maps. Currently available are: `comparison`, `comparison_negated`, `comparison_is`, `comparison_isnot`, `comparison_are`, `comparison_arenot`, `is`, `isnot`, `are`, `are not`, `do`, `donot`, `does`, `doesnot`, `must` `must not`.
 Note, that sometimes the negation is required, if the formulation is a constraint instead of an antipattern (see typeConstraint).
 The declaration of default maps can be found [here](https://github.com/Project-KONDA/pattern-based-quality-analysis/blob/master/qualitypatternmodel/src/qualitypatternmodel/textrepresentation/impl/ParameterFragmentImpl.java#L571).
+- **default**: When instantiating a new template, boolean values start as true and other values start as unset. This parameter allows to put in default values for every Parameter. This can be either a real value or a value from the set map.
 
 ### Parameter Predefinitions
 It can occur in some variants, that template-parameters shall be filled with a fixed value. This can simplify the template, improve the readability and understandability of the end user.

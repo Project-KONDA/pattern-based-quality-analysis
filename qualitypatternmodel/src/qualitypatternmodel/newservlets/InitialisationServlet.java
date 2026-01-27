@@ -303,6 +303,7 @@ public class InitialisationServlet extends HttpServlet {
 //		String templatefolder = ServletConstants.PATTERN_VOLUME + "/" + json.getString(ConstantsJSON.LANGUAGE) + "/" + ServletConstants.TEMPLATEFOLDER;
 		String templateID = json.getString(ConstantsJSON.TEMPLATE);
 		String technology = json.getString(ConstantsJSON.LANGUAGE);
+		String name = json.getString(ConstantsJSON.NAME);
 
 		try {
 			CompletePattern template = ServletUtilities.loadTemplate(technology, templateID);
@@ -311,8 +312,7 @@ public class InitialisationServlet extends HttpServlet {
 			ServletUtilities.saveTemplate(technology, templateID, template);
 //			EMFModelSave.exportToFile2(template, templatefolder, templateID, Constants.EXTENSION);
 		} catch (Exception e) {
-			System.err.println(e.getLocalizedMessage());
-			ServletUtilities.logError(e);
+			ServletUtilities.logError(new InvalidityException("Invalid variant " + templateID + "_" + name, e));
 		}
 	}
 
@@ -397,8 +397,11 @@ public class InitialisationServlet extends HttpServlet {
 
 	public static JSONObject applyGet(String path, Map<String, String[]> params) throws FailedServletCallException {
 		if (path == null || path.equals("") || path.equals("/") || path.equals("/status") || path.equals("/health")) {
+			String version = System.getenv("MAVEN_VERSION");
+			version = (version != null) ? version : "dev";
 			JSONObject result = new JSONObject();
 			result.put("title", "Quality Pattern Model API");
+			result.put("version", version);
 			result.put("status", "ok");
 			result.put("repository", "https://github.com/Project-KONDA/pattern-based-quality-analysis");
 			result.put("docs", "https://github.com/Project-KONDA/pattern-based-quality-analysis/blob/master/qualitypatternmodel/openapi.yaml");

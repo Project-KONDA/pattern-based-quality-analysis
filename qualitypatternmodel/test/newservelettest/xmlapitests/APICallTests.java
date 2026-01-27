@@ -158,7 +158,7 @@ public class APICallTests {
 
 	static String newConstraint()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		return newConstraint("Match_xml", "default-constraint");
+		return newConstraint("Match_xml", "default");
 	}
 
 	public static String newConstraint(String pattern, String variant)
@@ -408,6 +408,7 @@ public class APICallTests {
 		assert(result.has("title"));
 		assert(result.has("status"));
 		assert(result.has("timestamp"));
+		assert(result.has("version"));
 		assertThrows(FailedServletCallException.class, () -> InitialisationServlet.applyGet("/anything", getEmptyParams()));
 	}
 
@@ -654,7 +655,7 @@ public class APICallTests {
 	@Test
 	public void testConstraintMqafServlet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		String constraintID = newConstraint("Card_xml", "default-constraint");
+		String constraintID = newConstraint("Card_xml", "default");
 		Map<String, String[]> params = getEmptyParams();
 		params.put("XmlPath_Element_0", new String[] { "//lido:lido" });
 		params.put("ComparisonOption_1", new String[] { "exactly" });
@@ -677,7 +678,7 @@ public class APICallTests {
 	@Test
 	public void testConstraintQueryServlet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		String constraintID = newConstraint("Card_xml", "default-constraint");
+		String constraintID = newConstraint("Card_xml", "default");
 		Map<String, String[]> params = getEmptyParams();
 		params.put("XmlPath_Element_0", new String[] { "//lido:lido" });
 		params.put("ComparisonOption_1", new String[] { "exactly" });
@@ -700,7 +701,7 @@ public class APICallTests {
 //	@Test
 	public void testConstraintExecuteServletGet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		String constraintID = newConstraint("Card_xml", "default-constraint");
+		String constraintID = newConstraint("Card_xml", "default");
 		Map<String, String[]> params = getEmptyParams();
 		params.put("XmlPath_Element_0", new String[] { "//lido:lido" });
 		params.put("ComparisonOption_1", new String[] { "exactly" });
@@ -749,7 +750,7 @@ public class APICallTests {
 	@Test
 	public void testConstraintDownloadServletGet() 
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		String constraintID = newConstraint("Card_xml", "default-constraint");
+		String constraintID = newConstraint("Card_xml", "default");
 		File file = ConstraintDownloadServlet.applyGet("/xml/" + constraintID, getEmptyParams());
 		assert(file != null);
 		assert(file.isFile());
@@ -761,7 +762,7 @@ public class APICallTests {
 	@Test
 	public void testConstraintUploadServletPost() 
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		String constraintID = newConstraint("Card_xml", "default-constraint");
+		String constraintID = newConstraint("Card_xml", "default");
 		File file = ConstraintDownloadServlet.applyGet("/xml/" + constraintID, getEmptyParams());
 		JSONObject object = ConstraintUploadServlet.applyPost(null, getEmptyParams(), file);
 		assertPatternJSONObject(object);

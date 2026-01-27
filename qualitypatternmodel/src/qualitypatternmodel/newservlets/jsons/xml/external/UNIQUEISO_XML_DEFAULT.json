@@ -7,12 +7,13 @@
 		"description": "default variant for UniqueIso_xml. Checks only uniqueness of a value within a file."
 	},	
     "fragments":[
-        {"text":"In every"},
+        {"text":"For all"},
         {
-            "name":"Element",
+            "name":"Elements",
             "params":[5,7],
             "exampleValue":"Actor",
-            "description":"anchor for analysis"
+            "description":"anchor for analysis",
+            "plural": "true"
         },
         {"text":", each"},
         {

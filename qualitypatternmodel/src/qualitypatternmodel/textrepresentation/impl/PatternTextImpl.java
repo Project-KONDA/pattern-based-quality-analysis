@@ -222,7 +222,11 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
             boolean hasValue = fragmentObject.has(ConstantsJSON.VALUE);
 
             if (hasParams && hasName) {
-            	addFragment(new ParameterFragmentImpl(pattern, fragmentObject, id_counter));
+            	try {
+            		addFragment(new ParameterFragmentImpl(pattern, fragmentObject, id_counter));
+            	} catch (Exception e) {
+            		throw new InvalidityException("invalid ParameterFragment object for " + template + "_" + name, e);
+            	}
             	id_counter++;
             }
             else if (hasParams && hasValue) {
@@ -651,9 +655,16 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				text.delete();
 			}
 		}
-		for(ParameterPredefinition p : getParameterPredefinitions()) {
+		for (ParameterPredefinition p : getParameterPredefinitions()) {
 			for(Parameter param : p.getParameter()) {
 				param.setValueFromString(p.getValue());
+			}
+		}
+		for (Fragment f : getFragments()) {
+			if (f instanceof ParameterFragment) {
+				ParameterFragment pf = (ParameterFragment) f;
+				if (pf.getDefaultValue() != null)
+					pf.setValue(pf.getDefaultValue());
 			}
 		}
 	}

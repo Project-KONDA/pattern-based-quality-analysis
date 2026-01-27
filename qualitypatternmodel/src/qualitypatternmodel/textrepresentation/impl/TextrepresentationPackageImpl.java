@@ -499,6 +499,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EAttribute getParameterFragment_DefaultValue() {
+		return (EAttribute)parameterFragmentEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getParameterFragment__GetType() {
 		return parameterFragmentEClass.getEOperations().get(0);
 	}
@@ -950,6 +960,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEAttribute(parameterFragmentEClass, PARAMETER_FRAGMENT__DESCRIPTION);
 		createEAttribute(parameterFragmentEClass, PARAMETER_FRAGMENT__PLURAL);
 		createEReference(parameterFragmentEClass, PARAMETER_FRAGMENT__ATTRIBUTE_MAP);
+		createEAttribute(parameterFragmentEClass, PARAMETER_FRAGMENT__DEFAULT_VALUE);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_TYPE);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_ROLE);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___SET_VALUE__STRING);
@@ -1084,6 +1095,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		initEAttribute(getParameterFragment_Description(), ecorePackage.getEString(), "description", null, 0, 1, ParameterFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameterFragment_Plural(), ecorePackage.getEBoolean(), "plural", null, 0, 1, ParameterFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameterFragment_AttributeMap(), this.getValueMap(), null, "attributeMap", null, 0, 1, ParameterFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameterFragment_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, ParameterFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getParameterFragment__GetType(), ecorePackage.getEString(), "getType", 0, 1, IS_UNIQUE, IS_ORDERED);
 

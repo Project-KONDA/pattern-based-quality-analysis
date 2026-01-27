@@ -646,6 +646,7 @@ public abstract class ServletUtilities {
 	public static void deleteConstraint(String technology, String constraintId) throws IOException {
 		String patternpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + constraintId + "." + Constants.EXTENSION;
 		String jsonpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + constraintId + ".json";
+		String queryjsonpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + ServletConstants.QUERYJSONFOLDER + "/" + constraintId + ".json";
 //		patternpath = servletContext.getRealPath(patternpath);
 
 		CompletePattern constraint = EMFModelLoad.loadCompletePattern(patternpath);
@@ -653,6 +654,9 @@ public abstract class ServletUtilities {
 			Files.delete(Paths.get(patternpath));
 			try {
 				Files.delete(Paths.get(jsonpath));
+			} catch (Exception e) {}
+			try {
+				Files.delete(Paths.get(queryjsonpath));
 			} catch (Exception e) {}
 		} else {
 			throw new IOException(ConstantsError.INVALID_FILEFORMAT);

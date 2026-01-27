@@ -40,6 +40,7 @@ public class ConstantsJSON {
 	// Parameter Information
 	public static final String PARAMETER = "params";
 	public static final String EXAMPLEVALUE = "exampleValue";
+	public static final String DEFAULTVALUE = "default";
 	public static final String DESCRIPTION = "description";
 	public static final String VALUE = "value";
 	public static final String USERVALUE = "userValue";

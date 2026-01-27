@@ -806,6 +806,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/description"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/plural"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/attributeMap"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/defaultValue"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getType"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getRole"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/setValue">

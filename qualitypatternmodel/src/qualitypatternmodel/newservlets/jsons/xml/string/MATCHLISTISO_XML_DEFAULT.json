@@ -26,7 +26,8 @@
             "name":"Does / Does Not",
             "params":[0],
             "defaultMap":"does not",
-            "exampleValue":"does"
+            "exampleValue":"does",
+            "default": "does"
         },
         {"text":"match one of"},
         {
