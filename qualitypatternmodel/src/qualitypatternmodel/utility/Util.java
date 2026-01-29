@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -107,7 +108,12 @@ public class Util {
 
 	public static JSONObject loadJson(String filepath) throws IOException {
 	    String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
-	    JSONObject jsonObject = new JSONObject(jsonString);
+	    JSONObject jsonObject;
+	    try {
+	    	jsonObject = new JSONObject(jsonString);
+	    } catch (JSONException e) {
+	    	throw new JSONException("File " + filepath + " is not a valid json: " + e.getMessage());
+	    }
 	    return jsonObject;
 	}
 }

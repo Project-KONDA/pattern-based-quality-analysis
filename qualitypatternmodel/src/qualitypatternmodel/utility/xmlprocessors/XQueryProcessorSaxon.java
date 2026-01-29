@@ -278,7 +278,6 @@ public class XQueryProcessorSaxon {
         } else {
             obj.put(ConstantsJSON.RESULT_STARTLINE, -linesize);
             obj.put(ConstantsJSON.RESULT_ENDLINE, -1);
-        	
         }
         return obj;
 	}
