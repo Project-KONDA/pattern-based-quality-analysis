@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for LinkSourceIso_xml"
+		"description": "default variant for LinkSourceIso_xml",
+		"type": ["vocab", "ref"],
+		"scope": "containered"
 	},
     "fragments":[
         {"text":"For all"},
@@ -20,9 +22,9 @@
             "name":"Property",
             "params":[2],
             "exampleValue":"Birth Certificate Source",
-            "description":"property of interest,that should contain a valid link."
+            "description":"property of interest that should contain a valid link"
         },
-        {"text":"is a valid link, that targets a subpage of"},
+        {"text":"is a valid link that targets a subpage of"},
         {
             "name":"domain-urls",
             "params":[1],
@@ -30,7 +32,6 @@
             "description":"domains"
         },
         {"text":"."},
-        
         {
             "params":[0],
             "value": "true"

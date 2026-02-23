@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for LinkMimeTypeIso_xml"
+		"description": "default variant for LinkMimeTypeIso_xml",
+		"type": ["ref"],
+		"scope": "containered"
 	},
     "fragments":[
         {"text":"For all"},
@@ -20,9 +22,9 @@
             "name":"Property",
             "params":[2],
             "exampleValue":"Birth Certificate Source",
-            "description":"property of interest,that should contain a valid link."
+            "description":"property of interest that should contain a valid link"
         },
-        {"text":"is a valid link, that has a MIME Type that is in the list of "},
+		{"text":"resolves to a MIME type that is one of"},
         {
             "name":"MIME-Types",
             "params":[1],
@@ -30,7 +32,6 @@
             "description":"MIME types"
         },
         {"text":"."},
-        
         {
             "params":[0],
             "value": "true"

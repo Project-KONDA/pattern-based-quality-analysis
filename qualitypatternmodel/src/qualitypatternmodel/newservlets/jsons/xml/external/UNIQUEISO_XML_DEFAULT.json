@@ -4,8 +4,10 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for UniqueIso_xml. Checks only uniqueness of a value within a file."
-	},	
+		"description": "default variant for UniqueIso_xml. Checks only uniqueness of a value within a file.",
+		"type": ["uniq"],
+		"scope": "containered"
+	},
     "fragments":[
         {"text":"For all"},
         {

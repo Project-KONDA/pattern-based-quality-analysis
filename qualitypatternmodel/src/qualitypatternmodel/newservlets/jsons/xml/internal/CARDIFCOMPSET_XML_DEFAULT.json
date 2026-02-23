@@ -5,6 +5,8 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "default variant for CardIfCompSet_xml. This is a template specifically created to check a requirement of a LIDO requirement",
+		"type": ["qty", "cond"],
+		"scope": "simple",
 		"aqindaid": 21
 	},
     "fragments":[
@@ -25,7 +27,8 @@
             "name":"Is / Is Not",
             "params":[1],
             "exampleValue":"is",
-            "defaultMap":"comparison_is"
+            "defaultMap":"comparison_is",
+            "default":"is"
         },
         {"text":"in the list of"},
         {
@@ -38,12 +41,14 @@
             "name":"a Comparison with",
             "params":[3],
 			"exampleValue": "",
-            "defaultMap":"comparison"
+            "defaultMap":"comparison",
+            "default":"at least"
         },
         {
             "name":"a Specific Number of",
             "params":[4],
-			"exampleValue": ""
+			"exampleValue": "1",
+            "default":"1"
         },
         {
             "name":"Property B",

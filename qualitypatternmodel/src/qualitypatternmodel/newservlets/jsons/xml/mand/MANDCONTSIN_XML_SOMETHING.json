@@ -4,7 +4,9 @@
     "name":"something",
 	"typeConstraint":true,
 	"custom": {
-		"description": "very simplified variant for MandContSin_xml"
+		"description": "very simplified variant for MandContSin_xml",
+		"type": ["exist"],
+		"scope": "simple"
 	},
     "fragments":[
 		{"text":"Each"},
@@ -15,7 +17,6 @@
 			"description":"element of analyis"
 		},
 		{"text":"contains something."},
-		
 		{
 			"params":[2],
 			"value":"/*"

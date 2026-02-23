@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for MatchIso_xml"
+		"description": "default variant for MatchIso_xml",
+		"type": ["fmt"],
+		"scope": "containered"
 	},
     "fragments":[
         {"text":"For all"},

@@ -4,7 +4,9 @@
     "name":"nonempty",
 	"typeConstraint":true,
 	"custom": {
-		"description": "simplified variant for StringLengthIso_xml"
+		"description": "simplified variant for StringLengthIso_xml",
+		"type": ["exist"],
+		"scope": "containered"
 	},
     "fragments":[
         {"text":"For all"},

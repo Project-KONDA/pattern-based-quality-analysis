@@ -4,7 +4,9 @@
     "name":"something",
 	"typeConstraint":true,
 	"custom": {
-		"description": "very simplified variant for MandContIso_xml"
+		"description": "very simplified variant for MandContIso_xml",
+		"type": ["exist"],
+		"scope": "containered"
 	},
     "fragments":[
 		{"text":"For all"},
@@ -23,7 +25,6 @@
 			"description":"element of analyis"
 		},
 		{"text":"contains something."},
-		
 		{
 			"params":[3],
 			"value":"/*"

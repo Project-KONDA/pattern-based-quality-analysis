@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for ValidLinkSin_xml"
+		"description": "default variant for ValidLinkSin_xml",
+		"type": ["ref"],
+		"scope": "simple"
 	},
     "fragments":[
         {"text":"Each"},
@@ -15,7 +17,6 @@
             "description":"property of interest,that should contain a valid link."
         },
         {"text":"is a valid link."},
-        
         {
             "params":[0],
             "value": "true"

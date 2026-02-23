@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for Comp_xml"
+		"description": "default variant for Comp_xml",
+		"type": ["comp"],
+		"scope": "hierarchical"
 	},
     "fragments":[
         {"text":"For each"},
@@ -26,7 +28,8 @@
             "name":"Is / Is Not",
             "params":[0],
             "exampleValue":"is",
-            "defaultMap":"comparison_isnot"
+            "defaultMap":"comparison_isnot",
+			"default":"is"
         },
         {"text":"equal to"},
         {

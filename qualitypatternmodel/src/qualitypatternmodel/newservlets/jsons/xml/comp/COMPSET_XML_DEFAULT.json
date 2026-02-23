@@ -4,10 +4,12 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for CompSet_xml"
+		"description": "default variant for CompSet_xml",
+		"type": ["vocab"],
+		"scope": "hierarchical"
 	},
     "fragments":[
-        {"text":"In each"},
+        {"text":"For each"},
         {
             "name":"Element",
             "params":[3],
@@ -25,8 +27,9 @@
         {
             "name":"Are / Are Not",
             "params":[1],
-            "exampleValue":"are not",
-            "defaultMap":"comparison_arenot"
+            "exampleValue":"are",
+            "defaultMap":"comparison_arenot",
+			"default":"are"
         },
         {"text":"in the list of"},
         {

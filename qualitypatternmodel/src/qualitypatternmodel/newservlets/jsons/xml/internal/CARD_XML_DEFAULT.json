@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for Card_xml"
+		"description": "default variant for Card_xml",
+		"type": ["exist", "qty"],
+		"scope": "simple"
 	},
     "fragments":[
         {"text":"Each"},
@@ -18,13 +20,15 @@
         {
             "name":"a Comparison with",
             "params":[0],
-            "exampleValue":"at most",
-            "defaultMap":"comparison_negated"
+            "exampleValue":"at least",
+            "defaultMap":"comparison_negated",
+            "default":"at least"
         },
         {
             "name":"a Specific Number of",
             "params":[1],
-            "exampleValue":"1"
+            "exampleValue":"1",
+            "default":"1"
         },
         {
             "name":"Subelements",

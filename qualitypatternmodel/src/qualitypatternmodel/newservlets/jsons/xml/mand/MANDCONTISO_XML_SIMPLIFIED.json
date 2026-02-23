@@ -4,7 +4,9 @@
     "name":"simplified",
 	"typeConstraint":true,
 	"custom": {
-		"description": "simplified variant for MandContIso_xml"
+		"description": "simplified variant for MandContIso_xml",
+		"type": ["exist"],
+		"scope": "containered"
 	},
     "fragments":[
 		{"text":"For all"},

@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for ValidLinkIso_xml"
+		"description": "default variant for ValidLinkIso_xml",
+		"type": ["ref"],
+		"scope": "containered"
 	},
     "fragments":[
         {"text":"For all"},
@@ -23,7 +25,6 @@
             "description":"property of interest,that should contain a valid link."
         },
         {"text":"is a valid link."},
-        
         {
             "params":[0],
             "value": "true"
