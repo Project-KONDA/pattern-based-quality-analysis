@@ -321,7 +321,6 @@ public class APICallTests {
 			without &= !variants.getJSONObject(i).getString(ConstantsJSON.NAME).equals(variantname);
 		}
 		assert(without);
-		
 	}
 
 	// __________ API CALL TESTS __________
@@ -592,7 +591,7 @@ public class APICallTests {
 		int templateNo = EMFModelLoad.getFilesInDirectory(folder + "/templates/xml/abstract-patterns", Constants.EXTENSION).size();
 		templateNo += EMFModelLoad.getFilesInDirectory(folder + "/templates/xml/concrete-patterns", Constants.EXTENSION).size();
 		assert (templateNo > 0);
-		assert (listTemplate.has(ConstantsJSON.TOTAL) && listTemplate.getInt(ConstantsJSON.TOTAL) == templateNo);
+		assert (listTemplate.has(ConstantsJSON.SIZE) && listTemplate.getInt(ConstantsJSON.SIZE) == templateNo);
 		assert (listTemplate.has(ConstantsJSON.IDS) && listTemplate.getJSONArray(ConstantsJSON.IDS).length() == templateNo);
 		assert (listTemplate.has(ConstantsJSON.TEMPLATES) && listTemplate.getJSONArray(ConstantsJSON.TEMPLATES).length() == templateNo);
 		if (listTemplate.has(ConstantsJSON.TEMPLATES))
@@ -605,7 +604,7 @@ public class APICallTests {
 		JSONObject listTemplate = PatternListServlet.applyGet("/xml" + "/template", getEmptyParams());
 		int templateNo = EMFModelLoad.getFilesInDirectory(folder + "/templates/xml/abstract-patterns", Constants.EXTENSION).size();
 		assert (templateNo > 0);
-		assert (listTemplate.has(ConstantsJSON.TOTAL) && listTemplate.getInt(ConstantsJSON.TOTAL) == templateNo);
+		assert (listTemplate.has(ConstantsJSON.SIZE) && listTemplate.getInt(ConstantsJSON.SIZE) == templateNo);
 		assert (listTemplate.has(ConstantsJSON.IDS) && listTemplate.getJSONArray(ConstantsJSON.IDS).length() == templateNo);
 		assert (listTemplate.has(ConstantsJSON.TEMPLATES) && listTemplate.getJSONArray(ConstantsJSON.TEMPLATES).length() == templateNo);
 		if (listTemplate.has(ConstantsJSON.TEMPLATES))
@@ -616,7 +615,7 @@ public class APICallTests {
 	public void testPatternListServletGetConcreteEmpty()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject listConcreteEmpty = PatternListServlet.applyGet("/xml" + "/concrete", getEmptyParams());
-		assert (listConcreteEmpty.getInt(ConstantsJSON.TOTAL) == 0);
+		assert (listConcreteEmpty.getInt(ConstantsJSON.SIZE) == 0);
 		assert (listConcreteEmpty.has(ConstantsJSON.IDS) && listConcreteEmpty.getJSONArray(ConstantsJSON.IDS).isEmpty());
 		assert (listConcreteEmpty.has(ConstantsJSON.TEMPLATES) && listConcreteEmpty.getJSONArray(ConstantsJSON.TEMPLATES).isEmpty());
 	}
@@ -625,7 +624,7 @@ public class APICallTests {
 	public void testPatternListServletGetReadyEmpty()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject listReadyEmpty = PatternListServlet.applyGet("/xml" + "/ready", getEmptyParams());
-		assert (listReadyEmpty.getInt(ConstantsJSON.TOTAL) == 0);
+		assert (listReadyEmpty.getInt(ConstantsJSON.SIZE) == 0);
 		assert (listReadyEmpty.has(ConstantsJSON.IDS) && listReadyEmpty.getJSONArray(ConstantsJSON.IDS).isEmpty());
 		assert (listReadyEmpty.has(ConstantsJSON.TEMPLATES) && listReadyEmpty.getJSONArray(ConstantsJSON.TEMPLATES).isEmpty());
 	}
@@ -639,12 +638,12 @@ public class APICallTests {
 			ids.add(newConstraint());
 
 		JSONObject listConcrete = PatternListServlet.applyGet("/xml" + "/concrete", getEmptyParams());
-		assert (listConcrete.getInt(ConstantsJSON.TOTAL) == 10);
+		assert (listConcrete.getInt(ConstantsJSON.SIZE) == 10);
 		assert (listConcrete.has(ConstantsJSON.IDS) && listConcrete.getJSONArray(ConstantsJSON.IDS).length() == 10);
 		assert (listConcrete.has(ConstantsJSON.TEMPLATES) && listConcrete.getJSONArray(ConstantsJSON.TEMPLATES).length() == 10);
 
 		JSONObject listReadyEmpty = PatternListServlet.applyGet("/xml" + "/ready", getEmptyParams());
-		assert (listReadyEmpty.getInt(ConstantsJSON.TOTAL) == 0);
+		assert (listReadyEmpty.getInt(ConstantsJSON.SIZE) == 0);
 		assert (listReadyEmpty.has(ConstantsJSON.IDS) && listReadyEmpty.getJSONArray(ConstantsJSON.IDS).isEmpty());
 		assert (listReadyEmpty.has(ConstantsJSON.TEMPLATES) && listReadyEmpty.getJSONArray(ConstantsJSON.TEMPLATES).isEmpty());
 
@@ -746,7 +745,7 @@ public class APICallTests {
 		variant = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
 		assertVariantObjectWithout(variant, variantname);
 	}
-	
+
 	@Test
 	public void testConstraintDownloadServletGet() 
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
@@ -758,7 +757,7 @@ public class APICallTests {
 		assert(file.getName().equals(constraintID + Constants.INSTANCE_FILE_ENDING));
 		deleteConstraint(constraintID);
 	}
-	
+
 	@Test
 	public void testConstraintUploadServletPost() 
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {

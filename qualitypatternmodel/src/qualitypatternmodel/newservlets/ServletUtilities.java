@@ -223,7 +223,7 @@ public abstract class ServletUtilities {
 			}
 			tags.putAll(uniqueTags);
 			json.put(ConstantsJSON.TEMPLATES, templates);
-			json.put(ConstantsJSON.TOTAL, patterns.size());
+			json.put(ConstantsJSON.SIZE, patterns.size());
 			json.put(ConstantsJSON.IDS, ids);
 			if (!tags.isEmpty())
 				json.put(ConstantsJSON.TAGS, tags);
@@ -252,7 +252,7 @@ public abstract class ServletUtilities {
 			JSONArray tags = new JSONArray();
 			tags.putAll(uniqueTags);
 			resultjson.put(ConstantsJSON.TEMPLATES, templates);
-			resultjson.put(ConstantsJSON.TOTAL, patternjsons.size());
+			resultjson.put(ConstantsJSON.SIZE, patternjsons.size());
 			resultjson.put(ConstantsJSON.IDS, ids);
 			if (!tags.isEmpty())
 				resultjson.put(ConstantsJSON.TAGS, tags);

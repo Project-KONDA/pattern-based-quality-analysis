@@ -21,10 +21,14 @@ public class ConstantsJSON {
 	public static final String NAMESPACES = "namespace";
 	public static final String VARIANTS = "variants";
 	public static final String TYPE_CONSTRAINT = "typeConstraint";
+	public static final String SIZE = "size";
+	public static final String NOGROUP = "_";
+
+	public static final String API_FILTER_BY = "filter_by";
+	public static final String API_GROUP_BY = "group_by";
 
 	// Constraint Info
 	public static final String LASTSAVED = "lastSaved";
-	public static final String TOTAL = "total";
 	public static final String INCIDENTS = "incidents";
 	public static final String TOTAL_FINDINGS = "totalFindings";
 	public static final String TOTAL_COMPLIANCES = "totalCompliances";
