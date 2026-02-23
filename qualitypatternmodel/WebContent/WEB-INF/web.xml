@@ -210,7 +210,19 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ConstraintUploadServlet</servlet-name>
-		<url-pattern>/constraint/upload</url-pattern>
+		<url-pattern>/constraint/upload/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- get variants grouped
+		/variants {group_by, filter_by}
+	-->
+	<servlet>
+		<servlet-name>VariantsServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.newservlets.VariantsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>VariantsServlet</servlet-name>
+		<url-pattern>/variants/*</url-pattern>
 	</servlet-mapping>
 	
 	

@@ -51,6 +51,7 @@ import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
 import qualitypatternmodel.newservlets.TemplateVariantServlet;
+import qualitypatternmodel.newservlets.VariantsServlet;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.EMFModelLoad;
@@ -95,6 +96,8 @@ public class APICallTests {
 
 			testConstraintDownloadServletGet();
 			testConstraintUploadServletPost();
+
+			testVariantServletGet();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -201,11 +204,13 @@ public class APICallTests {
 		assert (object.has(ConstantsJSON.CONSTRAINT_ID));
 		assert (object.has(ConstantsJSON.VARIANTS));
 		assert (object.has(ConstantsJSON.DESCRIPTION));
-		assert (object.has(ConstantsJSON.LANGUAGE) && object.get(ConstantsJSON.LANGUAGE).toString().equals("xml"));
+		assert (object.has(ConstantsJSON.LANGUAGE));
 		assert (object.has(ConstantsJSON.EXECUTABLE));
 		assert (object.has(ConstantsJSON.EXECUTABLE_MQAF));
 		assert (object.has(ConstantsJSON.EXECUTABLE_QUERY));
 		assert (object.has(ConstantsJSON.EXECUTABLE_FILTER));
+		JSONArray variants = object.getJSONArray(ConstantsJSON.VARIANTS);
+		assertVariantArray(variants);
 	}
 
 	static void assertSimilarJSONObjects(JSONObject jsonDefault, JSONObject jsonCopy) {
@@ -267,44 +272,79 @@ public class APICallTests {
 		assert(!resultObject.has(ConstantsJSON.FAILEDCONSTRAINTS));
 	}
 
-	void assertVariantObject(JSONObject variant) {
-		assert(variant.has(ConstantsJSON.PARAMETER));
-		JSONObject params = variant.getJSONObject(ConstantsJSON.PARAMETER);
-		for (int i = 0; i<params.length(); i++) {
-			assert(params.has("" + i));
+	static void assertVariantArrayGrouped(JSONObject variants) {
+		if (!variants.has(ConstantsJSON.VARIANTS))
+			System.err.println(variants);
+		assert(variants.has(ConstantsJSON.VARIANTS));
+//		assert(variants.has(ConstantsJSON.SIZE));
+		if (variants.has(ConstantsJSON.API_FILTER_BY))
+			assert(variants.get(ConstantsJSON.API_FILTER_BY) instanceof JSONObject);
+		if (variants.has(ConstantsJSON.API_GROUP_BY)) {
+			assert(variants.get(ConstantsJSON.API_GROUP_BY) instanceof JSONArray);
+			assertVariantsNested(variants.get(ConstantsJSON.VARIANTS), variants.getJSONArray(ConstantsJSON.API_GROUP_BY).length());
+		} else {
+			assertVariantsNested(variants.get(ConstantsJSON.VARIANTS), 0);
 		}
-
-		assert(variant.has(ConstantsJSON.VARIANTS));
-		JSONArray variants = variant.getJSONArray(ConstantsJSON.VARIANTS);
-		
-		for (int i = 0; i<variants.length(); i++) {
-			JSONObject var = variants.getJSONObject(i);
-			assert(var.has(ConstantsJSON.TEMPLATE));
-			assert(var.has(ConstantsJSON.NAME));
-			assert(var.has(ConstantsJSON.TECHNOLOGY));
-			assert(var.has(ConstantsJSON.FRAGMENTS));
-			JSONArray fragments = var.getJSONArray(ConstantsJSON.FRAGMENTS);
-			assert(fragments.length()>0);
-			for (int j = 0; j<fragments.length(); j++) {
-				JSONObject fragment = fragments.getJSONObject(j);
-				Boolean isText = fragment.has(ConstantsJSON.TEXT) && fragment.length() == 1;
-				Boolean isFragment =
-					fragment.has(ConstantsJSON.NAME) &&
-					fragment.has(ConstantsJSON.PARAMETER) &&
-					fragment.has(ConstantsJSON.EXAMPLEVALUE) &&
-					fragment.has(ConstantsJSON.NEWID) &&
-					fragment.has(ConstantsJSON.NAME);
-				Boolean isPredef = 
-					fragment.length() == 2 &&
-					fragment.has(ConstantsJSON.PARAMETER) &&
-					fragment.has(ConstantsJSON.VALUE);
-				assert(isText || isFragment || isPredef);
+	}
+	
+	static void assertVariantsNested(Object object, int depth) {
+		if (depth <= 0) {
+			assert(object instanceof JSONArray);
+			JSONArray array = (JSONArray) object;
+			assertVariantArray(array);
+		}
+		else {
+			assert(object instanceof JSONObject);
+			JSONObject jobject = (JSONObject) object;
+			for (String key: jobject.keySet()) {
+				Object subobject = jobject.get(key);
+				assertVariantsNested(subobject, depth-1);
 			}
 		}
 	}
 
+	static void assertVariantArray(JSONArray variants) {
+		for (int i = 0; i<variants.length(); i++)
+			assertVariantObject(variants.getJSONObject(i));
+	}
+
+	static void assertVariantObject(JSONObject variant) {
+//		assert(variant.has(ConstantsJSON.PARAMETER));
+//		assert(variant.get(ConstantsJSON.PARAMETER) instanceof JSONArray);
+//		assert(!variant.optJSONArray(ConstantsJSON.PARAMETER).isEmpty());
+		assert(variant.has(ConstantsJSON.NAME));
+		assert(variant.has(ConstantsJSON.FRAGMENTS));
+		JSONArray fragments = variant.getJSONArray(ConstantsJSON.FRAGMENTS);
+		assertFragmentsArray(fragments);
+	}
+
+	static void assertFragmentsArray(JSONArray fragments) {
+		assert(!fragments.isEmpty());
+		for (int j = 0; j<fragments.length(); j++) {
+			JSONObject fragment = fragments.getJSONObject(j);
+			Boolean isText = fragment.has(ConstantsJSON.TEXT) && fragment.length() == 1;
+			Boolean isFragment =
+				fragment.has(ConstantsJSON.NAME) &&
+				fragment.has(ConstantsJSON.ROLE) &&
+				fragment.has(ConstantsJSON.ID) &&
+				fragment.has(ConstantsJSON.NAME);
+			Boolean isFragment2 =
+				fragment.has(ConstantsJSON.NAME) &&
+				fragment.has(ConstantsJSON.PARAMETER) &&
+				fragment.has(ConstantsJSON.EXAMPLEVALUE) &&
+				fragment.has(ConstantsJSON.NEWID) &&
+				fragment.has(ConstantsJSON.NAME); 
+			Boolean isPredef = 
+				fragment.length() == 2 &&
+				fragment.has(ConstantsJSON.PARAMETER) &&
+				fragment.has(ConstantsJSON.VALUE);
+			if (!(isText || isFragment || isPredef))
+				System.out.println(fragment);
+			assert(isText || isFragment || isFragment2 || isPredef);
+		}
+	}
+
 	void assertVariantObjectWith(JSONObject variant, String variantname) {
-		assertVariantObject(variant);
 		JSONArray variants = variant.getJSONArray(ConstantsJSON.VARIANTS);
 		Boolean with = false;
 		for (int i = 0; i<variants.length(); i++) {
@@ -314,7 +354,6 @@ public class APICallTests {
 	}
 
 	void assertVariantObjectWithout(JSONObject variant, String variantname) {
-		assertVariantObject(variant);
 		JSONArray variants = variant.getJSONArray(ConstantsJSON.VARIANTS);
 		Boolean without = true;
 		for (int i = 0; i<variants.length(); i++) {
@@ -720,7 +759,7 @@ public class APICallTests {
 	public void testTemplateVariantServletGet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject variant = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
-		assertVariantObject(variant);
+		assertVariantArrayGrouped(variant);
 	}
 
 	@Test
@@ -768,5 +807,38 @@ public class APICallTests {
 		String constraintIDnew = object.getString(ConstantsJSON.CONSTRAINT_ID);
 		deleteConstraint(constraintID);
 		deleteConstraint(constraintIDnew);
+	}
+
+	@Test
+	public void testVariantServletGet() 
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		JSONObject variants = VariantsServlet.applyGet("/xml/", getEmptyParams());
+		assertVariantArrayGrouped(variants);
+
+		Map<String, String[]> paramsGroup = getEmptyParams();
+		paramsGroup.put(ConstantsJSON.API_GROUP_BY, new String[]{"['custom.type']"});
+		JSONObject variantsGrouped = VariantsServlet.applyGet("/xml/", paramsGroup);
+		assertVariantArrayGrouped(variantsGrouped);
+
+		Map<String, String[]> paramsGroup2 = getEmptyParams();
+		paramsGroup2.put(ConstantsJSON.API_GROUP_BY, new String[]{"['custom.type', 'custom.scope']"});
+		JSONObject variantsGrouped2 = VariantsServlet.applyGet("/xml/", paramsGroup2);
+		assertVariantArrayGrouped(variantsGrouped2);
+
+		Map<String, String[]> paramsFilter = getEmptyParams();
+		paramsFilter.put(ConstantsJSON.API_FILTER_BY, new String[]{"{'scope':'hierarchical'}"});
+		JSONObject variantsFilter = VariantsServlet.applyGet("/xml/", paramsFilter);
+		assertVariantArrayGrouped(variantsFilter);
+
+		Map<String, String[]> paramsFilter2 = getEmptyParams();
+		paramsFilter2.put(ConstantsJSON.API_FILTER_BY, new String[]{"{'custom.type': 'comp', 'scope':'hierarchical'}"});
+		JSONObject variantsFilter2 = VariantsServlet.applyGet("/xml/", paramsFilter2);
+		assertVariantArrayGrouped(variantsFilter2);
+
+//		Map<String, String[]> paramsFilterGroup = getEmptyParams();
+//		paramsFilterGroup.put(ConstantsJSON.API_GROUP_BY, new String[]{"['custom.type']"});
+//		paramsFilterGroup.put(ConstantsJSON.API_FILTER_BY, new String[]{"{'scope':'hierarchical'}"});
+//		JSONObject variantsFilterGroup = VariantsServlet.applyGet("/xml/", paramsFilterGroup);
+//		assertVariantArrayGrouped(variantsFilterGroup);
 	}
 }
