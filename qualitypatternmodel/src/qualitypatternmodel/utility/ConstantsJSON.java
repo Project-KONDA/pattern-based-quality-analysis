@@ -12,6 +12,7 @@ public class ConstantsJSON {
 	public static final String DATAMODEL = "datamodel";
 	public static final String ID = "id";
 	public static final String CONSTRAINT_ID = "constraintID";
+	public static final String TEMPLATE_ID = "templateID";
 	public static final String FRAGMENTS = "fragments";
 	public static final String TEXT = "text";
 	public static final String TYPE = "type";
@@ -22,6 +23,7 @@ public class ConstantsJSON {
 	public static final String VARIANTS = "variants";
 	public static final String TYPE_CONSTRAINT = "typeConstraint";
 	public static final String SIZE = "size";
+	public static final String TOTAL = "total";
 	public static final String NOGROUP = "_";
 
 	public static final String API_FILTER_BY = "filter_by";

@@ -58,17 +58,22 @@ public class VariantsServlet extends HttpServlet {
 			}
 			variants = filtered;
 		}
-		result.put(ConstantsJSON.SIZE, variants.length());
 
 		// group_by
 		if (!parameterMap.containsKey(ConstantsJSON.API_GROUP_BY)) {
-			return result.put(ConstantsJSON.VARIANTS, variants);
+			result.put(ConstantsJSON.VARIANTS, variants);
+			result.put(ConstantsJSON.SIZE, variants.length());
+			result.put(ConstantsJSON.TOTAL, getVariantsTotal(variants));
+			return result;
 		} else {
 			String[] group_by_raw = parameterMap.get(ConstantsJSON.API_GROUP_BY);
-			result.put(ConstantsJSON.API_GROUP_BY, new JSONArray(group_by_raw[0]));
 			JSONArray group_by = new JSONArray(group_by_raw[0]);
 			JSONObject grouped = groupVariantsBy(variants, group_by);
-			return result.put(ConstantsJSON.VARIANTS, grouped);
+			result.put(ConstantsJSON.API_GROUP_BY, new JSONArray(group_by_raw[0]));
+			result.put(ConstantsJSON.VARIANTS, grouped);
+			result.put(ConstantsJSON.SIZE, variants.length());
+			result.put(ConstantsJSON.TOTAL, getVariantsTotal(grouped));
+			return result;
 		}
 	}
 
@@ -85,23 +90,39 @@ public class VariantsServlet extends HttpServlet {
 	private static List<JSONObject> templateJSONToVariantJSONs(JSONObject template) {
 		List<JSONObject> variants = new BasicEList<JSONObject>();
 		JSONArray variantsArray = template.getJSONArray(ConstantsJSON.VARIANTS);
+		JSONObject templateInfo = new JSONObject();
+
+		templateInfo.put(ConstantsJSON.CONSTRAINT_ID, template.optString(ConstantsJSON.CONSTRAINT_ID));
+		templateInfo.put(ConstantsJSON.NAME, template.optString(ConstantsJSON.NAME));
+		templateInfo.put(ConstantsJSON.DESCRIPTION, template.optString(ConstantsJSON.DESCRIPTION));
+		templateInfo.put(ConstantsJSON.NAMESPACES, template.optJSONObject(ConstantsJSON.NAMESPACES));
+		templateInfo.put(ConstantsJSON.TECHNOLOGY, template.optString(ConstantsJSON.LANGUAGE));
+		templateInfo.put(ConstantsJSON.LANGUAGE, template.optString(ConstantsJSON.LANGUAGE));
+		templateInfo.put(ConstantsJSON.EXECUTABLE_QUERY, template.optString(ConstantsJSON.EXECUTABLE_QUERY));
+		templateInfo.put(ConstantsJSON.EXECUTABLE_FILTER, template.optString(ConstantsJSON.EXECUTABLE_FILTER));
+		templateInfo.put(ConstantsJSON.EXECUTABLE_MQAF, template.optString(ConstantsJSON.EXECUTABLE_MQAF));
+		templateInfo.put(ConstantsJSON.EXECUTABLE, template.optString(ConstantsJSON.EXECUTABLE));
+
 		for (int i = 0; i<variantsArray.length(); i++) {
 			JSONObject variant = variantsArray.getJSONObject(i);
-			
-			variant.put(ConstantsJSON.CONSTRAINT_ID, template.optString(ConstantsJSON.CONSTRAINT_ID));
-			variant.put(ConstantsJSON.TEMPLATE, template.optString(ConstantsJSON.NAME));
-			variant.put(ConstantsJSON.NAMESPACES, template.optJSONObject(ConstantsJSON.NAMESPACES));
-			variant.put(ConstantsJSON.DESCRIPTION, template.optJSONObject(ConstantsJSON.DESCRIPTION));
-			variant.put(ConstantsJSON.TECHNOLOGY, template.optString(ConstantsJSON.LANGUAGE));
-			variant.put(ConstantsJSON.LANGUAGE, template.optString(ConstantsJSON.LANGUAGE));
-			variant.put(ConstantsJSON.EXECUTABLE_QUERY, template.optString(ConstantsJSON.EXECUTABLE_QUERY));
-			variant.put(ConstantsJSON.EXECUTABLE_FILTER, template.optString(ConstantsJSON.EXECUTABLE_FILTER));
-			variant.put(ConstantsJSON.EXECUTABLE_MQAF, template.optString(ConstantsJSON.EXECUTABLE_MQAF));
-			variant.put(ConstantsJSON.EXECUTABLE, template.optString(ConstantsJSON.EXECUTABLE));
-			
+			variant.put(ConstantsJSON.TEMPLATE_ID, template.optString(ConstantsJSON.CONSTRAINT_ID));
+			variant.put(ConstantsJSON.TEMPLATE, templateInfo);
 			variants.add(variant);
 		}
 		return variants;
+	}
+
+	private static int getVariantsTotal(Object json) {
+		if (json instanceof JSONArray)
+			return ((JSONArray) json).length();
+		else {
+			JSONObject obj = (JSONObject) json;
+			int sum = 0;
+			for (String key: obj.keySet()) {
+				sum += getVariantsTotal(obj.get(key));
+			}
+			return sum;
+		}
 	}
 
 	private static boolean filterJSONObject(JSONObject object, JSONObject filter_by) {
@@ -148,7 +169,7 @@ public class VariantsServlet extends HttpServlet {
 
 	private static JSONObject groupVariantsBy(JSONArray variants, JSONArray group_by) {
 		if (group_by.isEmpty() || variants.isEmpty())
-			return null;
+			return new JSONObject().put(ConstantsJSON.NOGROUP, variants);
 		JSONObject result = new JSONObject();
 		for (int i = 0; i<variants.length(); i++) {
 			JSONObject variant = variants.optJSONObject(i);
@@ -170,9 +191,10 @@ public class VariantsServlet extends HttpServlet {
 				}
 			}
 		}
-		group_by.remove(0);
-		if (group_by.length() > 0) {
+		if (group_by.length() > 1) {
 			JSONObject temp = new JSONObject();
+			group_by.remove(0);
+			
 			for (String key: result.keySet()) {
 				JSONArray variantgroup = result.optJSONArray(key);
 				JSONObject variantgrouped = groupVariantsBy(variantgroup, group_by);
