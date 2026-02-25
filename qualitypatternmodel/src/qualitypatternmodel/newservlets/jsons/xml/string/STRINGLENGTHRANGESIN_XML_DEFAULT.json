@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for StringLengthRangeSin_xml"
+		"description": "default variant for StringLengthRangeSin_xml",
+		"type": ["len"],
+		"scope": "simple"
 	},
     "fragments":[
         {"text":"Each"},
@@ -27,7 +29,6 @@
             "exampleValue":"20"
         },
         {"text":"characters in length."},
-		
 		{
 			"params":[0],
 			"value": "GREATEROREQUAL"

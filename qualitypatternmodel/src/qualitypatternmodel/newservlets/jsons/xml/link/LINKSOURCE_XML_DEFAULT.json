@@ -19,9 +19,9 @@
             "name":"Properties",
             "params":[3],
             "exampleValue":"Birth Certificate Sources",
-            "description":"property of interest,that should contain a valid link."
+            "description":"property of interest that should contain a valid link"
         },
-        {"text":"are valid links, that each target a subpage of"},
+        {"text":"are valid links that belongs to one of the domains of"},
         {
             "name":"domain-urls",
             "params":[1],

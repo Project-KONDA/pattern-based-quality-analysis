@@ -4,7 +4,9 @@
 	"name":"something",
 	"typeConstraint":true,
 	"custom": {
-		"description": "very simple variant for MandCont_xml. Subelements are just not allowed to be empty"
+		"description": "very simple variant for MandCont_xml. Subelements are just not allowed to be empty",
+		"type": ["exist"],
+		"scope": "hierarchical"
 	},
 	"fragments":[
 		{"text":"For each"},
@@ -22,8 +24,7 @@
 			"description":"element of analyis",
 			"plural":"true"
 		},
-		{"text":"contains something."},
-		
+		{"text":"contain something."},
 		{
 			"params":[3],
 			"value":"/*"

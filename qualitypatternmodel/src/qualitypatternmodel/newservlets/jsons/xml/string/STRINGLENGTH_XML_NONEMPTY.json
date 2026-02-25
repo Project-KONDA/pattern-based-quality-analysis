@@ -4,7 +4,9 @@
     "name":"nonempty",
 	"typeConstraint":true,
 	"custom": {
-		"description": "simplified variant for StringLength_xml"
+		"description": "simplified variant for StringLength_xml",
+		"type": ["exist"],
+		"scope": "hierarchical"
 	},
     "fragments":[
         {"text":"For each"},

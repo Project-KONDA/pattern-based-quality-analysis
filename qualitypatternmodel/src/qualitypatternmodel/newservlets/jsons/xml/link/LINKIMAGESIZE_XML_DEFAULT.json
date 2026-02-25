@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for LinkImageSize_xml"
+		"description": "default variant for LinkImageSize_xml",
+		"type": ["len", "ref"],
+		"scope": "hierarchical"
 	},
     "fragments":[
         {"text":"For each"},
@@ -21,22 +23,21 @@
             "exampleValue":"Birth Certificate Sources",
             "description":"property of interest,that should contain a valid link."
         },
-        {"text":"are valid links to pictures, from which each is of at least"},
+        {"text":"link to retrievable images that are at least"},
         {
             "name":"dimension 1",
             "params":[1],
             "exampleValue":"600",
             "description":"first pixel size dimension"
         },
-        {"text":"x"},
+		{"text":"by"},
         {
             "name":"dimension 2",
             "params":[2],
             "exampleValue":"400",
             "description":"second pixel size dimension"
         },
-        {"text":"pixel large."},
-        
+		{"text":"pixels."},
         {
             "params":[0],
             "value": "true"

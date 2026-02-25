@@ -51,6 +51,7 @@ import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
 import qualitypatternmodel.newservlets.TemplateVariantServlet;
+import qualitypatternmodel.newservlets.VariantsServlet;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.EMFModelLoad;
@@ -95,6 +96,8 @@ public class APICallTests {
 
 			testConstraintDownloadServletGet();
 			testConstraintUploadServletPost();
+
+			testVariantServletGet();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -201,11 +204,13 @@ public class APICallTests {
 		assert (object.has(ConstantsJSON.CONSTRAINT_ID));
 		assert (object.has(ConstantsJSON.VARIANTS));
 		assert (object.has(ConstantsJSON.DESCRIPTION));
-		assert (object.has(ConstantsJSON.LANGUAGE) && object.get(ConstantsJSON.LANGUAGE).toString().equals("xml"));
+		assert (object.has(ConstantsJSON.LANGUAGE));
 		assert (object.has(ConstantsJSON.EXECUTABLE));
 		assert (object.has(ConstantsJSON.EXECUTABLE_MQAF));
 		assert (object.has(ConstantsJSON.EXECUTABLE_QUERY));
 		assert (object.has(ConstantsJSON.EXECUTABLE_FILTER));
+		JSONArray variants = object.getJSONArray(ConstantsJSON.VARIANTS);
+		assertVariantArray(variants);
 	}
 
 	static void assertSimilarJSONObjects(JSONObject jsonDefault, JSONObject jsonCopy) {
@@ -267,44 +272,78 @@ public class APICallTests {
 		assert(!resultObject.has(ConstantsJSON.FAILEDCONSTRAINTS));
 	}
 
-	void assertVariantObject(JSONObject variant) {
-		assert(variant.has(ConstantsJSON.PARAMETER));
-		JSONObject params = variant.getJSONObject(ConstantsJSON.PARAMETER);
-		for (int i = 0; i<params.length(); i++) {
-			assert(params.has("" + i));
-		}
+	static void assertVariantArrayGrouped(JSONObject variants) {
+		assert(variants.has(ConstantsJSON.VARIANTS));
+		assert(variants.has(ConstantsJSON.SIZE));
+		assert(variants.has(ConstantsJSON.TOTAL));
+		assert(variants.getInt(ConstantsJSON.TOTAL) >= variants.getInt(ConstantsJSON.SIZE));
 
-		assert(variant.has(ConstantsJSON.VARIANTS));
-		JSONArray variants = variant.getJSONArray(ConstantsJSON.VARIANTS);
-		
-		for (int i = 0; i<variants.length(); i++) {
-			JSONObject var = variants.getJSONObject(i);
-			assert(var.has(ConstantsJSON.TEMPLATE));
-			assert(var.has(ConstantsJSON.NAME));
-			assert(var.has(ConstantsJSON.TECHNOLOGY));
-			assert(var.has(ConstantsJSON.FRAGMENTS));
-			JSONArray fragments = var.getJSONArray(ConstantsJSON.FRAGMENTS);
-			assert(fragments.length()>0);
-			for (int j = 0; j<fragments.length(); j++) {
-				JSONObject fragment = fragments.getJSONObject(j);
-				Boolean isText = fragment.has(ConstantsJSON.TEXT) && fragment.length() == 1;
-				Boolean isFragment =
-					fragment.has(ConstantsJSON.NAME) &&
-					fragment.has(ConstantsJSON.PARAMETER) &&
-					fragment.has(ConstantsJSON.EXAMPLEVALUE) &&
-					fragment.has(ConstantsJSON.NEWID) &&
-					fragment.has(ConstantsJSON.NAME);
-				Boolean isPredef = 
-					fragment.length() == 2 &&
-					fragment.has(ConstantsJSON.PARAMETER) &&
-					fragment.has(ConstantsJSON.VALUE);
-				assert(isText || isFragment || isPredef);
+		if (variants.has(ConstantsJSON.API_FILTER_BY))
+			assert(variants.get(ConstantsJSON.API_FILTER_BY) instanceof JSONObject);
+		if (variants.has(ConstantsJSON.API_GROUP_BY)) {
+			assert(variants.get(ConstantsJSON.API_GROUP_BY) instanceof JSONArray);
+			assertVariantsNested(variants.get(ConstantsJSON.VARIANTS), variants.getJSONArray(ConstantsJSON.API_GROUP_BY).length());
+		} else {
+			assertVariantsNested(variants.get(ConstantsJSON.VARIANTS), 0);
+		}
+	}
+	
+	static void assertVariantsNested(Object object, int depth) {
+		if (depth <= 0) {
+			assert(object instanceof JSONArray);
+			JSONArray array = (JSONArray) object;
+			assertVariantArray(array);
+		}
+		else {
+			assert(object instanceof JSONObject);
+			JSONObject jobject = (JSONObject) object;
+			for (String key: jobject.keySet()) {
+				Object subobject = jobject.get(key);
+				assertVariantsNested(subobject, depth-1);
 			}
 		}
 	}
 
+	static void assertVariantArray(JSONArray variants) {
+		for (int i = 0; i<variants.length(); i++)
+			assertVariantObject(variants.getJSONObject(i));
+	}
+
+	static void assertVariantObject(JSONObject variant) {
+//		assert(variant.has(ConstantsJSON.PARAMETER));
+//		assert(variant.get(ConstantsJSON.PARAMETER) instanceof JSONArray);
+//		assert(!variant.optJSONArray(ConstantsJSON.PARAMETER).isEmpty());
+		assert(variant.has(ConstantsJSON.NAME));
+		assert(variant.has(ConstantsJSON.FRAGMENTS));
+		JSONArray fragments = variant.getJSONArray(ConstantsJSON.FRAGMENTS);
+		assertFragmentsArray(fragments);
+	}
+
+	static void assertFragmentsArray(JSONArray fragments) {
+		assert(!fragments.isEmpty());
+		for (int j = 0; j<fragments.length(); j++) {
+			JSONObject fragment = fragments.getJSONObject(j);
+			Boolean isText = fragment.has(ConstantsJSON.TEXT) && fragment.length() == 1;
+			Boolean isFragment =
+				fragment.has(ConstantsJSON.NAME) &&
+				fragment.has(ConstantsJSON.ROLE) &&
+				fragment.has(ConstantsJSON.ID) &&
+				fragment.has(ConstantsJSON.NAME);
+			Boolean isFragment2 =
+				fragment.has(ConstantsJSON.NAME) &&
+				fragment.has(ConstantsJSON.PARAMETER) &&
+				fragment.has(ConstantsJSON.EXAMPLEVALUE) &&
+				fragment.has(ConstantsJSON.NEWID) &&
+				fragment.has(ConstantsJSON.NAME); 
+			Boolean isPredef = 
+				fragment.length() == 2 &&
+				fragment.has(ConstantsJSON.PARAMETER) &&
+				fragment.has(ConstantsJSON.VALUE);
+			assert(isText || isFragment || isFragment2 || isPredef);
+		}
+	}
+
 	void assertVariantObjectWith(JSONObject variant, String variantname) {
-		assertVariantObject(variant);
 		JSONArray variants = variant.getJSONArray(ConstantsJSON.VARIANTS);
 		Boolean with = false;
 		for (int i = 0; i<variants.length(); i++) {
@@ -314,14 +353,12 @@ public class APICallTests {
 	}
 
 	void assertVariantObjectWithout(JSONObject variant, String variantname) {
-		assertVariantObject(variant);
 		JSONArray variants = variant.getJSONArray(ConstantsJSON.VARIANTS);
 		Boolean without = true;
 		for (int i = 0; i<variants.length(); i++) {
 			without &= !variants.getJSONObject(i).getString(ConstantsJSON.NAME).equals(variantname);
 		}
 		assert(without);
-		
 	}
 
 	// __________ API CALL TESTS __________
@@ -592,7 +629,7 @@ public class APICallTests {
 		int templateNo = EMFModelLoad.getFilesInDirectory(folder + "/templates/xml/abstract-patterns", Constants.EXTENSION).size();
 		templateNo += EMFModelLoad.getFilesInDirectory(folder + "/templates/xml/concrete-patterns", Constants.EXTENSION).size();
 		assert (templateNo > 0);
-		assert (listTemplate.has(ConstantsJSON.TOTAL) && listTemplate.getInt(ConstantsJSON.TOTAL) == templateNo);
+		assert (listTemplate.has(ConstantsJSON.SIZE) && listTemplate.getInt(ConstantsJSON.SIZE) == templateNo);
 		assert (listTemplate.has(ConstantsJSON.IDS) && listTemplate.getJSONArray(ConstantsJSON.IDS).length() == templateNo);
 		assert (listTemplate.has(ConstantsJSON.TEMPLATES) && listTemplate.getJSONArray(ConstantsJSON.TEMPLATES).length() == templateNo);
 		if (listTemplate.has(ConstantsJSON.TEMPLATES))
@@ -605,7 +642,7 @@ public class APICallTests {
 		JSONObject listTemplate = PatternListServlet.applyGet("/xml" + "/template", getEmptyParams());
 		int templateNo = EMFModelLoad.getFilesInDirectory(folder + "/templates/xml/abstract-patterns", Constants.EXTENSION).size();
 		assert (templateNo > 0);
-		assert (listTemplate.has(ConstantsJSON.TOTAL) && listTemplate.getInt(ConstantsJSON.TOTAL) == templateNo);
+		assert (listTemplate.has(ConstantsJSON.SIZE) && listTemplate.getInt(ConstantsJSON.SIZE) == templateNo);
 		assert (listTemplate.has(ConstantsJSON.IDS) && listTemplate.getJSONArray(ConstantsJSON.IDS).length() == templateNo);
 		assert (listTemplate.has(ConstantsJSON.TEMPLATES) && listTemplate.getJSONArray(ConstantsJSON.TEMPLATES).length() == templateNo);
 		if (listTemplate.has(ConstantsJSON.TEMPLATES))
@@ -616,7 +653,7 @@ public class APICallTests {
 	public void testPatternListServletGetConcreteEmpty()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject listConcreteEmpty = PatternListServlet.applyGet("/xml" + "/concrete", getEmptyParams());
-		assert (listConcreteEmpty.getInt(ConstantsJSON.TOTAL) == 0);
+		assert (listConcreteEmpty.getInt(ConstantsJSON.SIZE) == 0);
 		assert (listConcreteEmpty.has(ConstantsJSON.IDS) && listConcreteEmpty.getJSONArray(ConstantsJSON.IDS).isEmpty());
 		assert (listConcreteEmpty.has(ConstantsJSON.TEMPLATES) && listConcreteEmpty.getJSONArray(ConstantsJSON.TEMPLATES).isEmpty());
 	}
@@ -625,7 +662,7 @@ public class APICallTests {
 	public void testPatternListServletGetReadyEmpty()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject listReadyEmpty = PatternListServlet.applyGet("/xml" + "/ready", getEmptyParams());
-		assert (listReadyEmpty.getInt(ConstantsJSON.TOTAL) == 0);
+		assert (listReadyEmpty.getInt(ConstantsJSON.SIZE) == 0);
 		assert (listReadyEmpty.has(ConstantsJSON.IDS) && listReadyEmpty.getJSONArray(ConstantsJSON.IDS).isEmpty());
 		assert (listReadyEmpty.has(ConstantsJSON.TEMPLATES) && listReadyEmpty.getJSONArray(ConstantsJSON.TEMPLATES).isEmpty());
 	}
@@ -639,12 +676,12 @@ public class APICallTests {
 			ids.add(newConstraint());
 
 		JSONObject listConcrete = PatternListServlet.applyGet("/xml" + "/concrete", getEmptyParams());
-		assert (listConcrete.getInt(ConstantsJSON.TOTAL) == 10);
+		assert (listConcrete.getInt(ConstantsJSON.SIZE) == 10);
 		assert (listConcrete.has(ConstantsJSON.IDS) && listConcrete.getJSONArray(ConstantsJSON.IDS).length() == 10);
 		assert (listConcrete.has(ConstantsJSON.TEMPLATES) && listConcrete.getJSONArray(ConstantsJSON.TEMPLATES).length() == 10);
 
 		JSONObject listReadyEmpty = PatternListServlet.applyGet("/xml" + "/ready", getEmptyParams());
-		assert (listReadyEmpty.getInt(ConstantsJSON.TOTAL) == 0);
+		assert (listReadyEmpty.getInt(ConstantsJSON.SIZE) == 0);
 		assert (listReadyEmpty.has(ConstantsJSON.IDS) && listReadyEmpty.getJSONArray(ConstantsJSON.IDS).isEmpty());
 		assert (listReadyEmpty.has(ConstantsJSON.TEMPLATES) && listReadyEmpty.getJSONArray(ConstantsJSON.TEMPLATES).isEmpty());
 
@@ -721,7 +758,14 @@ public class APICallTests {
 	public void testTemplateVariantServletGet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject variant = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
-		assertVariantObject(variant);
+		assert(variant.has(ConstantsJSON.VARIANTS));
+		assert(variant.has(ConstantsJSON.PARAMETER));
+		
+		Map<String, String[]> params2 = getEmptyParams();
+		params2.put(ConstantsJSON.VARIANTS, new String[]{"false"});
+		JSONObject variantEmpty = TemplateVariantServlet.applyGet("/xml/Card_xml", params2);
+		assert(!variantEmpty.has(ConstantsJSON.VARIANTS));
+		assert(variantEmpty.has(ConstantsJSON.PARAMETER));
 	}
 
 	@Test
@@ -746,7 +790,7 @@ public class APICallTests {
 		variant = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
 		assertVariantObjectWithout(variant, variantname);
 	}
-	
+
 	@Test
 	public void testConstraintDownloadServletGet() 
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
@@ -758,7 +802,7 @@ public class APICallTests {
 		assert(file.getName().equals(constraintID + Constants.INSTANCE_FILE_ENDING));
 		deleteConstraint(constraintID);
 	}
-	
+
 	@Test
 	public void testConstraintUploadServletPost() 
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
@@ -769,5 +813,80 @@ public class APICallTests {
 		String constraintIDnew = object.getString(ConstantsJSON.CONSTRAINT_ID);
 		deleteConstraint(constraintID);
 		deleteConstraint(constraintIDnew);
+	}
+
+	@Test
+	public void testVariantServletGet() 
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+
+		JSONObject variants = VariantsServlet.applyGet("/xml/", getEmptyParams());
+		assertVariantArrayGrouped(variants);
+
+		Map<String, String[]> paramsGroup = getEmptyParams();
+		paramsGroup.put(ConstantsJSON.API_GROUP_BY, new String[]{"['custom.type']"});
+		JSONObject variantsGrouped = VariantsServlet.applyGet("/xml/", paramsGroup);
+		assertVariantArrayGrouped(variantsGrouped);
+
+		Map<String, String[]> paramsGroup2 = getEmptyParams();
+		paramsGroup2.put(ConstantsJSON.API_GROUP_BY, new String[]{"['custom.type', 'custom.scope']"});
+		JSONObject variantsGrouped2 = VariantsServlet.applyGet("/xml/", paramsGroup2);
+		assertVariantArrayGrouped(variantsGrouped2);
+
+		Map<String, String[]> paramsFilter = getEmptyParams();
+		paramsFilter.put(ConstantsJSON.API_FILTER_BY, new String[]{"{'custom.scope':'hierarchical'}"});
+		JSONObject variantsFilter = VariantsServlet.applyGet("/xml/", paramsFilter);
+		assertVariantArrayGrouped(variantsFilter);
+
+		Map<String, String[]> paramsFilter2 = getEmptyParams();
+		paramsFilter2.put(ConstantsJSON.API_FILTER_BY, new String[]{"{'custom.type': 'comp', 'custom.scope':'hierarchical'}"});
+		JSONObject variantsFilter2 = VariantsServlet.applyGet("/xml/", paramsFilter2);
+		assertVariantArrayGrouped(variantsFilter2);
+
+		Map<String, String[]> paramsFilterGroup = getEmptyParams();
+		paramsFilterGroup.put(ConstantsJSON.API_GROUP_BY, new String[]{"['custom.type']"});
+		paramsFilterGroup.put(ConstantsJSON.API_FILTER_BY, new String[]{"{'scope':'hierarchical'}"});
+		JSONObject variantsFilterGroup = VariantsServlet.applyGet("/xml/", paramsFilterGroup);
+		assertVariantArrayGrouped(variantsFilterGroup);
+
+		Map<String, String[]> paramsFilter2Group2 = getEmptyParams();
+		paramsFilter2Group2.put(ConstantsJSON.API_GROUP_BY, new String[]{"['custom.type', 'custom.scope']"});
+		paramsFilter2Group2.put(ConstantsJSON.API_FILTER_BY, new String[]{"{'custom.type': 'comp', 'custom.scope':'hierarchical'}"});
+		JSONObject variantsFilter2Group2 = VariantsServlet.applyGet("/xml/", paramsFilter2Group2);
+		assertVariantArrayGrouped(variantsFilter2Group2);
+		
+		if (true) { // are values updated from json?
+
+//			System.out.println(variants.getInt(ConstantsJSON.SIZE));
+//			System.out.println(variantsGrouped.getInt(ConstantsJSON.SIZE));
+//			System.out.println(variantsGrouped2.getInt(ConstantsJSON.SIZE));
+//			System.out.println(variantsFilter.getInt(ConstantsJSON.SIZE));
+//			System.out.println(variantsFilter2.getInt(ConstantsJSON.SIZE));
+//			System.out.println(variantsFilterGroup.getInt(ConstantsJSON.SIZE));
+//			System.out.println(variantsFilter2Group2.getInt(ConstantsJSON.SIZE));
+//			System.out.println(variants.getInt(ConstantsJSON.TOTAL));
+//			System.out.println(variantsGrouped.getInt(ConstantsJSON.TOTAL));
+//			System.out.println(variantsGrouped2.getInt(ConstantsJSON.TOTAL));
+//			System.out.println(variantsFilter.getInt(ConstantsJSON.TOTAL));
+//			System.out.println(variantsFilter2.getInt(ConstantsJSON.TOTAL));
+//			System.out.println(variantsFilterGroup.getInt(ConstantsJSON.TOTAL));
+//			System.out.println(variantsFilter2Group2.getInt(ConstantsJSON.TOTAL));
+
+			assert(variants.getInt(ConstantsJSON.SIZE) == 86);
+			assert(variantsGrouped.getInt(ConstantsJSON.SIZE) == 86);
+			assert(variantsGrouped2.getInt(ConstantsJSON.SIZE) == 86);
+			assert(variantsFilter.getInt(ConstantsJSON.SIZE) == 23);
+			assert(variantsFilter2.getInt(ConstantsJSON.SIZE) == 3);
+			assert(variantsFilterGroup.getInt(ConstantsJSON.SIZE) == 0);
+			assert(variantsFilter2Group2.getInt(ConstantsJSON.SIZE) == 3);
+			
+			assert(variants.getInt(ConstantsJSON.TOTAL) == 86);
+			assert(variantsGrouped.getInt(ConstantsJSON.TOTAL) == 100);
+			assert(variantsGrouped2.getInt(ConstantsJSON.TOTAL) == 100);
+			assert(variantsFilter.getInt(ConstantsJSON.TOTAL) == 23);
+			assert(variantsFilter2.getInt(ConstantsJSON.TOTAL) == 3);
+			assert(variantsFilterGroup.getInt(ConstantsJSON.TOTAL) == 0);
+			assert(variantsFilter2Group2.getInt(ConstantsJSON.TOTAL) == 3);
+		}
+		
 	}
 }

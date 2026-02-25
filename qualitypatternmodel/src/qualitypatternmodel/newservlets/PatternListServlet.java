@@ -1,11 +1,10 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-import org.json.JSONArray;
+import org.eclipse.emf.common.util.BasicEList;
 import org.json.JSONObject;
 
 import jakarta.servlet.http.HttpServlet;
@@ -137,30 +136,39 @@ public class PatternListServlet extends HttpServlet {
 			break;
 		}
 
-		JSONArray templates = new JSONArray();
-		JSONArray ids = new JSONArray();
-		HashSet<String> tags = new HashSet<String>();
-		int total = 0;
-
-		for (int i = 0; i < allTemplates.size(); i++) {
-			JSONObject template = allTemplates.get(i);
-			if (template.has(ConstantsJSON.CONSTRAINT_ID) && template.has(ConstantsJSON.DATAMODEL) && datamodel.equals(template.getString(ConstantsJSON.DATAMODEL))) {
-				templates.put(template);
-				ids.put(template.getString(ConstantsJSON.CONSTRAINT_ID));
-				total++;
-				if (template.has(ConstantsJSON.TAG)) {
-					JSONArray tagarray = template.getJSONArray(ConstantsJSON.TAG);
-					for (int j = 0; i<tagarray.length(); i++)
-						tags.add(tagarray.getString(j));
-				}
-			}
+		List<JSONObject> selectedTemplates = new BasicEList<JSONObject>();
+		
+		for (JSONObject template: allTemplates) {
+			if (template.has(ConstantsJSON.DATAMODEL) && datamodel.equals(template.getString(ConstantsJSON.DATAMODEL)))
+					selectedTemplates.add(template);
 		}
-
-		JSONObject patternJSONs = new JSONObject();
-		patternJSONs.put(ConstantsJSON.TEMPLATES, templates);
-		patternJSONs.put(ConstantsJSON.IDS, ids);
-		patternJSONs.put(ConstantsJSON.TAGS, new JSONArray(tags));
-		patternJSONs.put(ConstantsJSON.TOTAL, total);
-		return patternJSONs;
+		return ServletUtilities.combinePatternJSONs(selectedTemplates);
+		
+		
+//		JSONArray templates = new JSONArray();
+//		JSONArray ids = new JSONArray();
+//		HashSet<String> tags = new HashSet<String>();
+//		int total = 0;
+//
+//		for (int i = 0; i < allTemplates.size(); i++) {
+//			JSONObject template = allTemplates.get(i);
+//			if (template.has(ConstantsJSON.CONSTRAINT_ID) && template.has(ConstantsJSON.DATAMODEL) && datamodel.equals(template.getString(ConstantsJSON.DATAMODEL))) {
+//				templates.put(template);
+//				ids.put(template.getString(ConstantsJSON.CONSTRAINT_ID));
+//				total++;
+//				if (template.has(ConstantsJSON.TAG)) {
+//					JSONArray tagarray = template.getJSONArray(ConstantsJSON.TAG);
+//					for (int j = 0; i<tagarray.length(); i++)
+//						tags.add(tagarray.getString(j));
+//				}
+//			}
+//		}
+//
+//		JSONObject patternJSONs = new JSONObject();
+//		patternJSONs.put(ConstantsJSON.TEMPLATES, templates);
+//		patternJSONs.put(ConstantsJSON.IDS, ids);
+//		patternJSONs.put(ConstantsJSON.TAGS, new JSONArray(tags));
+//		patternJSONs.put(ConstantsJSON.TOTAL, total);
+//		return patternJSONs;
 	}
 }

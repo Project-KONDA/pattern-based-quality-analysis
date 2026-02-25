@@ -4,7 +4,9 @@
     "name":"mand_element",
 	"typeConstraint":true,
 	"custom": {
-		"description": "Same as MandAtt_xml but realized via Card_xml"
+		"description": "Same as MandAtt_xml but realized via Card_xml",
+		"type": ["exist"],
+		"scope": "simple"
 	},
     "fragments":[
         {"text":"Each"},
@@ -23,7 +25,6 @@
             "plural":"true"
         },
         {"text":"."},
-        
         {
             "params":[0],
             "value":"EQUAL"

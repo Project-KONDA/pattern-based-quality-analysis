@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for CompSetAny_xml"
+		"description": "default variant for CompSetAny_xml",
+		"type": ["vocab"],
+		"scope": "simple"
 	},
     "fragments":[
         {"text":"Each"},
@@ -27,7 +29,8 @@
             "name":"Is / Is Not",
             "params":[1],
             "exampleValue":"is",
-            "defaultMap":"comparison_is"
+            "defaultMap":"comparison_is",
+			"default":"is"
         },
         {"text":"in the list of"},
         {

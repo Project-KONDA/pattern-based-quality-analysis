@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for StringLength_xml"
+		"description": "default variant for StringLength_xml",
+		"type": ["fmt", "len"],
+		"scope": "hierarchical"
 	},
     "fragments":[
         {"text":"For each"},
@@ -26,8 +28,9 @@
         {
             "name":"Compared to",
             "params":[0],
-            "exampleValue":"less than",
-            "defaultMap":"comparison_negated"
+            "exampleValue":"at least",
+            "defaultMap":"comparison_negated",
+            "default":"at least"
         },
         {
             "name":"a Specific Number of",

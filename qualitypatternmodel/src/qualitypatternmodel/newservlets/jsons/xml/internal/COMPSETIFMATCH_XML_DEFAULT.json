@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default for CompSetIfMatch_xml"
+		"description": "default for CompSetIfMatch_xml",
+		"type": ["vocab", "cond"],
+		"scope": "simple"
 	},
     "fragments":[
         {"text":"If a"},
@@ -26,14 +28,16 @@
             "name":"Does / Does Not",
             "params":[0],
             "exampleValue":"Does",
-            "description":"possibly negate match"
+            "description":"possibly negate match",
+            "defaultMap":"does not",
+            "default":"does"
         },
         {"text":"match"},
         {
             "name":"a Specific Pattern (RegEx)",
             "params":[1],
             "exampleValue":"^https://.*",
-            "description":"conditioned property"
+            "description":"pattern to match"
         },
         {"text":"all"},
         {
@@ -46,8 +50,9 @@
         {
             "name":"Are / Are Not",
             "params":[3],
-            "exampleValue":"must",
-            "defaultMap":"are not"
+            "exampleValue":"are",
+            "defaultMap":"are not",
+            "default":"are"
         },
         {"text":"in the list of"},
         {

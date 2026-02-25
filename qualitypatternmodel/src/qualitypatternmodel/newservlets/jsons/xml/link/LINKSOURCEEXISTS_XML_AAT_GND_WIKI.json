@@ -4,7 +4,9 @@
     "name":"aat-gnd-wiki",
 	"typeConstraint":true,
 	"custom": {
-		"description": "aat-gnd-wiki variant for LinkSourceExists_xml"
+		"description": "aat-gnd-wiki variant for LinkSourceExists_xml",
+		"type": ["vocab"],
+		"scope": "hierarchical"
 	},
     "fragments":[
         {"text":"For each"},
@@ -19,10 +21,9 @@
             "name":"Property",
             "params":[3],
             "exampleValue":"Birth Certificate Sources",
-            "description":"property of interest,that should contain a valid link."
+            "description":"property of interest that should contain a valid link"
         },
-        {"text":"is a valid link, that targets a subpage of AAT, GND, or Wikidata."},
-        
+        {"text":"is a valid link to AAT, GND, or Wikidata."},
         {
             "params":[0],
             "value": "true"

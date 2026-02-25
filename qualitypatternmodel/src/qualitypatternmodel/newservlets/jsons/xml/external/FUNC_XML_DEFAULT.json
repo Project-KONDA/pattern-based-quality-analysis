@@ -4,8 +4,10 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for Func_xml"
-	},	
+		"description": "default variant for Func_xml",
+		"type": ["comp", "cond"],
+		"scope": "simple"
+    },
     "fragments":[
         {"text":"If two"},
         {

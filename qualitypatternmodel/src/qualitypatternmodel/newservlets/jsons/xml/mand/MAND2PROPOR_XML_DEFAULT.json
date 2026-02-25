@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for Mand2PropOr_xml"
+		"description": "default variant for Mand2PropOr_xml",
+		"type": ["exist"],
+		"scope": "simple"
 	},
     "fragments":[
         {"text":"Each"},

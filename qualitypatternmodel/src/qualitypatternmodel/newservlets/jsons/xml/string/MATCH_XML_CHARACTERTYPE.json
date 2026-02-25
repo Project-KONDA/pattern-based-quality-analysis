@@ -4,7 +4,9 @@
     "name":"charactertype",
 	"typeConstraint":true,
 	"custom": {
-		"description": "charactertype variant for Match_xml"
+		"description": "charactertype variant for Match_xml",
+		"type": ["fmt"],
+		"scope": "hierarchical"
 	},
     "fragments":[
         {"text":"For each"},
@@ -31,6 +33,7 @@
             	"[a-zA-Z]":"alphabetic",
             	"[a-zA-Z0-9]":"alphanumeric",
             	"[0-9]":"numerical",
+            	"[ -~]":"ASCII",
             	"[!-~]":"ASCII (without whitespace)",
             	"[\\p{IsBasicLatin}]":"UNICODE"
             }

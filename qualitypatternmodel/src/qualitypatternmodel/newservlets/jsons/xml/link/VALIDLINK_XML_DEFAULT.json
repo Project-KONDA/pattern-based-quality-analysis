@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for ValidLink_xml"
+		"description": "default variant for ValidLink_xml",
+		"type": ["ref"],
+		"scope": "hierarchical"
 	},
     "fragments":[
         {"text":"For each"},
@@ -22,7 +24,6 @@
             "description":"property of interest,that should contain a valid link."
         },
         {"text":"are a valid link."},
-        
         {
             "params":[0],
             "value": "true"

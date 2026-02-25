@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for ContainsList_xml"
+		"description": "default variant for ContainsList_xml",
+		"type": ["comp"],
+		"scope": "hierarchical"
 	},
     "fragments":[
         {"text":"For each"},
@@ -26,7 +28,8 @@
             "name":"Do / Do Not",
             "params":[0],
             "defaultMap":"do not",
-            "exampleValue":"do"
+            "exampleValue":"do",
+            "default":"do"
         },
         {"text":"contain at least one term from"},
         {

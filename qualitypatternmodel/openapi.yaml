@@ -1201,18 +1201,18 @@ paths:
         - Modification
       summary: Add a variant to a template
       description: Add a new variant to a specific template
-      operationId: postvariant
+      operationId: postvariantbatch
       parameters:
-      - name: variants
-        in: query
-        description: specification of new variant(s)
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: array
-          items:
-            $ref: '#/components/schemas/VariantSpecification'
+        - name: variants
+          in: query
+          description: specification of new variant(s)
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/VariantSpecification'
       responses:
         '200':
           description: Successful operation
@@ -1220,6 +1220,54 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ParameterResponse'
+        '500':
+          description: Internal server error
+
+   /variants/{technology}:
+    description: put variants across multiple templates
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+
+    get:
+      tags:
+        - Variant
+        - Request
+      summary: request variants
+      description: request variants
+      operationId: getvariants
+      parameters:
+        - name: group_by
+          in: query
+          description: ordered JSONArray of fields to group by. subfields split using a dot '.'. Grouped output is nested additionally once per array entry
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - name: filter_by
+          in: query
+          description: filter variants by condition
+          required: false
+          schema:
+            type: object
+            additionalProperties:
+              type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VariantGrouped'
         '500':
           description: Internal server error
 
@@ -1321,6 +1369,97 @@ components:
             description: list of parameter IDs
             items:
                 type: string
+
+    VariantIndependent:
+      type: object
+      description: specification of a variant (which ultimately is the gap text used to represent the parameters of a constraint in a context), independent of a template 
+      properties:
+        template:
+          type: object
+          description: template information
+          properties:
+            constraintID: 
+              type: string
+            name: 
+              type: string
+            description:
+              type: string
+            namespace:
+              type: object
+            technology:
+              type: string
+              enum:
+                - xml
+                - rdf
+                - neo4j
+            language:
+              type: string
+              enum:
+                - xml
+                - rdf
+                - neo4j
+            executable:
+              type: boolean
+              description: is this constraint executable
+            mqafExecutable:
+              type: boolean
+              description: is this constraint executable via the mqaf framework
+            queryExecutable:
+              type: boolean
+              description: is this constraint executable via a technology-specific query
+            filterExecutable:
+              type: boolean
+              description: is this constraint executable via a java filter in the qualitypatternmodel framework
+        templateID:
+          type: string
+          description: template id
+        name:
+          type: string
+          description: variant id
+        typeConstraint:
+          type: boolean
+          description: is formulated as constraint
+        custom:
+          type: object
+          description: custom parameters
+        fragments:
+          type: array
+          description: fragments of the sentence which comprises parameter specifications and text fragments and to set the context of the parameters
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/TextFragment'
+              - $ref: '#/components/schemas/ParameterFragment'
+        params:
+            type: array
+            description: list of parameter IDs
+            items:
+                type: string
+
+    VariantGrouped:
+      type: object
+      description: variantsList
+      properties:
+        size:
+          type: number
+        total:
+          type: number
+        filter_by:
+          type: object
+        group_by:
+          type: array
+          items:
+            type: string
+        variants:
+          $ref: '#/components/schemas/VariantsGroupObject'
+
+    VariantsGroupObject:
+      oneOf:
+        - type: array
+          items:
+            $ref: '#/components/schemas/VariantIndependent'
+        - type: object
+          additionalProperties:
+            $ref: '#/components/schemas/VariantsGroupObject'
 
     TextFragment:
       type: object

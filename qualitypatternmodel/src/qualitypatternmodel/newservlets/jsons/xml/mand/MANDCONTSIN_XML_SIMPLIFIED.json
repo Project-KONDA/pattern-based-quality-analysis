@@ -4,7 +4,9 @@
     "name":"simplified",
 	"typeConstraint":true,
 	"custom": {
-		"description": "simplified variant for MandContSin_xml"
+		"description": "simplified variant for MandContSin_xml",
+		"type": ["exist"],
+		"scope": "simple"
 	},
     "fragments":[
 		{"text":"Each"},

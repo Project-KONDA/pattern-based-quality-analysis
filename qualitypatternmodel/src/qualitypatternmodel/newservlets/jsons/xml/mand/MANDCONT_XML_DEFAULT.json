@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for MandCont_xml"
+		"description": "default variant for MandCont_xml",
+		"type": ["exist"],
+		"scope": "hierarchical"
 	},
     "fragments":[
 		{"text":"For each"},

@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for StringLengthRange_xml"
+		"description": "default variant for StringLengthRange_xml",
+		"type": ["len"],
+		"scope": "hierarchical"
 	},
     "fragments":[
         {"text":"For each"},
@@ -35,7 +37,6 @@
             "exampleValue":"20"
         },
         {"text":"characters in length."},
-		
         {
             "params":[0],
 			"value":"GREATEROREQUAL"

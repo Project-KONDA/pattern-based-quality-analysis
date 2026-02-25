@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for MatchListSin_xml"
+		"description": "default variant for MatchListSin_xml",
+		"type": ["fmt"],
+		"scope": "simple"
 	},
     "fragments":[
         {"text":"Each"},

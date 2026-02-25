@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for LinkSourceSin_xml"
+		"description": "default variant for LinkSourceSin_xml",
+		"type": ["vocab", "ref"],
+		"scope": "simple"
 	},
     "fragments":[
         {"text":"Each"},
@@ -12,9 +14,9 @@
             "name":"Property",
             "params":[2],
             "exampleValue":"Homepage URL",
-            "description":"property of interest,that should contain a valid link."
+            "description":"property of interest that should contain a valid link"
         },
-        {"text":"is a valid link, that targets a subpage of"},
+        {"text":"is a valid link that targets a subpage of"},
         {
             "name":"domain-urls",
             "params":[1],
@@ -22,7 +24,6 @@
             "description":"domains"
         },
         {"text":"."},
-        
         {
             "params":[0],
             "value": "true"

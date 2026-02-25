@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for LinkMimeType_xml"
+		"description": "default variant for LinkMimeType_xml",
+		"type": ["ref"],
+		"scope": "hierarchical"
 	},
     "fragments":[
         {"text":"For each"},
@@ -21,7 +23,7 @@
             "exampleValue":"Birth Certificate Sources",
             "description":"property of interest,that should contain a valid link."
         },
-        {"text":"are valid links, from which each has a MIME Type that is in the list of "},
+		{"text":"resolve to MIME types that are one of"},
         {
             "name":"MIME-Types",
             "params":[1],
@@ -29,7 +31,6 @@
             "description":"MIME types"
         },
         {"text":"."},
-        
         {
             "params":[0],
             "value": "true"

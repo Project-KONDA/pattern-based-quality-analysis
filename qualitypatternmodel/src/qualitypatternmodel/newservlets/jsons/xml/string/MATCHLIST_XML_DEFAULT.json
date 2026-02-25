@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for MatchList_xml"
+		"description": "default variant for MatchList_xml",
+		"type": ["fmt"],
+		"scope": "hierarchical"
 	},
     "fragments":[
         {"text":"For each"},

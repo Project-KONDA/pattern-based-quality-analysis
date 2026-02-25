@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for ExistsIfExists_xml"
+		"description": "default variant for ExistsIfExists_xml",
+		"type": ["exist", "cond"],
+		"scope": "simple"
 	},
     "fragments":[
         {"text":"If a"},

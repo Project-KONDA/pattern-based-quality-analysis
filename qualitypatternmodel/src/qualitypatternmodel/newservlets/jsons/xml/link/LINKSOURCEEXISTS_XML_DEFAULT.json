@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for LinkSourceExists_xml"
+		"description": "default variant for LinkSourceExists_xml",
+		"type": ["vocab", "ref"],
+		"scope": "hierarchical"
 	},
     "fragments":[
         {"text":"For each"},
@@ -19,9 +21,9 @@
             "name":"Property",
             "params":[3],
             "exampleValue":"Birth Certificate Sources",
-            "description":"property of interest,that should contain a valid link."
+            "description":"property of interest that should contain a valid link"
         },
-        {"text":"is a valid link, that targets a subpage of"},
+        {"text":"is a valid link that targets a subpage of"},
         {
             "name":"domain-urls",
             "params":[1],
@@ -29,7 +31,6 @@
             "description":"domains"
         },
         {"text":"."},
-        
         {
             "params":[0],
             "value": "true"
