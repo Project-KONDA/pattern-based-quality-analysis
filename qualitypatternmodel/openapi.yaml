@@ -1038,7 +1038,7 @@ paths:
         - Request
       summary: Analyze file(s) with constraint(s)
       description: Analyze one or more files with one or more constraints
-      operationId: execute
+      operationId: executeget
       parameters:
         - name: files
           in: query
@@ -1066,6 +1066,33 @@ paths:
             type: array
             items:
               $ref: '#/components/schemas/Query'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisResult'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+
+    post: #16
+      tags:
+        - Constraint
+        - Request
+      summary: Analyze file(s) with constraint(s)
+      description: Analyze one or more files with one or more constraints
+      operationId: executepost
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnalysisRequest'
       responses:
         '200':
           description: Successful operation
@@ -1847,6 +1874,29 @@ components:
 #                type: string
 #                enum: # xml, rdf, neo4j
 #                  - xml
+
+    AnalysisRequest:
+      type: object
+      required:
+        - files
+        - constraintIDs
+        - constraints
+      properties:
+        files:
+          type: array
+          description: Paths to files relative to FILE_VOLUME to be analyzed
+          items:
+            type: string
+        constraintIDs:
+          type: array
+          description: Identifiers of constraints for quality analysis. Will be combined with constraints specified in constraints property
+          items:
+            type: string
+        constraints:
+          type: array
+          description: Compiled constraints for quality analysis. Will be combined with constraints specified in constraintIDs property
+          items:
+            $ref: '#/components/schemas/Query'
 
     ParameterSetter: #6
       description: object to specify the value of a parameter
