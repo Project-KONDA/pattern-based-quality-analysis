@@ -113,6 +113,13 @@ public class XQueryProcessorSaxon {
 		JSONObject failedFiles = new JSONObject();
 		JSONArray results = new JSONArray();
 		JSONObject resultobject = new JSONObject();
+		long total_findings = 0;
+		long total_incidents = 0;
+		long total_compliances = 0;
+		
+		JSONArray constraintIDs = new JSONArray();
+		for (JSONObject constraint: constraints)
+			constraintIDs.put(constraint.get(ConstantsJSON.CONSTRAINT_ID));
 
 	    Processor processor = new Processor(false);
 
@@ -166,35 +173,10 @@ public class XQueryProcessorSaxon {
 
             for (SaxonConstraint executable: constraintExecutables) {
                 try {
-	                JSONObject queryResult = new JSONObject();
-	                queryResult.put(ConstantsJSON.CONSTRAINT_ID, executable.id);
-	                queryResult.put(ConstantsJSON.CONSTRAINT_NAME, executable.name);
-	                queryResult.put(ConstantsJSON.FILE, file.getName());
-	                if (executable.custom != null)
-	                	queryResult.put(ConstantsJSON.CUSTOM, executable.custom);
-
-	                // query partial
-	                XQueryEvaluator evalPartial = executable.query_total_executable.load();
-					evalPartial.setContextItem(inputDoc);
-					long total = evalPartial.evaluate().size();
-	                JSONArray incidents = new JSONArray();
-	                // query
-	                XQueryEvaluator eval = executable.query_executable.load();
-	                eval.setContextItem(inputDoc);
-	
-	                for (XdmItem item : eval) {
-	                	if (NOSKIPS || !skipXdmItem(item))
-	                		incidents.put(formatItemJSON(item, processor));
-	                }
-                	if (executable.filter != null) {
-        				JavaFilter filter = JavaFilterImpl.fromJson(executable.filter);
-        				incidents = filter.filter(incidents);
-	                }
-	
-	                queryResult.put(ConstantsJSON.INCIDENTS, incidents);
-	                queryResult.put(ConstantsJSON.TOTAL_FINDINGS, total);
-	                queryResult.put(ConstantsJSON.TOTAL_INCIDENCES, incidents.length());
-	                queryResult.put(ConstantsJSON.TOTAL_COMPLIANCES, total - incidents.length());
+	                JSONObject queryResult = querySaxonConstraint(processor, file, inputDoc, executable);
+	                total_findings += queryResult.getLong(ConstantsJSON.TOTAL_FINDINGS);
+                	total_incidents += queryResult.getLong(ConstantsJSON.TOTAL_INCIDENCES);
+                	total_compliances += queryResult.getLong(ConstantsJSON.TOTAL_COMPLIANCES);
 	                results.put(queryResult);
 				} catch (SaxonApiException | JSONException | InvalidityException e) {
 					failedConstraints.put(executable.id, e.getMessage());
@@ -206,6 +188,13 @@ public class XQueryProcessorSaxon {
 
 		try {
 			resultobject.put(ConstantsJSON.RESULT, results);
+			resultobject.put(ConstantsJSON.TOTAL_FINDINGS, total_findings);
+			resultobject.put(ConstantsJSON.TOTAL_INCIDENCES, total_incidents);
+			resultobject.put(ConstantsJSON.TOTAL_COMPLIANCES, total_compliances);
+			resultobject.put(ConstantsJSON.FILES, datapaths);
+			resultobject.put(ConstantsJSON.CONSTRAINT_IDS, constraintIDs);
+			resultobject.put(ConstantsJSON.FILESIZE, datapaths.size());
+			resultobject.put(ConstantsJSON.CONSTRAINTSIZE, constraintIDs.length());
 			if (!failedFiles.isEmpty()) {
 				resultobject.put(ConstantsJSON.FAILEDFILES, failedFiles);
 			}
@@ -221,6 +210,42 @@ public class XQueryProcessorSaxon {
 		}
 		
 		return resultobject;
+	}
+
+	private static JSONObject querySaxonConstraint(Processor processor, File file, XdmNode inputDoc, SaxonConstraint executable) throws SaxonApiException, InvalidityException {
+		JSONObject queryResult = new JSONObject();
+		queryResult.put(ConstantsJSON.CONSTRAINT_ID, executable.id);
+		queryResult.put(ConstantsJSON.CONSTRAINT_NAME, executable.name);
+		queryResult.put(ConstantsJSON.FILE, file.getName());
+		if (executable.custom != null)
+			queryResult.put(ConstantsJSON.CUSTOM, executable.custom);
+
+		// query partial
+		XQueryEvaluator evalPartial = executable.query_total_executable.load();
+		evalPartial.setContextItem(inputDoc);
+		long total = evalPartial.evaluate().size();
+		JSONArray incidents = new JSONArray();
+		// query
+		XQueryEvaluator eval = executable.query_executable.load();
+		eval.setContextItem(inputDoc);
+
+		for (XdmItem item : eval) {
+			if (NOSKIPS || !skipXdmItem(item))
+				incidents.put(formatItemJSON(item, processor));
+		}
+		if (executable.filter != null) {
+			JavaFilter filter = JavaFilterImpl.fromJson(executable.filter);
+			incidents = filter.filter(incidents);
+		}
+
+		long incidents_len = incidents.length();
+		long compliances_len = total - incidents_len;
+		        
+		queryResult.put(ConstantsJSON.INCIDENTS, incidents);
+		queryResult.put(ConstantsJSON.TOTAL_FINDINGS, total);
+		queryResult.put(ConstantsJSON.TOTAL_INCIDENCES, incidents_len);
+		queryResult.put(ConstantsJSON.TOTAL_COMPLIANCES, compliances_len);
+		return queryResult;
 	}
 
 	private static String testAndFormatQuery(String query) throws InvalidityException {
