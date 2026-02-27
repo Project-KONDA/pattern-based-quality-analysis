@@ -1799,6 +1799,30 @@ components:
       description: result of the quality analyis
       type: object
       properties:
+        totalFindings:
+          description: amount of total analysed findings in the file
+          type: integer
+        totalIncidents:
+          description: amount of found incidents of the constraint in the file
+          type: integer
+        totalCompliances:
+          description: amount of found compliances of the constraint 
+          type: integer
+        files:
+          description: list of files
+          type: array
+        filesize:
+          description: amount of files
+          type: integer
+        constraintIDs:
+          description: list of constraint IDs
+          type: array
+        constraintsize:
+          description: amount of constraints
+          type: integer
+        duration:
+          description: duration of the analysis process
+          type: integer
         failedFiles:
           description: path of the file relative to FILE_VOLUME that were not found and a reason
           type: array
@@ -1855,11 +1879,11 @@ components:
               totalFindings:
                 description: amount of total analysed findings in the file
                 type: integer
-              totalCompliances:
-                description: amount of found compliances of the constraint 
-                type: integer
               totalIncidents:
                 description: amount of found incidents of the constraint in the file
+                type: integer
+              totalCompliances:
+                description: amount of found compliances of the constraint 
                 type: integer
 #              query:
 #                description: generated query
