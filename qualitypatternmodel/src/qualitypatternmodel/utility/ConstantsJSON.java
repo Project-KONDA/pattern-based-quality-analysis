@@ -88,15 +88,18 @@ public class ConstantsJSON {
 	public static final String FILTER = "filter";
 	public static final String CONSTRAINT = "constraint";
 	public static final String CONSTRAINTS = "constraints";
+	public static final String CONSTRAINTSIZE = "constraintsize";
 	public static final String CONSTRAINT_NAME = "constraintName";
 	public static final String CONSTRAINT_IDS = "constraintIDs";
 	public static final String FILE = "file";
 	public static final String FILES = "files";
+	public static final String FILESIZE = "filesize";
 	public static final String RESULT = "result";
 	public static final String RESULT_SNIPPET = "snippet";
 	public static final String RESULT_STARTLINE = "startline";
 	public static final String RESULT_ENDLINE = "endline";
 	public static final String RESULT_LINESIZE = "linesize";
+	public static final String DURATION = "duration";
 
 	// Filter
 	public static final String NEGATE = "negate";

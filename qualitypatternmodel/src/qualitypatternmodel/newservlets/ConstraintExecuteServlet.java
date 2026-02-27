@@ -39,6 +39,31 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		}
 	}
 
+	@Override
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String path = request.getPathInfo();
+		JSONObject json;
+		try {
+			json = ServletUtilities.extractJSON(request);
+		} catch (Exception e) {
+	        response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+	        response.getWriter().write("Invalid or empty JSON");
+	        return;
+		}
+		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, json);
+		try {
+			JSONObject result = applyPost(path, json);
+			ServletUtilities.putResponse(response, callId, result);
+		}
+		catch (Exception e) {
+			ServletUtilities.putResponseError(response, callId, e);
+		}
+	}
+
+	public static JSONObject applyPost(String path, JSONObject parameters) throws InvalidServletCallException, FailedServletCallException {
+		return applyGet(path, ServletUtilities.jsonToMap(parameters));
+	}
+
 	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length < 2  || pathparts.length > 2  || !pathparts[0].equals("")) {
