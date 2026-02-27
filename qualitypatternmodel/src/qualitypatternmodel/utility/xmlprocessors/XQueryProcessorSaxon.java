@@ -116,6 +116,7 @@ public class XQueryProcessorSaxon {
 		long total_findings = 0;
 		long total_incidents = 0;
 		long total_compliances = 0;
+		long starttime = System.nanoTime();
 		
 		JSONArray constraintIDs = new JSONArray();
 		for (JSONObject constraint: constraints)
@@ -195,6 +196,7 @@ public class XQueryProcessorSaxon {
 			resultobject.put(ConstantsJSON.CONSTRAINT_IDS, constraintIDs);
 			resultobject.put(ConstantsJSON.FILESIZE, datapaths.size());
 			resultobject.put(ConstantsJSON.CONSTRAINTSIZE, constraintIDs.length());
+			resultobject.put(ConstantsJSON.DURATION, System.nanoTime() - starttime);
 			if (!failedFiles.isEmpty()) {
 				resultobject.put(ConstantsJSON.FAILEDFILES, failedFiles);
 			}

@@ -259,6 +259,7 @@ public class APICallTests {
 		assert(resultObject.has(ConstantsJSON.FILESIZE));
 		assert(resultObject.has(ConstantsJSON.CONSTRAINT_IDS));
 		assert(resultObject.has(ConstantsJSON.CONSTRAINTSIZE));
+		assert(resultObject.has(ConstantsJSON.DURATION));
 		JSONArray result = resultObject.getJSONArray(ConstantsJSON.RESULT);
 		assert(result.length() > 0);
 		for (int i = 0; i < result.length(); i++) {

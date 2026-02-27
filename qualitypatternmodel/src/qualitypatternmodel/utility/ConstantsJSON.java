@@ -99,6 +99,7 @@ public class ConstantsJSON {
 	public static final String RESULT_STARTLINE = "startline";
 	public static final String RESULT_ENDLINE = "endline";
 	public static final String RESULT_LINESIZE = "linesize";
+	public static final String DURATION = "duration";
 
 	// Filter
 	public static final String NEGATE = "negate";
