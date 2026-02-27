@@ -252,6 +252,13 @@ public class APICallTests {
 
 	static void assertExecuteResultObject(JSONObject resultObject, Boolean forceResult) {
 		assert(resultObject.has(ConstantsJSON.RESULT));
+		assert(resultObject.has(ConstantsJSON.TOTAL_FINDINGS));
+		assert(resultObject.has(ConstantsJSON.TOTAL_INCIDENCES));
+		assert(resultObject.has(ConstantsJSON.TOTAL_COMPLIANCES));
+		assert(resultObject.has(ConstantsJSON.FILES));
+		assert(resultObject.has(ConstantsJSON.FILESIZE));
+		assert(resultObject.has(ConstantsJSON.CONSTRAINT_IDS));
+		assert(resultObject.has(ConstantsJSON.CONSTRAINTSIZE));
 		JSONArray result = resultObject.getJSONArray(ConstantsJSON.RESULT);
 		assert(result.length() > 0);
 		for (int i = 0; i < result.length(); i++) {
@@ -735,7 +742,7 @@ public class APICallTests {
 		deleteConstraint(constraintID);
 	}
 
-//	@Test
+	@Test
 	public void testConstraintExecuteServletGet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		String constraintID = newConstraint("Card_xml", "default");
@@ -750,6 +757,25 @@ public class APICallTests {
 		params2.put("constraintIDs", new String[] { constraintID });
 		params2.put("files", new String[] { "lido.xml" });
 		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
+		assertExecuteResultObject(result, true);
+		deleteConstraint(constraintID);
+	}
+
+	@Test
+	public void testConstraintExecuteServletPost()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraintID = newConstraint("Card_xml", "default");
+		Map<String, String[]> params = getEmptyParams();
+		params.put("XmlPath_Element_0", new String[] { "//lido:lido" });
+		params.put("ComparisonOption_1", new String[] { "exactly" });
+		params.put("Number_2", new String[] { "42" });
+		params.put("XmlPath_Element_3", new String[] { "/*/*/*/*/*/*" });
+		ConstraintServlet.applyPost("/xml/" + constraintID, params);
+
+		JSONObject params2 = new JSONObject();
+		params2.put("constraintIDs", constraintID);
+		params2.put("files", "lido.xml");
+		JSONObject result = ConstraintExecuteServlet.applyPost("/xml", params2);
 		assertExecuteResultObject(result, true);
 		deleteConstraint(constraintID);
 	}
