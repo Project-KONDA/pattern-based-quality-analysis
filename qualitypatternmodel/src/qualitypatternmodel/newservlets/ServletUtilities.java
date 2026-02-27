@@ -1,5 +1,6 @@
 package qualitypatternmodel.newservlets;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -17,6 +18,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.FailedServletCallException;
@@ -892,7 +895,7 @@ public abstract class ServletUtilities {
 		}
 	}
 
-	public static int logCall(String method, String clazz, String path, Map<String, String[]> params) {
+	public static int logCall(String method, String clazz, String path, JSONObject params) {
 		int callId = -1;
 		try {
 			String filepath = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.SAVEFILE;
@@ -900,11 +903,15 @@ public abstract class ServletUtilities {
 		} catch (JSONException | IOException e) {
 			logError(e);
 		}
-		log("CALL " + callId + ": " + method + " "+ clazz + "(" + path + ")" + mapToString(params));
+		log("CALL " + callId + ": " + method + " "+ clazz + "(" + path + ") " + params);
 		return callId;
 	}
 
-	static String mapToString(Map<String, String[]> map) {
+	public static int logCall(String method, String clazz, String path, Map<String, String[]> params) {
+		return logCall(method, clazz, path, mapToJSON(params));
+	}
+
+	public static JSONObject mapToJSON(Map<String, String[]> map) {
 		JSONObject job = new JSONObject();
 		for (String key : map.keySet()) {
 			try {
@@ -919,7 +926,24 @@ public abstract class ServletUtilities {
 				logError(e);
 			}
 		}
-		return job.toString();
+		return job;
+	}
+
+	public static Map<String, String[]>  jsonToMap(JSONObject map) {
+		Map<String, String[]> parameterMap = new HashMap<String, String[]>();
+		for (String key: map.keySet()) {
+			if (map.get(key) instanceof JSONArray) {
+				JSONArray array = map.getJSONArray(key);
+				String[] values = new String[array.length()];
+				for (int i = 0; i<array.length(); i++) {
+					values[i] = array.get(i).toString();
+				}
+				parameterMap.put(key, values);
+			} else {
+				parameterMap.put(key, new String[]{map.get(key).toString()});
+			}
+		}
+		return parameterMap;
 	}
 
 	public static JSONArray getAvailableParams(List<? extends Fragment> paramfragments) {
@@ -991,5 +1015,21 @@ public abstract class ServletUtilities {
 		}
 
 		return result;
+	}
+
+	public static JSONObject extractJSON(HttpServletRequest request) throws IOException, JSONException {
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader reader = request.getReader()) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+            }
+        }
+
+        String body = sb.toString().trim();
+        if (body.isEmpty()) {
+            return new JSONObject(); // no content
+        }
+        return new JSONObject(body);
 	}
 }
