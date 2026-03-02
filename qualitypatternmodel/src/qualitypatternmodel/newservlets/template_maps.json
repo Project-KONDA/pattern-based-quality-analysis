@@ -30,7 +30,7 @@
 		},
 		"arenot":{
 			"are not":"EQUAL",
-			"are":"NOTEQUAL":
+			"are":"NOTEQUAL"
 		},
 		"equal":{
 			"equal":"EQUAL",
@@ -81,7 +81,7 @@
 		"mustnot":{
 			"must not":"true",
 			"must":"false"
-		},
+		}
 	},
 	"regex":{
 		"lidoformats":{
