@@ -81,6 +81,7 @@ public class PatternCollection {
 		classes.add(ContainsListSinPattern.class);
 		classes.add(ContainsPattern.class);
 		classes.add(ContainsSinPattern.class);
+		classes.add(MatchExistsPattern.class);
 		classes.add(MatchIsoPattern.class);
 		classes.add(MatchListIsoPattern.class);
 		classes.add(MatchListPattern.class);

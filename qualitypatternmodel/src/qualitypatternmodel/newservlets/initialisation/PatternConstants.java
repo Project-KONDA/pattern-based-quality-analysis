@@ -165,6 +165,10 @@ public class PatternConstants {
 	public static String MATCHSIN_ID = "MatchSin";
 	public static String MATCHSIN_NAME = "Regular Expression Check (Single)";
 	public static String MATCHSIN_DESCR = "Check, whether a value matches a specific regular expression.";
+
+	public static String MATCHEXISTS_ID = "MatchExists";
+	public static String MATCHEXISTS_NAME = "MatchExists";
+	public static String MATCHEXISTS_DESCR = "MatchExists";
 	
 	public static String MATCHLIST_ID = "MatchList";
 	public static String MATCHLIST_NAME = "Regular Expression List Check";

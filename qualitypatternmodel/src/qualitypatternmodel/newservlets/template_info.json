@@ -204,6 +204,11 @@
 		"name":"Regular Expression Check (Single)",
 		"description":"Check if specific field values match a particular pattern."
 	},
+	"MatchExistsPattern":{
+		"id":"MatchExists",
+		"name":"Regular Expression Existence Check (Single)",
+		"description":"Check if at least one field value matches a particular pattern."
+	},
 	"MatchListPattern":{
 		"id":"MatchList",
 		"name":"Regular Expression List Check",
