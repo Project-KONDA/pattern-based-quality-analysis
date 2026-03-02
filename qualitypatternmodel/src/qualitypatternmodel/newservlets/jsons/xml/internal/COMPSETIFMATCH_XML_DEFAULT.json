@@ -51,7 +51,7 @@
             "name":"Are / Are Not",
             "params":[3],
             "exampleValue":"are",
-            "defaultMap":"are not",
+            "defaultMap":"comparison_arenot",
             "default":"are"
         },
         {"text":"in the list of"},
