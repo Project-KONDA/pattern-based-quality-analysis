@@ -5,8 +5,8 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "default variant for Match_xml",
-		"type": ["fmt"],
-		"scope": "hierarchical"
+		"type": [],
+		"scope": "_"
 	},
     "fragments":[
         {"text":"For each"},

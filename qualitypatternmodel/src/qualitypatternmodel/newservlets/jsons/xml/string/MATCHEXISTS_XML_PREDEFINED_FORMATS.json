@@ -5,8 +5,8 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "format variant for Match_xml",
-		"type": ["fmt"],
-		"scope": "hierarchical"
+		"type": [],
+		"scope": "_"
 	},
     "fragments":[
         {"text":"For each"},
@@ -34,7 +34,9 @@
             	"^(((https?://)?[a-zA-Z0-9\\-\\./]*\\.[a-z]{2,3}/([a-zA-Z0-9\\-\\./]*/)?)|(info:isil/))?[A-Z]{2,10}-[A-Z0-9][a-zA-Z0-9\\-]{0,14}[a-zA-Z0-9]$":"ISIL (ISO 15511)",
             	"^(((https?://)?[a-zA-Z0-9\\-\\./]*\\.[a-z]{2,3}/([a-zA-Z0-9\\-\\./]*/)?)|(info:isil/))?[A-Z]{2,10}-[A-Z0-9][a-zA-Z0-9\\-]{0,14}[a-zA-Z0-9]([/\\-_][a-zA-Z]+)*[/\\-_][A-Za-z0-9]+$":"LidoRecID",
 				"^(info:isil/)?[A-Z]{2,10}-[A-Z0-9][a-zA-Z0-9\\-]{0,14}[a-zA-Z0-9]([/\\-_][a-zA-Z]+)*[/\\-_][A-Za-z0-9]+$":"DDB-specific LidoRecID",
-            	"^[ -~]+$":"ASCII (ISO 646)"
+            	"^[ -~]+$":"ASCII (ISO 646)",
+				"^https?://creativecommons\\.org/(licenses/(by(-sa|-nd|-nc(-sa|-nd)?)?)/([1-4]\\.0|2\\.5)(/[a-z]{2}(-[a-z]{2})?)?|publicdomain/(zero|mark)/1\\.0)/?$":"Public Domain of Creative Commons licences",
+				"^https?://(creativecommons\\.org/(licenses/(by(-sa|-nd|-nc(-sa|-nd)?)?)/([1-4]\\.0|2\\.5)(/[a-z]{2}(-[a-z]{2})?)?|publicdomain/(zero|mark)/1\\.0)|rightsstatements\\.org/vocab/[A-Za-z]+(-[A-Za-z]+)*/1\\.0(/[A-Za-z]{2})?)/?$":"Public Domain of Creative Commons or RightsStatements.org"
             }
         },
         {"text":"format."},
