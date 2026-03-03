@@ -34,6 +34,12 @@
 		"name":"List Check for Values Matching a Pattern",
 		"description":"Check if specific field values are within a list of allowed (/forbidden) terms when another field value matches a given pattern."
 	},
+	"CardIfCardPattern":{
+		"id":"CardIfCard",
+		"name":" - CardIfCard -",
+		"description": "- CardIfCard -",
+		"new": true
+	},
 	"CardIfCompSetPattern":{
 		"id":"CardIfCompSet",
 		"name":"Cardinality Check for List-Conditioned Values",
@@ -207,7 +213,8 @@
 	"MatchExistsPattern":{
 		"id":"MatchExists",
 		"name":"Regular Expression Existence Check (Single)",
-		"description":"Check if at least one field value matches a particular pattern."
+		"description":"Check if at least one field value matches a particular pattern.",
+		"new": true
 	},
 	"MatchListPattern":{
 		"id":"MatchList",
