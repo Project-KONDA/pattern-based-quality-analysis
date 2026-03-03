@@ -42,6 +42,10 @@ public class PatternConstants {
 	public static String CARDIFCARD_NAME = "CardIfCard";
 	public static String CARDIFCARD_DESCR = "CardIfCard";
 
+	public static String CARDCOMPSETIFCARD_ID = "CardCompSetIfCard";
+	public static String CARDCOMPSETIFCARD_NAME = "CardCompSetIfCard";
+	public static String CARDCOMPSETIFCARD_DESCR = "CardCompSetIfCard";
+
 	public static String CHECKFORMAT_ID = "CheckFormat";
 	public static String CHECKFORMAT_NAME = "Check the format of a resource";
 	public static String CHECKFORMAT_DESCR = "Check if the ressource under an URL is of a specific format.";

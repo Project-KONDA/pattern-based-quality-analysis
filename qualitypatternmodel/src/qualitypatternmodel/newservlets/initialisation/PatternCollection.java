@@ -38,6 +38,7 @@ public class PatternCollection {
 		classes.add(UniqueSinPattern.class);
 
 		// internal
+		classes.add(CardCompSetIfCardPattern.class);
 		classes.add(CardCompSetIfCompSetPattern.class);
 		classes.add(CardIfCardPattern.class);
 		classes.add(CardIfCompSetPattern.class);

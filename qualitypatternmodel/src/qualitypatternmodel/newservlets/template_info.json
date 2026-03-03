@@ -45,6 +45,12 @@
 		"name":"Cardinality Check for List-Conditioned Values",
 		"description": "Check if the occurrence count of specific elements applies when a field value is within a list of allowed (/forbidden) terms."
 	},
+	"CardCompSetIfCardPattern":{
+		"id":"CardCompSetIfCard",
+		"name":"Cardinality Check for List-Conditioned Values if Cardinaity Check",
+		"description":"Check if the occurrence count of specific elements within a list of allowed (/forbidden) terms applies when a field value is within another list of allowed (/forbidden) terms.",
+		"new": true
+	},
 	"CardCompSetIfCompSetPattern":{
 		"id":"CardCompSetIfCompSet",
 		"name":"Cardinality Check for List-Conditioned Values in Another List",
