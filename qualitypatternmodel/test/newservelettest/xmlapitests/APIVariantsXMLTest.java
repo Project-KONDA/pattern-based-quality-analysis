@@ -17,6 +17,7 @@ import java.util.stream.Stream;
 
 import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -124,7 +125,7 @@ public class APIVariantsXMLTest {
 				String hasCustom = "" + object.has(ConstantsJSON.CUSTOM);
 				pairs.add(new String[] {template, variant, hasCustom});
 
-			} catch (IOException e) {
+			} catch (JSONException | IOException e) {
 				new RuntimeException("invalid variant definition in: " + file).printStackTrace();
 			}
 			

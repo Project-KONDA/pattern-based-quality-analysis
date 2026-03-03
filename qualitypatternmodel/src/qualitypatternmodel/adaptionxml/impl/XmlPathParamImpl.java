@@ -181,6 +181,11 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		String query = sourceVariable();
 		if (query.length() != 0)
 			query += " ";
+		return query + generateLocalPartXQuery();
+	}
+
+	private String generateLocalPartXQuery() throws InvalidityException {
+		String query = "";
 		if (getXmlAxisParts() != null) {
 			for (XmlAxisPart xmlAxisPart : getXmlAxisParts()) {
 				query += xmlAxisPart.generateXQuery();
@@ -1050,7 +1055,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	@Override
 	public String getValueAsString() {
 		try {
-			String query = generateLocalXQuery();
+			String query = generateLocalPartXQuery();
 			if (getAlternatives() != null && !getAlternatives().isEmpty()) {
 				JSONArray array = new JSONArray();
 				array.put(query);
