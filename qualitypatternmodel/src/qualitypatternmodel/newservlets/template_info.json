@@ -317,6 +317,12 @@
 		"name":"Link Source Check (Single)",
 		"description":"Check if a link value targets a subpage within one of the specified domains (e.g. authority file domains)."
 	},
+	"LinkMatchListExistsPattern":{
+		"id":"LinkMatchListExists",
+		"name":"- LinkMatchListExists -",
+		"description":"- LinkMatchListExists -",
+		"new": true
+	},
 	"LinkMimeTypePattern":{
 		"id":"LinkMimeType",
 		"name":"Link MIME Type Check",

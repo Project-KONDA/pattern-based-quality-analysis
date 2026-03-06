@@ -51,6 +51,7 @@ public class PatternCollection {
 		classes.add(LinkImageSizeIsoPattern.class);
 		classes.add(LinkImageSizePattern.class);
 		classes.add(LinkImageSizeSinPattern.class);
+		classes.add(LinkMatchListExistsPattern.class);
 		classes.add(LinkMimeTypeIsoPattern.class);
 		classes.add(LinkMimeTypePattern.class);
 		classes.add(LinkMimeTypeSinPattern.class);

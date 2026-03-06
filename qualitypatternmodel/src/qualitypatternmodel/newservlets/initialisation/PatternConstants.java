@@ -254,6 +254,10 @@ public class PatternConstants {
 	public static String LINKSOURCESIN_NAME = "LinkSourceSin";
 	public static String LINKSOURCESIN_DESCR = "LinkSourceSin";
 
+	public static String LINKMATCHLISTEXISTS_ID = "LinkMatchListExists";
+	public static String LINKMATCHLISTEXISTS_NAME = "LinkMatchListExists";
+	public static String LINKMATCHLISTEXISTS_DESCR = "LinkMatchListExists";
+
 	public static String LINKMIMETYPE_ID = "LinkMimeType";
 	public static String LINKMIMETYPE_NAME = "LinkMimeType";
 	public static String LINKMIMETYPE_DESCR = "LinkMimeType";

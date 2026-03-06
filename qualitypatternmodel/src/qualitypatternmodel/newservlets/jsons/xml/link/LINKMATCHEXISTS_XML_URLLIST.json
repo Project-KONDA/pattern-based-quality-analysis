@@ -1,0 +1,45 @@
+{
+    "template":"LinkMatchListExists_xml",
+    "language":"xml",
+    "name":"url-list",
+	"typeConstraint":true,
+	"custom": {
+		"description": "url-list variant for LinkMatchExists_xml",
+		"type": [],
+		"scope": "_"
+	},
+    "fragments":[
+        {"text":"For each"},
+        {
+            "name":"Element",
+            "params":[3],
+            "exampleValue":"Actor",
+            "description":"anchor for analysis"
+        },
+        {"text":", at least one"},
+        {
+            "name":"Property",
+            "params":[4],
+            "exampleValue":"Birth Certificate Sources",
+            "description":"property of interest that should contain a valid link"
+        },
+        {"text":"is a valid link to "},
+        {
+        	"name": "a List of Domains",
+            "params":[2],
+			"map":{
+				"GND, Wikidata, or AAT":"['','','']",
+				"GND, Wikidata, AAT, or Iconclass":"['','','']",
+				"GND, Wikidata, AAT, or DDC":"['d-nb.info/gnd/','vocab.getty.edu/','www.wikidata.org/']",
+				"GND, Wikidatam GeoNames, or TGN":"['d-nb.info/gnd/','vocab.getty.edu/','www.wikidata.org/']",
+				"the GND":"['d-nb.info/gnd/']"
+			}	
+        },
+		{"text":"."},
+
+        {
+            "params":[0,1],
+            "value": "true"
+        }
+    ]
+}

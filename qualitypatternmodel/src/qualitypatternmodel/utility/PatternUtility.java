@@ -57,7 +57,7 @@ public class PatternUtility {
 				System.out.println("\n\n___PATTERN_(VALID)___");
 				System.out.println(result);
 				System.out.println("\n___TRANSLATION___");
-				System.out.println(completePattern.generateXQuery());
+				System.out.println(completePattern.generateXQueryJava());
 				valid++;
 			} catch (Exception e) {
 				System.out.print("\n####### PATTERN INVALID #######");

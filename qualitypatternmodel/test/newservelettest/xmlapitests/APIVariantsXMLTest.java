@@ -126,9 +126,8 @@ public class APIVariantsXMLTest {
 				pairs.add(new String[] {template, variant, hasCustom});
 
 			} catch (JSONException | IOException e) {
-				new RuntimeException("invalid variant definition in: " + file).printStackTrace();
+				new RuntimeException("invalid variant definition in: " + file, e).printStackTrace();
 			}
-			
 		}
 		return pairs;
 	}
