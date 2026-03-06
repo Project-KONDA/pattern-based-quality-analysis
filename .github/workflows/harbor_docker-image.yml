@@ -2,7 +2,7 @@ name: BuildAndPushDockerImageToHarbor
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "development2" ]
     
 jobs:
   build:
@@ -26,15 +26,31 @@ jobs:
           cd qualitypatternmodel
           POM_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
           BASE_VERSION=${POM_VERSION%.0}
-          PATCH=$(git rev-list v$POM_VERSION..HEAD --count --first-parent)
-          VERSION="$BASE_VERSION.$PATCH"
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          MASTER_PATCH=$(git rev-list v$POM_VERSION..origin/master --count --first-parent)
+          BASE_COMMIT=$(git merge-base origin/master HEAD)
+          DEV_PATCH=$(git rev-list $BASE_COMMIT..HEAD --count)
+          MASTER_VERSION="$BASE_VERSION.$MASTER_PATCH"
+          DEV_VERSION="dev-$BASE_VERSION.$MASTER_PATCH.$DEV_PATCH"
+          echo "DEV_PATCH=$DEV_PATCH" >> "$GITHUB_ENV"
+          echo "DEV_VERSION=$DEV_VERSION" >> "$GITHUB_ENV"
+          echo "MAIN_VERSION=$MASTER_VERSION" >> "$GITHUB_ENV"
 
-      - name: Harbor Build and Push
+      - name: Harbor Build and Push (master)
         uses: docker/build-push-action@v5
+        if: ${{ github.ref_name == 'master'  && env.DEV_PATCH == '0' }}
         with:
           context: qualitypatternmodel
           file: qualitypatternmodel/Dockerfile
-          build-args: MAVEN_VERSION=${{ env.VERSION }}
+          build-args: MAVEN_VERSION=${{ env.MAIN_VERSION }}
           push: true
-          tags: harbor.gwdg.de/aqinda/qpm:latest, harbor.gwdg.de/aqinda/qpm:${{ env.VERSION }}
+          tags: harbor.gwdg.de/aqinda/qpm:latest, harbor.gwdg.de/aqinda/qpm:${{ env.MAIN_VERSION }}, harbor.gwdg.de/aqinda/qpm:${{ env.DEV_VERSION }}, harbor.gwdg.de/aqinda/qpm:current
+
+      - name: Harbor Build and Push (development2)
+        uses: docker/build-push-action@v5
+        if: ${{ github.ref_name == 'development2' && env.DEV_PATCH != '0' }}
+        with:
+          context: qualitypatternmodel
+          file: qualitypatternmodel/Dockerfile
+          build-args: MAVEN_VERSION=${{ env.DEV_VERSION }}
+          push: true
+          tags: harbor.gwdg.de/aqinda/qpm:dev, harbor.gwdg.de/aqinda/qpm:${{ env.DEV_VERSION }}, harbor.gwdg.de/aqinda/qpm:current
