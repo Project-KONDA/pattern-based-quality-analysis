@@ -23,11 +23,11 @@
             "exampleValue":"Birth Certificate Sources",
             "description":"property of interest that should contain a valid link"
         },
-        {"text":"is a valid link to "},
+        {"text":"is a valid link that matches one regular expression of"},
         {
-        	"name": "a List of Domains",
+        	"name": "a List of Regular Expressions",
             "params":[2],
-			"exampleValue":"['.*www\\.wikidata\\.org.*']",
+			"exampleValue":"['https?://d-nb.info/gnd/[0-9]+(-[0-9-X])?']",
             "description":"list of regular expressions representing different allowed domains"
         },
 		{"text":"."},
