@@ -1,4 +1,4 @@
-package qualitypatternmodel.newservlets.patterns.link;
+package qualitypatternmodel.newservlets.patterns.string;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -9,18 +9,18 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 
-public class LinkSourceExistsPattern extends PatternClass {
+public class MatchExistsPattern extends PatternClass {
 
-	public LinkSourceExistsPattern() {
-		super(PatternConstants.LINKSOURCEEXISTS_ID,
-				PatternConstants.LINKSOURCEEXISTS_NAME, 
-				PatternConstants.LINKSOURCEEXISTS_DESCR, 
-				true, true, false, false);
+	public MatchExistsPattern() {
+		super(PatternConstants.MATCHEXISTS_ID,
+				PatternConstants.MATCHEXISTS_NAME, 
+				PatternConstants.MATCHEXISTS_DESCR, 
+				true, true, true, true);
 	}
 
 	@Override
 	public CompletePattern getPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = new LinkSourcePattern().getPattern();
+		CompletePattern pattern = new MatchPattern().getPattern();
 		
 		QuantifiedCondition qc = (QuantifiedCondition) pattern.getCondition();
 		qc.setQuantifier(Quantifier.FORALL);
@@ -28,5 +28,4 @@ public class LinkSourceExistsPattern extends PatternClass {
 	}
 
 	// _____ LANGUAGE SPECIFIC OPTIONS _____
-
 }

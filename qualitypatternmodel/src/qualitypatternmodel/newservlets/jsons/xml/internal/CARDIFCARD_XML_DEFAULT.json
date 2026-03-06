@@ -1,0 +1,54 @@
+{
+    "template":"CardIfCard_xml",
+    "language":"xml",
+    "name":"default",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for CardIfCard_xml",
+		"type": [],
+		"scope": "_"
+	},
+    "fragments":[
+        {"text":"If a"},
+        {
+            "name":"Element",
+            "params":[4],
+			"exampleValue": ""
+        },
+        {"text":"has"},
+        {
+            "name":"Comparison A",
+            "params":[0],
+			"exampleValue": "at least"
+        },
+        {
+            "name":"Number A",
+            "params":[1],
+			"exampleValue": "1"
+        },
+        {
+            "name":"Property A",
+            "params":[5],
+			"exampleValue": "Title Set",
+			"plural": "true"
+        },
+        {"text":", it has "},
+        {
+            "name":"Comparison B",
+            "params":[2],
+			"exampleValue": "at least"
+        },
+        {
+            "name":"Number B",
+            "params":[3],
+			"exampleValue": "1"
+        },
+        {
+            "name":"Property B",
+            "params":[6],
+			"exampleValue": "@Pref",
+			"plural": "true"
+        },
+        {"text":"."}
+    ]
+}

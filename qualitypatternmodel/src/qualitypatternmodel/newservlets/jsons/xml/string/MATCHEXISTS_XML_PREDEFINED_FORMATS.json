@@ -1,26 +1,25 @@
 {
-    "template":"MatchIso_xml",
+    "template":"MatchExists_xml",
     "language":"xml",
     "name":"predefined-formats",
 	"typeConstraint":true,
 	"custom": {
-		"description": "format variant for MatchIso_xml",
-		"type": ["fmt"],
-		"scope": "containered"
+		"description": "format variant for Match_xml",
+		"type": [],
+		"scope": "_"
 	},
     "fragments":[
-        {"text":"For all"},
+        {"text":"For each"},
         {
-            "name":"Container Elements",
-            "params":[3],
+            "name":"Element",
+            "params":[2],
             "exampleValue":"Actors",
-            "description":"anchor for analysis",
-            "plural": "true"
+            "description":"anchor for analysis"
         },
-        {"text":", each"},
+        {"text":", at least one"},
         {
             "name":"Property",
-            "params":[2],
+            "params":[3],
             "exampleValue":"Surname",
             "description":"value that gets analysed"
         },

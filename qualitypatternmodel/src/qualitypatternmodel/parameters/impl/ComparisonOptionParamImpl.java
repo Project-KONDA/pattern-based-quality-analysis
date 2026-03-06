@@ -149,6 +149,14 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 				throw new InvalidityException("value '" + value + "' is not allowed");
 			}
 		}
+		if (value.equals("true") && getOptions().contains(ComparisonOperator.EQUAL)) {
+			setValueIfValid(ComparisonOperator.EQUAL);
+			return;
+		}
+		if (value.equals("false") && getOptions().contains(ComparisonOperator.NOTEQUAL)) {
+			setValueIfValid(ComparisonOperator.NOTEQUAL);
+			return;
+		}	
 		throw new InvalidityException("value '" + value + "' is not valid");
 	}
 

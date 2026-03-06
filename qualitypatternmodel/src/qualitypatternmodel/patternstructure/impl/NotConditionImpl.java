@@ -3,6 +3,8 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -89,7 +91,8 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 		if (getCondition() == null)
 			return "false()";
 		String conQuery = getCondition().generateXQueryJava();
-		if (conQuery.equals("")) {
+		List<String> empty = Arrays.asList(new String[] {"", "true", "true()", "(true())"});
+		if (empty.contains(conQuery)) {
 			return "";
 		}
 		conQuery = conQuery.replace("\n", "\n  ");

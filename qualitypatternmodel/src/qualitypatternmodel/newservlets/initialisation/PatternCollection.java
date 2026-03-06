@@ -38,7 +38,9 @@ public class PatternCollection {
 		classes.add(UniqueSinPattern.class);
 
 		// internal
+		classes.add(CardCompSetIfCardPattern.class);
 		classes.add(CardCompSetIfCompSetPattern.class);
+		classes.add(CardIfCardPattern.class);
 		classes.add(CardIfCompSetPattern.class);
 		classes.add(CardPattern.class);
 		classes.add(CompSetIfMatchPattern.class);
@@ -49,6 +51,7 @@ public class PatternCollection {
 		classes.add(LinkImageSizeIsoPattern.class);
 		classes.add(LinkImageSizePattern.class);
 		classes.add(LinkImageSizeSinPattern.class);
+		classes.add(LinkMatchListExistsPattern.class);
 		classes.add(LinkMimeTypeIsoPattern.class);
 		classes.add(LinkMimeTypePattern.class);
 		classes.add(LinkMimeTypeSinPattern.class);
@@ -81,6 +84,7 @@ public class PatternCollection {
 		classes.add(ContainsListSinPattern.class);
 		classes.add(ContainsPattern.class);
 		classes.add(ContainsSinPattern.class);
+		classes.add(MatchExistsPattern.class);
 		classes.add(MatchIsoPattern.class);
 		classes.add(MatchListIsoPattern.class);
 		classes.add(MatchListPattern.class);

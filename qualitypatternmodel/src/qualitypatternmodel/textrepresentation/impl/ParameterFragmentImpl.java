@@ -1259,7 +1259,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}
 		}
 		for (Parameter p: getParameter()) {
-			p.setValueFromString(myValue);
+			try {
+				p.setValueFromString(myValue);
+			} catch (InvalidityException e) {
+				throw new InvalidityException( "Error when mapping " + value + " to " + myValue + " with map " + getValueMap() , e);
+			}
+			
 		}
 	}
 

@@ -385,7 +385,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 
 	@Override
 	public String myToString() {
-		return "Morphism [" + getInternalId() + ": " + getSource().getInternalId() + "->" + getTarget().getInternalId() + "]";
+		String source = getSource() == null? "null": "" + getSource().getInternalId();
+		String target = getSource() == null? "null": "" + getTarget().getInternalId();
+		return "Morphism [" + getInternalId() + ": " + source + "->" + target + "]";
 	}
 
 } // MorphismImpl

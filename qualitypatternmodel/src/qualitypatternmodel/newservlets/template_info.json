@@ -34,10 +34,22 @@
 		"name":"List Check for Values Matching a Pattern",
 		"description":"Check if specific field values are within a list of allowed (/forbidden) terms when another field value matches a given pattern."
 	},
+	"CardIfCardPattern":{
+		"id":"CardIfCard",
+		"name":" - CardIfCard -",
+		"description": "- CardIfCard -",
+		"new": true
+	},
 	"CardIfCompSetPattern":{
 		"id":"CardIfCompSet",
 		"name":"Cardinality Check for List-Conditioned Values",
 		"description": "Check if the occurrence count of specific elements applies when a field value is within a list of allowed (/forbidden) terms."
+	},
+	"CardCompSetIfCardPattern":{
+		"id":"CardCompSetIfCard",
+		"name":"Cardinality Check for List-Conditioned Values if Cardinaity Check",
+		"description":"Check if the occurrence count of specific elements within a list of allowed (/forbidden) terms applies when a field value is within another list of allowed (/forbidden) terms.",
+		"new": true
 	},
 	"CardCompSetIfCompSetPattern":{
 		"id":"CardCompSetIfCompSet",
@@ -204,6 +216,12 @@
 		"name":"Regular Expression Check (Single)",
 		"description":"Check if specific field values match a particular pattern."
 	},
+	"MatchExistsPattern":{
+		"id":"MatchExists",
+		"name":"Regular Expression Existence Check (Single)",
+		"description":"Check if at least one field value matches a particular pattern.",
+		"new": true
+	},
 	"MatchListPattern":{
 		"id":"MatchList",
 		"name":"Regular Expression List Check",
@@ -298,6 +316,12 @@
 		"id":"LinkSourceSin",
 		"name":"Link Source Check (Single)",
 		"description":"Check if a link value targets a subpage within one of the specified domains (e.g. authority file domains)."
+	},
+	"LinkMatchListExistsPattern":{
+		"id":"LinkMatchListExists",
+		"name":"- LinkMatchListExists -",
+		"description":"- LinkMatchListExists -",
+		"new": true
 	},
 	"LinkMimeTypePattern":{
 		"id":"LinkMimeType",
