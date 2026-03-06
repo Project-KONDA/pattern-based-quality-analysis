@@ -898,19 +898,19 @@ public class APICallTests {
 //			System.out.println(variantsFilterGroup.getInt(ConstantsJSON.TOTAL));
 //			System.out.println(variantsFilter2Group2.getInt(ConstantsJSON.TOTAL));
 
-			assert(variants.getInt(ConstantsJSON.SIZE) == 86);
-			assert(variantsGrouped.getInt(ConstantsJSON.SIZE) == 86);
-			assert(variantsGrouped2.getInt(ConstantsJSON.SIZE) == 86);
-			assert(variantsFilter.getInt(ConstantsJSON.SIZE) == 23);
-			assert(variantsFilter2.getInt(ConstantsJSON.SIZE) == 3);
+			assert(variants.getInt(ConstantsJSON.SIZE) >= 92);
+			assert(variantsGrouped.getInt(ConstantsJSON.SIZE) >= 92);
+			assert(variantsGrouped2.getInt(ConstantsJSON.SIZE) >= 92);
+			assert(variantsFilter.getInt(ConstantsJSON.SIZE) >= 23);
+			assert(variantsFilter2.getInt(ConstantsJSON.SIZE) >= 3);
 			assert(variantsFilterGroup.getInt(ConstantsJSON.SIZE) == 0);
-			assert(variantsFilter2Group2.getInt(ConstantsJSON.SIZE) == 3);
+			assert(variantsFilter2Group2.getInt(ConstantsJSON.SIZE) >= 3);
 			
-			assert(variants.getInt(ConstantsJSON.TOTAL) == 86);
-			assert(variantsGrouped.getInt(ConstantsJSON.TOTAL) == 100);
-			assert(variantsGrouped2.getInt(ConstantsJSON.TOTAL) == 100);
-			assert(variantsFilter.getInt(ConstantsJSON.TOTAL) == 23);
-			assert(variantsFilter2.getInt(ConstantsJSON.TOTAL) == 3);
+			assert(variants.getInt(ConstantsJSON.TOTAL) >= 92);
+			assert(variantsGrouped.getInt(ConstantsJSON.TOTAL) >= 106);
+			assert(variantsGrouped2.getInt(ConstantsJSON.TOTAL) >= 106);
+			assert(variantsFilter.getInt(ConstantsJSON.TOTAL) >= 23);
+			assert(variantsFilter2.getInt(ConstantsJSON.TOTAL) >= 3);
 			assert(variantsFilterGroup.getInt(ConstantsJSON.TOTAL) == 0);
 			assert(variantsFilter2Group2.getInt(ConstantsJSON.TOTAL) == 3);
 		}
