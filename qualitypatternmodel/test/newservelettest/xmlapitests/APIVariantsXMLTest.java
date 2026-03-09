@@ -175,19 +175,20 @@ public class APIVariantsXMLTest {
 	}
 	
 	private static void setDefaultParameter(String constraintId, String param) {
-		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'TextList':'[\"a\",\"b\"]', 'Boolean':'true', 'Text':'a', 'TypeOption':'STRING'}");
+		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'Text':'a', 'TextList':'[\"c\",\"d\"]', 'Boolean':'true', 'TypeOption':'STRING'}");
 
 		if (Set.of("name", "namespace", "datamodel", "database").contains(param))
 			return;
-
-		for (String key: obj.keySet())
-			if (param.startsWith(key)) {
-				ParameterFragmentImpl.ALLOW_IGNORE_MAP = true;
-				setConstraintParameter(constraintId, param, obj.getString(key));
-				ParameterFragmentImpl.ALLOW_IGNORE_MAP = default_allow_ignore_map;
-				return;
-			}
-		throw new RuntimeException("No default value defined for:" + param);
+		String paramstr = "";
+		try {
+			paramstr = param.substring(0, param.lastIndexOf('_'));
+			ParameterFragmentImpl.ALLOW_IGNORE_MAP = true;
+			setConstraintParameter(constraintId, param, obj.getString(paramstr));
+			ParameterFragmentImpl.ALLOW_IGNORE_MAP = default_allow_ignore_map;
+			return;
+		} catch (Exception e) {
+			throw new RuntimeException("No default value defined for:" + param + "(" + paramstr + ")", e);
+		}
 	}
 
 	private static void setConstraintParameter(String constraintId, String parameterId, String value) {
