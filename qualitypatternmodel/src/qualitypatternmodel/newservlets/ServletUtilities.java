@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -164,17 +165,20 @@ public abstract class ServletUtilities {
 			if (technology.equals(Constants.XML)) {
 				if (abstractPatternJsonXml == null) {
 					abstractPatternJsonXml = EMFModelLoad.loadPatternJSONsFromFolder(patternfolder, jsonfolder, Constants.EXTENSION);
+					sortByKey(abstractPatternJsonXml, ConstantsJSON.CONSTRAINT_ID);
 				}
 				return abstractPatternJsonXml;
 			} else if (technology.equals(Constants.RDF)) {
 				if (abstractPatternJsonRdf == null) {
 					abstractPatternJsonRdf = EMFModelLoad.loadPatternJSONsFromFolder(patternfolder, jsonfolder, Constants.EXTENSION);
+					sortByKey(abstractPatternJsonRdf, ConstantsJSON.CONSTRAINT_ID);
 				}
 				return abstractPatternJsonRdf;
 
 			} else if (technology.equals(Constants.NEO4J)) {
 				if (abstractPatternJsonNeo == null) {
 					abstractPatternJsonNeo = EMFModelLoad.loadPatternJSONsFromFolder(patternfolder, jsonfolder, Constants.EXTENSION);
+					sortByKey(abstractPatternJsonNeo, ConstantsJSON.CONSTRAINT_ID);
 				}
 				return abstractPatternJsonNeo;
 			} else {
@@ -192,7 +196,9 @@ public abstract class ServletUtilities {
 
 		if (Constants.TECHS.contains(technology)) {
 			try {
-				return EMFModelLoad.loadPatternJSONsFromFolder(constraintfolderpath, jsonfolderpath, Constants.EXTENSION);
+				List<JSONObject> jsons = EMFModelLoad.loadPatternJSONsFromFolder(constraintfolderpath, jsonfolderpath, Constants.EXTENSION); 
+				sortByKey(jsons, ConstantsJSON.CONSTRAINT_ID);
+				return jsons;
 			} catch (IOException e) {
 				logError(e);
 			}
@@ -234,6 +240,10 @@ public abstract class ServletUtilities {
 			logError(e);
 		}
 		return json;
+	}
+
+	public static void sortByKey(List<JSONObject> jsons, String key) {
+	    jsons.sort(Comparator.comparing(o -> o.optString(key, "")));
 	}
 
 	public static JSONObject combinePatternJSONs(List<JSONObject> patternjsons) {
