@@ -45,11 +45,6 @@ public class ServletConstants {
 	public static String SAVEFILE = "savefile.txt";
 	public static String ENV_SAVEFILE = "SAVEFILE";
 
-
-	// save log in shared
-	public static boolean LOG_IN_FILE_VOLUME = false;
-	public static String ENV_LOG_IN_FILE_VOLUME = "SAVE_LOG_IN_SHARED";
-
 	// shall there be values in the templates
 	public static boolean FILL_VALUES = false;
 	public static String ENV_FILL_VALUES = "FILL_VALUES";

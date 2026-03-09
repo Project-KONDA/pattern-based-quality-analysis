@@ -94,6 +94,7 @@ public abstract class ServletUtilities {
 	public static List<JSONObject> getAllPatternJsons(String technology) {
 		List<JSONObject> patterns = getTemplateJSONs(technology);
 		patterns.addAll(getConstraintJSONs(technology));
+		sortByKey(patterns, ConstantsJSON.CONSTRAINT_ID);
 		return patterns;
 	}
 
@@ -813,15 +814,7 @@ public abstract class ServletUtilities {
 	}
 
 	private static String getLogfileDirectory() {
-		String filepath = "/" + ServletConstants.LOGFILE;
-
-		if (ServletConstants.LOG_IN_FILE_VOLUME) {
-			filepath = ServletConstants.FILE_VOLUME + filepath;
-		} else {
-			filepath = ServletConstants.PATTERN_VOLUME + filepath;
-		}
-
-		return filepath.substring(0, filepath.lastIndexOf('/'));
+		return ServletConstants.LOGFILE.substring(0, ServletConstants.LOGFILE.lastIndexOf('/'));
 	}
 
 	private static String getLogfileNameStart() {

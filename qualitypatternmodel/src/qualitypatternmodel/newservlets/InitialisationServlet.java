@@ -129,10 +129,6 @@ public class InitialisationServlet extends HttpServlet {
 		if (savefile != null)
 			ServletConstants.SAVEFILE = savefile;
 
-//	      SAVE_LOG_IN_SHARED: true
-		String log_in_files = System.getenv().get(ServletConstants.ENV_LOG_IN_FILE_VOLUME);
-		if (log_in_files != null)
-			ServletConstants.LOG_IN_FILE_VOLUME = log_in_files.equals("true");
 //	      FILL_VALUES: false
 		String values = System.getenv().get(ServletConstants.ENV_FILL_VALUES);
 		if (values != null)
@@ -171,7 +167,6 @@ public class InitialisationServlet extends HttpServlet {
 		ServletUtilities.log("Environmental Variable TEMPLATE_INFO_FILE:        " + ServletConstants.TEMPLATE_INFO_FILE);
 		ServletUtilities.log("Environmental Variable LOGFILE:                   " + ServletConstants.LOGFILE);
 		ServletUtilities.log("Environmental Variable SAVEFILE:                  " + ServletConstants.SAVEFILE);
-		ServletUtilities.log("Environmental Variable LOG_IN_FILE_VOLUME:        " + ServletConstants.LOG_IN_FILE_VOLUME);
 		ServletUtilities.log("Environmental Variable FILL_VALUES:               " + ServletConstants.FILL_VALUES);
 		ServletUtilities.log("Environmental Variable VARIANTS_TYPE_CONSTRAINT:  " + ServletConstants.VARIANTS_TYPE_CONSTRAINT);
 		ServletUtilities.log("Environmental Variable VARIANTS_TYPE_ANTIPATTERN: " + ServletConstants.VARIANTS_TYPE_ANTIPATTERN);
