@@ -260,6 +260,10 @@ public class APICallTests {
 		assert(resultObject.has(ConstantsJSON.CONSTRAINT_IDS));
 		assert(resultObject.has(ConstantsJSON.CONSTRAINTSIZE));
 		assert(resultObject.has(ConstantsJSON.DURATION));
+
+		assert(!resultObject.has(ConstantsJSON.FAILEDFILES));
+		assert(!resultObject.has(ConstantsJSON.FAILEDCONSTRAINTS));
+
 		JSONArray result = resultObject.getJSONArray(ConstantsJSON.RESULT);
 		assert(result.length() > 0);
 		for (int i = 0; i < result.length(); i++) {
@@ -276,8 +280,6 @@ public class APICallTests {
 			JSONArray incidents = object.getJSONArray(ConstantsJSON.INCIDENTS);
 			assert(!forceResult || (incidents.length() > 0));
 		}
-		assert(!resultObject.has(ConstantsJSON.FAILEDFILES));
-		assert(!resultObject.has(ConstantsJSON.FAILEDCONSTRAINTS));
 	}
 
 	static void assertVariantArrayGrouped(JSONObject variants) {

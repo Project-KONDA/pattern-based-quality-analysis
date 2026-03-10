@@ -10,9 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.apache.commons.io.FileUtils;
@@ -36,6 +34,7 @@ import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.PatternListServlet;
 import qualitypatternmodel.newservlets.TemplateVariantServlet;
 import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 public class APIVariantsXMLTest {
@@ -158,36 +157,45 @@ public class APIVariantsXMLTest {
 	// __________ HELPEr FUNCTIONS __________
 
 	private static void setAllConstraintParameter(String constraintId) throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		List<String> params = getAllConstraintParameter(constraintId);
+		List<JSONObject> params = getAllConstraintParameter(constraintId);
 		if (params != null)
-		for (String param: params)
+		for (JSONObject param: params)
 			setDefaultParameter(constraintId, param);
 	}
 	
-	private static List<String> getAllConstraintParameter(String connstraintId) throws InvalidServletCallException, FailedServletCallException, ServletException, IOException{
+	private static List<JSONObject> getAllConstraintParameter(String connstraintId) throws InvalidServletCallException, FailedServletCallException, ServletException, IOException{
 		JSONObject json = getConstraint(connstraintId);
 		JSONObject variant = (JSONObject) json.getJSONArray(ConstantsJSON.VARIANTS).get(0);
-		JSONArray params = variant.getJSONArray(ConstantsJSON.PARAMETER);
-		List<String> paramstrings = params.toList().stream()
-			    .map(obj -> (String) obj)
-			    .collect(Collectors.toList()); 
-		return paramstrings;
+		JSONArray fragments = variant.getJSONArray(ConstantsJSON.FRAGMENTS);
+		List<JSONObject> fragmentslist = new ArrayList<JSONObject>();
+		for (int i = 0; i<fragments.length(); i++) {
+			JSONObject fragment = fragments.optJSONObject(i);
+			if (fragment.has(ConstantsJSON.NAME))
+				fragmentslist.add(fragment);
+		}
+		return fragmentslist;
 	}
 	
-	private static void setDefaultParameter(String constraintId, String param) {
-		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'Text':'a', 'TextList':'[\"c\",\"d\"]', 'Boolean':'true', 'TypeOption':'STRING'}");
+	private static void setDefaultParameter(String constraintId, JSONObject param) {
+		String paramid = param.optString(ConstantsJSON.ID);
+		String paramtype = param.optString(ConstantsJSON.TYPE);
+		String paramrole = param.optString(ConstantsJSON.ROLE);
 
-		if (Set.of("name", "namespace", "datamodel", "database").contains(param))
+		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'Text':'a', 'TextList':'[\"c\",\"d\"]', 'Boolean':'true', 'TypeOption':'STRING'}");
+		
+		if (paramtype.equals(Constants.PARAMETER_TYPE_ENUMERATION)) {
+			String value = param.optJSONArray(ConstantsJSON.OPTIONS).optString(0);
+			setConstraintParameter(constraintId, paramid, value);
 			return;
-		String paramstr = "";
+		}
+		
 		try {
-			paramstr = param.substring(0, param.lastIndexOf('_'));
 			ParameterFragmentImpl.ALLOW_IGNORE_MAP = true;
-			setConstraintParameter(constraintId, param, obj.getString(paramstr));
+			setConstraintParameter(constraintId, paramid, obj.getString(paramrole));
 			ParameterFragmentImpl.ALLOW_IGNORE_MAP = default_allow_ignore_map;
 			return;
 		} catch (Exception e) {
-			throw new RuntimeException("No default value defined for:" + param + "(" + paramstr + ")", e);
+			throw new RuntimeException("No default value defined for:" + paramid + "(" + paramrole + ")", e);
 		}
 	}
 
