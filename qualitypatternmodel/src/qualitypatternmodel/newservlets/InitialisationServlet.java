@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.sql.Timestamp;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
@@ -161,6 +162,22 @@ public class InitialisationServlet extends HttpServlet {
 		String value_as_json = System.getenv(ServletConstants.ENV_VALUE_AS_JSON);
 		if (value_as_json != null)
 			ServletConstants.VALUE_AS_JSON = value_as_json.equals("true");
+		
+		String logdays = System.getenv(ServletConstants.ENV_LOGDAYS);
+		if (logdays != null)
+		    try {
+		        ServletConstants.LOGDAYS = Integer.parseInt(logdays);
+		    } catch (NumberFormatException ignored) {
+		    }
+		
+		String logdateformat = System.getenv(ServletConstants.ENV_LOGDATEFORMAT);
+		if (logdateformat != null && !logdateformat.isBlank()) {
+			try {
+				DateTimeFormatter.ofPattern(logdateformat);
+				ServletConstants.LOGDATEFORMAT = logdateformat;
+			} catch (Exception e) {}
+		}
+			
 
 		System.out.println("Files can be found at " + ServletConstants.PATTERN_VOLUME);
 		ServletUtilities.log("Initializing ...");

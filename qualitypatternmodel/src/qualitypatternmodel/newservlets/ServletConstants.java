@@ -1,10 +1,6 @@
 package qualitypatternmodel.newservlets;
 
 public class ServletConstants {
-	
-	// logging
-	public static final String LOGDATEFORMAT = "yyyy-MM-dd";
-	public static final int LOGDAYS = 7;
 
 	// path to shared volume
 	public static String FILE_VOLUME_DEFAULT =  "/files";
@@ -74,6 +70,14 @@ public class ServletConstants {
 	// return values as JSONObject or JSONArray instead of Strings
 	public static boolean VALUE_AS_JSON = true;
 	public static String ENV_VALUE_AS_JSON = "VALUE_AS_JSON";
+	
+	// length of logging
+	public static int LOGDAYS = 7;
+	public static String ENV_LOGDAYS = "LOGDAYS";
+
+	// date format of log-names
+	public static String LOGDATEFORMAT = "yyyy-MM-dd";
+	public static String ENV_LOGDATEFORMAT = "LOGDATEFORMAT";
 
 
 	// name of folder for generic templates (only required if GENERATE_GENERIC)
