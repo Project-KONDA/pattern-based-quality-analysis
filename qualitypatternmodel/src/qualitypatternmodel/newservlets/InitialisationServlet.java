@@ -85,13 +85,13 @@ public class InitialisationServlet extends HttpServlet {
 //		ENVIRONMENTAL VARIABLES
 
 //	      SHARED_VOLUME: /shared
-		String files = System.getenv().get(ServletConstants.ENV_FILE_VOLUME);
+		String files = System.getenv(ServletConstants.ENV_FILE_VOLUME);
 		if (files != null)
 			ServletConstants.FILE_VOLUME = files;
 		else 
 			ServletConstants.FILE_VOLUME = scon.getRealPath(ServletConstants.FILE_VOLUME_DEFAULT);
 //	      TEMPLATE_VOLUME: /templates
-		String templates = System.getenv().get(ServletConstants.ENV_PATTERN_VOLUME);
+		String templates = System.getenv(ServletConstants.ENV_PATTERN_VOLUME);
 		if (templates != null) {
 			ServletConstants.PATTERN_VOLUME = templates;
 			ServletConstants.CONSTRAINT_UPLOAD_FOLDER = templates + "/uploads";
@@ -102,59 +102,63 @@ public class InitialisationServlet extends HttpServlet {
 			
 		}
 //	      UPLOAD_FOLDER: /shared/uploads
-		String upload = System.getenv().get(ServletConstants.ENV_UPLOAD_FOLDER);
+		String upload = System.getenv(ServletConstants.ENV_UPLOAD_FOLDER);
 		if (upload != null)
 			ServletConstants.UPLOAD_FOLDER = upload;
 		else 
 			ServletConstants.UPLOAD_FOLDER = scon.getRealPath(ServletConstants.UPLOAD_FOLDER_DEFAULT);
 //	      VARIANTS_FOLDER: /templates/variants
-		String variants = System.getenv().get(ServletConstants.ENV_VARIANTS_FOLDER);
+		String variants = System.getenv(ServletConstants.ENV_VARIANTS_FOLDER);
 		if (variants != null)
 			ServletConstants.VARIANTS_FOLDER = variants;
 		else 
 			ServletConstants.VARIANTS_FOLDER = scon.getRealPath(ServletConstants.VARIANTS_FOLDER_DEFAULT);
 //	      TEMPLATE_INFO_FILE: /templates/template_info.json
-		String template_info = System.getenv().get(ServletConstants.ENV_TEMPLATE_INFO_FILE);
+		String template_info = System.getenv(ServletConstants.ENV_TEMPLATE_INFO_FILE);
 		if (template_info != null)
 			ServletConstants.TEMPLATE_INFO_FILE = template_info;
 		else 
 			ServletConstants.TEMPLATE_INFO_FILE = scon.getRealPath(ServletConstants.TEMPLATE_INFO_FILE_DEFAULT);
 
 //	      LOGFILE: qpm-logfile.log
-		String logfile = System.getenv().get(ServletConstants.ENV_LOGFILE);
+		String logfile = System.getenv(ServletConstants.ENV_LOGFILE);
 		if (logfile != null)
 			ServletConstants.LOGFILE = logfile;
+		else 
+			ServletConstants.LOGFILE = scon.getRealPath(ServletConstants.LOGFILE_DEFAULT);
 //	      SAVEFILE: savefile.txt
-		String savefile = System.getenv().get(ServletConstants.ENV_SAVEFILE);
+		String savefile = System.getenv(ServletConstants.ENV_SAVEFILE);
 		if (savefile != null)
 			ServletConstants.SAVEFILE = savefile;
+		else 
+			ServletConstants.SAVEFILE = scon.getRealPath(ServletConstants.SAVEFILE_DEFAULT);
 
 //	      FILL_VALUES: false
-		String values = System.getenv().get(ServletConstants.ENV_FILL_VALUES);
+		String values = System.getenv(ServletConstants.ENV_FILL_VALUES);
 		if (values != null)
 			ServletConstants.FILL_VALUES = values.equals("true");
 //		 VARIANTS_TYPE_CONSTRAINT: true
-		String constraint_variants = System.getenv().get(ServletConstants.ENV_VARIANTS_TYPE_CONSTRAINT);
+		String constraint_variants = System.getenv(ServletConstants.ENV_VARIANTS_TYPE_CONSTRAINT);
 		if (constraint_variants != null)
 			ServletConstants.VARIANTS_TYPE_CONSTRAINT = constraint_variants.equals("true");
 //		 VARIANTS_TYPE_ANTIPATTERN: false
-		String antipattern_variants = System.getenv().get(ServletConstants.ENV_VARIANTS_TYPE_ANTIPATTERN);
+		String antipattern_variants = System.getenv(ServletConstants.ENV_VARIANTS_TYPE_ANTIPATTERN);
 		if (antipattern_variants != null)
 			ServletConstants.VARIANTS_TYPE_ANTIPATTERN = antipattern_variants.equals("true");
 //	      OLD_VARIANTS: false
-		String old_variants = System.getenv().get(ServletConstants.ENV_OLD_VARIANTS);
+		String old_variants = System.getenv(ServletConstants.ENV_OLD_VARIANTS);
 		if (old_variants != null)
 			ServletConstants.OLD_VARIANTS = old_variants.equals("true");
 //	      OVERRIDE_VARIANTS: true
-		String override = System.getenv().get(ServletConstants.ENV_OVERRIDE_VARIANTS);
+		String override = System.getenv(ServletConstants.ENV_OVERRIDE_VARIANTS);
 		if (override != null)
 			ServletConstants.OVERRIDE_VARIANTS = override.equals("true");
 //	      GENERATE_GENERIC: false
-		String generate_generic = System.getenv().get(ServletConstants.ENV_GENERATE_GENERIC);
+		String generate_generic = System.getenv(ServletConstants.ENV_GENERATE_GENERIC);
 		if (generate_generic != null)
 			ServletConstants.GENERATE_GENERIC = generate_generic.equals("true");
 //	      VALUE_AS_JSON: true
-		String value_as_json = System.getenv().get(ServletConstants.ENV_VALUE_AS_JSON);
+		String value_as_json = System.getenv(ServletConstants.ENV_VALUE_AS_JSON);
 		if (value_as_json != null)
 			ServletConstants.VALUE_AS_JSON = value_as_json.equals("true");
 

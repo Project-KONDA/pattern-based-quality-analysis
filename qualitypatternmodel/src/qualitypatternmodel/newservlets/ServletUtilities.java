@@ -599,10 +599,9 @@ public abstract class ServletUtilities {
 	public static String generateNewId(String technology, String templateId, String variantname) throws IOException {
 //		String name = technology + "_" + templateId + "_" + variantname;
 		String name = templateId + "_" + variantname;
-		String filepath = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.SAVEFILE;
 		Integer number;
 		try {
-			number = getNextNumber(filepath, name);
+			number = getNextNumber(ServletConstants.SAVEFILE, name);
 		} catch (JSONException | IOException e) {
 			logError(e);
 			number = 0;
@@ -776,7 +775,10 @@ public abstract class ServletUtilities {
 			acquired = true;
 			String filepath = getLogfileName();
 			File file = new File(filepath);
-			file.getParentFile().mkdirs();
+			if (file.getParentFile() != null) {
+				file.getParentFile().mkdirs();
+			}
+				
 			if (!file.exists()) {
 				File directory = new File(getLogfileDirectory());
 				if (!directory.exists()) {
@@ -814,18 +816,25 @@ public abstract class ServletUtilities {
 	}
 
 	private static String getLogfileDirectory() {
-		return ServletConstants.LOGFILE.substring(0, ServletConstants.LOGFILE.lastIndexOf('/'));
+		if (ServletConstants.LOGFILE.contains("/"))
+			return ServletConstants.LOGFILE.substring(0, ServletConstants.LOGFILE.lastIndexOf('/'));
+		else 
+			return "/";
 	}
 
 	private static String getLogfileNameStart() {
-		String filepath = "/" + ServletConstants.LOGFILE;
-		filepath = filepath.substring(filepath.lastIndexOf('/'));
-		filepath = filepath.substring(0, filepath.lastIndexOf('.'));
+		String filepath = ServletConstants.LOGFILE;
+		if (filepath.contains("/"))
+			filepath = filepath.substring(filepath.lastIndexOf('/'));
+		if (filepath.contains("."))
+			filepath = filepath.substring(0, filepath.lastIndexOf('.'));
 		return filepath + "-";
 	}
 
 	private static String getLogfileNameEnd() {
-		return ServletConstants.LOGFILE.substring(ServletConstants.LOGFILE.lastIndexOf('.'));
+		if (ServletConstants.LOGFILE.contains("."))
+			return ServletConstants.LOGFILE.substring(ServletConstants.LOGFILE.lastIndexOf('.'));
+		return ".log";
 	}
 
 	private static String getLogfileName() {

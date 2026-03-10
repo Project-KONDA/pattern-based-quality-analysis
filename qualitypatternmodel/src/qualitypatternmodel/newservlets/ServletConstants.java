@@ -36,14 +36,16 @@ public class ServletConstants {
 	public static String ENV_TEMPLATE_INFO_FILE = "TEMPLATE_INFO_FILE";
 	public static String TEMPLATE_INFO_FILE = "/templates/template_info.json";
 
-
 	// name of logfile
-	public static String LOGFILE = "logfile.log";
+	public static String LOGFILE_DEFAULT =  "/templates/logfile.log";
+	public static String LOGFILE = "/templates/logfile.log";
 	public static String ENV_LOGFILE = "LOGFILE";
 
 	// name of savefile
-	public static String SAVEFILE = "savefile.txt";
+	public static String SAVEFILE_DEFAULT =  "/templates/savefile.log";
+	public static String SAVEFILE = "/templates/savefile.txt";
 	public static String ENV_SAVEFILE = "SAVEFILE";
+
 
 	// shall there be values in the templates
 	public static boolean FILL_VALUES = false;
