@@ -1170,9 +1170,6 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		if (getValueMap() != null) {
 			value = getValueMap().get(value);
 		}
-//		Map<String, String> valueMap = new HashMap<String, String>();
-//		if (valueMap != null && valueMap.containsKey(value))
-//			return valueMap.get(value);
 		return value;
 	}
 
@@ -1264,7 +1261,6 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			} catch (InvalidityException e) {
 				throw new InvalidityException( "Error when mapping " + value + " to " + myValue + " with map " + getValueMap() , e);
 			}
-			
 		}
 	}
 

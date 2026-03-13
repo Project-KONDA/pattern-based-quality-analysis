@@ -845,7 +845,7 @@ public abstract class ServletUtilities {
 		return filename;
 	}
 
-	private static void deleteOldLogs() {
+	public static void deleteOldLogs() {
 		log("deleting old logfiles");
 		String logdir = getLogfileDirectory(), logstart = getLogfileNameStart(), logend = getLogfileNameEnd();
 
