@@ -394,7 +394,7 @@ public class APICallTests {
 
 	@Test
 	public void testLogDeletion() throws IOException {
-		String logdirectory = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.LOGFILE;
+		String logdirectory = ServletConstants.LOGFILE;
 		logdirectory = logdirectory.substring(0, logdirectory.lastIndexOf('/'));
         String currentDate = LocalDate.now().format(DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT));
         String currentFile = "logfile-" + currentDate + ".log";
