@@ -396,13 +396,10 @@ public class APICallTests {
 	public void testLogDeletion() throws IOException {
 		String logdirectory = ServletConstants.LOGFILE;
 		logdirectory = logdirectory.substring(0, logdirectory.lastIndexOf('/'));
-        String currentDate = LocalDate.now().format(DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT));
-        String currentFile = "logfile-" + currentDate + ".log";
-        
+
 		File logdir = new File(logdirectory); 
-		File currentLog = new File(logdirectory + "/" + currentFile);
-        
-		
+		File savefile = new File(ServletConstants.SAVEFILE);
+
 		if (!logdir.exists()) {
         	logdir.mkdirs();
 		}
@@ -425,14 +422,17 @@ public class APICallTests {
 		for (String date: datesNew)
 			Files.write(Paths.get(logdirectory + "/logfile-" + date + ".log"), new byte[0], StandardOpenOption.CREATE);
 
-        currentLog.delete();
-        ServletUtilities.log("Trigger New Logfile");
+        ServletUtilities.deleteOldLogs();
         
         File[] array = Arrays.stream(logdir.listFiles())
                 .filter(File::isFile)
                 .filter(f -> f.getName().endsWith(".log"))
                 .toArray(File[]::new);
-        assert(array.length == 1 + datesNew.length);
+        for (String date: datesNew)
+        	System.out.println(date);
+        for (File file: array)
+        	System.out.println(file.getName());
+        assertEquals(array.length, datesNew.length+1 + (savefile.exists()? 1 : 0));
 	}
 
 	@Test
