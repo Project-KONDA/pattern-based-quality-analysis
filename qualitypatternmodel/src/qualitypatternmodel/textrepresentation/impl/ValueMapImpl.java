@@ -255,6 +255,21 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public ValueMap reverse() {
+		ValueMap map = new ValueMapImpl();
+		for (String key: getKeys()) {
+			String value = get(key);
+			map.put(value, key);
+		}
+		return map;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -356,6 +371,8 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 			case TextrepresentationPackage.VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__JSONOBJECT:
 				setValuesFromJSONObject((JSONObject)arguments.get(0));
 				return null;
+			case TextrepresentationPackage.VALUE_MAP___REVERSE:
+				return reverse();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

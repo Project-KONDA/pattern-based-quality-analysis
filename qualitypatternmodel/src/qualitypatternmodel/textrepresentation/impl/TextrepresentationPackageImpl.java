@@ -879,6 +879,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EOperation getValueMap__Reverse() {
+		return valueMapEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getObjectWrapper() {
 		return objectWrapperEDataType;
 	}
@@ -1003,6 +1013,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEOperation(valueMapEClass, VALUE_MAP___IS_EMPTY);
 		createEOperation(valueMapEClass, VALUE_MAP___AS_MAP);
 		createEOperation(valueMapEClass, VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__JSONOBJECT);
+		createEOperation(valueMapEClass, VALUE_MAP___REVERSE);
 
 		// Create data types
 		objectWrapperEDataType = createEDataType(OBJECT_WRAPPER);
@@ -1191,6 +1202,8 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		op = initEOperation(getValueMap__SetValuesFromJSONObject__JSONObject(), null, "setValuesFromJSONObject", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getJSONObjectWrapper(), "object", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getValueMap__Reverse(), this.getValueMap(), "reverse", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(objectWrapperEDataType, Object.class, "ObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
