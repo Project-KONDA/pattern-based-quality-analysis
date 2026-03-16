@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -93,6 +94,7 @@ public abstract class ServletUtilities {
 	public static List<JSONObject> getAllPatternJsons(String technology) {
 		List<JSONObject> patterns = getTemplateJSONs(technology);
 		patterns.addAll(getConstraintJSONs(technology));
+		sortByKey(patterns, ConstantsJSON.CONSTRAINT_ID);
 		return patterns;
 	}
 
@@ -164,17 +166,20 @@ public abstract class ServletUtilities {
 			if (technology.equals(Constants.XML)) {
 				if (abstractPatternJsonXml == null) {
 					abstractPatternJsonXml = EMFModelLoad.loadPatternJSONsFromFolder(patternfolder, jsonfolder, Constants.EXTENSION);
+					sortByKey(abstractPatternJsonXml, ConstantsJSON.CONSTRAINT_ID);
 				}
 				return abstractPatternJsonXml;
 			} else if (technology.equals(Constants.RDF)) {
 				if (abstractPatternJsonRdf == null) {
 					abstractPatternJsonRdf = EMFModelLoad.loadPatternJSONsFromFolder(patternfolder, jsonfolder, Constants.EXTENSION);
+					sortByKey(abstractPatternJsonRdf, ConstantsJSON.CONSTRAINT_ID);
 				}
 				return abstractPatternJsonRdf;
 
 			} else if (technology.equals(Constants.NEO4J)) {
 				if (abstractPatternJsonNeo == null) {
 					abstractPatternJsonNeo = EMFModelLoad.loadPatternJSONsFromFolder(patternfolder, jsonfolder, Constants.EXTENSION);
+					sortByKey(abstractPatternJsonNeo, ConstantsJSON.CONSTRAINT_ID);
 				}
 				return abstractPatternJsonNeo;
 			} else {
@@ -192,7 +197,9 @@ public abstract class ServletUtilities {
 
 		if (Constants.TECHS.contains(technology)) {
 			try {
-				return EMFModelLoad.loadPatternJSONsFromFolder(constraintfolderpath, jsonfolderpath, Constants.EXTENSION);
+				List<JSONObject> jsons = EMFModelLoad.loadPatternJSONsFromFolder(constraintfolderpath, jsonfolderpath, Constants.EXTENSION); 
+				sortByKey(jsons, ConstantsJSON.CONSTRAINT_ID);
+				return jsons;
 			} catch (IOException e) {
 				logError(e);
 			}
@@ -234,6 +241,10 @@ public abstract class ServletUtilities {
 			logError(e);
 		}
 		return json;
+	}
+
+	public static void sortByKey(List<JSONObject> jsons, String key) {
+	    jsons.sort(Comparator.comparing(o -> o.optString(key, "")));
 	}
 
 	public static JSONObject combinePatternJSONs(List<JSONObject> patternjsons) {
@@ -588,10 +599,9 @@ public abstract class ServletUtilities {
 	public static String generateNewId(String technology, String templateId, String variantname) throws IOException {
 //		String name = technology + "_" + templateId + "_" + variantname;
 		String name = templateId + "_" + variantname;
-		String filepath = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.SAVEFILE;
 		Integer number;
 		try {
-			number = getNextNumber(filepath, name);
+			number = getNextNumber(ServletConstants.SAVEFILE, name);
 		} catch (JSONException | IOException e) {
 			logError(e);
 			number = 0;
@@ -601,29 +611,6 @@ public abstract class ServletUtilities {
 
 	public static Integer getNextNumber(String filepath, String variableName) throws JSONException, IOException {
 		int currentValue = 0;
-
-//		File file = new File(filepath);
-//		if (!file.exists()) {
-//			// If the file doesn't exist, create it and initialize with an empty JSON object
-//			JSONObject jsonObject = new JSONObject();
-////	            jsonObject.put(variableName, 0);
-//			try {
-//				saveSemaphore.acquire();
-//				Files.write(Paths.get(filepath), jsonObject.toString().getBytes(), StandardOpenOption.CREATE);
-//			} catch (InterruptedException e) {
-//				Thread.currentThread().interrupt();
-//				log("Thread was interrupted");
-//				logError(e);
-//			} finally {
-//				saveSemaphore.release();
-//			}
-//			System.out.println("File created successfully: " + filepath);
-////	            return 0; // Return 0 as the initial value
-//		}
-
-		// Read JSON file
-//		String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
-//		JSONObject jsonObject = new JSONObject(jsonString);
 		JSONObject jsonObject;
 		try{
 			jsonObject = Util.loadJson(filepath);
@@ -765,7 +752,10 @@ public abstract class ServletUtilities {
 			acquired = true;
 			String filepath = getLogfileName();
 			File file = new File(filepath);
-			file.getParentFile().mkdirs();
+			if (file.getParentFile() != null) {
+				file.getParentFile().mkdirs();
+			}
+				
 			if (!file.exists()) {
 				File directory = new File(getLogfileDirectory());
 				if (!directory.exists()) {
@@ -803,26 +793,25 @@ public abstract class ServletUtilities {
 	}
 
 	private static String getLogfileDirectory() {
-		String filepath = "/" + ServletConstants.LOGFILE;
-
-		if (ServletConstants.LOG_IN_FILE_VOLUME) {
-			filepath = ServletConstants.FILE_VOLUME + filepath;
-		} else {
-			filepath = ServletConstants.PATTERN_VOLUME + filepath;
-		}
-
-		return filepath.substring(0, filepath.lastIndexOf('/'));
+		if (ServletConstants.LOGFILE.contains("/"))
+			return ServletConstants.LOGFILE.substring(0, ServletConstants.LOGFILE.lastIndexOf('/'));
+		else 
+			return "/";
 	}
 
 	private static String getLogfileNameStart() {
-		String filepath = "/" + ServletConstants.LOGFILE;
-		filepath = filepath.substring(filepath.lastIndexOf('/'));
-		filepath = filepath.substring(0, filepath.lastIndexOf('.'));
+		String filepath = ServletConstants.LOGFILE;
+		if (filepath.contains("/"))
+			filepath = filepath.substring(filepath.lastIndexOf('/'));
+		if (filepath.contains("."))
+			filepath = filepath.substring(0, filepath.lastIndexOf('.'));
 		return filepath + "-";
 	}
 
 	private static String getLogfileNameEnd() {
-		return ServletConstants.LOGFILE.substring(ServletConstants.LOGFILE.lastIndexOf('.'));
+		if (ServletConstants.LOGFILE.contains("."))
+			return ServletConstants.LOGFILE.substring(ServletConstants.LOGFILE.lastIndexOf('.'));
+		return ".log";
 	}
 
 	private static String getLogfileName() {
@@ -833,7 +822,7 @@ public abstract class ServletUtilities {
 		return filename;
 	}
 
-	private static void deleteOldLogs() {
+	public static void deleteOldLogs() {
 		log("deleting old logfiles");
 		String logdir = getLogfileDirectory(), logstart = getLogfileNameStart(), logend = getLogfileNameEnd();
 
@@ -898,7 +887,7 @@ public abstract class ServletUtilities {
 	public static int logCall(String method, String clazz, String path, JSONObject params) {
 		int callId = -1;
 		try {
-			String filepath = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.SAVEFILE;
+			String filepath = ServletConstants.SAVEFILE;
 			callId = getNextNumber(filepath, "call");
 		} catch (JSONException | IOException e) {
 			logError(e);

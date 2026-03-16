@@ -50,28 +50,35 @@ public class PatternUtility {
 		int total = 0;
 		for (CompletePattern completePattern : completePatterns) {
 			total++;
-//			PatternUtility.fillParameter(completePattern);
-			try {
-				completePattern.isValid(AbstractionLevel.CONCRETE);
-				String result = completePattern.myToString();
-				System.out.println("\n\n___PATTERN_(VALID)___");
-				System.out.println(result);
-				System.out.println("\n___TRANSLATION___");
-				System.out.println(completePattern.generateXQueryJava());
-				valid++;
-			} catch (Exception e) {
-				System.out.print("\n####### PATTERN INVALID #######");
-				try {
-				  System.out.println(completePattern.myToString());
-					e.printStackTrace();
-				} catch (Exception e2) {
-					System.out.print("\n####### PATTERN PRINTING FAILED #######");
-					e2.printStackTrace();
-					e.printStackTrace();
-				}
-			}
+			if (testPattern(completePattern, false))
+				valid ++;
 		}
 		System.out.println(valid + " / " + total + " valid");
+	}
+
+	public static boolean testPattern(CompletePattern completePattern, Boolean fill) {
+		if (fill)
+			PatternUtility.fillParameter(completePattern);
+		try {
+			completePattern.isValid(AbstractionLevel.CONCRETE);
+			String result = completePattern.myToString();
+			System.out.println("\n\n___PATTERN_(VALID)___");
+			System.out.println(result);
+			System.out.println("\n___TRANSLATION___");
+			System.out.println(completePattern.generateXQueryJava());
+			return true;
+		} catch (Exception e) {
+			System.out.print("\n####### PATTERN INVALID #######");
+			try {
+			  System.out.println(completePattern.myToString());
+				e.printStackTrace();
+			} catch (Exception e2) {
+				System.out.print("\n####### PATTERN PRINTING FAILED #######");
+				e2.printStackTrace();
+				e.printStackTrace();
+			}
+			return false;
+		}
 	}
 
 	public static void getQueries(ArrayList<CompletePattern> completePatterns, Language lan) {

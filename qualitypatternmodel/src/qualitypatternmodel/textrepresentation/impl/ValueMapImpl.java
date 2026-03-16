@@ -16,6 +16,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
 
@@ -63,12 +65,16 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 		super();
 	}
 
-	public ValueMapImpl(JSONObject json) throws JSONException {
+	public ValueMapImpl(JSONObject json) throws InvalidityException {
 		super();
-		Iterator<String> keys = json.keys();
 
+		if (json == null)
+			throw new JSONException("json is null");
+		Iterator<String> keys = json.keys();
         while (keys.hasNext()) {
             String key = keys.next();
+            if (!(json.get(key) instanceof String))
+            	throw new InvalidityException(json + " is not a valid ValueMap JSON");
             String value = json.getString(key);
             put(key, value);
         }
@@ -255,6 +261,27 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public ValueMap reverse() {
+		ValueMap reversed = new ValueMapImpl();
+		try {
+			for (String key: getKeys()) {
+				String value = get(key);
+				reversed.put(value, key);
+			}
+			return reversed;
+		} catch (Exception e) {
+			ServletUtilities.logError(e);
+			ServletUtilities.log("from " + this + " to " + reversed);
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -356,6 +383,8 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 			case TextrepresentationPackage.VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__JSONOBJECT:
 				setValuesFromJSONObject((JSONObject)arguments.get(0));
 				return null;
+			case TextrepresentationPackage.VALUE_MAP___REVERSE:
+				return reverse();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

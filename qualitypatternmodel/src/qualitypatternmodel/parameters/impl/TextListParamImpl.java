@@ -104,15 +104,6 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 		catch (JSONException e) {
 	        getValues().clear();
 	        getValues().add(value);
-//			value = value.trim();
-//			if (value.startsWith("[") && value.endsWith("]"))
-//				value = value.substring(1, value.length() - 1);
-//	        String[] values = value.split(",");
-//	        getValues().clear();
-//	        for (String val: values) {
-//	        	String v = val.trim().replaceAll("\"",  "").trim();
-//	        	getValues().add(v);
-//	        }
 		}
 	}
 

@@ -1047,6 +1047,7 @@
       <eOperations name="setValuesFromJSONObject">
         <eParameters name="object" eType="#//textrepresentation/JSONObjectWrapper"/>
       </eOperations>
+      <eOperations name="reverse" eType="#//textrepresentation/ValueMap"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="keys" upperBound="-1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"

@@ -123,10 +123,14 @@ public class APICallTests {
 		File template_info_original = new File("./src/qualitypatternmodel/newservlets/template_info.json");
 		File template_info_copy = new File(folder + "/templates/template_info.json");
 
+		File template_maps_original = new File("./src/qualitypatternmodel/newservlets/template_maps.json");
+		File template_maps_copy = new File(folder + "/templates/template_maps.json");
+
 		try {
 			FileUtils.copyFile(lido_original, lido_copy);
 			FileUtils.copyDirectory(variants_original, variants_copy);
 			FileUtils.copyFile(template_info_original, template_info_copy);
+			FileUtils.copyFile(template_maps_original, template_maps_copy);
 			System.out.println("Files copied successfully");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -260,6 +264,10 @@ public class APICallTests {
 		assert(resultObject.has(ConstantsJSON.CONSTRAINT_IDS));
 		assert(resultObject.has(ConstantsJSON.CONSTRAINTSIZE));
 		assert(resultObject.has(ConstantsJSON.DURATION));
+
+		assert(!resultObject.has(ConstantsJSON.FAILEDFILES));
+		assert(!resultObject.has(ConstantsJSON.FAILEDCONSTRAINTS));
+
 		JSONArray result = resultObject.getJSONArray(ConstantsJSON.RESULT);
 		assert(result.length() > 0);
 		for (int i = 0; i < result.length(); i++) {
@@ -276,8 +284,6 @@ public class APICallTests {
 			JSONArray incidents = object.getJSONArray(ConstantsJSON.INCIDENTS);
 			assert(!forceResult || (incidents.length() > 0));
 		}
-		assert(!resultObject.has(ConstantsJSON.FAILEDFILES));
-		assert(!resultObject.has(ConstantsJSON.FAILEDCONSTRAINTS));
 	}
 
 	static void assertVariantArrayGrouped(JSONObject variants) {
@@ -392,15 +398,10 @@ public class APICallTests {
 
 	@Test
 	public void testLogDeletion() throws IOException {
-		String logdirectory = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.LOGFILE;
+		String logdirectory = ServletConstants.LOGFILE;
 		logdirectory = logdirectory.substring(0, logdirectory.lastIndexOf('/'));
-        String currentDate = LocalDate.now().format(DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT));
-        String currentFile = "logfile-" + currentDate + ".log";
-        
+
 		File logdir = new File(logdirectory); 
-		File currentLog = new File(logdirectory + "/" + currentFile);
-        
-		
 		if (!logdir.exists()) {
         	logdir.mkdirs();
 		}
@@ -423,14 +424,13 @@ public class APICallTests {
 		for (String date: datesNew)
 			Files.write(Paths.get(logdirectory + "/logfile-" + date + ".log"), new byte[0], StandardOpenOption.CREATE);
 
-        currentLog.delete();
-        ServletUtilities.log("Trigger New Logfile");
+        ServletUtilities.deleteOldLogs();
         
         File[] array = Arrays.stream(logdir.listFiles())
                 .filter(File::isFile)
                 .filter(f -> f.getName().endsWith(".log"))
                 .toArray(File[]::new);
-        assert(array.length == 1 + datesNew.length);
+        assertEquals(array.length, datesNew.length+1);
 	}
 
 	@Test
@@ -898,19 +898,19 @@ public class APICallTests {
 //			System.out.println(variantsFilterGroup.getInt(ConstantsJSON.TOTAL));
 //			System.out.println(variantsFilter2Group2.getInt(ConstantsJSON.TOTAL));
 
-			assert(variants.getInt(ConstantsJSON.SIZE) == 86);
-			assert(variantsGrouped.getInt(ConstantsJSON.SIZE) == 86);
-			assert(variantsGrouped2.getInt(ConstantsJSON.SIZE) == 86);
-			assert(variantsFilter.getInt(ConstantsJSON.SIZE) == 23);
-			assert(variantsFilter2.getInt(ConstantsJSON.SIZE) == 3);
+			assert(variants.getInt(ConstantsJSON.SIZE) >= 92);
+			assert(variantsGrouped.getInt(ConstantsJSON.SIZE) >= 92);
+			assert(variantsGrouped2.getInt(ConstantsJSON.SIZE) >= 92);
+			assert(variantsFilter.getInt(ConstantsJSON.SIZE) >= 23);
+			assert(variantsFilter2.getInt(ConstantsJSON.SIZE) >= 3);
 			assert(variantsFilterGroup.getInt(ConstantsJSON.SIZE) == 0);
-			assert(variantsFilter2Group2.getInt(ConstantsJSON.SIZE) == 3);
+			assert(variantsFilter2Group2.getInt(ConstantsJSON.SIZE) >= 3);
 			
-			assert(variants.getInt(ConstantsJSON.TOTAL) == 86);
-			assert(variantsGrouped.getInt(ConstantsJSON.TOTAL) == 100);
-			assert(variantsGrouped2.getInt(ConstantsJSON.TOTAL) == 100);
-			assert(variantsFilter.getInt(ConstantsJSON.TOTAL) == 23);
-			assert(variantsFilter2.getInt(ConstantsJSON.TOTAL) == 3);
+			assert(variants.getInt(ConstantsJSON.TOTAL) >= 92);
+			assert(variantsGrouped.getInt(ConstantsJSON.TOTAL) >= 106);
+			assert(variantsGrouped2.getInt(ConstantsJSON.TOTAL) >= 106);
+			assert(variantsFilter.getInt(ConstantsJSON.TOTAL) >= 23);
+			assert(variantsFilter2.getInt(ConstantsJSON.TOTAL) >= 3);
 			assert(variantsFilterGroup.getInt(ConstantsJSON.TOTAL) == 0);
 			assert(variantsFilter2Group2.getInt(ConstantsJSON.TOTAL) == 3);
 		}

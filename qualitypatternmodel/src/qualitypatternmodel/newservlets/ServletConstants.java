@@ -1,10 +1,6 @@
 package qualitypatternmodel.newservlets;
 
 public class ServletConstants {
-	
-	// logging
-	public static final String LOGDATEFORMAT = "yyyy-MM-dd";
-	public static final int LOGDAYS = 7;
 
 	// path to shared volume
 	public static String FILE_VOLUME_DEFAULT =  "/files";
@@ -36,19 +32,21 @@ public class ServletConstants {
 	public static String ENV_TEMPLATE_INFO_FILE = "TEMPLATE_INFO_FILE";
 	public static String TEMPLATE_INFO_FILE = "/templates/template_info.json";
 
+	// path to template info file
+	public static String TEMPLATE_MAP_FILE_DEFAULT =  "/templates/template_maps.json";
+	public static String ENV_TEMPLATE_MAP_FILE = "TEMPLATE_MAP_FILE";
+	public static String TEMPLATE_MAP_FILE = "/templates/template_maps.json";
 
 	// name of logfile
-	public static String LOGFILE = "logfile.log";
+	public static String LOGFILE_DEFAULT =  "/templates/logfile.log";
+	public static String LOGFILE = "/templates/logfile.log";
 	public static String ENV_LOGFILE = "LOGFILE";
 
 	// name of savefile
-	public static String SAVEFILE = "savefile.txt";
+	public static String SAVEFILE_DEFAULT =  "/templates/savefile.json";
+	public static String SAVEFILE = "/templates/savefile.json";
 	public static String ENV_SAVEFILE = "SAVEFILE";
 
-
-	// save log in shared
-	public static boolean LOG_IN_FILE_VOLUME = false;
-	public static String ENV_LOG_IN_FILE_VOLUME = "SAVE_LOG_IN_SHARED";
 
 	// shall there be values in the templates
 	public static boolean FILL_VALUES = false;
@@ -77,6 +75,14 @@ public class ServletConstants {
 	// return values as JSONObject or JSONArray instead of Strings
 	public static boolean VALUE_AS_JSON = true;
 	public static String ENV_VALUE_AS_JSON = "VALUE_AS_JSON";
+	
+	// length of logging
+	public static int LOGDAYS = 7;
+	public static String ENV_LOGDAYS = "LOGDAYS";
+
+	// date format of log-names
+	public static String LOGDATEFORMAT = "yyyy-MM-dd";
+	public static String ENV_LOGDATEFORMAT = "LOGDATEFORMAT";
 
 
 	// name of folder for generic templates (only required if GENERATE_GENERIC)

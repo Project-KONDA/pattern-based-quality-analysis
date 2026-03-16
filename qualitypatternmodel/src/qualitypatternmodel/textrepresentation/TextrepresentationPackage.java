@@ -922,13 +922,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__JSONOBJECT = 9;
 
 	/**
+	 * The operation id for the '<em>Reverse</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_MAP___REVERSE = 10;
+
+	/**
 	 * The number of operations of the '<em>Value Map</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_MAP_OPERATION_COUNT = 10;
+	int VALUE_MAP_OPERATION_COUNT = 11;
 
 	/**
 	 * The meta object id for the '<em>Object Wrapper</em>' data type.
@@ -1637,6 +1646,16 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getValueMap__SetValuesFromJSONObject__JSONObject();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#reverse() <em>Reverse</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Reverse</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#reverse()
+	 * @generated
+	 */
+	EOperation getValueMap__Reverse();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Object Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2225,6 +2244,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__JSONOBJECT = eINSTANCE.getValueMap__SetValuesFromJSONObject__JSONObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Reverse</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_MAP___REVERSE = eINSTANCE.getValueMap__Reverse();
 
 		/**
 		 * The meta object literal for the '<em>Object Wrapper</em>' data type.

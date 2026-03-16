@@ -19,6 +19,7 @@ import net.sf.saxon.om.NodeInfo;
 import net.sf.saxon.s9api.DocumentBuilder;
 import net.sf.saxon.s9api.Processor;
 import net.sf.saxon.s9api.SaxonApiException;
+import net.sf.saxon.s9api.SaxonApiUncheckedException;
 import net.sf.saxon.s9api.Serializer;
 import net.sf.saxon.s9api.WhitespaceStrippingPolicy;
 import net.sf.saxon.s9api.XQueryCompiler;
@@ -102,6 +103,7 @@ public class XQueryProcessorSaxon {
 	public static class SaxonConstraint {
 		public String id;
 		public String name;
+		public String query;
 	    public XQueryExecutable query_executable;
 	    public XQueryExecutable query_total_executable;
 	    public JSONObject filter;
@@ -132,7 +134,8 @@ public class XQueryProcessorSaxon {
 				SaxonConstraint ce = new SaxonConstraint();
 				ce.id = constraint.getString(ConstantsJSON.CONSTRAINT_ID);
 				ce.name = constraint.getString(ConstantsJSON.NAME);
-				ce.query_executable = compiler.compile(constraint.getString(ConstantsJSON.QUERY));
+				ce.query = constraint.getString(ConstantsJSON.QUERY);
+				ce.query_executable = compiler.compile(ce.query);
 				if (constraint.has(ConstantsJSON.CUSTOM))
 					ce.custom = constraint.getJSONObject(ConstantsJSON.CUSTOM);
 				String counterquery = constraint.getString(ConstantsJSON.QUERY_PARTIAL);
@@ -179,9 +182,9 @@ public class XQueryProcessorSaxon {
                 	total_incidents += queryResult.getLong(ConstantsJSON.TOTAL_INCIDENCES);
                 	total_compliances += queryResult.getLong(ConstantsJSON.TOTAL_COMPLIANCES);
 	                results.put(queryResult);
-				} catch (SaxonApiException | JSONException | InvalidityException e) {
+				} catch (SaxonApiException | SaxonApiUncheckedException | JSONException | InvalidityException e) {
 					failedConstraints.put(executable.id, e.getMessage());
-					e.printStackTrace();
+					ServletUtilities.logError(new InvalidityException("invalid query: " + executable.query, e));
 					continue;
 				}
             }
@@ -214,7 +217,7 @@ public class XQueryProcessorSaxon {
 		return resultobject;
 	}
 
-	private static JSONObject querySaxonConstraint(Processor processor, File file, XdmNode inputDoc, SaxonConstraint executable) throws SaxonApiException, InvalidityException {
+	private static JSONObject querySaxonConstraint(Processor processor, File file, XdmNode inputDoc, SaxonConstraint executable) throws SaxonApiException, SaxonApiUncheckedException, InvalidityException {
 		JSONObject queryResult = new JSONObject();
 		queryResult.put(ConstantsJSON.CONSTRAINT_ID, executable.id);
 		queryResult.put(ConstantsJSON.CONSTRAINT_NAME, executable.name);
