@@ -23,7 +23,7 @@
             "exampleValue":"Image References",
             "description":"property of interest,that should contain a valid link."
         },
-        {"text":"link to retrievable images that are at least"},
+        {"text":"are valid links to an image of at least"},
         {
             "name":"dimension 1",
             "params":[1],

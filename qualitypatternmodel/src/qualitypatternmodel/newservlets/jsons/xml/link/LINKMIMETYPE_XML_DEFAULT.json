@@ -23,7 +23,7 @@
             "exampleValue":"Image References",
             "description":"property of interest,that should contain a valid link."
         },
-		{"text":"resolve to MIME types that are one of"},
+		{"text":"have MIME types that are in the list of"},
         {
             "name":"MIME-Types",
             "params":[1],

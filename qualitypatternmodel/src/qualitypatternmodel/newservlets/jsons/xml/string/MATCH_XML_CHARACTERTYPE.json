@@ -24,7 +24,7 @@
             "description":"value that gets analysed",
             "plural":"true"
         },
-        {"text":"contains at least one"},
+        {"text":"contain at least one"},
         {
             "name":"Specific",
             "params":[1],

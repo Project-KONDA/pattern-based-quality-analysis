@@ -23,7 +23,7 @@
             "exampleValue":"Image References",
             "description":"property of interest,that should contain a valid link."
         },
-        {"text":"are a valid link."},
+        {"text":"are valid links."},
         {
             "params":[0],
             "value": "true"

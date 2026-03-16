@@ -16,7 +16,7 @@
             "exampleValue":"Image Reference",
             "description":"property of interest,that should contain a valid link."
         },
-		{"text":"links to a retrievable image that is at least"},
+		{"text":"is a valid link to an image of at least"},
         {
             "name":"dimension 1",
             "params":[1],

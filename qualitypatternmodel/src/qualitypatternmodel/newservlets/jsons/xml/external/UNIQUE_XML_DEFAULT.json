@@ -22,6 +22,6 @@
             "description":"value that gets analysed",
 			"plural":"true"
         },
-        {"text":"are unique across elements of the same kind within the file (but may be repeated within the same element)."}
+        {"text":"are unique within the file."}
     ]
 }
