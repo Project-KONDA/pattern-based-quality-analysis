@@ -17,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
 
@@ -72,9 +73,9 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 		Iterator<String> keys = json.keys();
         while (keys.hasNext()) {
             String key = keys.next();
-            String value = json.optString(key);
-            if (value == null)
+            if (!(json.get(key) instanceof String))
             	throw new InvalidityException(json + " is not a valid ValueMap JSON");
+            String value = json.getString(key);
             put(key, value);
         }
 	}
@@ -264,12 +265,18 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	 */
 	@Override
 	public ValueMap reverse() {
-		ValueMap map = new ValueMapImpl();
-		for (String key: getKeys()) {
-			String value = get(key);
-			map.put(value, key);
+		ValueMap reversed = new ValueMapImpl();
+		try {
+			for (String key: getKeys()) {
+				String value = get(key);
+				reversed.put(value, key);
+			}
+			return reversed;
+		} catch (Exception e) {
+			ServletUtilities.logError(e);
+			ServletUtilities.log("from " + this + " to " + reversed);
+			return null;
 		}
-		return map;
 	}
 
 	/**

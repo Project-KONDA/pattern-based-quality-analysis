@@ -43,8 +43,8 @@ public class ServletConstants {
 	public static String ENV_LOGFILE = "LOGFILE";
 
 	// name of savefile
-	public static String SAVEFILE_DEFAULT =  "/templates/savefile.log";
-	public static String SAVEFILE = "/templates/savefile.txt";
+	public static String SAVEFILE_DEFAULT =  "/templates/savefile.json";
+	public static String SAVEFILE = "/templates/savefile.json";
 	public static String ENV_SAVEFILE = "SAVEFILE";
 
 
