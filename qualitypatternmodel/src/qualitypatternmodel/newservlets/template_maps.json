@@ -9,12 +9,12 @@
 			"at most":"LESSOREQUAL"
 		},
 		"negated":{
-			"exactly":"EQUAL",
-			"exactly not":"NOTEQUAL",
-			"more than":"GREATER",
-			"less than":"LESS",
-			"at least":"GREATEROREQUAL",
-			"at most":"LESSOREQUAL"
+			"exactly":"NOTEQUAL",
+			"exactly not":"EQUAL",
+			"more than":"LESSOREQUAL",
+			"less than":"GREATEROREQUAL",
+			"at least":"GREATER",
+			"at most":"LESS"
 		},
 		"is":{
 			"is":"EQUAL",
@@ -91,9 +91,19 @@
 			"LidoRecID":"^(((https?://)?[a-zA-Z0-9\\-\\./]*\\.[a-z]{2,3}/([a-zA-Z0-9\\-\\./]*/)?)|(info:isil/))?[A-Z]{2,10}-[A-Z0-9][a-zA-Z0-9\\-]{0,14}[a-zA-Z0-9]([/\\-_][a-zA-Z]+)*[/\\-_][A-Za-z0-9]+$",
 			"DDB-specific LidoRecID":"^(info:isil/)?[A-Z]{2,10}-[A-Z0-9][a-zA-Z0-9\\-]{0,14}[a-zA-Z0-9]([/\\-_][a-zA-Z]+)*[/\\-_][A-Za-z0-9]+$",
 			"ASCII (ISO 646)":"^[ -~]+$",
-			"Public Domain of Creative Commons licences":"^https?://creativecommons\\.org/(licenses/(by(-sa|-nd|-nc(-sa|-nd)?)?)/([1-4]\\.0|2\\.5)(/[a-z]{2}(-[a-z]{2})?)?|publicdomain/(zero|mark)/1\\.0)/?$",
-			"Public Domain of Creative Commons or RightsStatements.org":"^https?://(creativecommons\\.org/(licenses/(by(-sa|-nd|-nc(-sa|-nd)?)?)/([1-4]\\.0|2\\.5)(/[a-z]{2}(-[a-z]{2})?)?|publicdomain/(zero|mark)/1\\.0)|rightsstatements\\.org/vocab/[A-Za-z]+(-[A-Za-z]+)*/1\\.0(/[A-Za-z]{2})?)/?$"
+			"ASCII (ISO 646) without Whitespace":"^[!-~]+$",
+			"Creative Commons or RightsStatements.org":"^https?://(creativecommons\\.org/(licenses/(by(-sa|-nd|-nc(-sa|-nd)?)?)/([1-4]\\.0|2\\.5)(/[a-z]{2}(-[a-z]{2})?)?|publicdomain/(zero|mark)/1\\.0)|rightsstatements\\.org/vocab/[A-Za-z]+(-[A-Za-z]+)*/1\\.0(/[A-Za-z]{2})?)/?$",
+			"Public Domain of Creative Commons licences":"^https?://creativecommons\\.org/publicdomain/(zero|mark)/1\\.0/?$"
+		}
+	},
+	"regexlist":{
+		"url-list":{
+			"GND, Wikidata, or AAT":"[\"https?://vocab\\\\.getty\\\\.edu/(page/)?aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"GND, Wikidata, AAT, or Iconclass":"[\"https?://iconclass\\\\.org/([a-z]+/)?[0-9A-Z]+\",\"https?://vocab\\\\.getty\\\\.edu/(page/)?aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"GND, Wikidata, AAT, or DDC":"[\"https?://vocab\\\\.getty\\\\.edu/(page/)?aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\",\"https?//uri\\\\.gbv\\\\.de/terminology/sdnb/([0-9]([0-9][0-9](\\\\.[0-9][0-9]?)?)?|[BKS])\"]",
+			"GND, Wikidata, GeoNames, or TGN":"[\"https?://vocab\\\\.getty.edu/tgn/[0-9]+\",\"https?://(www|sws)\\\\.geonames\\\\.org/[0-9]+/\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"the GND":"[\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"the LIDO terminology":"[\"https?://terminology\\\\.lido-schema\\\\.org/[0-9A-Za-z]+\"]"
 		}
 	}
-		
 }

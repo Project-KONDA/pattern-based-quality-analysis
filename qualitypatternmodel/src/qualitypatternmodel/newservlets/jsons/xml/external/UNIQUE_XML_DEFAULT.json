@@ -4,24 +4,26 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for Unique_xml. Checks only uniqueness of a value within a file."
-	},	
+		"description": "default variant for Unique_xml. Checks only uniqueness of a value within a file.",
+		"type": ["uniq"],
+		"scope": "hierarchical"
+	},
     "fragments":[
         {"text":"For each"},
         {
             "name":"Element",
             "params":[2,5],
-            "exampleValue":"Actor",
+            "exampleValue":"Cultural Heritage Object",
             "description":"anchor for analysis"
         },
         {"text":", all"},
         {
             "name":"Properties",
             "params":[3,4],
-            "exampleValue":"Identifiers (Value)",
+            "exampleValue":"Titles",
             "description":"value that gets analysed",
 			"plural":"true"
         },
-        {"text":"are unique across elements of the same kind within the file (but may be repeated within the same element)."}
+        {"text":"are unique within the file."}
     ]
 }

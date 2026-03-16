@@ -13,13 +13,13 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Attribution statement",
+            "exampleValue":"Attribution Statement",
             "description":"analysed property"
         },
         {
             "name":"Does / Does Not",
             "params":[0],
-            "defaultMap":"does not",
+            "defaultMap":"boolean.doesnot",
             "exampleValue":"does",
             "default":"does"
         },

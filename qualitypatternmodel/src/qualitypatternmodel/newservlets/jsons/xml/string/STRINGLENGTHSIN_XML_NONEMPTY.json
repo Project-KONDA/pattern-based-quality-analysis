@@ -13,14 +13,14 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"LastName",
+            "exampleValue":"Language Attribute",
             "description":"value that gets analysed"
         },
         {"text":"is non-empty."},
         {
             "params":[0],
             "value":"EQUAL",
-            "defaultMap":"comparison_negated"
+            "defaultMap":"comparison.negated"
         },
         {
             "params":[1],

@@ -13,7 +13,7 @@
         {
             "name":"Container Elements",
             "params":[3],
-            "exampleValue":"Actors",
+            "exampleValue":"Persons",
             "description":"anchor for analysis",
             "plural": "true"
         },
@@ -27,7 +27,7 @@
         {
             "name":"Does / Does Not",
             "params":[0],
-            "defaultMap":"does not",
+            "defaultMap":"boolean.doesnot",
             "exampleValue":"does",
             "default": "does"
         },

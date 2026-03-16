@@ -13,14 +13,14 @@
         {
             "name":"Element",
             "params":[0],
-            "exampleValue":"Actor",
+            "exampleValue":"Cultural Heritage Object",
             "description":"anchor for analysis"
         },
         {"text":"has a"},
         {
             "name":"Subelement",
             "params":[1],
-            "exampleValue":"Identifier",
+            "exampleValue":"Title",
             "description":"required element"
         },
         {"text":"."}

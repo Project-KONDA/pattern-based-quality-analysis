@@ -4,32 +4,34 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for LinkSource_xml"
+		"description": "default variant for LinkSource_xml",
+		"type": ["vocab", "ref"],
+		"scope": "hierarchical"
 	},
     "fragments":[
         {"text":"For each"},
         {
             "name":"Element",
             "params":[2],
-            "exampleValue":"Actor",
+            "exampleValue":"Cultural Heritage Object",
             "description":"anchor for analysis"
         },
         {"text":", all"},
         {
             "name":"Properties",
             "params":[3],
-            "exampleValue":"Birth Certificate Sources",
+            "exampleValue":"Work Type References",
             "description":"property of interest that should contain a valid link"
         },
-        {"text":"are valid links that belongs to one of the domains of"},
+        {"text":"are valid links that belong to one of the domains of"},
         {
             "name":"domain-urls",
             "params":[1],
-            "exampleValue":"www.wikidata.org",
+            "exampleValue":"www.wikidata.org, www.vocab.getty.edu",
             "description":"domains"
         },
         {"text":"."},
-        
+
         {
             "params":[0],
             "value": "true"

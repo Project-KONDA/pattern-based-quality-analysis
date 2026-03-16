@@ -13,13 +13,13 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Attribution statement",
+            "exampleValue":"Object Type",
             "description":"analysed property"
         },
         {
             "name":"Does / Does Not",
             "params":[0],
-            "defaultMap":"does not",
+            "defaultMap":"boolean.doesnot",
             "exampleValue":"does",
             "default":"does"
         },
@@ -27,7 +27,7 @@
         {
             "name":"a List of Terms",
             "params":[1],
-            "exampleValue":"['a', 'b']"
+            "exampleValue":"['Painting', 'Portrait', 'Landscape']"
         },
         {"text":"as a substring."}
     ]

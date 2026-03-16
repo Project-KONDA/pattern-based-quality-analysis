@@ -13,17 +13,17 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Homepage URL",
+            "exampleValue":"Work Type Reference",
             "description":"property of interest that should contain a valid link"
         },
-        {"text":"is a valid link that targets a subpage of"},
+        {"text":"is a valid link that contains one of"},
         {
             "name":"domain-urls",
             "params":[1],
-            "exampleValue":"www.wikidata.org",
+            "exampleValue":"www.wikidata.org, www.vocab.getty.edu",
             "description":"domains"
         },
-        {"text":"."},
+        {"text":"as a substring."},
         {
             "params":[0],
             "value": "true"

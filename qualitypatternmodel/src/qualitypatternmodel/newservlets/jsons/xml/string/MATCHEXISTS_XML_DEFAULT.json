@@ -5,15 +5,15 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "default variant for Match_xml",
-		"type": [],
-		"scope": "_"
+		"type": ["fmt"],
+		"scope": "containered"
 	},
     "fragments":[
         {"text":"For each"},
         {
             "name":"Element",
             "params":[2],
-            "exampleValue":"Actors",
+            "exampleValue":"Person",
             "description":"anchor for analysis"
         },
         {"text":", at least one"},
@@ -26,7 +26,7 @@
         {
             "name":"Does / Does Not",
             "params":[0],
-            "defaultMap":"does not",
+            "defaultMap":"boolean.doesnot",
             "exampleValue":"does",
             "default": "does"
         },
