@@ -402,8 +402,6 @@ public class APICallTests {
 		logdirectory = logdirectory.substring(0, logdirectory.lastIndexOf('/'));
 
 		File logdir = new File(logdirectory); 
-		File savefile = new File(ServletConstants.SAVEFILE);
-
 		if (!logdir.exists()) {
         	logdir.mkdirs();
 		}
@@ -432,11 +430,7 @@ public class APICallTests {
                 .filter(File::isFile)
                 .filter(f -> f.getName().endsWith(".log"))
                 .toArray(File[]::new);
-        for (String date: datesNew)
-        	System.out.println(date);
-        for (File file: array)
-        	System.out.println(file.getName());
-        assertEquals(array.length, datesNew.length+1 + (savefile.exists()? 1 : 0));
+        assertEquals(array.length, datesNew.length+1);
 	}
 
 	@Test

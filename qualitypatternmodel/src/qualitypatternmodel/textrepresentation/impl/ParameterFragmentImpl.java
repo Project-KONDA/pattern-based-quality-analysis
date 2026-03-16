@@ -650,7 +650,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return null;
 		}
 		
-		String[] steps = name.split(".");
+		String[] steps = name.split("\\.");
 		for (int i = 0; i<steps.length-1; i++) {
 			obj = obj.optJSONObject(steps[i]);
 			if (obj == null)
