@@ -13,20 +13,20 @@
         {
             "name":"Property",
             "params":[4],
-            "exampleValue":"LastName",
+            "exampleValue":"Title",
             "description":"value that gets analysed"
         },
         {"text":"is between"},
         {
             "name":"a Minimum Number",
             "params":[1],
-            "exampleValue":"5"
+            "exampleValue":"3"
         },
         {"text":"and"},
         {
             "name":"a Maximum Number of",
             "params":[3],
-            "exampleValue":"20"
+            "exampleValue":"100"
         },
         {"text":"characters in length."},
 		{

@@ -13,14 +13,14 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Surname",
+            "exampleValue":"Filename",
             "description":"value that gets analysed"
         },
         {"text":"contains at least one"},
         {
             "name":"Specific",
             "params":[1],
-            "exampleValue":"numerical",
+            "exampleValue":"alphanumeric",
             "map":{
             	"[a-zA-Z]":"alphabetic",
             	"[a-zA-Z0-9]":"alphanumeric",

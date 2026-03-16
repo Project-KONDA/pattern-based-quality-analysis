@@ -13,7 +13,7 @@
         {
             "name":"Container Elements",
             "params":[3],
-            "exampleValue":"Actors",
+            "exampleValue":"Persons",
             "description":"anchor for analysis",
             "plural": "true"
         },

@@ -13,14 +13,14 @@
         {
             "name":"Element",
             "params":[2],
-            "exampleValue":"Actors",
+            "exampleValue":"Actor",
             "description":"anchor for analysis"
         },
         {"text":", at least one"},
         {
             "name":"Property",
             "params":[3],
-            "exampleValue":"Surname",
+            "exampleValue":"Birthdate",
             "description":"value that gets analysed"
         },
         {"text":"matches the"},

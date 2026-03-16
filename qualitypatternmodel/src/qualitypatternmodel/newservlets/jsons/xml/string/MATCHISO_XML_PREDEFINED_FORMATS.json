@@ -13,7 +13,7 @@
         {
             "name":"Container Elements",
             "params":[3],
-            "exampleValue":"Actors",
+            "exampleValue":"Digital Objects",
             "description":"anchor for analysis",
             "plural": "true"
         },
@@ -21,7 +21,7 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Surname",
+            "exampleValue":"Production Date",
             "description":"value that gets analysed"
         },
         {"text":"matches the"},

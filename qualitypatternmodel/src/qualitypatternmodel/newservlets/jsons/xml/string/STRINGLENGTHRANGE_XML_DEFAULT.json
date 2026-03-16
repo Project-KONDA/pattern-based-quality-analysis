@@ -13,14 +13,14 @@
         {
             "name":"Element",
             "params":[4],
-            "exampleValue":"Actor",
+            "exampleValue":"Cultural Heritage Object",
             "description":"anchor for analysis"
         },
         {"text":", all"},
         {
             "name":"Properties",
             "params":[5],
-            "exampleValue":"LastNames",
+            "exampleValue":"Titles",
             "description":"value that gets analysed",
             "plural":"true"
         },
@@ -28,13 +28,13 @@
         {
             "name":"a Minimum Number",
             "params":[1],
-            "exampleValue":"5"
+            "exampleValue":"3"
         },
         {"text":"and"},
         {
             "name":"a Maximum Number of",
             "params":[3],
-            "exampleValue":"20"
+            "exampleValue":"100"
         },
         {"text":"characters in length."},
         {
