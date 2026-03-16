@@ -13,28 +13,28 @@
         {
             "name":"Element",
             "params":[0],
-            "exampleValue":"Actor",
+            "exampleValue":"Painting",
             "description":"anchor for analysis"
         },
         {"text":"has at least one of"},
         {
             "name":"Subelement A",
             "params":[1],
-            "exampleValue":"Identifier",
+            "exampleValue":"Accession Number",
             "description":"required element"
         },
         {"text":","},
         {
             "name":"Subelement B",
             "params":[2],
-            "exampleValue":"Identifier",
+            "exampleValue":"Inventory Number",
             "description":"required element"
         },
         {"text":", and"},
         {
             "name":"Subelement C",
             "params":[3],
-            "exampleValue":"Identifier",
+            "exampleValue":"Catalogue Number",
             "description":"required element"
         },
         {"text":"."}

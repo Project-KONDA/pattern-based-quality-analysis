@@ -13,21 +13,21 @@
         {
             "name":"Element",
             "params":[5],
-            "exampleValue":"LIDO Record",
+            "exampleValue":"Digital Object",
             "description":"anchor for analysis"
         },
         {"text":"has a"},
         {
             "name":"Property A",
             "params":[6],
-            "exampleValue":"Concept Identifier",
+            "exampleValue":"Filename",
             "description":"conditioned property"
         },
         {"text":"that"},
         {
             "name":"Does / Does Not",
             "params":[0],
-            "exampleValue":"Does",
+            "exampleValue":"does",
             "description":"possibly negate match",
             "defaultMap":"boolean.doesnot",
             "default":"does"
@@ -36,14 +36,14 @@
         {
             "name":"a Specific Pattern (RegEx)",
             "params":[1],
-            "exampleValue":"^https://.*",
+            "exampleValue":"^(tif|jpg|png)$",
             "description":"pattern to match"
         },
         {"text":"all"},
         {
             "name":"Properties B",
             "params":[7],
-            "exampleValue":"Types",
+            "exampleValue":"Media Types",
             "description":"required property",
             "plural": "true"
         },
@@ -58,7 +58,7 @@
         {
             "name":"Terms",
             "params":[2],
-            "exampleValue":"['http://terminology.lido-schema.org/lido00099'', 'http://terminology.lido-schema.org/identifier_type/uri']",
+            "exampleValue":"'Image','image', 'digital image'",
             "description": "list of allowed values"
         },
         {"text":"."}

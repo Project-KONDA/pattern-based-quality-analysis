@@ -13,14 +13,14 @@
         {
             "name":"Element",
             "params":[2],
-            "exampleValue":"Actor",
+            "exampleValue":"Person",
             "description":"anchor for analysis"
         },
         {"text":", all"},
         {
             "name":"Properties",
             "params":[3],
-            "exampleValue":"Attribution statements",
+            "exampleValue":"Attribution Statements",
             "description":"analysed property",
             "plural":"true"
         },

@@ -14,13 +14,13 @@
         {
             "name":"Element",
             "params":[8],
-			"exampleValue": ""
+			"exampleValue": "Media Asset Bundle"
         },
         {"text":"has a"},
         {
             "name":"Property A",
             "params":[9],
-			"exampleValue": ""
+			"exampleValue": "Media Type"
         },
         {"text":"that"},
         {
@@ -53,7 +53,7 @@
         {
             "name":"Property B",
             "params":[10],
-			"exampleValue": ""
+			"exampleValue": "Preview Image"
         },
         {"text":"that"},
         {
@@ -67,7 +67,7 @@
         {
             "name":"Terms",
             "params":[5],
-			"exampleValue": ""
+			"exampleValue": "Image Preview, Image Overview, Preview Representation"
         },
         {"text":"."}
     ]

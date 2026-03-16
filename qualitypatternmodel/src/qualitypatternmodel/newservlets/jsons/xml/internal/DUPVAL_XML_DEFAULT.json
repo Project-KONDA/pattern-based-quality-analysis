@@ -13,7 +13,7 @@
 		{
             "name":"Element",
             "params":[4],
-            "exampleValue":"Person",
+            "exampleValue":"Person's Identifier",
             "description":"anchor for analysis"
         },
 		{"text": "does not have two properties with the same value."},

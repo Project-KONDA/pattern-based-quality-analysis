@@ -14,14 +14,14 @@
         {
             "name":"Element",
             "params":[4],
-            "exampleValue":"Actors",
+            "exampleValue":"Person",
             "description":"anchor for analysis"
         },
         {"text":"has"},
         {
             "name":"a Comparison with",
             "params":[0],
-            "exampleValue":"at least",
+            "exampleValue":"exactly",
             "defaultMap":"comparison.negated",
             "default":"at least"
         },
@@ -34,7 +34,7 @@
         {
             "name":"Properties",
             "params":[5],
-            "exampleValue":"Birthdates",
+            "exampleValue":"Birthdate",
             "description":"counted elements",
             "plural":"true"
         },

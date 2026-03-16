@@ -13,21 +13,21 @@
         {
             "name":"Element",
             "params":[0],
-            "exampleValue":"Actor",
+            "exampleValue":"Painting",
             "description":"anchor for analysis"
         },
         {"text":"has a"},
         {
             "name":"Subelement A",
             "params":[1],
-            "exampleValue":"Identifier",
+            "exampleValue":"Creation Date",
             "description":"required element"
         },
         {"text":"or a"},
         {
             "name":"Subelement B",
             "params":[2],
-            "exampleValue":"Identifier",
+            "exampleValue":"Period",
             "description":"required element"
         },
         {"text":"."}

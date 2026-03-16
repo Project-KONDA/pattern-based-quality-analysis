@@ -13,14 +13,14 @@
         {
             "name":"Element",
             "params":[1],
-            "exampleValue":"Actor",
+            "exampleValue":"Painting",
             "description":"anchor for analysis"
         },
         {"text":", all"},
         {
             "name":"Properties",
             "params":[2],
-            "exampleValue":"Birth Certificate Sources",
+            "exampleValue":"Image References",
             "description":"property of interest,that should contain a valid link."
         },
         {"text":"are a valid link."},

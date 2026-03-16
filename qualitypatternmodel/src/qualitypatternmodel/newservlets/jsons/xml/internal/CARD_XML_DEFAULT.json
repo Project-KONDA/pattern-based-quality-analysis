@@ -13,14 +13,14 @@
         {
             "name":"Element",
             "params":[2],
-            "exampleValue":"Actor",
+            "exampleValue":"Person",
             "description":"anchor for analysis"
         },
         {"text":"has"},
         {
             "name":"a Comparison with",
             "params":[0],
-            "exampleValue":"at least",
+            "exampleValue":"exactly",
             "defaultMap":"comparison.negated",
             "default":"at least"
         },

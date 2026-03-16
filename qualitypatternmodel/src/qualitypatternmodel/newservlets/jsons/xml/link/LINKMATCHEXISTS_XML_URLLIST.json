@@ -13,14 +13,14 @@
         {
             "name":"Element",
             "params":[3],
-            "exampleValue":"Object",
+            "exampleValue":"Person",
             "description":"anchor for analysis"
         },
         {"text":", at least one"},
         {
             "name":"Property",
             "params":[4],
-            "exampleValue":"Type",
+            "exampleValue":"Person's Identifier",
             "description":"property of interest that should contain a valid link"
         },
         {"text":"is a valid link to "},

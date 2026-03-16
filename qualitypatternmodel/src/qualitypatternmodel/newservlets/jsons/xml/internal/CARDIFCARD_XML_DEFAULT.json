@@ -13,13 +13,13 @@
         {
             "name":"Element",
             "params":[4],
-			"exampleValue": ""
+			"exampleValue": "Cultural Heritage Object"
         },
         {"text":"has"},
         {
             "name":"Comparison A",
             "params":[0],
-			"exampleValue": "at least"
+			"exampleValue": "more than"
         },
         {
             "name":"Number A",
@@ -29,7 +29,7 @@
         {
             "name":"Property A",
             "params":[5],
-			"exampleValue": "Title Set",
+			"exampleValue": "Title",
 			"plural": "true"
         },
         {"text":", it has "},
@@ -46,7 +46,7 @@
         {
             "name":"Property B",
             "params":[6],
-			"exampleValue": "@Pref",
+			"exampleValue": "Preference Marker",
 			"plural": "true"
         },
         {"text":"."}

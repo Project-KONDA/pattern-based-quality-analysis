@@ -13,7 +13,7 @@
         {
             "name":"Container Elements",
             "params":[4],
-            "exampleValue":"Actors",
+            "exampleValue":"Persons",
             "description":"anchor for analysis",
 			"plural":"true"
         },
@@ -35,7 +35,7 @@
         {
             "name":"Terms",
             "params":[2],
-            "exampleValue":"Mueller, Meier"
+            "exampleValue":"Mueller, Meier, Huber"
         },
         {"text":"."}
     ]

@@ -13,7 +13,7 @@
 		{
 			"name":"Container Elements",
 			"params":[1],
-			"exampleValue":"measurement",
+			"exampleValue":"Paintings",
 			"description":"base element for analysis",
 			"plural":"true"
 		},
@@ -21,14 +21,14 @@
 		{
 			"name":"Element",
 			"params":[0],
-			"exampleValue":"unit",
+			"exampleValue":"Color Specification",
 			"description":"element of analyis"
 		},
 		{"text":"has both a"},
 		{
 			"name":"Subelement",
 			"params":[3],
-			"exampleValue":"element",
+			"exampleValue":"Hex Code",
 			"description":"element condition"
 		},
 		{"text":"and a text."},

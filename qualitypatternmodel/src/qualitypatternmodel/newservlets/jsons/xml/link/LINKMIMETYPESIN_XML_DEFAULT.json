@@ -13,14 +13,14 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Homepage URL",
+            "exampleValue":"Image Reference",
             "description":"property of interest that should contain a valid link"
         },
 		{"text":"resolves to a MIME type that is one of"},
         {
             "name":"MIME-Types",
             "params":[1],
-            "exampleValue":"picture/jpeg",
+            "exampleValue":"image/jpeg, image/png, image/tiff",
             "description":"MIME types"
         },
         {"text":"."},

@@ -13,14 +13,14 @@
         {
             "name":"Element",
             "params":[2],
-            "exampleValue":"Actor",
+            "exampleValue":"Cultural Heritage Object",
             "description":"anchor for analysis"
         },
         {"text":", at least one"},
         {
             "name":"Property",
             "params":[3],
-            "exampleValue":"Birth Certificate Sources",
+            "exampleValue":"Work Type Reference",
             "description":"property of interest that should contain a valid link"
         },
         {"text":"is a valid link to AAT, GND, or Wikidata."},

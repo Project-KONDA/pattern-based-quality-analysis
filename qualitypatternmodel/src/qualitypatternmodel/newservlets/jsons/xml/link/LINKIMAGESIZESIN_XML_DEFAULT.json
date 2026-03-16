@@ -13,7 +13,7 @@
         {
             "name":"Property",
             "params":[3],
-            "exampleValue":"Homepage URL",
+            "exampleValue":"Image Reference",
             "description":"property of interest,that should contain a valid link."
         },
 		{"text":"links to a retrievable image that is at least"},

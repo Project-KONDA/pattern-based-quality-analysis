@@ -27,7 +27,7 @@
         {
             "name":"Terms",
             "params":[2],
-            "exampleValue":"Mueller, Meier"
+            "exampleValue":"Mueller, Meier, Huber"
         },
         {"text":"."}
     ]

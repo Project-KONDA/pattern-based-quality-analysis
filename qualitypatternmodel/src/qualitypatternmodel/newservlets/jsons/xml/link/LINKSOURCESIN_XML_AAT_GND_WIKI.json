@@ -13,7 +13,7 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Homepage URL",
+            "exampleValue":"Work Type Reference",
             "description":"property of interest that should contain a valid link"
         },
         {"text":"is a valid link to AAT, GND, or Wikidata."},

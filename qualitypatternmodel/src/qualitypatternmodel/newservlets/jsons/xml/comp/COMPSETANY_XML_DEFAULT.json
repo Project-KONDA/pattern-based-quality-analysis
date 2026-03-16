@@ -13,7 +13,7 @@
         {
             "name":"Element",
             "params":[3],
-            "exampleValue":"Actor",
+            "exampleValue":"Person",
             "description":"anchor for analysis"
         },
         {"text":"has at least one"},
@@ -36,7 +36,7 @@
         {
             "name":"Terms",
             "params":[0],
-            "exampleValue":"Mueller, Meier"
+            "exampleValue":"Mueller, Meier, Huber"
         },
         {"text":"."}
     ]

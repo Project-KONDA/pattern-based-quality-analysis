@@ -13,7 +13,7 @@
         {
             "name":"Container Elements",
             "params":[3],
-            "exampleValue":"Actors",
+            "exampleValue":"Paintings",
             "description":"anchor for analysis",
             "plural":"true"
         },
@@ -21,14 +21,14 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Birth Certificate Source",
+            "exampleValue":"Image Reference",
             "description":"property of interest that should contain a valid link"
         },
 		{"text":"resolves to a MIME type that is one of"},
         {
             "name":"MIME-Types",
             "params":[1],
-            "exampleValue":"picture/jpeg",
+            "exampleValue":"image/jpeg, image/png, image/tiff",
             "description":"MIME types"
         },
         {"text":"."},

@@ -13,7 +13,7 @@
         {
             "name":"Container Elements",
             "params":[3],
-            "exampleValue":"Actors",
+            "exampleValue":"Cultural Heritage Objects",
             "description":"anchor for analysis",
             "plural":"true"
         },
@@ -21,7 +21,7 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Birth Certificate Source",
+            "exampleValue":"Work Type Reference",
             "description":"property of interest that should contain a valid link"
         },
         {"text":"is a valid link to AAT, GND, or Wikidata."},
