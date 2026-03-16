@@ -5,7 +5,7 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "default variant for CardMatch_xml. This is a template specifically created to check a requirement of a LIDO requirement",
-		"type": ["fmt"],
+		"type": ["fmt", "qty"],
 		"scope": "simple",
 		"aqindaid": 31
 	},

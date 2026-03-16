@@ -5,8 +5,8 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "format variant for Match_xml",
-		"type": [],
-		"scope": "_"
+		"type": ["fmt"],
+		"scope": "containered"
 	},
     "fragments":[
         {"text":"For each"},

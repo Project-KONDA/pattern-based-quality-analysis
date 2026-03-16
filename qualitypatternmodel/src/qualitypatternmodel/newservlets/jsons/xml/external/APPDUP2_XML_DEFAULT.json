@@ -4,8 +4,10 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for AppDup2_xml"
-	},	
+		"description": "default variant for AppDup2_xml",
+		"type": ["comp"],
+		"scope": "simple"
+	},
     "fragments":[
     	{"text": "Two"},
         {

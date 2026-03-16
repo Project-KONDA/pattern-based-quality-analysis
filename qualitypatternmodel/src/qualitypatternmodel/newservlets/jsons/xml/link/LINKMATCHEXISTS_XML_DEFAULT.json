@@ -5,8 +5,8 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "url-list variant for LinkMatchExists_xml",
-		"type": [],
-		"scope": "_"
+		"type": ["fmt", "ref"],
+		"scope": "hierarchical"
 	},
     "fragments":[
         {"text":"For each"},

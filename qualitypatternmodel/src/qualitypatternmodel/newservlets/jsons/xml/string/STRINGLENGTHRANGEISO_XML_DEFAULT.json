@@ -6,7 +6,7 @@
 	"custom": {
 		"description": "default variant for StringLengthRangeIso_xml",
 		"type": ["len"],
-		"scope": "hierarchical"
+		"scope": "containered"
 	},
     "fragments":[
         {"text":"For all"},

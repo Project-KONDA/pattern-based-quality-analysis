@@ -5,7 +5,7 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "default variant for ExistsIfExists_xml",
-		"type": ["exist", "cond"],
+		"type": ["cond","exist"],
 		"scope": "simple"
 	},
     "fragments":[

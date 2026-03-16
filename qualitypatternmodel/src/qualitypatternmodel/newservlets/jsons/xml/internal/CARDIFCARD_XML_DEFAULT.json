@@ -5,8 +5,8 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "default variant for CardIfCard_xml",
-		"type": [],
-		"scope": "_"
+		"type": ["qty","cond"],
+		"scope": "simple"
 	},
     "fragments":[
         {"text":"If a"},

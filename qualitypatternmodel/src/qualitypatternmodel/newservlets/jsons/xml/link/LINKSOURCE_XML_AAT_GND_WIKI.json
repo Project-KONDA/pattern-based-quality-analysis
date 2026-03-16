@@ -4,7 +4,9 @@
     "name":"aat-gnd-wiki",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for LinkSource_xml"
+		"description": "default variant for LinkSource_xml",
+		"type": ["vocab", "ref"],
+		"scope": "simple"
 	},
     "fragments":[
         {"text":"For each"},

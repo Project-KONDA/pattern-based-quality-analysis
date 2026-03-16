@@ -5,7 +5,7 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "default variant for LinkSourceSin_xml",
-		"type": ["vocab"],
+		"type": ["vocab", "ref"],
 		"scope": "simple"
 	},
     "fragments":[

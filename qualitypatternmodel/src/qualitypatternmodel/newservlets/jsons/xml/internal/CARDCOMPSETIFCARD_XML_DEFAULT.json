@@ -5,8 +5,8 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "default variant for CardCompSetIfCard_xml. This is a template specifically created to check a requirement of a LIDO requirement",
-		"type": [],
-		"scope": "_"
+		"type": ["qty","cond"],
+		"scope": "simple"
 	},
     "fragments":[
         {"text":"If a"},

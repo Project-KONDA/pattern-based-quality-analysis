@@ -5,7 +5,7 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "default variant for StringLength_xml",
-		"type": ["fmt", "len"],
+		"type": ["len"],
 		"scope": "hierarchical"
 	},
     "fragments":[
