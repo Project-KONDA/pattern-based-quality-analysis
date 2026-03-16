@@ -16,6 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
 
@@ -63,13 +64,17 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 		super();
 	}
 
-	public ValueMapImpl(JSONObject json) throws JSONException {
+	public ValueMapImpl(JSONObject json) throws InvalidityException {
 		super();
-		Iterator<String> keys = json.keys();
 
+		if (json == null)
+			throw new JSONException("json is null");
+		Iterator<String> keys = json.keys();
         while (keys.hasNext()) {
             String key = keys.next();
-            String value = json.getString(key);
+            String value = json.optString(key);
+            if (value == null)
+            	throw new InvalidityException(json + " is not a valid ValueMap JSON");
             put(key, value);
         }
 	}

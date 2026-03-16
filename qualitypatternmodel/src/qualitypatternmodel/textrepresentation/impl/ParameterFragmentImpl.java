@@ -657,7 +657,14 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return null;
 		}
 		JSONObject map = obj.optJSONObject(steps[steps.length-1]);
-		ValueMap vmap = new ValueMapImpl(map); 
+		if (map == null)
+			return null;
+		ValueMap vmap;
+		try {
+			vmap = new ValueMapImpl(map);
+		} catch (InvalidityException e) {
+			return null;
+		}
 		return vmap.reverse();
 	}
 	
