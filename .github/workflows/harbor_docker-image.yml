@@ -2,7 +2,6 @@ name: BuildAndPushDockerImageToHarbor
 
 on:
   push:
-    branches: [ "master", "development2" ]
     
 jobs:
   build:
@@ -22,6 +21,7 @@ jobs:
           password: ${{ secrets.HARBOR_PASSWORD }}
 
       - name: Get Maven Project Version
+        if: ${{ github.ref_name == 'master' || github.ref_name == 'development2' }}
         run: |
           cd qualitypatternmodel
           POM_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
@@ -54,3 +54,13 @@ jobs:
           build-args: MAVEN_VERSION=${{ env.DEV_VERSION }}
           push: true
           tags: harbor.gwdg.de/aqinda/qpm:dev, harbor.gwdg.de/aqinda/qpm:${{ env.DEV_VERSION }}, harbor.gwdg.de/aqinda/qpm:current
+
+      - name: Harbor Build and Push (other branch)
+        uses: docker/build-push-action@v5
+        if: ${{ github.ref_name != 'master'  && github.ref_name != 'development2' }}
+        with:
+          context: qualitypatternmodel
+          file: qualitypatternmodel/Dockerfile
+          build-args: MAVEN_VERSION=SNAPSHOT
+          push: true
+          tags: harbor.gwdg.de/aqinda/qpm:SNAPSHOT, harbor.gwdg.de/aqinda/qpm:current

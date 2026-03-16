@@ -131,4 +131,12 @@ public interface ValueMap extends EObject {
 	 */
 	void setValuesFromJSONObject(JSONObject object);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	ValueMap reverse();
+
 } // ValueMap

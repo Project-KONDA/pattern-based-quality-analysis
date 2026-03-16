@@ -26,6 +26,7 @@ import qualitypatternmodel.textrepresentation.ValueMap;
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#isEmpty() <em>Is Empty</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#asMap() <em>As Map</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#setValuesFromJSONObject(org.json.JSONObject) <em>Set Values From JSON Object</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ValueMap#reverse() <em>Reverse</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -226,6 +227,19 @@ public class ValueMapTest extends TestCase {
 	 * @generated
 	 */
 	public void testSetValuesFromJSONObject__JSONObject() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.ValueMap#reverse() <em>Reverse</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#reverse()
+	 * @generated
+	 */
+	public void testReverse() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

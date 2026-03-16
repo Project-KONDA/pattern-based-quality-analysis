@@ -79,10 +79,14 @@ public class APITemplateTests {
 		File template_info_original = new File("./src/qualitypatternmodel/newservlets/template_info.json");
 		File template_info_copy = new File(folder + "/templates/template_info.json");
 
+		File template_maps_original = new File("./src/qualitypatternmodel/newservlets/template_maps.json");
+		File template_maps_copy = new File(folder + "/templates/template_maps.json");
+
 		try {
 			FileUtils.copyFile(lido_original, lido_copy);
 			FileUtils.copyDirectory(variants_original, variants_copy);
 			FileUtils.copyFile(template_info_original, template_info_copy);
+			FileUtils.copyFile(template_maps_original, template_maps_copy);
 			FileUtils.copyFile(database_original, database_copy);
 			System.out.println("Files copied successfully");
 		} catch (IOException e) {

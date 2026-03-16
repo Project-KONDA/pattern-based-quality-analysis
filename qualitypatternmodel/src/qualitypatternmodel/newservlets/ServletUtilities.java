@@ -611,29 +611,6 @@ public abstract class ServletUtilities {
 
 	public static Integer getNextNumber(String filepath, String variableName) throws JSONException, IOException {
 		int currentValue = 0;
-
-//		File file = new File(filepath);
-//		if (!file.exists()) {
-//			// If the file doesn't exist, create it and initialize with an empty JSON object
-//			JSONObject jsonObject = new JSONObject();
-////	            jsonObject.put(variableName, 0);
-//			try {
-//				saveSemaphore.acquire();
-//				Files.write(Paths.get(filepath), jsonObject.toString().getBytes(), StandardOpenOption.CREATE);
-//			} catch (InterruptedException e) {
-//				Thread.currentThread().interrupt();
-//				log("Thread was interrupted");
-//				logError(e);
-//			} finally {
-//				saveSemaphore.release();
-//			}
-//			System.out.println("File created successfully: " + filepath);
-////	            return 0; // Return 0 as the initial value
-//		}
-
-		// Read JSON file
-//		String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
-//		JSONObject jsonObject = new JSONObject(jsonString);
 		JSONObject jsonObject;
 		try{
 			jsonObject = Util.loadJson(filepath);
@@ -910,7 +887,7 @@ public abstract class ServletUtilities {
 	public static int logCall(String method, String clazz, String path, JSONObject params) {
 		int callId = -1;
 		try {
-			String filepath = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.SAVEFILE;
+			String filepath = ServletConstants.SAVEFILE;
 			callId = getNextNumber(filepath, "call");
 		} catch (JSONException | IOException e) {
 			logError(e);

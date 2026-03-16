@@ -123,10 +123,14 @@ public class APICallTests {
 		File template_info_original = new File("./src/qualitypatternmodel/newservlets/template_info.json");
 		File template_info_copy = new File(folder + "/templates/template_info.json");
 
+		File template_maps_original = new File("./src/qualitypatternmodel/newservlets/template_maps.json");
+		File template_maps_copy = new File(folder + "/templates/template_maps.json");
+
 		try {
 			FileUtils.copyFile(lido_original, lido_copy);
 			FileUtils.copyDirectory(variants_original, variants_copy);
 			FileUtils.copyFile(template_info_original, template_info_copy);
+			FileUtils.copyFile(template_maps_original, template_maps_copy);
 			System.out.println("Files copied successfully");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -398,8 +402,6 @@ public class APICallTests {
 		logdirectory = logdirectory.substring(0, logdirectory.lastIndexOf('/'));
 
 		File logdir = new File(logdirectory); 
-		File savefile = new File(ServletConstants.SAVEFILE);
-
 		if (!logdir.exists()) {
         	logdir.mkdirs();
 		}
@@ -428,11 +430,7 @@ public class APICallTests {
                 .filter(File::isFile)
                 .filter(f -> f.getName().endsWith(".log"))
                 .toArray(File[]::new);
-        for (String date: datesNew)
-        	System.out.println(date);
-        for (File file: array)
-        	System.out.println(file.getName());
-        assertEquals(array.length, datesNew.length+1 + (savefile.exists()? 1 : 0));
+        assertEquals(array.length, datesNew.length+1);
 	}
 
 	@Test

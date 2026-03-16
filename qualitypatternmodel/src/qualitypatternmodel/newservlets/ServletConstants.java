@@ -32,14 +32,19 @@ public class ServletConstants {
 	public static String ENV_TEMPLATE_INFO_FILE = "TEMPLATE_INFO_FILE";
 	public static String TEMPLATE_INFO_FILE = "/templates/template_info.json";
 
+	// path to template info file
+	public static String TEMPLATE_MAP_FILE_DEFAULT =  "/templates/template_maps.json";
+	public static String ENV_TEMPLATE_MAP_FILE = "TEMPLATE_MAP_FILE";
+	public static String TEMPLATE_MAP_FILE = "/templates/template_maps.json";
+
 	// name of logfile
 	public static String LOGFILE_DEFAULT =  "/templates/logfile.log";
 	public static String LOGFILE = "/templates/logfile.log";
 	public static String ENV_LOGFILE = "LOGFILE";
 
 	// name of savefile
-	public static String SAVEFILE_DEFAULT =  "/templates/savefile.log";
-	public static String SAVEFILE = "/templates/savefile.txt";
+	public static String SAVEFILE_DEFAULT =  "/templates/savefile.json";
+	public static String SAVEFILE = "/templates/savefile.json";
 	public static String ENV_SAVEFILE = "SAVEFILE";
 
 

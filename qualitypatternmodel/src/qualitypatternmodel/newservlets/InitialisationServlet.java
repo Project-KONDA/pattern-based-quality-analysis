@@ -120,6 +120,12 @@ public class InitialisationServlet extends HttpServlet {
 			ServletConstants.TEMPLATE_INFO_FILE = template_info;
 		else 
 			ServletConstants.TEMPLATE_INFO_FILE = scon.getRealPath(ServletConstants.TEMPLATE_INFO_FILE_DEFAULT);
+//	      TEMPLATE_MAP_FILE: /templates/template_map.json
+		String template_map = System.getenv(ServletConstants.ENV_TEMPLATE_MAP_FILE);
+		if (template_map != null)
+			ServletConstants.TEMPLATE_MAP_FILE = template_map;
+		else 
+			ServletConstants.TEMPLATE_MAP_FILE = scon.getRealPath(ServletConstants.TEMPLATE_MAP_FILE_DEFAULT);
 
 //	      LOGFILE: qpm-logfile.log
 		String logfile = System.getenv(ServletConstants.ENV_LOGFILE);
@@ -186,6 +192,7 @@ public class InitialisationServlet extends HttpServlet {
 		ServletUtilities.log("Environmental Variable UPLOAD_FOLDER:             " + ServletConstants.UPLOAD_FOLDER);
 		ServletUtilities.log("Environmental Variable VARIANTS_FOLDER:           " + ServletConstants.VARIANTS_FOLDER);
 		ServletUtilities.log("Environmental Variable TEMPLATE_INFO_FILE:        " + ServletConstants.TEMPLATE_INFO_FILE);
+		ServletUtilities.log("Environmental Variable TEMPLATE_MAP_FILE:        " + ServletConstants.TEMPLATE_MAP_FILE);
 		ServletUtilities.log("Environmental Variable LOGFILE:                   " + ServletConstants.LOGFILE);
 		ServletUtilities.log("Environmental Variable SAVEFILE:                  " + ServletConstants.SAVEFILE);
 		ServletUtilities.log("Environmental Variable FILL_VALUES:               " + ServletConstants.FILL_VALUES);
@@ -309,7 +316,7 @@ public class InitialisationServlet extends HttpServlet {
 				ServletUtilities.logError(new InvalidityException("Invalid JSON File on " + path + ": " + e.getMessage(), e), 2);
 			} catch (JSONException e) {
 				ServletUtilities.logError(new InvalidityException("Invalid JSON Format of File " + path + ": " + e.getMessage(), e), 2);
-			} catch (InvalidityException e) {
+			} catch (Exception e) {
 				ServletUtilities.logError(new InvalidityException("Specified Variant of File " + path + " is invalid: " + e.getMessage(), e), 2);
 			}
 		}
