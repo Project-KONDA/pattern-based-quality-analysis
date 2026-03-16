@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.textrepresentation.impl;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -64,6 +65,7 @@ import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 
 /**
@@ -633,6 +635,33 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 
 	@Override
 	public void setDefaultValueMap(String name) throws InvalidityException {
+		ValueMap map = getValueMapFile(name);
+		if (map == null)		
+			map = getValueMapLocal(name);
+		
+		setValueMap(map);
+	}
+	
+	private ValueMap getValueMapFile(String name) {
+		JSONObject obj = null;
+		try{
+			obj = Util.loadJson(ServletConstants.TEMPLATE_MAP_FILE);
+		} catch (IOException e) {
+			return null;
+		}
+		
+		String[] steps = name.split(".");
+		for (int i = 0; i<steps.length-1; i++) {
+			obj = obj.optJSONObject(steps[i]);
+			if (obj == null)
+				return null;
+		}
+		JSONObject map = obj.optJSONObject(steps[steps.length-1]);
+		ValueMap vmap = new ValueMapImpl(map); 
+		return vmap.reverse();
+	}
+	
+	private ValueMap getValueMapLocal(String name) throws InvalidityException {
 		ValueMap map = new ValueMapImpl();
 
 		switch(name) {
@@ -738,7 +767,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			throw new InvalidityException("No default value map for '" + name + "'");
 		}
 
-		setValueMap(map);
+		return map;
 	}
 
 	/**
