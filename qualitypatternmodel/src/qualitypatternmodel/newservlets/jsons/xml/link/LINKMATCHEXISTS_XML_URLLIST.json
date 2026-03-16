@@ -28,23 +28,16 @@
         	"name": "a predefined Lists of Domains",
             "params":[2],
 			"exampleValue":"the GND",
-			"map":{
-				"[\"https?://vocab\\\\.getty\\\\.edu/(page/)?aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]"
-				:"GND, Wikidata, or AAT",
-				"[\"https?://iconclass\\\\.org/([a-z]+/)?[0-9A-Z]+\",\"https?://vocab\\\\.getty\\\\.edu/(page/)?aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]"
-				:"GND, Wikidata, AAT, or Iconclass",
-				"[\"https?://vocab\\\\.getty\\\\.edu/(page/)?aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\",\"https?//uri\\\\.gbv\\\\.de/terminology/sdnb/([0-9]([0-9][0-9](\\\\.[0-9][0-9]?)?)?|[BKS])\"]"
-				:"GND, Wikidata, AAT, or DDC",
-				"[\"https?://vocab\\\\.getty.edu/tgn/[0-9]+\",\"https?://(www|sws)\\\\.geonames\\\\.org/[0-9]+/\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]"
-				:"GND, Wikidata, GeoNames, or TGN",
-				"[\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]"
-				:"the GND"
-			}
+			"defaultMap":"regexlist.url-list"
         },
 		{"text":"."},
 
         {
-            "params":[0,1],
+            "params":[0],
+            "value": "false"
+        },
+        {
+            "params":[1],
             "value": "true"
         }
     ]

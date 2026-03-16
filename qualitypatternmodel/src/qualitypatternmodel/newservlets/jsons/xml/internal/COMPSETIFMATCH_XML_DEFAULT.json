@@ -29,7 +29,7 @@
             "params":[0],
             "exampleValue":"Does",
             "description":"possibly negate match",
-            "defaultMap":"does not",
+            "defaultMap":"boolean.doesnot",
             "default":"does"
         },
         {"text":"match"},
@@ -51,7 +51,7 @@
             "name":"Are / Are Not",
             "params":[3],
             "exampleValue":"are",
-            "defaultMap":"comparison_arenot",
+            "defaultMap":"comparison.arenot",
             "default":"are"
         },
         {"text":"in the list of"},

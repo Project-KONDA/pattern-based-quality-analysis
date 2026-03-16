@@ -28,7 +28,7 @@
         {
             "params":[0],
             "value":"EQUAL",
-            "defaultMap":"comparison_negated"
+            "defaultMap":"comparison.negated"
         },
         {
             "params":[1],

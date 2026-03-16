@@ -27,21 +27,21 @@
             "name":"Is / Is Not",
             "params":[1],
             "exampleValue":"is",
-            "defaultMap":"comparison_is",
+            "defaultMap":"comparison.is",
             "default":"is"
         },
         {"text":"in the list of"},
         {
             "name":"Terms",
             "params":[0],
-			"exampleValue": ""
+			"exampleValue": "Audio, Video"
         },
         {"text":", it has"},
         {
             "name":"a Comparison with",
             "params":[3],
 			"exampleValue": "at least",
-            "defaultMap":"comparison",
+            "defaultMap":"comparison.default",
             "default":"at least"
         },
         {

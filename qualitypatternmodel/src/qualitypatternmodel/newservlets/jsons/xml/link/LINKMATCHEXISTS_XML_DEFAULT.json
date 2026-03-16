@@ -33,7 +33,11 @@
 		{"text":"."},
 
         {
-            "params":[0,1],
+            "params":[0],
+            "value": "false"
+        },
+        {
+            "params":[1],
             "value": "true"
         }
     ]

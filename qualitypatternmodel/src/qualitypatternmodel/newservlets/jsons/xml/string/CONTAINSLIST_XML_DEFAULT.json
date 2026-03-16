@@ -27,7 +27,7 @@
         {
             "name":"Do / Do Not",
             "params":[0],
-            "defaultMap":"do not",
+            "defaultMap":"boolean.donot",
             "exampleValue":"do",
             "default":"do"
         },

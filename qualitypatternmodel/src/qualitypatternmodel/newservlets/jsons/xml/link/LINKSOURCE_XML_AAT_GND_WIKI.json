@@ -22,7 +22,7 @@
             "description":"property of interest that should contain a valid link"
         },
         {"text":"are valid links to AAT, GND, or Wikidata."},
-        
+
         {
             "params":[0],
             "value": "true"

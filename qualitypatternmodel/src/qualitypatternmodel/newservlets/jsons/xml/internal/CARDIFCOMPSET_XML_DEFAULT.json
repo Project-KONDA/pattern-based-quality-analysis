@@ -27,7 +27,7 @@
             "name":"Is / Is Not",
             "params":[1],
             "exampleValue":"is",
-            "defaultMap":"comparison_is",
+            "defaultMap":"comparison.is",
             "default":"is"
         },
         {"text":"in the list of"},
@@ -41,7 +41,7 @@
             "name":"a Comparison with",
             "params":[3],
 			"exampleValue": "",
-            "defaultMap":"comparison",
+            "defaultMap":"comparison.default",
             "default":"at least"
         },
         {

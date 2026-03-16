@@ -22,7 +22,7 @@
             "name":"a Comparison with",
             "params":[0],
             "exampleValue":"at least",
-            "defaultMap":"comparison_negated",
+            "defaultMap":"comparison.negated",
             "default":"at least"
         },
         {
@@ -42,7 +42,7 @@
         {
             "name":"Do / Do Not",
             "params":[2],
-            "defaultMap":"do",
+            "defaultMap":"boolean.do",
             "exampleValue":"do",
 			"default":"do"
         },

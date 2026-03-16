@@ -50,12 +50,12 @@
 			"plural": "true"
         },
         {"text":"that"},
-        
+
         {
             "name":"Is / Is Not",
             "params":[5],
             "exampleValue":"is",
-            "defaultMap":"comparison_is",
+            "defaultMap":"comparison.is",
             "default":"is"
         },
         {"text":"in the list of"},

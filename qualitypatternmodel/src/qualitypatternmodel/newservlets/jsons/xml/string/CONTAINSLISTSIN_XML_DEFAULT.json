@@ -19,7 +19,7 @@
         {
             "name":"Does / Does Not",
             "params":[0],
-            "defaultMap":"does not",
+            "defaultMap":"boolean.doesnot",
             "exampleValue":"does",
             "default":"does"
         },
