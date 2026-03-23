@@ -5,22 +5,22 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "url-list variant for LinkMatchExists_xml",
-		"type": [],
-		"scope": "_"
+		"type": ["fmt", "ref"],
+		"scope": "hierarchical"
 	},
     "fragments":[
         {"text":"For each"},
         {
             "name":"Element",
             "params":[3],
-            "exampleValue":"Actor",
+            "exampleValue":"Person",
             "description":"anchor for analysis"
         },
         {"text":", at least one"},
         {
             "name":"Property",
             "params":[4],
-            "exampleValue":"Birth Certificate Sources",
+            "exampleValue":"Birth Certificate Source",
             "description":"property of interest that should contain a valid link"
         },
         {"text":"is a valid link that matches one regular expression of"},
@@ -33,7 +33,11 @@
 		{"text":"."},
 
         {
-            "params":[0,1],
+            "params":[0],
+            "value": "false"
+        },
+        {
+            "params":[1],
             "value": "true"
         }
     ]

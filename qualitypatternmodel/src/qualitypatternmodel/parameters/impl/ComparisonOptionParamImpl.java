@@ -139,13 +139,13 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 			return;
 		}
 		for(ComparisonOperator operator : getOptions()) {
-			if(operator.getName().equals(value)) {
+			if(operator.getName().equals(value) || operator.getLiteral().equals(value)) {
 				setValueIfValid(operator);
 				return;
 			}
 		}
 		for(ComparisonOperator operator : ComparisonOperator.values()) {
-			if(operator.getName().equals(value)) {
+			if(operator.getName().equals(value) || operator.getLiteral().equals(value)) {
 				throw new InvalidityException("value '" + value + "' is not allowed");
 			}
 		}

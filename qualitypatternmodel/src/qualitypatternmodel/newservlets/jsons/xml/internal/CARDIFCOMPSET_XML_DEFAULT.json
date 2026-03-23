@@ -14,34 +14,34 @@
         {
             "name":"Element",
             "params":[5],
-			"exampleValue": ""
+			"exampleValue": "Rights Statement"
         },
         {"text":"has a"},
         {
             "name":"Property A",
             "params":[6],
-			"exampleValue": ""
+			"exampleValue": "Licence"
         },
         {"text":"that"},
         {
             "name":"Is / Is Not",
             "params":[1],
-            "exampleValue":"is",
-            "defaultMap":"comparison_is",
+            "exampleValue":"is not",
+            "defaultMap":"comparison.is",
             "default":"is"
         },
         {"text":"in the list of"},
         {
             "name":"Terms",
             "params":[0],
-			"exampleValue": ""
+			"exampleValue": "Public Domain Mark, Public Domain, PDM"
         },
         {"text":", it has"},
         {
             "name":"a Comparison with",
             "params":[3],
-			"exampleValue": "",
-            "defaultMap":"comparison",
+			"exampleValue": "at least",
+            "defaultMap":"comparison.default",
             "default":"at least"
         },
         {
@@ -53,7 +53,7 @@
         {
             "name":"Property B",
             "params":[7],
-			"exampleValue": ""
+			"exampleValue": "Rights Owner"
         },
         {"text":"."}
     ]

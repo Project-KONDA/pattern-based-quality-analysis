@@ -352,5 +352,10 @@
 		"id":"LinkImageSizeSin",
 		"name":"Link Image Size Check (Single)",
 		"description":"Check if a link value meets a minimum pixel dimension."
+	},
+	"LinkImageSizeIfCompSetPattern":{
+		"id":"LinkImageSizeIfCompSet",
+		"name":"Link Image Size Check If within a list of allowed (/forbidden) terms",
+		"description":"Link Image Size Check If within a list of allowed (/forbidden) terms."
 	}
 }

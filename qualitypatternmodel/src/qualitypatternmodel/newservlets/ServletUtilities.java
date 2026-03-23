@@ -870,10 +870,17 @@ public abstract class ServletUtilities {
 	public static void logError(Throwable th, int lines) {
 		int counter = lines;
 		boolean all = lines < 0;
+		boolean breaking = false;
 		String error = th.getClass().getSimpleName() + ": " + th.getMessage();
 		for (StackTraceElement element : th.getStackTrace()) {
 			if (all || counter > 0) {
-				error += "\r\n    " + element.toString();
+				String message = element.toString();
+				if ((message.contains("qualitypatternmodel.") || message.contains("test") || message.contains("Test")))
+					breaking = true;
+				if (breaking && !(message.contains("qualitypatternmodel.") || message.contains("test") || message.contains("Test"))) {
+					break;
+				}
+				error += "\r\n    " + message;
 				counter--;
 			}
 		}

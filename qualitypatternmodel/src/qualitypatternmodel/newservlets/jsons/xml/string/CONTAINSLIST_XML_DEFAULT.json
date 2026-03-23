@@ -13,21 +13,21 @@
         {
             "name":"Element",
             "params":[2],
-            "exampleValue":"Actor",
+            "exampleValue":"Painting",
             "description":"anchor for analysis"
         },
         {"text":", all"},
         {
             "name":"Properties",
             "params":[3],
-            "exampleValue":"Attribution statements",
+            "exampleValue":"Object Types",
             "description":"analysed property",
             "plural":"true"
         },
         {
             "name":"Do / Do Not",
             "params":[0],
-            "defaultMap":"do not",
+            "defaultMap":"boolean.donot",
             "exampleValue":"do",
             "default":"do"
         },
@@ -35,7 +35,7 @@
         {
             "name":"a List of Terms",
             "params":[1],
-            "exampleValue":"['a', 'b']"
+            "exampleValue":"['Painting', 'Portrait', 'Landscape']"
         },
         {"text":"as a substring."}
     ]

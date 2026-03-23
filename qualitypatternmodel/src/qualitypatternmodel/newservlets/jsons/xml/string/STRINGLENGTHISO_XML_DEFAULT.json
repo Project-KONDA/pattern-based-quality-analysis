@@ -5,7 +5,7 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "default variant for StringLengthIso_xml",
-		"type": ["qty", "len"],
+		"type": ["len"],
 		"scope": "containered"
 	},
     "fragments":[
@@ -13,7 +13,7 @@
         {
             "name":"Container Elements",
             "params":[3],
-            "exampleValue":"Actors",
+            "exampleValue":"Cultural Heritage Objects",
             "description":"anchor for analysis",
             "plural":"true"
         },
@@ -21,7 +21,7 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"LastName",
+            "exampleValue":"Title",
             "description":"value that gets analysed"
         },
         {"text":"is"},
@@ -29,13 +29,13 @@
             "name":"Compared to",
             "params":[0],
             "exampleValue":"at least",
-            "defaultMap":"comparison_negated",
+            "defaultMap":"comparison.negated",
             "default":"at least"
         },
         {
             "name":"a Specific Number of",
             "params":[1],
-            "exampleValue":"10"
+            "exampleValue":"3"
         },
         {"text":"characters in length."}
     ]

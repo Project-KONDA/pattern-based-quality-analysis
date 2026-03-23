@@ -48,6 +48,7 @@ public class PatternCollection {
 		classes.add(ExistsIfExistsPattern.class);
 
 		// link
+		classes.add(LinkImageSizeIfCompSetPattern.class);
 		classes.add(LinkImageSizeIsoPattern.class);
 		classes.add(LinkImageSizePattern.class);
 		classes.add(LinkImageSizeSinPattern.class);

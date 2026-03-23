@@ -13,7 +13,7 @@
         {
             "name":"Element",
             "params":[3],
-            "exampleValue":"Actor",
+            "exampleValue":"Person",
             "description":"anchor for analysis"
         },
         {"text":", all"},
@@ -28,14 +28,14 @@
             "name":"Are / Are Not",
             "params":[1],
             "exampleValue":"are",
-            "defaultMap":"comparison_arenot",
+            "defaultMap":"comparison.arenot",
 			"default":"are"
         },
         {"text":"in the list of"},
         {
             "name":"Terms",
             "params":[0],
-            "exampleValue":"Mueller, Meier"
+            "exampleValue":"Mueller, Meier, Huber"
         },
         {"text":"."}
     ]

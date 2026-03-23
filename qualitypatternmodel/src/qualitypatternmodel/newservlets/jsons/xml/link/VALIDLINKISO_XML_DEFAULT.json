@@ -13,7 +13,7 @@
         {
             "name":"Container Elements",
             "params":[2],
-            "exampleValue":"Actors",
+            "exampleValue":"Paintings",
             "description":"anchor for analysis",
             "plural":"true"
         },
@@ -21,7 +21,7 @@
         {
             "name":"Property",
             "params":[1],
-            "exampleValue":"Birth Certificate Source",
+            "exampleValue":"Image Reference",
             "description":"property of interest,that should contain a valid link."
         },
         {"text":"is a valid link."},

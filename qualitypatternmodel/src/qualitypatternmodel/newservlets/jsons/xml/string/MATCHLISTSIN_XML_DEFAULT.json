@@ -19,7 +19,7 @@
         {
             "name":"Does / Does Not",
             "params":[0],
-            "defaultMap":"does not",
+            "defaultMap":"boolean.doesnot",
             "exampleValue":"does",
             "default": "does"
         },
@@ -27,7 +27,7 @@
         {
             "name":"a Specific List of Patterns (RegEx)",
             "params":[1],
-            "exampleValue":"['[A-Z]+', '[a-z]+', '[0-9]+']"
+            "exampleValue":"['[A-Z]+', '[a-z]+']"
         },
         {"text":"."}
     ]

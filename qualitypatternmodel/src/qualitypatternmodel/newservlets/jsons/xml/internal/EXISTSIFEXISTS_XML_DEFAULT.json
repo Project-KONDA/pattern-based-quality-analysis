@@ -5,7 +5,7 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "default variant for ExistsIfExists_xml",
-		"type": ["exist", "cond"],
+		"type": ["cond"],
 		"scope": "simple"
 	},
     "fragments":[
@@ -13,21 +13,21 @@
         {
             "name":"Element",
             "params":[0],
-            "exampleValue":"LIDO Record",
+            "exampleValue":"Person",
             "description":"anchor for analysis"
         },
         {"text":"has a"},
         {
             "name":"Property A",
             "params":[1],
-            "exampleValue":"Term",
+            "exampleValue":"Birth Name",
             "description":"conditioned property"
         },
         {"text":"it has a"},
         {
             "name":"Property B",
             "params":[2],
-            "exampleValue":"Concept Identifier",
+            "exampleValue":"Place of Birth",
             "description":"required property"
         },
         {"text":"."}

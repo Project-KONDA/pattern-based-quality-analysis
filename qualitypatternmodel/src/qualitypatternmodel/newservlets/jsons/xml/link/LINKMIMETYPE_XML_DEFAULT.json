@@ -13,21 +13,21 @@
         {
             "name":"Element",
             "params":[2],
-            "exampleValue":"Actor",
+            "exampleValue":"Painting",
             "description":"anchor for analysis"
         },
         {"text":", all"},
         {
             "name":"Properties",
             "params":[3],
-            "exampleValue":"Birth Certificate Sources",
+            "exampleValue":"Image References",
             "description":"property of interest,that should contain a valid link."
         },
-		{"text":"resolve to MIME types that are one of"},
+		{"text":"have MIME types that are in the list of"},
         {
             "name":"MIME-Types",
             "params":[1],
-            "exampleValue":"picture/jpeg",
+            "exampleValue":"image/jpeg, image/png, image/tiff",
             "description":"MIME types"
         },
         {"text":"."},

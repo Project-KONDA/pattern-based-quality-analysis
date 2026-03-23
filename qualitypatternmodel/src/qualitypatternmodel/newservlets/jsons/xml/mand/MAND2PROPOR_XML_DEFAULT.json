@@ -13,21 +13,21 @@
         {
             "name":"Element",
             "params":[4],
-            "exampleValue":"Actor",
+            "exampleValue":"Painting",
             "description":"anchor for analysis"
         },
         {"text":"has a non-empty"},
         {
             "name":"Property A",
             "params":[5],
-            "exampleValue":"Identifier",
+            "exampleValue":"Accession Number",
             "description":"required element"
         },
         {"text":"or a non-empty"},
         {
             "name":"Property B",
             "params":[6],
-            "exampleValue":"Identifier",
+            "exampleValue":"Inventory Number",
             "description":"required element"
         },
         {"text":"."}

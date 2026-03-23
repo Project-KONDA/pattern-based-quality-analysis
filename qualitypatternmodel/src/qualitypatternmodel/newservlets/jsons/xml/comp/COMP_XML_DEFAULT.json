@@ -13,7 +13,7 @@
         {
             "name":"Element",
             "params":[2],
-            "exampleValue":"Actor",
+            "exampleValue":"Person",
             "description":"anchor for analysis"
         },
         {"text":","},
@@ -27,8 +27,8 @@
         {
             "name":"Is / Is Not",
             "params":[0],
-            "exampleValue":"is",
-            "defaultMap":"comparison_isnot",
+            "exampleValue":"is not",
+            "defaultMap":"comparison.isnot",
 			"default":"is"
         },
         {"text":"equal to"},

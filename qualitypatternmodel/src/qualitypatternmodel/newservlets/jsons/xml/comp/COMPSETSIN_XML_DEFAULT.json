@@ -20,14 +20,14 @@
             "name":"Is / Is Not",
             "params":[0],
             "exampleValue":"is",
-            "defaultMap":"comparison_isnot",
+            "defaultMap":"comparison.isnot",
 			"default":"is"
         },
         {"text":"in the list of"},
         {
             "name":"Terms",
             "params":[2],
-            "exampleValue":"Mueller, Meier"
+            "exampleValue":"Mueller, Meier, Huber"
         },
         {"text":"."}
     ]

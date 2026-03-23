@@ -4,22 +4,24 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for AppDup3_xml"
-	},	
+		"description": "default variant for AppDup3_xml",
+		"type": ["comp"],
+		"scope": "simple"
+	},
     "fragments":[
     	{"text": "Two"},
         {
             "name":"Elements",
             "params":[2,3],
-            "exampleValue":"Persons",
+            "exampleValue":"Digital Objects",
             "description":"anchor for analysis",
             "plural": "true"
         },
-    	{"text": "always have unique value tripples with the parameters"},
+    	{"text": "always have unique value triples with the parameters"},
         {
             "name":"Property1",
             "params":[4,5],
-            "exampleValue":"Name",
+            "exampleValue":"Filename",
             "description":"property 1 of the pair",
             "plural": "true"
         },
@@ -27,7 +29,7 @@
         {
             "name":"Property2",
             "params":[6,7],
-            "exampleValue":"Birth Date",
+            "exampleValue":"Repository",
             "description":"property 2 of the pair",
             "plural": "true"
         },
@@ -35,7 +37,7 @@
         {
             "name":"Property3",
             "params":[8,9],
-            "exampleValue":"Birth City",
+            "exampleValue":"Media Type",
             "description":"property 3 of the pair",
             "plural": "true"
         },

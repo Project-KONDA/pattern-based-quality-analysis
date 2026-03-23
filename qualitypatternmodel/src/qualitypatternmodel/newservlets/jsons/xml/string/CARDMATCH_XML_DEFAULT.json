@@ -5,7 +5,7 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "default variant for CardMatch_xml. This is a template specifically created to check a requirement of a LIDO requirement",
-		"type": ["fmt"],
+		"type": ["fmt", "qty"],
 		"scope": "simple",
 		"aqindaid": 31
 	},
@@ -14,15 +14,15 @@
         {
             "name":"Element",
             "params":[4],
-            "exampleValue":"Actors",
+            "exampleValue":"Person",
             "description":"anchor for analysis"
         },
         {"text":"has"},
         {
             "name":"a Comparison with",
             "params":[0],
-            "exampleValue":"at least",
-            "defaultMap":"comparison_negated",
+            "exampleValue":"exactly",
+            "defaultMap":"comparison.negated",
             "default":"at least"
         },
         {
@@ -34,7 +34,7 @@
         {
             "name":"Properties",
             "params":[5],
-            "exampleValue":"Birthdates",
+            "exampleValue":"Birthdate",
             "description":"counted elements",
             "plural":"true"
         },
@@ -42,7 +42,7 @@
         {
             "name":"Do / Do Not",
             "params":[2],
-            "defaultMap":"do",
+            "defaultMap":"boolean.do",
             "exampleValue":"do",
 			"default":"do"
         },

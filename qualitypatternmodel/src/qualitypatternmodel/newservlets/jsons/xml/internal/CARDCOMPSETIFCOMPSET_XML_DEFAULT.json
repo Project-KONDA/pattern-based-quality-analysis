@@ -14,34 +14,34 @@
         {
             "name":"Element",
             "params":[8],
-			"exampleValue": ""
+			"exampleValue": "Media Asset Bundle"
         },
         {"text":"has a"},
         {
             "name":"Property A",
             "params":[9],
-			"exampleValue": ""
+			"exampleValue": "Media Type"
         },
         {"text":"that"},
         {
             "name":"Is / Is Not",
             "params":[1],
             "exampleValue":"is",
-            "defaultMap":"comparison_is",
+            "defaultMap":"comparison.is",
             "default":"is"
         },
         {"text":"in the list of"},
         {
             "name":"Terms",
             "params":[0],
-			"exampleValue": ""
+			"exampleValue": "Audio, Video"
         },
         {"text":", it has"},
         {
             "name":"a Comparison with",
             "params":[3],
 			"exampleValue": "at least",
-            "defaultMap":"comparison",
+            "defaultMap":"comparison.default",
             "default":"at least"
         },
         {
@@ -53,21 +53,21 @@
         {
             "name":"Property B",
             "params":[10],
-			"exampleValue": ""
+			"exampleValue": "Preview Image"
         },
         {"text":"that"},
         {
             "name":"Is / Is Not",
             "params":[6],
             "exampleValue":"is",
-            "defaultMap":"comparison_is",
+            "defaultMap":"comparison.is",
             "default":"is"
         },
         {"text":"in the list of"},
         {
             "name":"Terms",
             "params":[5],
-			"exampleValue": ""
+			"exampleValue": "Image Preview, Image Overview, Preview Representation"
         },
         {"text":"."}
     ]

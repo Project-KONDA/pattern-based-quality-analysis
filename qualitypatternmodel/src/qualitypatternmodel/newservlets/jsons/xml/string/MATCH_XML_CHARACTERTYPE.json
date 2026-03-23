@@ -13,18 +13,18 @@
         {
             "name":"Element",
             "params":[2],
-            "exampleValue":"Actors",
+            "exampleValue":"Digital Object",
             "description":"anchor for analysis"
         },
         {"text":", all"},
         {
             "name":"Properties",
             "params":[3],
-            "exampleValue":"Surname",
+            "exampleValue":"Filenames",
             "description":"value that gets analysed",
             "plural":"true"
         },
-        {"text":"contains at least one"},
+        {"text":"contain at least one"},
         {
             "name":"Specific",
             "params":[1],

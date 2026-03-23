@@ -4,25 +4,27 @@
     "name":"aat-gnd-wiki",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for LinkSource_xml"
+		"description": "default variant for LinkSource_xml",
+		"type": ["vocab", "ref"],
+		"scope": "simple"
 	},
     "fragments":[
         {"text":"For each"},
         {
             "name":"Element",
             "params":[2],
-            "exampleValue":"Actor",
+            "exampleValue":"Cultural Heritage Object",
             "description":"anchor for analysis"
         },
         {"text":", all"},
         {
             "name":"Properties",
             "params":[3],
-            "exampleValue":"Birth Certificate Sources",
+            "exampleValue":"Work Type References",
             "description":"property of interest that should contain a valid link"
         },
         {"text":"are valid links to AAT, GND, or Wikidata."},
-        
+
         {
             "params":[0],
             "value": "true"

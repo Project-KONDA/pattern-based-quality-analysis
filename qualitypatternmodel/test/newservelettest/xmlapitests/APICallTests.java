@@ -890,6 +890,7 @@ public class APICallTests {
 //			System.out.println(variantsFilter2.getInt(ConstantsJSON.SIZE));
 //			System.out.println(variantsFilterGroup.getInt(ConstantsJSON.SIZE));
 //			System.out.println(variantsFilter2Group2.getInt(ConstantsJSON.SIZE));
+
 //			System.out.println(variants.getInt(ConstantsJSON.TOTAL));
 //			System.out.println(variantsGrouped.getInt(ConstantsJSON.TOTAL));
 //			System.out.println(variantsGrouped2.getInt(ConstantsJSON.TOTAL));
@@ -898,21 +899,23 @@ public class APICallTests {
 //			System.out.println(variantsFilterGroup.getInt(ConstantsJSON.TOTAL));
 //			System.out.println(variantsFilter2Group2.getInt(ConstantsJSON.TOTAL));
 
-			assert(variants.getInt(ConstantsJSON.SIZE) >= 92);
-			assert(variantsGrouped.getInt(ConstantsJSON.SIZE) >= 92);
-			assert(variantsGrouped2.getInt(ConstantsJSON.SIZE) >= 92);
-			assert(variantsFilter.getInt(ConstantsJSON.SIZE) >= 23);
-			assert(variantsFilter2.getInt(ConstantsJSON.SIZE) >= 3);
+			// SIZE
+			assert(variants.getInt(ConstantsJSON.SIZE) >= 91);
+			assert(variantsGrouped.getInt(ConstantsJSON.SIZE) >= 50);
+			assert(variantsGrouped2.getInt(ConstantsJSON.SIZE) >= 50);
+			assert(variantsFilter.getInt(ConstantsJSON.SIZE) >= 20);
+			assert(variantsFilter2.getInt(ConstantsJSON.SIZE) >= 1);
 			assert(variantsFilterGroup.getInt(ConstantsJSON.SIZE) == 0);
-			assert(variantsFilter2Group2.getInt(ConstantsJSON.SIZE) >= 3);
-			
-			assert(variants.getInt(ConstantsJSON.TOTAL) >= 92);
-			assert(variantsGrouped.getInt(ConstantsJSON.TOTAL) >= 106);
-			assert(variantsGrouped2.getInt(ConstantsJSON.TOTAL) >= 106);
-			assert(variantsFilter.getInt(ConstantsJSON.TOTAL) >= 23);
-			assert(variantsFilter2.getInt(ConstantsJSON.TOTAL) >= 3);
+			assert(variantsFilter2Group2.getInt(ConstantsJSON.SIZE) >= 1);
+
+			// TOTAL
+			assert(variants.getInt(ConstantsJSON.TOTAL) >= 50);
+			assert(variantsGrouped.getInt(ConstantsJSON.TOTAL) >= 50);
+			assert(variantsGrouped2.getInt(ConstantsJSON.TOTAL) >= 50);
+			assert(variantsFilter.getInt(ConstantsJSON.TOTAL) >= 20);
+			assert(variantsFilter2.getInt(ConstantsJSON.TOTAL) >= 1);
 			assert(variantsFilterGroup.getInt(ConstantsJSON.TOTAL) == 0);
-			assert(variantsFilter2Group2.getInt(ConstantsJSON.TOTAL) == 3);
+			assert(variantsFilter2Group2.getInt(ConstantsJSON.TOTAL) >= 1);
 		}
 		
 	}

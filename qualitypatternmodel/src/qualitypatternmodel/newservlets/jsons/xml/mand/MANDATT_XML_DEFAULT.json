@@ -13,14 +13,14 @@
         {
             "name":"Element",
             "params":[0],
-            "exampleValue":"Actor",
+            "exampleValue":"Person",
             "description":"anchor for analysis"
         },
         {"text":"has a"},
         {
             "name":"Property",
             "params":[1],
-            "exampleValue":"Identifier (Value)",
+            "exampleValue":"Identity Card Number",
             "description":"value that gets analysed"
         },
         {"text":"."}

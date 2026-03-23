@@ -13,21 +13,21 @@
         {
             "name":"Element",
             "params":[2],
-            "exampleValue":"Actor",
+            "exampleValue":"Person",
             "description":"anchor for analysis"
         },
         {"text":", all"},
         {
             "name":"Properties",
             "params":[3],
-            "exampleValue":"Attribution statements",
+            "exampleValue":"Attribution Statements",
             "description":"analysed property",
             "plural":"true"
         },
         {
             "name":"Do / Do Not",
             "params":[0],
-            "defaultMap":"do not",
+            "defaultMap":"boolean.donot",
             "exampleValue":"do",
             "default":"do"
         },

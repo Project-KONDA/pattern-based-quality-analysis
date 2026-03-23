@@ -13,7 +13,7 @@
         {
             "name":"Element",
             "params":[3],
-            "exampleValue":"Actor",
+            "exampleValue":"Person",
             "description":"anchor for analysis"
         },
         {"text":"has at least one"},
@@ -29,14 +29,14 @@
             "name":"Is / Is Not",
             "params":[1],
             "exampleValue":"is",
-            "defaultMap":"comparison_is",
+            "defaultMap":"comparison.is",
 			"default":"is"
         },
         {"text":"in the list of"},
         {
             "name":"Terms",
             "params":[0],
-            "exampleValue":"Mueller, Meier"
+            "exampleValue":"Mueller, Meier, Huber"
         },
         {"text":"."}
     ]

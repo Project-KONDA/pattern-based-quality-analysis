@@ -1,0 +1,64 @@
+{
+    "template":"LinkImageSizeIfCompSet_xml",
+    "language":"xml",
+    "name":"default",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for LinkImageSizeIfCompSet_xml",
+		"scope": "hierarchical",
+		"type": ["len", "ren"]
+	},
+    "fragments":[
+    
+    
+        {"text":"If a"},
+        {
+            "name":"Element",
+            "params":[6],
+            "exampleValue":"Digital Object"
+        },
+        {"text":"has a"},
+        {
+            "name":"Property A",
+            "params":[7],
+            "exampleValue":"Media Type"
+        },
+        {"text":"that"},
+        {
+            "name":"Is / Is Not",
+            "params":[1],
+            "exampleValue":"Is",
+            "defaultMap": "comparison.is"
+        },
+        {"text":"in the list of"},
+        {
+            "name":"Terms",
+            "params":[0],
+            "exampleValue":"['Image','image', 'digital image']"
+        },
+        {"text":", each"},
+        {
+            "name":"Property B",
+            "params":[8],
+            "exampleValue":"Image Reference"
+        },
+        {"text":"is a valid link to a picture of at least"},
+        {
+            "name":"Dimension 1",
+            "params":[4],
+            "exampleValue":"600"
+        },
+        {"text":"x"},
+        {
+            "name":"Dimension 2",
+            "params":[5],
+            "exampleValue":"400"
+        },
+        {"text":"pixels."},
+        
+        {
+        	"value":"false",
+        	"params":[3]
+        }
+    ]
+}

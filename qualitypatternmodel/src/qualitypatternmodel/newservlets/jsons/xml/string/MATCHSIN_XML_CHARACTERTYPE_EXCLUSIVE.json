@@ -13,14 +13,14 @@
         {
             "name":"Property",
             "params":[2],
-            "exampleValue":"Surname",
+            "exampleValue":"Filename",
             "description":"value that gets analysed"
         },
         {"text":"contains only"},
         {
             "name":"Specific",
             "params":[1],
-            "exampleValue":"ISO Date (ISO 8601)",
+            "exampleValue":"alphanumeric",
             "map":{
             	"^[a-zA-Z]+$":"alphabetic",
             	"^[a-zA-Z0-9]+$":"alphanumeric",

@@ -13,7 +13,7 @@
         {
             "name":"Elements",
             "params":[5,7],
-            "exampleValue":"Actor",
+            "exampleValue":"Cultural Heritage Objects",
             "description":"anchor for analysis",
             "plural": "true"
         },
@@ -21,7 +21,7 @@
         {
             "name":"Property",
             "params":[4,6],
-            "exampleValue":"Identifiers (Value)",
+            "exampleValue":"Title",
             "description":"value that gets analysed"
         },
         {"text":"is unique within the file."}

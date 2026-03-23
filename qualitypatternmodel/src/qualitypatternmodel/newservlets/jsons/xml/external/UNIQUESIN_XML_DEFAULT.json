@@ -13,7 +13,7 @@
         {
             "name":"Property",
             "params":[4,5],
-            "exampleValue":"Identifiers (Value)",
+            "exampleValue":"Title",
             "description":"value that gets analysed"
 		},
         {"text":"is unique within the file."}
