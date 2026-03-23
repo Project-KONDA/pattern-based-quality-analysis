@@ -192,7 +192,7 @@ public class InitialisationServlet extends HttpServlet {
 		ServletUtilities.log("Environmental Variable UPLOAD_FOLDER:             " + ServletConstants.UPLOAD_FOLDER);
 		ServletUtilities.log("Environmental Variable VARIANTS_FOLDER:           " + ServletConstants.VARIANTS_FOLDER);
 		ServletUtilities.log("Environmental Variable TEMPLATE_INFO_FILE:        " + ServletConstants.TEMPLATE_INFO_FILE);
-		ServletUtilities.log("Environmental Variable TEMPLATE_MAP_FILE:        " + ServletConstants.TEMPLATE_MAP_FILE);
+		ServletUtilities.log("Environmental Variable TEMPLATE_MAP_FILE:         " + ServletConstants.TEMPLATE_MAP_FILE);
 		ServletUtilities.log("Environmental Variable LOGFILE:                   " + ServletConstants.LOGFILE);
 		ServletUtilities.log("Environmental Variable SAVEFILE:                  " + ServletConstants.SAVEFILE);
 		ServletUtilities.log("Environmental Variable FILL_VALUES:               " + ServletConstants.FILL_VALUES);
