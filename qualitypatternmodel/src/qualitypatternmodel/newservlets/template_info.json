@@ -355,7 +355,7 @@
 	},
 	"LinkImageSizeIfCompSetPattern":{
 		"id":"LinkImageSizeIfCompSet",
-		"name":"LinkImageSizeIfCompSet",
-		"description":"LinkImageSizeIfCompSet"
+		"name":"Link Image Size Check If within a list of allowed (/forbidden) terms",
+		"description":"Link Image Size Check If within a list of allowed (/forbidden) terms."
 	}
 }

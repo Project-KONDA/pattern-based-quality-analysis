@@ -4,7 +4,9 @@
     "name":"default",
 	"typeConstraint":true,
 	"custom": {
-		"description": "default variant for LinkImageSizeIfCompSet_xml"
+		"description": "default variant for LinkImageSizeIfCompSet_xml",
+		"scope": "hierarchical",
+		"type": ["len", "ren"]
 	},
     "fragments":[
     
@@ -13,51 +15,44 @@
         {
             "name":"Element",
             "params":[6],
-            "exampleValue":"",
-            "description":""
+            "exampleValue":"Digital Object"
         },
         {"text":"has a"},
         {
             "name":"Property A",
             "params":[7],
-            "exampleValue":"",
-            "description":""
+            "exampleValue":"Media Type"
         },
         {"text":"that"},
         {
             "name":"Is / Is Not",
             "params":[1],
-            "exampleValue":"",
-            "description":"",
+            "exampleValue":"Is",
             "defaultMap": "comparison.is"
         },
         {"text":"in the list of"},
         {
             "name":"Terms",
             "params":[0],
-            "exampleValue":"",
-            "description":""
+            "exampleValue":"['Image','image', 'digital image']"
         },
         {"text":", each"},
         {
             "name":"Property B",
             "params":[8],
-            "exampleValue":"",
-            "description":""
+            "exampleValue":"Image Reference"
         },
         {"text":"is a valid link to a picture of at least"},
         {
             "name":"Dimension 1",
             "params":[4],
-            "exampleValue":"",
-            "description":""
+            "exampleValue":"600"
         },
         {"text":"x"},
         {
             "name":"Dimension 2",
             "params":[5],
-            "exampleValue":"",
-            "description":""
+            "exampleValue":"400"
         },
         {"text":"pixels."},
         
