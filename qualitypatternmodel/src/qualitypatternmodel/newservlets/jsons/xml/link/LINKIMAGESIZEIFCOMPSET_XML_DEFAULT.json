@@ -1,0 +1,69 @@
+{
+    "template":"LinkImageSizeIfCompSet_xml",
+    "language":"xml",
+    "name":"default",
+	"typeConstraint":true,
+	"custom": {
+		"description": "default variant for LinkImageSizeIfCompSet_xml"
+	},
+    "fragments":[
+    
+    
+        {"text":"If a"},
+        {
+            "name":"Element",
+            "params":[6],
+            "exampleValue":"",
+            "description":""
+        },
+        {"text":"has a"},
+        {
+            "name":"Property A",
+            "params":[7],
+            "exampleValue":"",
+            "description":""
+        },
+        {"text":"that"},
+        {
+            "name":"Is / Is Not",
+            "params":[1],
+            "exampleValue":"",
+            "description":"",
+            "defaultMap": "comparison.is"
+        },
+        {"text":"in the list of"},
+        {
+            "name":"Terms",
+            "params":[0],
+            "exampleValue":"",
+            "description":""
+        },
+        {"text":", each"},
+        {
+            "name":"Property B",
+            "params":[8],
+            "exampleValue":"",
+            "description":""
+        },
+        {"text":"is a valid link to a picture of at least"},
+        {
+            "name":"Dimension 1",
+            "params":[4],
+            "exampleValue":"",
+            "description":""
+        },
+        {"text":"x"},
+        {
+            "name":"Dimension 2",
+            "params":[5],
+            "exampleValue":"",
+            "description":""
+        },
+        {"text":"pixels."},
+        
+        {
+        	"value":"false",
+        	"params":[3]
+        }
+    ]
+}
