@@ -873,7 +873,10 @@ public abstract class ServletUtilities {
 		String error = th.getClass().getSimpleName() + ": " + th.getMessage();
 		for (StackTraceElement element : th.getStackTrace()) {
 			if (all || counter > 0) {
-				error += "\r\n    " + element.toString();
+				String message = element.toString();
+				if (!(message.contains("qualitypatternmodel.") || message.contains("test") || message.contains("Test")))
+					break;
+				error += "\r\n    " + message;
 				counter--;
 			}
 		}
