@@ -20,7 +20,7 @@ public class MatchExistsPattern extends PatternClass {
 		super(PatternConstants.MATCHEXISTS_ID,
 				PatternConstants.MATCHEXISTS_NAME, 
 				PatternConstants.MATCHEXISTS_DESCR, 
-				true, true, false, true);
+				true, true, false, false);
 	}
 
 	@Override
