@@ -192,34 +192,39 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	@Override
 	public String generateXQueryJava() throws InvalidityException {
+		if (!containsJavaOperator())
+			return generateXQuery();
+
+		if (getOperator().equals(LogicalOperator.AND)) {
+			if (getCondition1() != null && !getCondition1().containsJavaOperator()) {
+				return getCondition1().generateXQuery();
+			}
+			else if (getCondition2() != null) {
+				return getCondition2().generateXQuery();
+			}
+		}
 		return "";
 	}
 
 	@Override
 	public String generateXQueryJavaReturn() throws InvalidityException {
 		Boolean cond1Java = false, cond2Java = false;
-		String cond1String = "<boolean>\n  (true())\n  </boolean>"; 
-		String cond2String = "<boolean>\n  (true())\n  </boolean>"; 
-		
+		String cond1String = null, cond2String = null;
 		
 		if (getCondition1() != null) {
 			cond1Java = getCondition1().containsJavaOperator();
 			cond1String = cond1Java?
 				getCondition1().generateXQueryJavaReturn()
-				: "<boolean>\n  " + getCondition1().generateXQuery().indent(2) + "  \n  </boolean>";
+				: "<boolean> {\n  " + getCondition1().generateXQuery().indent(2) + "\n  } </boolean>";
 		}
 		if (getCondition2() != null) {
 			cond2Java = getCondition2().containsJavaOperator();
 			cond2String = cond2Java? getCondition2().generateXQueryJavaReturn()
-				: "<boolean>\n  " + getCondition2().generateXQuery().indent(2) + "  \n  </boolean>";
+				: "<boolean> {\n  " + getCondition2().generateXQuery().indent(2) + "\n  } </boolean>";
 		}
 
 		if (!cond1Java && !cond2Java) {
 			return generateXQuery();
-//		else if (!cond1Java)
-//			return cond2String;
-//		else if (!cond2Java)
-//			return cond1String;
 		} else {
 			return JavaQueryTranslationUtility.getXQueryReturnList(List.of(cond1String, cond2String), FORMULA, false);
 		}

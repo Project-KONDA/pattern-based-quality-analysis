@@ -281,4 +281,8 @@ public class PatternConstants {
 	public static String LINKIMAGESIZESIN_ID = "LinkImageSizeSin";
 	public static String LINKIMAGESIZESIN_NAME = "LinkImageSizeSin";
 	public static String LINKIMAGESIZESIN_DESCR = "LinkImageSizeSin";
+
+	public static String LINKIMAGESIZEIFCOMPSET_ID = "LinkImageSizeIfCompSet";
+	public static String LINKIMAGESIZEIFCOMPSET_NAME = "LinkImageSizeList";
+	public static String LINKIMAGESIZEIFCOMPSET_DESCR = "Check image size within a specific list.";
 }
