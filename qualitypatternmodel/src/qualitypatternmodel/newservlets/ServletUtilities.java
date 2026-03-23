@@ -875,11 +875,10 @@ public abstract class ServletUtilities {
 		for (StackTraceElement element : th.getStackTrace()) {
 			if (all || counter > 0) {
 				String message = element.toString();
-				if (!(message.contains("qualitypatternmodel.") || message.contains("test") || message.contains("Test"))) {
-					if (breaking)
-						break;
-					else 
-						breaking = true;
+				if ((message.contains("qualitypatternmodel.") || message.contains("test") || message.contains("Test")))
+					breaking = true;
+				if (breaking && !(message.contains("qualitypatternmodel.") || message.contains("test") || message.contains("Test"))) {
+					break;
 				}
 				error += "\r\n    " + message;
 				counter--;
