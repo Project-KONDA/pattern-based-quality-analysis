@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.json.JSONObject;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -120,6 +121,7 @@ public class EMFModelLoad {
 			try {
 				patterns.add(loadCompletePattern(folder + "/" + file));
 			} catch (Exception e) {
+				ServletUtilities.logError(new InvalidityException("Failed to load pattern: " + folder + "/" + file, e));
 				System.out.println("Failed to load pattern: " + folder + "/" + file);
 				e.printStackTrace();
 			}
@@ -148,6 +150,7 @@ public class EMFModelLoad {
 					Util.exportJson(json, jsonfolder + "/" + jsonfilename);
 					patternjsons.add(json);
 				} catch (Exception e) {
+					ServletUtilities.logError(new InvalidityException("Failed to load pattern: " + folder + "/" + patternfilename, e));
 					System.out.println("Failed to load pattern: " + folder + "/" + patternfilename);
 					e.printStackTrace();
 				}
