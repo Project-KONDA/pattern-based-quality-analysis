@@ -58,7 +58,7 @@ public class InitialisationServlet extends HttpServlet {
 		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyGet(path, params);
-			ServletUtilities.putResponse(response, callId, result);
+			ServletUtilities.putResponseUnlogged(response, callId, result, HttpServletResponse.SC_OK);
 		}
 		catch (Exception e) {
 			ServletUtilities.putResponseError(response, callId, e);

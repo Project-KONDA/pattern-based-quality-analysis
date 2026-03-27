@@ -656,37 +656,33 @@ public abstract class ServletUtilities {
 
 	// RESPONSE HANDLING
 
-	public static void putResponse(HttpServletResponse response, int id, JSONObject jsonObject, int responseCode) throws IOException {
-		logOutput(jsonObject, id);
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		response.setStatus(responseCode);
-		response.getWriter().write(jsonObject.toString());
+	public static void putResponse(HttpServletResponse response, int id, Object object, int responseCode) throws IOException {
+		logOutput(object, id);
+		putResponseUnlogged(response, id, object, responseCode);
 	}
 
-	public static void putResponse(HttpServletResponse response, int id, JSONArray jsonArray, int responseCode) throws IOException {
-		logOutput(jsonArray, id);
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
+	public static void putResponseUnlogged(HttpServletResponse response, int id, Object object, int responseCode) throws IOException {
 		response.setStatus(responseCode);
-		response.getWriter().write(jsonArray.toString());
+		if (object instanceof JSONArray || object instanceof JSONObject) {
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			response.getWriter().write(object.toString());
+			return;
+		}
+		if (object instanceof String) {
+			response.setContentType("text/plain");
+			response.setCharacterEncoding("UTF-8");
+			response.setStatus(responseCode);
+		}
 	}
 
-	public static void putResponse(HttpServletResponse response, int id, String text, int responseCode) throws IOException {
-		logOutput(text, id);
-		response.setContentType("text/plain");
-		response.setCharacterEncoding("UTF-8");
-		response.setStatus(responseCode);
-		response.getWriter().write(text);
-	}
-	
 	public static void putResponse(HttpServletResponse response, int id, File file, int responseCode, String contentType) throws IOException {
-		
+
 		if (file == null || !file.exists()) {
 		    response.sendError(HttpServletResponse.SC_NOT_FOUND, "File not found");
 		    return;
 		}
-		
+
         response.setStatus(responseCode);
 	    response.setContentType(contentType);
         response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getName() + "\"");
@@ -703,17 +699,6 @@ public abstract class ServletUtilities {
         }
 	}
 
-	public static void putResponseError(HttpServletResponse response, int id, Exception error, int responseCode) throws IOException {
-		logError(error);
-		JSONObject object = new JSONObject();
-		try {
-			object.put("error", error.getMessage());
-		} catch (JSONException e) {
-			logError(e);
-		}
-		putResponse(response, id, object, responseCode);
-	}
-
 	public static void putResponseError(HttpServletResponse response, int id, Exception error) throws IOException {
 		int responseCode = HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
 		if (error.getClass().equals(InvalidServletCallException.class)) {
@@ -723,6 +708,17 @@ public abstract class ServletUtilities {
 			responseCode = HttpServletResponse.SC_NOT_FOUND;
 		}
 		putResponseError(response, id, error, responseCode);
+	}
+
+	public static void putResponseError(HttpServletResponse response, int id, Exception error, int responseCode) throws IOException {
+		logError(error);
+		JSONObject object = new JSONObject();
+		try {
+			object.put("error", error.getMessage());
+		} catch (JSONException e) {
+			logError(e);
+		}
+		putResponse(response, id, object, responseCode);
 	}
 
 	public static void putResponse(HttpServletResponse response, int id, JSONObject jsonObject) throws IOException {
@@ -851,16 +847,14 @@ public abstract class ServletUtilities {
 		return ChronoUnit.DAYS.between(inputDate, currentDate);
 	}
 
-	public static void logOutput(JSONObject json, int id) {
-		logOutput(json.toString(), id);
-	}
-
-	public static void logOutput(JSONArray json, int id) {
-		logOutput(json.toString(), id);
-	}
-
-	public static void logOutput(String text, int id) {
-		log("OUTPUT " + id + " : " + text);
+	public static void logOutput(Object object, int id) {
+		String value;
+		if (object instanceof String) {
+			value = (String) object;
+		} else {
+			value = object.toString();
+		}
+		log("OUTPUT " + id + " : " + value);
 	}
 
 	public static void logError(Throwable th) {
