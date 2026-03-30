@@ -154,9 +154,8 @@ public class LinkOperatorUtil {
 	            String location = connection.getHeaderField("Location");
 	        	return getImageSize(location, responseMethod);
 	        }
-	        try (InputStream is = connection.getInputStream();
-	                ImageInputStream iis = ImageIO.createImageInputStream(is)) {
 
+	        try (ImageInputStream iis = ImageIO.createImageInputStream(connection.getInputStream())) {
 	               Iterator<ImageReader> readers = ImageIO.getImageReaders(iis);
 	               if (!readers.hasNext()) {
 	                   throw new RuntimeException("No ImageReader found for this format.");
