@@ -290,11 +290,11 @@ public class XQueryProcessorSaxon {
 	    }
 
         int startline = -1;
-        if (!item.isAtomicValue() && item instanceof XdmNode) {
+        if (item instanceof XdmNode) {
             NodeInfo ni = ((XdmNode) item).getUnderlyingNode();
-            startline = ni.getLineNumber();
+            if (ni != null)
+            	startline = ni.getLineNumber();
         }
-
         int linesize = snippet.split("\n").length;
 
         JSONObject obj = new JSONObject();

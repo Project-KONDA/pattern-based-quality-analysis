@@ -67,12 +67,6 @@ public class XmlServletUtility {
         return executeQuery(wrappedQuery);
 	}
 
-	public static String escapeAmpersands(String xml) {
-	    if (xml == null)
-	        return null;
-	    return xml.replaceAll("&(?!#\\d+;|#x[0-9a-fA-F]+;|[a-zA-Z]+;)", "&amp;");
-	}
-
 	public static JSONArray flattenResultJSONArray(JSONArray objects) {
 		JSONArray flattened = new JSONArray();
 		for (int i = 0; i < objects.length(); i++)
@@ -98,4 +92,21 @@ public class XmlServletUtility {
     	}
     	return str;
     }
+
+	public static String escapeAmpersands(String xml) {
+	    if (xml == null)
+	        return null;
+	    return xml.replaceAll("&(?!#\\d+;|#x[0-9a-fA-F]+;|[a-zA-Z]+;)", "&amp;");
+	}
+
+	public static void stripNamespaces(JSONArray array) {
+	    for (int i = 0; i < array.length(); i++) {
+	        JSONObject obj = array.getJSONObject(i);
+	        if (obj.has("snippet") && !obj.isNull("snippet")) {
+	            String snippet = obj.getString("snippet");
+	            String cleaned = snippet.replaceAll(" xmlns(:\\w+)?=\"[^\"]*\"", "");
+	            obj.put("snippet", cleaned);
+	        }
+	    }
+	}
 }
