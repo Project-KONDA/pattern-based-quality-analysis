@@ -91,7 +91,7 @@ public class XQueryProcessorSaxon {
 	        if (e.getCause() instanceof InvalidityException) {
 	            throw (InvalidityException) e.getCause();
 	        }
-	        throw new InvalidityException("Unexpected error: " + e.getMessage());
+	        throw new InvalidityException("Unexpected error", e);
 	    } catch (InterruptedException e) {
 	        Thread.currentThread().interrupt();
 	        throw new InvalidityException("Query execution was interrupted");
@@ -274,9 +274,8 @@ public class XQueryProcessorSaxon {
 
 	private static JSONObject formatItemJSON(XdmItem item, Processor processor) throws SaxonApiException {
 		String snippet;
-	    if (item instanceof XdmNode) {
+	    if (item instanceof XdmNode && ((XdmNode)item).getNodeKind() != XdmNodeKind.ATTRIBUTE) {
 	    	XdmNode node = (XdmNode) item;
-	        // Serialize the node to XML
 	        StringWriter sw = new StringWriter();
 	        Serializer serializer = processor.newSerializer(sw);
 	        serializer.setOutputProperty(Serializer.Property.METHOD, SERIALIZER_METHOD);

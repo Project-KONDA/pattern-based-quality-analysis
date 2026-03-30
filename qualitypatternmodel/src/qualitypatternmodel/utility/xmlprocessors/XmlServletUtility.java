@@ -62,8 +62,15 @@ public class XmlServletUtility {
 
 	public static JSONArray queryFromSnippet(String xmlString, String query) throws InvalidityException {
 		xmlString = cutProcessingInstructions(xmlString);
+		xmlString = escapeAmpersands(xmlString);
         String wrappedQuery = "let $doc := <root>" + xmlString + "</root>\n " + query;
         return executeQuery(wrappedQuery);
+	}
+
+	public static String escapeAmpersands(String xml) {
+	    if (xml == null)
+	        return null;
+	    return xml.replaceAll("&(?!#\\d+;|#x[0-9a-fA-F]+;|[a-zA-Z]+;)", "&amp;");
 	}
 
 	public static JSONArray flattenResultJSONArray(JSONArray objects) {
