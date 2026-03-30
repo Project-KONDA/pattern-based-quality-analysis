@@ -95,20 +95,20 @@ public class PatternCollectionTests {
 		switch(pattern.getLanguage()) {
 		case XML: {
 			PatternUtility.fillParameter(pattern);
-			String query = assertDoesNotThrow(() -> (pattern.generateXQueryJava()));
-			assertDoesNotThrow(() -> validateXQuery(query));
+			String query = pattern.generateXQueryJava();
+			validateXQuery(query);
 			break;
 		}
 		case RDF: {
 			PatternUtility.fillParameter(pattern);
-			String query = assertDoesNotThrow(() -> (pattern.generateSparql()));
-			assertDoesNotThrow(() -> validateSparql(query));
+			String query = pattern.generateSparql();
+			validateSparql(query);
 			break;	
 		}
 		case NEO4J: {
 			PatternUtility.fillParameter(pattern);
-			String query = assertDoesNotThrow(() -> (pattern.generateCypher()));
-			assertDoesNotThrow(() -> validateCypher(query));
+			String query = pattern.generateCypher();
+			validateCypher(query);
 			break;	
 		}
 		default:
