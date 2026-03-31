@@ -1,6 +1,5 @@
 package qualitypatternmodel.javaoperators;
 
-import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.util.Arrays;
