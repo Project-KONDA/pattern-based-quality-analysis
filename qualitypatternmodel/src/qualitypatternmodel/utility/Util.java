@@ -86,7 +86,7 @@ public class Util {
 	    Files.write(path, json.toString(4).getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
 	}
 
-	public static void writeStringToFile(String content, String filePath) throws IOException {
+	public static void createFile(String content, String filePath) throws IOException {
 	    Path path = Paths.get(filePath);
 	    Path parent = path.getParent();
 	    if (parent != null) {
@@ -98,6 +98,14 @@ public class Util {
 	    Files.writeString(path, content, StandardOpenOption.CREATE_NEW);
 	}
 
+	public static void overrideFile(String content, String filePath) throws IOException {
+	    Path path = Paths.get(filePath);
+	    if (!Files.exists(path)) {
+	        throw new IOException("File does not exist: " + filePath);
+	    }
+	    Files.writeString(path, content, StandardOpenOption.WRITE);
+	}
+
 	public static void deleteFile(String filePath) throws IOException {
 	    Path path = Paths.get(filePath);
 	    if (Files.notExists(path)) {
@@ -106,8 +114,12 @@ public class Util {
 	    Files.delete(path);
 	}
 
+	public static String loadFile(String filepath) throws IOException {
+	    return new String(Files.readAllBytes(Paths.get(filepath)));
+	}
+
 	public static JSONObject loadJson(String filepath) throws IOException {
-	    String jsonString = new String(Files.readAllBytes(Paths.get(filepath)));
+	    String jsonString = loadFile(filepath);
 	    JSONObject jsonObject;
 	    try {
 	    	jsonObject = new JSONObject(jsonString);
