@@ -60,6 +60,7 @@ public class PatternCollection {
 		classes.add(LinkSourceIsoPattern.class);
 		classes.add(LinkSourcePattern.class);
 		classes.add(LinkSourceSinPattern.class);
+		classes.add(ValidLinkIfMatchPattern.class);
 		classes.add(ValidLinkIsoPattern.class);
 		classes.add(ValidLinkPattern.class);
 		classes.add(ValidLinkSinPattern.class);

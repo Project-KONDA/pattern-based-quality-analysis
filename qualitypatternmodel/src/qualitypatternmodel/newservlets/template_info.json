@@ -86,6 +86,11 @@
         "description": "Check if an element contains at least one mandatory property from two alternatives.",
         "id": "Mand2PropOr"
     },
+    "ValidLinkIfMatchPattern": {
+        "name": "Valid Link by Pattern",
+        "description": "Check if field values match a specific pattern and are valid links.",
+        "id": "ValidLinkIfMatch"
+    },
     "CompSetSinPattern": {
         "name": "List Inclusion Check (Single)",
         "description": "Check if field values are within a list of allowed (/forbidden) terms.",
