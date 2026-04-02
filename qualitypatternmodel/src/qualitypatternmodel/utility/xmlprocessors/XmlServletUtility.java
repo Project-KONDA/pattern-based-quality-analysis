@@ -84,13 +84,15 @@ public class XmlServletUtility {
 		return unflattened;
 	}
 
-    public static String cutProcessingInstructions(String str) {
-    	str = str.trim();
+    public static String cutProcessingInstructions(String str2) {
+    	String str = str2.trim();
     	if (str.startsWith("<?")) {
     		int i = str.indexOf("?>");
     		str = str.substring(i+2);
+    		return str;
     	}
-    	return str;
+    	else 
+    		return str2;
     }
 
 	public static String escapeAmpersands(String xml) {

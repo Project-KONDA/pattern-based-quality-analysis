@@ -25,7 +25,6 @@ jobs:
           password: ${{ secrets.HARBOR_PASSWORD }}
 
       - name: Get Maven Project Version
-        if: ${{ github.ref_name == 'main' || github.ref_name == 'develop' }}
         run: |
           cd qualitypatternmodel
           POM_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
@@ -65,6 +64,6 @@ jobs:
         with:
           context: qualitypatternmodel
           file: qualitypatternmodel/Dockerfile
-          build-args: MAVEN_VERSION=SNAPSHOT
+          build-args: MAVEN_VERSION=${{ env.MAIN_VERSION }}-SNAPSHOT
           push: true
           tags: harbor.gwdg.de/aqinda/qpm:SNAPSHOT, harbor.gwdg.de/aqinda/qpm:current
