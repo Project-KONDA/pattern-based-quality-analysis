@@ -35,7 +35,7 @@ public class LinkMimeTypeOperatorImpl extends OneArgJavaListOperatorImpl impleme
 	}
 		
 	public static Boolean apply2(String param, Boolean negate, List<String> mimes) {
-		String mime = LinkOperatorUtil.getMimeType(param, "GET");
+		String mime = LinkOperatorUtil.getMimeType(param);
 		if (mime == null)
 			return negate;
 		for (String type: mimes)

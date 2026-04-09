@@ -43,7 +43,6 @@ public class MatchExistsPattern extends PatternClass {
 		qc2.getGraph().getOperatorList().add(match);
 		match.setPrimitiveNode(element1);
 		
-		System.out.println(pattern.myToString());
 		return pattern;
 	}
 

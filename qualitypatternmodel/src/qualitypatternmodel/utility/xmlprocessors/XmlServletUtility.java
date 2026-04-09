@@ -62,6 +62,7 @@ public class XmlServletUtility {
 
 	public static JSONArray queryFromSnippet(String xmlString, String query) throws InvalidityException {
 		xmlString = cutProcessingInstructions(xmlString);
+		xmlString = escapeAmpersands(xmlString);
         String wrappedQuery = "let $doc := <root>" + xmlString + "</root>\n " + query;
         return executeQuery(wrappedQuery);
 	}
@@ -83,12 +84,31 @@ public class XmlServletUtility {
 		return unflattened;
 	}
 
-    public static String cutProcessingInstructions(String str) {
-    	str = str.trim();
+    public static String cutProcessingInstructions(String str2) {
+    	String str = str2.trim();
     	if (str.startsWith("<?")) {
     		int i = str.indexOf("?>");
     		str = str.substring(i+2);
+    		return str;
     	}
-    	return str;
+    	else 
+    		return str2;
     }
+
+	public static String escapeAmpersands(String xml) {
+	    if (xml == null)
+	        return null;
+	    return xml.replaceAll("&(?!#\\d+;|#x[0-9a-fA-F]+;|[a-zA-Z]+;)", "&amp;");
+	}
+
+	public static void stripNamespaces(JSONArray array) {
+	    for (int i = 0; i < array.length(); i++) {
+	        JSONObject obj = array.getJSONObject(i);
+	        if (obj.has("snippet") && !obj.isNull("snippet")) {
+	            String snippet = obj.getString("snippet");
+	            String cleaned = snippet.replaceAll(" xmlns(:\\w+)?=\"[^\"]*\"", "");
+	            obj.put("snippet", cleaned);
+	        }
+	    }
+	}
 }

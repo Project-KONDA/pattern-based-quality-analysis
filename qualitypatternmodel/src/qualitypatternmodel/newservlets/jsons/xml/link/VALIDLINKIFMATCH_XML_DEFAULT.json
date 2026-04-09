@@ -1,0 +1,48 @@
+{
+    "template": "ValidLinkIfMatch_xml",
+    "name": "default",
+    "language": "xml",
+    "typeConstraint": true,
+    "custom": {
+        "scope": "simple",
+        "description": "default variant for ValidLinkIfMatch_xml",
+        "type": ["ref"]
+    },
+    "fragments": [
+        {"text": "If a"},
+        {
+            "name": "Element",
+            "description": "",
+            "params": [3],
+            "exampleValue": "Digital Object"
+        },
+        {"text": "has a"},
+        {
+            "name": "Property",
+            "description": "",
+            "params": [4],
+            "exampleValue": "Providing Institution"
+        },
+        {"text": "that"},
+        {
+            "name": "Does / Does Not",
+            "description": "",
+            "params": [0],
+            "exampleValue": "Does",
+            "defaultMap":"boolean.does"
+        },
+        {"text": "match"},
+        {
+            "name": "a Specific Pattern (RegEx)",
+            "description": "",
+            "params": [1],
+            "exampleValue": "^(((https?://)?\\\\\\[a-zA-Z0-9\\\\\\\\\\\\\\\\-\\\\\\\\\\\\\\\\./\\\\\\]\\\\\\*\\\\\\\\\\\\\\\\.\\\\\\[a-z\\\\\\]{2,3}/(\\\\\\[a-zA-Z0-9\\\\\\\\\\\\\\\\-\\\\\\\\\\\\\\\\./\\\\\\]\\\\\\*/)?)"
+        },
+        {"text": ", this Property is a valid link."},
+        
+        {
+        	"params":[2],
+        	"value":"true"
+        }
+    ]
+}
