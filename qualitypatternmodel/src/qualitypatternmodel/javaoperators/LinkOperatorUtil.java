@@ -144,7 +144,6 @@ public class LinkOperatorUtil {
 
         // Fallback to GET
         if (isFailure(code)) {
-        	System.out.println("FAILIURE");
             request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
                     .timeout(Duration.ofMillis(DEFAULT_TIMEOUT))
