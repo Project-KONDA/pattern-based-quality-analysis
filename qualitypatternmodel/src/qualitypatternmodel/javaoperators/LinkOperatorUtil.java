@@ -2,19 +2,24 @@ package qualitypatternmodel.javaoperators;
 
 import java.net.HttpURLConnection;
 import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.time.Duration;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
-
-import javax.imageio.ImageIO;
-import javax.imageio.ImageReader;
-import javax.imageio.stream.ImageInputStream;
 
 import org.apache.commons.lang3.tuple.Pair;
 
 public class LinkOperatorUtil {
 	
 	public static final int DEFAULT_TIMEOUT = 5000;
+
+    private static final HttpClient CLIENT = HttpClient.newBuilder()
+            .connectTimeout(Duration.ofMillis(DEFAULT_TIMEOUT))
+            .followRedirects(HttpClient.Redirect.NORMAL)
+            .build();
+	
 	public static final String[] REQUEST_METHOD = new String[] {"HEAD", "GET"};
 	public static final List<Integer>  httpSuccess = Arrays.asList(
 		100, // 100 - Continue
@@ -85,41 +90,154 @@ public class LinkOperatorUtil {
 		508 // 508 - Loop Detected
 	);
 
-	private static HttpURLConnection getConnection(String urlString, String responseMethod) {
-    	urlString = urlString.trim();
-	    try {
-			HttpURLConnection connection = (HttpURLConnection) URI.create(urlString).toURL().openConnection();
-	        connection.setRequestMethod(responseMethod);
-	        connection.setConnectTimeout(DEFAULT_TIMEOUT);
-	        connection.setReadTimeout(DEFAULT_TIMEOUT);
-	        return connection;
-	    } catch (Exception e) {
-	    	return null;
-	    }
-	}
+    public static int getResponseCode(String url) {
+    	url = url.trim();
+        try {
+            HttpResponse<Void> response = sendForHead(url);
+            return response.statusCode();
+        } catch (Exception e) {
+            return -1;
+        }
+    }
 
-	public static Boolean evaluateResponseCode(String urlString, String responseMethod) {
+    public static String getMimeType(String url) {
+    	url = url.trim();
+        try {
+            HttpResponse<Void> response = sendForHead(url);
+            return response.headers()
+                    .firstValue("Content-Type")
+                    .map(ct -> ct.split(";")[0].trim())
+                    .orElse(null);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static Pair<Integer, Integer> getImageSize(String url) {
+    	url = url.trim();
+        try {
+            HttpResponse<byte[]> response = sendForBody(url);
+            byte[] data = response.body();
+            if (data == null || data.length < 10) return null;
+            return parseImageSize(data);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+
+
+
+
+    // Core Request Logic
+
+    private static HttpResponse<Void> sendForHead(String url) throws Exception {
+    	url = url.trim();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .timeout(Duration.ofMillis(DEFAULT_TIMEOUT))
+                .method("HEAD", HttpRequest.BodyPublishers.noBody())
+                .build();
+
+        HttpResponse<Void> response = CLIENT.send(request, HttpResponse.BodyHandlers.discarding()); 
+        int code = response.statusCode();
+
+        // Fallback to GET
+        if (isFailure(code)) {
+        	System.out.println("FAILIURE");
+            request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .timeout(Duration.ofMillis(DEFAULT_TIMEOUT))
+                    .GET()
+                    .build();
+
+            response = CLIENT.send(request, HttpResponse.BodyHandlers.discarding());
+        }
+
+        return response;
+    }
+
+    private static HttpResponse<byte[]> sendForBody(String url) throws Exception {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .timeout(Duration.ofMillis(DEFAULT_TIMEOUT))
+                .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+
+        return CLIENT.send(request, HttpResponse.BodyHandlers.ofByteArray());
+    }
+
+    private static Pair<Integer, Integer> parseImageSize(byte[] data) {
+
+        // PNG
+        if (data.length > 24 &&
+            data[0] == (byte)137 && data[1] == 80 && data[2] == 78 && data[3] == 71) {
+
+            int width = readInt(data, 16);
+            int height = readInt(data, 20);
+            return Pair.of(width, height);
+        }
+
+        // GIF
+        if (data.length > 10 &&
+            data[0] == 'G' && data[1] == 'I' && data[2] == 'F') {
+
+            int width = readShort(data, 6);
+            int height = readShort(data, 8);
+            return Pair.of(width, height);
+        }
+
+        // JPEG (simplified)
+        if (data.length > 4 &&
+            data[0] == (byte)0xFF && data[1] == (byte)0xD8) {
+
+            int index = 2;
+            while (index < data.length) {
+                if ((data[index] & 0xFF) != 0xFF) break;
+
+                int marker = data[index + 1] & 0xFF;
+                int length = readShort(data, index + 2);
+
+                if (marker == 0xC0 || marker == 0xC2) {
+                    int height = readShort(data, index + 5);
+                    int width = readShort(data, index + 7);
+                    return Pair.of(width, height);
+                }
+
+                index += 2 + length;
+            }
+        }
+
+        return null;
+    }
+
+    private static int readInt(byte[] data, int offset) {
+        return ((data[offset] & 0xFF) << 24) |
+               ((data[offset + 1] & 0xFF) << 16) |
+               ((data[offset + 2] & 0xFF) << 8) |
+               (data[offset + 3] & 0xFF);
+    }
+
+    private static int readShort(byte[] data, int offset) {
+        return ((data[offset] & 0xFF) << 8) |
+               (data[offset + 1] & 0xFF);
+    }
+
+	public static Boolean evaluateResponseCode(String urlString) {
     	urlString = urlString.trim();
 	    try {
-	    	HttpURLConnection connection = getConnection(urlString, responseMethod);
-	        Integer responseCode = connection.getResponseCode();
+	        Integer responseCode = getResponseCode(urlString);
 	        
 	        Boolean result = isOk(responseCode);
-	        if (isRedirect(responseCode)){
-	            String location = connection.getHeaderField("Location");
-	            if (location != null)
-	            	result = evaluateResponseCode(location, responseMethod);	
-			}
-	        // if http is invalid, check https
 	        if (result == false && urlString.startsWith("http://"))
-	        	return evaluateResponseCode("https" + urlString.substring(4), responseMethod);
+	        	return evaluateResponseCode("https" + urlString.substring(4));
 	        return result;
-
 	    } catch (Exception e) {
 	        return false;
 	    }
 	}
 
+	@SuppressWarnings("unused")
 	private static Boolean isRedirect(int responseCode) {
 		return httpRedirect.contains(responseCode);
 	}
@@ -128,50 +246,7 @@ public class LinkOperatorUtil {
 		return httpSuccess.contains(responseCode) || httpRestricted.contains(responseCode); 
 	}
 
-	public static String getMimeType(String urlString, String responseMethod) {
-    	urlString = urlString.trim();
-	    try {
-	    	HttpURLConnection connection = getConnection(urlString, responseMethod);
-	        Integer responseCode = connection.getResponseCode();
-	        if (isRedirect(responseCode)){
-	            String location = connection.getHeaderField("Location");
-	        	return getMimeType(location, responseMethod);
-	        }
-			return connection.getContentType();
-	    } catch (Exception e) {
-	        return null;
-	    }
+	private static Boolean isFailure(int responseCode) {
+		return httpFailure.contains(responseCode); 
 	}
-
-	public static Pair<Integer, Integer> getImageSize(String urlString, String responseMethod) {
-    	urlString = urlString.trim();
-	    try {
-	    	int width, height;
-	    	HttpURLConnection connection = getConnection(urlString, responseMethod);
-	        Integer responseCode = connection.getResponseCode();
-	        if (isRedirect(responseCode)){
-	            String location = connection.getHeaderField("Location");
-	        	return getImageSize(location, responseMethod);
-	        }
-
-	        try (ImageInputStream iis = ImageIO.createImageInputStream(connection.getInputStream())) {
-	               Iterator<ImageReader> readers = ImageIO.getImageReaders(iis);
-	               if (!readers.hasNext()) {
-	                   throw new RuntimeException("No ImageReader found for this format.");
-	               }
-
-	               ImageReader reader = readers.next();
-	               reader.setInput(iis);
-
-	               width  = reader.getWidth(0);
-	               height = reader.getHeight(0);
-
-	               reader.dispose();
-	           }
-	        return Pair.of(width, height);
-	    } catch (Exception e) {
-	        return null;
-	    }
-	}
-	
 }

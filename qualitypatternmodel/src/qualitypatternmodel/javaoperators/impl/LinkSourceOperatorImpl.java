@@ -53,12 +53,7 @@ public class LinkSourceOperatorImpl extends OneArgJavaListOperatorImpl implement
 			return negate;
 
 		String urlString = url.trim();
-		Boolean result = false;
-		for (String method: LinkOperatorUtil.REQUEST_METHOD) {
-			if (!result) {
-				result = LinkOperatorUtil.evaluateResponseCode(urlString, method);
-			}
-		}
+		Boolean result = LinkOperatorUtil.evaluateResponseCode(urlString);
 		return result != negate;
 	}
 
