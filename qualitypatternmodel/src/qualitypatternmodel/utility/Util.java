@@ -20,6 +20,16 @@ public class Util {
 //	public static final int EXECUTE_MAX_RESULTS = 100000;                    // max number of results
 	public static final long EXECUTE_QUERY_TIMEOUT_MS = 60000L;               // Execution timeout 1 min
 	public static String EXECUTION_PROCESSOR = ConstantsXml.PROCESSOR_SAXON;
+
+
+	public static String ENV_SNIPPET_ATTRIBUTE = "SNIPPET_ATTRIBUTE";
+	public static String SNIPPET_ATTRIBUTE = "attribute"; // parent: <x ns:attribute=\"value\" /> attribute: "ns:attribute=\"value\"", value: "value"
+	
+	public static String ENV_SNIPPET_PARENTOFTEXT = "SNIPPET_PARENTOFTEXT";
+	public static boolean SNIPPET_PARENTOFTEXT = true; // true: "<x>value</x>", false: "value"
+	
+	public static String ENV_SNIPPET_REMOVENAMESPACE = "SNIPPET_REMOVENAMESPACE";
+	public static boolean SNIPPET_REMOVENAMESPACE = true; // true: "<a:x>value</a:x>", false: "<a:x xmlns:a=\"link\">value</a:x>"
 	
 	static final String ABSTRACT_PATTERNS_PATH = "../../abstract-patterns/";
 	static final String CONCRETE_PATTERNS_PATH = "../../concrete-patterns/";
@@ -60,7 +70,7 @@ public class Util {
 		File file = new File(ServletConstants.FILE_VOLUME + "/" + filepath);
 		if (file.exists()) {
 			filesave = file;
-			ServletUtilities.log(ServletConstants.FILE_VOLUME + "/" + filepath + " found");
+//			ServletUtilities.log(ServletConstants.FILE_VOLUME + "/" + filepath + " found");
 		}
 		else {
 			file = new File(filepath);

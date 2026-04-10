@@ -92,7 +92,7 @@ public class ConstraintUploadServlet extends HttpServlet {
 		}
 
 		// update patternID
-		String newID = ServletUtilities.generateNewId(lan.getLiteral(), pattern.getAbstractId(), pattern.getText().get(0).getName());
+		String newID = ServletUtilities.generateNewId(lan.getLiteral(), pattern.getAbstractId(), pattern.getText().get(0).getName(), ServletConstants.constraintFolderPath(lan.getLiteral()));
 		pattern.setPatternId(newID);
 
 		// save & load constraint
