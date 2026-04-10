@@ -184,7 +184,25 @@ public class InitialisationServlet extends HttpServlet {
 				ServletConstants.LOGDATEFORMAT = logdateformat;
 			} catch (Exception e) {}
 		}
-			
+
+		// UTIL 
+		String snippet_attribute = System.getenv(Util.ENV_SNIPPET_ATTRIBUTE);
+		if (snippet_attribute.equals("attribute") || snippet_attribute.equals("parent") || snippet_attribute.equals("value")) {
+			Util.SNIPPET_ATTRIBUTE = snippet_attribute;
+			ServletUtilities.log("Environmental Variable SNIPPET_ATTRIBUTE:         " + Util.SNIPPET_ATTRIBUTE);
+		}
+
+		String snippet_parentoftext = System.getenv(Util.ENV_SNIPPET_PARENTOFTEXT);
+		if (snippet_parentoftext != null) {
+			Util.SNIPPET_PARENTOFTEXT = snippet_parentoftext.equals("true");
+			ServletUtilities.log("Environmental Variable SNIPPET_PARENTOFTEXT:      " + Util.SNIPPET_PARENTOFTEXT);
+		}
+
+		String snippet_removenamespace = System.getenv(Util.ENV_SNIPPET_REMOVENAMESPACE);		
+		if (snippet_removenamespace != null) {
+			Util.SNIPPET_REMOVENAMESPACE = snippet_removenamespace.equals("true");
+			ServletUtilities.log("Environmental Variable SNIPPET_REMOVENAMESPACE:   " + Util.SNIPPET_REMOVENAMESPACE);
+		}
 
 		System.out.println("Files can be found at " + ServletConstants.PATTERN_VOLUME);
 		ServletUtilities.log("Initializing ...");
