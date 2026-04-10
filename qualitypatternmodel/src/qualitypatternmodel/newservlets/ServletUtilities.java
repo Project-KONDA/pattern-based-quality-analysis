@@ -24,7 +24,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Semaphore;
-
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.json.JSONArray;
@@ -540,11 +539,10 @@ public abstract class ServletUtilities {
 
 	public static String saveConstraint(String technology, String constraintId, CompletePattern pattern)
 			throws IOException {
-		String folderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/"
-				+ ServletConstants.CONSTRAINTFOLDER;
-		String patternjsonfilepath = folderpath + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + constraintId
+		String folderpath = ServletConstants.constraintFolderPath(technology);
+		String patternjsonfilepath = ServletConstants.constraintPatternFolderPath(technology) + "/" + constraintId
 				+ ".json";
-		String queryjsonfilepath = folderpath + "/" + ServletConstants.QUERYJSONFOLDER + "/" + constraintId + ".json";
+		String queryjsonfilepath = ServletConstants.constraintQueryFolderPath(technology) + "/" + constraintId + ".json";
 		pattern.updateLastSaved();
 		try {
 			saveSemaphore.acquire();
@@ -596,17 +594,40 @@ public abstract class ServletUtilities {
 		return new Timestamp(pattern.getLastSaved().getTime()).toString();
 	}
 
-	public static String generateNewId(String technology, String templateId, String variantname) throws IOException {
+	public static boolean fileExistsWithAnyExtension(String folderPath, String filename) {
+		if (folderPath == null)
+			return false;
+	    Path dir = Paths.get(folderPath);
+	    if (!Files.isDirectory(dir)) {
+	        return false;
+	    }
+	    try {
+	        return Files.list(dir).anyMatch(path -> path.getFileName().toString().startsWith(filename));
+	    } catch (IOException e) {
+	        return false;
+	    }
+	}
+
+	public static String generateNewId(String technology, String templateId, String variantname, String folder) throws IOException {
 //		String name = technology + "_" + templateId + "_" + variantname;
+		if (templateId.contains("generic"))
+			logError(new RuntimeException("Id with generic (ServletUtilities 614)"));
 		String name = templateId + "_" + variantname;
+		String id = null;
 		Integer number;
-		try {
-			number = getNextNumber(ServletConstants.SAVEFILE, name);
-		} catch (JSONException | IOException e) {
-			logError(e);
-			number = 0;
+		boolean success = false;
+		while (!success) {
+			try {
+				number = getNextNumber(ServletConstants.SAVEFILE, name);
+			} catch (JSONException | IOException e) {
+				logError(e);
+				number = 0;
+			}
+			id = name + "_" + number;
+			
+			success = !fileExistsWithAnyExtension(folder, id);
 		}
-		return name + "_" + number;
+		return id;
 	}
 
 	public static Integer getNextNumber(String filepath, String variableName) throws JSONException, IOException {
@@ -658,10 +679,10 @@ public abstract class ServletUtilities {
 
 	public static void putResponse(HttpServletResponse response, int id, Object object, int responseCode) throws IOException {
 		logOutput(object, id);
-		putResponseUnlogged(response, id, object, responseCode);
+		putResponseUnlogged(response, object, responseCode);
 	}
 
-	public static void putResponseUnlogged(HttpServletResponse response, int id, Object object, int responseCode) throws IOException {
+	public static void putResponseUnlogged(HttpServletResponse response, Object object, int responseCode) throws IOException {
 		response.setStatus(responseCode);
 		if (object instanceof JSONArray || object instanceof JSONObject) {
 			response.setContentType("application/json");
@@ -885,7 +906,7 @@ public abstract class ServletUtilities {
 		}
 	}
 
-	public static int logCall(String method, String clazz, String path, JSONObject params) {
+	public static int getNewCallID() {
 		int callId = -1;
 		try {
 			String filepath = ServletConstants.SAVEFILE;
@@ -893,6 +914,11 @@ public abstract class ServletUtilities {
 		} catch (JSONException | IOException e) {
 			logError(e);
 		}
+		return callId;
+	}
+
+	public static int logCall(String method, String clazz, String path, JSONObject params) {
+		int callId = getNewCallID();
 		log("CALL " + callId + ": " + method + " "+ clazz + "(" + path + ") " + params);
 		return callId;
 	}

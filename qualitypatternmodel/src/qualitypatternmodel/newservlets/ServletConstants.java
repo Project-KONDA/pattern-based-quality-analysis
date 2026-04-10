@@ -97,4 +97,16 @@ public class ServletConstants {
 	public static final String QUERYJSONFOLDER = "queryjson";
 	// name of folder for precompiled queryjson files
 	public static final String VARIANTJSONFOLDER = "variantjson";
+
+
+
+	public static String constraintFolderPath(String technology) {
+		return PATTERN_VOLUME + "/" + technology + "/" + CONSTRAINTFOLDER;
+	}
+	public static String constraintPatternFolderPath(String technology) {
+		return constraintFolderPath(technology) + "/" + ServletConstants.PATTERNJSONFOLDER;
+	}
+	public static String constraintQueryFolderPath(String technology) {
+		return constraintFolderPath(technology) + "/" + ServletConstants.QUERYJSONFOLDER;
+	}
 }

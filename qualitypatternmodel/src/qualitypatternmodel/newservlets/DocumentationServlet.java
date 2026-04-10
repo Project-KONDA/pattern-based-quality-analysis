@@ -17,7 +17,7 @@ public class DocumentationServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
+//		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 
 		try {
 			String result = applyGet(path, params);
@@ -27,7 +27,8 @@ public class DocumentationServlet extends HttpServlet {
 	    	response.getWriter().write(result);
 	    	response.getWriter().flush();
 		} catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+//			ServletUtilities.putResponseError(response, callId, e);
+			ServletUtilities.putResponseError(response, -1, e);
 		}
 	}
 

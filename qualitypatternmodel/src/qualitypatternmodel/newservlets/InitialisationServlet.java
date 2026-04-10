@@ -55,13 +55,14 @@ public class InitialisationServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
+//		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyGet(path, params);
-			ServletUtilities.putResponseUnlogged(response, callId, result, HttpServletResponse.SC_OK);
+			ServletUtilities.putResponseUnlogged(response, result, HttpServletResponse.SC_OK);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+//			ServletUtilities.putResponseError(response, callId, e);
+			ServletUtilities.putResponseError(response, -1, e);
 		}
 	}
 
