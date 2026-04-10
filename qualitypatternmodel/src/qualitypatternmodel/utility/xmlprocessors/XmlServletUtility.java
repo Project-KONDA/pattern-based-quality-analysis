@@ -101,14 +101,19 @@ public class XmlServletUtility {
 	    return xml.replaceAll("&(?!#\\d+;|#x[0-9a-fA-F]+;|[a-zA-Z]+;)", "&amp;");
 	}
 
-	public static void stripNamespaces(JSONArray array) {
+	public static void stripNamespacesFromIncidents(JSONArray array) {
 	    for (int i = 0; i < array.length(); i++) {
 	        JSONObject obj = array.getJSONObject(i);
 	        if (obj.has("snippet") && !obj.isNull("snippet")) {
 	            String snippet = obj.getString("snippet");
-	            String cleaned = snippet.replaceAll(" xmlns(:\\w+)?=\"[^\"]*\"", "");
+	            String cleaned = stripNamespacesFromString(snippet);
 	            obj.put("snippet", cleaned);
 	        }
 	    }
+	}
+
+	private static String stripNamespacesFromString(String snippet) {
+		snippet = snippet.replaceAll("\\s+xmlns(:\\w+)?=\"[^\"]*\"\\s+", " ");
+		return snippet.replaceAll("\\s+xmlns(:\\w+)?=\"[^\"]*\"", "");
 	}
 }

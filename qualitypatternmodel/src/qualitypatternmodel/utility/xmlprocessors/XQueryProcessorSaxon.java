@@ -47,6 +47,12 @@ public class XQueryProcessorSaxon {
 	static boolean BUILDER_LINENUMBERING = true;
 	static WhitespaceStrippingPolicy WHITESPACESTRIPPING = WhitespaceStrippingPolicy.ALL;
 	
+	public static JSONArray executeQueryFileStripped (String query, String filepath) throws InvalidityException {
+		JSONArray incidents = executeQueryFile(query, filepath);
+		XmlServletUtility.stripNamespacesFromIncidents(incidents);
+		return incidents;
+	}
+	
 	public static JSONArray executeQueryFile(String query, String filepath) throws InvalidityException {
 		final String testedQuery = testAndFormatQuery(query);
 		final File inputFile = Util.getAndTestFile(filepath);
@@ -218,6 +224,7 @@ public class XQueryProcessorSaxon {
 	}
 
 	private static JSONObject querySaxonConstraint(Processor processor, File file, XdmNode inputDoc, SaxonConstraint executable) throws SaxonApiException, SaxonApiUncheckedException, InvalidityException {
+		Long starttime = System.nanoTime();
 		JSONObject queryResult = new JSONObject();
 		queryResult.put(ConstantsJSON.CONSTRAINT_ID, executable.id);
 		queryResult.put(ConstantsJSON.CONSTRAINT_NAME, executable.name);
@@ -245,11 +252,15 @@ public class XQueryProcessorSaxon {
 
 		long incidents_len = incidents.length();
 		long compliances_len = total - incidents_len;
+		
+		if (Util.SNIPPET_REMOVENAMESPACE)
+			XmlServletUtility.stripNamespacesFromIncidents(incidents);
 		        
 		queryResult.put(ConstantsJSON.INCIDENTS, incidents);
 		queryResult.put(ConstantsJSON.TOTAL_FINDINGS, total);
 		queryResult.put(ConstantsJSON.TOTAL_INCIDENCES, incidents_len);
 		queryResult.put(ConstantsJSON.TOTAL_COMPLIANCES, compliances_len);
+		queryResult.put(ConstantsJSON.DURATION, System.nanoTime() - starttime);
 		return queryResult;
 	}
 
@@ -273,21 +284,7 @@ public class XQueryProcessorSaxon {
 	}
 
 	private static JSONObject formatItemJSON(XdmItem item, Processor processor) throws SaxonApiException {
-		String snippet;
-	    if (item instanceof XdmNode && ((XdmNode)item).getNodeKind() != XdmNodeKind.ATTRIBUTE) {
-	    	XdmNode node = (XdmNode) item;
-	        StringWriter sw = new StringWriter();
-	        Serializer serializer = processor.newSerializer(sw);
-	        serializer.setOutputProperty(Serializer.Property.METHOD, SERIALIZER_METHOD);
-	        serializer.setOutputProperty(Serializer.Property.INDENT, SERIALIZER_INDENT);
-	        serializer.setOutputProperty(Serializer.Property.OMIT_XML_DECLARATION, SERIALIZER_OMIT_XML_DECLARATION);
-	        serializer.setOutputProperty(Serializer.Property.ENCODING, SERIALIZER_ENCODING);
-
-	        serializer.serializeNode(node);
-	        snippet = sw.toString();
-	    } else {
-	        snippet = item.getStringValue();
-	    }
+		String snippet = getSnippet(item, processor);
 
         int startline = -1;
         if (item instanceof XdmNode) {
@@ -309,6 +306,44 @@ public class XQueryProcessorSaxon {
             obj.put(ConstantsJSON.RESULT_ENDLINE, -1);
         }
         return obj;
+	}
+
+	private static String getSnippet (XdmItem item, Processor processor) throws SaxonApiException {
+	    if (item instanceof XdmNode) {
+	    	XdmNode node = (XdmNode) item;
+	    	switch (node.getNodeKind()) {
+		    	case ATTRIBUTE:
+		    		switch (Util.SNIPPET_ATTRIBUTE) {
+			    		case "parent":
+			    			if (node.getParent() != null) {
+					    		return serializeXdmNode(node.getParent(), processor);
+			    			}
+			    		case "attribute":
+			    			return item.toString();
+			    		default:
+			    			return item.getStringValue();
+		    		}
+		    	case TEXT:
+			    	if (Util.SNIPPET_PARENTOFTEXT && node.getParent() != null) {
+			    		node = node.getParent(); 
+			    	}
+		    	default:
+		    		return serializeXdmNode(node, processor);
+	    	}
+	    }
+	    return item.getStringValue();
+	}
+
+	private static String serializeXdmNode(XdmNode node, Processor processor) throws SaxonApiException {
+        StringWriter sw = new StringWriter();
+        Serializer serializer = processor.newSerializer(sw);
+        serializer.setOutputProperty(Serializer.Property.METHOD, SERIALIZER_METHOD);
+        serializer.setOutputProperty(Serializer.Property.INDENT, SERIALIZER_INDENT);
+        serializer.setOutputProperty(Serializer.Property.OMIT_XML_DECLARATION, SERIALIZER_OMIT_XML_DECLARATION);
+        serializer.setOutputProperty(Serializer.Property.ENCODING, SERIALIZER_ENCODING);
+
+        serializer.serializeNode(node);
+        return sw.toString();
 	}
 
 	public static void validateXQuery(String query) throws InvalidityException {
