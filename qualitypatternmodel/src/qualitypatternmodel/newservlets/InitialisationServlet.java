@@ -89,14 +89,14 @@ public class InitialisationServlet extends HttpServlet {
 		
 //		ENVIRONMENTAL VARIABLES
 
-//	    SHARED_VOLUME: /shared
+//	      SHARED_VOLUME: /shared
 		String files = System.getenv(ServletConstants.ENV_FILE_VOLUME);
 		if (files != null && ensureDirectoryAccess(files))
 			ServletConstants.FILE_VOLUME = files;
 		else 
 			ServletConstants.FILE_VOLUME = scon.getRealPath(ServletConstants.FILE_VOLUME_DEFAULT);
 
-//	    TEMPLATE_VOLUME: /templates
+//	      TEMPLATE_VOLUME: /templates
 		String templates = System.getenv(ServletConstants.ENV_PATTERN_VOLUME);
 		if (templates != null && ensureDirectoryAccess(templates)) {
 			ServletConstants.PATTERN_VOLUME = templates;
@@ -105,7 +105,6 @@ public class InitialisationServlet extends HttpServlet {
 		else {
 			ServletConstants.PATTERN_VOLUME = scon.getRealPath(ServletConstants.PATTERN_VOLUME_DEFAULT);
 			ServletConstants.CONSTRAINT_UPLOAD_FOLDER = scon.getRealPath(ServletConstants.PATTERN_VOLUME_DEFAULT) + "/uploads";
-			
 		}
 
 //	      LOGFILE: qpm-logfile.log
@@ -115,17 +114,11 @@ public class InitialisationServlet extends HttpServlet {
 		else 
 			ServletConstants.LOGFILE = scon.getRealPath(ServletConstants.LOGFILE_DEFAULT);
 
-		// LOGGING
-
 		System.out.println("Files can be found at " + ServletConstants.PATTERN_VOLUME);
 		ServletUtilities.log("Initializing ...");
 		ServletUtilities.log("Environmental Variable FILE_VOLUME:               " + ServletConstants.FILE_VOLUME);
 		ServletUtilities.log("Environmental Variable PATTERN_VOLUME:            " + ServletConstants.PATTERN_VOLUME);
 		ServletUtilities.log("Environmental Variable LOGFILE:                   " + ServletConstants.LOGFILE);
-
-//		checkDirectoryAccess(files, ServletConstants.ENV_FILE_VOLUME);
-//		checkDirectoryAccess(templates, ServletConstants.ENV_PATTERN_VOLUME);
-
 
 //	      UPLOAD_FOLDER: /shared/uploads
 		String upload = System.getenv(ServletConstants.ENV_UPLOAD_FOLDER);
@@ -134,7 +127,6 @@ public class InitialisationServlet extends HttpServlet {
 		else 
 			ServletConstants.UPLOAD_FOLDER = scon.getRealPath(ServletConstants.UPLOAD_FOLDER_DEFAULT);
 		ServletUtilities.log("Environmental Variable UPLOAD_FOLDER:             " + ServletConstants.UPLOAD_FOLDER);
-//		checkDirectoryAccess(upload, ServletConstants.ENV_UPLOAD_FOLDER);
 
 //	      VARIANTS_FOLDER: /templates/variants
 		String variants = System.getenv(ServletConstants.ENV_VARIANTS_FOLDER);
@@ -150,7 +142,6 @@ public class InitialisationServlet extends HttpServlet {
 			ServletConstants.VALUE_AS_JSON = value_as_json.equals("true");
 			ServletUtilities.log("Environmental Variable VALUE_AS_JSON:             " + ServletConstants.VALUE_AS_JSON);
 		}
-//		checkDirectoryAccess(variants, ServletConstants.ENV_VARIANTS_FOLDER);
 
 //	      TEMPLATE_INFO_FILE: /templates/template_info.json
 		String template_info = System.getenv(ServletConstants.ENV_TEMPLATE_INFO_FILE);
@@ -218,6 +209,7 @@ public class InitialisationServlet extends HttpServlet {
 			ServletUtilities.log("Environmental Variable GENERATE_GENERIC:          " + ServletConstants.GENERATE_GENERIC);
 		}
 
+//	      LOGDAYS: 7
 		String logdays = System.getenv(ServletConstants.ENV_LOGDAYS);
 		if (logdays != null)
 		    try {
@@ -225,6 +217,7 @@ public class InitialisationServlet extends HttpServlet {
 				ServletUtilities.log("Environmental Variable LOGDAYS:               " + ServletConstants.LOGDAYS);
 		    } catch (NumberFormatException ignored) {}
 
+//	      LOGDATEFORMAT: yyyy-MM-dd
 		String logdateformat = System.getenv(ServletConstants.ENV_LOGDATEFORMAT);
 		if (logdateformat != null && !logdateformat.isBlank()) {
 			try {
@@ -235,26 +228,29 @@ public class InitialisationServlet extends HttpServlet {
 		}
 
 
-		// UTIL 
+//	      SNIPPET_ATTRIBUTE: "attribute"
 		String snippet_attribute = System.getenv(Util.ENV_SNIPPET_ATTRIBUTE);
 		if ("attribute".equals(snippet_attribute) || "parent".equals(snippet_attribute) || "value".equals(snippet_attribute)) {
 			Util.SNIPPET_ATTRIBUTE = snippet_attribute;
 			ServletUtilities.log("Environmental Variable SNIPPET_ATTRIBUTE:         " + Util.SNIPPET_ATTRIBUTE);
 		}
 
+//	      SNIPPET_PARENTOFTEXT: true
 		String snippet_parentoftext = System.getenv(Util.ENV_SNIPPET_PARENTOFTEXT);
 		if (snippet_parentoftext != null) {
 			Util.SNIPPET_PARENTOFTEXT = snippet_parentoftext.equals("true");
 			ServletUtilities.log("Environmental Variable SNIPPET_PARENTOFTEXT:      " + Util.SNIPPET_PARENTOFTEXT);
 		}
 
+//	      SNIPPET_REMOVENAMESPACE: true
 		String snippet_removenamespace = System.getenv(Util.ENV_SNIPPET_REMOVENAMESPACE);		
 		if (snippet_removenamespace != null) {
 			Util.SNIPPET_REMOVENAMESPACE = snippet_removenamespace.equals("true");
 			ServletUtilities.log("Environmental Variable SNIPPET_REMOVENAMESPACE:   " + Util.SNIPPET_REMOVENAMESPACE);
 		}
 
-		System.out.println("Files can be found at " + ServletConstants.PATTERN_VOLUME);
+
+
 
 		try {
 			InputStream stream = Thread.currentThread()
@@ -262,8 +258,6 @@ public class InitialisationServlet extends HttpServlet {
 				    .getResourceAsStream("model/qualitypatternmodel.ecore");
 	        if (stream == null) {
 	        	ServletUtilities.log("⚠️ Could not find model/qualitypatternmodel.ecore on classpath.");
-	        } else {
-//	        	ServletUtilities.log("✅ Found model/qualitypatternmodel.ecore.");
 	        }
 		} catch (Exception e) {
 			ServletUtilities.logError(e);
@@ -273,6 +267,7 @@ public class InitialisationServlet extends HttpServlet {
 		initializeEMF();
 		
 //		TEMPLATE INITIALISATION
+
 		try {
 			if (ServletConstants.GENERATE_GENERIC) {
 				String genericfolder = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.GENERICFOLDER;
@@ -281,7 +276,6 @@ public class InitialisationServlet extends HttpServlet {
 					if (ServletConstants.OVERRIDE_VARIANTS || !fileExists(genericfolder, id)) {
 						pattern.isValid(AbstractionLevel.GENERIC);
 						ServletUtilities.saveGeneric(id, pattern);
-//						EMFModelSave.exportToFile2(pattern, genericfolder, id, Constants.EXTENSION);
 					}
 				}
 				ServletUtilities.log("generic Patterns created: " + genericfolder);
@@ -336,10 +330,6 @@ public class InitialisationServlet extends HttpServlet {
 			ServletUtilities.logError(e);
 		}
 
-//		ServletUtilities.log("Checking for Variant initialization");
-//		ServletUtilities.log("Checking for Variant initialization " + ServletConstants.VALUE_AS_JSON);
-//		ServletUtilities.log("Checking for Variant initialization " + ServletConstants.VARIANTS_FOLDER);
-
 //		VARIANT INITIALISATION
 		if (ServletConstants.VALUE_AS_JSON && ServletConstants.VARIANTS_FOLDER != null && !ServletConstants.VARIANTS_FOLDER.equals("")){
 			ServletUtilities.log("Initializing Variants in " + ServletConstants.VARIANTS_FOLDER);
@@ -359,7 +349,6 @@ public class InitialisationServlet extends HttpServlet {
 
 	private static boolean ensureFileReadAccess(String filePath) {
 	    Path path = Paths.get(filePath);
-
 	    return Files.exists(path)
 	        && Files.isRegularFile(path)
 	        && Files.isReadable(path);
@@ -396,17 +385,14 @@ public class InitialisationServlet extends HttpServlet {
 	}
 	
 	private static void initializeVariant(JSONObject json, String path) throws IOException, JSONException, InvalidityException {
-//		String templatefolder = ServletConstants.PATTERN_VOLUME + "/" + json.getString(ConstantsJSON.LANGUAGE) + "/" + ServletConstants.TEMPLATEFOLDER;
 		String templateID = json.getString(ConstantsJSON.TEMPLATE);
 		String technology = json.getString(ConstantsJSON.LANGUAGE);
 		String name = json.getString(ConstantsJSON.NAME);
 
 		try {
 			CompletePattern template = ServletUtilities.loadTemplate(technology, templateID);
-//			EMFModelLoad.loadCompletePattern(templatefolder, templateID, Constants.EXTENSION);
 			new PatternTextImpl(template, json);
 			ServletUtilities.saveTemplate(technology, templateID, template);
-//			EMFModelSave.exportToFile2(template, templatefolder, templateID, Constants.EXTENSION);
 		} catch (Exception e) {
 			ServletUtilities.logError(new InvalidityException("Invalid variant " + templateID + "_" + name, e));
 		}
@@ -417,16 +403,7 @@ public class InitialisationServlet extends HttpServlet {
 		File file = new File(filepath);
 	    return file.exists();
 	}
-	
-//	private static void checkDirectoryAccess(String path, String name) throws ServletException {
-//		File directory = new File (path);
-//		if (!directory.exists() || !directory.isDirectory() || !directory.canRead() || !directory.canWrite()) {
-//			ServletException exception = new ServletException("No Access to " + name + ": " + path);
-//			ServletUtilities.logError(exception);
-//			throw exception;
-//		}
-//	}
-	
+
 	public static ArrayList<File> getAllJSONFilesInFolder(File directory){
 		ArrayList<File> files = new ArrayList<File>();
 		File[] filearray = directory.listFiles();
@@ -482,14 +459,12 @@ public class InitialisationServlet extends HttpServlet {
             String className = dep[1];
             try {
                 Class.forName(className);
-//                ServletUtilities.log("✅ " + artifact + ": loaded");
             } catch (ClassNotFoundException e) {
                 ServletUtilities.log("❌ " + artifact + ": NOT found (" + className + ")");
             }
         }
 	}
-	
-	
+
 
 	public static JSONObject applyGet(String path, Map<String, String[]> params) throws FailedServletCallException {
 		if (path == null || path.equals("") || path.equals("/") || path.equals("/status") || path.equals("/health")) {
@@ -508,7 +483,6 @@ public class InitialisationServlet extends HttpServlet {
 			throw new FailedServletCallException("invalid URL");
 		}
 	}
-	
 
 	static void initializeEMF() {
         try {
