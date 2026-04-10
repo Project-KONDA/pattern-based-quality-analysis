@@ -237,7 +237,7 @@ public class InitialisationServlet extends HttpServlet {
 
 		// UTIL 
 		String snippet_attribute = System.getenv(Util.ENV_SNIPPET_ATTRIBUTE);
-		if (snippet_attribute.equals("attribute") || snippet_attribute.equals("parent") || snippet_attribute.equals("value")) {
+		if ("attribute".equals(snippet_attribute) || "parent".equals(snippet_attribute) || "value".equals(snippet_attribute)) {
 			Util.SNIPPET_ATTRIBUTE = snippet_attribute;
 			ServletUtilities.log("Environmental Variable SNIPPET_ATTRIBUTE:         " + Util.SNIPPET_ATTRIBUTE);
 		}
