@@ -167,6 +167,14 @@ public class InitialisationServlet extends HttpServlet {
 			ServletConstants.SAVEFILE = scon.getRealPath(ServletConstants.SAVEFILE_DEFAULT);
 		ServletUtilities.log("Environmental Variable SAVEFILE:                  " + ServletConstants.SAVEFILE);
 
+//	      SAVEFILE: savefile.txt
+		String countfile = System.getenv(ServletConstants.ENV_COUNTFILE);
+		if (countfile != null && ensureFileDirectoryAccess(countfile))
+			ServletConstants.COUNTFILE = countfile;
+		else 
+			ServletConstants.COUNTFILE = scon.getRealPath(ServletConstants.COUNTFILE_DEFAULT);
+		ServletUtilities.log("Environmental Variable COUNTFILE:                 " + ServletConstants.COUNTFILE);
+
 //	      FILL_VALUES: false
 		String values = System.getenv(ServletConstants.ENV_FILL_VALUES);
 		if (values != null) {

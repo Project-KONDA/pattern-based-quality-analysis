@@ -931,10 +931,10 @@ public class APICallTests {
 		String id2 = getId(variants, 2);
 		String id3 = getId(variants, 3);
 
-		ServletUtilities.setNumber(ServletConstants.SAVEFILECOUNT, id0, 1050, ConstantsJSON.COUNTER_CREATE);
-		ServletUtilities.setNumber(ServletConstants.SAVEFILECOUNT, id1, 1100, ConstantsJSON.COUNTER_CREATE);
-		ServletUtilities.setNumber(ServletConstants.SAVEFILECOUNT, id2, 1150, ConstantsJSON.COUNTER_CREATE);
-		ServletUtilities.setNumber(ServletConstants.SAVEFILECOUNT, id3, 1000, ConstantsJSON.COUNTER_CREATE);
+		ServletUtilities.setNumber(ServletConstants.COUNTFILE, id0, 1050, ConstantsJSON.COUNTER_CREATE);
+		ServletUtilities.setNumber(ServletConstants.COUNTFILE, id1, 1100, ConstantsJSON.COUNTER_CREATE);
+		ServletUtilities.setNumber(ServletConstants.COUNTFILE, id2, 1150, ConstantsJSON.COUNTER_CREATE);
+		ServletUtilities.setNumber(ServletConstants.COUNTFILE, id3, 1000, ConstantsJSON.COUNTER_CREATE);
 
 		paramsOrder.put(ConstantsJSON.API_ORDER_BY, new String[]{"created"});
 		JSONObject variants_new = VariantsServlet.applyGet("/xml/", paramsOrder);

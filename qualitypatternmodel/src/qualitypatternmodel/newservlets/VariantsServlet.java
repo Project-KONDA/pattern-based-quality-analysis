@@ -124,7 +124,7 @@ public class VariantsServlet extends HttpServlet {
 	
 	private static void orderVariants(JSONArray variants, String order) {
 		try {
-			orderJson = Util.loadJson(ServletConstants.SAVEFILECOUNT);
+			orderJson = Util.loadJson(ServletConstants.COUNTFILE);
 		} catch (IOException e) {
 			ServletUtilities.logError(e);
 		}
