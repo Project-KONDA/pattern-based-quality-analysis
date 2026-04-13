@@ -134,6 +134,8 @@ public class ConstraintQueryServlet extends HttpServlet {
 		json.put(ConstantsJSON.NAME, pattern.getName());
 		json.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
 		json.put(ConstantsJSON.TECHNOLOGY, pattern.getLanguage().getLiteral());
+		json.put(ConstantsJSON.TEMPLATE_ID, pattern.getAbstractId());
+		json.put(ConstantsJSON.VARIANT_ID, pattern.getText().get(0).getName());
 		if (pattern.getText() != null && pattern.getText().size()>0) {
 			PatternText text = pattern.getText().get(0);
 			if (text.getCustom() != null && !text.getCustom().isEmpty()) {

@@ -47,6 +47,10 @@ public class ServletConstants {
 	public static String SAVEFILE = "/templates/savefile.json";
 	public static String ENV_SAVEFILE = "SAVEFILE";
 
+	// name of countfile
+	public static String COUNTFILE_DEFAULT =  "/templates/countfile.json";
+	public static String COUNTFILE = "/templates/countfile.json";
+	public static String ENV_COUNTFILE = "COUNTFILE";
 
 	// shall there be values in the templates
 	public static boolean FILL_VALUES = false;
@@ -91,10 +95,24 @@ public class ServletConstants {
 	public static final String TEMPLATEFOLDER = "abstract-patterns";
 	// name of folder for constraints
 	public static final String CONSTRAINTFOLDER = "concrete-patterns";
+	// name of folder for deleted constraints
+	public static final String TRASHBINFOLDER = "concrete-patterns_deleted";
 	// name of folder for precompiled patternjson files
 	public static final String PATTERNJSONFOLDER = "patternjson";
 	// name of folder for precompiled queryjson files
 	public static final String QUERYJSONFOLDER = "queryjson";
 	// name of folder for precompiled queryjson files
 	public static final String VARIANTJSONFOLDER = "variantjson";
+
+
+
+	public static String constraintFolderPath(String technology) {
+		return PATTERN_VOLUME + "/" + technology + "/" + CONSTRAINTFOLDER;
+	}
+	public static String constraintPatternFolderPath(String technology) {
+		return constraintFolderPath(technology) + "/" + ServletConstants.PATTERNJSONFOLDER;
+	}
+	public static String constraintQueryFolderPath(String technology) {
+		return constraintFolderPath(technology) + "/" + ServletConstants.QUERYJSONFOLDER;
+	}
 }

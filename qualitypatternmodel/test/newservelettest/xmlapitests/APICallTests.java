@@ -917,6 +917,44 @@ public class APICallTests {
 			assert(variantsFilterGroup.getInt(ConstantsJSON.TOTAL) == 0);
 			assert(variantsFilter2Group2.getInt(ConstantsJSON.TOTAL) >= 1);
 		}
-		
 	}
+
+	@Test
+	public void testVariantServletGetOrder() 
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+
+		Map<String, String[]> paramsOrder = getEmptyParams();
+		JSONObject variants = VariantsServlet.applyGet("/xml/", paramsOrder);
+
+		String id0 = getId(variants, 0);
+		String id1 = getId(variants, 1);
+		String id2 = getId(variants, 2);
+		String id3 = getId(variants, 3);
+
+		ServletUtilities.setNumber(ServletConstants.COUNTFILE, id0, 1050, ConstantsJSON.COUNTER_CREATE);
+		ServletUtilities.setNumber(ServletConstants.COUNTFILE, id1, 1100, ConstantsJSON.COUNTER_CREATE);
+		ServletUtilities.setNumber(ServletConstants.COUNTFILE, id2, 1150, ConstantsJSON.COUNTER_CREATE);
+		ServletUtilities.setNumber(ServletConstants.COUNTFILE, id3, 1000, ConstantsJSON.COUNTER_CREATE);
+
+		paramsOrder.put(ConstantsJSON.API_ORDER_BY, new String[]{"created"});
+		JSONObject variants_new = VariantsServlet.applyGet("/xml/", paramsOrder);
+
+		System.out.println(getId(variants_new, 0) + ", " + getId(variants_new, 1) + ", " + getId(variants_new, 2) + ", " + getId(variants_new, 3));
+		String id0_new = getId(variants_new, 0);
+		String id1_new = getId(variants_new, 1);
+		String id2_new = getId(variants_new, 2);
+		String id3_new = getId(variants_new, 3);
+
+		assertEquals(id0_new, id2);
+		assertEquals(id1_new, id1);
+		assertEquals(id2_new, id0);
+		assertEquals(id3_new, id3);
+	}
+	
+	private static String getId(JSONObject variants, int num) {
+		JSONArray vars = variants.optJSONArray(ConstantsJSON.VARIANTS);
+		JSONObject obj0 = vars.optJSONObject(num);
+		return obj0.optString(ConstantsJSON.TEMPLATE_ID) + "_" + obj0.optString(ConstantsJSON.NAME);
+	}
+	
 }

@@ -101,6 +101,11 @@
         "description": "Check if specific field values are unique within a single file.",
         "id": "LocalUnique"
     },
+    "CardContainsIfCompSetPattern": {
+        "name": "default",
+        "description": "",
+        "id": "CardContainsIfCompSet"
+    },
     "StringLengthPattern": {
         "name": "String Value Length Restriction",
         "description": "Check if specific field values comply with the specified character length.",

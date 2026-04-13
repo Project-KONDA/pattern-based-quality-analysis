@@ -13,6 +13,7 @@ public class ConstantsJSON {
 	public static final String ID = "id";
 	public static final String CONSTRAINT_ID = "constraintID";
 	public static final String TEMPLATE_ID = "templateID";
+	public static final String VARIANT_ID = "variantID";
 	public static final String FRAGMENTS = "fragments";
 	public static final String TEXT = "text";
 	public static final String TYPE = "type";
@@ -28,6 +29,7 @@ public class ConstantsJSON {
 
 	public static final String API_FILTER_BY = "filter_by";
 	public static final String API_GROUP_BY = "group_by";
+	public static final String API_ORDER_BY = "order_by";
 
 	// Constraint Info
 	public static final String LASTSAVED = "lastSaved";
@@ -118,4 +120,8 @@ public class ConstantsJSON {
 	public static final String INFO_XML = Language.XML.getLiteral();
 	public static final String INFO_RDF = Language.RDF.getLiteral();
 	public static final String INFO_NEO4J = Language.NEO4J.getLiteral();
+
+	public static final String COUNTER_EXECUTE = "execute";
+	public static final String COUNTER_CREATE = "create";
+	public static final String COUNTER_DELETE = "delete";
 }

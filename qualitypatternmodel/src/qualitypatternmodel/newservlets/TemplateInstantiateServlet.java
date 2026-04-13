@@ -100,7 +100,7 @@ public class TemplateInstantiateServlet extends HttpServlet {
 		}
 
 		// 4 create new constraint id
-		String constraintId = ServletUtilities.generateNewId(technology, templateId, pattern.getText().get(0).getName());
+		String constraintId = ServletUtilities.generateNewId(technology, templateId, pattern.getText().get(0).getName(), ServletConstants.constraintFolderPath(technology));
 		pattern.setPatternId(constraintId);
 
 		// 5 save constraint

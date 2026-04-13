@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -24,7 +25,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Semaphore;
-
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.json.JSONArray;
@@ -362,6 +362,19 @@ public abstract class ServletUtilities {
 
 	// LOAD SAVE DELETE
 
+	public static void exportJsonSave(JSONObject jsonFile, String filepath) throws IOException {
+		try {
+			saveSemaphore.acquire();
+			Util.exportJson(jsonFile, filepath);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+			log("Thread was interrupted");
+			logError(e);
+		} finally {
+			saveSemaphore.release();
+		}
+	}
+
 	protected static CompletePattern loadConstraint(String technology, String constraintId) throws IOException {
 		String patternpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + constraintId + "." + Constants.EXTENSION;
 		return EMFModelLoad.loadCompletePattern(patternpath);
@@ -381,16 +394,7 @@ public abstract class ServletUtilities {
 		CompletePattern pattern = EMFModelLoad.loadCompletePattern(patternpath);
 		JSONObject json = ServletUtilities.getPatternJSON(pattern);
 
-		try {
-			saveSemaphore.acquire();
-			Util.exportJson(json, jsonpath);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			log("Thread was interrupted");
-			logError(e);
-		} finally {
-			saveSemaphore.release();
-		}
+		exportJsonSave(json, jsonpath);
 		return json;
 	}
 
@@ -408,29 +412,11 @@ public abstract class ServletUtilities {
 		// if precompiled queryjson does not exist
 		CompletePattern pattern = EMFModelLoad.loadCompletePattern(patternpath);
 		JSONObject queryjson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
-		try {
-			saveSemaphore.acquire();
-			Util.exportJson(queryjson, queryjsonpath);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			log("Thread was interrupted");
-			logError(e);
-		} finally {
-			saveSemaphore.release();
-		}
+		exportJsonSave(queryjson, queryjsonpath);
 
 		if (!new File(patternjsonpath).exists()) {
 			JSONObject json = ServletUtilities.getPatternJSON(pattern);
-			try {
-				saveSemaphore.acquire();
-				Util.exportJson(json, patternjsonpath);
-			} catch (InterruptedException e) {
-				Thread.currentThread().interrupt();
-				log("Thread was interrupted");
-				logError(e);
-			} finally {
-				saveSemaphore.release();
-			}
+			exportJsonSave(json, patternjsonpath);
 		}
 
 		return queryjson;
@@ -448,16 +434,7 @@ public abstract class ServletUtilities {
 		} catch (Exception e) {}
 
 		JSONObject json = ServletUtilities.getPatternJSON(loadTemplate(technology, templateId));
-		try {
-			saveSemaphore.acquire();
-			Util.exportJson(json, jsonfilepath);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			log("Thread was interrupted");
-			logError(e);
-		} finally {
-			saveSemaphore.release();
-		}
+		exportJsonSave(json, jsonfilepath);
 		return json;
 	}
 
@@ -468,16 +445,7 @@ public abstract class ServletUtilities {
 		} catch (Exception e) {}
 
 		JSONObject variantjson = getVariantJSON(loadTemplate(technology, templateId), true);
-		try {
-			saveSemaphore.acquire();
-			Util.exportJson(variantjson, variantjsonfilepath);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			log("Thread was interrupted");
-			logError(e);
-		} finally {
-			saveSemaphore.release();
-		}
+		exportJsonSave(variantjson, variantjsonfilepath);
 		return variantjson;
 	}
 
@@ -512,39 +480,20 @@ public abstract class ServletUtilities {
 		// patternjson
 		JSONObject json = getPatternJSON(pattern);
 		String filepath = folderpath + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + templateId + ".json";
-		try {
-			saveSemaphore.acquire();
-			Util.exportJson(json, filepath);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			log("Thread was interrupted");
-			logError(e);
-		} finally {
-			saveSemaphore.release();
-		}
+		exportJsonSave(json, filepath);
 
 		// variantjson
 		JSONObject variantjson = ServletUtilities.getVariantJSON(pattern, true);
 		String variantfilepath = folderpath + "/" + ServletConstants.VARIANTJSONFOLDER + "/" + templateId + ".json";
-		try {
-			saveSemaphore.acquire();
-			Util.exportJson(variantjson, variantfilepath);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			log("Thread was interrupted");
-			logError(e);
-		} finally {
-			saveSemaphore.release();
-		}
+		exportJsonSave(variantjson, variantfilepath);
 	}
 
 	public static String saveConstraint(String technology, String constraintId, CompletePattern pattern)
 			throws IOException {
-		String folderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/"
-				+ ServletConstants.CONSTRAINTFOLDER;
-		String patternjsonfilepath = folderpath + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + constraintId
+		String folderpath = ServletConstants.constraintFolderPath(technology);
+		String patternjsonfilepath = ServletConstants.constraintPatternFolderPath(technology) + "/" + constraintId
 				+ ".json";
-		String queryjsonfilepath = folderpath + "/" + ServletConstants.QUERYJSONFOLDER + "/" + constraintId + ".json";
+		String queryjsonfilepath = ServletConstants.constraintQueryFolderPath(technology) + "/" + constraintId + ".json";
 		pattern.updateLastSaved();
 		try {
 			saveSemaphore.acquire();
@@ -559,31 +508,13 @@ public abstract class ServletUtilities {
 
 		// patternjson
 		JSONObject json = getPatternJSON(pattern);
-		try {
-			saveSemaphore.acquire();
-			Util.exportJson(json, patternjsonfilepath);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			log("Thread was interrupted");
-			logError(e);
-		} finally {
-			saveSemaphore.release();
-		}
+		exportJsonSave(json, patternjsonfilepath);
 
 		// queryjson
 		if (json.getBoolean(ConstantsJSON.EXECUTABLE)) {
 			try {
 				JSONObject queryjson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
-				try {
-					saveSemaphore.acquire();
-					Util.exportJson(queryjson, queryjsonfilepath);
-				} catch (InterruptedException e) {
-					Thread.currentThread().interrupt();
-					log("Thread was interrupted");
-					logError(e);
-				} finally {
-					saveSemaphore.release();
-				}
+				exportJsonSave(queryjson, queryjsonfilepath);
 			} catch (Exception e) {}
 		} else {
 			Path path = Paths.get(queryjsonfilepath);
@@ -596,52 +527,159 @@ public abstract class ServletUtilities {
 		return new Timestamp(pattern.getLastSaved().getTime()).toString();
 	}
 
-	public static String generateNewId(String technology, String templateId, String variantname) throws IOException {
-//		String name = technology + "_" + templateId + "_" + variantname;
-		String name = templateId + "_" + variantname;
-		Integer number;
-		try {
-			number = getNextNumber(ServletConstants.SAVEFILE, name);
-		} catch (JSONException | IOException e) {
-			logError(e);
-			number = 0;
-		}
-		return name + "_" + number;
+	public static boolean fileExistsWithAnyExtension(String folderPath, String filename) {
+		if (folderPath == null)
+			return false;
+	    Path dir = Paths.get(folderPath);
+	    if (!Files.isDirectory(dir)) {
+	        return false;
+	    }
+	    try {
+	        return Files.list(dir).anyMatch(path -> path.getFileName().toString().startsWith(filename));
+	    } catch (IOException e) {
+	        return false;
+	    }
 	}
 
-	public static Integer getNextNumber(String filepath, String variableName) throws JSONException, IOException {
-		int currentValue = 0;
-		JSONObject jsonObject;
-		try{
-			jsonObject = Util.loadJson(filepath);
+	public static String generateNewId(String technology, String templateId, String variantname, String folder) throws IOException {
+//		String name = technology + "_" + templateId + "_" + variantname;
+		if (templateId.contains("generic"))
+			logError(new RuntimeException("Id with generic (ServletUtilities 614)"));
+		String name = templateId + "_" + variantname;
+		String id = null;
+		Integer number;
+		boolean success = false;
+		while (!success) {
+			try {
+				number = increaseNumber(ServletConstants.SAVEFILE, name, null);
+			} catch (JSONException | IOException e) {
+				logError(e);
+				number = 0;
+			}
+			id = name + "_" + number;
+			success = !fileExistsWithAnyExtension(folder, id);
+		}
+		increaseNumber(ServletConstants.COUNTFILE, name, ConstantsJSON.COUNTER_CREATE);
+		return id;
+	}
+
+	public static void setNumber(String filepath, String variableName, int number, String category) throws JSONException, IOException {
+		JSONObject jsonFile;
+		try {
+			jsonFile = Util.loadJson(filepath);
 		} catch (IOException e) {
-			jsonObject = new JSONObject();
+			jsonFile = new JSONObject();
 		}
+		JSONObject target = jsonFile;
+		if (category == null) {
+			target = jsonFile;
+		}
+		else {
+			target = jsonFile.optJSONObject(category);
+			if (target == null) {
+			    target = new JSONObject();
+			    jsonFile.put(category, target);
+			}
+		}
+		target.put(variableName, number);
+		exportJsonSave(jsonFile, filepath);
+	}
 
-		// Retrieve the value associated with the provided variable name
-		if (!jsonObject.has(variableName) || !(jsonObject.get(variableName) instanceof Integer)) {
-			jsonObject.put(variableName, currentValue);
-			Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
+	public static Integer getNumber(String filepath, String variableName, String category) throws JSONException, IOException {
+		JSONObject jsonFile;
+		try{
+			jsonFile = Util.loadJson(filepath);
+		} catch (IOException e) {
+			jsonFile = new JSONObject();
+		}
+		JSONObject jsonObject = jsonFile;
+		if (category != null) {
+			jsonObject = jsonFile.optJSONObject(category);
+			if (jsonObject == null) {
+			    return 0;
+			}
+		}
+		return jsonObject.optInt(variableName, 0);
+	}
+
+	public static Integer increaseNumber(String filepath, String variableName, String category) throws JSONException, IOException {
+		JSONObject jsonFile;
+		try {
+			jsonFile = Util.loadJson(filepath);
+		} catch (IOException e) {
+			jsonFile = new JSONObject();
+		}
+		JSONObject target = jsonFile;
+		if (category == null) {
+			target = jsonFile;
+		}
+		else {
+			target = jsonFile.optJSONObject(category);
+			if (target == null) {
+			    target = new JSONObject();
+			    jsonFile.put(category, target);
+			}
+		}
+		int next = target.optInt(variableName, 0) + 1;
+		target.put(variableName, next);
+		exportJsonSave(jsonFile, filepath);
+		return next;
+	}
+
+	public static Integer decreaseNumber(String filepath, String variableName, String category) throws JSONException, IOException {
+		JSONObject jsonFile;
+		try {
+			jsonFile = Util.loadJson(filepath);
+		} catch (IOException e) {
+			jsonFile = new JSONObject();
+		}
+		JSONObject target = jsonFile;
+		if (category == null) {
+			target = jsonFile;
+		}
+		else {
+			target = jsonFile.optJSONObject(category);
+			if (target == null) {
+			    target = new JSONObject();
+			    jsonFile.put(category, target);
+			}
+		}
+		int current = target.optInt(variableName, -1);
+		int next = current - 1;
+		if (current == -1)
+			return 0;
+		if (current == 0 || current == 1) {
+			target.remove(variableName);
 		} else {
-			currentValue = jsonObject.getInt(variableName);
+			target.put(variableName, next);
 		}
-
-		// Update the JSON with the new value
-		jsonObject.put(variableName, currentValue + 1);
-		Util.exportJson(jsonObject, filepath);
-
-		return currentValue;
+		exportJsonSave(jsonFile, filepath);
+		return next;
 	}
 
 	public static void deleteConstraint(String technology, String constraintId) throws IOException {
 		String patternpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + constraintId + "." + Constants.EXTENSION;
+		String trashbin = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TRASHBINFOLDER;
+		String trashbinpath = trashbin + "/" + constraintId + "." + Constants.EXTENSION;
 		String jsonpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + constraintId + ".json";
 		String queryjsonpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + ServletConstants.QUERYJSONFOLDER + "/" + constraintId + ".json";
-//		patternpath = servletContext.getRealPath(patternpath);
+
+		File trashbindir = new File(trashbin);
+		if (!(trashbindir.exists())) {
+			trashbindir.mkdirs();
+		}
 
 		CompletePattern constraint = EMFModelLoad.loadCompletePattern(patternpath);
 		if (constraint instanceof CompletePattern) {
-			Files.delete(Paths.get(patternpath));
+			increaseNumber(ServletConstants.COUNTFILE, constraint.getAbstractId(), ConstantsJSON.COUNTER_DELETE);
+			try {
+				Files.move(Paths.get(patternpath), Paths.get(trashbinpath));
+			} catch (Exception e){
+				logError(e);
+				try {
+					Files.delete(Paths.get(patternpath));
+				} catch (Exception f) {}
+			}
 			try {
 				Files.delete(Paths.get(jsonpath));
 			} catch (Exception e) {}
@@ -652,16 +690,42 @@ public abstract class ServletUtilities {
 			throw new IOException(ConstantsError.INVALID_FILEFORMAT);
 		}
 	}
+	
+	public static void clearTrashbin() {
+		for (Language language: Language.VALUES) {
+			String technology = language.getLiteral();
+			String trashbinfolder = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TRASHBINFOLDER;
+		    Path dir = Paths.get(trashbinfolder);
+
+		    if (!Files.exists(dir)) {
+		        return; // nothing to do
+		    }
+
+		    if (!Files.isDirectory(dir)) {
+		        throw new IllegalArgumentException("Path is not a directory: " + trashbinfolder);
+		    }
+
+		    try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir)) {
+		        for (Path entry : stream) {
+		            if (Files.isRegularFile(entry)) {
+		                Files.delete(entry);
+		            }
+		        }
+		    } catch (IOException e) {
+				logError(e);
+			}
+		}
+	}
 
 
 	// RESPONSE HANDLING
 
 	public static void putResponse(HttpServletResponse response, int id, Object object, int responseCode) throws IOException {
 		logOutput(object, id);
-		putResponseUnlogged(response, id, object, responseCode);
+		putResponseUnlogged(response, object, responseCode);
 	}
 
-	public static void putResponseUnlogged(HttpServletResponse response, int id, Object object, int responseCode) throws IOException {
+	public static void putResponseUnlogged(HttpServletResponse response, Object object, int responseCode) throws IOException {
 		response.setStatus(responseCode);
 		if (object instanceof JSONArray || object instanceof JSONObject) {
 			response.setContentType("application/json");
@@ -837,8 +901,14 @@ public abstract class ServletUtilities {
 				} catch (DateTimeParseException e) {}
 			}
 		}
+		try {
+			if (new File(ServletConstants.COUNTFILE).exists())
+				setNumber(ServletConstants.COUNTFILE, "call", 0, null);
+			clearTrashbin();
+		} catch (JSONException | IOException e) {
+			logError(e);
+		}
 	}
-	
 
 	public static long calculateAgeInDays(String dateString) throws DateTimeParseException {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT);
@@ -885,14 +955,18 @@ public abstract class ServletUtilities {
 		}
 	}
 
-	public static int logCall(String method, String clazz, String path, JSONObject params) {
+	public static int getNewCallID() {
 		int callId = -1;
 		try {
-			String filepath = ServletConstants.SAVEFILE;
-			callId = getNextNumber(filepath, "call");
+			callId = increaseNumber(ServletConstants.COUNTFILE, "call", null);
 		} catch (JSONException | IOException e) {
 			logError(e);
 		}
+		return callId;
+	}
+
+	public static int logCall(String method, String clazz, String path, JSONObject params) {
+		int callId = getNewCallID();
 		log("CALL " + callId + ": " + method + " "+ clazz + "(" + path + ") " + params);
 		return callId;
 	}
