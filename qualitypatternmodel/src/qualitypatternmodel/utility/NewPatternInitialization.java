@@ -7,17 +7,16 @@ import org.json.JSONObject;
 public class NewPatternInitialization {
 	
 	static String info = "Description\r\n"
-			+ "Proposed identifier: ValidLinkIfMatch\r\n"
-			+ "Name: Valid Link by Pattern\r\n"
-			+ "Description: Check if field values match a specific pattern and are valid links.\r\n"
-			+ "Scope: simple\r\n"
-			+ "Type: ref\r\n"
+			+ "Proposed identifier: CardContainsIfCompSet\r\n"
+			+ "Name: default\r\n"
+			+ "Scope: hierarchical\r\n"
+			+ "Type: cond\r\n"
 			+ "Template Text\r\n"
-			+ "If a <Element> has a <Property> that <Does / Does Not> match <a Specific Pattern (RegEx)>, this Property is a valid link.\r\n"
+			+ "If a <Element> has a <Property A> that <Is / Is Not> in the list of <Terms> , it has <a Comparison with> <a Specific Number of> <Property B> that contain <a specific term> as a substring.\r\n"
 			+ "Specific Example\r\n"
-			+ "If a <Record Source> has a <Legal Body ID> that <Does> match <^(((https?://)?\\\\\\[a-zA-Z0-9\\\\\\\\\\\\\\\\-\\\\\\\\\\\\\\\\./\\\\\\]\\\\\\*\\\\\\\\\\\\\\\\.\\\\\\[a-z\\\\\\]{2,3}/(\\\\\\[a-zA-Z0-9\\\\\\\\\\\\\\\\-\\\\\\\\\\\\\\\\./\\\\\\]\\\\\\*/)?)>, this Property is a valid link.\r\n"
+			+ "If a <Resource Set> has a <Term> that <Is> in the list of <3D-Objekt, 3D, 3D Objekt> , it has <at least> <1> <Link Resource> that contain <sketchfab> as a substring.\r\n"
 			+ "Example Values\r\n"
-			+ "If a <Digital Object> has a <Providing Institution> that <Does> match <^(((https?://)?\\\\\\[a-zA-Z0-9\\\\\\\\\\\\\\\\-\\\\\\\\\\\\\\\\./\\\\\\]\\\\\\*\\\\\\\\\\\\\\\\.\\\\\\[a-z\\\\\\]{2,3}/(\\\\\\[a-zA-Z0-9\\\\\\\\\\\\\\\\-\\\\\\\\\\\\\\\\./\\\\\\]\\\\\\*/)?)>, this Property is a valid link.";
+			+ "If a <Digital Object> has a <Media Type> that <Is> in the list of <3D, 3D object> , it has <at least> <1> <Image Reference> that contain <sketchfab> as a substring.";
 
 	static String variantid = "default";
 	static String language = "xml";
@@ -58,7 +57,9 @@ public class NewPatternInitialization {
 			object.put(ConstantsJSON.DESCRIPTION, "");
 		}
 		else if (base.equals(example)) {
-			object.put(ConstantsJSON.TEXT, base);
+			String text = base.trim();
+			if (!text.isBlank())
+				object.put(ConstantsJSON.TEXT, text);
 		}
 		else {
 			System.err.println("Fragments not fitting: '" + base + "' and '" + example + "'");
@@ -170,19 +171,19 @@ public class NewPatternInitialization {
 				sentence_example = infos[i+1].trim();
 			}
 		}
-		if (id.isBlank()) 
+		if (id == null || id.isBlank()) 
 			throw new Exception("id blank");
-		if (name.isBlank())
+		if (name == null || name.isBlank())
 			throw new Exception("name blank");
-		if (description.isBlank())
-			throw new Exception("description blank");
-		if (scope.isBlank())
+		if (description == null || description.isBlank())
+			description = "";
+		if (scope == null || scope.isBlank())
 			throw new Exception("scope blank");
-		if (type.isBlank())
+		if (type == null || type.isBlank())
 			throw new Exception("type blank");
-		if (sentence.isBlank())
+		if (sentence == null || sentence.isBlank())
 			throw new Exception("sentence blank");
-		if (sentence_example.isBlank())
+		if (sentence_example == null || sentence_example.isBlank())
 			throw new Exception("sentence_example blank");
 		
 		for (String s: infos)
