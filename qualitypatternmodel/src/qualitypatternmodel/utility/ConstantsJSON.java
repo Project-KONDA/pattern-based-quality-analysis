@@ -118,4 +118,8 @@ public class ConstantsJSON {
 	public static final String INFO_XML = Language.XML.getLiteral();
 	public static final String INFO_RDF = Language.RDF.getLiteral();
 	public static final String INFO_NEO4J = Language.NEO4J.getLiteral();
+
+	public static final String COUNTER_EXECUTE = "execute";
+	public static final String COUNTER_CREATE = "create";
+	public static final String COUNTER_DELETE = "delete";
 }

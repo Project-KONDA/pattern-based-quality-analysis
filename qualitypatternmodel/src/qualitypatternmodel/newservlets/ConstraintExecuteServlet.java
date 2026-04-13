@@ -102,6 +102,11 @@ public class ConstraintExecuteServlet extends HttpServlet {
 //					JSONObject queryJson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
 					JSONObject queryJson = ServletUtilities.loadConstraintQueryJson(technology, constraintId);
 					constraints.add(queryJson);
+
+					String templateId = queryJson.optString(ConstantsJSON.TEMPLATE_ID);
+					if (templateId != null)
+						ServletUtilities.increaseNumber(ServletConstants.SAVEFILECOUNT, templateId, ConstantsJSON.COUNTER_EXECUTE);
+						
 				} catch (Exception e) {
 					try {
 						failedConstraints.put(constraintId, ConstantsError.INVALID_CONSTRAINT);
@@ -138,6 +143,12 @@ public class ConstraintExecuteServlet extends HttpServlet {
 						ServletUtilities.log("Constraint " + constraintID + " not valid: " + ConstantsError.INVALID_LANGUAGE);
 					} else {
 						constraints.add(object);
+
+						String templateId = object.optString(ConstantsJSON.TEMPLATE_ID);
+						if (templateId != null)
+							try {
+								ServletUtilities.increaseNumber(ServletConstants.SAVEFILECOUNT, templateId, ConstantsJSON.COUNTER_EXECUTE);
+							} catch (IOException e) {}
 					}
 				} catch (JSONException e) {
 					try {
