@@ -550,40 +550,109 @@ public abstract class ServletUtilities {
 		boolean success = false;
 		while (!success) {
 			try {
-				number = getNextNumber(ServletConstants.SAVEFILE, name);
+				number = increaseNumber(ServletConstants.SAVEFILE, name, null);
 			} catch (JSONException | IOException e) {
 				logError(e);
 				number = 0;
 			}
 			id = name + "_" + number;
-			
 			success = !fileExistsWithAnyExtension(folder, id);
 		}
 		return id;
 	}
 
-	public static Integer getNextNumber(String filepath, String variableName) throws JSONException, IOException {
-		int currentValue = 0;
-		JSONObject jsonObject;
-		try{
-			jsonObject = Util.loadJson(filepath);
+	public static void setNumber(String filepath, String variableName, int number, String category) throws JSONException, IOException {
+		JSONObject jsonFile;
+		try {
+			jsonFile = Util.loadJson(filepath);
 		} catch (IOException e) {
-			jsonObject = new JSONObject();
+			jsonFile = new JSONObject();
 		}
+		JSONObject target = jsonFile;
+		if (category == null) {
+			target = jsonFile;
+		}
+		else {
+			target = jsonFile.optJSONObject(category);
+			if (target == null) {
+			    target = new JSONObject();
+			    jsonFile.put(category, target);
+			}
+		}
+		target.put(variableName, number);
+		exportJsonSave(jsonFile, filepath);
+	}
 
-		// Retrieve the value associated with the provided variable name
-		if (!jsonObject.has(variableName) || !(jsonObject.get(variableName) instanceof Integer)) {
-			jsonObject.put(variableName, currentValue);
-			Files.write(Paths.get(filepath), jsonObject.toString().getBytes());
+	public static Integer getNumber(String filepath, String variableName, String category) throws JSONException, IOException {
+		JSONObject jsonFile;
+		try{
+			jsonFile = Util.loadJson(filepath);
+		} catch (IOException e) {
+			jsonFile = new JSONObject();
+		}
+		JSONObject jsonObject = jsonFile;
+		if (category != null) {
+			jsonObject = jsonFile.optJSONObject(category);
+			if (jsonObject == null) {
+			    return 0;
+			}
+		}
+		return jsonObject.optInt(variableName, 0);
+	}
+
+	public static Integer increaseNumber(String filepath, String variableName, String category) throws JSONException, IOException {
+		JSONObject jsonFile;
+		try {
+			jsonFile = Util.loadJson(filepath);
+		} catch (IOException e) {
+			jsonFile = new JSONObject();
+		}
+		JSONObject target = jsonFile;
+		if (category == null) {
+			target = jsonFile;
+		}
+		else {
+			target = jsonFile.optJSONObject(category);
+			if (target == null) {
+			    target = new JSONObject();
+			    jsonFile.put(category, target);
+			}
+		}
+		int next = target.optInt(variableName, 0) + 1;
+		target.put(variableName, next);
+		exportJsonSave(jsonFile, filepath);
+		return next;
+	}
+
+	public static Integer decreaseNumber(String filepath, String variableName, String category) throws JSONException, IOException {
+		JSONObject jsonFile;
+		try {
+			jsonFile = Util.loadJson(filepath);
+		} catch (IOException e) {
+			jsonFile = new JSONObject();
+		}
+		JSONObject target = jsonFile;
+		if (category == null) {
+			target = jsonFile;
+		}
+		else {
+			target = jsonFile.optJSONObject(category);
+			if (target == null) {
+			    target = new JSONObject();
+			    jsonFile.put(category, target);
+			}
+		}
+		int current = target.optInt(variableName, -1);
+		int next = current - 1;
+		if (current == -1)
+			return 0;
+		if (current == 0 || current == 1) {
+			target.remove(variableName);
 		} else {
-			currentValue = jsonObject.getInt(variableName);
+			target.put(variableName, next);
 		}
-
-		// Update the JSON with the new value
-		jsonObject.put(variableName, currentValue + 1);
-		Util.exportJson(jsonObject, filepath);
-
-		return currentValue;
+		exportJsonSave(jsonFile, filepath);
+		return next;
 	}
 
 	public static void deleteConstraint(String technology, String constraintId) throws IOException {
@@ -790,8 +859,12 @@ public abstract class ServletUtilities {
 				} catch (DateTimeParseException e) {}
 			}
 		}
+		try {
+			setNumber(ServletConstants.SAVEFILE, "call", 0, null);
+		} catch (JSONException | IOException e) {
+			logError(e);
+		}
 	}
-	
 
 	public static long calculateAgeInDays(String dateString) throws DateTimeParseException {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT);
@@ -841,8 +914,7 @@ public abstract class ServletUtilities {
 	public static int getNewCallID() {
 		int callId = -1;
 		try {
-			String filepath = ServletConstants.SAVEFILE;
-			callId = getNextNumber(filepath, "call");
+			callId = increaseNumber(ServletConstants.SAVEFILE, "call", null);
 		} catch (JSONException | IOException e) {
 			logError(e);
 		}
