@@ -27,7 +27,8 @@
             "name": "Is / Is Not",
             "description": "",
             "params": [1],
-            "exampleValue": "Is"
+            "exampleValue": "Is",
+            "defaultMap": "comparison.is"
         },
         {"text": "in the list of"},
         {
@@ -41,7 +42,8 @@
             "name": "a Comparison with",
             "description": "",
             "params": [3],
-            "exampleValue": "at least"
+            "exampleValue": "at least",
+            "defaultMap": "comparison.default"
         },
         {
             "name": "a Specific Number of",
@@ -55,7 +57,15 @@
             "params": [9],
             "exampleValue": "Image Reference"
         },
-        {"text": "that contain"},
+        {"text": "that"},
+        {
+            "name": "Do / Do Not",
+            "description": "",
+            "params": [5],
+            "exampleValue": "Do", 
+            "defaultMap": "boolean.do"
+        },
+        {"text": "contain"},
         {
             "name": "a specific term",
             "description": "",
