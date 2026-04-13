@@ -289,4 +289,8 @@ public class PatternConstants {
     public static String VALIDLINKIFMATCH_ID = "ValidLinkIfMatch";
     public static String VALIDLINKIFMATCH_NAME = "Valid Link by Pattern";
     public static String VALIDLINKIFMATCH_DESCR = "Check if field values match a specific pattern and are valid links.";
+
+    public static String CARDCONTAINSIFCOMPSET_ID = "CardContainsIfCompSet";
+    public static String CARDCONTAINSIFCOMPSET_NAME = "default";
+    public static String CARDCONTAINSIFCOMPSET_DESCR = "";
 }
