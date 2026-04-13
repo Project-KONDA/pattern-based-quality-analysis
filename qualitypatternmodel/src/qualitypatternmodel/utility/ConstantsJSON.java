@@ -29,6 +29,7 @@ public class ConstantsJSON {
 
 	public static final String API_FILTER_BY = "filter_by";
 	public static final String API_GROUP_BY = "group_by";
+	public static final String API_ORDER_BY = "order_by";
 
 	// Constraint Info
 	public static final String LASTSAVED = "lastSaved";
