@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -657,13 +658,27 @@ public abstract class ServletUtilities {
 
 	public static void deleteConstraint(String technology, String constraintId) throws IOException {
 		String patternpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + constraintId + "." + Constants.EXTENSION;
+		String trashbin = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TRASHBINFOLDER;
+		String trashbinpath = trashbin + "/" + constraintId + "." + Constants.EXTENSION;
 		String jsonpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + constraintId + ".json";
 		String queryjsonpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + ServletConstants.QUERYJSONFOLDER + "/" + constraintId + ".json";
-//		patternpath = servletContext.getRealPath(patternpath);
+
+		File trashbindir = new File(trashbin);
+		if (!(trashbindir.exists())) {
+			trashbindir.mkdirs();
+		}
 
 		CompletePattern constraint = EMFModelLoad.loadCompletePattern(patternpath);
 		if (constraint instanceof CompletePattern) {
-			Files.delete(Paths.get(patternpath));
+			increaseNumber(ServletConstants.SAVEFILECOUNT, constraint.getAbstractId(), ConstantsJSON.COUNTER_DELETE);
+			try {
+				Files.move(Paths.get(patternpath), Paths.get(trashbinpath));
+			} catch (Exception e){
+				logError(e);
+				try {
+					Files.delete(Paths.get(patternpath));
+				} catch (Exception f) {}
+			}
 			try {
 				Files.delete(Paths.get(jsonpath));
 			} catch (Exception e) {}
@@ -672,6 +687,32 @@ public abstract class ServletUtilities {
 			} catch (Exception e) {}
 		} else {
 			throw new IOException(ConstantsError.INVALID_FILEFORMAT);
+		}
+	}
+	
+	public static void clearTrashbin() {
+		for (Language language: Language.VALUES) {
+			String technology = language.getLiteral();
+			String trashbinfolder = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TRASHBINFOLDER;
+		    Path dir = Paths.get(trashbinfolder);
+
+		    if (!Files.exists(dir)) {
+		        return; // nothing to do
+		    }
+
+		    if (!Files.isDirectory(dir)) {
+		        throw new IllegalArgumentException("Path is not a directory: " + trashbinfolder);
+		    }
+
+		    try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir)) {
+		        for (Path entry : stream) {
+		            if (Files.isRegularFile(entry)) {
+		                Files.delete(entry);
+		            }
+		        }
+		    } catch (IOException e) {
+				logError(e);
+			}
 		}
 	}
 
@@ -861,6 +902,7 @@ public abstract class ServletUtilities {
 		}
 		try {
 			setNumber(ServletConstants.SAVEFILE, "call", 0, null);
+			clearTrashbin();
 		} catch (JSONException | IOException e) {
 			logError(e);
 		}
