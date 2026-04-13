@@ -105,7 +105,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 
 					String templateId = queryJson.optString(ConstantsJSON.TEMPLATE_ID);
 					if (templateId != null)
-						ServletUtilities.increaseNumber(ServletConstants.SAVEFILECOUNT, templateId, ConstantsJSON.COUNTER_EXECUTE);
+						ServletUtilities.increaseNumber(ServletConstants.COUNTFILE, templateId, ConstantsJSON.COUNTER_EXECUTE);
 						
 				} catch (Exception e) {
 					try {
@@ -145,9 +145,10 @@ public class ConstraintExecuteServlet extends HttpServlet {
 						constraints.add(object);
 
 						String templateId = object.optString(ConstantsJSON.TEMPLATE_ID);
-						if (templateId != null)
+						String variantId = object.optString(ConstantsJSON.VARIANT_ID);
+						if (templateId != null && variantId != null)
 							try {
-								ServletUtilities.increaseNumber(ServletConstants.SAVEFILECOUNT, templateId, ConstantsJSON.COUNTER_EXECUTE);
+								ServletUtilities.increaseNumber(ServletConstants.COUNTFILE, templateId + "_" + variantId, ConstantsJSON.COUNTER_EXECUTE);
 							} catch (IOException e) {}
 					}
 				} catch (JSONException e) {

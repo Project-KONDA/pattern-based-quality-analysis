@@ -1288,6 +1288,17 @@ paths:
             type: object
             additionalProperties:
               type: string
+        - name: order_by
+          in: query
+          description: order variants by 
+          required: false
+          schema:
+            type: string
+            enum:
+            - created
+            - deleted
+            - executed
+            - existing
       responses:
         '200':
           description: Successful operation

@@ -559,6 +559,7 @@ public abstract class ServletUtilities {
 			id = name + "_" + number;
 			success = !fileExistsWithAnyExtension(folder, id);
 		}
+		increaseNumber(ServletConstants.COUNTFILE, name, ConstantsJSON.COUNTER_CREATE);
 		return id;
 	}
 
@@ -670,7 +671,7 @@ public abstract class ServletUtilities {
 
 		CompletePattern constraint = EMFModelLoad.loadCompletePattern(patternpath);
 		if (constraint instanceof CompletePattern) {
-			increaseNumber(ServletConstants.SAVEFILECOUNT, constraint.getAbstractId(), ConstantsJSON.COUNTER_DELETE);
+			increaseNumber(ServletConstants.COUNTFILE, constraint.getAbstractId(), ConstantsJSON.COUNTER_DELETE);
 			try {
 				Files.move(Paths.get(patternpath), Paths.get(trashbinpath));
 			} catch (Exception e){
@@ -901,7 +902,8 @@ public abstract class ServletUtilities {
 			}
 		}
 		try {
-			setNumber(ServletConstants.SAVEFILE, "call", 0, null);
+			if (new File(ServletConstants.COUNTFILE).exists())
+				setNumber(ServletConstants.COUNTFILE, "call", 0, null);
 			clearTrashbin();
 		} catch (JSONException | IOException e) {
 			logError(e);
@@ -956,7 +958,7 @@ public abstract class ServletUtilities {
 	public static int getNewCallID() {
 		int callId = -1;
 		try {
-			callId = increaseNumber(ServletConstants.SAVEFILE, "call", null);
+			callId = increaseNumber(ServletConstants.COUNTFILE, "call", null);
 		} catch (JSONException | IOException e) {
 			logError(e);
 		}

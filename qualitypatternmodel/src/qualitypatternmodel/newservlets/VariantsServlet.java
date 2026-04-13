@@ -1,7 +1,9 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +16,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 @SuppressWarnings("serial")
 public class VariantsServlet extends HttpServlet {
@@ -59,12 +62,16 @@ public class VariantsServlet extends HttpServlet {
 			variants = filtered;
 		}
 
+		// order_by
+		if (parameterMap.containsKey(ConstantsJSON.API_ORDER_BY)) {
+			orderVariants(variants, parameterMap.get(ConstantsJSON.API_ORDER_BY)[0]);
+		}
+
 		// group_by
 		if (!parameterMap.containsKey(ConstantsJSON.API_GROUP_BY)) {
 			result.put(ConstantsJSON.VARIANTS, variants);
 			result.put(ConstantsJSON.SIZE, variants.length());
 			result.put(ConstantsJSON.TOTAL, getVariantsTotal(variants));
-			return result;
 		} else {
 			String[] group_by_raw = parameterMap.get(ConstantsJSON.API_GROUP_BY);
 			JSONArray group_by = new JSONArray(group_by_raw[0]);
@@ -73,9 +80,66 @@ public class VariantsServlet extends HttpServlet {
 			result.put(ConstantsJSON.VARIANTS, grouped);
 			result.put(ConstantsJSON.SIZE, variants.length());
 			result.put(ConstantsJSON.TOTAL, getVariantsTotal(grouped));
-			return result;
 		}
+		return result;
 	}
+
+	private static JSONObject orderJson = null;
+	private static int getCount(JSONObject item, String order) {
+		String templateId = item.optString(ConstantsJSON.TEMPLATE_ID);
+		String variantId = item.optString(ConstantsJSON.NAME);
+		if (templateId == null || variantId == null)
+			return 0;
+		String name = templateId + "_" + variantId;
+		if (orderJson == null)
+			return 0;
+		JSONObject created, deleted, executed;
+		switch (order) {
+		case "created":
+			created = orderJson.optJSONObject(ConstantsJSON.COUNTER_CREATE);
+			if (created == null)
+				return 0;
+			return created.optInt(name, 0);
+		case "deleted":
+			deleted = orderJson.optJSONObject(ConstantsJSON.COUNTER_DELETE);
+			if (deleted == null)
+				return 0;
+			return deleted.optInt(name, 0);
+		case "executed":
+			executed = orderJson.optJSONObject(ConstantsJSON.COUNTER_EXECUTE);
+			if (executed == null)
+				return 0;
+			return executed.optInt(name, 0);
+		case "existing":
+			created = orderJson.optJSONObject(ConstantsJSON.COUNTER_CREATE);
+			deleted = orderJson.optJSONObject(ConstantsJSON.COUNTER_DELETE);
+			if (created == null)
+				return 0;
+			if (deleted == null)
+				return created.optInt(name, 0);
+			return Math.max(created.optInt(name, 0) - deleted.optInt(name, 0), 0);
+		}
+		return 0;
+	}
+	
+	private static void orderVariants(JSONArray variants, String order) {
+		try {
+			orderJson = Util.loadJson(ServletConstants.COUNTFILE);
+		} catch (IOException e) {
+			ServletUtilities.logError(e);
+		}
+
+	    List<JSONObject> list = new ArrayList<JSONObject>();
+	    for (int i = 0; i < variants.length(); i++) {
+	        list.add(variants.getJSONObject(i));
+	    }
+	    list.sort(Comparator.comparingInt(obj -> - getCount(obj, order)));
+	    for (int i = 0; i < list.size(); i++) {
+	    	variants.put(i, list.get(i));
+	    }
+	}
+
+
 
 	private static JSONArray getVariantJSONs(String technology) {
 		List<JSONObject> templates = ServletUtilities.getTemplateJSONs(technology);

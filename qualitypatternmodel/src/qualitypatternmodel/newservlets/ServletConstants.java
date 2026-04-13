@@ -47,10 +47,10 @@ public class ServletConstants {
 	public static String SAVEFILE = "/templates/savefile.json";
 	public static String ENV_SAVEFILE = "SAVEFILE";
 
-	// name of savefile
-	public static String SAVEFILECOUNT_DEFAULT =  "/templates/savefile_count.json";
-	public static String SAVEFILECOUNT = "/templates/savefile_count.json";
-	public static String ENV_SAVEFILECOUNT = "SAVEFILECOUNT";
+	// name of countfile
+	public static String COUNTFILE_DEFAULT =  "/templates/countfile.json";
+	public static String COUNTFILE = "/templates/countfile.json";
+	public static String ENV_COUNTFILE = "COUNTFILE";
 
 	// shall there be values in the templates
 	public static boolean FILL_VALUES = false;
