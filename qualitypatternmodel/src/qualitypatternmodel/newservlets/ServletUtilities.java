@@ -361,6 +361,19 @@ public abstract class ServletUtilities {
 
 	// LOAD SAVE DELETE
 
+	public static void exportJsonSave(JSONObject jsonFile, String filepath) throws IOException {
+		try {
+			saveSemaphore.acquire();
+			Util.exportJson(jsonFile, filepath);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+			log("Thread was interrupted");
+			logError(e);
+		} finally {
+			saveSemaphore.release();
+		}
+	}
+
 	protected static CompletePattern loadConstraint(String technology, String constraintId) throws IOException {
 		String patternpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + constraintId + "." + Constants.EXTENSION;
 		return EMFModelLoad.loadCompletePattern(patternpath);
@@ -380,16 +393,7 @@ public abstract class ServletUtilities {
 		CompletePattern pattern = EMFModelLoad.loadCompletePattern(patternpath);
 		JSONObject json = ServletUtilities.getPatternJSON(pattern);
 
-		try {
-			saveSemaphore.acquire();
-			Util.exportJson(json, jsonpath);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			log("Thread was interrupted");
-			logError(e);
-		} finally {
-			saveSemaphore.release();
-		}
+		exportJsonSave(json, jsonpath);
 		return json;
 	}
 
@@ -407,29 +411,11 @@ public abstract class ServletUtilities {
 		// if precompiled queryjson does not exist
 		CompletePattern pattern = EMFModelLoad.loadCompletePattern(patternpath);
 		JSONObject queryjson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
-		try {
-			saveSemaphore.acquire();
-			Util.exportJson(queryjson, queryjsonpath);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			log("Thread was interrupted");
-			logError(e);
-		} finally {
-			saveSemaphore.release();
-		}
+		exportJsonSave(queryjson, queryjsonpath);
 
 		if (!new File(patternjsonpath).exists()) {
 			JSONObject json = ServletUtilities.getPatternJSON(pattern);
-			try {
-				saveSemaphore.acquire();
-				Util.exportJson(json, patternjsonpath);
-			} catch (InterruptedException e) {
-				Thread.currentThread().interrupt();
-				log("Thread was interrupted");
-				logError(e);
-			} finally {
-				saveSemaphore.release();
-			}
+			exportJsonSave(json, patternjsonpath);
 		}
 
 		return queryjson;
@@ -447,16 +433,7 @@ public abstract class ServletUtilities {
 		} catch (Exception e) {}
 
 		JSONObject json = ServletUtilities.getPatternJSON(loadTemplate(technology, templateId));
-		try {
-			saveSemaphore.acquire();
-			Util.exportJson(json, jsonfilepath);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			log("Thread was interrupted");
-			logError(e);
-		} finally {
-			saveSemaphore.release();
-		}
+		exportJsonSave(json, jsonfilepath);
 		return json;
 	}
 
@@ -467,16 +444,7 @@ public abstract class ServletUtilities {
 		} catch (Exception e) {}
 
 		JSONObject variantjson = getVariantJSON(loadTemplate(technology, templateId), true);
-		try {
-			saveSemaphore.acquire();
-			Util.exportJson(variantjson, variantjsonfilepath);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			log("Thread was interrupted");
-			logError(e);
-		} finally {
-			saveSemaphore.release();
-		}
+		exportJsonSave(variantjson, variantjsonfilepath);
 		return variantjson;
 	}
 
@@ -511,30 +479,12 @@ public abstract class ServletUtilities {
 		// patternjson
 		JSONObject json = getPatternJSON(pattern);
 		String filepath = folderpath + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + templateId + ".json";
-		try {
-			saveSemaphore.acquire();
-			Util.exportJson(json, filepath);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			log("Thread was interrupted");
-			logError(e);
-		} finally {
-			saveSemaphore.release();
-		}
+		exportJsonSave(json, filepath);
 
 		// variantjson
 		JSONObject variantjson = ServletUtilities.getVariantJSON(pattern, true);
 		String variantfilepath = folderpath + "/" + ServletConstants.VARIANTJSONFOLDER + "/" + templateId + ".json";
-		try {
-			saveSemaphore.acquire();
-			Util.exportJson(variantjson, variantfilepath);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			log("Thread was interrupted");
-			logError(e);
-		} finally {
-			saveSemaphore.release();
-		}
+		exportJsonSave(variantjson, variantfilepath);
 	}
 
 	public static String saveConstraint(String technology, String constraintId, CompletePattern pattern)
@@ -557,31 +507,13 @@ public abstract class ServletUtilities {
 
 		// patternjson
 		JSONObject json = getPatternJSON(pattern);
-		try {
-			saveSemaphore.acquire();
-			Util.exportJson(json, patternjsonfilepath);
-		} catch (InterruptedException e) {
-			Thread.currentThread().interrupt();
-			log("Thread was interrupted");
-			logError(e);
-		} finally {
-			saveSemaphore.release();
-		}
+		exportJsonSave(json, patternjsonfilepath);
 
 		// queryjson
 		if (json.getBoolean(ConstantsJSON.EXECUTABLE)) {
 			try {
 				JSONObject queryjson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
-				try {
-					saveSemaphore.acquire();
-					Util.exportJson(queryjson, queryjsonfilepath);
-				} catch (InterruptedException e) {
-					Thread.currentThread().interrupt();
-					log("Thread was interrupted");
-					logError(e);
-				} finally {
-					saveSemaphore.release();
-				}
+				exportJsonSave(queryjson, queryjsonfilepath);
 			} catch (Exception e) {}
 		} else {
 			Path path = Paths.get(queryjsonfilepath);
