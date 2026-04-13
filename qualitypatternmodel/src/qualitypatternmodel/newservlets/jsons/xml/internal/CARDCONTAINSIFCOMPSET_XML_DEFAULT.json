@@ -1,0 +1,68 @@
+{
+    "template": "CardContainsIfCompSet_xml",
+    "custom": {
+        "scope": "hierarchical",
+        "description": "default variant for CardContainsIfCompSet_xml",
+        "type": ["cond"]
+    },
+    "name": "default",
+    "language": "xml",
+    "fragments": [
+        {"text": "If a"},
+        {
+            "name": "Element",
+            "description": "",
+            "params": [7],
+            "exampleValue": "Digital Object"
+        },
+        {"text": "has a"},
+        {
+            "name": "Property A",
+            "description": "",
+            "params": [8],
+            "exampleValue": "Media Type"
+        },
+        {"text": " that "},
+        {
+            "name": "Is / Is Not",
+            "description": "",
+            "params": [1],
+            "exampleValue": "Is"
+        },
+        {"text": "in the list of"},
+        {
+            "name": "Terms",
+            "description": "",
+            "params": [0],
+            "exampleValue": "3D, 3D object"
+        },
+        {"text": ", it has"},
+        {
+            "name": "a Comparison with",
+            "description": "",
+            "params": [3],
+            "exampleValue": "at least"
+        },
+        {
+            "name": "a Specific Number of",
+            "description": "",
+            "params": [4],
+            "exampleValue": "1"
+        },
+        {
+            "name": "Property B",
+            "description": "",
+            "params": [9],
+            "exampleValue": "Image Reference"
+        },
+        {"text": "that contain"},
+        {
+            "name": "a specific term",
+            "description": "",
+            "params": [6],
+            "exampleValue": "sketchfab"
+        },
+        {"text": "as a substring."}
+    ],
+    "typeConstraint": true
+}

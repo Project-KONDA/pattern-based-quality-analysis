@@ -40,6 +40,7 @@ public class PatternCollection {
 		// internal
 		classes.add(CardCompSetIfCardPattern.class);
 		classes.add(CardCompSetIfCompSetPattern.class);
+		classes.add(CardContainsIfCompSetPattern.class);
 		classes.add(CardIfCardPattern.class);
 		classes.add(CardIfCompSetPattern.class);
 		classes.add(CardPattern.class);
