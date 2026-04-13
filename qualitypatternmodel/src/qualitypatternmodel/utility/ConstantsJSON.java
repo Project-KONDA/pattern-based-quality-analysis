@@ -13,6 +13,7 @@ public class ConstantsJSON {
 	public static final String ID = "id";
 	public static final String CONSTRAINT_ID = "constraintID";
 	public static final String TEMPLATE_ID = "templateID";
+	public static final String VARIANT_ID = "variantID";
 	public static final String FRAGMENTS = "fragments";
 	public static final String TEXT = "text";
 	public static final String TYPE = "type";

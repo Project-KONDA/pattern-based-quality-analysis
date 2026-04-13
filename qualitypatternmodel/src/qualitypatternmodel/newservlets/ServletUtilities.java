@@ -559,6 +559,7 @@ public abstract class ServletUtilities {
 			id = name + "_" + number;
 			success = !fileExistsWithAnyExtension(folder, id);
 		}
+		increaseNumber(ServletConstants.SAVEFILECOUNT, name, ConstantsJSON.COUNTER_CREATE);
 		return id;
 	}
 
@@ -901,7 +902,8 @@ public abstract class ServletUtilities {
 			}
 		}
 		try {
-			setNumber(ServletConstants.SAVEFILE, "call", 0, null);
+			if (new File(ServletConstants.SAVEFILE).exists())
+				setNumber(ServletConstants.SAVEFILE, "call", 0, null);
 			clearTrashbin();
 		} catch (JSONException | IOException e) {
 			logError(e);
