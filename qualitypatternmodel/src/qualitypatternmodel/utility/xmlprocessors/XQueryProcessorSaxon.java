@@ -188,7 +188,11 @@ public class XQueryProcessorSaxon {
                 	total_incidents += queryResult.getLong(ConstantsJSON.TOTAL_INCIDENCES);
                 	total_compliances += queryResult.getLong(ConstantsJSON.TOTAL_COMPLIANCES);
 	                results.put(queryResult);
-				} catch (SaxonApiException | SaxonApiUncheckedException | JSONException | InvalidityException e) {
+				} catch (Exception e) {
+					failedConstraints.put(executable.id, e.getMessage());
+					ServletUtilities.logError(new InvalidityException("invalid query: " + executable.query, e));
+					continue;
+				} catch (Error e) {
 					failedConstraints.put(executable.id, e.getMessage());
 					ServletUtilities.logError(new InvalidityException("invalid query: " + executable.query, e));
 					continue;
