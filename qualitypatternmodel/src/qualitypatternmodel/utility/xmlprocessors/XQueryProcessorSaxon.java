@@ -1,6 +1,7 @@
 package qualitypatternmodel.utility.xmlprocessors;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import net.sf.saxon.om.NodeInfo;
@@ -31,6 +31,7 @@ import net.sf.saxon.s9api.XdmNodeKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.javaquery.impl.JavaFilterImpl;
+import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
@@ -38,21 +39,19 @@ import qualitypatternmodel.utility.Util;
 
 public class XQueryProcessorSaxon {
 	static boolean NOSKIPS = false;
-
 	static String SERIALIZER_METHOD = "xml";
 	static String SERIALIZER_ENCODING = "UTF-8";
-
 	static String SERIALIZER_INDENT = "yes";
 	static String SERIALIZER_OMIT_XML_DECLARATION = "yes";
 	static boolean BUILDER_LINENUMBERING = true;
 	static WhitespaceStrippingPolicy WHITESPACESTRIPPING = WhitespaceStrippingPolicy.ALL;
-	
+
 	public static JSONArray executeQueryFileStripped (String query, String filepath) throws InvalidityException {
 		JSONArray incidents = executeQueryFile(query, filepath);
 		XmlServletUtility.stripNamespacesFromIncidents(incidents);
 		return incidents;
 	}
-	
+
 	public static JSONArray executeQueryFile(String query, String filepath) throws InvalidityException {
 		final String testedQuery = testAndFormatQuery(query);
 		final File inputFile = Util.getAndTestFile(filepath);
@@ -116,23 +115,89 @@ public class XQueryProcessorSaxon {
 	    public JSONObject custom;
 	}
 
-	public static JSONObject queryConstraintsFilePaths(List<JSONObject> constraints, List<String> datapaths) {
-		JSONObject failedConstraints = new JSONObject();
-		JSONObject failedFiles = new JSONObject();
-		JSONArray results = new JSONArray();
+	private static void initializeExecutionResultFile(List<String> datapaths, JSONArray constraintIDs, String jsonfilename) {
 		JSONObject resultobject = new JSONObject();
-		long total_findings = 0;
-		long total_incidents = 0;
-		long total_compliances = 0;
-		long starttime = System.nanoTime();
-		
+		resultobject.put(ConstantsJSON.RESULT, new JSONArray());
+		resultobject.put(ConstantsJSON.TOTAL_FINDINGS, 0);
+		resultobject.put(ConstantsJSON.TOTAL_INCIDENCES, 0);
+		resultobject.put(ConstantsJSON.TOTAL_COMPLIANCES, 0);
+		resultobject.put(ConstantsJSON.FILES, datapaths);
+		resultobject.put(ConstantsJSON.CONSTRAINT_IDS, constraintIDs);
+		resultobject.put(ConstantsJSON.FILESIZE, datapaths.size());
+		resultobject.put(ConstantsJSON.CONSTRAINTSIZE, constraintIDs.length());
+		resultobject.put(ConstantsJSON.DURATION, System.nanoTime());
+//		resultobject.put(ConstantsJSON.FAILEDFILES, new JSONObject());
+//		resultobject.put(ConstantsJSON.FAILEDCONSTRAINTS, new JSONObject());
+		try {
+			Util.exportJson(resultobject, jsonfilename);
+		} catch (IOException e) {}
+	}
+
+	private static JSONObject getFinalExecutionResultFile(String jsonfilename) {
+		JSONObject resultobject = null;
+		try {
+			resultobject = Util.loadJson(jsonfilename);
+			long duration = System.nanoTime() - resultobject.getLong(ConstantsJSON.DURATION);
+			resultobject.put(ConstantsJSON.DURATION, duration);
+			Util.deleteFile(jsonfilename);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultobject;
+	}
+
+	private static void addFailedConstraint(String constraintID, String message, String jsonfilename) {
+		JSONObject resultobject;
+		try {
+			resultobject = Util.loadJson(jsonfilename);
+			JSONObject failedconstraints = resultobject.optJSONObject(ConstantsJSON.FAILEDCONSTRAINTS); 
+			failedconstraints.put(constraintID, message);
+			Util.exportJson(resultobject, jsonfilename);
+		} catch (IOException e) {}
+	}
+
+	private static void addFailedFile(String filename, String message, String jsonfilename) {
+		JSONObject resultobject;
+		try {
+			resultobject = Util.loadJson(jsonfilename);
+			JSONObject failedfiles = resultobject.optJSONObject(ConstantsJSON.FAILEDFILES); 
+			failedfiles.put(filename, message);
+			Util.exportJson(resultobject, jsonfilename);
+		} catch (IOException e) {}
+	}
+
+	private static void combineExecutionResult(JSONObject queryResult, String jsonfilename) {
+		try {
+			JSONObject resultobject = Util.loadJson(jsonfilename);
+			long total_findings = resultobject.getLong(ConstantsJSON.TOTAL_FINDINGS);
+	        total_findings += queryResult.getLong(ConstantsJSON.TOTAL_FINDINGS);
+	        resultobject.put(ConstantsJSON.TOTAL_FINDINGS, total_findings);
+
+			long total_incidents = resultobject.getLong(ConstantsJSON.TOTAL_INCIDENCES);
+	    	total_incidents += queryResult.getLong(ConstantsJSON.TOTAL_INCIDENCES);
+	    	resultobject.put(ConstantsJSON.TOTAL_INCIDENCES, total_incidents);
+
+			long total_compliances = resultobject.getLong(ConstantsJSON.TOTAL_COMPLIANCES);
+	    	total_compliances += queryResult.getLong(ConstantsJSON.TOTAL_COMPLIANCES);
+	    	resultobject.put(ConstantsJSON.TOTAL_COMPLIANCES, total_compliances);
+			
+	    	resultobject.getJSONArray(ConstantsJSON.RESULT).put(queryResult);
+
+	    	Util.exportJson(resultobject, jsonfilename);
+		} catch (IOException e) {}
+	}
+
+	public static JSONObject queryConstraintsFilePaths(List<JSONObject> constraints, List<String> datapaths) {
 		JSONArray constraintIDs = new JSONArray();
 		for (JSONObject constraint: constraints)
 			constraintIDs.put(constraint.get(ConstantsJSON.CONSTRAINT_ID));
 
-	    Processor processor = new Processor(false);
+		String jsonfilename =  ServletConstants.tempJsonFileName();
+		initializeExecutionResultFile(datapaths, constraintIDs, jsonfilename);
 
 	    // compile constraints
+	    Processor processor = new Processor(false);
 	    XQueryCompiler compiler = processor.newXQueryCompiler();
 		List<SaxonConstraint> constraintExecutables = new ArrayList<SaxonConstraint>();
 		for (JSONObject constraint: constraints) { 
@@ -151,80 +216,46 @@ public class XQueryProcessorSaxon {
 				}
 				constraintExecutables.add(ce);
 			} catch (Exception e) {
-				failedFiles.put(ConstantsJSON.CONSTRAINT_ID, e.getMessage());
+				addFailedConstraint(constraint.getString(ConstantsJSON.CONSTRAINT_ID), e.getMessage(), jsonfilename);
 			}
 		}
 
-		// files
+		// iterate over files
 	    final DocumentBuilder builder = processor.newDocumentBuilder();
 	    builder.setLineNumbering(BUILDER_LINENUMBERING);
         builder.setWhitespaceStrippingPolicy(WHITESPACESTRIPPING);
 
         for (String path: datapaths) {
 			File file;
+            XdmNode inputDoc;
 			try {
 				file = Util.getAndTestFile(path);
+				inputDoc = builder.build(file);
 				if (file == null) {
-					failedFiles.put(path, ConstantsError.NOT_FOUND_FILEPATH);
+					addFailedFile(path, ConstantsError.NOT_FOUND_FILEPATH, jsonfilename);
 					continue;
 				}
 			} catch (Exception e) {
-				failedFiles.put(path, e.getMessage());
-				continue;
-			}
-
-            XdmNode inputDoc;
-			try {
-				inputDoc = builder.build(file);
-			} catch (SaxonApiException e) {
-				failedFiles.put(path, ConstantsError.NOT_FOUND_FILEPATH);
+				addFailedFile(path, ConstantsError.NOT_FOUND_FILEPATH, jsonfilename);
 				continue;
 			}
 
             for (SaxonConstraint executable: constraintExecutables) {
                 try {
 	                JSONObject queryResult = querySaxonConstraint(processor, file, inputDoc, executable);
-	                total_findings += queryResult.getLong(ConstantsJSON.TOTAL_FINDINGS);
-                	total_incidents += queryResult.getLong(ConstantsJSON.TOTAL_INCIDENCES);
-                	total_compliances += queryResult.getLong(ConstantsJSON.TOTAL_COMPLIANCES);
-	                results.put(queryResult);
+	                combineExecutionResult(queryResult, jsonfilename);
 				} catch (Exception e) {
-					failedConstraints.put(executable.id, e.getMessage());
+					addFailedConstraint(executable.id, e.getMessage(), jsonfilename);
 					ServletUtilities.logError(new InvalidityException("invalid query: " + executable.query, e));
 					continue;
 				} catch (Error e) {
-					failedConstraints.put(executable.id, e.getMessage());
+					addFailedConstraint(executable.id, e.getMessage(), jsonfilename);
 					ServletUtilities.logError(new InvalidityException("invalid query: " + executable.query, e));
 					continue;
 				}
             }
         }
-
-		try {
-			resultobject.put(ConstantsJSON.RESULT, results);
-			resultobject.put(ConstantsJSON.TOTAL_FINDINGS, total_findings);
-			resultobject.put(ConstantsJSON.TOTAL_INCIDENCES, total_incidents);
-			resultobject.put(ConstantsJSON.TOTAL_COMPLIANCES, total_compliances);
-			resultobject.put(ConstantsJSON.FILES, datapaths);
-			resultobject.put(ConstantsJSON.CONSTRAINT_IDS, constraintIDs);
-			resultobject.put(ConstantsJSON.FILESIZE, datapaths.size());
-			resultobject.put(ConstantsJSON.CONSTRAINTSIZE, constraintIDs.length());
-			resultobject.put(ConstantsJSON.DURATION, System.nanoTime() - starttime);
-			if (!failedFiles.isEmpty()) {
-				resultobject.put(ConstantsJSON.FAILEDFILES, failedFiles);
-			}
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-		try {
-			if (!failedConstraints.isEmpty()) {
-				resultobject.put(ConstantsJSON.FAILEDCONSTRAINTS, failedConstraints);
-			}
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-		
-		return resultobject;
+        return getFinalExecutionResultFile(jsonfilename);
 	}
 
 	private static JSONObject querySaxonConstraint(Processor processor, File file, XdmNode inputDoc, SaxonConstraint executable) throws SaxonApiException, SaxonApiUncheckedException, InvalidityException {
