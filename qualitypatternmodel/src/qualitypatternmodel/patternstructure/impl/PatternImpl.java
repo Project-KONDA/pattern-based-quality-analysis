@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.json.JSONObject;
 import qualitypatternmodel.adaptionneo4j.NeoEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElement;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -56,8 +57,7 @@ import qualitypatternmodel.utility.JavaQueryTranslationUtility;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getCondition <em>Condition</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getPartialXmlQuery <em>Partial Xml Query</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getXmlQuery <em>Xml Query</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getQueries <em>Queries</em>}</li>
  * </ul>
  *
  * @generated

@@ -742,8 +742,8 @@
           eType="#//graphstructure/Graph" containment="true" eOpposite="#//graphstructure/Graph/pattern"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//patternstructure/Condition"
           containment="true" eOpposite="#//patternstructure/Condition/pattern"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="partialXmlQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="xmlQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="queries" eType="#//textrepresentation/JSONObjectWrapper"
+          defaultValueLiteral="null"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberElement" eSuperTypes="#//patternstructure/CountConditionArgument">
       <eOperations name="createParameters"/>

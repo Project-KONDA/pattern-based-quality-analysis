@@ -918,8 +918,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public void resetQuery() {
-		setXmlQuery(null);
-		setPartialXmlQuery(null);
+		getQueries().remove(Constants.XQUERY);
+		getQueries().remove(Constants.XQUERY_PARTIAL);
+		getQueries().remove(Constants.XQUERY_JAVA);
 	}
 
 	/**

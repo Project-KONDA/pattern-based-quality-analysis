@@ -1956,22 +1956,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN__CONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Partial Xml Query</b></em>' attribute.
+	 * The feature id for the '<em><b>Queries</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN__PARTIAL_XML_QUERY = PATTERN_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Xml Query</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN__XML_QUERY = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int PATTERN__QUERIES = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Pattern</em>' class.
@@ -1980,7 +1971,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int PATTERN_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2308,22 +2299,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__CONDITION = PATTERN__CONDITION;
 
 	/**
-	 * The feature id for the '<em><b>Partial Xml Query</b></em>' attribute.
+	 * The feature id for the '<em><b>Queries</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__PARTIAL_XML_QUERY = PATTERN__PARTIAL_XML_QUERY;
-
-	/**
-	 * The feature id for the '<em><b>Xml Query</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN__XML_QUERY = PATTERN__XML_QUERY;
+	int COMPLETE_PATTERN__QUERIES = PATTERN__QUERIES;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' containment reference.
@@ -4365,22 +4347,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN__CONDITION = PATTERN__CONDITION;
 
 	/**
-	 * The feature id for the '<em><b>Partial Xml Query</b></em>' attribute.
+	 * The feature id for the '<em><b>Queries</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN__PARTIAL_XML_QUERY = PATTERN__PARTIAL_XML_QUERY;
-
-	/**
-	 * The feature id for the '<em><b>Xml Query</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_PATTERN__XML_QUERY = PATTERN__XML_QUERY;
+	int COUNT_PATTERN__QUERIES = PATTERN__QUERIES;
 
 	/**
 	 * The feature id for the '<em><b>Morphism</b></em>' containment reference.
@@ -6173,26 +6146,15 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getPattern_Condition();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Pattern#getPartialXmlQuery <em>Partial Xml Query</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Pattern#getQueries <em>Queries</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Partial Xml Query</em>'.
-	 * @see qualitypatternmodel.patternstructure.Pattern#getPartialXmlQuery()
+	 * @return the meta object for the attribute '<em>Queries</em>'.
+	 * @see qualitypatternmodel.patternstructure.Pattern#getQueries()
 	 * @see #getPattern()
 	 * @generated
 	 */
-	EAttribute getPattern_PartialXmlQuery();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Pattern#getXmlQuery <em>Xml Query</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Xml Query</em>'.
-	 * @see qualitypatternmodel.patternstructure.Pattern#getXmlQuery()
-	 * @see #getPattern()
-	 * @generated
-	 */
-	EAttribute getPattern_XmlQuery();
+	EAttribute getPattern_Queries();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#checkMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}' operation.
@@ -7197,20 +7159,12 @@ public interface PatternstructurePackage extends EPackage {
 		EReference PATTERN__CONDITION = eINSTANCE.getPattern_Condition();
 
 		/**
-		 * The meta object literal for the '<em><b>Partial Xml Query</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Queries</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PATTERN__PARTIAL_XML_QUERY = eINSTANCE.getPattern_PartialXmlQuery();
-
-		/**
-		 * The meta object literal for the '<em><b>Xml Query</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PATTERN__XML_QUERY = eINSTANCE.getPattern_XmlQuery();
+		EAttribute PATTERN__QUERIES = eINSTANCE.getPattern_Queries();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Morphism Of Next Graph</b></em>' operation.

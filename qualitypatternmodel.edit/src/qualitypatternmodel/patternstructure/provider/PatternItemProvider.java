@@ -52,8 +52,7 @@ public class PatternItemProvider extends PatternElementItemProvider {
 
 			addGraphPropertyDescriptor(object);
 			addConditionPropertyDescriptor(object);
-			addPartialXmlQueryPropertyDescriptor(object);
-			addXmlQueryPropertyDescriptor(object);
+			addQueriesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -103,41 +102,19 @@ public class PatternItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Partial Xml Query feature.
+	 * This adds a property descriptor for the Queries feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPartialXmlQueryPropertyDescriptor(Object object) {
+	protected void addQueriesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Pattern_partialXmlQuery_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pattern_partialXmlQuery_feature", "_UI_Pattern_type"),
-				 PatternstructurePackage.Literals.PATTERN__PARTIAL_XML_QUERY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Xml Query feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addXmlQueryPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Pattern_xmlQuery_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pattern_xmlQuery_feature", "_UI_Pattern_type"),
-				 PatternstructurePackage.Literals.PATTERN__XML_QUERY,
+				 getString("_UI_Pattern_queries_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Pattern_queries_feature", "_UI_Pattern_type"),
+				 PatternstructurePackage.Literals.PATTERN__QUERIES,
 				 true,
 				 false,
 				 false,
@@ -204,8 +181,7 @@ public class PatternItemProvider extends PatternElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Pattern.class)) {
-			case PatternstructurePackage.PATTERN__PARTIAL_XML_QUERY:
-			case PatternstructurePackage.PATTERN__XML_QUERY:
+			case PatternstructurePackage.PATTERN__QUERIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case PatternstructurePackage.PATTERN__GRAPH:
