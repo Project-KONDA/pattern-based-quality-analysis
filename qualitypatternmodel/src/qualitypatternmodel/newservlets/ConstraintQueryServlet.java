@@ -127,7 +127,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 	}
 
 
-	static JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
+	public static JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
 		JSONObject json = new JSONObject();
 
 		// 1 info
@@ -135,7 +135,8 @@ public class ConstraintQueryServlet extends HttpServlet {
 		json.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
 		json.put(ConstantsJSON.TECHNOLOGY, pattern.getLanguage().getLiteral());
 		json.put(ConstantsJSON.TEMPLATE_ID, pattern.getAbstractId());
-		json.put(ConstantsJSON.VARIANT_ID, pattern.getText().get(0).getName());
+		if (pattern.getText().size() > 0)
+			json.put(ConstantsJSON.VARIANT_ID, pattern.getText().get(0).getName());
 		if (pattern.getText() != null && pattern.getText().size()>0) {
 			PatternText text = pattern.getText().get(0);
 			if (text.getCustom() != null && !text.getCustom().isEmpty()) {
@@ -146,18 +147,17 @@ public class ConstraintQueryServlet extends HttpServlet {
 		// 2 query
 		try {
 			if (technology.equals(Constants.XML)) {
-				String xquery;
+				String xquery = pattern.generateXQuery();
+				json.put(ConstantsJSON.QUERY, xquery);
+				json.put(ConstantsJSON.QUERY_LINE, ServletUtilities.makeQueryOneLine(xquery));
 				if (pattern.containsJavaOperator()) {
 					JavaFilter filter = pattern.generateQueryFilter();
 					JSONObject serializedFilter = filter.toJson();
 					json.put(ConstantsJSON.FILTER, serializedFilter);
-					xquery = pattern.generateXQueryJava();
+					String xqueryjava = pattern.generateXQueryJava();
+					json.put(Constants.XQUERY_JAVA, xqueryjava);
 				}
-				else 
-					xquery = pattern.generateXQuery();
-				json.put(ConstantsJSON.QUERY, xquery);
-				json.put(ConstantsJSON.QUERY_LINE, ServletUtilities.makeQueryOneLine(xquery));
-				String xquerypartial = pattern.getPartialXmlQuery();
+				String xquerypartial = pattern.getQueries().getString(Constants.XQUERY_PARTIAL);
 				json.put(ConstantsJSON.QUERY_PARTIAL, xquerypartial);
 				json.put(ConstantsJSON.QUERY_PARTIAL_LINE, ServletUtilities.makeQueryOneLine(xquerypartial));
 				json.put(ConstantsJSON.LANGUAGE, Constants.XQUERY);
