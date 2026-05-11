@@ -63,6 +63,7 @@ import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.textrepresentation.impl.ValueMapImpl;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.ConstantsRdf;
 import qualitypatternmodel.utility.ConstantsXml;
@@ -571,38 +572,34 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		if (containsJavaOperator()) {
-			throw new InvalidityException("This pattern cannot be executed via default XQuery. A custom Java Filter build is required.");
-		}
 		return super.generateXQuery();
 	}
 
 	@Override
 	public String generateXQueryJava() throws InvalidityException {
 		if (!containsJavaOperator()) {
-			return generateXQuery();
+			return null;
 		}
-		initializeTranslation();
 
 		String preClauses = "";
 		if (this instanceof CompletePattern) {
 			initializeTranslation();
 			CompletePattern t = (CompletePattern) this;
+			t.getGraph().generateXQuery();
 			if (t.getNamespaces() != null && !t.getNamespaces().isEmpty()) {
 				preClauses = t.generateXQueryNamespaces();
 			}
 		}
 		preClauses += getParameterList().generateXQuery();
 		String res =  super.generateXQueryJava();
-		if (res.startsWith("\n")) {
-			res = res.substring(1);
-		}
 		res = preClauses + res;
 
-		if (getPartialXmlQuery().startsWith("\n")) {
-			setPartialXmlQuery(getPartialXmlQuery().substring(1));
+		if (queries.has(Constants.XQUERY_PARTIAL)) {
+			if (getQueries().getString(Constants.XQUERY_PARTIAL).startsWith("\n")) {
+				getQueries().put(Constants.XQUERY_PARTIAL, getQueries().getString(Constants.XQUERY_PARTIAL).substring(1));
+			}
+			getQueries().put(Constants.XQUERY_PARTIAL, preClauses + getQueries().getString(Constants.XQUERY_PARTIAL));	
 		}
-		setPartialXmlQuery(preClauses + getPartialXmlQuery());
 		return res;
 	}
 
