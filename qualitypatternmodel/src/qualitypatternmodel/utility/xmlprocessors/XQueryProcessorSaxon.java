@@ -151,7 +151,9 @@ public class XQueryProcessorSaxon {
 		JSONObject resultobject;
 		try {
 			resultobject = Util.loadJson(jsonfilename);
-			JSONObject failedconstraints = resultobject.optJSONObject(ConstantsJSON.FAILEDCONSTRAINTS, new JSONObject()); 
+			JSONObject failedconstraints = resultobject.optJSONObject(ConstantsJSON.FAILEDCONSTRAINTS);
+			if (failedconstraints == null)
+				failedconstraints = new JSONObject();
 			failedconstraints.put(constraintID, message);
 			Util.exportJson(resultobject, jsonfilename);
 		} catch (IOException e) {}
@@ -161,7 +163,9 @@ public class XQueryProcessorSaxon {
 		JSONObject resultobject;
 		try {
 			resultobject = Util.loadJson(jsonfilename);
-			JSONObject failedfiles = resultobject.optJSONObject(ConstantsJSON.FAILEDFILES, new JSONObject()); 
+			JSONObject failedfiles = resultobject.optJSONObject(ConstantsJSON.FAILEDFILES); 
+			if (failedfiles == null)
+				failedfiles = new JSONObject();
 			failedfiles.put(filename, message);
 			Util.exportJson(resultobject, jsonfilename);
 		} catch (IOException e) {}
