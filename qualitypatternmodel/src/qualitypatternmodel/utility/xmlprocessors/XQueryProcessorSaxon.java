@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -53,6 +54,10 @@ public class XQueryProcessorSaxon {
 	}
 
 	public static JSONArray executeQueryFile(String query, String filepath) throws InvalidityException {
+		return executeQueryFile(query, Map.of(), filepath);
+	}
+
+	public static JSONArray executeQueryFile(String query, Map<String, String> relativeQueries, String filepath) throws InvalidityException {
 		final String testedQuery = testAndFormatQuery(query);
 		final File inputFile = Util.getAndTestFile(filepath);
 
@@ -78,7 +83,16 @@ public class XQueryProcessorSaxon {
 	
 	            // Evaluate results
 	            for (XdmItem item : evaluator) {
-	            	if (NOSKIPS || !skipXdmItem(item))
+	            	if (NOSKIPS || !skipXdmItem(item)) {
+	                	JSONObject output = formatItemJSON(item, processor);
+	                	for (String key: relativeQueries.keySet()) {
+	                		try {
+		                		JSONArray partres = queryRelativeQuery(item, relativeQueries.get(key), processor); 
+		                		output.put(key, partres);
+	                		} catch (Exception e) {}
+	                	}
+	                	outcome.put(output);
+	                }
 	            		outcome.put(formatItemJSON(item, processor));
 	            }
 	        } catch (SaxonApiException e) {
@@ -103,6 +117,27 @@ public class XQueryProcessorSaxon {
 	    } finally {
 	        executor.shutdownNow();
 	    }
+	}
+
+	private static JSONArray queryRelativeQuery(XdmItem contextItem, String relativeQuery, Processor processor) throws SaxonApiException {
+
+	    JSONArray result = new JSONArray();
+	    XQueryCompiler compiler = processor.newXQueryCompiler();
+	    XQueryExecutable executable = compiler.compile(relativeQuery);
+	    XQueryEvaluator evaluator = executable.load();
+	    evaluator.setContextItem(contextItem);
+	    for (XdmItem item : evaluator) {
+	        if (item.isAtomicValue()) {
+	            result.put(item.getStringValue());
+	        }
+	        else if (item instanceof XdmNode) {
+	            result.put(item.toString());
+	        }
+	        else {
+	            result.put(item.getStringValue());
+	        }
+	    }
+	    return result;
 	}
 
 	public static class SaxonConstraint {
