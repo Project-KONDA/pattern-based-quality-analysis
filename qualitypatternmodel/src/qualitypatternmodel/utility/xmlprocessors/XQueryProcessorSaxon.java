@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -54,10 +53,10 @@ public class XQueryProcessorSaxon {
 	}
 
 	public static JSONArray executeQueryFile(String query, String filepath) throws InvalidityException {
-		return executeQueryFile(query, Map.of(), filepath);
+		return executeQueryFile(query, null, filepath);
 	}
 
-	public static JSONArray executeQueryFile(String query, Map<String, String> relativeQueries, String filepath) throws InvalidityException {
+	public static JSONArray executeQueryFile(String query, JSONObject relativeQueries, String filepath) throws InvalidityException {
 		final String testedQuery = testAndFormatQuery(query);
 		final File inputFile = Util.getAndTestFile(filepath);
 
@@ -85,11 +84,13 @@ public class XQueryProcessorSaxon {
 	            for (XdmItem item : evaluator) {
 	            	if (NOSKIPS || !skipXdmItem(item)) {
 	                	JSONObject output = formatItemJSON(item, processor);
-	                	for (String key: relativeQueries.keySet()) {
-	                		try {
-		                		JSONArray partres = queryRelativeQuery(item, relativeQueries.get(key), processor); 
-		                		output.put(key, partres);
-	                		} catch (Exception e) {}
+	                	if (relativeQueries != null) {
+		                	for (String key: relativeQueries.keySet()) {
+		                		try {
+			                		JSONArray partres = queryRelativeQuery(item, relativeQueries.getString(key), processor); 
+			                		output.put(key, partres);
+		                		} catch (Exception e) {}
+		                	}
 	                	}
 	                	outcome.put(output);
 	                }
@@ -146,7 +147,7 @@ public class XQueryProcessorSaxon {
 	    public XQueryExecutable query_total_executable;
 	    public JSONObject filter;
 	    public JSONObject custom;
-	    public Map<String, String> relativeQueries = Map.of();
+	    public JSONObject relativeQueries;
 	}
 
 	private static void initializeExecutionResultFile(List<String> datapaths, JSONArray constraintIDs, String jsonfilename) {
@@ -252,6 +253,9 @@ public class XQueryProcessorSaxon {
 				if (constraint.has(ConstantsJSON.FILTER)) {
 					ce.filter = constraint.getJSONObject(ConstantsJSON.FILTER);
 				}
+				if (constraint.has(ConstantsJSON.RELATIVEQUERIES)) {
+					ce.relativeQueries = constraint.getJSONObject(ConstantsJSON.RELATIVEQUERIES);
+				}
 				constraintExecutables.add(ce);
 			} catch (Exception e) {
 				addFailedConstraint(constraint.getString(ConstantsJSON.CONSTRAINT_ID), e.getMessage(), jsonfilename);
@@ -317,11 +321,13 @@ public class XQueryProcessorSaxon {
         for (XdmItem item : eval) {
         	if (NOSKIPS || !skipXdmItem(item)) {
             	JSONObject output = formatItemJSON(item, processor);
-            	for (String key: executable.relativeQueries.keySet()) {
-            		try {
-                		JSONArray partres = queryRelativeQuery(item, executable.relativeQueries.get(key), processor); 
-                		output.put(key, partres);
-            		} catch (Exception e) {}
+            	if(executable.relativeQueries != null) {
+	            	for (String key: executable.relativeQueries.keySet()) {
+	            		try {
+	                		JSONArray partres = queryRelativeQuery(item, executable.relativeQueries.getString(key), processor); 
+	                		output.put(key, partres);
+	            		} catch (Exception e) {}
+	            	}
             	}
             	incidents.put(output);
             }

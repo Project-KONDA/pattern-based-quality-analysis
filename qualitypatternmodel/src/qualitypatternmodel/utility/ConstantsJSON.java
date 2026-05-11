@@ -88,6 +88,7 @@ public class ConstantsJSON {
 	public static final String QUERY_PARTIAL = "queryPartial";
 	public static final String QUERY_PARTIAL_LINE = "queryPartialLine";
 	public static final String FILTER = "filter";
+	public static final String RELATIVEQUERIES = "relativeQueries";
 	public static final String CONSTRAINT = "constraint";
 	public static final String CONSTRAINTS = "constraints";
 	public static final String CONSTRAINTSIZE = "constraintsize";
