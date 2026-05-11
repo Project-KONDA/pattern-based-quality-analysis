@@ -260,7 +260,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 
 		JSONObject result = new JSONObject();
 		try {
-			result.put("patternId", getPatternId());
+//			result.put("patternId", getPatternId());
 			result.put("patternName", getPatternName());
 			result.put("query", getQuery());
 			result.put("language", getLanguage().getName());

@@ -135,6 +135,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 		json.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
 		json.put(ConstantsJSON.TECHNOLOGY, pattern.getLanguage().getLiteral());
 		json.put(ConstantsJSON.TEMPLATE_ID, pattern.getAbstractId());
+		json.put(ConstantsJSON.RELATIVEQUERIES, new JSONObject());
 		if (pattern.getText().size() > 0)
 			json.put(ConstantsJSON.VARIANT_ID, pattern.getText().get(0).getName());
 		if (pattern.getText() != null && pattern.getText().size()>0) {
@@ -155,7 +156,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 					JSONObject serializedFilter = filter.toJson();
 					json.put(ConstantsJSON.FILTER, serializedFilter);
 					String xqueryjava = pattern.generateXQueryJava();
-					json.put(Constants.XQUERY_JAVA, xqueryjava);
+					json.getJSONObject(ConstantsJSON.RELATIVEQUERIES).put(ConstantsJSON.QUERY_FILTER, xqueryjava);
 				}
 				String xquerypartial = pattern.getQueries().getString(Constants.XQUERY_PARTIAL);
 				json.put(ConstantsJSON.QUERY_PARTIAL, xquerypartial);
