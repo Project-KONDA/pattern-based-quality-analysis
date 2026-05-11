@@ -93,7 +93,6 @@ public class XQueryProcessorSaxon {
 	                	}
 	                	outcome.put(output);
 	                }
-	            		outcome.put(formatItemJSON(item, processor));
 	            }
 	        } catch (SaxonApiException e) {
 	            throw new InvalidityException("Saxon error with query: " + testedQuery + " [" + e.getMessage() + "]", e);
@@ -120,7 +119,6 @@ public class XQueryProcessorSaxon {
 	}
 
 	private static JSONArray queryRelativeQuery(XdmItem contextItem, String relativeQuery, Processor processor) throws SaxonApiException {
-
 	    JSONArray result = new JSONArray();
 	    XQueryCompiler compiler = processor.newXQueryCompiler();
 	    XQueryExecutable executable = compiler.compile(relativeQuery);
@@ -148,6 +146,7 @@ public class XQueryProcessorSaxon {
 	    public XQueryExecutable query_total_executable;
 	    public JSONObject filter;
 	    public JSONObject custom;
+	    public Map<String, String> relativeQueries = Map.of();
 	}
 
 	private static void initializeExecutionResultFile(List<String> datapaths, JSONArray constraintIDs, String jsonfilename) {
@@ -311,10 +310,19 @@ public class XQueryProcessorSaxon {
 		XQueryEvaluator eval = executable.query_executable.load();
 		eval.setContextItem(inputDoc);
 
-		for (XdmItem item : eval) {
-			if (NOSKIPS || !skipXdmItem(item))
-				incidents.put(formatItemJSON(item, processor));
-		}
+        for (XdmItem item : eval) {
+        	if (NOSKIPS || !skipXdmItem(item)) {
+            	JSONObject output = formatItemJSON(item, processor);
+            	for (String key: executable.relativeQueries.keySet()) {
+            		try {
+                		JSONArray partres = queryRelativeQuery(item, executable.relativeQueries.get(key), processor); 
+                		output.put(key, partres);
+            		} catch (Exception e) {}
+            	}
+            	incidents.put(output);
+            }
+        }
+		
 		if (executable.filter != null) {
 			JavaFilter filter = JavaFilterImpl.fromJson(executable.filter);
 			incidents = filter.filter(incidents);
