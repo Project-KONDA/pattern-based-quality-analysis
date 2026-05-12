@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.ContainerResult;
@@ -55,6 +56,13 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 	 */
 	protected InterimResultImpl() {
 		super();
+	}
+
+	static InterimResult createNew(InterimResultPart corresponding, JSONObject interimObject) throws InvalidityException {
+		JSONArray array = new JSONArray();
+		array.put(interimObject);
+		return createNew(corresponding, array);
+		
 	}
 	
 	static InterimResult createNew(InterimResultPart corresponding, JSONArray interimArray) throws InvalidityException {

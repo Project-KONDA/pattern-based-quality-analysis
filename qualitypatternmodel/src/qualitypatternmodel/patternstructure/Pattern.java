@@ -78,13 +78,13 @@ public interface Pattern extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Queries</b></em>' attribute.
-	 * The default value is <code>"null"</code>.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Queries</em>' attribute.
 	 * @see #setQueries(JSONObject)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_Queries()
-	 * @model default="null" dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
+	 * @model default="" dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
 	JSONObject getQueries();

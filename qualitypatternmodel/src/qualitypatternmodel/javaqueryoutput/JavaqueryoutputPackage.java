@@ -605,7 +605,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERIM_RESULT_CONTAINER___INITIALIZE__STRING = 1;
+	int INTERIM_RESULT_CONTAINER___INITIALIZE__JSONOBJECT = 1;
 
 	/**
 	 * The number of operations of the '<em>Interim Result Container</em>' class.
@@ -909,14 +909,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EOperation getInterimResultContainer__IsValidToStructure();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(java.lang.String) <em>Initialize</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(org.json.JSONObject) <em>Initialize</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Initialize</em>' operation.
-	 * @see qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(java.lang.String)
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(org.json.JSONObject)
 	 * @generated
 	 */
-	EOperation getInterimResultContainer__Initialize__String();
+	EOperation getInterimResultContainer__Initialize__JSONObject();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1191,7 +1191,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation INTERIM_RESULT_CONTAINER___INITIALIZE__STRING = eINSTANCE.getInterimResultContainer__Initialize__String();
+		EOperation INTERIM_RESULT_CONTAINER___INITIALIZE__JSONOBJECT = eINSTANCE.getInterimResultContainer__Initialize__JSONObject();
 
 	}
 

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
@@ -18,8 +19,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
-import qualitypatternmodel.utility.JavaQueryTranslationUtility;
-import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
+import qualitypatternmodel.utility.ConstantsJSON;
 
 /**
  * <!-- begin-user-doc -->
@@ -128,11 +128,12 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 	 * @generated NOT
 	 */
 	@Override
-	public Boolean initialize(String value) throws InvalidityException {
-		JSONArray retur = XmlServletUtility.extractFromSnippet(value, "/*[name()='" + JavaQueryTranslationUtility.INTERIM + "']/*[name()='" + JavaQueryTranslationUtility.RETURN + "']");
+	public Boolean initialize(JSONObject interim) throws InvalidityException {
+		JSONArray condi = interim.getJSONArray(ConstantsJSON.QUERY_FILTER);
+		JSONObject retur = new JSONObject(interim.toString());
+		retur.remove(ConstantsJSON.QUERY_FILTER);
 		if (retur.length() == 0)
 			return false;
-		JSONArray condi = XmlServletUtility.extractFromSnippet(value, "/*[name()='" + JavaQueryTranslationUtility.INTERIM + "']/*[name()='" + JavaQueryTranslationUtility.CONDITION + "']");
 		
 		InterimResult returnInterim = InterimResultImpl.createNew(getCorrespondsTo().getRecord(), retur);
 		InterimResult paramInterim = InterimResultImpl.createNew(getCorrespondsTo().getSubstructure(), condi);
@@ -387,9 +388,9 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 		switch (operationID) {
 			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___IS_VALID_TO_STRUCTURE:
 				return isValidToStructure();
-			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___INITIALIZE__STRING:
+			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___INITIALIZE__JSONOBJECT:
 				try {
-					return initialize((String)arguments.get(0));
+					return initialize((JSONObject)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

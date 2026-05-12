@@ -594,12 +594,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		String res =  super.generateXQueryJava();
 		res = preClauses + res;
 
-		if (queries.has(Constants.XQUERY_PARTIAL)) {
-			if (getQueries().getString(Constants.XQUERY_PARTIAL).startsWith("\n")) {
-				getQueries().put(Constants.XQUERY_PARTIAL, getQueries().getString(Constants.XQUERY_PARTIAL).substring(1));
-			}
-			getQueries().put(Constants.XQUERY_PARTIAL, preClauses + getQueries().getString(Constants.XQUERY_PARTIAL));	
-		}
 		return res;
 	}
 
