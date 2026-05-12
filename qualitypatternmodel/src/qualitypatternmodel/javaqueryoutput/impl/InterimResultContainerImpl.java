@@ -20,6 +20,8 @@ import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.JavaQueryTranslationUtility;
+import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 /**
  * <!-- begin-user-doc -->
@@ -129,9 +131,14 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 	 */
 	@Override
 	public Boolean initialize(JSONObject interim) throws InvalidityException {
-		JSONArray condi = interim.getJSONArray(ConstantsJSON.QUERY_FILTER);
-		JSONObject retur = new JSONObject(interim.toString());
-		retur.remove(ConstantsJSON.QUERY_FILTER);
+		
+		String value = interim.getJSONArray(ConstantsJSON.QUERY_FILTER).getString(0);
+		interim.remove(ConstantsJSON.QUERY_FILTER);
+		JSONArray retur = XmlServletUtility.extractFromSnippet(value, "/*[name()='" + JavaQueryTranslationUtility.INTERIM + "']/*[name()='" + JavaQueryTranslationUtility.RETURN + "']");
+		JSONArray condi = XmlServletUtility.extractFromSnippet(value, "/*[name()='" + JavaQueryTranslationUtility.INTERIM + "']/*[name()='" + JavaQueryTranslationUtility.CONDITION + "']");
+
+		interim.remove(ConstantsJSON.QUERY_FILTER);
+		
 		if (retur.length() == 0)
 			return false;
 		

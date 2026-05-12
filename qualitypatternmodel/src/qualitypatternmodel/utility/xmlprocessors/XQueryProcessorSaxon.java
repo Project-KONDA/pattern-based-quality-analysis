@@ -439,7 +439,7 @@ public class XQueryProcessorSaxon {
             Processor processor = new Processor(false); // false = no schema-aware features
             XQueryCompiler compiler = processor.newXQueryCompiler();
             compiler.compile(query);
-        } catch (SaxonApiException e) {
+        } catch (Exception e) {
             throw new InvalidityException("Invalid XQuery: \"" + query + "\" " + e.getMessage(), e);
         }
 	}

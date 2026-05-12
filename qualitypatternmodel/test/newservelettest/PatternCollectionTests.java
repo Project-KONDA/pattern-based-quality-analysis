@@ -95,7 +95,7 @@ public class PatternCollectionTests {
 		switch(pattern.getLanguage()) {
 		case XML: {
 			PatternUtility.fillParameter(pattern);
-			String query = pattern.generateXQueryJava();
+			String query = pattern.generateXQuery();
 			validateXQuery(query);
 			break;
 		}
