@@ -235,10 +235,9 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public JSONArray filter(JSONArray array) throws InvalidityException {
-
+	public JSONArray filter(JSONArray incidents) throws InvalidityException {
 		// import Query Results
-		createInterimResultContainerXQuery(array);
+		createInterimResultContainerXQuery(incidents);
 
 		for (InterimResultContainer interim: getInterimResults()) {
 			if (!interim.isValidToStructure()) {
@@ -286,13 +285,17 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 
 	public static JavaFilter fromJson(JSONObject jsonObject) throws InvalidityException, JSONException {
 		JavaFilter filter = new JavaFilterImpl();
-		filter.setPatternId(jsonObject.getString("patternId"));
-		filter.setPatternId(jsonObject.getString("patternName"));
-		filter.setQuery(jsonObject.getString("query"));
-		filter.setLanguage(Language.valueOf(jsonObject.getString("language")));
+		if (jsonObject.has("patternName"))
+			filter.setPatternId(jsonObject.getString("patternName"));
+		else if (jsonObject.has("patternId"))
+			filter.setPatternId(jsonObject.getString("patternId"));
+		if (jsonObject.has(ConstantsJSON.QUERY))
+			filter.setQuery(jsonObject.getString(ConstantsJSON.QUERY));
+		if (jsonObject.has(ConstantsJSON.LANGUAGE))
+			filter.setLanguage(Language.valueOf(jsonObject.getString(ConstantsJSON.LANGUAGE)));
 
-		JSONObject structurejson = jsonObject.getJSONObject("structure");
-		JSONObject filterjson = jsonObject.getJSONObject("filter");
+		JSONObject structurejson = jsonObject.getJSONObject(ConstantsJSON.STRUCTURE);
+		JSONObject filterjson = jsonObject.getJSONObject(ConstantsJSON.FILTER);
 		
 		InterimResultStructureImpl structure = InterimResultStructureImpl.fromJson(structurejson);
 		filter.setStructure(structure);
@@ -323,12 +326,12 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public void createInterimResultContainerXQuery(JSONArray list) throws InvalidityException {
+	public void createInterimResultContainerXQuery(JSONArray incidents) throws InvalidityException {
 //	public void createInterimResultContainerXQuery(List<String> objectList) throws InvalidityException {
 		getInterimResults().clear();
 		
-		for (int i = 0; i < list.length(); i++) {
-			JSONObject interim = list.getJSONObject(i);
+		for (int i = 0; i <incidents.length(); i++) {
+			JSONObject interim = incidents.getJSONObject(i);
 			InterimResultContainer interimresult = new InterimResultContainerImpl(getStructure());
 			if (interimresult.initialize(interim))
 				getInterimResults().add(interimresult);
