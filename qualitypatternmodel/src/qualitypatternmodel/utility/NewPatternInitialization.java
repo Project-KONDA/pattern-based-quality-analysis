@@ -4,6 +4,22 @@ import java.io.IOException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+
+/* 
+ * 	Initialization script of a new Pattern from a GitLab-Template-Request
+ * 
+ *	1. copy the description into the info String and execute the skript
+ * 		reset changes if it detects errors in the info
+ * 		if necessary, fix errors in the info.  
+ *	2. create Pattern file in src/qualitypatternmodel/newservlets/patterns / ? / ..Pattern.java extending PatternClass
+ * 		implement public CompletePattern getPattern()
+ *	3. register new Pattern class in src/qualitypatternmodel/newservlets/initialization/PatternCollection.java
+ * 	4. adapt created variant-JSON file in src/qualitypatternmodel/newservlets/jsons and move to correct folder
+ * 		best to print parameters via pattern.printParameters(false);
+ * 	5. execute newservelettest.xmlapitests.APIVariantsXMLTest to verify pattern, registration and variant specification
+ * 
+ */
+
 public class NewPatternInitialization {
 	
 	static String info = "🚀 Template Request\r\n"
