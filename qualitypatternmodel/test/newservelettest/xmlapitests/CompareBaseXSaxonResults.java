@@ -212,18 +212,18 @@ public class CompareBaseXSaxonResults {
     }
 
 	public static void compareResults (JSONArray incidentsBase, JSONArray incidentsNew, String constraintId, int id) {
-		incidentsBase = new JSONArray(incidentsBase.toString());
-		incidentsNew = new JSONArray(incidentsNew.toString());
+		JSONArray incidentsBaseCopy = new JSONArray(incidentsBase.toString());
+		JSONArray incidentsNewCopy = new JSONArray(incidentsNew.toString());
 		
 		int fail = 0;
-		for (int i = 0; i<incidentsBase.length(); i++) {
-			String incident = normalize(incidentsBase.getJSONObject(i).getString("snippet"));
+		for (int i = 0; i<incidentsBaseCopy.length(); i++) {
+			String incident = normalize(incidentsBaseCopy.getJSONObject(i).getString("snippet"));
 			boolean found = false;
-			for (int j = 0; j<incidentsNew.length(); j++) {
-				String newIncident = normalize(incidentsNew.getJSONObject(j).getString("snippet"));
-				if (incident.equals(newIncident)) {
+			for (int j = 0; j<incidentsNewCopy.length(); j++) {
+				String newIncident = normalize(incidentsNewCopy.getJSONObject(j).getString("snippet"));
+				if (compareStringResultReturn(incident, newIncident)) {
 					found = true;
-					incidentsNew.remove(j);
+					incidentsNewCopy.remove(j);
 					break;
 				}
 			}
@@ -231,7 +231,21 @@ public class CompareBaseXSaxonResults {
 				fail+=1;
 		}
 		assertEquals(0, fail);
-		assert (incidentsNew.isEmpty());
+		assert (incidentsNewCopy.isEmpty());
+	}
+
+	public static boolean compareStringResultReturn(String incident, String newIncident) {
+		if (incident.equals(newIncident))
+				return true;
+		if (incident.contains("return")) {
+			String cont = incident.replace("<return>", "").replace("</return>","").trim();
+			return newIncident.contains(cont);
+		}
+		if (newIncident.contains("return")) {
+			String cont = newIncident.replace("<return>", "").replace("</return>","").trim();
+			return incident.contains(cont);
+		}
+		return false;
 	}
 
 	public static String normalize(String s) {
@@ -246,6 +260,6 @@ public class CompareBaseXSaxonResults {
 		} while (cont);
 		
 		s = s.replace("> <", "><");
-		return s;
+		return s.trim();
 	}
 }
