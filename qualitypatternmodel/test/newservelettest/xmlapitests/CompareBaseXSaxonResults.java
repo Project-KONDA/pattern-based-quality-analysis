@@ -177,6 +177,9 @@ public class CompareBaseXSaxonResults {
     @MethodSource("baseKeysOneTwo")
 	public void compareResults_incidents_total(String constraintId, int id) {
 		JSONObject resultBase = version_base.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id);
+		if (version_new.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").length() < id)
+			System.out.println(version_new.getJSONObject(constraintId).getJSONObject("result"));
+			
 		JSONObject resultNew = version_new.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id);
 		assertEquals(resultBase.getNumber("totalIncidents"), resultNew.getNumber("totalIncidents"));
 	}
@@ -236,12 +239,12 @@ public class CompareBaseXSaxonResults {
 
 		int len = s.length();
 		boolean cont = true;
-		
 		do {
 			len = s.length();
 			s = s.replace("  ", " ");
 			cont = s.length() < len;
 		} while (cont);
+		
 		s = s.replace("> <", "><");
 		return s;
 	}

@@ -39,6 +39,9 @@ import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
  * @generated
  */
 public class InterimResultContainerImpl extends MinimalEObjectImpl.Container implements InterimResultContainer {
+	
+	public JSONObject result = null;
+	
 	/**
 	 * The cached value of the '{@link #getCorrespondsTo() <em>Corresponds To</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -134,15 +137,14 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 		
 		String value = interim.getJSONArray(ConstantsJSON.QUERY_FILTER).getString(0);
 		interim.remove(ConstantsJSON.QUERY_FILTER);
-		JSONArray retur = XmlServletUtility.extractFromSnippet(value, "/*[name()='" + JavaQueryTranslationUtility.INTERIM + "']/*[name()='" + JavaQueryTranslationUtility.RETURN + "']");
+		result = interim;
+//		JSONArray retur = XmlServletUtility.extractFromSnippet(value, "/*[name()='" + JavaQueryTranslationUtility.INTERIM + "']/*[name()='" + JavaQueryTranslationUtility.RETURN + "']");
 		JSONArray condi = XmlServletUtility.extractFromSnippet(value, "/*[name()='" + JavaQueryTranslationUtility.INTERIM + "']/*[name()='" + JavaQueryTranslationUtility.CONDITION + "']");
-
-		interim.remove(ConstantsJSON.QUERY_FILTER);
 		
-		if (retur.length() == 0)
-			return false;
+//		if (retur.length() == 0)
+//			return false;
 		
-		InterimResult returnInterim = InterimResultImpl.createNew(getCorrespondsTo().getRecord(), retur);
+		InterimResult returnInterim = InterimResultImpl.createResult(getCorrespondsTo().getRecord(), interim);
 		InterimResult paramInterim = InterimResultImpl.createNew(getCorrespondsTo().getSubstructure(), condi);
 		setReturn(returnInterim);
 		setParameter(paramInterim);

@@ -27,7 +27,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
-import qualitypatternmodel.javaqueryoutput.ValueResult;
+import qualitypatternmodel.javaqueryoutput.JsonResult;
 import qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl;
 import qualitypatternmodel.javaqueryoutput.impl.InterimResultContainerImpl;
 import qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl;
@@ -572,8 +572,8 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 			try {
 				if (getFilter().apply(ir.getParameter())) {
 					InterimResult ret = ir.getReturn();
-					if (ret instanceof ValueResult) {
-						results.put(resultjson(((ValueResult) ret).getValue()));
+					if (ret instanceof JsonResult) {
+						results.put(((JsonResult) ret).getValue());
 					} else {
 						results.put(resultjson(ret.toString()));
 					}

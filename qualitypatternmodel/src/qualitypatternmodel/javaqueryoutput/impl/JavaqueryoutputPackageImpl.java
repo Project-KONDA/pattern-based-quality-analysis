@@ -30,6 +30,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.javaqueryoutput.JsonResult;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
@@ -118,6 +119,13 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	private EClass interimResultContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass jsonResultEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -517,6 +525,26 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
+	public EClass getJsonResult() {
+		return jsonResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getJsonResult_Value() {
+		return (EAttribute)jsonResultEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public JavaqueryoutputFactory getJavaqueryoutputFactory() {
 		return (JavaqueryoutputFactory)getEFactoryInstance();
 	}
@@ -578,6 +606,9 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		createEReference(interimResultContainerEClass, INTERIM_RESULT_CONTAINER__RETURN);
 		createEOperation(interimResultContainerEClass, INTERIM_RESULT_CONTAINER___IS_VALID_TO_STRUCTURE);
 		createEOperation(interimResultContainerEClass, INTERIM_RESULT_CONTAINER___INITIALIZE__JSONOBJECT);
+
+		jsonResultEClass = createEClass(JSON_RESULT);
+		createEAttribute(jsonResultEClass, JSON_RESULT__VALUE);
 	}
 
 	/**
@@ -618,6 +649,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		fixedContainerInterimEClass.getESuperTypes().add(this.getContainerInterim());
 		containerResultEClass.getESuperTypes().add(this.getInterimResult());
 		valueResultEClass.getESuperTypes().add(this.getInterimResult());
+		jsonResultEClass.getESuperTypes().add(this.getInterimResult());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(interimResultStructureEClass, InterimResultStructure.class, "InterimResultStructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -669,6 +701,9 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		op = initEOperation(getInterimResultContainer__Initialize__JSONObject(), ecorePackage.getEBooleanObject(), "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theTextrepresentationPackage.getJSONObjectWrapper(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEClass(jsonResultEClass, JsonResult.class, "JsonResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getJsonResult_Value(), theTextrepresentationPackage.getJSONObjectWrapper(), "value", null, 0, 1, JsonResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

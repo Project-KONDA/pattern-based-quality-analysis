@@ -1498,5 +1498,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="return" lowerBound="1"
           eType="#//javaqueryoutput/InterimResult" containment="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="JsonResult" eSuperTypes="#//javaqueryoutput/InterimResult">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//textrepresentation/JSONObjectWrapper"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

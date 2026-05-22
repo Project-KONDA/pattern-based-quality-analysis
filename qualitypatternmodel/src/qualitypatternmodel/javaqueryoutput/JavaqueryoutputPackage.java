@@ -617,6 +617,70 @@ public interface JavaqueryoutputPackage extends EPackage {
 	int INTERIM_RESULT_CONTAINER_OPERATION_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.javaqueryoutput.impl.JsonResultImpl <em>Json Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.javaqueryoutput.impl.JsonResultImpl
+	 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getJsonResult()
+	 * @generated
+	 */
+	int JSON_RESULT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Corresponds To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_RESULT__CORRESPONDS_TO = INTERIM_RESULT__CORRESPONDS_TO;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_RESULT__VALUE = INTERIM_RESULT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Json Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_RESULT_FEATURE_COUNT = INTERIM_RESULT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Set Corresponding</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_RESULT___SET_CORRESPONDING__INTERIMRESULTPART = INTERIM_RESULT___SET_CORRESPONDING__INTERIMRESULTPART;
+
+	/**
+	 * The operation id for the '<em>Is Valid To Corresponding</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_RESULT___IS_VALID_TO_CORRESPONDING = INTERIM_RESULT___IS_VALID_TO_CORRESPONDING;
+
+	/**
+	 * The number of operations of the '<em>Json Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_RESULT_OPERATION_COUNT = INTERIM_RESULT_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.InterimResultStructure <em>Interim Result Structure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -919,6 +983,27 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EOperation getInterimResultContainer__Initialize__JSONObject();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.JsonResult <em>Json Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Json Result</em>'.
+	 * @see qualitypatternmodel.javaqueryoutput.JsonResult
+	 * @generated
+	 */
+	EClass getJsonResult();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.javaqueryoutput.JsonResult#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see qualitypatternmodel.javaqueryoutput.JsonResult#getValue()
+	 * @see #getJsonResult()
+	 * @generated
+	 */
+	EAttribute getJsonResult_Value();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1192,6 +1277,24 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation INTERIM_RESULT_CONTAINER___INITIALIZE__JSONOBJECT = eINSTANCE.getInterimResultContainer__Initialize__JSONObject();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.JsonResultImpl <em>Json Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.javaqueryoutput.impl.JsonResultImpl
+		 * @see qualitypatternmodel.javaqueryoutput.impl.JavaqueryoutputPackageImpl#getJsonResult()
+		 * @generated
+		 */
+		EClass JSON_RESULT = eINSTANCE.getJsonResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JSON_RESULT__VALUE = eINSTANCE.getJsonResult_Value();
 
 	}
 
