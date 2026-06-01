@@ -333,8 +333,9 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		for (int i = 0; i <incidents.length(); i++) {
 			JSONObject interim = incidents.getJSONObject(i);
 			InterimResultContainer interimresult = new InterimResultContainerImpl(getStructure());
-			if (interimresult.initialize(interim))
+			if (interimresult.initialize(interim)) {
 				getInterimResults().add(interimresult);
+			}
 		}
 	}
 

@@ -31,6 +31,10 @@
 		{"link":"","size":1,"expected":false}
 	],
 	"linkMimeType":[
+		{"link":"https://objektkatalog.gnm.de/bild/2023-07-04/73DB78B91A9C5CFBD6EC0FFBBE0A2095_k3.jpg","type":"image/jpeg","expected":true},
+		{"link":"https://objektkatalog.gnm.de/bild/2023-07-04/73DB78B91A9C5CFBD6EC0FFBBE0A2095_k3.jpg","type":"image/jpg","expected":false},
+		{"link":"https://www.runesdb.de/image-service/17125/full/max/0/default.jpg","type":"image/jpeg","expected":false},
+		{"link":"https://www.runesdb.de/image-service/17125/full/max/0/default.jpg","type":"image/jpg","expected":true},
 		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","type":"image/jpeg","expected":true},
 		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","type":"image","expected":true},
 		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","type":"","expected":false},

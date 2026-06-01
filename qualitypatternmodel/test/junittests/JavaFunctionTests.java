@@ -132,6 +132,7 @@ public class JavaFunctionTests {
 	        connection.getResponseCode();
 	        return false;
 	    } catch (Exception e) {
+	    	System.err.println("URL" + url + " is offline");
 	    	return true;
 	    }
 	}
