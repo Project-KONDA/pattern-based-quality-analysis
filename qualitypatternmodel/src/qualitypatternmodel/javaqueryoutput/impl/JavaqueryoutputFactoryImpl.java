@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import qualitypatternmodel.javaqueryoutput.*;
 import qualitypatternmodel.javaqueryoutput.ContainerResult;
 import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
@@ -68,6 +69,7 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 			case JavaqueryoutputPackage.CONTAINER_RESULT: return createContainerResult();
 			case JavaqueryoutputPackage.VALUE_RESULT: return createValueResult();
 			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER: return createInterimResultContainer();
+			case JavaqueryoutputPackage.JSON_RESULT: return createJsonResult();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -148,6 +150,17 @@ public class JavaqueryoutputFactoryImpl extends EFactoryImpl implements Javaquer
 	public InterimResultContainer createInterimResultContainer() {
 		InterimResultContainerImpl interimResultContainer = new InterimResultContainerImpl();
 		return interimResultContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public JsonResult createJsonResult() {
+		JsonResultImpl jsonResult = new JsonResultImpl();
+		return jsonResult;
 	}
 
 	/**

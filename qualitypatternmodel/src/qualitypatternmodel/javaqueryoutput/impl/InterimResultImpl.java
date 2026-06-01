@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.ContainerResult;
@@ -20,6 +21,7 @@ import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.javaqueryoutput.JsonResult;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
 import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
@@ -55,6 +57,19 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 	 */
 	protected InterimResultImpl() {
 		super();
+	}
+
+	static InterimResult createResult(InterimResultPart corresponding, JSONObject resultObject) throws InvalidityException {
+		JsonResult result = new JsonResultImpl();
+		result.setValue(resultObject);
+		result.setCorresponding(corresponding);
+		return result;
+	}
+
+	static InterimResult createNew(InterimResultPart corresponding, JSONObject interimObject) throws InvalidityException {
+		JSONArray array = new JSONArray();
+		array.put(interimObject);
+		return createNew(corresponding, array);
 	}
 	
 	static InterimResult createNew(InterimResultPart corresponding, JSONArray interimArray) throws InvalidityException {

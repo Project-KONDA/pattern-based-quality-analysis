@@ -742,8 +742,8 @@
           eType="#//graphstructure/Graph" containment="true" eOpposite="#//graphstructure/Graph/pattern"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//patternstructure/Condition"
           containment="true" eOpposite="#//patternstructure/Condition/pattern"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="partialXmlQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="xmlQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="queries" eType="#//textrepresentation/JSONObjectWrapper"
+          defaultValueLiteral=""/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberElement" eSuperTypes="#//patternstructure/CountConditionArgument">
       <eOperations name="createParameters"/>
@@ -1490,13 +1490,16 @@
       <eOperations name="isValidToStructure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
       <eOperations name="initialize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="value" eType="#//textrepresentation/JSONObjectWrapper"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="correspondsTo" eType="#//javaqueryoutput/InterimResultStructure"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//javaqueryoutput/InterimResult"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="return" lowerBound="1"
           eType="#//javaqueryoutput/InterimResult" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="JsonResult" eSuperTypes="#//javaqueryoutput/InterimResult">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//textrepresentation/JSONObjectWrapper"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

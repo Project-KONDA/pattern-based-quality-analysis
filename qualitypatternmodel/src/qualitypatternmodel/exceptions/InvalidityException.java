@@ -18,4 +18,8 @@ public class InvalidityException extends Exception {
 	public InvalidityException(String message, Exception e) {
 		super(message, e);
 	}
+
+	public InvalidityException(String message, Error e) {
+		super(message, e);
+	}
 }

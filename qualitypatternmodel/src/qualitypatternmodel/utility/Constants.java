@@ -25,6 +25,9 @@ public class Constants {
 	public static final String SPARQL = "Sparql";
 	public static final String CYPHER = "Cypher";
 
+	public static final String XQUERY_PARTIAL = "XQueryPartial";
+	public static final String XQUERY_JAVA = "XQueryJava";
+
 	public static final String EXTENSION = "patternstructure";
 	public static final String INSTANCE_FILE_ENDING = "." + EXTENSION;
 

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
@@ -18,6 +19,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
 import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
@@ -37,6 +39,9 @@ import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
  * @generated
  */
 public class InterimResultContainerImpl extends MinimalEObjectImpl.Container implements InterimResultContainer {
+	
+	public JSONObject result = null;
+	
 	/**
 	 * The cached value of the '{@link #getCorrespondsTo() <em>Corresponds To</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -128,13 +133,18 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 	 * @generated NOT
 	 */
 	@Override
-	public Boolean initialize(String value) throws InvalidityException {
-		JSONArray retur = XmlServletUtility.extractFromSnippet(value, "/*[name()='" + JavaQueryTranslationUtility.INTERIM + "']/*[name()='" + JavaQueryTranslationUtility.RETURN + "']");
-		if (retur.length() == 0)
-			return false;
+	public Boolean initialize(JSONObject interim) throws InvalidityException {
+		
+		String value = interim.getJSONArray(ConstantsJSON.QUERY_FILTER).getString(0);
+		interim.remove(ConstantsJSON.QUERY_FILTER);
+		result = interim;
+//		JSONArray retur = XmlServletUtility.extractFromSnippet(value, "/*[name()='" + JavaQueryTranslationUtility.INTERIM + "']/*[name()='" + JavaQueryTranslationUtility.RETURN + "']");
 		JSONArray condi = XmlServletUtility.extractFromSnippet(value, "/*[name()='" + JavaQueryTranslationUtility.INTERIM + "']/*[name()='" + JavaQueryTranslationUtility.CONDITION + "']");
 		
-		InterimResult returnInterim = InterimResultImpl.createNew(getCorrespondsTo().getRecord(), retur);
+//		if (retur.length() == 0)
+//			return false;
+		
+		InterimResult returnInterim = InterimResultImpl.createResult(getCorrespondsTo().getRecord(), interim);
 		InterimResult paramInterim = InterimResultImpl.createNew(getCorrespondsTo().getSubstructure(), condi);
 		setReturn(returnInterim);
 		setParameter(paramInterim);
@@ -387,9 +397,9 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 		switch (operationID) {
 			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___IS_VALID_TO_STRUCTURE:
 				return isValidToStructure();
-			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___INITIALIZE__STRING:
+			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___INITIALIZE__JSONOBJECT:
 				try {
-					return initialize((String)arguments.get(0));
+					return initialize((JSONObject)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

@@ -1330,18 +1330,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPattern_PartialXmlQuery() {
+	public EAttribute getPattern_Queries() {
 		return (EAttribute)patternEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getPattern_XmlQuery() {
-		return (EAttribute)patternEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1637,8 +1627,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		patternEClass = createEClass(PATTERN);
 		createEReference(patternEClass, PATTERN__GRAPH);
 		createEReference(patternEClass, PATTERN__CONDITION);
-		createEAttribute(patternEClass, PATTERN__PARTIAL_XML_QUERY);
-		createEAttribute(patternEClass, PATTERN__XML_QUERY);
+		createEAttribute(patternEClass, PATTERN__QUERIES);
 		createEOperation(patternEClass, PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH);
 
 		numberElementEClass = createEClass(NUMBER_ELEMENT);
@@ -1928,8 +1917,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEClass(patternEClass, Pattern.class, "Pattern", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPattern_Graph(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_Pattern(), "graph", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPattern_Condition(), this.getCondition(), this.getCondition_Pattern(), "condition", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPattern_PartialXmlQuery(), ecorePackage.getEString(), "partialXmlQuery", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPattern_XmlQuery(), ecorePackage.getEString(), "xmlQuery", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPattern_Queries(), theTextrepresentationPackage.getJSONObjectWrapper(), "queries", "", 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getPattern__CheckMorphismOfNextGraph(), null, "checkMorphismOfNextGraph", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());

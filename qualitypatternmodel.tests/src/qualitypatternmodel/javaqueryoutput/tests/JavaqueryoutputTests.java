@@ -38,6 +38,7 @@ public class JavaqueryoutputTests extends TestSuite {
 		suite.addTestSuite(ContainerResultTest.class);
 		suite.addTestSuite(ValueResultTest.class);
 		suite.addTestSuite(InterimResultContainerTest.class);
+		suite.addTestSuite(JsonResultTest.class);
 		return suite;
 	}
 

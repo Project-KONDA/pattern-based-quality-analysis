@@ -233,6 +233,29 @@ public class JavaqueryoutputItemProviderAdapterFactory extends JavaqueryoutputAd
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.javaqueryoutput.JsonResult} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JsonResultItemProvider jsonResultItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.javaqueryoutput.JsonResult}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJsonResultAdapter() {
+		if (jsonResultItemProvider == null) {
+			jsonResultItemProvider = new JsonResultItemProvider(this);
+		}
+
+		return jsonResultItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -344,6 +367,7 @@ public class JavaqueryoutputItemProviderAdapterFactory extends JavaqueryoutputAd
 		if (containerResultItemProvider != null) containerResultItemProvider.dispose();
 		if (valueResultItemProvider != null) valueResultItemProvider.dispose();
 		if (interimResultContainerItemProvider != null) interimResultContainerItemProvider.dispose();
+		if (jsonResultItemProvider != null) jsonResultItemProvider.dispose();
 	}
 
 }

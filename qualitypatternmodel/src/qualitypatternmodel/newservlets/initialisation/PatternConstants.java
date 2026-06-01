@@ -293,4 +293,8 @@ public class PatternConstants {
     public static String CARDCONTAINSIFCOMPSET_ID = "CardContainsIfCompSet";
     public static String CARDCONTAINSIFCOMPSET_NAME = "default";
     public static String CARDCONTAINSIFCOMPSET_DESCR = "";
+
+    public static String LINKMIMETYPEIFCOMPSET_ID = "LinkMimeTypeIfCompSet";
+    public static String LINKMIMETYPEIFCOMPSET_NAME = "default";
+    public static String LINKMIMETYPEIFCOMPSET_DESCR = "Check MIME Type if field values are within a list of allowed terms.";
 }

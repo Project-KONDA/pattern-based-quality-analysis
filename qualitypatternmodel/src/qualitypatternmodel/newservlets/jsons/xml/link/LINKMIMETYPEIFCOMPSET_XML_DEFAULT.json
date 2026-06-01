@@ -1,0 +1,65 @@
+{
+    "template": "LinkMimeTypeIfCompSet_xml",
+    "custom": {
+        "scope": "hierarchical",
+        "description": "default variant for LinkMimeTypeIfCompSet_xml",
+        "type": ["cond"]
+    },
+    "name": "default",
+    "language": "xml",
+    "fragments": [
+        {"text": "If a"},
+        {
+            "name": "Element",
+            "description": "",
+            "params": [5],
+            "exampleValue": "Media Asset Bundle"
+        },
+        {"text": "has a"},
+        {
+            "name": "Property A",
+            "description": "",
+            "params": [6],
+            "exampleValue": "Media Type"
+        },
+        {"text": "that"},
+        {
+            "name": "Is / Is Not",
+            "description": "",
+            "params": [1],
+            "exampleValue": "Is",
+            "defaultMap": "comparison.is"
+        },
+        {"text": "in the list of"},
+        {
+            "name": "Terms",
+            "description": "",
+            "params": [0],
+            "exampleValue": "Audio, Video"
+        },
+        {"text": ", it has a"},
+        {
+            "name": "Property B",
+            "description": "",
+            "params": [7],
+            "exampleValue": "URL"
+        },
+        {"text": "that"},
+        {
+            "name": "Is / Is Not",
+            "description": "",
+            "params": [3],
+            "exampleValue": "Is",
+            "defaultMap": "boolean.is"
+        },
+        {"text": "in the list of"},
+        {
+            "name": "MIME types",
+            "description": "",
+            "params": [4],
+            "exampleValue": "video/mp4, video/webm"
+        },
+        {"text": "."}
+    ],
+    "typeConstraint": true
+}

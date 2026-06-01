@@ -1,5 +1,7 @@
 package qualitypatternmodel.newservlets;
 
+import java.util.UUID;
+
 public class ServletConstants {
 
 	// path to shared volume
@@ -103,6 +105,8 @@ public class ServletConstants {
 	public static final String QUERYJSONFOLDER = "queryjson";
 	// name of folder for precompiled queryjson files
 	public static final String VARIANTJSONFOLDER = "variantjson";
+	// name of folder for temporary files
+	public static final String TEMPFOLDER = "temp";
 
 
 
@@ -110,9 +114,12 @@ public class ServletConstants {
 		return PATTERN_VOLUME + "/" + technology + "/" + CONSTRAINTFOLDER;
 	}
 	public static String constraintPatternFolderPath(String technology) {
-		return constraintFolderPath(technology) + "/" + ServletConstants.PATTERNJSONFOLDER;
+		return constraintFolderPath(technology) + "/" + PATTERNJSONFOLDER;
 	}
 	public static String constraintQueryFolderPath(String technology) {
-		return constraintFolderPath(technology) + "/" + ServletConstants.QUERYJSONFOLDER;
+		return constraintFolderPath(technology) + "/" + QUERYJSONFOLDER;
+	}
+	public static String tempJsonFileName() {
+		return PATTERN_VOLUME + "/" + TEMPFOLDER + "/" + UUID.randomUUID() + ".json";
 	}
 }
