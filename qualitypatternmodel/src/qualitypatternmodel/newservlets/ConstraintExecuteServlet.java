@@ -167,6 +167,8 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		JSONObject result = XmlServletUtility.queryConstraintsFilePaths(constraints, filepaths);
 
 		for (String failedid: failedConstraints.keySet()) {
+			if (!result.has(ConstantsJSON.FAILEDCONSTRAINTS))
+				result.put(ConstantsJSON.FAILEDCONSTRAINTS, new JSONObject());
 			result.getJSONObject(ConstantsJSON.FAILEDCONSTRAINTS).put(failedid, failedConstraints.get(failedid));
 		}
 		return result;
