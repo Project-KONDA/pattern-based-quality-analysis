@@ -133,7 +133,6 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 
 	public static String stripTag(String xml) throws InvalidityException {
 		String res = XmlServletUtility.queryFromSnippet(xml, "return string($doc//*/text())").getJSONObject(0).getString("snippet");
-		System.out.println("RESULT IS " + res);
 		return res;
 	}
 
