@@ -1,0 +1,14 @@
+<root>
+	<validlink>
+		<value>nothing</value>
+		<value>http://www.google.de</value>
+	</validlink>
+	<linkimagesize>
+		<value>nothing</value>
+		<value>http://www.google.de</value>
+		<value size="256x256">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</value>
+		<value size="1600x1139"> http://fotothek.slub-dresden.de/fotos/df_hauptkatalog_0355520.jpg </value>
+		<value size="2496x1664">https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg</value>
+		<value size="2500x1912">https://recherche.smb.museum/images/5822610_2500x2500.jpg</value>
+	</linkimagesize>
+</root>

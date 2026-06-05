@@ -2,3 +2,4 @@
 \target
 qualitypatternmodel/temp/
 qualitypatternmodel/test/playground
+qualitypatternmodel/test/newservelettest/templatetests/template-config-missing.json

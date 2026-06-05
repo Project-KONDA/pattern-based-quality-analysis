@@ -27,6 +27,7 @@ import qualitypatternmodel.adaptionneo4j.NeoEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElement;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNode;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -216,7 +217,13 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 
 		XmlNode node = ((XmlNode) this.getGraph().getReturnNodes().get(0));
 		String var = node.getVariables().get(0);
-		String letClause = "let " + var + " := .\n";
+		String var2 = var.split("/")[0];
+		
+		String letClause;
+		if (var != var2)
+			letClause = "let " + var2 + " := ./parent::*\n";
+		else
+			letClause = "let " + var2 + " := .\n";
 
 		String returnClause = generateXQueryJavaReturn();
 
