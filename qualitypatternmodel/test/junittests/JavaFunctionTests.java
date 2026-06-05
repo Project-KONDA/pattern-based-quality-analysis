@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URI;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
@@ -123,15 +124,20 @@ public class JavaFunctionTests {
 		assert (result == expected);
 	}
 
-	private static boolean isOffline(String url) {
+	private static boolean isOffline(String link) {
 	    try {
-			HttpURLConnection connection = (HttpURLConnection) URI.create(url).toURL().openConnection();
+	    	link = link.trim();
+	    	URI uri = URI.create(link);
+	    	URL url = uri.toURL();
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 	        connection.setRequestMethod("GET");
 	        connection.setConnectTimeout(50);
 	        connection.setReadTimeout(5000);
 	        connection.getResponseCode();
 	        return false;
 	    } catch (Exception e) {
+	    	System.err.println("URL '" + link + "' is offline: " + e.getMessage());
+	    	e.printStackTrace();
 	    	return true;
 	    }
 	}

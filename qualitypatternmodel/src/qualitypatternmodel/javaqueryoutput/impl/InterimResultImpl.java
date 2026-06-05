@@ -76,7 +76,8 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 		if (corresponding instanceof ValueInterim) {
 			if (interimArray.length() != 1)
 				throw new InvalidityException("Length of interimArray is not 1 " + interimArray.length() + ": " + Arrays.asList(interimArray));
-			return new ValueResultImpl(corresponding, interimArray.getString(0));
+//			return new ValueResultImpl(corresponding, interimArray.getString(0));
+			return new ValueResultImpl(corresponding, stripTag(interimArray.getString(0)));
 
 		} else
 			if (corresponding instanceof VariableContainerInterim) {
@@ -128,6 +129,11 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 		} catch (Exception e) {
 			return null;
 		}
+	}
+
+	public static String stripTag(String xml) throws InvalidityException {
+		String res = XmlServletUtility.queryFromSnippet(xml, "return string($doc//*/text())").getJSONObject(0).getString("snippet");
+		return res;
 	}
 
 	/**

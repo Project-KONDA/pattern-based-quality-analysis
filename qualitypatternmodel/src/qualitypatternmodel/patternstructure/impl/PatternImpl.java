@@ -214,8 +214,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			throw new UnsupportedOperationException("Java Operator in Return Graph");
 		}
 
-		String var = ((XmlNode) this.getGraph().getReturnNodes().get(0)).getVariables().get(0);
-		String letClause = "let " + var + " := . \n";;		
+		XmlNode node = ((XmlNode) this.getGraph().getReturnNodes().get(0));
+		String var = node.getVariables().get(0);
+		String letClause = "let " + var + " := .\n";
 
 		String returnClause = generateXQueryJavaReturn();
 
@@ -247,9 +248,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			String var = xmlnode.getVariables().get(0);
 			if (xmlnode instanceof XmlElement) {
 				nodes.add(var); 
-			} else 
+			} else {
 				nodes.add("string(" + xmlnode.getVariables().get(0) + ")");
-
+			}
 		}
 
 		String graphString = getGraph().generateXQueryJavaReturn();

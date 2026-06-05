@@ -46,7 +46,7 @@ jobs:
           file: qualitypatternmodel/Dockerfile
           build-args: MAVEN_VERSION=${{ env.MAIN_VERSION }}
           push: true
-          tags: harbor.gwdg.de/aqinda/qpm:latest, harbor.gwdg.de/aqinda/qpm:${{ env.MAIN_VERSION }}, harbor.gwdg.de/aqinda/qpm:${{ env.DEV_VERSION }}, harbor.gwdg.de/aqinda/qpm:current
+          tags: harbor.gwdg.de/aqinda/qpm:latest, harbor.gwdg.de/aqinda/qpm:${{ env.MAIN_VERSION }}, harbor.gwdg.de/aqinda/qpm:dev, harbor.gwdg.de/aqinda/qpm:${{ env.DEV_VERSION }}, harbor.gwdg.de/aqinda/qpm:current
 
       - name: Harbor Build and Push (develop)
         uses: docker/build-push-action@v5

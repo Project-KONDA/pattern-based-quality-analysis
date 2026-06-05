@@ -64,7 +64,7 @@ public abstract class ServletUtilities {
 	private static List<JSONObject> abstractPatternJsonXml = null;
 	private static List<JSONObject> abstractPatternJsonRdf = null;
 	private static List<JSONObject> abstractPatternJsonNeo = null;
-	private static Semaphore saveSemaphore = new Semaphore(1);
+	private static Semaphore jsonSemaphore = new Semaphore(1);
 	
 	public static void reset() {
 		abstractPatternXml = null;
@@ -364,15 +364,29 @@ public abstract class ServletUtilities {
 
 	public static void exportJsonSave(JSONObject jsonFile, String filepath) throws IOException {
 		try {
-			saveSemaphore.acquire();
+			jsonSemaphore.acquire();
 			Util.exportJson(jsonFile, filepath);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 			log("Thread was interrupted");
 			logError(e);
 		} finally {
-			saveSemaphore.release();
+			jsonSemaphore.release();
 		}
+	}
+
+	public static JSONObject loadJsonSave(String filepath) throws IOException {
+	    try {
+	        jsonSemaphore.acquire();
+	    } catch (InterruptedException e) {
+	        Thread.currentThread().interrupt();
+	        throw new IOException("Interrupted while waiting for JSON semaphore", e);
+	    }
+	    try {
+	        return Util.loadJson(filepath);
+	    } finally {
+	        jsonSemaphore.release();
+	    }
 	}
 
 	protected static CompletePattern loadConstraint(String technology, String constraintId) throws IOException {
@@ -387,7 +401,7 @@ public abstract class ServletUtilities {
 
 		// if precompiled patternjson exists
 		try {
-			return Util.loadJson(jsonpath); 
+			return loadJsonSave(jsonpath); 
 		} catch (Exception e) {}
 
 		// if precompiled patternjson does not exist
@@ -406,7 +420,7 @@ public abstract class ServletUtilities {
 
 		// if precompiled queryjson exists
 		try {
-			return Util.loadJson(queryjsonpath); 
+			return loadJsonSave(queryjsonpath); 
 		} catch (Exception e) {}
 
 		// if precompiled queryjson does not exist
@@ -430,7 +444,7 @@ public abstract class ServletUtilities {
 	protected static JSONObject loadTemplateJSON(String technology, String templateId) throws IOException {
 		String jsonfilepath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + templateId + ".json";
 		try {
-			return Util.loadJson(jsonfilepath);
+			return loadJsonSave(jsonfilepath);
 		} catch (Exception e) {}
 
 		JSONObject json = ServletUtilities.getPatternJSON(loadTemplate(technology, templateId));
@@ -441,7 +455,7 @@ public abstract class ServletUtilities {
 	protected static JSONObject loadTemplateVariantJSON(String technology, String templateId) throws IOException {
 		String variantjsonfilepath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.VARIANTJSONFOLDER + "/" + templateId + ".json";
 		try {
-			return Util.loadJson(variantjsonfilepath);
+			return loadJsonSave(variantjsonfilepath);
 		} catch (Exception e) {}
 
 		JSONObject variantjson = getVariantJSON(loadTemplate(technology, templateId), true);
@@ -452,14 +466,14 @@ public abstract class ServletUtilities {
 	public static void saveGeneric(String patternId, CompletePattern pattern) throws IOException {
 		String folderpath = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.GENERICFOLDER;
 		try {
-			saveSemaphore.acquire();
+			jsonSemaphore.acquire();
 			EMFModelSave.exportToFile2(pattern, folderpath, patternId, Constants.EXTENSION);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 			log("Thread was interrupted");
 			logError(e);
 		} finally {
-			saveSemaphore.release();
+			jsonSemaphore.release();
 		}
 		
 	}
@@ -467,14 +481,14 @@ public abstract class ServletUtilities {
 	public static void saveTemplate(String technology, String templateId, CompletePattern pattern) throws IOException {
 		String folderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
 		try {
-			saveSemaphore.acquire();
+			jsonSemaphore.acquire();
 			EMFModelSave.exportToFile2(pattern, folderpath, templateId, Constants.EXTENSION);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 			log("Thread was interrupted");
 			logError(e);
 		} finally {
-			saveSemaphore.release();
+			jsonSemaphore.release();
 		}
 
 		// patternjson
@@ -496,14 +510,14 @@ public abstract class ServletUtilities {
 		String queryjsonfilepath = ServletConstants.constraintQueryFolderPath(technology) + "/" + constraintId + ".json";
 		pattern.updateLastSaved();
 		try {
-			saveSemaphore.acquire();
+			jsonSemaphore.acquire();
 			EMFModelSave.exportToFile2(pattern, folderpath, constraintId, Constants.EXTENSION);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 			log("Thread was interrupted");
 			logError(e);
 		} finally {
-			saveSemaphore.release();
+			jsonSemaphore.release();
 		}
 
 		// patternjson
@@ -566,7 +580,7 @@ public abstract class ServletUtilities {
 	public static void setNumber(String filepath, String variableName, int number, String category) throws JSONException, IOException {
 		JSONObject jsonFile;
 		try {
-			jsonFile = Util.loadJson(filepath);
+			jsonFile = loadJsonSave(filepath);
 		} catch (IOException e) {
 			jsonFile = new JSONObject();
 		}
@@ -588,7 +602,7 @@ public abstract class ServletUtilities {
 	public static Integer getNumber(String filepath, String variableName, String category) throws JSONException, IOException {
 		JSONObject jsonFile;
 		try{
-			jsonFile = Util.loadJson(filepath);
+			jsonFile = loadJsonSave(filepath);
 		} catch (IOException e) {
 			jsonFile = new JSONObject();
 		}
@@ -602,10 +616,10 @@ public abstract class ServletUtilities {
 		return jsonObject.optInt(variableName, 0);
 	}
 
-	public static Integer increaseNumber(String filepath, String variableName, String category) throws JSONException, IOException {
+	public static Integer increaseNumber(String filepath, String variableName, String category) throws IOException {
 		JSONObject jsonFile;
 		try {
-			jsonFile = Util.loadJson(filepath);
+			jsonFile = loadJsonSave(filepath);
 		} catch (IOException e) {
 			jsonFile = new JSONObject();
 		}
@@ -629,7 +643,7 @@ public abstract class ServletUtilities {
 	public static Integer decreaseNumber(String filepath, String variableName, String category) throws JSONException, IOException {
 		JSONObject jsonFile;
 		try {
-			jsonFile = Util.loadJson(filepath);
+			jsonFile = loadJsonSave(filepath);
 		} catch (IOException e) {
 			jsonFile = new JSONObject();
 		}
@@ -798,7 +812,7 @@ public abstract class ServletUtilities {
 	}
 
 	public static JSONObject getTemplateInfo(String classname) throws IOException {
-		JSONObject obj = Util.loadJson(ServletConstants.TEMPLATE_INFO_FILE);
+		JSONObject obj = loadJsonSave(ServletConstants.TEMPLATE_INFO_FILE);
 		return obj.getJSONObject(classname);
 	}
 	
@@ -808,7 +822,7 @@ public abstract class ServletUtilities {
 		boolean acquired = false;
 		boolean deleteOldLogs = false;
 		try {
-			saveSemaphore.acquire();
+			jsonSemaphore.acquire();
 			acquired = true;
 			String filepath = getLogfileName();
 			File file = new File(filepath);
@@ -833,12 +847,12 @@ public abstract class ServletUtilities {
 			}
 		} catch (IOException e) {
 			if (acquired)
-				saveSemaphore.release();
+				jsonSemaphore.release();
 			acquired = false;
 			logError(e);
 		} catch (InterruptedException e) {
 			if (acquired)
-				saveSemaphore.release();
+				jsonSemaphore.release();
 			acquired = false;
 			Thread.currentThread().interrupt();
 			log("Thread was interrupted");
@@ -846,7 +860,7 @@ public abstract class ServletUtilities {
 		} finally {
 			// Release the semaphore
 			if (acquired)
-				saveSemaphore.release();
+				jsonSemaphore.release();
 			if (deleteOldLogs)
 				deleteOldLogs();
 		}
