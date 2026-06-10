@@ -58,7 +58,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
           eType="#//patternstructure/CompletePattern" eOpposite="#//patternstructure/CompletePattern/parameterList"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BooleanParam" eSuperTypes="#//parameters/ParameterValue">
+    <eClassifiers xsi:type="ecore:EClass" name="BooleanParam" eSuperTypes="#//parameters/Parameter">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
       </eOperations>
@@ -77,7 +77,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="javaListOperator" upperBound="-1"
           eType="#//javaoperators/OneArgJavaListOperator" eOpposite="#//javaoperators/OneArgJavaListOperator/textListParam"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TextLiteralParam" eSuperTypes="#//parameters/ParameterValue #//parameters/TextParam">
+    <eClassifiers xsi:type="ecore:EClass" name="TextLiteralParam" eSuperTypes="#//parameters/TextParam #//parameters/Parameter">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
@@ -88,7 +88,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisPartCondition"
           eType="#//adaptionxml/XmlAxisPartCondition" eOpposite="#//adaptionxml/XmlAxisPartCondition/textLiteralParam"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NumberParam" eSuperTypes="#//parameters/ParameterValue">
+    <eClassifiers xsi:type="ecore:EClass" name="NumberParam" eSuperTypes="#//parameters/Parameter">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
       </eOperations>
@@ -101,6 +101,8 @@
           upperBound="-1" eType="#//javaoperators/OneArgJavaTwoNumberOperator" eOpposite="#//javaoperators/OneArgJavaTwoNumberOperator/number1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="oneArgJavaTwoNumberOperator2"
           upperBound="-1" eType="#//javaoperators/OneArgJavaTwoNumberOperator" eOpposite="#//javaoperators/OneArgJavaTwoNumberOperator/number2"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stringlength" eType="#//operators/StringLength"
+          eOpposite="#//operators/StringLength/numberparam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterValue" abstract="true" eSuperTypes="#//parameters/Parameter #//graphstructure/Comparable">
       <eOperations name="replace" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
@@ -134,7 +136,7 @@
         <eParameters name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DateTimeParam" eSuperTypes="#//parameters/ParameterValue">
+    <eClassifiers xsi:type="ecore:EClass" name="DateTimeParam" eSuperTypes="#//parameters/Parameter">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
@@ -175,7 +177,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="neoSimpleEdge" eType="#//adaptionneo4j/NeoSimpleEdge"
           eOpposite="#//adaptionneo4j/NeoSimpleEdge/keyValueParam"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ListParam" abstract="true" eSuperTypes="#//parameters/ParameterValue">
+    <eClassifiers xsi:type="ecore:EClass" name="ListParam" abstract="true" eSuperTypes="#//parameters/Parameter">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
@@ -190,7 +192,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="MultiListParam" eSuperTypes="#//parameters/ListParam"/>
     <eClassifiers xsi:type="ecore:EClass" name="TextParam" abstract="true" interface="true"
-        eSuperTypes="#//parameters/ParameterValue">
+        eSuperTypes="#//parameters/Parameter">
       <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
           eType="#//operators/Contains" eOpposite="#//operators/Contains/content"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="matches" upperBound="-1"
@@ -213,8 +215,6 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="generateCypherIsolated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
-          eType="#//graphstructure/Node" eOpposite="#//graphstructure/Node/predicates"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -234,17 +234,17 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operatorList" lowerBound="1"
           eType="#//operators/OperatorList" eOpposite="#//operators/OperatorList/operators"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="primitivenode" eType="#//graphstructure/PrimitiveNode"
+          eOpposite="#//graphstructure/PrimitiveNode/operator"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberOperator" abstract="true" eSuperTypes="#//operators/Operator"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Match" eSuperTypes="#//operators/BooleanOperator">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
-          eOpposite="#//graphstructure/PrimitiveNode/match"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Match" eSuperTypes="#//operators/Operator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
           eType="#//parameters/BooleanParam" eOpposite="#//parameters/BooleanParam/matches"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="regularExpression" lowerBound="1"
           eType="#//parameters/TextParam" eOpposite="#//parameters/TextParam/matches"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//operators/BooleanOperator">
+    <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//operators/Operator">
       <eOperations name="isPrimitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="copy" eType="#//operators/Comparison"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" eType="#//graphstructure/Comparable"
@@ -275,9 +275,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="OperatorCycleExceptionWrapper"
         instanceClassName="qualitypatternmodel.exceptions.OperatorCycleException"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Contains" eSuperTypes="#//operators/BooleanOperator">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
-          eOpposite="#//graphstructure/PrimitiveNode/contains"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Contains" eSuperTypes="#//operators/Operator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
           eType="#//parameters/BooleanParam" eOpposite="#//parameters/BooleanParam/contains"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="content" lowerBound="1"
@@ -289,13 +287,13 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/BooleanParam"
           eOpposite="#//parameters/BooleanParam/nullCheck"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="StringLength" eSuperTypes="#//operators/BooleanOperator">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
-          eOpposite="#//graphstructure/PrimitiveNode/stringLength"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StringLength" eSuperTypes="#//operators/Operator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="number" eType="#//parameters/NumberParam"
           eOpposite="#//parameters/NumberParam/stringLength"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/ComparisonOptionParam"
           eOpposite="#//parameters/ComparisonOptionParam/stringLength"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="numberparam" eType="#//parameters/NumberParam"
+          eOpposite="#//parameters/NumberParam/stringlength"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="graphstructure" nsURI="graphstructure" nsPrefix="graphstructure">
@@ -334,19 +332,21 @@
         <eParameters name="parameterValue" eType="#//parameters/ParameterValue"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="match" upperBound="-1"
-          eType="#//operators/Match" eOpposite="#//operators/Match/primitiveNode"/>
+          eType="#//operators/Match"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
-          eType="#//operators/Contains" eOpposite="#//operators/Contains/primitiveNode"/>
+          eType="#//operators/Contains"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nullCheck" eType="#//operators/NullCheck"
           eOpposite="#//operators/NullCheck/primitiveNode"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="stringLength" upperBound="-1"
-          eType="#//operators/StringLength" eOpposite="#//operators/StringLength/primitiveNode"/>
+          eType="#//operators/StringLength"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="oneArgJavaOperator" upperBound="-1"
           eType="#//javaoperators/OneArgJavaOperator" eOpposite="#//javaoperators/OneArgJavaOperator/primitiveNode"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="twoArgJavaOperator1"
           upperBound="-1" eType="#//javaoperators/TwoArgJavaOperator" eOpposite="#//javaoperators/TwoArgJavaOperator/argument1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="twoArgJavaOperator2"
           upperBound="-1" eType="#//javaoperators/TwoArgJavaOperator" eOpposite="#//javaoperators/TwoArgJavaOperator/argument2"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operator" eType="#//operators/Operator"
+          eOpposite="#//operators/Operator/primitivenode"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="setGraphSimple">
@@ -426,8 +426,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/nodes"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="predicates" upperBound="-1"
-          eType="#//operators/BooleanOperator" eOpposite="#//operators/BooleanOperator/nodes"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" upperBound="-1"
           eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/target"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnNode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -626,6 +624,70 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="namespaces" eType="#//textrepresentation/ValueMap"
           containment="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="InvalidityExceptionWrapper" instanceClassName="qualitypatternmodel.exceptions.InvalidityException"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="ClassWrapper" instanceClassName="java.lang.Class"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="MissingPatternContainerException"
+        instanceClassName="qualitypatternmodel.exceptions.MissingPatternContainerException"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NotCondition" eSuperTypes="#//patternstructure/Condition">
+      <eOperations name="getNotSequenceSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//patternstructure/Condition"
+          containment="true" eOpposite="#//patternstructure/Condition/notCondition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CountCondition" eSuperTypes="#//patternstructure/Condition">
+      <eOperations name="createParameters"/>
+      <eOperations name="createCountPattern"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="countPattern" lowerBound="1"
+          eType="#//patternstructure/CountPattern" containment="true" eOpposite="#//patternstructure/CountPattern/countCondition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
+          eType="#//parameters/ComparisonOptionParam" eOpposite="#//parameters/ComparisonOptionParam/countConditions"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
+          eType="#//patternstructure/CountConditionArgument" containment="true" eOpposite="#//patternstructure/CountConditionArgument/countCondition2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CountConditionArgument" abstract="true"
+        interface="true" eSuperTypes="#//patternstructure/PatternElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition2" eType="#//patternstructure/CountCondition"
+          eOpposite="#//patternstructure/CountCondition/argument2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MorphismContainer" abstract="true"
+        interface="true" eSuperTypes="#//patternstructure/PatternElement">
+      <eOperations name="getGraph" eType="#//graphstructure/Graph"/>
+      <eOperations name="copyPreviousGraph" eExceptions="#//patternstructure/MissingPatternContainerException"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" lowerBound="1"
+          eType="#//patternstructure/Morphism" containment="true" eOpposite="#//patternstructure/Morphism/morphismContainer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CountPattern" eSuperTypes="#//patternstructure/Pattern #//patternstructure/MorphismContainer #//patternstructure/CountConditionArgument">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition" eType="#//patternstructure/CountCondition"
+          eOpposite="#//patternstructure/CountCondition/countPattern"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Pattern" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
+      <eOperations name="checkMorphismOfNextGraph" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
+          eType="#//graphstructure/Graph" containment="true" eOpposite="#//graphstructure/Graph/pattern"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//patternstructure/Condition"
+          containment="true" eOpposite="#//patternstructure/Condition/pattern"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="queries" eType="#//textrepresentation/JSONObjectWrapper"
+          defaultValueLiteral=""/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NumberElement" eSuperTypes="#//patternstructure/CountConditionArgument">
+      <eOperations name="createParameters"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="numberParam" lowerBound="1"
+          eType="#//parameters/NumberParam" eOpposite="#//parameters/NumberParam/numberArgument"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="AbstractionLevel">
+      <eLiterals name="SEMI_GENERIC" literal="SEMI_GENERIC"/>
+      <eLiterals name="GENERIC" value="1"/>
+      <eLiterals name="SEMI_ABSTRACT" value="2"/>
+      <eLiterals name="ABSTRACT" value="3"/>
+      <eLiterals name="SEMI_CONCRETE" value="4"/>
+      <eLiterals name="CONCRETE" value="5"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Language">
+      <eLiterals name="GENERIC" literal="generic"/>
+      <eLiterals name="XML" value="1" literal="xml"/>
+      <eLiterals name="RDF" value="2" literal="rdf"/>
+      <eLiterals name="NEO4J" value="3" literal="neo4j"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="BaseSchemaWrapper" instanceClassName="de.gwdg.metadataqa.api.schema.BaseSchema"/>
     <eClassifiers xsi:type="ecore:EClass" name="PatternElement" abstract="true">
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
@@ -701,70 +763,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EDataType" name="InvalidityExceptionWrapper" instanceClassName="qualitypatternmodel.exceptions.InvalidityException"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="ClassWrapper" instanceClassName="java.lang.Class"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="MissingPatternContainerException"
-        instanceClassName="qualitypatternmodel.exceptions.MissingPatternContainerException"/>
-    <eClassifiers xsi:type="ecore:EClass" name="NotCondition" eSuperTypes="#//patternstructure/Condition">
-      <eOperations name="getNotSequenceSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//patternstructure/Condition"
-          containment="true" eOpposite="#//patternstructure/Condition/notCondition"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CountCondition" eSuperTypes="#//patternstructure/Condition">
-      <eOperations name="createParameters"/>
-      <eOperations name="createCountPattern"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="countPattern" lowerBound="1"
-          eType="#//patternstructure/CountPattern" containment="true" eOpposite="#//patternstructure/CountPattern/countCondition"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
-          eType="#//parameters/ComparisonOptionParam" eOpposite="#//parameters/ComparisonOptionParam/countConditions"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
-          eType="#//patternstructure/CountConditionArgument" containment="true" eOpposite="#//patternstructure/CountConditionArgument/countCondition2"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CountConditionArgument" abstract="true"
-        interface="true" eSuperTypes="#//patternstructure/PatternElement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition2" eType="#//patternstructure/CountCondition"
-          eOpposite="#//patternstructure/CountCondition/argument2"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="MorphismContainer" abstract="true"
-        interface="true" eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="getGraph" eType="#//graphstructure/Graph"/>
-      <eOperations name="copyPreviousGraph" eExceptions="#//patternstructure/MissingPatternContainerException"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" lowerBound="1"
-          eType="#//patternstructure/Morphism" containment="true" eOpposite="#//patternstructure/Morphism/morphismContainer"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CountPattern" eSuperTypes="#//patternstructure/Pattern #//patternstructure/MorphismContainer #//patternstructure/CountConditionArgument">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition" eType="#//patternstructure/CountCondition"
-          eOpposite="#//patternstructure/CountCondition/countPattern"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Pattern" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="checkMorphismOfNextGraph" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
-          eType="#//graphstructure/Graph" containment="true" eOpposite="#//graphstructure/Graph/pattern"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//patternstructure/Condition"
-          containment="true" eOpposite="#//patternstructure/Condition/pattern"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="queries" eType="#//textrepresentation/JSONObjectWrapper"
-          defaultValueLiteral=""/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NumberElement" eSuperTypes="#//patternstructure/CountConditionArgument">
-      <eOperations name="createParameters"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="numberParam" lowerBound="1"
-          eType="#//parameters/NumberParam" eOpposite="#//parameters/NumberParam/numberArgument"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="AbstractionLevel">
-      <eLiterals name="SEMI_GENERIC" literal="SEMI_GENERIC"/>
-      <eLiterals name="GENERIC" value="1"/>
-      <eLiterals name="SEMI_ABSTRACT" value="2"/>
-      <eLiterals name="ABSTRACT" value="3"/>
-      <eLiterals name="SEMI_CONCRETE" value="4"/>
-      <eLiterals name="CONCRETE" value="5"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="Language">
-      <eLiterals name="GENERIC" literal="generic"/>
-      <eLiterals name="XML" value="1" literal="xml"/>
-      <eLiterals name="RDF" value="2" literal="rdf"/>
-      <eLiterals name="NEO4J" value="3" literal="neo4j"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EDataType" name="BaseSchemaWrapper" instanceClassName="de.gwdg.metadataqa.api.schema.BaseSchema"/>
   </eSubpackages>
   <eSubpackages name="adaptionxml" nsURI="adaptionxml" nsPrefix="adaptionxml">
     <eClassifiers xsi:type="ecore:EClass" name="XmlElement" eSuperTypes="#//graphstructure/ComplexNode #//adaptionxml/XmlNode">
