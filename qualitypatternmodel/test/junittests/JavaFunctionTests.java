@@ -137,7 +137,6 @@ public class JavaFunctionTests {
 	        return false;
 	    } catch (Exception e) {
 	    	System.err.println("URL '" + link + "' is offline: " + e.getMessage());
-	    	e.printStackTrace();
 	    	return true;
 	    }
 	}

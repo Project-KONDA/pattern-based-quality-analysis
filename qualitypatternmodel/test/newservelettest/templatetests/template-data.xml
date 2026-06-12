@@ -1,14 +1,100 @@
 <root>
-	<validlink>
-		<value>nothing</value>
-		<value>http://www.google.de</value>
-	</validlink>
+
+	<appdup>
+		<element id="0"><a>1</a><b>2</b><c>3</c><d>9</d></element>
+		<element id="1"><a>4</a><b>5</b><c>6</c><d>36</d></element>
+		<element id="2"><a>1</a><b>2</b><c>6</c><d>37</d></element>
+		<element id="3"><a>1</a><b>5</b><c>3</c><d>9</d></element>
+		<element id="4"><a>1</a><b>2</b><c>3</c><d>9</d></element>
+	</appdup>
+	
+	<comp>
+		<pair result="empty"><a></a><b></b></pair>
+		<pair equal="true"><a>true</a><b>true</b></pair>
+		<pair equal="true"><a>false</a><b>false</b></pair>
+		<pair equal="false"><a>true</a><b>false</b></pair>
+	</comp>
+	<compset>
+		<value match="abc">true</value>
+		<value match="def">false</value>
+		<value match="012">yes</value>
+		<value match="abc012">no</value>
+	</compset>
+	<values>
+		<value>abc</value>
+		<value>abcdefghijklmnopqrstuvwxyz</value>
+		<value>abc123</value>
+		<value>xyz</value>
+		<value>01234</value>
+		<value>.,-</value>
+	</values>
+	<valuelists>
+		<list id="0"><value>true</value><value>yes</value><value>false</value><value>no</value></list>
+		<list id="1"><value>false</value><value>no</value></list>
+		<list id="2"><value>true</value><value>yes</value></list>
+		<list id="3"><value>true</value><value>false</value></list>
+		<list id="4"><value>yes</value><value>no</value></list>
+		<list id="5"></list>
+	</valuelists>
+	
+	<mand>
+		<element id="0" att="x" att2="y"><subelement/><subelement2/></element>
+		<element id="1" att="x"></element>
+		<element id="2"><subelement/></element>
+		<element id="3"><subelement2/><subelement3/></element>
+		<element id="4" att2="y"><subelement3/></element>
+	</mand>
+	
+	
+	<linkmime>
+		<link id="0" type="-">nothing</link>
+		<link id="1" type="text/html">http://www.google.de</link>
+		<link id="2" type="text/html">http://www.github.com</link>
+		<link id="3" type="image/jpeg">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</link>
+		<link id="4" type="image/jpeg">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</link>
+		<link id="5" type="image/jpeg">https://objektkatalog.gnm.de/bild/2023-07-04/73DB78B91A9C5CFBD6EC0FFBBE0A2095_k3.jpg</link>
+		<link id="6" type="image/jpeg">https://www.runesdb.de/image-service/17125/full/max/0/default.jpg</link>
+	</linkmime>
 	<linkimagesize>
-		<value>nothing</value>
-		<value>http://www.google.de</value>
-		<value size="256x256">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</value>
-		<value size="1600x1139"> http://fotothek.slub-dresden.de/fotos/df_hauptkatalog_0355520.jpg </value>
-		<value size="2496x1664">https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg</value>
-		<value size="2500x1912">https://recherche.smb.museum/images/5822610_2500x2500.jpg</value>
+		<link valid="false">nothing</link>
+		<link size="invalid">http://www.google.de</link>
+		<link size="256x256">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</link>
+		<link size="1600x1139"> http://fotothek.slub-dresden.de/fotos/df_hauptkatalog_0355520.jpg </link>
+		<link size="2496x1664">https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg</link>
+		<link size="2500x1912">https://recherche.smb.museum/images/5822610_2500x2500.jpg</link>
 	</linkimagesize>
+	<linkimagesizeifcompset>
+		<link comp="true" valid="false">nothing</link>
+		<link comp="true" size="invalid">http://www.google.de</link>
+		<link comp="yes" size="256x256">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</link>
+		<link comp="yes" size="2500x1912">https://recherche.smb.museum/images/5822610_2500x2500.jpg</link>
+		<link comp="false" size="256x256">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</link>
+		<link comp="false" size="2500x1912">https://recherche.smb.museum/images/5822610_2500x2500.jpg</link>
+	</linkimagesizeifcompset>
+	<validlink>
+		<link valid="false">nothing</link>
+		<link valid="true">http://www.google.de</link>
+		<link valid="true">http://www.google.com</link>
+		<link valid="true">http://www.github.com</link>
+	</validlink>
+
+	<uniquevalue>
+		<uniquevalueA id="0">00</uniquevalueA>
+		<uniquevalueA id="1">01</uniquevalueA>
+		<uniquevalueA id="2">02</uniquevalueA>
+		<uniquevalueB id="3">03</uniquevalueB>
+		<uniquevalueB id="4">03</uniquevalueB>
+		<uniquevalueB id="5">03</uniquevalueB>
+		<uniquevalueC id="6">04</uniquevalueC>
+		<uniquevalueC id="7">04</uniquevalueC>
+		<uniquevalueC id="8">05</uniquevalueC>
+	</uniquevalue>
+	<uniquelists>
+		<list id="0"><value>a</value></list>
+		<list id="1"><value>a</value><value>b</value><value>c</value><value>d</value></list>
+		<list id="2"><value>a</value><value>a</value><value>b</value><value>c</value><value>d</value></list>
+		<list id="3"><value>a</value><value>b</value><value>c</value><value>d</value><value>d</value></list>
+		<list id="4"><value>a</value><value>a</value></list>
+		<list id="5"></list>
+	</uniquelists>
 </root>

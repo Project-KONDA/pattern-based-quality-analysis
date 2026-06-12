@@ -33,31 +33,43 @@ public class TemplateTest {
 
 	static String PARAMS = "params";
 	static String EXPECTED = "expected";
-	static String OUT = "out";
+	static String TEST = "test";
+	static boolean onlyTest = true;
+	
 
 	static String pathConfig = "test\\newservelettest\\templatetests\\template-config.json";
 	static String pathConfigMissing = "test\\newservelettest\\templatetests\\template-config-missing.json";
 	static String pathData = "test\\newservelettest\\templatetests\\template-data.xml";
+
 
 	static List<PatternClass> patternClazzes = PatternCollection.getPatternClassInstances();
 
 	public static void main(String[] args) throws IOException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		JSONObject config = Util.loadJson(pathConfig);
 		JSONObject configMissing = new JSONObject();
+//		boolean missingArray = false;
 		
 		for (PatternClass patternclazz: patternClazzes) {
-			if (!config.has(patternclazz.id)) {
+//			if (config.has(patternclazz.id) && config.getJSONArray(patternclazz.id).isEmpty()) {
+//				config.remove(patternclazz.id);
+//				System.out.println( "'" + patternclazz.id + "' empty");
+//				missingArray = true;
+//			}
+			if (!config.has(patternclazz.id) || config.getJSONArray(patternclazz.id).isEmpty()) {
 				EList<Parameter> params = patternclazz.getXmlPattern().getParameterList().getParameters();
 				JSONObject paramjson = new JSONObject();
 				for (int i = 0; i<params.size(); i++) {
 					paramjson.put(""+i, params.get(i).getClass().getSimpleName().replace("ParamImpl", ""));
 				}
-				JSONObject json = new JSONObject();
-				json.put(PARAMS, paramjson);
-				configMissing.put(patternclazz.id, json);
+				configMissing.put(patternclazz.id, paramjson);
+				config.put(patternclazz.id, new JSONArray());
 			}
 		}
-		Util.exportJson(configMissing, pathConfigMissing);	
+//		if (missingArray) {
+//			Util.exportJson(config, pathConfig);
+//		}
+		Util.exportJson(configMissing, pathConfigMissing);
+		System.out.println(configMissing.length() + " out of " + patternClazzes.size() + " templates not tested");
 	}
 
 
@@ -70,20 +82,26 @@ public class TemplateTest {
 			JSONArray array = config.getJSONArray(key);
 			for (int i = 0; i<array.length(); i++) {
 				JSONObject json = array.getJSONObject(i);
-				args.add(Arguments.of(key, json.getJSONObject(PARAMS), json.getJSONObject(EXPECTED), json.has(OUT)));
+				if (!onlyTest || json.has(TEST))
+					args.add(Arguments.of(key, json.getJSONObject(PARAMS), json.getJSONObject(EXPECTED), json.has(TEST)));
 			}
 		}
+		if (onlyTest && args.size() == 0) {
+			System.err.println("NO TESTS FOUND, EXECUTING ALL TESTS");
+			onlyTest = false;
+			return argumentProvider();
+		}	
         return args;
     }
 
 	@ParameterizedTest
     @MethodSource("argumentProvider")
-	public void testPattern(String id, JSONObject params, JSONObject expected, boolean out) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, JSONException, InvalidServletCallException, FailedServletCallException {
+	public void testPattern(String id, JSONObject params, JSONObject expected, boolean debug) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, JSONException, InvalidServletCallException, FailedServletCallException {
 		CompletePattern pattern = findPattern(id);
 		parameterizePattern(pattern, params);
 		JSONObject query = ConstraintQueryServlet.generateQueryJson(pattern,  "xml");
 		JSONObject result = XQueryProcessorSaxon.queryConstraintsFilePaths(Arrays.asList(query), Arrays.asList(pathData));
-		if (out) {
+		if (debug) {
 			System.out.println("\nQUERY");
 			System.out.println(query.toString(2));
 			System.out.println("\nRESULT");
@@ -111,7 +129,7 @@ public class TemplateTest {
 			try {
 				params.getParameters().get(paramid).setValueFromString(value);
 			} catch (InvalidityException e) {
-				throw new InvalidityException(pattern.getAbstractId() + " (param " + paramid + ")", e);
+				throw new InvalidityException(pattern.getAbstractId() + " (param " + paramid + "): " + e.getMessage(), e);
 			}
 		}
 		pattern.isValid(AbstractionLevel.CONCRETE);
