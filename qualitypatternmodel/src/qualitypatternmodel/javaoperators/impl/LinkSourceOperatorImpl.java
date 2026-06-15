@@ -45,16 +45,13 @@ public class LinkSourceOperatorImpl extends OneArgJavaListOperatorImpl implement
 	}
 	
 	public static Boolean apply2(String url, Boolean negate, List<String> urls) {
-		boolean contained = false;
 		for (String part: urls) {
-			contained = contained || url.contains(part);
+			if (url.contains(part)) {
+				Boolean result = LinkOperatorUtil.evaluateResponseCode(url.trim());
+				return result? !negate: negate;
+			}
 		}
-		if (!contained)
-			return negate;
-
-		String urlString = url.trim();
-		Boolean result = LinkOperatorUtil.evaluateResponseCode(urlString);
-		return result != negate;
+		return negate;
 	}
 
 	@Override

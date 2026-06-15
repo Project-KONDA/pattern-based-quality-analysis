@@ -14,6 +14,7 @@ import org.apache.commons.lang3.tuple.Pair;
 public class LinkOperatorUtil {
 	
 	public static final int DEFAULT_TIMEOUT = 5000;
+	public static final String AGENT = "QPM/1.15; (https://github.com/Project-KONDA/pattern-based-quality-analysis)";
 
     private static final HttpClient CLIENT = HttpClient.newBuilder()
             .connectTimeout(Duration.ofMillis(DEFAULT_TIMEOUT))
@@ -132,12 +133,13 @@ public class LinkOperatorUtil {
     // Core Request Logic
 
     private static HttpResponse<Void> sendForHead(String url) throws Exception {
-    	url = url.trim();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .timeout(Duration.ofMillis(DEFAULT_TIMEOUT))
-                .method("HEAD", HttpRequest.BodyPublishers.noBody())
-                .build();
+            .uri(URI.create(url))
+            .timeout(Duration.ofMillis(DEFAULT_TIMEOUT))
+            .header("User-Agent", AGENT)
+            .header("Accept", "*/*")
+            .method("HEAD", HttpRequest.BodyPublishers.noBody())
+            .build();
 
         HttpResponse<Void> response = CLIENT.send(request, HttpResponse.BodyHandlers.discarding()); 
         int code = response.statusCode();
@@ -145,10 +147,12 @@ public class LinkOperatorUtil {
         // Fallback to GET
         if (isFailure(code)) {
             request = HttpRequest.newBuilder()
-                    .uri(URI.create(url))
-                    .timeout(Duration.ofMillis(DEFAULT_TIMEOUT))
-                    .GET()
-                    .build();
+                .uri(URI.create(url))
+                .timeout(Duration.ofMillis(DEFAULT_TIMEOUT))
+                .header("User-Agent", AGENT)
+                .header("Accept", "*/*")
+                .GET()
+                .build();
 
             response = CLIENT.send(request, HttpResponse.BodyHandlers.discarding());
         }
@@ -158,10 +162,12 @@ public class LinkOperatorUtil {
 
     private static HttpResponse<byte[]> sendForBody(String url) throws Exception {
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .timeout(Duration.ofMillis(DEFAULT_TIMEOUT))
-                .method("GET", HttpRequest.BodyPublishers.noBody())
-                .build();
+            .uri(URI.create(url))
+            .timeout(Duration.ofMillis(DEFAULT_TIMEOUT))
+            .header("User-Agent", AGENT)
+            .header("Accept", "*/*")
+            .GET()
+            .build();
 
         return CLIENT.send(request, HttpResponse.BodyHandlers.ofByteArray());
     }

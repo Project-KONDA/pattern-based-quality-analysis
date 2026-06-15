@@ -1331,7 +1331,7 @@
 	],
     "LinkImageSizeIso": [
         {
-            "expected": {
+        	"expected": {
                 "totalIncidents": 4,
                 "totalFindings": 6
             },
