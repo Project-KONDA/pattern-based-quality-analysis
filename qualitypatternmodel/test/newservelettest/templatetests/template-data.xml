@@ -30,19 +30,30 @@
 		<value>.,-</value>
 	</values>
 	<valuelists>
-		<list id="0"><value>true</value><value>yes</value><value>false</value><value>no</value></list>
-		<list id="1"><value>false</value><value>no</value></list>
-		<list id="2"><value>true</value><value>yes</value></list>
-		<list id="3"><value>true</value><value>false</value></list>
-		<list id="4"><value>yes</value><value>no</value></list>
-		<list id="5"></list>
+		<list id="0" name="012"><value>true</value><value>yes</value><value>false</value><value>no</value>
+			<a>1</a><a>1</a><a>2</a><b/><b/><b/>
+		</list>
+		<list id="1" name="01a"><value>false</value><value>no</value>
+			<a>1</a><a>1</a><b/>
+		</list>
+		<list id="2" name="aaa"><value>true</value><value>yes</value>
+			<a>1</a><a>2</a><b/><b/>
+		</list>
+		<list id="3" name="ab2"><value>true</value><value>false</value>
+			<a>1</a><b/><b/>
+		</list>
+		<list id="4" name="abc"><value>yes</value><value>no</value>
+		</list>
+		<list id="5" name="a1b">
+			<b/>
+		</list>
 	</valuelists>
 	
 	<mand>
-		<element id="0" att="x" att2="y"><subelement/><subelement2/></element>
+		<element id="0" att="x" att2="y" att3="z"><subelement/><subelement2/></element>
 		<element id="1" att="x"></element>
-		<element id="2"><subelement/></element>
-		<element id="3"><subelement2/><subelement3/></element>
+		<element id="2" att3="z"><subelement/></element>
+		<element id="3" att3="z"><subelement2/><subelement3/></element>
 		<element id="4" att2="y"><subelement3/></element>
 	</mand>
 	
@@ -53,8 +64,8 @@
 		<link id="2" type="text/html">http://www.github.com</link>
 		<link id="3" type="image/jpeg">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</link>
 		<link id="4" type="image/jpeg">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</link>
-		<link id="5" type="image/jpeg">https://objektkatalog.gnm.de/bild/2023-07-04/73DB78B91A9C5CFBD6EC0FFBBE0A2095_k3.jpg</link>
-		<link id="6" type="image/jpeg">https://www.runesdb.de/image-service/17125/full/max/0/default.jpg</link>
+		<link id="5" type="image/jpeg">https://fotothek.slub-dresden.de/fotos/df/hauptkatalog/0355000/df_hauptkatalog_0355520.jpg</link>
+		<link id="6" type="image/jpg">https://www.runesdb.de/image-service/17125/full/max/0/default.jpg</link>
 	</linkmime>
 	<linkimagesize>
 		<link valid="false">nothing</link>

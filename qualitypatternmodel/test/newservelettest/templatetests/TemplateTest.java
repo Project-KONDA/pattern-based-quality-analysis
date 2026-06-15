@@ -33,8 +33,10 @@ public class TemplateTest {
 
 	static String PARAMS = "params";
 	static String EXPECTED = "expected";
+	static String DEACTIVATED = "deactivated";
 	static String TEST = "test";
-	static boolean onlyTest = true;
+	static boolean onlyTest = false;
+	static boolean ignoreDeactivated = true;
 	
 
 	static String pathConfig = "test\\newservelettest\\templatetests\\template-config.json";
@@ -82,8 +84,11 @@ public class TemplateTest {
 			JSONArray array = config.getJSONArray(key);
 			for (int i = 0; i<array.length(); i++) {
 				JSONObject json = array.getJSONObject(i);
-				if (!onlyTest || json.has(TEST))
-					args.add(Arguments.of(key, json.getJSONObject(PARAMS), json.getJSONObject(EXPECTED), json.has(TEST)));
+				boolean isTest = json.has(TEST) && json.getBoolean(TEST);
+				boolean isActive = !json.has(DEACTIVATED) || !json.getBoolean(DEACTIVATED);
+				
+				if ((ignoreDeactivated || isActive) && (!onlyTest || isTest))
+						args.add(Arguments.of(key, json.getJSONObject(PARAMS), json.getJSONObject(EXPECTED), json.has(TEST)));
 			}
 		}
 		if (onlyTest && args.size() == 0) {
@@ -102,8 +107,8 @@ public class TemplateTest {
 		JSONObject query = ConstraintQueryServlet.generateQueryJson(pattern,  "xml");
 		JSONObject result = XQueryProcessorSaxon.queryConstraintsFilePaths(Arrays.asList(query), Arrays.asList(pathData));
 		if (debug) {
-			System.out.println("\nQUERY");
-			System.out.println(query.toString(2));
+//			System.out.println("\nQUERY");
+//			System.out.println(query.toString(2));
 			System.out.println("\nRESULT");
 			System.out.println(result.toString(2));
 			System.out.println("\nEXPECTED");
