@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <root>
 
 	<appdup>
@@ -71,6 +72,15 @@
 		<link comp="false" size="256x256">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</link>
 		<link comp="false" size="2500x1912">https://recherche.smb.museum/images/5822610_2500x2500.jpg</link>
 	</linkimagesizeifcompset>
+	<linksource>
+		<link id="0" valid="true">https://www.wikidata.org/entity/Q22731</link>
+		<link id="1" valid="true">https://www.wikidata.org/entity/Q923113</link>
+		<link id="2" valid="false">https://xwww.wikidata.org/INVALID</link>
+		<link id="3" valid="true">http://vocab.getty.edu/aat/300011176</link>
+		<link id="4" valid="true">http://vocab.getty.edu/aat/300027389</link>
+		<link id="5" valid="false">http://vocab.getty.edu/aat/invalid/invalid/invalid/invalid</link>
+		<link id="6" valid="false">nothing</link>
+	</linksource>
 	<validlink>
 		<link valid="false">nothing</link>
 		<link valid="true">http://www.google.de</link>

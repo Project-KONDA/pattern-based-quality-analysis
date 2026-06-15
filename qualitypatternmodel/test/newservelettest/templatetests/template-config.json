@@ -1372,6 +1372,117 @@
 		}
 	],
 
+    "LinkSource": [
+		{
+			"expected": {
+				"totalIncidents": 3,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "true",
+				"1": "['vocab.getty.edu/aat/','www.wikidata.org/']",
+				"2": "//linksource/link",
+				"3": "/text()"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 2,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "false",
+				"1": "['vocab.getty.edu/aat/']",
+				"2": "//linksource/link",
+				"3": "/text()"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 5,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "true",
+				"1": "['vocab.getty.edu/aat/']",
+				"2": "//linksource/link",
+				"3": "/text()"
+			}
+		}
+	],
+    "LinkSourceSin": [
+		{
+			"expected": {
+				"totalIncidents": 3,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "true",
+				"1": "['vocab.getty.edu/aat/','www.wikidata.org/']",
+				"2": "//linksource/link/text()"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 2,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "false",
+				"1": "['vocab.getty.edu/aat/']",
+				"2": "//linksource/link/text()"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 5,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "true",
+				"1": "['vocab.getty.edu/aat/']",
+				"2": "//linksource/link/text()"
+			}
+		}
+	],
+    "LinkSourceIso": [
+		{
+			"expected": {
+				"totalIncidents": 3,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "true",
+				"1": "['vocab.getty.edu/aat/','www.wikidata.org/']",
+				"2": "/link/text()",
+				"3": "//linksource"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 2,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "false",
+				"1": "['vocab.getty.edu/aat/']",
+				"2": "/link/text()",
+				"3": "//linksource"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 5,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "true",
+				"1": "['vocab.getty.edu/aat/']",
+				"2": "/link/text()",
+				"3": "//linksource"
+			}
+		}
+	],
     "ValidLink": [
 		{
 			"expected": {
