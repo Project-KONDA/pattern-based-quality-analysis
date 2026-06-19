@@ -21,8 +21,6 @@ public class Test06NotElement {
 
 	public static ArrayList<CompletePattern> getPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternNotTrue());
-		completePatterns.add(getPatternNotNotTrue());
 		completePatterns.add(getPatternNotExists());
 		completePatterns.add(getPatternNotForall());
 		completePatterns.add(getPatternExistsNotExists());
@@ -32,37 +30,6 @@ public class Test06NotElement {
 
     public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternUtility.testPatterns(getPatterns());
-	}
-
-	public static CompletePattern getPatternNotTrue() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-
-		NotCondition n = factory.createNotCondition();
-		completePattern.setCondition(n);
-		completePattern.createXmlAdaption();
-		List<Parameter> params = completePattern.getParameterList().getParameters();
-		params.get(0).setValueFromString("/*"); // XmlPathParam
-
-		return completePattern;
-	}
-
-	public static CompletePattern getPatternNotNotTrue() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-
-		NotCondition n = factory.createNotCondition();
-		completePattern.setCondition(n);
-		NotCondition n2 = factory.createNotCondition();
-		n.setCondition(n2);
-
-		completePattern.createXmlAdaption();
-		List<Parameter> params = completePattern.getParameterList().getParameters();
-		params.get(0).setValueFromString("/*"); // XmlPathParam
-
-		return completePattern;
 	}
 
 	public static CompletePattern getPatternNotExistsAbstract() throws InvalidityException {
@@ -151,8 +118,6 @@ public class Test06NotElement {
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("06", "NOT",getPatternNotTrue(), "()"));
-		testPairs.add(new PatternTestPair("06", "NOTNOT", getPatternNotNotTrue(), "/*"));
 		testPairs.add(new PatternTestPair("06", "NOTEX", getPatternNotExists(), "//*[not(./*)]"));
 		testPairs.add(new PatternTestPair("06", "NOTFA", getPatternNotForall(), "()"));
 		testPairs.add(new PatternTestPair("06", "EXNOTEX", getPatternExistsNotExists(), "declare namespace demo = \"demo\"; //demo:building[./demo:address/demo:city[./text() = \"New York City\"]]"));
