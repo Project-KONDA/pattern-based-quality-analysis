@@ -142,6 +142,295 @@
             }
         }
 	],
+	"CardIfCard":[
+        {
+            "expected": {
+                "totalIncidents": 1,
+                "totalFindings": 6
+            },
+            "params": {
+				"0": "EQUAL",
+				"1": "2",
+				"2": "GREATER",
+				"3": "1",
+				"4": "//valuelists/list",
+				"5": "/a",
+				"6": "/b"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 1,
+                "totalFindings": 6
+            },
+            "params": {
+				"0": "EQUAL",
+				"1": "2",
+				"2": "GREATER",
+				"3": "1",
+				"4": "//valuelists/list",
+				"5": "/b",
+				"6": "/a"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 3,
+                "totalFindings": 6
+            },
+            "params": {
+				"0": "GREATER",
+				"1": "0",
+				"2": "GREATER",
+				"3": "2",
+				"4": "//valuelists/list",
+				"5": "/a",
+				"6": "/b"
+            }
+        }
+	],
+	"CardIfCompSet":[
+        {
+            "expected": {
+                "totalIncidents": 3,
+                "totalFindings": 6
+            },
+            "params": {
+				"0": "['012', '01a', 'aaa', 'ab2', 'abc', 'a1b']",
+				"1": "EQUAL",
+				"3": "GREATER",
+				"4": "1",
+				"5": "//valuelists/list",
+				"6": "/@name",
+				"7": "/a"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 1,
+                "totalFindings": 6
+            },
+            "params": {
+				"0": "['aaa', 'abc']",
+				"1": "EQUAL",
+				"3": "GREATER",
+				"4": "1",
+				"5": "//valuelists/list",
+				"6": "/@name",
+				"7": "/a"
+            }
+        }
+	],
+	"CardCompSetIfCompSet":[
+        {
+            "expected": {
+                "totalIncidents": 2,
+                "totalFindings": 6
+            },
+            "params": {
+				"0": "['012', '01a', 'aaa', 'ab2', 'abc', 'a1b']",
+				"1": "EQUAL",
+				"3": "GREATER",
+				"4": "0",
+				"5": "['1','2']",
+				"6": "EQUAL",
+				"8": "//valuelists/list",
+				"9": "/@name",
+				"10": "/a/text()"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 4,
+                "totalFindings": 6
+            },
+            "params": {
+				"0": "['01a', 'aaa', 'ab2', 'abc', 'a1b']",
+				"1": "EQUAL",
+				"3": "GREATER",
+				"4": "0",
+				"5": "['2']",
+				"6": "EQUAL",
+				"8": "//valuelists/list",
+				"9": "/@name",
+				"10": "/a/text()"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 3,
+                "totalFindings": 6
+            },
+            "params": {
+				"0": "['012', '01a']",
+				"1": "NOTEQUAL",
+				"3": "GREATER",
+				"4": "0",
+				"5": "['1']",
+				"6": "NOTEQUAL",
+				"8": "//valuelists/list",
+				"9": "/@name",
+				"10": "/a/text()"
+            }
+        }
+	],
+	"CardContainsIfCompSet":[
+        {
+            "expected": {
+                "totalIncidents": 2,
+                "totalFindings": 6
+            },
+            "params": {
+				"7": "//valuelists/list",
+				"8": "/@name",
+				"1": "EQUAL",
+				"0": "['012', '01a', 'aaa', 'ab2', 'abc', 'a1b']",
+				"3": "GREATER",
+				"4": "0",
+				"9": "/a/text()",
+				"5": "true",
+				"6": "1"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 1,
+                "totalFindings": 6
+            },
+            "params": {
+				"7": "//valuelists/list",
+				"8": "/@name",
+				"1": "NOTEQUAL",
+				"0": "['012', 'ab2', 'abc']",
+				"3": "GREATER",
+				"4": "0",
+				"9": "/a/text()",
+				"5": "true",
+				"6": "1"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 2,
+                "totalFindings": 6
+            },
+            "params": {
+				"7": "//valuelists/list",
+				"8": "/@name",
+				"1": "NOTEQUAL",
+				"0": "['012', 'ab2', 'abc']",
+				"3": "EQUAL",
+				"4": "1",
+				"9": "/a/text()",
+				"5": "true",
+				"6": "1"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 2,
+                "totalFindings": 6
+            },
+            "params": {
+				"7": "//valuelists/list",
+				"8": "/@name",
+				"1": "NOTEQUAL",
+				"0": "['012', 'ab2', 'abc']",
+				"3": "EQUAL",
+				"4": "1",
+				"9": "/a/text()",
+				"5": "false",
+				"6": "1"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 1,
+                "totalFindings": 6
+            },
+            "params": {
+				"7": "//valuelists/list",
+				"8": "/@name",
+				"1": "NOTEQUAL",
+				"0": "['012', 'ab2', 'abc']",
+				"3": "NOTEQUAL",
+				"4": "1",
+				"9": "/a/text()",
+				"5": "false",
+				"6": "1"
+            }
+        }
+	],
+	"CardCompSetIfCard":[
+		{
+            "expected": {
+                "totalIncidents": 2,
+                "totalFindings": 6
+            },
+            "params": {
+				"7": "//valuelists/list",
+				"0": "GREATER",
+				"1": "0",
+				"8": "/a",
+				"2": "EQUAL",
+				"3": "1",
+				"9": "/@name",
+				"5": "EQUAL",
+				"4": "['012', '01a']"
+            }
+        },
+		{
+            "expected": {
+                "totalIncidents": 2,
+                "totalFindings": 6
+            },
+            "params": {
+				"7": "//valuelists/list",
+				"0": "GREATER",
+				"1": "0",
+				"8": "/a",
+				"2": "EQUAL",
+				"3": "1",
+				"9": "/@name",
+				"5": "EQUAL",
+				"4": "['012', '01a']"
+            }
+        },
+		{
+            "expected": {
+                "totalIncidents": 4,
+                "totalFindings": 6
+            },
+            "params": {
+				"7": "//valuelists/list",
+				"0": "GREATER",
+				"1": "0",
+				"8": "/a",
+				"2": "EQUAL",
+				"3": "1",
+				"9": "/@name",
+				"5": "EQUAL",
+				"4": "['xxx']"
+            }
+        },
+		{
+            "expected": {
+                "totalIncidents": 0,
+                "totalFindings": 6
+            },
+            "params": {
+				"7": "//valuelists/list",
+				"0": "GREATER",
+				"1": "0",
+				"8": "/a",
+				"2": "EQUAL",
+				"3": "1",
+				"9": "/@name",
+				"5": "EQUAL",
+				"4": "['012', '01a', 'aaa', 'ab2', 'abc', 'a1b']"
+            }
+        }
+	],
 
     "Comp": [
         {
@@ -448,6 +737,41 @@
 				"0": "//mand/element",
 				"1": "/@att",
 				"2": "/subelement"
+            }
+        }
+	],
+	"ExistsIfExists": [
+		{
+            "expected": {
+                "totalIncidents": 1,
+                "totalFindings": 5
+            },
+            "params": {
+				"0": "//mand/element",
+				"1": "/@att",
+				"2": "/@att2"
+            }
+        },
+		{
+            "expected": {
+                "totalIncidents": 1,
+                "totalFindings": 5
+            },
+            "params": {
+				"0": "//mand/element",
+				"1": "/@att2",
+				"2": "/@att3"
+            }
+        },
+		{
+            "expected": {
+                "totalIncidents": 2,
+                "totalFindings": 5
+            },
+            "params": {
+				"0": "//mand/element",
+				"1": "/@att3",
+				"2": "/@att"
             }
         }
 	],
@@ -1313,6 +1637,53 @@
 			}
 		}
 	],
+    "LinkMimeTypeIfCompSet": [
+		{
+			"expected": {
+				"totalIncidents": 1,
+				"totalFindings": 7
+			},
+			"params":{
+				"0": "['2','3']",
+				"1": "EQUAL",
+				"3": "true",
+				"4": "['image/jpeg']",
+				"5": "//linkmime/link",
+				"6": "/@id",
+				"7": "/text()"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 1,
+				"totalFindings": 7
+			},
+			"params":{
+				"0": "['2','3']",
+				"1": "EQUAL",
+				"3": "false",
+				"4": "['image/jpeg']",
+				"5": "//linkmime/link",
+				"6": "/@id",
+				"7": "/text()"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 3,
+				"totalFindings": 7
+			},
+			"params":{
+				"0": "['2','3']",
+				"1": "NOTEQUAL",
+				"3": "true",
+				"4": "['image/jpeg']",
+				"5": "//linkmime/link",
+				"6": "/@id",
+				"7": "/text()"
+			}
+		}
+	],
 	
     "LinkImageSize": [
 		{
@@ -1342,19 +1713,6 @@
                 "3": "/link/text()",
                 "4": "//linkimagesize"
             }
-        },
-        {
-            "expected": {
-                "totalIncidents": 4,
-                "totalFindings": 6
-            },
-            "params": {
-                "0": "true",
-                "1": "1500",
-                "2": "1500",
-                "3": "/text()",
-                "4": "//linkimagesize/link"
-            }
         }
     ],
     "LinkImageSizeSin": [
@@ -1368,6 +1726,226 @@
 				"1": "1500",
 				"2": "1500",
 				"3": "//linkimagesize/link/text()"
+			}
+		}
+	],
+
+    "LinkSource": [
+		{
+			"expected": {
+				"totalIncidents": 3,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "true",
+				"1": "['vocab.getty.edu/aat/','www.wikidata.org/']",
+				"2": "//linksource/link",
+				"3": "/text()"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 2,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "false",
+				"1": "['vocab.getty.edu/aat/']",
+				"2": "//linksource/link",
+				"3": "/text()"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 5,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "true",
+				"1": "['vocab.getty.edu/aat/']",
+				"2": "//linksource/link",
+				"3": "/text()"
+			}
+		}
+	],
+    "LinkSourceSin": [
+		{
+			"expected": {
+				"totalIncidents": 3,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "true",
+				"1": "['vocab.getty.edu/aat/','www.wikidata.org/']",
+				"2": "//linksource/link/text()"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 2,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "false",
+				"1": "['vocab.getty.edu/aat/']",
+				"2": "//linksource/link/text()"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 5,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "true",
+				"1": "['vocab.getty.edu/aat/']",
+				"2": "//linksource/link/text()"
+			}
+		}
+	],
+    "LinkSourceIso": [
+		{
+			"expected": {
+				"totalIncidents": 3,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "true",
+				"1": "['vocab.getty.edu/aat/','www.wikidata.org/']",
+				"2": "/link/text()",
+				"3": "//linksource"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 2,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "false",
+				"1": "['vocab.getty.edu/aat/']",
+				"2": "/link/text()",
+				"3": "//linksource"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 5,
+				"totalFindings": 7
+			},
+			"params": {
+				"0": "true",
+				"1": "['vocab.getty.edu/aat/']",
+				"2": "/link/text()",
+				"3": "//linksource"
+			}
+		}
+	],
+    "LinkMatchListExists": [
+		{
+			"resultids":[0, 5],
+			"expected": {
+				"totalIncidents": 2,
+				"totalFindings": 6
+			},
+			"params": {
+				"0": "false",
+				"1": "true",
+				"2": "['vocab.getty.edu/aat/','www.wikidata.org/']",
+				"3": "//linksourcelists/list",
+				"4": "/link/text()"
+			}
+		},
+		{
+			"resultids":[0, 2, 5],
+			"expected": {
+				"totalIncidents": 3,
+				"totalFindings": 6
+			},
+			"params": {
+				"0": "false",
+				"1": "true",
+				"2": "['vocab.getty.edu/aat/']",
+				"3": "//linksourcelists/list",
+				"4": "/link/text()"
+			}
+		},
+		{
+			"resultids":[0, 3, 5],
+			"expected": {
+				"totalIncidents": 3,
+				"totalFindings": 6
+			},
+			"params": {
+				"0": "false",
+				"1": "true",
+				"2": "['www.wikidata.org/']",
+				"3": "//linksourcelists/list",
+				"4": "/link/text()"
+			}
+		},
+		{
+			"resultids":[0, 3, 5],
+			"expected": {
+				"totalIncidents": 3,
+				"totalFindings": 6
+			},
+			"params": {
+				"0": "false",
+				"1": "true",
+				"2": "['Q[0-9]{5}$']",
+				"3": "//linksourcelists/list",
+				"4": "/link/text()"
+			}
+		}
+	],
+	"LinkSourceExists": [
+		{
+			"expected": {
+				"totalIncidents": 2,
+				"totalFindings": 6
+			},
+			"params": {
+				"0": "true",
+				"1": "['vocab.getty.edu\/aat\/','www.wikidata.org\/']",
+				"2": "//linksourcelists/list",
+				"3": "/link/text()"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 3,
+				"totalFindings": 6
+			},
+			"params": {
+				"0": "true",
+				"1": "['vocab.getty.edu\/aat\/']",
+				"2": "//linksourcelists/list",
+				"3": "/link/text()"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 3,
+				"totalFindings": 6
+			},
+			"params": {
+				"0": "true",
+				"1": "['www.wikidata.org\/']",
+				"2": "//linksourcelists/list",
+				"3": "/link/text()"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 6,
+				"totalFindings": 6
+			},
+			"params": {
+				"0": "true",
+				"1": "['www.google.org\/']",
+				"2": "//linksourcelists/list",
+				"3": "/link/text()"
 			}
 		}
 	],

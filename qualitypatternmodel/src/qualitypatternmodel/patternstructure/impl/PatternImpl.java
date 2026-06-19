@@ -168,7 +168,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		if (getCondition() != null) {
 			whereClause = "\n";
 			String condQuery = getCondition().generateXQuery().replace("\n", "\n  ");
-			whereClause = ConstantsXml.WHERE + condQuery;
+			if (condQuery.contains("$"))
+				whereClause = ConstantsXml.WHERE + condQuery;
 		}
 
 		String returnClause = generateXQueryReturnClause();

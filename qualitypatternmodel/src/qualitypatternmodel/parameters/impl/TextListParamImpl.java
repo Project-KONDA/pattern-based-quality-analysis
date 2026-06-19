@@ -118,6 +118,11 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 	}
 
 	@Override
+	public boolean hasOnlyJavaOperators() {
+		return (contains == null || contains.isEmpty()) && (matches == null || matches.isEmpty()) && javaListOperator != null && !javaListOperator.isEmpty();
+	}
+
+	@Override
 	public String generateSparql() throws InvalidityException {
 		if(getValues().isEmpty()) {
 			return super.generateSparql();

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.parameters.ListParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -113,9 +114,10 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	public String generateXQuery() throws InvalidityException {
 		String res = "";
 		for (Parameter parameter : getParameters()) {
-			if (parameter instanceof TextListParamImpl) {
-				res += ((TextListParamImpl) parameter).getListDeclaration();
-				res += "\n";
+			if (parameter instanceof ListParam) {
+				ListParam list = (ListParam) parameter;
+				if (!list.hasOnlyJavaOperators())
+					res += list.getListDeclaration() + "\n";
 			}
 		}
 		return res;

@@ -75,8 +75,8 @@
 		{"link":"http://vocab.getty.edu/aat/300011176","source":"www.wikidata.org/","expected":false},
 		{"link":"http://vocab.getty.edu/aat/300027389","source":"vocab.getty.edu/aat/","expected":true},
 		{"link":"http://vocab.getty.edu/aat/300027389","source":"www.wikidata.org/","expected":false},
-		{"link":"http://vocab.getty.edu/aat/INVALID","source":"vocab.getty.edu/aat/","expected":false},
-		{"link":"http://vocab.getty.edu/aat/INVALID","source":"www.wikidata.org/","expected":false}
+		{"link":"http://vocab.getty.edu/aat/invalid/invalid/invalid/invalid","source":"vocab.getty.edu/aat/","expected":false},
+		{"link":"http://vocab.getty.edu/aat/invalid/invalid/invalid/invalid","source":"www.wikidata.org/","expected":false}
 	]
 
 }
