@@ -1890,44 +1890,50 @@
 	],
 	"LinkSourceExists": [
 		{
-			"test":true,
-			"deactivated":false,
 			"expected": {
-				"totalIncidents": 3,
-				"totalFindings": 5
+				"totalIncidents": 2,
+				"totalFindings": 6
 			},
 			"params": {
-				"0": "false",
+				"0": "true",
 				"1": "['vocab.getty.edu\/aat\/','www.wikidata.org\/']",
-				"2": "//linksource/list",
+				"2": "//linksourcelists/list",
 				"3": "/link/text()"
 			}
 		},
 		{
-			"test":true,
-			"deactivated":false,
 			"expected": {
-				"totalIncidents": 4,
-				"totalFindings": 5
+				"totalIncidents": 3,
+				"totalFindings": 6
 			},
 			"params": {
 				"0": "true",
 				"1": "['vocab.getty.edu\/aat\/']",
-				"2": "//linksource/list",
+				"2": "//linksourcelists/list",
 				"3": "/link/text()"
 			}
 		},
 		{
-			"test":true,
-			"deactivated":false,
 			"expected": {
-				"totalIncidents": 1,
-				"totalFindings": 5
+				"totalIncidents": 3,
+				"totalFindings": 6
 			},
 			"params": {
-				"0": "false",
-				"1": "['vocab.getty.edu\/aat\/']",
-				"2": "//linksource/list",
+				"0": "true",
+				"1": "['www.wikidata.org\/']",
+				"2": "//linksourcelists/list",
+				"3": "/link/text()"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 6,
+				"totalFindings": 6
+			},
+			"params": {
+				"0": "true",
+				"1": "['www.google.org\/']",
+				"2": "//linksourcelists/list",
 				"3": "/link/text()"
 			}
 		}
