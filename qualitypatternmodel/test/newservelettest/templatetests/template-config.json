@@ -363,22 +363,71 @@
 	],
 	"CardCompSetIfCard":[
 		{
-			"test":true,
-			"deactivated":true,
             "expected": {
-                "totalIncidents": 1,
-                "totalFindings": 4
+                "totalIncidents": 2,
+                "totalFindings": 6
             },
             "params": {
-				"0": "EQUAL",
-				"1": "1",
+				"7": "//valuelists/list",
+				"0": "GREATER",
+				"1": "0",
+				"8": "/a",
 				"2": "EQUAL",
 				"3": "1",
-				"4": "['012', '01a', 'aaa', 'ab2', 'abc', 'a1b']",
+				"9": "/@name",
 				"5": "EQUAL",
+				"4": "['012', '01a']"
+            }
+        },
+		{
+            "expected": {
+                "totalIncidents": 2,
+                "totalFindings": 6
+            },
+            "params": {
 				"7": "//valuelists/list",
+				"0": "GREATER",
+				"1": "0",
 				"8": "/a",
-				"9": "/@name"
+				"2": "EQUAL",
+				"3": "1",
+				"9": "/@name",
+				"5": "EQUAL",
+				"4": "['012', '01a']"
+            }
+        },
+		{
+            "expected": {
+                "totalIncidents": 4,
+                "totalFindings": 6
+            },
+            "params": {
+				"7": "//valuelists/list",
+				"0": "GREATER",
+				"1": "0",
+				"8": "/a",
+				"2": "EQUAL",
+				"3": "1",
+				"9": "/@name",
+				"5": "EQUAL",
+				"4": "['xxx']"
+            }
+        },
+		{
+            "expected": {
+                "totalIncidents": 0,
+                "totalFindings": 6
+            },
+            "params": {
+				"7": "//valuelists/list",
+				"0": "GREATER",
+				"1": "0",
+				"8": "/a",
+				"2": "EQUAL",
+				"3": "1",
+				"9": "/@name",
+				"5": "EQUAL",
+				"4": "['012', '01a', 'aaa', 'ab2', 'abc', 'a1b']"
             }
         }
 	],
@@ -1798,13 +1847,13 @@
 			"deactivated":false,
 			"expected": {
 				"totalIncidents": 3,
-				"totalFindings": 7
+				"totalFindings": 4
 			},
 			"params": {
 				"0": "false",
 				"1": "true",
-				"2": "['vocab\\.getty\\.edu/aat/','www\\.wikidata\\.org/']",
-				"3": "//linksource",
+				"2": "['vocab.getty.edu/aat/','www.wikidata.org/']",
+				"3": "//linksourcelists/list",
 				"4": "/link/text()"
 			}
 		},
@@ -1813,13 +1862,13 @@
 			"deactivated":false,
 			"expected": {
 				"totalIncidents": 2,
-				"totalFindings": 7
+				"totalFindings": 4
 			},
 			"params": {
 				"0": "false",
 				"1": "true",
-				"2": "['vocab\\.getty\\.edu/aat/']",
-				"3": "//linksource",
+				"2": "['vocab.getty.edu/aat/']",
+				"3": "//linksourcelists/list",
 				"4": "/link/text()"
 			}
 		},
@@ -1828,13 +1877,13 @@
 			"deactivated":false,
 			"expected": {
 				"totalIncidents": 5,
-				"totalFindings": 7
+				"totalFindings": 4
 			},
 			"params": {
 				"0": "false",
 				"1": "true",
 				"2": "['vocab.getty.edu/aat/']",
-				"3": "//linksource",
+				"3": "//linksourcelists/list",
 				"4": "/link/text()"
 			}
 		}
@@ -1849,7 +1898,7 @@
 			},
 			"params": {
 				"0": "false",
-				"1": "['vocab.getty.edu/aat/','www.wikidata.org/']",
+				"1": "['vocab.getty.edu\/aat\/','www.wikidata.org\/']",
 				"2": "//linksource/list",
 				"3": "/link/text()"
 			}
@@ -1863,7 +1912,7 @@
 			},
 			"params": {
 				"0": "true",
-				"1": "['vocab.getty.edu/aat/']",
+				"1": "['vocab.getty.edu\/aat\/']",
 				"2": "//linksource/list",
 				"3": "/link/text()"
 			}
@@ -1877,7 +1926,7 @@
 			},
 			"params": {
 				"0": "false",
-				"1": "['vocab.getty.edu/aat/']",
+				"1": "['vocab.getty.edu\/aat\/']",
 				"2": "//linksource/list",
 				"3": "/link/text()"
 			}
