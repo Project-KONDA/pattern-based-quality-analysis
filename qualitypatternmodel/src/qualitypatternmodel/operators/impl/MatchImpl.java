@@ -679,7 +679,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 
 	@Override
 	public String myToString() {
-		String res = "MATCH (" + getInternalId() + ") [";
+		String res = "MATCH (" + getInternalId() + ") [bool ";
 		if (getOption() == null)
 			res += "null]";
 		else {
@@ -688,12 +688,13 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			}
 			res += getOption().getInternalId() + "]";
 		}
-		res += "[";
+		res += "[node ";
 		if (getPrimitiveNode() == null) {
-			res += "null, ";
+			res += "null";
 		}
 		else 
-			res +=  getPrimitiveNode().getInternalId() + ", ";
+			res +=  getPrimitiveNode().getInternalId();
+		res +=  ", text ";
 		if (getRegularExpression() == null)
 			res += "null]";
 		else 

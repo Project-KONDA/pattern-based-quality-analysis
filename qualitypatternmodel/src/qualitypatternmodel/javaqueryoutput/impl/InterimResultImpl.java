@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.ContainerResult;
@@ -20,6 +21,7 @@ import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.javaqueryoutput.JsonResult;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
 import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
@@ -56,12 +58,26 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 	protected InterimResultImpl() {
 		super();
 	}
+
+	static InterimResult createResult(InterimResultPart corresponding, JSONObject resultObject) throws InvalidityException {
+		JsonResult result = new JsonResultImpl();
+		result.setValue(resultObject);
+		result.setCorresponding(corresponding);
+		return result;
+	}
+
+	static InterimResult createNew(InterimResultPart corresponding, JSONObject interimObject) throws InvalidityException {
+		JSONArray array = new JSONArray();
+		array.put(interimObject);
+		return createNew(corresponding, array);
+	}
 	
 	static InterimResult createNew(InterimResultPart corresponding, JSONArray interimArray) throws InvalidityException {
 		if (corresponding instanceof ValueInterim) {
 			if (interimArray.length() != 1)
 				throw new InvalidityException("Length of interimArray is not 1 " + interimArray.length() + ": " + Arrays.asList(interimArray));
-			return new ValueResultImpl(corresponding, interimArray.getString(0));
+//			return new ValueResultImpl(corresponding, interimArray.getString(0));
+			return new ValueResultImpl(corresponding, stripTag(interimArray.getString(0)));
 
 		} else
 			if (corresponding instanceof VariableContainerInterim) {
@@ -113,6 +129,11 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 		} catch (Exception e) {
 			return null;
 		}
+	}
+
+	public static String stripTag(String xml) throws InvalidityException {
+		String res = XmlServletUtility.queryFromSnippet(xml, "return string($doc//*/text())").getJSONObject(0).getString("snippet");
+		return res;
 	}
 
 	/**

@@ -31,6 +31,10 @@
 		{"link":"","size":1,"expected":false}
 	],
 	"linkMimeType":[
+		{"link":"https://objektkatalog.gnm.de/bild/2023-07-04/73DB78B91A9C5CFBD6EC0FFBBE0A2095_k3.jpg","type":"image/jpeg","expected":true},
+		{"link":"https://objektkatalog.gnm.de/bild/2023-07-04/73DB78B91A9C5CFBD6EC0FFBBE0A2095_k3.jpg","type":"image/jpg","expected":false},
+		{"link":"https://www.runesdb.de/image-service/17125/full/max/0/default.jpg","type":"image/jpeg","expected":false},
+		{"link":"https://www.runesdb.de/image-service/17125/full/max/0/default.jpg","type":"image/jpg","expected":true},
 		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","type":"image/jpeg","expected":true},
 		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","type":"image","expected":true},
 		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","type":"","expected":false},
@@ -60,7 +64,19 @@
 		{"link":"http://novalidlink.de","source":"http://novalidlink","expected":false},
 		{"link":"nothing","source":"nothing","expected":false},
 		{"link":"nothing","source":"http","expected":false},
-		{"link":"","source":"http","expected":false}
+		{"link":"","source":"http","expected":false},
+		{"link":"https://www.wikidata.org/entity/Q22731","source":"vocab.getty.edu/aat/","expected":false},
+		{"link":"https://www.wikidata.org/entity/Q22731","source":"www.wikidata.org/","expected":true},
+		{"link":"https://www.wikidata.org/entity/Q923113","source":"vocab.getty.edu/aat/","expected":false},
+		{"link":"https://www.wikidata.org/entity/Q923113","source":"www.wikidata.org/","expected":true},
+		{"link":"https://www.wikidata.org/entity/INVALID","source":"vocab.getty.edu/aat/","expected":false},
+		{"link":"https://www.wikidata.org/entity/INVALID","source":"www.wikidata.org/","expected":false},
+		{"link":"http://vocab.getty.edu/aat/300011176","source":"vocab.getty.edu/aat/","expected":true},
+		{"link":"http://vocab.getty.edu/aat/300011176","source":"www.wikidata.org/","expected":false},
+		{"link":"http://vocab.getty.edu/aat/300027389","source":"vocab.getty.edu/aat/","expected":true},
+		{"link":"http://vocab.getty.edu/aat/300027389","source":"www.wikidata.org/","expected":false},
+		{"link":"http://vocab.getty.edu/aat/invalid/invalid/invalid/invalid","source":"vocab.getty.edu/aat/","expected":false},
+		{"link":"http://vocab.getty.edu/aat/invalid/invalid/invalid/invalid","source":"www.wikidata.org/","expected":false}
 	]
 
 }

@@ -4,19 +4,37 @@ import java.io.IOException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+
+/* 
+ * 	Initialization script of a new Pattern from a GitLab-Template-Request
+ * 
+ *	1. copy the description into the info String and execute the skript
+ * 		reset changes if it detects errors in the info
+ * 		if necessary, fix errors in the info.  
+ *	2. create Pattern file in src/qualitypatternmodel/newservlets/patterns / ? / ..Pattern.java extending PatternClass
+ * 		implement public CompletePattern getPattern()
+ *	3. register new Pattern class in src/qualitypatternmodel/newservlets/initialization/PatternCollection.java
+ * 	4. adapt created variant-JSON file in src/qualitypatternmodel/newservlets/jsons and move to correct folder
+ * 		best to print parameters via pattern.printParameters(false);
+ * 	5. execute newservelettest.xmlapitests.APIVariantsXMLTest to verify pattern, registration and variant specification
+ * 
+ */
+
 public class NewPatternInitialization {
 	
-	static String info = "Description\r\n"
-			+ "Proposed identifier: CardContainsIfCompSet\r\n"
+	static String info = "🚀 Template Request\r\n"
+			+ "Description\r\n"
+			+ "Proposed identifier: LinkMimeTypeIfCompSet\r\n"
 			+ "Name: default\r\n"
+			+ "Description: Check MIME Type if field values are within a list of allowed terms.\r\n"
 			+ "Scope: hierarchical\r\n"
 			+ "Type: cond\r\n"
 			+ "Template Text\r\n"
-			+ "If a <Element> has a <Property A> that <Is / Is Not> in the list of <Terms> , it has <a Comparison with> <a Specific Number of> <Property B> that contain <a specific term> as a substring.\r\n"
+			+ "If a <Element> has a <Property A> that <Is / Is Not> in the list of <Terms> , it has a MIME type that is in the list of <MIME types>.\r\n"
 			+ "Specific Example\r\n"
-			+ "If a <Resource Set> has a <Term> that <Is> in the list of <3D-Objekt, 3D, 3D Objekt> , it has <at least> <1> <Link Resource> that contain <sketchfab> as a substring.\r\n"
+			+ "If a <Resource Set> has a <Term> that <Is> in the list of <3D-Objekt, 3D, 3D Objekt>, it has a MIME type that is in the list of <model/gltf-binary model/vnd.ddbkultur.sketchfab>.\r\n"
 			+ "Example Values\r\n"
-			+ "If a <Digital Object> has a <Media Type> that <Is> in the list of <3D, 3D object> , it has <at least> <1> <Image Reference> that contain <sketchfab> as a substring.";
+			+ "If a <Media Asset Bundle> has a <Media Type> that <Is> in the list of <Audio, Video> , it has a MIME type that is in the list of <video/mp4, video/webm>.";
 
 	static String variantid = "default";
 	static String language = "xml";

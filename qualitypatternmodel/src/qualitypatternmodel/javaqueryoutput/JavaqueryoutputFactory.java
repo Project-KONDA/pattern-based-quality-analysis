@@ -85,6 +85,15 @@ public interface JavaqueryoutputFactory extends EFactory {
 	InterimResultContainer createInterimResultContainer();
 
 	/**
+	 * Returns a new object of class '<em>Json Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Json Result</em>'.
+	 * @generated
+	 */
+	JsonResult createJsonResult();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

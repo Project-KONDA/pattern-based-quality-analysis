@@ -4,7 +4,7 @@
   <artifactId>qualitypatternmodel</artifactId>
   <version>${revision}</version>
   <properties>
-    <revision>1.5.0</revision>
+    <revision>1.6.0</revision>
   </properties>
   <packaging>war</packaging>
 <!--  <name>qualitypatternmodel</name>-->

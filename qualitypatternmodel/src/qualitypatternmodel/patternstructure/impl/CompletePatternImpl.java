@@ -63,6 +63,7 @@ import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
 import qualitypatternmodel.textrepresentation.impl.ValueMapImpl;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.ConstantsRdf;
 import qualitypatternmodel.utility.ConstantsXml;
@@ -523,6 +524,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		for (Parameter p: getParameterList().getParameters()){
 			String out = "";
 			if (vars) {
+				out += p.getClass().getSimpleName().replace("Impl", "");
 				out += " p" + i + " = ";
 				out += "((" + p.getClass().getSimpleName().replace("Impl", "");
 				out += ") ";
@@ -533,11 +535,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				if (value != null)
 					value = "\"" + value.replace("\"", "\\\"") + "\"";
 				out += ".setValueFromString(" + value + ");";
+				out += " // " + p.getClass().getSimpleName().replace("Impl", "");
+			} else {
+				out += ";";
 			}
 				
-			out += " // " + p.getClass().getSimpleName().replace("Impl", "");
 			if (p instanceof XmlPathParam && ((XmlPathParam) p).isProperty())
-				out += " Property";
+				out += " // Property";
 			System.out.println(out);
 			i++;
 		}
@@ -571,38 +575,28 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		if (containsJavaOperator()) {
-			throw new InvalidityException("This pattern cannot be executed via default XQuery. A custom Java Filter build is required.");
-		}
 		return super.generateXQuery();
 	}
 
 	@Override
 	public String generateXQueryJava() throws InvalidityException {
 		if (!containsJavaOperator()) {
-			return generateXQuery();
+			return null;
 		}
-		initializeTranslation();
 
 		String preClauses = "";
 		if (this instanceof CompletePattern) {
 			initializeTranslation();
 			CompletePattern t = (CompletePattern) this;
+			t.getGraph().generateXQuery();
 			if (t.getNamespaces() != null && !t.getNamespaces().isEmpty()) {
 				preClauses = t.generateXQueryNamespaces();
 			}
 		}
 		preClauses += getParameterList().generateXQuery();
 		String res =  super.generateXQueryJava();
-		if (res.startsWith("\n")) {
-			res = res.substring(1);
-		}
 		res = preClauses + res;
 
-		if (getPartialXmlQuery().startsWith("\n")) {
-			setPartialXmlQuery(getPartialXmlQuery().substring(1));
-		}
-		setPartialXmlQuery(preClauses + getPartialXmlQuery());
 		return res;
 	}
 
@@ -918,8 +912,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public void resetQuery() {
-		setXmlQuery(null);
-		setPartialXmlQuery(null);
+		getQueries().remove(Constants.XQUERY);
+		getQueries().remove(Constants.XQUERY_PARTIAL);
+		getQueries().remove(Constants.XQUERY_JAVA);
 	}
 
 	/**

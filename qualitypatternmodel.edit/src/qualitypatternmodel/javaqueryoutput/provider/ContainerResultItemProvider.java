@@ -173,6 +173,11 @@ public class ContainerResultItemProvider extends InterimResultItemProvider {
 			(createChildParameter
 				(JavaqueryoutputPackage.Literals.CONTAINER_RESULT__SUBRESULT,
 				 JavaqueryoutputFactory.eINSTANCE.createValueResult()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryoutputPackage.Literals.CONTAINER_RESULT__SUBRESULT,
+				 JavaqueryoutputFactory.eINSTANCE.createJsonResult()));
 	}
 
 }

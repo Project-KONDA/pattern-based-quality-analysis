@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure;
 
+import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Graph;
 
@@ -18,8 +19,7 @@ import qualitypatternmodel.graphstructure.Graph;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getPartialXmlQuery <em>Partial Xml Query</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getXmlQuery <em>Xml Query</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getQueries <em>Queries</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern()
@@ -77,48 +77,27 @@ public interface Pattern extends PatternElement {
 	void setCondition(Condition value);
 
 	/**
-	 * Returns the value of the '<em><b>Partial Xml Query</b></em>' attribute.
+	 * Returns the value of the '<em><b>Queries</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Partial Xml Query</em>' attribute.
-	 * @see #setPartialXmlQuery(String)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_PartialXmlQuery()
-	 * @model
+	 * @return the value of the '<em>Queries</em>' attribute.
+	 * @see #setQueries(JSONObject)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_Queries()
+	 * @model default="" dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	String getPartialXmlQuery();
+	JSONObject getQueries();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getPartialXmlQuery <em>Partial Xml Query</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getQueries <em>Queries</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Partial Xml Query</em>' attribute.
-	 * @see #getPartialXmlQuery()
+	 * @param value the new value of the '<em>Queries</em>' attribute.
+	 * @see #getQueries()
 	 * @generated
 	 */
-	void setPartialXmlQuery(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Xml Query</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Xml Query</em>' attribute.
-	 * @see #setXmlQuery(String)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_XmlQuery()
-	 * @model
-	 * @generated
-	 */
-	String getXmlQuery();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getXmlQuery <em>Xml Query</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Xml Query</em>' attribute.
-	 * @see #getXmlQuery()
-	 * @generated
-	 */
-	void setXmlQuery(String value);
+	void setQueries(JSONObject value);
 
 	/**
 	 * <!-- begin-user-doc -->

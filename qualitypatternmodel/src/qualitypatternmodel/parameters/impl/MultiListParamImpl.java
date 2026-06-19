@@ -216,4 +216,9 @@ public class MultiListParamImpl extends ListParamImpl implements MultiListParam 
 		return res + ")";
 	}
 
+	@Override
+	public boolean hasOnlyJavaOperators() {
+		return true;
+	}
+
 } //MultiListParamImpl

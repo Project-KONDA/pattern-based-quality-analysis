@@ -226,6 +226,11 @@
         "description": "Check if specific field values contain a given substring (e.g. a URL prefix or part of an identifier).",
         "id": "ContainsSin"
     },
+    "LinkMimeTypeIfCompSetPattern": {
+        "name": "default",
+        "description": "Check MIME Type if field values are within a list of allowed terms.",
+        "id": "LinkMimeTypeIfCompSet"
+    },
     "UniqueIsoPattern": {
         "name": "Global Uniqueness Check (Across Records) (Isolated)",
         "description": "Check if specific field values are unique across all records.",

@@ -19,6 +19,12 @@ public class PatternCollection {
 	
 	static boolean tryall = false;
 
+	public static List<Class<? extends PatternClass>> getPatternClassesTest() {
+		List<Class<? extends PatternClass>> classes = new BasicEList<Class<? extends PatternClass>>();
+		// ADD NEW CLASSES HERE FIRST FOR TESTING
+		
+		return classes;
+	}
 
 	public static List<Class<? extends PatternClass>> getPatternClasses() {
 		List<Class<? extends PatternClass>> classes = new BasicEList<Class<? extends PatternClass>>();
@@ -54,6 +60,7 @@ public class PatternCollection {
 		classes.add(LinkImageSizePattern.class);
 		classes.add(LinkImageSizeSinPattern.class);
 		classes.add(LinkMatchListExistsPattern.class);
+		classes.add(LinkMimeTypeIfCompSetPattern.class);
 		classes.add(LinkMimeTypeIsoPattern.class);
 		classes.add(LinkMimeTypePattern.class);
 		classes.add(LinkMimeTypeSinPattern.class);
@@ -114,7 +121,18 @@ public class PatternCollection {
 			}
 		}
 		return patternclasses;
-		
+	}
+
+	public static List<PatternClass> getPatternClassTestInstances() {
+		List<PatternClass> patternclasses = new BasicEList<PatternClass>();
+		for (Class<? extends PatternClass> clazz: getPatternClassesTest()) {
+			try {
+				patternclasses.add(clazz.getDeclaredConstructor().newInstance());
+			} catch (Exception e) {
+				ServletUtilities.logError(new InvalidityException("Exception when instantiating PatternClass " + clazz.getName(), e));
+			}
+		}
+		return patternclasses;
 	}
 
 	public static List<CompletePattern> getGenericPatterns() {

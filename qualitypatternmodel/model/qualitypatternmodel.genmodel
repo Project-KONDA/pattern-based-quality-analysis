@@ -622,8 +622,7 @@
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/Pattern">
         <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Pattern/graph"/>
         <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Pattern/condition"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/Pattern/partialXmlQuery"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/Pattern/xmlQuery"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/Pattern/queries"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Pattern/checkMorphismOfNextGraph"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/NumberElement">
@@ -1251,6 +1250,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/initialize">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//javaqueryoutput/InterimResultContainer/initialize/value"/>
         </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//javaqueryoutput/JsonResult">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//javaqueryoutput/JsonResult/value"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

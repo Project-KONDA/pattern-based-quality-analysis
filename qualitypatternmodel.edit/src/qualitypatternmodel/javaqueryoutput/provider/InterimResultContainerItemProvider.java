@@ -188,6 +188,11 @@ public class InterimResultContainerItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(JavaqueryoutputPackage.Literals.INTERIM_RESULT_CONTAINER__PARAMETER,
+				 JavaqueryoutputFactory.eINSTANCE.createJsonResult()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(JavaqueryoutputPackage.Literals.INTERIM_RESULT_CONTAINER__RETURN,
 				 JavaqueryoutputFactory.eINSTANCE.createContainerResult()));
 
@@ -195,6 +200,11 @@ public class InterimResultContainerItemProvider
 			(createChildParameter
 				(JavaqueryoutputPackage.Literals.INTERIM_RESULT_CONTAINER__RETURN,
 				 JavaqueryoutputFactory.eINSTANCE.createValueResult()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(JavaqueryoutputPackage.Literals.INTERIM_RESULT_CONTAINER__RETURN,
+				 JavaqueryoutputFactory.eINSTANCE.createJsonResult()));
 	}
 
 	/**

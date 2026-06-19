@@ -246,10 +246,28 @@ public class APICallTests {
 			assert(constraint.has(ConstantsJSON.LANGUAGE));
 			assert(constraint.has(ConstantsJSON.TECHNOLOGY));
 			assert(constraint.has(ConstantsJSON.QUERY));
+			assert(constraint.has(ConstantsJSON.QUERY_PARTIAL));
+			if (constraint.has(ConstantsJSON.FILTER)) {
+				assertFilterObject(constraint.optJSONObject(ConstantsJSON.FILTER));
+				assert(constraint.has(ConstantsJSON.RELATIVEQUERIES));
+				assert(constraint.optJSONObject(ConstantsJSON.RELATIVEQUERIES).has(ConstantsJSON.QUERY_FILTER));
+			}
 		}
 	}
 
-	void assertMQAFObject(JSONObject mqaf) {
+	static void assertFilterObject(JSONObject filter) {
+		filter.has("filter");
+		filter.has("structure");
+		assertStructureObject(filter.optJSONObject(ConstantsJSON.STRUCTURE));
+	}
+
+	static void assertStructureObject(JSONObject structure) {
+		assert(structure.has("record"));
+		assert(structure.has("class"));
+		assert(structure.has("substructure"));
+	}
+
+	static void assertMQAFObject(JSONObject mqaf) {
 		assert (mqaf.has(ConstantsJSON.CONSTRAINT));
 		assert (mqaf.has(ConstantsJSON.FAILED) && mqaf.getJSONArray(ConstantsJSON.FAILED).isEmpty());
 	}
