@@ -1843,11 +1843,10 @@
 	],
     "LinkMatchListExists": [
 		{
-			"test":true,
-			"deactivated":false,
+			"resultids":[0, 5],
 			"expected": {
-				"totalIncidents": 3,
-				"totalFindings": 4
+				"totalIncidents": 2,
+				"totalFindings": 6
 			},
 			"params": {
 				"0": "false",
@@ -1858,11 +1857,10 @@
 			}
 		},
 		{
-			"test":true,
-			"deactivated":false,
+			"resultids":[0, 2, 5],
 			"expected": {
-				"totalIncidents": 2,
-				"totalFindings": 4
+				"totalIncidents": 3,
+				"totalFindings": 6
 			},
 			"params": {
 				"0": "false",
@@ -1873,16 +1871,29 @@
 			}
 		},
 		{
-			"test":true,
-			"deactivated":false,
+			"resultids":[0, 3, 5],
 			"expected": {
-				"totalIncidents": 5,
-				"totalFindings": 4
+				"totalIncidents": 3,
+				"totalFindings": 6
 			},
 			"params": {
 				"0": "false",
 				"1": "true",
-				"2": "['vocab.getty.edu/aat/']",
+				"2": "['www.wikidata.org/']",
+				"3": "//linksourcelists/list",
+				"4": "/link/text()"
+			}
+		},
+		{
+			"resultids":[0, 3, 5],
+			"expected": {
+				"totalIncidents": 3,
+				"totalFindings": 6
+			},
+			"params": {
+				"0": "false",
+				"1": "true",
+				"2": "['Q[0-9]{5}$']",
 				"3": "//linksourcelists/list",
 				"4": "/link/text()"
 			}

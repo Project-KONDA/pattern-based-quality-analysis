@@ -93,29 +93,29 @@
 		<link id="6" valid="false">nothing</link>
 	</linksource>
 	<linksourcelists>
-		<list>
+		<list id="0">
 			<link id="2" valid="false">https://xwww.wikidata.org/INVALID</link>
 			<link id="5" valid="false">http://vocab.getty.edu/aat/invalid/invalid/invalid/invalid</link>
 		</list>
-		<list>
+		<list id="1">
 			<link id="0" valid="true">https://www.wikidata.org/entity/Q22731</link>
 			<link id="3" valid="true">http://vocab.getty.edu/aat/300011176</link>
 		</list>
-		<list>
+		<list id="2">
 			<link id="0" valid="true">https://www.wikidata.org/entity/Q22731</link>
 			<link id="5" valid="false">http://vocab.getty.edu/aat/invalid/invalid/invalid/invalid</link>
 		</list>
-		<list>
+		<list id="3">
 			<link id="2" valid="false">https://xwww.wikidata.org/INVALID</link>
 			<link id="3" valid="true">http://vocab.getty.edu/aat/300011176</link>
 		</list>
-		<list>
+		<list id="4">
 			<link id="0" valid="true">https://www.wikidata.org/entity/Q22731</link>
 			<link id="2" valid="false">https://xwww.wikidata.org/INVALID</link>
 			<link id="3" valid="true">http://vocab.getty.edu/aat/300011176</link>
 			<link id="5" valid="false">http://vocab.getty.edu/aat/invalid/invalid/invalid/invalid</link>
 		</list>
-		<list>
+		<list id="5">
 		</list>
 	</linksourcelists>
 	<validlink>

@@ -79,6 +79,8 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 	}
 
 	public String generateXQuery2() throws InvalidityException {
+		if (getTarget().containsJavaOperator())
+			return "";
 		return super.generateXQuery();
 	}
 

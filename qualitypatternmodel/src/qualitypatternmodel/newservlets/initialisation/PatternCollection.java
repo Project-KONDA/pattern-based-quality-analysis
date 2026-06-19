@@ -21,6 +21,8 @@ public class PatternCollection {
 
 	public static List<Class<? extends PatternClass>> getPatternClassesTest() {
 		List<Class<? extends PatternClass>> classes = new BasicEList<Class<? extends PatternClass>>();
+		// ADD NEW CLASSES HERE FIRST FOR TESTING
+		
 		return classes;
 	}
 
