@@ -36,22 +36,26 @@ public class TemplateTest {
 	static String DEACTIVATED = "deactivated";
 	static String TEST = "test";
 	static boolean onlyTest = false;
+	static boolean addTestPatterns = true;
 	static boolean ignoreDeactivated = true;
-	
+	static boolean debugShowQuery = false;
 
 	static String pathConfig = "test\\newservelettest\\templatetests\\template-config.json";
 	static String pathConfigMissing = "test\\newservelettest\\templatetests\\template-config-missing.json";
 	static String pathData = "test\\newservelettest\\templatetests\\template-data.xml";
 
-
-	static List<PatternClass> patternClazzes = PatternCollection.getPatternClassInstances();
-
+	private static List<PatternClass> getPatternClazzes() {
+		List<PatternClass> patternClazzes = PatternCollection.getPatternClassInstances();
+		if (addTestPatterns)
+			patternClazzes.addAll(PatternCollection.getPatternClassTestInstances());
+		return patternClazzes;
+	}
+	
 	public static void main(String[] args) throws IOException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		JSONObject config = Util.loadJson(pathConfig);
 		JSONObject configMissing = new JSONObject();
-//		boolean missingArray = false;
-		
-		for (PatternClass patternclazz: patternClazzes) {
+
+		for (PatternClass patternclazz: getPatternClazzes()) {
 //			if (config.has(patternclazz.id) && config.getJSONArray(patternclazz.id).isEmpty()) {
 //				config.remove(patternclazz.id);
 //				System.out.println( "'" + patternclazz.id + "' empty");
@@ -71,7 +75,7 @@ public class TemplateTest {
 //			Util.exportJson(config, pathConfig);
 //		}
 		Util.exportJson(configMissing, pathConfigMissing);
-		System.out.println(configMissing.length() + " out of " + patternClazzes.size() + " templates not tested");
+		System.out.println(configMissing.length() + " out of " + getPatternClazzes().size() + " templates not tested");
 	}
 
 
@@ -102,13 +106,21 @@ public class TemplateTest {
 	@ParameterizedTest
     @MethodSource("argumentProvider")
 	public void testPattern(String id, JSONObject params, JSONObject expected, boolean debug) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, JSONException, InvalidServletCallException, FailedServletCallException {
-		CompletePattern pattern = findPattern(id);
+		CompletePattern pattern;
+		try{
+			pattern = findPattern(id);
+		} catch (Exception e) {
+			System.err.println("Pattern '" + id + "' is missing"); 
+			return;
+		}
 		parameterizePattern(pattern, params);
 		JSONObject query = ConstraintQueryServlet.generateQueryJson(pattern,  "xml");
 		JSONObject result = XQueryProcessorSaxon.queryConstraintsFilePaths(Arrays.asList(query), Arrays.asList(pathData));
 		if (debug) {
-//			System.out.println("\nQUERY");
-//			System.out.println(query.toString(2));
+			if (debugShowQuery) {
+				System.out.println("\nQUERY");
+				System.out.println(query.toString(2));
+			}
 			System.out.println("\nRESULT");
 			System.out.println(result.toString(2));
 			System.out.println("\nEXPECTED");
@@ -118,7 +130,7 @@ public class TemplateTest {
 	}
 
 	private static CompletePattern findPattern(String id) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		for (PatternClass patternclazz: patternClazzes) {
+		for (PatternClass patternclazz: getPatternClazzes()) {
 			if (patternclazz.id.equals(id)) {
 				return patternclazz.getXmlPattern();
 			}

@@ -272,62 +272,92 @@
 				"9": "/@name",
 				"10": "/a/text()"
             }
-        },
+        }
 	],
 	"CardContainsIfCompSet":[
         {
-			"test":true,
             "expected": {
                 "totalIncidents": 2,
                 "totalFindings": 6
             },
             "params": {
-				"0": "['012', '01a', 'aaa', 'ab2', 'abc', 'a1b']",
-				"1": "EQUAL",
-				"3": "GREATER",
-				"4": "0",
-				"5": "true",
-				"6": "1",
 				"7": "//valuelists/list",
 				"8": "/@name",
-				"9": "/a/text()"
+				"1": "EQUAL",
+				"0": "['012', '01a', 'aaa', 'ab2', 'abc', 'a1b']",
+				"3": "GREATER",
+				"4": "0",
+				"9": "/a/text()",
+				"5": "true",
+				"6": "1"
             }
         },
         {
-			"test":true,
-            "expected": {
-                "totalIncidents": 4,
-                "totalFindings": 6
-            },
-            "params": {
-				"0": "['012', '01a', 'aaa', 'ab2', 'abc', 'a1b']",
-				"1": "EQUAL",
-				"3": "GREATER",
-				"4": "0",
-				"5": "true",
-				"6": "2",
-				"7": "//valuelists/list",
-				"8": "/@name",
-				"9": "/a/text()"
-            }
-        },
-        {
-			"test":true,
-			"deactivated":false,
             "expected": {
                 "totalIncidents": 1,
                 "totalFindings": 6
             },
             "params": {
-				"0": "['012', 'aaa', 'abc']",
-				"1": "NOTEQUAL",
-				"3": "EQUAL",
-				"4": "1",
-				"5": "true",
-				"6": "1",
 				"7": "//valuelists/list",
 				"8": "/@name",
-				"9": "/a/text()"
+				"1": "NOTEQUAL",
+				"0": "['012', 'ab2', 'abc']",
+				"3": "GREATER",
+				"4": "0",
+				"9": "/a/text()",
+				"5": "true",
+				"6": "1"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 2,
+                "totalFindings": 6
+            },
+            "params": {
+				"7": "//valuelists/list",
+				"8": "/@name",
+				"1": "NOTEQUAL",
+				"0": "['012', 'ab2', 'abc']",
+				"3": "EQUAL",
+				"4": "1",
+				"9": "/a/text()",
+				"5": "true",
+				"6": "1"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 2,
+                "totalFindings": 6
+            },
+            "params": {
+				"7": "//valuelists/list",
+				"8": "/@name",
+				"1": "NOTEQUAL",
+				"0": "['012', 'ab2', 'abc']",
+				"3": "EQUAL",
+				"4": "1",
+				"9": "/a/text()",
+				"5": "false",
+				"6": "1"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 1,
+                "totalFindings": 6
+            },
+            "params": {
+				"7": "//valuelists/list",
+				"8": "/@name",
+				"1": "NOTEQUAL",
+				"0": "['012', 'ab2', 'abc']",
+				"3": "NOTEQUAL",
+				"4": "1",
+				"9": "/a/text()",
+				"5": "false",
+				"6": "1"
             }
         }
 	],
