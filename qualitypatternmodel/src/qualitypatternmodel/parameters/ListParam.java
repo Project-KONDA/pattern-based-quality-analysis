@@ -67,4 +67,6 @@ public interface ListParam extends ParameterValue {
 	 */
 	void addStringValue(String value) throws InvalidityException;
 
+	boolean hasOnlyJavaOperators();
+
 } // AbstractListParam
