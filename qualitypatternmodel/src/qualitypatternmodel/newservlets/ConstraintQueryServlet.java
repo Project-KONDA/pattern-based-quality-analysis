@@ -16,12 +16,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
-import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.javaquery.JavaFilter;
-import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.Constants;
-import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
@@ -124,72 +119,5 @@ public class ConstraintQueryServlet extends HttpServlet {
 			result.put(ConstantsJSON.FAILED, failed);
 		} catch (JSONException e) {}
 		return result;
-	}
-
-
-	public static JSONObject generateQueryJson(CompletePattern pattern, String technology) throws JSONException, InvalidServletCallException, FailedServletCallException {
-		JSONObject json = new JSONObject();
-
-		// 1 info
-		json.put(ConstantsJSON.NAME, pattern.getName());
-		json.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
-		json.put(ConstantsJSON.TECHNOLOGY, pattern.getLanguage().getLiteral());
-		json.put(ConstantsJSON.TEMPLATE_ID, pattern.getAbstractId());
-		json.put(ConstantsJSON.RELATIVEQUERIES, new JSONObject());
-		if (pattern.getText().size() > 0)
-			json.put(ConstantsJSON.VARIANT_ID, pattern.getText().get(0).getName());
-		if (pattern.getText() != null && pattern.getText().size()>0) {
-			PatternText text = pattern.getText().get(0);
-			if (text.getCustom() != null && !text.getCustom().isEmpty()) {
-				json.put(ConstantsJSON.CUSTOM, text.getCustom());
-			}
-		}
-
-		// 2 query
-		try {
-			if (technology.equals(Constants.XML)) {
-				String xquery = pattern.generateXQuery();
-				json.put(ConstantsJSON.QUERY, xquery);
-				json.put(ConstantsJSON.QUERY_LINE, ServletUtilities.makeQueryOneLine(xquery));
-				if (pattern.containsJavaOperator()) {
-					JavaFilter filter = pattern.generateQueryFilter();
-					JSONObject serializedFilter = filter.toJson();
-					json.put(ConstantsJSON.FILTER, serializedFilter);
-					String xqueryjava = pattern.generateXQueryJava();
-					json.getJSONObject(ConstantsJSON.RELATIVEQUERIES).put(ConstantsJSON.QUERY_FILTER, xqueryjava);
-				}
-				String xquerypartial = pattern.getQueries().getString(Constants.XQUERY_PARTIAL);
-				json.put(ConstantsJSON.QUERY_PARTIAL, xquerypartial);
-				json.put(ConstantsJSON.QUERY_PARTIAL_LINE, ServletUtilities.makeQueryOneLine(xquerypartial));
-				json.put(ConstantsJSON.LANGUAGE, Constants.XQUERY);
-
-			} else if (technology.equals(Constants.RDF)) {
-				if (pattern.containsJavaOperator()) {
-					throw new InvalidServletCallException(ConstantsError.NOT_IMPLEMENTED_RDF);
-				}
-				json.put(ConstantsJSON.LANGUAGE, Constants.SPARQL);
-				String sparql = pattern.generateSparql();
-				json.put(ConstantsJSON.QUERY, sparql);
-				json.put(ConstantsJSON.QUERY_LINE, ServletUtilities.makeQueryOneLine(sparql));
-
-			} else if (technology.equals(Constants.NEO4J)) {
-				if (pattern.containsJavaOperator()) {
-					throw new InvalidServletCallException(ConstantsError.NOT_IMPLEMENTED_NEO);
-				}
-				json.put(ConstantsJSON.LANGUAGE, Constants.CYPHER);
-				String cypher = pattern.generateCypher();
-				json.put(ConstantsJSON.QUERY, cypher);
-				json.put(ConstantsJSON.QUERY_LINE, ServletUtilities.makeQueryOneLine(cypher));
-
-			} else {
-				throw new InvalidServletCallException();
-			}
-
-		} catch (InvalidityException e) {
-			throw new FailedServletCallException("", e);
-		}
-
-		// 3 return json
-		return json;
 	}
 }

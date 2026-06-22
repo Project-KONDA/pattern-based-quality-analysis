@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.Semaphore;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -39,6 +40,7 @@ import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.javaquery.JavaFilter;
 import qualitypatternmodel.mqaftranslation.MqafTranslationValidation;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -359,6 +361,73 @@ public abstract class ServletUtilities {
 		return json;
 	}
 
+	public static JSONObject generateQueryJson(CompletePattern pattern) throws JSONException, InvalidServletCallException, FailedServletCallException {
+		JSONObject json = new JSONObject();
+		String technology = pattern.getLanguage().getLiteral();
+	
+		// 1 info
+		json.put(ConstantsJSON.NAME, pattern.getName());
+		json.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
+		json.put(ConstantsJSON.TECHNOLOGY, pattern.getLanguage().getLiteral());
+		json.put(ConstantsJSON.TEMPLATE_ID, pattern.getAbstractId());
+		json.put(ConstantsJSON.RELATIVEQUERIES, new JSONObject());
+		if (pattern.getText().size() > 0)
+			json.put(ConstantsJSON.VARIANT_ID, pattern.getText().get(0).getName());
+		if (pattern.getText() != null && pattern.getText().size()>0) {
+			PatternText text = pattern.getText().get(0);
+			if (text.getCustom() != null && !text.getCustom().isEmpty()) {
+				json.put(ConstantsJSON.CUSTOM, text.getCustom());
+			}
+		}
+	
+		// 2 query
+		try {
+			if (technology.equals(Constants.XML)) {
+				String xquery = pattern.generateXQuery();
+				json.put(ConstantsJSON.QUERY, xquery);
+				json.put(ConstantsJSON.QUERY_LINE, makeQueryOneLine(xquery));
+				if (pattern.containsJavaOperator()) {
+					JavaFilter filter = pattern.generateQueryFilter();
+					JSONObject serializedFilter = filter.toJson();
+					json.put(ConstantsJSON.FILTER, serializedFilter);
+					String xqueryjava = pattern.generateXQueryJava();
+					json.getJSONObject(ConstantsJSON.RELATIVEQUERIES).put(ConstantsJSON.QUERY_FILTER, xqueryjava);
+				}
+				String xquerypartial = pattern.getQueries().getString(Constants.XQUERY_PARTIAL);
+				json.put(ConstantsJSON.QUERY_PARTIAL, xquerypartial);
+				json.put(ConstantsJSON.QUERY_PARTIAL_LINE, makeQueryOneLine(xquerypartial));
+				json.put(ConstantsJSON.LANGUAGE, Constants.XQUERY);
+	
+			} else if (technology.equals(Constants.RDF)) {
+				if (pattern.containsJavaOperator()) {
+					throw new InvalidServletCallException(ConstantsError.NOT_IMPLEMENTED_RDF);
+				}
+				json.put(ConstantsJSON.LANGUAGE, Constants.SPARQL);
+				String sparql = pattern.generateSparql();
+				json.put(ConstantsJSON.QUERY, sparql);
+				json.put(ConstantsJSON.QUERY_LINE, makeQueryOneLine(sparql));
+	
+			} else if (technology.equals(Constants.NEO4J)) {
+				if (pattern.containsJavaOperator()) {
+					throw new InvalidServletCallException(ConstantsError.NOT_IMPLEMENTED_NEO);
+				}
+				json.put(ConstantsJSON.LANGUAGE, Constants.CYPHER);
+				String cypher = pattern.generateCypher();
+				json.put(ConstantsJSON.QUERY, cypher);
+				json.put(ConstantsJSON.QUERY_LINE, makeQueryOneLine(cypher));
+	
+			} else {
+				throw new InvalidServletCallException();
+			}
+	
+		} catch (InvalidityException e) {
+			throw new FailedServletCallException("", e);
+		}
+	
+		// 3 return json
+		return json;
+	}
+
 
 	// LOAD SAVE DELETE
 
@@ -401,12 +470,15 @@ public abstract class ServletUtilities {
 
 		// if precompiled patternjson exists
 		try {
-			return loadJsonSave(jsonpath); 
+			JSONObject patternJson = loadJsonSave(jsonpath);
+			if (isValidPatternJSON(patternJson))
+				return patternJson;
+			log("Replacing invalid PatternJSON: " + jsonpath);
 		} catch (Exception e) {}
 
 		// if precompiled patternjson does not exist
 		CompletePattern pattern = EMFModelLoad.loadCompletePattern(patternpath);
-		JSONObject json = ServletUtilities.getPatternJSON(pattern);
+		JSONObject json = getPatternJSON(pattern);
 
 		exportJsonSave(json, jsonpath);
 		return json;
@@ -420,16 +492,19 @@ public abstract class ServletUtilities {
 
 		// if precompiled queryjson exists
 		try {
-			return loadJsonSave(queryjsonpath); 
+			JSONObject queryjson = loadJsonSave(queryjsonpath);
+			if (isValidQueryJSON(queryjson))
+				return  queryjson;
+			log("Replacing invalid QueryJson: " + queryjsonpath);
 		} catch (Exception e) {}
 
 		// if precompiled queryjson does not exist
 		CompletePattern pattern = EMFModelLoad.loadCompletePattern(patternpath);
-		JSONObject queryjson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
+		JSONObject queryjson = generateQueryJson(pattern);
 		exportJsonSave(queryjson, queryjsonpath);
 
 		if (!new File(patternjsonpath).exists()) {
-			JSONObject json = ServletUtilities.getPatternJSON(pattern);
+			JSONObject json = getPatternJSON(pattern);
 			exportJsonSave(json, patternjsonpath);
 		}
 
@@ -444,10 +519,13 @@ public abstract class ServletUtilities {
 	protected static JSONObject loadTemplateJSON(String technology, String templateId) throws IOException {
 		String jsonfilepath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + templateId + ".json";
 		try {
-			return loadJsonSave(jsonfilepath);
+			JSONObject templateJson = loadJsonSave(jsonfilepath);
+			if (isValidPatternJSON(templateJson))
+				return templateJson;
+			log("Replacing invalid TemplateJson: " + jsonfilepath);
 		} catch (Exception e) {}
 
-		JSONObject json = ServletUtilities.getPatternJSON(loadTemplate(technology, templateId));
+		JSONObject json = getPatternJSON(loadTemplate(technology, templateId));
 		exportJsonSave(json, jsonfilepath);
 		return json;
 	}
@@ -455,7 +533,10 @@ public abstract class ServletUtilities {
 	protected static JSONObject loadTemplateVariantJSON(String technology, String templateId) throws IOException {
 		String variantjsonfilepath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.VARIANTJSONFOLDER + "/" + templateId + ".json";
 		try {
-			return loadJsonSave(variantjsonfilepath);
+			JSONObject variantJson = loadJsonSave(variantjsonfilepath);
+			if (isValidVariantJSON(variantJson))
+				return variantJson;
+			log("Replacing invalid VariantJson: " + variantjsonfilepath);
 		} catch (Exception e) {}
 
 		JSONObject variantjson = getVariantJSON(loadTemplate(technology, templateId), true);
@@ -497,7 +578,7 @@ public abstract class ServletUtilities {
 		exportJsonSave(json, filepath);
 
 		// variantjson
-		JSONObject variantjson = ServletUtilities.getVariantJSON(pattern, true);
+		JSONObject variantjson = getVariantJSON(pattern, true);
 		String variantfilepath = folderpath + "/" + ServletConstants.VARIANTJSONFOLDER + "/" + templateId + ".json";
 		exportJsonSave(variantjson, variantfilepath);
 	}
@@ -527,7 +608,7 @@ public abstract class ServletUtilities {
 		// queryjson
 		if (json.getBoolean(ConstantsJSON.EXECUTABLE)) {
 			try {
-				JSONObject queryjson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
+				JSONObject queryjson = generateQueryJson(pattern);
 				exportJsonSave(queryjson, queryjsonfilepath);
 			} catch (Exception e) {}
 		} else {
@@ -1109,5 +1190,75 @@ public abstract class ServletUtilities {
             return new JSONObject(); // no content
         }
         return new JSONObject(body);
+	}
+	
+
+	
+	static Set<String> patternJsonkeys =  Set.of(ConstantsJSON.CONSTRAINT_ID, ConstantsJSON.NAME, ConstantsJSON.LANGUAGE, ConstantsJSON.DESCRIPTION, ConstantsJSON.EXECUTABLE, ConstantsJSON.EXECUTABLE_MQAF, ConstantsJSON.EXECUTABLE_QUERY, ConstantsJSON.EXECUTABLE_FILTER, ConstantsJSON.VARIANTS);
+
+	private static boolean isValidPatternJSON(JSONObject patternJson) {
+		// getPatternJSON(pattern)
+		if (!patternJson.keySet().containsAll(patternJsonkeys))
+			return false;
+
+		JSONArray variantJson = patternJson.getJSONArray(ConstantsJSON.VARIANTS);
+		for (int i = 0; i< variantJson.length(); i++)
+			if (!isValidVariant(variantJson.getJSONObject(i)))
+				return false;
+		return true;
+	}
+
+	private static boolean isValidVariantJSON(JSONObject variantJson) {
+		// getVariantJSON(pattern)
+		if (!variantJson.has(ConstantsJSON.PARAMETER))
+			return false;
+		for (String key: variantJson.getJSONObject(ConstantsJSON.PARAMETER).keySet())
+			if (!isValidParameter(variantJson.getJSONObject(key)))
+				return false;
+
+		if (variantJson.has(ConstantsJSON.VARIANTS)) {
+			for (int i = 0; i< variantJson.getJSONArray(ConstantsJSON.VARIANTS).length(); i++)
+				if (!isValidVariant(variantJson.getJSONArray(ConstantsJSON.VARIANTS).getJSONObject(i)))
+					return false;
+		}
+		return true;
+	}
+
+	static Set<String> parameterJsonkeys =  Set.of(ConstantsJSON.TYPE, ConstantsJSON.ROLE, ConstantsJSON.ID);
+	private static boolean isValidParameter(JSONObject jsonObject) {
+		return  jsonObject.keySet().containsAll(parameterJsonkeys);
+	}
+
+	static Set<String> variantJsonkeys =  Set.of(ConstantsJSON.TEMPLATE, ConstantsJSON.NAME, ConstantsJSON.TECHNOLOGY, ConstantsJSON.FRAGMENTS);
+	private static boolean isValidVariant(JSONObject jsonObject) {
+		if (!jsonObject.keySet().containsAll(variantJsonkeys))
+			return false;
+		JSONArray fragments = jsonObject.getJSONArray(ConstantsJSON.FRAGMENTS);
+		if (fragments.isEmpty())
+			return false;
+		for (int i = 0; i<fragments.length(); i++) {
+			if (!isValidFragment(fragments.getJSONObject(i)))
+				return false;
+		}
+		return true;
+	}
+
+	static Set<String> parameterFragmentJsonkeys =  Set.of(ConstantsJSON.NAME, ConstantsJSON.PARAMETER, ConstantsJSON.EXAMPLEVALUE, ConstantsJSON.NEWID);
+	private static boolean isValidFragment(JSONObject fragment) {
+		if (fragment.has(ConstantsJSON.TEXT)) // TextFragment
+			return true;
+		if (!fragment.keySet().contains(ConstantsJSON.PARAMETER))
+				return false;
+		return (fragment.keySet().containsAll(parameterFragmentJsonkeys) || fragment.keySet().contains(ConstantsJSON.VALUE));
+	}
+
+	static Set<String> queryJsonkeys =  Set.of(ConstantsJSON.NAME, ConstantsJSON.CONSTRAINT_ID, ConstantsJSON.TECHNOLOGY, ConstantsJSON.TEMPLATE_ID, ConstantsJSON.RELATIVEQUERIES, ConstantsJSON.VARIANT_ID, ConstantsJSON.QUERY, ConstantsJSON.QUERY_LINE, ConstantsJSON.LANGUAGE);
+	static Set<String> queryXmlJsonkeys =  Set.of(ConstantsJSON.QUERY_PARTIAL, ConstantsJSON.QUERY_PARTIAL_LINE);
+	private static boolean isValidQueryJSON(JSONObject queryjson) {
+		if (!queryjson.keySet().containsAll(variantJsonkeys))
+			return false;
+		if (queryjson.optString(ConstantsJSON.TECHNOLOGY).equals(Constants.XML))
+			return queryjson.keySet().containsAll(queryXmlJsonkeys);
+		return true;
 	}
 }

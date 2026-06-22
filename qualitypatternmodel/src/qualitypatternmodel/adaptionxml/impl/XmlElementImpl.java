@@ -281,7 +281,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		String xPredicates = "";
 		predicatesAreBeingTranslated = true;
 
-		for (BooleanOperator predicate : predicates) {
+		for (BooleanOperator predicate : getPredicates()) {
 			if (predicate.isTranslatable()) {
 				xPredicates += "[" + predicate.generateXQuery() + "]";
 			}
