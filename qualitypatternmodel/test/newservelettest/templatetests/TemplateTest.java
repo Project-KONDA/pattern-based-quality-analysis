@@ -19,7 +19,7 @@ import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.newservlets.ConstraintQueryServlet;
+import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.newservlets.initialisation.PatternCollection;
 import qualitypatternmodel.newservlets.patterns.PatternClass;
 import qualitypatternmodel.parameters.Parameter;
@@ -114,7 +114,7 @@ public class TemplateTest {
 			return;
 		}
 		parameterizePattern(pattern, params);
-		JSONObject query = ConstraintQueryServlet.generateQueryJson(pattern,  "xml");
+		JSONObject query = ServletUtilities.generateQueryJson(pattern);
 		JSONObject result = XQueryProcessorSaxon.queryConstraintsFilePaths(Arrays.asList(query), Arrays.asList(pathData));
 		if (debug) {
 			if (debugShowQuery) {
