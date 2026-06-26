@@ -341,7 +341,7 @@ public class XQueryProcessorSaxon {
 		long incidents_len = incidents.length();
 		long compliances_len = total - incidents_len;
 		
-		if (Util.SNIPPET_REMOVENAMESPACE)
+		if (ServletConstants.SNIPPET_REMOVENAMESPACE)
 			XmlServletUtility.stripNamespacesFromIncidents(incidents);
 		        
 		queryResult.put(ConstantsJSON.INCIDENTS, incidents);
@@ -401,7 +401,7 @@ public class XQueryProcessorSaxon {
 	    	XdmNode node = (XdmNode) item;
 	    	switch (node.getNodeKind()) {
 		    	case ATTRIBUTE:
-		    		switch (Util.SNIPPET_ATTRIBUTE) {
+		    		switch (ServletConstants.SNIPPET_ATTRIBUTE) {
 			    		case "parent":
 			    			if (node.getParent() != null) {
 					    		return serializeXdmNode(node.getParent(), processor);
@@ -412,7 +412,7 @@ public class XQueryProcessorSaxon {
 			    			return item.getStringValue();
 		    		}
 		    	case TEXT:
-			    	if (Util.SNIPPET_PARENTOFTEXT && node.getParent() != null) {
+			    	if (ServletConstants.SNIPPET_PARENTOFTEXT && node.getParent() != null) {
 			    		node = node.getParent(); 
 			    	}
 		    	default:

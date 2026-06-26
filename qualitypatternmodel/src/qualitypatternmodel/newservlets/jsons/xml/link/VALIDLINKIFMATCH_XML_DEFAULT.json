@@ -27,7 +27,7 @@
         {
             "name": "Does / Does Not",
             "description": "",
-            "params": [0],
+            "params": [1],
             "exampleValue": "Does",
             "defaultMap":"boolean.does"
         },
@@ -35,13 +35,13 @@
         {
             "name": "a Specific Pattern (RegEx)",
             "description": "",
-            "params": [1],
+            "params": [2],
             "exampleValue": "^(((https?://)?\\\\\\[a-zA-Z0-9\\\\\\\\\\\\\\\\-\\\\\\\\\\\\\\\\./\\\\\\]\\\\\\*\\\\\\\\\\\\\\\\.\\\\\\[a-z\\\\\\]{2,3}/(\\\\\\[a-zA-Z0-9\\\\\\\\\\\\\\\\-\\\\\\\\\\\\\\\\./\\\\\\]\\\\\\*/)?)"
         },
         {"text": ", this Property is a valid link."},
-        
+
         {
-        	"params":[2],
+        	"params":[0],
         	"value":"true"
         }
     ]
