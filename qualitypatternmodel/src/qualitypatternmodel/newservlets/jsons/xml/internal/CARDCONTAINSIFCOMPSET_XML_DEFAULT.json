@@ -62,7 +62,7 @@
             "name": "Do / Do Not",
             "description": "",
             "params": [5],
-            "exampleValue": "Do", 
+            "exampleValue": "Do",
             "defaultMap": "boolean.do"
         },
         {"text": "contain"},
