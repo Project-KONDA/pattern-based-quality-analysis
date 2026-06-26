@@ -55,7 +55,7 @@ public class ServletConstants {
 	public static String ENV_COUNTFILE = "COUNTFILE";
 
 	// path to datamodelsfile
-	public static String DATAMODELSFILE = "/templates/countfile.json";
+	public static String DATAMODELSFILE = null;
 	public static String ENV_DATAMODELSFILE = "DATAMODELSFILE";
 
 	// shall there be values in the templates

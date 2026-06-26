@@ -439,19 +439,21 @@ public abstract class ServletUtilities {
 			return null;
 		try {
 			File file = new File(ServletConstants.DATAMODELSFILE);
-			if (!file.exists()) {
-				log("DATAMODELSFILE '" + ServletConstants.DATAMODELSFILE + "' does not exist");
-				return null;
-			}
+//			if (!file.exists()) {
+//				log("DATAMODELSFILE '" + ServletConstants.DATAMODELSFILE + "' does not exist");
+//				return null;
+//			}
 			JSONObject config = Util.loadJson(ServletConstants.DATAMODELSFILE);
 			String mappingfilepath = config.optJSONObject("datamodels").optJSONObject(dataModelName).optString("mapping_file");
 			mappingfilepath = file.getParentFile().getAbsolutePath() + "/" + mappingfilepath;
 			JSONObject mappingfile = Util.loadJson(mappingfilepath);
 			
-			String path_relative_default_ns = mappingfile.optJSONObject("paths").optJSONObject("identifier").optString("path_relative_default-ns");
 			JSONObject namespaces = mappingfile.optJSONObject("namespaces");
 			String namespacestring = CompletePatternImpl.generateXQueryNamespaces(namespaces);
-			return namespacestring + path_relative_default_ns;
+			String mid = "let $v := .\nreturn $v";
+			String path_relative_default_ns = mappingfile.optJSONObject("paths").optJSONObject("identifier").optString("path_relative_default-ns");
+
+			return namespacestring + mid + path_relative_default_ns;
 		} catch (Exception e) {
 			logError(e);
 			return null;
