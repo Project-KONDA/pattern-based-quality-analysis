@@ -447,13 +447,19 @@ public abstract class ServletUtilities {
 			String mappingfilepath = config.optJSONObject("datamodels").optJSONObject(dataModelName).optString("mapping_file");
 			mappingfilepath = file.getParentFile().getAbsolutePath() + "/" + mappingfilepath;
 			JSONObject mappingfile = Util.loadJson(mappingfilepath);
-			
+
 			JSONObject namespaces = mappingfile.optJSONObject("namespaces");
 			String namespacestring = CompletePatternImpl.generateXQueryNamespaces(namespaces);
-			String mid = "let $v := .\nreturn $v";
-			String path_relative_default_ns = mappingfile.optJSONObject("paths").optJSONObject("identifier").optString("path_relative_default-ns");
+			String mid = "let $v := .\nreturn $v /ancestor::";
+			String path_default_ns = mappingfile.optJSONObject("paths").optJSONObject("identifier").optString("path_default_ns");
+			if (path_default_ns.startsWith("//"))
+				path_default_ns = path_default_ns.substring(2);
+			else if (path_default_ns.startsWith("/"))
+				path_default_ns = path_default_ns.substring(1);
+			else 
+				return null;
 
-			return namespacestring + mid + path_relative_default_ns;
+			return namespacestring + mid + path_default_ns;
 		} catch (Exception e) {
 			logError(e);
 			return null;
