@@ -572,7 +572,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	@Override
 	public JSONArray filterQueryResults() throws InvalidityException {
 		EList<InterimResultContainer> interims = getInterimResults();
-		ExecutorService executor = Executors.newFixedThreadPool(20);
+		ExecutorService executor = Executors.newFixedThreadPool(100);
 		try {
 	
 	        List<Future<JSONObject>> futures = new ArrayList<Future<JSONObject>>();        
