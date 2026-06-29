@@ -1973,6 +1973,17 @@
 				"0": "true",
 				"1": "//validlink/link/text()"
 			}
+		},
+		{
+			"deactivated": true,
+			"expected": {
+				"totalIncidents": 11,
+				"totalFindings": 100
+			},
+			"params": {
+				"0": "true",
+				"1": "//hundredlinks/link/text()"
+			}
 		}
 	],
     "ValidLinkIso": [
