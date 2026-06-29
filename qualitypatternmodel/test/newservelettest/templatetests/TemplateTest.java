@@ -83,6 +83,7 @@ public class TemplateTest {
     static List<Arguments> argumentProvider() throws IOException {
 		JSONObject config = Util.loadJson(pathConfig);
     	List<Arguments> args = new ArrayList<Arguments>();
+    	int no = 0;
 		for (String key : config.keySet()) {
 			
 			JSONArray array = config.getJSONArray(key);
@@ -91,8 +92,11 @@ public class TemplateTest {
 				boolean isTest = json.has(TEST) && json.getBoolean(TEST);
 				boolean isActive = !json.has(DEACTIVATED) || !json.getBoolean(DEACTIVATED);
 				
-				if ((ignoreDeactivated || isActive) && (!onlyTest || isTest))
-						args.add(Arguments.of(key, json.getJSONObject(PARAMS), json.getJSONObject(EXPECTED), json.has(TEST)));
+				if ((ignoreDeactivated || isActive) && (!onlyTest || isTest)) {
+					args.add(Arguments.of(key, no, json.getJSONObject(PARAMS), json.getJSONObject(EXPECTED), json.has(TEST)));
+					no++;
+				}
+						
 			}
 		}
 		if (onlyTest && args.size() == 0) {
@@ -105,7 +109,8 @@ public class TemplateTest {
 
 	@ParameterizedTest
     @MethodSource("argumentProvider")
-	public void testPattern(String id, JSONObject params, JSONObject expected, boolean debug) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, JSONException, InvalidServletCallException, FailedServletCallException {
+	public void testPattern(String id, int no, JSONObject params, JSONObject expected, boolean debug) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, JSONException, InvalidServletCallException, FailedServletCallException {
+		Long time = System.currentTimeMillis();
 		CompletePattern pattern;
 		try{
 			pattern = findPattern(id);
@@ -127,6 +132,8 @@ public class TemplateTest {
 			System.out.println(expected.toString(2));
 		}
 		assertJSONObject(expected, result);
+		time = System.currentTimeMillis() - time;
+		System.out.println(no + "\t" + id + "\t" + time); // + "\t" + params.toString());
 	}
 
 	private static CompletePattern findPattern(String id) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
