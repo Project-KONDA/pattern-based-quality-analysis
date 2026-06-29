@@ -3,9 +3,13 @@
 package qualitypatternmodel.javaquery.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -568,24 +572,51 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	@Override
 	public JSONArray filterQueryResults() throws InvalidityException {
 		EList<InterimResultContainer> interims = getInterimResults();
-		JSONArray results = new JSONArray();
-		for (InterimResultContainer ir: interims) {
-			try {
-				if (getFilter().apply(ir.getParameter())) {
-					InterimResult ret = ir.getReturn();
-					if (ret instanceof JsonResult) {
-						results.put(((JsonResult) ret).getValue());
-					} else {
-						results.put(resultjson(ret.toString()));
-					}
-				}
-			} catch (InvalidityException e) {
-				throw new InvalidityException(ir.toString() + "\n*\n" + ir.getParameter() + "\n" + e.getMessage(), e);
-			}
-		}
-		return results;
-	}
+		ExecutorService executor = Executors.newFixedThreadPool(20);
+		try {
 	
+	        List<Future<JSONObject>> futures = new ArrayList<Future<JSONObject>>();        
+			for (InterimResultContainer ir: interims) {
+				futures.add(executor.submit(() -> {
+					try {
+						if (getFilter().apply(ir.getParameter())) {
+							InterimResult ret = ir.getReturn();
+							if (ret instanceof JsonResult) {
+								return ((JsonResult) ret).getValue();
+							} else {
+								return resultjson(ret.toString());
+							}
+						}
+						return null;
+					} catch (InvalidityException e) {
+						throw new InvalidityException(ir.toString() + "\n*\n" + ir.getParameter() + "\n" + e.getMessage(), e);
+					}
+				}));
+			}
+	
+			JSONArray results = new JSONArray();
+			
+			for (Future<JSONObject> future: futures) {
+				try {
+					JSONObject obj = future.get();
+					if (obj != null)
+						results.put(obj);
+				} catch (Exception e) {
+	                Throwable cause = e.getCause();
+	                if (cause instanceof InvalidityException ie) {
+	                    throw ie;
+	                }
+	                throw new RuntimeException(cause);
+				}
+				
+			}		
+			return results;
+
+	    } finally {
+	        executor.shutdown();
+	    }
+	}
+
 	private JSONObject resultjson(String value) {
 		JSONObject res = new JSONObject();
 		res.put(ConstantsJSON.RESULT_SNIPPET, value);
