@@ -603,8 +603,8 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 						results.put(obj);
 				} catch (Exception e) {
 	                Throwable cause = e.getCause();
-	                if (cause instanceof InvalidityException ie) {
-	                    throw ie;
+	                if (cause instanceof InvalidityException) {
+	                    throw (InvalidityException) cause;
 	                }
 	                throw new RuntimeException(cause);
 				}
