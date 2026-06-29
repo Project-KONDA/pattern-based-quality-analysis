@@ -110,7 +110,6 @@ public class TemplateTest {
 	@ParameterizedTest
     @MethodSource("argumentProvider")
 	public void testPattern(String id, int no, JSONObject params, JSONObject expected, boolean debug) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, JSONException, InvalidServletCallException, FailedServletCallException {
-		Long time = System.currentTimeMillis();
 		CompletePattern pattern;
 		try{
 			pattern = findPattern(id);
@@ -120,7 +119,10 @@ public class TemplateTest {
 		}
 		parameterizePattern(pattern, params);
 		JSONObject query = ServletUtilities.generateQueryJson(pattern);
+		Long time = System.currentTimeMillis();
 		JSONObject result = XQueryProcessorSaxon.queryConstraintsFilePaths(Arrays.asList(query), Arrays.asList(pathData));
+		time = System.currentTimeMillis() - time;
+		System.out.println(no + "\t" + id + "\t" + time); // + "\t" + params.toString());
 		if (debug) {
 			if (debugShowQuery) {
 				System.out.println("\nQUERY");
@@ -132,8 +134,6 @@ public class TemplateTest {
 			System.out.println(expected.toString(2));
 		}
 		assertJSONObject(expected, result);
-		time = System.currentTimeMillis() - time;
-		System.out.println(no + "\t" + id + "\t" + time); // + "\t" + params.toString());
 	}
 
 	private static CompletePattern findPattern(String id) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
