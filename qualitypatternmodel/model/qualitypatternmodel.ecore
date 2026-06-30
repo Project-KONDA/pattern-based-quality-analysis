@@ -592,8 +592,8 @@
       <eOperations name="printParameters">
         <eParameters name="vals" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" lowerBound="1"
-          eType="#//parameters/ParameterList" containment="true" eOpposite="#//parameters/ParameterList/pattern"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" upperBound="-1"
+          eType="#//parameters/Parameter" containment="true" eOpposite="#//parameters/ParameterList/pattern"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="text" upperBound="-1"
           eType="#//textrepresentation/PatternText" containment="true" eOpposite="#//textrepresentation/PatternText/pattern"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
