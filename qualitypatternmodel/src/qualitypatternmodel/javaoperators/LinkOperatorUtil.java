@@ -13,8 +13,8 @@ import org.apache.commons.lang3.tuple.Pair;
 
 public class LinkOperatorUtil {
 	
-	public static final int DEFAULT_TIMEOUT = 5000;
-	public static final String AGENT = "QPM/1.15; (https://github.com/Project-KONDA/pattern-based-quality-analysis)";
+	public static final int DEFAULT_TIMEOUT = 50000;
+	public static final String AGENT = "QPM/1.16; (https://github.com/Project-KONDA/pattern-based-quality-analysis)";
 
     private static final HttpClient CLIENT = HttpClient.newBuilder()
             .connectTimeout(Duration.ofMillis(DEFAULT_TIMEOUT))
