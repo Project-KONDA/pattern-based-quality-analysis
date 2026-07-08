@@ -113,5 +113,10 @@
 			"AAT, GND, Wikidata, or Iconclass (LOD-URIs only)":"[\"https?://vocab\\\\.getty\\\\.edu/aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/entity/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\",\"https?://iconclass\\\\.org/([a-z]+/)?.+\"]",
 			"GND, ISIL or Wikidata (LOD-URIs only)":"[\"https?://www\\\\.wikidata\\\\.org/entity/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\",\"(https?://)?(isil\\\\.staatsbibliothek-berlin\\\\.de/isil/DE-|ld\\\\.zdb-services\\\\.de/resource/organisations/DE-|culture\\\\.ld\\\\.admin\\\\.ch/isil/CH-|lobid\\\\.org/organisations/AT-).+\"]"
 		}
+	},
+	"stringlist":{
+		"url-list":{
+			"AAT, GND, or Wikidata":"['d-nb.info/gnd/','vocab.getty.edu/','www.wikidata.org/']"
+		}
 	}
 }

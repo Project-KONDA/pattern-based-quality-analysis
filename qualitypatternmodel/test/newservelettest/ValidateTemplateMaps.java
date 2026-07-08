@@ -53,6 +53,9 @@ public class ValidateTemplateMaps {
 		case "regexlist":
 			testRegexListEntry(value);
 			return;
+		case "stringlist":
+			testStringListEntry(value);
+			return;
 		default:
 			throw new Exception("no test for group '" + group + "'");	
 		}
@@ -87,5 +90,9 @@ public class ValidateTemplateMaps {
 				MatchImpl.matches("", list.getString(i), Language.XML);
 			}
 		});
+	}
+
+	public void testStringListEntry(String value) throws Exception {
+		assertDoesNotThrow(()->{new JSONArray(value);});
 	}
 }
