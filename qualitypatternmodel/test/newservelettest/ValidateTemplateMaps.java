@@ -15,7 +15,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.impl.MatchImpl;
-import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.utility.Util;
 

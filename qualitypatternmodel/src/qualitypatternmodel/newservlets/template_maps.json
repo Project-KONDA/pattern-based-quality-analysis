@@ -55,8 +55,8 @@
 			"are not":"false"
 		},
 		"arenot":{
-			"are":"true",
-			"are not":"false"
+			"are not":"true",
+			"are":"false"
 		},
 		"does":{
 			"does":"true",

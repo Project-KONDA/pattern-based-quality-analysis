@@ -5,8 +5,8 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "default variant for LinkImageSizeIfCompSet_xml",
-		"scope": "hierarchical",
-		"type": ["len", "ren"]
+		"type": ["len", "cond"],
+		"scope": "hierarchical"
 	},
     "fragments":[
 
