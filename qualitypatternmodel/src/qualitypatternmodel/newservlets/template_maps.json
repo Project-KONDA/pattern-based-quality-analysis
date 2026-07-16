@@ -116,7 +116,11 @@
 	},
 	"stringlist":{
 		"url-list":{
-			"AAT, GND, or Wikidata":"['d-nb.info/gnd/','vocab.getty.edu/','www.wikidata.org/']"
+			"AAT, GND, or Wikidata":"['d-nb.info/gnd/','vocab.getty.edu/','www.wikidata.org/']",
+			"AAT or GND":"['d-nb.info/gnd/','vocab.getty.edu/']",
+			"AAT":"['vocab.getty.edu/']",
+			"GND":"['d-nb.info/gnd/']",
+			"Wikidata":"['www.wikidata.org/']"
 		}
 	}
 }

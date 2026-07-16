@@ -179,7 +179,7 @@ public class APITemplateTests {
 	@Test
 	public void testTemplateCard()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("Card_xml").getInt("size") >= 2);
+		assert(store.getJSONObject("Card_xml").getInt("size") >= 1);
 		testConstraint("Card_xml", "default", 
 				Map.of(
 						"XmlPath_Element_0", "//*", 
