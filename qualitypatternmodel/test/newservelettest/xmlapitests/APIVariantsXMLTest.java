@@ -19,10 +19,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
@@ -267,6 +267,25 @@ public class APIVariantsXMLTest {
 		testConcretePattern(constraintID, hasCustom);
 		if (DELETE)
 			APICallTests.deleteConstraint(constraintID);
+	}
+	
+	@Test
+	public void testIsil() throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		String constraint = "MatchExists_xml";
+		String variant = "predefined-formats";
+		String constraintID = APICallTests.newConstraint(constraint, variant);
+		setAllConstraintParameter(constraintID);
+		System.out.println(getAllConstraintParameter(constraintID));
+		
+		String paramjson = "{\"role\":\"Text\",\"options\":[\"ISIL (ISO 15511, DE only)\"],\"id\":\"Text_2\",\"type\":\"Enumeration\"}";
+		
+		setDefaultParameter(constraintID, new JSONObject(paramjson));
+		
+		JSONObject res = ConstraintQueryServlet.applyGet("xml", new String[] {constraintID});
+		System.out.println(res);
+		System.out.println(res.getJSONArray("constraints").getJSONObject(0).get("query"));
+		APICallTests.deleteConstraint(constraintID);
+
 	}
 
 	private void testConstraintParameter(JSONObject myconstraint) {
