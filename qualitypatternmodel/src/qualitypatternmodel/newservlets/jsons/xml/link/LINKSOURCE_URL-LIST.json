@@ -1,7 +1,7 @@
 {
     "template":"LinkSource_xml",
     "language":"xml",
-    "name":"aat-gnd-wiki",
+    "name":"url-list",
 	"typeConstraint":true,
 	"custom": {
 		"description": "default variant for LinkSource_xml",
@@ -23,15 +23,18 @@
             "exampleValue":"Work Type References",
             "description":"property of interest that should contain a valid link"
         },
-        {"text":"are valid links to AAT, GND, or Wikidata."},
+        {"text":"are valid links to"},
+        {
+        	"name": "a predefined Lists of Domains",
+            "params":[1],
+			"exampleValue":"AAT, GND, or Wikidata",
+			"defaultMap":"stringlist.url-list"
+        },
+		{"text":"."},
 
         {
             "params":[0],
             "value": "true"
-        },
-        {
-            "params":[1],
-            "value": "['d-nb.info/gnd/','vocab.getty.edu/','www.wikidata.org/']"
         }
     ]
 }

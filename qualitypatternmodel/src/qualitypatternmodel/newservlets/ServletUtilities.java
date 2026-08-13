@@ -46,6 +46,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.PatternText;
@@ -393,6 +394,10 @@ public abstract class ServletUtilities {
 					String xqueryjava = pattern.generateXQueryJava();
 					json.getJSONObject(ConstantsJSON.RELATIVEQUERIES).put(ConstantsJSON.QUERY_FILTER, xqueryjava);
 				}
+				String relativeQueryID = getRelativeQueryID(pattern.getDataModelName());
+				if (relativeQueryID != null) {
+					json.getJSONObject(ConstantsJSON.RELATIVEQUERIES).put(ConstantsJSON.QUERY_RECORD_ID, relativeQueryID);
+				}
 				String xquerypartial = pattern.getQueries().getString(Constants.XQUERY_PARTIAL);
 				json.put(ConstantsJSON.QUERY_PARTIAL, xquerypartial);
 				json.put(ConstantsJSON.QUERY_PARTIAL_LINE, makeQueryOneLine(xquerypartial));
@@ -428,6 +433,38 @@ public abstract class ServletUtilities {
 		return json;
 	}
 
+
+	private static String getRelativeQueryID(String dataModelName) {
+		if (dataModelName == null || ServletConstants.DATAMODELSFILE == null)
+			return null;
+		try {
+			File file = new File(ServletConstants.DATAMODELSFILE);
+//			if (!file.exists()) {
+//				log("DATAMODELSFILE '" + ServletConstants.DATAMODELSFILE + "' does not exist");
+//				return null;
+//			}
+			JSONObject config = Util.loadJson(ServletConstants.DATAMODELSFILE);
+			String mappingfilepath = config.optJSONObject("datamodels").optJSONObject(dataModelName).optString("mapping_file");
+			mappingfilepath = file.getParentFile().getAbsolutePath() + "/" + mappingfilepath;
+			JSONObject mappingfile = Util.loadJson(mappingfilepath);
+
+			JSONObject namespaces = mappingfile.optJSONObject("namespaces");
+			String namespacestring = CompletePatternImpl.generateXQueryNamespaces(namespaces);
+			String mid = "let $v := .\nreturn $v /ancestor::";
+			String path_default_ns = mappingfile.optJSONObject("paths").optJSONObject("identifier").optString("path_default_ns");
+			if (path_default_ns.startsWith("//"))
+				path_default_ns = path_default_ns.substring(2);
+			else if (path_default_ns.startsWith("/"))
+				path_default_ns = path_default_ns.substring(1);
+			else 
+				return null;
+
+			return namespacestring + mid + path_default_ns;
+		} catch (Exception e) {
+			logError(e);
+			return null;
+		}
+	}
 
 	// LOAD SAVE DELETE
 

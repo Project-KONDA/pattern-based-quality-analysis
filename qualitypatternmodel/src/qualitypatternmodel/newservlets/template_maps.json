@@ -55,8 +55,8 @@
 			"are not":"false"
 		},
 		"arenot":{
-			"are":"true",
-			"are not":"false"
+			"are not":"true",
+			"are":"false"
 		},
 		"does":{
 			"does":"true",
@@ -85,11 +85,12 @@
 	},
 	"regex":{
 		"lidoformats":{
-			"ISO Date (ISO 8601)":"^\\-?\\d{4}(-[01]\\d(-[0-3]\\d(T([01]\\d|2[0-3]):[0-5]\\d(:[0-5]\\d(\\.\\d+)?)?(Z|[+\\-][01]\\d:[03]0)?)?)?)?$",
+			"ISO Date (ISO 8601)":"^\\-?\\d{4}(-[01]\\d(-[0-3]\\d(T([01]\\d|2[0-3]):[0-5]\\d(:[0-5]\\d(\\.\\d+)?)?(Z|[-+][01]\\d:[03]0)?)?)?)?$",
 			"Language Code (BCP 47, extension of ISO 639)":"^[a-z]{2,3}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?(-([a-z0-9]{5,8}|[0-9]{4}))*(-[0-9A-WY-Za-wy-z](-[a-z0-9]{2,8})+)?(-x(-[a-z0-9]{1,8})+)?$",
-			"ISIL (ISO 15511)":"^(((https?://)?[a-zA-Z0-9\\-\\./]*\\.[a-z]{2,3}/([a-zA-Z0-9\\-\\./]*/)?)|(info:isil/))?[A-Z]{2,10}-[A-Z0-9][a-zA-Z0-9\\-]{0,14}[a-zA-Z0-9]$",
-			"LidoRecID":"^(((https?://)?[a-zA-Z0-9\\-\\./]*\\.[a-z]{2,3}/([a-zA-Z0-9\\-\\./]*/)?)|(info:isil/))?[A-Z]{2,10}-[A-Z0-9][a-zA-Z0-9\\-]{0,14}[a-zA-Z0-9]([/\\-_][a-zA-Z]+)*[/\\-_][A-Za-z0-9]+$",
-			"DDB-specific LidoRecID":"^(info:isil/)?[A-Z]{2,10}-[A-Z0-9][a-zA-Z0-9\\-]{0,14}[a-zA-Z0-9]([/\\-_][a-zA-Z]+)*[/\\-_][A-Za-z0-9]+$",
+			"ISIL (ISO 15511, DE only)":"^(((https?://)?[-A-Za-z0-9./]*\\.[a-z]{2,3}/([-A-Za-z0-9./]*/)?)|(info:isil/))?[A-Z]{2,10}-[A-Z0-9][-A-Za-z0-9]{0,14}[A-Za-z0-9]$",
+			"ISIL (ISO 15511, DE/CH/AT)":"^(https?://)?(isil\\.staatsbibliothek-berlin\\.de/isil/DE-|ld\\.zdb-services\\.de/resource/organisations/DE-|culture\\.ld\\.admin\\.ch/isil/CH-|lobid\\.org/organisations/AT-).+$",
+			"LidoRecID":"^(((https?://)?[-A-Za-z0-9./]*\\.[a-z]{2,3}/([-A-Za-z0-9./]*/)?)|(info:isil/))?[A-Z]{2,10}-[A-Z0-9][-A-Za-z0-9]{0,14}[A-Za-z0-9]([-/_][A-Za-z]+)*[-/_][A-Za-z0-9]+$",
+			"DDB-specific LidoRecID":"^(info:isil/)?[A-Z]{2,10}-[A-Z0-9][-A-Za-z0-9]{0,14}[A-Za-z0-9]([-/_][A-Za-z]+)*[-/_][A-Za-z0-9]+$",
 			"ASCII (ISO 646)":"^[ -~]+$",
 			"ASCII (ISO 646) without Whitespace":"^[!-~]+$",
 			"Creative Commons or RightsStatements.org":"^https?://(creativecommons\\.org/(licenses/(by(-sa|-nd|-nc(-sa|-nd)?)?)/([1-4]\\.0|2\\.5)(/[a-z]{2}(-[a-z]{2})?)?|publicdomain/(zero|mark)/1\\.0)|rightsstatements\\.org/vocab/[A-Za-z]+(-[A-Za-z]+)*/1\\.0(/[A-Za-z]{2})?)/?$",
@@ -98,12 +99,28 @@
 	},
 	"regexlist":{
 		"url-list":{
-			"GND, Wikidata, or AAT":"[\"https?://vocab\\\\.getty\\\\.edu/(page/)?aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
-			"GND, Wikidata, AAT, or Iconclass":"[\"https?://iconclass\\\\.org/([a-z]+/)?[0-9A-Z]+\",\"https?://vocab\\\\.getty\\\\.edu/(page/)?aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
-			"GND, Wikidata, AAT, or DDC":"[\"https?://vocab\\\\.getty\\\\.edu/(page/)?aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\",\"https?//uri\\\\.gbv\\\\.de/terminology/sdnb/([0-9]([0-9][0-9](\\\\.[0-9][0-9]?)?)?|[BKS])\"]",
-			"GND, Wikidata, GeoNames, or TGN":"[\"https?://vocab\\\\.getty.edu/tgn/[0-9]+\",\"https?://(www|sws)\\\\.geonames\\\\.org/[0-9]+/\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
-			"the GND":"[\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
-			"the LIDO terminology":"[\"https?://terminology\\\\.lido-schema\\\\.org/[0-9A-Za-z]+\"]"
+			"GND":"[\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"AAT, GND, or Wikidata":"[\"https?://vocab\\\\.getty\\\\.edu/(page/)?aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"AAT, GND, Wikidata, or Iconclass":"[\"https?://iconclass\\\\.org/([a-z]+/)?.+\",\"https?://vocab\\\\.getty\\\\.edu/(page/)?aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"AAT, GND, Wikidata, or DDC":"[\"https?://vocab\\\\.getty\\\\.edu/(page/)?aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\",\"https?://uri\\\\.gbv\\\\.de/terminology/sdnb/([0-9]([0-9][0-9](\\\\.[0-9][0-9]?)?)?|[BKS])\"]",
+			"GeoNames, TGN, Wikidata or GND":"[\"https?://vocab\\\\.getty\\\\.edu/tgn/[0-9]+\",\"https?://(www|sws)\\\\.geonames\\\\.org/[0-9]+/\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"LIDO terminology":"[\"https?://terminology\\\\.lido-schema\\\\.org/[0-9A-Za-z]+\"]",
+			"LIDO terminology (numeric URIs only)":"[\"https?://terminology\\\\.lido-schema\\\\.org/[0-9]+\"]",
+			"LIDO terminology (numeric URIs only) or AAT (LOD-URIs only)":"[\"https?://terminology\\\\.lido-schema\\\\.org/[0-9]+\",\"https?://vocab\\\\.getty\\\\.edu/aat/[0-9]+\"]",
+			"GND, ULAN, VIAF or Wikidata (LOD-URIs only)":"[\"https?://viaf\\\\.org/viaf/[0-9]+\",\"https?://vocab\\\\.getty\\\\.edu/ulan/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/entity/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"GND, ULAN, VIAF, Wikidata or Iconclass(LOD-URIs only)":"[\"https?://viaf\\\\.org/viaf/[0-9]+\",\"https?://vocab\\\\.getty\\\\.edu/ulan/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/entity/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\",\"https?://iconclass\\\\.org/([a-z]+/)?.+\"]",
+			"AAT, GND, or Wikidata (LOD-URIs only)":"[\"https?://vocab\\\\.getty\\\\.edu/aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/entity/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"AAT, GND, Wikidata, or Iconclass (LOD-URIs only)":"[\"https?://vocab\\\\.getty\\\\.edu/aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/entity/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\",\"https?://iconclass\\\\.org/([a-z]+/)?.+\"]",
+			"GND, ISIL or Wikidata (LOD-URIs only)":"[\"https?://www\\\\.wikidata\\\\.org/entity/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\",\"(https?://)?(isil\\\\.staatsbibliothek-berlin\\\\.de/isil/DE-|ld\\\\.zdb-services\\\\.de/resource/organisations/DE-|culture\\\\.ld\\\\.admin\\\\.ch/isil/CH-|lobid\\\\.org/organisations/AT-).+\"]"
+		}
+	},
+	"stringlist":{
+		"url-list":{
+			"AAT, GND, or Wikidata":"['d-nb.info/gnd/','vocab.getty.edu/','www.wikidata.org/']",
+			"AAT or GND":"['d-nb.info/gnd/','vocab.getty.edu/']",
+			"AAT":"['vocab.getty.edu/']",
+			"GND":"['d-nb.info/gnd/']",
+			"Wikidata":"['www.wikidata.org/']"
 		}
 	}
 }

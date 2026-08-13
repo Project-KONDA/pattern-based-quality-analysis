@@ -5,12 +5,12 @@
 	"typeConstraint":true,
 	"custom": {
 		"description": "default variant for LinkImageSizeIfCompSet_xml",
-		"scope": "hierarchical",
-		"type": ["len", "ren"]
+		"type": ["len", "cond"],
+		"scope": "hierarchical"
 	},
     "fragments":[
-    
-    
+
+
         {"text":"If a"},
         {
             "name":"Element",
@@ -55,7 +55,7 @@
             "exampleValue":"400"
         },
         {"text":"pixels."},
-        
+
         {
         	"value":"false",
         	"params":[3]

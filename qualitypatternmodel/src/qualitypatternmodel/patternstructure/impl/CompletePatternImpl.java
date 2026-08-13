@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.json.JSONObject;
 
 import de.gwdg.metadataqa.api.schema.BaseSchema;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
@@ -497,11 +498,14 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if (namespaces == null || namespaces.isEmpty()) {
 			return null;
 		}
+		return generateXQueryNamespaces(namespaces.generateJSONObject());
+	}
 
+	public static String generateXQueryNamespaces(JSONObject namespaces) throws InvalidityException {
 		String result = "";
-		for (String prefix: namespaces.getKeys()) {
-			String uri = namespaces.get(prefix);
-			if (prefix.equals("")) {
+		for (String prefix: namespaces.keySet()) {
+			String uri = namespaces.getString(prefix);
+			if (prefix.isEmpty()) {
 				result += "declare default element namespace '" + uri + "';\n";
 			} else if (prefix.matches(ConstantsXml.REGEX_PREFIX)) {
 				result += "declare namespace " + prefix + "='" + uri + "';\n";

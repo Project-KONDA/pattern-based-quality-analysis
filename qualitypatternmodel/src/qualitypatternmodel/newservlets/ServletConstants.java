@@ -39,20 +39,24 @@ public class ServletConstants {
 	public static String ENV_TEMPLATE_MAP_FILE = "TEMPLATE_MAP_FILE";
 	public static String TEMPLATE_MAP_FILE = "/templates/template_maps.json";
 
-	// name of logfile
+	// path to logfile
 	public static String LOGFILE_DEFAULT =  "/templates/logfile.log";
-	public static String LOGFILE = "/templates/logfile.log";
+	public static String LOGFILE = LOGFILE_DEFAULT;
 	public static String ENV_LOGFILE = "LOGFILE";
 
-	// name of savefile
+	// path to savefile
 	public static String SAVEFILE_DEFAULT =  "/templates/savefile.json";
-	public static String SAVEFILE = "/templates/savefile.json";
+	public static String SAVEFILE = SAVEFILE_DEFAULT;
 	public static String ENV_SAVEFILE = "SAVEFILE";
 
-	// name of countfile
+	// path to countfile
 	public static String COUNTFILE_DEFAULT =  "/templates/countfile.json";
-	public static String COUNTFILE = "/templates/countfile.json";
+	public static String COUNTFILE = COUNTFILE_DEFAULT;
 	public static String ENV_COUNTFILE = "COUNTFILE";
+
+	// path to datamodelsfile
+	public static String DATAMODELSFILE = null;
+	public static String ENV_DATAMODELSFILE = "DATAMODELSFILE";
 
 	// shall there be values in the templates
 	public static boolean FILL_VALUES = false;
@@ -90,6 +94,17 @@ public class ServletConstants {
 	public static String LOGDATEFORMAT = "yyyy-MM-dd";
 	public static String ENV_LOGDATEFORMAT = "LOGDATEFORMAT";
 
+	// how should attribute values be formatted in the snippets?
+	public static String SNIPPET_ATTRIBUTE = "attribute"; // parent: <x ns:attribute=\"value\" /> attribute: "ns:attribute=\"value\"", value: "value"
+	public static String ENV_SNIPPET_ATTRIBUTE = "SNIPPET_ATTRIBUTE";
+
+	// how should values be formatted in the snippets?
+	public static boolean SNIPPET_PARENTOFTEXT = true; // true: "<x>value</x>", false: "value"
+	public static String ENV_SNIPPET_PARENTOFTEXT = "SNIPPET_PARENTOFTEXT";
+
+	// should additional namespace be removed?
+	public static boolean SNIPPET_REMOVENAMESPACE = true; // true: "<a:x>value</a:x>", false: "<a:x xmlns:a=\"link\">value</a:x>"
+	public static String ENV_SNIPPET_REMOVENAMESPACE = "SNIPPET_REMOVENAMESPACE";
 
 	// name of folder for generic templates (only required if GENERATE_GENERIC)
 	public static final String GENERICFOLDER = "generic-patterns";

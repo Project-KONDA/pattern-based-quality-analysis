@@ -23,7 +23,7 @@
             "exampleValue":"Work Type References",
             "description":"property of interest that should contain a valid link"
         },
-        {"text":"are valid links that belong to one of the domains of"},
+        {"text":"are valid links to one of "},
         {
             "name":"domain-urls",
             "params":[1],

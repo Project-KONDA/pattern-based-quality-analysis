@@ -43,7 +43,6 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
-import qualitypatternmodel.utility.Util;
 
 @SuppressWarnings("serial")
 public class InitialisationServlet extends HttpServlet {
@@ -175,6 +174,12 @@ public class InitialisationServlet extends HttpServlet {
 			ServletConstants.COUNTFILE = scon.getRealPath(ServletConstants.COUNTFILE_DEFAULT);
 		ServletUtilities.log("Environmental Variable COUNTFILE:                 " + ServletConstants.COUNTFILE);
 
+//	      DATAMODELSFILE: null
+		String datamodelsfile = System.getenv(ServletConstants.ENV_DATAMODELSFILE);
+		if (datamodelsfile != null && ensureFileDirectoryAccess(datamodelsfile))
+			ServletConstants.DATAMODELSFILE = datamodelsfile;
+		ServletUtilities.log("Environmental Variable DATAMODELSFILE:            " + ServletConstants.DATAMODELSFILE);
+
 //	      FILL_VALUES: false
 		String values = System.getenv(ServletConstants.ENV_FILL_VALUES);
 		if (values != null) {
@@ -237,24 +242,24 @@ public class InitialisationServlet extends HttpServlet {
 
 
 //	      SNIPPET_ATTRIBUTE: "attribute"
-		String snippet_attribute = System.getenv(Util.ENV_SNIPPET_ATTRIBUTE);
+		String snippet_attribute = System.getenv(ServletConstants.ENV_SNIPPET_ATTRIBUTE);
 		if ("attribute".equals(snippet_attribute) || "parent".equals(snippet_attribute) || "value".equals(snippet_attribute)) {
-			Util.SNIPPET_ATTRIBUTE = snippet_attribute;
-			ServletUtilities.log("Environmental Variable SNIPPET_ATTRIBUTE:         " + Util.SNIPPET_ATTRIBUTE);
+			ServletConstants.SNIPPET_ATTRIBUTE = snippet_attribute;
+			ServletUtilities.log("Environmental Variable SNIPPET_ATTRIBUTE:         " + ServletConstants.SNIPPET_ATTRIBUTE);
 		}
 
 //	      SNIPPET_PARENTOFTEXT: true
-		String snippet_parentoftext = System.getenv(Util.ENV_SNIPPET_PARENTOFTEXT);
+		String snippet_parentoftext = System.getenv(ServletConstants.ENV_SNIPPET_PARENTOFTEXT);
 		if (snippet_parentoftext != null) {
-			Util.SNIPPET_PARENTOFTEXT = snippet_parentoftext.equals("true");
-			ServletUtilities.log("Environmental Variable SNIPPET_PARENTOFTEXT:      " + Util.SNIPPET_PARENTOFTEXT);
+			ServletConstants.SNIPPET_PARENTOFTEXT = snippet_parentoftext.equals("true");
+			ServletUtilities.log("Environmental Variable SNIPPET_PARENTOFTEXT:      " + ServletConstants.SNIPPET_PARENTOFTEXT);
 		}
 
 //	      SNIPPET_REMOVENAMESPACE: true
-		String snippet_removenamespace = System.getenv(Util.ENV_SNIPPET_REMOVENAMESPACE);		
+		String snippet_removenamespace = System.getenv(ServletConstants.ENV_SNIPPET_REMOVENAMESPACE);		
 		if (snippet_removenamespace != null) {
-			Util.SNIPPET_REMOVENAMESPACE = snippet_removenamespace.equals("true");
-			ServletUtilities.log("Environmental Variable SNIPPET_REMOVENAMESPACE:   " + Util.SNIPPET_REMOVENAMESPACE);
+			ServletConstants.SNIPPET_REMOVENAMESPACE = snippet_removenamespace.equals("true");
+			ServletUtilities.log("Environmental Variable SNIPPET_REMOVENAMESPACE:   " + ServletConstants.SNIPPET_REMOVENAMESPACE);
 		}
 
 

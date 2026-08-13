@@ -19,6 +19,7 @@
         {
             "name":"Comparison A",
             "params":[0],
+			"defaultMap":"comparison.default",
 			"exampleValue": "more than"
         },
         {
@@ -36,6 +37,7 @@
         {
             "name":"Comparison B",
             "params":[2],
+			"defaultMap":"comparison.default",
 			"exampleValue": "at least"
         },
         {
