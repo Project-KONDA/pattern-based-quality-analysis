@@ -129,7 +129,11 @@ public class TemplateTest {
 				System.out.println(query.toString(2));
 			}
 			System.out.println("\nRESULT");
-			System.out.println(result.toString(2));
+			JSONObject res = new JSONObject();
+			res.put("totalIncidents", result.get("totalIncidents"));
+			res.put("totalFindings", result.get("totalFindings"));
+			res.put("incidents", result.getJSONArray("result").getJSONObject(0).get("incidents"));
+			System.out.println(res.toString(2));
 			System.out.println("\nEXPECTED");
 			System.out.println(expected.toString(2));
 		}

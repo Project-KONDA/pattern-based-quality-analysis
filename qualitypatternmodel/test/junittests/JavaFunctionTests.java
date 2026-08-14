@@ -1,5 +1,7 @@
 package junittests;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -103,7 +105,7 @@ public class JavaFunctionTests {
 		if (expected && isOffline(url))
 			return;
 		Boolean result = LinkImageMinSizeOperatorImpl.apply2(url, false, size, size);
-		assert (result == expected);
+		assertEquals(expected, result);
 	}
 
 	@ParameterizedTest
@@ -112,7 +114,7 @@ public class JavaFunctionTests {
 		if (expected && isOffline(url))
 			return;
 		Boolean result = LinkMimeTypeOperatorImpl.apply2(url, false, Arrays.asList(new String[] {type}));
-		assert (result == expected);
+		assertEquals(expected, result);
 	}
 
 	@ParameterizedTest
@@ -121,7 +123,7 @@ public class JavaFunctionTests {
 		if (expected && isOffline(url))
 			return;
 		Boolean result = LinkSourceOperatorImpl.apply2(url, false, Arrays.asList(new String[] {source}));
-		assert (result == expected);
+		assertEquals(expected, result);
 	}
 
 	private static boolean isOffline(String link) {
