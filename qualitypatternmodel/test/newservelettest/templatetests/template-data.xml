@@ -62,26 +62,26 @@
 		<link id="0" type="-">nothing</link>
 		<link id="1" type="text/html">http://www.google.de</link>
 		<link id="2" type="text/html">http://www.github.com</link>
-		<link id="3" type="image/jpeg">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</link>
-		<link id="4" type="image/jpeg">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</link>
-		<link id="5" type="image/jpeg">https://fotothek.slub-dresden.de/fotos/df/hauptkatalog/0355000/df_hauptkatalog_0355520.jpg</link>
+		<link id="3" type="image/jpeg">https://picsum.photos/256/256</link>
+		<link id="4" type="image/jpeg">https://picsum.photos/256/256</link>
+		<link id="5" type="image/jpeg">https://picsum.photos/1000/1000</link>
 		<link id="6" type="image/jpg">https://www.runesdb.de/image-service/17125/full/max/0/default.jpg</link>
 	</linkmime>
 	<linkimagesize>
 		<link valid="false">nothing</link>
 		<link size="invalid">http://www.google.de</link>
-		<link size="256x256">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</link>
-		<link size="1600x1139"> http://fotothek.slub-dresden.de/fotos/df_hauptkatalog_0355520.jpg </link>
-		<link size="2496x1664">https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg</link>
-		<link size="2500x1912">https://recherche.smb.museum/images/5822610_2500x2500.jpg</link>
+		<link size="256x256">https://picsum.photos/256/256</link>
+		<link size="1600x1139">https://picsum.photos/1600/1139</link>
+		<link size="2496x1664">https://picsum.photos/2496/1664</link>
+		<link size="2500x1912">https://picsum.photos/2500/1912</link>
 	</linkimagesize>
 	<linkimagesizeifcompset>
 		<link comp="true" valid="false">nothing</link>
 		<link comp="true" size="invalid">http://www.google.de</link>
-		<link comp="yes" size="256x256">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</link>
-		<link comp="yes" size="2500x1912">https://recherche.smb.museum/images/5822610_2500x2500.jpg</link>
-		<link comp="false" size="256x256">https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg</link>
-		<link comp="false" size="2500x1912">https://recherche.smb.museum/images/5822610_2500x2500.jpg</link>
+		<link comp="yes" size="256x256">https://picsum.photos/256/256</link>
+		<link comp="yes" size="2500x1912">https://picsum.photos/2500/1912</link>
+		<link comp="false" size="256x256">https://picsum.photos/256/256</link>
+		<link comp="false" size="2500x1912">https://picsum.photos/2500/1912</link>
 	</linkimagesizeifcompset>
 	<linksource>
 		<link id="0" valid="true">https://www.wikidata.org/entity/Q22731</link>
@@ -148,9 +148,9 @@
 		<link>_DSC3552_kleib.jpg</link>
 		<link>_DSC3554_klein.jpg</link>
 		<link>google.com</link>
-		<link>http://fotothek.slub-dresden.de/fotos/df_hauptkatalog_0355520.jpg</link>
-		<link>http://fotothek.slub-dresden.de/fotos/df_hauptkatalog_0355520_karte.jpg</link>
-		<link>http://fotothek.spsg.de/eas/partitions/2/0/249000/249178/cf50af12965de9406e38fb789f0fe988008dc74a/image/jpeg/249178.jpg</link>
+		<link>https://picsum.photos/120/120</link>
+		<link>https://picsum.photos/110/110</link>
+		<link>https://picsum.photos/100/100</link>
 		<link>http://google.de</link>
 		<link>http://novalidlink.de</link>
 		<link>http://resources.digicult-museen.net/dam/provided_image/m5ea54539bef06</link>
@@ -181,7 +181,7 @@
 		<link>https://digitaldepot.dsm.museum/iiif/iiif/2//fe3c2739-bc3e-4d2e-a780-81097294de81/full/full/0/default.jpg</link>
 		<link>https://emuseum.duesseldorf.de/internal/media/dispatcher/176380/full</link>
 		<link>https://emuseum.duesseldorf.de/internal/media/dispatcher/176380/preview</link>
-		<link>https://fotothek.slub-dresden.de/fotos/df/hauptkatalog/0355000/df_hauptkatalog_0355520.jpg</link>
+		<link>https://picsum.photos/100/100</link>
 		<link>https://ghwk-db.de/files/original/51b65bc08e48b3bc5c195b79be8bc1a7a8a41cc7.jpg</link>
 		<link>https://ghwk-db.de/files/original/8f1240ba411d0cf0c17a93aa81f20410e8146039.jpg</link>
 		<link>https://id.smb.museum/digital-asset/3371759</link>

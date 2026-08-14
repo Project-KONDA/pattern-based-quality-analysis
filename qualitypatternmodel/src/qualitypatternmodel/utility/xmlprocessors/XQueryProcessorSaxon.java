@@ -161,8 +161,8 @@ public class XQueryProcessorSaxon {
 		resultobject.put(ConstantsJSON.FILESIZE, datapaths.size());
 		resultobject.put(ConstantsJSON.CONSTRAINTSIZE, constraintIDs.length());
 		resultobject.put(ConstantsJSON.DURATION, System.nanoTime());
-//		resultobject.put(ConstantsJSON.FAILEDFILES, new JSONObject());
-//		resultobject.put(ConstantsJSON.FAILEDCONSTRAINTS, new JSONObject());
+		resultobject.put(ConstantsJSON.FAILEDFILES, new JSONObject());
+		resultobject.put(ConstantsJSON.FAILEDCONSTRAINTS, new JSONObject());
 		try {
 			Util.exportJson(resultobject, jsonfilename);
 		} catch (IOException e) {}
