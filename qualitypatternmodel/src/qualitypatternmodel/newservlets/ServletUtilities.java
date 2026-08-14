@@ -24,7 +24,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.Semaphore;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -507,9 +506,9 @@ public abstract class ServletUtilities {
 
 		// if precompiled patternjson exists
 		try {
-			JSONObject patternJson = loadJsonSave(jsonpath);
-			if (isValidPatternJSON(patternJson))
-				return patternJson;
+			JSONObject constraintJson = loadJsonSave(jsonpath);
+			if (ServletJsonValidation.validateConstraintJson(constraintJson))
+				return constraintJson;
 			log("Replacing invalid PatternJSON: " + jsonpath);
 		} catch (Exception e) {}
 
@@ -530,7 +529,7 @@ public abstract class ServletUtilities {
 		// if precompiled queryjson exists
 		try {
 			JSONObject queryjson = loadJsonSave(queryjsonpath);
-			if (isValidQueryJSON(queryjson))
+			if (ServletJsonValidation.validateQueryJson(queryjson))
 				return  queryjson;
 			log("Replacing invalid QueryJson: " + queryjsonpath);
 		} catch (Exception e) {}
@@ -557,7 +556,7 @@ public abstract class ServletUtilities {
 		String jsonfilepath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + templateId + ".json";
 		try {
 			JSONObject templateJson = loadJsonSave(jsonfilepath);
-			if (isValidPatternJSON(templateJson))
+			if (ServletJsonValidation.validateTemplateJson(templateJson))
 				return templateJson;
 			log("Replacing invalid TemplateJson: " + jsonfilepath);
 		} catch (Exception e) {}
@@ -571,7 +570,7 @@ public abstract class ServletUtilities {
 		String variantjsonfilepath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.VARIANTJSONFOLDER + "/" + templateId + ".json";
 		try {
 			JSONObject variantJson = loadJsonSave(variantjsonfilepath);
-			if (isValidVariantJSON(variantJson))
+			if (ServletJsonValidation.validateTemplateVariantJson(variantJson))
 				return variantJson;
 			log("Replacing invalid VariantJson: " + variantjsonfilepath);
 		} catch (Exception e) {}
@@ -1227,75 +1226,5 @@ public abstract class ServletUtilities {
             return new JSONObject(); // no content
         }
         return new JSONObject(body);
-	}
-	
-
-	
-	static Set<String> patternJsonkeys =  Set.of(ConstantsJSON.CONSTRAINT_ID, ConstantsJSON.NAME, ConstantsJSON.LANGUAGE, ConstantsJSON.DESCRIPTION, ConstantsJSON.EXECUTABLE, ConstantsJSON.EXECUTABLE_MQAF, ConstantsJSON.EXECUTABLE_QUERY, ConstantsJSON.EXECUTABLE_FILTER, ConstantsJSON.VARIANTS);
-
-	private static boolean isValidPatternJSON(JSONObject patternJson) {
-		// getPatternJSON(pattern)
-		if (!patternJson.keySet().containsAll(patternJsonkeys))
-			return false;
-
-		JSONArray variantJson = patternJson.getJSONArray(ConstantsJSON.VARIANTS);
-		for (int i = 0; i< variantJson.length(); i++)
-			if (!isValidVariant(variantJson.getJSONObject(i)))
-				return false;
-		return true;
-	}
-
-	private static boolean isValidVariantJSON(JSONObject variantJson) {
-		// getVariantJSON(pattern)
-		if (!variantJson.has(ConstantsJSON.PARAMETER))
-			return false;
-		for (String key: variantJson.getJSONObject(ConstantsJSON.PARAMETER).keySet())
-			if (!isValidParameter(variantJson.getJSONObject(key)))
-				return false;
-
-		if (variantJson.has(ConstantsJSON.VARIANTS)) {
-			for (int i = 0; i< variantJson.getJSONArray(ConstantsJSON.VARIANTS).length(); i++)
-				if (!isValidVariant(variantJson.getJSONArray(ConstantsJSON.VARIANTS).getJSONObject(i)))
-					return false;
-		}
-		return true;
-	}
-
-	static Set<String> parameterJsonkeys =  Set.of(ConstantsJSON.TYPE, ConstantsJSON.ROLE, ConstantsJSON.ID);
-	private static boolean isValidParameter(JSONObject jsonObject) {
-		return  jsonObject.keySet().containsAll(parameterJsonkeys);
-	}
-
-	static Set<String> variantJsonkeys =  Set.of(ConstantsJSON.TEMPLATE, ConstantsJSON.NAME, ConstantsJSON.TECHNOLOGY, ConstantsJSON.FRAGMENTS);
-	private static boolean isValidVariant(JSONObject jsonObject) {
-		if (!jsonObject.keySet().containsAll(variantJsonkeys))
-			return false;
-		JSONArray fragments = jsonObject.getJSONArray(ConstantsJSON.FRAGMENTS);
-		if (fragments.isEmpty())
-			return false;
-		for (int i = 0; i<fragments.length(); i++) {
-			if (!isValidFragment(fragments.getJSONObject(i)))
-				return false;
-		}
-		return true;
-	}
-
-	static Set<String> parameterFragmentJsonkeys =  Set.of(ConstantsJSON.NAME, ConstantsJSON.PARAMETER, ConstantsJSON.EXAMPLEVALUE, ConstantsJSON.NEWID);
-	private static boolean isValidFragment(JSONObject fragment) {
-		if (fragment.has(ConstantsJSON.TEXT)) // TextFragment
-			return true;
-		if (!fragment.keySet().contains(ConstantsJSON.PARAMETER))
-				return false;
-		return (fragment.keySet().containsAll(parameterFragmentJsonkeys) || fragment.keySet().contains(ConstantsJSON.VALUE));
-	}
-
-	static Set<String> queryJsonkeys =  Set.of(ConstantsJSON.NAME, ConstantsJSON.CONSTRAINT_ID, ConstantsJSON.TECHNOLOGY, ConstantsJSON.TEMPLATE_ID, ConstantsJSON.RELATIVEQUERIES, ConstantsJSON.VARIANT_ID, ConstantsJSON.QUERY, ConstantsJSON.QUERY_LINE, ConstantsJSON.LANGUAGE);
-	static Set<String> queryXmlJsonkeys =  Set.of(ConstantsJSON.QUERY_PARTIAL, ConstantsJSON.QUERY_PARTIAL_LINE);
-	private static boolean isValidQueryJSON(JSONObject queryjson) {
-		if (!queryjson.keySet().containsAll(variantJsonkeys))
-			return false;
-		if (queryjson.optString(ConstantsJSON.TECHNOLOGY).equals(Constants.XML))
-			return queryjson.keySet().containsAll(queryXmlJsonkeys);
-		return true;
 	}
 }
