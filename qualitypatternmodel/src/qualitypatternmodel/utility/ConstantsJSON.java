@@ -106,8 +106,14 @@ public class ConstantsJSON {
 	public static final String RESULT_ENDLINE = "endline";
 	public static final String RESULT_LINESIZE = "linesize";
 	public static final String DURATION = "duration";
+	public static final String STATUS = "status";
+	public static final String STATUS_SUCCESS = "success";
+	public static final String STATUS_PARTIAL = "partial";
+	public static final String STATUS_FAILED = "failed";
 
 	// Filter
+	public static final String PATTERNNAME = "patternName";
+	public static final String PATTERNID = "patternId";
 	public static final String NEGATE = "negate";
 	public static final String ARGUMENT = "argument";
 	public static final String ARGUMENT_FUNCTION = "functionclass";

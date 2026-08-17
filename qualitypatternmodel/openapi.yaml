@@ -1810,6 +1810,13 @@ components:
       description: result of the quality analyis
       type: object
       properties:
+        status:
+          description: success status
+          type: string
+          enum:
+            - success
+            - partial
+            - failed
         totalFindings:
           description: amount of total analysed findings in the file
           type: integer
@@ -1822,12 +1829,16 @@ components:
         files:
           description: list of files
           type: array
+          items:
+            type: string
         filesize:
           description: amount of files
           type: integer
         constraintIDs:
           description: list of constraint IDs
           type: array
+          items:
+            type: string
         constraintsize:
           description: amount of constraints
           type: integer

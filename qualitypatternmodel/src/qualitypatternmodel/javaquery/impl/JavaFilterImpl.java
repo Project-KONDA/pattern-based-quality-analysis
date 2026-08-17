@@ -263,36 +263,24 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 
 		JSONObject result = new JSONObject();
 		try {
-//			result.put("patternId", getPatternId());
-			result.put("patternName", getPatternName());
-			result.put("query", getQuery());
-			result.put("language", getLanguage().getName());
-			result.put("filter", getFilter().toJson());
-			result.put("structure", getStructure().toJson());
+//			result.put(ConstantsJSON.PATTERNID, getPatternId());
+			result.put(ConstantsJSON.PATTERNNAME, getPatternName());
+			result.put(ConstantsJSON.QUERY, getQuery());
+			result.put(ConstantsJSON.LANGUAGE, getLanguage().getName());
+			result.put(ConstantsJSON.FILTER, getFilter().toJson());
+			result.put(ConstantsJSON.STRUCTURE, getStructure().toJson());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;
-//        try {
-//            // Create ObjectMapper instance
-//            ObjectMapper mapper = new ObjectMapper();
-//
-//            // Serialize EMF object to JSON string
-//            String json = mapper.writeValueAsString(this);
-//
-//            return json;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
     }
 
 	public static JavaFilter fromJson(JSONObject jsonObject) throws InvalidityException, JSONException {
 		JavaFilter filter = new JavaFilterImpl();
-		if (jsonObject.has("patternName"))
-			filter.setPatternId(jsonObject.getString("patternName"));
-		else if (jsonObject.has("patternId"))
-			filter.setPatternId(jsonObject.getString("patternId"));
+		if (jsonObject.has(ConstantsJSON.PATTERNNAME))
+			filter.setPatternId(jsonObject.getString(ConstantsJSON.PATTERNNAME));
+//		else if (jsonObject.has(ConstantsJSON.PATTERNID))
+//			filter.setPatternId(jsonObject.getString(ConstantsJSON.PATTERNID));
 		if (jsonObject.has(ConstantsJSON.QUERY))
 			filter.setQuery(jsonObject.getString(ConstantsJSON.QUERY));
 		if (jsonObject.has(ConstantsJSON.LANGUAGE))
@@ -309,19 +297,6 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 		filter.setFilter(subfilter);
 
 		return filter;
-
-//        try {
-//            // Create ObjectMapper instance
-//            ObjectMapper mapper = new ObjectMapper();
-//
-//            // Deserialize JSON string to EMF object
-//            JavaFilter filter = mapper.readValue(json, JavaFilter.class);
-//
-//            return filter;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
     }
 
 	/**
