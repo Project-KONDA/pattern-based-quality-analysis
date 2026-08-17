@@ -18,7 +18,7 @@ public class LinkOperatorUtil {
 
     private static final HttpClient CLIENT = HttpClient.newBuilder()
             .connectTimeout(Duration.ofMillis(DEFAULT_TIMEOUT))
-            .followRedirects(HttpClient.Redirect.NORMAL)
+            .followRedirects(HttpClient.Redirect.ALWAYS)
             .build();
 	
 	public static final String[] REQUEST_METHOD = new String[] {"HEAD", "GET"};
@@ -234,7 +234,7 @@ public class LinkOperatorUtil {
 	        Integer responseCode = getResponseCode(urlString);
 	        
 	        Boolean result = isOk(responseCode);
-	        if (result == false && urlString.startsWith("http://"))
+	        if (!result && urlString.startsWith("http://"))
 	        	return evaluateResponseCode("https" + urlString.substring(4));
 	        return result;
 	    } catch (Exception e) {

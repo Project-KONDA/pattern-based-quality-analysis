@@ -6,6 +6,7 @@
 		{"link":"  http://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394-2.jpg  ","expected":true},
 		{"link":"https://rlp.museum-digital.de/data/rlp/images/55/61394-rkf_255_2020/de_ka_de_weltakkord_w_688/de-ka-de-weltakkord-w-688-61394.jpg","expected":true},
 		{"link":"https://images.stockcake.com/public/a/8/e/a8ebd9b9-640c-4f6a-8877-4a91ea968549_medium/alert-black-white-cat-stockcake.jpg","expected":true},
+		{"link":"http://terminology.lido-schema.org/lido00001","expected":true, "comment":"returns 302 redirect. should be redirected"},
 		{"link":"https://picsum.photos/1600/1139","expected":true},
 		{"link":"novalidlink.de","expected":false},
 		{"link":"http://novalidlink.de","expected":false},
