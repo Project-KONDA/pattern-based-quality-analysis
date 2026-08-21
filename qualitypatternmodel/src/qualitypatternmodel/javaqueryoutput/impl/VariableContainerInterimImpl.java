@@ -9,8 +9,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
@@ -50,15 +49,15 @@ public class VariableContainerInterimImpl extends ContainerInterimImpl implement
 		super();
 	}
 
-	public VariableContainerInterimImpl(JSONObject json) throws InvalidityException {
+	public VariableContainerInterimImpl(ObjectNode json) throws InvalidityException {
 		super();
 		try {
-			if (!json.get("class").equals(getClass().getSimpleName())) {
+			if (!json.get("class").asText().equals(getClass().getSimpleName())) {
 				throw new InvalidityException("Wrong class");
 			}
-			setInterimPartId(json.getInt("id"));
-			setContained(InterimResultPartImpl.fromJson(json.getJSONObject("contained")));
-		} catch (JSONException e) {
+			setInterimPartId(json.get("id").asInt());
+			setContained(InterimResultPartImpl.fromJson((ObjectNode) json.get("contained")));
+		} catch (RuntimeException e) {
 			throw new InvalidityException("Wrong class");
 		}
 	}
@@ -75,8 +74,8 @@ public class VariableContainerInterimImpl extends ContainerInterimImpl implement
 			result.put("class", getClass().getSimpleName());
 			result.put("id", getInterimPartId());
 			if (getContained() != null)
-				result.put("contained", getContained().toJson());
-		} catch (JSONException e) {
+				result.set("contained", getContained().toJson());
+		} catch (RuntimeException e) {
 		}
 		return result;
 	}

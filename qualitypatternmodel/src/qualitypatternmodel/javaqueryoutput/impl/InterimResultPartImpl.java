@@ -9,9 +9,6 @@ import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
@@ -96,9 +93,9 @@ public abstract class InterimResultPartImpl extends MinimalEObjectImpl.Container
 		return super.eInvoke(operationID, arguments);
 	}
 
-	public static InterimResultPartImpl fromJson(JSONObject json) throws InvalidityException {
+	public static InterimResultPartImpl fromJson(ObjectNode json) throws InvalidityException {
 		try {
-			String clazz = json.getString("class");
+			String clazz = json.get("class").asText();
 			if (clazz.equals(ValueInterimImpl.class.getSimpleName())) {
 				return new ValueInterimImpl(json);
 			}
@@ -108,7 +105,7 @@ public abstract class InterimResultPartImpl extends MinimalEObjectImpl.Container
 			if (clazz.equals(FixedContainerInterimImpl.class.getSimpleName())) {
 				return new FixedContainerInterimImpl(json);
 			}
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 		return null;
 	}
 

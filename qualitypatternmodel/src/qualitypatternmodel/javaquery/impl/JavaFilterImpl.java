@@ -20,9 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
@@ -38,6 +36,7 @@ import qualitypatternmodel.javaqueryoutput.impl.InterimResultContainerImpl;
 import qualitypatternmodel.javaqueryoutput.impl.InterimResultStructureImpl;
 import qualitypatternmodel.patternstructure.Language;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 /**
@@ -186,7 +185,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public void createInterimResultContainer(JSONArray objectList) throws InvalidityException {
+	public void createInterimResultContainer(ArrayNode objectList) throws InvalidityException {
 		EList<InterimResultContainer> interimContainer = getInterimResults();
 		interimContainer.clear();
 //		if (objectList != null) {
@@ -218,7 +217,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public JSONArray executeXQueryJava(String datapath) throws InvalidityException {
+	public ArrayNode executeXQueryJava(String datapath) throws InvalidityException {
 		return XmlServletUtility.executeQueryFile(getQuery(), datapath);
 	}
 
@@ -228,9 +227,9 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public JSONArray execute(String datapath) throws InvalidityException {
+	public ArrayNode execute(String datapath) throws InvalidityException {
 		// Query Results
-		JSONArray list = executeXQueryJava(datapath);
+		ArrayNode list = executeXQueryJava(datapath);
 		return filter(list);
 	}
 
@@ -240,7 +239,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public JSONArray filter(JSONArray incidents) throws InvalidityException {
+	public ArrayNode filter(ArrayNode incidents) throws InvalidityException {
 		// import Query Results
 		createInterimResultContainerXQuery(incidents);
 
@@ -250,7 +249,7 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 			}
 		}
 
-		JSONArray result = filterQueryResults();
+		ArrayNode result = filterQueryResults();
 		return result;
 	}
 
@@ -260,35 +259,35 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public JSONObject toJson() {
+	public ObjectNode toJson() {
 
-		JSONObject result = new JSONObject();
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 //			result.put(ConstantsJSON.PATTERNID, getPatternId());
 			result.put(ConstantsJSON.PATTERNNAME, getPatternName());
 			result.put(ConstantsJSON.QUERY, getQuery());
 			result.put(ConstantsJSON.LANGUAGE, getLanguage().getName());
-			result.put(ConstantsJSON.FILTER, getFilter().toJson());
-			result.put(ConstantsJSON.STRUCTURE, getStructure().toJson());
+			result.set(ConstantsJSON.FILTER, getFilter().toJson());
+			result.set(ConstantsJSON.STRUCTURE, getStructure().toJson());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;
     }
 
-	public static JavaFilter fromJson(JSONObject jsonObject) throws InvalidityException, JSONException {
+	public static JavaFilter fromJson(ObjectNode jsonObject) throws InvalidityException {
 		JavaFilter filter = new JavaFilterImpl();
 		if (jsonObject.has(ConstantsJSON.PATTERNNAME))
-			filter.setPatternId(jsonObject.getString(ConstantsJSON.PATTERNNAME));
 //		else if (jsonObject.has(ConstantsJSON.PATTERNID))
 //			filter.setPatternId(jsonObject.getString(ConstantsJSON.PATTERNID));
+			filter.setPatternId(jsonObject.get(ConstantsJSON.PATTERNNAME).asText());
 		if (jsonObject.has(ConstantsJSON.QUERY))
-			filter.setQuery(jsonObject.getString(ConstantsJSON.QUERY));
+			filter.setQuery(jsonObject.get(ConstantsJSON.QUERY).asText());
 		if (jsonObject.has(ConstantsJSON.LANGUAGE))
-			filter.setLanguage(Language.valueOf(jsonObject.getString(ConstantsJSON.LANGUAGE)));
+			filter.setLanguage(Language.valueOf(jsonObject.get(ConstantsJSON.LANGUAGE).asText()));
 
-		JSONObject structurejson = jsonObject.getJSONObject(ConstantsJSON.STRUCTURE);
-		JSONObject filterjson = jsonObject.getJSONObject(ConstantsJSON.FILTER);
+		ObjectNode structurejson = (ObjectNode) jsonObject.get(ConstantsJSON.STRUCTURE);
+		ObjectNode filterjson = (ObjectNode) jsonObject.get(ConstantsJSON.FILTER);
 		
 		InterimResultStructureImpl structure = InterimResultStructureImpl.fromJson(structurejson);
 		filter.setStructure(structure);
@@ -306,12 +305,12 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public void createInterimResultContainerXQuery(JSONArray incidents) throws InvalidityException {
+	public void createInterimResultContainerXQuery(ArrayNode incidents) throws InvalidityException {
 //	public void createInterimResultContainerXQuery(List<String> objectList) throws InvalidityException {
 		getInterimResults().clear();
 		
-		for (int i = 0; i <incidents.length(); i++) {
-			JSONObject interim = incidents.getJSONObject(i);
+		for (int i = 0; i <incidents.size(); i++) {
+			ObjectNode interim = (ObjectNode) incidents.get(i);
 			InterimResultContainer interimresult = new InterimResultContainerImpl(getStructure());
 			if (interimresult.initialize(interim)) {
 				getInterimResults().add(interimresult);
@@ -546,12 +545,12 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	 * @generated NOT
 	 */
 	@Override
-	public JSONArray filterQueryResults() throws InvalidityException {
+	public ArrayNode filterQueryResults() throws InvalidityException {
 		EList<InterimResultContainer> interims = getInterimResults();
 		ExecutorService executor = Executors.newFixedThreadPool(100);
 		try {
 	
-	        List<Future<JSONObject>> futures = new ArrayList<Future<JSONObject>>();        
+	        List<Future<ObjectNode>> futures = new ArrayList<Future<ObjectNode>>();        
 			for (InterimResultContainer ir: interims) {
 				futures.add(executor.submit(() -> {
 					try {
@@ -570,13 +569,13 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				}));
 			}
 	
-			JSONArray results = new JSONArray();
+			ArrayNode results = Util.jsonCreateArray();
 			
-			for (Future<JSONObject> future: futures) {
+			for (Future<ObjectNode> future: futures) {
 				try {
-					JSONObject obj = future.get();
+					ObjectNode obj = future.get();
 					if (obj != null)
-						results.put(obj);
+						results.add(obj);
 				} catch (Exception e) {
 	                Throwable cause = e.getCause();
 	                if (cause instanceof InvalidityException) {
@@ -593,8 +592,8 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 	    }
 	}
 
-	private JSONObject resultjson(String value) {
-		JSONObject res = new JSONObject();
+	private ObjectNode resultjson(String value) {
+		ObjectNode res = Util.jsonCreateObject();
 		res.put(ConstantsJSON.RESULT_SNIPPET, value);
 		res.put(ConstantsJSON.RESULT_STARTLINE, -1);
 		res.put(ConstantsJSON.RESULT_ENDLINE, -1);

@@ -14,8 +14,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.json.JSONException;
-import org.json.JSONObject;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
@@ -156,7 +158,7 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 			for (String key: getKeyValuePair().keySet()) {
 					object.put(key, getKeyValuePair().get(key));
 			}
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 		return object.toString();
 	}
 
@@ -170,12 +172,12 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 		try {
 			JSONObject object = new JSONObject(value);
 
-			Iterator<String> keys = object.keys();
+			Iterator<String> keys = object.fieldNames();
 			while (keys.hasNext()) {
 				String next = keys.next();
-				map.put(next, object.getString(next));
+				map.put(next, object.get(next).asText());
 			}
-		} catch (JSONException e) {
+		} catch (RuntimeException | JsonProcessingException e) {
 			throw new InvalidityException(value + " is not valid ", e);
 		}
 		getKeyValuePair().clear();

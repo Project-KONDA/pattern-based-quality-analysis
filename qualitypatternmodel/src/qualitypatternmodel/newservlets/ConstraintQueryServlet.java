@@ -7,9 +7,8 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -32,7 +31,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
 			int i = path.split("/").length;
-			JSONObject result = null; // = applyGet(path, params);
+			ObjectNode result = null; // = applyGet(path, params);
 			if (i == 2) {
 				result = applyGet2(path, params);
 			} else if (i == 3) {
@@ -49,7 +48,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the query of a constraint: "
@@ -69,7 +68,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 		return applyGet(technology, constraintIds);
 	}
 
-	public static JSONObject applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 2 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the query of multiple constraints: "
@@ -91,7 +90,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 		return applyGet(technology, constraintIds);
 	}
 
-	public static JSONObject applyGet(String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyGet(String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
 
 		JSONObject result = new JSONObject();
 		JSONArray failed = new JSONArray();
@@ -111,13 +110,13 @@ public class ConstraintQueryServlet extends HttpServlet {
 				JSONObject object = new JSONObject();
 				try {
 					object.put(constraintId, e.getMessage());
-				} catch (JSONException f) {}
-				failed.put(object);
+				} catch (RuntimeException f) {}
+				failed.add(object);
 			}
 		}
 		try {
-			result.put(ConstantsJSON.FAILED, failed);
-		} catch (JSONException e) {}
+			result.set(ConstantsJSON.FAILED, failed);
+		} catch (RuntimeException e) {}
 		return result;
 	}
 }

@@ -3,8 +3,7 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 import java.util.Map;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,7 +26,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("POST", this.getClass().getName(), path, params);
 		try {
-			JSONObject result = applyPost(path, params);
+			ObjectNode result = applyPost(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -43,7 +42,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("DELETE", this.getClass().getName(), path, params);
 		try{
-			JSONObject result = applyDelete(path, params);
+			ObjectNode result = applyDelete(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -51,7 +50,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for posting tags in a constraint: "
@@ -93,7 +92,7 @@ public class ConstraintTagServlet extends HttpServlet {
 					}
 				}
 			}
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 
 		// 3. save constraint
 		String timestamp = null;
@@ -104,12 +103,12 @@ public class ConstraintTagServlet extends HttpServlet {
 		}
 		try {
 			json.put(ConstantsJSON.LASTSAVED, timestamp);
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 
 		return json;
 	}
 
-	public static JSONObject applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for deleting tags in a constraint: "
@@ -150,7 +149,7 @@ public class ConstraintTagServlet extends HttpServlet {
 						json.append("failed", object);
 					}
 				}
-			} catch (JSONException e) {}
+			} catch (RuntimeException e) {}
 		}
 
 		// 3. save constraint
@@ -162,7 +161,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		}
 		try {
 			json.put(ConstantsJSON.LASTSAVED, timestamp);
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 
 		return json;
 	}

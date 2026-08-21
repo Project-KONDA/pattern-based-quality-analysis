@@ -6,15 +6,27 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.Collection;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.util.DefaultIndenter;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.newservlets.ServletUtilities;
 
 public class Util {
+	private static final ObjectMapper MAPPER = new ObjectMapper();
     
 	public static final long EXECUTE_MAX_FILE_SIZE_BYTES = 50 * 1024 * 1024; // 50 MB
 //	public static final int EXECUTE_MAX_RESULTS = 100000;                    // max number of results
@@ -77,14 +89,14 @@ public class Util {
 	    return filesave;
 	}
 
-	public static void exportJson(JSONObject json, String filepath) throws IOException {
+	public static void exportJson(ObjectNode json, String filepath) throws IOException {
 	    Path path = Paths.get(filepath);
 	    File file = path.toFile();
 	    if (file.getParentFile() != null) {
 	        Files.createDirectories(file.getParentFile().toPath());
 	    }
 	
-	    Files.write(path, json.toString(4).getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+	    Files.write(path, jsonPretty(json).getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
 	}
 
 	public static void createFile(String content, String filePath) throws IOException {
@@ -119,14 +131,54 @@ public class Util {
 	    return new String(Files.readAllBytes(Paths.get(filepath)));
 	}
 
-	public static JSONObject loadJson(String filepath) throws IOException {
+	public static ObjectNode loadJson(String filepath) throws IOException {
 	    String jsonString = loadFile(filepath);
-	    JSONObject jsonObject;
+	    ObjectNode node;
 	    try {
-	    	jsonObject = new JSONObject(jsonString);
-	    } catch (JSONException e) {
-	    	throw new JSONException("File " + filepath + " is not a valid json: " + e.getMessage());
+	    	node = (ObjectNode) MAPPER.readTree(jsonString);
+	    } catch (RuntimeException e) {
+	    	throw new IllegalArgumentException("File " + filepath + " is not a valid json: " + e.getMessage(), e);
 	    }
-	    return jsonObject;
+	    return node;
+	}
+
+	public static ObjectNode jsonCreateObject() {
+		return MAPPER.createObjectNode();
+	}
+
+	public static ObjectNode jsonCreateObject(String jsonstring) throws JsonMappingException, JsonProcessingException {
+		return (ObjectNode) MAPPER.readTree(jsonstring);
+	}
+
+	public static ArrayNode jsonCreateArray(){
+		return MAPPER.createArrayNode();
+	}
+
+	public static ArrayNode jsonCreateArray(String jsonstring) throws JsonMappingException, JsonProcessingException {
+		return (ArrayNode) MAPPER.readTree(jsonstring);
+	}
+
+	public static ArrayNode jsonCreateArray(Collection<?> list) {
+		return MAPPER.valueToTree(list);
+	}
+
+	public static Set<String> jsonKeySet(ObjectNode json) {
+		return json.properties()
+		        .stream()
+		        .map(Map.Entry::getKey)
+		        .collect(Collectors.toCollection(LinkedHashSet::new));
+	}
+
+	public static String jsonPretty(JsonNode json) {
+	    try {
+	        DefaultPrettyPrinter printer = new DefaultPrettyPrinter();
+	        printer.indentArraysWith(
+	                new DefaultIndenter("    ", System.lineSeparator()));
+	        printer.indentObjectsWith(
+	                new DefaultIndenter("    ", System.lineSeparator()));
+	        return MAPPER.writer(printer).writeValueAsString(json);
+	    } catch (JsonProcessingException e) {
+	        throw new RuntimeException("Could not serialize JSON", e);
+	    }
 	}
 }

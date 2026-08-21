@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.newservlets.ServletUtilities;
@@ -129,24 +129,24 @@ public class EMFModelLoad {
 		return patterns;
 	}
 
-	public static List<JSONObject> loadPatternJSONsFromFolder(String folder, String jsonfolder, String extension) throws IOException {
+	public static List<ObjectNode> loadPatternJSONsFromFolder(String folder, String jsonfolder, String extension) throws IOException {
 //		String path = context.getRealPath(relativepath);
 		List<String> patternfiles = getFilesInDirectory(folder, extension);
 //		List<String> jsonfiles = getFilesInDirectory(jsonfolder);
 		
-		List<JSONObject> patternjsons = new BasicEList<JSONObject>();
+		List<ObjectNode> patternjsons = new BasicEList<ObjectNode>();
 		
 		for (String patternfilename: patternfiles) {
 			String jsonfilename = patternfilename.replace("." + extension, ".json");
 			
 			File jsonfile = new File(jsonfolder + "/" + jsonfilename);
 			if (jsonfile.exists()) {
-				JSONObject json = Util.loadJson(jsonfolder + "/" + jsonfilename);
+				ObjectNode json = Util.loadJson(jsonfolder + "/" + jsonfilename);
 				patternjsons.add(json);
 			} else {
 				try {
 					CompletePattern pattern = loadCompletePattern(folder + "/" + patternfilename);
-					JSONObject json = ServletUtilities.getPatternJSON(pattern);
+					ObjectNode json = ServletUtilities.getPatternJSON(pattern);
 					Util.exportJson(json, jsonfolder + "/" + jsonfilename);
 					patternjsons.add(json);
 				} catch (Exception e) {

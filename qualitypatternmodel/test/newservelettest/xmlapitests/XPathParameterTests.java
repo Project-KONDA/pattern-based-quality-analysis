@@ -8,9 +8,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -22,7 +22,7 @@ import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
 
 public class XPathParameterTests {
 
-	public static void main(String[] args) throws ServletException, JSONException, InvalidServletCallException, FailedServletCallException, IOException {
+	public static void main(String[] args) throws ServletException, InvalidServletCallException, FailedServletCallException, IOException {
 		ServletContext context = mock(ServletContext.class);
         doAnswer(invocation -> {
             String argument = invocation.getArgument(0);
@@ -65,9 +65,9 @@ public class XPathParameterTests {
         }
 	}
 
-	private static void test(String arg) throws JSONException, InvalidServletCallException, FailedServletCallException, IOException {
-		JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut("/xml/Match_xml/default", new HashMap<String, String[]>()));
-		String id = (String) json.get("patternID");
+	private static void test(String arg) throws InvalidServletCallException, FailedServletCallException, IOException {
+		ObjectNode json = TemplateInstantiateServlet.applyPut("/xml/Match_xml/default", new HashMap<String, String[]>());
+		String id = json.get("patternID").asText();
 
 		try {
 			HashMap<String, String[]> param = new HashMap<String, String[]>();
@@ -83,9 +83,9 @@ public class XPathParameterTests {
 	}
 
 
-	private static void testAtt(String arg) throws JSONException, InvalidServletCallException, FailedServletCallException, IOException {
-		JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut("/xml/Match_xml/default", null));
-		String id = "/xml/" + (String) json.get("patternID");
+	private static void testAtt(String arg) throws InvalidServletCallException, FailedServletCallException, IOException {
+		ObjectNode json = TemplateInstantiateServlet.applyPut("/xml/Match_xml/default", null);
+		String id = "/xml/" + json.get("patternID").asText();
 
 		try {
 			HashMap<String, String[]> param = new HashMap<String, String[]>();
@@ -103,7 +103,7 @@ public class XPathParameterTests {
 		ConstraintServlet.applyDelete(id, new HashMap<String, String[]>());
 	}
 
-	private static void checkParameterValue(String id, String parameter_id, String expected) throws InvalidServletCallException, FailedServletCallException, JSONException {
+	private static void checkParameterValue(String id, String parameter_id, String expected) throws InvalidServletCallException, FailedServletCallException {
 		String get = ConstraintServlet.applyGet(id, null).toString();
 		String value = getParameterValue(get, parameter_id);
 		expected = replaceExpected(expected);
@@ -119,20 +119,20 @@ public class XPathParameterTests {
 
     private static String getParameterValue(String jsonString, String parameter_id) throws JSONException {
         JSONObject jsonObject = new JSONObject(jsonString);
-        JSONArray variants = jsonObject.getJSONArray("variants");
-        JSONObject variant = variants.getJSONObject(0);
-        JSONArray fragmentArray = variant.getJSONArray("fragments");
+		ArrayNode variants = (ArrayNode) jsonObject.get("variants");
+		ObjectNode variant = (ObjectNode) variants.get(0);
+		ArrayNode fragmentArray = (ArrayNode) variant.get("fragments");
 
         // Loop through each object in the 'var2' array
-        for (int j = 0; j < fragmentArray.length(); j++) {
-            JSONObject fragment = fragmentArray.getJSONObject(j);
+		for (int j = 0; j < fragmentArray.size(); j++) {
+			ObjectNode fragment = (ObjectNode) fragmentArray.get(j);
             try {
-            	String id = fragment.getString("id");
+				String id = fragment.get("id").asText();
                 if (parameter_id.equals(id)) {
-                    String value = fragment.getString("value");
+					String value = fragment.get("value").asText();
                     return value;
                 }
-            } catch (JSONException e) {}
+			} catch (RuntimeException e) {}
         }
         return null;
     }

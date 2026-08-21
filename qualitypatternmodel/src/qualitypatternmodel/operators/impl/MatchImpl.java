@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import qualitypatternmodel.adaptionneo4j.NeoPropertyNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -717,7 +719,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		switch (lang) {
 		case XML:
 			String query = "matches(\'" + teststring + "\', \'" + regex + "\')";
-			return XmlServletUtility.executeQuery(query).getJSONObject(0).getString(ConstantsJSON.RESULT_SNIPPET);
+			return ((ObjectNode) XmlServletUtility.executeQuery(query).get(0)).get(ConstantsJSON.RESULT_SNIPPET).asText();
 		case RDF:
 		case NEO4J:
 		default:

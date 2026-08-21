@@ -8,8 +8,7 @@ import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaFilterPart;
@@ -34,7 +33,7 @@ public abstract class JavaFilterPartImpl extends MinimalEObjectImpl.Container im
 	}
 
 	@Override
-	abstract public JSONObject toJson();
+	abstract public ObjectNode toJson();
 
 	@Override
 	abstract public String toString();
@@ -87,9 +86,9 @@ public abstract class JavaFilterPartImpl extends MinimalEObjectImpl.Container im
 		return super.eInvoke(operationID, arguments);
 	}
 
-	public static JavaFilterPartImpl fromJson(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public static JavaFilterPartImpl fromJson(ObjectNode json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		try {
-			String clazz = json.getString("class");
+			String clazz = json.get("class").asText();
 
 			//BooleanFilterParts
 			if (clazz.equals(FormulaFilterPartImpl.class.getSimpleName())) {
@@ -131,7 +130,7 @@ public abstract class JavaFilterPartImpl extends MinimalEObjectImpl.Container im
 				return new NumberValueFilterElementImpl(json, map);
 			}
 			throw new InvalidityException("Class '" + clazz + "' not implemented in JavaFilterPart.fromJson()");
-		} catch (JSONException e) {
+		} catch (RuntimeException e) {
 			throw new InvalidityException("JavaFilterPart.fromJson failed for " + json, e);
 		}
 	}

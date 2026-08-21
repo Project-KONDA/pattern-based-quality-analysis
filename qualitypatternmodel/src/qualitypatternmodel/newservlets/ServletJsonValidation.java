@@ -2,11 +2,12 @@ package qualitypatternmodel.newservlets;
 
 import java.util.Set;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 public class ServletJsonValidation {
 
@@ -29,14 +30,14 @@ public class ServletJsonValidation {
 //			ConstantsJSON.LASTSAVED
 		);
 
-	public static boolean validateConstraintJson(JSONObject constraintJson) {
+	public static boolean validateConstraintJson(ObjectNode constraintJson) {
 
-		if (!constraintJson.keySet().containsAll(constraintJsonKeys))
+		if (!Util.jsonKeySet(constraintJson).containsAll(constraintJsonKeys))
 			return false;
 		
-		JSONArray variants = constraintJson.getJSONArray(ConstantsJSON.VARIANTS);
-		for (int i = 0; i<variants.length(); i++)
-			validateConstraintJsonVariant(variants.getJSONObject(i));
+		ArrayNode variants = (ArrayNode) constraintJson.get(ConstantsJSON.VARIANTS);
+		for (int i = 0; i<variants.size(); i++)
+			validateConstraintJsonVariant((ObjectNode) variants.get(i));
 		return true;
 	}
 
@@ -47,12 +48,12 @@ public class ServletJsonValidation {
 			ConstantsJSON.PARAMETER,
 			ConstantsJSON.TYPE_CONSTRAINT
 		);
-	private static boolean validateConstraintJsonVariant(JSONObject variant) {
-		if (!variant.keySet().containsAll(constraintJsonVariantKeys))
+	private static boolean validateConstraintJsonVariant(ObjectNode variant) {
+		if (!Util.jsonKeySet(variant).containsAll(constraintJsonVariantKeys))
 			return false;
-		JSONArray fragments = variant.getJSONArray(ConstantsJSON.FRAGMENTS);
-		for (int j = 0; j<fragments.length(); j++)
-			validateConstraintJsonVariantFragment(fragments.getJSONObject(j));
+		ArrayNode fragments = (ArrayNode) variant.get(ConstantsJSON.FRAGMENTS);
+		for (int j = 0; j<fragments.size(); j++)
+			validateConstraintJsonVariantFragment((ObjectNode) fragments.get(j));
 		return true;
 	}
 	
@@ -69,8 +70,9 @@ public class ServletJsonValidation {
 //			ConstantsJSON.PLURAL,
 //			ConstantsJSON.STARTPOINT
 		);
-	private static boolean validateConstraintJsonVariantFragment(JSONObject fragment) {
-		return fragment.keySet().containsAll(constraintJsonVariantfragmentJsonKeys1) || fragment.keySet().containsAll(constraintJsonVariantfragmentJsonKeys2);
+	private static boolean validateConstraintJsonVariantFragment(ObjectNode fragment) {
+		Set<String> keySet = Util.jsonKeySet(fragment);
+		return keySet.containsAll(constraintJsonVariantfragmentJsonKeys1) || keySet.containsAll(constraintJsonVariantfragmentJsonKeys2);
 	}
 	
 	// ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + ServletConstants.QUERYJSONFOLDER + "/" + constraintId + ".json";
@@ -89,8 +91,8 @@ public class ServletJsonValidation {
 			ConstantsJSON.QUERY_PARTIAL,
 			ConstantsJSON.QUERY_PARTIAL_LINE
 		);
-	public static boolean validateQueryJson(JSONObject queryjson) {
-		Set<String> keySet = queryjson.keySet(); 
+	public static boolean validateQueryJson(ObjectNode queryjson) {
+		Set<String> keySet = Util.jsonKeySet(queryjson); 
 		if (!keySet.containsAll(queryJsonKeys))
 			return false;
 		if (queryjson.optString(ConstantsJSON.TECHNOLOGY).equals(Constants.XML))
@@ -99,7 +101,7 @@ public class ServletJsonValidation {
 	}
 
 	// ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + templateId + ".json";
-	public static boolean validateTemplateJson(JSONObject templateJson) {
+	public static boolean validateTemplateJson(ObjectNode templateJson) {
 		return validateConstraintJson(templateJson);
 	}
 
@@ -108,16 +110,16 @@ public class ServletJsonValidation {
 			ConstantsJSON.VARIANTS,
 			ConstantsJSON.PARAMETER
 		);
-	public static boolean validateTemplateVariantJson(JSONObject variantJson) {
-		if (!variantJson.keySet().containsAll(templateVariantsKeys))
+	public static boolean validateTemplateVariantJson(ObjectNode variantJson) {
+		if (!Util.jsonKeySet(variantJson).containsAll(templateVariantsKeys))
 			return false;
-		JSONArray variants = variantJson.getJSONArray(ConstantsJSON.VARIANTS);
-		for (int i = 0; i<variants.length(); i++)
-			if (!validateTemplateVariantJsonVariant(variants.getJSONObject(i)))
+		ArrayNode variants = (ArrayNode) variantJson.get(ConstantsJSON.VARIANTS);
+		for (int i = 0; i<variants.size(); i++)
+			if (!validateTemplateVariantJsonVariant((ObjectNode) variants.get(i)))
 				return false;
-		JSONObject params = variantJson.getJSONObject(ConstantsJSON.PARAMETER);
-		for (String key: params.keySet())
-			if (!validateTemplateVariantJsonParam(params.getJSONObject(key)))
+		ObjectNode params = (ObjectNode) variantJson.get(ConstantsJSON.PARAMETER);
+		for (String key: Util.jsonKeySet(variantJson))
+			if (!validateTemplateVariantJsonParam((ObjectNode) params.get(key)))
 				return false;
 		return true;
 	}
@@ -129,12 +131,12 @@ public class ServletJsonValidation {
 			ConstantsJSON.FRAGMENTS,
 			ConstantsJSON.TECHNOLOGY
 		);
-	private static boolean validateTemplateVariantJsonVariant(JSONObject variant) {
-		if (!variant.keySet().containsAll(templateVariantsVariantKeys))
+	private static boolean validateTemplateVariantJsonVariant(ObjectNode variant) {
+		if (!Util.jsonKeySet(variant).containsAll(templateVariantsVariantKeys))
 			return false;
-		JSONArray fragments = variant.getJSONArray(ConstantsJSON.FRAGMENTS);
-		for (int i = 0; i<fragments.length(); i++)
-			if(!validateTemplateVariantJsonFragment(fragments.getJSONObject(i)))
+		ArrayNode fragments = (ArrayNode) variant.get(ConstantsJSON.FRAGMENTS);
+		for (int i = 0; i<fragments.size(); i++)
+			if(!validateTemplateVariantJsonFragment((ObjectNode) fragments.get(i)))
 				return false;
 		return true;
 	}
@@ -146,8 +148,9 @@ public class ServletJsonValidation {
 			ConstantsJSON.NAME,
 			ConstantsJSON.PARAMETER
 		);
-	private static boolean validateTemplateVariantJsonFragment(JSONObject fragment) {
-		return fragment.keySet().containsAll(templateVariantJsonFragmentKeys1) || fragment.keySet().containsAll(templateVariantJsonFragmentKeys2);
+	private static boolean validateTemplateVariantJsonFragment(ObjectNode fragment) {
+		Set<String> keySet = Util.jsonKeySet(fragment); 
+		return keySet.containsAll(templateVariantJsonFragmentKeys1) || keySet.containsAll(templateVariantJsonFragmentKeys2);
 	}
 
 	static Set<String> templateVariantsParamKeys =  Set.of(
@@ -155,7 +158,7 @@ public class ServletJsonValidation {
 			ConstantsJSON.ID,
 			ConstantsJSON.TYPE
 		);
-	private static boolean validateTemplateVariantJsonParam(JSONObject params) {
-		return params.keySet().containsAll(templateVariantsParamKeys);
+	private static boolean validateTemplateVariantJsonParam(ObjectNode params) {
+			return Util.jsonKeySet(params).containsAll(templateVariantsParamKeys);
 	}
 }

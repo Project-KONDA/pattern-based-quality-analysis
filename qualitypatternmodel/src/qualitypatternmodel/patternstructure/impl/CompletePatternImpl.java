@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import de.gwdg.metadataqa.api.schema.BaseSchema;
 import qualitypatternmodel.adaptionneo4j.NeoElementNode;
@@ -68,6 +68,7 @@ import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.ConstantsRdf;
 import qualitypatternmodel.utility.ConstantsXml;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -501,10 +502,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return generateXQueryNamespaces(namespaces.generateJSONObject());
 	}
 
-	public static String generateXQueryNamespaces(JSONObject namespaces) throws InvalidityException {
+	public static String generateXQueryNamespaces(ObjectNode namespaces) throws InvalidityException {
 		String result = "";
-		for (String prefix: namespaces.keySet()) {
-			String uri = namespaces.getString(prefix);
+		for (String prefix: Util.jsonKeySet(namespaces)) {
+			String uri = namespaces.get(prefix).asText();
 			if (prefix.isEmpty()) {
 				result += "declare default element namespace '" + uri + "';\n";
 			} else if (prefix.matches(ConstantsXml.REGEX_PREFIX)) {

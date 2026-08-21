@@ -4,9 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import de.gwdg.metadataqa.api.configuration.ConfigurationReader;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
@@ -34,7 +33,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 		int callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
 			int i = path.split("/").length;
-			JSONObject result;
+			ObjectNode result;
 			if (i == 2) {
 				result = applyGet2(path, params);
 			} else if (i == 3) {
@@ -51,7 +50,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint for a constraint:"
@@ -70,7 +69,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 	}
 
 
-	public static JSONObject applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 2 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint for multiple constraints:"
@@ -96,7 +95,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 		return getJsonStringSchemaFromConstraintIds(constraintIds, technology);
 	}
 
-	private static JSONObject getJsonStringSchemaFromConstraintIds(String[] constraintIds, String technology) throws FailedServletCallException {
+	private static ObjectNode getJsonStringSchemaFromConstraintIds(String[] constraintIds, String technology) throws FailedServletCallException {
 		ArrayList<BaseSchema> schemas = new ArrayList<BaseSchema>();
 		JSONArray failed = new JSONArray();
 
@@ -116,8 +115,8 @@ public class ConstraintMqafServlet extends HttpServlet {
 				JSONObject object = new JSONObject();
 				try {
 					object.put(constraintId, e.getMessage());
-				} catch (JSONException f) {}
-				failed.put(object);
+				} catch (RuntimeException f) {}
+				failed.add(object);
 			}
 		}
 
@@ -133,12 +132,12 @@ public class ConstraintMqafServlet extends HttpServlet {
 		// 4 return merged schema as JSON
 		JSONObject jobj = new JSONObject();
 		try {
-			jobj.put(ConstantsJSON.FAILED, failed);
+			jobj.set(ConstantsJSON.FAILED, failed);
 			if (mergedSchema != null) {
 				JSONObject constraint = new JSONObject(ConfigurationReader.toJson(mergedSchema));
 				jobj.put(ConstantsJSON.CONSTRAINT, constraint);
 			}	
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 		return jobj;
 	}
 }

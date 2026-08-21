@@ -7,9 +7,7 @@ import static org.mockito.Mockito.mock;
 import java.io.IOException;
 import java.util.HashMap;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -20,8 +18,7 @@ import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
 
 public class RdfInstantiationTest {
-
-	public static void main(String[] args) throws ServletException, InvalidServletCallException, FailedServletCallException, IOException, JSONException {
+	public static void main(String[] args) throws ServletException, InvalidServletCallException, FailedServletCallException, IOException {
 		ServletContext context = mock(ServletContext.class);
         doAnswer(invocation -> {
             String argument = invocation.getArgument(0);
@@ -39,8 +36,8 @@ public class RdfInstantiationTest {
 		try {
 			InitialisationServlet.initialisation(context);
 			System.out.println("INSTANTIATE");
-			JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut(inst, emptyParameter));
-			get = "/" + json.getString("language") + "/" + json.getString("patternID");
+			ObjectNode json = TemplateInstantiateServlet.applyPut(inst, emptyParameter);
+			get = "/" + json.get("language").asText() + "/" + json.get("patternID").asText();
 
 			System.out.println("GET");
 			System.out.println(ConstraintServlet.applyGet(get, emptyParameter));

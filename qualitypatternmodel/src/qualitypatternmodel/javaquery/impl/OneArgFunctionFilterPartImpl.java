@@ -11,8 +11,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaoperators.impl.OneArgJavaOperatorImpl;
@@ -24,6 +23,7 @@ import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -88,13 +88,13 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 //		setArgument(new ValueInterimImpl());
 //	}
 
-	public OneArgFunctionFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public OneArgFunctionFilterPartImpl(ObjectNode json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			ValueInterim argument = (ValueInterim) map.get(json.getInt(ConstantsJSON.ARGUMENT));
+			ValueInterim argument = (ValueInterim) map.get(json.get(ConstantsJSON.ARGUMENT).asInt());
 			setArgument(argument);
-			setNegate(json.getBoolean(ConstantsJSON.NEGATE));
-			functionclassname = json.getString(ConstantsJSON.ARGUMENT_FUNCTION);
+			setNegate(json.get(ConstantsJSON.NEGATE).asBoolean());
+			functionclassname = json.get(ConstantsJSON.ARGUMENT_FUNCTION).asText();
 		}
 		catch (Exception e) {
 			throw new InvalidityException();
@@ -125,15 +125,15 @@ public class OneArgFunctionFilterPartImpl extends BooleanFilterPartImpl implemen
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = new JSONObject();
+	public ObjectNode toJson() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put(ConstantsJSON.ARGUMENT_CLASS, getClass().getSimpleName());
 			result.put(ConstantsJSON.NEGATE, negate);
 			result.put(ConstantsJSON.ARGUMENT_FUNCTION, functionclassname);
 			if (getArgument() != null)
 				result.put("argument", getArgument().getInterimPartId());
-		} catch (JSONException e) {
+		} catch (RuntimeException e) {
 		}
 		return result;
 	}

@@ -6,8 +6,7 @@ import static org.mockito.Mockito.mock;
 
 import java.io.IOException;
 import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -19,7 +18,6 @@ import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
 
 public class MqafJsonGenerationTest {
-
 	public static void main(String[] args) throws ServletException {
 
 		ServletContext context = mock(ServletContext.class);
@@ -49,11 +47,11 @@ public class MqafJsonGenerationTest {
 	}
 
 	private static String createCardConstraint() {
-		JSONObject json;
+		ObjectNode json;
 		String id = null;
 		try {
 			json = TemplateInstantiateServlet.applyPut("/xml/Card_xml/default-constraint", new HashMap<String, String[]>());
-			id = json.getString("patternID");
+			id = json.get("patternID").asText();
 			HashMap<String, String[]> params = new HashMap<>();
 			params.put("name", new String[] {"Card Test for MQAF"});
 			params.put("datamodel", new String[] {"LIDO 1.1"});
@@ -64,18 +62,18 @@ public class MqafJsonGenerationTest {
 			params.put("Number_2", new String[] {"1"});
 			params.put("XmlPath_Element_3", new String[] {"/*"});
 			ConstraintServlet.applyPost("/xml/" + id, params);
-		} catch (InvalidServletCallException | FailedServletCallException | IOException | JSONException e) {
+		} catch (InvalidServletCallException | FailedServletCallException | IOException | RuntimeException e) {
 			e.printStackTrace();
 		}
 		return id;
 	}
 
 	private static String createLengthConstraint() {
-		JSONObject json;
+		ObjectNode json;
 		String id = null;
 		try {
 			json = TemplateInstantiateServlet.applyPut("/xml/StringLength_xml/default-constraint", new HashMap<String, String[]>());
-			id = json.getString("patternID");
+			id = json.get("patternID").asText();
 			HashMap<String, String[]> params = new HashMap<>();
 			params.put("name", new String[] {"Card Test for MQAF"});
 			params.put("datamodel", new String[] {"LIDO 1.1"});
@@ -86,18 +84,18 @@ public class MqafJsonGenerationTest {
 			params.put("ComparisonOption_2", new String[] {"at most"});
 			params.put("Number_3", new String[] {"20"});
 			ConstraintServlet.applyPost("/xml/" + id, params);
-		} catch (InvalidServletCallException | FailedServletCallException | IOException | JSONException e) {
+		} catch (InvalidServletCallException | FailedServletCallException | IOException | RuntimeException e) {
 			e.printStackTrace();
 		}
 		return id;
 	}
 
 	private static String createUniqueConstraint() {
-		JSONObject json;
+		ObjectNode json;
 		String id = null;
 		try {
 			json = TemplateInstantiateServlet.applyPut("/xml/Unique_xml/default-constraint", new HashMap<String, String[]>());
-			id = json.getString("patternID");
+			id = json.get("patternID").asText();
 			HashMap<String, String[]> params = new HashMap<>();
 			params.put("name", new String[] {"Card Test for MQAF"});
 			params.put("datamodel", new String[] {"LIDO 1.1"});
@@ -106,20 +104,20 @@ public class MqafJsonGenerationTest {
 			params.put("XmlPath_Element_0", new String[] {"/lido:lidoWrap/lido:lido"});
 			params.put("XmlPath_Property_1", new String[] {"/lido:lidoRecID/text()"});
 			ConstraintServlet.applyPost("/xml/" + id, params);
-		} catch (InvalidServletCallException | FailedServletCallException | IOException | JSONException e) {
+		} catch (InvalidServletCallException | FailedServletCallException | IOException | RuntimeException e) {
 			e.printStackTrace();
 		}
 		return id;
 	}
 
-	private static JSONObject getMqafJson(String[] patternIDs) {
+	private static ObjectNode getMqafJson(String[] patternIDs) {
 		HashMap<String, String[]> constraints = new HashMap<>();
 		constraints.put("constraints", patternIDs);
-		JSONObject json = null;
+		ObjectNode json = null;
 		try {
-			JSONObject output = ConstraintMqafServlet.applyGet2("/xml", constraints);
-			json = output.getJSONObject("constraint");
-		} catch (InvalidServletCallException | FailedServletCallException | JSONException e) {
+			ObjectNode output = ConstraintMqafServlet.applyGet2("/xml", constraints);
+			json = (ObjectNode) output.get("constraint");
+		} catch (InvalidServletCallException | FailedServletCallException | RuntimeException e) {
 			e.printStackTrace();
 		}
 		return json;

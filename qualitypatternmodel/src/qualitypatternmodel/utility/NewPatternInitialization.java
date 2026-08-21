@@ -85,7 +85,7 @@ public class NewPatternInitialization {
 		return object;
 	}
 
-	public static JSONArray makeFragments() {
+	public static ArrayNode makeFragments() {
 		normalizeValues();
 		
 		String[] base = splitSentence(sentence);
@@ -97,7 +97,7 @@ public class NewPatternInitialization {
 		}
 		JSONArray array = new JSONArray();
 		for (int i = 0; i<base.length; i++) {
-			array.put(makeFragment(base[i], example[i]));
+			array.add(makeFragment(base[i], example[i]));
 		}
 		return array;
 	}
@@ -105,7 +105,7 @@ public class NewPatternInitialization {
 	public static JSONObject makeVariant() {
 		JSONObject object = new JSONObject();
 		JSONObject custom = new JSONObject();
-		object.put(ConstantsJSON.CUSTOM, custom);
+		object.set(ConstantsJSON.CUSTOM, custom);
 		
 		object.put(ConstantsJSON.TEMPLATE, id + "_" + language);
 		object.put(ConstantsJSON.NAME, variantid);
@@ -116,16 +116,16 @@ public class NewPatternInitialization {
 		custom.put("scope", scope);
 		custom.put("type", new JSONArray(type.split(", ")));
 		
-		object.put(ConstantsJSON.FRAGMENTS, makeFragments());
+		object.set(ConstantsJSON.FRAGMENTS, makeFragments());
 		return object;
 	}
 
 	public static void saveVariant() throws IOException {
 		String path = "src/qualitypatternmodel/newservlets/jsons/";
 		String filename = id.toUpperCase() + "_" + language.toUpperCase() + "_" + variantid.toUpperCase() + ".json";
-		JSONObject variant = makeVariant();
+		ObjectNode variant = makeVariant();
 		Util.exportJson(variant, path + filename);
-		System.out.println(variant.toString(4));	
+		System.out.println(Util.jsonPretty(variant));	
 	}
 	
 	public static void templateInfo() throws IOException {
@@ -137,12 +137,12 @@ public class NewPatternInitialization {
 		
 		
 		String path = "src/qualitypatternmodel/newservlets/template_info.json";
-		JSONObject template_info = Util.loadJson(path);
-		template_info.put(id + "Pattern", info);
+		ObjectNode template_info = Util.loadJson(path);
+		template_info.set(id + "Pattern", info);
 		Util.exportJson(template_info, path);
 
 		System.out.println("Added in template_info.json");
-		System.out.println("\"" + id + "Pattern\":" + info.toString(4));
+		System.out.println("\"" + id + "Pattern\":" + Util.jsonPretty(info));
 	}
 	
 	public static void patternConstants() throws IOException {

@@ -27,9 +27,8 @@ import java.util.Map;
 import java.util.concurrent.Semaphore;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -63,9 +62,9 @@ public abstract class ServletUtilities {
 	private static List<CompletePattern> abstractPatternXml = null;
 	private static List<CompletePattern> abstractPatternRdf = null;
 	private static List<CompletePattern> abstractPatternNeo = null;
-	private static List<JSONObject> abstractPatternJsonXml = null;
-	private static List<JSONObject> abstractPatternJsonRdf = null;
-	private static List<JSONObject> abstractPatternJsonNeo = null;
+	private static List<ObjectNode> abstractPatternJsonXml = null;
+	private static List<ObjectNode> abstractPatternJsonRdf = null;
+	private static List<ObjectNode> abstractPatternJsonNeo = null;
 	private static Semaphore jsonSemaphore = new Semaphore(1);
 	
 	public static void reset() {
@@ -93,8 +92,8 @@ public abstract class ServletUtilities {
 	}
 
 	// Pattern request
-	public static List<JSONObject> getAllPatternJsons(String technology) {
-		List<JSONObject> patterns = getTemplateJSONs(technology);
+	public static List<ObjectNode> getAllPatternJsons(String technology) {
+		List<ObjectNode> patterns = getTemplateJSONs(technology);
 		patterns.addAll(getConstraintJSONs(technology));
 		sortByKey(patterns, ConstantsJSON.CONSTRAINT_ID);
 		return patterns;
@@ -161,7 +160,7 @@ public abstract class ServletUtilities {
 
 	// JSON
 
-	public static List<JSONObject> getTemplateJSONs(String technology) {
+	public static List<ObjectNode> getTemplateJSONs(String technology) {
 		String patternfolder = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER;
 		String jsonfolder = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.PATTERNJSONFOLDER;
 		try {
@@ -193,94 +192,96 @@ public abstract class ServletUtilities {
 		}
 	}
 
-	public static List<JSONObject> getConstraintJSONs(String technology) {
+	public static List<ObjectNode> getConstraintJSONs(String technology) {
 		String constraintfolderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER;
 		String jsonfolderpath = constraintfolderpath + "/" + ServletConstants.PATTERNJSONFOLDER;
 
 		if (Constants.TECHS.contains(technology)) {
 			try {
-				List<JSONObject> jsons = EMFModelLoad.loadPatternJSONsFromFolder(constraintfolderpath, jsonfolderpath, Constants.EXTENSION); 
+				List<ObjectNode> jsons = EMFModelLoad.loadPatternJSONsFromFolder(constraintfolderpath, jsonfolderpath, Constants.EXTENSION); 
 				sortByKey(jsons, ConstantsJSON.CONSTRAINT_ID);
 				return jsons;
 			} catch (IOException e) {
 				logError(e);
 			}
 		}
-		return new BasicEList<JSONObject>();
+		return new BasicEList<ObjectNode>();
 	}
 
-	public static List<JSONObject> getReadyConstraintJSONs(String technology) {
-		List<JSONObject> constraintjsons = getConstraintJSONs(technology);
-		List<JSONObject> readyconstraintjsons = new BasicEList<JSONObject>();
-		for (JSONObject json : constraintjsons) {
-			if (json.getBoolean(ConstantsJSON.EXECUTABLE)) {
+	public static List<ObjectNode> getReadyConstraintJSONs(String technology) {
+		List<ObjectNode> constraintjsons = getConstraintJSONs(technology);
+		List<ObjectNode> readyconstraintjsons = new BasicEList<ObjectNode>();
+		for (ObjectNode json : constraintjsons) {
+			if (json.path(ConstantsJSON.EXECUTABLE).asBoolean()) {
 				readyconstraintjsons.add(json);
 			}
 		}
 		return readyconstraintjsons;
 	}
 
-	public static JSONObject getPatternListJSON(List<CompletePattern> patterns) {
-		JSONObject json = new JSONObject();
-		JSONArray ids = new JSONArray();
+	public static ObjectNode getPatternListJSON(List<CompletePattern> patterns) {
+		ObjectNode json = Util.jsonCreateObject();
+		ArrayNode ids = Util.jsonCreateArray();
 		HashSet<String> uniqueTags = new HashSet<>();
-		JSONArray tags = new JSONArray();
+		ArrayNode tags = Util.jsonCreateArray();
 		try {
-			JSONArray templates = new JSONArray();
+			ArrayNode templates = Util.jsonCreateArray();
 			for (CompletePattern pattern : patterns) {
-				ids.put(pattern.getPatternId());
-				templates.put(getPatternJSON(pattern));
+				ids.add(pattern.getPatternId());
+				templates.add(getPatternJSON(pattern));
 				if (pattern.getKeywords() != null)
 					uniqueTags.addAll(pattern.getKeywords());
 			}
-			tags.putAll(uniqueTags);
-			json.put(ConstantsJSON.TEMPLATES, templates);
+			for (String tag : uniqueTags)
+				tags.add(tag);
+			json.set(ConstantsJSON.TEMPLATES, templates);
 			json.put(ConstantsJSON.SIZE, patterns.size());
-			json.put(ConstantsJSON.IDS, ids);
+			json.set(ConstantsJSON.IDS, ids);
 			if (!tags.isEmpty())
-				json.put(ConstantsJSON.TAGS, tags);
-		} catch (JSONException e) {
+				json.set(ConstantsJSON.TAGS, tags);
+		} catch (RuntimeException e) {
 			logError(e);
 		}
 		return json;
 	}
 
-	public static void sortByKey(List<JSONObject> jsons, String key) {
-	    jsons.sort(Comparator.comparing(o -> o.optString(key, "")));
+	public static void sortByKey(List<ObjectNode> jsons, String key) {
+	    jsons.sort(Comparator.comparing(o -> o.path(key).asText("")));
 	}
 
-	public static JSONObject combinePatternJSONs(List<JSONObject> patternjsons) {
-		JSONObject resultjson = new JSONObject();
-		JSONArray ids = new JSONArray();
+	public static ObjectNode combinePatternJSONs(List<ObjectNode> patternjsons) {
+		ObjectNode resultjson = Util.jsonCreateObject();
+		ArrayNode ids = Util.jsonCreateArray();
 		HashSet<String> uniqueTags = new HashSet<>();
 		try {
-			JSONArray templates = new JSONArray();
-			for (JSONObject patternjson : patternjsons) {
-				ids.put(patternjson.getString(ConstantsJSON.CONSTRAINT_ID));
-				templates.put(patternjson);
+			ArrayNode templates = Util.jsonCreateArray();
+			for (ObjectNode patternjson : patternjsons) {
+				ids.add(patternjson.path(ConstantsJSON.CONSTRAINT_ID).asText());
+				templates.add(patternjson);
 				if (patternjson.has(ConstantsJSON.TAG)) {
-					JSONArray tags = patternjson.getJSONArray(ConstantsJSON.TAG);
-					for (int i = 0; i < tags.length(); i++) {
-						uniqueTags.add(tags.getString(i));
+					ArrayNode tags = (ArrayNode) patternjson.get(ConstantsJSON.TAG);
+					for (int i = 0; i < tags.size(); i++) {
+						uniqueTags.add(tags.get(i).asText());
 					}
 				}
 			}
-			JSONArray tags = new JSONArray();
-			tags.putAll(uniqueTags);
-			resultjson.put(ConstantsJSON.TEMPLATES, templates);
+			ArrayNode tags = Util.jsonCreateArray();
+			for (String tag : uniqueTags)
+				tags.add(tag);
+			resultjson.set(ConstantsJSON.TEMPLATES, templates);
 			resultjson.put(ConstantsJSON.SIZE, patternjsons.size());
-			resultjson.put(ConstantsJSON.IDS, ids);
+			resultjson.set(ConstantsJSON.IDS, ids);
 			if (!tags.isEmpty())
-				resultjson.put(ConstantsJSON.TAGS, tags);
-		} catch (JSONException e) {
+				resultjson.set(ConstantsJSON.TAGS, tags);
+		} catch (RuntimeException e) {
 			e.printStackTrace();
 			logError(e);
 		}
 		return resultjson;
 	}
 
-	public static JSONObject getPatternJSON(CompletePattern pattern) {
-		JSONObject json = new JSONObject();
+	public static ObjectNode getPatternJSON(CompletePattern pattern) {
+		ObjectNode json = Util.jsonCreateObject();
 		try {
 			json.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
 			json.put(ConstantsJSON.NAME, pattern.getName());
@@ -290,7 +291,7 @@ public abstract class ServletUtilities {
 				json.put(ConstantsJSON.LASTSAVED, new Timestamp(pattern.getLastSaved().getTime()).toString());
 			}
 			if (pattern.getNamespaces() != null) {
-				json.put(ConstantsJSON.NAMESPACES, pattern.getNamespaces().generateJSONObject());
+				json.set(ConstantsJSON.NAMESPACES, pattern.getNamespaces().generateJSONObject());
 			}
 			if (pattern.getDatabaseName() != null) {
 				json.put(ConstantsJSON.DATABASE, pattern.getDatabaseName());
@@ -299,8 +300,8 @@ public abstract class ServletUtilities {
 				json.put(ConstantsJSON.DATAMODEL, pattern.getDataModelName());
 			}
 			if (pattern.getKeywords() != null && !pattern.getKeywords().isEmpty()) {
-				JSONArray tags = new JSONArray(pattern.getKeywords());
-				json.put(ConstantsJSON.TAG, tags);
+				ArrayNode tags = Util.jsonCreateArray(pattern.getKeywords());
+				json.set(ConstantsJSON.TAG, tags);
 			}
 
 			Boolean mqaf = false;
@@ -308,7 +309,7 @@ public abstract class ServletUtilities {
 			Boolean filter = false;
 			try {
 				pattern.isValid(AbstractionLevel.CONCRETE);
-				json.put(ConstantsJSON.TECHNOLOGY, Language.XML);
+				json.put(ConstantsJSON.TECHNOLOGY, Language.XML.toString());
 				filter = pattern.getLanguage().equals(Language.XML);
 				try {
 					MqafTranslationValidation.checkPatternTranslatable(pattern);
@@ -330,39 +331,39 @@ public abstract class ServletUtilities {
 			json.put(ConstantsJSON.EXECUTABLE_QUERY, query);
 			json.put(ConstantsJSON.EXECUTABLE_FILTER, filter);
 
-			JSONArray variants = new JSONArray();
+			ArrayNode variants = Util.jsonCreateArray();
 			for (PatternText text : pattern.getText()) {
-				variants.put(text.generateJSONObject());
+				variants.add(text.generateJSONObject());
 			}
-			json.put(ConstantsJSON.VARIANTS, variants);
-		} catch (JSONException e) {
+			json.set(ConstantsJSON.VARIANTS, variants);
+		} catch (RuntimeException e) {
 			logError(e);
 		}
 		return json;
 	}
 
 	public static String getPatternJSONHeads(List<CompletePattern> patterns) {
-		JSONArray jsonarray = new JSONArray();
+		ArrayNode arrayNode = Util.jsonCreateArray();
 		for (CompletePattern pattern : patterns) {
-			jsonarray.put(getPatternJSONHead(pattern));
+			arrayNode.add(getPatternJSONHead(pattern));
 		}
-		return jsonarray.toString();
+		return arrayNode.toString();
 	}
 
-	public static JSONObject getPatternJSONHead(CompletePattern pattern) {
-		JSONObject json = new JSONObject();
+	public static ObjectNode getPatternJSONHead(CompletePattern pattern) {
+		ObjectNode json = Util.jsonCreateObject();
 		try {
 			json.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
 			json.put(ConstantsJSON.NAME, pattern.getName());
 			json.put(ConstantsJSON.DESCRIPTION, pattern.getDescription());
-		} catch (JSONException e) {
+		} catch (RuntimeException e) {
 			logError(e);
 		}
 		return json;
 	}
 
-	public static JSONObject generateQueryJson(CompletePattern pattern) throws JSONException, InvalidServletCallException, FailedServletCallException {
-		JSONObject json = new JSONObject();
+	public static ObjectNode generateQueryJson(CompletePattern pattern) throws InvalidServletCallException, FailedServletCallException {
+		ObjectNode json = Util.jsonCreateObject();
 		String technology = pattern.getLanguage().getLiteral();
 	
 		// 1 info
@@ -370,13 +371,13 @@ public abstract class ServletUtilities {
 		json.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
 		json.put(ConstantsJSON.TECHNOLOGY, pattern.getLanguage().getLiteral());
 		json.put(ConstantsJSON.TEMPLATE_ID, pattern.getAbstractId());
-		json.put(ConstantsJSON.RELATIVEQUERIES, new JSONObject());
+		json.set(ConstantsJSON.RELATIVEQUERIES, Util.jsonCreateObject());
 		if (pattern.getText().size() > 0)
 			json.put(ConstantsJSON.VARIANT_ID, pattern.getText().get(0).getName());
 		if (pattern.getText() != null && pattern.getText().size()>0) {
 			PatternText text = pattern.getText().get(0);
 			if (text.getCustom() != null && !text.getCustom().isEmpty()) {
-				json.put(ConstantsJSON.CUSTOM, text.getCustom());
+				json.set(ConstantsJSON.CUSTOM, text.getCustom());
 			}
 		}
 	
@@ -388,16 +389,16 @@ public abstract class ServletUtilities {
 				json.put(ConstantsJSON.QUERY_LINE, makeQueryOneLine(xquery));
 				if (pattern.containsJavaOperator()) {
 					JavaFilter filter = pattern.generateQueryFilter();
-					JSONObject serializedFilter = filter.toJson();
-					json.put(ConstantsJSON.FILTER, serializedFilter);
+					ObjectNode serializedFilter = filter.toJson();
+					json.set(ConstantsJSON.FILTER, serializedFilter);
 					String xqueryjava = pattern.generateXQueryJava();
-					json.getJSONObject(ConstantsJSON.RELATIVEQUERIES).put(ConstantsJSON.QUERY_FILTER, xqueryjava);
+					((ObjectNode) json.get(ConstantsJSON.RELATIVEQUERIES)).put(ConstantsJSON.QUERY_FILTER, xqueryjava);
 				}
 				String relativeQueryID = getRelativeQueryID(pattern.getDataModelName());
 				if (relativeQueryID != null) {
-					json.getJSONObject(ConstantsJSON.RELATIVEQUERIES).put(ConstantsJSON.QUERY_RECORD_ID, relativeQueryID);
+					((ObjectNode) json.get(ConstantsJSON.RELATIVEQUERIES)).put(ConstantsJSON.QUERY_RECORD_ID, relativeQueryID);
 				}
-				String xquerypartial = pattern.getQueries().getString(Constants.XQUERY_PARTIAL);
+				String xquerypartial = pattern.getQueries().get(Constants.XQUERY_PARTIAL).asText();
 				json.put(ConstantsJSON.QUERY_PARTIAL, xquerypartial);
 				json.put(ConstantsJSON.QUERY_PARTIAL_LINE, makeQueryOneLine(xquerypartial));
 				json.put(ConstantsJSON.LANGUAGE, Constants.XQUERY);
@@ -442,15 +443,15 @@ public abstract class ServletUtilities {
 //				log("DATAMODELSFILE '" + ServletConstants.DATAMODELSFILE + "' does not exist");
 //				return null;
 //			}
-			JSONObject config = Util.loadJson(ServletConstants.DATAMODELSFILE);
-			String mappingfilepath = config.optJSONObject("datamodels").optJSONObject(dataModelName).optString("mapping_file");
+			ObjectNode config = Util.loadJson(ServletConstants.DATAMODELSFILE);
+			String mappingfilepath = config.path("datamodels").path(dataModelName).path("mapping_file").asText();
 			mappingfilepath = file.getParentFile().getAbsolutePath() + "/" + mappingfilepath;
-			JSONObject mappingfile = Util.loadJson(mappingfilepath);
+			ObjectNode mappingfile = Util.loadJson(mappingfilepath);
 
-			JSONObject namespaces = mappingfile.optJSONObject("namespaces");
+			ObjectNode namespaces = (ObjectNode) mappingfile.get("namespaces");
 			String namespacestring = CompletePatternImpl.generateXQueryNamespaces(namespaces);
 			String mid = "let $v := .\nreturn $v /ancestor::";
-			String path_default_ns = mappingfile.optJSONObject("paths").optJSONObject("identifier").optString("path_default_ns");
+			String path_default_ns = mappingfile.path("paths").path("identifier").path("path_default_ns").asText();
 			if (path_default_ns.startsWith("//"))
 				path_default_ns = path_default_ns.substring(2);
 			else if (path_default_ns.startsWith("/"))
@@ -467,7 +468,7 @@ public abstract class ServletUtilities {
 
 	// LOAD SAVE DELETE
 
-	public static void exportJsonSave(JSONObject jsonFile, String filepath) throws IOException {
+	public static void exportJsonSave(ObjectNode jsonFile, String filepath) throws IOException {
 		try {
 			jsonSemaphore.acquire();
 			Util.exportJson(jsonFile, filepath);
@@ -480,7 +481,7 @@ public abstract class ServletUtilities {
 		}
 	}
 
-	public static JSONObject loadJsonSave(String filepath) throws IOException {
+	public static ObjectNode loadJsonSave(String filepath) throws IOException {
 	    try {
 	        jsonSemaphore.acquire();
 	    } catch (InterruptedException e) {
@@ -499,14 +500,14 @@ public abstract class ServletUtilities {
 		return EMFModelLoad.loadCompletePattern(patternpath);
 	}
 
-	protected static JSONObject loadConstraintJson(String technology, String constraintId) throws IOException {
+	protected static ObjectNode loadConstraintJson(String technology, String constraintId) throws IOException {
 		String folderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/";
 		String patternpath = folderpath + constraintId + "." + Constants.EXTENSION;
 		String jsonpath = folderpath + ServletConstants.PATTERNJSONFOLDER + "/" + constraintId + ".json";
 
 		// if precompiled patternjson exists
 		try {
-			JSONObject constraintJson = loadJsonSave(jsonpath);
+			ObjectNode constraintJson = loadJsonSave(jsonpath);
 			if (ServletJsonValidation.validateConstraintJson(constraintJson))
 				return constraintJson;
 			log("Replacing invalid PatternJSON: " + jsonpath);
@@ -514,13 +515,13 @@ public abstract class ServletUtilities {
 
 		// if precompiled patternjson does not exist
 		CompletePattern pattern = EMFModelLoad.loadCompletePattern(patternpath);
-		JSONObject json = getPatternJSON(pattern);
+		ObjectNode json = getPatternJSON(pattern);
 
 		exportJsonSave(json, jsonpath);
 		return json;
 	}
 
-	protected static JSONObject loadConstraintQueryJson(String technology, String constraintId) throws IOException, JSONException, InvalidServletCallException, FailedServletCallException {
+	protected static ObjectNode loadConstraintQueryJson(String technology, String constraintId) throws IOException, InvalidServletCallException, FailedServletCallException {
 		String folderpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/";
 		String patternpath = folderpath + constraintId + "." + Constants.EXTENSION;
 		String queryjsonpath = folderpath + ServletConstants.QUERYJSONFOLDER + "/" + constraintId + ".json";
@@ -528,7 +529,7 @@ public abstract class ServletUtilities {
 
 		// if precompiled queryjson exists
 		try {
-			JSONObject queryjson = loadJsonSave(queryjsonpath);
+			ObjectNode queryjson = loadJsonSave(queryjsonpath);
 			if (ServletJsonValidation.validateQueryJson(queryjson))
 				return  queryjson;
 			log("Replacing invalid QueryJson: " + queryjsonpath);
@@ -536,11 +537,11 @@ public abstract class ServletUtilities {
 
 		// if precompiled queryjson does not exist
 		CompletePattern pattern = EMFModelLoad.loadCompletePattern(patternpath);
-		JSONObject queryjson = generateQueryJson(pattern);
+		ObjectNode queryjson = generateQueryJson(pattern);
 		exportJsonSave(queryjson, queryjsonpath);
 
 		if (!new File(patternjsonpath).exists()) {
-			JSONObject json = getPatternJSON(pattern);
+			ObjectNode json = getPatternJSON(pattern);
 			exportJsonSave(json, patternjsonpath);
 		}
 
@@ -552,30 +553,30 @@ public abstract class ServletUtilities {
 		return EMFModelLoad.loadCompletePattern(folderPath, templateId, Constants.EXTENSION);
 	}
 
-	protected static JSONObject loadTemplateJSON(String technology, String templateId) throws IOException {
+	protected static ObjectNode loadTemplateJSON(String technology, String templateId) throws IOException {
 		String jsonfilepath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + templateId + ".json";
 		try {
-			JSONObject templateJson = loadJsonSave(jsonfilepath);
+			ObjectNode templateJson = loadJsonSave(jsonfilepath);
 			if (ServletJsonValidation.validateTemplateJson(templateJson))
 				return templateJson;
 			log("Replacing invalid TemplateJson: " + jsonfilepath);
 		} catch (Exception e) {}
 
-		JSONObject json = getPatternJSON(loadTemplate(technology, templateId));
+		ObjectNode json = getPatternJSON(loadTemplate(technology, templateId));
 		exportJsonSave(json, jsonfilepath);
 		return json;
 	}
 
-	protected static JSONObject loadTemplateVariantJSON(String technology, String templateId) throws IOException {
+	protected static ObjectNode loadTemplateVariantJSON(String technology, String templateId) throws IOException {
 		String variantjsonfilepath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.TEMPLATEFOLDER + "/" + ServletConstants.VARIANTJSONFOLDER + "/" + templateId + ".json";
 		try {
-			JSONObject variantJson = loadJsonSave(variantjsonfilepath);
+			ObjectNode variantJson = loadJsonSave(variantjsonfilepath);
 			if (ServletJsonValidation.validateTemplateVariantJson(variantJson))
 				return variantJson;
 			log("Replacing invalid VariantJson: " + variantjsonfilepath);
 		} catch (Exception e) {}
 
-		JSONObject variantjson = getVariantJSON(loadTemplate(technology, templateId), true);
+		ObjectNode variantjson = getVariantJSON(loadTemplate(technology, templateId), true);
 		exportJsonSave(variantjson, variantjsonfilepath);
 		return variantjson;
 	}
@@ -609,12 +610,12 @@ public abstract class ServletUtilities {
 		}
 
 		// patternjson
-		JSONObject json = getPatternJSON(pattern);
+		ObjectNode json = getPatternJSON(pattern);
 		String filepath = folderpath + "/" + ServletConstants.PATTERNJSONFOLDER + "/" + templateId + ".json";
 		exportJsonSave(json, filepath);
 
 		// variantjson
-		JSONObject variantjson = getVariantJSON(pattern, true);
+		ObjectNode variantjson = getVariantJSON(pattern, true);
 		String variantfilepath = folderpath + "/" + ServletConstants.VARIANTJSONFOLDER + "/" + templateId + ".json";
 		exportJsonSave(variantjson, variantfilepath);
 	}
@@ -638,13 +639,13 @@ public abstract class ServletUtilities {
 		}
 
 		// patternjson
-		JSONObject json = getPatternJSON(pattern);
+		ObjectNode json = getPatternJSON(pattern);
 		exportJsonSave(json, patternjsonfilepath);
 
 		// queryjson
-		if (json.getBoolean(ConstantsJSON.EXECUTABLE)) {
+		if (json.path(ConstantsJSON.EXECUTABLE).asBoolean()) {
 			try {
-				JSONObject queryjson = generateQueryJson(pattern);
+				ObjectNode queryjson = generateQueryJson(pattern);
 				exportJsonSave(queryjson, queryjsonfilepath);
 			} catch (Exception e) {}
 		} else {
@@ -683,7 +684,7 @@ public abstract class ServletUtilities {
 		while (!success) {
 			try {
 				number = increaseNumber(ServletConstants.SAVEFILE, name, null);
-			} catch (JSONException | IOException e) {
+			} catch (RuntimeException | IOException e) {
 				logError(e);
 				number = 0;
 			}
@@ -694,88 +695,88 @@ public abstract class ServletUtilities {
 		return id;
 	}
 
-	public static void setNumber(String filepath, String variableName, int number, String category) throws JSONException, IOException {
-		JSONObject jsonFile;
+	public static void setNumber(String filepath, String variableName, int number, String category) throws IOException {
+		ObjectNode jsonFile;
 		try {
 			jsonFile = loadJsonSave(filepath);
 		} catch (IOException e) {
-			jsonFile = new JSONObject();
+			jsonFile = Util.jsonCreateObject();
 		}
-		JSONObject target = jsonFile;
+		ObjectNode target = jsonFile;
 		if (category == null) {
 			target = jsonFile;
 		}
 		else {
-			target = jsonFile.optJSONObject(category);
+			target = (ObjectNode) jsonFile.get(category);
 			if (target == null) {
-			    target = new JSONObject();
-			    jsonFile.put(category, target);
+			    target = Util.jsonCreateObject();
+			    jsonFile.set(category, target);
 			}
 		}
 		target.put(variableName, number);
 		exportJsonSave(jsonFile, filepath);
 	}
 
-	public static Integer getNumber(String filepath, String variableName, String category) throws JSONException, IOException {
-		JSONObject jsonFile;
+	public static Integer getNumber(String filepath, String variableName, String category) throws IOException {
+		ObjectNode jsonFile;
 		try{
 			jsonFile = loadJsonSave(filepath);
 		} catch (IOException e) {
-			jsonFile = new JSONObject();
+			jsonFile = Util.jsonCreateObject();
 		}
-		JSONObject jsonObject = jsonFile;
+		ObjectNode jsonObject = jsonFile;
 		if (category != null) {
-			jsonObject = jsonFile.optJSONObject(category);
+			jsonObject = (ObjectNode) jsonFile.path(category);
 			if (jsonObject == null) {
 			    return 0;
 			}
 		}
-		return jsonObject.optInt(variableName, 0);
+		return jsonObject.get(variableName).asInt();
 	}
 
 	public static Integer increaseNumber(String filepath, String variableName, String category) throws IOException {
-		JSONObject jsonFile;
+		ObjectNode jsonFile;
 		try {
 			jsonFile = loadJsonSave(filepath);
 		} catch (IOException e) {
-			jsonFile = new JSONObject();
+			jsonFile = Util.jsonCreateObject();
 		}
-		JSONObject target = jsonFile;
+		ObjectNode target = jsonFile;
 		if (category == null) {
 			target = jsonFile;
 		}
 		else {
-			target = jsonFile.optJSONObject(category);
+			target = (ObjectNode) jsonFile.get(category);
 			if (target == null) {
-			    target = new JSONObject();
-			    jsonFile.put(category, target);
+			    target = Util.jsonCreateObject();
+			    jsonFile.set(category, target);
 			}
 		}
-		int next = target.optInt(variableName, 0) + 1;
+		int next = target.path(variableName).asInt(0) + 1;
 		target.put(variableName, next);
 		exportJsonSave(jsonFile, filepath);
 		return next;
 	}
 
-	public static Integer decreaseNumber(String filepath, String variableName, String category) throws JSONException, IOException {
-		JSONObject jsonFile;
+	public static Integer decreaseNumber(String filepath, String variableName, String category) throws IOException {
+		ObjectNode jsonFile;
 		try {
 			jsonFile = loadJsonSave(filepath);
 		} catch (IOException e) {
-			jsonFile = new JSONObject();
+			jsonFile = Util.jsonCreateObject();
 		}
-		JSONObject target = jsonFile;
+		ObjectNode target = jsonFile;
 		if (category == null) {
 			target = jsonFile;
 		}
 		else {
-			target = jsonFile.optJSONObject(category);
+			target = (ObjectNode) jsonFile.get(category);
 			if (target == null) {
-			    target = new JSONObject();
-			    jsonFile.put(category, target);
+			    target = Util.jsonCreateObject();
+			    jsonFile.set(category, target);
 			}
 		}
-		int current = target.optInt(variableName, -1);
+		int current = target.path(variableName).asInt(-1);
 		int next = current - 1;
 		if (current == -1)
 			return 0;
@@ -858,7 +859,7 @@ public abstract class ServletUtilities {
 
 	public static void putResponseUnlogged(HttpServletResponse response, Object object, int responseCode) throws IOException {
 		response.setStatus(responseCode);
-		if (object instanceof JSONArray || object instanceof JSONObject) {
+		if (object instanceof ArrayNode || object instanceof ObjectNode) {
 			response.setContentType("application/json");
 			response.setCharacterEncoding("UTF-8");
 			response.getWriter().write(object.toString());
@@ -907,20 +908,20 @@ public abstract class ServletUtilities {
 
 	public static void putResponseError(HttpServletResponse response, int id, Exception error, int responseCode) throws IOException {
 		logError(error);
-		JSONObject object = new JSONObject();
+		ObjectNode object = Util.jsonCreateObject();
 		try {
 			object.put("error", error.getMessage());
-		} catch (JSONException e) {
+		} catch (RuntimeException e) {
 			logError(e);
 		}
 		putResponse(response, id, object, responseCode);
 	}
 
-	public static void putResponse(HttpServletResponse response, int id, JSONObject jsonObject) throws IOException {
+	public static void putResponse(HttpServletResponse response, int id, ObjectNode jsonObject) throws IOException {
 		putResponse(response, id, jsonObject, HttpServletResponse.SC_OK);
 	}
 
-	public static void putResponse(HttpServletResponse response, int id, JSONArray jsonArray) throws IOException {
+	public static void putResponse(HttpServletResponse response, int id, ArrayNode jsonArray) throws IOException {
 		putResponse(response, id, jsonArray, HttpServletResponse.SC_OK);
 	}
 
@@ -928,9 +929,9 @@ public abstract class ServletUtilities {
 		putResponse(response, id, text, HttpServletResponse.SC_OK);
 	}
 
-	public static JSONObject getTemplateInfo(String classname) throws IOException {
-		JSONObject obj = loadJsonSave(ServletConstants.TEMPLATE_INFO_FILE);
-		return obj.getJSONObject(classname);
+	public static ObjectNode getTemplateInfo(String classname) throws IOException {
+		ObjectNode obj = loadJsonSave(ServletConstants.TEMPLATE_INFO_FILE);
+		return (ObjectNode) obj.get(classname);
 	}
 	
 	// LOGGING
@@ -1036,7 +1037,7 @@ public abstract class ServletUtilities {
 			if (new File(ServletConstants.COUNTFILE).exists())
 				setNumber(ServletConstants.COUNTFILE, "call", 0, null);
 			clearTrashbin();
-		} catch (JSONException | IOException e) {
+		} catch (RuntimeException | IOException e) {
 			logError(e);
 		}
 	}
@@ -1090,13 +1091,13 @@ public abstract class ServletUtilities {
 		int callId = -1;
 		try {
 			callId = increaseNumber(ServletConstants.COUNTFILE, "call", null);
-		} catch (JSONException | IOException e) {
+		} catch (RuntimeException | IOException e) {
 			logError(e);
 		}
 		return callId;
 	}
 
-	public static int logCall(String method, String clazz, String path, JSONObject params) {
+	public static int logCall(String method, String clazz, String path, ObjectNode params) {
 		int callId = getNewCallID();
 		log("CALL " + callId + ": " + method + " "+ clazz + "(" + path + ") " + params);
 		return callId;
@@ -1106,32 +1107,32 @@ public abstract class ServletUtilities {
 		return logCall(method, clazz, path, mapToJSON(params));
 	}
 
-	public static JSONObject mapToJSON(Map<String, String[]> map) {
-		JSONObject job = new JSONObject();
+	public static ObjectNode mapToJSON(Map<String, String[]> map) {
+		ObjectNode job = Util.jsonCreateObject();
 		for (String key : map.keySet()) {
 			try {
 				String[] vals = map.get(key);
 				if (vals.length == 1) {
 					job.put(key, vals[0]);
 				} else {
-					JSONArray jarr = new JSONArray(vals);
-					job.put(key, jarr);
+					ArrayNode jarr = Util.jsonCreateArray();
+					job.set(key, jarr);
 				}
-			} catch (JSONException e) {
+			} catch (RuntimeException e) {
 				logError(e);
 			}
 		}
 		return job;
 	}
 
-	public static Map<String, String[]>  jsonToMap(JSONObject map) {
+	public static Map<String, String[]>  jsonToMap(ObjectNode map) {
 		Map<String, String[]> parameterMap = new HashMap<String, String[]>();
-		for (String key: map.keySet()) {
-			if (map.get(key) instanceof JSONArray) {
-				JSONArray array = map.getJSONArray(key);
-				String[] values = new String[array.length()];
-				for (int i = 0; i<array.length(); i++) {
-					values[i] = array.get(i).toString();
+		for (String key: Util.jsonKeySet(map)) {
+			if (map.get(key) instanceof ArrayNode) {
+				ArrayNode array = (ArrayNode) map.get(key);
+				String[] values = new String[array.size()];
+				for (int i = 0; i<array.size(); i++) {
+					values[i] = array.get(i).asText();
 				}
 				parameterMap.put(key, values);
 			} else {
@@ -1141,15 +1142,15 @@ public abstract class ServletUtilities {
 		return parameterMap;
 	}
 
-	public static JSONArray getAvailableParams(List<? extends Fragment> paramfragments) {
-		JSONArray available = new JSONArray();
-		available.put(ConstantsJSON.NAME);
-		available.put(ConstantsJSON.DATABASE);
-		available.put(ConstantsJSON.DATAMODEL);
-		available.put(ConstantsJSON.NAMESPACES);
+	public static ArrayNode getAvailableParams(List<? extends Fragment> paramfragments) {
+		ArrayNode available = Util.jsonCreateArray();
+		available.add(ConstantsJSON.NAME);
+		available.add(ConstantsJSON.DATABASE);
+		available.add(ConstantsJSON.DATAMODEL);
+		available.add(ConstantsJSON.NAMESPACES);
 		for (Fragment frag : paramfragments) {
 			if (frag instanceof ParameterFragment)
-				available.put(((ParameterFragment) frag).getId());
+				available.add(((ParameterFragment) frag).getId());
 		}
 		return available;
 	}
@@ -1168,13 +1169,13 @@ public abstract class ServletUtilities {
 		return shortQuery;
 	}
 
-	static JSONObject getVariantJSON(CompletePattern pattern, Boolean putvariants) {
+	static ObjectNode getVariantJSON(CompletePattern pattern, Boolean putvariants) {
 
-		JSONObject parameter = new JSONObject();
+		ObjectNode parameter = Util.jsonCreateObject();
 		int i = 0;
 		for (Parameter param : pattern.getParameterList().getParameters()) {
 			try {
-				JSONObject paramobj = new JSONObject();
+				ObjectNode paramobj = Util.jsonCreateObject();
 				paramobj.put(ConstantsJSON.TYPE, param.getClass().getSimpleName());
 				paramobj.put(ConstantsJSON.ROLE, ParameterFragmentImpl.getRole(param));
 				if (param.getValueAsString() != null)
@@ -1184,35 +1185,35 @@ public abstract class ServletUtilities {
 				if (param instanceof XmlPathParam) {
 					HashSet<Integer> sourceParamIds = TemplateVariantServlet.getSourceParamIDs((XmlPathParam) param);
 					if (!sourceParamIds.isEmpty()) {
-						paramobj.put(ConstantsJSON.STARTPOINT, new JSONArray(sourceParamIds));
+						paramobj.set(ConstantsJSON.STARTPOINT, Util.jsonCreateArray(sourceParamIds));
 					}
 				}
-				parameter.put(Integer.toString(i), paramobj);
+				parameter.set(Integer.toString(i), paramobj);
 				// parameter.put(Integer.toString(i), ParameterFragmentImpl.getRole(param));
-			} catch (JSONException e) {
+			} catch (RuntimeException e) {
 			}
 			i++;
 		}
 
-		JSONArray variants = new JSONArray();
+		ArrayNode variants = Util.jsonCreateArray();
 		if (putvariants) {
 			for (PatternText text : pattern.getText()) {
-				variants.put(text.generateVariantJSONObject());
+				variants.add(text.generateVariantJSONObject());
 			}
 		}
 
-		JSONObject result = new JSONObject();
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			if (putvariants)
-				result.put(ConstantsJSON.VARIANTS, variants);
-			result.put(ConstantsJSON.PARAMETER, parameter);
-		} catch (JSONException e) {
+				result.set(ConstantsJSON.VARIANTS, variants);
+			result.set(ConstantsJSON.PARAMETER, parameter);
+		} catch (RuntimeException e) {
 		}
 
 		return result;
 	}
 
-	public static JSONObject extractJSON(HttpServletRequest request) throws IOException, JSONException {
+	public static ObjectNode extractJSON(HttpServletRequest request) throws IOException {
         StringBuilder sb = new StringBuilder();
         try (BufferedReader reader = request.getReader()) {
             String line;
@@ -1223,8 +1224,8 @@ public abstract class ServletUtilities {
 
         String body = sb.toString().trim();
         if (body.isEmpty()) {
-            return new JSONObject(); // no content
+			return Util.jsonCreateObject(); // no content
         }
-        return new JSONObject(body);
+		return (ObjectNode) Util.jsonCreateObject(body);
 	}
 }

@@ -7,9 +7,8 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -44,7 +43,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try{
-			JSONObject result = applyGet(path, params);
+			ObjectNode result = applyGet(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -85,7 +84,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("DELETE", this.getClass().getName(), path, params);
 		try{
-			JSONObject result = applyDelete(path, params);
+			ObjectNode result = applyDelete(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -93,7 +92,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyGet (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public static ObjectNode applyGet (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting a variant of a constraint: "
@@ -115,7 +114,7 @@ public class TemplateVariantServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		JSONObject variantjson = ServletUtilities.loadTemplateVariantJSON(technology, templateId);
+		ObjectNode variantjson = ServletUtilities.loadTemplateVariantJSON(technology, templateId);
 		if (!putvariants) {
 			variantjson.remove(ConstantsJSON.VARIANTS);
 		}
@@ -210,8 +209,8 @@ public class TemplateVariantServlet extends HttpServlet {
 
 		for (String variant: variants) {
 			try {
-				JSONObject json = new JSONObject(variant);
-				variantNames.add(json.getString(ConstantsJSON.NAME));
+				ObjectNode json = ServletUtilities.parseObject(variant);
+				variantNames.add(json.path(ConstantsJSON.NAME).asText());
 			} catch (Exception e) {
 				throw new FailedServletCallException(ConstantsError.INVALID_JSON, e);
 			}
@@ -235,7 +234,7 @@ public class TemplateVariantServlet extends HttpServlet {
 			try {
 				JSONObject json = new JSONObject(variant);
 				new PatternTextImpl(pattern, json);
-			} catch (JSONException e) {
+			} catch (RuntimeException e) {
 				throw new FailedServletCallException(ConstantsError.INVALID_JSON, e);
 			} catch (InvalidityException e) {
 				throw new FailedServletCallException(ConstantsError.INVALID_JSON + ": " + e.getMessage(), e);
@@ -271,7 +270,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		return "New variant(s) added successfully to '" + templateId + "'.";
 	}
 
-	public static JSONObject applyPut1 (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public static ObjectNode applyPut1 (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] variants = parameterMap.get(ConstantsJSON.VARIANTS);
 		
 		JSONArray success = new JSONArray();
@@ -283,22 +282,22 @@ public class TemplateVariantServlet extends HttpServlet {
 			
 			try {
 				addVariant(var);
-				success.put(variantID);
+				success.add(variantID);
 			} catch (Exception e) {
 				failed.put(variantID, e.getMessage());
 			}
 		}
 		
 		JSONObject result = new JSONObject();
-		result.put(ConstantsJSON.SUCCESS, success);
-		result.put(ConstantsJSON.FAILED, failed);
+		result.set(ConstantsJSON.SUCCESS, success);
+		result.set(ConstantsJSON.FAILED, failed);
 		return result;
 	}
 
-	private static void addVariant(JSONObject variant) throws IOException, FailedServletCallException {
+	private static void addVariant(ObjectNode variant) throws IOException, FailedServletCallException {
 
-		String technology = variant.getString(ConstantsJSON.TECHNOLOGY);
-		String templateId = variant.getString(ConstantsJSON.TEMPLATE);
+		String technology = variant.path(ConstantsJSON.TECHNOLOGY).asText();
+		String templateId = variant.path(ConstantsJSON.TEMPLATE).asText();
 
 		// 3 load template
 		CompletePattern pattern = ServletUtilities.loadTemplate(technology, templateId);
@@ -315,7 +314,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		// 5 add variant
 		try {
 			new PatternTextImpl(pattern, variant);
-		} catch (JSONException e) {
+		} catch (RuntimeException e) {
 			throw new FailedServletCallException(ConstantsError.INVALID_JSON, e);
 		} catch (InvalidityException e) {
 			throw new FailedServletCallException(ConstantsError.INVALID_JSON + ": " + e.getMessage(), e);
@@ -350,7 +349,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public static ObjectNode applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for deleting a variant of a constraint: "
@@ -388,7 +387,7 @@ public class TemplateVariantServlet extends HttpServlet {
 			for (PatternText text: pattern.getText()) {
 				if (variantName.equals(text.getName())) {
 					text.delete();
-					success.put(text.getName());
+					success.add(text.getName());
 					done = true;
 					break;
 				}
@@ -397,8 +396,8 @@ public class TemplateVariantServlet extends HttpServlet {
 				JSONObject object = new JSONObject();
 				try {
 					object.put(variantName, ConstantsError.NOT_FOUND_VARIANT);
-				} catch (JSONException e) {}
-				failed.put(object);
+				} catch (RuntimeException e) {}
+				failed.add(object);
 			}
 		}
 
@@ -413,8 +412,8 @@ public class TemplateVariantServlet extends HttpServlet {
 		// 6 return results
 		JSONObject object = new JSONObject();
 		try {
-			object.put(ConstantsJSON.SUCCESS, success);
-			object.put(ConstantsJSON.FAILED, failed);
+			object.set(ConstantsJSON.SUCCESS, success);
+			object.set(ConstantsJSON.FAILED, failed);
 		} catch (Exception e) {}
 		return object;
 	}

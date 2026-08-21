@@ -7,9 +7,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -52,8 +51,8 @@ public class TemplateTest {
 	}
 	
 	public static void main(String[] args) throws IOException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		JSONObject config = Util.loadJson(pathConfig);
-		JSONObject configMissing = new JSONObject();
+		ObjectNode config = Util.loadJson(pathConfig);
+		ObjectNode configMissing = Util.jsonCreateObject();
 
 		for (PatternClass patternclazz: getPatternClazzes()) {
 //			if (config.has(patternclazz.id) && config.getJSONArray(patternclazz.id).isEmpty()) {
@@ -61,39 +60,39 @@ public class TemplateTest {
 //				System.out.println( "'" + patternclazz.id + "' empty");
 //				missingArray = true;
 //			}
-			if (!config.has(patternclazz.id) || config.getJSONArray(patternclazz.id).isEmpty()) {
+			if (!config.has(patternclazz.id) || !config.get(patternclazz.id).isArray() || config.get(patternclazz.id).size() == 0) {
 				EList<Parameter> params = patternclazz.getXmlPattern().getParameterList().getParameters();
-				JSONObject paramjson = new JSONObject();
+				ObjectNode paramjson = Util.jsonCreateObject();
 				for (int i = 0; i<params.size(); i++) {
 					paramjson.put(""+i, params.get(i).getClass().getSimpleName().replace("ParamImpl", ""));
 				}
-				configMissing.put(patternclazz.id, paramjson);
-				config.put(patternclazz.id, new JSONArray());
+				configMissing.set(patternclazz.id, paramjson);
+				config.set(patternclazz.id, Util.jsonCreateArray());
 			}
 		}
 //		if (missingArray) {
 //			Util.exportJson(config, pathConfig);
 //		}
 		Util.exportJson(configMissing, pathConfigMissing);
-		System.out.println(configMissing.length() + " out of " + getPatternClazzes().size() + " templates not tested");
+		System.out.println(configMissing.size() + " out of " + getPatternClazzes().size() + " templates not tested");
 	}
 
 
 
     static List<Arguments> argumentProvider() throws IOException {
-		JSONObject config = Util.loadJson(pathConfig);
+		ObjectNode config = Util.loadJson(pathConfig);
     	List<Arguments> args = new ArrayList<Arguments>();
     	int no = 0;
-		for (String key : config.keySet()) {
+		for (String key : Util.jsonKeySet(config)) {
 			
-			JSONArray array = config.getJSONArray(key);
-			for (int i = 0; i<array.length(); i++) {
-				JSONObject json = array.getJSONObject(i);
-				boolean isTest = json.has(TEST) && json.getBoolean(TEST);
-				boolean isActive = !json.has(DEACTIVATED) || !json.getBoolean(DEACTIVATED);
+			ArrayNode array = (ArrayNode) config.get(key);
+			for (int i = 0; i<array.size(); i++) {
+				ObjectNode json = (ObjectNode) array.get(i);
+				boolean isTest = json.has(TEST) && json.get(TEST).asBoolean();
+				boolean isActive = !json.has(DEACTIVATED) || !json.get(DEACTIVATED).asBoolean();
 				
 				if ((ignoreDeactivated || isActive) && (!onlyTest || isTest)) {
-					args.add(Arguments.of(key, no, json.getJSONObject(PARAMS), json.getJSONObject(EXPECTED), json.has(TEST)));
+					args.add(Arguments.of(key, no, json.get(PARAMS), json.get(EXPECTED), json.has(TEST)));
 					no++;
 				}
 						
@@ -109,7 +108,7 @@ public class TemplateTest {
 
 	@ParameterizedTest
     @MethodSource("argumentProvider")
-	public void testPattern(String id, int no, JSONObject params, JSONObject expected, boolean debug) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, JSONException, InvalidServletCallException, FailedServletCallException {
+	public void testPattern(String id, int no, ObjectNode params, ObjectNode expected, boolean debug) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, InvalidServletCallException, FailedServletCallException {
 		CompletePattern pattern;
 		try{
 			pattern = findPattern(id);
@@ -118,26 +117,26 @@ public class TemplateTest {
 			return;
 		}
 		parameterizePattern(pattern, params);
-		JSONObject query = ServletUtilities.generateQueryJson(pattern);
+		ObjectNode query = ServletUtilities.generateQueryJson(pattern);
 		Long time = System.currentTimeMillis();
-		JSONObject result = XQueryProcessorSaxon.queryConstraintsFilePaths(Arrays.asList(query), Arrays.asList(pathData));
+		ObjectNode result = XQueryProcessorSaxon.queryConstraintsFilePaths(Arrays.asList(query), Arrays.asList(pathData));
 		time = System.currentTimeMillis() - time;
 		System.out.println(no + "\t" + id + "\t" + time); // + "\t" + params.toString());
 		if (debug) {
 			if (debugShowQuery) {
 				System.out.println("\nQUERY");
-				System.out.println(query.toString(2));
+				System.out.println(Util.jsonPretty(query));
 			}
 			System.out.println("\nRESULT");
-			JSONObject res = new JSONObject();
-			res.put("totalIncidents", result.get("totalIncidents"));
-			res.put("totalFindings", result.get("totalFindings"));
-			res.put("incidents", result.getJSONArray("result").getJSONObject(0).get("incidents"));
-			System.out.println(res.toString(2));
+			ObjectNode res = new com.fasterxml.jackson.databind.ObjectMapper().createObjectNode();
+			res.set("totalIncidents", result.get("totalIncidents"));
+			res.set("totalFindings", result.get("totalFindings"));
+			res.set("incidents", result.get("result").get(0).get("incidents"));
+			System.out.println(res.toPrettyString());
 			System.out.println("\nEXPECTED");
-			System.out.println(expected.toString(2));
+			System.out.println(expected.toPrettyString());
 		}
-		assertJSONObject(expected, result);
+		assertNodeTree(expected, result);
 	}
 
 	private static CompletePattern findPattern(String id) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -149,11 +148,11 @@ public class TemplateTest {
 		throw new InvalidityException("No pattern '" + id + "' found in PatternCollection");
 	}
  
-	private static void parameterizePattern(CompletePattern pattern, JSONObject jsonObject) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static void parameterizePattern(CompletePattern pattern, ObjectNode nodeObject) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParameterList params = pattern.getParameterList();
-		for (String key: jsonObject.keySet()) {
+		for (String key: Util.jsonKeySet(nodeObject)) {
 			int paramid = Integer.parseInt(key);
-			String value = jsonObject.getString(key);
+			String value = nodeObject.get(key).asText();
 			try {
 				params.getParameters().get(paramid).setValueFromString(value);
 			} catch (InvalidityException e) {
@@ -163,23 +162,22 @@ public class TemplateTest {
 		pattern.isValid(AbstractionLevel.CONCRETE);
 	}
 
-	private static void assertJSONObject(JSONObject expected, JSONObject result) {
-		for (String key : expected.keySet()) {
+	private static void assertJSONObject(ObjectNode expected, ObjectNode result) {
+		for (String key : Util.jsonKeySet(expected)) {
 			assert(result.has(key));
-			switch(expected.get(key).getClass().getSimpleName()) {
-			case "String":
-			case "Integer":
+			switch(expected.get(key).isObject() ? "Object" : expected.get(key).isArray() ? "Array" : "Value") {
+			case "Value":
 					assertEquals(expected.get(key), result.get(key), key);
 					break;
-				case "JSONObject":
-					assertJSONObject(expected.getJSONObject(key), result.getJSONObject(key));
+				case "Object":
+					assertNodeTree((ObjectNode) expected.get(key), (ObjectNode) result.get(key));
 					break;
-				case "JSONArray":
-					int len = expected.getJSONArray(key).length();
-					assertEquals(len, result.getJSONArray(key).length(), key);
+				case "Array":
+					int len = expected.get(key).size();
+					assertEquals(len, result.get(key).size(), key);
 					for (int i = 0; i<len; i++) {
-						assert(expected.getJSONArray(key).get(i) instanceof JSONObject);
-						assert(result.getJSONArray(key).get(i) instanceof JSONObject);
+						assert(expected.getJSONArray(key).get(i) instanceof ObjectNode);
+						assert(result.getJSONArray(key).get(i) instanceof ObjectNode);
 						assertJSONObject(expected.getJSONArray(key).getJSONObject(i), result.getJSONArray(key).getJSONObject(i));
 					}
 					break;

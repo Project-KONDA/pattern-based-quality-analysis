@@ -3,8 +3,8 @@ package qualitypatternmodel.utility.xmlprocessors;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
@@ -15,11 +15,11 @@ import qualitypatternmodel.utility.Util;
 
 public class XmlServletUtility {
 
-	public static JSONArray executeQuery(String query) throws InvalidityException {
+	public static ArrayNode executeQuery(String query) throws InvalidityException {
 		return executeQueryFile(query, null);
 	}
 
-	public static JSONArray executeQueryFile(String query, String datapath) throws InvalidityException {
+	public static ArrayNode executeQueryFile(String query, String datapath) throws InvalidityException {
 		switch(Util.EXECUTION_PROCESSOR) {
 		case ConstantsXml.PROCESSOR_SAXON:
 			return XQueryProcessorSaxon.executeQueryFile(query, datapath);
@@ -43,7 +43,7 @@ public class XmlServletUtility {
 		}
 	}
 
-	public static JSONObject queryConstraintsFilePaths(ArrayList<JSONObject> constraints, List<String> filepaths) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode queryConstraintsFilePaths(ArrayList<ObjectNode> constraints, List<String> filepaths) throws InvalidServletCallException, FailedServletCallException {
 		switch (Util.EXECUTION_PROCESSOR) {
 		case ConstantsXml.PROCESSOR_SAXON:
 			return XQueryProcessorSaxon.queryConstraintsFilePaths(constraints, filepaths);
@@ -54,13 +54,13 @@ public class XmlServletUtility {
 		}
 	}
 
-	public static JSONArray extractFromSnippet(String xmlString, String xpath) throws InvalidityException {
+	public static ArrayNode extractFromSnippet(String xmlString, String xpath) throws InvalidityException {
 	    String query = "let $r := $doc" + xpath + " return if (exists($r/*)) then $r/* else $r/text()";
-		JSONArray resultarray = queryFromSnippet(xmlString, query);
-		return flattenResultJSONArray(resultarray);
+		ArrayNode resultarray = queryFromSnippet(xmlString, query);
+		return flattenResultArray(resultarray);
 	}
 
-	public static JSONArray queryFromSnippet(String xmlString, String query) throws InvalidityException {
+	public static ArrayNode queryFromSnippet(String xmlString, String query) throws InvalidityException {
 		xmlString = cutProcessingInstructions(xmlString);
 		xmlString = escapeAmpersands(xmlString);
         String wrappedQuery = "let $doc := <root>" + xmlString + "</root>\n " + query;
@@ -69,8 +69,8 @@ public class XmlServletUtility {
 
 	public static JSONArray flattenResultJSONArray(JSONArray objects) {
 		JSONArray flattened = new JSONArray();
-		for (int i = 0; i < objects.length(); i++)
-			flattened.put(objects.getJSONObject(i).getString(ConstantsJSON.RESULT_SNIPPET));
+		for (int i = 0; i < objects.size(); i++)
+			flattened.add(objects.get(i).path(ConstantsJSON.RESULT_SNIPPET).asText());
 		return flattened;
 	}
 
@@ -78,8 +78,8 @@ public class XmlServletUtility {
 		JSONArray unflattened = new JSONArray();
 		for (int i = 0; i < flattened.length(); i++) {
 			JSONObject o = new JSONObject();
-			o.put(ConstantsJSON.RESULT_SNIPPET, flattened.getString(i));
-			unflattened.put(o);
+			o.put(ConstantsJSON.RESULT_SNIPPET, flattened.get(i).asText());
+			unflattened.add(o);
 		}
 		return unflattened;
 	}
@@ -101,11 +101,11 @@ public class XmlServletUtility {
 	    return xml.replaceAll("&(?!#\\d+;|#x[0-9a-fA-F]+;|[a-zA-Z]+;)", "&amp;");
 	}
 
-	public static void stripNamespacesFromIncidents(JSONArray array) {
-	    for (int i = 0; i < array.length(); i++) {
-	        JSONObject obj = array.getJSONObject(i);
-	        if (obj.has("snippet") && !obj.isNull("snippet")) {
-	            String snippet = obj.getString("snippet");
+	public static void stripNamespacesFromIncidents(ArrayNode array) {
+	    for (int i = 0; i < array.size(); i++) {
+	        ObjectNode obj = (ObjectNode) array.get(i);
+	        if (obj.has("snippet") && !obj.get("snippet").isNull()) {
+	            String snippet = obj.get("snippet").asText();
 	            String cleaned = stripNamespacesFromString(snippet);
 	            obj.put("snippet", cleaned);
 	        }

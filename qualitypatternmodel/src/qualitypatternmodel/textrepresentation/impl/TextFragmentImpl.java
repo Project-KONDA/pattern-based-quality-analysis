@@ -5,8 +5,7 @@ package qualitypatternmodel.textrepresentation.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.textrepresentation.TextFragment;
@@ -174,7 +173,7 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 		JSONObject json = new JSONObject();
 		try {
 			json.put("text", getText());
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 		return json;
 	}
 	/**
@@ -187,7 +186,7 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 		JSONObject object = new JSONObject();
 		try {
 			object.put(ConstantsJSON.TEXT, getText());
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 		return object;
 	}
 

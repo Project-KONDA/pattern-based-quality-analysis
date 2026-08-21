@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -23,8 +22,7 @@ import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
 
 public class XmlInstantiationTest {
-
-	public static void main(String[] args) throws ServletException, InvalidServletCallException, FailedServletCallException, IOException, JSONException {
+	public static void main(String[] args) throws ServletException, InvalidServletCallException, FailedServletCallException, IOException {
 		ServletContext context = mock(ServletContext.class);
         doAnswer(invocation -> {
             String argument = invocation.getArgument(0);
@@ -64,8 +62,8 @@ public class XmlInstantiationTest {
 		for (String inst: listInstantiate){
 			try {
 				System.out.println("INSTANTIATE");
-				JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut(inst, parameterMap));
-				String st = "/" + json.getString("language") + "/" + json.getString("patternID");
+				ObjectNode json = TemplateInstantiateServlet.applyPut(inst, parameterMap);
+				String st = "/" + json.get("language").asText() + "/" + json.get("patternID").asText();
 				patternIDs.add(st);
 			} catch (Exception e) {
 				System.err.println("'" + inst + "' failed");
@@ -77,14 +75,12 @@ public class XmlInstantiationTest {
 		System.out.println("GET");
 		for (String get: patternIDs){
 			System.out.println(ConstraintServlet.applyGet(get, parameterMap));
-//			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 
 		System.out.println();
 		System.out.println("QUERY");
 		for (String get: patternIDs){
 			System.out.println(ConstraintQueryServlet.applyGet3(get, parameterMap));
-//			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 
 		System.out.println();
@@ -92,7 +88,6 @@ public class XmlInstantiationTest {
 		for (String get: patternIDs){
 			System.out.println(get);
 			System.out.println("  " + ConstraintMqafServlet.applyGet3(get, parameterMap));
-//			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 
 		System.out.println();

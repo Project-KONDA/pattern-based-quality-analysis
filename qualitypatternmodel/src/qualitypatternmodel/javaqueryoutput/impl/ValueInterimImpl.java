@@ -6,8 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EClass;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
@@ -31,14 +30,14 @@ public class ValueInterimImpl extends InterimResultPartImpl implements ValueInte
 		super();
 	}
 
-	public ValueInterimImpl(JSONObject json) throws InvalidityException {
+	public ValueInterimImpl(ObjectNode json) throws InvalidityException {
 		super();
 		try {
-			if (!json.get("class").equals(getClass().getSimpleName())) {
+			if (!json.get("class").asText().equals(getClass().getSimpleName())) {
 				throw new InvalidityException("Wrong class");
 			}
-			setInterimPartId(json.getInt("id"));
-		} catch (JSONException e) {
+			setInterimPartId(json.get("id").asInt());
+		} catch (RuntimeException e) {
 			throw new InvalidityException("Wrong class");
 		}
 	}
@@ -49,7 +48,7 @@ public class ValueInterimImpl extends InterimResultPartImpl implements ValueInte
 		try {
 			result.put("class", getClass().getSimpleName());
 			result.put("id", getInterimPartId());
-		} catch (JSONException e) {
+		} catch (RuntimeException e) {
 		}
 		return result;
 	}

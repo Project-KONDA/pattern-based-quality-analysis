@@ -6,8 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,6 +17,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 @SuppressWarnings("serial")
@@ -52,7 +52,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
-		JSONObject json;
+		ObjectNode json;
 		try {
 			json = ServletUtilities.extractJSON(request);
 		} catch (Exception e) {
@@ -62,7 +62,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		}
 		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, json);
 		try {
-			JSONObject result = applyPost(path, json);
+			ObjectNode result = applyPost(path, json);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -70,11 +70,11 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyPost(String path, JSONObject parameters) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyPost(String path, ObjectNode parameters) throws InvalidServletCallException, FailedServletCallException {
 		return applyGet(path, ServletUtilities.jsonToMap(parameters));
 	}
 
-	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length < 2  || pathparts.length > 2  || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for executing constraints: "
@@ -91,7 +91,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyGetXml(String path, String technology, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyGetXml(String path, String technology, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		// get parameters
 		List<String> filepaths = Arrays.asList(parameterMap.get(ConstantsJSON.FILES));
 		String[] constraintsCompiled = parameterMap.get(ConstantsJSON.CONSTRAINTS);
@@ -111,16 +111,17 @@ public class ConstraintExecuteServlet extends HttpServlet {
 				// 2 generate query
 //					JSONObject queryJson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
 					JSONObject queryJson = ServletUtilities.loadConstraintQueryJson(technology, constraintId);
+					ObjectNode queryJson = ServletUtilities.loadConstraintQueryJson(technology, constraintId);
 					constraints.add(queryJson);
 
-					String templateId = queryJson.optString(ConstantsJSON.TEMPLATE_ID);
+					String templateId = queryJson.path(ConstantsJSON.TEMPLATE_ID).asText(null);
 					if (templateId != null)
 						ServletUtilities.increaseNumber(ServletConstants.COUNTFILE, templateId, ConstantsJSON.COUNTER_EXECUTE);
 						
 				} catch (Exception e) {
 					try {
 						failedConstraints.put(constraintId, ConstantsError.INVALID_CONSTRAINT);
-					} catch (JSONException f) {}
+					} catch (RuntimeException f) {}
 					ServletUtilities.logError(new InvalidityException("Constraint " + constraintId + " not valid", e));
 				}
 			}
@@ -148,7 +149,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 						failedConstraints.put(constraintID, ConstantsError.INVALID_TECHNOLOGY);
 						ServletUtilities.log("Constraint " + constraintID + " not valid: " + ConstantsError.INVALID_TECHNOLOGY);
 					}
-					else if (!object.has(ConstantsJSON.LANGUAGE) || !object.get(ConstantsJSON.LANGUAGE).equals(Constants.XQUERY)) {
+					else if (!object.has(ConstantsJSON.LANGUAGE) || !object.path(ConstantsJSON.LANGUAGE).asText().equals(Constants.XQUERY)) {
 						failedConstraints.put(constraintID, ConstantsError.INVALID_LANGUAGE);
 						ServletUtilities.log("Constraint " + constraintID + " not valid: " + ConstantsError.INVALID_LANGUAGE);
 					} else {
@@ -161,11 +162,11 @@ public class ConstraintExecuteServlet extends HttpServlet {
 								ServletUtilities.increaseNumber(ServletConstants.COUNTFILE, templateId + "_" + variantId, ConstantsJSON.COUNTER_EXECUTE);
 							} catch (IOException e) {}
 					}
-				} catch (JSONException e) {
+				} catch (RuntimeException e) {
 					try {
 						failedConstraints.put(constraintID, e.getMessage());
 						ServletUtilities.logError(new InvalidityException("Constraint not valid ", e));
-					} catch (JSONException f) {}
+					} catch (RuntimeException f) {}
 				}
 			}
 		}
@@ -174,17 +175,17 @@ public class ConstraintExecuteServlet extends HttpServlet {
 			throw new InvalidServletCallException(ConstantsError.INVALID_CONSTRAINTS + ": " + failedConstraints);
 		}
 
-		JSONObject result = XmlServletUtility.queryConstraintsFilePaths(constraints, filepaths);
+		ObjectNode result = XmlServletUtility.queryConstraintsFilePaths(constraints, filepaths);
 
 		if (result.getJSONObject(ConstantsJSON.FAILEDCONSTRAINTS).keySet().isEmpty() && failedConstraints.keySet().isEmpty())
 			result.remove(ConstantsJSON.FAILEDCONSTRAINTS);
 		else 
-			for (String failedid: failedConstraints.keySet()) {
+			for (String failedid: Util.jsonKeySet(failedConstraints)) {
 				if (!result.has(ConstantsJSON.FAILEDCONSTRAINTS))
 					result.put(ConstantsJSON.FAILEDCONSTRAINTS, new JSONObject());
-				result.getJSONObject(ConstantsJSON.FAILEDCONSTRAINTS).put(failedid, failedConstraints.get(failedid));
+				((ObjectNode) result.get(ConstantsJSON.FAILEDCONSTRAINTS)).set(failedid, failedConstraints.get(failedid));
 			}
-		if (result.getJSONObject(ConstantsJSON.FAILEDFILES).isEmpty())
+		if (!result.has(ConstantsJSON.FAILEDFILES) || result.path(ConstantsJSON.FAILEDFILES).isEmpty())
 			result.remove(ConstantsJSON.FAILEDFILES);
 		return result;
 	}

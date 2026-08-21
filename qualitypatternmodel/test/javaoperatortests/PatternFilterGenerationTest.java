@@ -2,7 +2,10 @@ package javaoperatortests;
 
 import java.util.List;
 
-import org.json.JSONObject;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -13,28 +16,29 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 import qualitypatternmodel.utility.xmlprocessors.XQueryProcessorSaxon;
 
 public class PatternFilterGenerationTest {
 
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, JsonMappingException, JsonProcessingException {
 		String file = "D:\\Testdata\\Uni_Köln.xml";
 //		String file2 = "D:\\Testdata\\Testdata_provider-mix\\digiCult.xml";
 		
-		JSONObject filterjson = new JSONObject("{'constraintID':'TestConstraint','name':'TestConstraint','patternId':'_fbpEj7jGEfCYR54oBVXbmw','language':'XML'}");
+		ObjectNode filterjson = Util.jsonCreateObject("{'constraintID':'TestConstraint','name':'TestConstraint','patternId':'_fbpEj7jGEfCYR54oBVXbmw','language':'XML'}");
 		filterjson.put("query", "for $var2_0 in /descendant::* return $var2_0");
 		filterjson.put("queryPartial", "for $var2_0 in /descendant::* return $var2_0");
-		filterjson.put("filter", new JSONObject("{'argument':2,'subfilters':[{'argument':3,'subfilter':{'argument':4,'negate':true,'functionclass':'ValidateLinkOperatorImpl','class':'OneArgFunctionFilterPartImpl'},'quantifier':'EXISTS','class':'ListFilterPartImpl'}],'quantifier':'EXISTS','class':'QuantifierFilterPartImpl'}"));
-		filterjson.put("structure", new JSONObject("{'record':{'id':5,'class':'ValueInterimImpl'},'class':'InterimResultStructureImpl','substructure':{'contained':[{'contained':{'id':4,'class':'ValueInterimImpl'},'id':3,'class':'VariableContainerInterimImpl'}],'id':2,'class':'FixedContainerInterimImpl'}}"));
-		JSONObject object = new JSONObject();
+		filterjson.set("filter", Util.jsonCreateObject("{'argument':2,'subfilters':[{'argument':3,'subfilter':{'argument':4,'negate':true,'functionclass':'ValidateLinkOperatorImpl','class':'OneArgFunctionFilterPartImpl'},'quantifier':'EXISTS','class':'ListFilterPartImpl'}],'quantifier':'EXISTS','class':'QuantifierFilterPartImpl'}"));
+		filterjson.set("structure", Util.jsonCreateObject("{'record':{'id':5,'class':'ValueInterimImpl'},'class':'InterimResultStructureImpl','substructure':{'contained':[{'contained':{'id':4,'class':'ValueInterimImpl'},'id':3,'class':'VariableContainerInterimImpl'}],'id':2,'class':'FixedContainerInterimImpl'}}"));
+		ObjectNode object = MAPPER.createObjectNode();
 		object.put(ConstantsJSON.QUERY_FILTER, "let $var2_0 := . return <interim><return>{$var2_0}</return><condition><quantifier>{<value> {for $var3_0 in $var2_0 /text() return $var3_0}</value>}</quantifier></condition></interim>");
-		filterjson.put(ConstantsJSON.RELATIVEQUERIES, object);
+		filterjson.set(ConstantsJSON.RELATIVEQUERIES, object);
 //		System.out.println(filterjson.toString(2));
 		
-		List<JSONObject> constraints = List.of(filterjson);
+		List<ObjectNode> constraints = List.of(filterjson);
 		List<String> files = List.of(file); // , file2);
-		JSONObject result = XQueryProcessorSaxon.queryConstraintsFilePaths(constraints, files);
-		System.out.println("RESULT LENGTH: " + result.length());
+		ObjectNode result = XQueryProcessorSaxon.queryConstraintsFilePaths(constraints, files);
+		System.out.println("RESULT LENGTH: " + result.size());
 		
 		
 		main2();
@@ -66,8 +70,8 @@ public class PatternFilterGenerationTest {
 //				+ "    </quantifier>\r\n"
 //				+ "  </condition>\r\n"
 //				+ "</interim>";
-//		JSONObject data1j = new JSONObject();
-//		JSONArray data1a = new JSONArray();
+//		ObjectNode data1j = MAPPER.createObjectNode();
+//		ArrayNode data1a = MAPPER.createArrayNode();
 //		data1a.put(data1);
 //		data1j.put(ConstantsJSON.QUERY_FILTER, data1a);
 //		data1j.put("result", "1");
@@ -82,8 +86,8 @@ public class PatternFilterGenerationTest {
 //		a.initialize(data1j);
 //		System.out.println(a);
 //		
-//		JSONObject data2j = new JSONObject();
-//		JSONArray data2a = new JSONArray();
+//		ObjectNode data2j = MAPPER.createObjectNode();
+//		ArrayNode data2a = MAPPER.createArrayNode();
 //		data2a.put(data2);
 //		data2j.put(ConstantsJSON.QUERY_FILTER, data2a);
 //		data2j.put("result", "1");
@@ -94,9 +98,9 @@ public class PatternFilterGenerationTest {
 	
 	
 
-//	public static JSONObject queryConstraintsFilePaths(List<JSONObject> constraints, List<String> datapaths) {
-//		JSONArray constraintIDs = new JSONArray();
-//		for (JSONObject constraint: constraints) {
+//	public static ObjectNode queryConstraintsFilePaths(List<ObjectNode> constraints, List<String> datapaths) {
+//		ArrayNode constraintIDs = MAPPER.createArrayNode();
+//		for (ObjectNode constraint: constraints) {
 //			constraintIDs.put(constraint.get(ConstantsJSON.CONSTRAINT_ID));
 //			System.out.println(constraint.get(ConstantsJSON.CONSTRAINT_ID));
 //		}
@@ -108,7 +112,7 @@ public class PatternFilterGenerationTest {
 //	    Processor processor = new Processor(false);
 //	    XQueryCompiler compiler = processor.newXQueryCompiler();
 //		List<SaxonConstraint> constraintExecutables = new ArrayList<SaxonConstraint>();
-//		for (JSONObject constraint: constraints) {
+//		for (ObjectNode constraint: constraints) {
 //			System.out.println(" - " + constraint.get(ConstantsJSON.CONSTRAINT_ID));
 //			try {
 //				SaxonConstraint ce = new SaxonConstraint();
@@ -117,14 +121,14 @@ public class PatternFilterGenerationTest {
 //				ce.query = constraint.getString(ConstantsJSON.QUERY);
 //				ce.query_executable = compiler.compile(ce.query);
 //				if (constraint.has(ConstantsJSON.CUSTOM))
-//					ce.custom = constraint.getJSONObject(ConstantsJSON.CUSTOM);
+//					ce.custom = (ObjectNode) constraint.get(ConstantsJSON.CUSTOM);
 //				String counterquery = constraint.getString(ConstantsJSON.QUERY_PARTIAL);
 //				ce.query_total_executable = compiler.compile(counterquery);
 //				if (constraint.has(ConstantsJSON.FILTER)) {
 //					ce.filter = constraint;
 //				}
 //				if (constraint.has(ConstantsJSON.RELATIVEQUERIES)) {
-//					ce.relativeQueries = constraint.getJSONObject(ConstantsJSON.RELATIVEQUERIES);
+//					ce.relativeQueries = (ObjectNode) constraint.get(ConstantsJSON.RELATIVEQUERIES);
 //				}
 //				constraintExecutables.add(ce);
 ////				System.out.println("SAXONCONSTRAINT " + ce);
@@ -172,10 +176,10 @@ public class PatternFilterGenerationTest {
 //        return XQueryProcessorSaxon.getFinalExecutionResultFile(jsonfilename);
 //	}
 
-//	public static JSONObject querySaxonConstraint(Processor processor, File file, XdmNode inputDoc, SaxonConstraint executable) throws SaxonApiException, SaxonApiUncheckedException, InvalidityException {
+//	public static ObjectNode querySaxonConstraint(Processor processor, File file, XdmNode inputDoc, SaxonConstraint executable) throws SaxonApiException, SaxonApiUncheckedException, InvalidityException {
 //		System.out.println("Querying " + executable.id + " with file " + file.getAbsolutePath());
 //		Long starttime = System.nanoTime();
-//		JSONObject queryResult = new JSONObject();
+//		ObjectNode queryResult = MAPPER.createObjectNode();
 //		queryResult.put(ConstantsJSON.CONSTRAINT_ID, executable.id);
 //		queryResult.put(ConstantsJSON.CONSTRAINT_NAME, executable.name);
 //		queryResult.put(ConstantsJSON.FILE, file.getName());
@@ -186,18 +190,18 @@ public class PatternFilterGenerationTest {
 //		XQueryEvaluator evalPartial = executable.query_total_executable.load();
 //		evalPartial.setContextItem(inputDoc);
 //		long total = evalPartial.evaluate().size();
-//		JSONArray incidents = new JSONArray();
+//		ArrayNode incidents = MAPPER.createArrayNode();
 //		// query
 //		XQueryEvaluator eval = executable.query_executable.load();
 //		eval.setContextItem(inputDoc);
 //
 //        for (XdmItem item : eval) {
 //        	if (XQueryProcessorSaxon.NOSKIPS || !XQueryProcessorSaxon.skipXdmItem(item)) {
-//            	JSONObject output = XQueryProcessorSaxon.formatItemJSON(item, processor);
+//            	ObjectNode output = XQueryProcessorSaxon.formatItemJSON(item, processor);
 //            	if(executable.relativeQueries != null) {
 //	            	for (String key: executable.relativeQueries.keySet()) {
 //	            		try {
-//	                		JSONArray partres = XQueryProcessorSaxon.queryRelativeQuery(item, executable.relativeQueries.getString(key), processor); 
+//	                		ArrayNode partres = XQueryProcessorSaxon.queryRelativeQuery(item, executable.relativeQueries.get(key).asText(), processor); 
 //	                		output.put(key, partres);
 //	            		} catch (Exception e) {}
 //	            	}

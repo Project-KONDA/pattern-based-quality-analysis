@@ -13,10 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
@@ -66,17 +63,17 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 		super();
 	}
 
-	public ValueMapImpl(JSONObject json) throws InvalidityException {
+	public ValueMapImpl(ObjectNode json) throws InvalidityException {
 		super();
 
 		if (json == null)
-			throw new JSONException("json is null");
-		Iterator<String> keys = json.keys();
+			throw new IllegalArgumentException("json is null");
+		Iterator<String> keys = json.fieldNames();
         while (keys.hasNext()) {
             String key = keys.next();
-            if (!(json.get(key) instanceof String))
+			if (!json.get(key).isTextual())
             	throw new InvalidityException(json + " is not a valid ValueMap JSON");
-            String value = json.getString(key);
+			String value = json.get(key).asText();
             put(key, value);
         }
 	}
@@ -142,7 +139,7 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	public JSONArray getValuesAsJsonArray() {
 		JSONArray jarray = new JSONArray();
 		for (String val: getValues()) {
-			jarray.put(val);
+			jarray.add(val);
 		}
 		return jarray;
 	}
@@ -201,7 +198,7 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 			for (int i = 0; i<getKeys().size(); i++) {
 				result.put(getKeys().get(i), getValues().get(i));
 			}
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 		return result;
 	}
 
@@ -248,14 +245,14 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	 * @generated NOT
 	 */
 	@Override
-	public void setValuesFromJSONObject(JSONObject object) {
+	public void setValuesFromJSONObject(ObjectNode object) {
 		clear();
-		Iterator<String> keys = object.keys();
+		Iterator<String> keys = object.fieldNames();
         while(keys.hasNext()) {
             String key = keys.next();
             try {
-				put(key, object.getString(key));
-			} catch (JSONException e) {}
+				put(key, object.get(key).asText());
+			} catch (RuntimeException e) {}
         }
 	}
 

@@ -3,8 +3,7 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 import java.util.Map;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,7 +26,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
-			JSONObject result = applyGet(path, params);
+			ObjectNode result = applyGet(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -43,7 +42,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("POST", this.getClass().getName(), path, params);
 		try{
-			JSONObject result = applyPost(path, params);
+			ObjectNode result = applyPost(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -51,7 +50,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the database of a constraint: "
@@ -66,7 +65,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		JSONObject patternjson;
+		ObjectNode patternjson;
 		try {
 			patternjson = ServletUtilities.loadConstraintJson(technology, constraintId);
 		} catch (IOException e) {
@@ -75,8 +74,8 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 
 		JSONObject result = new JSONObject();
 		try {
-			result.put(ConstantsJSON.DATABASE, patternjson.getString(ConstantsJSON.DATABASE));
-		} catch (JSONException e) {}
+			result.put(ConstantsJSON.DATABASE, patternjson.get(ConstantsJSON.DATABASE).asText());
+		} catch (RuntimeException e) {}
 		return result;
 
 //		// 1 load constraint
@@ -88,14 +87,14 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 //		}
 //
 //		// 2 return database name
-//		JSONObject result = new JSONObject();
+//		ObjectNode result = new ObjectMapper().createObjectNode();
 //		try {
 //			result.put(ConstantsJSON.DATABASE, pattern.getDatabaseName());
-//		} catch (JSONException e) {}
+//		} catch (RuntimeException e) {}
 //		return result;
 	}
 
-	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong url for setting a database in a constraint: "
@@ -142,7 +141,7 @@ public class ConstraintDatabaseServlet extends HttpServlet {
 			result.put(ConstantsJSON.OLD_DATABASE, oldDatabaseName);
 			result.put(ConstantsJSON.DATABASE, newDatabaseName);
 			result.put(ConstantsJSON.LASTSAVED, timestamp);
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 
 		return result;
 //		return "Database of constraint of constraint '" + pattern.getPatternId() + "' updated successfully from '" + oldDatabaseName + "' to '" + newDatabaseName + "'.";

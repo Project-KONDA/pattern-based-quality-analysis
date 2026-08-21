@@ -14,9 +14,9 @@ import java.util.UUID;
 import java.util.stream.Stream;
 
 import org.apache.commons.io.FileUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -45,7 +45,7 @@ public class APIVariantsXMLTest {
 	
 	// __________ STATIC VARIABLES __________
 	private static String folder;
-	private static JSONObject store;
+	private static ObjectNode store;
 	private static Boolean default_allow_ignore_map;
 	private static final List<String[]> pairs = getTemplateVariantArrays();
 	// __________ SETUP FUNCTIONS __________
@@ -103,13 +103,13 @@ public class APIVariantsXMLTest {
 			JSONArray variants = obj.getJSONArray(ConstantsJSON.VARIANTS);
 			JSONArray variantIDs = new JSONArray();
 			
-			for (Object variant: variants)
-				variantIDs.put(((JSONObject) variant).getString(ConstantsJSON.NAME));
+			for (com.fasterxml.jackson.databind.JsonNode variant: variants)
+				variantIDs.add(variant.get(ConstantsJSON.NAME).asText());
 			
-			JSONObject object = new JSONObject();
-			object.put("IDs", variantIDs);
-			object.put("size", obj.getJSONArray(ConstantsJSON.VARIANTS).length());
-			store.put(obj.getString(ConstantsJSON.CONSTRAINT_ID), object);
+			ObjectNode object = MAPPER.createObjectNode();
+			object.set("IDs", variantIDs);
+			object.put("size", obj.get(ConstantsJSON.VARIANTS).size());
+			store.set(obj.get(ConstantsJSON.CONSTRAINT_ID).asText(), object);
 		}
 		System.out.println("STORE: " + store);
 	}
@@ -121,14 +121,14 @@ public class APIVariantsXMLTest {
 		List<String[]> pairs = new ArrayList<String[]>();
 		for (File file: files) {
 			try {
-				JSONObject object = InitialisationServlet.readJsonFromFile(file);
+				ObjectNode object = InitialisationServlet.readJsonFromFile(file);
 
-				String template = object.getString(ConstantsJSON.TEMPLATE);
-				String variant = object.getString(ConstantsJSON.NAME);
+				String template = object.get(ConstantsJSON.TEMPLATE).asText();
+				String variant = object.get(ConstantsJSON.NAME).asText();
 				String hasCustom = "" + object.has(ConstantsJSON.CUSTOM);
 				pairs.add(new String[] {template, variant, hasCustom});
 
-			} catch (JSONException | IOException e) {
+			} catch (RuntimeException | IOException e) {
 				new RuntimeException("invalid variant definition in: " + file, e).printStackTrace();
 			}
 		}
@@ -153,7 +153,7 @@ public class APIVariantsXMLTest {
 		return new HashMap<String, String[]>();
 	}
 
-	static JSONObject getConstraint(String id)
+	static ObjectNode getConstraint(String id)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		return ConstraintServlet.applyGet("/xml/" + id, getEmptyParams());
 	}
@@ -161,41 +161,41 @@ public class APIVariantsXMLTest {
 	// __________ HELPEr FUNCTIONS __________
 
 	private static void setAllConstraintParameter(String constraintId) throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		List<JSONObject> params = getAllConstraintParameter(constraintId);
+		List<ObjectNode> params = getAllConstraintParameter(constraintId);
 		if (params != null)
-		for (JSONObject param: params)
+		for (ObjectNode param: params)
 			setDefaultParameter(constraintId, param);
 	}
 	
-	private static List<JSONObject> getAllConstraintParameter(String connstraintId) throws InvalidServletCallException, FailedServletCallException, ServletException, IOException{
-		JSONObject json = getConstraint(connstraintId);
-		JSONObject variant = (JSONObject) json.getJSONArray(ConstantsJSON.VARIANTS).get(0);
-		JSONArray fragments = variant.getJSONArray(ConstantsJSON.FRAGMENTS);
-		List<JSONObject> fragmentslist = new ArrayList<JSONObject>();
-		for (int i = 0; i<fragments.length(); i++) {
-			JSONObject fragment = fragments.optJSONObject(i);
+	private static List<ObjectNode> getAllConstraintParameter(String connstraintId) throws InvalidServletCallException, FailedServletCallException, ServletException, IOException{
+		ObjectNode json = getConstraint(connstraintId);
+		ObjectNode variant = (ObjectNode) json.get(ConstantsJSON.VARIANTS).get(0);
+		ArrayNode fragments = (ArrayNode) variant.get(ConstantsJSON.FRAGMENTS);
+		List<ObjectNode> fragmentslist = new ArrayList<ObjectNode>();
+		for (int i = 0; i<fragments.size(); i++) {
+			ObjectNode fragment = (ObjectNode) fragments.get(i);
 			if (fragment.has(ConstantsJSON.NAME))
 				fragmentslist.add(fragment);
 		}
 		return fragmentslist;
 	}
 	
-	private static void setDefaultParameter(String constraintId, JSONObject param) {
-		String paramid = param.optString(ConstantsJSON.ID);
-		String paramtype = param.optString(ConstantsJSON.TYPE);
-		String paramrole = param.optString(ConstantsJSON.ROLE);
+	private static void setDefaultParameter(String constraintId, ObjectNode param) {
+		String paramid = param.path(ConstantsJSON.ID).asText();
+		String paramtype = param.path(ConstantsJSON.TYPE).asText();
+		String paramrole = param.path(ConstantsJSON.ROLE).asText();
 
 		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'Text':'a', 'TextList':'[\"c\",\"d\"]', 'Boolean':'true', 'TypeOption':'STRING'}");
 		
 		if (paramtype.equals(Constants.PARAMETER_TYPE_ENUMERATION)) {
-			String value = param.optJSONArray(ConstantsJSON.OPTIONS).optString(0);
+			String value = param.get(ConstantsJSON.OPTIONS).get(0).asText();
 			setConstraintParameter(constraintId, paramid, value);
 			return;
 		}
 		
 		try {
 			ParameterFragmentImpl.ALLOW_IGNORE_MAP = true;
-			setConstraintParameter(constraintId, paramid, obj.getString(paramrole));
+			setConstraintParameter(constraintId, paramid, obj.get(paramrole).asText());
 			ParameterFragmentImpl.ALLOW_IGNORE_MAP = default_allow_ignore_map;
 			return;
 		} catch (Exception e) {
@@ -206,7 +206,7 @@ public class APIVariantsXMLTest {
 	private static void setConstraintParameter(String constraintId, String parameterId, String value) {
 		Map<String, String[]> params1 = APICallTests.getEmptyParams();
 		params1.put(parameterId, new String[] { value });
-		JSONObject result = null;
+		ObjectNode result = null;
 		try {
 			result = ConstraintServlet.applyPost("/xml/" + constraintId, params1);
 		} catch (InvalidServletCallException | FailedServletCallException e) {
@@ -222,20 +222,20 @@ public class APIVariantsXMLTest {
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		Map<String, String[]> params1 = APICallTests.getEmptyParams();
 		params1.put("constraints", new String[] { constraintID });
-		JSONObject query1 = ConstraintQueryServlet.applyGet2("/xml", params1);
+		ObjectNode query1 = ConstraintQueryServlet.applyGet2("/xml", params1);
 		APICallTests.assertQueryObject(query1);
-		assert(hasCustom == query1.getJSONArray(ConstantsJSON.CONSTRAINTS).getJSONObject(0).has(ConstantsJSON.CUSTOM));
-		JSONObject query2 = ConstraintQueryServlet.applyGet3("/xml/" + constraintID, APICallTests.getEmptyParams());
+		assert(hasCustom == query1.get(ConstantsJSON.CONSTRAINTS).get(0).has(ConstantsJSON.CUSTOM));
+		ObjectNode query2 = ConstraintQueryServlet.applyGet3("/xml/" + constraintID, APICallTests.getEmptyParams());
 		APICallTests.assertQueryObject(query2);
-		assert(hasCustom == query1.getJSONArray(ConstantsJSON.CONSTRAINTS).getJSONObject(0).has(ConstantsJSON.CUSTOM));
-		APICallTests.assertSimilarJSONObjects(query1, query2);
+		assert(hasCustom == query1.get(ConstantsJSON.CONSTRAINTS).get(0).has(ConstantsJSON.CUSTOM));
+		APICallTests.assertSimilarNodes(query1, query2);
 
 		Map<String, String[]> params2 = APICallTests.getEmptyParams();
 		params2.put("constraintIDs", new String[] { constraintID });
 		params2.put("files", new String[] { "lido.xml", "demo_database.xml"});
-		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
+		ObjectNode result = ConstraintExecuteServlet.applyGet("/xml", params2);
 		APICallTests.assertExecuteResultObject(result, false);
-		assert(hasCustom == result.getJSONArray(ConstantsJSON.RESULT).getJSONObject(0).has(ConstantsJSON.CUSTOM));
+		assert(hasCustom == result.get(ConstantsJSON.RESULT).get(0).has(ConstantsJSON.CUSTOM));
 	}
 
 	// __________ CONCRETE PATTERN TESTS __________
@@ -248,13 +248,13 @@ public class APIVariantsXMLTest {
 		if(PRINTPARAMS) {
 			Map<String, String[]> params = getEmptyParams();
 			params.put(ConstantsJSON.VARIANTS, new String[]{"false"});
-			JSONObject myparams = TemplateVariantServlet.applyGet("/xml/" + constraint, params);
+			ObjectNode myparams = TemplateVariantServlet.applyGet("/xml/" + constraint, params);
 			System.out.println(constraint + "\t" + variant+ "\t" + myparams);
 		}
 		String constraintID = APICallTests.newConstraint(constraint, variant);
 		
 		if(PRINTCONSTRAINT) {
-			JSONObject myconstraint = getConstraint(constraintID);
+			ObjectNode myconstraint = getConstraint(constraintID);
 			System.out.println(constraint + "\t" + variant+ "\t" + constraintID + "\t" + myconstraint);
 			testConstraintParameter(myconstraint);
 		}
@@ -281,29 +281,29 @@ public class APIVariantsXMLTest {
 		
 		setDefaultParameter(constraintID, new JSONObject(paramjson));
 		
-		JSONObject res = ConstraintQueryServlet.applyGet("xml", new String[] {constraintID});
+		ObjectNode res = ConstraintQueryServlet.applyGet("xml", new String[] {constraintID});
 		System.out.println(res);
-		System.out.println(res.getJSONArray("constraints").getJSONObject(0).get("query"));
+		System.out.println(res.get("constraints").get(0).get("query"));
 		APICallTests.deleteConstraint(constraintID);
 
 	}
 
-	private void testConstraintParameter(JSONObject myconstraint) {
-		JSONArray variants = myconstraint.getJSONArray(ConstantsJSON.VARIANTS);
-		JSONObject variant = variants.getJSONObject(0);
-		JSONArray fragments = variant.getJSONArray(ConstantsJSON.FRAGMENTS);
+	private void testConstraintParameter(ObjectNode myconstraint) {
+		ArrayNode variants = (ArrayNode) myconstraint.get(ConstantsJSON.VARIANTS);
+		ObjectNode variant = (ObjectNode) variants.get(0);
+		ArrayNode fragments = (ArrayNode) variant.get(ConstantsJSON.FRAGMENTS);
 		
 		ArrayList<String> ids = new ArrayList<String>();
-		for (int i = 0; i<fragments.length(); i++) {
-			JSONObject fragment = fragments.getJSONObject(i);
+		for (int i = 0; i<fragments.size(); i++) {
+			ObjectNode fragment = (ObjectNode) fragments.get(i);
 			if (fragment.has(ConstantsJSON.STARTPOINT)) {
-				JSONArray startpoints = fragment.getJSONArray(ConstantsJSON.STARTPOINT);
-				for (int j = 0; j<startpoints.length(); j++) {
-					assert(ids.contains(startpoints.getString(j)));
+				ArrayNode startpoints = (ArrayNode) fragment.get(ConstantsJSON.STARTPOINT);
+				for (int j = 0; j<startpoints.size(); j++) {
+					assert(ids.contains(startpoints.get(j).asText()));
 				}
 			}
 			if (fragment.has(ConstantsJSON.ID))
-				ids.add(fragment.getString(ConstantsJSON.ID));
+				ids.add(fragment.get(ConstantsJSON.ID).asText());
 		}
 	}
 }

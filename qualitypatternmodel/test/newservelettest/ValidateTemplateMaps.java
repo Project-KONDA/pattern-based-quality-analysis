@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -23,13 +23,13 @@ public class ValidateTemplateMaps {
 
     static List<Arguments> argumentProvider() throws IOException {
     	List<Arguments> args = new ArrayList<Arguments>();
-    	JSONObject maplist = Util.loadJson(path);
-    	for (String groupName: maplist.keySet()) {
-    		JSONObject groupJson = maplist.getJSONObject(groupName);
-    		for (String mapName: groupJson.keySet()) {
-    			JSONObject map = groupJson.getJSONObject(mapName);
-    			for (String key: map.keySet()) {
-    				String value = map.getString(key);
+    	ObjectNode maplist = Util.loadJson(path);
+    	for (String groupName: Util.jsonKeySet(maplist)) {
+    		ObjectNode groupJson = (ObjectNode) maplist.get(groupName);
+    		for (String mapName: Util.jsonKeySet(groupJson)) {
+    			ObjectNode map = (ObjectNode) groupJson.get(mapName);
+    			for (String key: Util.jsonKeySet(map)) {
+					String value = map.get(key).asText();
     				args.add(Arguments.of(groupName, mapName, key, value));
     			}
     		}
@@ -78,21 +78,21 @@ public class ValidateTemplateMaps {
 
 	public void testRegexListEntry(String value) throws Exception {
 		assertDoesNotThrow(()-> {
-			new JSONArray(value);
+			Util.jsonCreateArray(value);
 		}, ()-> {
 			System.out.println(value);
 			return value;
 		});
 		assertDoesNotThrow(()-> {
-			JSONArray list = new JSONArray(value);
-			assert(list.length()>0);
-			for (int i = 0; i<list.length(); i++) {
-				MatchImpl.matches("", list.getString(i), Language.XML);
+			ArrayNode list = Util.jsonCreateArray(value);
+			assert(list.size()>0);
+			for (int i = 0; i<list.size(); i++) {
+				MatchImpl.matches("", list.get(i).asText(), Language.XML);
 			}
 		});
 	}
 
 	public void testStringListEntry(String value) throws Exception {
-		assertDoesNotThrow(()->{new JSONArray(value);});
+		assertDoesNotThrow(()->{Util.jsonCreateArray(value);});
 	}
 }

@@ -9,8 +9,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONArray;
-import org.json.JSONException;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
@@ -96,12 +94,12 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 		try {
 			JSONArray jarray = new JSONArray(value);
 	        getValues().clear();
-	        for (int i = 0; i<jarray.length();i++) {
-	        	String v = jarray.getString(i);
+	        for (int i = 0; i<jarray.size();i++) {
+	        	String v = jarray.get(i).asText();
 	        	getValues().add(v);
 	        }
 		}
-		catch (JSONException e) {
+		catch (Exception e) {
 	        getValues().clear();
 	        getValues().add(value);
 		}

@@ -2,8 +2,8 @@ package javaoperatortests;
 
 import java.util.List;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -25,12 +25,12 @@ public class TestValidLinkPatternTemplate {
 		JavaFilter filter = validLinkPattern.generateQueryFilter();
 		filter.execute(DEMO_DATA_PATH);
 		
-		JSONObject json = filter.toJson();
+		ObjectNode json = filter.toJson();
 		
 		JavaFilter restored = JavaFilterImpl.fromJson(json);
 
-		JSONArray list2 = restored.executeXQueryJava(DEMO_DATA_PATH);
-		JSONArray list = filter.executeXQueryJava(DEMO_DATA_PATH);
+		ArrayNode list2 = restored.executeXQueryJava(DEMO_DATA_PATH);
+		ArrayNode list = filter.executeXQueryJava(DEMO_DATA_PATH);
 
 		System.out.println("Execution Result equal: " + list.toString().equals(list2.toString()));
 		
@@ -44,10 +44,10 @@ public class TestValidLinkPatternTemplate {
 
 		System.out.println("Interim Results equal: " + filterInterims.toString().equals(restoredInterims.toString()));
 		
-		JSONArray result = filter.execute(DEMO_DATA_PATH);
-		JSONArray restoredresult = restored.execute(DEMO_DATA_PATH);
-		System.out.println(result.length());
-		System.err.println(restoredresult.length());
+		ArrayNode result = filter.execute(DEMO_DATA_PATH);
+		ArrayNode restoredresult = restored.execute(DEMO_DATA_PATH);
+		System.out.println(result.size());
+		System.err.println(restoredresult.size());
 //
 		System.out.println("Result:\n" + result);
 		System.out.println("RestoredResult:\n" + restoredresult);

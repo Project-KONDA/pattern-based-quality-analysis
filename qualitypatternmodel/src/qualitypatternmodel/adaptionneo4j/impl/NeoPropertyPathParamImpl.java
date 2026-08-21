@@ -10,8 +10,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.json.JSONException;
-import org.json.JSONObject;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoComplexEdge;
@@ -24,6 +25,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsNeo;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -75,7 +77,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 
 	@Override
 	public String getValueAsString() {
-		JSONObject jobj = new JSONObject();
+		ObjectNode jobj = Util.jsonCreateObject();
 		try {
 			if (getNeoPathPart() != null) {
 				jobj.put(ConstantsNeo.JSON_NEO_PATH_PART, getNeoPathPart().getValueAsString());
@@ -83,8 +85,8 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 			if (getNeoPropertyName() != null) {
 				jobj.put(ConstantsNeo.JSON_NEO_PROPERTY_NAME, getNeoPropertyName().getValueAsString());
 			}
-		} catch (JSONException e) {}
-		if (jobj.length() < 1) {
+		} catch (RuntimeException e) {}
+		if (jobj.size() < 1) {
 			return null;
 		}
 		return jobj.toString();
@@ -97,7 +99,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 			return;
 		}
 		try {
-			JSONObject jobj = new JSONObject(value);
+			ObjectNode jobj = Util.jsonCreateObject(value);
 			String partstring = jobj.get(ConstantsNeo.JSON_NEO_PATH_PART).toString();
 			NeoPathPart part = NeoPathPartImpl.createNewNeoPathPart(partstring);
 
@@ -108,7 +110,7 @@ public class NeoPropertyPathParamImpl extends NeoPathParamImpl implements NeoPro
 			setNeoPathPart(part);
 			setNeoPropertyName(property);
 			return;
-		} catch (JSONException e) {
+		} catch (RuntimeException | JsonProcessingException e) {
 			throw new InvalidityException(ConstantsError.INVALID_VALUE + " '" + value + "'", e);
 		}
 	}

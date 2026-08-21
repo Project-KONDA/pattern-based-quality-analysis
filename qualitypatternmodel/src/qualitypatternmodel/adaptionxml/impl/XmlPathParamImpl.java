@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -18,8 +17,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
@@ -44,6 +42,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.utility.ConstantsXml;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Path
@@ -1048,10 +1047,10 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 		try {
 			String query = generateLocalXQuery();
 			if (getAlternatives() != null && !getAlternatives().isEmpty()) {
-				JSONArray array = new JSONArray();
-				array.put(query);
+				ArrayNode array = Util.jsonCreateArray();
+				array.add(query);
 				for (XmlPathParam alternative: getAlternatives()) {
-					array.put(((XmlPathParamImpl) alternative).generateLocalXQuery());
+					array.add(((XmlPathParamImpl) alternative).generateLocalXQuery());
 				}
 				query = array.toString();
 			}
@@ -1139,17 +1138,17 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 			oldAlts.add(a);
 		getAlternatives().clear();
 		try {
-			JSONArray array = new JSONArray(value);
-			value = array.getString(0);
-			if (array.length() > 1)
+			ArrayNode array = Util.jsonCreateArray();
+			value = array.get(0).asText();
+			if (array.size() > 1)
 				getAlternatives().clear();
-	        for (int i = 1; i < array.length(); i++) {
-	            String val = array.getString(i);
+	        for (int i = 1; i < array.size(); i++) {
+	            String val = array.get(i).asText();
 	            XmlPathParam alt = new XmlPathParamImpl();
 	            getAlternatives().add(alt);
 	            alt.setValueFromString(val);
 			}
-		} catch (JSONException e) {}
+		} catch (Exception e) {}
 
 		if (isValue() && value != null && !value.equals("") && !value.matches(ConstantsXml.REGEX_XMLPATH_ELEMENT)) {
 			getAlternatives().clear();

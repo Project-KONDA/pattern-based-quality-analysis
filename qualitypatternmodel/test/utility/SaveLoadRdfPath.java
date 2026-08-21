@@ -6,7 +6,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashSet;
 
-import org.json.JSONException;
 
 import jakarta.servlet.ServletException;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
@@ -19,7 +18,7 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 public class SaveLoadRdfPath {
 
-	public static void main(String[] args) throws ServletException, InvalidServletCallException, FailedServletCallException, IOException, JSONException {
+	public static void main(String[] args) throws ServletException, InvalidServletCallException, FailedServletCallException, IOException {
 		String filepath = "./temp/rdfpathtest";
 		String pack = "adaptionrdf";
 		String filepath2 = filepath + "." + pack;

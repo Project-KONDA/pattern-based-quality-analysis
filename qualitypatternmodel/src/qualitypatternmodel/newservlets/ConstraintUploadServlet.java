@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Map;
 
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -42,7 +42,7 @@ public class ConstraintUploadServlet extends HttpServlet {
 	    
 		int  callId = ServletUtilities.logCall("POST", this.getClass().getName(), path, params);
 		try {
-			JSONObject result = applyPost(path, params, file);
+			ObjectNode result = applyPost(path, params, file);
 			ServletUtilities.putResponse(response, callId, result, HttpURLConnection.HTTP_ACCEPTED);
 		} catch (Exception e) {
 			ServletUtilities.putResponseError(response, callId, e);
@@ -67,7 +67,7 @@ public class ConstraintUploadServlet extends HttpServlet {
 	    return targetPath.toFile();
 	}
 
-	public static JSONObject applyPost(String path, Map<String, String[]> parameterMap, File file) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public static ObjectNode applyPost(String path, Map<String, String[]> parameterMap, File file) throws InvalidServletCallException, FailedServletCallException, IOException {
 		if (path != null) {
 			String[] pathparts = path.split("/");
 			if (pathparts.length > 0 || pathparts.length > 3 || !pathparts[0].equals("")) {

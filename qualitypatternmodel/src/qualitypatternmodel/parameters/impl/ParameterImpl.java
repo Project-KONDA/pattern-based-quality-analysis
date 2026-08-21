@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONArray;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaFilterPart;
@@ -329,7 +329,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @generated NOT
 	 */
 	@Override
-	public JSONArray getOptionsAsJsonArray() {
+	public ArrayNode getOptionsAsJsonArray() {
 		throw new UnsupportedOperationException(this.getClass().getSimpleName());
 	}
 

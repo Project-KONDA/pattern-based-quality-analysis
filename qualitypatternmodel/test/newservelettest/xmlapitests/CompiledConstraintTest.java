@@ -11,8 +11,8 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -265,13 +265,13 @@ public class CompiledConstraintTest {
 		params.put(ConstantsJSON.CONSTRAINTS, new String[] {compiledJSON});
 		params.put("files", new String[] { "lido.xml" });
 
-		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params);
-		JSONObject object = result.getJSONArray("result").getJSONObject(0);
-		String name = object.getString("constraintName");
+		ObjectNode result = ConstraintExecuteServlet.applyGet("/xml", params);
+		ObjectNode object = (ObjectNode) result.get("result").get(0);
+		String name = object.get("constraintName").asText();
 		System.out.println(name);
-		JSONArray array = object.getJSONArray("incidents");
-		for (int i = 0; i<array.length();i++)
-			System.out.println(" - " + array.getJSONObject(i).getString("snippet"));
+		ArrayNode array = (ArrayNode) object.get("incidents");
+		for (int i = 0; i<array.size();i++)
+			System.out.println(" - " + array.get(i).get("snippet").asText());
 	}
 
 }

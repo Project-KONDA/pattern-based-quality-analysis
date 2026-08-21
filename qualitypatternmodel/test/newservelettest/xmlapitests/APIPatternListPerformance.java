@@ -11,12 +11,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Collectors;
-
 import org.apache.commons.io.FileUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -118,16 +116,16 @@ public class APIPatternListPerformance {
 
 	static String newConstraint(String pattern, String variant)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		JSONObject ob = TemplateInstantiateServlet.applyPut("/xml/" + pattern + "/" + variant,
+		ObjectNode ob = TemplateInstantiateServlet.applyPut("/xml/" + pattern + "/" + variant,
 				getEmptyParams());
 		try {
-			return ob.getString(ConstantsJSON.CONSTRAINT_ID);
-		} catch (JSONException e) {
+			return ob.get(ConstantsJSON.CONSTRAINT_ID).asText();
+		} catch (RuntimeException e) {
 			return null;
 		}
 	}
 
-	static JSONObject getConstraint(String id)
+	static ObjectNode getConstraint(String id)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		return ConstraintServlet.applyGet("/xml/" + id, getEmptyParams());
 	}
@@ -165,7 +163,7 @@ public class APIPatternListPerformance {
 		for (String key: obj.keySet())
 			if (param.startsWith(key)) {
 				ParameterFragmentImpl.ALLOW_IGNORE_MAP = true;
-				setConstraintParameter(constraintId, param, obj.getString(key));
+				setConstraintParameter(constraintId, param, obj.get(key).asText());
 				ParameterFragmentImpl.ALLOW_IGNORE_MAP = default_allow_ignore_map;
 				return;
 			}
@@ -175,7 +173,7 @@ public class APIPatternListPerformance {
 	private static void setConstraintParameter(String constraintId, String parameterId, String value) {
 		Map<String, String[]> params1 = APICallTests.getEmptyParams();
 		params1.put(parameterId, new String[] { value });
-		JSONObject result = null;
+		ObjectNode result = null;
 		try {
 			result = ConstraintServlet.applyPost("/xml/" + constraintId, params1);
 		} catch (InvalidServletCallException | FailedServletCallException e) {

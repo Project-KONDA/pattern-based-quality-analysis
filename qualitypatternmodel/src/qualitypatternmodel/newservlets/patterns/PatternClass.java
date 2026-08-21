@@ -3,7 +3,7 @@ package qualitypatternmodel.newservlets.patterns;
 import java.io.IOException;
 import java.util.Map;
 
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -50,10 +50,10 @@ abstract public class PatternClass {
 	protected PatternClass(String id, String name, String description, Boolean genericValid, Boolean xmlValid, Boolean rdfValid, Boolean neoValid) {
 		try {
 			String classname = this.getClass().getSimpleName();
-			JSONObject info = ServletUtilities.getTemplateInfo(classname);
-			id = info.getString(ConstantsJSON.INFO_ID);
-			name = info.getString(ConstantsJSON.INFO_NAME);
-			description = info.getString(ConstantsJSON.INFO_DESCRIPTION);
+			ObjectNode info = ServletUtilities.getTemplateInfo(classname);
+			id = info.get(ConstantsJSON.INFO_ID).asText();
+			name = info.get(ConstantsJSON.INFO_NAME).asText();
+			description = info.get(ConstantsJSON.INFO_DESCRIPTION).asText();
 		} catch (IOException e) {};
 
 		this.id = id;

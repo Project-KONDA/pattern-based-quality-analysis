@@ -14,8 +14,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoDirection;
@@ -32,6 +31,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.KeyValueParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.ConstantsNeo;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -333,9 +333,9 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		try {
-			JSONObject object = new JSONObject(value);
+			ObjectNode object = Util.jsonCreateObject(value);
 
-			Iterator<String> keys = object.keys();
+			Iterator<String> keys = object.fieldNames();
 			List<String> allowedKeys = Arrays.asList(ConstantsNeo.JSON_NEO_EDGE, ConstantsNeo.JSON_NEO_TARGETS, ConstantsNeo.JSON_NEO_KEYVALUE);
 			while (keys.hasNext()) {
 				String next = keys.next();
@@ -360,14 +360,14 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 //				keyvalue.setValueFromString(object.get(Constants.JSON_NEO_KEYVALUE).toString());
 //				setKeyValueParam(keyvalue);
 			}
-		} catch (JSONException e) {
+		} catch (Exception e) {
 			throw new InvalidityException("Invalid Value ", e);
 		}
 	}
 
 	@Override
 	public String getValueAsString() {
-		JSONObject object = new JSONObject();
+		ObjectNode object = Util.jsonCreateObject();
 		try {
 			if (getNeoEdgeLabel() != null && getNeoEdgeLabel().getValueAsString() != null) {
 				object.put(ConstantsNeo.JSON_NEO_EDGE, getNeoEdgeLabel().getValueAsString().toString());
@@ -378,8 +378,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			if (getKeyValueParam() != null && getKeyValueParam().getValueAsString() != null) {
 				object.put(ConstantsNeo.JSON_NEO_KEYVALUE, getKeyValueParam().getValueAsString().toString());
 			}
-		} catch (JSONException e) {}
-		if (object.length() < 1) {
+		} catch (RuntimeException e) {}
+		if (object.size() < 1) {
 			return null;
 		}
 		return object.toString();

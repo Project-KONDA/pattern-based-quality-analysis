@@ -11,8 +11,9 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -31,7 +32,7 @@ import qualitypatternmodel.utility.ConstantsJSON;
 public class APITemplateTests {
 	private static final boolean DELETE = true;
 	private static String folder;
-	private static JSONObject store;
+	private static ObjectNode store;
 
 	public static void main(String[] args)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
@@ -133,10 +134,10 @@ public class APITemplateTests {
 
 	// __________ BASE FUNCTIONS __________
 
-	private static JSONObject setConstraintParameter(String constraintId, String parameterId, String value) {
+	private static ObjectNode setConstraintParameter(String constraintId, String parameterId, String value) {
 		Map<String, String[]> params1 = APICallTests.getEmptyParams();
 		params1.put(parameterId, new String[] { value });
-		JSONObject result = null;
+		ObjectNode result = null;
 		try {
 			result = ConstraintServlet.applyPost("/xml/" + constraintId, params1);
 		} catch (InvalidServletCallException | FailedServletCallException e) {
@@ -153,16 +154,16 @@ public class APITemplateTests {
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		Map<String, String[]> params1 = APICallTests.getEmptyParams();
 		params1.put("constraints", new String[] { constraintID });
-		JSONObject query1 = ConstraintQueryServlet.applyGet2("/xml", params1);
+		ObjectNode query1 = ConstraintQueryServlet.applyGet2("/xml", params1);
 		APICallTests.assertQueryObject(query1);
-		JSONObject query2 = ConstraintQueryServlet.applyGet3("/xml/" + constraintID, APICallTests.getEmptyParams());
+		ObjectNode query2 = ConstraintQueryServlet.applyGet3("/xml/" + constraintID, APICallTests.getEmptyParams());
 		APICallTests.assertQueryObject(query2);
 		APICallTests.assertSimilarJSONObjects(query1, query2);
 
 		Map<String, String[]> params2 = APICallTests.getEmptyParams();
 		params2.put("constraintIDs", new String[] { constraintID });
 		params2.put("files", new String[] { "lido.xml", "demo_database.xml"});
-		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
+		ObjectNode result = ConstraintExecuteServlet.applyGet("/xml", params2);
 		APICallTests.assertExecuteResultObject(result, true);
 	}
 
@@ -179,7 +180,7 @@ public class APITemplateTests {
 	@Test
 	public void testTemplateCard()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("Card_xml").getInt("size") >= 1);
+		assert(store.get("Card_xml").get("size").asInt() >= 1);
 		testConstraint("Card_xml", "default", 
 				Map.of(
 						"XmlPath_Element_0", "//*", 
@@ -192,7 +193,7 @@ public class APITemplateTests {
 	@Test
 	public void testTemplateContains()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("Contains_xml").getInt("size") >= 1);
+		assert(store.get("Contains_xml").get("size").asInt() >= 1);
 		
 		testConstraint("Contains_xml", "default", 
 				Map.of(
@@ -205,7 +206,7 @@ public class APITemplateTests {
 	@Test
 	public void testTemplateMatch()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("Match_xml").getInt("size") >= 4);
+		assert(store.get("Match_xml").get("size").asInt() >= 4);
 
 		testConstraint("Match_xml", "default", 
 				Map.of(
@@ -218,7 +219,7 @@ public class APITemplateTests {
 	@Test
 	public void testTemplateCompSet()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("CompSet_xml").getInt("size") >= 1);
+		assert(store.get("CompSet_xml").get("size").asInt() >= 1);
 
 		testConstraint("CompSet_xml", "default",
 				Map.of("XmlPath_Element_0", "//*",
@@ -230,7 +231,7 @@ public class APITemplateTests {
 	@Test
 	public void testTemplateMandAtt()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("MandAtt_xml").getInt("size") >= 1);
+		assert(store.get("MandAtt_xml").get("size").asInt() >= 1);
 
 		testConstraint("MandAtt_xml", "default",
 				Map.of(
@@ -241,7 +242,7 @@ public class APITemplateTests {
 	@Test
 	public void testTemplateStringLength()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("StringLength_xml").getInt("size") >= 2);
+		assert(store.get("StringLength_xml").get("size").asInt() >= 2);
 
 		testConstraint("StringLength_xml", "default",
 				Map.of(
@@ -254,7 +255,7 @@ public class APITemplateTests {
 	@Test
 	public void testTemplateUniqueness()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("Unique_xml").getInt("size") >= 1);
+		assert(store.get("Unique_xml").get("size").asInt() >= 1);
 
 		testConstraint("Unique_xml", "default",
 				Map.of("XmlPath_Element_0", "//*",
@@ -264,7 +265,7 @@ public class APITemplateTests {
 	@Test
 	public void testTemplateValidLink()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("ValidLink_xml").getInt("size") >= 1);
+		assert(store.get("ValidLink_xml").get("size").asInt() >= 1);
 
 		testConstraint("ValidLink_xml", "default",
 				Map.of(
@@ -276,7 +277,7 @@ public class APITemplateTests {
 
 	@Test
 	public void testTemplateMandContent() throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		assert(store.getJSONObject("MandCont_xml").getInt("size") >= 3);
+		assert(store.get("MandCont_xml").get("size").asInt() >= 3);
 
 		testConstraint("MandCont_xml", "default",
 				Map.of(

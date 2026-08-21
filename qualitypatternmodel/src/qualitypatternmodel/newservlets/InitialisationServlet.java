@@ -13,8 +13,8 @@ import java.util.Date;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EPackage;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletContext;
@@ -59,7 +59,7 @@ public class InitialisationServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 //		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
-			JSONObject result = applyGet(path, params);
+			ObjectNode result = applyGet(path, params);
 			ServletUtilities.putResponseUnlogged(response, result, HttpServletResponse.SC_OK);
 		}
 		catch (Exception e) {
@@ -385,11 +385,11 @@ public class InitialisationServlet extends HttpServlet {
 		for (File file: jsonFiles) {
 			String path = file.getAbsolutePath();
 			try {
-				JSONObject json = readJsonFromFile(file);
+				ObjectNode json = readJsonFromFile(file);
 				initializeVariant(json, path);
 			} catch (IOException e) {
 				ServletUtilities.logError(new InvalidityException("Invalid JSON File on " + path + ": " + e.getMessage(), e), 2);
-			} catch (JSONException e) {
+			} catch (RuntimeException e) {
 				ServletUtilities.logError(new InvalidityException("Invalid JSON Format of File " + path + ": " + e.getMessage(), e), 2);
 			} catch (Exception e) {
 				ServletUtilities.logError(new InvalidityException("Specified Variant of File " + path + " is invalid: " + e.getMessage(), e), 2);
@@ -397,10 +397,10 @@ public class InitialisationServlet extends HttpServlet {
 		}
 	}
 	
-	private static void initializeVariant(JSONObject json, String path) throws IOException, JSONException, InvalidityException {
-		String templateID = json.getString(ConstantsJSON.TEMPLATE);
-		String technology = json.getString(ConstantsJSON.LANGUAGE);
-		String name = json.getString(ConstantsJSON.NAME);
+	private static void initializeVariant(ObjectNode json, String path) throws IOException, InvalidityException {
+		String templateID = json.path(ConstantsJSON.TEMPLATE).asText();
+		String technology = json.path(ConstantsJSON.LANGUAGE).asText();
+		String name = json.path(ConstantsJSON.NAME).asText();
 
 		try {
 			CompletePattern template = ServletUtilities.loadTemplate(technology, templateID);
@@ -433,7 +433,7 @@ public class InitialisationServlet extends HttpServlet {
 		return files;
 	}
 	
-	public static JSONObject readJsonFromFile(File file) throws IOException {
+	public static ObjectNode readJsonFromFile(File file) throws IOException {
         String content = new String(Files.readAllBytes(file.toPath()));
         return new JSONObject(content);
     }
@@ -445,7 +445,7 @@ public class InitialisationServlet extends HttpServlet {
 			    {"org.eclipse.emf.common", "org.eclipse.emf.common.util.URI"},
 			    {"org.eclipse.emf.ecore", "org.eclipse.emf.ecore.EObject"},
 			    {"org.eclipse.emf.ecore.xmi", "org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl"},
-			    {"json", "org.json.JSONObject"},
+			    {"json", "com.fasterxml.jackson.databind.node.ObjectNode"},
 			    {"basex", "org.basex.BaseX"},
 			    {"junit", "org.junit.Assert"},
 			    {"junit-jupiter", "org.junit.jupiter.api.Test"},
@@ -479,7 +479,7 @@ public class InitialisationServlet extends HttpServlet {
 	}
 
 
-	public static JSONObject applyGet(String path, Map<String, String[]> params) throws FailedServletCallException {
+	public static ObjectNode applyGet(String path, Map<String, String[]> params) throws FailedServletCallException {
 		if (path == null || path.equals("") || path.equals("/") || path.equals("/status") || path.equals("/health")) {
 			String version = System.getenv("MAVEN_VERSION");
 			version = (version != null) ? version : "dev";

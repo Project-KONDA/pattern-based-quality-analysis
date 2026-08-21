@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Collectors;
 import org.apache.commons.io.FileUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
@@ -33,7 +33,7 @@ public class APIVariantsStoreResults {
 	private static final boolean DELETE = true;
 	// __________ STATIC VARIABLES __________
 	private static String folder;
-	private static JSONObject store;
+	private static ObjectNode store;
 	private static Boolean default_allow_ignore_map;
 	private static final List<String[]> pairs = getTemplateVariantArrays();
 //	private static String jsonfile = "/jsonresult.json";
@@ -50,8 +50,8 @@ public class APIVariantsStoreResults {
 		JSONObject success = new JSONObject();
 		JSONObject failed = new JSONObject();
 		JSONObject result = new JSONObject();
-		result.put("failed", failed);
-		result.put("success", success);
+		result.set("failed", failed);
+		result.set("success", success);
 		
 		for (String[] array: pairs) {
 			try {
@@ -61,7 +61,7 @@ public class APIVariantsStoreResults {
 			}
 			success.put(array[0], array[1]);
 		}
-		System.out.println(result.toString(4));
+		System.out.println(Util.jsonPretty(result));
 		close();
 	}
 
@@ -113,9 +113,9 @@ public class APIVariantsStoreResults {
 				variantIDs.put(((JSONObject) variant).getString(ConstantsJSON.NAME));
 			
 			JSONObject object = new JSONObject();
-			object.put("IDs", variantIDs);
-			object.put("size", obj.getJSONArray(ConstantsJSON.VARIANTS).length());
-			store.put(obj.getString(ConstantsJSON.CONSTRAINT_ID), object);
+			object.set("IDs", variantIDs);
+			object.put("size", obj.get(ConstantsJSON.VARIANTS).size());
+			store.set(obj.get(ConstantsJSON.CONSTRAINT_ID).asText(), object);
 		}
 		System.out.println("STORE: " + store);
 	}
@@ -127,10 +127,10 @@ public class APIVariantsStoreResults {
 		List<String[]> pairs = new ArrayList<String[]>();
 		for (File file: files) {
 			try {
-				JSONObject object = InitialisationServlet.readJsonFromFile(file);
+				ObjectNode object = InitialisationServlet.readJsonFromFile(file);
 
-				String template = object.getString(ConstantsJSON.TEMPLATE);
-				String variant = object.getString(ConstantsJSON.NAME);
+				String template = object.get(ConstantsJSON.TEMPLATE).asText();
+				String variant = object.get(ConstantsJSON.NAME).asText();
 				String hasCustom = "" + object.has(ConstantsJSON.CUSTOM);
 				pairs.add(new String[] {template, variant, hasCustom});
 
@@ -154,7 +154,7 @@ public class APIVariantsStoreResults {
 		return new HashMap<String, String[]>();
 	}
 
-	static JSONObject getConstraint(String id)
+	static ObjectNode getConstraint(String id)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		return ConstraintServlet.applyGet("/xml/" + id, getEmptyParams());
 	}
@@ -187,17 +187,18 @@ public class APIVariantsStoreResults {
 		for (String key: obj.keySet())
 			if (param.startsWith(key)) {
 				ParameterFragmentImpl.ALLOW_IGNORE_MAP = true;
-				setConstraintParameter(constraintId, param, obj.getString(key));
+				setConstraintParameter(constraintId, param, obj.get(key).asText());
 				ParameterFragmentImpl.ALLOW_IGNORE_MAP = default_allow_ignore_map;
 				return;
 			}
+		}
 		throw new RuntimeException("No default value defined for:" + param);
 	}
 
 	private static void setConstraintParameter(String constraintId, String parameterId, String value) {
 		Map<String, String[]> params1 = APICallTests.getEmptyParams();
 		params1.put(parameterId, new String[] { value });
-		JSONObject result = null;
+		ObjectNode result = null;
 		try {
 			result = ConstraintServlet.applyPost("/xml/" + constraintId, params1);
 		} catch (InvalidServletCallException | FailedServletCallException e) {
@@ -217,22 +218,22 @@ public class APIVariantsStoreResults {
 		setAllConstraintParameter(constraintID);
 		Map<String, String[]> params1 = APICallTests.getEmptyParams();
 		params1.put("constraints", new String[] { constraintID });
-		JSONObject query = ConstraintQueryServlet.applyGet2("/xml", params1);
+		ObjectNode query = ConstraintQueryServlet.applyGet2("/xml", params1);
 
 		Map<String, String[]> params2 = APICallTests.getEmptyParams();
 		params2.put("constraintIDs", new String[] { constraintID });
 		params2.put("files", new String[] { "lido.xml", "demo_database.xml"});
-		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
+		ObjectNode result = ConstraintExecuteServlet.applyGet("/xml", params2);
 
 		JSONObject constraintinfo = new JSONObject();
 		constraintinfo.put("constraint", constraint);
 		constraintinfo.put("variant", variant);
 		constraintinfo.put("constraintID", constraintID);
-		constraintinfo.put("query", query);
-		constraintinfo.put("result", result);
+		constraintinfo.set("query", query);
+		constraintinfo.set("result", result);
 
-		JSONObject storage = Util.loadJson(jsonfile);
-		storage.put(constraint + "_" + variant, constraintinfo);
+		ObjectNode storage = Util.loadJson(jsonfile);
+		storage.set(constraint + "_" + variant, constraintinfo);
 		Util.exportJson(storage, jsonfile);
 		
 	}

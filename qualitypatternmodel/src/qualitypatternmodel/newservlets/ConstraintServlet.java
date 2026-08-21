@@ -8,9 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -40,7 +39,7 @@ public class ConstraintServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
-			JSONObject result;
+			ObjectNode result;
 			if (path.split("/").length == 2) {
 				result = applyGet2(path, params);
 			}
@@ -76,7 +75,7 @@ public class ConstraintServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("POST", this.getClass().getName(), path, params);
 		try{
-			JSONObject result = applyPost(path, params);
+			ObjectNode result = applyPost(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (FailedServletCallException e) {
@@ -91,7 +90,7 @@ public class ConstraintServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting a constraint: "
@@ -124,7 +123,7 @@ public class ConstraintServlet extends HttpServlet {
 //		return ServletUtilities.getPatternJSON(pattern);
 	}
 
-	public static JSONObject applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 2 || !pathparts[0].equals("") || !parameterMap.containsKey(ConstantsJSON.CONSTRAINT_IDS)) {
 			throw new InvalidServletCallException("Wrong URL for requesting a constraint: "
@@ -142,7 +141,7 @@ public class ConstraintServlet extends HttpServlet {
 		JSONObject result = new JSONObject();
 		for (String constraintId: constraintIds) {
 			try {
-				result.put(constraintId, ServletUtilities.loadConstraintJson(technology, constraintId));
+				result.set(constraintId, ServletUtilities.loadConstraintJson(technology, constraintId));
 			} catch (IOException e) {
 				throw new FailedServletCallException("constraint '" + constraintId + "' not found", e);
 			}
@@ -184,7 +183,7 @@ public class ConstraintServlet extends HttpServlet {
 		return "Constraint deleted successfully.";
 	}
 
-	public static JSONObject applyPost (String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyPost (String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException {
 		Map<String, String[]> parameterMap = new HashMap<String, String[]>(parameter);
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
@@ -247,9 +246,9 @@ public class ConstraintServlet extends HttpServlet {
 				ValueMap vm = pattern.getNamespaces();
 				vm.clear();
 				
-				Iterator<String> keys = object.keys();
+				Iterator<String> keys = object.fieldNames();
 				while (keys.hasNext()) {
-					String key = keys.next().toString();
+					String key = keys.next();
 					if (!key.equals("") && !key.matches(ConstantsXml.REGEX_PREFIX)) {
 						namespacevalid = false;
 						break;
@@ -260,7 +259,7 @@ public class ConstraintServlet extends HttpServlet {
 			        namespaces = true;
 				}
 				parameterMap.remove(ConstantsJSON.NAMESPACES);
-			} catch (JSONException e) {
+			} catch (RuntimeException e) {
 				ServletUtilities.logError(e);
 			}
 		}
@@ -279,33 +278,33 @@ public class ConstraintServlet extends HttpServlet {
 			}
 		}
 
-		JSONObject output = changeParameters(pattern, parameterMap);
+		ObjectNode output = changeParameters(pattern, parameterMap);
 		try {
 			if (name) {
-				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.NAME);
+				((ArrayNode) output.get(ConstantsJSON.SUCCESS)).add(ConstantsJSON.NAME);
 			}
 			if (database) {
-				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.DATABASE);
+				((ArrayNode) output.get(ConstantsJSON.SUCCESS)).add(ConstantsJSON.DATABASE);
 			}
 			if (datamodel) {
-				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.DATAMODEL);
+				((ArrayNode) output.get(ConstantsJSON.SUCCESS)).add(ConstantsJSON.DATAMODEL);
 			}
 			if (namespaces) {
-				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.NAMESPACES);
+				((ArrayNode) output.get(ConstantsJSON.SUCCESS)).add(ConstantsJSON.NAMESPACES);
 			}
 			if (!namespacevalid) {
 				if (output.has(ConstantsJSON.FAILED))
-					output.getJSONObject(ConstantsJSON.FAILED).put(ConstantsJSON.NAMESPACES, ConstantsError.INVALID_NAMESPACE_PREFIX);
+					((ObjectNode) output.get(ConstantsJSON.FAILED)).put(ConstantsJSON.NAMESPACES, ConstantsError.INVALID_NAMESPACE_PREFIX);
 				else {
 					JSONObject failed = new JSONObject();
 					failed.put(ConstantsJSON.NAMESPACES, ConstantsError.INVALID_NAMESPACE_PREFIX);
-					output.put(ConstantsJSON.FAILED, failed);
+					output.set(ConstantsJSON.FAILED, failed);
 				}
 			}
 			if (custom) {
-				output.getJSONArray(ConstantsJSON.SUCCESS).put(ConstantsJSON.CUSTOM);
+				((ArrayNode) output.get(ConstantsJSON.SUCCESS)).add(ConstantsJSON.CUSTOM);
 			}
-		} catch (JSONException e) {
+		} catch (RuntimeException e) {
 			ServletUtilities.logError(e);
 		}
 
@@ -318,12 +317,12 @@ public class ConstraintServlet extends HttpServlet {
 		}
 		try {
 			output.put(ConstantsJSON.LASTSAVED, timestamp);
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 
 		return output;
 	}
 
-	private static JSONObject changeParameters(CompletePattern pattern, Map<String, String[]> parameterMap) {
+	private static ObjectNode changeParameters(CompletePattern pattern, Map<String, String[]> parameterMap) {
 		//setup
 		Set<String> keys = parameterMap.keySet();
 		List<Fragment> fragments = pattern.getText().get(0).getFragmentsOrdered();
@@ -347,13 +346,13 @@ public class ConstraintServlet extends HttpServlet {
 					found = true;
 					try {
 						changeParameterFragment(frag, parameterMap.get(key));
-						success.put(key);
+						success.add(key);
 					} catch (InvalidityException e) {
 						JSONObject object = new JSONObject();
 						try {
 							object.put(key, e.getMessage());
-						} catch (JSONException f) {}
-						failed.put(object);
+						} catch (RuntimeException f) {}
+						failed.add(object);
 					}
 				}
 			}
@@ -361,8 +360,8 @@ public class ConstraintServlet extends HttpServlet {
 				JSONObject object = new JSONObject();
 				try {
 					object.put(key, ConstantsError.NOT_FOUND_PARAMETER);
-				} catch (JSONException f) {}
-				failed.put(object);
+					} catch (RuntimeException f) {}
+				failed.add(object);
 				notfound = true;
 			}
 		}
@@ -370,17 +369,17 @@ public class ConstraintServlet extends HttpServlet {
 		// output
 		JSONObject json = new JSONObject();
 		try {
-			if (success.length() > 0 || keys.size() == 0) {
-				json.put(ConstantsJSON.SUCCESS, success);
+			if (success.size() > 0 || keys.size() == 0) {
+				json.set(ConstantsJSON.SUCCESS, success);
 			}
-			if (failed.length() > 0) {
-				json.put(ConstantsJSON.FAILED, failed);
+			if (failed.size() > 0) {
+				json.set(ConstantsJSON.FAILED, failed);
 			}
-			if (failed.length() > 0 || notfound) {
-				json.put(ConstantsJSON.AVAILABLE, ServletUtilities.getAvailableParams(paramfragments));
+			if (failed.size() > 0 || notfound) {
+				json.set(ConstantsJSON.AVAILABLE, ServletUtilities.getAvailableParams(paramfragments));
 			}
 
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 		return json;
 	}
 	
@@ -397,10 +396,10 @@ public class ConstraintServlet extends HttpServlet {
 
 		// input
 		String input = call_values[0];
-		JSONObject ob = null;
+		ObjectNode ob = null;
 		try {
 			ob = new JSONObject(input);
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 
 		// case: value is not a json object
 		if (ob == null) {
@@ -446,7 +445,7 @@ public class ConstraintServlet extends HttpServlet {
                 hashMap.put(key, value);
             }
             return hashMap;
-        } catch (JSONException e) {
+		} catch (RuntimeException e) {
         	return null;
         }
     }

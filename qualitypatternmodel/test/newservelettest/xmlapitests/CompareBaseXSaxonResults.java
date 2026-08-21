@@ -7,8 +7,9 @@ import java.util.Comparator;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -26,8 +27,8 @@ public class CompareBaseXSaxonResults {
 	static String pathBase = "/jsonresult_Saxon_develop.json";
 	static String pathNew = "/jsonresult_Saxon.json";
 //	static String path2 = "/jsonresult_Saxon.json";
-	static JSONObject version_base;
-	static JSONObject version_new;
+	static ObjectNode version_base;
+	static ObjectNode version_new;
 	
 	@BeforeAll
 	public static void initialize() throws IOException {
@@ -55,8 +56,8 @@ public class CompareBaseXSaxonResults {
     	return joined.sorted(Comparator.comparing(a -> (String) a.get()[0]));
     }
 
-    static Stream<Arguments> newKeys () {
-        return version_new.keySet().stream()
+    static Stream<Arguments> newKeys() {
+		return Util.jsonKeySet(version_new).stream()
                 .map(item -> Arguments.of(item));
     }
 
@@ -64,7 +65,7 @@ public class CompareBaseXSaxonResults {
     @Order(0)
 	@Test
 	public void compareConstraints_length () {
-		assert(version_base.length() == version_new.length());
+		assert(version_base.size() == version_new.size());
 	}
 
     @Order(1)
@@ -85,8 +86,8 @@ public class CompareBaseXSaxonResults {
 	@ParameterizedTest
     @MethodSource("baseKeys")
 	public void compare_metadata (String constraintId) {
-		JSONObject c1 = version_base.getJSONObject(constraintId);
-		JSONObject c2 = version_new.getJSONObject(constraintId);
+		ObjectNode c1 = (ObjectNode) version_base.get(constraintId);
+		ObjectNode c2 = (ObjectNode) version_new.get(constraintId);
 
 		assertEquals(c1.get("constraint"), c2.get("constraint"));
 		assertEquals(c1.get("variant"), c2.get("variant"));
@@ -98,52 +99,52 @@ public class CompareBaseXSaxonResults {
 	@ParameterizedTest
     @MethodSource("baseKeys")
 	public void compare_constraints (String constraintId) {
-		JSONObject queryBase = version_base.getJSONObject(constraintId).getJSONObject("query");
-		JSONObject queryNew = version_new.getJSONObject(constraintId).getJSONObject("query");
+		ObjectNode queryBase = (ObjectNode) version_base.get(constraintId).get("query");
+		ObjectNode queryNew = (ObjectNode) version_new.get(constraintId).get("query");
 
-		assert(queryBase.getJSONArray("failed").isEmpty());
-		assert(queryNew.getJSONArray("failed").isEmpty());
+		assert(((ArrayNode) queryBase.get("failed")).isEmpty());
+		assert(((ArrayNode) queryNew.get("failed")).isEmpty());
 
-		JSONObject constraintqueryBase = queryBase.getJSONArray("constraints").getJSONObject(0);
-		JSONObject constraintqueryNew = queryNew.getJSONArray("constraints").getJSONObject(0);
+		ObjectNode constraintqueryBase = (ObjectNode) queryBase.get("constraints").get(0);
+		ObjectNode constraintqueryNew = (ObjectNode) queryNew.get("constraints").get(0);
 
-		assertEquals(constraintqueryBase.getString("constraintID"), constraintqueryNew.getString("constraintID"));
+		assertEquals(constraintqueryBase.get("constraintID").asText(), constraintqueryNew.get("constraintID").asText());
 //		assertEquals(constraintqueryBase.getJSONObject("custom").toString(), constraintqueryNew.getJSONObject("custom").toString());
-		assertEquals(constraintqueryBase.getString("name"), constraintqueryNew.getString("name"));
-		assertEquals(constraintqueryBase.getString("language"), constraintqueryNew.getString("language"));
-		assertEquals(constraintqueryBase.getString("technology"), constraintqueryNew.getString("technology"));
+		assertEquals(constraintqueryBase.get("name").asText(), constraintqueryNew.get("name").asText());
+		assertEquals(constraintqueryBase.get("language").asText(), constraintqueryNew.get("language").asText());
+		assertEquals(constraintqueryBase.get("technology").asText(), constraintqueryNew.get("technology").asText());
 	}
 
     @Order(5)
 	@ParameterizedTest
     @MethodSource("baseKeys")
 	public void compare_queries(String constraintId) {
-		JSONObject queryBase = version_base.getJSONObject(constraintId).getJSONObject("query");
-		JSONObject queryNew = version_new.getJSONObject(constraintId).getJSONObject("query");
-		JSONObject constraintqueryBase = queryBase.getJSONArray("constraints").getJSONObject(0);
-		JSONObject constraintqueryNew = queryNew.getJSONArray("constraints").getJSONObject(0);
+		ObjectNode queryBase = (ObjectNode) version_base.get(constraintId).get("query");
+		ObjectNode queryNew = (ObjectNode) version_new.get(constraintId).get("query");
+		ObjectNode constraintqueryBase = (ObjectNode) queryBase.get("constraints").get(0);
+		ObjectNode constraintqueryNew = (ObjectNode) queryNew.get("constraints").get(0);
 
-		assertQueryEquals(constraintqueryBase.getString("queryLine"), constraintqueryNew.getString("queryLine"));
-		assertQueryEquals(constraintqueryBase.getString("query"), constraintqueryNew.getString("query"));
-		assertEquals(constraintqueryBase.getString("queryPartialLine"), constraintqueryNew.getString("queryPartialLine"));
-		assertEquals(constraintqueryBase.getString("queryPartial"), constraintqueryNew.getString("queryPartial"));
+		assertQueryEquals(constraintqueryBase.get("queryLine").asText(), constraintqueryNew.get("queryLine").asText());
+		assertQueryEquals(constraintqueryBase.get("query").asText(), constraintqueryNew.get("query").asText());
+		assertEquals(constraintqueryBase.get("queryPartialLine").asText(), constraintqueryNew.get("queryPartialLine").asText());
+		assertEquals(constraintqueryBase.get("queryPartial").asText(), constraintqueryNew.get("queryPartial").asText());
 		assertEquals(constraintqueryBase.has("filter"), constraintqueryNew.has("filter"));
 		if (constraintqueryBase.has("filter")) {
-			assertFilterEquals(constraintqueryBase.getJSONObject("filter"), constraintqueryNew.getJSONObject("filter"));
+			assertFilterEquals((ObjectNode) constraintqueryBase.get("filter"), (ObjectNode) constraintqueryNew.get("filter"));
 		}
 	}
     
-    public void assertFilterEquals(JSONObject baseFilter, JSONObject newFilter) {
-    	JSONObject baseFilterFilter = baseFilter.getJSONObject("filter");
-    	JSONObject newFilterFilter = newFilter.getJSONObject("filter");
+	public void assertFilterEquals(ObjectNode baseFilter, ObjectNode newFilter) {
+	    	ObjectNode baseFilterFilter = (ObjectNode) baseFilter.get("filter");
+	    	ObjectNode newFilterFilter = (ObjectNode) newFilter.get("filter");
     	assertEquals(baseFilterFilter.toString(), newFilterFilter.toString());
     	
-    	assertEquals(baseFilter.getString("patternName"), newFilter.getString("patternName"));
-    	assertQueryEquals(baseFilter.getString("query"), newFilter.getString("query"));
-    	assertEquals(baseFilter.getString("language"), newFilter.getString("language"));
+    	assertEquals(baseFilter.get("patternName").asText(), newFilter.get("patternName").asText());
+    	assertQueryEquals(baseFilter.get("query").asText(), newFilter.get("query").asText());
+    	assertEquals(baseFilter.get("language").asText(), newFilter.get("language").asText());
 
-    	JSONObject baseFilterStructure = baseFilter.getJSONObject("structure");
-    	JSONObject newFilterStructure = newFilter.getJSONObject("structure");
+	    	ObjectNode baseFilterStructure = (ObjectNode) baseFilter.get("structure");
+	    	ObjectNode newFilterStructure = (ObjectNode) newFilter.get("structure");
     	assertEquals(baseFilterStructure.toString(), newFilterStructure.toString());    	
     }
     
@@ -155,50 +156,50 @@ public class CompareBaseXSaxonResults {
 	@ParameterizedTest
     @MethodSource("baseKeysOneTwo")
 	public void compareResults_metadata(String constraintId, int id) {
-		JSONObject resultBase = version_base.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id);
-		JSONObject resultNew = version_new.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id);
-		assertEquals(resultBase.getString("constraintID"), resultNew.getString("constraintID"));
-		assertEquals(resultBase.getString("file"), resultNew.getString("file"));
-		assertEquals(resultBase.getString("constraintName"), resultNew.getString("constraintName"));
-//		assertEquals(resultBase.getJSONObject("custom").toString(), resultNew.getJSONObject("custom").toString());
+		ObjectNode resultBase = (ObjectNode) version_base.get(constraintId).get("result").get("result").get(id);
+		ObjectNode resultNew = (ObjectNode) version_new.get(constraintId).get("result").get("result").get(id);
+		assertEquals(resultBase.get("constraintID").asText(), resultNew.get("constraintID").asText());
+		assertEquals(resultBase.get("file").asText(), resultNew.get("file").asText());
+		assertEquals(resultBase.get("constraintName").asText(), resultNew.get("constraintName").asText());
+//		assertEquals(resultBase.get("custom").toString(), resultNew.get("custom").toString());
 	}
 
     @Order(7)
 	@ParameterizedTest
     @MethodSource("baseKeysOneTwo")
 	public void compareResults_number_Findings(String constraintId, int id) {
-		JSONObject resultBase = version_base.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id);
-		JSONObject resultNew = version_new.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id);
-		assertEquals(resultBase.getNumber("totalFindings"), resultNew.getNumber("totalFindings"));
+		ObjectNode resultBase = (ObjectNode) version_base.get(constraintId).get("result").get("result").get(id);
+		ObjectNode resultNew = (ObjectNode) version_new.get(constraintId).get("result").get("result").get(id);
+		assertEquals(resultBase.get("totalFindings"), resultNew.get("totalFindings"));
 	}
 
     @Order(8)
 	@ParameterizedTest
     @MethodSource("baseKeysOneTwo")
 	public void compareResults_incidents_total(String constraintId, int id) {
-		JSONObject resultBase = version_base.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id);
-		if (version_new.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").length() < id)
-			System.out.println(version_new.getJSONObject(constraintId).getJSONObject("result"));
+		ObjectNode resultBase = (ObjectNode) version_base.get(constraintId).get("result").get("result").get(id);
+		if (version_new.get(constraintId).get("result").get("result").size() < id)
+			System.out.println(version_new.get(constraintId).get("result"));
 			
-		JSONObject resultNew = version_new.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id);
-		assertEquals(resultBase.getNumber("totalIncidents"), resultNew.getNumber("totalIncidents"));
+		ObjectNode resultNew = (ObjectNode) version_new.get(constraintId).get("result").get("result").get(id);
+		assertEquals(resultBase.get("totalIncidents"), resultNew.get("totalIncidents"));
 	}
 
     @Order(9)
 	@ParameterizedTest
     @MethodSource("baseKeysOneTwo")
-	public void compareResults_incidents_jsonarrays(String constraintId, int id) {
-		JSONObject resultBase = version_base.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id);
-		JSONObject resultNew = version_new.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id);
-		assertEquals(resultBase.getJSONArray("incidents").length(), resultNew.getJSONArray("incidents").length());
+	public void compareResults_incidents_arrays(String constraintId, int id) {
+		ObjectNode resultBase = (ObjectNode) version_base.get(constraintId).get("result").get("result").get(id);
+		ObjectNode resultNew = (ObjectNode) version_new.get(constraintId).get("result").get("result").get(id);
+		assertEquals(resultBase.get("incidents").size(), resultNew.get("incidents").size());
 	}
 
     @Order(10)
 	@ParameterizedTest
     @MethodSource("baseKeysOneTwo")
 	public void compareResults_incidents_baseInNew (String constraintId, int id) {
-		JSONArray incidentsBase = version_base.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id).getJSONArray("incidents");
-		JSONArray incidentsNew = version_new.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id).getJSONArray("incidents");
+		ArrayNode incidentsBase = (ArrayNode) version_base.get(constraintId).get("result").get("result").get(id).get("incidents");
+		ArrayNode incidentsNew = (ArrayNode) version_new.get(constraintId).get("result").get("result").get(id).get("incidents");
 		compareResults(incidentsBase, incidentsNew, constraintId, id);
     }
 
@@ -206,8 +207,8 @@ public class CompareBaseXSaxonResults {
 	@ParameterizedTest
     @MethodSource("baseKeysOneTwo")
 	public void compareResults_incidents_newInBase (String constraintId, int id) {
-		JSONArray incidentsBase = version_base.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id).getJSONArray("incidents");
-		JSONArray incidentsNew = version_new.getJSONObject(constraintId).getJSONObject("result").getJSONArray("result").getJSONObject(id).getJSONArray("incidents");
+		ArrayNode incidentsBase = (ArrayNode) version_base.get(constraintId).get("result").get("result").get(id).get("incidents");
+		ArrayNode incidentsNew = (ArrayNode) version_new.get(constraintId).get("result").get("result").get(id).get("incidents");
 		compareResults(incidentsNew, incidentsBase, constraintId, id);
     }
 
@@ -216,11 +217,11 @@ public class CompareBaseXSaxonResults {
 		JSONArray incidentsNewCopy = new JSONArray(incidentsNew.toString());
 		
 		int fail = 0;
-		for (int i = 0; i<incidentsBaseCopy.length(); i++) {
-			String incident = normalize(incidentsBaseCopy.getJSONObject(i).getString("snippet"));
+		for (int i = 0; i<incidentsBaseCopy.size(); i++) {
+			String incident = normalize(incidentsBaseCopy.get(i).get("snippet").asText());
 			boolean found = false;
-			for (int j = 0; j<incidentsNewCopy.length(); j++) {
-				String newIncident = normalize(incidentsNewCopy.getJSONObject(j).getString("snippet"));
+			for (int j = 0; j<incidentsNewCopy.size(); j++) {
+				String newIncident = normalize(incidentsNewCopy.get(j).get("snippet").asText());
 				if (compareStringResultReturn(incident, newIncident)) {
 					found = true;
 					incidentsNewCopy.remove(j);

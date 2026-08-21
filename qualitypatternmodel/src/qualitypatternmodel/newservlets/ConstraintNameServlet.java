@@ -3,8 +3,7 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 import java.util.Map;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,7 +26,7 @@ public class ConstraintNameServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("POST", this.getClass().getName(), path, params);
 		try{
-			JSONObject result = applyPost(path, params);
+			ObjectNode result = applyPost(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -35,7 +34,7 @@ public class ConstraintNameServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for setting a name in a constraint: "
@@ -82,7 +81,7 @@ public class ConstraintNameServlet extends HttpServlet {
 			result.put(ConstantsJSON.OLD_NAME, oldName);
 			result.put(ConstantsJSON.NAME, newName);
 			result.put(ConstantsJSON.LASTSAVED, timestamp);
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 
 		return result;
 //		return "Name of constraint updated successfully from '" + oldName + "' to '" + newName + "'.";

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONArray;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Comparable;
@@ -169,7 +169,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	public JSONArray getOptionsAsJsonArray() {
 		JSONArray jarray = new JSONArray();
 		for (ComparisonOperator comp: getOptions()) {
-			jarray.put(comp.getName());
+			jarray.add(comp.getName());
 		}
 		return jarray;
 	}

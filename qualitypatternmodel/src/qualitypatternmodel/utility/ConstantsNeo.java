@@ -76,11 +76,12 @@ public class ConstantsNeo {
 	public static final String NO_VALID_PROPERTY_IS_ACCESSABLE = "No valid Property is accessable";
 	public static final String NO_COUNT_ELEMENTS_EXISTS = "No Count Elements exists";
 	public static final String NO_BEGINNING_IS_SPECIFIED = "No Beginning is specified";
+	public static final String A_CYPHER_QUERY_NEED_A_MATCH_CLAUSE = "A cypher query need a Match-Clause";
+	public static final String A_MAP_FROM_RECHIVED_FROM_A_NEO4J_COMPONENT_SHOULD_ONLY_CONTAIN_ONE_ENTRY = "A Map from rechived from a Neo4J component should only contain one entry";
 
 	//Special Constants for addressing
 	public static final int FIRST_CYPHER_PROPERTY_ADDRESSING = 0;
 	public static final String SEPERATOR = ";";
-
 
 	//EXCEPTIONS
 	public static final String ONLY_ALPHANUMERICAL_VALUES_AND_UNDERSCORE = "Only numerical, alphanumerical values and underscore are allowed";

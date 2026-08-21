@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicEList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -27,7 +27,7 @@ public class VariantsServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
-			JSONObject result = applyGet(path, params);
+			ObjectNode result = applyGet(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -35,7 +35,7 @@ public class VariantsServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyGet (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException {
+	public static ObjectNode applyGet (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 2 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the variants: "
@@ -69,73 +69,73 @@ public class VariantsServlet extends HttpServlet {
 
 		// group_by
 		if (!parameterMap.containsKey(ConstantsJSON.API_GROUP_BY)) {
-			result.put(ConstantsJSON.VARIANTS, variants);
-			result.put(ConstantsJSON.SIZE, variants.length());
+			result.set(ConstantsJSON.VARIANTS, variants);
+			result.put(ConstantsJSON.SIZE, variants.size());
 			result.put(ConstantsJSON.TOTAL, getVariantsTotal(variants));
 		} else {
 			String[] group_by_raw = parameterMap.get(ConstantsJSON.API_GROUP_BY);
 			JSONArray group_by = new JSONArray(group_by_raw[0]);
-			JSONObject grouped = groupVariantsBy(variants, group_by);
-			result.put(ConstantsJSON.API_GROUP_BY, new JSONArray(group_by_raw[0]));
-			result.put(ConstantsJSON.VARIANTS, grouped);
-			result.put(ConstantsJSON.SIZE, variants.length());
+			ObjectNode grouped = groupVariantsBy(variants, group_by);
+			result.set(ConstantsJSON.API_GROUP_BY, group_by);
+			result.set(ConstantsJSON.VARIANTS, grouped);
+			result.put(ConstantsJSON.SIZE, variants.size());
 			result.put(ConstantsJSON.TOTAL, getVariantsTotal(grouped));
 		}
 		return result;
 	}
 
-	private static JSONObject orderJson = null;
-	private static int getCount(JSONObject item, String order) {
-		String templateId = item.optString(ConstantsJSON.TEMPLATE_ID);
-		String variantId = item.optString(ConstantsJSON.NAME);
+	private static ObjectNode orderJson = null;
+	private static int getCount(ObjectNode item, String order) {
+		String templateId = item.path(ConstantsJSON.TEMPLATE_ID).asText(null);
+		String variantId = item.path(ConstantsJSON.NAME).asText(null);
 		if (templateId == null || variantId == null)
 			return 0;
 		String name = templateId + "_" + variantId;
 		if (orderJson == null)
 			return 0;
-		JSONObject created, deleted, executed;
+		ObjectNode created, deleted, executed;
 		switch (order) {
 		case "created":
-			created = orderJson.optJSONObject(ConstantsJSON.COUNTER_CREATE);
+			created = (ObjectNode) orderJson.get(ConstantsJSON.COUNTER_CREATE);
 			if (created == null)
 				return 0;
-			return created.optInt(name, 0);
+			return created.path(name).asInt(0);
 		case "deleted":
-			deleted = orderJson.optJSONObject(ConstantsJSON.COUNTER_DELETE);
+			deleted = (ObjectNode) orderJson.get(ConstantsJSON.COUNTER_DELETE);
 			if (deleted == null)
 				return 0;
-			return deleted.optInt(name, 0);
+			return deleted.path(name).asInt(0);
 		case "executed":
-			executed = orderJson.optJSONObject(ConstantsJSON.COUNTER_EXECUTE);
+			executed = (ObjectNode) orderJson.get(ConstantsJSON.COUNTER_EXECUTE);
 			if (executed == null)
 				return 0;
-			return executed.optInt(name, 0);
+			return executed.path(name).asInt(0);
 		case "existing":
-			created = orderJson.optJSONObject(ConstantsJSON.COUNTER_CREATE);
-			deleted = orderJson.optJSONObject(ConstantsJSON.COUNTER_DELETE);
+			created = (ObjectNode) orderJson.get(ConstantsJSON.COUNTER_CREATE);
+			deleted = (ObjectNode) orderJson.get(ConstantsJSON.COUNTER_DELETE);
 			if (created == null)
 				return 0;
 			if (deleted == null)
-				return created.optInt(name, 0);
-			return Math.max(created.optInt(name, 0) - deleted.optInt(name, 0), 0);
+				return created.path(name).asInt(0);
+			return Math.max(created.path(name).asInt(0) - deleted.path(name).asInt(0), 0);
 		}
 		return 0;
 	}
 	
-	private static void orderVariants(JSONArray variants, String order) {
+	private static void orderVariants(ArrayNode variants, String order) {
 		try {
 			orderJson = Util.loadJson(ServletConstants.COUNTFILE);
 		} catch (IOException e) {
 			ServletUtilities.logError(e);
 		}
 
-	    List<JSONObject> list = new ArrayList<JSONObject>();
-	    for (int i = 0; i < variants.length(); i++) {
-	        list.add(variants.getJSONObject(i));
+	    List<ObjectNode> list = new ArrayList<ObjectNode>();
+	    for (int i = 0; i < variants.size(); i++) {
+	        list.add((ObjectNode) variants.get(i));
 	    }
 	    list.sort(Comparator.comparingInt(obj -> - getCount(obj, order)));
 	    for (int i = 0; i < list.size(); i++) {
-	    	variants.put(i, list.get(i));
+	    	variants.set(i, list.get(i));
 	    }
 	}
 
@@ -144,9 +144,9 @@ public class VariantsServlet extends HttpServlet {
 	private static JSONArray getVariantJSONs(String technology) {
 		List<JSONObject> templates = ServletUtilities.getTemplateJSONs(technology);
 		JSONArray variants = new JSONArray();
-		for (JSONObject template: templates) {
-			List<JSONObject> templatevariants = templateJSONToVariantJSONs(template);
-			variants.putAll(templatevariants);
+		for (ObjectNode template: templates) {
+			List<ObjectNode> templatevariants = templateJSONToVariantJSONs(template);
+			for (ObjectNode variant : templatevariants) variants.add(variant);
 		}
 		return variants;
 	}
@@ -156,31 +156,31 @@ public class VariantsServlet extends HttpServlet {
 		JSONArray variantsArray = template.getJSONArray(ConstantsJSON.VARIANTS);
 		JSONObject templateInfo = new JSONObject();
 
-		templateInfo.put(ConstantsJSON.CONSTRAINT_ID, template.optString(ConstantsJSON.CONSTRAINT_ID));
-		templateInfo.put(ConstantsJSON.NAME, template.optString(ConstantsJSON.NAME));
-		templateInfo.put(ConstantsJSON.DESCRIPTION, template.optString(ConstantsJSON.DESCRIPTION));
-		templateInfo.put(ConstantsJSON.NAMESPACES, template.optJSONObject(ConstantsJSON.NAMESPACES));
-		templateInfo.put(ConstantsJSON.TECHNOLOGY, template.optString(ConstantsJSON.LANGUAGE));
-		templateInfo.put(ConstantsJSON.LANGUAGE, template.optString(ConstantsJSON.LANGUAGE));
-		templateInfo.put(ConstantsJSON.EXECUTABLE_QUERY, template.optString(ConstantsJSON.EXECUTABLE_QUERY));
-		templateInfo.put(ConstantsJSON.EXECUTABLE_FILTER, template.optString(ConstantsJSON.EXECUTABLE_FILTER));
-		templateInfo.put(ConstantsJSON.EXECUTABLE_MQAF, template.optString(ConstantsJSON.EXECUTABLE_MQAF));
-		templateInfo.put(ConstantsJSON.EXECUTABLE, template.optString(ConstantsJSON.EXECUTABLE));
+		templateInfo.put(ConstantsJSON.CONSTRAINT_ID, template.path(ConstantsJSON.CONSTRAINT_ID).asText());
+		templateInfo.put(ConstantsJSON.NAME, template.path(ConstantsJSON.NAME).asText());
+		templateInfo.put(ConstantsJSON.DESCRIPTION, template.path(ConstantsJSON.DESCRIPTION).asText());
+		templateInfo.set(ConstantsJSON.NAMESPACES, template.get(ConstantsJSON.NAMESPACES));
+		templateInfo.put(ConstantsJSON.TECHNOLOGY, template.path(ConstantsJSON.LANGUAGE).asText());
+		templateInfo.put(ConstantsJSON.LANGUAGE, template.path(ConstantsJSON.LANGUAGE).asText());
+		templateInfo.set(ConstantsJSON.EXECUTABLE_QUERY, template.get(ConstantsJSON.EXECUTABLE_QUERY));
+		templateInfo.set(ConstantsJSON.EXECUTABLE_FILTER, template.get(ConstantsJSON.EXECUTABLE_FILTER));
+		templateInfo.set(ConstantsJSON.EXECUTABLE_MQAF, template.get(ConstantsJSON.EXECUTABLE_MQAF));
+		templateInfo.set(ConstantsJSON.EXECUTABLE, template.get(ConstantsJSON.EXECUTABLE));
 
-		for (int i = 0; i<variantsArray.length(); i++) {
-			JSONObject variant = variantsArray.getJSONObject(i);
-			variant.put(ConstantsJSON.TEMPLATE_ID, template.optString(ConstantsJSON.CONSTRAINT_ID));
-			variant.put(ConstantsJSON.TEMPLATE, templateInfo);
+		for (int i = 0; i<variantsArray.size(); i++) {
+			ObjectNode variant = (ObjectNode) variantsArray.get(i);
+			variant.put(ConstantsJSON.TEMPLATE_ID, template.path(ConstantsJSON.CONSTRAINT_ID).asText());
+			variant.set(ConstantsJSON.TEMPLATE, templateInfo);
 			variants.add(variant);
 		}
 		return variants;
 	}
 
 	private static int getVariantsTotal(Object json) {
-		if (json instanceof JSONArray)
-			return ((JSONArray) json).length();
+		if (json instanceof ArrayNode)
+			return ((ArrayNode) json).size();
 		else {
-			JSONObject obj = (JSONObject) json;
+			ObjectNode obj = (ObjectNode) json;
 			int sum = 0;
 			for (String key: obj.keySet()) {
 				sum += getVariantsTotal(obj.get(key));
@@ -191,27 +191,27 @@ public class VariantsServlet extends HttpServlet {
 
 	private static boolean filterJSONObject(JSONObject object, JSONObject filter_by) {
 		for (String key : filter_by.keySet()) {
-			if (!filterJSONObject(object, key, filter_by.optString(key)))
+			if (!filterObjectNode(object, key, filter_by.path(key).asText()))
 				return false;
 		}
 		return true;
 	}
 
-	private static boolean filterJSONObject(JSONObject object, String key, String value) {
-		JSONArray values = getValueArray(object, key);
+	private static boolean filterObjectNode(ObjectNode object, String key, String value) {
+		ArrayNode values = getValueArray(object, key);
 		if (values != null)
-			for (int i = 0; i<values.length(); i++) {
-				if (values.optString(i).equals(value))
+			for (int i = 0; i<values.size(); i++) {
+				if (values.get(i).asText().equals(value))
 					return true;
 			}
 		return false;
 	}
 
-	private static JSONArray getValueArray(JSONObject object, String key) {
+	private static ArrayNode getValueArray(ObjectNode object, String key) {
 		return getValueArray(object, key.split("\\."));
 	}
 
-	private static JSONArray getValueArray(JSONObject object, String[] keys) {
+	private static ArrayNode getValueArray(ObjectNode object, String[] keys) {
 		if (keys.length < 1 )
 			return null;
 		if (object.has(keys[0])) {
@@ -223,46 +223,52 @@ public class VariantsServlet extends HttpServlet {
 					return new JSONArray().put((String) subobject);
 			}
 			if (keys.length > 1) {
-				if (subobject instanceof JSONObject) {
-					return getValueArray((JSONObject) subobject, Arrays.copyOfRange(keys, 1, keys.length));
+				if (subobject instanceof ObjectNode) {
+					return getValueArray((ObjectNode) subobject, Arrays.copyOfRange(keys, 1, keys.length));
 				}
 			}
 		}
 		return null;
 	}
 
-	private static JSONObject groupVariantsBy(JSONArray variants, JSONArray group_by) {
+	private static ObjectNode groupVariantsBy(ArrayNode variants, ArrayNode group_by) {
 		if (group_by.isEmpty() || variants.isEmpty())
 			return new JSONObject().put(ConstantsJSON.NOGROUP, variants);
 		JSONObject result = new JSONObject();
-		for (int i = 0; i<variants.length(); i++) {
-			JSONObject variant = variants.optJSONObject(i);
-			JSONArray values = getValueArray(variant, group_by.getString(0));
+		for (int i = 0; i<variants.size(); i++) {
+			ObjectNode variant = (ObjectNode) variants.get(i);
+			ArrayNode values = getValueArray(variant, group_by.get(0).asText());
 			if (values == null || values.isEmpty()) {
 				if (result.has(ConstantsJSON.NOGROUP)) {
-					result.getJSONArray(ConstantsJSON.NOGROUP).put(variant);
+					((ArrayNode) result.get(ConstantsJSON.NOGROUP)).add(variant);
 				} else {
-					result.put(ConstantsJSON.NOGROUP, new JSONArray().put(variant));
+					ArrayNode group = new com.fasterxml.jackson.databind.ObjectMapper().createArrayNode();
+					group.add(variant);
+					result.set(ConstantsJSON.NOGROUP, group);
 				}
 			} else {
-				for (int j = 0; j<values.length(); j++) {
-					String valj = values.getString(j);
+				for (int j = 0; j<values.size(); j++) {
+					String valj = values.get(j).asText();
 					if (result.has(valj)) {
-						result.getJSONArray(valj).put(variant);
+						((ArrayNode) result.get(valj)).add(variant);
 					} else {
-						result.put(valj, new JSONArray().put(variant));
+						ArrayNode group = new com.fasterxml.jackson.databind.ObjectMapper().createArrayNode();
+						group.add(variant);
+						result.set(valj, group);
 					}
 				}
 			}
 		}
-		if (group_by.length() > 1) {
-			JSONObject temp = new JSONObject();
+		if (group_by.size() > 1) {
+			ObjectNode temp = new com.fasterxml.jackson.databind.ObjectMapper().createObjectNode();
 			group_by.remove(0);
 			
-			for (String key: result.keySet()) {
-				JSONArray variantgroup = result.optJSONArray(key);
-				JSONObject variantgrouped = groupVariantsBy(variantgroup, group_by);
-				temp.put(key, variantgrouped);
+			java.util.Iterator<String> keys = result.fieldNames();
+			while (keys.hasNext()) {
+				String key = keys.next();
+				ArrayNode variantgroup = (ArrayNode) result.get(key);
+				ObjectNode variantgrouped = groupVariantsBy(variantgroup, group_by);
+				temp.set(key, variantgrouped);
 			}
 			result = temp;
 		}

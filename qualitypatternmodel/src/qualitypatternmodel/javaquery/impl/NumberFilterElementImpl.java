@@ -10,8 +10,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
@@ -21,6 +20,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,10 +56,10 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 		setArgument(new ValueInterimImpl());
 	}
 
-	public NumberFilterElementImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public NumberFilterElementImpl(ObjectNode json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			ValueInterim argument = (ValueInterim) map.get(json.getInt("argument"));
+			ValueInterim argument = (ValueInterim) map.get(json.get("argument").asInt());
 			setArgument(argument);
 		}
 		catch (Exception e) {
@@ -88,12 +88,12 @@ public class NumberFilterElementImpl extends NumberFilterPartImpl implements Num
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = new JSONObject();
+	public ObjectNode toJson() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put("class", getClass().getSimpleName());
 			result.put("argument", getArgument().getInterimPartId());
-		} catch (JSONException e) {
+		} catch (RuntimeException e) {
 		}
 		return result;
 	}

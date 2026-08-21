@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicEList;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,7 +26,7 @@ public class PatternListServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
-			JSONObject result = applyGet(path, params);
+			ObjectNode result = applyGet(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -34,7 +34,7 @@ public class PatternListServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length < 3  || pathparts.length > 4  || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting a list of a constraints or templates: "
@@ -99,9 +99,9 @@ public class PatternListServlet extends HttpServlet {
 //		return patterns;
 //	}
 
-	private static JSONObject getPatternJsons(String technology, String level)
+	private static ObjectNode getPatternJsons(String technology, String level)
 			throws InvalidServletCallException {
-		List<JSONObject> patterns = null;
+		List<ObjectNode> patterns = null;
 		switch (level) {
 		case Constants.LVLALL:
 			patterns = ServletUtilities.getAllPatternJsons(technology);
@@ -119,11 +119,11 @@ public class PatternListServlet extends HttpServlet {
 		return ServletUtilities.combinePatternJSONs(patterns);
 	}
 
-	private static JSONObject getPatternJsons(String technology, String level, String datamodel)
+	private static ObjectNode getPatternJsons(String technology, String level, String datamodel)
 			throws InvalidServletCallException {
 		
 
-		List<JSONObject> allTemplates = null;
+		List<ObjectNode> allTemplates = null;
 		switch (level) {
 		case Constants.LVLALL:
 		case Constants.LVLTEMPLATE:
@@ -136,10 +136,10 @@ public class PatternListServlet extends HttpServlet {
 			break;
 		}
 
-		List<JSONObject> selectedTemplates = new BasicEList<JSONObject>();
+		List<ObjectNode> selectedTemplates = new BasicEList<ObjectNode>();
 		
-		for (JSONObject template: allTemplates) {
-			if (template.has(ConstantsJSON.DATAMODEL) && datamodel.equals(template.getString(ConstantsJSON.DATAMODEL)))
+		for (ObjectNode template: allTemplates) {
+			if (template.has(ConstantsJSON.DATAMODEL) && datamodel.equals(template.get(ConstantsJSON.DATAMODEL).asText()))
 					selectedTemplates.add(template);
 		}
 		return ServletUtilities.combinePatternJSONs(selectedTemplates);

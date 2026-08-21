@@ -3,6 +3,7 @@
 package qualitypatternmodel.patternstructure.impl;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.*;
 
@@ -23,7 +24,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.json.JSONObject;
 import qualitypatternmodel.adaptionneo4j.NeoEdge;
 import qualitypatternmodel.adaptionneo4j.NeoElement;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -65,8 +65,7 @@ import qualitypatternmodel.utility.JavaQueryTranslationUtility;
  * @generated
  */
 public abstract class PatternImpl extends PatternElementImpl implements Pattern {
-	private static final String A_MAP_FROM_RECHIVED_FROM_A_NEO4J_COMPONENT_SHOULD_ONLY_CONTAIN_ONE_ENTRY = "A Map from rechived from a Neo4J component should only contain one entry";
-	private static final String A_CYPHER_QUERY_NEED_A_MATCH_CLAUSE = "A cypher query need a Match-Clause";
+	
 	/**
 	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -307,7 +306,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		if(!matchClause.isEmpty()) {
 			matchClause = ConstantsNeo.CLAUSE_MATCH + ConstantsNeo.ONE_WHITESPACE  + matchClause;
 		} else {
-			throw new InvalidityException(A_CYPHER_QUERY_NEED_A_MATCH_CLAUSE);
+			throw new InvalidityException(ConstantsNeo.A_CYPHER_QUERY_NEED_A_MATCH_CLAUSE);
 		}
 
 		String whereClause = new String();
@@ -425,7 +424,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		tempMap = neoElement.getCypherReturn();
 
 		if (tempMap.keySet().stream().count() != 1) {
-			throw new InvalidityException(A_MAP_FROM_RECHIVED_FROM_A_NEO4J_COMPONENT_SHOULD_ONLY_CONTAIN_ONE_ENTRY);
+			throw new InvalidityException(ConstantsNeo.A_MAP_FROM_RECHIVED_FROM_A_NEO4J_COMPONENT_SHOULD_ONLY_CONTAIN_ONE_ENTRY);
 		}
 
 		for (Map.Entry<Integer, String> entry : tempMap.entrySet()) {

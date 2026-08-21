@@ -11,8 +11,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.emf.common.util.BasicEList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -27,7 +27,7 @@ import qualitypatternmodel.newservlets.InitialisationServlet;
 public class JavaFunctionTests {
 
 	// __________ SETUP __________
-	static JSONObject jsoninitialize = null;
+	static ObjectNode jsoninitialize = null;
 
 	@BeforeAll
 	public static void initialize() throws IOException {
@@ -43,10 +43,10 @@ public class JavaFunctionTests {
     static List<Arguments> validateLinkSource() {
     	List<Arguments> args = new BasicEList<Arguments>();
     	try {
-        	JSONArray source = jsoninitialize.getJSONArray("validateLink");
-        	for(int i = 0; i<source.length(); i++) {
-        		JSONObject testcase = source.getJSONObject(i);
-        		args.add(Arguments.of(testcase.getString("link"), testcase.getBoolean("expected")));
+        	ArrayNode source = (ArrayNode) jsoninitialize.get("validateLink");
+        	for(int i = 0; i<source.size(); i++) {
+        		ObjectNode testcase = (ObjectNode) source.get(i);
+        		args.add(Arguments.of(testcase.get("link").asText(), testcase.get("expected").asBoolean()));
         	}
     	} catch(Exception e) {}
     	return args;
@@ -55,10 +55,10 @@ public class JavaFunctionTests {
     static List<Arguments> linkImageMinSizeSource() {
     	List<Arguments> args = new BasicEList<Arguments>();
     	try {
-	    	JSONArray source = jsoninitialize.getJSONArray("linkImageMinSize");
-	    	for(int i = 0; i<source.length(); i++) {
-	    		JSONObject testcase = source.getJSONObject(i);
-	    		args.add(Arguments.of(testcase.getString("link"), testcase.getInt("size"), testcase.getBoolean("expected")));
+	    	ArrayNode source = (ArrayNode) jsoninitialize.get("linkImageMinSize");
+	    	for(int i = 0; i<source.size(); i++) {
+	    		ObjectNode testcase = (ObjectNode) source.get(i);
+	    		args.add(Arguments.of(testcase.get("link").asText(), testcase.get("size").asInt(), testcase.get("expected").asBoolean()));
 	    	}
 		} catch(Exception e) {}
     	return args;
@@ -67,10 +67,10 @@ public class JavaFunctionTests {
     static List<Arguments> linkMimeTypeSource() {
     	List<Arguments> args = new BasicEList<Arguments>();
     	try {
-	    	JSONArray source = jsoninitialize.getJSONArray("linkMimeType");
-	    	for(int i = 0; i<source.length(); i++) {
-	    		JSONObject testcase = source.getJSONObject(i);
-	    		args.add(Arguments.of(testcase.getString("link"), testcase.getString("type"), testcase.getBoolean("expected")));
+	    	ArrayNode source = (ArrayNode) jsoninitialize.get("linkMimeType");
+	    	for(int i = 0; i<source.size(); i++) {
+	    		ObjectNode testcase = (ObjectNode) source.get(i);
+	    		args.add(Arguments.of(testcase.get("link").asText(), testcase.get("type").asText(), testcase.get("expected").asBoolean()));
 	    	}
     	} catch(Exception e) {}
     	return args;
@@ -79,10 +79,10 @@ public class JavaFunctionTests {
     static List<Arguments> linkSourceSource() {
     	List<Arguments> args = new BasicEList<Arguments>();
     	try {
-	    	JSONArray source = jsoninitialize.getJSONArray("linkSource");
-	    	for(int i = 0; i<source.length(); i++) {
-	    		JSONObject testcase = source.getJSONObject(i);
-	    		args.add(Arguments.of(testcase.getString("link"), testcase.getString("source"), testcase.getBoolean("expected")));
+	    	ArrayNode source = (ArrayNode) jsoninitialize.get("linkSource");
+	    	for(int i = 0; i<source.size(); i++) {
+	    		ObjectNode testcase = (ObjectNode) source.get(i);
+	    		args.add(Arguments.of(testcase.get("link").asText(), testcase.get("source").asText(), testcase.get("expected").asBoolean()));
 	    	}
     	} catch(Exception e) {}
     	return args;

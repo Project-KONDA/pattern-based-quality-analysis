@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.textrepresentation.impl;
 
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,9 +20,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -167,22 +165,22 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	}
 
 
-	public PatternTextImpl(CompletePattern pattern, JSONObject json) throws JSONException, InvalidityException {
+	public PatternTextImpl(CompletePattern pattern, ObjectNode json) throws InvalidityException {
 		super();
 
 		//template check
-		String template = json.getString(ConstantsJSON.TEMPLATE);
+		String template = json.get(ConstantsJSON.TEMPLATE).asText();
 		if (!pattern.getPatternId().equals(template)) {
 			throw new InvalidityException("Selected Pattern '" + pattern.getPatternId() + "' does not match '" + template + "'.");
 		}
 		pattern.getLanguage().getLiteral();
-		String language = json.getString(ConstantsJSON.LANGUAGE);
+		String language = json.get(ConstantsJSON.LANGUAGE).asText();
 		if (!pattern.getLanguage().getLiteral().equals(language)) {
 			throw new InvalidityException("The language of the selected Pattern '" + pattern.getPatternId() + "' is '" + pattern.getLanguage().getLiteral() + "', which does not match '" + language + "'.");
 		}
 
 		// name
-		String name = json.getString(ConstantsJSON.NAME);
+		String name = json.get(ConstantsJSON.NAME).asText();
 		if (!name.matches(Constants.ID_REGEX))
 			throw new InvalidityException(ConstantsError.INVALID_VARIANT_ID);
 		this.setName(name);
@@ -196,26 +194,26 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 					throw new InvalidityException(ConstantsError.DUPLICATE_VARIANT_NAMES + ": " + template + "_" + name);
 			}
 		}
-		Boolean typeConstraint = json.getBoolean(ConstantsJSON.TYPE_CONSTRAINT);
+		Boolean typeConstraint = json.get(ConstantsJSON.TYPE_CONSTRAINT).asBoolean();
 		this.setTypeConstraint(typeConstraint);
 		
 		// custom
 		if (json.has(ConstantsJSON.CUSTOM)) {
-			if (json.get(ConstantsJSON.CUSTOM) instanceof JSONObject) {
-				JSONObject custom = json.getJSONObject(ConstantsJSON.CUSTOM);
+			if (json.get(ConstantsJSON.CUSTOM) instanceof ObjectNode) {
+				ObjectNode custom = (ObjectNode) json.get(ConstantsJSON.CUSTOM);
 				this.setCustom(custom);
 			} else 
-				ServletUtilities.log( "Variant '" + name + " for pattern " + pattern.getPatternId() + " has an invalid JSONObject as " + ConstantsJSON.CUSTOM + " value.");
+				ServletUtilities.log( "Variant '" + name + " for pattern " + pattern.getPatternId() + " has an invalid JSON object as " + ConstantsJSON.CUSTOM + " value.");
 		}
 
 		// pattern
 		pattern.getText().add(this);
 
 		// fragments
-		JSONArray fragments = json.getJSONArray("fragments");
+		ArrayNode fragments = (ArrayNode) json.get("fragments");
 		int id_counter = 0;
-		for (int i = 0; i < fragments.length(); i++) {
-            JSONObject fragmentObject = fragments.getJSONObject(i);
+		for (int i = 0; i < fragments.size(); i++) {
+            ObjectNode fragmentObject = (ObjectNode) fragments.get(i);
 
             boolean hasText = fragmentObject.has(ConstantsJSON.TEXT);
             boolean hasParams = fragmentObject.has(ConstantsJSON.PARAMETER);
@@ -233,7 +231,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
             else if (hasParams && hasValue) {
 				getParameterPredefinitions().add(new ParameterPredefinitionImpl(pattern, fragmentObject));
 			} else if (hasText) {
-            	String text = fragmentObject.getString(ConstantsJSON.TEXT);
+            	String text = fragmentObject.get(ConstantsJSON.TEXT).asText();
             	addFragment(new TextFragmentImpl(text));
             } else {
 				throw new InvalidityException("Fragment needs text or params and value or name!");
@@ -454,13 +452,13 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			json.put(ConstantsJSON.TYPE_CONSTRAINT, isTypeConstraint());
 			JSONArray fragments = new JSONArray();
 			for (Fragment fragment: getFragmentsOrdered()) {
-				fragments.put(fragment.generateJSONObject());
+				fragments.add(fragment.generateJSONObject());
 			}
-			json.put(ConstantsJSON.FRAGMENTS, fragments);
-			json.put(ConstantsJSON.PARAMETER, ServletUtilities.getAvailableParams(getFragmentsOrdered()));
+			json.set(ConstantsJSON.FRAGMENTS, fragments);
+			json.set(ConstantsJSON.PARAMETER, ServletUtilities.getAvailableParams(getFragmentsOrdered()));
 			if (custom != null && !custom.isEmpty())
-				json.put(ConstantsJSON.CUSTOM, getCustom());
-		} catch (JSONException e) {
+				json.set(ConstantsJSON.CUSTOM, getCustom());
+		} catch (RuntimeException e) {
 			ServletUtilities.logError(e);
 		}
 		return json;
@@ -481,16 +479,16 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 
 			JSONArray fragments = new JSONArray();
 			for (Fragment fragment: getFragmentsOrdered()) {
-				fragments.put(fragment.generateVariantJSONObject());
+				fragments.add(fragment.generateVariantJSONObject());
 			}
 
 			for (ParameterPredefinition predefinition: getParameterPredefinitions()) {
-				fragments.put(predefinition.generateVariantJSONObject());
+				fragments.add(predefinition.generateVariantJSONObject());
 			}
 			if (custom != null && !custom.isEmpty())
-				result.put(ConstantsJSON.CUSTOM, getCustom());
-			result.put(ConstantsJSON.FRAGMENTS, fragments);
-		} catch (JSONException e) {
+				result.set(ConstantsJSON.CUSTOM, getCustom());
+			result.set(ConstantsJSON.FRAGMENTS, fragments);
+		} catch (RuntimeException e) {
 			e.printStackTrace();
 		}
 		return result;
@@ -503,7 +501,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @generated NOT
 	 */
 	@Override
-	public void addToCustom(JSONObject addition) {
+	public void addToCustom(ObjectNode addition) {
 		if (custom == null)
 			setCustom(addition);
 		for (String key: addition.keySet())

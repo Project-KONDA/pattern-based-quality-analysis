@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONArray;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
@@ -131,7 +131,7 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	public JSONArray getOptionsAsJsonArray() {
 		JSONArray jarray = new JSONArray();
 		for (ReturnType type: getOptions()) {
-			jarray.put(type.getName());
+			jarray.add(type.getName());
 		}
 		return jarray;
 	}
