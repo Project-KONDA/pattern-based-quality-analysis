@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.textrepresentation.impl;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -144,7 +145,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @generated
 	 * @ordered
 	 */
-	protected static final JSONObject CUSTOM_EDEFAULT = null;
+	protected static final ObjectNode CUSTOM_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getCustom() <em>Custom</em>}' attribute.
@@ -154,7 +155,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @generated
 	 * @ordered
 	 */
-	protected JSONObject custom = CUSTOM_EDEFAULT;
+	protected ObjectNode custom = CUSTOM_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -387,7 +388,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @generated
 	 */
 	@Override
-	public JSONObject getCustom() {
+	public ObjectNode getCustom() {
 		return custom;
 	}
 
@@ -398,8 +399,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @generated
 	 */
 	@Override
-	public void setCustom(JSONObject newCustom) {
-		JSONObject oldCustom = custom;
+	public void setCustom(ObjectNode newCustom) {
+		ObjectNode oldCustom = custom;
 		custom = newCustom;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PATTERN_TEXT__CUSTOM, oldCustom, custom));
@@ -931,7 +932,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				setTypeConstraint((Boolean)newValue);
 				return;
 			case TextrepresentationPackage.PATTERN_TEXT__CUSTOM:
-				setCustom((JSONObject)newValue);
+				setCustom((ObjectNode)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1041,8 +1042,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return generateJSONObject();
 			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_VARIANT_JSON_OBJECT:
 				return generateVariantJSONObject();
-			case TextrepresentationPackage.PATTERN_TEXT___ADD_TO_CUSTOM__JSONOBJECT:
-				addToCustom((JSONObject)arguments.get(0));
+			case TextrepresentationPackage.PATTERN_TEXT___ADD_TO_CUSTOM__OBJECTNODE:
+				addToCustom((ObjectNode)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

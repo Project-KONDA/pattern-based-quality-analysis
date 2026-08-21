@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.textrepresentation.impl;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -380,8 +381,8 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 				return isEmpty();
 			case TextrepresentationPackage.VALUE_MAP___AS_MAP:
 				return asMap();
-			case TextrepresentationPackage.VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__JSONOBJECT:
-				setValuesFromJSONObject((JSONObject)arguments.get(0));
+			case TextrepresentationPackage.VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__OBJECTNODE:
+				setValuesFromJSONObject((ObjectNode)arguments.get(0));
 				return null;
 			case TextrepresentationPackage.VALUE_MAP___REVERSE:
 				return reverse();

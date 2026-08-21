@@ -2,8 +2,8 @@
  */
 package qualitypatternmodel.javaqueryoutput;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.eclipse.emf.ecore.EObject;
-import org.json.JSONObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
@@ -105,6 +105,6 @@ public interface InterimResultContainer extends EObject {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" valueDataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	Boolean initialize(JSONObject value) throws InvalidityException;
+	Boolean initialize(ObjectNode value) throws InvalidityException;
 
 } // InterimResultContainer

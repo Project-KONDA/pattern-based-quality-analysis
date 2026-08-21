@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -1083,7 +1084,7 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 	 * @generated
 	 */
 	@Override
-	public JSONArray getOptionsAsJsonArray() {
+	public ArrayNode getOptionsAsJsonArray() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

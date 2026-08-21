@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.javaquery.impl;
 
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -752,9 +753,9 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case JavaqueryPackage.JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__JSONARRAY:
+			case JavaqueryPackage.JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__ARRAYNODE:
 				try {
-					createInterimResultContainer((JSONArray)arguments.get(0));
+					createInterimResultContainer((ArrayNode)arguments.get(0));
 					return null;
 				}
 				catch (Throwable throwable) {
@@ -767,9 +768,9 @@ public class JavaFilterImpl extends MinimalEObjectImpl.Container implements Java
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case JavaqueryPackage.JAVA_FILTER___FILTER__JSONARRAY:
+			case JavaqueryPackage.JAVA_FILTER___FILTER__ARRAYNODE:
 				try {
-					return filter((JSONArray)arguments.get(0));
+					return filter((ArrayNode)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

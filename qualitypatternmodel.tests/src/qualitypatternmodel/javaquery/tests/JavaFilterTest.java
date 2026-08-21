@@ -17,9 +17,9 @@ import qualitypatternmodel.javaquery.JavaqueryFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#filterQueryResults() <em>Filter Query Results</em>}</li>
- *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(org.json.JSONArray) <em>Create Interim Result Container</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(com.fasterxml.jackson.databind.node.ArrayNode) <em>Create Interim Result Container</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#execute(java.lang.String) <em>Execute</em>}</li>
- *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#filter(org.json.JSONArray) <em>Filter</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#filter(com.fasterxml.jackson.databind.node.ArrayNode) <em>Filter</em>}</li>
  *   <li>{@link qualitypatternmodel.javaquery.JavaFilter#toJson() <em>To Json</em>}</li>
  * </ul>
  * </p>
@@ -110,13 +110,13 @@ public class JavaFilterTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(org.json.JSONArray) <em>Create Interim Result Container</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(com.fasterxml.jackson.databind.node.ArrayNode) <em>Create Interim Result Container</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(org.json.JSONArray)
+	 * @see qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(com.fasterxml.jackson.databind.node.ArrayNode)
 	 * @generated
 	 */
-	public void testCreateInterimResultContainer__JSONArray() {
+	public void testCreateInterimResultContainer__ArrayNode() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -136,13 +136,13 @@ public class JavaFilterTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#filter(org.json.JSONArray) <em>Filter</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.javaquery.JavaFilter#filter(com.fasterxml.jackson.databind.node.ArrayNode) <em>Filter</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaquery.JavaFilter#filter(org.json.JSONArray)
+	 * @see qualitypatternmodel.javaquery.JavaFilter#filter(com.fasterxml.jackson.databind.node.ArrayNode)
 	 * @generated
 	 */
-	public void testFilter__JSONArray() {
+	public void testFilter__ArrayNode() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

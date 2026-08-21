@@ -515,7 +515,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 	 * @generated
 	 */
 	@Override
-	public EOperation getInterimResultContainer__Initialize__JSONObject() {
+	public EOperation getInterimResultContainer__Initialize__ObjectNode() {
 		return interimResultContainerEClass.getEOperations().get(1);
 	}
 
@@ -605,7 +605,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 		createEReference(interimResultContainerEClass, INTERIM_RESULT_CONTAINER__PARAMETER);
 		createEReference(interimResultContainerEClass, INTERIM_RESULT_CONTAINER__RETURN);
 		createEOperation(interimResultContainerEClass, INTERIM_RESULT_CONTAINER___IS_VALID_TO_STRUCTURE);
-		createEOperation(interimResultContainerEClass, INTERIM_RESULT_CONTAINER___INITIALIZE__JSONOBJECT);
+		createEOperation(interimResultContainerEClass, INTERIM_RESULT_CONTAINER___INITIALIZE__OBJECTNODE);
 
 		jsonResultEClass = createEClass(JSON_RESULT);
 		createEAttribute(jsonResultEClass, JSON_RESULT__VALUE);
@@ -698,7 +698,7 @@ public class JavaqueryoutputPackageImpl extends EPackageImpl implements Javaquer
 
 		initEOperation(getInterimResultContainer__IsValidToStructure(), ecorePackage.getEBooleanObject(), "isValidToStructure", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getInterimResultContainer__Initialize__JSONObject(), ecorePackage.getEBooleanObject(), "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getInterimResultContainer__Initialize__ObjectNode(), ecorePackage.getEBooleanObject(), "initialize", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theTextrepresentationPackage.getJSONObjectWrapper(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 

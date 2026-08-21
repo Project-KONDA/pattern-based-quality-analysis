@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.textrepresentation.impl;
 
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -10,9 +12,6 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.impl.Adaptionneo4jPackageImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
@@ -369,7 +368,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternText__AddToCustom__JSONObject() {
+	public EOperation getPatternText__AddToCustom__ObjectNode() {
 		return patternTextEClass.getEOperations().get(9);
 	}
 
@@ -869,7 +868,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
-	public EOperation getValueMap__SetValuesFromJSONObject__JSONObject() {
+	public EOperation getValueMap__SetValuesFromJSONObject__ObjectNode() {
 		return valueMapEClass.getEOperations().get(9);
 	}
 
@@ -959,7 +958,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_SPARQL_TEMPLATE);
 		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_JSON_OBJECT);
 		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_VARIANT_JSON_OBJECT);
-		createEOperation(patternTextEClass, PATTERN_TEXT___ADD_TO_CUSTOM__JSONOBJECT);
+		createEOperation(patternTextEClass, PATTERN_TEXT___ADD_TO_CUSTOM__OBJECTNODE);
 
 		parameterFragmentEClass = createEClass(PARAMETER_FRAGMENT);
 		createEAttribute(parameterFragmentEClass, PARAMETER_FRAGMENT__EXAMPLE_VALUE);
@@ -1012,7 +1011,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEOperation(valueMapEClass, VALUE_MAP___CLEAR);
 		createEOperation(valueMapEClass, VALUE_MAP___IS_EMPTY);
 		createEOperation(valueMapEClass, VALUE_MAP___AS_MAP);
-		createEOperation(valueMapEClass, VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__JSONOBJECT);
+		createEOperation(valueMapEClass, VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__OBJECTNODE);
 		createEOperation(valueMapEClass, VALUE_MAP___REVERSE);
 
 		// Create data types
@@ -1094,7 +1093,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		initEOperation(getPatternText__GenerateVariantJSONObject(), this.getJSONObjectWrapper(), "generateVariantJSONObject", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getPatternText__AddToCustom__JSONObject(), null, "addToCustom", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternText__AddToCustom__ObjectNode(), null, "addToCustom", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getJSONObjectWrapper(), "addition", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(parameterFragmentEClass, ParameterFragment.class, "ParameterFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1200,15 +1199,15 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		op = initEOperation(getValueMap__SetValuesFromJSONObject__JSONObject(), null, "setValuesFromJSONObject", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueMap__SetValuesFromJSONObject__ObjectNode(), null, "setValuesFromJSONObject", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getJSONObjectWrapper(), "object", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getValueMap__Reverse(), this.getValueMap(), "reverse", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(objectWrapperEDataType, Object.class, "ObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(jsonObjectWrapperEDataType, JSONObject.class, "JSONObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(jsonArrayWrapperEDataType, JSONArray.class, "JSONArrayWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(jsonObjectWrapperEDataType, ObjectNode.class, "JSONObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(jsonArrayWrapperEDataType, ArrayNode.class, "JSONArrayWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

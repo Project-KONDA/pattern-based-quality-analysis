@@ -2,8 +2,8 @@
  */
 package qualitypatternmodel.javaqueryoutput;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.eclipse.emf.ecore.EObject;
-import org.json.JSONObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,6 +73,6 @@ public interface InterimResultStructure extends EObject {
 	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	JSONObject toJson();
+	ObjectNode toJson();
 
 } // InterimResultsStructure

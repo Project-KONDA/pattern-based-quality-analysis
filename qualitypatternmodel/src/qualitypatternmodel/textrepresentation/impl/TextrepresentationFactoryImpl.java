@@ -2,14 +2,14 @@
  */
 package qualitypatternmodel.textrepresentation.impl;
 
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.PatternText;
@@ -188,8 +188,8 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JSONObject createJSONObjectWrapperFromString(EDataType eDataType, String initialValue) {
-		return (JSONObject)super.createFromString(eDataType, initialValue);
+	public ObjectNode createJSONObjectWrapperFromString(EDataType eDataType, String initialValue) {
+		return (ObjectNode)super.createFromString(eDataType, initialValue);
 	}
 
 	/**
@@ -206,8 +206,8 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JSONArray createJSONArrayWrapperFromString(EDataType eDataType, String initialValue) {
-		return (JSONArray)super.createFromString(eDataType, initialValue);
+	public ArrayNode createJSONArrayWrapperFromString(EDataType eDataType, String initialValue) {
+		return (ArrayNode)super.createFromString(eDataType, initialValue);
 	}
 
 	/**

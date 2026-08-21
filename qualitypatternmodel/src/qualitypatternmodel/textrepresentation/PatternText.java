@@ -2,10 +2,9 @@
  */
 package qualitypatternmodel.textrepresentation;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.json.JSONObject;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -149,12 +148,12 @@ public interface PatternText extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Custom</em>' attribute.
-	 * @see #setCustom(JSONObject)
+	 * @see #setCustom(ObjectNode)
 	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText_Custom()
 	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	JSONObject getCustom();
+	ObjectNode getCustom();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.PatternText#getCustom <em>Custom</em>}' attribute.
@@ -164,7 +163,7 @@ public interface PatternText extends EObject {
 	 * @see #getCustom()
 	 * @generated
 	 */
-	void setCustom(JSONObject value);
+	void setCustom(ObjectNode value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -208,7 +207,7 @@ public interface PatternText extends EObject {
 	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	JSONObject generateJSONObject();
+	ObjectNode generateJSONObject();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,7 +215,7 @@ public interface PatternText extends EObject {
 	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	JSONObject generateVariantJSONObject();
+	ObjectNode generateVariantJSONObject();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -224,7 +223,7 @@ public interface PatternText extends EObject {
 	 * @model additionDataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	void addToCustom(JSONObject addition);
+	void addToCustom(ObjectNode addition);
 
 	/**
 	 * <!-- begin-user-doc -->

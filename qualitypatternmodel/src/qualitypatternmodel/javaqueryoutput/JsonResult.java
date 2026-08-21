@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.javaqueryoutput;
 
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,12 +26,12 @@ public interface JsonResult extends InterimResult {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(JSONObject)
+	 * @see #setValue(ObjectNode)
 	 * @see qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage#getJsonResult_Value()
 	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	JSONObject getValue();
+	ObjectNode getValue();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.javaqueryoutput.JsonResult#getValue <em>Value</em>}' attribute.
@@ -41,6 +41,6 @@ public interface JsonResult extends InterimResult {
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(JSONObject value);
+	void setValue(ObjectNode value);
 
 } // JsonResult

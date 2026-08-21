@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.javaqueryoutput.impl;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
@@ -75,7 +76,7 @@ public abstract class InterimResultPartImpl extends MinimalEObjectImpl.Container
 	 * @generated
 	 */
 	@Override
-	public JSONObject toJson() {
+	public ObjectNode toJson() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

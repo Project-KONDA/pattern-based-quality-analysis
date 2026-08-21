@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.javaqueryoutput.impl;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -397,9 +398,9 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 		switch (operationID) {
 			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___IS_VALID_TO_STRUCTURE:
 				return isValidToStructure();
-			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___INITIALIZE__JSONOBJECT:
+			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___INITIALIZE__OBJECTNODE:
 				try {
-					return initialize((JSONObject)arguments.get(0));
+					return initialize((ObjectNode)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

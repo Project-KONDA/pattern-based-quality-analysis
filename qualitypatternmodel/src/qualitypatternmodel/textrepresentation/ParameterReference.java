@@ -2,10 +2,9 @@
  */
 package qualitypatternmodel.textrepresentation;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.json.JSONObject;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -50,5 +49,5 @@ public interface ParameterReference extends EObject {
 	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	JSONObject generateVariantJSONObject();
+	ObjectNode generateVariantJSONObject();
 } // ParameterReference

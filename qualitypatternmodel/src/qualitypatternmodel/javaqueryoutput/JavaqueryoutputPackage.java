@@ -605,7 +605,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERIM_RESULT_CONTAINER___INITIALIZE__JSONOBJECT = 1;
+	int INTERIM_RESULT_CONTAINER___INITIALIZE__OBJECTNODE = 1;
 
 	/**
 	 * The number of operations of the '<em>Interim Result Container</em>' class.
@@ -973,14 +973,14 @@ public interface JavaqueryoutputPackage extends EPackage {
 	EOperation getInterimResultContainer__IsValidToStructure();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(org.json.JSONObject) <em>Initialize</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(com.fasterxml.jackson.databind.node.ObjectNode) <em>Initialize</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Initialize</em>' operation.
-	 * @see qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(org.json.JSONObject)
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(com.fasterxml.jackson.databind.node.ObjectNode)
 	 * @generated
 	 */
-	EOperation getInterimResultContainer__Initialize__JSONObject();
+	EOperation getInterimResultContainer__Initialize__ObjectNode();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.javaqueryoutput.JsonResult <em>Json Result</em>}'.
@@ -1276,7 +1276,7 @@ public interface JavaqueryoutputPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation INTERIM_RESULT_CONTAINER___INITIALIZE__JSONOBJECT = eINSTANCE.getInterimResultContainer__Initialize__JSONObject();
+		EOperation INTERIM_RESULT_CONTAINER___INITIALIZE__OBJECTNODE = eINSTANCE.getInterimResultContainer__Initialize__ObjectNode();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.javaqueryoutput.impl.JsonResultImpl <em>Json Result</em>}' class.

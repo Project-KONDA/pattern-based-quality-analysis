@@ -3,6 +3,7 @@
 package qualitypatternmodel.patternstructure.impl;
 
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.*;
 
 import java.lang.reflect.InvocationTargetException;
@@ -104,7 +105,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 * @generated
 	 * @ordered
 	 */
-	protected JSONObject queries = QUERIES_EDEFAULT;
+	protected ObjectNode queries = QUERIES_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -714,7 +715,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 * @generated
 	 */
 	@Override
-	public JSONObject getQueries() {
+	public ObjectNode getQueries() {
 		return queries;
 	}
 
@@ -724,8 +725,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 * @generated
 	 */
 	@Override
-	public void setQueries(JSONObject newQueries) {
-		JSONObject oldQueries = queries;
+	public void setQueries(ObjectNode newQueries) {
+		ObjectNode oldQueries = queries;
 		queries = newQueries;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__QUERIES, oldQueries, queries));
@@ -800,7 +801,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				setCondition((Condition)newValue);
 				return;
 			case PatternstructurePackage.PATTERN__QUERIES:
-				setQueries((JSONObject)newValue);
+				setQueries((ObjectNode)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
