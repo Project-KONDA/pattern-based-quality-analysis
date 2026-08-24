@@ -11,7 +11,6 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.api.AfterAll;
@@ -28,6 +27,7 @@ import qualitypatternmodel.newservlets.ConstraintServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.PatternListServlet;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 public class APITemplateTests {
 	private static final boolean DELETE = true;
@@ -107,20 +107,20 @@ public class APITemplateTests {
 		
 		InitialisationServlet.initialisation(context);
 		
-		store = new JSONObject();
-		JSONArray templates = PatternListServlet.applyGet("/xml" + "/template", new HashMap<String, String[]>()).getJSONArray(ConstantsJSON.TEMPLATES);
+		store = Util.jsonCreateObject();
+		ArrayNode templates = (ArrayNode) PatternListServlet.applyGet("/xml" + "/template", new HashMap<String, String[]>()).get(ConstantsJSON.TEMPLATES);
 		for (Object template: templates) {
-			JSONObject obj = (JSONObject) template;
-			JSONArray variants = obj.getJSONArray(ConstantsJSON.VARIANTS);
-			JSONArray variantIDs = new JSONArray();
+			ObjectNode obj = (ObjectNode) template;
+			ArrayNode variants = (ArrayNode) obj.get(ConstantsJSON.VARIANTS);
+			ArrayNode variantIDs = Util.jsonCreateArray();
 			
 			for (Object variant: variants)
-				variantIDs.put(((JSONObject) variant).getString(ConstantsJSON.NAME));
+				variantIDs.add(((ObjectNode) variant).get(ConstantsJSON.NAME).asText());
 			
-			JSONObject object = new JSONObject();
-			object.put("IDs", variantIDs);
-			object.put("size", obj.getJSONArray(ConstantsJSON.VARIANTS).length());
-			store.put(obj.getString(ConstantsJSON.CONSTRAINT_ID), object);
+			ObjectNode object = Util.jsonCreateObject();
+			object.set("IDs", variantIDs);
+			object.put("size", ((ArrayNode) obj.get(ConstantsJSON.VARIANTS)).size());
+			store.set(obj.get(ConstantsJSON.CONSTRAINT_ID).asText(), object);
 		}
 //		System.out.println(store);
 	}

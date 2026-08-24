@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -19,6 +20,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 @SuppressWarnings("serial")
 public class ConstraintMqafServlet extends HttpServlet {
@@ -97,7 +99,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 
 	private static ObjectNode getJsonStringSchemaFromConstraintIds(String[] constraintIds, String technology) throws FailedServletCallException {
 		ArrayList<BaseSchema> schemas = new ArrayList<BaseSchema>();
-		JSONArray failed = new JSONArray();
+		ArrayNode failed = Util.jsonCreateArray();
 
 		if (constraintIds == null)
 			throw new FailedServletCallException ("No valid constraint IDs given!");
@@ -112,7 +114,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 				BaseSchema schema = MqafTranslation.translateToConstraintSchema(pattern);
 				schemas.add(schema);
 			} catch (Exception e) {
-				JSONObject object = new JSONObject();
+				ObjectNode object = Util.jsonCreateObject();
 				try {
 					object.put(constraintId, e.getMessage());
 				} catch (RuntimeException f) {}
@@ -130,14 +132,14 @@ public class ConstraintMqafServlet extends HttpServlet {
 		}
 
 		// 4 return merged schema as JSON
-		JSONObject jobj = new JSONObject();
+		ObjectNode jobj = Util.jsonCreateObject();
 		try {
 			jobj.set(ConstantsJSON.FAILED, failed);
 			if (mergedSchema != null) {
-				JSONObject constraint = new JSONObject(ConfigurationReader.toJson(mergedSchema));
-				jobj.put(ConstantsJSON.CONSTRAINT, constraint);
+				ObjectNode constraint = Util.jsonCreateObject(ConfigurationReader.toJson(mergedSchema));
+				jobj.set(ConstantsJSON.CONSTRAINT, constraint);
 			}	
-		} catch (RuntimeException e) {}
+		} catch (RuntimeException | JsonProcessingException e) {}
 		return jobj;
 	}
 }

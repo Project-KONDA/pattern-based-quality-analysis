@@ -95,7 +95,7 @@ public class ServletJsonValidation {
 		Set<String> keySet = Util.jsonKeySet(queryjson); 
 		if (!keySet.containsAll(queryJsonKeys))
 			return false;
-		if (queryjson.optString(ConstantsJSON.TECHNOLOGY).equals(Constants.XML))
+		if (queryjson.get(ConstantsJSON.TECHNOLOGY).asText().equals(Constants.XML))
 			return keySet.containsAll(queryXmlJsonKeys);
 		return true;
 	}
@@ -118,8 +118,8 @@ public class ServletJsonValidation {
 			if (!validateTemplateVariantJsonVariant((ObjectNode) variants.get(i)))
 				return false;
 		ObjectNode params = (ObjectNode) variantJson.get(ConstantsJSON.PARAMETER);
-		for (String key: Util.jsonKeySet(variantJson))
-			if (!validateTemplateVariantJsonParam((ObjectNode) params.get(key)))
+		for (String key: Util.jsonKeySet(params))
+			if (!params.has(key) || !validateTemplateVariantJsonParam((ObjectNode) params.get(key)))
 				return false;
 		return true;
 	}
@@ -159,6 +159,6 @@ public class ServletJsonValidation {
 			ConstantsJSON.TYPE
 		);
 	private static boolean validateTemplateVariantJsonParam(ObjectNode params) {
-			return Util.jsonKeySet(params).containsAll(templateVariantsParamKeys);
+		return Util.jsonKeySet(params).containsAll(templateVariantsParamKeys);
 	}
 }

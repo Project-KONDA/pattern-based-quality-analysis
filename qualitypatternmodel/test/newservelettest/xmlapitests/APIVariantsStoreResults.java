@@ -13,7 +13,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import org.apache.commons.io.FileUtils;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import jakarta.servlet.ServletContext;
@@ -43,13 +46,13 @@ public class APIVariantsStoreResults {
 	
 	
 	public static void main(String[] args) throws IOException, InvalidServletCallException, FailedServletCallException, ServletException {
-		Util.exportJson(new JSONObject(), jsonfile);
+		Util.exportJson(Util.jsonCreateObject(), jsonfile);
 //		initialize();
 		APIVariantsStoreResults test = new APIVariantsStoreResults();
 		test.initialize();
-		JSONObject success = new JSONObject();
-		JSONObject failed = new JSONObject();
-		JSONObject result = new JSONObject();
+		ObjectNode success = Util.jsonCreateObject();
+		ObjectNode failed = Util.jsonCreateObject();
+		ObjectNode result = Util.jsonCreateObject();
 		result.set("failed", failed);
 		result.set("success", success);
 		
@@ -102,17 +105,17 @@ public class APIVariantsStoreResults {
 		
 		InitialisationServlet.initialisation(context);
 		
-		store = new JSONObject();
-		JSONArray templates = PatternListServlet.applyGet("/xml" + "/template", new HashMap<String, String[]>()).getJSONArray("templates");
+		store = Util.jsonCreateObject();
+		ArrayNode templates = (ArrayNode) PatternListServlet.applyGet("/xml" + "/template", new HashMap<String, String[]>()).get("templates");
 		for (Object template: templates) {
-			JSONObject obj = (JSONObject) template;
-			JSONArray variants = obj.getJSONArray(ConstantsJSON.VARIANTS);
-			JSONArray variantIDs = new JSONArray();
+			ObjectNode obj = (ObjectNode) template;
+			ArrayNode variants = (ArrayNode) obj.get(ConstantsJSON.VARIANTS);
+			ArrayNode variantIDs = Util.jsonCreateArray();
 			
 			for (Object variant: variants)
-				variantIDs.put(((JSONObject) variant).getString(ConstantsJSON.NAME));
+				variantIDs.add(((ObjectNode) variant).get(ConstantsJSON.NAME).asText());
 			
-			JSONObject object = new JSONObject();
+			ObjectNode object = Util.jsonCreateObject();
 			object.set("IDs", variantIDs);
 			object.put("size", obj.get(ConstantsJSON.VARIANTS).size());
 			store.set(obj.get(ConstantsJSON.CONSTRAINT_ID).asText(), object);
@@ -168,30 +171,30 @@ public class APIVariantsStoreResults {
 			setDefaultParameter(constraintId, param);
 	}
 	
-	private static List<String> getAllConstraintParameter(String connstraintId) throws InvalidServletCallException, FailedServletCallException, ServletException, IOException{
-		JSONObject json = getConstraint(connstraintId);
-		JSONObject variant = (JSONObject) json.getJSONArray(ConstantsJSON.VARIANTS).get(0);
-		JSONArray params = variant.getJSONArray(ConstantsJSON.PARAMETER);
-		List<String> paramstrings = params.toList().stream()
-			    .map(obj -> (String) obj)
-			    .collect(Collectors.toList()); 
+	private static List<String> getAllConstraintParameter(String connstraintId) throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		ObjectNode json = getConstraint(connstraintId);
+		ObjectNode variant = (ObjectNode) ((ArrayNode) json.get(ConstantsJSON.VARIANTS)).get(0);
+		ArrayNode params = (ArrayNode) variant.get(ConstantsJSON.PARAMETER);
+		List<String> paramstrings = new ArrayList<>();
+		for (JsonNode param : params) {
+		    paramstrings.add(param.asText());
+		} 
 		return paramstrings;
 	}
 	
-	private static void setDefaultParameter(String constraintId, String param) {
-		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'TextList':'[\"a\",\"b\"]', 'Boolean':'true', 'Text':'a'}");
+	private static void setDefaultParameter(String constraintId, String param) throws JsonMappingException, JsonProcessingException {
+		ObjectNode obj = Util.jsonCreateObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'TextList':'[\"a\",\"b\"]', 'Boolean':'true', 'Text':'a'}");
 
 		if (Set.of("name", "namespace", "datamodel", "database").contains(param))
 			return;
 
-		for (String key: obj.keySet())
+		for (String key: Util.jsonKeySet(obj))
 			if (param.startsWith(key)) {
 				ParameterFragmentImpl.ALLOW_IGNORE_MAP = true;
 				setConstraintParameter(constraintId, param, obj.get(key).asText());
 				ParameterFragmentImpl.ALLOW_IGNORE_MAP = default_allow_ignore_map;
 				return;
 			}
-		}
 		throw new RuntimeException("No default value defined for:" + param);
 	}
 
@@ -225,7 +228,7 @@ public class APIVariantsStoreResults {
 		params2.put("files", new String[] { "lido.xml", "demo_database.xml"});
 		ObjectNode result = ConstraintExecuteServlet.applyGet("/xml", params2);
 
-		JSONObject constraintinfo = new JSONObject();
+		ObjectNode constraintinfo = Util.jsonCreateObject();
 		constraintinfo.put("constraint", constraint);
 		constraintinfo.put("variant", variant);
 		constraintinfo.put("constraintID", constraintID);

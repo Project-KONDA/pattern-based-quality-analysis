@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -938,7 +940,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		}
 		Parameter parameter = getParameter().get(0);
 //		String urlsJSON = generateJSONList(urls);
-		JSONObject json = new JSONObject();
+		ObjectNode json = Util.jsonCreateObject();
 		try {
 			json.put(ConstantsJSON.ID, getId());
 			json.put(ConstantsJSON.NAME, getName());
@@ -946,7 +948,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			json.put(ConstantsJSON.ROLE, getRole());
 			if (getValue() != null) {
 				if (ServletConstants.VALUE_AS_JSON) {
-					json.put(ConstantsJSON.VALUE, jsonify(getValue()));
+					json.set(ConstantsJSON.VALUE, jsonify(getValue()));
 				} else {
 					json.put(ConstantsJSON.VALUE, getValue());
 				}
@@ -1002,23 +1004,23 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			else if (parameter instanceof XmlPathParam) {
 				HashSet<String> sourceParamIds = getSourceParamIDs(getParameter());
 				if (!sourceParamIds.isEmpty()) {
-					json.put(ConstantsJSON.STARTPOINT, new JSONArray(sourceParamIds));
+					json.set(ConstantsJSON.STARTPOINT, Util.jsonCreateArray(sourceParamIds));
 				}
 			}
 		} catch (Exception e) {}
 		return json;
 	}
 
-	private Object jsonify(String value) {
+	private JsonNode jsonify(String value) {
 		try {
-			JSONObject object = new JSONObject(value);
+			ObjectNode object = Util.jsonCreateObject(value);
 			return object;
-		} catch (JSONException e) {}
+		} catch (Exception e) {}
 		try {
-			JSONArray array = new JSONArray(value);
+			ArrayNode array = Util.jsonCreateArray(value);
 			return array;
-		} catch (JSONException e) {}
-		return value;
+		} catch (Exception e) {}
+		return Util.MAPPER.valueToTree(value);
 	}
 
 	private ArrayNode getOptionValues() {
@@ -1037,11 +1039,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * @generated NOT
 	 */
 	@Override
-	public JSONObject generateVariantJSONObject() {
-		JSONObject object = new JSONObject();
+	public ObjectNode generateVariantJSONObject() {
+		ObjectNode object = Util.jsonCreateObject();
 		try {
 			object.put(ConstantsJSON.NAME, getName());
-			JSONArray ids = new JSONArray();
+			ArrayNode ids = Util.jsonCreateArray();
 			for (Parameter param: getParameter()) {
 				ids.add(getPatternText().getPattern().getParameterList().getParameters().indexOf(param));
 			}

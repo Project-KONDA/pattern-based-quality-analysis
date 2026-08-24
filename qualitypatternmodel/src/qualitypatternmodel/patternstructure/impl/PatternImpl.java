@@ -3,7 +3,6 @@
 package qualitypatternmodel.patternstructure.impl;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import static qualitypatternmodel.utility.JavaQueryTranslationUtility.*;
 
@@ -48,6 +47,7 @@ import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsNeo;
 import qualitypatternmodel.utility.ConstantsXml;
 import qualitypatternmodel.utility.JavaQueryTranslationUtility;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -95,7 +95,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final JSONObject QUERIES_EDEFAULT = new JSONObject();
+	protected static final ObjectNode QUERIES_EDEFAULT = Util.jsonCreateObject();
 	/**
 	 * The cached value of the '{@link #getQueries() <em>Queries</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -14,6 +14,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 @SuppressWarnings("serial")
 public class ConstraintNameServlet extends HttpServlet {
@@ -75,7 +76,7 @@ public class ConstraintNameServlet extends HttpServlet {
 			throw new FailedServletCallException(ConstantsError.SAVING_FAILED);
 		}
 
-		JSONObject result = new JSONObject();
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
 			result.put(ConstantsJSON.OLD_NAME, oldName);

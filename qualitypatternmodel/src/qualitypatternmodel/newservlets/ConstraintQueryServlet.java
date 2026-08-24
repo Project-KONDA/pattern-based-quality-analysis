@@ -17,6 +17,7 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 @SuppressWarnings("serial")
 public class ConstraintQueryServlet extends HttpServlet {
@@ -92,8 +93,8 @@ public class ConstraintQueryServlet extends HttpServlet {
 
 	public static ObjectNode applyGet(String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
 
-		JSONObject result = new JSONObject();
-		JSONArray failed = new JSONArray();
+		ObjectNode result = Util.jsonCreateObject();
+		ArrayNode failed = Util.jsonCreateArray();
 
 		for (String constraintId: constraintIds) {
 			// 1 load constraint
@@ -103,11 +104,11 @@ public class ConstraintQueryServlet extends HttpServlet {
 //				pattern.isValid(AbstractionLevel.CONCRETE);
 //			// 2 generate query
 //				JSONObject queryJson = generateQueryJson(pattern, technology);
-				JSONObject queryJson = ServletUtilities.loadConstraintQueryJson(technology, constraintId);
-				result.append(ConstantsJSON.CONSTRAINTS, queryJson);
+				ObjectNode queryJson = ServletUtilities.loadConstraintQueryJson(technology, constraintId);
+				Util.jsonAppend(result, ConstantsJSON.CONSTRAINTS, queryJson);
 			} catch (Exception e) {
 				ServletUtilities.logError(e);
-				JSONObject object = new JSONObject();
+				ObjectNode object = Util.jsonCreateObject();
 				try {
 					object.put(constraintId, e.getMessage());
 				} catch (RuntimeException f) {}

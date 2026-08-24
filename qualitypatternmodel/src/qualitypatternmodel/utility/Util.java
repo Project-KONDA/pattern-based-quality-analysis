@@ -26,7 +26,7 @@ import qualitypatternmodel.newservlets.ServletConstants;
 import qualitypatternmodel.newservlets.ServletUtilities;
 
 public class Util {
-	private static final ObjectMapper MAPPER = new ObjectMapper();
+	public static final ObjectMapper MAPPER = new ObjectMapper();
     
 	public static final long EXECUTE_MAX_FILE_SIZE_BYTES = 50 * 1024 * 1024; // 50 MB
 //	public static final int EXECUTE_MAX_RESULTS = 100000;                    // max number of results
@@ -158,11 +158,20 @@ public class Util {
 		return (ArrayNode) MAPPER.readTree(jsonstring);
 	}
 
+	public static ArrayNode jsonCreateArray(String[] array) throws JsonMappingException, JsonProcessingException {
+		ArrayNode result = jsonCreateArray();
+		for (String str: array)
+			result.add(str);
+		return result;
+	}
+
 	public static ArrayNode jsonCreateArray(Collection<?> list) {
 		return MAPPER.valueToTree(list);
 	}
 
 	public static Set<String> jsonKeySet(ObjectNode json) {
+		if (json == null)
+			return null;
 		return json.properties()
 		        .stream()
 		        .map(Map.Entry::getKey)
@@ -180,5 +189,14 @@ public class Util {
 	    } catch (JsonProcessingException e) {
 	        throw new RuntimeException("Could not serialize JSON", e);
 	    }
+	}
+
+	public static void jsonAppend(ObjectNode json, String key, Object value) {
+	    ArrayNode array = (ArrayNode) json.get(key);
+	    if (array == null) {
+	        array = MAPPER.createArrayNode();
+	        json.set(key, array);
+	    }
+	    array.add(MAPPER.valueToTree(value));
 	}
 }

@@ -40,7 +40,7 @@ public class XQueryProcessorBaseX {
 	    }
 	    query = ServletUtilities.makeQueryOneLine(query);
 
-	    JSONArray outcome = new JSONArray();
+	    ArrayNode outcome = Util.jsonCreateArray();
 	    Context context = new Context();
 	    String databasename = null;
 
@@ -63,7 +63,7 @@ public class XQueryProcessorBaseX {
 	                try (ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	                     Serializer ser = Serializer.get(baos)) {
 	                    item.serialize(ser);
-	                    JSONObject snippet = new JSONObject();
+	                    ObjectNode snippet = Util.jsonCreateObject();
 	                    snippet.put(ConstantsJSON.RESULT_SNIPPET, baos.toString(StandardCharsets.UTF_8));
 	                    outcome.add(snippet);
 	                }
@@ -89,7 +89,7 @@ public class XQueryProcessorBaseX {
 	public static ObjectNode queryFileToObjectNode(File file, ObjectNode constraint) throws FailedServletCallException, InvalidityException {
 		ServletUtilities.log( "query file [" + file.getAbsolutePath()  + "] with constraint [" + constraint + "]");
 
-		JSONObject object = new JSONObject();
+		ObjectNode object = Util.jsonCreateObject();
 		object.put(ConstantsJSON.FILE, file.getName());
 		object.put(ConstantsJSON.CONSTRAINT_ID, constraint.path(ConstantsJSON.CONSTRAINT_ID).asText());
 		object.put(ConstantsJSON.CONSTRAINT_NAME, constraint.path(ConstantsJSON.NAME).asText());
@@ -134,17 +134,17 @@ public class XQueryProcessorBaseX {
 		return object;
 	}
 
-	public static JSONObject queryConstraintsFilePaths(List<JSONObject> constraints, List<String> filepaths) throws InvalidServletCallException, FailedServletCallException {
-		JSONObject failedConstraints = new JSONObject();
+	public static ObjectNode queryConstraintsFilePaths(List<ObjectNode> constraints, List<String> filepaths) throws InvalidServletCallException, FailedServletCallException {
+		ObjectNode failedConstraints = Util.jsonCreateObject();
 		ArrayList<File> files = new ArrayList<File>();
-		JSONObject failedFiles = new JSONObject();
-		JSONArray results = new JSONArray();
+		ObjectNode failedFiles = Util.jsonCreateObject();
+		ArrayNode results = Util.jsonCreateArray();
 		long total_findings = 0;
 		long total_incidents = 0;
 		long total_compliances = 0;
 		long starttime = System.nanoTime();
 		
-		JSONArray constraintIDs = new JSONArray();
+		ArrayNode constraintIDs = Util.jsonCreateArray();
 		for (ObjectNode constraint: constraints)
 			constraintIDs.add(constraint.get(ConstantsJSON.CONSTRAINT_ID));
 
@@ -200,14 +200,14 @@ public class XQueryProcessorBaseX {
 			}
 		}
 
-		JSONObject resultobject = new JSONObject();
+		ObjectNode resultobject = Util.jsonCreateObject();
 		try {
 			resultobject.set(ConstantsJSON.RESULT, results);
 			resultobject.put(ConstantsJSON.TOTAL_FINDINGS, total_findings);
 			resultobject.put(ConstantsJSON.TOTAL_INCIDENCES, total_incidents);
 			resultobject.put(ConstantsJSON.TOTAL_COMPLIANCES, total_compliances);
-			resultobject.put(ConstantsJSON.FILES, filepaths);
-			resultobject.put(ConstantsJSON.CONSTRAINT_IDS, constraintIDs);
+			resultobject.set(ConstantsJSON.FILES, Util.jsonCreateArray(filepaths));
+			resultobject.set(ConstantsJSON.CONSTRAINT_IDS, constraintIDs);
 			resultobject.put(ConstantsJSON.FILESIZE, filepaths.size());
 			resultobject.put(ConstantsJSON.CONSTRAINTSIZE, constraintIDs.size());
 			resultobject.put(ConstantsJSON.DURATION, System.nanoTime() - starttime);

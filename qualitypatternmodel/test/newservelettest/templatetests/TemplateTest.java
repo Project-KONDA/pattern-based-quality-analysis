@@ -136,7 +136,7 @@ public class TemplateTest {
 			System.out.println("\nEXPECTED");
 			System.out.println(expected.toPrettyString());
 		}
-		assertNodeTree(expected, result);
+		assertJSONObject(expected, result);
 	}
 
 	private static CompletePattern findPattern(String id) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -170,15 +170,15 @@ public class TemplateTest {
 					assertEquals(expected.get(key), result.get(key), key);
 					break;
 				case "Object":
-					assertNodeTree((ObjectNode) expected.get(key), (ObjectNode) result.get(key));
+					assertJSONObject((ObjectNode) expected.get(key), (ObjectNode) result.get(key));
 					break;
 				case "Array":
 					int len = expected.get(key).size();
 					assertEquals(len, result.get(key).size(), key);
 					for (int i = 0; i<len; i++) {
-						assert(expected.getJSONArray(key).get(i) instanceof ObjectNode);
-						assert(result.getJSONArray(key).get(i) instanceof ObjectNode);
-						assertJSONObject(expected.getJSONArray(key).getJSONObject(i), result.getJSONArray(key).getJSONObject(i));
+						assert(((ArrayNode) expected.get(key)).get(i) instanceof ObjectNode);
+						assert(((ArrayNode) result.get(key)).get(i) instanceof ObjectNode);
+						assertJSONObject((ObjectNode) ((ArrayNode) expected.get(key)).get(i), (ObjectNode) ((ArrayNode) result.get(key)).get(i));
 					}
 					break;
 				default:

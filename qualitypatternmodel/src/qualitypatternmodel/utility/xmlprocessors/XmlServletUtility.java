@@ -57,7 +57,7 @@ public class XmlServletUtility {
 	public static ArrayNode extractFromSnippet(String xmlString, String xpath) throws InvalidityException {
 	    String query = "let $r := $doc" + xpath + " return if (exists($r/*)) then $r/* else $r/text()";
 		ArrayNode resultarray = queryFromSnippet(xmlString, query);
-		return flattenResultArray(resultarray);
+		return flattenResultJSONArray(resultarray);
 	}
 
 	public static ArrayNode queryFromSnippet(String xmlString, String query) throws InvalidityException {
@@ -67,17 +67,17 @@ public class XmlServletUtility {
         return executeQuery(wrappedQuery);
 	}
 
-	public static JSONArray flattenResultJSONArray(JSONArray objects) {
-		JSONArray flattened = new JSONArray();
+	public static ArrayNode flattenResultJSONArray(ArrayNode objects) {
+		ArrayNode flattened = Util.jsonCreateArray();
 		for (int i = 0; i < objects.size(); i++)
 			flattened.add(objects.get(i).path(ConstantsJSON.RESULT_SNIPPET).asText());
 		return flattened;
 	}
 
-	public static JSONArray unflattenResultJSONArray(JSONArray flattened) {
-		JSONArray unflattened = new JSONArray();
-		for (int i = 0; i < flattened.length(); i++) {
-			JSONObject o = new JSONObject();
+	public static ArrayNode unflattenResultJSONArray(ArrayNode flattened) {
+		ArrayNode unflattened = Util.jsonCreateArray();
+		for (int i = 0; i < flattened.size(); i++) {
+			ObjectNode o = Util.jsonCreateObject();
 			o.put(ConstantsJSON.RESULT_SNIPPET, flattened.get(i).asText());
 			unflattened.add(o);
 		}

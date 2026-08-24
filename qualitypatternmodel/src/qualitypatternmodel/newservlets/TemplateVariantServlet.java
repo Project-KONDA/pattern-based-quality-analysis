@@ -31,6 +31,7 @@ import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 @SuppressWarnings("serial")
 public class TemplateVariantServlet extends HttpServlet {
@@ -209,7 +210,7 @@ public class TemplateVariantServlet extends HttpServlet {
 
 		for (String variant: variants) {
 			try {
-				ObjectNode json = ServletUtilities.parseObject(variant);
+				ObjectNode json = Util.jsonCreateObject(variant);
 				variantNames.add(json.path(ConstantsJSON.NAME).asText());
 			} catch (Exception e) {
 				throw new FailedServletCallException(ConstantsError.INVALID_JSON, e);
@@ -232,7 +233,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		// 5 add variant
 		for (String variant: variants) {
 			try {
-				JSONObject json = new JSONObject(variant);
+				ObjectNode json = Util.jsonCreateObject(variant);
 				new PatternTextImpl(pattern, json);
 			} catch (RuntimeException e) {
 				throw new FailedServletCallException(ConstantsError.INVALID_JSON, e);
@@ -273,12 +274,12 @@ public class TemplateVariantServlet extends HttpServlet {
 	public static ObjectNode applyPut1 (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] variants = parameterMap.get(ConstantsJSON.VARIANTS);
 		
-		JSONArray success = new JSONArray();
-		JSONObject failed = new JSONObject();
+		ArrayNode success = Util.jsonCreateArray();
+		ObjectNode failed = Util.jsonCreateObject();
 		
 		for (String variant: variants) {
-			JSONObject var = new JSONObject(variant);
-			String variantID = var.getString(ConstantsJSON.TEMPLATE) + "_" + var.getString(ConstantsJSON.NAME);
+			ObjectNode var = Util.jsonCreateObject(variant);
+			String variantID = var.get(ConstantsJSON.TEMPLATE).asText() + "_" + var.get(ConstantsJSON.NAME).asText();
 			
 			try {
 				addVariant(var);
@@ -288,7 +289,7 @@ public class TemplateVariantServlet extends HttpServlet {
 			}
 		}
 		
-		JSONObject result = new JSONObject();
+		ObjectNode result = Util.jsonCreateObject();
 		result.set(ConstantsJSON.SUCCESS, success);
 		result.set(ConstantsJSON.FAILED, failed);
 		return result;
@@ -379,8 +380,8 @@ public class TemplateVariantServlet extends HttpServlet {
 		}
 
 		// 4 delete variants
-		JSONArray success = new JSONArray();
-		JSONArray failed = new JSONArray();
+		ArrayNode success = Util.jsonCreateArray();
+		ArrayNode failed = Util.jsonCreateArray();
 
 		for (String variantName: variants) {
 			boolean done = false;
@@ -393,7 +394,7 @@ public class TemplateVariantServlet extends HttpServlet {
 				}
 			}
 			if (!done) {
-				JSONObject object = new JSONObject();
+				ObjectNode object = Util.jsonCreateObject();
 				try {
 					object.put(variantName, ConstantsError.NOT_FOUND_VARIANT);
 				} catch (RuntimeException e) {}
@@ -410,7 +411,7 @@ public class TemplateVariantServlet extends HttpServlet {
 		}
 
 		// 6 return results
-		JSONObject object = new JSONObject();
+		ObjectNode object = Util.jsonCreateObject();
 		try {
 			object.set(ConstantsJSON.SUCCESS, success);
 			object.set(ConstantsJSON.FAILED, failed);

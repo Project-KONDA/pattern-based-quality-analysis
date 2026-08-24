@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServlet;
@@ -31,13 +32,13 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
-			JSONObject result = applyGet(path, params);
-			if (result.optJSONArray(ConstantsJSON.RESULT).isEmpty()) {
+			ObjectNode result = applyGet(path, params);
+			if (result.path(ConstantsJSON.RESULT).isEmpty()) {
 				result.put(ConstantsJSON.STATUS, ConstantsJSON.STATUS_FAILED);
 				ServletUtilities.putResponse(response, callId, result, HttpServletResponse.SC_BAD_REQUEST);
 			} else {
-				if (result.optJSONObject(ConstantsJSON.FAILEDCONSTRAINTS).keySet().isEmpty()
-						&& result.optJSONObject(ConstantsJSON.FAILEDCONSTRAINTS).keySet().isEmpty())
+				if (Util.jsonKeySet((ObjectNode) result.path(ConstantsJSON.FAILEDCONSTRAINTS)).isEmpty()
+						&& Util.jsonKeySet((ObjectNode) result.path(ConstantsJSON.FAILEDFILES)).isEmpty())
 					result.put(ConstantsJSON.STATUS, ConstantsJSON.STATUS_SUCCESS);
 				else
 					result.put(ConstantsJSON.STATUS, ConstantsJSON.STATUS_PARTIAL);
@@ -98,8 +99,8 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		String[] constraintIDs = parameterMap.get(ConstantsJSON.CONSTRAINT_IDS);
 
 		// setup
-		ArrayList<JSONObject> constraints = new ArrayList<JSONObject>();
-		JSONObject failedConstraints = new JSONObject();
+		ArrayList<ObjectNode> constraints = new ArrayList<ObjectNode>();
+		ObjectNode failedConstraints = Util.jsonCreateObject();
 
 		// compile constraintIDs
 		if (constraintIDs != null) {
@@ -110,7 +111,6 @@ public class ConstraintExecuteServlet extends HttpServlet {
 //					pattern.isValid(AbstractionLevel.CONCRETE);
 				// 2 generate query
 //					JSONObject queryJson = ConstraintQueryServlet.generateQueryJson(pattern, technology);
-					JSONObject queryJson = ServletUtilities.loadConstraintQueryJson(technology, constraintId);
 					ObjectNode queryJson = ServletUtilities.loadConstraintQueryJson(technology, constraintId);
 					constraints.add(queryJson);
 
@@ -132,13 +132,13 @@ public class ConstraintExecuteServlet extends HttpServlet {
 			for (String constraint: constraintsCompiled) {
 				String constraintID = "<invalid>";
 				try {
-					JSONObject object = new JSONObject(constraint);
+					ObjectNode object = Util.jsonCreateObject(constraint);
 					if (!object.has(ConstantsJSON.CONSTRAINT_ID)) {
 						failedConstraints.put(constraint, ConstantsError.INVALID_FILEFORMAT);
 						ServletUtilities.log("Constraint not valid: " + ConstantsError.INVALID_FILEFORMAT);
 						break;
 					} else {
-						constraintID = object.getString(ConstantsJSON.CONSTRAINT_ID);
+						constraintID = object.get(ConstantsJSON.CONSTRAINT_ID).asText();
 					}
 
 					if (!object.has(ConstantsJSON.QUERY)) {
@@ -155,14 +155,14 @@ public class ConstraintExecuteServlet extends HttpServlet {
 					} else {
 						constraints.add(object);
 
-						String templateId = object.optString(ConstantsJSON.TEMPLATE_ID);
-						String variantId = object.optString(ConstantsJSON.VARIANT_ID);
+						String templateId = object.get(ConstantsJSON.TEMPLATE_ID).asText();
+						String variantId = object.get(ConstantsJSON.VARIANT_ID).asText();
 						if (templateId != null && variantId != null)
 							try {
 								ServletUtilities.increaseNumber(ServletConstants.COUNTFILE, templateId + "_" + variantId, ConstantsJSON.COUNTER_EXECUTE);
 							} catch (IOException e) {}
 					}
-				} catch (RuntimeException e) {
+				} catch (RuntimeException | JsonProcessingException e) {
 					try {
 						failedConstraints.put(constraintID, e.getMessage());
 						ServletUtilities.logError(new InvalidityException("Constraint not valid ", e));
@@ -177,12 +177,12 @@ public class ConstraintExecuteServlet extends HttpServlet {
 
 		ObjectNode result = XmlServletUtility.queryConstraintsFilePaths(constraints, filepaths);
 
-		if (result.getJSONObject(ConstantsJSON.FAILEDCONSTRAINTS).keySet().isEmpty() && failedConstraints.keySet().isEmpty())
+		if (Util.jsonKeySet((ObjectNode) result.get(ConstantsJSON.FAILEDCONSTRAINTS)).isEmpty() && Util.jsonKeySet(failedConstraints).isEmpty())
 			result.remove(ConstantsJSON.FAILEDCONSTRAINTS);
 		else 
 			for (String failedid: Util.jsonKeySet(failedConstraints)) {
 				if (!result.has(ConstantsJSON.FAILEDCONSTRAINTS))
-					result.put(ConstantsJSON.FAILEDCONSTRAINTS, new JSONObject());
+					result.set(ConstantsJSON.FAILEDCONSTRAINTS, Util.jsonCreateObject());
 				((ObjectNode) result.get(ConstantsJSON.FAILEDCONSTRAINTS)).set(failedid, failedConstraints.get(failedid));
 			}
 		if (!result.has(ConstantsJSON.FAILEDFILES) || result.path(ConstantsJSON.FAILEDFILES).isEmpty())

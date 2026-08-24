@@ -8,7 +8,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -19,6 +20,7 @@ import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.newservlets.ConstraintServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
+import qualitypatternmodel.utility.Util;
 
 public class XPathParameterTests {
 
@@ -103,7 +105,7 @@ public class XPathParameterTests {
 		ConstraintServlet.applyDelete(id, new HashMap<String, String[]>());
 	}
 
-	private static void checkParameterValue(String id, String parameter_id, String expected) throws InvalidServletCallException, FailedServletCallException {
+	private static void checkParameterValue(String id, String parameter_id, String expected) throws InvalidServletCallException, FailedServletCallException, JsonMappingException, JsonProcessingException {
 		String get = ConstraintServlet.applyGet(id, null).toString();
 		String value = getParameterValue(get, parameter_id);
 		expected = replaceExpected(expected);
@@ -117,8 +119,8 @@ public class XPathParameterTests {
 	}
 
 
-    private static String getParameterValue(String jsonString, String parameter_id) throws JSONException {
-        JSONObject jsonObject = new JSONObject(jsonString);
+    private static String getParameterValue(String jsonString, String parameter_id) throws JsonMappingException, JsonProcessingException {
+        ObjectNode jsonObject = Util.jsonCreateObject(jsonString);
 		ArrayNode variants = (ArrayNode) jsonObject.get("variants");
 		ObjectNode variant = (ObjectNode) variants.get(0);
 		ArrayNode fragmentArray = (ArrayNode) variant.get("fragments");

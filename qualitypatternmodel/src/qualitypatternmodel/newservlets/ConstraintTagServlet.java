@@ -14,6 +14,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 @SuppressWarnings("serial")
 public class ConstraintTagServlet extends HttpServlet {
@@ -76,19 +77,19 @@ public class ConstraintTagServlet extends HttpServlet {
 		}
 
 		// 2. add tags to constraint
-		JSONObject json = new JSONObject();
+		ObjectNode json = Util.jsonCreateObject();
 		try {
 			for (String tag: newTags) {
-				JSONObject object = new JSONObject();
+				ObjectNode object = Util.jsonCreateObject();
 				if(pattern.getKeywords().contains(tag)) {
 					object.put(tag, ConstantsError.DUPLICATE_TAG);
-					json.append(ConstantsJSON.FAILED, object);
+					Util.jsonAppend(json, ConstantsJSON.FAILED, object);
 				} else {
 					if (pattern.getKeywords().add(tag)) {
-						json.append(ConstantsJSON.SUCCESS, tag);
+						Util.jsonAppend(json, ConstantsJSON.SUCCESS, tag);
 					} else {
 						object.put(tag, ConstantsError.INVALID_TAG);
-						json.append(ConstantsJSON.FAILED, object);
+						Util.jsonAppend(json, ConstantsJSON.FAILED, object);
 					}
 				}
 			}
@@ -134,19 +135,19 @@ public class ConstraintTagServlet extends HttpServlet {
 		}
 
 		// 2. remove tags from constraint
-		JSONObject json = new JSONObject();
+		ObjectNode json = Util.jsonCreateObject();
 		for (String tag: deleteTags) {
-			JSONObject object = new JSONObject();
+			ObjectNode object = Util.jsonCreateObject();
 			try {
 				if (!pattern.getKeywords().contains(tag)) {
 					object.put(tag, ConstantsError.NOT_FOUND_TAG);
-					json.append("failed", object);
+					Util.jsonAppend(json, "failed", object);
 				} else {
 					if (pattern.getKeywords().remove(tag)) {
-						json.append("success", tag);
+						Util.jsonAppend(json, "success", tag);
 					} else {
 						object.put(tag, ConstantsError.TAG_DELETION_FAILED);
-						json.append("failed", object);
+						Util.jsonAppend(json, "failed", object);
 					}
 				}
 			} catch (RuntimeException e) {}

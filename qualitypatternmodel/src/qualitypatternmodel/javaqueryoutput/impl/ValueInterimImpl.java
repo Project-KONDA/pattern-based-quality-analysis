@@ -12,6 +12,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,8 +44,8 @@ public class ValueInterimImpl extends InterimResultPartImpl implements ValueInte
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = new JSONObject();
+	public ObjectNode toJson() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put("class", getClass().getSimpleName());
 			result.put("id", getInterimPartId());

@@ -31,6 +31,7 @@ import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -236,8 +237,8 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 	 * @generated NOT
 	 */
 	@Override
-	public JSONObject generateVariantJSONObject() {
-		JSONArray params = new JSONArray();
+	public ObjectNode generateVariantJSONObject() {
+		ArrayNode params = Util.jsonCreateArray();
 		try {
 			EList<Parameter> allParams = getParameter().get(0).getParameterList().getParameters();
 //			EList<Parameter> allParams = getPatternText().getPattern().getParameterList().getParameters();
@@ -251,7 +252,7 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 			e.printStackTrace();
 		}
 
-		JSONObject result = new JSONObject();
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.set(ConstantsJSON.PARAMETER, params);
 			result.put(ConstantsJSON.VALUE, getValue());

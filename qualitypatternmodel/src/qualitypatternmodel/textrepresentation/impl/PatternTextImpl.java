@@ -43,6 +43,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -445,12 +446,12 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 
 
 	@Override
-	public JSONObject generateJSONObject() {
-		JSONObject json = new JSONObject();
+	public ObjectNode generateJSONObject() {
+		ObjectNode json = Util.jsonCreateObject();
 		try {
 			json.put(ConstantsJSON.NAME, getName());
 			json.put(ConstantsJSON.TYPE_CONSTRAINT, isTypeConstraint());
-			JSONArray fragments = new JSONArray();
+			ArrayNode fragments = Util.jsonCreateArray();
 			for (Fragment fragment: getFragmentsOrdered()) {
 				fragments.add(fragment.generateJSONObject());
 			}
@@ -470,14 +471,14 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @generated NOT
 	 */
 	@Override
-	public JSONObject generateVariantJSONObject() {
-		JSONObject result = new JSONObject();
+	public ObjectNode generateVariantJSONObject() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put(ConstantsJSON.TEMPLATE, getPattern().getPatternId());
 			result.put(ConstantsJSON.NAME, getName());
 			result.put(ConstantsJSON.TECHNOLOGY, getPattern().getLanguage().getLiteral());
 
-			JSONArray fragments = new JSONArray();
+			ArrayNode fragments = Util.jsonCreateArray();
 			for (Fragment fragment: getFragmentsOrdered()) {
 				fragments.add(fragment.generateVariantJSONObject());
 			}
@@ -504,8 +505,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	public void addToCustom(ObjectNode addition) {
 		if (custom == null)
 			setCustom(addition);
-		for (String key: addition.keySet())
-			custom.put(key, addition.get(key));
+		for (String key: Util.jsonKeySet(addition))
+			custom.set(key, addition.get(key));
 	}
 
 	/**

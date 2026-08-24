@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import com.fasterxml.jackson.databind.node.ArrayNode;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.javaoperators.JavaoperatorsPackage;
@@ -20,6 +22,7 @@ import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextParam;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Text
@@ -81,7 +84,7 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 		if (values == null) {
 			return null;
 		}
-		JSONArray jarray = new JSONArray(getValues());
+		ArrayNode jarray = Util.jsonCreateArray(getValues());
 		return jarray.toString();
 	}
 
@@ -92,7 +95,7 @@ public class TextListParamImpl extends ListParamImpl implements TextListParam {
 			return;
 		}
 		try {
-			JSONArray jarray = new JSONArray(value);
+			ArrayNode jarray = Util.jsonCreateArray(value);
 	        getValues().clear();
 	        for (int i = 0; i<jarray.size();i++) {
 	        	String v = jarray.get(i).asText();

@@ -2,8 +2,6 @@ package newservelettest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.api.Test;
 import qualitypatternmodel.newservlets.ServletJsonValidation;
 import qualitypatternmodel.utility.Util;

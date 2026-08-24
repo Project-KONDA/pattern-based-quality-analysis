@@ -18,6 +18,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -136,8 +137,8 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	 * @generated NOT
 	 */
 	@Override
-	public JSONArray getValuesAsJsonArray() {
-		JSONArray jarray = new JSONArray();
+	public ArrayNode getValuesAsJsonArray() {
+		ArrayNode jarray = Util.jsonCreateArray();
 		for (String val: getValues()) {
 			jarray.add(val);
 		}
@@ -192,8 +193,8 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	 * @generated NOT
 	 */
 	@Override
-	public JSONObject generateJSONObject() {
-		JSONObject result = new JSONObject();
+	public ObjectNode generateJSONObject() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			for (int i = 0; i<getKeys().size(); i++) {
 				result.put(getKeys().get(i), getValues().get(i));

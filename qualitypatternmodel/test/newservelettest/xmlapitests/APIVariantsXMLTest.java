@@ -14,7 +14,9 @@ import java.util.UUID;
 import java.util.stream.Stream;
 
 import org.apache.commons.io.FileUtils;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.api.AfterAll;
@@ -36,6 +38,7 @@ import qualitypatternmodel.newservlets.TemplateVariantServlet;
 import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 public class APIVariantsXMLTest {
 	private static final boolean DELETE = true;
@@ -96,17 +99,17 @@ public class APIVariantsXMLTest {
 		
 		InitialisationServlet.initialisation(context);
 		
-		store = new JSONObject();
-		JSONArray templates = PatternListServlet.applyGet("/xml" + "/template", new HashMap<String, String[]>()).getJSONArray("templates");
+		store = Util.jsonCreateObject();
+		ArrayNode templates = (ArrayNode) PatternListServlet.applyGet("/xml" + "/template", new HashMap<String, String[]>()).get("templates");
 		for (Object template: templates) {
-			JSONObject obj = (JSONObject) template;
-			JSONArray variants = obj.getJSONArray(ConstantsJSON.VARIANTS);
-			JSONArray variantIDs = new JSONArray();
+			ObjectNode obj = (ObjectNode) template;
+			ArrayNode variants = (ArrayNode) obj.get(ConstantsJSON.VARIANTS);
+			ArrayNode variantIDs = Util.jsonCreateArray();
 			
 			for (com.fasterxml.jackson.databind.JsonNode variant: variants)
 				variantIDs.add(variant.get(ConstantsJSON.NAME).asText());
 			
-			ObjectNode object = MAPPER.createObjectNode();
+			ObjectNode object = Util.jsonCreateObject();
 			object.set("IDs", variantIDs);
 			object.put("size", obj.get(ConstantsJSON.VARIANTS).size());
 			store.set(obj.get(ConstantsJSON.CONSTRAINT_ID).asText(), object);
@@ -180,12 +183,12 @@ public class APIVariantsXMLTest {
 		return fragmentslist;
 	}
 	
-	private static void setDefaultParameter(String constraintId, ObjectNode param) {
+	private static void setDefaultParameter(String constraintId, ObjectNode param) throws JsonMappingException, JsonProcessingException {
 		String paramid = param.path(ConstantsJSON.ID).asText();
 		String paramtype = param.path(ConstantsJSON.TYPE).asText();
 		String paramrole = param.path(ConstantsJSON.ROLE).asText();
 
-		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'Text':'a', 'TextList':'[\"c\",\"d\"]', 'Boolean':'true', 'TypeOption':'STRING'}");
+		ObjectNode obj = Util.jsonCreateObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'Text':'a', 'TextList':'[\"c\",\"d\"]', 'Boolean':'true', 'TypeOption':'STRING'}");
 		
 		if (paramtype.equals(Constants.PARAMETER_TYPE_ENUMERATION)) {
 			String value = param.get(ConstantsJSON.OPTIONS).get(0).asText();
@@ -228,7 +231,7 @@ public class APIVariantsXMLTest {
 		ObjectNode query2 = ConstraintQueryServlet.applyGet3("/xml/" + constraintID, APICallTests.getEmptyParams());
 		APICallTests.assertQueryObject(query2);
 		assert(hasCustom == query1.get(ConstantsJSON.CONSTRAINTS).get(0).has(ConstantsJSON.CUSTOM));
-		APICallTests.assertSimilarNodes(query1, query2);
+		APICallTests.assertSimilarJSONObjects(query1, query2);
 
 		Map<String, String[]> params2 = APICallTests.getEmptyParams();
 		params2.put("constraintIDs", new String[] { constraintID });
@@ -279,7 +282,7 @@ public class APIVariantsXMLTest {
 		
 		String paramjson = "{\"role\":\"Text\",\"options\":[\"ISIL (ISO 15511, DE only)\"],\"id\":\"Text_2\",\"type\":\"Enumeration\"}";
 		
-		setDefaultParameter(constraintID, new JSONObject(paramjson));
+		setDefaultParameter(constraintID, Util.jsonCreateObject(paramjson));
 		
 		ObjectNode res = ConstraintQueryServlet.applyGet("xml", new String[] {constraintID});
 		System.out.println(res);

@@ -15,6 +15,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,8 +69,8 @@ public class VariableContainerInterimImpl extends ContainerInterimImpl implement
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = new JSONObject();
+	public ObjectNode toJson() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put("class", getClass().getSimpleName());
 			result.put("id", getInterimPartId());

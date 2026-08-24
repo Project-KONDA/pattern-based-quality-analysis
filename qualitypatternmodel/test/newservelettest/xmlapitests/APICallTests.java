@@ -22,7 +22,8 @@ import java.util.Set;
 import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.api.AfterAll;
@@ -199,7 +200,7 @@ public class APICallTests {
 
 	// __________ ASSERTIONS __________
 
-	static void assertPatternObjectArray(ArrayNode object) {
+	static void assertPatternArray(ArrayNode object) {
 		for (int i = 0; i < object.size(); i++)
 			assertPatternObject((ObjectNode) object.get(i));
 	}
@@ -564,7 +565,7 @@ public class APICallTests {
 		params4.put("tag", lst);
 
 		ObjectNode tags1 = ConstraintTagServlet.applyPost("/xml/" + constraintID, params1);
-		assert (tags1.has(ConstantsJSON.SUCCESS) && tags1.get(ConstantsJSON.SUCCESS).equals((Util.jsonCreateArray(arr012)));
+		assert (tags1.has(ConstantsJSON.SUCCESS) && tags1.get(ConstantsJSON.SUCCESS).equals(Util.jsonCreateArray(arr012)));
 		assert (!tags1.has(ConstantsJSON.FAILED));
 
 		ObjectNode tags2 = ConstraintTagServlet.applyDelete("/xml/" + constraintID, params2);
@@ -611,7 +612,7 @@ public class APICallTests {
 			constraintIDCopy = jsonCopy.get(ConstantsJSON.CONSTRAINT_ID).asText();
 			jsonDefault.remove(ConstantsJSON.CONSTRAINT_ID);
 			jsonDefault.put(ConstantsJSON.CONSTRAINT_ID, constraintIDCopy);
-			assertSimilarNodes(jsonDefault, jsonCopy);
+			assertSimilarJSONObjects(jsonDefault, jsonCopy);
 
 			deleteConstraint(constraintID);
 			deleteConstraint(constraintIDCopy);
@@ -632,11 +633,18 @@ public class APICallTests {
 		String uuidstring = UUID.randomUUID().toString();
 		params1.put(uuidstring, new String[] { "value" });
 		ObjectNode get1 = ConstraintServlet.applyPost("/xml/" + constraintId, params1);
-		assert (get1.has(ConstantsJSON.SUCCESS) && get1.getJSONArray(ConstantsJSON.SUCCESS)
-				.similar(new JSONArray(new String[] { "XmlPath_Element_0", ConstantsJSON.DATABASE, ConstantsJSON.DATAMODEL })));
-		assert (get1.has(ConstantsJSON.FAILED) && get1.getJSONArray(ConstantsJSON.FAILED).getJSONObject(0).has(uuidstring));
-		assert (get1.has("available") && get1.getJSONArray("available").toList()
-				.containsAll(Arrays.asList(ConstantsJSON.DATABASE, ConstantsJSON.DATAMODEL, "namespace", "name", "XmlPath_Element_0")));
+		assert (get1.has(ConstantsJSON.SUCCESS) && ((ArrayNode) get1.get(ConstantsJSON.SUCCESS))
+				.equals(Util.jsonCreateArray(new String[] { "XmlPath_Element_0", ConstantsJSON.DATABASE, ConstantsJSON.DATAMODEL })));
+		
+		assert (get1.has(ConstantsJSON.FAILED) && ((ObjectNode) ((ArrayNode) get1.get(ConstantsJSON.FAILED)).get(0)).has(uuidstring));
+		assert (get1.has("available"));
+		
+		assert (get1.has("available"));
+		ArrayList<String> available = new ArrayList<String>();
+		for (JsonNode node: ((ArrayNode) get1.get("available"))) {
+			available.add(node.asText());
+		}
+		assert (available.containsAll(Arrays.asList(ConstantsJSON.DATABASE, ConstantsJSON.DATAMODEL, "namespace", "name", "XmlPath_Element_0")));
 		assert (get1.has(ConstantsJSON.LASTSAVED));
 
 		ObjectNode get = getConstraint(constraintId);
@@ -657,7 +665,7 @@ public class APICallTests {
 		assert (listTemplate.has(ConstantsJSON.IDS) && listTemplate.get(ConstantsJSON.IDS).size() == templateNo);
 		assert (listTemplate.has(ConstantsJSON.TEMPLATES) && listTemplate.get(ConstantsJSON.TEMPLATES).size() == templateNo);
 		if (listTemplate.has(ConstantsJSON.TEMPLATES))
-			assertPatternJSONObjectArray(listTemplate.getJSONArray(ConstantsJSON.TEMPLATES));
+			assertPatternArray((ArrayNode) listTemplate.get(ConstantsJSON.TEMPLATES));
 	}
 
 	@Test
@@ -670,7 +678,7 @@ public class APICallTests {
 		assert (listTemplate.has(ConstantsJSON.IDS) && listTemplate.get(ConstantsJSON.IDS).size() == templateNo);
 		assert (listTemplate.has(ConstantsJSON.TEMPLATES) && listTemplate.get(ConstantsJSON.TEMPLATES).size() == templateNo);
 		if (listTemplate.has(ConstantsJSON.TEMPLATES))
-			assertPatternObjectArray((ArrayNode) listTemplate.get(ConstantsJSON.TEMPLATES));
+			assertPatternArray((ArrayNode) listTemplate.get(ConstantsJSON.TEMPLATES));
 	}
 
 	@Test

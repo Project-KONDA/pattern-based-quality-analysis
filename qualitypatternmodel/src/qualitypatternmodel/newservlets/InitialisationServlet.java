@@ -13,7 +13,6 @@ import java.util.Date;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EPackage;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.ServletConfig;
@@ -43,6 +42,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.impl.PatternTextImpl;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 @SuppressWarnings("serial")
 public class InitialisationServlet extends HttpServlet {
@@ -435,7 +435,7 @@ public class InitialisationServlet extends HttpServlet {
 	
 	public static ObjectNode readJsonFromFile(File file) throws IOException {
         String content = new String(Files.readAllBytes(file.toPath()));
-        return new JSONObject(content);
+        return Util.jsonCreateObject(content);
     }
 	
 	public static void checkLoadedDependencies() {
@@ -483,7 +483,7 @@ public class InitialisationServlet extends HttpServlet {
 		if (path == null || path.equals("") || path.equals("/") || path.equals("/status") || path.equals("/health")) {
 			String version = System.getenv("MAVEN_VERSION");
 			version = (version != null) ? version : "dev";
-			JSONObject result = new JSONObject();
+			ObjectNode result = Util.jsonCreateObject();
 			result.put("title", "Quality Pattern Model API");
 			result.put("version", version);
 			result.put("status", "ok");

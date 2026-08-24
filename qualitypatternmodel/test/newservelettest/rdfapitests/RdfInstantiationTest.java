@@ -16,6 +16,7 @@ import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.newservlets.ConstraintServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
+import qualitypatternmodel.utility.Util;
 
 public class RdfInstantiationTest {
 	public static void main(String[] args) throws ServletException, InvalidServletCallException, FailedServletCallException, IOException {
@@ -44,7 +45,7 @@ public class RdfInstantiationTest {
 
 			System.out.println("SET PARAMETER");
 			HashMap<String, String[]> parameter = new HashMap<String, String[]>();
-			parameter.put("IriList_0", new String[]{new JSONArray().put("wdt:iri").toString()});
+			parameter.put("IriList_0", new String[]{Util.jsonCreateArray().add("wdt:iri").toString()});
 			parameter.put("IriList_1", new String[]{"wdt:iri"});
 			parameter.put("RdfPath_2", new String[]{"wdt:iri"});
 			parameter.put("ComparisonOption_3", new String[]{"less than"});

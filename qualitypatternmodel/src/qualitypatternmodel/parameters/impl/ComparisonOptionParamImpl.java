@@ -30,6 +30,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -166,8 +167,8 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	}
 
 	@Override
-	public JSONArray getOptionsAsJsonArray() {
-		JSONArray jarray = new JSONArray();
+	public ArrayNode getOptionsAsJsonArray() {
+		ArrayNode jarray = Util.jsonCreateArray();
 		for (ComparisonOperator comp: getOptions()) {
 			jarray.add(comp.getName());
 		}

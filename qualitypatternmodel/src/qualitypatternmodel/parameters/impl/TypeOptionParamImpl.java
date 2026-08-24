@@ -23,6 +23,7 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -128,8 +129,8 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	}
 
 	@Override
-	public JSONArray getOptionsAsJsonArray() {
-		JSONArray jarray = new JSONArray();
+	public ArrayNode getOptionsAsJsonArray() {
+		ArrayNode jarray = Util.jsonCreateArray();
 		for (ReturnType type: getOptions()) {
 			jarray.add(type.getName());
 		}

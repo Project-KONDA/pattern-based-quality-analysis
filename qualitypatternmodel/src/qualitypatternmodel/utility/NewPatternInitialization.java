@@ -1,8 +1,10 @@
 package qualitypatternmodel.utility;
 
 import java.io.IOException;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.Arrays;
+
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 
 /* 
@@ -64,14 +66,14 @@ public class NewPatternInitialization {
 		return val.trim().startsWith("<") && val.trim().endsWith(">"); 
 	}
 
-	public static JSONObject makeFragment(String base, String example) {
-		JSONObject object = new JSONObject();
+	public static ObjectNode makeFragment(String base, String example) {
+		ObjectNode object = Util.jsonCreateObject();
 		if (isParameter(base) && isParameter(example)) {
 			base = base.replaceAll("^<|>$", "");
 			example = example.replaceAll("^<|>$", "");
 			object.put(ConstantsJSON.NAME, base);
 			object.put(ConstantsJSON.EXAMPLEVALUE, example);
-			object.put(ConstantsJSON.PARAMETER, new JSONArray());
+			object.set(ConstantsJSON.PARAMETER, Util.jsonCreateArray());
 			object.put(ConstantsJSON.DESCRIPTION, "");
 		}
 		else if (base.equals(example)) {
@@ -95,16 +97,16 @@ public class NewPatternInitialization {
 			System.err.println(example.length);
 			return null;
 		}
-		JSONArray array = new JSONArray();
+		ArrayNode array = Util.jsonCreateArray();
 		for (int i = 0; i<base.length; i++) {
 			array.add(makeFragment(base[i], example[i]));
 		}
 		return array;
 	}
 
-	public static JSONObject makeVariant() {
-		JSONObject object = new JSONObject();
-		JSONObject custom = new JSONObject();
+	public static ObjectNode makeVariant() {
+		ObjectNode object = Util.jsonCreateObject();
+		ObjectNode custom = Util.jsonCreateObject();
 		object.set(ConstantsJSON.CUSTOM, custom);
 		
 		object.put(ConstantsJSON.TEMPLATE, id + "_" + language);
@@ -114,7 +116,7 @@ public class NewPatternInitialization {
 
 		custom.put(ConstantsJSON.DESCRIPTION, variantid + " variant for " + id + "_" + language);
 		custom.put("scope", scope);
-		custom.put("type", new JSONArray(type.split(", ")));
+		custom.set("type", Util.jsonCreateArray(Arrays.asList(type.split(", "))));
 		
 		object.set(ConstantsJSON.FRAGMENTS, makeFragments());
 		return object;
@@ -130,7 +132,7 @@ public class NewPatternInitialization {
 	
 	public static void templateInfo() throws IOException {
 
-		JSONObject info = new JSONObject();
+		ObjectNode info = Util.jsonCreateObject();
 		info.put(ConstantsJSON.ID, id);
 		info.put(ConstantsJSON.NAME, name);
 		info.put(ConstantsJSON.DESCRIPTION, description);

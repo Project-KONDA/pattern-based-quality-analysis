@@ -7,7 +7,8 @@ import java.util.Comparator;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.api.BeforeAll;
@@ -37,7 +38,7 @@ public class CompareBaseXSaxonResults {
 	}
 
     static Stream<Arguments> baseKeys () {
-    	Set<String> keys = version_new.keySet();
+    	Set<String> keys = Util.jsonKeySet(version_base);
     	keys.remove("LinkMatchListExists_xml_default");
         return keys.stream()
                 .map(item -> Arguments.of(item));
@@ -45,9 +46,9 @@ public class CompareBaseXSaxonResults {
 
     static Stream<Arguments> baseKeysOneTwo () {
 
-    	Set<String> keysBase = version_base.keySet();
+    	Set<String> keysBase = Util.jsonKeySet(version_base);
     	keysBase.remove("LinkMatchListExists_xml_default");
-    	Set<String> keysNew = version_new.keySet();
+    	Set<String> keysNew = Util.jsonKeySet(version_new);
     	keysNew.remove("LinkMatchListExists_xml_default");
     	
     	Stream<Arguments> stream1 = keysBase.stream().map(item -> Arguments.of(item, 0));
@@ -197,7 +198,7 @@ public class CompareBaseXSaxonResults {
     @Order(10)
 	@ParameterizedTest
     @MethodSource("baseKeysOneTwo")
-	public void compareResults_incidents_baseInNew (String constraintId, int id) {
+	public void compareResults_incidents_baseInNew (String constraintId, int id) throws JsonMappingException, JsonProcessingException {
 		ArrayNode incidentsBase = (ArrayNode) version_base.get(constraintId).get("result").get("result").get(id).get("incidents");
 		ArrayNode incidentsNew = (ArrayNode) version_new.get(constraintId).get("result").get("result").get(id).get("incidents");
 		compareResults(incidentsBase, incidentsNew, constraintId, id);
@@ -206,15 +207,15 @@ public class CompareBaseXSaxonResults {
     @Order(11)
 	@ParameterizedTest
     @MethodSource("baseKeysOneTwo")
-	public void compareResults_incidents_newInBase (String constraintId, int id) {
+	public void compareResults_incidents_newInBase (String constraintId, int id) throws JsonMappingException, JsonProcessingException {
 		ArrayNode incidentsBase = (ArrayNode) version_base.get(constraintId).get("result").get("result").get(id).get("incidents");
 		ArrayNode incidentsNew = (ArrayNode) version_new.get(constraintId).get("result").get("result").get(id).get("incidents");
 		compareResults(incidentsNew, incidentsBase, constraintId, id);
     }
 
-	public static void compareResults (JSONArray incidentsBase, JSONArray incidentsNew, String constraintId, int id) {
-		JSONArray incidentsBaseCopy = new JSONArray(incidentsBase.toString());
-		JSONArray incidentsNewCopy = new JSONArray(incidentsNew.toString());
+	public static void compareResults (ArrayNode incidentsBase, ArrayNode incidentsNew, String constraintId, int id) throws JsonMappingException, JsonProcessingException {
+		ArrayNode incidentsBaseCopy = Util.jsonCreateArray(incidentsBase.toString());
+		ArrayNode incidentsNewCopy = Util.jsonCreateArray(incidentsNew.toString());
 		
 		int fail = 0;
 		for (int i = 0; i<incidentsBaseCopy.size(); i++) {

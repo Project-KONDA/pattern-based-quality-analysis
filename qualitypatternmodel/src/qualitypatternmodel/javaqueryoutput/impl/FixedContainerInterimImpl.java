@@ -21,6 +21,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -103,12 +104,12 @@ public class FixedContainerInterimImpl extends ContainerInterimImpl implements F
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = new JSONObject();
+	public ObjectNode toJson() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put("class", getClass().getSimpleName());
 			result.put("id", getInterimPartId());
-			JSONArray contained = new JSONArray();
+			ArrayNode contained = Util.jsonCreateArray();
 			for (InterimResultPart container: getContained()) {
 				contained.add(container.toJson());
 			}

@@ -24,6 +24,7 @@ import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.JsonResult;
 import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
+import qualitypatternmodel.utility.Util;
 import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 /**
@@ -66,8 +67,8 @@ public abstract class InterimResultImpl extends MinimalEObjectImpl.Container imp
 		return result;
 	}
 
-	static InterimResult createNew(InterimResultPart corresponding, JSONObject interimObject) throws InvalidityException {
-		JSONArray array = new JSONArray();
+	static InterimResult createNew(InterimResultPart corresponding, ObjectNode interimObject) throws InvalidityException {
+		ArrayNode array = Util.jsonCreateArray();
 		array.add(interimObject);
 		return createNew(corresponding, array);
 	}

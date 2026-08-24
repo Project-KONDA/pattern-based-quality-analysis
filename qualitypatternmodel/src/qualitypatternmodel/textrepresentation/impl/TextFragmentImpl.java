@@ -11,6 +11,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.textrepresentation.TextFragment;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -169,8 +170,8 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 	}
 
 	@Override
-	public JSONObject generateJSONObject() {
-		JSONObject json = new JSONObject();
+	public ObjectNode generateJSONObject() {
+		ObjectNode json = Util.jsonCreateObject();
 		try {
 			json.put("text", getText());
 		} catch (RuntimeException e) {}
@@ -182,8 +183,8 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 	 * @generated NOT
 	 */
 	@Override
-	public JSONObject generateVariantJSONObject() {
-		JSONObject object = new JSONObject();
+	public ObjectNode generateVariantJSONObject() {
+		ObjectNode object = Util.jsonCreateObject();
 		try {
 			object.put(ConstantsJSON.TEXT, getText());
 		} catch (RuntimeException e) {}

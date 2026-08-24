@@ -6,13 +6,17 @@ import static org.mockito.Mockito.mock;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import org.apache.commons.io.FileUtils;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.api.AfterAll;
@@ -29,6 +33,7 @@ import qualitypatternmodel.newservlets.PatternListServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
 import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 public class APIPatternListPerformance {
 	private static String FOLDER;
@@ -145,22 +150,23 @@ public class APIPatternListPerformance {
 	}
 	
 	private static List<String> getAllConstraintParameter(String connstraintId) throws InvalidServletCallException, FailedServletCallException, ServletException, IOException{
-		JSONObject json = getConstraint(connstraintId);
-		JSONObject variant = (JSONObject) json.getJSONArray(ConstantsJSON.VARIANTS).get(0);
-		JSONArray params = variant.getJSONArray(ConstantsJSON.PARAMETER);
-		List<String> paramstrings = params.toList().stream()
-			    .map(obj -> (String) obj)
-			    .collect(Collectors.toList()); 
+		ObjectNode json = getConstraint(connstraintId);
+		ObjectNode variant = (ObjectNode) ((ArrayNode) json.get(ConstantsJSON.VARIANTS)).get(0);
+		ArrayNode params = (ArrayNode) variant.get(ConstantsJSON.PARAMETER);
+		
+		ArrayList<String> paramstrings = new ArrayList<String>();
+		for (JsonNode node: params)
+			paramstrings.add(node.asText()); 
 		return paramstrings;
 	}
 	
-	private static void setDefaultParameter(String constraintId, String param) {
-		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'TextList':'[\"a\",\"b\"]', 'Boolean':'true', 'Text':'a'}");
+	private static void setDefaultParameter(String constraintId, String param) throws JsonMappingException, JsonProcessingException {
+		ObjectNode obj = Util.jsonCreateObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'TextList':'[\"a\",\"b\"]', 'Boolean':'true', 'Text':'a'}");
 
 		if (Set.of("name", "namespace", "datamodel", "database").contains(param))
 			return;
 
-		for (String key: obj.keySet())
+		for (String key: Util.jsonKeySet(obj))
 			if (param.startsWith(key)) {
 				ParameterFragmentImpl.ALLOW_IGNORE_MAP = true;
 				setConstraintParameter(constraintId, param, obj.get(key).asText());

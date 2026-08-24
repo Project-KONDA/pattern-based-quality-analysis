@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.adaptionxml.XmlPathParam;
@@ -30,7 +29,7 @@ public class PatternFilterGenerationTest {
 		filterjson.put("queryPartial", "for $var2_0 in /descendant::* return $var2_0");
 		filterjson.set("filter", Util.jsonCreateObject("{'argument':2,'subfilters':[{'argument':3,'subfilter':{'argument':4,'negate':true,'functionclass':'ValidateLinkOperatorImpl','class':'OneArgFunctionFilterPartImpl'},'quantifier':'EXISTS','class':'ListFilterPartImpl'}],'quantifier':'EXISTS','class':'QuantifierFilterPartImpl'}"));
 		filterjson.set("structure", Util.jsonCreateObject("{'record':{'id':5,'class':'ValueInterimImpl'},'class':'InterimResultStructureImpl','substructure':{'contained':[{'contained':{'id':4,'class':'ValueInterimImpl'},'id':3,'class':'VariableContainerInterimImpl'}],'id':2,'class':'FixedContainerInterimImpl'}}"));
-		ObjectNode object = MAPPER.createObjectNode();
+		ObjectNode object = Util.jsonCreateObject();
 		object.put(ConstantsJSON.QUERY_FILTER, "let $var2_0 := . return <interim><return>{$var2_0}</return><condition><quantifier>{<value> {for $var3_0 in $var2_0 /text() return $var3_0}</value>}</quantifier></condition></interim>");
 		filterjson.set(ConstantsJSON.RELATIVEQUERIES, object);
 //		System.out.println(filterjson.toString(2));

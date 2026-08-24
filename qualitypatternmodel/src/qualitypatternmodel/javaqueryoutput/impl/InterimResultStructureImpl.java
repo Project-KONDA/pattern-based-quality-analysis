@@ -18,6 +18,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,8 +66,8 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = new JSONObject();
+	public ObjectNode toJson() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put("class", getClass().getSimpleName());
 			result.set("record", getRecord().toJson());

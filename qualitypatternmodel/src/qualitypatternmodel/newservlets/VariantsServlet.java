@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicEList;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -43,20 +45,25 @@ public class VariantsServlet extends HttpServlet {
 					+ "(not /variants" + path + ")");
 		}
 		String technology = pathparts[1];
-		JSONObject result = new JSONObject();
-		JSONArray variants = getVariantJSONs(technology);
+		ObjectNode result = Util.jsonCreateObject();
+		ArrayNode variants = getVariantJSONs(technology);
 		
 		// filter_by
 		if (parameterMap.containsKey(ConstantsJSON.API_FILTER_BY)) {
 			String[] filter_by_raw = parameterMap.get(ConstantsJSON.API_FILTER_BY);
-			JSONObject filter_by = new JSONObject(filter_by_raw[0]);
-			result.put(ConstantsJSON.API_FILTER_BY, filter_by);
+			ObjectNode filter_by;
+			try {
+				filter_by = Util.jsonCreateObject(filter_by_raw[0]);
+			} catch (JsonProcessingException e) {
+				filter_by = Util.jsonCreateObject();
+			}
+			result.set(ConstantsJSON.API_FILTER_BY, filter_by);
 			
-			JSONArray filtered = new JSONArray();
-			for (int i = 0; i < variants.length(); i++) {
-				JSONObject variant = variants.getJSONObject(i);
+			ArrayNode filtered = Util.jsonCreateArray();
+			for (int i = 0; i < variants.size(); i++) {
+				ObjectNode variant = (ObjectNode) variants.get(i);
 				if (filterJSONObject(variant, filter_by)) {
-					filtered.put(variant);
+					filtered.add(variant);
 				}
 			}
 			variants = filtered;
@@ -74,7 +81,12 @@ public class VariantsServlet extends HttpServlet {
 			result.put(ConstantsJSON.TOTAL, getVariantsTotal(variants));
 		} else {
 			String[] group_by_raw = parameterMap.get(ConstantsJSON.API_GROUP_BY);
-			JSONArray group_by = new JSONArray(group_by_raw[0]);
+			ArrayNode group_by;
+			try {
+				group_by = Util.jsonCreateArray(group_by_raw[0]);
+			} catch (JsonProcessingException e) {
+				group_by = Util.jsonCreateArray();
+			}
 			ObjectNode grouped = groupVariantsBy(variants, group_by);
 			result.set(ConstantsJSON.API_GROUP_BY, group_by);
 			result.set(ConstantsJSON.VARIANTS, grouped);
@@ -141,9 +153,9 @@ public class VariantsServlet extends HttpServlet {
 
 
 
-	private static JSONArray getVariantJSONs(String technology) {
-		List<JSONObject> templates = ServletUtilities.getTemplateJSONs(technology);
-		JSONArray variants = new JSONArray();
+	private static ArrayNode getVariantJSONs(String technology) {
+		List<ObjectNode> templates = ServletUtilities.getTemplateJSONs(technology);
+		ArrayNode variants = Util.jsonCreateArray();
 		for (ObjectNode template: templates) {
 			List<ObjectNode> templatevariants = templateJSONToVariantJSONs(template);
 			for (ObjectNode variant : templatevariants) variants.add(variant);
@@ -151,10 +163,10 @@ public class VariantsServlet extends HttpServlet {
 		return variants;
 	}
 
-	private static List<JSONObject> templateJSONToVariantJSONs(JSONObject template) {
-		List<JSONObject> variants = new BasicEList<JSONObject>();
-		JSONArray variantsArray = template.getJSONArray(ConstantsJSON.VARIANTS);
-		JSONObject templateInfo = new JSONObject();
+	private static List<ObjectNode> templateJSONToVariantJSONs(ObjectNode template) {
+		List<ObjectNode> variants = new BasicEList<ObjectNode>();
+		ArrayNode variantsArray = (ArrayNode) template.get(ConstantsJSON.VARIANTS);
+		ObjectNode templateInfo = Util.jsonCreateObject();
 
 		templateInfo.put(ConstantsJSON.CONSTRAINT_ID, template.path(ConstantsJSON.CONSTRAINT_ID).asText());
 		templateInfo.put(ConstantsJSON.NAME, template.path(ConstantsJSON.NAME).asText());
@@ -182,15 +194,15 @@ public class VariantsServlet extends HttpServlet {
 		else {
 			ObjectNode obj = (ObjectNode) json;
 			int sum = 0;
-			for (String key: obj.keySet()) {
+			for (String key: Util.jsonKeySet(obj)) {
 				sum += getVariantsTotal(obj.get(key));
 			}
 			return sum;
 		}
 	}
 
-	private static boolean filterJSONObject(JSONObject object, JSONObject filter_by) {
-		for (String key : filter_by.keySet()) {
+	private static boolean filterJSONObject(ObjectNode object, ObjectNode filter_by) {
+		for (String key : Util.jsonKeySet(filter_by)) {
 			if (!filterObjectNode(object, key, filter_by.path(key).asText()))
 				return false;
 		}
@@ -215,12 +227,12 @@ public class VariantsServlet extends HttpServlet {
 		if (keys.length < 1 )
 			return null;
 		if (object.has(keys[0])) {
-			Object subobject = object.opt(keys[0]);
+			Object subobject = object.get(keys[0]);
 			if (keys.length == 1) {
-				if (subobject instanceof JSONArray)
-					return (JSONArray) subobject;
+				if (subobject instanceof ArrayNode)
+					return (ArrayNode) subobject;
 				if (subobject instanceof String)
-					return new JSONArray().put((String) subobject);
+					return Util.jsonCreateArray().add((String) subobject);
 			}
 			if (keys.length > 1) {
 				if (subobject instanceof ObjectNode) {
@@ -233,8 +245,8 @@ public class VariantsServlet extends HttpServlet {
 
 	private static ObjectNode groupVariantsBy(ArrayNode variants, ArrayNode group_by) {
 		if (group_by.isEmpty() || variants.isEmpty())
-			return new JSONObject().put(ConstantsJSON.NOGROUP, variants);
-		JSONObject result = new JSONObject();
+			return Util.jsonCreateObject().set(ConstantsJSON.NOGROUP, variants);
+		ObjectNode result = Util.jsonCreateObject();
 		for (int i = 0; i<variants.size(); i++) {
 			ObjectNode variant = (ObjectNode) variants.get(i);
 			ArrayNode values = getValueArray(variant, group_by.get(0).asText());
