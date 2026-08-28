@@ -2,21 +2,21 @@
  */
 package qualitypatternmodel.textrepresentation.impl;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import qualitypatternmodel.textrepresentation.ParameterFragment;
-import qualitypatternmodel.textrepresentation.ParameterPredefinition;
-import qualitypatternmodel.textrepresentation.PatternText;
-import qualitypatternmodel.textrepresentation.TextFragment;
-import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
-import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
-import qualitypatternmodel.textrepresentation.ValueMap;
+
+import qualitypatternmodel.textrepresentation.*;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -186,36 +186,50 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ObjectNode createJSONObjectWrapperFromString(EDataType eDataType, String initialValue) {
-		return (ObjectNode)super.createFromString(eDataType, initialValue);
+		try {
+			return Util.jsonCreateObject(initialValue);
+		} catch (JsonProcessingException e) {
+			return null;
+		}
+//		return (ObjectNode)super.createFromString(eDataType, initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String convertJSONObjectWrapperToString(EDataType eDataType, Object instanceValue) {
+		if (instanceValue instanceof ObjectNode)
+			return ((ObjectNode) instanceValue).asText();
 		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ArrayNode createJSONArrayWrapperFromString(EDataType eDataType, String initialValue) {
-		return (ArrayNode)super.createFromString(eDataType, initialValue);
+		try {
+			return Util.jsonCreateArray(initialValue);
+		} catch (JsonProcessingException e) {
+			return null;
+		}
+//		return (ArrayNode)super.createFromString(eDataType, initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String convertJSONArrayWrapperToString(EDataType eDataType, Object instanceValue) {
+		if (instanceValue instanceof ArrayNode)
+			return ((ArrayNode) instanceValue).asText();
 		return super.convertToString(eDataType, instanceValue);
 	}
 
