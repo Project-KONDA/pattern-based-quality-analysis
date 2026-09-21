@@ -225,7 +225,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
             	try {
             		addFragment(new ParameterFragmentImpl(pattern, fragmentObject, id_counter));
             	} catch (Exception e) {
-            		throw new InvalidityException("invalid ParameterFragment object for " + template + "_" + name, e);
+            		throw new InvalidityException("invalid ParameterFragment object for " + template + "_" + name + ": " + fragmentObject.toString(), e);
             	}
             	id_counter++;
             }

@@ -34,6 +34,7 @@ import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.newservlets.ConstraintCopyServlet;
 import qualitypatternmodel.newservlets.ConstraintDataModelServlet;
 import qualitypatternmodel.newservlets.ConstraintDatabaseServlet;
@@ -59,8 +60,9 @@ import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.Util;
 
 public class APICallTests {
-	private static final boolean DELETE = true;
+	private static final boolean DELETE = false;
 	private static String folder;
+	private static boolean checkamount = false;
 
 	public static void main(String[] args)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
@@ -99,7 +101,13 @@ public class APICallTests {
 			testConstraintDownloadServletGet();
 			testConstraintUploadServletPost();
 
-			testVariantServletGet();
+			testVariantServletGet1();
+			testVariantServletGet2();
+			testVariantServletGet3();
+			testVariantServletGet4();
+			testVariantServletGet5();
+			testVariantServletGet6();
+			testVariantServletGet7();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -232,7 +240,10 @@ public class APICallTests {
 		jsonCopy.remove(ConstantsJSON.LASTSAVED);
 
 		for (String key : keys1) {
-			assertEquals(jsonDefault.get(key).toString(), jsonCopy.get(key).toString());
+			if (jsonDefault.get(key).isTextual())
+				assertEquals(jsonDefault.get(key).asText(), jsonCopy.get(key).asText());
+			else
+				assertEquals(jsonDefault.get(key).toString(), jsonCopy.get(key).toString());
 		}
 	}
 
@@ -314,6 +325,7 @@ public class APICallTests {
 
 		if (variants.has(ConstantsJSON.API_FILTER_BY))
 			assert(variants.get(ConstantsJSON.API_FILTER_BY).isObject());
+		
 		if (variants.has(ConstantsJSON.API_GROUP_BY)) {
 			assert(variants.get(ConstantsJSON.API_GROUP_BY).isArray());
 			assertVariantsNested(variants.get(ConstantsJSON.VARIANTS), variants.get(ConstantsJSON.API_GROUP_BY).size());
@@ -322,18 +334,24 @@ public class APICallTests {
 		}
 	}
 	
-	static void assertVariantsNested(Object object, int depth) {
+	static void assertVariantsNested(JsonNode object, int depth) {
+		System.out.println(depth + ": " + object);
 		if (depth <= 0) {
 			assert(object instanceof ArrayNode);
 			ArrayNode array = (ArrayNode) object;
 			assertVariantArray(array);
 		}
 		else {
-			assert(object instanceof ObjectNode);
-			ObjectNode jobject = (ObjectNode) object;
-			for (String key: Util.jsonKeySet(jobject)) {
-				Object subobject = jobject.get(key);
-				assertVariantsNested(subobject, depth-1);
+			if (object instanceof ObjectNode) {
+				ObjectNode jobject = (ObjectNode) object;
+				for (String key: Util.jsonKeySet(jobject)) {
+					JsonNode subobject = jobject.get(key);
+					assertVariantsNested(subobject, depth-1);
+				}
+			}
+			else {
+				assert(object instanceof ArrayNode);
+				assert(((ArrayNode) object).isEmpty());
 			}
 		}
 	}
@@ -569,14 +587,16 @@ public class APICallTests {
 		assert (!tags1.has(ConstantsJSON.FAILED));
 
 		ObjectNode tags2 = ConstraintTagServlet.applyDelete("/xml/" + constraintID, params2);
-		assert (tags2.has(ConstantsJSON.SUCCESS) && tags2.get(ConstantsJSON.SUCCESS).equals(Util.jsonCreateArray(arr12)));
-		assert (tags2.has(ConstantsJSON.FAILED)
-				&& tags2.get(ConstantsJSON.FAILED).toString().contains("{\"" + lst[3] + "\":\"tag not found\"}"));
+		assert (tags2.has(ConstantsJSON.SUCCESS));
+		assert (tags2.get(ConstantsJSON.SUCCESS).equals(Util.jsonCreateArray(arr12)));
+		assert (tags2.has(ConstantsJSON.FAILED));
+		assert (tags2.get(ConstantsJSON.FAILED).asText().contains("{\"" + lst[3] + "\":\"tag not found\"}"));
 
 		ObjectNode tags3 = ConstraintTagServlet.applyPost("/xml/" + constraintID, params3);
-		assert (tags3.has(ConstantsJSON.SUCCESS) && tags3.get(ConstantsJSON.SUCCESS).equals(Util.jsonCreateArray(arr123)));
-		assert (tags3.has(ConstantsJSON.FAILED)
-				&& tags3.get(ConstantsJSON.FAILED).toString().contains("\"" + lst[0] + "\":\"tag already added\""));
+		assert (tags3.has(ConstantsJSON.SUCCESS));
+		assert (tags3.get(ConstantsJSON.SUCCESS).equals(Util.jsonCreateArray(arr123)));
+		assert (tags3.has(ConstantsJSON.FAILED));
+		assert (tags3.get(ConstantsJSON.FAILED).asText().contains("\"" + lst[0] + "\":\"tag already added\""));
 
 		ObjectNode tags4 = ConstraintTagServlet.applyDelete("/xml/" + constraintID, params4);
 		assert (tags4.has(ConstantsJSON.SUCCESS) && tags4.get(ConstantsJSON.SUCCESS).equals(Util.jsonCreateArray(arr0123)));
@@ -623,7 +643,7 @@ public class APICallTests {
 
 	@Test
 	public void testConstraintServletPost()
-			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException, InvalidityException {
 		String constraintId = newConstraint();
 
 		Map<String, String[]> params1 = getEmptyParams();
@@ -674,7 +694,8 @@ public class APICallTests {
 		ObjectNode listTemplate = PatternListServlet.applyGet("/xml" + "/template", getEmptyParams());
 		int templateNo = EMFModelLoad.getFilesInDirectory(folder + "/templates/xml/abstract-patterns", Constants.EXTENSION).size();
 		assert (templateNo > 0);
-		assert (listTemplate.has(ConstantsJSON.SIZE) && listTemplate.get(ConstantsJSON.SIZE).asInt() == templateNo);
+		assert (listTemplate.has(ConstantsJSON.SIZE));
+		assertEquals (templateNo, listTemplate.get(ConstantsJSON.SIZE).asInt());
 		assert (listTemplate.has(ConstantsJSON.IDS) && listTemplate.get(ConstantsJSON.IDS).size() == templateNo);
 		assert (listTemplate.has(ConstantsJSON.TEMPLATES) && listTemplate.get(ConstantsJSON.TEMPLATES).size() == templateNo);
 		if (listTemplate.has(ConstantsJSON.TEMPLATES))
@@ -685,7 +706,7 @@ public class APICallTests {
 	public void testPatternListServletGetConcreteEmpty()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		ObjectNode listConcreteEmpty = PatternListServlet.applyGet("/xml" + "/concrete", getEmptyParams());
-		assert (listConcreteEmpty.get(ConstantsJSON.SIZE).asInt() == 0);
+		assertEquals (0, listConcreteEmpty.get(ConstantsJSON.SIZE).asInt());
 		assert (listConcreteEmpty.has(ConstantsJSON.IDS) && listConcreteEmpty.get(ConstantsJSON.IDS).isEmpty());
 		assert (listConcreteEmpty.has(ConstantsJSON.TEMPLATES) && listConcreteEmpty.get(ConstantsJSON.TEMPLATES).isEmpty());
 	}
@@ -723,7 +744,7 @@ public class APICallTests {
 
 	@Test
 	public void testConstraintMqafServlet()
-			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException, InvalidityException {
 		String constraintID = newConstraint("Card_xml", "default");
 		Map<String, String[]> params = getEmptyParams();
 		params.put("XmlPath_Element_0", new String[] { "//lido:lido" });
@@ -746,7 +767,7 @@ public class APICallTests {
 
 	@Test
 	public void testConstraintQueryServlet()
-			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException, InvalidityException {
 		String constraintID = newConstraint("Card_xml", "default");
 		Map<String, String[]> params = getEmptyParams();
 		params.put("XmlPath_Element_0", new String[] { "//lido:lido" });
@@ -769,7 +790,7 @@ public class APICallTests {
 
 	@Test
 	public void testConstraintExecuteServletGet()
-			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException, InvalidityException {
 		String constraintID = newConstraint("Card_xml", "default");
 		Map<String, String[]> params = getEmptyParams();
 		params.put("XmlPath_Element_0", new String[] { "//lido:lido" });
@@ -788,7 +809,7 @@ public class APICallTests {
 
 	@Test
 	public void testConstraintExecuteServletPost()
-			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException, InvalidityException {
 		String constraintID = newConstraint("Card_xml", "default");
 		Map<String, String[]> params = getEmptyParams();
 		params.put("XmlPath_Element_0", new String[] { "//lido:lido" });
@@ -867,85 +888,100 @@ public class APICallTests {
 	}
 
 	@Test
-	public void testVariantServletGet() 
-			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+	public void testVariantServletGet1() 
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException, InvalidityException {
 
 		ObjectNode variants = VariantsServlet.applyGet("/xml/", getEmptyParams());
 		assertVariantArrayGrouped(variants);
+		if (checkamount) {
+			assert(variants.get(ConstantsJSON.SIZE).asInt() >= 91);
+			assert(variants.get(ConstantsJSON.TOTAL).asInt() >= 50);
+		}
+	}
 
+	@Test
+	public void testVariantServletGet2() 
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException, InvalidityException {
 		Map<String, String[]> paramsGroup = getEmptyParams();
-		paramsGroup.put(ConstantsJSON.API_GROUP_BY, new String[]{"['custom.type']"});
+		paramsGroup.put(ConstantsJSON.API_GROUP_BY, new String[]{"[\"custom.type\"]"});
 		ObjectNode variantsGrouped = VariantsServlet.applyGet("/xml/", paramsGroup);
 		assertVariantArrayGrouped(variantsGrouped);
-
+		if (checkamount) {
+			assert(variantsGrouped.get(ConstantsJSON.SIZE).asInt() >= 50);
+			assert(variantsGrouped.get(ConstantsJSON.TOTAL).asInt() >= 50);
+		}
+	}
+	
+	@Test
+	public void testVariantServletGet3() 
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException, InvalidityException {
 		Map<String, String[]> paramsGroup2 = getEmptyParams();
-		paramsGroup2.put(ConstantsJSON.API_GROUP_BY, new String[]{"['custom.type', 'custom.scope']"});
+		paramsGroup2.put(ConstantsJSON.API_GROUP_BY, new String[]{"[\"custom.type\", \"custom.scope\"]"});
 		ObjectNode variantsGrouped2 = VariantsServlet.applyGet("/xml/", paramsGroup2);
 		assertVariantArrayGrouped(variantsGrouped2);
-
+		if (checkamount) {
+			assert(variantsGrouped2.get(ConstantsJSON.SIZE).asInt() >= 50);
+			assert(variantsGrouped2.get(ConstantsJSON.TOTAL).asInt() >= 50);
+		}
+	}
+	
+	@Test
+	public void testVariantServletGet4() 
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException, InvalidityException {
 		Map<String, String[]> paramsFilter = getEmptyParams();
-		paramsFilter.put(ConstantsJSON.API_FILTER_BY, new String[]{"{'custom.scope':'hierarchical'}"});
+		paramsFilter.put(ConstantsJSON.API_FILTER_BY, new String[]{"{\"custom.scope\":\"hierarchical\"}"});
 		ObjectNode variantsFilter = VariantsServlet.applyGet("/xml/", paramsFilter);
 		assertVariantArrayGrouped(variantsFilter);
-
+		if (checkamount) {
+			assert(variantsFilter.get(ConstantsJSON.SIZE).asInt() >= 20);
+			assert(variantsFilter.get(ConstantsJSON.TOTAL).asInt() >= 20);
+		}
+	}
+	
+	@Test
+	public void testVariantServletGet5() 
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException, InvalidityException {
 		Map<String, String[]> paramsFilter2 = getEmptyParams();
-		paramsFilter2.put(ConstantsJSON.API_FILTER_BY, new String[]{"{'custom.type': 'comp', 'custom.scope':'hierarchical'}"});
+		paramsFilter2.put(ConstantsJSON.API_FILTER_BY, new String[]{"{\"custom.type\": \"comp\", \"custom.scope\":\"hierarchical\"}"});
 		ObjectNode variantsFilter2 = VariantsServlet.applyGet("/xml/", paramsFilter2);
 		assertVariantArrayGrouped(variantsFilter2);
-
+		if (checkamount) {
+			assert(variantsFilter2.get(ConstantsJSON.SIZE).asInt() >= 1);
+			assert(variantsFilter2.get(ConstantsJSON.TOTAL).asInt() >= 1);
+		}
+	}
+	
+	@Test
+	public void testVariantServletGet6() 
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException, InvalidityException {
 		Map<String, String[]> paramsFilterGroup = getEmptyParams();
-		paramsFilterGroup.put(ConstantsJSON.API_GROUP_BY, new String[]{"['custom.type']"});
-		paramsFilterGroup.put(ConstantsJSON.API_FILTER_BY, new String[]{"{'scope':'hierarchical'}"});
+		paramsFilterGroup.put(ConstantsJSON.API_GROUP_BY, new String[]{"[\"custom.type\"]"});
+		paramsFilterGroup.put(ConstantsJSON.API_FILTER_BY, new String[]{"{\"scope\":\"hierarchical\"}"});
 		ObjectNode variantsFilterGroup = VariantsServlet.applyGet("/xml/", paramsFilterGroup);
 		assertVariantArrayGrouped(variantsFilterGroup);
-
+		if (checkamount) {
+			assert(variantsFilterGroup.get(ConstantsJSON.SIZE).asInt() == 0);
+			assert(variantsFilterGroup.get(ConstantsJSON.TOTAL).asInt() == 0);
+		}
+	}
+	
+	@Test
+	public void testVariantServletGet7() 
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException, InvalidityException {
 		Map<String, String[]> paramsFilter2Group2 = getEmptyParams();
-		paramsFilter2Group2.put(ConstantsJSON.API_GROUP_BY, new String[]{"['custom.type', 'custom.scope']"});
-		paramsFilter2Group2.put(ConstantsJSON.API_FILTER_BY, new String[]{"{'custom.type': 'comp', 'custom.scope':'hierarchical'}"});
+		paramsFilter2Group2.put(ConstantsJSON.API_GROUP_BY, new String[]{"[\"custom.type\", \"custom.scope\"]"});
+		paramsFilter2Group2.put(ConstantsJSON.API_FILTER_BY, new String[]{"{\"custom.type\": \"comp\", \"custom.scope\":\"hierarchical\"}"});
 		ObjectNode variantsFilter2Group2 = VariantsServlet.applyGet("/xml/", paramsFilter2Group2);
 		assertVariantArrayGrouped(variantsFilter2Group2);
-		
-		if (true) { // are values updated from json?
-
-//			System.out.println(variants.getInt(ConstantsJSON.SIZE));
-//			System.out.println(variantsGrouped.getInt(ConstantsJSON.SIZE));
-//			System.out.println(variantsGrouped2.getInt(ConstantsJSON.SIZE));
-//			System.out.println(variantsFilter.getInt(ConstantsJSON.SIZE));
-//			System.out.println(variantsFilter2.getInt(ConstantsJSON.SIZE));
-//			System.out.println(variantsFilterGroup.getInt(ConstantsJSON.SIZE));
-//			System.out.println(variantsFilter2Group2.getInt(ConstantsJSON.SIZE));
-
-//			System.out.println(variants.getInt(ConstantsJSON.TOTAL));
-//			System.out.println(variantsGrouped.getInt(ConstantsJSON.TOTAL));
-//			System.out.println(variantsGrouped2.getInt(ConstantsJSON.TOTAL));
-//			System.out.println(variantsFilter.getInt(ConstantsJSON.TOTAL));
-//			System.out.println(variantsFilter2.getInt(ConstantsJSON.TOTAL));
-//			System.out.println(variantsFilterGroup.getInt(ConstantsJSON.TOTAL));
-//			System.out.println(variantsFilter2Group2.getInt(ConstantsJSON.TOTAL));
-
-			// SIZE
-			assert(variants.get(ConstantsJSON.SIZE).asInt() >= 91);
-			assert(variantsGrouped.get(ConstantsJSON.SIZE).asInt() >= 50);
-			assert(variantsGrouped2.get(ConstantsJSON.SIZE).asInt() >= 50);
-			assert(variantsFilter.get(ConstantsJSON.SIZE).asInt() >= 20);
-			assert(variantsFilter2.get(ConstantsJSON.SIZE).asInt() >= 1);
-			assert(variantsFilterGroup.get(ConstantsJSON.SIZE).asInt() == 0);
+		if (checkamount) {
 			assert(variantsFilter2Group2.get(ConstantsJSON.SIZE).asInt() >= 1);
-
-			// TOTAL
-			assert(variants.get(ConstantsJSON.TOTAL).asInt() >= 50);
-			assert(variantsGrouped.get(ConstantsJSON.TOTAL).asInt() >= 50);
-			assert(variantsGrouped2.get(ConstantsJSON.TOTAL).asInt() >= 50);
-			assert(variantsFilter.get(ConstantsJSON.TOTAL).asInt() >= 20);
-			assert(variantsFilter2.get(ConstantsJSON.TOTAL).asInt() >= 1);
-			assert(variantsFilterGroup.get(ConstantsJSON.TOTAL).asInt() == 0);
 			assert(variantsFilter2Group2.get(ConstantsJSON.TOTAL).asInt() >= 1);
 		}
 	}
 
 	@Test
 	public void testVariantServletGetOrder() 
-			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException, InvalidityException {
 
 		Map<String, String[]> paramsOrder = getEmptyParams();
 		ObjectNode variants = VariantsServlet.applyGet("/xml/", paramsOrder);

@@ -156,6 +156,7 @@ public class TemplateTest {
 			try {
 				params.getParameters().get(paramid).setValueFromString(value);
 			} catch (InvalidityException e) {
+				e.printStackTrace();
 				throw new InvalidityException(pattern.getAbstractId() + " (param " + paramid + "): " + e.getMessage(), e);
 			}
 		}

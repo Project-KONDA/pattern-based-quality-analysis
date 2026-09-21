@@ -145,7 +145,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 						failedConstraints.put(constraintID, ConstantsError.NO_QUERY);
 						ServletUtilities.log("Constraint " + constraintID + " not valid: " + ConstantsError.NO_QUERY);
 					}
-					else if (!object.has(ConstantsJSON.TECHNOLOGY) || !object.get(ConstantsJSON.TECHNOLOGY).equals(Constants.XML)) {
+					else if (!object.has(ConstantsJSON.TECHNOLOGY) || !object.get(ConstantsJSON.TECHNOLOGY).asText().equals(Constants.XML)) {
 						failedConstraints.put(constraintID, ConstantsError.INVALID_TECHNOLOGY);
 						ServletUtilities.log("Constraint " + constraintID + " not valid: " + ConstantsError.INVALID_TECHNOLOGY);
 					}
@@ -167,6 +167,9 @@ public class ConstraintExecuteServlet extends HttpServlet {
 						failedConstraints.put(constraintID, e.getMessage());
 						ServletUtilities.logError(new InvalidityException("Constraint not valid ", e));
 					} catch (RuntimeException f) {}
+				} catch (InvalidityException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 		}

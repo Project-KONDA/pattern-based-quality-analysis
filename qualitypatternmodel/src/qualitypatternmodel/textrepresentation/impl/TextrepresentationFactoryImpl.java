@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.textrepresentation.*;
 import qualitypatternmodel.utility.Util;
 
@@ -191,7 +192,7 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 	public ObjectNode createJSONObjectWrapperFromString(EDataType eDataType, String initialValue) {
 		try {
 			return Util.jsonCreateObject(initialValue);
-		} catch (JsonProcessingException e) {
+		} catch (JsonProcessingException | InvalidityException e) {
 			return null;
 		}
 //		return (ObjectNode)super.createFromString(eDataType, initialValue);
@@ -204,7 +205,7 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 	 */
 	public String convertJSONObjectWrapperToString(EDataType eDataType, Object instanceValue) {
 		if (instanceValue instanceof ObjectNode)
-			return ((ObjectNode) instanceValue).asText();
+			return ((ObjectNode) instanceValue).toString();
 		return super.convertToString(eDataType, instanceValue);
 	}
 
@@ -216,7 +217,7 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 	public ArrayNode createJSONArrayWrapperFromString(EDataType eDataType, String initialValue) {
 		try {
 			return Util.jsonCreateArray(initialValue);
-		} catch (JsonProcessingException e) {
+		} catch (JsonProcessingException | InvalidityException e) {
 			return null;
 		}
 //		return (ArrayNode)super.createFromString(eDataType, initialValue);
@@ -229,7 +230,7 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 	 */
 	public String convertJSONArrayWrapperToString(EDataType eDataType, Object instanceValue) {
 		if (instanceValue instanceof ArrayNode)
-			return ((ArrayNode) instanceValue).asText();
+			return ((ArrayNode) instanceValue).toString();
 		return super.convertToString(eDataType, instanceValue);
 	}
 

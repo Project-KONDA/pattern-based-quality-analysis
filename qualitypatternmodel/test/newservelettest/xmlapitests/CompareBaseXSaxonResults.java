@@ -20,6 +20,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.utility.Util;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -198,7 +199,7 @@ public class CompareBaseXSaxonResults {
     @Order(10)
 	@ParameterizedTest
     @MethodSource("baseKeysOneTwo")
-	public void compareResults_incidents_baseInNew (String constraintId, int id) throws JsonMappingException, JsonProcessingException {
+	public void compareResults_incidents_baseInNew (String constraintId, int id) throws JsonMappingException, JsonProcessingException, InvalidityException {
 		ArrayNode incidentsBase = (ArrayNode) version_base.get(constraintId).get("result").get("result").get(id).get("incidents");
 		ArrayNode incidentsNew = (ArrayNode) version_new.get(constraintId).get("result").get("result").get(id).get("incidents");
 		compareResults(incidentsBase, incidentsNew, constraintId, id);
@@ -207,13 +208,13 @@ public class CompareBaseXSaxonResults {
     @Order(11)
 	@ParameterizedTest
     @MethodSource("baseKeysOneTwo")
-	public void compareResults_incidents_newInBase (String constraintId, int id) throws JsonMappingException, JsonProcessingException {
+	public void compareResults_incidents_newInBase (String constraintId, int id) throws JsonMappingException, JsonProcessingException, InvalidityException {
 		ArrayNode incidentsBase = (ArrayNode) version_base.get(constraintId).get("result").get("result").get(id).get("incidents");
 		ArrayNode incidentsNew = (ArrayNode) version_new.get(constraintId).get("result").get("result").get(id).get("incidents");
 		compareResults(incidentsNew, incidentsBase, constraintId, id);
     }
 
-	public static void compareResults (ArrayNode incidentsBase, ArrayNode incidentsNew, String constraintId, int id) throws JsonMappingException, JsonProcessingException {
+	public static void compareResults (ArrayNode incidentsBase, ArrayNode incidentsNew, String constraintId, int id) throws JsonMappingException, JsonProcessingException, InvalidityException {
 		ArrayNode incidentsBaseCopy = Util.jsonCreateArray(incidentsBase.toString());
 		ArrayNode incidentsNewCopy = Util.jsonCreateArray(incidentsNew.toString());
 		

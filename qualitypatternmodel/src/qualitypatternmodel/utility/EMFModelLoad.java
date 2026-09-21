@@ -87,7 +87,9 @@ public class EMFModelLoad {
         Resource resource = null;
         try {
         	resource = resourceSet.getResource(fileURI, true);
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
 
         // Check if the resource was loaded successfully
         if (resource == null) {

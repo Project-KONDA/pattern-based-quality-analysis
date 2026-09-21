@@ -10,6 +10,7 @@ import java.util.Map;
 import org.eclipse.emf.common.util.BasicEList;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -17,6 +18,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.Util;
 
@@ -37,7 +39,7 @@ public class VariantsServlet extends HttpServlet {
 		}
 	}
 
-	public static ObjectNode applyGet (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException {
+	public static ObjectNode applyGet (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, InvalidityException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 2 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the variants: "
@@ -87,7 +89,7 @@ public class VariantsServlet extends HttpServlet {
 			} catch (JsonProcessingException e) {
 				group_by = Util.jsonCreateArray();
 			}
-			ObjectNode grouped = groupVariantsBy(variants, group_by);
+			JsonNode grouped = groupVariantsBy(variants, group_by);
 			result.set(ConstantsJSON.API_GROUP_BY, group_by);
 			result.set(ConstantsJSON.VARIANTS, grouped);
 			result.put(ConstantsJSON.SIZE, variants.size());
@@ -243,9 +245,9 @@ public class VariantsServlet extends HttpServlet {
 		return null;
 	}
 
-	private static ObjectNode groupVariantsBy(ArrayNode variants, ArrayNode group_by) {
+	private static JsonNode groupVariantsBy(ArrayNode variants, ArrayNode group_by) {
 		if (group_by.isEmpty() || variants.isEmpty())
-			return Util.jsonCreateObject().set(ConstantsJSON.NOGROUP, variants);
+			return variants;
 		ObjectNode result = Util.jsonCreateObject();
 		for (int i = 0; i<variants.size(); i++) {
 			ObjectNode variant = (ObjectNode) variants.get(i);
@@ -279,7 +281,7 @@ public class VariantsServlet extends HttpServlet {
 			while (keys.hasNext()) {
 				String key = keys.next();
 				ArrayNode variantgroup = (ArrayNode) result.get(key);
-				ObjectNode variantgrouped = groupVariantsBy(variantgroup, group_by);
+				JsonNode variantgrouped = groupVariantsBy(variantgroup, group_by);
 				temp.set(key, variantgrouped);
 			}
 			result = temp;

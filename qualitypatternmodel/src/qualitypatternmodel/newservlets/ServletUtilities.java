@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.concurrent.Semaphore;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -494,6 +495,11 @@ public abstract class ServletUtilities {
 	        jsonSemaphore.release();
 	    }
 	}
+	
+	protected static boolean constraintExists(String technology, String constraintId) {
+		String patternpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + constraintId + "." + Constants.EXTENSION;
+		return new File(patternpath).exists();
+	}
 
 	protected static CompletePattern loadConstraint(String technology, String constraintId) throws IOException {
 		String patternpath = ServletConstants.PATTERN_VOLUME + "/" + technology + "/" + ServletConstants.CONSTRAINTFOLDER + "/" + constraintId + "." + Constants.EXTENSION;
@@ -505,6 +511,9 @@ public abstract class ServletUtilities {
 		String patternpath = folderpath + constraintId + "." + Constants.EXTENSION;
 		String jsonpath = folderpath + ServletConstants.PATTERNJSONFOLDER + "/" + constraintId + ".json";
 
+		if (!new File(patternpath).exists())
+			throw new IOException("Constraint " + technology + "/" + constraintId + " does not exist.");
+		
 		// if precompiled patternjson exists
 		try {
 			ObjectNode constraintJson = loadJsonSave(jsonpath);
@@ -1132,11 +1141,17 @@ public abstract class ServletUtilities {
 				ArrayNode array = (ArrayNode) map.get(key);
 				String[] values = new String[array.size()];
 				for (int i = 0; i<array.size(); i++) {
-					values[i] = array.get(i).asText();
+					if (array.get(i).isTextual())
+						values[i] = array.get(i).asText();
+					else
+						values[i] = array.get(i).toString();
 				}
 				parameterMap.put(key, values);
 			} else {
-				parameterMap.put(key, new String[]{map.get(key).toString()});
+				if (map.get(key).isTextual())
+					parameterMap.put(key, new String[]{map.get(key).asText()});
+				else
+					parameterMap.put(key, new String[]{map.get(key).toString()});
 			}
 		}
 		return parameterMap;

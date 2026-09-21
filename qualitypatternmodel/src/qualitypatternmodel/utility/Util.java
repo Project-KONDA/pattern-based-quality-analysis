@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.util.DefaultIndenter;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -146,19 +145,29 @@ public class Util {
 		return MAPPER.createObjectNode();
 	}
 
-	public static ObjectNode jsonCreateObject(String jsonstring) throws JsonMappingException, JsonProcessingException {
-		return (ObjectNode) MAPPER.readTree(jsonstring);
+	public static ObjectNode jsonCreateObject(String jsonstring) throws JsonProcessingException, InvalidityException {
+		try {
+			JsonNode node = MAPPER.readTree(jsonstring);
+			if (node instanceof ObjectNode)
+				return (ObjectNode) node;	
+		} catch (Exception e) {
+			throw new InvalidityException("'" + jsonstring + "' is not a valid ObjectNode", e);
+		}
+		throw new InvalidityException("'" + jsonstring + "' is not an ObjectNode");
 	}
 
 	public static ArrayNode jsonCreateArray(){
 		return MAPPER.createArrayNode();
 	}
 
-	public static ArrayNode jsonCreateArray(String jsonstring) throws JsonMappingException, JsonProcessingException {
-		return (ArrayNode) MAPPER.readTree(jsonstring);
+	public static ArrayNode jsonCreateArray(String jsonstring) throws JsonProcessingException, InvalidityException {
+		JsonNode node = MAPPER.readTree(jsonstring);
+		if (node instanceof ArrayNode)
+			return (ArrayNode) node;
+		throw new InvalidityException("'" + jsonstring + "' is not a valid ArrayNode");
 	}
 
-	public static ArrayNode jsonCreateArray(String[] array) throws JsonMappingException, JsonProcessingException {
+	public static ArrayNode jsonCreateArray(String[] array) throws JsonProcessingException {
 		ArrayNode result = jsonCreateArray();
 		for (String str: array)
 			result.add(str);

@@ -1,5 +1,6 @@
 package newservelettest.xmlapitests;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
@@ -29,6 +30,7 @@ import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.newservlets.ConstraintExecuteServlet;
 import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 import qualitypatternmodel.newservlets.ConstraintServlet;
@@ -131,7 +133,7 @@ public class APIVariantsXMLTest {
 				String hasCustom = "" + object.has(ConstantsJSON.CUSTOM);
 				pairs.add(new String[] {template, variant, hasCustom});
 
-			} catch (RuntimeException | IOException e) {
+			} catch (RuntimeException | IOException | InvalidityException e) {
 				new RuntimeException("invalid variant definition in: " + file, e).printStackTrace();
 			}
 		}
@@ -188,7 +190,15 @@ public class APIVariantsXMLTest {
 		String paramtype = param.path(ConstantsJSON.TYPE).asText();
 		String paramrole = param.path(ConstantsJSON.ROLE).asText();
 
-		ObjectNode obj = Util.jsonCreateObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'Text':'a', 'TextList':'[\"c\",\"d\"]', 'Boolean':'true', 'TypeOption':'STRING'}");
+		ObjectNode obj = Util.jsonCreateObject();
+		obj.put("XmlPath_Element", "//*");
+		obj.put("XmlPath_Property", "/*/text()");
+		obj.put("ComparisonOption", "EQUAL");
+		obj.put("Number", "1");
+		obj.put("Text", "a");
+		obj.put("TextList", "[\"c\",\"d\"]");
+		obj.put("Boolean", "true");
+		obj.put("TypeOption", "STRING");
 		
 		if (paramtype.equals(Constants.PARAMETER_TYPE_ENUMERATION)) {
 			String value = param.get(ConstantsJSON.OPTIONS).get(0).asText();
@@ -212,7 +222,7 @@ public class APIVariantsXMLTest {
 		ObjectNode result = null;
 		try {
 			result = ConstraintServlet.applyPost("/xml/" + constraintId, params1);
-		} catch (InvalidServletCallException | FailedServletCallException e) {
+		} catch (InvalidServletCallException | FailedServletCallException | InvalidityException e) {
 			e.printStackTrace();
 		}
 		if (result.has(ConstantsJSON.FAILED))
@@ -227,7 +237,7 @@ public class APIVariantsXMLTest {
 		params1.put("constraints", new String[] { constraintID });
 		ObjectNode query1 = ConstraintQueryServlet.applyGet2("/xml", params1);
 		APICallTests.assertQueryObject(query1);
-		assert(hasCustom == query1.get(ConstantsJSON.CONSTRAINTS).get(0).has(ConstantsJSON.CUSTOM));
+		assertEquals(hasCustom, query1.get(ConstantsJSON.CONSTRAINTS).get(0).has(ConstantsJSON.CUSTOM));
 		ObjectNode query2 = ConstraintQueryServlet.applyGet3("/xml/" + constraintID, APICallTests.getEmptyParams());
 		APICallTests.assertQueryObject(query2);
 		assert(hasCustom == query1.get(ConstantsJSON.CONSTRAINTS).get(0).has(ConstantsJSON.CUSTOM));
@@ -273,7 +283,7 @@ public class APIVariantsXMLTest {
 	}
 	
 	@Test
-	public void testIsil() throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+	public void testIsil() throws InvalidServletCallException, FailedServletCallException, ServletException, IOException, InvalidityException {
 		String constraint = "MatchExists_xml";
 		String variant = "predefined-formats";
 		String constraintID = APICallTests.newConstraint(constraint, variant);

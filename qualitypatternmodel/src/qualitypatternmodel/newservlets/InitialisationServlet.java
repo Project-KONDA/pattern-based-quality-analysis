@@ -433,7 +433,7 @@ public class InitialisationServlet extends HttpServlet {
 		return files;
 	}
 	
-	public static ObjectNode readJsonFromFile(File file) throws IOException {
+	public static ObjectNode readJsonFromFile(File file) throws IOException, InvalidityException {
         String content = new String(Files.readAllBytes(file.toPath()));
         return Util.jsonCreateObject(content);
     }

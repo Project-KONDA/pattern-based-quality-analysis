@@ -167,13 +167,8 @@ public class ConstraintServlet extends HttpServlet {
 		}
 
 		// 1 check if constraint exists
-		try {
-			if (ServletUtilities.loadConstraint(technology, patternname) == null) {
-				throw new FailedServletCallException("Requested pattern '" + patternname + "' does not exist.");
-			}
-		} catch (Exception e) {
+		if (!ServletUtilities.constraintExists(technology, patternname))
 			throw new FailedServletCallException("Requested pattern '" + patternname + "' does not exist.");
-		}
 
 		// 2 delete constraint
 		try {
@@ -185,7 +180,7 @@ public class ConstraintServlet extends HttpServlet {
 		return "Constraint deleted successfully.";
 	}
 
-	public static ObjectNode applyPost (String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyPost (String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException, InvalidityException {
 		Map<String, String[]> parameterMap = new HashMap<String, String[]>(parameter);
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {

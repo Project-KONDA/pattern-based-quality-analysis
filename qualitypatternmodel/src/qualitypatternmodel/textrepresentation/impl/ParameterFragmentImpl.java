@@ -308,24 +308,24 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
         }
 		// exampleValue
         if(json.has(ConstantsJSON.EXAMPLEVALUE)) {
-        	String example = json.get(ConstantsJSON.EXAMPLEVALUE).toString();
+        	String example = json.get(ConstantsJSON.EXAMPLEVALUE).asText();
         	setExampleValue(example);
         }
 
 		// description
         if(json.has(ConstantsJSON.DESCRIPTION)) {
-        	String desc = json.get(ConstantsJSON.DESCRIPTION).toString();
+        	String desc = json.get(ConstantsJSON.DESCRIPTION).asText();
         	setDescription(desc);
         }
 
 		// defaultValue
         if(json.has(ConstantsJSON.DEFAULTVALUE)) {
-        	setDefaultValue(json.get(ConstantsJSON.DEFAULTVALUE).toString());
+        	setDefaultValue(json.get(ConstantsJSON.DEFAULTVALUE).asText());
         }
 
         // newId
 		if(json.has(ConstantsJSON.NEWID)) {
-        	String newid = json.get(ConstantsJSON.NEWID).toString();
+        	String newid = json.get(ConstantsJSON.NEWID).asText();
         	setId(newid + "_" + nid);
         } else {
 			setId(getRole() + "_" + nid);
