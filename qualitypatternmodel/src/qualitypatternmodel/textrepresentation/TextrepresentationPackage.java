@@ -228,7 +228,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT___ADD_TO_CUSTOM__JSONOBJECT = 9;
+	int PATTERN_TEXT___ADD_TO_CUSTOM__OBJECTNODE = 9;
 
 	/**
 	 * The number of operations of the '<em>Pattern Text</em>' class.
@@ -919,7 +919,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__JSONOBJECT = 9;
+	int VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__OBJECTNODE = 9;
 
 	/**
 	 * The operation id for the '<em>Reverse</em>' operation.
@@ -954,7 +954,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * The meta object id for the '<em>JSON Object Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.json.JSONObject
+	 * @see com.fasterxml.jackson.databind.node.ObjectNode
 	 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getJSONObjectWrapper()
 	 * @generated
 	 */
@@ -965,7 +965,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * The meta object id for the '<em>JSON Array Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.json.JSONArray
+	 * @see com.fasterxml.jackson.databind.node.ArrayNode
 	 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getJSONArrayWrapper()
 	 * @generated
 	 */
@@ -1120,14 +1120,14 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getPatternText__GenerateVariantJSONObject();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#addToCustom(org.json.JSONObject) <em>Add To Custom</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#addToCustom(com.fasterxml.jackson.databind.node.ObjectNode) <em>Add To Custom</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add To Custom</em>' operation.
-	 * @see qualitypatternmodel.textrepresentation.PatternText#addToCustom(org.json.JSONObject)
+	 * @see qualitypatternmodel.textrepresentation.PatternText#addToCustom(com.fasterxml.jackson.databind.node.ObjectNode)
 	 * @generated
 	 */
-	EOperation getPatternText__AddToCustom__JSONObject();
+	EOperation getPatternText__AddToCustom__ObjectNode();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}' operation.
@@ -1636,14 +1636,14 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getValueMap__AsMap();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#setValuesFromJSONObject(org.json.JSONObject) <em>Set Values From JSON Object</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#setValuesFromJSONObject(com.fasterxml.jackson.databind.node.ObjectNode) <em>Set Values From JSON Object</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Set Values From JSON Object</em>' operation.
-	 * @see qualitypatternmodel.textrepresentation.ValueMap#setValuesFromJSONObject(org.json.JSONObject)
+	 * @see qualitypatternmodel.textrepresentation.ValueMap#setValuesFromJSONObject(com.fasterxml.jackson.databind.node.ObjectNode)
 	 * @generated
 	 */
-	EOperation getValueMap__SetValuesFromJSONObject__JSONObject();
+	EOperation getValueMap__SetValuesFromJSONObject__ObjectNode();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ValueMap#reverse() <em>Reverse</em>}' operation.
@@ -1667,23 +1667,23 @@ public interface TextrepresentationPackage extends EPackage {
 	EDataType getObjectWrapper();
 
 	/**
-	 * Returns the meta object for data type '{@link org.json.JSONObject <em>JSON Object Wrapper</em>}'.
+	 * Returns the meta object for data type '{@link com.fasterxml.jackson.databind.node.ObjectNode <em>JSON Object Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>JSON Object Wrapper</em>'.
-	 * @see org.json.JSONObject
-	 * @model instanceClass="org.json.JSONObject"
+	 * @see com.fasterxml.jackson.databind.node.ObjectNode
+	 * @model instanceClass="com.fasterxml.jackson.databind.node.ObjectNode"
 	 * @generated
 	 */
 	EDataType getJSONObjectWrapper();
 
 	/**
-	 * Returns the meta object for data type '{@link org.json.JSONArray <em>JSON Array Wrapper</em>}'.
+	 * Returns the meta object for data type '{@link com.fasterxml.jackson.databind.node.ArrayNode <em>JSON Array Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>JSON Array Wrapper</em>'.
-	 * @see org.json.JSONArray
-	 * @model instanceClass="org.json.JSONArray"
+	 * @see com.fasterxml.jackson.databind.node.ArrayNode
+	 * @model instanceClass="com.fasterxml.jackson.databind.node.ArrayNode"
 	 * @generated
 	 */
 	EDataType getJSONArrayWrapper();
@@ -1831,7 +1831,7 @@ public interface TextrepresentationPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN_TEXT___ADD_TO_CUSTOM__JSONOBJECT = eINSTANCE.getPatternText__AddToCustom__JSONObject();
+		EOperation PATTERN_TEXT___ADD_TO_CUSTOM__OBJECTNODE = eINSTANCE.getPatternText__AddToCustom__ObjectNode();
 
 		/**
 		 * The meta object literal for the '<em><b>Delete</b></em>' operation.
@@ -2243,7 +2243,7 @@ public interface TextrepresentationPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__JSONOBJECT = eINSTANCE.getValueMap__SetValuesFromJSONObject__JSONObject();
+		EOperation VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__OBJECTNODE = eINSTANCE.getValueMap__SetValuesFromJSONObject__ObjectNode();
 
 		/**
 		 * The meta object literal for the '<em><b>Reverse</b></em>' operation.
@@ -2267,7 +2267,7 @@ public interface TextrepresentationPackage extends EPackage {
 		 * The meta object literal for the '<em>JSON Object Wrapper</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.json.JSONObject
+		 * @see com.fasterxml.jackson.databind.node.ObjectNode
 		 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getJSONObjectWrapper()
 		 * @generated
 		 */
@@ -2277,7 +2277,7 @@ public interface TextrepresentationPackage extends EPackage {
 		 * The meta object literal for the '<em>JSON Array Wrapper</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.json.JSONArray
+		 * @see com.fasterxml.jackson.databind.node.ArrayNode
 		 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getJSONArrayWrapper()
 		 * @generated
 		 */

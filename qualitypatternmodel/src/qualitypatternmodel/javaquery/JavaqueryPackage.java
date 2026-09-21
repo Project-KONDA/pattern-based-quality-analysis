@@ -156,7 +156,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__JSONARRAY = 1;
+	int JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__ARRAYNODE = 1;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -174,7 +174,7 @@ public interface JavaqueryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JAVA_FILTER___FILTER__JSONARRAY = 3;
+	int JAVA_FILTER___FILTER__ARRAYNODE = 3;
 
 	/**
 	 * The operation id for the '<em>To Json</em>' operation.
@@ -1502,14 +1502,14 @@ public interface JavaqueryPackage extends EPackage {
 	EOperation getJavaFilter__FilterQueryResults();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(org.json.JSONArray) <em>Create Interim Result Container</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(com.fasterxml.jackson.databind.node.ArrayNode) <em>Create Interim Result Container</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Create Interim Result Container</em>' operation.
-	 * @see qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(org.json.JSONArray)
+	 * @see qualitypatternmodel.javaquery.JavaFilter#createInterimResultContainer(com.fasterxml.jackson.databind.node.ArrayNode)
 	 * @generated
 	 */
-	EOperation getJavaFilter__CreateInterimResultContainer__JSONArray();
+	EOperation getJavaFilter__CreateInterimResultContainer__ArrayNode();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#execute(java.lang.String) <em>Execute</em>}' operation.
@@ -1522,14 +1522,14 @@ public interface JavaqueryPackage extends EPackage {
 	EOperation getJavaFilter__Execute__String();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#filter(org.json.JSONArray) <em>Filter</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#filter(com.fasterxml.jackson.databind.node.ArrayNode) <em>Filter</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Filter</em>' operation.
-	 * @see qualitypatternmodel.javaquery.JavaFilter#filter(org.json.JSONArray)
+	 * @see qualitypatternmodel.javaquery.JavaFilter#filter(com.fasterxml.jackson.databind.node.ArrayNode)
 	 * @generated
 	 */
-	EOperation getJavaFilter__Filter__JSONArray();
+	EOperation getJavaFilter__Filter__ArrayNode();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.javaquery.JavaFilter#toJson() <em>To Json</em>}' operation.
@@ -2183,7 +2183,7 @@ public interface JavaqueryPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__JSONARRAY = eINSTANCE.getJavaFilter__CreateInterimResultContainer__JSONArray();
+		EOperation JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__ARRAYNODE = eINSTANCE.getJavaFilter__CreateInterimResultContainer__ArrayNode();
 
 		/**
 		 * The meta object literal for the '<em><b>Execute</b></em>' operation.
@@ -2199,7 +2199,7 @@ public interface JavaqueryPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JAVA_FILTER___FILTER__JSONARRAY = eINSTANCE.getJavaFilter__Filter__JSONArray();
+		EOperation JAVA_FILTER___FILTER__ARRAYNODE = eINSTANCE.getJavaFilter__Filter__ArrayNode();
 
 		/**
 		 * The meta object literal for the '<em><b>To Json</b></em>' operation.

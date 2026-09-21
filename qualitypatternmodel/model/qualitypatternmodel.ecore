@@ -1013,8 +1013,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
           upperBound="-1" eType="#//parameters/Parameter" eOpposite="#//parameters/Parameter/parameterReferences"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EDataType" name="JSONObjectWrapper" instanceClassName="org.json.JSONObject"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="JSONArrayWrapper" instanceClassName="org.json.JSONArray"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="JSONObjectWrapper" instanceClassName="com.fasterxml.jackson.databind.node.ObjectNode"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="JSONArrayWrapper" instanceClassName="com.fasterxml.jackson.databind.node.ArrayNode"/>
     <eClassifiers xsi:type="ecore:EClass" name="ValueMap">
       <eOperations name="put">
         <eParameters name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

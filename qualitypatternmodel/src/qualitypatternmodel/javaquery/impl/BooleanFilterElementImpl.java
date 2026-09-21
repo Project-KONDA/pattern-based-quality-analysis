@@ -10,8 +10,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterElement;
@@ -23,6 +22,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,10 +60,10 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 		setArgument(container);
 	}
 
-	public BooleanFilterElementImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public BooleanFilterElementImpl(ObjectNode json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(json.getInt("argument"));
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(json.get("argument").asInt());
 			setArgument(argument);
 		}
 		catch (Exception e) {
@@ -94,12 +94,12 @@ public class BooleanFilterElementImpl extends BooleanFilterPartImpl implements B
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = new JSONObject();
+	public ObjectNode toJson() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put("class", getClass().getSimpleName());
 			result.put("argument", getArgument().getInterimPartId());
-		} catch (JSONException e) {
+		} catch (RuntimeException e) {
 		}
 		return result;
 	}

@@ -2,14 +2,12 @@
  */
 package qualitypatternmodel.javaqueryoutput.impl;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.json.JSONObject;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
@@ -37,7 +35,7 @@ public class JsonResultImpl extends InterimResultImpl implements JsonResult {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final JSONObject VALUE_EDEFAULT = null;
+	protected static final ObjectNode VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -47,7 +45,7 @@ public class JsonResultImpl extends InterimResultImpl implements JsonResult {
 	 * @generated
 	 * @ordered
 	 */
-	protected JSONObject value = VALUE_EDEFAULT;
+	protected ObjectNode value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,7 +72,7 @@ public class JsonResultImpl extends InterimResultImpl implements JsonResult {
 	 * @generated
 	 */
 	@Override
-	public JSONObject getValue() {
+	public ObjectNode getValue() {
 		return value;
 	}
 
@@ -84,8 +82,8 @@ public class JsonResultImpl extends InterimResultImpl implements JsonResult {
 	 * @generated
 	 */
 	@Override
-	public void setValue(JSONObject newValue) {
-		JSONObject oldValue = value;
+	public void setValue(ObjectNode newValue) {
+		ObjectNode oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JavaqueryoutputPackage.JSON_RESULT__VALUE, oldValue, value));
@@ -114,7 +112,7 @@ public class JsonResultImpl extends InterimResultImpl implements JsonResult {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JavaqueryoutputPackage.JSON_RESULT__VALUE:
-				setValue((JSONObject)newValue);
+				setValue((ObjectNode)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -4,7 +4,7 @@
     <semanticResources>qualitypatternmodel.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_A2WtQB2REeqrGqxc7qjo8A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1779444803429">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ClvnQB2REeqrGqxc7qjo8A" name="class diagram" repPath="#_ClDqwB2REeqrGqxc7qjo8A" changeId="1787308637688">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="qualitypatternmodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -11202,7 +11202,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_kOHiFyEyEfGsXvGz6QC6Fg" name="org.json.JSONObject" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_kOHiFyEyEfGsXvGz6QC6Fg" name="com.fasterxml.jackson.databind.node.ObjectNode" tooltipText="">
           <target xmi:type="ecore:EDataType" href="qualitypatternmodel.ecore#//textrepresentation/JSONObjectWrapper"/>
           <semanticElements xmi:type="ecore:EDataType" href="qualitypatternmodel.ecore#//textrepresentation/JSONObjectWrapper"/>
           <decorations xmi:type="viewpoint:Decoration" uid="_kOHiGCEyEfGsXvGz6QC6Fg">
@@ -11222,7 +11222,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_kOIJESEyEfGsXvGz6QC6Fg" name="org.json.JSONArray" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_kOIJESEyEfGsXvGz6QC6Fg" name="com.fasterxml.jackson.databind.node.ArrayNode" tooltipText="">
           <target xmi:type="ecore:EDataType" href="qualitypatternmodel.ecore#//textrepresentation/JSONArrayWrapper"/>
           <semanticElements xmi:type="ecore:EDataType" href="qualitypatternmodel.ecore#//textrepresentation/JSONArrayWrapper"/>
           <decorations xmi:type="viewpoint:Decoration" uid="_kOIJEiEyEfGsXvGz6QC6Fg">

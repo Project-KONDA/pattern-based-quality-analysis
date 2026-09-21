@@ -14,14 +14,16 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.json.JSONException;
-import org.json.JSONObject;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.KeyValueParam;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -151,12 +153,12 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 		if (getKeyValuePair() == null) {
 			return null;
 		}
-		JSONObject object = new JSONObject();
+		ObjectNode object = Util.jsonCreateObject();
 		try {
 			for (String key: getKeyValuePair().keySet()) {
 					object.put(key, getKeyValuePair().get(key));
 			}
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 		return object.toString();
 	}
 
@@ -168,14 +170,14 @@ public class KeyValueParamImpl extends ParameterImpl implements KeyValueParam {
 		}
 		HashMap<String, String> map = new HashMap<String, String>();
 		try {
-			JSONObject object = new JSONObject(value);
+			ObjectNode object = Util.jsonCreateObject(value);
 
-			Iterator<String> keys = object.keys();
+			Iterator<String> keys = object.fieldNames();
 			while (keys.hasNext()) {
 				String next = keys.next();
-				map.put(next, object.getString(next));
+				map.put(next, object.get(next).asText());
 			}
-		} catch (JSONException e) {
+		} catch (RuntimeException | JsonProcessingException e) {
 			throw new InvalidityException(value + " is not valid ", e);
 		}
 		getKeyValuePair().clear();

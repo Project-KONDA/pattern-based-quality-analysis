@@ -18,9 +18,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.adaptionneo4j.impl.NeoElementPathParamImpl;
 import qualitypatternmodel.adaptionneo4j.impl.NeoNodeLabelsParamImpl;
@@ -276,7 +277,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		super();
 	}
 
-	protected ParameterFragmentImpl(CompletePattern pattern, JSONObject json, int nid) throws JSONException, InvalidityException {
+	protected ParameterFragmentImpl(CompletePattern pattern, ObjectNode json, int nid) throws InvalidityException {
 		super();
 		if (!json.has(ConstantsJSON.NAME)) {
 			throw new InvalidityException("Not valid JSON to a create ParameterFragment");
@@ -288,14 +289,14 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			throw new InvalidityException("Not valid JSON to a create ParameterFragment");
 		}
 
-		String na = json.getString(ConstantsJSON.NAME);
+		String na = json.get(ConstantsJSON.NAME).asText();
 		setName(na);
 
 
-		JSONArray params = json.getJSONArray(ConstantsJSON.PARAMETER);
-        for (int i = 0; i < params.length(); i++) {
+		ArrayNode params = (ArrayNode) json.get(ConstantsJSON.PARAMETER);
+        for (int i = 0; i < params.size(); i++) {
         	List<Parameter> parameters = pattern.getParameterList().getParameters(); 
-            int paramID = params.getInt(i);
+			int paramID = params.get(i).asInt();
             if (parameters.size()<= paramID)
             	throw new InvalidityException("invalid parameter ID in JSON: " + paramID + " in variant " + json.get(ConstantsJSON.NAME));
             try {
@@ -307,24 +308,24 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
         }
 		// exampleValue
         if(json.has(ConstantsJSON.EXAMPLEVALUE)) {
-        	String example = json.get(ConstantsJSON.EXAMPLEVALUE).toString();
+        	String example = json.get(ConstantsJSON.EXAMPLEVALUE).asText();
         	setExampleValue(example);
         }
 
 		// description
         if(json.has(ConstantsJSON.DESCRIPTION)) {
-        	String desc = json.get(ConstantsJSON.DESCRIPTION).toString();
+        	String desc = json.get(ConstantsJSON.DESCRIPTION).asText();
         	setDescription(desc);
         }
 
 		// defaultValue
         if(json.has(ConstantsJSON.DEFAULTVALUE)) {
-        	setDefaultValue(json.get(ConstantsJSON.DEFAULTVALUE).toString());
+        	setDefaultValue(json.get(ConstantsJSON.DEFAULTVALUE).asText());
         }
 
         // newId
 		if(json.has(ConstantsJSON.NEWID)) {
-        	String newid = json.get(ConstantsJSON.NEWID).toString();
+        	String newid = json.get(ConstantsJSON.NEWID).asText();
         	setId(newid + "_" + nid);
         } else {
 			setId(getRole() + "_" + nid);
@@ -332,16 +333,16 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 
 		// map
 		if (json.has(ConstantsJSON.MAP)) {
-			setValueMap(new ValueMapImpl(json.getJSONObject(ConstantsJSON.MAP)));
+			setValueMap(new ValueMapImpl((ObjectNode) json.get(ConstantsJSON.MAP)));
 		}
 
 		// comparisonMap
 		if(json.has(ConstantsJSON.DEFAULTMAP)) {
-			setDefaultValueMap(json.getString(ConstantsJSON.DEFAULTMAP));
+			setDefaultValueMap(json.get(ConstantsJSON.DEFAULTMAP).asText());
 		}
 
 		// plural
-		if(json.has(ConstantsJSON.PLURAL) && json.getBoolean(ConstantsJSON.PLURAL)) {
+		if(json.has(ConstantsJSON.PLURAL) && json.get(ConstantsJSON.PLURAL).asBoolean()) {
 			setPlural(true);
 		}
 	}
@@ -643,7 +644,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	}
 	
 	private ValueMap getValueMapFile(String name) {
-		JSONObject obj = null;
+		ObjectNode obj = null;
 		try{
 			obj = Util.loadJson(ServletConstants.TEMPLATE_MAP_FILE);
 		} catch (IOException e) {
@@ -652,11 +653,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		
 		String[] steps = name.split("\\.");
 		for (int i = 0; i<steps.length-1; i++) {
-			obj = obj.optJSONObject(steps[i]);
+			obj = (ObjectNode) obj.get(steps[i]);
 			if (obj == null)
 				return null;
 		}
-		JSONObject map = obj.optJSONObject(steps[steps.length-1]);
+		ObjectNode map = (ObjectNode) obj.get(steps[steps.length-1]);
 		if (map == null)
 			return null;
 		ValueMap vmap;
@@ -893,7 +894,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			json += ", \"ExampleValue\": " + exampleValue + "";
 		}
 		if (type.equals("Enumeration")) {
-			JSONArray options = parameter.getOptionsAsJsonArray();
+			ArrayNode options = parameter.getOptionsAsJsonArray();
 			json += ", \"Options\": " + options + "";
 		}
 		if (parameter instanceof ParameterValue) {
@@ -929,7 +930,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	}
 
 	@Override
-	public JSONObject generateJSONObject() {
+	public ObjectNode generateJSONObject() {
 		String patternName = getPatternText().getPattern().getPatternId();
 		List<String> urls = new ArrayList<String>();
 		for(Parameter p : getParameter()) {
@@ -939,7 +940,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		}
 		Parameter parameter = getParameter().get(0);
 //		String urlsJSON = generateJSONList(urls);
-		JSONObject json = new JSONObject();
+		ObjectNode json = Util.jsonCreateObject();
 		try {
 			json.put(ConstantsJSON.ID, getId());
 			json.put(ConstantsJSON.NAME, getName());
@@ -947,7 +948,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			json.put(ConstantsJSON.ROLE, getRole());
 			if (getValue() != null) {
 				if (ServletConstants.VALUE_AS_JSON) {
-					json.put(ConstantsJSON.VALUE, jsonify(getValue()));
+					json.set(ConstantsJSON.VALUE, jsonify(getValue()));
 				} else {
 					json.put(ConstantsJSON.VALUE, getValue());
 				}
@@ -966,7 +967,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}
 
 			if (getType().equals(Constants.PARAMETER_TYPE_ENUMERATION)) {
-				json.put(ConstantsJSON.OPTIONS, getOptionValues());
+				json.set(ConstantsJSON.OPTIONS, getOptionValues());
 			}
 			for (String key: getAttributeMap().getKeys()) {
 				json.put(key, getAttributeMap().get(key));
@@ -1003,27 +1004,27 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			else if (parameter instanceof XmlPathParam) {
 				HashSet<String> sourceParamIds = getSourceParamIDs(getParameter());
 				if (!sourceParamIds.isEmpty()) {
-					json.put(ConstantsJSON.STARTPOINT, new JSONArray(sourceParamIds));
+					json.set(ConstantsJSON.STARTPOINT, Util.jsonCreateArray(sourceParamIds));
 				}
 			}
-		} catch (JSONException e) {}
+		} catch (Exception e) {}
 		return json;
 	}
 
-	private Object jsonify(String value) {
+	private JsonNode jsonify(String value) {
 		try {
-			JSONObject object = new JSONObject(value);
+			ObjectNode object = Util.jsonCreateObject(value);
 			return object;
-		} catch (JSONException e) {}
+		} catch (Exception e) {}
 		try {
-			JSONArray array = new JSONArray(value);
+			ArrayNode array = Util.jsonCreateArray(value);
 			return array;
-		} catch (JSONException e) {}
-		return value;
+		} catch (Exception e) {}
+		return Util.MAPPER.valueToTree(value);
 	}
 
-	private JSONArray getOptionValues() {
-		JSONArray array;
+	private ArrayNode getOptionValues() {
+		ArrayNode array;
 		if (getValueMap() != null) {
 			array = getValueMap().getValuesAsJsonArray();
 		} else {
@@ -1038,22 +1039,22 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * @generated NOT
 	 */
 	@Override
-	public JSONObject generateVariantJSONObject() {
-		JSONObject object = new JSONObject();
+	public ObjectNode generateVariantJSONObject() {
+		ObjectNode object = Util.jsonCreateObject();
 		try {
 			object.put(ConstantsJSON.NAME, getName());
-			JSONArray ids = new JSONArray();
+			ArrayNode ids = Util.jsonCreateArray();
 			for (Parameter param: getParameter()) {
-				ids.put(getPatternText().getPattern().getParameterList().getParameters().indexOf(param));
+				ids.add(getPatternText().getPattern().getParameterList().getParameters().indexOf(param));
 			}
-			object.put(ConstantsJSON.PARAMETER, ids);
+			object.set(ConstantsJSON.PARAMETER, ids);
 			object.put(ConstantsJSON.EXAMPLEVALUE, getExampleValue());
 			object.put(ConstantsJSON.NEWID, getId());
 			if (getDescription() != null && !getDescription().equals("")) {
 				object.put(ConstantsJSON.DESCRIPTION, getDescription());
 			}
 			if (getValueMap() != null) {
-				object.put(ConstantsJSON.MAP, getValueMap().generateJSONObject());
+				object.set(ConstantsJSON.MAP, getValueMap().generateJSONObject());
 			}
 			if (isPlural()) {
 				object.put(ConstantsJSON.PLURAL, true);

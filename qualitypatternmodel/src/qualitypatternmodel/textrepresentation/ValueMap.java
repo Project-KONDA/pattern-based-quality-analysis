@@ -2,12 +2,12 @@
  */
 package qualitypatternmodel.textrepresentation;
 
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,7 +65,7 @@ public interface ValueMap extends EObject {
 	 * @model kind="operation" dataType="qualitypatternmodel.textrepresentation.JSONArrayWrapper"
 	 * @generated
 	 */
-	JSONArray getValuesAsJsonArray();
+	ArrayNode getValuesAsJsonArray();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,7 +97,7 @@ public interface ValueMap extends EObject {
 	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	JSONObject generateJSONObject();
+	ObjectNode generateJSONObject();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,7 +129,7 @@ public interface ValueMap extends EObject {
 	 * @model objectDataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	void setValuesFromJSONObject(JSONObject object);
+	void setValuesFromJSONObject(ObjectNode object);
 
 	/**
 	 * <!-- begin-user-doc -->

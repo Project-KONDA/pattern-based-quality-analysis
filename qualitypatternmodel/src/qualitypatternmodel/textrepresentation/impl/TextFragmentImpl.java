@@ -5,13 +5,13 @@ package qualitypatternmodel.textrepresentation.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.textrepresentation.TextFragment;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -170,11 +170,11 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 	}
 
 	@Override
-	public JSONObject generateJSONObject() {
-		JSONObject json = new JSONObject();
+	public ObjectNode generateJSONObject() {
+		ObjectNode json = Util.jsonCreateObject();
 		try {
 			json.put("text", getText());
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 		return json;
 	}
 	/**
@@ -183,11 +183,11 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 	 * @generated NOT
 	 */
 	@Override
-	public JSONObject generateVariantJSONObject() {
-		JSONObject object = new JSONObject();
+	public ObjectNode generateVariantJSONObject() {
+		ObjectNode object = Util.jsonCreateObject();
 		try {
 			object.put(ConstantsJSON.TEXT, getText());
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 		return object;
 	}
 

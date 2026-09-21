@@ -7,8 +7,7 @@ import static org.mockito.Mockito.mock;
 import java.io.IOException;
 import java.util.HashMap;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -23,8 +22,7 @@ import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
 
 public class MandAttMqafTest {
-
-	public static void main(String[] args) throws ServletException, InvalidServletCallException, FailedServletCallException, IOException, JSONException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static void main(String[] args) throws ServletException, InvalidServletCallException, FailedServletCallException, IOException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ServletContext context = mock(ServletContext.class);
         doAnswer(invocation -> {
@@ -42,9 +40,9 @@ public class MandAttMqafTest {
 
 		// instantiate
 		String path = "/xml/MandAtt_xml/default-constraint";
-		JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut(path, new HashMap<String, String[]>()));
+		ObjectNode json = TemplateInstantiateServlet.applyPut(path, new HashMap<String, String[]>());
 		System.out.println(json);
-		String patternID = json.getString("patternID");
+		String patternID = json.get("patternID").asText();
 
 		// setParameter
 		HashMap<String, String[]> setParams = new HashMap<>();

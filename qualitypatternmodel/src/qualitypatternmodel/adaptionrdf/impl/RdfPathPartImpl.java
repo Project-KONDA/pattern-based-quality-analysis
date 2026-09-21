@@ -11,8 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriListParam;
@@ -26,6 +25,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.utility.ConstantsRdf;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -124,13 +124,13 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 			return path;
 		}
 
-		JSONObject job = new JSONObject();
+		ObjectNode job = Util.jsonCreateObject();
 		try {
 			job.put(ConstantsRdf.JSON_RDF_PATH, path);
 			if (getTargetNodeTypes() != null) {
 				job.put(ConstantsRdf.JSON_RDF_NODE_TYPE, getTargetNodeTypes().getValueAsString());
 			}
-		} catch (JSONException e) {
+		} catch (RuntimeException e) {
 			// never happens
 		}
 		return job.toString();
@@ -146,13 +146,13 @@ public class RdfPathPartImpl extends PatternElementImpl implements RdfPathPart {
 		RdfPathComponent path;
 		IriListParamImpl iri = null;
 		try {
-			JSONObject job = new JSONObject(value);
-			path = RdfPathComponent.createNewRdfPathComponent(job.getString(ConstantsRdf.JSON_RDF_PATH));
+			ObjectNode job = Util.jsonCreateObject(value);
+			path = RdfPathComponent.createNewRdfPathComponent(job.get(ConstantsRdf.JSON_RDF_PATH).asText());
 			if (job.has(ConstantsRdf.JSON_RDF_NODE_TYPE)) {
 				iri = new IriListParamImpl();
-				iri.setValueFromString(job.getString(ConstantsRdf.JSON_RDF_NODE_TYPE));
+				iri.setValueFromString(job.get(ConstantsRdf.JSON_RDF_NODE_TYPE).asText());
 			}
-		} catch (JSONException | InvalidityException e) {
+		} catch (Exception e) {
 			try {
 				path = RdfPathComponent.createNewRdfPathComponent(value);
 			} catch (InvalidityException f) {

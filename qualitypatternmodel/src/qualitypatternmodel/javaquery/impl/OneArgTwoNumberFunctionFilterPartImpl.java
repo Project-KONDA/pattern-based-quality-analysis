@@ -9,7 +9,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaoperators.impl.OneArgJavaTwoNumberOperatorImpl;
@@ -96,15 +96,15 @@ public class OneArgTwoNumberFunctionFilterPartImpl extends OneArgFunctionFilterP
 		setNumber2(double2);
 	}
 
-	public OneArgTwoNumberFunctionFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public OneArgTwoNumberFunctionFilterPartImpl(ObjectNode json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			ValueInterim argument = (ValueInterim) map.get(json.getInt(ConstantsJSON.ARGUMENT));
+			ValueInterim argument = (ValueInterim) map.get(json.get(ConstantsJSON.ARGUMENT).asInt());
 			setArgument(argument);
-			setNegate(json.getBoolean(ConstantsJSON.NEGATE));
-			functionclassname = json.getString(ConstantsJSON.ARGUMENT_FUNCTION);
-			setNumber1(json.getDouble(ConstantsJSON.ARGUMENT_NUMBER1));
-			setNumber2(json.getDouble(ConstantsJSON.ARGUMENT_NUMBER2));
+			setNegate(json.get(ConstantsJSON.NEGATE).asBoolean());
+			functionclassname = json.get(ConstantsJSON.ARGUMENT_FUNCTION).asText();
+			setNumber1(json.get(ConstantsJSON.ARGUMENT_NUMBER1).asDouble());
+			setNumber2(json.get(ConstantsJSON.ARGUMENT_NUMBER2).asDouble());
 		}
 		catch (Exception e) {
 			throw new InvalidityException();
@@ -245,8 +245,8 @@ public class OneArgTwoNumberFunctionFilterPartImpl extends OneArgFunctionFilterP
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = super.toJson();
+	public ObjectNode toJson() {
+		ObjectNode result = super.toJson();
 		result.put(ConstantsJSON.ARGUMENT_NUMBER1, getNumber1());
 		result.put(ConstantsJSON.ARGUMENT_NUMBER2, getNumber2());
 		return result;

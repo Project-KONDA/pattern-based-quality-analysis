@@ -23,3 +23,4 @@ Require-Bundle: org.eclipse.core.runtime,
  qualitypatternmodel;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
+Import-Package: com.fasterxml.jackson.databind.node;version="[2.19.0,3.0.0)"

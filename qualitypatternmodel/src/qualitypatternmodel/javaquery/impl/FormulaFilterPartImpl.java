@@ -11,8 +11,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
@@ -25,6 +24,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -112,14 +112,14 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 		setSubfilter2(booleanFilterPart2);
 	}
 
-	public FormulaFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public FormulaFilterPartImpl(ObjectNode json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			setOperator(LogicalOperator.get(json.getString("operator")));
-			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(json.getInt("argument"));
+			setOperator(LogicalOperator.get(json.get("operator").asText()));
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(json.get("argument").asInt());
 			setArgument(argument);
-			setSubfilter1((BooleanFilterPart) JavaFilterPartImpl.fromJson(json.getJSONObject("subfilter1"), map));
-			setSubfilter2((BooleanFilterPart) JavaFilterPartImpl.fromJson(json.getJSONObject("subfilter2"), map));
+			setSubfilter1((BooleanFilterPart) JavaFilterPartImpl.fromJson((ObjectNode) json.get("subfilter1"), map));
+			setSubfilter2((BooleanFilterPart) JavaFilterPartImpl.fromJson((ObjectNode) json.get("subfilter2"), map));
 		}
 		catch (Exception e) {
 			throw new InvalidityException();
@@ -162,16 +162,16 @@ public class FormulaFilterPartImpl extends BooleanFilterPartImpl implements Form
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = new JSONObject();
+	public ObjectNode toJson() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put("class", getClass().getSimpleName());
 			result.put("operator", getOperator().getLiteral());
 			result.put("argument", getArgument().getInterimPartId());
-			result.put("subfilter1", getSubfilter1().toJson());
-			result.put("subfilter2", getSubfilter2().toJson());
+			result.set("subfilter1", getSubfilter1().toJson());
+			result.set("subfilter2", getSubfilter2().toJson());
 
-		} catch (JSONException e) {
+		} catch (RuntimeException e) {
 		}
 		return result;
 	}

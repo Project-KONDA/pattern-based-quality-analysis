@@ -5,14 +5,16 @@ package qualitypatternmodel.adaptionneo4j.impl;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.json.JSONArray;
-import org.json.JSONException;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
 import qualitypatternmodel.adaptionneo4j.NeoNodeLabelsParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.utility.ConstantsNeo;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,14 +53,14 @@ public class NeoNodeLabelsParamImpl extends TextListParamImpl implements NeoNode
 		}
 		EList<String> newVals = new BasicEList<String>();
 		try {
-			JSONArray jarray = new JSONArray(value);
-	        for (int i = 0; i<jarray.length();i++) {
-	        	String v = jarray.getString(i);
+			ArrayNode jarray = Util.jsonCreateArray(value);
+	        for (int i = 0; i<jarray.size();i++) {
+	        	String v = jarray.get(i).asText();
 	        	checkLabel(v);
 	        	newVals.add(v);
 	        }
 		}
-		catch (JSONException e) {
+		catch (RuntimeException | JsonProcessingException e) {
 			checkLabel(value);
         	newVals.add(value);
 		}

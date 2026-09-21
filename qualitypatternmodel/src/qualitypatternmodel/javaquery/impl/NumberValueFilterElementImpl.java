@@ -9,14 +9,14 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NumberValueFilterElement;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,10 +66,10 @@ public class NumberValueFilterElementImpl extends NumberFilterPartImpl implement
 		setNumber(num);
 	}
 
-	public NumberValueFilterElementImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public NumberValueFilterElementImpl(ObjectNode json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			setNumber(Double.valueOf(json.getString("number")));
+			setNumber(json.get("number").asDouble());
 		}
 		catch (Exception e) {
 			throw new InvalidityException();
@@ -87,12 +87,12 @@ public class NumberValueFilterElementImpl extends NumberFilterPartImpl implement
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = new JSONObject();
+	public ObjectNode toJson() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put("class", getClass().getSimpleName());
 			result.put("number", getNumber());
-		} catch (JSONException e) {
+		} catch (RuntimeException e) {
 		}
 		return result;
 	}

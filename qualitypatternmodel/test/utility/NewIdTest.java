@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import org.json.JSONException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +21,7 @@ public class NewIdTest {
 	}
 
 	@Test
-	public void testIncrease() throws IOException, JSONException {
+	public void testIncrease() throws IOException {
 		assertEquals(1, ServletUtilities.increaseNumber(path, "a", null));
 		assertEquals(2, ServletUtilities.increaseNumber(path, "a", null));
 		assertEquals(3, ServletUtilities.increaseNumber(path, "a", null));
@@ -34,7 +33,7 @@ public class NewIdTest {
 	}
 
 	@Test
-	public void testDecrease() throws JSONException, IOException {
+	public void testDecrease() throws IOException {
 		assertEquals(0, ServletUtilities.decreaseNumber(path, "e", null));
 		assertEquals(0, ServletUtilities.decreaseNumber(path, "e", null));
 		ServletUtilities.setNumber(path, "e", 2, null);
@@ -47,7 +46,7 @@ public class NewIdTest {
 	}
 
 	@Test
-	public void testSet() throws IOException, JSONException {
+	public void testSet() throws IOException {
 		assertEquals(0, ServletUtilities.getNumber(path, "g", "h"));
 		ServletUtilities.setNumber(path, "g", 50, "h");
 		assertEquals(50, ServletUtilities.getNumber(path, "g", "h"));

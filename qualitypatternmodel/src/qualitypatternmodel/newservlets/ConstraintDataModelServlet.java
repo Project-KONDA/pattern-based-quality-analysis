@@ -3,8 +3,7 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 import java.util.Map;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,6 +14,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 @SuppressWarnings("serial")
 public class ConstraintDataModelServlet extends HttpServlet {
@@ -27,7 +27,7 @@ public class ConstraintDataModelServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
-			JSONObject result = applyGet(path, params);
+			ObjectNode result = applyGet(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class ConstraintDataModelServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("POST", this.getClass().getName(), path, params);
 		try{
-			JSONObject result = applyPost(path, params);
+			ObjectNode result = applyPost(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -51,7 +51,7 @@ public class ConstraintDataModelServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the data model of a constraint: "
@@ -66,17 +66,17 @@ public class ConstraintDataModelServlet extends HttpServlet {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		JSONObject patternjson;
+		ObjectNode patternjson;
 		try {
 			patternjson = ServletUtilities.loadConstraintJson(technology, constraintId);
 		} catch (IOException e) {
 			throw new FailedServletCallException(ConstantsError.NOT_FOUND_CONSTRAINT);
 		}
 
-		JSONObject result = new JSONObject();
+		ObjectNode result = Util.jsonCreateObject();
 		try {
-			result.put(ConstantsJSON.DATAMODEL, patternjson.getString(ConstantsJSON.DATAMODEL));
-		} catch (JSONException e) {}
+			result.put(ConstantsJSON.DATAMODEL, patternjson.get(ConstantsJSON.DATAMODEL).asText());
+		} catch (RuntimeException e) {}
 		return result;
 
 //		// 1 load constraint
@@ -95,7 +95,7 @@ public class ConstraintDataModelServlet extends HttpServlet {
 //		return result;
 	}
 
-	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for setting a data model in a constraint: "
@@ -136,13 +136,13 @@ public class ConstraintDataModelServlet extends HttpServlet {
 			throw new FailedServletCallException(ConstantsError.SAVING_FAILED);
 		}
 
-		JSONObject result = new JSONObject();
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put(ConstantsJSON.CONSTRAINT_ID, pattern.getPatternId());
 			result.put(ConstantsJSON.OLD_DATAMODEL, oldDataModelName);
 			result.put(ConstantsJSON.DATAMODEL, newDataModelName);
 			result.put(ConstantsJSON.LASTSAVED, timestamp);
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 
 		return result;
 //		return "Datamodel of constraint of constraint '" + pattern.getPatternId() + "' updated successfully from '" + oldDataModelName + "' to '" + newDataModelName + "'.";

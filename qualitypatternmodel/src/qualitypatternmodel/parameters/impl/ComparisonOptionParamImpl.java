@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONArray;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Comparable;
@@ -30,6 +30,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -166,10 +167,10 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	}
 
 	@Override
-	public JSONArray getOptionsAsJsonArray() {
-		JSONArray jarray = new JSONArray();
+	public ArrayNode getOptionsAsJsonArray() {
+		ArrayNode jarray = Util.jsonCreateArray();
 		for (ComparisonOperator comp: getOptions()) {
-			jarray.put(comp.getName());
+			jarray.add(comp.getName());
 		}
 		return jarray;
 	}

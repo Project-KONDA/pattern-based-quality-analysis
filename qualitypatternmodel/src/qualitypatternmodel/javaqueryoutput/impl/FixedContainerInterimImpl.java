@@ -14,14 +14,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.FixedContainerInterim;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,18 +82,18 @@ public class FixedContainerInterimImpl extends ContainerInterimImpl implements F
 		getContained().addAll(interims);
 	}
 
-	public FixedContainerInterimImpl(JSONObject json) throws InvalidityException {
+	public FixedContainerInterimImpl(ObjectNode json) throws InvalidityException {
 		super();
 		try {
-			if (!json.get("class").equals(getClass().getSimpleName())) {
+			if (!json.get("class").asText().equals(getClass().getSimpleName())) {
 				throw new InvalidityException("Wrong class");
 			}
-			setInterimPartId(json.getInt("id"));
-			JSONArray containedarray = json.getJSONArray("contained");
-			for (int i = 0; i < containedarray.length(); i++) {
-				getContained().add(InterimResultPartImpl.fromJson(containedarray.getJSONObject(i)));
+			setInterimPartId(json.get("id").asInt());
+			ArrayNode containedarray = (ArrayNode) json.get("contained");
+			for (int i = 0; i < containedarray.size(); i++) {
+				getContained().add(InterimResultPartImpl.fromJson((ObjectNode) containedarray.get(i)));
 			}
-		} catch (JSONException e) {
+		} catch (RuntimeException e) {
 			throw new InvalidityException("Wrong class", e);
 		}
 	}
@@ -104,17 +104,17 @@ public class FixedContainerInterimImpl extends ContainerInterimImpl implements F
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = new JSONObject();
+	public ObjectNode toJson() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put("class", getClass().getSimpleName());
 			result.put("id", getInterimPartId());
-			JSONArray contained = new JSONArray();
+			ArrayNode contained = Util.jsonCreateArray();
 			for (InterimResultPart container: getContained()) {
-				contained.put(container.toJson());
+				contained.add(container.toJson());
 			}
-			result.put("contained", contained);
-		} catch (JSONException e) {
+			result.set("contained", contained);
+		} catch (RuntimeException e) {
 		}
 		return result;
 	}

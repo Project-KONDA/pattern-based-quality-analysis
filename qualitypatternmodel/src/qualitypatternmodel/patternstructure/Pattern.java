@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.patternstructure;
 
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Graph;
 
@@ -82,12 +82,12 @@ public interface Pattern extends PatternElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Queries</em>' attribute.
-	 * @see #setQueries(JSONObject)
+	 * @see #setQueries(ObjectNode)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_Queries()
 	 * @model default="" dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	JSONObject getQueries();
+	ObjectNode getQueries();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getQueries <em>Queries</em>}' attribute.
@@ -97,7 +97,7 @@ public interface Pattern extends PatternElement {
 	 * @see #getQueries()
 	 * @generated
 	 */
-	void setQueries(JSONObject value);
+	void setQueries(ObjectNode value);
 
 	/**
 	 * <!-- begin-user-doc -->

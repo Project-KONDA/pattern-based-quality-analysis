@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import org.json.JSONException;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -36,7 +35,7 @@ public class PatternBundle {
 		return PatternBundle.getConcrete(genericpattern, language, id, values, variants, oldvariants);
 	}
 
-	public void exportTemplate() throws JSONException, InvalidityException, IOException, OperatorCycleException, MissingPatternContainerException {
+	public void exportTemplate() throws InvalidityException, IOException, OperatorCycleException, MissingPatternContainerException {
 		if (!ServletConstants.OVERRIDE_VARIANTS) {
 			try {
 				ServletUtilities.loadTemplate(language.getLiteral(), id);

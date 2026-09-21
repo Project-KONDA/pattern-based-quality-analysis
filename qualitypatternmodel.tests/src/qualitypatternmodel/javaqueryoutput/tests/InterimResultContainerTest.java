@@ -15,7 +15,7 @@ import qualitypatternmodel.javaqueryoutput.JavaqueryoutputFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#isValidToStructure() <em>Is Valid To Structure</em>}</li>
- *   <li>{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(org.json.JSONObject) <em>Initialize</em>}</li>
+ *   <li>{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(com.fasterxml.jackson.databind.node.ObjectNode) <em>Initialize</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -105,13 +105,13 @@ public class InterimResultContainerTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(org.json.JSONObject) <em>Initialize</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(com.fasterxml.jackson.databind.node.ObjectNode) <em>Initialize</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(org.json.JSONObject)
+	 * @see qualitypatternmodel.javaqueryoutput.InterimResultContainer#initialize(com.fasterxml.jackson.databind.node.ObjectNode)
 	 * @generated
 	 */
-	public void testInitialize__JSONObject() {
+	public void testInitialize__ObjectNode() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

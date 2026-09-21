@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import org.json.JSONArray;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -15,6 +15,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Language;
+import qualitypatternmodel.utility.Util;
 
 public class InterimResultTest {
 
@@ -37,7 +38,7 @@ public class InterimResultTest {
 		System.out.print("total: " + (!results.contains(false)));
 	}
 
-	static Boolean testTestPattern (CompletePattern testpattern, JSONArray rawResults, List<String> expected, Boolean output)
+	static Boolean testTestPattern (CompletePattern testpattern, ArrayNode rawResults, List<String> expected, Boolean output)
 			throws InvalidityException {
 		
 		if (testpattern.getLanguage() == Language.GENERIC) {
@@ -83,7 +84,7 @@ public class InterimResultTest {
 
 			// Result
 			filter.createInterimResultContainer(rawResults);
-			JSONArray result = filter.filterQueryResults();
+			ArrayNode result = filter.filterQueryResults();
 			if (output) {
 				System.out.println("res: " + result);
 			}
@@ -91,9 +92,9 @@ public class InterimResultTest {
 				System.out.println("exp: " + expected);
 			}
 			if (output) {
-				System.out.println(Objects.equals(new JSONArray(expected), result));
+				System.out.println(Objects.equals(Util.jsonCreateArray(expected), result));
 			}
-			return Objects.equals(new JSONArray(expected), result);
+			return Objects.equals(Util.jsonCreateArray(expected), result);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -151,22 +152,23 @@ public class InterimResultTest {
 		return result;
 	}
 
-	static JSONArray testList1 = testList1();
-	private static JSONArray testList1(){
-		JSONArray result = new JSONArray();
+	static ArrayNode testList1 = testList1();
+	private static ArrayNode testList1(){
+		ArrayNode result = Util.jsonCreateArray();
 		int i = 0;
 		for (List<String> list: lists) {
-			result.put(List.of("record" + i, list));
+			result.add("record"+i);
+			result.add(Util.jsonCreateArray(list));
 			i++;
 		}
 		return result;
 	}
 	private static List<String> getExpectedList1(){
 		List<String> result = new ArrayList<String>();
-		for (int i = 0; i < testList1().length(); i++) {
-			JSONArray lst = (JSONArray) testList1().get(i);
+		for (int i = 0; i < testList1().size(); i++) {
+			ArrayNode lst = (ArrayNode) testList1().get(i);
 			System.out.println(" _ " + lst);
-			String record = (String) lst.get(0);
+			String record = lst.get(0).asText();
 			String test = lst.get(1).toString();
 			if (test.contains(invalid)) {
 				result.add(record);
@@ -175,51 +177,55 @@ public class InterimResultTest {
 		return result;
 	}
 
-	static JSONArray testList2 = testList2();
-	private static JSONArray testList2(){
-		JSONArray result = new JSONArray();
+	static ArrayNode testList2 = testList2();
+	private static ArrayNode testList2(){
+		ArrayNode result = Util.jsonCreateArray();
 		int i = 0;
 		for (String bool: booleanStrings) {
 			for (List<String> list: lists) {
-				result.put(List.of("record" + i, List.of(bool, list)));
+				result.add("record" + i);
+				result.add(Util.jsonCreateArray(List.of(bool, list)));
 				i++;
 			}
 		}
 		return result;
 	}
 
-	static JSONArray testList3 = testList3();
-	private static JSONArray testList3(){
-		JSONArray result = new JSONArray();
+	static ArrayNode testList3 = testList3();
+	private static ArrayNode testList3(){
+		ArrayNode result = Util.jsonCreateArray();
 		int i = 0;
 		for (List<String> list1: lists) {
 			for (List<String> list2: lists) {
-				result.put(List.of("record" + i, List.of(list1, list2)));
+				result.add("record" + i);
+				result.add(Util.jsonCreateArray(List.of(list1, list2)));
 				i++;
 			}
 		}
 		return result;
 	}
 
-	static JSONArray testList7 = testList7();
-	private static JSONArray testList7(){
-		JSONArray result = new JSONArray();
+	static ArrayNode testList7 = testList7();
+	private static ArrayNode testList7(){
+		ArrayNode result = Util.jsonCreateArray();
 		int i = 0;
 
 		for (List<List<String>> sublist: listCombinations) {
-			result.put(List.of("record" + i, sublist));
+			result.add("record" + i);
+			result.add(Util.jsonCreateArray(sublist));
 			i++;
 		}
 		return result;
 
 	}
 
-	static JSONArray testList8 = testList8();
-	private static JSONArray testList8(){
-		JSONArray result = new JSONArray();
+	static ArrayNode testList8 = testList8();
+	private static ArrayNode testList8(){
+		ArrayNode result = Util.jsonCreateArray();
 		int i = 0;
 		for (List<List<List<String>>> sublist: listListCombinations) {
-			result.put(List.of("record" + i, sublist));
+			result.add("record" + i);
+			result.add(Util.jsonCreateArray(sublist));
 			i++;
 		}
 		return result;
@@ -258,14 +264,15 @@ public class InterimResultTest {
 		return result;
 	}
 
-	static JSONArray testList10 = testList10(); //testList10old();
-	private static JSONArray testList10(){
-		JSONArray result = new JSONArray();
+	static ArrayNode testList10 = testList10(); //testList10old();
+	private static ArrayNode testList10(){
+		ArrayNode result = Util.jsonCreateArray();
 		int i = 0;
 		for (List<String> lst1: lists) {
 			for (List<String> lst2: lists) {
 				List<Object> myList = List.of(lst1, lst2);
-				result.put(List.of("record" + i, myList));
+				result.add("record" + i);
+				result.add(Util.jsonCreateArray(myList));
 				i++;
 			}
 		}

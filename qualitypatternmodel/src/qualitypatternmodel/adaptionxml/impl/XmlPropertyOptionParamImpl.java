@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.json.JSONArray;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
@@ -36,6 +36,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.ConstantsXml;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -215,10 +216,10 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 	}
 
 	@Override
-	public JSONArray getOptionsAsJsonArray() {
-		JSONArray jarray = new JSONArray();
+	public ArrayNode getOptionsAsJsonArray() {
+		ArrayNode jarray = Util.jsonCreateArray();
 		for (XmlPropertyKind axis: getOptions()) {
-			jarray.put(axis);
+			jarray.add(axis.toString());
 		}
 		return jarray;
 	}

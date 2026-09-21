@@ -2,11 +2,10 @@
  */
 package qualitypatternmodel.javaquery;
 
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultContainer;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
@@ -188,7 +187,7 @@ public interface JavaFilter extends EObject {
 	 * @model dataType="qualitypatternmodel.textrepresentation.JSONArrayWrapper" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	JSONArray filterQueryResults() throws InvalidityException;
+	ArrayNode filterQueryResults() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -196,7 +195,23 @@ public interface JavaFilter extends EObject {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" objectListDataType="qualitypatternmodel.textrepresentation.JSONArrayWrapper"
 	 * @generated
 	 */
-	void createInterimResultContainer(JSONArray objectList) throws InvalidityException;
+	void createInterimResultContainer(ArrayNode objectList) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="qualitypatternmodel.javaquery.StringListWrapper" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated NOT
+	 */
+	ArrayNode executeXQueryJava(String datapath) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="qualitypatternmodel.javaquery.StringListWrapper" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated NOT
+	 */
+	ArrayNode execute(String datapath) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -204,23 +219,7 @@ public interface JavaFilter extends EObject {
 	 * @model dataType="qualitypatternmodel.textrepresentation.JSONArrayWrapper" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" arrayDataType="qualitypatternmodel.textrepresentation.JSONArrayWrapper"
 	 * @generated
 	 */
-	JSONArray filter(JSONArray array) throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model dataType="qualitypatternmodel.javaquery.StringListWrapper" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated NOT
-	 */
-	JSONArray executeXQueryJava(String datapath) throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model dataType="qualitypatternmodel.javaquery.StringListWrapper" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated NOT
-	 */
-	JSONArray execute(String datapath) throws InvalidityException;
+	ArrayNode filter(ArrayNode array) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -228,7 +227,7 @@ public interface JavaFilter extends EObject {
 	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	JSONObject toJson();
+	ObjectNode toJson();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -236,6 +235,6 @@ public interface JavaFilter extends EObject {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" objectListDataType="qualitypatternmodel.javaquery.StringListWrapper"
 	 * @generated NOT
 	 */
-	void createInterimResultContainerXQuery(JSONArray list) throws InvalidityException;
+	void createInterimResultContainerXQuery(ArrayNode list) throws InvalidityException;
 
 } // JavaFilter

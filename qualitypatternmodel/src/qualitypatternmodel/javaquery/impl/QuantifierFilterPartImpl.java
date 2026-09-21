@@ -14,9 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
@@ -28,6 +27,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.impl.FixedContainerInterimImpl;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -107,16 +107,16 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 
 	}
 
-	public QuantifierFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public QuantifierFilterPartImpl(ObjectNode json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			setQuantifier(Quantifier.get(json.getString("quantifier")));
-			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(json.getInt("argument"));
+			setQuantifier(Quantifier.get(json.get("quantifier").asText()));
+			FixedContainerInterimImpl argument = (FixedContainerInterimImpl) map.get(json.get("argument").asInt());
 			setArgument(argument);
 
-			JSONArray subfilters = json.getJSONArray("subfilters");
-			for (int i = 0; i < subfilters.length(); i++) {
-				BooleanFilterPart bfp = (BooleanFilterPart) JavaFilterPartImpl.fromJson(subfilters.getJSONObject(i), map);
+			ArrayNode subfilters = (ArrayNode) json.get("subfilters");
+			for (int i = 0; i < subfilters.size(); i++) {
+				BooleanFilterPart bfp = (BooleanFilterPart) JavaFilterPartImpl.fromJson((ObjectNode) subfilters.get(i), map);
 				if (bfp != null)
 					getSubfilter().add(bfp);
 			}
@@ -163,18 +163,18 @@ public class QuantifierFilterPartImpl extends BooleanFilterPartImpl implements Q
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = new JSONObject();
+	public ObjectNode toJson() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put("class", getClass().getSimpleName());
 			result.put("quantifier", getQuantifier().getLiteral());
 			result.put("argument", getArgument().getInterimPartId());
-			JSONArray subfilters = new JSONArray();
+			ArrayNode subfilters = Util.jsonCreateArray();
 			for (BooleanFilterPart subfilter: getSubfilter()) {
-				subfilters.put(subfilter.toJson());
+				subfilters.add(subfilter.toJson());
 			}
-			result.put("subfilters", subfilters);
-		} catch (JSONException e) {
+			result.set("subfilters", subfilters);
+		} catch (RuntimeException e) {
 		}
 		return result;
 	}

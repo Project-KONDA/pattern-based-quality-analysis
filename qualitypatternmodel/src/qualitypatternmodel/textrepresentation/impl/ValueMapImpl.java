@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.textrepresentation.impl;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -12,14 +13,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.newservlets.ServletUtilities;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.textrepresentation.ValueMap;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,17 +64,17 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 		super();
 	}
 
-	public ValueMapImpl(JSONObject json) throws InvalidityException {
+	public ValueMapImpl(ObjectNode json) throws InvalidityException {
 		super();
 
 		if (json == null)
-			throw new JSONException("json is null");
-		Iterator<String> keys = json.keys();
+			throw new IllegalArgumentException("json is null");
+		Iterator<String> keys = json.fieldNames();
         while (keys.hasNext()) {
             String key = keys.next();
-            if (!(json.get(key) instanceof String))
+			if (!json.get(key).isTextual())
             	throw new InvalidityException(json + " is not a valid ValueMap JSON");
-            String value = json.getString(key);
+			String value = json.get(key).asText();
             put(key, value);
         }
 	}
@@ -138,10 +137,10 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	 * @generated NOT
 	 */
 	@Override
-	public JSONArray getValuesAsJsonArray() {
-		JSONArray jarray = new JSONArray();
+	public ArrayNode getValuesAsJsonArray() {
+		ArrayNode jarray = Util.jsonCreateArray();
 		for (String val: getValues()) {
-			jarray.put(val);
+			jarray.add(val);
 		}
 		return jarray;
 	}
@@ -194,13 +193,13 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	 * @generated NOT
 	 */
 	@Override
-	public JSONObject generateJSONObject() {
-		JSONObject result = new JSONObject();
+	public ObjectNode generateJSONObject() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			for (int i = 0; i<getKeys().size(); i++) {
 				result.put(getKeys().get(i), getValues().get(i));
 			}
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 		return result;
 	}
 
@@ -247,14 +246,14 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 	 * @generated NOT
 	 */
 	@Override
-	public void setValuesFromJSONObject(JSONObject object) {
+	public void setValuesFromJSONObject(ObjectNode object) {
 		clear();
-		Iterator<String> keys = object.keys();
+		Iterator<String> keys = object.fieldNames();
         while(keys.hasNext()) {
             String key = keys.next();
             try {
-				put(key, object.getString(key));
-			} catch (JSONException e) {}
+				put(key, object.get(key).asText());
+			} catch (RuntimeException e) {}
         }
 	}
 
@@ -380,8 +379,8 @@ public class ValueMapImpl extends MinimalEObjectImpl.Container implements ValueM
 				return isEmpty();
 			case TextrepresentationPackage.VALUE_MAP___AS_MAP:
 				return asMap();
-			case TextrepresentationPackage.VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__JSONOBJECT:
-				setValuesFromJSONObject((JSONObject)arguments.get(0));
+			case TextrepresentationPackage.VALUE_MAP___SET_VALUES_FROM_JSON_OBJECT__OBJECTNODE:
+				setValuesFromJSONObject((ObjectNode)arguments.get(0));
 				return null;
 			case TextrepresentationPackage.VALUE_MAP___REVERSE:
 				return reverse();

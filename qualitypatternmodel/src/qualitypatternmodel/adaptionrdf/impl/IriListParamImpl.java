@@ -14,8 +14,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONArray;
-import org.json.JSONException;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriListParam;
@@ -25,6 +26,7 @@ import qualitypatternmodel.adaptionrdf.RdfPathPart;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.impl.ParameterValueImpl;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -99,14 +101,14 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 			return null;
 		}
 		if (getIriParams().size() == 0) {
-			return new JSONArray().toString();
+			return Util.jsonCreateArray().toString();
 		}
 		else if (getIriParams().size() == 1) {
 			return getIriParams().get(0).getValueAsString();
 		} else {
-			JSONArray jarr = new JSONArray();
+			ArrayNode jarr = Util.jsonCreateArray();
 			for (IriParam iri: getIriParams()) {
-				jarr.put(iri.getValueAsString());
+				jarr.add(iri.getValueAsString());
 			}
 			return jarr.toString();
 		}
@@ -119,13 +121,13 @@ public class IriListParamImpl extends ParameterValueImpl implements IriListParam
 			return;
 		}
 		ArrayList<IriParam> x = new ArrayList<IriParam>();
-		JSONArray jarr;
+		ArrayNode jarr;
 		try {
-			jarr = new JSONArray(value);
-	        for (int i = 0; i < jarr.length(); i++) {
-	            x.add(new IriParamImpl(jarr.getString(i)));
+			jarr = (ArrayNode) Util.jsonCreateArray(value);
+	        for (int i = 0; i < jarr.size(); i++) {
+	            x.add(new IriParamImpl(jarr.get(i).asText()));
 	        }
-		} catch (JSONException e) {
+		} catch (RuntimeException | JsonProcessingException e) {
             x.add(new IriParamImpl(value));
 		}
         getIriParams().clear();

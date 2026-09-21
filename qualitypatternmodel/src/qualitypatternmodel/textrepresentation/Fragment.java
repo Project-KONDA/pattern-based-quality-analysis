@@ -2,9 +2,8 @@
  */
 package qualitypatternmodel.textrepresentation;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.eclipse.emf.ecore.EObject;
-import org.json.JSONObject;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
@@ -83,7 +82,7 @@ public interface Fragment extends EObject {
 	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	JSONObject generateJSONObject();
+	ObjectNode generateJSONObject();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,5 +90,5 @@ public interface Fragment extends EObject {
 	 * @model dataType="qualitypatternmodel.textrepresentation.JSONObjectWrapper"
 	 * @generated
 	 */
-	JSONObject generateVariantJSONObject();
+	ObjectNode generateVariantJSONObject();
 } // Fragment

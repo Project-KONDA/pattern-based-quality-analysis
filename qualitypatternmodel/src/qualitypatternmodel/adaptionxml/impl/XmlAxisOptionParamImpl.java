@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.json.JSONArray;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
@@ -26,6 +26,7 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Axis
@@ -116,10 +117,10 @@ public class XmlAxisOptionParamImpl extends ParameterImpl implements XmlAxisOpti
 	}
 
 	@Override
-	public JSONArray getOptionsAsJsonArray() {
-		JSONArray jarray = new JSONArray();
+	public ArrayNode getOptionsAsJsonArray() {
+		ArrayNode jarray = Util.jsonCreateArray();
 		for (XmlAxisKind axis: getOptions()) {
-			jarray.put(axis);
+			jarray.add(axis.toString());
 		}
 		return jarray;
 	}

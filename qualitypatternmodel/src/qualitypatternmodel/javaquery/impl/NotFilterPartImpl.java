@@ -10,8 +10,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
@@ -19,6 +18,7 @@ import qualitypatternmodel.javaquery.JavaqueryPackage;
 import qualitypatternmodel.javaquery.NotFilterPart;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,10 +58,10 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 		setSubfilter(subfilter);
 	}
 
-	public NotFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public NotFilterPartImpl(ObjectNode json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			setSubfilter((BooleanFilterPart) JavaFilterPartImpl.fromJson(json.getJSONObject("subfilter"), map));
+			setSubfilter((BooleanFilterPart) JavaFilterPartImpl.fromJson((ObjectNode) json.get("subfilter"), map));
 		}
 		catch (Exception e) {
 			throw new InvalidityException();
@@ -79,12 +79,12 @@ public class NotFilterPartImpl extends BooleanFilterPartImpl implements NotFilte
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = new JSONObject();
+	public ObjectNode toJson() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put("class", getClass().getSimpleName());
-			result.put("subfilter", getSubfilter().toJson());
-		} catch (JSONException e) {
+			result.set("subfilter", getSubfilter().toJson());
+		} catch (RuntimeException e) {
 		}
 		return result;
 	}

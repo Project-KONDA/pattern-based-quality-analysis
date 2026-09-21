@@ -10,8 +10,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaoperators.impl.OneArgJavaListOperatorImpl;
@@ -24,6 +24,7 @@ import qualitypatternmodel.javaqueryoutput.ValueInterim;
 import qualitypatternmodel.javaqueryoutput.ValueResult;
 import qualitypatternmodel.javaqueryoutput.impl.ValueInterimImpl;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,17 +69,17 @@ public class OneArgListFunctionFilterPartImpl extends OneArgFunctionFilterPartIm
 		getList().addAll(list);
 	}
 
-	public OneArgListFunctionFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public OneArgListFunctionFilterPartImpl(ObjectNode json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			ValueInterim argument = (ValueInterim) map.get(json.getInt(ConstantsJSON.ARGUMENT));
+			ValueInterim argument = (ValueInterim) map.get(json.get(ConstantsJSON.ARGUMENT).asInt());
 			setArgument(argument);
-			setNegate(json.getBoolean(ConstantsJSON.NEGATE));
-			functionclassname = json.getString(ConstantsJSON.ARGUMENT_FUNCTION);
-			JSONArray list = json.getJSONArray(ConstantsJSON.ARGUMENT_LIST);
+			setNegate(json.get(ConstantsJSON.NEGATE).asBoolean());
+			functionclassname = json.get(ConstantsJSON.ARGUMENT_FUNCTION).asText();
+			ArrayNode list = (ArrayNode) json.get(ConstantsJSON.ARGUMENT_LIST);
 			getList().clear();
-			for (int i = 0; i<list.length(); i++)
-				getList().add(list.getString(i));
+			for (int i = 0; i<list.size(); i++)
+				getList().add(list.get(i).asText());
 		}
 		catch (Exception e) {
 			throw new InvalidityException("Error creating OneArgListFunctionFilterPartImpl", e);
@@ -178,10 +179,10 @@ public class OneArgListFunctionFilterPartImpl extends OneArgFunctionFilterPartIm
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = super.toJson();
-		JSONArray list = new JSONArray(getList());
-		result.put(ConstantsJSON.ARGUMENT_LIST, list);
+	public ObjectNode toJson() {
+		ObjectNode result = super.toJson();
+		ArrayNode list = Util.jsonCreateArray(getList());
+		result.set(ConstantsJSON.ARGUMENT_LIST, list);
 		return result;
 	}
 

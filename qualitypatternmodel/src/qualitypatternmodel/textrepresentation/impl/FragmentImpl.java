@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.textrepresentation.Fragment;
@@ -125,7 +125,7 @@ public abstract class FragmentImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated not
 	 */
 	@Override
-	abstract public JSONObject generateJSONObject();
+	abstract public ObjectNode generateJSONObject();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,7 +133,7 @@ public abstract class FragmentImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated NOT
 	 */
 	@Override
-	abstract public JSONObject generateVariantJSONObject();
+	abstract public ObjectNode generateVariantJSONObject();
 
 	/**
 	 * <!-- begin-user-doc -->

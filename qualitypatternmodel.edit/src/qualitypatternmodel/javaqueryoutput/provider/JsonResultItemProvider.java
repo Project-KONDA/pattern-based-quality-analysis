@@ -3,6 +3,7 @@
 package qualitypatternmodel.javaqueryoutput.provider;
 
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.util.Collection;
 import java.util.List;
 
@@ -13,9 +14,6 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.json.JSONObject;
-
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
 import qualitypatternmodel.javaqueryoutput.JsonResult;
 
@@ -93,7 +91,7 @@ public class JsonResultItemProvider extends InterimResultItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		JSONObject labelValue = ((JsonResult)object).getValue();
+		ObjectNode labelValue = ((JsonResult)object).getValue();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_JsonResult_type") :

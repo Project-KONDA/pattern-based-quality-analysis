@@ -1,9 +1,8 @@
 package newservelettest;
 
 import java.io.IOException;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -18,14 +17,14 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 public class ValueMapLoadTest {
 
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException, JSONException {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
 		CompletePattern pattern = new CardPattern().getXmlBundle().getConcrete();
 
-		JSONObject before = ServletUtilities.getPatternJSON(pattern);
-		JSONArray fragments = before.getJSONArray(ConstantsJSON.VARIANTS).getJSONObject(0).getJSONArray(ConstantsJSON.FRAGMENTS);
+		ObjectNode before = ServletUtilities.getPatternJSON(pattern);
+		ArrayNode fragments = (ArrayNode) before.get(ConstantsJSON.VARIANTS).get(0).get(ConstantsJSON.FRAGMENTS);
 		int x = -1;
-		for (int i = 0; i < fragments.length(); i++) {
-			if (fragments.getJSONObject(i).has(ConstantsJSON.OPTIONS)) {
+		for (int i = 0; i < fragments.size(); i++) {
+			if (fragments.get(i).has(ConstantsJSON.OPTIONS)) {
 				x = i;
 			}	
 		}
@@ -35,14 +34,14 @@ public class ValueMapLoadTest {
 		System.out.println("before:");
 //		System.out.println(before.getJSONArray(Constants.JSON_VARIANTS).getJSONObject(0).getJSONArray(Constants.JSON_FRAGMENTS));
 //		System.out.println(before.getJSONArray(Constants.JSON_VARIANTS).getJSONObject(0).getJSONArray(Constants.JSON_FRAGMENTS).getJSONObject(x));
-		System.out.println(before.getJSONArray(ConstantsJSON.VARIANTS).getJSONObject(0).getJSONArray(ConstantsJSON.FRAGMENTS).getJSONObject(x).get(ConstantsJSON.OPTIONS).toString());
+		System.out.println(before.get(ConstantsJSON.VARIANTS).get(0).get(ConstantsJSON.FRAGMENTS).get(x).get(ConstantsJSON.OPTIONS).toString());
 
 		System.out.println("Save & Load");
 		EMFModelSave.exportToFile2(pattern, "D:", "card", Constants.EXTENSION);
 		CompletePattern pattern2 = EMFModelLoad.loadCompletePattern("D:/card.patternstructure");
 
 		System.out.println("after:");
-		JSONObject after = ServletUtilities.getPatternJSON(pattern2);
-		System.out.println(after.getJSONArray(ConstantsJSON.VARIANTS).getJSONObject(0).getJSONArray(ConstantsJSON.FRAGMENTS).getJSONObject(x).get(ConstantsJSON.OPTIONS).toString());
+		ObjectNode after = ServletUtilities.getPatternJSON(pattern2);
+		System.out.println(after.get(ConstantsJSON.VARIANTS).get(0).get(ConstantsJSON.FRAGMENTS).get(x).get(ConstantsJSON.OPTIONS).toString());
 	}
 }

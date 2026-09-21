@@ -10,8 +10,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResult;
@@ -40,7 +40,7 @@ import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
  */
 public class InterimResultContainerImpl extends MinimalEObjectImpl.Container implements InterimResultContainer {
 	
-	public JSONObject result = null;
+	public ObjectNode result = null;
 	
 	/**
 	 * The cached value of the '{@link #getCorrespondsTo() <em>Corresponds To</em>}' reference.
@@ -133,16 +133,13 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 	 * @generated NOT
 	 */
 	@Override
-	public Boolean initialize(JSONObject interim) throws InvalidityException {
+	public Boolean initialize(ObjectNode interim) throws InvalidityException {
 		
-		String value = interim.getJSONArray(ConstantsJSON.QUERY_FILTER).getString(0);
+		String value = interim.get(ConstantsJSON.QUERY_FILTER).get(0).asText();
 		interim.remove(ConstantsJSON.QUERY_FILTER);
 		result = interim;
-//		JSONArray retur = XmlServletUtility.extractFromSnippet(value, "/*[name()='" + JavaQueryTranslationUtility.INTERIM + "']/*[name()='" + JavaQueryTranslationUtility.RETURN + "']");
-		JSONArray condi = XmlServletUtility.extractFromSnippet(value, "/*[name()='" + JavaQueryTranslationUtility.INTERIM + "']/*[name()='" + JavaQueryTranslationUtility.CONDITION + "']");
+		ArrayNode condi = XmlServletUtility.extractFromSnippet(value, "/*[name()='" + JavaQueryTranslationUtility.INTERIM + "']/*[name()='" + JavaQueryTranslationUtility.CONDITION + "']");
 		
-//		if (retur.length() == 0)
-//			return false;
 		
 		InterimResult returnInterim = InterimResultImpl.createResult(getCorrespondsTo().getRecord(), interim);
 		InterimResult paramInterim = InterimResultImpl.createNew(getCorrespondsTo().getSubstructure(), condi);
@@ -397,9 +394,9 @@ public class InterimResultContainerImpl extends MinimalEObjectImpl.Container imp
 		switch (operationID) {
 			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___IS_VALID_TO_STRUCTURE:
 				return isValidToStructure();
-			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___INITIALIZE__JSONOBJECT:
+			case JavaqueryoutputPackage.INTERIM_RESULT_CONTAINER___INITIALIZE__OBJECTNODE:
 				try {
-					return initialize((JSONObject)arguments.get(0));
+					return initialize((ObjectNode)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

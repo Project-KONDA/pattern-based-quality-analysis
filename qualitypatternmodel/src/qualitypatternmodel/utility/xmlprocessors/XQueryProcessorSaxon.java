@@ -12,8 +12,8 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import net.sf.saxon.om.NodeInfo;
 import net.sf.saxon.s9api.DocumentBuilder;
@@ -46,25 +46,25 @@ public class XQueryProcessorSaxon {
 	static boolean BUILDER_LINENUMBERING = true;
 	static WhitespaceStrippingPolicy WHITESPACESTRIPPING = WhitespaceStrippingPolicy.ALL;
 
-	public static JSONArray executeQueryFileStripped (String query, String filepath) throws InvalidityException {
-		JSONArray incidents = executeQueryFile(query, filepath);
+	public static ArrayNode executeQueryFileStripped (String query, String filepath) throws InvalidityException {
+		ArrayNode incidents = executeQueryFile(query, filepath);
 		XmlServletUtility.stripNamespacesFromIncidents(incidents);
 		return incidents;
 	}
 
-	public static JSONArray executeQueryFile(String query, String filepath) throws InvalidityException {
+	public static ArrayNode executeQueryFile(String query, String filepath) throws InvalidityException {
 		return executeQueryFile(query, null, filepath);
 	}
 
-	public static JSONArray executeQueryFile(String query, JSONObject relativeQueries, String filepath) throws InvalidityException {
+	public static ArrayNode executeQueryFile(String query, ObjectNode relativeQueries, String filepath) throws InvalidityException {
 		final String testedQuery = testAndFormatQuery(query);
 		final File inputFile = Util.getAndTestFile(filepath);
 
 	    Processor processor = new Processor(false); // false = no schema awareness
 	    XQueryCompiler compiler = processor.newXQueryCompiler();
 	    ExecutorService executor = Executors.newSingleThreadExecutor();
-	    Future<JSONArray> future = executor.submit(() -> {
-	    	JSONArray outcome = new JSONArray();
+	    Future<ArrayNode> future = executor.submit(() -> {
+	    	ArrayNode outcome = Util.jsonCreateArray();
 
 	        try {
 	            // Compile query
@@ -83,16 +83,16 @@ public class XQueryProcessorSaxon {
 	            // Evaluate results
 	            for (XdmItem item : evaluator) {
 	            	if (NOSKIPS || !skipXdmItem(item)) {
-	                	JSONObject output = formatItemJSON(item, processor);
+	            		ObjectNode output = formatItemJSON(item, processor);
 	                	if (relativeQueries != null) {
-		                	for (String key: relativeQueries.keySet()) {
+		                	for (String key: Util.jsonKeySet(relativeQueries)) {
 		                		try {
-			                		JSONArray partres = queryRelativeQuery(item, relativeQueries.getString(key), processor); 
-			                		output.put(key, partres);
+			                		ArrayNode partres = queryRelativeQuery(item, relativeQueries.get(key).asText(), processor); 
+			                		output.set(key, partres);
 		                		} catch (Exception e) {}
 		                	}
 	                	}
-	                	outcome.put(output);
+	                	outcome.add(output);
 	                }
 	            }
 	        } catch (SaxonApiException e) {
@@ -119,21 +119,21 @@ public class XQueryProcessorSaxon {
 	    }
 	}
 
-	private static JSONArray queryRelativeQuery(XdmItem contextItem, String relativeQuery, Processor processor) throws SaxonApiException {
-	    JSONArray result = new JSONArray();
+	private static ArrayNode queryRelativeQuery(XdmItem contextItem, String relativeQuery, Processor processor) throws SaxonApiException {
+	    ArrayNode result = Util.jsonCreateArray();
 	    XQueryCompiler compiler = processor.newXQueryCompiler();
 	    XQueryExecutable executable = compiler.compile(relativeQuery);
 	    XQueryEvaluator evaluator = executable.load();
 	    evaluator.setContextItem(contextItem);
 	    for (XdmItem item : evaluator) {
 	        if (item.isAtomicValue()) {
-	            result.put(item.getStringValue());
+	            result.add(item.getStringValue());
 	        }
 	        else if (item instanceof XdmNode) {
-	            result.put(item.toString());
+	            result.add(item.toString());
 	        }
 	        else {
-	            result.put(item.getStringValue());
+	            result.add(item.getStringValue());
 	        }
 	    }
 	    return result;
@@ -145,34 +145,34 @@ public class XQueryProcessorSaxon {
 		public String query;
 	    public XQueryExecutable query_executable;
 	    public XQueryExecutable query_total_executable;
-	    public JSONObject filter;
-	    public JSONObject custom;
-	    public JSONObject relativeQueries;
+	    public ObjectNode filter;
+	    public ObjectNode custom;
+	    public ObjectNode relativeQueries;
 	}
 
-	private static void initializeExecutionResultFile(List<String> datapaths, JSONArray constraintIDs, String jsonfilename) {
-		JSONObject resultobject = new JSONObject();
-		resultobject.put(ConstantsJSON.RESULT, new JSONArray());
+	private static void initializeExecutionResultFile(List<String> datapaths, ArrayNode constraintIDs, String jsonfilename) {
+		ObjectNode resultobject = Util.jsonCreateObject();
+		resultobject.set(ConstantsJSON.RESULT, Util.jsonCreateArray());
 		resultobject.put(ConstantsJSON.TOTAL_FINDINGS, 0);
 		resultobject.put(ConstantsJSON.TOTAL_INCIDENCES, 0);
 		resultobject.put(ConstantsJSON.TOTAL_COMPLIANCES, 0);
-		resultobject.put(ConstantsJSON.FILES, datapaths);
-		resultobject.put(ConstantsJSON.CONSTRAINT_IDS, constraintIDs);
+		resultobject.set(ConstantsJSON.FILES, Util.jsonCreateArray(datapaths));
+		resultobject.set(ConstantsJSON.CONSTRAINT_IDS, constraintIDs);
 		resultobject.put(ConstantsJSON.FILESIZE, datapaths.size());
-		resultobject.put(ConstantsJSON.CONSTRAINTSIZE, constraintIDs.length());
+		resultobject.put(ConstantsJSON.CONSTRAINTSIZE, constraintIDs.size());
 		resultobject.put(ConstantsJSON.DURATION, System.nanoTime());
-		resultobject.put(ConstantsJSON.FAILEDFILES, new JSONObject());
-		resultobject.put(ConstantsJSON.FAILEDCONSTRAINTS, new JSONObject());
+		resultobject.set(ConstantsJSON.FAILEDFILES, Util.jsonCreateObject());
+		resultobject.set(ConstantsJSON.FAILEDCONSTRAINTS, Util.jsonCreateObject());
 		try {
 			Util.exportJson(resultobject, jsonfilename);
 		} catch (IOException e) {}
 	}
 
-	private static JSONObject getFinalExecutionResultFile(String jsonfilename) {
-		JSONObject resultobject = null;
+	private static ObjectNode getFinalExecutionResultFile(String jsonfilename) {
+		ObjectNode resultobject = null;
 		try {
 			resultobject = Util.loadJson(jsonfilename);
-			long duration = System.nanoTime() - resultobject.getLong(ConstantsJSON.DURATION);
+			long duration = System.nanoTime() - resultobject.path(ConstantsJSON.DURATION).asLong();
 			resultobject.put(ConstantsJSON.DURATION, duration);
 			Util.deleteFile(jsonfilename);
 		} catch (IOException e) {
@@ -183,54 +183,54 @@ public class XQueryProcessorSaxon {
 	}
 
 	private static void addFailedConstraint(String constraintID, String message, String jsonfilename) {
-		JSONObject resultobject;
+		ObjectNode resultobject;
 		try {
 			resultobject = Util.loadJson(jsonfilename);
-			JSONObject failedconstraints = resultobject.optJSONObject(ConstantsJSON.FAILEDCONSTRAINTS);
+			ObjectNode failedconstraints = (ObjectNode) resultobject.get(ConstantsJSON.FAILEDCONSTRAINTS);
 			if (failedconstraints == null) 
-				failedconstraints = new JSONObject();
+				failedconstraints = Util.jsonCreateObject();
 			failedconstraints.put(constraintID, message);
 			Util.exportJson(resultobject, jsonfilename);
 		} catch (IOException e) {}
 	}
 
 	private static void addFailedFile(String filename, String message, String jsonfilename) {
-		JSONObject resultobject;
+		ObjectNode resultobject;
 		try {
 			resultobject = Util.loadJson(jsonfilename);
-			JSONObject failedfiles = resultobject.optJSONObject(ConstantsJSON.FAILEDFILES); 
+			ObjectNode failedfiles = (ObjectNode) resultobject.get(ConstantsJSON.FAILEDFILES); 
 			if (failedfiles == null) 
-				failedfiles = new JSONObject();
+				failedfiles = Util.jsonCreateObject();
 			failedfiles.put(filename, message);
 			Util.exportJson(resultobject, jsonfilename);
 		} catch (IOException e) {}
 	}
 
-	private static void combineExecutionResult(JSONObject queryResult, String jsonfilename) {
+	private static void combineExecutionResult(ObjectNode queryResult, String jsonfilename) {
 		try {
-			JSONObject resultobject = Util.loadJson(jsonfilename);
-			long total_findings = resultobject.getLong(ConstantsJSON.TOTAL_FINDINGS);
-	        total_findings += queryResult.getLong(ConstantsJSON.TOTAL_FINDINGS);
+			ObjectNode resultobject = Util.loadJson(jsonfilename);
+			long total_findings = resultobject.path(ConstantsJSON.TOTAL_FINDINGS).asLong();
+			total_findings += queryResult.path(ConstantsJSON.TOTAL_FINDINGS).asLong();
 	        resultobject.put(ConstantsJSON.TOTAL_FINDINGS, total_findings);
 
-			long total_incidents = resultobject.getLong(ConstantsJSON.TOTAL_INCIDENCES);
-	    	total_incidents += queryResult.getLong(ConstantsJSON.TOTAL_INCIDENCES);
+			long total_incidents = resultobject.path(ConstantsJSON.TOTAL_INCIDENCES).asLong();
+	    		total_incidents += queryResult.path(ConstantsJSON.TOTAL_INCIDENCES).asLong();
 	    	resultobject.put(ConstantsJSON.TOTAL_INCIDENCES, total_incidents);
 
-			long total_compliances = resultobject.getLong(ConstantsJSON.TOTAL_COMPLIANCES);
-	    	total_compliances += queryResult.getLong(ConstantsJSON.TOTAL_COMPLIANCES);
+			long total_compliances = resultobject.path(ConstantsJSON.TOTAL_COMPLIANCES).asLong();
+	    		total_compliances += queryResult.path(ConstantsJSON.TOTAL_COMPLIANCES).asLong();
 	    	resultobject.put(ConstantsJSON.TOTAL_COMPLIANCES, total_compliances);
 			
-	    	resultobject.getJSONArray(ConstantsJSON.RESULT).put(queryResult);
+	    	((ArrayNode) resultobject.get(ConstantsJSON.RESULT)).add(queryResult);
 
 	    	Util.exportJson(resultobject, jsonfilename);
 		} catch (IOException e) {}
 	}
 
-	public static JSONObject queryConstraintsFilePaths(List<JSONObject> constraints, List<String> datapaths) {
-		JSONArray constraintIDs = new JSONArray();
-		for (JSONObject constraint: constraints)
-			constraintIDs.put(constraint.get(ConstantsJSON.CONSTRAINT_ID));
+	public static ObjectNode queryConstraintsFilePaths(List<ObjectNode> constraints, List<String> datapaths) {
+		ArrayNode constraintIDs = Util.jsonCreateArray();
+		for (ObjectNode constraint: constraints)
+			constraintIDs.add(constraint.get(ConstantsJSON.CONSTRAINT_ID));
 
 		String jsonfilename =  ServletConstants.tempJsonFileName();
 		initializeExecutionResultFile(datapaths, constraintIDs, jsonfilename);
@@ -239,26 +239,26 @@ public class XQueryProcessorSaxon {
 	    Processor processor = new Processor(false);
 	    XQueryCompiler compiler = processor.newXQueryCompiler();
 		List<SaxonConstraint> constraintExecutables = new ArrayList<SaxonConstraint>();
-		for (JSONObject constraint: constraints) { 
+		for (ObjectNode constraint: constraints) { 
 			try {
 				SaxonConstraint ce = new SaxonConstraint();
-				ce.id = constraint.getString(ConstantsJSON.CONSTRAINT_ID);
-				ce.name = constraint.getString(ConstantsJSON.NAME);
-				ce.query = constraint.getString(ConstantsJSON.QUERY);
+				ce.id = constraint.path(ConstantsJSON.CONSTRAINT_ID).asText();
+				ce.name = constraint.path(ConstantsJSON.NAME).asText();
+				ce.query = constraint.path(ConstantsJSON.QUERY).asText();
 				ce.query_executable = compiler.compile(ce.query);
 				if (constraint.has(ConstantsJSON.CUSTOM))
-					ce.custom = constraint.getJSONObject(ConstantsJSON.CUSTOM);
-				String counterquery = constraint.getString(ConstantsJSON.QUERY_PARTIAL);
+					ce.custom = (ObjectNode) constraint.get(ConstantsJSON.CUSTOM);
+				String counterquery = constraint.path(ConstantsJSON.QUERY_PARTIAL).asText();
 				ce.query_total_executable = compiler.compile(counterquery);
 				if (constraint.has(ConstantsJSON.FILTER)) {
-					ce.filter = constraint.getJSONObject(ConstantsJSON.FILTER);
+					ce.filter = (ObjectNode) constraint.get(ConstantsJSON.FILTER);
 				}
 				if (constraint.has(ConstantsJSON.RELATIVEQUERIES)) {
-					ce.relativeQueries = constraint.getJSONObject(ConstantsJSON.RELATIVEQUERIES);
+					ce.relativeQueries = (ObjectNode) constraint.get(ConstantsJSON.RELATIVEQUERIES);
 				}
 				constraintExecutables.add(ce);
 			} catch (Exception e) {
-				addFailedConstraint(constraint.getString(ConstantsJSON.CONSTRAINT_ID), e.getMessage(), jsonfilename);
+				addFailedConstraint(constraint.get(ConstantsJSON.CONSTRAINT_ID).asText(), e.getMessage(), jsonfilename);
 			}
 		}
 
@@ -284,7 +284,7 @@ public class XQueryProcessorSaxon {
 
             for (SaxonConstraint executable: constraintExecutables) {
                 try {
-	                JSONObject queryResult = querySaxonConstraint(processor, file, inputDoc, executable);
+	                ObjectNode queryResult = querySaxonConstraint(processor, file, inputDoc, executable);
 	                combineExecutionResult(queryResult, jsonfilename);
 				} catch (Exception e) {
 					addFailedConstraint(executable.id, e.getMessage(), jsonfilename);
@@ -300,36 +300,36 @@ public class XQueryProcessorSaxon {
         return getFinalExecutionResultFile(jsonfilename);
 	}
 
-	private static JSONObject querySaxonConstraint(Processor processor, File file, XdmNode inputDoc, SaxonConstraint executable) throws SaxonApiException, SaxonApiUncheckedException, InvalidityException {
+	private static ObjectNode querySaxonConstraint(Processor processor, File file, XdmNode inputDoc, SaxonConstraint executable) throws SaxonApiException, SaxonApiUncheckedException, InvalidityException {
 		Long starttime = System.nanoTime();
-		JSONObject queryResult = new JSONObject();
+		ObjectNode queryResult = Util.jsonCreateObject();
 		queryResult.put(ConstantsJSON.CONSTRAINT_ID, executable.id);
 		queryResult.put(ConstantsJSON.CONSTRAINT_NAME, executable.name);
 		queryResult.put(ConstantsJSON.FILE, file.getName());
 		if (executable.custom != null)
-			queryResult.put(ConstantsJSON.CUSTOM, executable.custom);
+			queryResult.set(ConstantsJSON.CUSTOM, executable.custom);
 
 		// query partial
 		XQueryEvaluator evalPartial = executable.query_total_executable.load();
 		evalPartial.setContextItem(inputDoc);
 		long total = evalPartial.evaluate().size();
-		JSONArray incidents = new JSONArray();
+		ArrayNode incidents = Util.jsonCreateArray();
 		// query
 		XQueryEvaluator eval = executable.query_executable.load();
 		eval.setContextItem(inputDoc);
 
         for (XdmItem item : eval) {
         	if (NOSKIPS || !skipXdmItem(item)) {
-            	JSONObject output = formatItemJSON(item, processor);
+            	ObjectNode output = formatItemJSON(item, processor);
             	if(executable.relativeQueries != null) {
-	            	for (String key: executable.relativeQueries.keySet()) {
+	            	for (String key: Util.jsonKeySet(executable.relativeQueries)) {
 	            		try {
-	                		JSONArray partres = queryRelativeQuery(item, executable.relativeQueries.getString(key), processor); 
-	                		output.put(key, partres);
+	                		ArrayNode partres = queryRelativeQuery(item, executable.relativeQueries.get(key).asText(), processor); 
+	                		output.set(key, partres);
 	            		} catch (Exception e) {}
 	            	}
             	}
-            	incidents.put(output);
+            	incidents.add(output);
             }
         }
 		
@@ -338,13 +338,13 @@ public class XQueryProcessorSaxon {
 			incidents = filter.filter(incidents);
 		}
 
-		long incidents_len = incidents.length();
+		long incidents_len = incidents.size();
 		long compliances_len = total - incidents_len;
 		
 		if (ServletConstants.SNIPPET_REMOVENAMESPACE)
 			XmlServletUtility.stripNamespacesFromIncidents(incidents);
 		        
-		queryResult.put(ConstantsJSON.INCIDENTS, incidents);
+		queryResult.set(ConstantsJSON.INCIDENTS, incidents);
 		queryResult.put(ConstantsJSON.TOTAL_FINDINGS, total);
 		queryResult.put(ConstantsJSON.TOTAL_INCIDENCES, incidents_len);
 		queryResult.put(ConstantsJSON.TOTAL_COMPLIANCES, compliances_len);
@@ -371,7 +371,7 @@ public class XQueryProcessorSaxon {
 		return false;
 	}
 
-	private static JSONObject formatItemJSON(XdmItem item, Processor processor) throws SaxonApiException {
+	private static ObjectNode formatItemJSON(XdmItem item, Processor processor) throws SaxonApiException {
 		String snippet = getSnippet(item, processor);
 
         int startline = -1;
@@ -382,7 +382,7 @@ public class XQueryProcessorSaxon {
         }
         int linesize = snippet.split("\n").length;
 
-        JSONObject obj = new JSONObject();
+        ObjectNode obj = Util.jsonCreateObject();
         obj.put(ConstantsJSON.RESULT_SNIPPET, snippet);
         obj.put(ConstantsJSON.RESULT_LINESIZE, linesize);
         if (startline != -1) {

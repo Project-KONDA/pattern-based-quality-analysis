@@ -14,9 +14,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
@@ -29,6 +30,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.ConstantsRdf;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -202,14 +204,14 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 		} else if (getRdfPathParts().size() == 1) {
 			return getRdfPathParts().get(0).getValueAsString();
 		} else {
-			JSONArray jarr = new JSONArray();
+			ArrayNode jarr = Util.jsonCreateArray();
 			for (RdfPathPart element : getRdfPathParts()) {
-				jarr.put(element.getValueAsString());
+				jarr.add(element.getValueAsString());
 			}
-			JSONObject job = new JSONObject();
+			ObjectNode job = Util.jsonCreateObject();
 			try {
-				job.put(ConstantsRdf.JSON_RDF_PART, jarr);
-			} catch (JSONException e) {}
+				job.set(ConstantsRdf.JSON_RDF_PART, jarr);
+			} catch (RuntimeException e) {}
 			return job.toString();
 		}
 	}
@@ -222,18 +224,18 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 		}
 		ArrayList<RdfPathPart> parts = new ArrayList<RdfPathPart>();
 		try {
-			JSONObject job = new JSONObject(value);
-			if (job.length() == 0) {
+			ObjectNode job = Util.jsonCreateObject(value);
+			if (job.size() == 0) {
 				getRdfPathParts().clear();
 				return;
 			}
-			JSONArray jarr = job.getJSONArray(ConstantsRdf.JSON_RDF_PART);
-	        for (int i = 0; i < jarr.length(); i++) {
+			ArrayNode jarr = (ArrayNode) job.get(ConstantsRdf.JSON_RDF_PART);
+	        for (int i = 0; i < jarr.size(); i++) {
 	        	RdfPathPart part = new RdfPathPartImpl();
-	        	part.setValueFromString(jarr.getString(i));
+	        	part.setValueFromString(jarr.get(i).asText());
 	        	parts.add(part);
 	        }
-		} catch (JSONException e) {
+		} catch (RuntimeException | JsonProcessingException e) {
         	RdfPathPart part = new RdfPathPartImpl();
         	part.setValueFromString(value);
         	parts.clear();

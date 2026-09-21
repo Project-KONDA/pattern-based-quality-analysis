@@ -15,9 +15,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
@@ -32,6 +31,7 @@ import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -88,17 +88,17 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 		super();
 	}
 
-	protected ParameterPredefinitionImpl(CompletePattern pattern, JSONObject json) throws JSONException, InvalidityException {
+	protected ParameterPredefinitionImpl(CompletePattern pattern, ObjectNode json) throws InvalidityException {
 		super();
 		if (!json.has(ConstantsJSON.VALUE) || !json.has(ConstantsJSON.PARAMETER)) {
 			throw new InvalidityException("Not valid JSON to a create ParameterPredefinition");
 		}
 
-		String value = json.getString(ConstantsJSON.VALUE);
-        JSONArray params = json.getJSONArray(ConstantsJSON.PARAMETER);
+		String value = json.get(ConstantsJSON.VALUE).asText();
+		ArrayNode params = (ArrayNode) json.get(ConstantsJSON.PARAMETER);
         
-        for (int i = 0; i < params.length(); i++) {
-            int paramID = params.getInt(i);
+		for (int i = 0; i < params.size(); i++) {
+			int paramID = params.get(i).asInt();
            	Parameter p = pattern.getParameterList().getParameters().get(paramID);
            	if (p instanceof XmlPathParam && !value.equals("/self::*")) {
        			Node node = ((XmlPathParam) p).getXmlNavigation().getTarget();
@@ -237,24 +237,24 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 	 * @generated NOT
 	 */
 	@Override
-	public JSONObject generateVariantJSONObject() {
-		JSONArray params = new JSONArray();
+	public ObjectNode generateVariantJSONObject() {
+		ArrayNode params = Util.jsonCreateArray();
 		try {
 			EList<Parameter> allParams = getParameter().get(0).getParameterList().getParameters();
 //			EList<Parameter> allParams = getPatternText().getPattern().getParameterList().getParameters();
 			for (Parameter pa: getParameter()) {
 				int index = allParams.indexOf(pa);
 				if (index != -1) {
-					params.put(index);
+					params.add(index);
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		JSONObject result = new JSONObject();
+		ObjectNode result = Util.jsonCreateObject();
 		try {
-			result.put(ConstantsJSON.PARAMETER, params);
+			result.set(ConstantsJSON.PARAMETER, params);
 			result.put(ConstantsJSON.VALUE, getValue());
 		} catch (Exception e) {}
 		return result;

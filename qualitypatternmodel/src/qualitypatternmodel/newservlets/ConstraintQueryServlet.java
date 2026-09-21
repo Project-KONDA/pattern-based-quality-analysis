@@ -7,9 +7,8 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,6 +17,7 @@ import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 @SuppressWarnings("serial")
 public class ConstraintQueryServlet extends HttpServlet {
@@ -32,7 +32,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
 			int i = path.split("/").length;
-			JSONObject result = null; // = applyGet(path, params);
+			ObjectNode result = null; // = applyGet(path, params);
 			if (i == 2) {
 				result = applyGet2(path, params);
 			} else if (i == 3) {
@@ -49,7 +49,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the query of a constraint: "
@@ -69,7 +69,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 		return applyGet(technology, constraintIds);
 	}
 
-	public static JSONObject applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 2 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the query of multiple constraints: "
@@ -91,10 +91,10 @@ public class ConstraintQueryServlet extends HttpServlet {
 		return applyGet(technology, constraintIds);
 	}
 
-	public static JSONObject applyGet(String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyGet(String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
 
-		JSONObject result = new JSONObject();
-		JSONArray failed = new JSONArray();
+		ObjectNode result = Util.jsonCreateObject();
+		ArrayNode failed = Util.jsonCreateArray();
 
 		for (String constraintId: constraintIds) {
 			// 1 load constraint
@@ -104,20 +104,20 @@ public class ConstraintQueryServlet extends HttpServlet {
 //				pattern.isValid(AbstractionLevel.CONCRETE);
 //			// 2 generate query
 //				JSONObject queryJson = generateQueryJson(pattern, technology);
-				JSONObject queryJson = ServletUtilities.loadConstraintQueryJson(technology, constraintId);
-				result.append(ConstantsJSON.CONSTRAINTS, queryJson);
+				ObjectNode queryJson = ServletUtilities.loadConstraintQueryJson(technology, constraintId);
+				Util.jsonAppend(result, ConstantsJSON.CONSTRAINTS, queryJson);
 			} catch (Exception e) {
 				ServletUtilities.logError(e);
-				JSONObject object = new JSONObject();
+				ObjectNode object = Util.jsonCreateObject();
 				try {
 					object.put(constraintId, e.getMessage());
-				} catch (JSONException f) {}
-				failed.put(object);
+				} catch (RuntimeException f) {}
+				failed.add(object);
 			}
 		}
 		try {
-			result.put(ConstantsJSON.FAILED, failed);
-		} catch (JSONException e) {}
+			result.set(ConstantsJSON.FAILED, failed);
+		} catch (RuntimeException e) {}
 		return result;
 	}
 }

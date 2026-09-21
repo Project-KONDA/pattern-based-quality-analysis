@@ -1,8 +1,10 @@
 package qualitypatternmodel.utility;
 
 import java.io.IOException;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.Arrays;
+
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 
 /* 
@@ -64,14 +66,14 @@ public class NewPatternInitialization {
 		return val.trim().startsWith("<") && val.trim().endsWith(">"); 
 	}
 
-	public static JSONObject makeFragment(String base, String example) {
-		JSONObject object = new JSONObject();
+	public static ObjectNode makeFragment(String base, String example) {
+		ObjectNode object = Util.jsonCreateObject();
 		if (isParameter(base) && isParameter(example)) {
 			base = base.replaceAll("^<|>$", "");
 			example = example.replaceAll("^<|>$", "");
 			object.put(ConstantsJSON.NAME, base);
 			object.put(ConstantsJSON.EXAMPLEVALUE, example);
-			object.put(ConstantsJSON.PARAMETER, new JSONArray());
+			object.set(ConstantsJSON.PARAMETER, Util.jsonCreateArray());
 			object.put(ConstantsJSON.DESCRIPTION, "");
 		}
 		else if (base.equals(example)) {
@@ -85,7 +87,7 @@ public class NewPatternInitialization {
 		return object;
 	}
 
-	public static JSONArray makeFragments() {
+	public static ArrayNode makeFragments() {
 		normalizeValues();
 		
 		String[] base = splitSentence(sentence);
@@ -95,17 +97,17 @@ public class NewPatternInitialization {
 			System.err.println(example.length);
 			return null;
 		}
-		JSONArray array = new JSONArray();
+		ArrayNode array = Util.jsonCreateArray();
 		for (int i = 0; i<base.length; i++) {
-			array.put(makeFragment(base[i], example[i]));
+			array.add(makeFragment(base[i], example[i]));
 		}
 		return array;
 	}
 
-	public static JSONObject makeVariant() {
-		JSONObject object = new JSONObject();
-		JSONObject custom = new JSONObject();
-		object.put(ConstantsJSON.CUSTOM, custom);
+	public static ObjectNode makeVariant() {
+		ObjectNode object = Util.jsonCreateObject();
+		ObjectNode custom = Util.jsonCreateObject();
+		object.set(ConstantsJSON.CUSTOM, custom);
 		
 		object.put(ConstantsJSON.TEMPLATE, id + "_" + language);
 		object.put(ConstantsJSON.NAME, variantid);
@@ -114,35 +116,35 @@ public class NewPatternInitialization {
 
 		custom.put(ConstantsJSON.DESCRIPTION, variantid + " variant for " + id + "_" + language);
 		custom.put("scope", scope);
-		custom.put("type", new JSONArray(type.split(", ")));
+		custom.set("type", Util.jsonCreateArray(Arrays.asList(type.split(", "))));
 		
-		object.put(ConstantsJSON.FRAGMENTS, makeFragments());
+		object.set(ConstantsJSON.FRAGMENTS, makeFragments());
 		return object;
 	}
 
 	public static void saveVariant() throws IOException {
 		String path = "src/qualitypatternmodel/newservlets/jsons/";
 		String filename = id.toUpperCase() + "_" + language.toUpperCase() + "_" + variantid.toUpperCase() + ".json";
-		JSONObject variant = makeVariant();
+		ObjectNode variant = makeVariant();
 		Util.exportJson(variant, path + filename);
-		System.out.println(variant.toString(4));	
+		System.out.println(Util.jsonPretty(variant));	
 	}
 	
 	public static void templateInfo() throws IOException {
 
-		JSONObject info = new JSONObject();
+		ObjectNode info = Util.jsonCreateObject();
 		info.put(ConstantsJSON.ID, id);
 		info.put(ConstantsJSON.NAME, name);
 		info.put(ConstantsJSON.DESCRIPTION, description);
 		
 		
 		String path = "src/qualitypatternmodel/newservlets/template_info.json";
-		JSONObject template_info = Util.loadJson(path);
-		template_info.put(id + "Pattern", info);
+		ObjectNode template_info = Util.loadJson(path);
+		template_info.set(id + "Pattern", info);
 		Util.exportJson(template_info, path);
 
 		System.out.println("Added in template_info.json");
-		System.out.println("\"" + id + "Pattern\":" + info.toString(4));
+		System.out.println("\"" + id + "Pattern\":" + Util.jsonPretty(info));
 	}
 	
 	public static void patternConstants() throws IOException {

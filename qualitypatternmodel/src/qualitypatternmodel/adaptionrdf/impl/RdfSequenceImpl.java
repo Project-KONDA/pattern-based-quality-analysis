@@ -12,9 +12,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfPathComponent;
@@ -26,6 +25,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsRdf;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -87,14 +87,14 @@ public class RdfSequenceImpl extends RdfPathComponentImpl implements RdfSequence
 
 	@Override
 	public String getValueAsString() {
-		JSONArray jarr = new JSONArray();
+		ArrayNode jarr = Util.jsonCreateArray();
 		for (RdfPathComponent component: getItems()) {
-			jarr.put(component.getValueAsString());
+			jarr.add(component.getValueAsString());
 		}
-		JSONObject jobj = new JSONObject();
+		ObjectNode jobj = Util.jsonCreateObject();
 		try {
-			jobj.put(ConstantsRdf.JSON_RDF_PATH_SEQUENCE, jarr);
-		} catch (JSONException e) {
+			jobj.set(ConstantsRdf.JSON_RDF_PATH_SEQUENCE, jarr);
+		} catch (RuntimeException e) {
 		}
 		return jobj.toString();
 	}
@@ -102,16 +102,16 @@ public class RdfSequenceImpl extends RdfPathComponentImpl implements RdfSequence
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
 		try {
-			JSONObject jobj = new JSONObject(value);
+			ObjectNode jobj = Util.jsonCreateObject(value);
 			if (!jobj.has(ConstantsRdf.JSON_RDF_PATH_SEQUENCE)) {
 				throw new InvalidityException(ConstantsError.INVALID_VALUE);
 			}
-			JSONArray arr = jobj.getJSONArray(ConstantsRdf.JSON_RDF_PATH_SEQUENCE);
-			if (arr.length() < 2) {
+			ArrayNode arr = (ArrayNode) jobj.get(ConstantsRdf.JSON_RDF_PATH_SEQUENCE);
+			if (arr.size() < 2) {
 				throw new InvalidityException("Not enough arguments for Rdf Sequence: '" + value + "'");
 			}
 			ArrayList<RdfPathComponent> newItems = new ArrayList<RdfPathComponent>();
-	        for (int i = 0; i < arr.length(); i++) {
+	        for (int i = 0; i < arr.size(); i++) {
 				newItems.add(RdfPathComponent.createNewRdfPathComponent(arr.get(i).toString()));
 			}
 			getItems().clear();

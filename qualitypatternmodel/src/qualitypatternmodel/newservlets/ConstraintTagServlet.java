@@ -3,8 +3,7 @@ package qualitypatternmodel.newservlets;
 import java.io.IOException;
 import java.util.Map;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,6 +14,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 @SuppressWarnings("serial")
 public class ConstraintTagServlet extends HttpServlet {
@@ -27,7 +27,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("POST", this.getClass().getName(), path, params);
 		try {
-			JSONObject result = applyPost(path, params);
+			ObjectNode result = applyPost(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -43,7 +43,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("DELETE", this.getClass().getName(), path, params);
 		try{
-			JSONObject result = applyDelete(path, params);
+			ObjectNode result = applyDelete(path, params);
 			ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -51,7 +51,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for posting tags in a constraint: "
@@ -77,23 +77,23 @@ public class ConstraintTagServlet extends HttpServlet {
 		}
 
 		// 2. add tags to constraint
-		JSONObject json = new JSONObject();
+		ObjectNode json = Util.jsonCreateObject();
 		try {
 			for (String tag: newTags) {
-				JSONObject object = new JSONObject();
+				ObjectNode object = Util.jsonCreateObject();
 				if(pattern.getKeywords().contains(tag)) {
 					object.put(tag, ConstantsError.DUPLICATE_TAG);
-					json.append(ConstantsJSON.FAILED, object);
+					Util.jsonAppend(json, ConstantsJSON.FAILED, object);
 				} else {
 					if (pattern.getKeywords().add(tag)) {
-						json.append(ConstantsJSON.SUCCESS, tag);
+						Util.jsonAppend(json, ConstantsJSON.SUCCESS, tag);
 					} else {
 						object.put(tag, ConstantsError.INVALID_TAG);
-						json.append(ConstantsJSON.FAILED, object);
+						Util.jsonAppend(json, ConstantsJSON.FAILED, object);
 					}
 				}
 			}
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 
 		// 3. save constraint
 		String timestamp = null;
@@ -104,12 +104,12 @@ public class ConstraintTagServlet extends HttpServlet {
 		}
 		try {
 			json.put(ConstantsJSON.LASTSAVED, timestamp);
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 
 		return json;
 	}
 
-	public static JSONObject applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static ObjectNode applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for deleting tags in a constraint: "
@@ -135,22 +135,22 @@ public class ConstraintTagServlet extends HttpServlet {
 		}
 
 		// 2. remove tags from constraint
-		JSONObject json = new JSONObject();
+		ObjectNode json = Util.jsonCreateObject();
 		for (String tag: deleteTags) {
-			JSONObject object = new JSONObject();
+			ObjectNode object = Util.jsonCreateObject();
 			try {
 				if (!pattern.getKeywords().contains(tag)) {
 					object.put(tag, ConstantsError.NOT_FOUND_TAG);
-					json.append("failed", object);
+					Util.jsonAppend(json, "failed", object);
 				} else {
 					if (pattern.getKeywords().remove(tag)) {
-						json.append("success", tag);
+						Util.jsonAppend(json, "success", tag);
 					} else {
 						object.put(tag, ConstantsError.TAG_DELETION_FAILED);
-						json.append("failed", object);
+						Util.jsonAppend(json, "failed", object);
 					}
 				}
-			} catch (JSONException e) {}
+			} catch (RuntimeException e) {}
 		}
 
 		// 3. save constraint
@@ -162,7 +162,7 @@ public class ConstraintTagServlet extends HttpServlet {
 		}
 		try {
 			json.put(ConstantsJSON.LASTSAVED, timestamp);
-		} catch (JSONException e) {}
+		} catch (RuntimeException e) {}
 
 		return json;
 	}

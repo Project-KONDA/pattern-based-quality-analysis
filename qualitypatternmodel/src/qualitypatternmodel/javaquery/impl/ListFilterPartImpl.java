@@ -11,8 +11,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaquery.BooleanFilterPart;
@@ -24,6 +23,7 @@ import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.VariableContainerInterim;
 import qualitypatternmodel.javaqueryoutput.impl.VariableContainerInterimImpl;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -91,13 +91,13 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 		setArgument(new VariableContainerInterimImpl());
 	}
 	
-	public ListFilterPartImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public ListFilterPartImpl(ObjectNode json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			setQuantifier(Quantifier.get(json.getString("quantifier")));
-			VariableContainerInterimImpl argument = (VariableContainerInterimImpl) map.get(json.getInt("argument"));
+			setQuantifier(Quantifier.get(json.get("quantifier").asText()));
+			VariableContainerInterimImpl argument = (VariableContainerInterimImpl) map.get(json.get("argument").asInt());
 			setArgument(argument);
-			setSubfilter((BooleanFilterPart) JavaFilterPartImpl.fromJson(json.getJSONObject("subfilter"), map));
+			setSubfilter((BooleanFilterPart) JavaFilterPartImpl.fromJson((ObjectNode) json.get("subfilter"), map));
 		}
 		catch (Exception e) {
 			throw new InvalidityException("Error creating ListFilterPartImpl", e);
@@ -148,16 +148,16 @@ public class ListFilterPartImpl extends BooleanFilterPartImpl implements ListFil
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = new JSONObject();
+	public ObjectNode toJson() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put("class", getClass().getSimpleName());
 			result.put("quantifier", getQuantifier().getLiteral());
 			result.put("argument", getArgument().getInterimPartId());
 
-			result.put("subfilter", getSubfilter().toJson());
+			result.set("subfilter", getSubfilter().toJson());
 
-		} catch (JSONException e) {
+		} catch (RuntimeException e) {
 		}
 		return result;
 	}

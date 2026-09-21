@@ -6,17 +6,19 @@ import static org.mockito.Mockito.mock;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Collectors;
-
 import org.apache.commons.io.FileUtils;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -31,6 +33,7 @@ import qualitypatternmodel.newservlets.PatternListServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
 import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 import qualitypatternmodel.utility.ConstantsJSON;
+import qualitypatternmodel.utility.Util;
 
 public class APIPatternListPerformance {
 	private static String FOLDER;
@@ -118,16 +121,16 @@ public class APIPatternListPerformance {
 
 	static String newConstraint(String pattern, String variant)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		JSONObject ob = TemplateInstantiateServlet.applyPut("/xml/" + pattern + "/" + variant,
+		ObjectNode ob = TemplateInstantiateServlet.applyPut("/xml/" + pattern + "/" + variant,
 				getEmptyParams());
 		try {
-			return ob.getString(ConstantsJSON.CONSTRAINT_ID);
-		} catch (JSONException e) {
+			return ob.get(ConstantsJSON.CONSTRAINT_ID).asText();
+		} catch (RuntimeException e) {
 			return null;
 		}
 	}
 
-	static JSONObject getConstraint(String id)
+	static ObjectNode getConstraint(String id)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		return ConstraintServlet.applyGet("/xml/" + id, getEmptyParams());
 	}
@@ -147,25 +150,34 @@ public class APIPatternListPerformance {
 	}
 	
 	private static List<String> getAllConstraintParameter(String connstraintId) throws InvalidServletCallException, FailedServletCallException, ServletException, IOException{
-		JSONObject json = getConstraint(connstraintId);
-		JSONObject variant = (JSONObject) json.getJSONArray(ConstantsJSON.VARIANTS).get(0);
-		JSONArray params = variant.getJSONArray(ConstantsJSON.PARAMETER);
-		List<String> paramstrings = params.toList().stream()
-			    .map(obj -> (String) obj)
-			    .collect(Collectors.toList()); 
+		ObjectNode json = getConstraint(connstraintId);
+		ObjectNode variant = (ObjectNode) ((ArrayNode) json.get(ConstantsJSON.VARIANTS)).get(0);
+		ArrayNode params = (ArrayNode) variant.get(ConstantsJSON.PARAMETER);
+		
+		ArrayList<String> paramstrings = new ArrayList<String>();
+		for (JsonNode node: params)
+			paramstrings.add(node.asText()); 
 		return paramstrings;
 	}
 	
-	private static void setDefaultParameter(String constraintId, String param) {
-		JSONObject obj = new JSONObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'TextList':'[\"a\",\"b\"]', 'Boolean':'true', 'Text':'a'}");
+	private static void setDefaultParameter(String constraintId, String param) throws JsonMappingException, JsonProcessingException {
+		ObjectNode obj = Util.jsonCreateObject();
+		obj.put("XmlPath_Element", "//*");
+		obj.put("XmlPath_Property", "/*/text()");
+		obj.put("ComparisonOption", "EQUAL");
+		obj.put("Number", "1");
+		obj.put("TextList", "[\\\"a\\\",\\\"b\\\"]");
+		obj.put("Boolean", "true");
+		obj.put("Text", "a");
+		
 
 		if (Set.of("name", "namespace", "datamodel", "database").contains(param))
 			return;
 
-		for (String key: obj.keySet())
+		for (String key: Util.jsonKeySet(obj))
 			if (param.startsWith(key)) {
 				ParameterFragmentImpl.ALLOW_IGNORE_MAP = true;
-				setConstraintParameter(constraintId, param, obj.getString(key));
+				setConstraintParameter(constraintId, param, obj.get(key).asText());
 				ParameterFragmentImpl.ALLOW_IGNORE_MAP = default_allow_ignore_map;
 				return;
 			}
@@ -175,7 +187,7 @@ public class APIPatternListPerformance {
 	private static void setConstraintParameter(String constraintId, String parameterId, String value) {
 		Map<String, String[]> params1 = APICallTests.getEmptyParams();
 		params1.put(parameterId, new String[] { value });
-		JSONObject result = null;
+		ObjectNode result = null;
 		try {
 			result = ConstraintServlet.applyPost("/xml/" + constraintId, params1);
 		} catch (InvalidServletCallException | FailedServletCallException e) {

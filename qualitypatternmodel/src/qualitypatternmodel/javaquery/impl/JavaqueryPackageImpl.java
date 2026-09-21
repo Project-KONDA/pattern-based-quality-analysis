@@ -390,7 +390,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getJavaFilter__CreateInterimResultContainer__JSONArray() {
+	public EOperation getJavaFilter__CreateInterimResultContainer__ArrayNode() {
 		return javaFilterEClass.getEOperations().get(1);
 	}
 
@@ -410,7 +410,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getJavaFilter__Filter__JSONArray() {
+	public EOperation getJavaFilter__Filter__ArrayNode() {
 		return javaFilterEClass.getEOperations().get(3);
 	}
 
@@ -972,9 +972,9 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		createEAttribute(javaFilterEClass, JAVA_FILTER__PATTERN_NAME);
 		createEAttribute(javaFilterEClass, JAVA_FILTER__PATTERN_ID);
 		createEOperation(javaFilterEClass, JAVA_FILTER___FILTER_QUERY_RESULTS);
-		createEOperation(javaFilterEClass, JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__JSONARRAY);
+		createEOperation(javaFilterEClass, JAVA_FILTER___CREATE_INTERIM_RESULT_CONTAINER__ARRAYNODE);
 		createEOperation(javaFilterEClass, JAVA_FILTER___EXECUTE__STRING);
-		createEOperation(javaFilterEClass, JAVA_FILTER___FILTER__JSONARRAY);
+		createEOperation(javaFilterEClass, JAVA_FILTER___FILTER__ARRAYNODE);
 		createEOperation(javaFilterEClass, JAVA_FILTER___TO_JSON);
 
 		booleanFilterPartEClass = createEClass(BOOLEAN_FILTER_PART);
@@ -1110,7 +1110,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		EOperation op = initEOperation(getJavaFilter__FilterQueryResults(), theTextrepresentationPackage.getJSONArrayWrapper(), "filterQueryResults", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getJavaFilter__CreateInterimResultContainer__JSONArray(), null, "createInterimResultContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJavaFilter__CreateInterimResultContainer__ArrayNode(), null, "createInterimResultContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theTextrepresentationPackage.getJSONArrayWrapper(), "objectList", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
@@ -1118,7 +1118,7 @@ public class JavaqueryPackageImpl extends EPackageImpl implements JavaqueryPacka
 		addEParameter(op, ecorePackage.getEString(), "datapath", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getJavaFilter__Filter__JSONArray(), theTextrepresentationPackage.getJSONArrayWrapper(), "filter", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJavaFilter__Filter__ArrayNode(), theTextrepresentationPackage.getJSONArrayWrapper(), "filter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theTextrepresentationPackage.getJSONArrayWrapper(), "array", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 

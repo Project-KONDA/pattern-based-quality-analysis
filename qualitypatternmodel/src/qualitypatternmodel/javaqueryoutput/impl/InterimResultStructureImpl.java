@@ -12,13 +12,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaqueryoutput.InterimResultPart;
 import qualitypatternmodel.javaqueryoutput.InterimResultStructure;
 import qualitypatternmodel.javaqueryoutput.JavaqueryoutputPackage;
+import qualitypatternmodel.utility.Util;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,27 +66,27 @@ public class InterimResultStructureImpl extends MinimalEObjectImpl.Container imp
 	}
 
 	@Override
-	public JSONObject toJson() {
-		JSONObject result = new JSONObject();
+	public ObjectNode toJson() {
+		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put("class", getClass().getSimpleName());
-			result.put("record", getRecord().toJson());
+			result.set("record", getRecord().toJson());
 			if (getSubstructure() != null) {
-				result.put("substructure", getSubstructure().toJson());
+				result.set("substructure", getSubstructure().toJson());
 			}
-		} catch (JSONException e) {
+		} catch (RuntimeException e) {
 		}
 		return result;
 	}
 
-	public static InterimResultStructureImpl fromJson(JSONObject json) throws InvalidityException {
+	public static InterimResultStructureImpl fromJson(ObjectNode json) throws InvalidityException {
 		InterimResultStructureImpl structure = new InterimResultStructureImpl();
 		if (json.has("record")) {
-			JSONObject recordjson = json.getJSONObject("record");
+			ObjectNode recordjson = (ObjectNode) json.get("record");
 			structure.setRecord(InterimResultPartImpl.fromJson(recordjson));
 		}
 		if (json.has("substructure")) {
-			JSONObject substructurejson = json.getJSONObject("substructure");
+			ObjectNode substructurejson = (ObjectNode) json.get("substructure");
 			structure.setSubstructure(InterimResultPartImpl.fromJson(substructurejson));
 		}
 		return structure;

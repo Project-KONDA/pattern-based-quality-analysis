@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.json.JSONArray;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -19,7 +19,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 public class JavaFilterCompleteTest {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		List<JSONArray> results = new ArrayList<JSONArray>();
+		List<ArrayNode> results = new ArrayList<ArrayNode>();
 		List<Boolean> valid = new ArrayList<Boolean>();
 		List<CompletePattern> patterns = OneArgTestPatterns.getXmlTestPatterns();
 		List<JavaFilter> filters = new ArrayList<JavaFilter>();
@@ -45,7 +45,7 @@ public class JavaFilterCompleteTest {
 			filters.add(filter);
 			try {
 				// Query Results
-				JSONArray list = filter.executeXQueryJava(DEMO_DATA_PATH);
+				ArrayNode list = filter.executeXQueryJava(DEMO_DATA_PATH);
 				if (queryResult) {
 					System.out.println("QUERY RESULTS");
 					System.out.println(list);
@@ -88,7 +88,7 @@ public class JavaFilterCompleteTest {
 
 				if (fits) {
 					try {
-						JSONArray result = filter.filterQueryResults();
+						ArrayNode result = filter.filterQueryResults();
 						results.add(result);
 						System.out.println("results : " + !result.isEmpty());
 					} catch (Exception e) {
@@ -117,11 +117,11 @@ public class JavaFilterCompleteTest {
 		}
 	}
 
-	public JSONArray executeJavaPattern(CompletePattern pattern, String database_path) throws InvalidityException {
+	public ArrayNode executeJavaPattern(CompletePattern pattern, String database_path) throws InvalidityException {
 		JavaFilter filter = pattern.generateQueryFilter();
-		JSONArray list = filter.executeXQueryJava(database_path);
+		ArrayNode list = filter.executeXQueryJava(database_path);
 		filter.createInterimResultContainerXQuery(list);
-		JSONArray results = filter.filterQueryResults();
+		ArrayNode results = filter.filterQueryResults();
 		return results;
 	}
 

@@ -12,8 +12,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -67,13 +67,13 @@ public abstract class OneArgJavaListOperatorImpl extends OneArgJavaOperatorImpl 
 		super();
 	}
 
-	public OneArgJavaListOperatorImpl(JSONObject json, Map<Integer, InterimResultPart> map) throws InvalidityException {
+	public OneArgJavaListOperatorImpl(ObjectNode json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			JSONArray list = json.getJSONArray("list");
+			ArrayNode list = (ArrayNode) json.get("list");
 			getTextListParam().clear();
-			for (int i = 0; i<list.length(); i++)
-				getTextListParam().addStringValue(list.getString(i));
+			for (int i = 0; i<list.size(); i++)
+				getTextListParam().addStringValue(list.get(i).asText());
 		}
 		catch (Exception e) {
 			throw new InvalidityException();
