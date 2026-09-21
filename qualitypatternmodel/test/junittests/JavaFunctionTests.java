@@ -18,6 +18,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.javaoperators.impl.LinkImageMinSizeOperatorImpl;
 import qualitypatternmodel.javaoperators.impl.LinkMimeTypeOperatorImpl;
 import qualitypatternmodel.javaoperators.impl.LinkSourceOperatorImpl;
@@ -35,7 +36,11 @@ public class JavaFunctionTests {
 		if (!file.exists()) {
 			throw new RuntimeException("File " + file.getAbsolutePath() + "is missing!" );
 		}
-		jsoninitialize = InitialisationServlet.readJsonFromFile(file);
+		try {
+			jsoninitialize = InitialisationServlet.readJsonFromFile(file);
+		} catch (IOException | InvalidityException e) {
+			e.printStackTrace();
+		}
 	}
 
 	// __________ SOURCE __________

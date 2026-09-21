@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.mqaftranslation.MqafTranslation;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -139,7 +140,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 				ObjectNode constraint = Util.jsonCreateObject(ConfigurationReader.toJson(mergedSchema));
 				jobj.set(ConstantsJSON.CONSTRAINT, constraint);
 			}	
-		} catch (RuntimeException | JsonProcessingException e) {}
+		} catch (RuntimeException | JsonProcessingException | InvalidityException e) {}
 		return jobj;
 	}
 }

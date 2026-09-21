@@ -1228,7 +1228,7 @@ public abstract class ServletUtilities {
 		return result;
 	}
 
-	public static ObjectNode extractJSON(HttpServletRequest request) throws IOException {
+	public static ObjectNode extractJSON(HttpServletRequest request) throws IOException, InvalidityException {
         StringBuilder sb = new StringBuilder();
         try (BufferedReader reader = request.getReader()) {
             String line;

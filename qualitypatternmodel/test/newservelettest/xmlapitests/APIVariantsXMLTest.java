@@ -222,7 +222,7 @@ public class APIVariantsXMLTest {
 		ObjectNode result = null;
 		try {
 			result = ConstraintServlet.applyPost("/xml/" + constraintId, params1);
-		} catch (InvalidServletCallException | FailedServletCallException | InvalidityException e) {
+		} catch (InvalidServletCallException | FailedServletCallException e) {
 			e.printStackTrace();
 		}
 		if (result.has(ConstantsJSON.FAILED))

@@ -99,19 +99,19 @@
 	},
 	"regexlist":{
 		"url-list":{
-			"GND":["https?://d-nb\\.info/gnd/[0-9]+(-[0-9-X])?"],
-			"AAT, GND, or Wikidata":["https?://vocab\\.getty\\.edu/(page/)?aat/[0-9]+","https?://www\\.wikidata\\.org/(entity|wiki)/[QP][1-9][0-9]*","https?://d-nb\\.info/gnd/[0-9]+(-[0-9-X])?"],
-			"AAT, GND, Wikidata, or Iconclass":["https?://iconclass\\.org/([a-z]+/)?.+","https?://vocab\\.getty\\.edu/(page/)?aat/[0-9]+","https?://www\\.wikidata\\.org/(entity|wiki)/[QP][1-9][0-9]*","https?://d-nb\\.info/gnd/[0-9]+(-[0-9-X])?"],
-			"AAT, GND, Wikidata, or DDC":["https?://vocab\\.getty\\.edu/(page/)?aat/[0-9]+","https?://www\\.wikidata\\.org/(entity|wiki)/[QP][1-9][0-9]*","https?://d-nb\\.info/gnd/[0-9]+(-[0-9-X])?","https?://uri\\.gbv\\.de/terminology/sdnb/([0-9]([0-9][0-9](\\.[0-9][0-9]?)?)?|[BKS])"],
-			"GeoNames, TGN, Wikidata or GND":["https?://vocab\\.getty\\.edu/tgn/[0-9]+","https?://(www|sws)\\.geonames\\.org/[0-9]+/","https?://www\\.wikidata\\.org/(entity|wiki)/[QP][1-9][0-9]*","https?://d-nb\\.info/gnd/[0-9]+(-[0-9-X])?"],
-			"LIDO terminology":["https?://terminology\\.lido-schema\\.org/[0-9A-Za-z]+"],
-			"LIDO terminology (numeric URIs only)":["https?://terminology\\.lido-schema\\.org/[0-9]+"],
-			"LIDO terminology (numeric URIs only) or AAT (LOD-URIs only)":["https?://terminology\\.lido-schema\\.org/[0-9]+","https?://vocab\\.getty\\.edu/aat/[0-9]+"],
-			"GND, ULAN, VIAF or Wikidata (LOD-URIs only)":["https?://viaf\\.org/viaf/[0-9]+","https?://vocab\\.getty\\.edu/ulan/[0-9]+","https?://www\\.wikidata\\.org/entity/[QP][1-9][0-9]*","https?://d-nb\\.info/gnd/[0-9]+(-[0-9-X])?"],
-			"GND, ULAN, VIAF, Wikidata or Iconclass(LOD-URIs only)":["https?://viaf\\.org/viaf/[0-9]+","https?://vocab\\.getty\\.edu/ulan/[0-9]+","https?://www\\.wikidata\\.org/entity/[QP][1-9][0-9]*","https?://d-nb\\.info/gnd/[0-9]+(-[0-9-X])?","https?://iconclass\\.org/([a-z]+/)?.+"],
-			"AAT, GND, or Wikidata (LOD-URIs only)":["https?://vocab\\.getty\\.edu/aat/[0-9]+","https?://www\\.wikidata\\.org/entity/[QP][1-9][0-9]*","https?://d-nb\\.info/gnd/[0-9]+(-[0-9-X])?"],
-			"AAT, GND, Wikidata, or Iconclass (LOD-URIs only)":["https?://vocab\\.getty\\.edu/aat/[0-9]+","https?://www\\.wikidata\\.org/entity/[QP][1-9][0-9]*","https?://d-nb\\.info/gnd/[0-9]+(-[0-9-X])?","https?://iconclass\\.org/([a-z]+/)?.+"],
-			"GND, ISIL or Wikidata (LOD-URIs only)":["https?://www\\.wikidata\\.org/entity/[QP][1-9][0-9]*","https?://d-nb\\.info/gnd/[0-9]+(-[0-9-X])?","(https?://)?(isil\\.staatsbibliothek-berlin\\.de/isil/DE-|ld\\.zdb-services\\.de/resource/organisations/DE-|culture\\.ld\\.admin\\.ch/isil/CH-|lobid\\.org/organisations/AT-).+"]
+			"GND":"[\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"AAT, GND, or Wikidata":"[\"https?://vocab\\\\.getty\\\\.edu/(page/)?aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"AAT, GND, Wikidata, or Iconclass":"[\"https?://iconclass\\\\.org/([a-z]+/)?.+\",\"https?://vocab\\\\.getty\\\\.edu/(page/)?aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"AAT, GND, Wikidata, or DDC":"[\"https?://vocab\\\\.getty\\\\.edu/(page/)?aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\",\"https?://uri\\\\.gbv\\\\.de/terminology/sdnb/([0-9]([0-9][0-9](\\\\.[0-9][0-9]?)?)?|[BKS])\"]",
+			"GeoNames, TGN, Wikidata or GND":"[\"https?://vocab\\\\.getty\\\\.edu/tgn/[0-9]+\",\"https?://(www|sws)\\\\.geonames\\\\.org/[0-9]+/\",\"https?://www\\\\.wikidata\\\\.org/(entity|wiki)/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"LIDO terminology":"[\"https?://terminology\\\\.lido-schema\\\\.org/[0-9A-Za-z]+\"]",
+			"LIDO terminology (numeric URIs only)":"[\"https?://terminology\\\\.lido-schema\\\\.org/[0-9]+\"]",
+			"LIDO terminology (numeric URIs only) or AAT (LOD-URIs only)":"[\"https?://terminology\\\\.lido-schema\\\\.org/[0-9]+\",\"https?://vocab\\\\.getty\\\\.edu/aat/[0-9]+\"]",
+			"GND, ULAN, VIAF or Wikidata (LOD-URIs only)":"[\"https?://viaf\\\\.org/viaf/[0-9]+\",\"https?://vocab\\\\.getty\\\\.edu/ulan/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/entity/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"GND, ULAN, VIAF, Wikidata or Iconclass(LOD-URIs only)":"[\"https?://viaf\\\\.org/viaf/[0-9]+\",\"https?://vocab\\\\.getty\\\\.edu/ulan/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/entity/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\",\"https?://iconclass\\\\.org/([a-z]+/)?.+\"]",
+			"AAT, GND, or Wikidata (LOD-URIs only)":"[\"https?://vocab\\\\.getty\\\\.edu/aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/entity/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\"]",
+			"AAT, GND, Wikidata, or Iconclass (LOD-URIs only)":"[\"https?://vocab\\\\.getty\\\\.edu/aat/[0-9]+\",\"https?://www\\\\.wikidata\\\\.org/entity/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\",\"https?://iconclass\\\\.org/([a-z]+/)?.+\"]",
+			"GND, ISIL or Wikidata (LOD-URIs only)":"[\"https?://www\\\\.wikidata\\\\.org/entity/[QP][1-9][0-9]*\",\"https?://d-nb\\\\.info/gnd/[0-9]+(-[0-9-X])?\",\"(https?://)?(isil\\\\.staatsbibliothek-berlin\\\\.de/isil/DE-|ld\\\\.zdb-services\\\\.de/resource/organisations/DE-|culture\\\\.ld\\\\.admin\\\\.ch/isil/CH-|lobid\\\\.org/organisations/AT-).+\"]"
 		}
 	},
 	"stringlist":{

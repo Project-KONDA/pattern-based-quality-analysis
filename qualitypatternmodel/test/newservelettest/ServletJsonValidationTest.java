@@ -3,6 +3,8 @@ package newservelettest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import org.junit.jupiter.api.Test;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.newservlets.ServletJsonValidation;
 import qualitypatternmodel.utility.Util;
 
@@ -28,25 +30,25 @@ public class ServletJsonValidationTest {
 
 
     @Test
-	public void testValidateConstraintJson() throws JsonMappingException, JsonProcessingException {
+	public void testValidateConstraintJson() throws JsonMappingException, JsonProcessingException, InvalidityException {
 		assert(ServletJsonValidation.validateConstraintJson(Util.jsonCreateObject(cpj)));
 		assert(ServletJsonValidation.validateConstraintJson(Util.jsonCreateObject(cpjl)));
     }
 
     @Test
-	public void testValidateQueryJson() throws JsonMappingException, JsonProcessingException {
+	public void testValidateQueryJson() throws JsonMappingException, JsonProcessingException, InvalidityException {
     	assert(ServletJsonValidation.validateQueryJson(Util.jsonCreateObject(cqj)));
     	assert(ServletJsonValidation.validateQueryJson(Util.jsonCreateObject(cqjl)));
     }
 
     @Test
-	public void testValidateTemplateJson() throws JsonMappingException, JsonProcessingException {
+	public void testValidateTemplateJson() throws JsonMappingException, JsonProcessingException, InvalidityException {
     	assert(ServletJsonValidation.validateTemplateJson(Util.jsonCreateObject(tpj)));
     	assert(ServletJsonValidation.validateTemplateJson(Util.jsonCreateObject(tpjl)));
     }
 
     @Test
-	public void testValidateTemplateVariantJson() throws JsonMappingException, JsonProcessingException {
+	public void testValidateTemplateVariantJson() throws JsonMappingException, JsonProcessingException, InvalidityException {
     	assert(ServletJsonValidation.validateTemplateVariantJson(Util.jsonCreateObject(tvj)));
     	assert(ServletJsonValidation.validateTemplateVariantJson(Util.jsonCreateObject(tvjl)));
     }

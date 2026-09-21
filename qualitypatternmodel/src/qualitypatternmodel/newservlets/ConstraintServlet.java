@@ -180,7 +180,7 @@ public class ConstraintServlet extends HttpServlet {
 		return "Constraint deleted successfully.";
 	}
 
-	public static ObjectNode applyPost (String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException, InvalidityException {
+	public static ObjectNode applyPost (String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException {
 		Map<String, String[]> parameterMap = new HashMap<String, String[]>(parameter);
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
@@ -256,7 +256,7 @@ public class ConstraintServlet extends HttpServlet {
 			        namespaces = true;
 				}
 				parameterMap.remove(ConstantsJSON.NAMESPACES);
-			} catch (RuntimeException | JsonProcessingException e) {
+			} catch (RuntimeException | JsonProcessingException | InvalidityException e) {
 				ServletUtilities.logError(e);
 			}
 		}

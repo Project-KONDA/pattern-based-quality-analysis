@@ -23,6 +23,7 @@ import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.newservlets.ConstraintExecuteServlet;
 import qualitypatternmodel.newservlets.ConstraintQueryServlet;
 import qualitypatternmodel.newservlets.ConstraintServlet;
@@ -137,7 +138,7 @@ public class APIVariantsStoreResults {
 				String hasCustom = "" + object.has(ConstantsJSON.CUSTOM);
 				pairs.add(new String[] {template, variant, hasCustom});
 
-			} catch (IOException e) {
+			} catch (IOException | InvalidityException e) {
 				new RuntimeException("invalid variant definition in: " + file).printStackTrace();
 			}
 			
@@ -183,7 +184,13 @@ public class APIVariantsStoreResults {
 	}
 	
 	private static void setDefaultParameter(String constraintId, String param) throws JsonMappingException, JsonProcessingException {
-		ObjectNode obj = Util.jsonCreateObject("{'XmlPath_Element': '//*', 'XmlPath_Property': '/*/text()', 'ComparisonOption': 'EQUAL', 'Number': '1', 'TextList':'[\"a\",\"b\"]', 'Boolean':'true', 'Text':'a'}");
+		ObjectNode obj = Util.jsonCreateObject();
+		obj.put("XmlPath_Element", "//*");
+		obj.put("XmlPath_Property", "/*/text()");
+		obj.put("ComparisonOption", "EQUAL");
+		obj.put("TextList", "[\\\"a\\\",\\\"b\\\"]");
+		obj.put("Boolean", "true");
+		obj.put("Text", "a");
 
 		if (Set.of("name", "namespace", "datamodel", "database").contains(param))
 			return;

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -278,7 +279,11 @@ public class TemplateVariantServlet extends HttpServlet {
 		ObjectNode failed = Util.jsonCreateObject();
 		
 		for (String variant: variants) {
-			ObjectNode var = Util.jsonCreateObject(variant);
+			ObjectNode var = null;
+			try {
+				var = Util.jsonCreateObject(variant);
+			} catch (InvalidityException e) {
+			}
 			String variantID = var.get(ConstantsJSON.TEMPLATE).asText() + "_" + var.get(ConstantsJSON.NAME).asText();
 			
 			try {

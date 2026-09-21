@@ -17,6 +17,7 @@ import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.newservlets.ConstraintServlet;
 import qualitypatternmodel.newservlets.InitialisationServlet;
 import qualitypatternmodel.newservlets.TemplateInstantiateServlet;
@@ -105,7 +106,7 @@ public class XPathParameterTests {
 		ConstraintServlet.applyDelete(id, new HashMap<String, String[]>());
 	}
 
-	private static void checkParameterValue(String id, String parameter_id, String expected) throws InvalidServletCallException, FailedServletCallException, JsonMappingException, JsonProcessingException {
+	private static void checkParameterValue(String id, String parameter_id, String expected) throws InvalidServletCallException, FailedServletCallException, JsonMappingException, JsonProcessingException, InvalidityException {
 		String get = ConstraintServlet.applyGet(id, null).toString();
 		String value = getParameterValue(get, parameter_id);
 		expected = replaceExpected(expected);
@@ -119,7 +120,7 @@ public class XPathParameterTests {
 	}
 
 
-    private static String getParameterValue(String jsonString, String parameter_id) throws JsonMappingException, JsonProcessingException {
+    private static String getParameterValue(String jsonString, String parameter_id) throws JsonMappingException, JsonProcessingException, InvalidityException {
         ObjectNode jsonObject = Util.jsonCreateObject(jsonString);
 		ArrayNode variants = (ArrayNode) jsonObject.get("variants");
 		ObjectNode variant = (ObjectNode) variants.get(0);
