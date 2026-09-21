@@ -69,7 +69,7 @@ public class NumberValueFilterElementImpl extends NumberFilterPartImpl implement
 	public NumberValueFilterElementImpl(ObjectNode json, Map<Integer, InterimResultPart> map) throws InvalidityException {
 		super();
 		try {
-			setNumber(json.get("number").asDouble());
+			setNumber(Double.valueOf(json.get("number").asText()));
 		}
 		catch (Exception e) {
 			throw new InvalidityException();
@@ -91,7 +91,7 @@ public class NumberValueFilterElementImpl extends NumberFilterPartImpl implement
 		ObjectNode result = Util.jsonCreateObject();
 		try {
 			result.put("class", getClass().getSimpleName());
-			result.put("number", getNumber());
+			result.put("number", getNumber().toString());
 		} catch (RuntimeException e) {
 		}
 		return result;

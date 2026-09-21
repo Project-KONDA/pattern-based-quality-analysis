@@ -398,9 +398,9 @@ public class InitialisationServlet extends HttpServlet {
 	}
 	
 	private static void initializeVariant(ObjectNode json, String path) throws IOException, InvalidityException {
-		String templateID = json.path(ConstantsJSON.TEMPLATE).asText();
-		String technology = json.path(ConstantsJSON.LANGUAGE).asText();
-		String name = json.path(ConstantsJSON.NAME).asText();
+		String templateID = json.get(ConstantsJSON.TEMPLATE).asText();
+		String technology = json.get(ConstantsJSON.LANGUAGE).asText();
+		String name = json.get(ConstantsJSON.NAME).asText();
 
 		try {
 			CompletePattern template = ServletUtilities.loadTemplate(technology, templateID);

@@ -105,7 +105,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 //			// 2 generate query
 //				JSONObject queryJson = generateQueryJson(pattern, technology);
 				ObjectNode queryJson = ServletUtilities.loadConstraintQueryJson(technology, constraintId);
-				Util.jsonAppend(result, ConstantsJSON.CONSTRAINTS, queryJson);
+				result.putArray(ConstantsJSON.CONSTRAINTS).add(queryJson);
 			} catch (Exception e) {
 				ServletUtilities.logError(e);
 				ObjectNode object = Util.jsonCreateObject();

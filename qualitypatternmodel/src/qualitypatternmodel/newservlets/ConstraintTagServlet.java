@@ -83,13 +83,13 @@ public class ConstraintTagServlet extends HttpServlet {
 				ObjectNode object = Util.jsonCreateObject();
 				if(pattern.getKeywords().contains(tag)) {
 					object.put(tag, ConstantsError.DUPLICATE_TAG);
-					Util.jsonAppend(json, ConstantsJSON.FAILED, object);
+					json.putArray(ConstantsJSON.FAILED).add(object);
 				} else {
 					if (pattern.getKeywords().add(tag)) {
-						Util.jsonAppend(json, ConstantsJSON.SUCCESS, tag);
+						json.putArray(ConstantsJSON.SUCCESS).add(tag);
 					} else {
 						object.put(tag, ConstantsError.INVALID_TAG);
-						Util.jsonAppend(json, ConstantsJSON.FAILED, object);
+						json.putArray(ConstantsJSON.FAILED).add(object);
 					}
 				}
 			}
@@ -141,13 +141,13 @@ public class ConstraintTagServlet extends HttpServlet {
 			try {
 				if (!pattern.getKeywords().contains(tag)) {
 					object.put(tag, ConstantsError.NOT_FOUND_TAG);
-					Util.jsonAppend(json, "failed", object);
+					json.putArray(ConstantsJSON.FAILED).add(object);
 				} else {
 					if (pattern.getKeywords().remove(tag)) {
-						Util.jsonAppend(json, "success", tag);
+						json.putArray(ConstantsJSON.SUCCESS).add(tag);
 					} else {
 						object.put(tag, ConstantsError.TAG_DELETION_FAILED);
-						Util.jsonAppend(json, "failed", object);
+						json.putArray(ConstantsJSON.FAILED).add(object);
 					}
 				}
 			} catch (RuntimeException e) {}

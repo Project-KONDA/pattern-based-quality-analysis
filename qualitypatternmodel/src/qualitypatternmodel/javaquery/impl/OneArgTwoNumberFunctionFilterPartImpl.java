@@ -103,8 +103,8 @@ public class OneArgTwoNumberFunctionFilterPartImpl extends OneArgFunctionFilterP
 			setArgument(argument);
 			setNegate(json.get(ConstantsJSON.NEGATE).asBoolean());
 			functionclassname = json.get(ConstantsJSON.ARGUMENT_FUNCTION).asText();
-			setNumber1(json.get(ConstantsJSON.ARGUMENT_NUMBER1).asDouble());
-			setNumber2(json.get(ConstantsJSON.ARGUMENT_NUMBER2).asDouble());
+			setNumber1(Double.valueOf(json.get(ConstantsJSON.ARGUMENT_NUMBER1).asText()));
+			setNumber2(Double.valueOf(json.get(ConstantsJSON.ARGUMENT_NUMBER2).asText()));
 		}
 		catch (Exception e) {
 			throw new InvalidityException();
@@ -247,8 +247,8 @@ public class OneArgTwoNumberFunctionFilterPartImpl extends OneArgFunctionFilterP
 	@Override
 	public ObjectNode toJson() {
 		ObjectNode result = super.toJson();
-		result.put(ConstantsJSON.ARGUMENT_NUMBER1, getNumber1());
-		result.put(ConstantsJSON.ARGUMENT_NUMBER2, getNumber2());
+		result.put(ConstantsJSON.ARGUMENT_NUMBER1, getNumber1().toString());
+		result.put(ConstantsJSON.ARGUMENT_NUMBER2, getNumber2().toString());
 		return result;
 	}
 

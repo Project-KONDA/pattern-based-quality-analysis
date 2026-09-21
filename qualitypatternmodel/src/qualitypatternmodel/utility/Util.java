@@ -199,13 +199,4 @@ public class Util {
 	        throw new RuntimeException("Could not serialize JSON", e);
 	    }
 	}
-
-	public static void jsonAppend(ObjectNode json, String key, Object value) {
-	    ArrayNode array = (ArrayNode) json.get(key);
-	    if (array == null) {
-	        array = MAPPER.createArrayNode();
-	        json.set(key, array);
-	    }
-	    array.add(MAPPER.valueToTree(value));
-	}
 }

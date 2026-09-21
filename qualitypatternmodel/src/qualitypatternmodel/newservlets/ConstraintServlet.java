@@ -278,16 +278,16 @@ public class ConstraintServlet extends HttpServlet {
 		ObjectNode output = changeParameters(pattern, parameterMap);
 		try {
 			if (name) {
-				((ArrayNode) output.get(ConstantsJSON.SUCCESS)).add(ConstantsJSON.NAME);
+				output.putArray(ConstantsJSON.SUCCESS).add(ConstantsJSON.NAME);
 			}
 			if (database) {
-				((ArrayNode) output.get(ConstantsJSON.SUCCESS)).add(ConstantsJSON.DATABASE);
+				output.putArray(ConstantsJSON.SUCCESS).add(ConstantsJSON.DATABASE);
 			}
 			if (datamodel) {
-				((ArrayNode) output.get(ConstantsJSON.SUCCESS)).add(ConstantsJSON.DATAMODEL);
+				output.putArray(ConstantsJSON.SUCCESS).add(ConstantsJSON.DATAMODEL);
 			}
 			if (namespaces) {
-				((ArrayNode) output.get(ConstantsJSON.SUCCESS)).add(ConstantsJSON.NAMESPACES);
+				output.putArray(ConstantsJSON.SUCCESS).add(ConstantsJSON.NAMESPACES);
 			}
 			if (!namespacevalid) {
 				if (output.has(ConstantsJSON.FAILED))
@@ -299,7 +299,7 @@ public class ConstraintServlet extends HttpServlet {
 				}
 			}
 			if (custom) {
-				((ArrayNode) output.get(ConstantsJSON.SUCCESS)).add(ConstantsJSON.CUSTOM);
+				output.putArray(ConstantsJSON.SUCCESS).add(ConstantsJSON.CUSTOM);
 			}
 		} catch (RuntimeException e) {
 			ServletUtilities.logError(e);

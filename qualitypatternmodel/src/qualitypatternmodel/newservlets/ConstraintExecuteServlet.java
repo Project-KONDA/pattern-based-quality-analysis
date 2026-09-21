@@ -33,12 +33,12 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
 			ObjectNode result = applyGet(path, params);
-			if (result.path(ConstantsJSON.RESULT).isEmpty()) {
+			if (result.get(ConstantsJSON.RESULT).isEmpty()) {
 				result.put(ConstantsJSON.STATUS, ConstantsJSON.STATUS_FAILED);
 				ServletUtilities.putResponse(response, callId, result, HttpServletResponse.SC_BAD_REQUEST);
 			} else {
-				if (Util.jsonKeySet((ObjectNode) result.path(ConstantsJSON.FAILEDCONSTRAINTS)).isEmpty()
-						&& Util.jsonKeySet((ObjectNode) result.path(ConstantsJSON.FAILEDFILES)).isEmpty())
+				if (Util.jsonKeySet((ObjectNode) result.get(ConstantsJSON.FAILEDCONSTRAINTS)).isEmpty()
+						&& Util.jsonKeySet((ObjectNode) result.get(ConstantsJSON.FAILEDFILES)).isEmpty())
 					result.put(ConstantsJSON.STATUS, ConstantsJSON.STATUS_SUCCESS);
 				else
 					result.put(ConstantsJSON.STATUS, ConstantsJSON.STATUS_PARTIAL);
@@ -114,7 +114,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 					ObjectNode queryJson = ServletUtilities.loadConstraintQueryJson(technology, constraintId);
 					constraints.add(queryJson);
 
-					String templateId = queryJson.path(ConstantsJSON.TEMPLATE_ID).asText(null);
+					String templateId = queryJson.get(ConstantsJSON.TEMPLATE_ID).asText();
 					if (templateId != null)
 						ServletUtilities.increaseNumber(ServletConstants.COUNTFILE, templateId, ConstantsJSON.COUNTER_EXECUTE);
 						
@@ -149,7 +149,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 						failedConstraints.put(constraintID, ConstantsError.INVALID_TECHNOLOGY);
 						ServletUtilities.log("Constraint " + constraintID + " not valid: " + ConstantsError.INVALID_TECHNOLOGY);
 					}
-					else if (!object.has(ConstantsJSON.LANGUAGE) || !object.path(ConstantsJSON.LANGUAGE).asText().equals(Constants.XQUERY)) {
+					else if (!object.has(ConstantsJSON.LANGUAGE) || !object.get(ConstantsJSON.LANGUAGE).asText().equals(Constants.XQUERY)) {
 						failedConstraints.put(constraintID, ConstantsError.INVALID_LANGUAGE);
 						ServletUtilities.log("Constraint " + constraintID + " not valid: " + ConstantsError.INVALID_LANGUAGE);
 					} else {
@@ -188,7 +188,7 @@ public class ConstraintExecuteServlet extends HttpServlet {
 					result.set(ConstantsJSON.FAILEDCONSTRAINTS, Util.jsonCreateObject());
 				((ObjectNode) result.get(ConstantsJSON.FAILEDCONSTRAINTS)).set(failedid, failedConstraints.get(failedid));
 			}
-		if (!result.has(ConstantsJSON.FAILEDFILES) || result.path(ConstantsJSON.FAILEDFILES).isEmpty())
+		if (!result.has(ConstantsJSON.FAILEDFILES) || result.get(ConstantsJSON.FAILEDFILES).isEmpty())
 			result.remove(ConstantsJSON.FAILEDFILES);
 		return result;
 	}
