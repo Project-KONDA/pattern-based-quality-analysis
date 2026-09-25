@@ -2138,6 +2138,32 @@
 				"3": "//validlink/link",
 				"4": "/text()"
 			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 1,
+				"totalFindings": 4
+			},
+			"params": {
+				"0": "false",
+				"1": "true",
+				"2": "\\.de$",
+				"3": "//validlink/link",
+				"4": "/text()"
+			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 2,
+				"totalFindings": 4
+			},
+			"params": {
+				"0": "false",
+				"1": "true",
+				"2": "google",
+				"3": "//validlink/link",
+				"4": "/text()"
+			}
 		}
 	],
     "LinkImageSizeIfCompSet": [
@@ -2189,6 +2215,78 @@
                 "5": "1500",
                 "6": "//linkimagesizeifcompset/link",
                 "7": "/@comp",
+                "8": "/text()"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 5,
+                "totalFindings": 15
+            },
+            "test":true,
+            "params": {
+                "0": "['Vorschaubild', 'Preview image', 'Preview_image', 'preview image', 'preview_image', 'Preview Image', 'Preview representation', 'Preview_representation', 'http://terminology.lido-schema.org/lido00480', 'http://terminology.lido-schema.org/resourceRepresentation_type/preview_representation', 'http://terminology.lido-schema.org/lido00451', 'http://terminology.lido-schema.org/resourceRepresentation_type/preview_image', 'image overview', 'image_overview', 'image preview', 'image_preview', 'image_medium', 'thumbnail', 'Bildvorschau']",
+                "1": "NOTEQUAL",
+                "2": "STRING",
+                "3": "true",
+                "4": "800",
+                "5": "800",
+                "6": "//linkimagesizeifcompset2/link",
+                "7": "/@type",
+                "8": "/text()"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 4,
+                "totalFindings": 15
+            },
+            "test":true,
+            "params": {
+                "0": "['Vorschaubild', 'Preview image', 'Preview_image', 'preview image', 'preview_image', 'Preview Image', 'Preview representation', 'Preview_representation', 'http://terminology.lido-schema.org/lido00480', 'http://terminology.lido-schema.org/resourceRepresentation_type/preview_representation', 'http://terminology.lido-schema.org/lido00451', 'http://terminology.lido-schema.org/resourceRepresentation_type/preview_image', 'image overview', 'image_overview', 'image preview', 'image_preview', 'image_medium', 'thumbnail', 'Bildvorschau']",
+                "1": "EQUAL",
+                "2": "STRING",
+                "3": "true",
+                "4": "800",
+                "5": "800",
+                "6": "//linkimagesizeifcompset2/link",
+                "7": "/@type",
+                "8": "/text()"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 3,
+                "totalFindings": 15
+            },
+            "test":true,
+            "params": {
+                "0": "['Bild', 'Vorschaubild', 'Preview image', 'Preview_image', 'preview image', 'preview_image', 'Preview Image', 'Preview representation', 'Preview_representation', 'http://terminology.lido-schema.org/lido00480', 'http://terminology.lido-schema.org/resourceRepresentation_type/preview_representation', 'http://terminology.lido-schema.org/lido00451', 'http://terminology.lido-schema.org/resourceRepresentation_type/preview_image', 'image overview', 'image_overview', 'image preview', 'image_preview', 'image_medium', 'thumbnail', 'Bildvorschau']",
+                "1": "NOTEQUAL",
+                "2": "STRING",
+                "3": "true",
+                "4": "800",
+                "5": "800",
+                "6": "//linkimagesizeifcompset2/link",
+                "7": "/@type",
+                "8": "/text()"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 6,
+                "totalFindings": 15
+            },
+            "test":true,
+            "params": {
+                "0": "['Bild', 'Vorschaubild', 'Preview image', 'Preview_image', 'preview image', 'preview_image', 'Preview Image', 'Preview representation', 'Preview_representation', 'http://terminology.lido-schema.org/lido00480', 'http://terminology.lido-schema.org/resourceRepresentation_type/preview_representation', 'http://terminology.lido-schema.org/lido00451', 'http://terminology.lido-schema.org/resourceRepresentation_type/preview_image', 'image overview', 'image_overview', 'image preview', 'image_preview', 'image_medium', 'thumbnail', 'Bildvorschau']",
+                "1": "EQUAL",
+                "2": "STRING",
+                "3": "true",
+                "4": "800",
+                "5": "800",
+                "6": "//linkimagesizeifcompset2/link",
+                "7": "/@type",
                 "8": "/text()"
             }
         }

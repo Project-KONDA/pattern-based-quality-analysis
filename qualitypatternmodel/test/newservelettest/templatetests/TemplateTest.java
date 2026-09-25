@@ -35,10 +35,10 @@ public class TemplateTest {
 	static String EXPECTED = "expected";
 	static String DEACTIVATED = "deactivated";
 	static String TEST = "test";
-	static boolean onlyTest = false;
+	static boolean onlyTest = true;
 	static boolean addTestPatterns = true;
 	static boolean ignoreDeactivated = true;
-	static boolean debugShowQuery = false;
+	static boolean debugShowQuery = true;
 
 	static String pathConfig = "test\\newservelettest\\templatetests\\template-config.json";
 	static String pathConfigMissing = "test\\newservelettest\\templatetests\\template-config-missing.json";
