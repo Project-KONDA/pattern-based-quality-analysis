@@ -44,7 +44,7 @@ public class XQueryProcessorSaxon {
 	static String SERIALIZER_INDENT = "yes";
 	static String SERIALIZER_OMIT_XML_DECLARATION = "yes";
 	static boolean BUILDER_LINENUMBERING = true;
-	static WhitespaceStrippingPolicy WHITESPACESTRIPPING = WhitespaceStrippingPolicy.ALL;
+	static WhitespaceStrippingPolicy WHITESPACESTRIPPING = WhitespaceStrippingPolicy.NONE;
 
 	public static JSONArray executeQueryFileStripped (String query, String filepath) throws InvalidityException {
 		JSONArray incidents = executeQueryFile(query, filepath);
