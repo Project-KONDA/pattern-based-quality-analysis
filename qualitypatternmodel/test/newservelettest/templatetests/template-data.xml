@@ -28,6 +28,8 @@
 		<value>xyz</value>
 		<value>01234</value>
 		<value>.,-</value>
+		<value>   </value>
+		<value/>
 	</values>
 	<valuelists>
 		<list id="0" name="012"><value>true</value><value>yes</value><value>false</value><value>no</value>

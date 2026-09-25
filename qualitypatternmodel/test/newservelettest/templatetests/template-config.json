@@ -435,7 +435,7 @@
     "Comp": [
         {
             "expected": {
-                "totalIncidents": 2,
+                "totalIncidents": 3,
                 "totalFindings": 4
             },
             "params": {
@@ -821,7 +821,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -833,7 +833,7 @@
         {
             "expected": {
                 "totalIncidents": 1,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -847,7 +847,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -858,7 +858,7 @@
         {
             "expected": {
                 "totalIncidents": 1,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -871,7 +871,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -883,7 +883,7 @@
         {
             "expected": {
                 "totalIncidents": 1,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -897,7 +897,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -909,7 +909,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -923,7 +923,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -934,7 +934,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -947,7 +947,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -959,7 +959,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -975,7 +975,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -986,8 +986,44 @@
         },
         {
             "expected": {
-                "totalIncidents": 1,
-                "totalFindings": 6
+                "totalIncidents": 5,
+                "totalFindings": 8
+            },
+            "params": {
+                "0": "false",
+                "1": "^[a-z]+$",
+                "2": "//values/value",
+                "3": "/text()"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 4,
+                "totalFindings": 8
+            },
+            "params": {
+                "0": "true",
+                "1": "[a-z]+",
+                "2": "//values/value",
+                "3": "/text()"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 4,
+                "totalFindings": 8
+            },
+            "params": {
+                "0": "false",
+                "1": "[a-z]+",
+                "2": "//values/value",
+                "3": "/text()"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 3,
+                "totalFindings": 8
             },
             "params": {
                 "0": "false",
@@ -999,23 +1035,11 @@
         {
             "expected": {
                 "totalIncidents": 5,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
                 "1": "^[a-z0-9]+$",
-                "2": "//values/value",
-                "3": "/text()"
-            }
-        },
-        {
-            "expected": {
-                "totalIncidents": 2,
-                "totalFindings": 6
-            },
-            "params": {
-                "0": "false",
-                "1": "[a-z]+",
                 "2": "//values/value",
                 "3": "/text()"
             }
@@ -1025,7 +1049,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -1037,7 +1061,7 @@
         {
             "expected": {
                 "totalIncidents": 1,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "false",
@@ -1049,7 +1073,7 @@
         {
             "expected": {
                 "totalIncidents": 5,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -1061,7 +1085,7 @@
         {
             "expected": {
                 "totalIncidents": 2,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "false",
@@ -1075,7 +1099,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -1086,7 +1110,7 @@
         {
             "expected": {
                 "totalIncidents": 1,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "false",
@@ -1097,7 +1121,7 @@
         {
             "expected": {
                 "totalIncidents": 5,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -1108,7 +1132,7 @@
         {
             "expected": {
                 "totalIncidents": 2,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "false",
@@ -1121,7 +1145,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -1132,12 +1156,12 @@
         },
         {
             "expected": {
-                "totalIncidents": 1,
-                "totalFindings": 6
+                "totalIncidents": 5,
+                "totalFindings": 8
             },
             "params": {
                 "0": "false",
-                "1": "['^[a-z0-9]+$']",
+                "1": "['^[a-z]+$']",
                 "2": "//values/value",
                 "3": "/text()"
             }
@@ -1145,7 +1169,7 @@
         {
             "expected": {
                 "totalIncidents": 5,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -1156,8 +1180,32 @@
         },
         {
             "expected": {
-                "totalIncidents": 2,
-                "totalFindings": 6
+                "totalIncidents": 3,
+                "totalFindings": 8
+            },
+            "params": {
+                "0": "false",
+                "1": "['^[a-z0-9]+$']",
+                "2": "//values/value",
+                "3": "/text()"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 4,
+                "totalFindings": 8
+            },
+            "params": {
+                "0": "true",
+                "1": "['[a-z]+']",
+                "2": "//values/value",
+                "3": "/text()"
+            }
+        },
+        {
+            "expected": {
+                "totalIncidents": 4,
+                "totalFindings": 8
             },
             "params": {
                 "0": "false",
@@ -1171,7 +1219,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -1182,7 +1230,7 @@
         {
             "expected": {
                 "totalIncidents": 1,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "false",
@@ -1193,7 +1241,7 @@
         {
             "expected": {
                 "totalIncidents": 5,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -1204,7 +1252,7 @@
         {
             "expected": {
                 "totalIncidents": 2,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "false",
@@ -1217,7 +1265,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -1229,7 +1277,7 @@
         {
             "expected": {
                 "totalIncidents": 1,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "false",
@@ -1241,7 +1289,7 @@
         {
             "expected": {
                 "totalIncidents": 5,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "true",
@@ -1253,7 +1301,7 @@
         {
             "expected": {
                 "totalIncidents": 2,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
                 "0": "false",
@@ -1293,8 +1341,8 @@
     "StringLength": [
         {
             "expected": {
-                "totalIncidents": 3,
-                "totalFindings": 6
+                "totalIncidents": 4,
+                "totalFindings": 8
             },
             "params": {
 				"0": "EQUAL",
@@ -1306,7 +1354,7 @@
         {
             "expected": {
                 "totalIncidents": 2,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
 				"0": "GREATER",
@@ -1320,7 +1368,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
 				"0": "EQUAL",
@@ -1331,7 +1379,7 @@
         {
             "expected": {
                 "totalIncidents": 2,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
 				"0": "GREATER",
@@ -1344,7 +1392,7 @@
         {
             "expected": {
                 "totalIncidents": 3,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
 				"0": "EQUAL",
@@ -1356,7 +1404,7 @@
         {
             "expected": {
                 "totalIncidents": 2,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
 				"0": "GREATER",
@@ -1369,8 +1417,8 @@
     "StringLengthRange": [
         {
             "expected": {
-                "totalIncidents": 2,
-                "totalFindings": 6
+                "totalIncidents": 3,
+                "totalFindings": 8
             },
             "params": {
 				"0": "GREATER",
@@ -1383,8 +1431,8 @@
         },
         {
             "expected": {
-                "totalIncidents": 5,
-                "totalFindings": 6
+                "totalIncidents": 7,
+                "totalFindings": 8
             },
             "params": {
 				"0": "GREATER",
@@ -1400,7 +1448,7 @@
         {
             "expected": {
                 "totalIncidents": 2,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
 				"0": "GREATER",
@@ -1413,7 +1461,7 @@
         {
             "expected": {
                 "totalIncidents": 5,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
 				"0": "GREATER",
@@ -1428,7 +1476,7 @@
         {
             "expected": {
                 "totalIncidents": 2,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
 				"0": "GREATER",
@@ -1442,7 +1490,7 @@
         {
             "expected": {
                 "totalIncidents": 5,
-                "totalFindings": 6
+                "totalFindings": 8
             },
             "params": {
 				"0": "GREATER",
