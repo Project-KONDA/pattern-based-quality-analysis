@@ -38,7 +38,7 @@ import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.Util;
 
 public class XQueryProcessorSaxon {
-	static boolean NOSKIPS = false;
+	static boolean NOSKIPS = true;
 	static String SERIALIZER_METHOD = "xml";
 	static String SERIALIZER_ENCODING = "UTF-8";
 	static String SERIALIZER_INDENT = "yes";

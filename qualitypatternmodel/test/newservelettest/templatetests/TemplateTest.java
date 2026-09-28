@@ -35,7 +35,7 @@ public class TemplateTest {
 	static String EXPECTED = "expected";
 	static String DEACTIVATED = "deactivated";
 	static String TEST = "test";
-	static boolean onlyTest = true;
+	static boolean onlyTest = false;
 	static boolean addTestPatterns = true;
 	static boolean ignoreDeactivated = true;
 	static boolean debugShowQuery = true;
