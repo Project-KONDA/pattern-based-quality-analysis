@@ -20,6 +20,8 @@
 		<value match="def">false</value>
 		<value match="012">yes</value>
 		<value match="abc012">no</value>
+		<value match="abc012"></value>
+		<value match="abc012"/>
 	</compset>
 	<values>
 		<value>abc</value>
