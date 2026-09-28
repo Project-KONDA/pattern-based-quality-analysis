@@ -71,8 +71,12 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		target.getVariables().add(variable);
 		String result = "." + path;
 		target.setTranslated(true);
-
-		result += target.translatePredicates();
+		
+		if (target.getPredicates().isEmpty())
+			result = result.replace("string()", "text()");
+		else
+			result += target.translatePredicates();
+		
 		result += target.translateMultipleIncoming();
 
 		return "[" + result + "]";
@@ -81,7 +85,10 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 	public String generateXQuery2() throws InvalidityException {
 		if (getTarget().containsJavaOperator())
 			return "";
-		return super.generateXQuery();
+		String result = super.generateXQuery();
+		if (target.getPredicates().isEmpty())
+			return result.replace("string()", "text()");
+		return result;
 	}
 
 	@Override
