@@ -53,21 +53,40 @@ public class ConstraintTagServlet extends HttpServlet {
 
 	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 3 || !pathparts[0].equals("")) {
+		if (pathparts.length < 2 || pathparts.length > 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for posting tags in a constraint: "
 					+ "POST '/constraint/tag/{technology}/{constraintID}' "
 					+ "(not /constraint/tag" + path + ")");
 		}
 
 		String technology = pathparts[1];
-		String constraintId = pathparts[2];
-
+		String[] newTags = parameterMap.get(ConstantsJSON.TAG);
 		if (!Constants.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
 
-		String[] newTags = parameterMap.get(ConstantsJSON.TAG);
+		if (pathparts.length == 3) {
+			String constraintId = pathparts[2];
+			return addTag(technology, newTags, constraintId);
+		}
+		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINT_IDS);
+		return addTags(technology, newTags, constraintIds);
+	}
 
+	public static JSONObject addTags (String technology, String[] newTags, String[] constraintIds) {
+		JSONObject result = new JSONObject();
+		for (String constraintId: constraintIds) {
+			try {
+				JSONObject added = addTag(technology, newTags, constraintId);
+				result.put(constraintId, added);
+			} catch (Exception e) {
+				result.append(ConstantsJSON.FAILED, constraintId);
+			}
+		}
+		return result;
+	}
+
+	public static JSONObject addTag(String technology, String[] newTags, String constraintId) throws FailedServletCallException {
 		// 1. load constraint
 		CompletePattern pattern;
 		try {
@@ -109,23 +128,43 @@ public class ConstraintTagServlet extends HttpServlet {
 		return json;
 	}
 
+
+
 	public static JSONObject applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 3 || !pathparts[0].equals("")) {
+		if (!(pathparts.length == 2 && parameterMap.containsKey(ConstantsJSON.CONSTRAINT_IDS)) && pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for deleting tags in a constraint: "
-					+ "DELETE '/constraint/tag/{technology}/{constraintID}' "
+					+ "DELETE '/constraint/tag/{technology}/{constraintID}' or '/constraint/tag/{technology} [constraintIds]'"
 					+ "(not /constraint/tag" + path + ")");
 		}
-
 		String technology = pathparts[1];
-		String constraintId = pathparts[2];
-
 		if (!Constants.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
-
 		String[] deleteTags = parameterMap.get(ConstantsJSON.TAG);
 
+		if (pathparts.length == 3) {
+			String constraintId = pathparts[2];
+			return deleteTag(technology, deleteTags, constraintId);
+		}
+		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINT_IDS);
+		return deleteTags(technology, deleteTags, constraintIds);
+	}
+
+	public static JSONObject deleteTags (String technology, String[] deleteTags, String[] constraintIds) {
+		JSONObject result = new JSONObject();
+		for (String constraintId: constraintIds) {
+			try {
+				JSONObject deleted = deleteTag(technology, deleteTags, constraintId);
+				result.put(constraintId, deleted);
+			} catch (Exception e) {
+				result.append(ConstantsJSON.FAILED, constraintId);
+			}
+		}
+		return result;
+	}
+
+	public static JSONObject deleteTag(String technology, String[] deleteTags, String constraintId) throws FailedServletCallException {
 		// 1. load constraint
 		CompletePattern pattern;
 		try {

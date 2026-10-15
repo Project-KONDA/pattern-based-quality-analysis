@@ -765,6 +765,89 @@ paths:
         '500':
           description: Internal server error
 
+   /constraint/tag/{technology}:
+    description: update and delete tags of a constraint
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+      - name: constraintIds
+        in: query
+        description: identifier of constraint
+        required: true
+        schema:
+          type: string
+
+    post: #12
+      tags:
+        - Constraint
+        - Tag
+        - Modification
+        - Parameter
+      summary: Add tags to a constraint
+      description: add new tags to a constraint
+      operationId: addtagbulk
+      parameters:
+        - name: tag
+          in: query
+          description: list of the new tags
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagSuccessObj'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+
+    delete: #13
+      tags:
+        - Constraint
+        - Tag
+        - Deletion
+        - Parameter
+      summary: Delete tags of a constraint
+      description: Delete old tags of a constraint
+      operationId: deletetagbulk
+      parameters:
+        - name: tag
+          in: query
+          description: list of the tags to delete
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagSuccessObj'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
 
    /constraint/download/{technology}/{constraintID}:
     description: Download a constraint file
@@ -1698,6 +1781,20 @@ components:
           type: string
           description: timestamp of the last time a constraint was saved
           pattern: '^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3}$'
+
+
+    TagSuccessObj:
+      type: object
+      description: report on bulk changes of tags
+      properties:
+        <constraintId>:
+          $ref: '#/components/schemas/TagSuccess'
+          description: report on changes of tags
+        failed:
+          type: array
+          items:
+            type: string
+          description: constraint that were unable to be modified
 
     VariantSpecification: # 17
       type: object
