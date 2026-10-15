@@ -579,7 +579,7 @@ public class APICallTests {
 		params2.put(ConstantsJSON.CONSTRAINT_IDS, new String[] { constraintID, constraintID2 });
 		Map<String, String[]> params3 = getEmptyParams();
 		params3.put(ConstantsJSON.TAG, lst);
-		params3.put(ConstantsJSON.CONSTRAINT_IDS, new String[] { constraintID, constraintID2 });
+		params3.put(ConstantsJSON.CONSTRAINT_IDS, new String[] { constraintID, constraintID2, constraintID2, constraintID2 });
 		Map<String, String[]> params4 = getEmptyParams();
 		params4.put(ConstantsJSON.TAG, lst);
 
@@ -588,20 +588,22 @@ public class APICallTests {
 		assert (!tags1.has(ConstantsJSON.FAILED));
 
 		JSONObject tags2 = ConstraintTagServlet.applyDelete("/xml", params2);
+		System.out.println(tags2);
 		assert (tags2.getJSONObject(constraintID).has(ConstantsJSON.SUCCESS)); 
 		assert (tags2.getJSONObject(constraintID).getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(arr12)));
 		assert (tags2.getJSONObject(constraintID).has(ConstantsJSON.FAILED));
-		assert (tags2.getJSONObject(constraintID).getJSONArray(ConstantsJSON.FAILED).toString().contains("{\"" + lst[3] + "\":\"tag not found\"}"));
+		assert (tags2.getJSONObject(constraintID).getJSONObject(ConstantsJSON.FAILED).toString().contains(lst[3] + "\":\"tag not found\""));
 		assert (tags2.getJSONObject(constraintID).has(ConstantsJSON.SUCCESS)); 
 		assert (tags2.getJSONObject(constraintID).getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(arr12)));
 		assert (!tags2.getJSONObject(constraintID2).has(ConstantsJSON.SUCCESS));
 		assert (tags2.getJSONObject(constraintID2).has(ConstantsJSON.FAILED));
 
 		JSONObject tags3 = ConstraintTagServlet.applyPost("/xml/", params3);
+		System.out.println(tags3);
 		assert (tags3.getJSONObject(constraintID).has(ConstantsJSON.SUCCESS));
 		assert (tags3.getJSONObject(constraintID).getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(arr123)));
 		assert (tags3.getJSONObject(constraintID).has(ConstantsJSON.FAILED));
-		assert (tags3.getJSONObject(constraintID).getJSONArray(ConstantsJSON.FAILED).toString().contains("\"" + lst[0] + "\":\"tag already added\""));
+		assert (tags3.getJSONObject(constraintID).getJSONObject(ConstantsJSON.FAILED).toString().contains(lst[0] + "\":\"tag already added\""));
 		assert (tags3.getJSONObject(constraintID2).has(ConstantsJSON.SUCCESS));
 		assert (!tags3.getJSONObject(constraintID2).has(ConstantsJSON.FAILED));
 

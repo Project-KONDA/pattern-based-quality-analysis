@@ -109,14 +109,17 @@ public class ConstraintTagServlet extends HttpServlet {
 			for (String tag: newTags) {
 				JSONObject object = new JSONObject();
 				if(pattern.getKeywords().contains(tag)) {
-					object.put(tag, ConstantsError.DUPLICATE_TAG);
-					json.append(ConstantsJSON.FAILED, object);
+					if (!json.has(ConstantsJSON.FAILED))
+						json.put(ConstantsJSON.FAILED, new JSONObject());
+					json.getJSONObject(ConstantsJSON.FAILED).put(tag, ConstantsError.DUPLICATE_TAG);
 				} else {
 					if (pattern.getKeywords().add(tag)) {
 						json.append(ConstantsJSON.SUCCESS, tag);
 					} else {
 						object.put(tag, ConstantsError.INVALID_TAG);
-						json.append(ConstantsJSON.FAILED, object);
+						if (!json.has(ConstantsJSON.FAILED))
+							json.put(ConstantsJSON.FAILED, new JSONObject());
+						json.getJSONObject(ConstantsJSON.FAILED).put(tag, ConstantsError.DUPLICATE_TAG);
 					}
 				}
 			}
@@ -186,17 +189,18 @@ public class ConstraintTagServlet extends HttpServlet {
 		// 2. remove tags from constraint
 		JSONObject json = new JSONObject();
 		for (String tag: deleteTags) {
-			JSONObject object = new JSONObject();
 			try {
 				if (!pattern.getKeywords().contains(tag)) {
-					object.put(tag, ConstantsError.NOT_FOUND_TAG);
-					json.append("failed", object);
+					if (!json.has(ConstantsJSON.FAILED))
+						json.put(ConstantsJSON.FAILED, new JSONObject());
+					json.getJSONObject(ConstantsJSON.FAILED).put(tag, ConstantsError.NOT_FOUND_TAG);
 				} else {
 					if (pattern.getKeywords().remove(tag)) {
 						json.append("success", tag);
 					} else {
-						object.put(tag, ConstantsError.TAG_DELETION_FAILED);
-						json.append("failed", object);
+						if (!json.has(ConstantsJSON.FAILED))
+							json.put(ConstantsJSON.FAILED, new JSONObject());
+						json.getJSONObject(ConstantsJSON.FAILED).put(tag, ConstantsError.TAG_DELETION_FAILED);
 					}
 				}
 			} catch (JSONException e) {}
