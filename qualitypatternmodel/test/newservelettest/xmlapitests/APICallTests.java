@@ -196,6 +196,13 @@ public class APICallTests {
 		ConstraintServlet.applyDelete("/xml/" + id, getEmptyParams());
 	}
 
+	static void deleteConstraints(String[] ids)
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		Map<String, String[]> params = getEmptyParams();
+		params.put(ConstantsJSON.CONSTRAINT_IDS, ids);
+		ConstraintServlet.applyDelete("/xml", params);
+	}
+
 	// __________ ASSERTIONS __________
 
 	static void assertPatternJSONObjectArray(JSONArray object) {
@@ -412,6 +419,14 @@ public class APICallTests {
 		assertThrows(FailedServletCallException.class, () -> {
 			deleteConstraint(constriantID);
 		});
+
+		String constraint3 = newConstraint();
+		String constraint4 = newConstraint();
+		JSONObject constraints = getConstraints(new String[] {constraint3, constraint4});
+		assert(constraints.has(constraint3) && constraints.has(constraint4) && !constraints.has(ConstantsJSON.FAILED));
+		deleteConstraints(new String[] {constraint3, constraint4});
+		JSONObject constraints2 = getConstraints(new String[] {constraint3, constraint4});
+		assert(!constraints2.has(constraint3) && !constraints2.has(constraint4) && constraints2.has(ConstantsJSON.FAILED));
 	}
 
 	@Test
