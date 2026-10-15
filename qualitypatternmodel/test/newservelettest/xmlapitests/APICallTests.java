@@ -188,7 +188,7 @@ public class APICallTests {
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		Map<String, String[]> params = getEmptyParams();
 		params.put(ConstantsJSON.CONSTRAINT_IDS, ids);
-		return ConstraintServlet.applyGet2("/xml", params);
+		return ConstraintServlet.applyGet("/xml", params);
 	}
 
 	static void deleteConstraint(String id)

@@ -40,12 +40,11 @@ public class ConstraintServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
-			JSONObject result;
-			if (path.split("/").length == 2) {
-				result = applyGet2(path, params);
-			}
-			else result = applyGet(path, params);
-			ServletUtilities.putResponse(response, callId, result);
+			JSONObject result = applyGet(path, params);
+			if (result.keySet().contains(ConstantsJSON.FAILED) && result.keySet().size() == 1)
+				ServletUtilities.putResponse(response, callId, result, HttpServletResponse.SC_NOT_FOUND);
+			else
+				ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
 			ServletUtilities.putResponseError(response, callId, e);
@@ -60,8 +59,11 @@ public class ConstraintServlet extends HttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = ServletUtilities.logCall("DELETE", this.getClass().getName(), path, params);
 		try {
-			String result = applyDelete(path, params);
-			ServletUtilities.putResponse(response, callId, result);
+			JSONObject result = applyDelete(path, params);
+			if (result.keySet().contains(ConstantsJSON.FAILED) && result.keySet().size() == 1)
+				ServletUtilities.putResponse(response, callId, result, HttpServletResponse.SC_NOT_FOUND);
+			else
+				ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
 			ServletUtilities.putResponseError(response, callId, e);
@@ -91,75 +93,93 @@ public class ConstraintServlet extends HttpServlet {
 		}
 	}
 
+
+
 	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 3 || !pathparts[0].equals("")) {
+		if (!(pathparts.length == 2 && parameterMap.containsKey(ConstantsJSON.CONSTRAINT_IDS)) && pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting a constraint: "
-					+ "GET '/constraint/{technology}/{constraintID}' "
+					+ "GET '/constraint/{technology}/{constraintID}' or '/constraint/{technology} [constraintIds]'"
 					+ "(not /constraint" + path + ")");
 		}
 
 		String technology = pathparts[1];
-		String constraintId = pathparts[2];
-
 		if (!Constants.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
-
-		// 1 load constraint
-//		CompletePattern pattern;
-		try {
-//			pattern = ServletUtilities.loadConstraint(technology, constraintId);
-//			System.out.println(pattern.myToString());
-//			pattern.isValid(AbstractionLevel.ABSTRACT);
-			return ServletUtilities.loadConstraintJson(technology, constraintId);
-		} catch (IOException e) {
-			throw new FailedServletCallException("constraint '" + constraintId + "' not found", e);
-		}
-//		catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-//			throw new FailedServletCallException(ConstantsError.INVALID_CONSTRAINT, e);
-//		}
-
-		// 2 return json
-//		return ServletUtilities.getPatternJSON(pattern);
-	}
-
-	public static JSONObject applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
-		String[] pathparts = path.split("/");
-		if (pathparts.length != 2 || !pathparts[0].equals("") || !parameterMap.containsKey(ConstantsJSON.CONSTRAINT_IDS)) {
-			throw new InvalidServletCallException("Wrong URL for requesting a constraint: "
-					+ "GET '/constraint/{technology} [constraintIDs = {}]' "
-					+ "(not /constraint" + path + ")");
-		}
-
-		String technology = pathparts[1];
-
-		if (!Constants.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
+		if (pathparts.length == 3) {
+			String constraintId = pathparts[2];
+			return getConstraint(technology, constraintId);
 		}
 		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINT_IDS);
+		return getConstraints(technology, constraintIds);
+	}
 
+
+	public static JSONObject getConstraints(String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
 		JSONObject result = new JSONObject();
 		for (String constraintId: constraintIds) {
 			try {
-				result.put(constraintId, ServletUtilities.loadConstraintJson(technology, constraintId));
-			} catch (IOException e) {
-				throw new FailedServletCallException("constraint '" + constraintId + "' not found", e);
+				JSONObject constraint = getConstraint(technology, constraintId);
+				result.put(constraintId, constraint);
+			} catch (Exception e) {
+				if (!result.has(ConstantsJSON.FAILED))
+					result.put(ConstantsJSON.FAILED, new JSONObject());
+				result.getJSONObject(ConstantsJSON.FAILED).put(constraintId, e.getMessage());
 			}
 		}
 		return result;
 	}
 
-	public static String applyDelete(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONObject getConstraint(String technology, String constraintId) throws InvalidServletCallException, FailedServletCallException {
+		try {
+			return ServletUtilities.loadConstraintJson(technology, constraintId);
+		} catch (IOException e) {
+			throw new FailedServletCallException("constraint '" + constraintId + "' not found", e);
+		}
+	}
+
+
+	public static JSONObject applyDelete(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 3 || !pathparts[0].equals("")) {
+		if (!(pathparts.length == 2 && parameterMap.containsKey(ConstantsJSON.CONSTRAINT_IDS)) && pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for deleting a constraint: "
-					+ "DELETE '/constraint/{technology}/{constraintID}' "
+					+ "DELETE '/constraint/{technology}/{constraintID}' or '/constraint/{technology} [constraintIds]'"
 					+ "(not /constraint" + path + ")");
 		}
 
 		String technology = pathparts[1];
-		String patternname = pathparts[2];
+		if (!Constants.TECHS.contains(technology)) {
+			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
+		}
+		if (pathparts.length == 3) {
+			String constraintId = pathparts[2];
+			deleteConstraint(technology, constraintId);
+			JSONObject result = new JSONObject();
+			result.append(ConstantsJSON.SUCCESS, constraintId);
+			return result;
+		}
+		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINT_IDS);
+		return deleteConstraints(technology, constraintIds);
+	}
+
+	public static JSONObject deleteConstraints(String technology, String[] constraintIds) {
+		JSONObject result = new JSONObject();
+		for (String constraintId: constraintIds) {
+			try {
+				deleteConstraint(technology, constraintId);
+				result.append(ConstantsJSON.SUCCESS, constraintId);
+			} catch (Exception e) {
+
+				if (!result.has(ConstantsJSON.FAILED))
+					result.put(ConstantsJSON.FAILED, new JSONObject());
+				result.getJSONObject(ConstantsJSON.FAILED).put(constraintId, e.getMessage());
+			}
+		}
+		return result;
+	}
+		
+	public static void deleteConstraint(String technology, String constraintId) throws InvalidServletCallException, FailedServletCallException {
 
 		if (!Constants.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
@@ -167,21 +187,19 @@ public class ConstraintServlet extends HttpServlet {
 
 		// 1 check if constraint exists
 		try {
-			if (ServletUtilities.loadConstraint(technology, patternname) == null) {
-				throw new FailedServletCallException("Requested pattern '" + patternname + "' does not exist.");
+			if (ServletUtilities.loadConstraint(technology, constraintId) == null) {
+				throw new FailedServletCallException("Requested pattern '" + constraintId + "' does not exist.");
 			}
 		} catch (Exception e) {
-			throw new FailedServletCallException("Requested pattern '" + patternname + "' does not exist.");
+			throw new FailedServletCallException("Requested pattern '" + constraintId + "' does not exist.");
 		}
 
 		// 2 delete constraint
 		try {
-			ServletUtilities.deleteConstraint(technology, patternname);
+			ServletUtilities.deleteConstraint(technology, constraintId);
 		} catch (IOException e) {
-			throw new FailedServletCallException("Deleting constraint '" + patternname + "' failed.");
+			throw new FailedServletCallException("Deleting constraint '" + constraintId + "' failed.");
 		}
-
-		return "Constraint deleted successfully.";
 	}
 
 	public static JSONObject applyPost (String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException {
