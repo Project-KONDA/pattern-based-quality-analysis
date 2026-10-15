@@ -1,19 +1,30 @@
 package newservelettest.templatetests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.mock;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
+
+import org.apache.commons.io.FileUtils;
 import org.eclipse.emf.common.util.EList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -31,6 +42,7 @@ import qualitypatternmodel.utility.xmlprocessors.XQueryProcessorSaxon;
 
 public class TemplateTest {
 
+	private static final boolean DELETE = true;
 	static String PARAMS = "params";
 	static String EXPECTED = "expected";
 	static String DEACTIVATED = "deactivated";
@@ -39,11 +51,39 @@ public class TemplateTest {
 	static boolean addTestPatterns = true;
 	static boolean ignoreDeactivated = true;
 	static boolean debugShowQuery = true;
+	private static String folder;
 
 	static String pathConfig = "test\\newservelettest\\templatetests\\template-config.json";
 	static String pathConfigMissing = "test\\newservelettest\\templatetests\\template-config-missing.json";
 	static String pathData = "test\\newservelettest\\templatetests\\template-data.xml";
 
+	@BeforeAll
+	public static void initialize()
+			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
+		folder = new File(".").getCanonicalPath().replace('\\', '/') + "/temp_" + UUID.randomUUID();
+		System.out.println("Create: " + folder);
+		
+		ServletContext context = mock(ServletContext.class);
+		doAnswer(invocation -> {
+			String argument = invocation.getArgument(0);
+			if (argument.startsWith("/")) {
+				return folder + argument;
+			} else {
+				return folder + "/" + argument;
+			}
+		}).when(context).getRealPath(anyString());
+		System.out.println("Mock initialized successfully");
+		ServletUtilities.log("Mock initialized successfully");
+	}
+
+	@AfterAll
+	public static void close() throws IOException {
+		System.out.println("Delete: " + folder);
+		if (DELETE)
+			FileUtils.deleteDirectory(new File(folder));
+	}
+	
+	
 	private static List<PatternClass> getPatternClazzes() {
 		List<PatternClass> patternClazzes = PatternCollection.getPatternClassInstances();
 		if (addTestPatterns)
