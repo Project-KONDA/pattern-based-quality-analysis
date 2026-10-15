@@ -28,7 +28,10 @@ public class ConstraintTagServlet extends HttpServlet {
 		int  callId = ServletUtilities.logCall("POST", this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyPost(path, params);
-			ServletUtilities.putResponse(response, callId, result);
+			if (result.keySet().contains(ConstantsJSON.FAILED) && result.keySet().size() == 1)
+				ServletUtilities.putResponse(response, callId, result, HttpServletResponse.SC_NOT_FOUND);
+			else
+				ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
 			ServletUtilities.putResponseError(response, callId, e);
@@ -44,7 +47,10 @@ public class ConstraintTagServlet extends HttpServlet {
 		int  callId = ServletUtilities.logCall("DELETE", this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyDelete(path, params);
-			ServletUtilities.putResponse(response, callId, result);
+			if (result.keySet().contains(ConstantsJSON.FAILED) && result.keySet().size() == 1)
+				ServletUtilities.putResponse(response, callId, result, HttpServletResponse.SC_NOT_FOUND);
+			else
+				ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
 			ServletUtilities.putResponseError(response, callId, e);
@@ -53,9 +59,9 @@ public class ConstraintTagServlet extends HttpServlet {
 
 	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length < 2 || pathparts.length > 3 || !pathparts[0].equals("")) {
+		if (!(pathparts.length == 2 && parameterMap.containsKey(ConstantsJSON.CONSTRAINT_IDS)) && pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for posting tags in a constraint: "
-					+ "POST '/constraint/tag/{technology}/{constraintID}' "
+					+ "POST '/constraint/tag/{technology}/{constraintID}' or '/constraint/tag/{technology} [constraintIds]'"
 					+ "(not /constraint/tag" + path + ")");
 		}
 
@@ -80,7 +86,9 @@ public class ConstraintTagServlet extends HttpServlet {
 				JSONObject added = addTag(technology, newTags, constraintId);
 				result.put(constraintId, added);
 			} catch (Exception e) {
-				result.append(ConstantsJSON.FAILED, constraintId);
+				if (!result.has(ConstantsJSON.FAILED))
+					result.put(ConstantsJSON.FAILED, new JSONObject());
+				result.getJSONObject(ConstantsJSON.FAILED).put(constraintId, e.getMessage());
 			}
 		}
 		return result;
@@ -158,13 +166,15 @@ public class ConstraintTagServlet extends HttpServlet {
 				JSONObject deleted = deleteTag(technology, deleteTags, constraintId);
 				result.put(constraintId, deleted);
 			} catch (Exception e) {
-				result.append(ConstantsJSON.FAILED, constraintId);
+				if (!result.has(ConstantsJSON.FAILED))
+					result.put(ConstantsJSON.FAILED, new JSONObject());
+				result.getJSONObject(ConstantsJSON.FAILED).put(constraintId, e.getMessage());
 			}
 		}
 		return result;
 	}
 
-	public static JSONObject deleteTag(String technology, String[] deleteTags, String constraintId) throws FailedServletCallException {
+	public static JSONObject deleteTag (String technology, String[] deleteTags, String constraintId) throws FailedServletCallException {
 		// 1. load constraint
 		CompletePattern pattern;
 		try {
