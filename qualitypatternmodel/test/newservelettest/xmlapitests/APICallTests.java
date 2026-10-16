@@ -565,55 +565,56 @@ public class APICallTests {
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		String constraintID = newConstraint();
 		String constraintID2 = newConstraint();
-		String[] lst = new String[] { UUID.randomUUID().toString(), UUID.randomUUID().toString(),
-				UUID.randomUUID().toString(), UUID.randomUUID().toString() };
-		String[] arr012 = new String[] { lst[0], lst[1], lst[2] };
-		String[] arr0123 = new String[] { lst[0], lst[1], lst[2], lst[3] };
-		String[] arr123 = new String[] { lst[1], lst[2], lst[3] };
-		String[] arr12 = new String[] { lst[1], lst[2] };
+		String[] lst = new String[] { UUID.randomUUID().toString(), UUID.randomUUID().toString(), UUID.randomUUID().toString(), UUID.randomUUID().toString() };
 
+		// add tags 0-2 to c1
 		Map<String, String[]> params1 = getEmptyParams();
-		params1.put(ConstantsJSON.TAG, new String[] { lst[0], lst[1], lst[2] });
-		Map<String, String[]> params2 = getEmptyParams();
-		params2.put(ConstantsJSON.TAG, new String[] { lst[1], lst[2], lst[3] });
-		params2.put(ConstantsJSON.CONSTRAINT_IDS, new String[] { constraintID, constraintID2 });
-		Map<String, String[]> params3 = getEmptyParams();
-		params3.put(ConstantsJSON.TAG, lst);
-		params3.put(ConstantsJSON.CONSTRAINT_IDS, new String[] { constraintID, constraintID2, constraintID2, constraintID2 });
-		Map<String, String[]> params4 = getEmptyParams();
-		params4.put(ConstantsJSON.TAG, lst);
-
+		String[] arr012 = new String[] { lst[0], lst[1], lst[2] };
+		params1.put(ConstantsJSON.TAG, arr012);
 		JSONObject tags1 = ConstraintTagServlet.applyPost("/xml/" + constraintID, params1);
-		assert (tags1.has(ConstantsJSON.SUCCESS) && tags1.getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(arr012)));
+		assert (tags1.has(ConstantsJSON.SUCCESS)); // all 3 tags succeded
+		assert (tags1.getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(arr012)));
 		assert (!tags1.has(ConstantsJSON.FAILED));
 
+		// delete tags 1-3 to c1 and c2
+		Map<String, String[]> params2 = getEmptyParams();
+		String[] arr123 = new String[] { lst[1], lst[2], lst[3] };
+		String[] arr12 = new String[] { lst[1], lst[2] };
+		params2.put(ConstantsJSON.TAG, arr123);
+		params2.put(ConstantsJSON.CONSTRAINT_IDS, new String[] { constraintID, constraintID2 });
 		JSONObject tags2 = ConstraintTagServlet.applyDelete("/xml", params2);
-		System.out.println(tags2);
-		assert (tags2.getJSONObject(constraintID).has(ConstantsJSON.SUCCESS)); 
+		assert(tags2.has(constraintID)); // tags 1&2 succeded, tag 3 failed
+		assert (tags2.getJSONObject(constraintID).has(ConstantsJSON.SUCCESS));
 		assert (tags2.getJSONObject(constraintID).getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(arr12)));
 		assert (tags2.getJSONObject(constraintID).has(ConstantsJSON.FAILED));
 		assert (tags2.getJSONObject(constraintID).getJSONObject(ConstantsJSON.FAILED).toString().contains(lst[3] + "\":\"tag not found\""));
-		assert (tags2.getJSONObject(constraintID).has(ConstantsJSON.SUCCESS)); 
-		assert (tags2.getJSONObject(constraintID).getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(arr12)));
-		assert (!tags2.getJSONObject(constraintID2).has(ConstantsJSON.SUCCESS));
+		assert(tags2.has(constraintID2)); // all 3 tags failed
 		assert (tags2.getJSONObject(constraintID2).has(ConstantsJSON.FAILED));
+		assert (!tags2.getJSONObject(constraintID2).has(ConstantsJSON.SUCCESS)); 
 
+		// add all 4 tags to both constraints
+		Map<String, String[]> params3 = getEmptyParams();
+		params3.put(ConstantsJSON.TAG, lst);
+		params3.put(ConstantsJSON.CONSTRAINT_IDS, new String[] { constraintID, constraintID2, constraintID2, constraintID2 });
 		JSONObject tags3 = ConstraintTagServlet.applyPost("/xml/", params3);
-		System.out.println(tags3);
 		assert (tags3.getJSONObject(constraintID).has(ConstantsJSON.SUCCESS));
 		assert (tags3.getJSONObject(constraintID).getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(arr123)));
-		assert (tags3.getJSONObject(constraintID).has(ConstantsJSON.FAILED));
+		assert (tags3.getJSONObject(constraintID).has(ConstantsJSON.FAILED)); 
 		assert (tags3.getJSONObject(constraintID).getJSONObject(ConstantsJSON.FAILED).toString().contains(lst[0] + "\":\"tag already added\""));
 		assert (tags3.getJSONObject(constraintID2).has(ConstantsJSON.SUCCESS));
 		assert (!tags3.getJSONObject(constraintID2).has(ConstantsJSON.FAILED));
 
+		// delete all tags from constraint 1, all tags added in call 3
+		Map<String, String[]> params4 = getEmptyParams();
+		params4.put(ConstantsJSON.TAG, lst);
 		JSONObject tags4 = ConstraintTagServlet.applyDelete("/xml/" + constraintID, params4);
-		assert (tags4.has(ConstantsJSON.SUCCESS) && tags4.getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(arr0123)));
+		assert (tags4.has(ConstantsJSON.SUCCESS) && tags4.getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(lst)));
 		assert (!tags4.has(ConstantsJSON.FAILED));
 
+		// delete all tags from constraint 2, all tags added in call 3
 		JSONObject tags5 = ConstraintTagServlet.applyDelete("/xml/" + constraintID2, params4);
 		assert (tags5.has(ConstantsJSON.SUCCESS));
-		assert (tags5.getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(arr0123)));
+		assert (tags5.getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(lst)));
 		assert (!tags5.has(ConstantsJSON.FAILED));
 		
 		deleteConstraint(constraintID);
