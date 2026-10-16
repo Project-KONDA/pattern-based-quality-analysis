@@ -119,6 +119,15 @@ public class InitialisationServlet extends HttpServlet {
 		ServletUtilities.log("Environmental Variable PATTERN_VOLUME:            " + ServletConstants.PATTERN_VOLUME);
 		ServletUtilities.log("Environmental Variable LOGFILE:                   " + ServletConstants.LOGFILE);
 
+
+//	      ROLE: /shared/uploads
+		String role = System.getenv(ServletConstants.ENV_ROLE);
+		if (role != null && ServletConstants.ROLE_VALUES.contains(role))
+			ServletConstants.ROLE = role;
+		else 
+			ServletConstants.UPLOAD_FOLDER = scon.getRealPath(ServletConstants.UPLOAD_FOLDER_DEFAULT);
+		ServletUtilities.log("Environmental Variable ROLE:                      " + ServletConstants.ROLE);
+
 //	      UPLOAD_FOLDER: /shared/uploads
 		String upload = System.getenv(ServletConstants.ENV_UPLOAD_FOLDER);
 		if (upload != null && ensureDirectoryAccess(upload))
