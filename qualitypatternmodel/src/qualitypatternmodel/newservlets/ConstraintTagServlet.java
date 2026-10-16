@@ -1,6 +1,8 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.Map;
 
 import org.json.JSONException;
@@ -66,16 +68,16 @@ public class ConstraintTagServlet extends HttpServlet {
 		}
 
 		String technology = pathparts[1];
-		String[] newTags = parameterMap.get(ConstantsJSON.TAG);
 		if (!Constants.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
+		String[] newTags = new LinkedHashSet<>(Arrays.asList(parameterMap.get(ConstantsJSON.TAG))).toArray(new String[0]); // parameterMap.get(ConstantsJSON.TAG);
 
 		if (pathparts.length == 3) {
 			String constraintId = pathparts[2];
 			return addTag(technology, newTags, constraintId);
 		}
-		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINT_IDS);
+		String[] constraintIds = new LinkedHashSet<>(Arrays.asList(parameterMap.get(ConstantsJSON.CONSTRAINT_IDS))).toArray(new String[0]); // parameterMap.get(ConstantsJSON.CONSTRAINT_IDS);
 		return addTags(technology, newTags, constraintIds);
 	}
 
@@ -152,13 +154,13 @@ public class ConstraintTagServlet extends HttpServlet {
 		if (!Constants.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
-		String[] deleteTags = parameterMap.get(ConstantsJSON.TAG);
+		String[] deleteTags = new LinkedHashSet<>(Arrays.asList(parameterMap.get(ConstantsJSON.TAG))).toArray(new String[0]); // parameterMap.get(ConstantsJSON.TAG);
 
 		if (pathparts.length == 3) {
 			String constraintId = pathparts[2];
 			return deleteTag(technology, deleteTags, constraintId);
 		}
-		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINT_IDS);
+		String[] constraintIds = new LinkedHashSet<>(Arrays.asList(parameterMap.get(ConstantsJSON.CONSTRAINT_IDS))).toArray(new String[0]); // parameterMap.get(ConstantsJSON.CONSTRAINT_IDS);
 		return deleteTags(technology, deleteTags, constraintIds);
 	}
 
