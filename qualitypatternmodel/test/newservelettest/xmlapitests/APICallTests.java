@@ -811,6 +811,8 @@ public class APICallTests {
 		params2.put("constraintIDs", new String[] { constraintID });
 		params2.put("files", new String[] { "lido.xml" });
 		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
+		assert(result.has(ConstantsJSON.STATUS));
+		assert(result.getString(ConstantsJSON.STATUS).equals(ConstantsJSON.STATUS_SUCCESS));
 		assertExecuteResultObject(result, true);
 		deleteConstraint(constraintID);
 	}
