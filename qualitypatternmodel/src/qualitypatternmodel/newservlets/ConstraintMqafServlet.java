@@ -10,7 +10,6 @@ import org.json.JSONObject;
 
 import de.gwdg.metadataqa.api.configuration.ConfigurationReader;
 import de.gwdg.metadataqa.api.schema.BaseSchema;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
@@ -22,7 +21,12 @@ import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
-public class ConstraintMqafServlet extends HttpServlet {
+public class ConstraintMqafServlet extends QPMHttpServlet {
+
+	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_MANAGEMENT;
+	}
 
 	// GET .. /constraint/mqaf    /<technology>/<constraintId>
 	// GET .. /constraint/mqaf    /<technology>    {"constraints":<constraint-ids>}
@@ -31,7 +35,7 @@ public class ConstraintMqafServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
+		int callId = logCall("GET", this.getClass().getName(), path, params);
 		try {
 			int i = path.split("/").length;
 			JSONObject result;
@@ -44,10 +48,10 @@ public class ConstraintMqafServlet extends HttpServlet {
 						+ " GET '/constraint/mqaf/{technology}' OR '/constraint/mqaf/{technology}/{constraintID}' "
 						+ "(not /constraint/mqaf" + path + ")");
 			}
-			ServletUtilities.putResponse(response, callId, result);
+			putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+			putResponseError(response, callId, e);
 		}
 	}
 

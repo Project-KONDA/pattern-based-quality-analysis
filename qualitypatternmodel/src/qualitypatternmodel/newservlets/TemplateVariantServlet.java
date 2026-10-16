@@ -11,7 +11,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
@@ -34,7 +33,12 @@ import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
-public class TemplateVariantServlet extends HttpServlet {
+public class TemplateVariantServlet extends QPMHttpServlet {
+
+	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_MANAGEMENT;
+	}
 
 	// GET .. /template/variant    /<technology>/<templateID>
 
@@ -42,13 +46,13 @@ public class TemplateVariantServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
+		int  callId = logCall("GET", this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyGet(path, params);
-			ServletUtilities.putResponse(response, callId, result);
+			putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+			putResponseError(response, callId, e);
 		}
 	}
 
@@ -58,22 +62,22 @@ public class TemplateVariantServlet extends HttpServlet {
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("PUT", this.getClass().getName(), path, params);
+		int  callId = logCall("PUT", this.getClass().getName(), path, params);
 		try{
 			String result = applyPut(path, params);
-			ServletUtilities.putResponse(response, callId, result);
+			putResponse(response, callId, result);
 		}
 		catch (FailedServletCallException e) {
 	        if (e.getMessage().startsWith("404")) {
-				ServletUtilities.putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
+				putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
 			} else if (e.getMessage().startsWith("409")) {
-				ServletUtilities.putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_CONFLICT);
+				putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_CONFLICT);
 			} else {
-				ServletUtilities.putResponseError(response, callId, e, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+				putResponseError(response, callId, e, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			}
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+			putResponseError(response, callId, e);
 		}
 	}
 
@@ -83,13 +87,13 @@ public class TemplateVariantServlet extends HttpServlet {
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("DELETE", this.getClass().getName(), path, params);
+		int  callId = logCall("DELETE", this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyDelete(path, params);
-			ServletUtilities.putResponse(response, callId, result);
+			putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+			putResponseError(response, callId, e);
 		}
 	}
 

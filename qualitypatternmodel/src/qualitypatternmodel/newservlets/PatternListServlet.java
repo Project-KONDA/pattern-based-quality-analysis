@@ -7,7 +7,6 @@ import java.util.Map;
 import org.eclipse.emf.common.util.BasicEList;
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
@@ -16,7 +15,12 @@ import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
-public class PatternListServlet extends HttpServlet {
+public class PatternListServlet extends QPMHttpServlet {
+
+	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_MANAGEMENT;
+	}
 
 	// GET .. /pattern/list    /<technology>/<level>
 
@@ -24,13 +28,13 @@ public class PatternListServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
+		int  callId = logCall("GET", this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyGet(path, params);
-			ServletUtilities.putResponse(response, callId, result);
+			putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+			putResponseError(response, callId, e);
 		}
 	}
 

@@ -6,11 +6,11 @@ import java.util.UUID;
 public class ServletConstants {
 
     public static final String ROLE_ALL = "all";
-    public static final String ROLE_ANALYSIS = "analysis";
+    public static final String ROLE_EXECUTION = "execution";
     public static final String ROLE_MANAGEMENT = "management";
 	public static String ROLE_DEFAULT = ROLE_ALL;
 	public static String ROLE = ROLE_DEFAULT;
-	public static final Set<String> ROLE_VALUES = Set.of(ROLE_ALL, ROLE_ANALYSIS, ROLE_MANAGEMENT);
+	public static final Set<String> ROLE_VALUES = Set.of(ROLE_ALL, ROLE_EXECUTION, ROLE_MANAGEMENT);
 	public static String ENV_ROLE = "ROLE";
 	
 	// path to shared volume

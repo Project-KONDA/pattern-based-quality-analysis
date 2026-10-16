@@ -6,7 +6,6 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
@@ -17,7 +16,12 @@ import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
-public class ConstraintNameServlet extends HttpServlet {
+public class ConstraintNameServlet extends QPMHttpServlet {
+
+	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_MANAGEMENT;
+	}
 
 	// POST .. /constraint/name    /<technology>/<constraintID>    {"name":<name>}
 
@@ -25,13 +29,13 @@ public class ConstraintNameServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("POST", this.getClass().getName(), path, params);
+		int  callId = logCall("POST", this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyPost(path, params);
-			ServletUtilities.putResponse(response, callId, result);
+			putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+			putResponseError(response, callId, e);
 		}
 	}
 

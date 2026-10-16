@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
@@ -19,7 +18,12 @@ import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
-public class TemplateInstantiateServlet extends HttpServlet {
+public class TemplateInstantiateServlet extends QPMHttpServlet {
+
+	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_MANAGEMENT;
+	}
 
 	// PUT .. /template/instantiate    /<technology>/<templateID>/<variantID>
 
@@ -27,13 +31,13 @@ public class TemplateInstantiateServlet extends HttpServlet {
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("PUT", this.getClass().getName(), path, params);
+		int  callId = logCall("PUT", this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyPut(path, params);
-			ServletUtilities.putResponse(response, callId, result);
+			putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+			putResponseError(response, callId, e);
 		}
 	}
 

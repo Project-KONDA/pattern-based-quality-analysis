@@ -19,7 +19,6 @@ import org.json.JSONObject;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.adaptionneo4j.Adaptionneo4jPackage;
@@ -45,7 +44,7 @@ import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
-public class InitialisationServlet extends HttpServlet {
+public class InitialisationServlet extends QPMHttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
@@ -60,11 +59,11 @@ public class InitialisationServlet extends HttpServlet {
 //		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyGet(path, params);
-			ServletUtilities.putResponseUnlogged(response, result, HttpServletResponse.SC_OK);
+			putResponseUnlogged(response, result, HttpServletResponse.SC_OK);
 		}
 		catch (Exception e) {
 //			ServletUtilities.putResponseError(response, callId, e);
-			ServletUtilities.putResponseError(response, -1, e);
+			putResponseError(response, -1, e);
 		}
 	}
 

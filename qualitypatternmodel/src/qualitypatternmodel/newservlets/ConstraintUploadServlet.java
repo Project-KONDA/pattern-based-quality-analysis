@@ -14,7 +14,6 @@ import org.json.JSONObject;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
@@ -28,7 +27,12 @@ import qualitypatternmodel.utility.EMFModelLoad;
 
 @MultipartConfig
 @SuppressWarnings("serial")
-public class ConstraintUploadServlet extends HttpServlet {
+public class ConstraintUploadServlet extends QPMHttpServlet {
+
+	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_MANAGEMENT;
+	}
 
 	// POST .. /constraint/upload /<technology>/<templateID>
 
@@ -40,12 +44,12 @@ public class ConstraintUploadServlet extends HttpServlet {
 		String uploadFolder = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.UPLOAD_FOLDER;
 		File file = storePart(filePart, uploadFolder);
 	    
-		int  callId = ServletUtilities.logCall("POST", this.getClass().getName(), path, params);
+		int  callId = logCall("POST", this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyPost(path, params, file);
-			ServletUtilities.putResponse(response, callId, result, HttpURLConnection.HTTP_ACCEPTED);
+			putResponse(response, callId, result, HttpURLConnection.HTTP_ACCEPTED);
 		} catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+			putResponseError(response, callId, e);
 		}
 	}
 	

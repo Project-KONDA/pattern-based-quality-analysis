@@ -11,7 +11,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
@@ -20,7 +19,12 @@ import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
-public class ConstraintQueryServlet extends HttpServlet {
+public class ConstraintQueryServlet extends QPMHttpServlet {
+
+	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_MANAGEMENT;
+	}
 
 	// GET .. /constraint/query    /<technology>/<constraintId>
 	// GET .. /constraint/query    /<technology>    {"constraints":<constraint-ids>}
@@ -29,7 +33,7 @@ public class ConstraintQueryServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
+		int  callId = logCall("GET", this.getClass().getName(), path, params);
 		try {
 			int i = path.split("/").length;
 			JSONObject result = null; // = applyGet(path, params);
@@ -42,10 +46,10 @@ public class ConstraintQueryServlet extends HttpServlet {
 						+ "' GET '/constraint/query/{technology}/{constraintID}' "
 						+ "(not /constraint/query" + path + ")");
 			}
-			ServletUtilities.putResponse(response, callId, result);
+			putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+			putResponseError(response, callId, e);
 		}
 	}
 

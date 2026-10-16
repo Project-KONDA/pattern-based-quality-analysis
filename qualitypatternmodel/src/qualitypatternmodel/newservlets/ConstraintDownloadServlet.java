@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.Map;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
@@ -15,7 +14,12 @@ import qualitypatternmodel.utility.Constants;
 import java.io.*;
 
 @SuppressWarnings("serial")
-public class ConstraintDownloadServlet extends HttpServlet {
+public class ConstraintDownloadServlet extends QPMHttpServlet {
+
+	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_MANAGEMENT;
+	}
 
 	// GET .. /constraint/download /<technology>/<templateID>
 
@@ -23,12 +27,12 @@ public class ConstraintDownloadServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
+		int  callId = logCall("GET", this.getClass().getName(), path, params);
 		try {
 			File result = applyGet(path, params);
-			ServletUtilities.putResponse(response, callId, result, HttpURLConnection.HTTP_ACCEPTED, "");
+			putResponse(response, callId, result, HttpURLConnection.HTTP_ACCEPTED, "");
 		} catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+			putResponseError(response, callId, e);
 		}
 	}
 

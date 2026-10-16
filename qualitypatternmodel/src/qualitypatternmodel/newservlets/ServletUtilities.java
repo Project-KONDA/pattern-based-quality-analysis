@@ -1,13 +1,9 @@
 package qualitypatternmodel.newservlets;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,10 +16,8 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.Semaphore;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -31,8 +25,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
@@ -821,7 +813,7 @@ public abstract class ServletUtilities {
 			throw new IOException(ConstantsError.INVALID_FILEFORMAT);
 		}
 	}
-	
+
 	public static void clearTrashbin() {
 		for (Language language: Language.VALUES) {
 			String technology = language.getLiteral();
@@ -846,86 +838,6 @@ public abstract class ServletUtilities {
 				logError(e);
 			}
 		}
-	}
-
-
-	// RESPONSE HANDLING
-
-	public static void putResponse(HttpServletResponse response, int id, Object object, int responseCode) throws IOException {
-		logOutput(object, id);
-		putResponseUnlogged(response, object, responseCode);
-	}
-
-	public static void putResponseUnlogged(HttpServletResponse response, Object object, int responseCode) throws IOException {
-		response.setStatus(responseCode);
-		if (object instanceof JSONArray || object instanceof JSONObject) {
-			response.setContentType("application/json");
-			response.setCharacterEncoding("UTF-8");
-			response.getWriter().write(object.toString());
-			return;
-		}
-		if (object instanceof String) {
-			response.setContentType("text/plain");
-			response.setCharacterEncoding("UTF-8");
-			response.setStatus(responseCode);
-		}
-	}
-
-	public static void putResponse(HttpServletResponse response, int id, File file, int responseCode, String contentType) throws IOException {
-
-		if (file == null || !file.exists()) {
-		    response.sendError(HttpServletResponse.SC_NOT_FOUND, "File not found");
-		    return;
-		}
-
-        response.setStatus(responseCode);
-	    response.setContentType(contentType);
-        response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getName() + "\"");
-        response.setContentLengthLong(file.length());
-
-        try (InputStream in = new FileInputStream(file);
-                OutputStream out = response.getOutputStream()) {
-        	byte[] buffer = new byte[8192];
-            int bytesRead;
-            while ((bytesRead = in.read(buffer)) != -1) {
-            	out.write(buffer, 0, bytesRead);
-            }
-            out.flush();
-        }
-	}
-
-	public static void putResponseError(HttpServletResponse response, int id, Exception error) throws IOException {
-		int responseCode = HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
-		if (error.getClass().equals(InvalidServletCallException.class)) {
-			responseCode = HttpServletResponse.SC_BAD_REQUEST;
-		}
-		if (error.getClass().equals(FailedServletCallException.class)) {
-			responseCode = HttpServletResponse.SC_NOT_FOUND;
-		}
-		putResponseError(response, id, error, responseCode);
-	}
-
-	public static void putResponseError(HttpServletResponse response, int id, Exception error, int responseCode) throws IOException {
-		logError(error);
-		JSONObject object = new JSONObject();
-		try {
-			object.put("error", error.getMessage());
-		} catch (JSONException e) {
-			logError(e);
-		}
-		putResponse(response, id, object, responseCode);
-	}
-
-	public static void putResponse(HttpServletResponse response, int id, JSONObject jsonObject) throws IOException {
-		putResponse(response, id, jsonObject, HttpServletResponse.SC_OK);
-	}
-
-	public static void putResponse(HttpServletResponse response, int id, JSONArray jsonArray) throws IOException {
-		putResponse(response, id, jsonArray, HttpServletResponse.SC_OK);
-	}
-
-	public static void putResponse(HttpServletResponse response, int id, String text) throws IOException {
-		putResponse(response, id, text, HttpServletResponse.SC_OK);
 	}
 
 	public static JSONObject getTemplateInfo(String classname) throws IOException {
@@ -1041,21 +953,11 @@ public abstract class ServletUtilities {
 		}
 	}
 
-	public static long calculateAgeInDays(String dateString) throws DateTimeParseException {
+	private static long calculateAgeInDays(String dateString) throws DateTimeParseException {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ServletConstants.LOGDATEFORMAT);
 		LocalDate inputDate = LocalDate.parse(dateString, formatter);
 		LocalDate currentDate = LocalDate.now();
 		return ChronoUnit.DAYS.between(inputDate, currentDate);
-	}
-
-	public static void logOutput(Object object, int id) {
-		String value;
-		if (object instanceof String) {
-			value = (String) object;
-		} else {
-			value = object.toString();
-		}
-		log("OUTPUT " + id + " : " + value);
 	}
 
 	public static void logError(Throwable th) {
@@ -1094,51 +996,6 @@ public abstract class ServletUtilities {
 			logError(e);
 		}
 		return callId;
-	}
-
-	public static int logCall(String method, String clazz, String path, JSONObject params) {
-		int callId = getNewCallID();
-		log("CALL " + callId + ": " + method + " "+ clazz + "(" + path + ") " + params);
-		return callId;
-	}
-
-	public static int logCall(String method, String clazz, String path, Map<String, String[]> params) {
-		return logCall(method, clazz, path, mapToJSON(params));
-	}
-
-	public static JSONObject mapToJSON(Map<String, String[]> map) {
-		JSONObject job = new JSONObject();
-		for (String key : map.keySet()) {
-			try {
-				String[] vals = map.get(key);
-				if (vals.length == 1) {
-					job.put(key, vals[0]);
-				} else {
-					JSONArray jarr = new JSONArray(vals);
-					job.put(key, jarr);
-				}
-			} catch (JSONException e) {
-				logError(e);
-			}
-		}
-		return job;
-	}
-
-	public static Map<String, String[]>  jsonToMap(JSONObject map) {
-		Map<String, String[]> parameterMap = new HashMap<String, String[]>();
-		for (String key: map.keySet()) {
-			if (map.get(key) instanceof JSONArray) {
-				JSONArray array = map.getJSONArray(key);
-				String[] values = new String[array.length()];
-				for (int i = 0; i<array.length(); i++) {
-					values[i] = array.get(i).toString();
-				}
-				parameterMap.put(key, values);
-			} else {
-				parameterMap.put(key, new String[]{map.get(key).toString()});
-			}
-		}
-		return parameterMap;
 	}
 
 	public static JSONArray getAvailableParams(List<? extends Fragment> paramfragments) {
@@ -1210,21 +1067,5 @@ public abstract class ServletUtilities {
 		}
 
 		return result;
-	}
-
-	public static JSONObject extractJSON(HttpServletRequest request) throws IOException, JSONException {
-        StringBuilder sb = new StringBuilder();
-        try (BufferedReader reader = request.getReader()) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                sb.append(line);
-            }
-        }
-
-        String body = sb.toString().trim();
-        if (body.isEmpty()) {
-            return new JSONObject(); // no content
-        }
-        return new JSONObject(body);
 	}
 }

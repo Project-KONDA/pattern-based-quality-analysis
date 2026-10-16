@@ -2,10 +2,8 @@ package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
 import java.util.Map;
-
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
@@ -16,7 +14,12 @@ import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
-public class ConstraintCopyServlet extends HttpServlet {
+public class ConstraintCopyServlet extends QPMHttpServlet {
+
+	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_MANAGEMENT;
+	}
 
 	// PUT .. /constraint/copy    /<technology>/<constraintID>
 
@@ -24,22 +27,22 @@ public class ConstraintCopyServlet extends HttpServlet {
 	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int callId = ServletUtilities.logCall("PUT", this.getClass().getName(), path, params);
+		int callId = logCall("PUT", this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyPut(path, params);
-			ServletUtilities.putResponse(response, callId, result);
+			putResponse(response, callId, result);
 		}
 		catch (FailedServletCallException e) {
 	        if (e.getMessage().startsWith("404")) {
-				ServletUtilities.putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
+				putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
 			} else if (e.getMessage().startsWith("409")) {
-				ServletUtilities.putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_CONFLICT);
+				putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_CONFLICT);
 			} else {
-				ServletUtilities.putResponseError(response, callId, e, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+				putResponseError(response, callId, e, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			}
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+			putResponseError(response, callId, e);
 		}
 	}
 

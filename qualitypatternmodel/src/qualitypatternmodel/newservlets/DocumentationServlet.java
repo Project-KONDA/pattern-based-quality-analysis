@@ -4,14 +4,13 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 @SuppressWarnings("serial")
-public class DocumentationServlet extends HttpServlet {
+public class DocumentationServlet extends QPMHttpServlet {
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -28,7 +27,7 @@ public class DocumentationServlet extends HttpServlet {
 	    	response.getWriter().flush();
 		} catch (Exception e) {
 //			ServletUtilities.putResponseError(response, callId, e);
-			ServletUtilities.putResponseError(response, -1, e);
+			putResponseError(response, -1, e);
 		}
 	}
 
