@@ -406,13 +406,13 @@ public class APICallTests {
 	public void testBasics()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		String constriantID = newConstraint();
-		assertNotNull(constriantID);
-
 		JSONObject constraint = getConstraint(constriantID);
-		assertPatternJSONObject(constraint);
 		JSONObject constraint2 = getConstraints(new String[]{constriantID});
-		assertPatternJSONObject(constraint2.getJSONObject(constriantID));
 		deleteConstraint(constriantID);
+		
+		assertNotNull(constriantID);
+		assertPatternJSONObject(constraint);
+		assertPatternJSONObject(constraint2.getJSONObject(constriantID));
 		assertThrows(FailedServletCallException.class, () -> {
 			getConstraint(constriantID);
 		});
@@ -423,9 +423,9 @@ public class APICallTests {
 		String constraint3 = newConstraint();
 		String constraint4 = newConstraint();
 		JSONObject constraints = getConstraints(new String[] {constraint3, constraint4});
-		assert(constraints.has(constraint3) && constraints.has(constraint4) && !constraints.has(ConstantsJSON.FAILED));
 		deleteConstraints(new String[] {constraint3, constraint4});
 		JSONObject constraints2 = getConstraints(new String[] {constraint3, constraint4});
+		assert(constraints.has(constraint3) && constraints.has(constraint4) && !constraints.has(ConstantsJSON.FAILED));
 		assert(!constraints2.has(constraint3) && !constraints2.has(constraint4) && constraints2.has(ConstantsJSON.FAILED));
 	}
 
@@ -498,31 +498,36 @@ public class APICallTests {
 		String dbname2 = "db2";
 
 		JSONObject nodb = ConstraintDatabaseServlet.applyGet("/xml/" + constraintID, getEmptyParams());
-		assert (!nodb.has(ConstantsJSON.DATABASE));
-
 		Map<String, String[]> params1 = getEmptyParams();
 		params1.put(ConstantsJSON.DATABASE, new String[] { dbname1 });
 		JSONObject db1 = ConstraintDatabaseServlet.applyPost("/xml/" + constraintID, params1);
+		
+		JSONObject db1get = ConstraintDatabaseServlet.applyGet("/xml/" + constraintID, getEmptyParams());
+		
+		Map<String, String[]> params2 = getEmptyParams();
+		params2.put(ConstantsJSON.DATABASE, new String[] { dbname2 });
+		JSONObject db2 = ConstraintDatabaseServlet.applyPost("/xml/" + constraintID, params2);
+		
+		JSONObject db2get = ConstraintDatabaseServlet.applyGet("/xml/" + constraintID, getEmptyParams());
+		
+		deleteConstraint(constraintID);
+		
+		
+		assert (!nodb.has(ConstantsJSON.DATABASE));
+
 		assert (db1.has(ConstantsJSON.CONSTRAINT_ID) && db1.getString(ConstantsJSON.CONSTRAINT_ID).equals(constraintID));
 		assert (db1.has(ConstantsJSON.DATABASE) && db1.getString(ConstantsJSON.DATABASE).equals(dbname1));
 		assert (!db1.has(ConstantsJSON.OLD_DATABASE));
 		assert (db1.has(ConstantsJSON.LASTSAVED));
 
-		JSONObject db1get = ConstraintDatabaseServlet.applyGet("/xml/" + constraintID, getEmptyParams());
 		assert (db1get.has(ConstantsJSON.DATABASE) && db1get.getString(ConstantsJSON.DATABASE).equals(dbname1));
 
-		Map<String, String[]> params2 = getEmptyParams();
-		params2.put(ConstantsJSON.DATABASE, new String[] { dbname2 });
-		JSONObject db2 = ConstraintDatabaseServlet.applyPost("/xml/" + constraintID, params2);
 		assert (db2.has(ConstantsJSON.CONSTRAINT_ID) && db2.getString(ConstantsJSON.CONSTRAINT_ID).equals(constraintID));
 		assert (db2.has(ConstantsJSON.DATABASE) && db2.getString(ConstantsJSON.DATABASE).equals(dbname2));
 		assert (db2.has(ConstantsJSON.OLD_DATABASE) && db2.getString(ConstantsJSON.OLD_DATABASE).equals(dbname1));
 		assert (db2.has(ConstantsJSON.LASTSAVED));
 
-		JSONObject db2get = ConstraintDatabaseServlet.applyGet("/xml/" + constraintID, getEmptyParams());
 		assert (db2get.has(ConstantsJSON.DATABASE) && db2get.getString(ConstantsJSON.DATABASE).equals(dbname2));
-
-		deleteConstraint(constraintID);
 	}
 
 	@Test
@@ -533,31 +538,32 @@ public class APICallTests {
 		String dmname2 = "dm2";
 
 		JSONObject nodm = ConstraintDatabaseServlet.applyGet("/xml/" + constraintID, getEmptyParams());
-		assert (!nodm.has(ConstantsJSON.DATAMODEL));
-
 		Map<String, String[]> params1 = getEmptyParams();
 		params1.put(ConstantsJSON.DATAMODEL, new String[] { dmname1 });
 		JSONObject dm1 = ConstraintDataModelServlet.applyPost("/xml/" + constraintID, params1);
+		JSONObject dm1get = ConstraintDataModelServlet.applyGet("/xml/" + constraintID, getEmptyParams());
+		Map<String, String[]> params2 = getEmptyParams();
+		params2.put(ConstantsJSON.DATAMODEL, new String[] { dmname2 });
+		JSONObject dm2 = ConstraintDataModelServlet.applyPost("/xml/" + constraintID, params2);
+		JSONObject db2get = ConstraintDataModelServlet.applyGet("/xml/" + constraintID, getEmptyParams());
+		deleteConstraint(constraintID);
+		
+		assert (dm2.has(ConstantsJSON.CONSTRAINT_ID) && dm2.getString(ConstantsJSON.CONSTRAINT_ID).equals(constraintID));
+		
 		assert (dm1.has(ConstantsJSON.CONSTRAINT_ID) && dm1.getString(ConstantsJSON.CONSTRAINT_ID).equals(constraintID));
+		assert (!nodm.has(ConstantsJSON.DATAMODEL));
+
 		assert (dm1.has(ConstantsJSON.DATAMODEL) && dm1.getString(ConstantsJSON.DATAMODEL).equals(dmname1));
 		assert (!dm1.has(ConstantsJSON.OLD_DATABASE));
 		assert (dm1.has(ConstantsJSON.LASTSAVED));
 
-		JSONObject dm1get = ConstraintDataModelServlet.applyGet("/xml/" + constraintID, getEmptyParams());
 		assert (dm1get.has(ConstantsJSON.DATAMODEL) && dm1get.getString(ConstantsJSON.DATAMODEL).equals(dmname1));
 
-		Map<String, String[]> params2 = getEmptyParams();
-		params2.put(ConstantsJSON.DATAMODEL, new String[] { dmname2 });
-		JSONObject dm2 = ConstraintDataModelServlet.applyPost("/xml/" + constraintID, params2);
-		assert (dm2.has(ConstantsJSON.CONSTRAINT_ID) && dm2.getString(ConstantsJSON.CONSTRAINT_ID).equals(constraintID));
 		assert (dm2.has(ConstantsJSON.DATAMODEL) && dm2.getString(ConstantsJSON.DATAMODEL).equals(dmname2));
 		assert (dm2.has(ConstantsJSON.OLD_DATAMODEL) && dm2.getString(ConstantsJSON.OLD_DATAMODEL).equals(dmname1));
 		assert (dm2.has(ConstantsJSON.LASTSAVED));
 
-		JSONObject db2get = ConstraintDataModelServlet.applyGet("/xml/" + constraintID, getEmptyParams());
 		assert (db2get.has(ConstantsJSON.DATAMODEL) && db2get.getString(ConstantsJSON.DATAMODEL).equals(dmname2));
-
-		deleteConstraint(constraintID);
 	}
 
 	@Test
@@ -572,9 +578,6 @@ public class APICallTests {
 		String[] arr012 = new String[] { lst[0], lst[1], lst[2] };
 		params1.put(ConstantsJSON.TAG, arr012);
 		JSONObject tags1 = ConstraintTagServlet.applyPost("/xml/" + constraintID, params1);
-		assert (tags1.has(ConstantsJSON.SUCCESS)); // all 3 tags succeded
-		assert (tags1.getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(arr012)));
-		assert (!tags1.has(ConstantsJSON.FAILED));
 
 		// delete tags 1-3 to c1 and c2
 		Map<String, String[]> params2 = getEmptyParams();
@@ -583,6 +586,25 @@ public class APICallTests {
 		params2.put(ConstantsJSON.TAG, arr123);
 		params2.put(ConstantsJSON.CONSTRAINT_IDS, new String[] { constraintID, constraintID2 });
 		JSONObject tags2 = ConstraintTagServlet.applyDelete("/xml", params2);
+
+		// add all 4 tags to both constraints
+		Map<String, String[]> params3 = getEmptyParams();
+		params3.put(ConstantsJSON.TAG, lst);
+		params3.put(ConstantsJSON.CONSTRAINT_IDS, new String[] { constraintID, constraintID2, constraintID2, constraintID2 });
+		JSONObject tags3 = ConstraintTagServlet.applyPost("/xml/", params3);
+		// delete all tags from constraint 1, all tags added in call 3
+		Map<String, String[]> params4 = getEmptyParams();
+		params4.put(ConstantsJSON.TAG, lst);
+		JSONObject tags4 = ConstraintTagServlet.applyDelete("/xml/" + constraintID, params4);
+		// delete all tags from constraint 2, all tags added in call 3
+		JSONObject tags5 = ConstraintTagServlet.applyDelete("/xml/" + constraintID2, params4);
+		deleteConstraint(constraintID);
+		deleteConstraint(constraintID2);
+		
+		
+		assert (tags1.has(ConstantsJSON.SUCCESS)); // all 3 tags succeded
+		assert (tags1.getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(arr012)));
+		assert (!tags1.has(ConstantsJSON.FAILED));
 		assert(tags2.has(constraintID)); // tags 1&2 succeded, tag 3 failed
 		assert (tags2.getJSONObject(constraintID).has(ConstantsJSON.SUCCESS));
 		assert (tags2.getJSONObject(constraintID).getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(arr12)));
@@ -591,34 +613,17 @@ public class APICallTests {
 		assert(tags2.has(constraintID2)); // all 3 tags failed
 		assert (tags2.getJSONObject(constraintID2).has(ConstantsJSON.FAILED));
 		assert (!tags2.getJSONObject(constraintID2).has(ConstantsJSON.SUCCESS)); 
-
-		// add all 4 tags to both constraints
-		Map<String, String[]> params3 = getEmptyParams();
-		params3.put(ConstantsJSON.TAG, lst);
-		params3.put(ConstantsJSON.CONSTRAINT_IDS, new String[] { constraintID, constraintID2, constraintID2, constraintID2 });
-		JSONObject tags3 = ConstraintTagServlet.applyPost("/xml/", params3);
 		assert (tags3.getJSONObject(constraintID).has(ConstantsJSON.SUCCESS));
 		assert (tags3.getJSONObject(constraintID).getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(arr123)));
 		assert (tags3.getJSONObject(constraintID).has(ConstantsJSON.FAILED)); 
 		assert (tags3.getJSONObject(constraintID).getJSONObject(ConstantsJSON.FAILED).toString().contains(lst[0] + "\":\"tag already added\""));
 		assert (tags3.getJSONObject(constraintID2).has(ConstantsJSON.SUCCESS));
 		assert (!tags3.getJSONObject(constraintID2).has(ConstantsJSON.FAILED));
-
-		// delete all tags from constraint 1, all tags added in call 3
-		Map<String, String[]> params4 = getEmptyParams();
-		params4.put(ConstantsJSON.TAG, lst);
-		JSONObject tags4 = ConstraintTagServlet.applyDelete("/xml/" + constraintID, params4);
 		assert (tags4.has(ConstantsJSON.SUCCESS) && tags4.getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(lst)));
 		assert (!tags4.has(ConstantsJSON.FAILED));
-
-		// delete all tags from constraint 2, all tags added in call 3
-		JSONObject tags5 = ConstraintTagServlet.applyDelete("/xml/" + constraintID2, params4);
 		assert (tags5.has(ConstantsJSON.SUCCESS));
 		assert (tags5.getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(lst)));
 		assert (!tags5.has(ConstantsJSON.FAILED));
-		
-		deleteConstraint(constraintID);
-		deleteConstraint(constraintID2);
 	}
 
 	@Test
@@ -627,13 +632,13 @@ public class APICallTests {
 		String constraintID = newConstraint();
 		String newName = UUID.randomUUID().toString();
 		JSONObject json = getConstraint(constraintID);
-		assert (json.has("name") && !json.getString("name").equals(newName));
 		Map<String, String[]> param = getEmptyParams();
 		param.put("name", new String[] { newName });
 		ConstraintNameServlet.applyPost("/xml/" + constraintID, param);
 		JSONObject jsonNamed = getConstraint(constraintID);
-		assert (jsonNamed.has("name") && jsonNamed.getString("name").equals(newName));
 		deleteConstraint(constraintID);
+		assert (json.has("name") && !json.getString("name").equals(newName));
+		assert (jsonNamed.has("name") && jsonNamed.getString("name").equals(newName));
 	}
 
 	@Test
@@ -643,18 +648,13 @@ public class APICallTests {
 		JSONObject jsonDefault = getConstraint(constraintID);
 
 		JSONObject jsonCopy = ConstraintCopyServlet.applyPut("/xml/" + constraintID, getEmptyParams());
-		String constraintIDCopy = null;
-		try {
-			constraintIDCopy = jsonCopy.getString(ConstantsJSON.CONSTRAINT_ID);
-			jsonDefault.remove(ConstantsJSON.CONSTRAINT_ID);
-			jsonDefault.put(ConstantsJSON.CONSTRAINT_ID, constraintIDCopy);
-			assertSimilarJSONObjects(jsonDefault, jsonCopy);
-
-			deleteConstraint(constraintID);
-			deleteConstraint(constraintIDCopy);
-		} catch (JSONException e) {
-			assert (false);
-		}
+		String constraintIDCopy = jsonCopy.getString(ConstantsJSON.CONSTRAINT_ID);
+		deleteConstraint(constraintID);
+		deleteConstraint(constraintIDCopy);
+		
+		jsonDefault.remove(ConstantsJSON.CONSTRAINT_ID);
+		jsonDefault.put(ConstantsJSON.CONSTRAINT_ID, constraintIDCopy);
+		assertSimilarJSONObjects(jsonDefault, jsonCopy);
 	}
 
 	@Test
@@ -669,18 +669,18 @@ public class APICallTests {
 		String uuidstring = UUID.randomUUID().toString();
 		params1.put(uuidstring, new String[] { "value" });
 		JSONObject get1 = ConstraintServlet.applyPost("/xml/" + constraintId, params1);
-		assert (get1.has(ConstantsJSON.SUCCESS) && get1.getJSONArray(ConstantsJSON.SUCCESS)
-				.similar(new JSONArray(new String[] { "XmlPath_Element_0", ConstantsJSON.DATABASE, ConstantsJSON.DATAMODEL })));
+		JSONObject get = getConstraint(constraintId);
+		deleteConstraint(constraintId);
+		assert (get1.has(ConstantsJSON.SUCCESS));
+		assert (get1.getJSONArray(ConstantsJSON.SUCCESS).similar(new JSONArray(new String[] { "XmlPath_Element_0", ConstantsJSON.DATABASE, ConstantsJSON.DATAMODEL })));
 		assert (get1.has(ConstantsJSON.FAILED) && get1.getJSONArray(ConstantsJSON.FAILED).getJSONObject(0).has(uuidstring));
-		assert (get1.has("available") && get1.getJSONArray("available").toList()
-				.containsAll(Arrays.asList(ConstantsJSON.DATABASE, ConstantsJSON.DATAMODEL, "namespace", "name", "XmlPath_Element_0")));
+		assert (get1.has("available"));
+		assert (get1.getJSONArray("available").toList().containsAll(Arrays.asList(ConstantsJSON.DATABASE, ConstantsJSON.DATAMODEL, "namespace", "name", "XmlPath_Element_0")));
 		assert (get1.has(ConstantsJSON.LASTSAVED));
 
-		JSONObject get = getConstraint(constraintId);
 		assert (get.has(ConstantsJSON.DATABASE) && get.getString(ConstantsJSON.DATABASE).equals("value"));
 		assert (get.has(ConstantsJSON.DATAMODEL) && get.getString(ConstantsJSON.DATAMODEL).equals("value"));
 
-		deleteConstraint(constraintId);
 	}
 
 	@Test
@@ -689,6 +689,7 @@ public class APICallTests {
 		JSONObject listTemplate = PatternListServlet.applyGet("/xml" + "/all", getEmptyParams());
 		int templateNo = EMFModelLoad.getFilesInDirectory(folder + "/templates/xml/abstract-patterns", Constants.EXTENSION).size();
 		templateNo += EMFModelLoad.getFilesInDirectory(folder + "/templates/xml/concrete-patterns", Constants.EXTENSION).size();
+
 		assert (templateNo > 0);
 		assert (listTemplate.has(ConstantsJSON.SIZE) && listTemplate.getInt(ConstantsJSON.SIZE) == templateNo);
 		assert (listTemplate.has(ConstantsJSON.IDS) && listTemplate.getJSONArray(ConstantsJSON.IDS).length() == templateNo);
@@ -702,6 +703,7 @@ public class APICallTests {
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		JSONObject listTemplate = PatternListServlet.applyGet("/xml" + "/template", getEmptyParams());
 		int templateNo = EMFModelLoad.getFilesInDirectory(folder + "/templates/xml/abstract-patterns", Constants.EXTENSION).size();
+
 		assert (templateNo > 0);
 		assert (listTemplate.has(ConstantsJSON.SIZE) && listTemplate.getInt(ConstantsJSON.SIZE) == templateNo);
 		assert (listTemplate.has(ConstantsJSON.IDS) && listTemplate.getJSONArray(ConstantsJSON.IDS).length() == templateNo);
@@ -735,19 +737,18 @@ public class APICallTests {
 		int n = 10;
 		for (int i = 0; i < n; i++)
 			ids.add(newConstraint());
-
 		JSONObject listConcrete = PatternListServlet.applyGet("/xml" + "/concrete", getEmptyParams());
+		JSONObject listReadyEmpty = PatternListServlet.applyGet("/xml" + "/ready", getEmptyParams());
+		for (String str : ids)
+			deleteConstraint(str);
+
 		assert (listConcrete.getInt(ConstantsJSON.SIZE) == 10);
 		assert (listConcrete.has(ConstantsJSON.IDS) && listConcrete.getJSONArray(ConstantsJSON.IDS).length() == 10);
 		assert (listConcrete.has(ConstantsJSON.TEMPLATES) && listConcrete.getJSONArray(ConstantsJSON.TEMPLATES).length() == 10);
 
-		JSONObject listReadyEmpty = PatternListServlet.applyGet("/xml" + "/ready", getEmptyParams());
 		assert (listReadyEmpty.getInt(ConstantsJSON.SIZE) == 0);
 		assert (listReadyEmpty.has(ConstantsJSON.IDS) && listReadyEmpty.getJSONArray(ConstantsJSON.IDS).isEmpty());
 		assert (listReadyEmpty.has(ConstantsJSON.TEMPLATES) && listReadyEmpty.getJSONArray(ConstantsJSON.TEMPLATES).isEmpty());
-
-		for (String str : ids)
-			deleteConstraint(str);
 	}
 
 	@Test
@@ -766,11 +767,11 @@ public class APICallTests {
 		Map<String, String[]> params1 = getEmptyParams();
 		params1.put("constraintIDs", new String[] { constraintID });
 		JSONObject apply2 = ConstraintMqafServlet.applyGet2("/xml", params1);
+		deleteConstraint(constraintID);
 
 		assertSimilarJSONObjects(apply1, apply2);
 		assertMQAFObject(apply1);
 		assertMQAFObject(apply2);
-		deleteConstraint(constraintID);
 	}
 
 	@Test
@@ -789,11 +790,11 @@ public class APICallTests {
 		Map<String, String[]> params1 = getEmptyParams();
 		params1.put(ConstantsJSON.CONSTRAINTS, new String[] { constraintID });
 		JSONObject apply2 = ConstraintQueryServlet.applyGet2("/xml", params1);
+		deleteConstraint(constraintID);
 
 		assertSimilarJSONObjects(apply1, apply2);
 		assertQueryObject(apply1);
 		assertQueryObject(apply2);
-		deleteConstraint(constraintID);
 	}
 
 	@Test
@@ -811,8 +812,11 @@ public class APICallTests {
 		params2.put("constraintIDs", new String[] { constraintID });
 		params2.put("files", new String[] { "lido.xml" });
 		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
-		assertExecuteResultObject(result, true);
 		deleteConstraint(constraintID);
+
+		assert(result.has(ConstantsJSON.STATUS));
+		assert(result.getString(ConstantsJSON.STATUS).equals(ConstantsJSON.STATUS_SUCCESS));
+		assertExecuteResultObject(result, true);
 	}
 
 	@Test
@@ -830,8 +834,9 @@ public class APICallTests {
 		params2.put("constraintIDs", constraintID);
 		params2.put("files", "lido.xml");
 		JSONObject result = ConstraintExecuteServlet.applyPost("/xml", params2);
-		assertExecuteResultObject(result, true);
 		deleteConstraint(constraintID);
+
+		assertExecuteResultObject(result, true);
 	}
 
 	@Test
@@ -844,6 +849,7 @@ public class APICallTests {
 		Map<String, String[]> params2 = getEmptyParams();
 		params2.put(ConstantsJSON.VARIANTS, new String[]{"false"});
 		JSONObject variantEmpty = TemplateVariantServlet.applyGet("/xml/Card_xml", params2);
+
 		assert(!variantEmpty.has(ConstantsJSON.VARIANTS));
 		assert(variantEmpty.has(ConstantsJSON.PARAMETER));
 	}
@@ -860,15 +866,15 @@ public class APICallTests {
 		Map<String, String[]> params = getEmptyParams();
 		params.put("variants", new String[] {variantjsonstring});
 		TemplateVariantServlet.applyPut("/xml/Card_xml", params);
-		variant = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
-		assertVariantObjectWith(variant, variantname);
+		JSONObject variant2 = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
+		assertVariantObjectWith(variant2, variantname);
 
 		
 		Map<String, String[]> params1 = getEmptyParams();
 		params1.put("variants", new String[] {variantname});
 		TemplateVariantServlet.applyDelete("/xml/Card_xml", params1);
-		variant = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
-		assertVariantObjectWithout(variant, variantname);
+		JSONObject variant3 = TemplateVariantServlet.applyGet("/xml/Card_xml", getEmptyParams());
+		assertVariantObjectWithout(variant3, variantname);
 	}
 
 	@Test
@@ -879,7 +885,7 @@ public class APICallTests {
 		assert(file != null);
 		assert(file.isFile());
 		assert(file.length() > 10);
-		assert(file.getName().equals(constraintID + Constants.INSTANCE_FILE_ENDING));
+		assert(file.getName().equals(constraintID + Constants.INSTANCE_FILE_ENDING)); 
 		deleteConstraint(constraintID);
 	}
 
@@ -889,10 +895,10 @@ public class APICallTests {
 		String constraintID = newConstraint("Card_xml", "default");
 		File file = ConstraintDownloadServlet.applyGet("/xml/" + constraintID, getEmptyParams());
 		JSONObject object = ConstraintUploadServlet.applyPost(null, getEmptyParams(), file);
-		assertPatternJSONObject(object);
 		String constraintIDnew = object.getString(ConstantsJSON.CONSTRAINT_ID);
 		deleteConstraint(constraintID);
 		deleteConstraint(constraintIDnew);
+		assertPatternJSONObject(object);
 	}
 
 	@Test
@@ -933,43 +939,24 @@ public class APICallTests {
 		paramsFilter2Group2.put(ConstantsJSON.API_FILTER_BY, new String[]{"{'custom.type': 'comp', 'custom.scope':'hierarchical'}"});
 		JSONObject variantsFilter2Group2 = VariantsServlet.applyGet("/xml/", paramsFilter2Group2);
 		assertVariantArrayGrouped(variantsFilter2Group2);
-		
-		if (true) { // are values updated from json?
 
-//			System.out.println(variants.getInt(ConstantsJSON.SIZE));
-//			System.out.println(variantsGrouped.getInt(ConstantsJSON.SIZE));
-//			System.out.println(variantsGrouped2.getInt(ConstantsJSON.SIZE));
-//			System.out.println(variantsFilter.getInt(ConstantsJSON.SIZE));
-//			System.out.println(variantsFilter2.getInt(ConstantsJSON.SIZE));
-//			System.out.println(variantsFilterGroup.getInt(ConstantsJSON.SIZE));
-//			System.out.println(variantsFilter2Group2.getInt(ConstantsJSON.SIZE));
+		// SIZE
+		assert(variants.getInt(ConstantsJSON.SIZE) >= 91);
+		assert(variantsGrouped.getInt(ConstantsJSON.SIZE) >= 50);
+		assert(variantsGrouped2.getInt(ConstantsJSON.SIZE) >= 50);
+		assert(variantsFilter.getInt(ConstantsJSON.SIZE) >= 20);
+		assert(variantsFilter2.getInt(ConstantsJSON.SIZE) >= 1);
+		assert(variantsFilterGroup.getInt(ConstantsJSON.SIZE) == 0);
+		assert(variantsFilter2Group2.getInt(ConstantsJSON.SIZE) >= 1);
 
-//			System.out.println(variants.getInt(ConstantsJSON.TOTAL));
-//			System.out.println(variantsGrouped.getInt(ConstantsJSON.TOTAL));
-//			System.out.println(variantsGrouped2.getInt(ConstantsJSON.TOTAL));
-//			System.out.println(variantsFilter.getInt(ConstantsJSON.TOTAL));
-//			System.out.println(variantsFilter2.getInt(ConstantsJSON.TOTAL));
-//			System.out.println(variantsFilterGroup.getInt(ConstantsJSON.TOTAL));
-//			System.out.println(variantsFilter2Group2.getInt(ConstantsJSON.TOTAL));
-
-			// SIZE
-			assert(variants.getInt(ConstantsJSON.SIZE) >= 91);
-			assert(variantsGrouped.getInt(ConstantsJSON.SIZE) >= 50);
-			assert(variantsGrouped2.getInt(ConstantsJSON.SIZE) >= 50);
-			assert(variantsFilter.getInt(ConstantsJSON.SIZE) >= 20);
-			assert(variantsFilter2.getInt(ConstantsJSON.SIZE) >= 1);
-			assert(variantsFilterGroup.getInt(ConstantsJSON.SIZE) == 0);
-			assert(variantsFilter2Group2.getInt(ConstantsJSON.SIZE) >= 1);
-
-			// TOTAL
-			assert(variants.getInt(ConstantsJSON.TOTAL) >= 50);
-			assert(variantsGrouped.getInt(ConstantsJSON.TOTAL) >= 50);
-			assert(variantsGrouped2.getInt(ConstantsJSON.TOTAL) >= 50);
-			assert(variantsFilter.getInt(ConstantsJSON.TOTAL) >= 20);
-			assert(variantsFilter2.getInt(ConstantsJSON.TOTAL) >= 1);
-			assert(variantsFilterGroup.getInt(ConstantsJSON.TOTAL) == 0);
-			assert(variantsFilter2Group2.getInt(ConstantsJSON.TOTAL) >= 1);
-		}
+		// TOTAL
+		assert(variants.getInt(ConstantsJSON.TOTAL) >= 50);
+		assert(variantsGrouped.getInt(ConstantsJSON.TOTAL) >= 50);
+		assert(variantsGrouped2.getInt(ConstantsJSON.TOTAL) >= 50);
+		assert(variantsFilter.getInt(ConstantsJSON.TOTAL) >= 20);
+		assert(variantsFilter2.getInt(ConstantsJSON.TOTAL) >= 1);
+		assert(variantsFilterGroup.getInt(ConstantsJSON.TOTAL) == 0);
+		assert(variantsFilter2Group2.getInt(ConstantsJSON.TOTAL) >= 1);
 	}
 
 	@Test
