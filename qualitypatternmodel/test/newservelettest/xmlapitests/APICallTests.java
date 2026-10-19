@@ -280,6 +280,9 @@ public class APICallTests {
 	}
 
 	static void assertExecuteResultObject(JSONObject resultObject, Boolean forceResult) {
+		assertExecuteResultObject(resultObject, forceResult, true);
+	}
+	static void assertExecuteResultObject(JSONObject resultObject, Boolean forceResult, Boolean valid) {
 		assert(resultObject.has(ConstantsJSON.RESULT));
 		assert(resultObject.has(ConstantsJSON.TOTAL_FINDINGS));
 		assert(resultObject.has(ConstantsJSON.TOTAL_INCIDENCES));
@@ -289,25 +292,28 @@ public class APICallTests {
 		assert(resultObject.has(ConstantsJSON.CONSTRAINT_IDS));
 		assert(resultObject.has(ConstantsJSON.CONSTRAINTSIZE));
 		assert(resultObject.has(ConstantsJSON.DURATION));
+		assert(resultObject.has(ConstantsJSON.STATUS));
 
-		assert(!resultObject.has(ConstantsJSON.FAILEDFILES));
-		assert(!resultObject.has(ConstantsJSON.FAILEDCONSTRAINTS));
+		if (valid) {
+			assert(!resultObject.has(ConstantsJSON.FAILEDFILES));
+			assert(!resultObject.has(ConstantsJSON.FAILEDCONSTRAINTS));
 
-		JSONArray result = resultObject.getJSONArray(ConstantsJSON.RESULT);
-		assert(result.length() > 0);
-		for (int i = 0; i < result.length(); i++) {
-			JSONObject object = result.getJSONObject(i);
-			assert(object.has(ConstantsJSON.CONSTRAINT_ID));
-			assert(object.has(ConstantsJSON.CONSTRAINT_NAME));
-			assert(object.has(ConstantsJSON.FILE));
-			assert(object.has(ConstantsJSON.INCIDENTS));
-			assert(object.has(ConstantsJSON.TOTAL_FINDINGS));
-			assert(object.has(ConstantsJSON.TOTAL_INCIDENCES));
-			assert(object.has(ConstantsJSON.TOTAL_COMPLIANCES));
-//			assert(object.has(ConstantsJSON.TECHNOLOGY));
-//			assert(object.has(ConstantsJSON.LANGUAGE));
-			JSONArray incidents = object.getJSONArray(ConstantsJSON.INCIDENTS);
-			assert(!forceResult || (incidents.length() > 0));
+			JSONArray result = resultObject.getJSONArray(ConstantsJSON.RESULT);
+			assert(result.length() > 0);
+			for (int i = 0; i < result.length(); i++) {
+				JSONObject object = result.getJSONObject(i);
+				assert(object.has(ConstantsJSON.CONSTRAINT_ID));
+				assert(object.has(ConstantsJSON.CONSTRAINT_NAME));
+				assert(object.has(ConstantsJSON.FILE));
+				assert(object.has(ConstantsJSON.INCIDENTS));
+				assert(object.has(ConstantsJSON.TOTAL_FINDINGS));
+				assert(object.has(ConstantsJSON.TOTAL_INCIDENCES));
+				assert(object.has(ConstantsJSON.TOTAL_COMPLIANCES));
+//				assert(object.has(ConstantsJSON.TECHNOLOGY));
+//				assert(object.has(ConstantsJSON.LANGUAGE));
+				JSONArray incidents = object.getJSONArray(ConstantsJSON.INCIDENTS);
+				assert(!forceResult || (incidents.length() > 0));
+			}
 		}
 	}
 
@@ -808,15 +814,44 @@ public class APICallTests {
 		params.put("XmlPath_Element_3", new String[] { "/*/*/*/*/*/*" });
 		ConstraintServlet.applyPost("/xml/" + constraintID, params);
 
+		JSONObject[][] results = new JSONObject[3][3];
+		String[][] files = new String[][] { 
+				new String[] { "lido.xml" }, 
+				new String[] { UUID.randomUUID().toString() }, 
+				new String[] { "lido.xml", UUID.randomUUID().toString()}};
+		String[][] constraints = new String[][] { 
+				new String[] { constraintID }, 
+				new String[] { UUID.randomUUID().toString() }, 
+				new String[] { constraintID, UUID.randomUUID().toString()}};
+
 		Map<String, String[]> params2 = getEmptyParams();
-		params2.put("constraintIDs", new String[] { constraintID });
-		params2.put("files", new String[] { "lido.xml" });
-		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
+		for (int i = 0; i<3; i++) {
+			for (int j = 0; j<3; j++) {
+				params2.put("files", files[i]);
+				params2.put("constraintIDs", constraints[j]);
+				results[i][j] = ConstraintExecuteServlet.applyGet("/xml", params2);
+			}
+		}
+
 		deleteConstraint(constraintID);
 
-		assert(result.has(ConstantsJSON.STATUS));
-		assert(result.getString(ConstantsJSON.STATUS).equals(ConstantsJSON.STATUS_SUCCESS));
-		assertExecuteResultObject(result, true);
+		for (int i = 0; i<3; i++) {
+			for (int j = 0; j<3; j++) {
+				JSONObject result = results[i][j];
+				assert(results[i][j].has(ConstantsJSON.STATUS));
+				if (i==0 && j==0) {
+					assertEquals(ConstantsJSON.STATUS_SUCCESS, result.getString(ConstantsJSON.STATUS), i + "/" + j);	
+					assertExecuteResultObject(result, true, false);
+				} else {
+					if (i==1 || j==1) {
+						assertEquals(ConstantsJSON.STATUS_FAILED, result.getString(ConstantsJSON.STATUS), i + "/" + j);							
+					} else {
+						assertEquals(ConstantsJSON.STATUS_PARTIAL, result.getString(ConstantsJSON.STATUS), i + "/" + j);		
+					}
+					assertExecuteResultObject(result, true, false);
+				}
+			}
+		}
 	}
 
 	@Test
