@@ -37,7 +37,6 @@ public class DocumentationServlet extends QPMHttpServlet {
 	}
 
 	static Map<String, String> map = Map.of(
-			null, "openapi.yaml",
 			ServletConstants.ROLE_ALL, "openapi.yaml",
 			ServletConstants.ROLE_MANAGEMENT, "openapi_management.yaml",
 			ServletConstants.ROLE_EXECUTION, "openapi_execution.yaml"
@@ -45,7 +44,7 @@ public class DocumentationServlet extends QPMHttpServlet {
 	
 	@Override
 	public String applyGet (String path, Map<String, String[]> parameterMap) throws UnsupportedEncodingException, IOException {
-        String yamlFilePath = map.getOrDefault(ServletConstants.ROLE, map.get(null));
+        String yamlFilePath = map.getOrDefault(ServletConstants.ROLE, map.get(ServletConstants.ROLE_ALL));
         return new String(Files.readAllBytes(Paths.get(yamlFilePath)), "UTF-8");
 	}
 }
