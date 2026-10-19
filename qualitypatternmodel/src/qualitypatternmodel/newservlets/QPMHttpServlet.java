@@ -12,16 +12,79 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import qualitypatternmodel.exceptions.ConflictServletCallException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
+import qualitypatternmodel.exceptions.ForbiddenServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
+import qualitypatternmodel.exceptions.InternalServletCallException;
+import qualitypatternmodel.utility.ConstantsError;
 
 @SuppressWarnings("serial")
 public abstract class QPMHttpServlet extends HttpServlet {
-
-	protected String getAllowedRole() {
-		return null;
+	
+	@FunctionalInterface
+	public interface ServletCall {
+	    Object apply(String path, Map<String, String[]> params) throws InvalidServletCallException, FailedServletCallException, ForbiddenServletCallException, ConflictServletCallException, InternalServletCallException, IOException;
 	}
+
+	public void handleRequest(HttpServletRequest request, HttpServletResponse response, String method, ServletCall handler) throws IOException {
+		if (isDisabled()) {
+			putResponseUnlogged(response, ConstantsError.SERVLET_CALL_DISABLED, HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+			return;
+		}
+		String path = request.getPathInfo();
+		Map<String, String[]> params = request.getParameterMap();
+		int  callId = logCall(method, this.getClass().getName(), path, params);
+		try {
+			Object result = handler.apply(path, params);
+			putResponse(response, callId, result);
+		}
+		catch (Exception e) {
+			putResponseError(response, callId, e);
+		}
+	}
+	
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	    handleRequest(request, response, "GET", this::applyGet);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	    handleRequest(request, response, "POST", this::applyPost);
+	}
+	
+	@Override
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	    handleRequest(request, response, "PUT", this::applyPut);
+	}
+	
+	@Override
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	    handleRequest(request, response, "DELETE", this::applyDelete);
+	}
+
+	
+	public Object applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, ForbiddenServletCallException, ConflictServletCallException, InternalServletCallException, IOException {
+		throw new ForbiddenServletCallException(ConstantsError.SERVLET_CALL_UNSUPPORTED);
+	}
+	
+	public Object applyPost(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, ForbiddenServletCallException, ConflictServletCallException, InternalServletCallException, IOException {
+		throw new ForbiddenServletCallException(ConstantsError.SERVLET_CALL_UNSUPPORTED);
+	}
+	
+	public Object applyPut(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, ForbiddenServletCallException, ConflictServletCallException, InternalServletCallException, IOException {
+		throw new ForbiddenServletCallException(ConstantsError.SERVLET_CALL_UNSUPPORTED);
+	}
+	
+	public Object applyDelete(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, ForbiddenServletCallException, ConflictServletCallException, InternalServletCallException, IOException {
+		throw new ForbiddenServletCallException(ConstantsError.SERVLET_CALL_UNSUPPORTED);
+	}
+
+	abstract protected String getAllowedRole();
 
     protected boolean isEnabled() {
     	String allowed = getAllowedRole();
@@ -32,16 +95,10 @@ public abstract class QPMHttpServlet extends HttpServlet {
     	return !isEnabled();
     }
 
-	public static void putResponse(HttpServletResponse response, int id, String text) throws IOException {
-		putResponse(response, id, text, HttpServletResponse.SC_OK);
-	}
+    // RESPONSE HANDLING
 
-	public static void putResponse(HttpServletResponse response, int id, JSONArray jsonArray) throws IOException {
-		putResponse(response, id, jsonArray, HttpServletResponse.SC_OK);
-	}
-
-	public static void putResponse(HttpServletResponse response, int id, JSONObject jsonObject) throws IOException {
-		putResponse(response, id, jsonObject, HttpServletResponse.SC_OK);
+	public static void putResponse(HttpServletResponse response, int id, Object obj) throws IOException {
+		putResponse(response, id, obj, HttpServletResponse.SC_OK);
 	}
 
 	public static void putResponseError(HttpServletResponse response, int id, Exception error, int responseCode) throws IOException {
@@ -60,8 +117,17 @@ public abstract class QPMHttpServlet extends HttpServlet {
 		if (error.getClass().equals(InvalidServletCallException.class)) {
 			responseCode = HttpServletResponse.SC_BAD_REQUEST;
 		}
-		if (error.getClass().equals(FailedServletCallException.class)) {
+		else if (error.getClass().equals(FailedServletCallException.class)) {
 			responseCode = HttpServletResponse.SC_NOT_FOUND;
+		}
+		else if (error.getClass().equals(ForbiddenServletCallException.class)) {
+			responseCode = HttpServletResponse.SC_METHOD_NOT_ALLOWED;
+		}
+		else if (error.getClass().equals(ConflictServletCallException.class)) {
+			responseCode = HttpServletResponse.SC_CONFLICT;
+		}
+		else if (error.getClass().equals(InternalServletCallException.class)) {
+			responseCode = HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
 		}
 		QPMHttpServlet.putResponseError(response, id, error, responseCode);
 	}
@@ -123,6 +189,8 @@ public abstract class QPMHttpServlet extends HttpServlet {
 		ServletUtilities.log(text);
 	}
 
+// JSON
+
 	public static Map<String, String[]>  jsonToMap(JSONObject map) {
 		Map<String, String[]> parameterMap = new HashMap<String, String[]>();
 		for (String key: map.keySet()) {
@@ -157,6 +225,8 @@ public abstract class QPMHttpServlet extends HttpServlet {
 		}
 		return job;
 	}
+
+// LOGGING
 
 	public static int logCall(String method, String clazz, String path, Map<String, String[]> params) {
 		return logCall(method, clazz, path, QPMHttpServlet.mapToJSON(params));

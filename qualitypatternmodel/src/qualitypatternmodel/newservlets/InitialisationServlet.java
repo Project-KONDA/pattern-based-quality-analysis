@@ -47,6 +47,11 @@ import qualitypatternmodel.utility.ConstantsJSON;
 public class InitialisationServlet extends QPMHttpServlet {
 
 	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_ALL;
+	}
+
+	@Override
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		initialisation(getServletContext());
@@ -67,20 +72,20 @@ public class InitialisationServlet extends QPMHttpServlet {
 		}
 	}
 
-	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		doGet(request, response);
-	}
-
-	@Override
-	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		doGet(request, response);
-	}
-
-	@Override
-	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		doGet(request, response);
-	}
+//	@Override
+//	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//		doGet(request, response);
+//	}
+//
+//	@Override
+//	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//		doGet(request, response);
+//	}
+//
+//	@Override
+//	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//		doGet(request, response);
+//	}
 
 	public static void initialisation(ServletContext scon) throws ServletException {
 		ServletUtilities.reset();
@@ -487,7 +492,8 @@ public class InitialisationServlet extends QPMHttpServlet {
 	}
 
 
-	public static JSONObject applyGet(String path, Map<String, String[]> params) throws FailedServletCallException {
+	@Override
+	public JSONObject applyGet(String path, Map<String, String[]> params) throws FailedServletCallException {
 		if (path == null || path.equals("") || path.equals("/") || path.equals("/status") || path.equals("/health")) {
 			String version = System.getenv("MAVEN_VERSION");
 			version = (version != null) ? version : "dev";

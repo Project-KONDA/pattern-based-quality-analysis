@@ -37,8 +37,9 @@ public class ConstraintQueryServlet extends QPMHttpServlet {
 			putResponseError(response, callId, e);
 		}
 	}
-	
-	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+
+	@Override
+	public JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (!(pathparts.length == 2 && parameterMap.containsKey(ConstantsJSON.CONSTRAINT_IDS)) && pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint for a constraint:"

@@ -2,11 +2,13 @@ package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
 import java.util.Map;
+
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import qualitypatternmodel.exceptions.ConflictServletCallException;
 import qualitypatternmodel.exceptions.FailedServletCallException;
+import qualitypatternmodel.exceptions.ForbiddenServletCallException;
+import qualitypatternmodel.exceptions.InternalServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.Constants;
@@ -21,32 +23,8 @@ public class ConstraintCopyServlet extends QPMHttpServlet {
 		return ServletConstants.ROLE_MANAGEMENT;
 	}
 
-	// PUT .. /constraint/copy    /<technology>/<constraintID>
-
 	@Override
-	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String path = request.getPathInfo();
-		Map<String, String[]> params = request.getParameterMap();
-		int callId = logCall("PUT", this.getClass().getName(), path, params);
-		try {
-			JSONObject result = applyPut(path, params);
-			putResponse(response, callId, result);
-		}
-		catch (FailedServletCallException e) {
-	        if (e.getMessage().startsWith("404")) {
-				putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
-			} else if (e.getMessage().startsWith("409")) {
-				putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_CONFLICT);
-			} else {
-				putResponseError(response, callId, e, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			}
-		}
-		catch (Exception e) {
-			putResponseError(response, callId, e);
-		}
-	}
-
-	public static JSONObject applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public JSONObject applyPut(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, ForbiddenServletCallException, ConflictServletCallException, InternalServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for copying a constraint: "
@@ -67,7 +45,7 @@ public class ConstraintCopyServlet extends QPMHttpServlet {
 			pattern = ServletUtilities.loadConstraint(technology, oldID);
 		}
 		catch (Exception e) {
-			throw new FailedServletCallException("404 Requested pattern '" + oldID + "' does not exist - " + e.getMessage());
+			throw new FailedServletCallException("Requested pattern '" + oldID + "' does not exist - " + e.getMessage());
 		}
 
 		// Optional: set name
@@ -97,7 +75,7 @@ public class ConstraintCopyServlet extends QPMHttpServlet {
 		ServletUtilities.saveConstraint(technology, newID, pattern);
 
 		if (ServletUtilities.loadConstraint(technology, newID) == null) {
-			throw new FailedServletCallException(ConstantsError.SAVING_FAILED);
+			throw new ConflictServletCallException(ConstantsError.SAVING_FAILED);
 		}
 
 		return ServletUtilities.getPatternJSON(pattern);

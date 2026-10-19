@@ -52,17 +52,17 @@ public class ConstraintExecuteServlet extends QPMHttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
-		JSONObject json;
+		Map<String, String[]> parameterMap = null;
 		try {
-			json = extractJSON(request);
+			parameterMap = jsonToMap(extractJSON(request));
 		} catch (Exception e) {
 	        response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 	        response.getWriter().write("Invalid or empty JSON");
 	        return;
 		}
-		int  callId = logCall("GET", this.getClass().getName(), path, json);
+		int  callId = logCall("GET", this.getClass().getName(), path, parameterMap);
 		try {
-			JSONObject result = applyPost(path, json);
+			JSONObject result = applyGet(path, parameterMap);
 			putResponse(response, callId, result);
 		}
 		catch (Exception e) {
@@ -86,11 +86,9 @@ public class ConstraintExecuteServlet extends QPMHttpServlet {
 	    return new JSONObject(body);
 	}
 
-	public static JSONObject applyPost(String path, JSONObject parameters) throws InvalidServletCallException, FailedServletCallException {
-		return applyGet(path, jsonToMap(parameters));
-	}
-
-	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	// POST .. /constraint/datamodel    /<technology>/<name>    {"datamodel": <datamode-name>}
+	@Override
+	public JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length < 2  || pathparts.length > 2  || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for executing constraints: "

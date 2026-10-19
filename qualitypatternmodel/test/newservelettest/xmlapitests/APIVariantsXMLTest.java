@@ -97,7 +97,7 @@ public class APIVariantsXMLTest {
 		InitialisationServlet.initialisation(context);
 		
 		store = new JSONObject();
-		JSONArray templates = PatternListServlet.applyGet("/xml" + "/template", new HashMap<String, String[]>()).getJSONArray("templates");
+		JSONArray templates = new PatternListServlet().applyGet("/xml" + "/template", new HashMap<String, String[]>()).getJSONArray("templates");
 		for (Object template: templates) {
 			JSONObject obj = (JSONObject) template;
 			JSONArray variants = obj.getJSONArray(ConstantsJSON.VARIANTS);
@@ -155,7 +155,7 @@ public class APIVariantsXMLTest {
 
 	static JSONObject getConstraint(String id)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		return ConstraintServlet.applyGet("/xml/" + id, getEmptyParams());
+		return new ConstraintServlet().applyGet("/xml/" + id, getEmptyParams());
 	}
 
 	// __________ HELPEr FUNCTIONS __________
@@ -208,7 +208,7 @@ public class APIVariantsXMLTest {
 		params1.put(parameterId, new String[] { value });
 		JSONObject result = null;
 		try {
-			result = ConstraintServlet.applyPost("/xml/" + constraintId, params1);
+			result = new ConstraintServlet().applyPost("/xml/" + constraintId, params1);
 		} catch (InvalidServletCallException | FailedServletCallException e) {
 			e.printStackTrace();
 		}
@@ -222,10 +222,10 @@ public class APIVariantsXMLTest {
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		Map<String, String[]> params1 = APICallTests.getEmptyParams();
 		params1.put(ConstantsJSON.CONSTRAINT_IDS, new String[] { constraintID });
-		JSONObject query1 = ConstraintQueryServlet.applyGet("/xml", params1);
+		JSONObject query1 = new ConstraintQueryServlet().applyGet("/xml", params1);
 		APICallTests.assertQueryObject(query1);
 		assert(hasCustom == query1.getJSONArray(ConstantsJSON.CONSTRAINTS).getJSONObject(0).has(ConstantsJSON.CUSTOM));
-		JSONObject query2 = ConstraintQueryServlet.applyGet("/xml/" + constraintID, APICallTests.getEmptyParams());
+		JSONObject query2 = new ConstraintQueryServlet().applyGet("/xml/" + constraintID, APICallTests.getEmptyParams());
 		APICallTests.assertQueryObject(query2);
 		assert(hasCustom == query1.getJSONArray(ConstantsJSON.CONSTRAINTS).getJSONObject(0).has(ConstantsJSON.CUSTOM));
 		APICallTests.assertSimilarJSONObjects(query1, query2);
@@ -233,7 +233,7 @@ public class APIVariantsXMLTest {
 		Map<String, String[]> params2 = APICallTests.getEmptyParams();
 		params2.put("constraintIDs", new String[] { constraintID });
 		params2.put("files", new String[] { "lido.xml", "demo_database.xml"});
-		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
+		JSONObject result = new ConstraintExecuteServlet().applyGet("/xml", params2);
 		APICallTests.assertExecuteResultObject(result, false);
 		assert(hasCustom == result.getJSONArray(ConstantsJSON.RESULT).getJSONObject(0).has(ConstantsJSON.CUSTOM));
 	}
@@ -248,7 +248,7 @@ public class APIVariantsXMLTest {
 		if(PRINTPARAMS) {
 			Map<String, String[]> params = getEmptyParams();
 			params.put(ConstantsJSON.VARIANTS, new String[]{"false"});
-			JSONObject myparams = TemplateVariantServlet.applyGet("/xml/" + constraint, params);
+			JSONObject myparams = new TemplateVariantServlet().applyGet("/xml/" + constraint, params);
 			System.out.println(constraint + "\t" + variant+ "\t" + myparams);
 		}
 		String constraintID = APICallTests.newConstraint(constraint, variant);

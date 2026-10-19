@@ -1,14 +1,11 @@
 package qualitypatternmodel.newservlets;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.utility.Constants;
@@ -25,20 +22,7 @@ public class PatternListServlet extends QPMHttpServlet {
 	// GET .. /pattern/list    /<technology>/<level>
 
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String path = request.getPathInfo();
-		Map<String, String[]> params = request.getParameterMap();
-		int  callId = logCall("GET", this.getClass().getName(), path, params);
-		try {
-			JSONObject result = applyGet(path, params);
-			putResponse(response, callId, result);
-		}
-		catch (Exception e) {
-			putResponseError(response, callId, e);
-		}
-	}
-
-	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length < 3  || pathparts.length > 4  || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting a list of a constraints or templates: "
@@ -64,44 +48,7 @@ public class PatternListServlet extends QPMHttpServlet {
 			return getPatternJsons(technology, level, datamodel);
 			
 		}
-
-//		List<CompletePattern> patterns = getPatterns(technology, level);
-//
-//		if (pathparts.length == 4) {
-//			String datamodel = pathparts[3];
-//			List<CompletePattern> clone = new ArrayList<CompletePattern>(patterns);
-//			for (CompletePattern pattern: clone) {
-//				if (pattern.getDataModelName() == null || !pattern.getDataModelName().equals(datamodel)) {
-//					patterns.remove(pattern);
-//				}
-//			}
-//		}
-//		if (patterns == null) {
-//			throw new FailedServletCallException("No " + ((level == Constants.LVLTEMPLATE)? ConstantsJSON.TEMPLATE: ConstantsJSON.CONSTRAINT) + " found for the technology " + technology + " on level " + level + ".");
-//		}
-//
-//		return ServletUtilities.getPatternListJSON(patterns);
 	}
-
-//	private static List<CompletePattern> getPatterns(String technology, String level)
-//			throws InvalidServletCallException {
-//		List<CompletePattern> patterns = null;
-//		switch (level) {
-//		case Constants.LVLALL:
-//			patterns = ServletUtilities.getAllPattern(technology);
-//			break;
-//		case Constants.LVLTEMPLATE:
-//			patterns = ServletUtilities.getTemplates(technology);
-//			break;
-//		case Constants.LVLCONSTRAINT:
-//			patterns = ServletUtilities.getConstraints(technology);
-//			break;
-//		case Constants.LVLREADY:
-//			patterns = ServletUtilities.getReadyConstraints(technology);
-//			break;
-//		}
-//		return patterns;
-//	}
 
 	private static JSONObject getPatternJsons(String technology, String level)
 			throws InvalidServletCallException {
@@ -147,32 +94,5 @@ public class PatternListServlet extends QPMHttpServlet {
 					selectedTemplates.add(template);
 		}
 		return ServletUtilities.combinePatternJSONs(selectedTemplates);
-		
-		
-//		JSONArray templates = new JSONArray();
-//		JSONArray ids = new JSONArray();
-//		HashSet<String> tags = new HashSet<String>();
-//		int total = 0;
-//
-//		for (int i = 0; i < allTemplates.size(); i++) {
-//			JSONObject template = allTemplates.get(i);
-//			if (template.has(ConstantsJSON.CONSTRAINT_ID) && template.has(ConstantsJSON.DATAMODEL) && datamodel.equals(template.getString(ConstantsJSON.DATAMODEL))) {
-//				templates.put(template);
-//				ids.put(template.getString(ConstantsJSON.CONSTRAINT_ID));
-//				total++;
-//				if (template.has(ConstantsJSON.TAG)) {
-//					JSONArray tagarray = template.getJSONArray(ConstantsJSON.TAG);
-//					for (int j = 0; i<tagarray.length(); i++)
-//						tags.add(tagarray.getString(j));
-//				}
-//			}
-//		}
-//
-//		JSONObject patternJSONs = new JSONObject();
-//		patternJSONs.put(ConstantsJSON.TEMPLATES, templates);
-//		patternJSONs.put(ConstantsJSON.IDS, ids);
-//		patternJSONs.put(ConstantsJSON.TAGS, new JSONArray(tags));
-//		patternJSONs.put(ConstantsJSON.TOTAL, total);
-//		return patternJSONs;
 	}
 }

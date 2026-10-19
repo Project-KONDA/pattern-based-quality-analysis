@@ -11,8 +11,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.Util;
@@ -26,20 +24,7 @@ public class VariantsServlet extends QPMHttpServlet {
 	}
 
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String path = request.getPathInfo();
-		Map<String, String[]> params = request.getParameterMap();
-		int callId = logCall("GET", this.getClass().getName(), path, params);
-		try {
-			JSONObject result = applyGet(path, params);
-			putResponse(response, callId, result);
-		}
-		catch (Exception e) {
-			putResponseError(response, callId, e);
-		}
-	}
-
-	public static JSONObject applyGet (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException {
+	public JSONObject applyGet (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 2 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the variants: "

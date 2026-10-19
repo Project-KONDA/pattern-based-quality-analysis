@@ -101,7 +101,8 @@ public class ConstraintServlet extends QPMHttpServlet {
 
 
 
-	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	@Override
+	public JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (!(pathparts.length == 2 && parameterMap.containsKey(ConstantsJSON.CONSTRAINT_IDS)) && pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting a constraint: "
@@ -146,7 +147,8 @@ public class ConstraintServlet extends QPMHttpServlet {
 	}
 
 
-	public static JSONObject applyDelete(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	@Override
+	public JSONObject applyDelete(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (!(pathparts.length == 2 && parameterMap.containsKey(ConstantsJSON.CONSTRAINT_IDS)) && pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for deleting a constraint: "
@@ -208,7 +210,8 @@ public class ConstraintServlet extends QPMHttpServlet {
 		}
 	}
 
-	public static JSONObject applyPost (String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException {
+	@Override
+	public JSONObject applyPost (String path, Map<String, String[]> parameter) throws InvalidServletCallException, FailedServletCallException {
 		Map<String, String[]> parameterMap = new HashMap<String, String[]>(parameter);
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {

@@ -64,7 +64,7 @@ public class XmlInstantiationTest {
 		for (String inst: listInstantiate){
 			try {
 				System.out.println("INSTANTIATE");
-				JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut(inst, parameterMap));
+				JSONObject json = new JSONObject(new TemplateInstantiateServlet().applyPut(inst, parameterMap));
 				String st = "/" + json.getString("language") + "/" + json.getString("patternID");
 				patternIDs.add(st);
 			} catch (Exception e) {
@@ -76,14 +76,14 @@ public class XmlInstantiationTest {
 		System.out.println();
 		System.out.println("GET");
 		for (String get: patternIDs){
-			System.out.println(ConstraintServlet.applyGet(get, parameterMap));
+			System.out.println(new ConstraintServlet().applyGet(get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 
 		System.out.println();
 		System.out.println("QUERY");
 		for (String get: patternIDs){
-			System.out.println(ConstraintQueryServlet.applyGet(get, parameterMap));
+			System.out.println(new ConstraintQueryServlet().applyGet(get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 
@@ -91,7 +91,7 @@ public class XmlInstantiationTest {
 		System.out.println("MQAF");
 		for (String get: patternIDs){
 			System.out.println(get);
-			System.out.println("  " + ConstraintMqafServlet.applyGet(get, parameterMap));
+			System.out.println("  " + new ConstraintMqafServlet().applyGet(get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 
@@ -99,7 +99,7 @@ public class XmlInstantiationTest {
 		System.out.println("DELETE");
 		List<String> delete = new ArrayList<String>(patternIDs);
 		for (String del: delete) {
-			ConstraintServlet.applyDelete(del, parameterMap);
+			new ConstraintServlet().applyDelete(del, parameterMap);
 			patternIDs.remove(del);
 		}
 

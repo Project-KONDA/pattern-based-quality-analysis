@@ -52,7 +52,7 @@ public class MqafJsonGenerationTest {
 		JSONObject json;
 		String id = null;
 		try {
-			json = TemplateInstantiateServlet.applyPut("/xml/Card_xml/default-constraint", new HashMap<String, String[]>());
+			json = new TemplateInstantiateServlet().applyPut("/xml/Card_xml/default-constraint", new HashMap<String, String[]>());
 			id = json.getString("patternID");
 			HashMap<String, String[]> params = new HashMap<>();
 			params.put("name", new String[] {"Card Test for MQAF"});
@@ -63,7 +63,7 @@ public class MqafJsonGenerationTest {
 			params.put("ComparisonOption_1", new String[] {"at least"});
 			params.put("Number_2", new String[] {"1"});
 			params.put("XmlPath_Element_3", new String[] {"/*"});
-			ConstraintServlet.applyPost("/xml/" + id, params);
+			new ConstraintServlet().applyPost("/xml/" + id, params);
 		} catch (InvalidServletCallException | FailedServletCallException | IOException | JSONException e) {
 			e.printStackTrace();
 		}
@@ -74,7 +74,7 @@ public class MqafJsonGenerationTest {
 		JSONObject json;
 		String id = null;
 		try {
-			json = TemplateInstantiateServlet.applyPut("/xml/StringLength_xml/default-constraint", new HashMap<String, String[]>());
+			json = new TemplateInstantiateServlet().applyPut("/xml/StringLength_xml/default-constraint", new HashMap<String, String[]>());
 			id = json.getString("patternID");
 			HashMap<String, String[]> params = new HashMap<>();
 			params.put("name", new String[] {"Card Test for MQAF"});
@@ -85,7 +85,7 @@ public class MqafJsonGenerationTest {
 			params.put("XmlPath_Property_1", new String[] {"/lido:lidoRecID/text()"});
 			params.put("ComparisonOption_2", new String[] {"at most"});
 			params.put("Number_3", new String[] {"20"});
-			ConstraintServlet.applyPost("/xml/" + id, params);
+			new ConstraintServlet().applyPost("/xml/" + id, params);
 		} catch (InvalidServletCallException | FailedServletCallException | IOException | JSONException e) {
 			e.printStackTrace();
 		}
@@ -96,7 +96,7 @@ public class MqafJsonGenerationTest {
 		JSONObject json;
 		String id = null;
 		try {
-			json = TemplateInstantiateServlet.applyPut("/xml/Unique_xml/default-constraint", new HashMap<String, String[]>());
+			json = new TemplateInstantiateServlet().applyPut("/xml/Unique_xml/default-constraint", new HashMap<String, String[]>());
 			id = json.getString("patternID");
 			HashMap<String, String[]> params = new HashMap<>();
 			params.put("name", new String[] {"Card Test for MQAF"});
@@ -105,7 +105,7 @@ public class MqafJsonGenerationTest {
 			params.put("namespace", new String[] {"{\"lido\": \"http://www.lido-schema.org\", \"demo\": \"demo\"}"});
 			params.put("XmlPath_Element_0", new String[] {"/lido:lidoWrap/lido:lido"});
 			params.put("XmlPath_Property_1", new String[] {"/lido:lidoRecID/text()"});
-			ConstraintServlet.applyPost("/xml/" + id, params);
+			new ConstraintServlet().applyPost("/xml/" + id, params);
 		} catch (InvalidServletCallException | FailedServletCallException | IOException | JSONException e) {
 			e.printStackTrace();
 		}
@@ -117,7 +117,7 @@ public class MqafJsonGenerationTest {
 		constraints.put("constraints", patternIDs);
 		JSONObject json = null;
 		try {
-			JSONObject output = ConstraintMqafServlet.applyGet("/xml", constraints);
+			JSONObject output = new ConstraintMqafServlet().applyGet("/xml", constraints);
 			json = output.getJSONObject("constraint");
 		} catch (InvalidServletCallException | FailedServletCallException | JSONException e) {
 			e.printStackTrace();
@@ -129,7 +129,7 @@ public class MqafJsonGenerationTest {
 		if (patternID == null)
 			return;
 		try {
-			ConstraintServlet.applyDelete("/xml/" + patternID, new HashMap<>());
+			new ConstraintServlet().applyDelete("/xml/" + patternID, new HashMap<>());
 		} catch (InvalidServletCallException | FailedServletCallException e) {
 			e.printStackTrace();
 		}

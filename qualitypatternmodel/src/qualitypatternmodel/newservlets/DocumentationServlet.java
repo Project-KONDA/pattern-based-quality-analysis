@@ -13,6 +13,11 @@ import java.nio.file.Paths;
 public class DocumentationServlet extends QPMHttpServlet {
 
 	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_ALL;
+	}
+
+	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
@@ -31,7 +36,8 @@ public class DocumentationServlet extends QPMHttpServlet {
 		}
 	}
 
-	public static String applyGet (String path, Map<String, String[]> parameterMap) throws UnsupportedEncodingException, IOException {
+	@Override
+	public String applyGet (String path, Map<String, String[]> parameterMap) throws UnsupportedEncodingException, IOException {
         String yamlFilePath = "openapi.yaml";
         return new String(Files.readAllBytes(Paths.get(yamlFilePath)), "UTF-8");
 	}

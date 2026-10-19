@@ -6,8 +6,6 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -28,20 +26,7 @@ public class TemplateInstantiateServlet extends QPMHttpServlet {
 	// PUT .. /template/instantiate    /<technology>/<templateID>/<variantID>
 
 	@Override
-	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String path = request.getPathInfo();
-		Map<String, String[]> params = request.getParameterMap();
-		int  callId = logCall("PUT", this.getClass().getName(), path, params);
-		try{
-			JSONObject result = applyPut(path, params);
-			putResponse(response, callId, result);
-		}
-		catch (Exception e) {
-			putResponseError(response, callId, e);
-		}
-	}
-
-	public static JSONObject applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public JSONObject applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 4 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for instantiate in a constraint: "

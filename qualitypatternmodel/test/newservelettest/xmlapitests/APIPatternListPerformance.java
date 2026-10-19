@@ -118,7 +118,7 @@ public class APIPatternListPerformance {
 
 	static String newConstraint(String pattern, String variant)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		JSONObject ob = TemplateInstantiateServlet.applyPut("/xml/" + pattern + "/" + variant,
+		JSONObject ob = new TemplateInstantiateServlet().applyPut("/xml/" + pattern + "/" + variant,
 				getEmptyParams());
 		try {
 			return ob.getString(ConstantsJSON.CONSTRAINT_ID);
@@ -129,12 +129,12 @@ public class APIPatternListPerformance {
 
 	static JSONObject getConstraint(String id)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		return ConstraintServlet.applyGet("/xml/" + id, getEmptyParams());
+		return new ConstraintServlet().applyGet("/xml/" + id, getEmptyParams());
 	}
 
 	static void deleteConstraint(String id)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		ConstraintServlet.applyDelete("/xml/" + id, getEmptyParams());
+		new ConstraintServlet().applyDelete("/xml/" + id, getEmptyParams());
 	}
 
 	// __________ HELPEr FUNCTIONS __________
@@ -177,7 +177,7 @@ public class APIPatternListPerformance {
 		params1.put(parameterId, new String[] { value });
 		JSONObject result = null;
 		try {
-			result = ConstraintServlet.applyPost("/xml/" + constraintId, params1);
+			result = new ConstraintServlet().applyPost("/xml/" + constraintId, params1);
 		} catch (InvalidServletCallException | FailedServletCallException e) {
 			e.printStackTrace();
 		}
@@ -192,24 +192,24 @@ public class APIPatternListPerformance {
 	@Test
 	public void testPatternListServletGetAll()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		PatternListServlet.applyGet("/xml" + "/all", getEmptyParams());	
+		new PatternListServlet().applyGet("/xml" + "/all", getEmptyParams());	
 	}
 
 	@Test
 	public void testPatternListServletGetTemplate()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		PatternListServlet.applyGet("/xml" + "/template", getEmptyParams());
+		new PatternListServlet().applyGet("/xml" + "/template", getEmptyParams());
 	}
 
 	@Test
 	public void testPatternListServletGetConcrete()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		PatternListServlet.applyGet("/xml" + "/concrete", getEmptyParams());
+		new PatternListServlet().applyGet("/xml" + "/concrete", getEmptyParams());
 	}
 
 	@Test
 	public void testPatternListServletGetReady()
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		PatternListServlet.applyGet("/xml" + "/ready", getEmptyParams());
+		new PatternListServlet().applyGet("/xml" + "/ready", getEmptyParams());
 	}
 }
