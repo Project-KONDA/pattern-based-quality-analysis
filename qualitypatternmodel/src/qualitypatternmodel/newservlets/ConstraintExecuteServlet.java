@@ -86,7 +86,8 @@ public class ConstraintExecuteServlet extends HttpServlet {
 
 		if (result.optJSONArray(ConstantsJSON.RESULT).isEmpty()) {
 			result.put(ConstantsJSON.STATUS, ConstantsJSON.STATUS_FAILED);
-		} else if (!result.has(ConstantsJSON.FAILEDCONSTRAINTS) || result.optJSONObject(ConstantsJSON.FAILEDCONSTRAINTS).keySet().isEmpty()) {
+		} else if ((!result.has(ConstantsJSON.FAILEDCONSTRAINTS) || result.optJSONObject(ConstantsJSON.FAILEDCONSTRAINTS).keySet().isEmpty()) && 
+				(!result.has(ConstantsJSON.FAILEDFILES) || result.optJSONObject(ConstantsJSON.FAILEDFILES).keySet().isEmpty())) {
 			result.put(ConstantsJSON.STATUS, ConstantsJSON.STATUS_SUCCESS);
 		} else {
 			result.put(ConstantsJSON.STATUS, ConstantsJSON.STATUS_PARTIAL);
@@ -171,10 +172,6 @@ public class ConstraintExecuteServlet extends HttpServlet {
 					} catch (JSONException f) {}
 				}
 			}
-		}
-
-		if (constraints.isEmpty()) {
-			throw new InvalidServletCallException(ConstantsError.INVALID_CONSTRAINTS + ": " + failedConstraints);
 		}
 
 		JSONObject result = XmlServletUtility.queryConstraintsFilePaths(constraints, filepaths);
