@@ -8,7 +8,6 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
@@ -19,7 +18,12 @@ import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
-public class ConstraintTagServlet extends HttpServlet {
+public class ConstraintTagServlet extends QPMHttpServlet {
+
+	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_MANAGEMENT;
+	}
 
 	// POST .. /template/tag    /<technology>/<name>    {"tag": <value>}
 
@@ -27,16 +31,16 @@ public class ConstraintTagServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("POST", this.getClass().getName(), path, params);
+		int  callId = logCall("POST", this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyPost(path, params);
 			if (result.keySet().contains(ConstantsJSON.FAILED) && result.keySet().size() == 1)
-				ServletUtilities.putResponse(response, callId, result, HttpServletResponse.SC_NOT_FOUND);
+				putResponse(response, callId, result, HttpServletResponse.SC_NOT_FOUND);
 			else
-				ServletUtilities.putResponse(response, callId, result);
+				putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+			putResponseError(response, callId, e);
 		}
 	}
 
@@ -46,20 +50,21 @@ public class ConstraintTagServlet extends HttpServlet {
 	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("DELETE", this.getClass().getName(), path, params);
+		int  callId = logCall("DELETE", this.getClass().getName(), path, params);
 		try{
 			JSONObject result = applyDelete(path, params);
 			if (result.keySet().contains(ConstantsJSON.FAILED) && result.keySet().size() == 1)
-				ServletUtilities.putResponse(response, callId, result, HttpServletResponse.SC_NOT_FOUND);
+				putResponse(response, callId, result, HttpServletResponse.SC_NOT_FOUND);
 			else
-				ServletUtilities.putResponse(response, callId, result);
+				putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+			putResponseError(response, callId, e);
 		}
 	}
 
-	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	@Override
+	public JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (!(pathparts.length == 2 && parameterMap.containsKey(ConstantsJSON.CONSTRAINT_IDS)) && pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for posting tags in a constraint: "
@@ -142,8 +147,8 @@ public class ConstraintTagServlet extends HttpServlet {
 	}
 
 
-
-	public static JSONObject applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	@Override
+	public JSONObject applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (!(pathparts.length == 2 && parameterMap.containsKey(ConstantsJSON.CONSTRAINT_IDS)) && pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for deleting tags in a constraint: "

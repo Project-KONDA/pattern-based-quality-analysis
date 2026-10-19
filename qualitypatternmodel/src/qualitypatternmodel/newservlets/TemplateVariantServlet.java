@@ -11,9 +11,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
@@ -34,66 +31,22 @@ import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
-public class TemplateVariantServlet extends HttpServlet {
+public class TemplateVariantServlet extends QPMHttpServlet {
+
+	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_MANAGEMENT;
+	}
 
 	// GET .. /template/variant    /<technology>/<templateID>
 
-	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String path = request.getPathInfo();
-		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
-		try{
-			JSONObject result = applyGet(path, params);
-			ServletUtilities.putResponse(response, callId, result);
-		}
-		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
-		}
-	}
-
 	// PUT .. /template/variant    /<technology>/<templateID>    {"variants":<variant-jsons>}
-
-	@Override
-	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String path = request.getPathInfo();
-		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("PUT", this.getClass().getName(), path, params);
-		try{
-			String result = applyPut(path, params);
-			ServletUtilities.putResponse(response, callId, result);
-		}
-		catch (FailedServletCallException e) {
-	        if (e.getMessage().startsWith("404")) {
-				ServletUtilities.putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_NOT_FOUND);
-			} else if (e.getMessage().startsWith("409")) {
-				ServletUtilities.putResponseError(response, callId, new FailedServletCallException(e.getMessage().substring(4)), HttpServletResponse.SC_CONFLICT);
-			} else {
-				ServletUtilities.putResponseError(response, callId, e, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-			}
-		}
-		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
-		}
-	}
+	// TODO: FailedServletCalls to other Exceptions 404-> failed, 409 -> Conflict else Internal?
 
 	// DELETE .. /template/variant    /<technology>/<templateID>    {"variants":<variant-ids>}
 
 	@Override
-	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String path = request.getPathInfo();
-		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("DELETE", this.getClass().getName(), path, params);
-		try{
-			JSONObject result = applyDelete(path, params);
-			ServletUtilities.putResponse(response, callId, result);
-		}
-		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
-		}
-	}
-
-	public static JSONObject applyGet (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public JSONObject applyGet (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting a variant of a constraint: "
@@ -170,7 +123,8 @@ public class TemplateVariantServlet extends HttpServlet {
 		return sourcefragids;
 	}
 
-	public static String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	@Override
+	public String applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		if (path.equals("")) {
 			return applyPut1(path, parameterMap).toString();
 		}
@@ -350,7 +304,8 @@ public class TemplateVariantServlet extends HttpServlet {
 		}
 	}
 
-	public static JSONObject applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	@Override
+	public JSONObject applyDelete (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for deleting a variant of a constraint: "

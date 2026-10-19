@@ -38,11 +38,11 @@ public class Neo4jInstantiationTest {
 		try {
 			InitialisationServlet.initialisation(context);
 			System.out.println("INSTANTIATE");
-			JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut(inst, emptyParameter));
+			JSONObject json = new JSONObject(new TemplateInstantiateServlet().applyPut(inst, emptyParameter));
 			get = "/" + json.getString("language") + "/" + json.getString("patternID");
 
 			System.out.println("GET");
-			System.out.println(ConstraintServlet.applyGet(get, emptyParameter));
+			System.out.println(new ConstraintServlet().applyGet(get, emptyParameter));
 
 			System.out.println("SET PARAMETER");
 			HashMap<String, String[]> parameter = new HashMap<String, String[]>();
@@ -52,17 +52,17 @@ public class Neo4jInstantiationTest {
 			parameter.put("ComparisonOption_3", new String[]{"less than"});
 			parameter.put("Number_4", new String[]{"99"});
 			parameter.put("database", new String[]{"dbname"});
-			System.out.println(ConstraintServlet.applyPost(get, parameter));
-			System.out.println(ConstraintServlet.applyGet(get, emptyParameter));
+			System.out.println(new ConstraintServlet().applyPost(get, parameter));
+			System.out.println(new ConstraintServlet().applyGet(get, emptyParameter));
 
 			System.out.println("DELETE");
-			System.out.println(ConstraintServlet.applyDelete(get, emptyParameter));
+			System.out.println(new ConstraintServlet().applyDelete(get, emptyParameter));
 
 		} catch (Exception e) {
 
 			try {
 				System.out.println("DELETE");
-				System.out.println(ConstraintServlet.applyDelete(get, emptyParameter));
+				System.out.println(new ConstraintServlet().applyDelete(get, emptyParameter));
 			} catch (Exception x) {}
 
 			System.err.println("'" + inst + "' failed");

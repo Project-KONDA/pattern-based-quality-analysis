@@ -103,7 +103,7 @@ public class APIVariantsStoreResults {
 		InitialisationServlet.initialisation(context);
 		
 		store = new JSONObject();
-		JSONArray templates = PatternListServlet.applyGet("/xml" + "/template", new HashMap<String, String[]>()).getJSONArray("templates");
+		JSONArray templates = new PatternListServlet().applyGet("/xml" + "/template", new HashMap<String, String[]>()).getJSONArray("templates");
 		for (Object template: templates) {
 			JSONObject obj = (JSONObject) template;
 			JSONArray variants = obj.getJSONArray(ConstantsJSON.VARIANTS);
@@ -156,7 +156,7 @@ public class APIVariantsStoreResults {
 
 	static JSONObject getConstraint(String id)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
-		return ConstraintServlet.applyGet("/xml/" + id, getEmptyParams());
+		return new ConstraintServlet().applyGet("/xml/" + id, getEmptyParams());
 	}
 
 	// __________ HELPER FUNCTIONS __________
@@ -199,7 +199,7 @@ public class APIVariantsStoreResults {
 		params1.put(parameterId, new String[] { value });
 		JSONObject result = null;
 		try {
-			result = ConstraintServlet.applyPost("/xml/" + constraintId, params1);
+			result = new ConstraintServlet().applyPost("/xml/" + constraintId, params1);
 		} catch (InvalidServletCallException | FailedServletCallException e) {
 			e.printStackTrace();
 		}
@@ -217,12 +217,12 @@ public class APIVariantsStoreResults {
 		setAllConstraintParameter(constraintID);
 		Map<String, String[]> params1 = APICallTests.getEmptyParams();
 		params1.put("constraints", new String[] { constraintID });
-		JSONObject query = ConstraintQueryServlet.applyGet2("/xml", params1);
+		JSONObject query = new ConstraintQueryServlet().applyGet("/xml", params1);
 
 		Map<String, String[]> params2 = APICallTests.getEmptyParams();
 		params2.put("constraintIDs", new String[] { constraintID });
 		params2.put("files", new String[] { "lido.xml", "demo_database.xml"});
-		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
+		JSONObject result = new ConstraintExecuteServlet().applyGet("/xml", params2);
 
 		JSONObject constraintinfo = new JSONObject();
 		constraintinfo.put("constraint", constraint);

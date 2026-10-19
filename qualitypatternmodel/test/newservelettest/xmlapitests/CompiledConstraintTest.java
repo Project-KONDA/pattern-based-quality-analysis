@@ -265,7 +265,7 @@ public class CompiledConstraintTest {
 		params.put(ConstantsJSON.CONSTRAINTS, new String[] {compiledJSON});
 		params.put("files", new String[] { "lido.xml" });
 
-		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params);
+		JSONObject result = new ConstraintExecuteServlet().applyGet("/xml", params);
 		JSONObject object = result.getJSONArray("result").getJSONObject(0);
 		String name = object.getString("constraintName");
 		System.out.println(name);

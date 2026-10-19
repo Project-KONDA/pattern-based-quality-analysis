@@ -66,32 +66,32 @@ public class XPathParameterTests {
 	}
 
 	private static void test(String arg) throws JSONException, InvalidServletCallException, FailedServletCallException, IOException {
-		JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut("/xml/Match_xml/default", new HashMap<String, String[]>()));
+		JSONObject json = new JSONObject(new TemplateInstantiateServlet().applyPut("/xml/Match_xml/default", new HashMap<String, String[]>()));
 		String id = (String) json.get("patternID");
 
 		try {
 			HashMap<String, String[]> param = new HashMap<String, String[]>();
 			String[] val = {arg};
 			param.put("xmlpath_rootToReturn", val);
-			if (ConstraintServlet.applyPost("/xml/" + id, param).toString().startsWith("{\"success\":[],")) {
+			if (new ConstraintServlet().applyPost("/xml/" + id, param).toString().startsWith("{\"success\":[],")) {
 				System.out.println(arg);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		ConstraintServlet.applyDelete("/xml/" + id, new HashMap<String, String[]>());
+		new ConstraintServlet().applyDelete("/xml/" + id, new HashMap<String, String[]>());
 	}
 
 
 	private static void testAtt(String arg) throws JSONException, InvalidServletCallException, FailedServletCallException, IOException {
-		JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut("/xml/Match_xml/default", null));
+		JSONObject json = new JSONObject(new TemplateInstantiateServlet().applyPut("/xml/Match_xml/default", null));
 		String id = "/xml/" + (String) json.get("patternID");
 
 		try {
 			HashMap<String, String[]> param = new HashMap<String, String[]>();
 			String[] val = {arg};
 			param.put("xmlpath_returnToCondition", val);
-			String output = ConstraintServlet.applyPost(id, param).toString();
+			String output = new ConstraintServlet().applyPost(id, param).toString();
 			if (output.startsWith("{\"success\":[],")) {
 				System.out.println("failed: " + arg);
 			}
@@ -100,11 +100,11 @@ public class XPathParameterTests {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		ConstraintServlet.applyDelete(id, new HashMap<String, String[]>());
+		new ConstraintServlet().applyDelete(id, new HashMap<String, String[]>());
 	}
 
 	private static void checkParameterValue(String id, String parameter_id, String expected) throws InvalidServletCallException, FailedServletCallException, JSONException {
-		String get = ConstraintServlet.applyGet(id, null).toString();
+		String get = new ConstraintServlet().applyGet(id, null).toString();
 		String value = getParameterValue(get, parameter_id);
 		expected = replaceExpected(expected);
 		if (value == null) {

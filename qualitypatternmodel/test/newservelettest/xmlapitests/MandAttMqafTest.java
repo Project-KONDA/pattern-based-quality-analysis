@@ -42,7 +42,7 @@ public class MandAttMqafTest {
 
 		// instantiate
 		String path = "/xml/MandAtt_xml/default-constraint";
-		JSONObject json = new JSONObject(TemplateInstantiateServlet.applyPut(path, new HashMap<String, String[]>()));
+		JSONObject json = new JSONObject(new TemplateInstantiateServlet().applyPut(path, new HashMap<String, String[]>()));
 		System.out.println(json);
 		String patternID = json.getString("patternID");
 
@@ -50,16 +50,16 @@ public class MandAttMqafTest {
 		HashMap<String, String[]> setParams = new HashMap<>();
 		setParams.put("XmlPath_0", new String[]{"//*"});
 		setParams.put("XmlPath_1", new String[]{"/*/text()"});
-		System.out.println(ConstraintServlet.applyPost("/xml/" + patternID, setParams));
+		System.out.println(new ConstraintServlet().applyPost("/xml/" + patternID, setParams));
 
 		// mqaf single
-		System.out.println("  " + ConstraintMqafServlet.applyGet3("/xml/" + patternID, new HashMap<>()));
+		System.out.println("  " + new ConstraintMqafServlet().applyGet("/xml/" + patternID, new HashMap<>()));
 
 		// mqaf multiple
 		HashMap<String, String[]> parameterMap2 = new HashMap<>();
 		parameterMap2.put("constraints", new String[]{patternID});
-		System.out.println("  " + ConstraintMqafServlet.applyGet3("/xml/" + patternID, parameterMap2));
+		System.out.println("  " + new ConstraintMqafServlet().applyGet("/xml/" + patternID, parameterMap2));
 
-		System.out.println(ConstraintServlet.applyDelete("/xml/" + patternID, new HashMap<>()));
+		System.out.println(new ConstraintServlet().applyDelete("/xml/" + patternID, new HashMap<>()));
 	}
 }

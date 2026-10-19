@@ -107,7 +107,7 @@ public class APITemplateTests {
 		InitialisationServlet.initialisation(context);
 		
 		store = new JSONObject();
-		JSONArray templates = PatternListServlet.applyGet("/xml" + "/template", new HashMap<String, String[]>()).getJSONArray(ConstantsJSON.TEMPLATES);
+		JSONArray templates = new PatternListServlet().applyGet("/xml" + "/template", new HashMap<String, String[]>()).getJSONArray(ConstantsJSON.TEMPLATES);
 		for (Object template: templates) {
 			JSONObject obj = (JSONObject) template;
 			JSONArray variants = obj.getJSONArray(ConstantsJSON.VARIANTS);
@@ -138,7 +138,7 @@ public class APITemplateTests {
 		params1.put(parameterId, new String[] { value });
 		JSONObject result = null;
 		try {
-			result = ConstraintServlet.applyPost("/xml/" + constraintId, params1);
+			result = new ConstraintServlet().applyPost("/xml/" + constraintId, params1);
 		} catch (InvalidServletCallException | FailedServletCallException e) {
 			e.printStackTrace();
 		}
@@ -152,17 +152,17 @@ public class APITemplateTests {
 	private void testConcretePattern(String constraintID)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		Map<String, String[]> params1 = APICallTests.getEmptyParams();
-		params1.put("constraints", new String[] { constraintID });
-		JSONObject query1 = ConstraintQueryServlet.applyGet2("/xml", params1);
+		params1.put(ConstantsJSON.CONSTRAINT_IDS, new String[] { constraintID });
+		JSONObject query1 = new ConstraintQueryServlet().applyGet("/xml", params1);
 		APICallTests.assertQueryObject(query1);
-		JSONObject query2 = ConstraintQueryServlet.applyGet3("/xml/" + constraintID, APICallTests.getEmptyParams());
+		JSONObject query2 = new ConstraintQueryServlet().applyGet("/xml/" + constraintID, APICallTests.getEmptyParams());
 		APICallTests.assertQueryObject(query2);
 		APICallTests.assertSimilarJSONObjects(query1, query2);
 
 		Map<String, String[]> params2 = APICallTests.getEmptyParams();
 		params2.put("constraintIDs", new String[] { constraintID });
 		params2.put("files", new String[] { "lido.xml", "demo_database.xml"});
-		JSONObject result = ConstraintExecuteServlet.applyGet("/xml", params2);
+		JSONObject result = new ConstraintExecuteServlet().applyGet("/xml", params2);
 		APICallTests.assertExecuteResultObject(result, true);
 	}
 

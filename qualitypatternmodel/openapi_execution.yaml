@@ -1,0 +1,573 @@
+openapi: 3.0.0
+info:
+  title: QPM Constrainify
+  description: |-
+    Repositories:
+    - [Constrainify](https://gitlab.gwdg.de/aqinda/constrainify)
+    - [Constrainify Core](https://gitlab.gwdg.de/aqinda/constrainify-core)
+    - [Quality Pattern Model](https://github.com/Project-KONDA/pattern-based-quality-analysis)
+  contact:
+    email: arno.kesper@uni-marburg.de
+  version: 1.0.2
+paths:
+   /:
+    description: "Get the service status"
+    get:
+      tags:
+        - Management
+      summary: "check status"
+      description: "monitoring status for the quality pattern model api"
+      operationId: status1
+      responses:
+        '200':
+          description: status ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthStatusResponse'
+
+   /health:
+    description: "Get the service status"
+    get:
+      tags:
+        - Management
+      summary: "check status"
+      description: "monitoring status for the quality pattern model api"
+      operationId: status2
+      responses:
+        '200':
+          description: status ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthStatusResponse'
+
+   /status:
+    description: "Get the service status"
+    get:
+      tags:
+        - Management
+      summary: "check status"
+      description: "monitoring status for the quality pattern model api"
+      operationId: status3
+      responses:
+        '200':
+          description: status ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthStatusResponse'
+
+   /docs:
+    description: "Get the OpenAPI specification (YAML)"
+    get:
+      tags:
+        - Management
+      summary: "Get the OpenAPI specification (YAML)"
+      description: "This endpoint serves the OpenAPI specification in YAML format."
+      operationId: documentation
+      responses:
+        '200':
+          description: "Successfully returns the OpenAPI specification in YAML format"
+          content:
+            application/x-yaml:
+              schema:
+                type: string
+                description: "The OpenAPI specification in YAML format"
+        '500':
+          description: Internal server error
+
+   /constraint/execute/{technology}:
+    description: quality analysis of constraints on files
+    parameters:
+      - name: technology
+        in: path
+        description: identifier of technology
+        required: true
+        schema:
+          type: string
+          enum:
+            - xml
+            - rdf
+            - neo4j
+
+    get: #16
+      tags:
+        - Request
+      summary: Analyze file(s) with constraint(s)
+      description: Analyze one or more files with one or more constraints
+      operationId: executeget
+      parameters:
+        - name: files
+          in: query
+          description: paths to files relative to FILE_VOLUME to be analyzed
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+        - name: constraintIDs
+          in: query
+          description: identifier of constraints for quality analysis. will be combined with constraints specified in constraints parameter
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+        - name: constraints
+          in: query
+          description: compiled constraints for quality analysis. will be combined with constraints specified in constraintIDs parameter
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Query'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisResult'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+
+    post: #16
+      tags:
+        - Request
+      summary: Analyze file(s) with constraint(s)
+      description: Analyze one or more files with one or more constraints
+      operationId: executepost
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnalysisRequest'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisResult'
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+
+    HealthStatusResponse:
+      type: object
+      description: Status of QPM
+      properties:
+        title:
+          type: string
+        repository:
+          type: string
+        status:
+          type: string
+        timestamp:
+          type: string
+
+    VariantIndependent:
+      type: object
+      description: specification of a variant (which ultimately is the gap text used to represent the parameters of a constraint in a context), independent of a template 
+      properties:
+        template:
+          type: object
+          description: template information
+          properties:
+            constraintID: 
+              type: string
+            name: 
+              type: string
+            description:
+              type: string
+            namespace:
+              type: object
+            technology:
+              type: string
+              enum:
+                - xml
+                - rdf
+                - neo4j
+            language:
+              type: string
+              enum:
+                - xml
+                - rdf
+                - neo4j
+            executable:
+              type: boolean
+              description: is this constraint executable
+            mqafExecutable:
+              type: boolean
+              description: is this constraint executable via the mqaf framework
+            queryExecutable:
+              type: boolean
+              description: is this constraint executable via a technology-specific query
+            filterExecutable:
+              type: boolean
+              description: is this constraint executable via a java filter in the qualitypatternmodel framework
+        templateID:
+          type: string
+          description: template id
+        name:
+          type: string
+          description: variant id
+        typeConstraint:
+          type: boolean
+          description: is formulated as constraint
+        custom:
+          type: object
+          description: custom parameters
+        fragments:
+          type: array
+          description: fragments of the sentence which comprises parameter specifications and text fragments and to set the context of the parameters
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/TextFragment'
+              - $ref: '#/components/schemas/ParameterFragment'
+        params:
+            type: array
+            description: list of parameter IDs
+            items:
+                type: string
+
+    VariantsGroupObject:
+      oneOf:
+        - type: array
+          items:
+            $ref: '#/components/schemas/VariantIndependent'
+        - type: object
+          additionalProperties:
+            $ref: '#/components/schemas/VariantsGroupObject'
+
+    TextFragment:
+      type: object
+      description: text fragment of a sentence
+      properties:
+        text:
+          type: string
+      required:
+        - text
+
+    ParameterFragment: 
+      type: object
+      description: parameter fragment of a sentence, which comprises the type, an example and current value and additional information
+      properties:
+        id:
+          type: string
+          description: identifier of the parameter
+        name:
+          type: string
+          description: display name of the parameter
+        value:
+          type: string
+          description: current value. if the value is empty, this field is missing
+        userValue:
+          type: string
+          description: user input for display. interpreted by constrainfy to calculate the real value
+        exampleValue:
+          type: string
+          description: example value for the user
+        type:
+          type: string
+          description: datatype of the parameter
+        role:
+          type: string
+          description: additional information of the parameter type
+        options:
+          type: array
+          description: all available options for enumeration parameters
+          items:
+            type: string
+        plural:
+          type: boolean
+          description: whether the parameter shall be formulated as a plural in the context of the sentence formulation for representation
+        description:
+          type: string
+          description: additional information of the parameter
+        startpoint:
+          type: array
+          description: for path parameter, this contains the parameter IDs, on which this parameter depends as path startpoint
+          items:
+            type: string
+        <custom>:
+          type: string
+          description: user defined values
+
+    Query: # 15, 15.1, 16
+      type: object
+      description: compiled query object from constraint
+      properties:
+        constraints:
+          type: object
+          description: successfully translated constraints
+          properties:
+            name:
+              type: string
+              description: constraintname
+            constraintID: 
+              type: string
+              description: identifier of the constraint
+            technology:
+              type: string
+              description: technology of the constraint
+              enum:
+                - xml
+                - rdf
+                - neo4j
+            language:
+              type: string
+              description: language of the constraint query
+              enum:
+                - XQuery
+                - Sparql
+                - Cypher
+            custom:
+              type: object
+            query:
+              type: string
+              description: technology-specific query
+            queryLine:
+              type: string
+              description: technology-specific query without linebreaks
+            queryPartial:
+              type: string
+              description: technology-specific query to all findings
+            queryPartialLine:
+              type: string
+              description: technology-specific query to all findings without linebreaks
+        failed:
+          description: all constraint that failed to be translated
+          type: array
+          items:
+            description: list of constraints that could not be translated with reason
+            type: object
+            properties:
+              <constriantID>: 
+                description: field name is constraintID, content is reason
+                type: string
+
+    AnalysisResult: # 16
+      description: result of the quality analyis
+      type: object
+      properties:
+        status:
+          description: success status
+          type: string
+          enum:
+            - success
+            - partial
+            - failed
+        totalFindings:
+          description: amount of total analysed findings in the file
+          type: integer
+        totalIncidents:
+          description: amount of found incidents of the constraint in the file
+          type: integer
+        totalCompliances:
+          description: amount of found compliances of the constraint 
+          type: integer
+        files:
+          description: list of files
+          type: array
+          items:
+            type: string
+        filesize:
+          description: amount of files
+          type: integer
+        constraintIDs:
+          description: list of constraint IDs
+          type: array
+          items:
+            type: string
+        constraintsize:
+          description: amount of constraints
+          type: integer
+        duration:
+          description: duration of the analysis process
+          type: integer
+        failedFiles:
+          description: path of the file relative to FILE_VOLUME that were not found and a reason
+          type: array
+          items:
+            type: object
+            properties:
+              <filePath>:
+                description: field name is path of the file relative to FILE_VOLUME, content is reason
+                type: string
+        failedConstraints:
+          type: array
+          description: constraint IDs that could not be executed
+          items:
+            type: object
+            properties:
+              <parameter>:
+                description: field name is constraintID, content is reason 
+                type: string
+        result:
+          description: result of the executed constraints
+          type: array
+          items:
+            type: object
+            properties:
+              file:
+                description: path of the file relative to FILE_VOLUME
+                type: string
+              constraintID:
+                description: identifier of the constraint
+                type: string
+              constraintName:
+                description: user-defined name of the constraint
+                type: string
+              custom:
+                type: object
+              incidents:
+                description: list of found incidents of the constraint in the file
+                type: array
+                items:
+                  type: object
+                  properties:
+                    snippet:
+                      description: xml-snippet
+                      type: string
+                    startline:
+                      description: linenumber of the start of the snippet in current file
+                      type: integer
+                    endline:
+                      description: linenumber of the end of the snippet in current file
+                      type: integer
+                    linesize:
+                      description: numbers of lines of the current snippet
+                      type: integer
+              totalFindings:
+                description: amount of total analysed findings in the file
+                type: integer
+              totalIncidents:
+                description: amount of found incidents of the constraint in the file
+                type: integer
+              totalCompliances:
+                description: amount of found compliances of the constraint 
+                type: integer
+#              query:
+#                description: generated query
+#                type: string
+#              language:
+#                description: language of the constraint
+#                type: string
+#                enum: # XQuery, Sparql, Cypher
+#                  - XQuery
+#              technology:
+#                description: technology of the constraint
+#                type: string
+#                enum: # xml, rdf, neo4j
+#                  - xml
+
+    AnalysisRequest:
+      type: object
+      required:
+        - files
+        - constraintIDs
+        - constraints
+      properties:
+        files:
+          type: array
+          description: Paths to files relative to FILE_VOLUME to be analyzed
+          items:
+            type: string
+        constraintIDs:
+          type: array
+          description: Identifiers of constraints for quality analysis. Will be combined with constraints specified in constraints property
+          items:
+            type: string
+        constraints:
+          type: array
+          description: Compiled constraints for quality analysis. Will be combined with constraints specified in constraintIDs property
+          items:
+            $ref: '#/components/schemas/Query'
+
+    RdfPathPart:
+      description: realisation of a rdf path part in json
+      oneOf:
+        - $ref: '#/components/schemas/RdfPathComponent'
+        - type: object
+          properties:
+            rdfpath:
+              $ref: '#/components/schemas/RdfPathComponent'
+            nodetypes:
+              oneOf:
+                - $ref: '#/components/schemas/RdfLabel'
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/RdfLabel'
+
+    RdfPathComponent:
+      description: realisation of a rdf path component in json
+      oneOf:
+        - $ref: '#/components/schemas/RdfPathSequence'
+        - $ref: '#/components/schemas/RdfPathXor'
+        - $ref: '#/components/schemas/RdfLabel'
+
+    RdfPathSequence:
+      description: realisation of a rdf path sequence in json
+      type: object
+      properties:
+        sequence:
+          type: array
+          items:
+            $ref: '#/components/schemas/RdfPathPart'
+
+    RdfPathXor:
+      description: realisation of a rdf path xor in json
+      type: object
+      properties:
+        xor:
+          type: array
+          items:
+            $ref: '#/components/schemas/RdfPathPart'
+
+    RdfLabel:
+      description: realisation of a rdf label in json
+      type: string
+      pattern: '^\?([a-z]+:[a-zA-Z0-9]+|<[a-zA-A0-9]+>)'
+
+    NeoNodeLabels:
+      description: realisation of a neo node labels in json
+      type: array
+      items:
+        $ref: '#/components/schemas/NeoLabel'
+
+    NeoSimpleEdge:
+      description: realisation of a neo simple edge in json
+      type: object
+      properties:
+        edgetype:
+          $ref: '#/components/schemas/NeoLabel'
+        targettype:
+          $ref: '#/components/schemas/NeoNodeLabels'
+
+    NeoComplexEdge:
+      description: realisation of a neo complex edge in json
+      type: array
+      items:
+        oneOf:
+          - $ref: '#/components/schemas/NeoComplexEdge'
+          - $ref: '#/components/schemas/NeoSimpleEdge'
+
+    NeoLabel:
+      description: realisation of a neo label in json
+      type: string
+      pattern: '[A-Za-z_0-9]+'

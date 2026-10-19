@@ -1,5 +1,6 @@
 package qualitypatternmodel.newservlets;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +10,6 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
@@ -21,7 +21,12 @@ import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 @SuppressWarnings("serial")
-public class ConstraintExecuteServlet extends HttpServlet {
+public class ConstraintExecuteServlet extends QPMHttpServlet {
+
+	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_EXECUTION;
+	}
 
 	// GET .. /constraint/execute    /<technology>    {"files": filename-string , "constraints": <constraint-json>, "constraintIDs": <constraint-ids>}
 
@@ -29,45 +34,61 @@ public class ConstraintExecuteServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
+		int  callId = logCall("GET", this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyGet(path, params);
 			if (result.optString(ConstantsJSON.STATUS).equals(ConstantsJSON.STATUS_FAILED))
-				ServletUtilities.putResponse(response, callId, result, HttpServletResponse.SC_BAD_REQUEST);
+				putResponse(response, callId, result, HttpServletResponse.SC_BAD_REQUEST);
 			else 
-				ServletUtilities.putResponse(response, callId, result);
+				putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+			putResponseError(response, callId, e);
 		}
 	}
+
+	// POST .. /constraint/execute    ?
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
-		JSONObject json;
+		Map<String, String[]> parameterMap = null;
 		try {
-			json = ServletUtilities.extractJSON(request);
+			parameterMap = jsonToMap(extractJSON(request));
 		} catch (Exception e) {
 	        response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 	        response.getWriter().write("Invalid or empty JSON");
 	        return;
 		}
-		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, json);
+		int  callId = logCall("GET", this.getClass().getName(), path, parameterMap);
 		try {
-			JSONObject result = applyPost(path, json);
-			ServletUtilities.putResponse(response, callId, result);
+			JSONObject result = applyGet(path, parameterMap);
+			putResponse(response, callId, result);
 		}
 		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
+			putResponseError(response, callId, e);
 		}
 	}
 
-	public static JSONObject applyPost(String path, JSONObject parameters) throws InvalidServletCallException, FailedServletCallException {
-		return applyGet(path, ServletUtilities.jsonToMap(parameters));
+	public static JSONObject extractJSON(HttpServletRequest request) throws IOException, JSONException {
+	    StringBuilder sb = new StringBuilder();
+	    try (BufferedReader reader = request.getReader()) {
+	        String line;
+	        while ((line = reader.readLine()) != null) {
+	            sb.append(line);
+	        }
+	    }
+	
+	    String body = sb.toString().trim();
+	    if (body.isEmpty()) {
+	        return new JSONObject(); // no content
+	    }
+	    return new JSONObject(body);
 	}
 
-	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	// POST .. /constraint/datamodel    /<technology>/<name>    {"datamodel": <datamode-name>}
+	@Override
+	public JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length < 2  || pathparts.length > 2  || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for executing constraints: "

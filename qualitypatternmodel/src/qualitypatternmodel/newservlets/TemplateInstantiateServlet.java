@@ -6,9 +6,6 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -19,25 +16,17 @@ import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
-public class TemplateInstantiateServlet extends HttpServlet {
+public class TemplateInstantiateServlet extends QPMHttpServlet {
+
+	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_MANAGEMENT;
+	}
 
 	// PUT .. /template/instantiate    /<technology>/<templateID>/<variantID>
 
 	@Override
-	public void doPut(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String path = request.getPathInfo();
-		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("PUT", this.getClass().getName(), path, params);
-		try{
-			JSONObject result = applyPut(path, params);
-			ServletUtilities.putResponse(response, callId, result);
-		}
-		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
-		}
-	}
-
-	public static JSONObject applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
+	public JSONObject applyPut (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException, IOException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 4 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for instantiate in a constraint: "

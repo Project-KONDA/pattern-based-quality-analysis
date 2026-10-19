@@ -24,6 +24,10 @@ COPY ./model /usr/src/app/src/main/resources/model
 # copy resource files
 COPY ./openapi.yaml /usr/openapi.yaml
 COPY ./openapi.yaml /usr/src/app/openapi.yaml
+COPY ./openapi_execution.yaml /usr/openapi_execution.yaml
+COPY ./openapi_execution.yaml /usr/src/app/openapi_execution.yaml
+COPY ./openapi_management.yaml /usr/openapi_management.yaml
+COPY ./openapi_management.yaml /usr/src/app/openapi_management.yaml
 
 # change path to web.xml
 RUN sed -i 's#WebContent/WEB-INF#src/main/webapp/WEB-INF#g' /usr/src/app/pom.xml

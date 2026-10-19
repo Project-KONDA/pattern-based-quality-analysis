@@ -6,9 +6,6 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import qualitypatternmodel.exceptions.FailedServletCallException;
 import qualitypatternmodel.exceptions.InvalidServletCallException;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -17,41 +14,17 @@ import qualitypatternmodel.utility.ConstantsError;
 import qualitypatternmodel.utility.ConstantsJSON;
 
 @SuppressWarnings("serial")
-public class ConstraintDataModelServlet extends HttpServlet {
+public class ConstraintDataModelServlet extends QPMHttpServlet {
+
+	@Override
+	protected String getAllowedRole() {
+		return ServletConstants.ROLE_MANAGEMENT;
+	}
 
 	// GET .. /constraint/datamodel    /<technology>/<name>
 
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String path = request.getPathInfo();
-		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
-		try {
-			JSONObject result = applyGet(path, params);
-			ServletUtilities.putResponse(response, callId, result);
-		}
-		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
-		}
-	}
-
-	// POST .. /constraint/datamodel    /<technology>/<name>    {"datamodel": <datamode-name>}
-
-	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String path = request.getPathInfo();
-		Map<String, String[]> params = request.getParameterMap();
-		int  callId = ServletUtilities.logCall("POST", this.getClass().getName(), path, params);
-		try{
-			JSONObject result = applyPost(path, params);
-			ServletUtilities.putResponse(response, callId, result);
-		}
-		catch (Exception e) {
-			ServletUtilities.putResponseError(response, callId, e);
-		}
-	}
-
-	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	public JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the data model of a constraint: "
@@ -78,24 +51,13 @@ public class ConstraintDataModelServlet extends HttpServlet {
 			result.put(ConstantsJSON.DATAMODEL, patternjson.getString(ConstantsJSON.DATAMODEL));
 		} catch (JSONException e) {}
 		return result;
-
-//		// 1 load constraint
-//		CompletePattern pattern;
-//		try {
-//			pattern = ServletUtilities.loadConstraint(technology, constraintId);
-//		} catch (IOException e) {
-//			throw new FailedServletCallException(ConstantsError.NOT_FOUND_CONSTRAINT);
-//		}
-//
-//		// 2 return datamodel name
-//		JSONObject result = new JSONObject();
-//		try {
-//			result.put(ConstantsJSON.DATAMODEL, pattern.getDataModelName());
-//		} catch (JSONException e) {}
-//		return result;
 	}
 
-	public static JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+
+	// POST .. /constraint/datamodel    /<technology>/<name>    {"datamodel": <datamode-name>}
+
+	@Override
+	public JSONObject applyPost (String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
 		if (pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for setting a data model in a constraint: "

@@ -15,6 +15,8 @@ public class ConstantsError {
 	public static final String DUPLICATE_VARIANT_NAMES = "there are variants with the same name";
 	public static final String NOT_IMPLEMENTED_RDF = "not implemented for RDF";
 	public static final String NOT_IMPLEMENTED_NEO = "not implemented for Neo4j";
+	public static final String SERVLET_CALL_DISABLED = "Servlet Call Disabled";
+	public static final String SERVLET_CALL_UNSUPPORTED = "Servlet Call not Supported";
 
 	// Errors - not found
 	public static final String NOT_FOUND_TEMPLATE =  "template not found";
