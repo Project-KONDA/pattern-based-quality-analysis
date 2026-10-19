@@ -1010,7 +1010,7 @@ paths:
       description: Request MQAF constraint schema in json format from multiple constraints
       operationId: mqaf-multiple
       parameters:
-        - name: constraints
+        - name: constraintIDs
           in: query
           description: specification of the constraints to include in the MQAF constraint
           required: true
@@ -1099,7 +1099,7 @@ paths:
       description: Request generated technology-specific queries from multiple constraints
       operationId: query-multiple
       parameters:
-        - name: constraints
+        - name: constraintIDs
           in: query
           description: specification of the constraints to translate to technology-specific queries
           required: true

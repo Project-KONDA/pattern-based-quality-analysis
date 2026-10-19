@@ -37,67 +37,33 @@ public class ConstraintMqafServlet extends QPMHttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int callId = logCall("GET", this.getClass().getName(), path, params);
 		try {
-			int i = path.split("/").length;
-			JSONObject result;
-			if (i == 2) {
-				result = applyGet2(path, params);
-			} else if (i == 3) {
-				result = applyGet3(path, params);
-			} else {
-				throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint:"
-						+ " GET '/constraint/mqaf/{technology}' OR '/constraint/mqaf/{technology}/{constraintID}' "
-						+ "(not /constraint/mqaf" + path + ")");
-			}
+			JSONObject result = applyGet(path, params);
 			putResponse(response, callId, result);
 		}
 		catch (Exception e) {
 			putResponseError(response, callId, e);
 		}
 	}
-
-	public static JSONObject applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	
+	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 3 || !pathparts[0].equals("")) {
+		if (!(pathparts.length == 2 && parameterMap.containsKey(ConstantsJSON.CONSTRAINT_IDS)) && pathparts.length != 3 || !pathparts[0].equals("")) {
 			throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint for a constraint:"
-					+ " GET '/constraint/mqaf/{technology}/{constraintID}' "
+					+ " GET '/constraint/mqaf/{technology}/{constraintID}' or '/constraint/mqaf/{technology}' [" + ConstantsJSON.CONSTRAINT_IDS + "]"
 					+ "(not /constraint/mqaf" + path + ")");
 		}
-
-		String technology = pathparts[1];
-		String constraintId = pathparts[2];
-
-		if (!Constants.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
-		}
-
-		return getJsonStringSchemaFromConstraintIds(new String[] { constraintId }, technology);
-	}
-
-
-	public static JSONObject applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
-		String[] pathparts = path.split("/");
-		if (pathparts.length != 2 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint for multiple constraints:"
-					+ " GET '/constraint/mqaf/{technology}' "
-					+ "(not /constraint/mqaf" + path + ")");
-		}
-
 		String technology = pathparts[1];
 		if (!Constants.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
-
-		String[] constraintIDs1 = parameterMap.get(ConstantsJSON.CONSTRAINTS);
-		if (constraintIDs1 == null)
-			constraintIDs1 = new String[0];
-		String[] constraintIDs2 = parameterMap.get(ConstantsJSON.CONSTRAINT_IDS);
-		if (constraintIDs2 == null)
-			constraintIDs2 = new String[0];
-		String[] constraintIds = new String[constraintIDs1.length + constraintIDs2.length];
-		System.arraycopy(constraintIDs1, 0, constraintIds, 0, constraintIDs1.length);
-		System.arraycopy(constraintIDs2, 0, constraintIds, constraintIDs1.length, constraintIDs2.length);
-
-		return getJsonStringSchemaFromConstraintIds(constraintIds, technology);
+		
+		if (pathparts.length == 3) {
+			String constraintId = pathparts[2];
+			return getJsonStringSchemaFromConstraintIds(new String[] { constraintId }, technology);
+		} else {
+			String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINT_IDS) != null? parameterMap.get(ConstantsJSON.CONSTRAINT_IDS): new String[0];
+			return getJsonStringSchemaFromConstraintIds(constraintIds, technology);
+		}
 	}
 
 	private static JSONObject getJsonStringSchemaFromConstraintIds(String[] constraintIds, String technology) throws FailedServletCallException {

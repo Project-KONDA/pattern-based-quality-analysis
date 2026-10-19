@@ -1,12 +1,7 @@
 package qualitypatternmodel.newservlets;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedHashSet;
 import java.util.Map;
-import java.util.Set;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,67 +30,37 @@ public class ConstraintQueryServlet extends QPMHttpServlet {
 		Map<String, String[]> params = request.getParameterMap();
 		int  callId = logCall("GET", this.getClass().getName(), path, params);
 		try {
-			int i = path.split("/").length;
-			JSONObject result = null; // = applyGet(path, params);
-			if (i == 2) {
-				result = applyGet2(path, params);
-			} else if (i == 3) {
-				result = applyGet3(path, params);
-			} else {
-				throw new InvalidServletCallException("Wrong URL for requesting the query of a constraint: "
-						+ "' GET '/constraint/query/{technology}/{constraintID}' "
-						+ "(not /constraint/query" + path + ")");
-			}
+			JSONObject result = applyGet(path, params);
 			putResponse(response, callId, result);
 		}
 		catch (Exception e) {
 			putResponseError(response, callId, e);
 		}
 	}
-
-	public static JSONObject applyGet3(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
+	
+	public static JSONObject applyGet(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
 		String[] pathparts = path.split("/");
-		if (pathparts.length != 3 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong URL for requesting the query of a constraint: "
-					+ "GET '/constraint/query/{technology}/{constraintID}' "
-					+ "OR '/constraint/query/{technology}' "
+		if (!(pathparts.length == 2 && parameterMap.containsKey(ConstantsJSON.CONSTRAINT_IDS)) && pathparts.length != 3 || !pathparts[0].equals("")) {
+			throw new InvalidServletCallException("Wrong URL for requesting the mqaf constraint for a constraint:"
+					+ " GET '/constraint/query/{technology}/{constraintID}' or '/constraint/query/{technology}' [" + ConstantsJSON.CONSTRAINT_IDS + "]"
 					+ "(not /constraint/query" + path + ")");
 		}
-
-		String technology = pathparts[1];
-		String constraintId = pathparts[2];
-
-		if (!Constants.TECHS.contains(technology)) {
-			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
-		}
-
-		String[] constraintIds = new String[] {constraintId};
-		return applyGet(technology, constraintIds);
-	}
-
-	public static JSONObject applyGet2(String path, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {
-		String[] pathparts = path.split("/");
-		if (pathparts.length != 2 || !pathparts[0].equals("")) {
-			throw new InvalidServletCallException("Wrong URL for requesting the query of multiple constraints: "
-					+ "' GET '/constraint/query/{technology}' "
-					+ "(not /constraint/query" + path + ")");
-		}
-
 		String technology = pathparts[1];
 		if (!Constants.TECHS.contains(technology)) {
 			throw new InvalidServletCallException("The technology '" + technology + "' is not supported. Supported are: " + Constants.TECHS);
 		}
-
-		String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINTS);
-
-		Set<String> constraintIdSet = constraintIds == null
-		        ? Collections.emptySet() 
-		        : new LinkedHashSet<>(Arrays.asList(constraintIds));
-		constraintIds = constraintIdSet.toArray(new String[0]);
-		return applyGet(technology, constraintIds);
+		
+		if (pathparts.length == 3) {
+			String constraintId = pathparts[2];
+			return calculateGet(technology, new String[] { constraintId });
+			
+		} else {
+			String[] constraintIds = parameterMap.get(ConstantsJSON.CONSTRAINT_IDS) != null? parameterMap.get(ConstantsJSON.CONSTRAINT_IDS) : new String[0];
+			return calculateGet(technology, constraintIds);
+		}
 	}
 
-	public static JSONObject applyGet(String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
+	public static JSONObject calculateGet(String technology, String[] constraintIds) throws InvalidServletCallException, FailedServletCallException {
 
 		JSONObject result = new JSONObject();
 		JSONArray failed = new JSONArray();

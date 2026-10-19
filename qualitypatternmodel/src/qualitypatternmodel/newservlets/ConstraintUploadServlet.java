@@ -37,10 +37,15 @@ public class ConstraintUploadServlet extends QPMHttpServlet {
 	// POST .. /constraint/upload /<technology>/<templateID>
 
 	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String path = request.getPathInfo();
 		Map<String, String[]> params = request.getParameterMap();
-	    Part filePart = request.getPart("file");
+	    Part filePart;
+		try {
+			filePart = request.getPart("file");
+		} catch (ServletException e) {
+			throw new IOException(e);
+		}
 		String uploadFolder = ServletConstants.PATTERN_VOLUME + "/" + ServletConstants.UPLOAD_FOLDER;
 		File file = storePart(filePart, uploadFolder);
 	    

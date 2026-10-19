@@ -83,7 +83,7 @@ public class XmlInstantiationTest {
 		System.out.println();
 		System.out.println("QUERY");
 		for (String get: patternIDs){
-			System.out.println(ConstraintQueryServlet.applyGet3(get, parameterMap));
+			System.out.println(ConstraintQueryServlet.applyGet(get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 
@@ -91,7 +91,7 @@ public class XmlInstantiationTest {
 		System.out.println("MQAF");
 		for (String get: patternIDs){
 			System.out.println(get);
-			System.out.println("  " + ConstraintMqafServlet.applyGet3(get, parameterMap));
+			System.out.println("  " + ConstraintMqafServlet.applyGet(get, parameterMap));
 //			JSONObject json = new JSONObject(TemplateGetServlet.applyGet(context, get, parameterMap));
 		}
 

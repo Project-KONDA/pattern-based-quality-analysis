@@ -53,12 +53,12 @@ public class MandAttMqafTest {
 		System.out.println(ConstraintServlet.applyPost("/xml/" + patternID, setParams));
 
 		// mqaf single
-		System.out.println("  " + ConstraintMqafServlet.applyGet3("/xml/" + patternID, new HashMap<>()));
+		System.out.println("  " + ConstraintMqafServlet.applyGet("/xml/" + patternID, new HashMap<>()));
 
 		// mqaf multiple
 		HashMap<String, String[]> parameterMap2 = new HashMap<>();
 		parameterMap2.put("constraints", new String[]{patternID});
-		System.out.println("  " + ConstraintMqafServlet.applyGet3("/xml/" + patternID, parameterMap2));
+		System.out.println("  " + ConstraintMqafServlet.applyGet("/xml/" + patternID, parameterMap2));
 
 		System.out.println(ConstraintServlet.applyDelete("/xml/" + patternID, new HashMap<>()));
 	}

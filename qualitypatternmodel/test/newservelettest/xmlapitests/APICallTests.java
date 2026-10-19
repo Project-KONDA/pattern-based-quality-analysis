@@ -762,11 +762,11 @@ public class APICallTests {
 		params.put("XmlPath_Element_3", new String[] { "/*/*/*/*/*/*" });
 		ConstraintServlet.applyPost("/xml/" + constraintID, params);
 
-		JSONObject apply1 = ConstraintMqafServlet.applyGet3("/xml/" + constraintID, getEmptyParams());
+		JSONObject apply1 = ConstraintMqafServlet.applyGet("/xml/" + constraintID, getEmptyParams());
 
 		Map<String, String[]> params1 = getEmptyParams();
 		params1.put("constraintIDs", new String[] { constraintID });
-		JSONObject apply2 = ConstraintMqafServlet.applyGet2("/xml", params1);
+		JSONObject apply2 = ConstraintMqafServlet.applyGet("/xml", params1);
 		deleteConstraint(constraintID);
 
 		assertSimilarJSONObjects(apply1, apply2);
@@ -785,11 +785,11 @@ public class APICallTests {
 		params.put("XmlPath_Element_3", new String[] { "/*/*/*/*/*/*" });
 		ConstraintServlet.applyPost("/xml/" + constraintID, params);
 
-		JSONObject apply1 = ConstraintQueryServlet.applyGet3("/xml/" + constraintID, getEmptyParams());
+		JSONObject apply1 = ConstraintQueryServlet.applyGet("/xml/" + constraintID, getEmptyParams());
 
 		Map<String, String[]> params1 = getEmptyParams();
-		params1.put(ConstantsJSON.CONSTRAINTS, new String[] { constraintID });
-		JSONObject apply2 = ConstraintQueryServlet.applyGet2("/xml", params1);
+		params1.put(ConstantsJSON.CONSTRAINT_IDS, new String[] { constraintID });
+		JSONObject apply2 = ConstraintQueryServlet.applyGet("/xml", params1);
 		deleteConstraint(constraintID);
 
 		assertSimilarJSONObjects(apply1, apply2);

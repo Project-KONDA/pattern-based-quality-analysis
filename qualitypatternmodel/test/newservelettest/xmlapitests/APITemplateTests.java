@@ -152,10 +152,10 @@ public class APITemplateTests {
 	private void testConcretePattern(String constraintID)
 			throws InvalidServletCallException, FailedServletCallException, ServletException, IOException {
 		Map<String, String[]> params1 = APICallTests.getEmptyParams();
-		params1.put("constraints", new String[] { constraintID });
-		JSONObject query1 = ConstraintQueryServlet.applyGet2("/xml", params1);
+		params1.put(ConstantsJSON.CONSTRAINT_IDS, new String[] { constraintID });
+		JSONObject query1 = ConstraintQueryServlet.applyGet("/xml", params1);
 		APICallTests.assertQueryObject(query1);
-		JSONObject query2 = ConstraintQueryServlet.applyGet3("/xml/" + constraintID, APICallTests.getEmptyParams());
+		JSONObject query2 = ConstraintQueryServlet.applyGet("/xml/" + constraintID, APICallTests.getEmptyParams());
 		APICallTests.assertQueryObject(query2);
 		APICallTests.assertSimilarJSONObjects(query1, query2);
 

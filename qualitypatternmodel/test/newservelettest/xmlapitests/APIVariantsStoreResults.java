@@ -217,7 +217,7 @@ public class APIVariantsStoreResults {
 		setAllConstraintParameter(constraintID);
 		Map<String, String[]> params1 = APICallTests.getEmptyParams();
 		params1.put("constraints", new String[] { constraintID });
-		JSONObject query = ConstraintQueryServlet.applyGet2("/xml", params1);
+		JSONObject query = ConstraintQueryServlet.applyGet("/xml", params1);
 
 		Map<String, String[]> params2 = APICallTests.getEmptyParams();
 		params2.put("constraintIDs", new String[] { constraintID });

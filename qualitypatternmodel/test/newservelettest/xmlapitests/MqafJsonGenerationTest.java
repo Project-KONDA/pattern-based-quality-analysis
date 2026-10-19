@@ -117,7 +117,7 @@ public class MqafJsonGenerationTest {
 		constraints.put("constraints", patternIDs);
 		JSONObject json = null;
 		try {
-			JSONObject output = ConstraintMqafServlet.applyGet2("/xml", constraints);
+			JSONObject output = ConstraintMqafServlet.applyGet("/xml", constraints);
 			json = output.getJSONObject("constraint");
 		} catch (InvalidServletCallException | FailedServletCallException | JSONException e) {
 			e.printStackTrace();
