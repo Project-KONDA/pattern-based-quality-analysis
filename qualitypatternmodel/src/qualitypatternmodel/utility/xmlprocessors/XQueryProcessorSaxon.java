@@ -38,13 +38,13 @@ import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.Util;
 
 public class XQueryProcessorSaxon {
-	static boolean NOSKIPS = false;
+	static boolean NOSKIPS = true;
 	static String SERIALIZER_METHOD = "xml";
 	static String SERIALIZER_ENCODING = "UTF-8";
 	static String SERIALIZER_INDENT = "yes";
 	static String SERIALIZER_OMIT_XML_DECLARATION = "yes";
 	static boolean BUILDER_LINENUMBERING = true;
-	static WhitespaceStrippingPolicy WHITESPACESTRIPPING = WhitespaceStrippingPolicy.ALL;
+	static WhitespaceStrippingPolicy WHITESPACESTRIPPING = WhitespaceStrippingPolicy.NONE;
 
 	public static JSONArray executeQueryFileStripped (String query, String filepath) throws InvalidityException {
 		JSONArray incidents = executeQueryFile(query, filepath);

@@ -170,13 +170,13 @@ public class Test01XmlPropertyNavigation {
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("01p", "PropertyReturn", getPropertyReturn(), "//*/text()"));
+		testPairs.add(new PatternTestPair("01p", "PropertyReturn", getPropertyReturn(), "//*/string()"));
 		testPairs.add(new PatternTestPair("01p", "Property", getProperty(), "//*[text()]"));
-		testPairs.add(new PatternTestPair("01p", "Value", getValue(), "//*[text()=\"unknown\"]"));
+		testPairs.add(new PatternTestPair("01p", "Value", getValue(), "//*[string()=\"unknown\"]"));
 		testPairs.add(new PatternTestPair("01p", "PropertyNext", getPropertyNextGraph(), "//*[text()]"));
-		testPairs.add(new PatternTestPair("01p", "MultipleProperties", getMultipleProperties(), "declare namespace demo = \"demo\"; //*[./demo:startwork/text()][./demo:endwork/text()]"));
-		testPairs.add(new PatternTestPair("01p", "ValueNextGraph", getValueNextGraph(), "//*[text()=\"unknown\"]"));
-		String x = "declare namespace demo = \"demo\"; /demo:data/demo:painting [./demo:creator/text() = /demo:data/demo:artist/@demo:id]";
+		testPairs.add(new PatternTestPair("01p", "MultipleProperties", getMultipleProperties(), "declare namespace demo = \"demo\"; //*[./demo:startwork/string()][./demo:endwork/string()]"));
+		testPairs.add(new PatternTestPair("01p", "ValueNextGraph", getValueNextGraph(), "//*[string()=\"unknown\"]"));
+		String x = "declare namespace demo = \"demo\"; /demo:data/demo:painting [./demo:creator/string() = /demo:data/demo:artist/@demo:id]";
 		testPairs.add(new PatternTestPair("01p", "Comparison", getComparison(), x));
 		testPairs.add(new PatternTestPair("01p", "ComparisonCrossGraph", getComparisonCrossGraph(), x));
 		testPairs.add(new PatternTestPair("01p", "ComparisonNextGraph", getComparisonNextGraph(), x));

@@ -84,7 +84,7 @@ public class ConstraintCopyServlet extends HttpServlet {
 		}
 
 		// 2 create new patternID
-		String templateId = pattern.getAbstractId();
+		String templateId = pattern.getPatternId();
 		String newID = ServletUtilities.generateNewId(technology, templateId, pattern.getText().get(0).getName(), ServletConstants.constraintFolderPath(technology));
 
 		// 3 change constraint name

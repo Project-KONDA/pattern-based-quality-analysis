@@ -36,6 +36,8 @@ RUN sed -i 's/maxParameterCount="[0-9]*"/maxParameterCount="10000"/' /usr/local/
 WORKDIR /usr/src/app
 ARG MAVEN_VERSION='LOCALBUILD'
 ENV MAVEN_VERSION=${MAVEN_VERSION}
+ENV JAVA_TOOL_OPTIONS="-Xms8g -Xmx8g"
+ENV JAVA_OPTS="-Xms8g -Xmx8g"
 RUN mvn clean compile install package -DskipTests=true -Drevision=${MAVEN_VERSION}
 
 

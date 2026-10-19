@@ -20,6 +20,8 @@
 		<value match="def">false</value>
 		<value match="012">yes</value>
 		<value match="abc012">no</value>
+		<value match="abc012"></value>
+		<value match="abc012"/>
 	</compset>
 	<values>
 		<value>abc</value>
@@ -28,6 +30,8 @@
 		<value>xyz</value>
 		<value>01234</value>
 		<value>.,-</value>
+		<value>   </value>
+		<value/>
 	</values>
 	<valuelists>
 		<list id="0" name="012"><value>true</value><value>yes</value><value>false</value><value>no</value>
@@ -83,6 +87,23 @@
 		<link comp="false" size="256x256">https://picsum.photos/256/256</link>
 		<link comp="false" size="2500x1912">https://picsum.photos/2500/1912</link>
 	</linkimagesizeifcompset>
+	<linkimagesizeifcompset2>
+		<link state="ok" type="Bild">http://resources.digicult-museen.net/dam/provided_image/m5ea54539bef06</link> <!-- ok -->
+		<link state="ok" type="Vorschaubild">http://resources.digicult-museen.net/dam/provided_image/m5ea54539bef06</link> <!-- ok -->
+		<link state="ok" type="http://terminology.lido-schema.org/lido00480">http://resources.digicult-museen.net/dam/provided_image/m5ea54539bef06</link> <!-- ok -->
+		<link state="ok" type="http://terminology.lido-schema.org/lido00480">http://resources.digicult-museen.net/dam/provided_image/m5ea5453a0926f</link> <!-- ok -->
+		<link state="ok" type="http://terminology.lido-schema.org/lido00464">http://resources.digicult-museen.net/dam/provided_image/m5ea54539bef06</link> <!--  not relevant -->
+		<link state="ok" type="http://terminology.lido-schema.org/lido00464">http://resources.digicult-museen.net/dam/provided_image/m5ea5453a0926f</link> <!--  not relevant -->
+		<link state="invalid" g1="false" g2="false" type="http://terminology.lido-schema.org/lido00464">http://resources.digicult-museen.net/dam/provided_image/m5ea54539bef06-invalid.com</link> <!--  no, invalid -->
+		<link state="small" g1="false" g2="false" type="http://terminology.lido-schema.org/lido00464">http://resources.digicult-museen.net/dam/provided_image/m5ea5453a433bb</link> <!--  no, valid, 482x600 -->
+		<link state="small" g1="false" g2="false" type="http://terminology.lido-schema.org/lido00464">https://emuseum.duesseldorf.de/internal/media/dispatcher/415493/preview</link> <!--  no, valid, 500x706 -->	
+		<link state="invalid" g1="false" g2="true" type="Bild">http://resources.digicult-museen.net/dam/provided_image/m5ea54539bef06-invalid.com</link> <!--  some, invalid -->
+		<link state="small" g1="false" g2="true" type="Bild">https://emuseum.duesseldorf.de/internal/media/dispatcher/415493/preview</link> <!--  some, valid, 500x706 -->
+		<link state="invalid" g1="true" g2="true" type="Vorschaubild">http://resources.digicult-museen.net/dam/provided_image/m5ea54539bef06-invalid.com</link> <!--  yes, invalid -->
+		<link state="small" g1="true" g2="true" type="Vorschaubild">https://emuseum.duesseldorf.de/internal/media/dispatcher/415493/preview</link> <!--  yes, valid, 500x706 -->
+		<link state="small" g1="true" g2="true" type="http://terminology.lido-schema.org/lido00480">http://resources.digicult-museen.net/dam/provided_image/m5ea5453a433bb</link> <!--  yes, valid, 482x600 -->
+		<link state="small" g1="true" g2="true" type="http://terminology.lido-schema.org/lido00480">https://emuseum.duesseldorf.de/internal/media/dispatcher/415493/preview</link> <!--  yes, valid, 500x706 -->
+	</linkimagesizeifcompset2>
 	<linksource>
 		<link id="0" valid="true">https://www.wikidata.org/entity/Q22731</link>
 		<link id="1" valid="true">https://www.wikidata.org/entity/Q923113</link>
@@ -238,7 +259,7 @@
 		<link>https://www.museum-digital.de/data/berlin/images/import_17/201601/100h_29173524067.jpg</link>
 		<link>https://www.museum-digital.de/data/berlin/images/import_17/201601/29173524067.jpg</link>
 		<link>https://www.runesdb.de/image-service/17125/full/max/0/default.jpg</link>
-		<link>https://www.tierschutzbund.de/fileadmin/_processed_/e/1/csm_Strassenkatze_getigert_liegend_Xena_c_Tierschutzverein_Schwalbach___Frankfurt-West_e.V._603e5195d1.jpg</link>
+		<link>https://www.tasso.net/tasso/media/Tierschutz/tierschutz-streunerkatzen-wann-braucht-eine-katze-hilfe-TASSO.jpg</link>
 		<link>I11.jpg</link>
 		<link>nix</link>
 		<link>nothing</link>

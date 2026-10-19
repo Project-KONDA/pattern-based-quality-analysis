@@ -57,7 +57,7 @@
         {"text":"pixels."},
 
         {
-        	"value":"false",
+        	"value":"true",
         	"params":[3]
         }
     ]

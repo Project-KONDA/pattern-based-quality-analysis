@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -33,17 +32,10 @@ public class ConstraintExecuteServlet extends HttpServlet {
 		int  callId = ServletUtilities.logCall("GET", this.getClass().getName(), path, params);
 		try {
 			JSONObject result = applyGet(path, params);
-			if (result.optJSONArray(ConstantsJSON.RESULT).isEmpty()) {
-				result.put(ConstantsJSON.STATUS, ConstantsJSON.STATUS_FAILED);
+			if (result.optString(ConstantsJSON.STATUS).equals(ConstantsJSON.STATUS_FAILED))
 				ServletUtilities.putResponse(response, callId, result, HttpServletResponse.SC_BAD_REQUEST);
-			} else {
-				if (result.optJSONObject(ConstantsJSON.FAILEDCONSTRAINTS).keySet().isEmpty()
-						&& result.optJSONObject(ConstantsJSON.FAILEDCONSTRAINTS).keySet().isEmpty())
-					result.put(ConstantsJSON.STATUS, ConstantsJSON.STATUS_SUCCESS);
-				else
-					result.put(ConstantsJSON.STATUS, ConstantsJSON.STATUS_PARTIAL);
-				ServletUtilities.putResponse(response, callId, result, HttpServletResponse.SC_OK);
-			}
+			else 
+				ServletUtilities.putResponse(response, callId, result);
 		}
 		catch (Exception e) {
 			ServletUtilities.putResponseError(response, callId, e);
@@ -85,11 +77,21 @@ public class ConstraintExecuteServlet extends HttpServlet {
 
 		String technology = pathparts[1];
 
+		JSONObject result;
 		if (technology.equals(Constants.XML)) {
-			return applyGetXml(path, technology, parameterMap);
+			result = applyGetXml(path, technology, parameterMap);
 		} else {
 			throw new FailedServletCallException("Technology '" + technology + "' currently not supported");
 		}
+
+		if (result.optJSONArray(ConstantsJSON.RESULT).isEmpty()) {
+			result.put(ConstantsJSON.STATUS, ConstantsJSON.STATUS_FAILED);
+		} else if (!result.has(ConstantsJSON.FAILEDCONSTRAINTS) || result.optJSONObject(ConstantsJSON.FAILEDCONSTRAINTS).keySet().isEmpty()) {
+			result.put(ConstantsJSON.STATUS, ConstantsJSON.STATUS_SUCCESS);
+		} else {
+			result.put(ConstantsJSON.STATUS, ConstantsJSON.STATUS_PARTIAL);
+		}
+		return result;
 	}
 
 	public static JSONObject applyGetXml(String path, String technology, Map<String, String[]> parameterMap) throws InvalidServletCallException, FailedServletCallException {

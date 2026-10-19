@@ -177,7 +177,7 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 		}
 
 		// identify property kind
-		if (value.equals("text()") || value.equals("data()"))
+		if (value.equals("text()") || value.equals("data()") || value.equals("string()") )
 			pro = XmlPropertyKind.DATA;
 		else if (value.equals("name()"))
 			pro = XmlPropertyKind.TAG;
@@ -265,7 +265,8 @@ public class XmlPropertyOptionParamImpl extends ParameterImpl implements XmlProp
 				return axis + "@" + attributeName.getValue() + "";
 			}
 		case DATA:
-			return axis + "text()";
+			return axis + "string()";
+//			return axis + "text()";
 		case TAG:
 			return axis + "name()";
 		default:

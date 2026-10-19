@@ -44,12 +44,12 @@ public class Test11Contains {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<>();
 
-		testPairs.add(new PatternTestPair("11c", "Contains_In", getPatternContains(true, "know"), "//*[./text()[contains(., 'know')]]"));
-		testPairs.add(new PatternTestPair("11c", "Contains_Not", getPatternContains(false, "u"), "//*[./text()[not(contains(., 'u'))]]"));
-		testPairs.add(new PatternTestPair("11c", "Contains_Start", getPatternContains(true, "^unk"), "//*[./text()[contains(., '^unk')]]"));
-		testPairs.add(new PatternTestPair("11c", "Contains_End", getPatternContains(true, "own$"), "//*[./text()[contains(., 'own$')]]"));
-		testPairs.add(new PatternTestPair("11c", "Contains_Exact", getPatternContains(true, "^unknown$"), "//*[./text()[contains(., '^unknown$')]]"));
-		testPairs.add(new PatternTestPair("11c", "Contains_NotExact", getPatternContains(false, "^unknown$"), "//*[./text()[not(contains(., '^unknown$'))]]"));
+		testPairs.add(new PatternTestPair("11c", "Contains_In", getPatternContains(true, "know"), "//*[./string()[contains(., 'know')]]"));
+		testPairs.add(new PatternTestPair("11c", "Contains_Not", getPatternContains(false, "u"), "//*[./string()[not(contains(., 'u'))]]"));
+		testPairs.add(new PatternTestPair("11c", "Contains_Start", getPatternContains(true, "^unk"), "//*[./string()[contains(., '^unk')]]"));
+		testPairs.add(new PatternTestPair("11c", "Contains_End", getPatternContains(true, "own$"), "//*[./string()[contains(., 'own$')]]"));
+		testPairs.add(new PatternTestPair("11c", "Contains_Exact", getPatternContains(true, "^unknown$"), "//*[./string()[contains(., '^unknown$')]]"));
+		testPairs.add(new PatternTestPair("11c", "Contains_NotExact", getPatternContains(false, "^unknown$"), "//*[./string()[not(contains(., '^unknown$'))]]"));
 
 		return testPairs;
 	}

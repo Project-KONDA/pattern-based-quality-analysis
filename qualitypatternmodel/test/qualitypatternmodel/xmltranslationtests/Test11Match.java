@@ -59,12 +59,12 @@ public class Test11Match {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<>();
 
-		testPairs.add(new PatternTestPair("11m", "Match_In", getPatternMatch(true, "know"), "//*[./text()[matches(., 'know')]]"));
-		testPairs.add(new PatternTestPair("11m", "Match_Not", getPatternMatch(false, "u"), "//*[./text()[not(matches(., 'u'))]]"));
-		testPairs.add(new PatternTestPair("11m", "Match_Start", getPatternMatch(true, "^unk"), "//*[./text()[matches(., '^unk')]]"));
-		testPairs.add(new PatternTestPair("11m", "Match_End", getPatternMatch(true, "own$"), "//*[./text()[matches(., 'own$')]]"));
-		testPairs.add(new PatternTestPair("11m", "Match_Exact", getPatternMatch(true, "^unknown$"), "//*[./text()[matches(., '^unknown$')]]"));
-		testPairs.add(new PatternTestPair("11m", "Match_NotExact", getPatternMatch(false, "^unknown$"), "//*[./text()[not(matches(., '^unknown$'))]]"));
+		testPairs.add(new PatternTestPair("11m", "Match_In", getPatternMatch(true, "know"), "//*[./string()[matches(., 'know')]]"));
+		testPairs.add(new PatternTestPair("11m", "Match_Not", getPatternMatch(false, "u"), "//*[./string()[not(matches(., 'u'))]]"));
+		testPairs.add(new PatternTestPair("11m", "Match_Start", getPatternMatch(true, "^unk"), "//*[./string()[matches(., '^unk')]]"));
+		testPairs.add(new PatternTestPair("11m", "Match_End", getPatternMatch(true, "own$"), "//*[./string()[matches(., 'own$')]]"));
+		testPairs.add(new PatternTestPair("11m", "Match_Exact", getPatternMatch(true, "^unknown$"), "//*[./string()[matches(., '^unknown$')]]"));
+		testPairs.add(new PatternTestPair("11m", "Match_NotExact", getPatternMatch(false, "^unknown$"), "//*[./string()[not(matches(., '^unknown$'))]]"));
 
 		testPairs.add(new PatternTestPair("11m", "MatchA_In", getPatternMatchAttribute(true, "know"), "//*[./@type[matches(./data, 'know')]]"));
 		testPairs.add(new PatternTestPair("11m", "MatchA_Not", getPatternMatchAttribute(false, "u"), "//*[./@type[not(matches(./data, 'u'))]]"));
