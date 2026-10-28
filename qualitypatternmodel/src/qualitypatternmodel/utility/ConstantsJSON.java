@@ -53,7 +53,7 @@ public class ConstantsJSON {
 	public static final String VALUE = "value";
 	public static final String USERVALUE = "userValue";
 	public static final String PLURAL = "plural";
-	public static final String STARTPOINT = "startpoint";
+	public static final String STARTPOINT = "startPoint";
 	public static final String OPTIONS = "options";
 	public static final String TYPEMODIFIABLE = "typeModifiable";
 	public static final String DEPENDANT = "dependant";
@@ -68,7 +68,7 @@ public class ConstantsJSON {
 	public static final String FAILED = "failed";
 	public static final String AVAILABLE = "available";
 	public static final String FAILEDCONSTRAINTS = "failedConstraints";
-	public static final String FAILEDFILES = "failedfiles";
+	public static final String FAILEDFILES = "failedFiles";
 
 //	// Untyped Parameter
 //	public static final String ENABLE = "enable";
@@ -94,16 +94,16 @@ public class ConstantsJSON {
 	public static final String RELATIVEQUERIES = "relativeQueries";
 	public static final String CONSTRAINT = "constraint";
 	public static final String CONSTRAINTS = "constraints";
-	public static final String CONSTRAINTSIZE = "constraintsize";
+	public static final String CONSTRAINTSIZE = "constraintSize";
 	public static final String CONSTRAINT_NAME = "constraintName";
 	public static final String CONSTRAINT_IDS = "constraintIDs";
 	public static final String FILE = "file";
 	public static final String FILES = "files";
-	public static final String FILESIZE = "filesize";
+	public static final String FILESIZE = "fileSize";
 	public static final String RESULT = "result";
 	public static final String RESULT_SNIPPET = "snippet";
-	public static final String RESULT_STARTLINE = "startline";
-	public static final String RESULT_ENDLINE = "endline";
+	public static final String RESULT_STARTLINE = "startLine";
+	public static final String RESULT_ENDLINE = "endLine";
 	public static final String RESULT_LINESIZE = "linesize";
 	public static final String DURATION = "duration";
 	public static final String STATUS = "status";
@@ -116,7 +116,7 @@ public class ConstantsJSON {
 	public static final String PATTERNID = "patternId";
 	public static final String NEGATE = "negate";
 	public static final String ARGUMENT = "argument";
-	public static final String ARGUMENT_FUNCTION = "functionclass";
+	public static final String ARGUMENT_FUNCTION = "functionClass";
 	public static final String ARGUMENT_CLASS = "class";
 	public static final String ARGUMENT_LIST = "list";
 	public static final String ARGUMENT_NUMBER1 = "number1";
