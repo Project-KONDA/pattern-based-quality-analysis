@@ -30,7 +30,7 @@ jobs:
       - name: Get Maven Project Version
         run: |
           cd qualitypatternmodel
-          POM_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          POM_VERSION=$(python3 -c "import xml.etree.ElementTree as ET; ns={'m':'http://maven.apache.org/POM/4.0.0'}; print(ET.parse('pom.xml').getroot().find('m:properties/m:revision', ns).text)")
           BASE_VERSION=${POM_VERSION%.0}
           MAIN_PATCH=$(git rev-list v$POM_VERSION..origin/main --count --first-parent)
           BASE_COMMIT=$(git merge-base origin/main HEAD)
