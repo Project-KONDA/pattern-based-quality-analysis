@@ -15,8 +15,13 @@ RUN mkdir -p /usr/src/app/src/main/java
 RUN mkdir -p /usr/src/app/src/main/webapp
 RUN mkdir -p /usr/src/app/src/main/resources/model
 
-# copy files
+# copy pom first and cache dependencies
 COPY pom.xml /usr/src/app/pom.xml
+RUN sed -i 's#WebContent/WEB-INF#src/main/webapp/WEB-INF#g' /usr/src/app/pom.xml
+WORKDIR /usr/src/app
+RUN mvn -B -q package -DskipTests -Drevision=0 || true
+
+# copy files
 COPY ./src /usr/src/app/src/main/java
 COPY ./WebContent /usr/src/app/src/main/webapp
 COPY ./model /usr/src/app/src/main/resources/model
@@ -25,18 +30,14 @@ COPY ./model /usr/src/app/src/main/resources/model
 COPY ./openapi.yaml /usr/openapi.yaml
 COPY ./openapi.yaml /usr/src/app/openapi.yaml
 
-# change path to web.xml
-RUN sed -i 's#WebContent/WEB-INF#src/main/webapp/WEB-INF#g' /usr/src/app/pom.xml
-
 # append the attribute maxHttpHeaderSize="65536" in server.xml
 RUN sed -i 's/protocol="HTTP\/1.1"/protocol="HTTP\/1.1" maxHttpHeaderSize="67108864"/' /usr/local/tomcat/conf/server.xml
 RUN sed -i 's/maxParameterCount="[0-9]*"/maxParameterCount="10000"/' /usr/local/tomcat/conf/server.xml
 
 # compile maven to war file
-WORKDIR /usr/src/app
 ARG MAVEN_VERSION='LOCALBUILD'
 ENV MAVEN_VERSION=${MAVEN_VERSION}
-RUN mvn -B package -DskipTests=true -Drevision=${MAVEN_VERSION}
+RUN mvn -B clean package -DskipTests=true -Drevision=${MAVEN_VERSION}
 
 # deploy war
 RUN cp target/*.war /usr/local/tomcat/webapps/ROOT.war
