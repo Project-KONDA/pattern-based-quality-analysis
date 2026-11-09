@@ -90,14 +90,14 @@ public class InitialisationServlet extends HttpServlet {
 
 //	      SHARED_VOLUME: /shared
 		String files = System.getenv(ServletConstants.ENV_FILE_VOLUME);
-		if (files != null && ensureDirectoryAccess(files))
+		if (files != null && checkDirectoryAccess(files))
 			ServletConstants.FILE_VOLUME = files;
 		else 
 			ServletConstants.FILE_VOLUME = scon.getRealPath(ServletConstants.FILE_VOLUME_DEFAULT);
 
 //	      TEMPLATE_VOLUME: /templates
 		String templates = System.getenv(ServletConstants.ENV_PATTERN_VOLUME);
-		if (templates != null && ensureDirectoryAccess(templates)) {
+		if (templates != null && checkDirectoryAccess(templates)) {
 			ServletConstants.PATTERN_VOLUME = templates;
 			ServletConstants.CONSTRAINT_UPLOAD_FOLDER = templates + "/uploads";
 		}	
@@ -121,7 +121,8 @@ public class InitialisationServlet extends HttpServlet {
 
 //	      UPLOAD_FOLDER: /shared/uploads
 		String upload = System.getenv(ServletConstants.ENV_UPLOAD_FOLDER);
-		if (upload != null && ensureDirectoryAccess(upload))
+		if (upload != null)
+//		if (upload != null && ensureDirectoryAccess(upload))
 			ServletConstants.UPLOAD_FOLDER = upload;
 		else 
 			ServletConstants.UPLOAD_FOLDER = scon.getRealPath(ServletConstants.UPLOAD_FOLDER_DEFAULT);
@@ -166,7 +167,7 @@ public class InitialisationServlet extends HttpServlet {
 			ServletConstants.SAVEFILE = scon.getRealPath(ServletConstants.SAVEFILE_DEFAULT);
 		ServletUtilities.log("Environmental Variable SAVEFILE:                  " + ServletConstants.SAVEFILE);
 
-//	      SAVEFILE: savefile.txt
+//	      COUNTFILE: countfile.txt
 		String countfile = System.getenv(ServletConstants.ENV_COUNTFILE);
 		if (countfile != null && ensureFileDirectoryAccess(countfile))
 			ServletConstants.COUNTFILE = countfile;
@@ -176,7 +177,8 @@ public class InitialisationServlet extends HttpServlet {
 
 //	      DATAMODELSFILE: null
 		String datamodelsfile = System.getenv(ServletConstants.ENV_DATAMODELSFILE);
-		if (datamodelsfile != null && ensureFileDirectoryAccess(datamodelsfile))
+		if (datamodelsfile != null)
+//		if (datamodelsfile != null && ensureFileDirectoryAccess(datamodelsfile))
 			ServletConstants.DATAMODELSFILE = datamodelsfile;
 		ServletUtilities.log("Environmental Variable DATAMODELSFILE:            " + ServletConstants.DATAMODELSFILE);
 
@@ -374,6 +376,17 @@ public class InitialisationServlet extends HttpServlet {
             return Files.isDirectory(path)
                 && Files.isReadable(path)
                 && Files.isWritable(path);
+	    } catch (Exception e) {
+	        return false;
+	    }
+	}
+
+	private static boolean checkDirectoryAccess(String directoryPath) {
+	    try {
+	        Path path = Paths.get(directoryPath);
+	        return Files.isDirectory(path)
+	            && Files.isReadable(path)
+	            && Files.isWritable(path);
 	    } catch (Exception e) {
 	        return false;
 	    }
