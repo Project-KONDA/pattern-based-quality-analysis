@@ -1,5 +1,5 @@
 # ---------- build stage ----------
-FROM maven:3.9-eclipse-temurin-25 AS build
+FROM maven:3.10.0-eclipse-temurin-25-noble AS build
 WORKDIR /usr/src/app
 
 COPY pom.xml /usr/src/app/pom.xml
@@ -16,8 +16,8 @@ RUN mvn -B clean package -DskipTests=true -Drevision=${MAVEN_VERSION}
 RUN jar tf target/*.war | grep -q 'WEB-INF/web.xml'
 
 # ---------- runtime stage ----------
-FROM tomcat:10
-LABEL image_name="abc"
+FROM tomcat:10.1.61-jdk25-temurin-noble
+LABEL image_name="qpm"
 
 RUN sed -i 's/protocol="HTTP\/1.1"/protocol="HTTP\/1.1" maxHttpHeaderSize="67108864"/' /usr/local/tomcat/conf/server.xml \
  && sed -i 's/maxParameterCount="[0-9]*"/maxParameterCount="10000"/' /usr/local/tomcat/conf/server.xml
