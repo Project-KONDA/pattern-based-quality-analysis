@@ -162,14 +162,16 @@ public class XmlPathParamImpl extends PatternElementImpl implements XmlPathParam
 
 	@Override
 	public String generateXQuery() throws InvalidityException {
-		String query = generateLocalXQuery();
-		if (getAlternatives() != null && !getAlternatives().isEmpty()) {
-			for (XmlPathParam alternative: getAlternatives()) {
-				query += ConstantsXml.XPATH_UNION + alternative.generateXQuery();
-			}
-			return "(" + query + ")";
-		}
-		return query;
+	    String query = generateLocalXQuery();
+	    if (getAlternatives() != null && !getAlternatives().isEmpty()) {
+	        // "|" only works on nodes; atomic results (e.g. ending in /string()) need ","
+	        String separator = isProperty() ? ConstantsXml.XPATH_SEQUENCE : ConstantsXml.XPATH_UNION;
+	        for (XmlPathParam alternative : getAlternatives()) {
+	            query += separator + alternative.generateXQuery();
+	        }
+	        return "(" + query + ")";
+	    }
+	    return query;
 	}
 
 	protected String generateLocalXQuery() throws InvalidityException {
