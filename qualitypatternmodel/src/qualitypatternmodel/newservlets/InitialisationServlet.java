@@ -9,8 +9,10 @@ import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.EPackage;
 import org.json.JSONException;
@@ -344,15 +346,64 @@ public class InitialisationServlet extends HttpServlet {
 		} catch (Exception e) {
 			ServletUtilities.logError(e);
 		}
+		
+//		CONSTRAINT RESET
+		
+		checkConstraintVersions();
 
 //		VARIANT INITIALISATION
-		if (ServletConstants.VALUE_AS_JSON && ServletConstants.VARIANTS_FOLDER != null && !ServletConstants.VARIANTS_FOLDER.equals("")){
-			ServletUtilities.log("Initializing Variants in " + ServletConstants.VARIANTS_FOLDER);
-			initializeVariants(ServletConstants.VARIANTS_FOLDER);
+		initializeVariants();
+	}
+
+	// delete folders of precompiled if old version
+	public static void checkConstraintVersions() {
+		for (int i = 0; i<Constants.TECHS.size(); i++) {
+			String tech = Constants.TECHS.get(i); 
+			// constraint json
+			if (!checkConstraintVersion(Constants.VERSIONS_CONSTRAINTS_NAMES.get(i), Constants.VERSIONS_CONSTRAINTS.get(i))) {
+				clearFolder(ServletConstants.constraintPatternFolderPath(tech));	
+			}
+			// query json
+			if (!checkConstraintVersion(Constants.VERSIONS_QUERIES_NAMES.get(i), Constants.VERSIONS_QUERIES.get(i))) {
+				clearFolder(ServletConstants.constraintQueryFolderPath(tech));
+			}
 		}
-        else {
-          ServletUtilities.log("No Variants initialized, because VALUE_AS_JSON is false or VARIANTS_FOLDER is not set.");
-        }
+	}
+
+	private static void clearFolder(String folder) {
+	    Path root = Paths.get(folder);
+	    if (!Files.isDirectory(root)) return;
+	    
+		System.out.println("Clearing folder: " + folder);
+	    try (Stream<Path> walk = Files.walk(root)) {
+	        walk.sorted(Comparator.reverseOrder())   // children before parents
+	            .filter(p -> !p.equals(root))        // keep the folder itself
+	            .forEach(p -> {
+	            	try {
+						Files.delete(p);
+					} catch (IOException e) {
+						e.printStackTrace();
+				    	ServletUtilities.logError(e);
+					}
+	            });
+	    } catch (IOException e) {
+			e.printStackTrace();
+	    	ServletUtilities.logError(e);
+		}
+	}
+
+	private static boolean checkConstraintVersion(String name, int version){
+		try {
+			int old = ServletUtilities.getNumber(ServletConstants.SAVEFILE, name, "version");
+			if (old != version)
+				ServletUtilities.setNumber(ServletConstants.SAVEFILE, name, version, "version");
+			return (old == version);
+		} catch (Exception e) {
+			try {
+				ServletUtilities.setNumber(ServletConstants.SAVEFILE, name, version, "version");
+			} catch (Exception e2) {}
+			return false;
+		}
 	}
 
 	private static boolean ensureFileDirectoryAccess(String filePath) {
@@ -390,6 +441,16 @@ public class InitialisationServlet extends HttpServlet {
 	    } catch (Exception e) {
 	        return false;
 	    }
+	}
+
+	private static void initializeVariants() {
+		if (ServletConstants.VALUE_AS_JSON && ServletConstants.VARIANTS_FOLDER != null && !ServletConstants.VARIANTS_FOLDER.equals("")){
+			ServletUtilities.log("Initializing Variants in " + ServletConstants.VARIANTS_FOLDER);
+			initializeVariants(ServletConstants.VARIANTS_FOLDER);
+		}
+        else {
+          ServletUtilities.log("No Variants initialized, because VALUE_AS_JSON is false or VARIANTS_FOLDER is not set.");
+        }
 	}
 
 	private static void initializeVariants(String variantsFolder) {

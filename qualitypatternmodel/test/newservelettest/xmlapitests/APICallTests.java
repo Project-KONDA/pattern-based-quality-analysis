@@ -55,6 +55,7 @@ import qualitypatternmodel.newservlets.VariantsServlet;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.EMFModelLoad;
+import qualitypatternmodel.utility.Util;
 
 public class APICallTests {
 	private static final boolean DELETE = true;
@@ -73,6 +74,7 @@ public class APICallTests {
 
 			testBasics();
 			testLogDeletion();
+			testJSONDeletion();
 			testConstraintCopyServlet();
 			testConstraintDatabaseServlet();
 			testConstraintDataModelServlet();
@@ -470,6 +472,29 @@ public class APICallTests {
                 .filter(f -> f.getName().endsWith(".log"))
                 .toArray(File[]::new);
         assertEquals(array.length, datesNew.length+1);
+	}
+	
+	@Test
+	public void testJSONDeletion() throws IOException {
+
+		// initialization: create versions, reset all generated files
+		InitialisationServlet.checkConstraintVersions();
+		String path = ServletConstants.constraintPatternFolderPath(Constants.XML) + "/" + "test.json";
+		Util.exportJson(new JSONObject(), path);
+		assert(new File(path).exists());
+
+		// check 1: version is ok -> file is kept and number stays
+		assertEquals(ServletUtilities.getNumber(ServletConstants.SAVEFILE, Constants.VERSION_XML_CONSTRAINTS_NAME, "version"), Constants.VERSION_XML_CONSTRAINTS);
+		InitialisationServlet.checkConstraintVersions();
+		assert(new File(path).exists());
+		assertEquals(ServletUtilities.getNumber(ServletConstants.SAVEFILE, Constants.VERSION_XML_CONSTRAINTS_NAME, "version"), Constants.VERSION_XML_CONSTRAINTS);
+
+		// check 2: version is old -> file is deleted and number gets overwritten 
+		ServletUtilities.setNumber(ServletConstants.SAVEFILE, Constants.VERSION_XML_CONSTRAINTS_NAME, Constants.VERSION_XML_CONSTRAINTS-1, "version");
+		assertEquals(ServletUtilities.getNumber(ServletConstants.SAVEFILE, Constants.VERSION_XML_CONSTRAINTS_NAME, "version"), Constants.VERSION_XML_CONSTRAINTS-1);
+		InitialisationServlet.checkConstraintVersions();
+		assert(!(new File(path).exists()));
+		assertEquals(ServletUtilities.getNumber(ServletConstants.SAVEFILE, Constants.VERSION_XML_CONSTRAINTS_NAME, "version"), Constants.VERSION_XML_CONSTRAINTS);
 	}
 
 	@Test

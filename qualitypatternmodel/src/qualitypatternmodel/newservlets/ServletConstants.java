@@ -118,7 +118,7 @@ public class ServletConstants {
 	public static final String PATTERNJSONFOLDER = "patternjson";
 	// name of folder for precompiled queryjson files
 	public static final String QUERYJSONFOLDER = "queryjson";
-	// name of folder for precompiled queryjson files
+	// name of folder for template variantjson files
 	public static final String VARIANTJSONFOLDER = "variantjson";
 	// name of folder for temporary files
 	public static final String TEMPFOLDER = "temp";

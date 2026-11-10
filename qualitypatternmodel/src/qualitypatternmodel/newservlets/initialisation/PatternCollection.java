@@ -14,6 +14,7 @@ import qualitypatternmodel.newservlets.patterns.link.*;
 import qualitypatternmodel.newservlets.patterns.mand.*;
 import qualitypatternmodel.newservlets.patterns.string.*;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.Language;
 
 public class PatternCollection {
 	
@@ -191,6 +192,20 @@ public class PatternCollection {
 			}
 		}
 		return patterns;
+	}
+	
+	public static List<PatternBundle> getPatternBundles(String tech) throws InvalidityException {
+		Language lang = Language.get(tech);
+		switch(lang) {
+		case XML: 
+			return getXmlPatternBundles();
+		case RDF: 
+			return getRdfPatternBundles();
+		case NEO4J: 
+			return getNeoPatternBundles();
+		default:
+			return null;
+		}
 	}
 
 	public static List<PatternBundle> getXmlPatternBundles() throws InvalidityException {

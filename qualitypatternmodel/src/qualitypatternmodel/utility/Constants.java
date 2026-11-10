@@ -15,7 +15,26 @@ public class Constants {
 	public static final String XML = Language.XML.getLiteral();
 	public static final String RDF = Language.RDF.getLiteral();
 	public static final String NEO4J = Language.NEO4J.getLiteral();
+
+	public static final int VERSION_XML_CONSTRAINTS = 1;
+	public static final int VERSION_RDF_CONSTRAINTS = 1;
+	public static final int VERSION_NEO4J_CONSTRAINTS = 1;
+	public static final int VERSION_XML_QUERIES = 1;
+	public static final int VERSION_RDF_QUERIES = 1;
+	public static final int VERSION_NEO4J_QUERIES = 1;
+	public static final String VERSION_XML_CONSTRAINTS_NAME = "version_xml-constraints";
+	public static final String VERSION_RDF_CONSTRAINTS_NAME = "version_rdf-constraints";
+	public static final String VERSION_NEO4J_CONSTRAINTS_NAME = "version_neo-constraints";
+	public static final String VERSION_XML_QUERIES_NAME = "version_xml-queries";
+	public static final String VERSION_RDF_QUERIES_NAME = "version_rdf-queries";
+	public static final String VERSION_NEO4J_QUERIES_NAME = "version_neo-queries";
+
 	public static final List<String> TECHS = List.of(XML, RDF, NEO4J);
+	public static final List<String> VERSIONS_CONSTRAINTS_NAMES = List.of(VERSION_XML_CONSTRAINTS_NAME, VERSION_RDF_CONSTRAINTS_NAME, VERSION_NEO4J_CONSTRAINTS_NAME);
+	public static final List<Integer> VERSIONS_CONSTRAINTS = List.of(VERSION_XML_CONSTRAINTS, VERSION_RDF_CONSTRAINTS, VERSION_NEO4J_CONSTRAINTS);
+	public static final List<String> VERSIONS_QUERIES_NAMES = List.of(VERSION_XML_QUERIES_NAME, VERSION_RDF_QUERIES_NAME, VERSION_NEO4J_QUERIES_NAME);
+	public static final List<Integer> VERSIONS_QUERIES= List.of(VERSION_XML_QUERIES, VERSION_RDF_QUERIES, VERSION_NEO4J_QUERIES);
+
 	public static final String LVLALL = "all";
 	public static final String LVLTEMPLATE = "template";
 	public static final String LVLCONSTRAINT = "concrete";
