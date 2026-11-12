@@ -433,32 +433,35 @@ public abstract class ServletUtilities {
 	}
 
 
-	private static String getRelativeQueryID(String dataModelName) {
+	public static String getRelativeQueryID(String dataModelName) {
 		if (dataModelName == null || ServletConstants.DATAMODELSFILE == null)
 			return null;
 		try {
-			File file = new File(ServletConstants.DATAMODELSFILE);
-//			if (!file.exists()) {
-//				log("DATAMODELSFILE '" + ServletConstants.DATAMODELSFILE + "' does not exist");
-//				return null;
-//			}
+			if (!new File(ServletConstants.DATAMODELSFILE).exists()) {
+				log("DATAMODELSFILE '" + ServletConstants.DATAMODELSFILE + "' does not exist");
+				return null;
+			}
 			JSONObject config = Util.loadJson(ServletConstants.DATAMODELSFILE);
-			String mappingfilepath = config.optJSONObject("datamodels").optJSONObject(dataModelName).optString("mapping_file");
-			mappingfilepath = file.getParentFile().getAbsolutePath() + "/" + mappingfilepath;
-			JSONObject mappingfile = Util.loadJson(mappingfilepath);
+			JSONObject mapping = config.optJSONObject("datamodels").optJSONObject(dataModelName);
+			JSONObject namespaces = mapping.optJSONObject("namespaces");
+			String record_path = mapping.optJSONObject("record_root").optString("path");
+			String identifier_path = mapping.optJSONObject("record_identifier").optString("path");
 
-			JSONObject namespaces = mappingfile.optJSONObject("namespaces");
 			String namespacestring = CompletePatternImpl.generateXQueryNamespaces(namespaces);
 			String mid = "let $v := .\nreturn $v /ancestor::";
-			String path_default_ns = mappingfile.optJSONObject("paths").optJSONObject("identifier").optString("path_default_ns");
-			if (path_default_ns.startsWith("//"))
-				path_default_ns = path_default_ns.substring(2);
-			else if (path_default_ns.startsWith("/"))
-				path_default_ns = path_default_ns.substring(1);
+			
+			if (record_path.startsWith("//"))
+				record_path = record_path.substring(2);
+			else if (record_path.startsWith("/"))
+				record_path = record_path.substring(1);
 			else 
 				return null;
 
-			return namespacestring + mid + path_default_ns;
+			if (identifier_path.startsWith("./"))
+				identifier_path = identifier_path.substring(1);
+			else
+				return null;
+			return namespacestring + mid + record_path + identifier_path + "/normalize-space(.)";
 		} catch (Exception e) {
 			logError(e);
 			return null;

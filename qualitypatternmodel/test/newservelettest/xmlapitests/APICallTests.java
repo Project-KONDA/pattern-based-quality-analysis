@@ -1,11 +1,11 @@
 package newservelettest.xmlapitests;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.doAnswer;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,6 +28,7 @@ import org.json.JSONObject;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -56,6 +57,7 @@ import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.utility.ConstantsJSON;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.Util;
+import qualitypatternmodel.utility.xmlprocessors.XmlServletUtility;
 
 public class APICallTests {
 	private static final boolean DELETE = true;
@@ -75,6 +77,7 @@ public class APICallTests {
 			testBasics();
 			testLogDeletion();
 			testJSONDeletion();
+			testRelativeQuery();
 			testConstraintCopyServlet();
 			testConstraintDatabaseServlet();
 			testConstraintDataModelServlet();
@@ -495,6 +498,21 @@ public class APICallTests {
 		InitialisationServlet.checkConstraintVersions();
 		assert(!(new File(path).exists()));
 		assertEquals(ServletUtilities.getNumber(ServletConstants.SAVEFILE, Constants.VERSION_XML_CONSTRAINTS_NAME, "version"), Constants.VERSION_XML_CONSTRAINTS);
+	}
+
+	@Test
+	public void testRelativeQuery() {
+		JSONObject mockJson = new JSONObject("{\"datamodels\": {\"LIDO 1.1\": {\"namespaces\": {\"lido\": \"http://www.lido-schema.org\"},\"record_root\": {\"path\": \"//lido:lido\"},\"record_identifier\": {\"path\": \"./lido:lidoRecID\"}}}}");
+	    try (MockedStatic<Util> mockedUtil = mockStatic(Util.class)) {
+	    	String datamodelsfile_before = ServletConstants.DATAMODELSFILE;  
+	    	ServletConstants.DATAMODELSFILE = "test";
+	        mockedUtil.when(() -> Util.loadJson("test")).thenReturn(mockJson);
+	        String relative = ServletUtilities.getRelativeQueryID("LIDO 1.1");
+	        assertDoesNotThrow(() -> XmlServletUtility.validateQuery(relative));
+	        assert(relative.contains("/ancestor::lido:lido/lido:lidoRecID/normalize-space(.)"));
+	        mockedUtil.verify(() -> Util.loadJson("test"));
+	    	ServletConstants.DATAMODELSFILE = datamodelsfile_before;
+	    }
 	}
 
 	@Test
