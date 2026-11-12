@@ -433,7 +433,7 @@ public abstract class ServletUtilities {
 	}
 
 
-	private static String getRelativeQueryID(String dataModelName) {
+	public static String getRelativeQueryID(String dataModelName) {
 		if (dataModelName == null || ServletConstants.DATAMODELSFILE == null)
 			return null;
 		try {
