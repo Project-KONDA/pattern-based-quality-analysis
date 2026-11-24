@@ -13,7 +13,9 @@
 		{"link":"http://google.de","expected":true},
 		{"link":"google.com","expected":false},
 		{"link":" http://google.de ","expected":true},
-		{"link":"nothing","expected":false}
+		{"link":"nothing","expected":false},
+		{"link": "http://terminology.lido-schema.org/lido00001","expected": true},
+		{"link":"http://terminology.lido-schema.org/lido00224","expected":true}
 	],
 	"linkImageMinSize":[
 		{"link":"https://picsum.photos/2500/2500","size":2,"expected":true},

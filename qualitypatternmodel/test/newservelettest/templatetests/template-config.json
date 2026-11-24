@@ -2105,6 +2105,17 @@
 				"1": "//validlink/link",
 				"2": "/text()"
 			}
+		},
+		{
+			"expected": {
+				"totalIncidents": 0,
+				"totalFindings": 11
+			},
+			"params": {
+				"0": "true",
+				"1": "//validlink/lidoconcept/link",
+				"2": "/text()"
+			}
 		}
 	],
     "ValidLinkSin": [

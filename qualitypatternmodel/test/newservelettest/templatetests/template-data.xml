@@ -144,6 +144,19 @@
 		<link valid="true">http://www.google.de</link>
 		<link valid="true">http://www.google.com</link>
 		<link valid="true">http://www.github.com</link>
+		<lidoconcept>
+			<link valid="true">http://terminology.lido-schema.org/lido00001</link>
+			<link valid="true">http://terminology.lido-schema.org/lido00099</link>
+			<link valid="true">http://terminology.lido-schema.org/lido00141</link>
+			<link valid="true">http://terminology.lido-schema.org/lido00224</link>
+			<link valid="true">http://terminology.lido-schema.org/lido00225</link>
+			<link valid="true">http://terminology.lido-schema.org/lido00228</link>
+			<link valid="true">http://terminology.lido-schema.org/lido00255</link>
+			<link valid="true">http://terminology.lido-schema.org/lido00575</link>
+			<link valid="true">http://terminology.lido-schema.org/lido00600</link>
+			<link valid="true">http://terminology.lido-schema.org/lido00627</link>
+			<link valid="true">http://terminology.lido-schema.org/lido01089</link>
+		</lidoconcept>
 	</validlink>
 
 	<uniquevalue>
