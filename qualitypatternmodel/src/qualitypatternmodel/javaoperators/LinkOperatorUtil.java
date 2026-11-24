@@ -122,6 +122,10 @@ public class LinkOperatorUtil {
             if (data == null || data.length < 10) return null;
             return parseImageSize(data);
         } catch (Exception e) {
+        	if (url.startsWith("http:")) {
+        		url = url.replace("http:", "https:");
+        		return getImageSize(url);
+        	}
             return null;
         }
     }
@@ -192,24 +196,62 @@ public class LinkOperatorUtil {
             return Pair.of(width, height);
         }
 
-        // JPEG (simplified)
+        // JPEG
         if (data.length > 4 &&
-            data[0] == (byte)0xFF && data[1] == (byte)0xD8) {
+            data[0] == (byte) 0xFF &&
+            data[1] == (byte) 0xD8) {
 
             int index = 2;
-            while (index < data.length) {
-                if ((data[index] & 0xFF) != 0xFF) break;
 
-                int marker = data[index + 1] & 0xFF;
-                int length = readShort(data, index + 2);
+            while (index + 3 < data.length) {
 
-                if (marker == 0xC0 || marker == 0xC2) {
-                    int height = readShort(data, index + 5);
-                    int width = readShort(data, index + 7);
+                // Find marker prefix
+                if ((data[index] & 0xFF) != 0xFF) {
+                    index++;
+                    continue;
+                }
+
+                // Skip fill bytes (0xFF)
+                while (index < data.length &&
+                       (data[index] & 0xFF) == 0xFF) {
+                    index++;
+                }
+
+                if (index >= data.length) break;
+
+                int marker = data[index++] & 0xFF;
+
+                // Standalone markers without length
+                if (marker == 0xD8 || marker == 0xD9 ||
+                    marker == 0x01 ||
+                    (marker >= 0xD0 && marker <= 0xD7)) {
+                    continue;
+                }
+
+                if (index + 1 >= data.length) break;
+
+                int length = readShort(data, index);
+
+                if (length < 2 || index + length > data.length) {
+                    break;
+                }
+
+                // All Start Of Frame markers containing dimensions
+                if ((marker >= 0xC0 && marker <= 0xC3) ||
+                    (marker >= 0xC5 && marker <= 0xC7) ||
+                    (marker >= 0xC9 && marker <= 0xCB) ||
+                    (marker >= 0xCD && marker <= 0xCF)) {
+
+                    if (length < 7) break;
+
+                    int height = readShort(data, index + 3);
+                    int width = readShort(data, index + 5);
+
                     return Pair.of(width, height);
                 }
 
-                index += 2 + length;
+                // Move to next marker
+                index += length;
             }
         }
 

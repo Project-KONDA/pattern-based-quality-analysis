@@ -133,7 +133,7 @@ public class JavaFunctionTests {
 	    	URL url = uri.toURL();
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 	        connection.setRequestMethod("GET");
-	        connection.setConnectTimeout(50);
+	        connection.setConnectTimeout(500);
 	        connection.setReadTimeout(5000);
 	        connection.getResponseCode();
 	        return false;
